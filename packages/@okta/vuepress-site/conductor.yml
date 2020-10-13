@@ -1981,3 +1981,11 @@ redirects:
     to: /docs/guides/customize-tokens-static/-/static-allowlist/
   - from: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/index.html
     to: /docs/guides/customize-tokens-static/-/use-static-group-allowlist-org-as/
+  - from: /docs/guides/custom-hosted-signin/
+    to: /docs/guides/style-the-widget/style-okta-hosted/
+  - from: /docs/guides/custom-hosted-signin/index.html
+    to: /docs/guides/style-the-widget/style-okta-hosted/
+  - from: /docs/guides/custom-hosted-signin/customization-examples/
+    to: /docs/guides/style-the-widget/customization-examples/
+  - from: /docs/guides/custom-hosted-signin/customization-examples/index.html
+    to: /docs/guides/style-the-widget/customization-examples/

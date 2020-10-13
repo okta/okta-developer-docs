@@ -27,9 +27,9 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 
 **Single User/Group/App operations (Get, Update, and Delete):**
 
-* `/api/v1/apps/{id}`
-* `/api/v1/groups/{id}`
-* `/api/v1/users/{idOrLogin}`
+* `/api/v1/apps/{id}`<br>
+* `/api/v1/groups/{id}`<br>
+* `/api/v1/users/{idOrLogin}`<br>
 
 > **Notes:**
 >
