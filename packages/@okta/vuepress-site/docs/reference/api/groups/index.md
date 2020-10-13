@@ -773,11 +773,11 @@ Use an ID lookup for records that you update to ensure your results contain the 
 
 ##### Search Examples
 
-List groups of type `APP_GROUP` that were created before `01/01/2014` and whose source application has the id `0oa2v0el0gP90aqjJ0g7`.
+List groups of type `APP_GROUP` that were created before `01/01/2014` and whose source application has the ID `0oa2v0el0gP90aqjJ0g7`.
 
     search=type eq "APP_GROUP" and (created lt "2014-01-01T00:00:00.000Z" and source.id eq "0oa2v0el0gP90aqjJ0g7")
 
-List groups that have a `name` that starts with `West Coast` or have a `samAccountName` of `West Coast Users` or whose source application has the id `0oa2v0el0gP90aqjJ0g7`.
+List groups that have a `name` that starts with `West Coast` or have a `samAccountName` of `West Coast Users` or whose source application has the ID `0oa2v0el0gP90aqjJ0g7`.
 
     search=profile.name sw "West Coast" or profile.samAccountName eq "West Coast Users" or source.id eq "0oa2v0el0gP90aqjJ0g7"
 
@@ -962,7 +962,7 @@ Removes a group of `OKTA_GROUP` or `APP_GROUP` type from your organization
 
 | Parameter | Description                 | ParamType | DataType | Required | Default |
 | --------- | --------------------------- | --------- | -------- | -------- | ------- |
-| id        | `id` of the Group to delete | URL       | String   | TRUE     |         |
+| id        | ID of the Group to delete | URL       | String   | TRUE     |         |
 
 ##### Response parameters
 
@@ -997,7 +997,7 @@ Enumerates all [users](/docs/reference/api/users/#user-object) that are a member
 | Parameter | Description                                                | ParamType | DataType | Required | Default |
 | --------- | ---------------------------------------------------------- | --------- | -------- | -------- | ------- |
 | after     | Specifies the pagination cursor for the next page of users | Query     | String   | FALSE    |         |
-| id        | `id` of the Group                                          | URL       | String   | TRUE     |         |
+| id        | ID of the Group                                          | URL       | String   | TRUE     |         |
 | limit     | Specifies the number of user results in a page             | Query     | Number   | FALSE    | 1000    |
 
 > **Note:** Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
@@ -1099,7 +1099,7 @@ Application imports are responsible for managing group memberships for groups of
 
 | Parameter | Description     | ParamType | DataType | Required | Default |
 | --------- | --------------- | --------- | -------- | -------- | ------- |
-| groupId   | id of the Group | URL       | String   | TRUE     |         |
+| groupId   | `id` of the Group | URL       | String   | TRUE     |         |
 | userId    | `id` of a user  | URL       | String   | TRUE     |         |
 
 ##### Response parameters
@@ -1488,7 +1488,7 @@ Fetches a specific Group rule by ID from your organization
 | Parameter      | Description                                                    | ParamType  | DataType                          | Required | Default |
 | -------------- | -------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ------- |
 | expand         | If specified as `groupIdToGroupNameMap`, then show Group names | Query      | String                            | FALSE    |         |
-| id             | id of a Group rule                                             | URL        | String                            | TRUE     |         |
+| id             | ID of a Group Rule                                             | URL        | String                            | TRUE     |         |
 
 ##### Response parameters
 
@@ -1552,7 +1552,7 @@ Removes a specific Group rule by ID from your organization
 
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
-| `id`             | ID of a Group rule                                           | URL        | String                            | TRUE     |         |
+| `id`             | ID of a Group Rule                                           | URL        | String                            | TRUE     |         |
 
 ##### Response parameters
 
@@ -1588,7 +1588,7 @@ Activates a specific Group rule by ID from your organization
 
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
-| `id`             | ID of a Group rule                                           | URL        | String                            | TRUE     |         |
+| `id`             | ID of a Group Rule                                           | URL        | String                            | TRUE     |         |
 
 ##### Response parameters
 
@@ -1624,7 +1624,7 @@ Deactivates a specific Group rule by ID from your organization
 
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
-| `id `            | ID of a group rule                                           | URL        | String                            | TRUE     |         |
+| `id `            | ID of a Group Rule                                           | URL        | String                            | TRUE     |         |
 
 ##### Response parameters
 
@@ -1663,7 +1663,7 @@ Enumerates all [Applications](/docs/reference/api/apps/#application-object) that
 | Parameter | Description                                               | ParamType | DataType | Required | Default |
 | --------- | --------------------------------------------------------- | --------- | -------- | -------- | ------- |
 | after     | Specifies the pagination cursor for the next page of apps | Query     | String   | FALSE    |         |
-| id        | id of the Group                                           | URL       | String   | TRUE     |         |
+| id        | ID of the Group                                           | URL       | String   | TRUE     |         |
 | limit     | Specifies the number of app results for a page            | Query     | Number   | FALSE    | 20      |
 
 > **Note:** Treat the page cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
