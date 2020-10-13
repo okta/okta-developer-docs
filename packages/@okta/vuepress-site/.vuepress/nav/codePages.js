@@ -21,7 +21,7 @@ module.exports = [
             path: '/code/angular/',
           },
           {
-            title: 'Angular Sign-In Widget',
+            title: 'Okta Sign-In Widget and Angular',
             path: '/code/angular/okta_angular_sign-in_widget/',
           },
           {
