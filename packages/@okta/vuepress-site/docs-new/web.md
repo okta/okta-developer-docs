@@ -6,7 +6,7 @@
 
 ### What type of app are you building?
 
-<img src="./app_types_web.png" usemap="#appmap">
+<img src="./app_types_web.png" usemap="#appmap" width="675">
 
 <map name="appmap">
   <area shape="rect" coords="0,0,150,150" alt="native" href="./native">
