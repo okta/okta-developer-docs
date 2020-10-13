@@ -8,7 +8,7 @@ icon: code-angular
 
 This guide will walk you through integrating authentication and authorization into an Angular application using the [Okta Auth SDK](https://github.com/okta/okta-auth-js).
 
-> The Auth SDK is a lower level SDK than the [Okta Angular SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular), which builds upon the Auth SDK to implement many of the features shown in this guide. Our complete [Angular Sample Apps](https://github.com/okta/samples-js-angular) are built using the Angular SDK. For a simple integration, we generally recommend using the Angular SDK. However, in certain cases it may be preferable to use the Auth SDK directly, as shown here.
+> The Auth SDK is a lower level SDK than the [Okta Angular SDK](https://github.com/okta/okta-angular), which builds upon the Auth SDK to implement many of the features shown in this guide. Our complete [Angular Sample Apps](https://github.com/okta/samples-js-angular) are built using the Angular SDK. For a simple integration, we generally recommend using the Angular SDK. However, in certain cases it may be preferable to use the Auth SDK directly, as shown here.
 
 ## Prerequisites
 

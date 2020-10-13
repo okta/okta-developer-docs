@@ -79,7 +79,7 @@ This table lists the current (and historical) major versions of our open-source 
 | [React Native SDK][sdk-react]                                   | 0.1.0<br>**1.x**                     | Retired<br>**Stable**                |
 | [Vue SDK][sdk-vue]                                              | 0.1.0<br>1.x<br>**2.x**              | Retired<br>Retiring on 2021-01-03<br>**Stable**                |
 
-[sdk-angular]: https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular
+[sdk-angular]: https://github.com/okta/okta-angular
 [sdk-dotnet]: https://github.com/okta/okta-sdk-dotnet
 [sdk-dotnet-033]: https://github.com/okta/okta-sdk-dotnet/releases/tag/0.3.3.0
 [powershell-module]: https://github.com/okta/okta-sdk-dotnet/tree/legacy/Okta.Core.Automation

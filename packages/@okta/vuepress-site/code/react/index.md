@@ -35,7 +35,7 @@ The Okta React SDK makes it easy to integrate react-router with Okta's OpenID Co
 	<span class='icon download-16'></span> <span>okta-react on npm</span>
 </a>
 
-<a href='https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react'>
+<a href='https://github.com/okta/okta-react'>
 	<span class='fa fa-github'></span> <span>React SDK Source</span>
 </a>
 
