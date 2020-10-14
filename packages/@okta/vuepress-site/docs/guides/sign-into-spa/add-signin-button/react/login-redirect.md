@@ -1,8 +1,8 @@
 Implementing a login button requires that you know IF you should show the button as well as how to implement the button.
 
 The `okta-react` SDK provides you with:
-- an [authState](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authstate) object that provides information on the state of the current user's authentication
-- an [authService](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react#authservice) object that provides methods to read more details about, or to modify, the current authentication
+- an [authState](https://github.com/okta/okta-react#authstate) object that provides information on the state of the current user's authentication
+- an [authService](https://github.com/okta/okta-react#authservice) object that provides methods to read more details about, or to modify, the current authentication
 
 Function-based components can use the `useOktaAuth` [React hook](https://reactjs.org/docs/hooks-intro.html) to access the `authService` or the `authState` objects.
 
@@ -18,15 +18,15 @@ Function-based component example:
 import { useOktaAuth } from '@okta/okta-react';
 import React from 'react';
 
-const Home = () => { 
+const Home = () => {
   const { authState, authService } = useOktaAuth();
   const login = () => authService.login('/profile');
 
-  if( authState.isPending ) { 
+  if( authState.isPending ) {
     return (
       <div>Loading authentication...</div>
     );
-  } else if( !authState.isAuthenticated ) { 
+  } else if( !authState.isAuthenticated ) {
     return (
       <div>
         <a onClick={login}>Login</a>
@@ -37,7 +37,7 @@ const Home = () => {
 export default Home;
 ```
 
-Class-based component example: 
+Class-based component example:
 
 ```javascript
 import { withOktaAuth } from '@okta/okta-react';
@@ -54,11 +54,11 @@ export default withOktaAuth(class Home extends Component {
   }
 
   render() {
-    if( this.props.authState.isPending ) { 
+    if( this.props.authState.isPending ) {
       return (
         <div>Loading authentication...</div>
       );
-    } else if( !this.props.authState.isAuthenticated ) { 
+    } else if( !this.props.authState.isAuthenticated ) {
       return (
         <div>
           <a onClick={this.login}>Login</a>
