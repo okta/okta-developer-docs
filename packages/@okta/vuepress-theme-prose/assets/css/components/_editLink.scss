@@ -1,6 +1,8 @@
 .edit-on-github {
 
   text-align: right;
+  margin: 4rem 0 2rem 0;
+  font-size: 120%;
 
   @include media('<tablet') {
     display: none;
