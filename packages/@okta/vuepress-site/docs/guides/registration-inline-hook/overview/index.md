@@ -6,7 +6,7 @@ This guide provides example code for an external service to respond to calls fro
 
 In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the end user's email domain is valid and allowed to register.
 
-This guide uses the website Glitch.me to act as an external service and to implement the Registration Inline hook with an Okta org. However, you can implement this code with your own web server if it is provisioned with HTTPS with a certificate from a trusted authority.
+This guide uses the website Glitch.me to act as an external service and to implement the Registration Inline hook with an Okta org. However, you can implement this code with your own web server if it is provisioned with HTTPS and with a certificate from a trusted authority.
 
 >**Note:** Okta will not call a non-HTTPS external service endpoint. You must implement HTTPS in order to use Inline Hooks.
 
