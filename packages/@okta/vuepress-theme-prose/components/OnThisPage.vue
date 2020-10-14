@@ -66,21 +66,17 @@
           document.documentElement.scrollTop,
           document.body.scrollTop
         )
-        for (let i = 0; i < anchors.length; i++) {
-          const anchor = anchors[i]
-          const nextAnchor = anchors[i + 1]
 
-          const isActive = i === 0 && scrollTop === 0
-            || (scrollTop >= anchor.parentElement.offsetTop - document.querySelector('.fixed-header').clientHeight - 45
-              && (!nextAnchor || scrollTop < nextAnchor.parentElement.offsetTop - document.querySelector('.fixed-header').clientHeight - 45))
-          
-          
-          
-          if (isActive && decodeURIComponent(this.$route.hash) !== decodeURIComponent(anchor.hash)) {
-            this.activeAnchor = anchor.hash;
-            
-            return
-          }
+        const paddedHeaderHeight = document.querySelector('.fixed-header').clientHeight + 45;
+        const anchorOffsets = anchors.map(anchor => anchor.parentElement.offsetTop);
+        const anchorOffsetPairs = anchorOffsets.map((anchorOffset, index, anchorOffsets) => [anchorOffset, anchorOffsets[index + 1]]);
+
+        const matchingPair = anchorOffsetPairs.find(pair =>
+          (scrollTop >= pair[0] - paddedHeaderHeight) && (!pair[1] || scrollTop < pair[1] - paddedHeaderHeight));
+
+        const activeAnchor = matchingPair ? anchors[anchorOffsetPairs.indexOf(matchingPair)] : anchors[0];
+        if (activeAnchor && decodeURIComponent(this.$route.hash) !== decodeURIComponent(activeAnchor.hash)) {
+          this.activeAnchor = activeAnchor.hash;
         }
       }
     }
