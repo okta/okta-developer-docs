@@ -53,13 +53,16 @@ export default {
   },
   mounted() {
     window.addEventListener('load', () => {
+        const paddedHeaderHeight = document.querySelector('.fixed-header').clientHeight + 45;
         window.setTimeout(() => {
           let anchor = window.location.href.split('#')[1];
           if (anchor) {
             let target = document.getElementById(anchor);
             if (target) {
-              window.scrollTo(0, target.offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
+              window.scrollTo(0, target.offsetTop - paddedHeaderHeight);
             }
+          } else {
+            window.scrollBy(0, -paddedHeaderHeight)
           }
 
           // let links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href*="/quickstart/#"])');
@@ -73,7 +76,7 @@ export default {
                 let target = document.querySelector(this.hash);
                 if (target) {
                   event.preventDefault();
-                  window.scrollTo(0, target.offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
+                  window.scrollTo(0, target.offsetTop - paddedHeaderHeight);
                   location.hash = this.hash;
                   return false;
                 }
