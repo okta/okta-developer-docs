@@ -14,7 +14,7 @@ This guide will walk you through integrating authentication into a React app wit
 6. [Connect the Routes](#connect-the-routes)
 7. [Start Your App](#start-your-app)
 
-> This guide is for @okta/okta-auth-js version 4.x and @okta/okta-react version 3.0.x.
+> This guide is for `@okta/okta-auth-js` v4.0.2 and `@okta/okta-react` v3.0.8.
 
 ## Prerequisites
 If you do not already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
@@ -40,7 +40,7 @@ To create a React app, you can use [Create React App](https://create-react-app.d
 npx create-react-app okta-app
 ```
 
-This will create a new project in a folder named `okta-app` and installs all required dependencies.
+This creates a new project in a folder named `okta-app` and installs all required dependencies.
 
 ```bash
 cd okta-app
@@ -48,20 +48,20 @@ cd okta-app
 
 ## Install Dependencies
 
-A simple way to add authentication to a React app is using the [Okta Auth JS](/code/javascript/okta_auth_sdk/) library. You can install it via `npm`:
+A simple way to add authentication to a React app is using the [Okta Auth JS](/code/javascript/okta_auth_sdk/) library. You can install it using `npm`:
 
 ```bash
 npm install @okta/okta-auth-js
 ```
 
-You'll also need `@okta/okta-react` and `react-router-dom` to manage your routes (`@okta/okta-react` can be used to support other router libraries, but `react-router-dom` has pre-existing support).
+You also need `@okta/okta-react` and `react-router-dom` to manage your routes. You can use `@okta/okta-react` to support other router libraries, but `react-router-dom` has pre-existing support.
 
 ```bash
 npm install @okta/okta-react react-router-dom
 ```
 
 ## Create a Custom Sign-In Form
-If the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) does not fit your needs, [Okta Auth JS](/code/javascript/okta_auth_sdk/) provides lower-level access to User Lifecycle operations, MFA, and more. For this example, you'll create a simple username and password form without MFA.
+If the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) doesn't fit your needs, [Okta Auth JS](/code/javascript/okta_auth_sdk/) provides lower-level access to User Lifecycle operations, MFA, and more. For this example, you create a simple username and password form without MFA.
 
 Create a `src/SignInForm.jsx` file:
 
@@ -347,7 +347,7 @@ export default withOktaAuth(class SignIn extends Component {
 The component for this route (LoginCallback) comes with `@okta/okta-react`. It handles token parsing, token storage, and redirecting to a protected page if one triggered the sign in.
 
 ### Connect the Routes
-Update `src/App.js` to include your project components and routes. `Security` is the component that controls the authentication flows, so it requires your OpenId Connect configuration. By default, `@okta/okta-react` redirects to Okta's sign in page when the user isn't authenticated.
+Update `src/App.js` to include your project components and routes. `Security` is the component that controls the authentication flows, so it requires your OpenID Connect configuration. By default, `@okta/okta-react` redirects to Okta's sign-in page when the user isn't authenticated.
 
 In this example, `onAuthRequired` is overridden to redirect to the custom sign-in route instead, which requires a component that is a descendent of Router to have access to `react-router`'s `history`.  Other router libraries will have their own methods of managing browser history:
 

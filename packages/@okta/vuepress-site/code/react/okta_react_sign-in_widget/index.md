@@ -15,7 +15,7 @@ This guide will walk you through integrating authentication into a React app wit
 6. [Connect the Routes](#connect-the-routes)
 7. [Start Your App](#start-your-app)
 
-> This guide was last tested with @okta/okta-signin-widget v4.5.1 and @okta/okta-react v3.0.8.
+> This guide is for `@okta/okta-signin-widget` v4.5.1 and `@okta/okta-react` v3.0.8.
 
 ## Prerequisites
 
@@ -54,7 +54,7 @@ To provide a fully-featured and customizable sign-in experience, the [Okta Sign-
 npm install @okta/okta-signin-widget
 ```
 
-You'll also need `@okta/okta-react` and `react-router-dom` to manage our routes:
+You also need `@okta/okta-react` and `react-router-dom` to manage our routes:
 
 ```bash
 npm install @okta/okta-react react-router-dom
@@ -213,7 +213,7 @@ The component for this route (LoginCallback) comes with `@okta/okta-react`. It h
 
 ### Connect the Routes
 
-Our example is using `react-router-dom`. By default you can include your components and Routes in `src/App.js`. If you need access to particular router properties, such as the `history` object that's used to override the default login flow, you need to create a wrapper component around `<Router>`.
+Our example is using `react-router-dom`. By default you can include your components and Routes in `src/App.js`. If you need access to particular router properties, such as the `history` object that's used to override the default sign-in flow, you need to create a wrapper component around `<Router>`.
 
 Update `src/App.js` to create a Router and call `<AppWithRouterAccess`>` as a child component:
 

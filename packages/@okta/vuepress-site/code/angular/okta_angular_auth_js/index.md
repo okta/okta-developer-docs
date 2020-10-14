@@ -319,7 +319,7 @@ Build and start the app. In the terminal:
 npm start
 ```
 
-After the server starts, this message will appear in your terminal:
+After the server starts, this message appears in your terminal:
 
 `** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **`
 
