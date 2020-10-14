@@ -30,7 +30,7 @@ If you do not already have a **Developer Edition Account**, you can create one a
 | -------------------  | --------------------------------------------------- |
 | App Name             | OpenID Connect App                                  |
 | Login redirect URIs  | `http://localhost:3000/login/callback`              |
-| Logout redirect URIs | `http://localhost:3000/login`                       |
+| Logout redirect URIs | `http://localhost:3000`                       |
 | Allowed grant types  | Authorization Code                                  |
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
@@ -123,7 +123,7 @@ export default withOktaAuth(class Home extends Component {
   }
 
   async login() {
-    this.props.authService.login('/');
+    this.props.history.push('/login');
   }
 
   async logout() {

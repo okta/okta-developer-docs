@@ -231,11 +231,12 @@ First, create `src/Home.jsx` to provide links to navigate our app:
 
 ```jsx
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 
 const Home = () => {
   const { authState, authService } = useOktaAuth();
+  const history = useHistory();
 
   if (authState.isPending) {
     return <div>Loading...</div>;
@@ -243,7 +244,7 @@ const Home = () => {
 
   const button = authState.isAuthenticated ?
     <button onClick={() => {authService.logout()}}>Logout</button> :
-    <button onClick={() => {authService.login()}}>Login</button>;
+    <button onClick={() => {history.push('/login')}}>Login</button>;
 
   return (
     <div>
@@ -259,16 +260,11 @@ export default Home;
 `src/Home.jsx` using a class-based component:
 
 ```jsx
-// src/Home.jsx
-
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withOktaAuth } from '@okta/okta-react';
 
 export default withOktaAuth(class Home extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   render() {
     if (this.props.authState.isPending) {
@@ -277,7 +273,7 @@ export default withOktaAuth(class Home extends Component {
 
     const button = this.props.authState.isAuthenticated ?
       <button onClick={() => {this.props.authService.logout()}}>Logout</button> :
-      <button onClick={() => {this.props.authService.login()}}>Login</button>;
+      <button onClick={() => {this.props.history.push('/login')}}>Login</button>;
 
     return (
       <div>
@@ -330,8 +326,6 @@ export default SignIn;
 `src/SignIn.jsx` using a class-based component:
 
 ```jsx
-// src/SignIn.jsx
-
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
 import SignInForm from './SignInForm';
