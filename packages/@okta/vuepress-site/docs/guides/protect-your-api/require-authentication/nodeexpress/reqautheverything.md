@@ -4,6 +4,9 @@ Similar to protecting an individual route, we will use a middleware to check for
 function authenticationRequired(req, res, next) {
   const authHeader = req.headers.authorization || '';
   const match = authHeader.match(/Bearer (.+)/);
+  // The expected audience passed to verifyAccessToken() is required, and can be either a string (direct match) or an array
+  // strings (the actual aud claim in the token must match one of the strings).
+  const expectedAudience = 'api://default';
 
   if (!match) {
     res.status(401);
@@ -12,7 +15,7 @@ function authenticationRequired(req, res, next) {
 
   const accessToken = match[1];
 
-  return oktaJwtVerifier.verifyAccessToken(accessToken)
+  return oktaJwtVerifier.verifyAccessToken(accessToken, expectedAudience)
     .then((jwt) => {
       req.jwt = jwt;
       next();
