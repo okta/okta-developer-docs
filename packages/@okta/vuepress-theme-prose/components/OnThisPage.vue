@@ -15,6 +15,7 @@
 </template>
 
 <script>
+  import { LAYOUT_CONSTANTS } from '../layouts/Layout.vue';
   export default {
     name: 'OnThisPage',
     components: {
@@ -67,7 +68,7 @@
           document.body.scrollTop
         )
 
-        const paddedHeaderHeight = document.querySelector('.fixed-header').clientHeight + 45;
+        const paddedHeaderHeight = document.querySelector('.fixed-header').clientHeight + LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
         const anchorOffsets = anchors.map(anchor => anchor.parentElement.offsetTop);
         const anchorOffsetPairs = anchorOffsets.map((anchorOffset, index, anchorOffsets) => [anchorOffset, anchorOffsets[index + 1]]);
 

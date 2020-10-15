@@ -33,6 +33,10 @@
 
 <script>
 
+export const LAYOUT_CONSTANTS = {
+  HEADER_TO_CONTENT_GAP: 45, //px
+};
+
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
@@ -53,7 +57,7 @@ export default {
   },
   mounted() {
     window.addEventListener('load', () => {
-        const paddedHeaderHeight = document.querySelector('.fixed-header').clientHeight + 45;
+        const paddedHeaderHeight = document.querySelector('.fixed-header').clientHeight + LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
         window.setTimeout(() => {
           let anchor = window.location.href.split('#')[1];
           if (anchor) {
@@ -65,15 +69,17 @@ export default {
             window.scrollBy(0, -paddedHeaderHeight)
           }
 
-          // let links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href*="/quickstart/#"])');
-          let links = document.querySelectorAll('.header-anchor.header-link');
+          const headingAnchorsMap = Array.from(document.querySelectorAll('.header-anchor.header-link')).reduce(function (anchorsByHash, anchor) {
+            anchorsByHash[anchor.hash] = anchor;
+            return anchorsByHash;
+          }, {});
+          const allContentAnchors = document.querySelectorAll('a[href^="#"]:not(.on-this-page-link):not(.tree-nav-link)');
 
-          Array.from(links).forEach((link) => {
+          Array.from(allContentAnchors).forEach((link) => {
             link.addEventListener('click', function(event) {
-
+              debugger;
               if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-
-                let target = document.querySelector(this.hash);
+                let target = headingAnchorsMap[this.hash];
                 if (target) {
                   event.preventDefault();
                   window.scrollTo(0, target.offsetTop - paddedHeaderHeight);
