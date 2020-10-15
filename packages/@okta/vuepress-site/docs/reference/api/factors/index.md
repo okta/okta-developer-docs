@@ -1852,7 +1852,9 @@ curl -v -X POST \
 
 #### Enroll Custom HOTP Factor
 
-Enrolls a user with a Custom HMAC-based One-Time Password (HOTP) Factor. The enrollment process involves passing a Factor profile ID and shared secret for a particular token.
+Enrolls a user with a Custom HMAC-based One-Time Password (HOTP) Factor. The enrollment process involves passing a `factorProfileId` and `sharedSecret` for a particular token.
+
+A Factor Profile represents a particular configuration of the Custom HOTP factor. It includes certain properties that match the hardware token that end users possess, such as the HMAC Algorithm, passcode length, and time interval. There can be multiple Custom HOTP factor profiles per org, but users can only be enrolled for one Custom HOTP factor. Admins can create Custom HOTP factor profiles in the Okta Admin Console following the instructions on the [Custom TOTP Factor help page](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-mfa-totp). Then, copy the `factorProfileId` from the Admin Console into following API request:
 
 > **Note:** Currently only auto-activation is supported for Custom HOTP Factor.
 
@@ -2469,10 +2471,7 @@ Activate a U2F Factor by verifying the registration data and client data.
 
 If the registration `nonce` is invalid or if registration data is invalid, the response is a `403 Forbidden` status code with the following error:
 
-```JSON
-HTTP/1.1 403 Forbidden
-Content-Type: application/json
-
+```json
 {
   "errorCode": "E0000068",
   "errorSummary": "Invalid Passcode/Answer",
@@ -2588,10 +2587,7 @@ Activate a WebAuthn Factor by verifying the attestation and client data.
 
 If the attestation `nonce` is invalid, or if the attestation or client data are invalid, the response is a `403 Forbidden` status code with the following error:
 
-```JSON
-HTTP/1.1 403 Forbidden
-Content-Type: application/json
-
+```json
 {
   "errorCode": "E0000068",
   "errorSummary": "Invalid Passcode/Answer",
@@ -2678,7 +2674,9 @@ Unenrolls an existing Factor for the specified user, allowing the user to enroll
 
 ##### Response parameters
 
-`204 No Content`
+```http
+HTTP/1.1 204 No Content
+```
 
 ##### Request example
 
@@ -2692,7 +2690,9 @@ curl -v -X DELETE \
 
 ##### Response example
 
-`204 No Content`
+```http
+HTTP/1.1 204 No Content
+```
 
 ## Factors that require a challenge and verify operation
 
@@ -3081,13 +3081,14 @@ Polls a push verification transaction for completion. The transaction result is 
 
 ##### Response example (waiting)
 
+> **Note:** This example is abbreviated.
+
 ```json
 {
   "expiresAt": "2015-04-01T15:57:32.000Z",
   "factorResult": "WAITING",
   "profile":{
      "credentialId":"jane.doe@example.com",
-     ...
   },
   "_links": {
     "poll": {
@@ -3112,6 +3113,8 @@ Polls a push verification transaction for completion. The transaction result is 
 
 ##### Response example (approved)
 
+>**Note:** This example is abbreviated.
+
 ```json
 {
   "factorResult": "SUCCESS"
@@ -3120,12 +3123,13 @@ Polls a push verification transaction for completion. The transaction result is 
 
 ##### Response example (rejected)
 
+>**Note:** This example is abbreviated.
+
 ```json
 {
   "factorResult": "REJECTED",
   "profile":{
      "credentialId":"jane.doe@example.com",
-     ...
   },
   "_links": {
     "verify": {
@@ -3151,12 +3155,13 @@ Polls a push verification transaction for completion. The transaction result is 
 
 ##### Response example (timeout)
 
+>**Note:** This example is abbreviated.
+
 ```json
 {
   "factorResult": "TIMEOUT",
   "profile":{
      "credentialId":"jane.doe@example.com",
-     ...
   },
   "_links": {
     "verify": {
@@ -4022,7 +4027,11 @@ Specifies the Profile for an `email` Factor
 }
 ```
 
-> **Note:** The Email factor can be used:<br><br>- As an out-of-band transactional Factor to send an email challenge to a user. This can be injected into any custom step-up flow and isn't part of Okta Sign-In (it doesn't count as MFA for signing in to Okta). This is currently EA.<br><br>- As a proper Okta 2nd Factor (just like Okta Verify, SMS, and son). This can be configured using the Multifactor page in the Admin Console. The Email Factor is then eligible to be used during Okta sign in as a valid 2nd Factor just like any of other the Factors. This is currently BETA.
+> **Note:** The Email factor can be used:
+>
+> - As an out-of-band transactional Factor to send an email challenge to a user. This can be injected into any custom step-up flow and isn't part of Okta Sign-In (it doesn't count as MFA for signing in to Okta). This is currently EA.
+>- As a proper Okta 2nd Factor (just like Okta Verify, SMS, and so on). You can configure this using the Multifactor page in the Admin Console. The Email Factor is then eligible to be used during Okta sign in as a valid 2nd Factor just like any of other the Factors. This is currently BETA.
+>
 
 ### Factor Verification object
 

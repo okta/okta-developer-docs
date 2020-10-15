@@ -26,7 +26,7 @@ See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#author
 
 The following is an example request to the `/authorize` endpoint for an authorization code and includes the `offline_access` scope.
 
-```BASH
+```bash
 GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
  &response_type=code
  &scope=openid%20offline_access
@@ -38,7 +38,7 @@ GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
 
 The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token. The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
 
-```BASH
+```bash
 POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code
  &redirect_uri=http%3A%2F%2Flocalhost%3A8080
  &code=code
@@ -65,13 +65,13 @@ POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_
 
 For the resource owner password flow, you use the authorization server's `/token` endpoint directly.
 
-See [Request a token](/docs/reference/api/oidc/#token) and [Implementing the resource owner password flow](/docs/guides/implement-password/) for more information on the `/token` endpoint and the resource owner password flow. 
+See [Request a token](/docs/reference/api/oidc/#token) and [Implementing the resource owner password flow](/docs/guides/implement-password/) for more information on the `/token` endpoint and the resource owner password flow.
 
 #### Example request
 
 With the `password` grant type, you can include an `openid` scope alongside the `offline_access` scope to also get back an ID token.
 
-```BASH
+```bash
 POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=password
  &redirect_uri=http%3A%2F%2Flocalhost%3A8080
  &username=example%40mailinator.com
@@ -85,7 +85,7 @@ You would then get back an ID token as well as your access and refresh tokens. S
 
 > **Note:** The access and ID tokens are truncated for brevity.
 
-```JSON
+```json
 {
     "token_type": "Bearer",
     "expires_in": 3600,

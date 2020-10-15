@@ -246,7 +246,7 @@ curl -v -X POST \
 Adds a new `SAML2` type IdP to your organization
 
 > **Notes:** You must first add the IdP's signature certificate to the IdP key store before you can add a SAML 2.0 IdP with a `kid` credential reference.<br><br>
-Don't use `fromURI` to automatically redirect a user to a particular app after successfully authenticating with a third-party IdP. Instead, use [SAML Deep Links](#redirecting-with-saml-deep-links). Using `fromURI` isn't tested and not supported. For more information about using deep links when signing users in using an SP-initiated flow, see [Understanding SP-Initiated Login Flow](/docs/concepts/saml/#understanding-sp-initiated-login-flow).
+Don't use `fromURI` to automatically redirect a user to a particular app after successfully authenticating with a third-party IdP. Instead, use [SAML Deep Links](#redirect-with-saml-deep-links). Using `fromURI` isn't tested and not supported. For more information about using deep links when signing users in using an SP-initiated flow, see [Understanding SP-Initiated Login Flow](/docs/concepts/saml/#understanding-sp-initiated-login-flow).
 
 ##### Request example
 
@@ -1244,7 +1244,6 @@ curl -v -X POST \
 
 ##### Response example
 
-
 ```json
 {
   "id": "0oa6jxasyhwM2ZHJh0g4",
@@ -1311,7 +1310,7 @@ curl -v -X POST \
         ]
       }
     }
-  } 
+  }
 }
 ```
 
@@ -2067,7 +2066,7 @@ curl -v -X GET \
         ]
       }
     }
-  } 
+  }
 }
 ]
 ```
@@ -2222,11 +2221,7 @@ curl -v -X GET \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/idps?limit=20>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/idps?after=0oaxdqpA88PtFNmhu0g3&limit=20>; rel="next"
+```json
 [
   {
     "id": "0oa62bc8wppPw0UGr0h7",
@@ -3199,7 +3194,7 @@ curl -v -X POST \
 
 ### Finish Identity Provider Transaction
 
-<ApiOperation method="POST" url=" /api/v1/idps/tx/${transactionId}/finish" />
+<ApiOperation method="POST" url="/api/v1/idps/tx/${transactionId}/finish" />
 
 Finishes an IdP Transaction
 
@@ -3224,7 +3219,7 @@ curl -v -X POST \
 
 #### Response example
 
-```bash
+```http
 HTTP/1.1 200 OK
 ```
 
@@ -3255,7 +3250,7 @@ curl -v -X POST \
 
 #### Response example
 
-```bash
+```http
 HTTP/1.1 200 OK
 ```
 
@@ -3308,7 +3303,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```JSON
+```json
 HTTP/1.1 201 Created
 Content-Type: application/json
 Location: https://${yourOktaDomain}/api/v1/idps/credentials/keys/74bb2164-e0c8-4457-862b-7c29ba6cd2c9
@@ -3550,7 +3545,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```JSON
+```json
 HTTP/1.1 201 Created
 Content-Type: application/json
 Location: https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/keys/akm5hvbbevE341ovl0h7
@@ -3569,7 +3564,7 @@ Location: https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials
 
 > **Note:** If `validityYears` is out of range (2 - 10 years), you receive an error response.
 
-```JSON
+```json
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 {
@@ -3717,7 +3712,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```JSON
+```json
 HTTP/1.1 201 Created
 Content-Type: application/json
 Location: https://${yourOktaDomain}/api/v1/idps/0oal21k0DVN7DhS3R0g3/credentials/keys/SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4
@@ -3736,7 +3731,7 @@ Location: https://${yourOktaDomain}/api/v1/idps/0oal21k0DVN7DhS3R0g3/credentials
 
 > **Note:** If the key is already present in the list of Key Credentials for the target IdP, you receive a 400 error response.
 
-```JSON
+```json
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 {
@@ -3832,7 +3827,7 @@ MIIC4DCCAcgCAQAwcTELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNh
 
 Return a [CSR object](#identity-provider-csr-object):
 
-```JSON
+```json
 HTTP/1.1 201 Created
 Location: https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50
 Content-Type: application/json
@@ -3924,7 +3919,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```JSON
+```json
 HTTP/1.1 201 Created
 Content-Type: application/json
 Location: https://${yourOktaDomain}/api/v1/idps/0oal21k0DVN7DhS3R0g3/credentials/keys/ZC5C-1gEUwVxiYI8xdmYYDI3Noc4zI24fLNxBpZVR04
@@ -3946,7 +3941,7 @@ Location: https://${yourOktaDomain}/api/v1/idps/0oal21k0DVN7DhS3R0g3/credentials
 
 > **Note:** If the validity period of the certificate is less than 90 days, a 400 error response is returned.
 
-```JSON
+```json
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 {
@@ -4326,7 +4321,7 @@ curl -v -X GET \
 
 > **Note:** If the user doesn't exist, you receive an error response.
 
-```JSON
+```json
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
 {
@@ -5376,7 +5371,7 @@ Property Details
     "type": "MTLS",
     "endpoints": {
       "sso": {
-        "url": "https://${yourOktaDomain}.okta.com/login/cert",
+        "url": "https://${yourOktaDomain}.okta.com/login/cert"
       }
     }
   }
@@ -5472,7 +5467,7 @@ Certificate chain description for verifying assertions from the Smart Card.
 | `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`                        |                       |
 | `X509`       | `DISABLED`                    | No support for JIT provisioning       |                               |                       |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action. 
+> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action.
 
 #### Provisioning Policy object
 

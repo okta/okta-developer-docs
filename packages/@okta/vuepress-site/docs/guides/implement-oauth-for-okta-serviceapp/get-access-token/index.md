@@ -16,7 +16,7 @@ Include the following parameters:
 
 The following is an example request for an access token (the JWT is truncated for brevity).
 
-```BASH
+```bash
     curl -X POST "https://{yourOktaDomain}/oauth2/v1/token"
     -H "Accept: application/json"
     -H "Content-Type: application/x-www-form-urlencoded"
@@ -28,7 +28,7 @@ The following is an example request for an access token (the JWT is truncated fo
 
 The response should look something like this (the token is truncated for brevity):
 
-```JSON
+```json
 {
     "token_type": "Bearer",
     "expires_in": 3600,
@@ -50,7 +50,7 @@ Make a request to the `/users` endpoint using the access token.
 
 **Example Request**
 
-```BASH
+```bash
 curl -X GET "https://{yourOktaDomain}/api/v1/users"
     -H "Accept: application/json"
     -H "Content-Type: application/json"

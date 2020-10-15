@@ -8,7 +8,7 @@ icon: code-angular
 
 This guide will walk you through integrating authentication and authorization into an Angular application using the [Okta Auth SDK](https://github.com/okta/okta-auth-js).
 
-> The Auth SDK is a lower level SDK than the [Okta Angular SDK](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular), which builds upon the Auth SDK to implement many of the features shown in this guide. Our complete [Angular Sample Apps](https://github.com/okta/samples-js-angular) are built using the Angular SDK. For a simple integration, we generally recommend using the Angular SDK. However, in certain cases it may be preferable to use the Auth SDK directly, as shown here.
+> The Auth SDK is a lower level SDK than the [Okta Angular SDK](https://github.com/okta/okta-angular), which builds upon the Auth SDK to implement many of the features shown in this guide. Our complete [Angular Sample Apps](https://github.com/okta/samples-js-angular) are built using the Angular SDK. For a simple integration, we generally recommend using the Angular SDK. However, in certain cases it may be preferable to use the Auth SDK directly, as shown here.
 
 ## Prerequisites
 
@@ -16,14 +16,14 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 
 ### Add an OpenID Connect Client
 
-* Log into the Okta Developer Dashboard, and **Create New App**
-* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with values similar to:
+* Sign in to the Okta Developer Dashboard, and select **Create New App**
+* Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with appropriate values for your app. For example:
 
 | Setting              | Value                                               |
 | -------------------  | --------------------------------------------------- |
-| Application Name     | OpenId Connect App *(must be unique)*               |
-| Login redirect URIs  | http://localhost:4200/callback                      |
-| Logout redirect URIs | http://localhost:4200                               |
+| Application Name     | OpenID Connect App (must be unique)                 |
+| Login redirect URIs  | `http://localhost:4200/callback`                    |
+| Logout redirect URIs | `http://localhost:4200`                             |
 | Allowed grant types  | Authorization Code                                  |
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
@@ -55,7 +55,7 @@ cd okta-app
 Install the [Okta Auth SDK](https://github.com/okta/okta-auth-js) using `npm`:
 
 ```bash
-npm install @okta/okta-auth-js --save
+npm install @okta/okta-auth-js
 ```
 
 ## Create an Authentication Service
@@ -68,14 +68,12 @@ First, create `src/app/app.service.ts` as an authorization utility file and use 
 > Important: We're using Okta's organization authorization server to make setup easy, but it's less flexible than a custom authorization server. Many SPAs send access tokens to access APIs. If you're building an API that will need to accept access tokens, [create an authorization server](/docs/guides/customize-authz-server/).
 
 ```typescript
-// app.service.ts
-
 import { Observable, Observer } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import * as OktaAuth from '@okta/okta-auth-js';
+import { OktaAuth } from '@okta/okta-auth-js';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class OktaAuthService {
 
   // IMPORTANT!
@@ -122,15 +120,10 @@ export class OktaAuthService {
   }
 
   async handleAuthentication() {
-    const tokens = await this.oktaAuth.token.parseFromUrl();
-    tokens.forEach(token => {
-      if (token.idToken) {
-        this.oktaAuth.tokenManager.add('idToken', token);
-      }
-      if (token.accessToken) {
-        this.oktaAuth.tokenManager.add('accessToken', token);
-      }
-    });
+    const tokenContainer = await this.oktaAuth.token.parseFromUrl();
+
+    this.oktaAuth.tokenManager.add('idToken', tokenContainer.tokens.idToken);
+    this.oktaAuth.tokenManager.add('accessToken', tokenContainer.tokens.accessToken);
 
     if (await this.isAuthenticated()) {
       this.observer.next(true);
@@ -156,13 +149,11 @@ Now that you have a shared service to start, control, and end the authentication
 Create `src/app/app.guard.ts` that implements [`CanActivate`](https://angular.io/api/router/CanActivate):
 
 ```typescript
-// app.guard.ts
-
 import { Injectable } from '@angular/core';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { OktaAuthService } from './app.service';
 
-@Injectable()
+@Injectable({providedIn: 'root'})
 export class OktaAuthGuard implements CanActivate {
   constructor(private okta: OktaAuthService, private router: Router) {}
 
@@ -175,14 +166,13 @@ export class OktaAuthGuard implements CanActivate {
     return false;
   }
 }
-
 ```
 
 Whenever a user attempts to access a route that is protected by `OktaAuthGuard`, it first checks to see if the user has been authenticated. If `isAuthenticated()` returns `false`, the login flow will be started.
 
 ## Add Routes
 
-Lets take a look at what routes are needed:
+Let's take a look at what routes are needed:
 
 * `/`: A default page to handle basic control of the app.
 * `/callback`: Handle the response back from Okta and store the returned tokens.
@@ -206,25 +196,21 @@ export class AppComponent implements OnInit {
   isAuthenticated: boolean;
   constructor(public oktaAuth: OktaAuthService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.oktaAuth.$isAuthenticated.subscribe(val => this.isAuthenticated = val);
   }
 }
-
 ```
 
 Next, update `src/app/app.component.html` with some buttons to trigger login or logout. Also add a link to the `/protected` route. There may be a large block of "placeholder" code in this file generated by the Angular CLI. You can safely remove this.
 
 ```html
-<!-- app.component.html -->
-
 <button routerLink="/"> Home </button>
-<button *ngIf="!isAuthenticated" (click)="oktaAuth.login()"> Login </button>
+<button *ngIf="!isAuthenticated" (click)="oktaAuth.login('/')"> Login </button>
 <button *ngIf="isAuthenticated" (click)="oktaAuth.logout()"> Logout </button>
 <button routerLink="/protected"> Protected </button>
 
 <router-outlet></router-outlet>
-
 ```
 
 ### `/callback`
@@ -234,8 +220,6 @@ In order to handle the redirect back from Okta, we need to capture the token val
 Create a new component `src/app/callback.component.ts`:
 
 ```typescript
-// callback.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { OktaAuthService } from './app.service';
 
@@ -244,30 +228,27 @@ export class CallbackComponent implements OnInit {
 
   constructor(private okta: OktaAuthService) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Handles the response from Okta and parses tokens
     this.okta.handleAuthentication();
   }
 }
-
 ```
 
 ### `/protected`
 
 This route will be protected by the `OktaAuthGuard`, only permitting authenticated users with a valid `accessToken`.
 
-```typescript
-// protected.component.ts
+Create a new component `src/app/protected.component.ts`:
 
+```typescript
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-secure',
-  template: ``
+  template: `<h2>PROTECTED!</h2>`,
 })
-export class ProtectedComponent {
-  constructor() { console.log('Protected endpont!'); }
-}
+export class ProtectedComponent {}
 ```
 
 ### Connect the Routes
@@ -275,8 +256,6 @@ export class ProtectedComponent {
 Add each of our new routes to `src/app/app-routing.module.ts`:
 
 ```typescript
-// app-routing.module.ts
-
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
@@ -284,14 +263,17 @@ import { OktaAuthGuard } from './app.guard';
 import { CallbackComponent } from './callback.component';
 import { ProtectedComponent } from './protected.component';
 
-const routes: Routes = [{
-  path: 'callback',
-  component: CallbackComponent
-}, {
-  path: 'protected',
-  component: ProtectedComponent,
-  canActivate: [ OktaAuthGuard ]
-}];
+const routes: Routes = [
+  {
+    path: 'callback',
+    component: CallbackComponent
+  },
+  {
+    path: 'protected',
+    component: ProtectedComponent,
+    canActivate: [OktaAuthGuard]
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
@@ -304,23 +286,15 @@ export class AppRoutingModule { }
 
 Update your `@NgModule` in `src/app/app.module.ts`:
 
-* Import OktaAuthGuard, OktaAuthService, and the newly created components
+* Import the newly created components
 * Add the components to the array of `declarations`
-* Add the guard and service to the array of `providers`
 
 ```typescript
-// app.module.ts
-
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
-// Okta Guard and Service
-import { OktaAuthGuard } from './app.guard';
-import { OktaAuthService } from './app.service';
-
 import { CallbackComponent } from './callback.component';
 import { ProtectedComponent } from './protected.component';
 
@@ -334,10 +308,6 @@ import { ProtectedComponent } from './protected.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [
-    OktaAuthGuard,
-    OktaAuthService,
-  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
@@ -349,7 +319,7 @@ Build and start the app. In the terminal:
 npm start
 ```
 
-After the server is started, this message will appear in your terminal:
+After the server starts, this message appears in your terminal:
 
 `** Angular Live Development Server is listening on localhost:4200, open your browser on http://localhost:4200/ **`
 
@@ -361,4 +331,4 @@ Want to learn how to use the user's `access_token`? Check out our <a href='/docs
 
 ## Support
 
-Have a question or see a bug? Post your question on [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).

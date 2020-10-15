@@ -3,7 +3,7 @@
 
 * **Link to configuration guide** &mdash; Your configuration guide (in either HTML or PDF format) should have step by step instructions on how to set up provisioning between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
 
-* **Select provisioning features to be supported in the integration:** &mdash; These provisioning features should match what you have selected in the **Provisioning** tab in the settings for your SCIM integration. For details on each of these options, see [Provisioning and Deprovisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Provisioning_Deprovisioning_Overview).
+* **Select provisioning features to be supported in the integration** &mdash; These provisioning features should match what you have selected in the **Provisioning** tab in the settings for your SCIM integration. For details on each of these options, see [Configure application provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_prov_lcm_prov_app). To activate the Profile Sourcing feature, see [Submission process](/docs/guides/submit-app/scim/overview/#submission-process).
 
 * **Base URL (enter “n/a” if the URL varies by tenant)** &mdash; Provide the base URL that your integration uses when sending an outbound call to your SCIM server. This should be a valid production endpoint. If the the URL varies according to which tenant is using it (e.g. `lasvegas.example.com/scim/v2/` or `seattle.example.com/scim/v2`), then type `n/a`. Explain in your configuration guide how your users should construct the URL while configuring the settings for your application.
 

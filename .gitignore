@@ -59,3 +59,11 @@ npm-debug.log*
 node_modules
 
 .vuepress/dist
+
+# direnv users
+
+.envrc
+
+# netlify local usage
+
+.netlify

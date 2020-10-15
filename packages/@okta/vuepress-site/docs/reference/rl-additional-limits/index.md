@@ -35,9 +35,9 @@ For concurrent rate limits, traffic is measured in three different areas. Counts
 * For Office365 traffic, the limit is 75 concurrent transactions per org.
 * For all other traffic, including API requests, the limit is described in the table below.
 
-| Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity |
-| ---------------- | ---------------- | ------- | ---------- | ------------------ |
-| 15               | 35               | 35      | 75         | 75                 |
+| Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce Identity  |
+| ----------------: | ----------------: | -------: | ----------: | ------------------: |
+| 15                | 35                | 35       | 75          | 75                  |
 
 The first request to exceed the concurrent limit returns an HTTP 429 error, and the first error every 60 seconds is written to the log. Reporting concurrent rate limits once a minute keeps log volume manageable.
 
@@ -57,19 +57,19 @@ If a user exceeds this limit, they receive an HTTP 429 error response without af
 
 The following endpoints are used by the Okta home page for authentication and user sign in and have org-wide rate limits:
 
-| Okta Home Page Endpoints                                                | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity |
-| ----------------------------------------------------------------------- | ---------------- | ---------------- | ------- | ---------- | ------------------ |
-| `/app/{app}/{key}/sso/saml`                                             | 100              | 300              | 300*    | 600*       | 750                |
-| `/app/office365/{key}/sso/wsfed/active`                                 | N/A              | N/A              | N/A     | 2000       | 1000               |
-| `/app/office365/{key}/sso/wsfed/passive`                                | N/A              | N/A              | N/A     | 250        | 250                |
-| `/app/template_saml_2_0/{key}/sso/saml`                                 | 100              | 300              | 300*    | 600*       | 2500               |
-| `/login/do-login`                                                       | 100              | 300              | 300     | 600        | 200                |
-| `/login/login.htm`                                                      | 100              | 300              | 300     | 600        | 850                |
-| `/login/sso_iwa_auth`                                                   | 100              | 300              | 300     | 600        | 500                |
-| `/api/plugin/{protocolVersion}/form-cred/{appUserIds}/{formSiteOption}` | 100              | 300              | 300*    | 600*       | 650                |
-| `/api/plugin/{protocolVersion}/sites`                                   | 20               | 50               | 50      | 100        | 150                |
-| `/bc/image/fileStoreRecord`                                             | 100              | 300              | 300*    | 600*       | 500                |
-| `/bc/globalFileStoreRecord`                                             | 100              | 300              | 300*    | 600*       | 500                |
+| Okta Home Page Endpoints                                                | Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce Identity |
+| ----------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ------------------:|
+| `/app/{app}/{key}/sso/saml`                                             | 100               | 300               | *300     | *600        | 750                |
+| `/app/office365/{key}/sso/wsfed/active`                                 | N/A               | N/A               | N/A      | 2000        | 1000               |
+| `/app/office365/{key}/sso/wsfed/passive`                                | N/A               | N/A               | N/A      | 250         | 250                |
+| `/app/template_saml_2_0/{key}/sso/saml`                                 | 100               | 300               | *300     | *600        | 2500               |
+| `/login/do-login`                                                       | 100               | 300               | 300      | 600         | 200                |
+| `/login/login.htm`                                                      | 100               | 300               | 300      | 600         | 850                |
+| `/login/sso_iwa_auth`                                                   | 100               | 300               | 300      | 600         | 500                |
+| `/api/plugin/{protocolVersion}/form-cred/{appUserIds}/{formSiteOption}` | 100               | 300               | *300     | *600        | 650                |
+| `/api/plugin/{protocolVersion}/sites`                                   | 20                | 50                | 50       | 100         | 150                |
+| `/bc/image/fileStoreRecord`                                             | 100               | 300               | *300     | *600        | 500                |
+| `/bc/globalFileStoreRecord`                                             | 100               | 300               | *300     | *600        | 500                |
 
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/rl-previous/) still apply.
 

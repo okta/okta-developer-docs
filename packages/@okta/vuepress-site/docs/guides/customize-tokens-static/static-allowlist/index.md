@@ -14,7 +14,7 @@ For this example, we're configuring just one group (the IT group) for simplicity
 
 Send a request to `https://${yourOktaDomain}/api/v1/groups` and collect the IDs for all of the Groups that you want to whitelist.
 
-**Request Example**
+### Request example
 
 ```bash
 curl -X GET \
@@ -24,43 +24,43 @@ curl -X GET \
 "https://${yourOktaDomain}/api/v1/groups"
 ```
 
-**Response Example**
+### Response example
 
 ```json
 {
-        "id": "00goeudyucv6CcaeV0h7",
-        "created": "2019-11-12T19:56:23.000Z",
-        "lastUpdated": "2019-11-12T19:56:23.000Z",
-        "lastMembershipUpdated": "2019-11-12T22:59:13.000Z",
-        "objectClass": [
-            "okta:user_group"
-        ],
-        "type": "OKTA_GROUP",
-        "profile": {
-            "name": "IT",
-            "description": "Info Tech"
-        },
-        "_links": {
-            "logo": [
-                {
-                    "name": "medium",
-                    "href": "https://op1static.oktacdn.com/assets/img/logos/groups/okta-medium.d7fb831bc4e7e1a5d8bd35dfaf405d9e.png",
-                    "type": "image/png"
-                },
-                {
-                    "name": "large",
-                    "href": "https://op1static.oktacdn.com/assets/img/logos/groups/okta-large.511fcb0de9da185b52589cb14d581c2c.png",
-                    "type": "image/png"
-                }
-            ],
-            "users": {
-                "href": "https://${yourOktaDomain}/api/v1/groups/00goeudyucv6CcaeV0h7/users"
-            },
-            "apps": {
-                "href": "https://${yourOktaDomain}/api/v1/groups/00goeudyucv6CcaeV0h7/apps"
-            }
-        }
+    "id": "00goeudyucv6CcaeV0h7",
+    "created": "2019-11-12T19:56:23.000Z",
+    "lastUpdated": "2019-11-12T19:56:23.000Z",
+    "lastMembershipUpdated": "2019-11-12T22:59:13.000Z",
+    "objectClass": [
+        "okta:user_group"
+    ],
+    "type": "OKTA_GROUP",
+    "profile": {
+        "name": "IT",
+        "description": "Info Tech"
     },
+    "_links": {
+        "logo": [
+            {
+                "name": "medium",
+                "href": "https://op1static.oktacdn.com/assets/img/logos/groups/okta-medium.d7fb831bc4e7e1a5d8bd35dfaf405d9e.png",
+                "type": "image/png"
+            },
+            {
+                "name": "large",
+                "href": "https://op1static.oktacdn.com/assets/img/logos/groups/okta-large.511fcb0de9da185b52589cb14d581c2c.png",
+                "type": "image/png"
+            }
+        ],
+        "users": {
+            "href": "https://${yourOktaDomain}/api/v1/groups/00goeudyucv6CcaeV0h7/users"
+        },
+        "apps": {
+            "href": "https://${yourOktaDomain}/api/v1/groups/00goeudyucv6CcaeV0h7/apps"
+        }
+    }
+}
 ```
 
 ## Add a list of Groups to the client App profile
@@ -73,7 +73,7 @@ The following example names the group whitelist `groupwhitelist`, but you can na
 
 The `profile` property that contains the whitelist is at the bottom of the request example.
 
-**Request Example**
+### Request example
 
 ```json
 {
@@ -116,7 +116,6 @@ The `profile` property that contains the whitelist is at the bottom of the reque
     ]
    }
 }
-`https://${yourOktaDomain}/api/v1/apps/${applicationId}`
 ```
 
 To use the group whitelist for every client that gets this claim in a token, put the attribute name of the whitelist in the first parameter of the `getFilteredGroups` function described in the <GuideLink link="../use-static-group-allowlist-org-as">next step</GuideLink>.
@@ -147,7 +146,7 @@ The string produced by the `group_expression` parameter usually contains attribu
 
 The whitelist parameter must evaluate to a list of group IDs that are returned from the [Groups API](/docs/reference/api/groups/). If the user isn't a member of a group in the whitelist, the group is ignored.
 
-**Parameter Examples**
+### Parameter Examples
 
 * whitelist
   * Array: <code class="OKTA-263808">{"00gn335BVurvavwEEL0g3", "00gnfg5BVurvavAAEL0g3"}</code>

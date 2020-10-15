@@ -11,8 +11,7 @@ Okta uses the Widget as part of its normal sign-in page. If you would like to cu
 
 > A version of the Widget that you can edit in real time can be found here: <https://developer.okta.com/live-widget/>
 
-![Screenshot of basic Okta Sign-In Widget](/img/okta-signin.png "Screenshot of basic Okta Sign-In Widget")
-
+<img src="/img/okta-signin.png" alt="Screenshot of basic Okta Sign-In Widget" width="400">
 
 ## Installation
 
@@ -23,7 +22,7 @@ The first step is to install the Widget. For this, you have two options: linking
 To use the CDN, include this in your HTML:
 
 ```html
-<!-- Latest CDN production Javascript and CSS -->
+<!-- Latest CDN production JavaScript and CSS -->
 <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
 <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
@@ -52,7 +51,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 ### Enabling Cross-Origin Access
 
-Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins. More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
+Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
 
 > If you are using the Widget to sign users in to your own application, then you can skip this step. When you create an Application in Okta, you will need to specify a `redirectURI`, and the Okta Developer Console will automatically add it as a CORS URL.
 
@@ -303,6 +302,56 @@ function error(err) {
   );
 }
 ```
+
+## Using with Okta SDKs
+
+Okta provides a number of SDKs that you might want to use the Sign-In Widget with, including Angular, React, and Vue.
+
+Using the Sign-In Widget with our SDKs that target the web is fairly straightforward.
+
+### Angular
+
+The [Okta Sign-In Widget and Angular guide](/code/angular/okta_angular_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in an Angular app.
+
+See the [Okta Angular + Custom Login Example](https://github.com/okta/samples-js-angular/tree/master/custom-login) for a working example.
+
+### React
+
+The [Okta Sign-In Widget and React guide](/code/react/okta_react_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in a React app.
+
+See the [Okta React + Custom Login Example](https://github.com/okta/samples-js-react/tree/master/custom-login) for a working example.
+
+### Vue
+
+The [Okta Sign-In Widget and Vue guide](/code/vue/okta_vue_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in a Vue app.
+
+See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue/tree/master/custom-login) for a working example.
+
+### Mobile SDKs
+
+We also have mobile SDKs for Android, React Native, iOS, and Xamarin.
+
+For mobile apps, embedding the Sign-In Widget is not currently supported. A possible workaround is to redirect to Okta for authentication and [customize the hosted sign-in widget](/docs/guides/style-the-widget/style-okta-hosted/). Support is provided, however, for building your own UI in mobile apps.
+
+See the following examples:
+
+- Android:
+    - [Sign in with your own UI](https://github.com/okta/okta-oidc-android#Sign-in-with-your-own-UI)
+    - [Custom Sign In Example](https://github.com/okta/samples-android/tree/master/custom-sign-in)
+- iOS:
+    - [Authenticate a User](https://github.com/okta/okta-auth-swift#authenticate-a-user)
+    - [Okta iOS Custom Sign In Example](https://github.com/okta/samples-ios/tree/master/custom-sign-in)
+
+<!--
+- React Native
+    - todo: okta-react-native has no docs like Android does - <https://github.com/okta/okta-react-native/issues/7>
+    - [Okta React Native Custom Sign In Example](https://github.com/okta/samples-js-react-native/tree/master/custom-sign-in)
+- Xamarin
+    - todo: link to code section of Xamarin SDK README that shows code for custom UI
+    - todo: link to custom sign in example - <https://github.com/okta/okta-oidc-xamarin/issues/15>
+-->
+
+You can also develop your mobile app with frameworks like Ionic and Flutter. We currently don't have native SDKs for either, but they should work with an AppAuth library. We recommend [Ionic AppAuth](https://github.com/wi3land/ionic-appauth) and the [Flutter AppAuth Plugin](https://pub.dev/packages/flutter_appauth).
 
 ## Customizations
 

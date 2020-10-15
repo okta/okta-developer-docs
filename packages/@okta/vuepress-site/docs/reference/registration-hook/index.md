@@ -91,7 +91,7 @@ To explicitly allow or deny registration to the user, supply a type property set
 
 Commands are applied in the order in which they appear in the array. Within a single `com.okta.user.profile.update` command, attributes are updated in the order in which they appear in the `value` object.
 
-You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password that are designated sensitive in your Okta user schema. Note, however, that the values of those sensistive attributes, if included as fields in the Self-Service Registration form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
+You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password that are designated sensitive in your Okta user schema. Note, however, that the values of those sensitive attributes, if included as fields in the Self-Service Registration form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
 
 #### value
 
@@ -140,14 +140,14 @@ For `com.okta.action.update` commands, `value` should be an object containing th
 
 ```json
 {
-   "commands":[
-      {
-         "type":"com.okta.action.update",
-         "value":{
-            "registration":"DENY",
-         }
+  "commands": [
+    {
+      "type": "com.okta.action.update",
+      "value": {
+        "registration": "DENY"
       }
-   ]
+    }
+  ]
 }
 ```
 

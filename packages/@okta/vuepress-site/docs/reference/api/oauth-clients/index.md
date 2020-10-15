@@ -294,7 +294,7 @@ Response body:
             "https://httpbin.org/get"
         ],
         "response_types": [
-            "code",
+            "code"
         ],
         "grant_types": [
             "authorization_code"
@@ -578,7 +578,7 @@ Content-Type: application/json;charset=UTF-8
 
 ### Generate a new client secret
 
-<ApiOperation method="put" url="/oauth2/v1/clients/${clientId}/lifecycle/newSecret" />
+<ApiOperation method="post" url="/oauth2/v1/clients/${clientId}/lifecycle/newSecret" />
 
 Generates a new client secret for the specified client Application
 

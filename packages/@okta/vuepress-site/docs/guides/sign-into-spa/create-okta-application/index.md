@@ -11,7 +11,7 @@ Start by signing in to the Okta Developer Console:
 
 2. Add the **Base URI** of your application during local development, such as `http://localhost:8080`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`.
 
-3. Next, enter values for the **Login redirect URI**. This is the callback from <GuideLink link="../define-callback/">Define a callback route</GuideLink>. Add values for local development (such as `http://localhost:8080/implicit/callback`) and production (such as `https://app.example.com/implicit/callback`).
+3. Next, enter values for the **Login redirect URI**. This is the callback from <GuideLink link="../define-callback/">Define a callback route</GuideLink>. Add values for local development (such as `http://localhost:8080/login/callback`) and production (such as `https://app.example.com/login/callback`).
 
 4. For **Allowed grant types**, check `Authorization Code`. This will enable PKCE flow for your application.
 
