@@ -77,7 +77,6 @@ export default {
 
           Array.from(allContentAnchors).forEach((link) => {
             link.addEventListener('click', function(event) {
-              debugger;
               if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
                 let target = headingAnchorsMap[this.hash];
                 if (target) {
