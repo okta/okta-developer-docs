@@ -17,7 +17,7 @@
           <div class="content-area">
             <PageTitle />
             <MobileOnThisPage />
-            <ContentPage :pageTitle="$page.title"/>
+            <ContentPage />
           </div>
           <div class="on-this-page">
             <OnThisPage />

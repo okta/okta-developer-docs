@@ -6,7 +6,6 @@
 import { LAYOUT_CONSTANTS } from "../layouts/Layout";
 export default {
   name: "ContentPage",
-  props: ["pageTitle"],
   data() {
     return {
       anchors: [],
@@ -26,7 +25,7 @@ export default {
     });
   },
   watch: {
-    pageTitle() {
+    $page() {
       this.$nextTick(function () {
         this.scrollToActiveAnchor();
         this.captureAnchors();
