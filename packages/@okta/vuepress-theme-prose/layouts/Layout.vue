@@ -17,7 +17,7 @@
           <div class="content-area">
             <PageTitle />
             <MobileOnThisPage />
-            <Content />
+            <ContentPage :pageTitle="$page.title"/>
           </div>
           <div class="on-this-page">
             <OnThisPage />
@@ -45,6 +45,7 @@ export default {
     MobileOnThisPage: () => import('../components/MobileOnThisPage.vue'),
     PageTitle: () => import('../components/PageTitle.vue'),
     Breadcrumb: () => import('../components/Breadcrumb.vue'),
+    ContentPage: () => import('../components/ContentPage.vue'),
     Footer: () => import('../components/Footer.vue'),
     Documentation: () => import('../components/Documentation.vue'),
     Reference: () => import('../components/Reference.vue'),
@@ -56,41 +57,6 @@ export default {
     }
   },
   mounted() {
-    window.addEventListener('load', () => {
-        const paddedHeaderHeight = document.querySelector('.fixed-header').clientHeight + LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
-        window.setTimeout(() => {
-          let anchor = window.location.href.split('#')[1];
-          if (anchor) {
-            let target = document.getElementById(anchor);
-            if (target) {
-              window.scrollTo(0, target.offsetTop - paddedHeaderHeight);
-            }
-          } else {
-            window.scrollBy(0, -paddedHeaderHeight)
-          }
-
-          const headingAnchorsMap = Array.from(document.querySelectorAll('.header-anchor.header-link')).reduce(function (anchorsByHash, anchor) {
-            anchorsByHash[anchor.hash] = anchor;
-            return anchorsByHash;
-          }, {});
-          const allContentAnchors = document.querySelectorAll('a[href^="#"]:not(.on-this-page-link):not(.tree-nav-link)');
-
-          Array.from(allContentAnchors).forEach((link) => {
-            link.addEventListener('click', function(event) {
-              if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-                let target = headingAnchorsMap[this.hash];
-                if (target) {
-                  event.preventDefault();
-                  window.scrollTo(0, target.offsetTop - paddedHeaderHeight);
-                  location.hash = this.hash;
-                  return false;
-                }
-              }
-            })
-          })
-        }, 500);
-    });
-
     let that = this;
     this.$on('toggle-tree-nav', event => {
       that.treeNavOpen = event.treeNavOpen;
