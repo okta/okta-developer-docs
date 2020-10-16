@@ -112,5 +112,4 @@ The Okta SDK for Xamarin follows current best practice for native apps using ODI
 - [Build a Secure CRUD App with ASP.NET Core and React](/blog/2018/07/02/build-a-secure-crud-app-with-aspnetcore-and-react)
 - [OpenID Connect for User Authentication in ASP.NET Core](/blog/2017/06/29/oidc-user-auth-aspnet-core)
 - [User Authorization in ASP.NET Core with Okta](/blog/2017/10/04/aspnet-authorization)
-- [Build a Secure To-Do App with Vue, ASP.NET Core, and Okta](/blog/2018/01/31/build-secure-todo-app-vuejs-aspnetcore)
 

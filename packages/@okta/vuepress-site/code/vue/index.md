@@ -56,7 +56,6 @@ The Okta Vue SDK makes it easy to integrate Vue Router with Okta's OpenID Connec
 - [Tutorial: Build a Basic CRUD App with Symfony 4 and Vue](https://developer.okta.com/blog/2018/06/14/php-crud-app-symfony-vue)
 - [Deploy Your Secure Vue.js App to AWS](https://developer.okta.com/blog/2018/07/03/deploy-vue-app-aws)
 - [Build a Basic CRUD App with Vue.js and Node](https://developer.okta.com/blog/2018/02/15/build-crud-app-vuejs-node)
-- [Build a Secure To-Do App with Vue, ASP.NET Core, and Okta](https://developer.okta.com/blog/2018/01/31/build-secure-todo-app-vuejs-aspnetcore)
 - [Build a Cryptocurrency Comparison Site with Vue.js](https://developer.okta.com/blog/2017/09/06/build-a-cryptocurrency-comparison-site-with-vuejs)
 - [The Ultimate Guide to Progressive Web Applications](https://developer.okta.com/blog/2017/07/20/the-ultimate-guide-to-progressive-web-applications)
 
