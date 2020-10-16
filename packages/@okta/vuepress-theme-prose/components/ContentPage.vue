@@ -25,11 +25,13 @@ export default {
     });
   },
   watch: {
-    $page() {
-      this.$nextTick(function () {
-        this.scrollToActiveAnchor();
-        this.captureAnchors();
-      });
+    $page(to, from) {
+      if(from.title !== to.title) {
+        this.$nextTick(function () {
+          this.scrollToActiveAnchor();
+          this.captureAnchors();
+        });
+      }
     },
   },
   methods: {
@@ -55,9 +57,8 @@ export default {
       }
     },
     captureAnchors() {
-      this.anchors.forEach((link) =>
-        link.removeEventListener("click", this.onAnchorClick)
-      );
+      this.anchors.forEach(link =>
+        link.removeEventListener("click", this.onAnchorClick), this);
 
       this.headingAnchorsMap = Array.from(
         document.querySelectorAll(".header-anchor.header-link")
