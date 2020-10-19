@@ -14,14 +14,12 @@ export default {
     };
   },
   mounted() {
-    window.addEventListener("load", () => {
-      window.setTimeout(() => {
-        this.paddedHeaderHeight =
-          document.querySelector(".fixed-header").clientHeight +
-          LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
-        this.scrollToActiveAnchor();
-        this.captureAnchors();
-      }, 500);
+    this.$nextTick(function() {
+      this.paddedHeaderHeight =
+        document.querySelector(".fixed-header").clientHeight +
+        LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
+      this.scrollToActiveAnchor();
+      this.captureAnchors();
     });
   },
   watch: {
