@@ -50,7 +50,7 @@ cd okta-app
 npm install @okta/okta-signin-widget
 ```
 
-To easily interact with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/), we will also need [`@okta/okta-angular`](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular/):
+To easily interact with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/), we will also need [`@okta/okta-angular`](https://github.com/okta/okta-angular/):
 
 ```bash
 npm install @okta/okta-angular
@@ -227,7 +227,7 @@ export class LoginComponent implements OnInit {
 
 ### Connect the Routes
 
-The `OktaAuthModule` handles different authentication flows for your application, so it requires your OpenID Connect configuration. By default `okta/okta-angular` redirects to the Okta Sign-In Page when the user is not authenticated. We override this behavior by passing an `onAuthRequired` function to the `OktaAuthGuard`. For more information, see [using a custom login-page](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular#using-a-custom-login-page).
+The `OktaAuthModule` handles different authentication flows for your application, so it requires your OpenID Connect configuration. By default `okta/okta-angular` redirects to the Okta Sign-In Page when the user is not authenticated. We override this behavior by passing an `onAuthRequired` function to the `OktaAuthGuard`. For more information, see [using a custom login-page](https://github.com/okta/okta-angular#using-a-custom-login-page).
 
 Update `src/app/app.module.ts` to include your project components and routes. Your completed file should look similar to:
 

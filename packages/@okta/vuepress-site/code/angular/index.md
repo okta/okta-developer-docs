@@ -37,7 +37,7 @@ The Okta Angular SDK builds on top of the Okta OpenID Connect API to help you cr
 	<span class='icon download-16'></span> <span>okta-angular on npm</span>
 </a>
 
-<a href='https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular'>
+<a href='https://github.com/okta/okta-angular'>
 	<span class='fa fa-github'></span> <span>Angular SDK Source</span>
 </a>
 

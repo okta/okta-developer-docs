@@ -64,7 +64,7 @@ Okta provides an OpenID Connect (OIDC) client library on Cocoa Pods. We recommen
         </li>
 	<li>
 		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react-native/ios">
+		<a href="https://github.com/okta/okta-react-native/ios">
 			<span>React Native app with Okta's OpenID Connect API</span>
 		</a>
 	</li>

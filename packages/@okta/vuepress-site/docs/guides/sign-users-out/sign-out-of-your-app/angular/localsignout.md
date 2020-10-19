@@ -1,4 +1,4 @@
-Call the `logout` method on [OktaAuthService](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular#oktaauthlogouturi). 
+Call the `logout` method on [OktaAuthService](https://github.com/okta/okta-angular#oktaauthlogouturi).
 
 ```javascript
 
