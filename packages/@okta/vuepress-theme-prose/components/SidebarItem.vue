@@ -45,14 +45,8 @@ export default {
             this.setData();
         },
         'iHaveChildrenActive' (isActivated, _) {
-            if (isActivated && this.link.path) {
-                this.$el.scrollIntoView({
-                    block: 'center'
-                });
-            } else if (isActivated) {
-                this.$el.scrollIntoView({
-                    block: 'nearest'
-                });
+            if (isActivated) {
+                this.$el.scrollIntoViewIfNeeded();
             }
         }
     },

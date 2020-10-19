@@ -83,8 +83,6 @@ export default {
         if (target) {
           window.scrollTo(0, target.offsetTop - this.paddedHeaderHeight);
         }
-      } else {
-        window.scrollBy(0, -this.paddedHeaderHeight);
       }
     },
   },
