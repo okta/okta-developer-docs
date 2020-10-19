@@ -2,23 +2,23 @@
 title: Activate and enable
 ---
 
-The Registration Inline hook must be set up and activated within your Okta Admin Console and enabled in the self-registration page.
+The Registration Inline Hook must be set up and activated within your Okta Admin Console and enabled in the self-registration page.
 
-To set up and activate the registration inline hook:
+To set up and activate the Registration Inline Hook:
 
 1. Navigate to the **Workflow** > **Inline Hooks** page.
 2. Click **Add Inline Hook** and select **Registration Hook** from the drop-down menu.
 3. Add a name for the hook and your external service URL, including the endpoint (in this example, `registrationHook`).
-4. Include authorization data if required.
+4. Include authorization field and secret.
 5. Click **Save**.
 
 ![Registration Inline Hook set up window](/img/registration-inline-hook-setup.png "Registration Inline Hook set up window")
 
 > **Note:** You can also setup an inline hook using an API. See [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hook-setup) for further information.
 
-The registation inline hook is now set up with a status of active.
+The Registation Inline Hook is now set up with a status of active.
 
-To enable the registration inline hook on the self-service registration page:
+To enable the Registration Inline Hook on the self-service registration page:
 
 1. Navigate to **Directory** > **Self-Service Registration**.
 2. Click **Edit**.

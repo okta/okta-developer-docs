@@ -6,8 +6,7 @@ For full descriptions of each object included in the request and response of the
 
 See the following other resources for information on Inline Hooks, Registration Inline Hooks, and Self-Service Registration:
 
-* See [Okta Hooks](https://www.okta.com/hooks/) for a high-level overivew of inline hooks
 * See [Inline Hooks](/docs/concepts/inline-hooks/) for a conceptual overview of how Okta Inline Hooks work.
 * See [Registration Inline Hook Reference](/docs/reference/registration-hook/) for a complete description of this Inline Hook type.
-* See [About self-service registration](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-self-service.htm) for further details on self-service.
+* See [About self-service registration](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-self-service.htm) for further details on self-service registration.
 * See the [Developer Forum](https://devforum.okta.com/) for any questions on self-registration or inline hooks.
