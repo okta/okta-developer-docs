@@ -10,27 +10,32 @@ export default {
     return {
       anchors: [],
       headingAnchorsMap: {},
-      paddedHeaderHeight: 0,
+      paddedHeaderHeight: 0
     };
   },
   mounted() {
-    this.$nextTick(function() {
-      this.paddedHeaderHeight =
-        document.querySelector(".fixed-header").clientHeight +
-        LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
-      this.scrollToActiveAnchor();
-      this.captureAnchors();
-    });
+    this.paddedHeaderHeight =
+      document.querySelector(".fixed-header").clientHeight +
+      LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
+    if (document.readyState === "complete") {
+        this.scrollToActiveAnchor();
+        this.captureAnchors();
+    } else {
+      window.addEventListener("load", () => {
+        this.scrollToActiveAnchor();
+        this.captureAnchors();
+      });
+    }
   },
   watch: {
     $page(to, from) {
-      if(from.title !== to.title) {
-        this.$nextTick(function () {
+      if (from.title !== to.title) {
+        this.$nextTick(function() {
           this.scrollToActiveAnchor();
           this.captureAnchors();
         });
       }
-    },
+    }
   },
   methods: {
     onAnchorClick(event) {
@@ -55,12 +60,14 @@ export default {
       }
     },
     captureAnchors() {
-      this.anchors.forEach(link =>
-        link.removeEventListener("click", this.onAnchorClick), this);
+      this.anchors.forEach(
+        link => link.removeEventListener("click", this.onAnchorClick),
+        this
+      );
 
       this.headingAnchorsMap = Array.from(
         document.querySelectorAll(".header-anchor.header-link")
-      ).reduce(function (anchorsByHash, anchor) {
+      ).reduce(function(anchorsByHash, anchor) {
         anchorsByHash[anchor.hash] = anchor;
         return anchorsByHash;
       }, {});
@@ -70,9 +77,10 @@ export default {
         )
       );
 
-      this.anchors.forEach((link) => {
-        link.addEventListener("click", this.onAnchorClick);
-      }, this);
+      this.anchors.forEach(
+        link => link.addEventListener("click", this.onAnchorClick),
+        this
+      );
     },
     scrollToActiveAnchor() {
       let anchor = window.location.href.split("#")[1];
@@ -82,7 +90,7 @@ export default {
           window.scrollTo(0, target.offsetTop - this.paddedHeaderHeight);
         }
       }
-    },
-  },
+    }
+  }
 };
 </script>
