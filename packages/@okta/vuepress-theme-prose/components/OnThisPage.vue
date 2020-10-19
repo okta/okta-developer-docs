@@ -24,7 +24,10 @@
     props: ['items'],
     data() {
       return {
-        activeAnchor: null
+        activeAnchor: null,
+        anchors: [],
+        anchorOffsetPairs: [],
+        paddedHeaderHeight: 0,
       }
     },
     computed: {
@@ -35,12 +38,19 @@
       }
     },
     mounted() {
+      this.paddedHeaderHeight = document.querySelector('.fixed-header').clientHeight + LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
       this.$nextTick(() => {
+        this.captureAnchors();
         this.handleScroll();
         this.setActiveHash();
-      })
+      });
       window.addEventListener('scroll', this.handleScroll);
       window.addEventListener('scroll', this.setActiveHash);
+    },
+    updated() {
+      this.captureAnchors();
+      this.handleScroll();
+      this.setActiveHash();
     },
     beforeDestroy() {
       window.removeEventListener('scroll', this.handleScroll);
@@ -53,29 +63,27 @@
           maxHeight = window.innerHeight - document.querySelector('.fixed-header').clientHeight - 60;
         }
         document.querySelector('.on-this-page-navigation').style.height = maxHeight + 'px';
+      },
 
-
+      captureAnchors: function () {
+        const sidebarLinks = [].slice.call(document.querySelectorAll('.on-this-page-link'));
+        this.anchors = [].slice.call(document.querySelectorAll('.header-anchor'))
+          .filter(anchor => sidebarLinks.some(sidebarLink => sidebarLink.hash === anchor.hash));
+        const anchorOffsets = this.anchors.map(anchor => anchor.parentElement.offsetTop);
+        this.anchorOffsetPairs = anchorOffsets.map((anchorOffset, index, anchorOffsets) => [anchorOffset, anchorOffsets[index + 1]]);
       },
 
       setActiveHash: function (event) {
-        const sidebarLinks = [].slice.call(document.querySelectorAll('.on-this-page-link'));
-        const anchors = [].slice.call(document.querySelectorAll('.header-anchor'))
-          .filter(anchor => sidebarLinks.some(sidebarLink => sidebarLink.hash === anchor.hash));
-
         const scrollTop = Math.max(
           window.pageYOffset,
           document.documentElement.scrollTop,
           document.body.scrollTop
         )
 
-        const paddedHeaderHeight = document.querySelector('.fixed-header').clientHeight + LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
-        const anchorOffsets = anchors.map(anchor => anchor.parentElement.offsetTop);
-        const anchorOffsetPairs = anchorOffsets.map((anchorOffset, index, anchorOffsets) => [anchorOffset, anchorOffsets[index + 1]]);
+        const matchingPair = this.anchorOffsetPairs.find(pair =>
+          (scrollTop >= pair[0] - this.paddedHeaderHeight) && (!pair[1] || scrollTop < pair[1] - this.paddedHeaderHeight), this);
 
-        const matchingPair = anchorOffsetPairs.find(pair =>
-          (scrollTop >= pair[0] - paddedHeaderHeight) && (!pair[1] || scrollTop < pair[1] - paddedHeaderHeight));
-
-        const activeAnchor = matchingPair ? anchors[anchorOffsetPairs.indexOf(matchingPair)] : anchors[0];
+        const activeAnchor = matchingPair ? this.anchors[this.anchorOffsetPairs.indexOf(matchingPair)] : this.anchors[0];
         if (activeAnchor && decodeURIComponent(this.$route.hash) !== decodeURIComponent(activeAnchor.hash)) {
           this.activeAnchor = activeAnchor.hash;
         }
