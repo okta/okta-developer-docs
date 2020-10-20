@@ -18,7 +18,7 @@ Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 Each of the operations described here affects the Schema associated with a single [User Type](/docs/reference/api/user-types). The `${typeId}` element in the URL specifies which type. It can be the literal `default` to operate on the Schema of the default User Type, which is created when the org is initialized, or it can be a schema ID.
 
-Each User Type has an associated Schema. In the future the link between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. You can obtain the schema ID for the Schema associated with a [User Type](/docs/reference/api/user-types/#user-type-object) object from its `schema` link. The `schema` link is also included in individual [User](/docs/reference/api/users/#user-object) objects.
+Each User Type has an associated Schema. In the future, the link between Schema and User Type may be extended (for example, to allow multiple Types to share a Schema) but for now this is a 1:1 relationship. You can obtain the schema ID for the Schema associated with a [User Type](/docs/reference/api/user-types/#user-type-object) object from its `schema` link. The `schema` link is also included in individual [User](/docs/reference/api/users/#user-object) objects.
 
 The request examples below all use the `default` form, as all orgs include a default User Type.
 
@@ -1178,7 +1178,7 @@ The [Profile object](/docs/reference/api/users/#profile-object) for a User is de
 - [User Profile base subschema](#user-profile-base-subschema)
 - [User Profile custom subschema](#user-profile-custom-subschema)
 
-Custom property names for the [Profile object](/docs/reference/api/users/#profile-object) must be unique and cann't conflict with a property name defined in the `#base` subschema.
+Custom property names for the [Profile object](/docs/reference/api/users/#profile-object) must be unique and can't conflict with a property name defined in the `#base` subschema.
 
 ```json
 {
@@ -1231,7 +1231,7 @@ The base User Profile is based on the [System for Cross-Domain Identity Manageme
 | title             | User's title, such as "Vice President"                                                                                       | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | displayName       | name of the User, suitable for display to end Users                                                                                | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | nickName          | casual way to address the User in real life                                                                                        | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| profileUrl        | url of the User's online Profile (for example: a web page)                                                                               | String   | TRUE     | FALSE  | FALSE    |           |           | [URL](https://tools.ietf.org/html/rfc1808)                                                                        |
+| profileUrl        | URL of the User's online Profile (for example: a web page)                                                                               | String   | TRUE     | FALSE  | FALSE    |           |           | [Relative Uniform Resource Locators specification](https://tools.ietf.org/html/rfc1808)                                                                        |
 | primaryPhone      | primary phone number of the User, such as home number                                                                                   | String   | TRUE     | FALSE  | FALSE    | 0         | 100       |                                                                                                                   |
 | mobilePhone       | mobile phone number of the User                                                                                                        | String   | TRUE     | FALSE  | FALSE    | 0         | 100       |                                                                                                                   |
 | streetAddress     | full street address component of the User's address                                                                              | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
