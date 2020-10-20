@@ -16,6 +16,8 @@ The [Okta developer site](https://developer.okta.com) serves Okta's API document
 ## Building the site on your machine or contributing to the site 
 To build the site on your machine and/or to contribute content to the site, [view the instructions for Getting set up](https://github.com/okta/okta-developer-docs/wiki/Getting-set-up).  
 
+## Troubleshooting
+If you run into issues, [view the instructions for troubleshooting](https://github.com/okta/okta-developer-docs/wiki/Troubleshooting).
 
 ### Links:
 
