@@ -86,7 +86,12 @@ util.isInViewport = async function (elem) {
     + "    found = true;"
     + "    break;"
     + "  }"
-    + "  foundElement = foundElement.parentElement;"
+    + "  try { "
+    + "    foundElement = foundElement.parentElement;"
+    + "  } catch (e) {"
+    + "    console.log('Unable to locate element in viewport ', e.message);"
+    + "    return false;"
+    + "  } "
     + "} while (foundElement);"
     + "return found;"
     , elem).then(isInViewport => {
