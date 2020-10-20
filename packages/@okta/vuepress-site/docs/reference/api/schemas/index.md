@@ -659,7 +659,7 @@ Fetches the Schema for an App User
 
 | Parameter  | Description                       | Param Type | DataType | Required |
 |:-----------|:----------------------------------|:-----------|:---------|:---------|
-| instanceId | The id of the target app instance | Path       | String   | TRUE     |
+| instanceId | The `id` of the target app instance | Path       | String   | TRUE     |
 
 
 ##### Response parameters
@@ -738,7 +738,7 @@ Adds one or more [custom App User Profile properties](#app-user-profile-schema-p
 
 | Parameter   | Description                                          | Param Type | DataType                                                       | Required | Default |
 | :----------- | :---------------------------------------------------- | :---------- | :-------------------------------------------------------------- | :-------- | :------- |
-| instanceId  | The id of the target App Instance                    | Path       | String                                                         | TRUE     |        |
+| instanceId  | The `id` of the target App Instance                    | Path       | String                                                         | TRUE     |        |
 | definitions | Subschema with one or more custom Profile properties | Body       | [App User Profile Custom Subschema](#app-user-profile-custom-subschema) | TRUE     |
 
 ##### Response parameters
@@ -846,7 +846,7 @@ Updates one or more [custom App User Profile properties](#app-user-profile-schem
 
 | Parameter   | Description                                          | Param Type | DataType                                                       | Required | Default |
 | :----------- | :---------------------------------------------------- | :---------- | :-------------------------------------------------------------- | :-------- | :------- |
-| instanceId  | The id of the target App Instance                    | Path       | String                                                         | TRUE     |        |
+| instanceId  | The `id` of the target App Instance                    | Path       | String                                                         | TRUE     |        |
 | definitions | Subschema with one or more custom Profile properties | Body       | [App User Profile Custom Subschema](#app-user-profile-custom-subschema) | TRUE     |
 
 ##### Response parameters
@@ -955,7 +955,7 @@ Removes one or more [custom App User Profile properties](#app-user-profile-schem
 
 | Parameter   | Description                                                    | Param Type | DataType                                                       | Required | Default |
 | :----------- | :-------------------------------------------------------------- | :---------- | :-------------------------------------------------------------- | :-------- | :------- |
-| instanceId  | The ID of the target App Instance                              | Path       | String                                                         | TRUE     |        |
+| instanceId  | The `id` of the target App Instance                              | Path       | String                                                         | TRUE     |        |
 | definitions | Subschema with one or more custom Profile properties to remove | Body       | [App User Profile custom subschema](#app-user-profile-custom-subschema) | TRUE     |
 
 > **Note:** You must explicitly set properties to `null` to remove them from the Schema, otherwise `POST` is interpreted as a partial update.
