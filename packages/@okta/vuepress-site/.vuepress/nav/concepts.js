@@ -70,7 +70,7 @@ module.exports = [
       path: '/docs/concepts/social-login/'
     },  
     { 
-        title: 'Understandign SAML',
+        title: 'Understanding SAML',
         subLinks: [
           {
             title: 'SAML overview',
@@ -84,6 +84,15 @@ module.exports = [
     }, 
     { 
         title: 'Understanding SCIM', 
-        path: '/docs/concepts/scim/'
+        subLinks: [
+        {
+          title: 'SCIM overview' ,
+          path:'/docs/concepts/scim/'
+        },
+        {
+          title: 'SCIM FAQ' ,
+          path:'/docs/concepts/scim/faqs/'
+        }
+        ]
     },
   ]
