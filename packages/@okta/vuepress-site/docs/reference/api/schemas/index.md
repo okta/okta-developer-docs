@@ -1237,7 +1237,7 @@ The base User Profile is based on the [System for Cross-Domain Identity Manageme
 | streetAddress     | full street address component of the User's address                                                                              | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | city              | city or locality component of the User's address (`locality`)                                                                    | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | state             | state or region component of the User's address (`region`)                                                                       | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
-| zipCode           | zipcode or postal code component of the User's address (`postalCode`)                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
+| zipCode           | zip code or postal code component of the User's address (`postalCode`)                                                            | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | countryCode       | country name component of the User's address (`country`)                                                                         | String   | TRUE     | FALSE  | FALSE    |           |           | [ISO 3166-1 alpha 2 "short" code format](https://tools.ietf.org/html/draft-ietf-scim-core-schema-22#ref-ISO3166)  |
 | postalAddress     | mailing address component of the User's address                                                                                  | String   | TRUE     | FALSE  | FALSE    |           |           |                                                                                                                   |
 | preferredLanguage | User's preferred written or spoken languages                                                                                 | String   | TRUE     | FALSE  | FALSE    |           |           | [RFC 7231 Section 5.3.5](https://tools.ietf.org/html/rfc7231#section-5.3.5)                                       |
@@ -1266,7 +1266,7 @@ The `login` property is validated according to its `pattern` attribute, which is
 
 #### User Profile custom subschema
 
-All custom Profile properties are defined in a Profile sub-schema with the resolution scope `#custom`.
+All custom Profile properties are defined in a Profile subschema with the resolution scope `#custom`.
 
 ```json
 {
@@ -1373,7 +1373,7 @@ Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-z
 
 ##### User Schema property types and validation
 
-Specific property types support a **subset** of [JSON Schema validations](https://tools.ietf.org/html/draft-fge-json-schema-validation-00).
+Specific property types support a subset of [JSON Schema validations](https://tools.ietf.org/html/draft-fge-json-schema-validation-00).
 
 | Property Type | Description                                                                                                                         | Validation Keywords         |
 | :------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
@@ -1518,7 +1518,7 @@ Custom property names for the [Profile object](/docs/reference/api/apps/#applica
 
 #### App User Profile base subschema
 
-All Okta-defined Profile properties are defined in a Profile sub-schema with the resolution scope `#base`. These properties can't be removed or edited, except for nullability in some cases.  Changing a base property's nullability, for example, the value of its `required` field, is allowed only if it is nullable in the default predefined Schema for the App.
+All Okta-defined Profile properties are defined in a Profile subschema with the resolution scope `#base`. These properties can't be removed or edited, except for nullability in some cases.  Changing a base property's nullability, for example, the value of its `required` field, is allowed only if it is nullable in the default predefined Schema for the App.
 
 The base App User Profile varies substantially depending on the application. The following properties are required for all App User Profiles:
 
@@ -1623,7 +1623,7 @@ Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-z
 
 ##### App User Schema property types and validation
 
-Specific property types support a **subset** of [JSON Schema validations](https://tools.ietf.org/html/draft-fge-json-schema-validation-00).
+Specific property types support a subset of [JSON Schema validations](https://tools.ietf.org/html/draft-fge-json-schema-validation-00).
 
 | Property Type | Description                                                                                                                         | Validation Keywords         |
 | :------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
