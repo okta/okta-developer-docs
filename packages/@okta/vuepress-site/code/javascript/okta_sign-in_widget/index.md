@@ -74,6 +74,10 @@ The code that initializes the Widget looks like this:
      <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
   </head>
 <body>
+<!--
+  Make sure to place the HTML element above the <script> tag.
+  If you don't, the Widget won't render and you'll see a blank screen.
+-->
 <div id="widget-container"></div>
 
 <script>
