@@ -18,6 +18,7 @@
   import { LAYOUT_CONSTANTS } from '../layouts/Layout.vue';
   export default {
     name: 'OnThisPage',
+    inject: ['appContext'],
     components: {
       OnThisPageItem: () => import('../components/OnThisPageItem.vue'),
     },
@@ -44,13 +45,16 @@
         this.handleScroll();
         this.setActiveHash();
       });
+
       window.addEventListener('scroll', this.handleScroll);
       window.addEventListener('scroll', this.setActiveHash);
     },
     updated() {
-      this.captureAnchors();
-      this.handleScroll();
-      this.setActiveHash();
+      if(!this.appContext.isInMobileViewport) {
+        this.captureAnchors();
+        this.handleScroll();
+        this.setActiveHash();
+      }
     },
     beforeDestroy() {
       window.removeEventListener('scroll', this.handleScroll);

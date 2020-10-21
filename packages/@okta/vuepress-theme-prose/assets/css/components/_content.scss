@@ -39,6 +39,9 @@
 
         &.active {
           display: block;
+          position: static;
+          border-right: none;
+          padding-top: 3rem;
         }
       }
     }

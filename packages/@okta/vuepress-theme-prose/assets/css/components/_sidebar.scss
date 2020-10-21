@@ -1,4 +1,5 @@
 .landing-navigation {
+  padding-left: 1.5rem;
   padding-right: 2rem;
   flex: 0 0 auto;
   border-right: 1px solid cv('gray', '100');
@@ -10,19 +11,6 @@
    
   @include media('>=tablet') {
     top: 150px;
-    padding-left: 22px;
-  }
-
-  &.active {
-    @include media('<tablet') {
-      position: sticky;
-      z-index: 100;
-      left: 0rem;
-      height: 555px;
-      padding-left: 0px;
-      width: 300px;
-      margin-right:5rem;
-    }
   }
 
   .router-link-active {

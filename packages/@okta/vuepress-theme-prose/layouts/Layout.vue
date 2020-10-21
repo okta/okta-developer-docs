@@ -12,9 +12,9 @@
       <div class="content" v-else>
         <div class="content--container">
           <div class="tree-nav">
-            <Sidebar :sidebarActive="treeNavOpen" />
+            <Sidebar />
           </div>
-          <div class="content-area">
+          <div class="content-area" v-show="!appContext.isTreeNavMobileOpen">
             <PageTitle />
             <MobileOnThisPage />
             <ContentPage />
@@ -36,7 +36,7 @@
 export const LAYOUT_CONSTANTS = {
   HEADER_TO_CONTENT_GAP: 45, //px
 };
-
+const TABLET_BREAKPOINT = 767;
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
@@ -53,24 +53,35 @@ export default {
   },
   data() {
     return {
-      treeNavOpen: false
+      appContext: {
+        isTreeNavMobileOpen: false,
+        isInMobileViewport: false
+      }
+    }
+  },
+  provide(){
+    return {
+      appContext: this.appContext
     }
   },
   mounted() {
     let that = this;
     this.$on('toggle-tree-nav', event => {
-      that.treeNavOpen = event.treeNavOpen;
+      that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
     });
-
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
     this.redirIfRequired();
   },
   watch: {
     $route(to, from) {
+      this.appContext.isTreeNavMobileOpen = false;
       this.redirIfRequired();
     }
   },
   methods: {
     redirIfRequired() {
+      debugger;
       if(this.$page && this.$page.redir) {
         let anchor = window.location.href.split('#')[1] || '';
         if(anchor) {
@@ -79,8 +90,15 @@ export default {
           this.$router.replace({ path: `${this.$page.redir}` });
         }
       }
+    },
+    onResize() {
+      this.appContext.isInMobileViewport = window.innerWidth < TABLET_BREAKPOINT;
     }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
   }
+
 }
 </script>
 
