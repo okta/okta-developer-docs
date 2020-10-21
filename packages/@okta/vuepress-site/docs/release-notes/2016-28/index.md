@@ -69,7 +69,19 @@ Also, the response to an answer recovery question (`/api/v1/authn/recovery/answe
     }
   },
   "_links": {
-        ...
+    "next": {
+        "name": "resetPassword",
+        "href": "https://{yourOktaDomain}/api/v1/authn/credentials/reset_password",
+        "hints": {
+          "allow": ["POST"]
+        }
+      },
+      "cancel": {
+        "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
+        "hints": {
+          "allow": ["POST"]
+        }
+      }
   }
 }
 ```
