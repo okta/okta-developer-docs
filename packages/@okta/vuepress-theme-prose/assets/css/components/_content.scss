@@ -25,13 +25,18 @@
 
   .tree-nav {
     width: 18%;
-    @include media('>=tablet') {
-      width: 18rem;
+
+    @include media('>=desktop') {
       flex-grow: 0;
       flex-shrink: 0;
     }
 
+    @include media('>=tablet') {
+      width: 18rem;
+    }
+
     @include media('<tablet') {
+      flex-basis: 0;
       width: 40rem;
 
       .landing-navigation {

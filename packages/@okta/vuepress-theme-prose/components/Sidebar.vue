@@ -78,17 +78,12 @@ export default {
         this.usingFile = true;
         return _.cloneDeep(this.$site.themeConfig.sidebars.reference);
       }
+      if (this.$page.path.includes("/docs/concepts/")){
+        this.usingFile = true;
+        return _.cloneDeep(this.$site.themeConfig.sidebars.concepts);
+      }
       if (this.$page.path.includes("/docs/guides")) {
         return this.getGuides();
-      }
-      if (this.$page.path.includes("/docs/concepts/")) {
-        const conceptsRegex = /(\/docs\/concepts\/)[A-Za-z-]*\/$/;
-        return _.chain(this.$site.pages)
-          .filter(page => page.path.match(conceptsRegex))
-          .sortBy(page => page.title)
-          .sort()
-          .unshift({ title: "Concepts", path: "/docs/concepts/" })
-          .value();
       }
       if (this.$page.path.includes("/books/")) {
         const booksRegex = /(\/books\/)[A-Za-z-]*\/$/;

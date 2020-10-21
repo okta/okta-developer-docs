@@ -2,74 +2,97 @@
 
 module.exports = [
     {
-        title: "Overview",
-        link: "/docs/concepts/"
+        title: "Concepts",
+        path: "/docs/concepts/"
     },
     { 
         title: 'API Access Management', 
-        link: '/docs/concepts/api-access-management/'
+        path: '/docs/concepts/api-access-management/'
     },
     { 
         title: 'Authentication', 
-        link: '/docs/concepts/authentication/'
+        path: '/docs/concepts/authentication/'
+    },
+    {
+      title: 'Authorization Servers',
+      path: '/docs/concepts/auth-servers/'
     },
     { 
         title: 'Event Hooks', 
-        link: '/docs/concepts/event-hooks/'
+        path: '/docs/concepts/event-hooks/'
     },
     { 
         title: 'Events API Migration', 
-        link: '/docs/concepts/events-api-migration/'
+        path: '/docs/concepts/events-api-migration/'
     },
     { 
         title: 'External Identity Providers', 
-        link: '/docs/concepts/identity-providers/'
+        path: '/docs/concepts/identity-providers/'
     },
     { 
         title: 'Feature Lifecycle Management', 
-        link: '/docs/concepts/feature-lifecycle-management/'
+        path: '/docs/concepts/feature-lifecycle-management/'
     },
     { 
         title: 'How Okta works', 
-        link: '/docs/concepts/how-okta-works/'
+        path: '/docs/concepts/how-okta-works/'
     },
     { 
         title: 'Inline Hooks', 
-        link: '/docs/concepts/inline-hooks/'
+        path: '/docs/concepts/inline-hooks/'
     },
     { 
         title: 'Key Rotation', 
-        link: '/docs/concepts/key-rotation/'
+        path: '/docs/concepts/key-rotation/'
     },
     { 
-        title: 'OAuth 2.0 & OIDC', 
-        link: '/docs/concepts/auth-overview/'
+        title: 'OAuth 2.0 and Open ID Connect Overview', 
+        path: '/docs/concepts/oauth-openid/'
     },
     { 
         title: 'Okta Data Model', 
-        link: '/docs/concepts/okta-data-model/'
+        path: '/docs/concepts/okta-data-model/'
+    },
+    { 
+      title: 'Okta Organizations', 
+      path: '/docs/concepts/okta-organizations/'
     },
     { 
         title: 'Okta-Hosted Flows', 
-        link: '/docs/concepts/okta-hosted-flows/'
-    },
-    { 
-        title: 'Okta Organizations', 
-        link: '/docs/concepts/okta-organizations/'
+        path: '/docs/concepts/okta-hosted-flows/'
     },
     { 
         title: 'Policies', 
-        link: '/docs/concepts/policies/'
-    }, { 
-        title: 'SAML', 
-        link: '/docs/concepts/saml/'
+        path: '/docs/concepts/policies/'
+    },
+    { 
+      title: 'Social Login Overview', 
+      path: '/docs/concepts/social-login/'
+    },  
+    { 
+        title: 'Understanding SAML',
+        subLinks: [
+          {
+            title: 'SAML Overview',
+            path: '/docs/concepts/saml/',
+          },
+          {
+            title: 'SAML FAQ',
+            path: '/docs/concepts/saml/faqs/',
+          }
+        ] 
     }, 
     { 
-        title: 'SCIM', 
-        link: '/docs/concepts/scim/'
-    }, 
-    { 
-        title: 'Social Login', 
-        link: '/docs/concepts/social-login/'
-    }
+        title: 'Understanding SCIM', 
+        subLinks: [
+        {
+          title: 'SCIM Overview' ,
+          path:'/docs/concepts/scim/'
+        },
+        {
+          title: 'SCIM FAQ' ,
+          path:'/docs/concepts/scim/faqs/'
+        }
+        ]
+    },
   ]

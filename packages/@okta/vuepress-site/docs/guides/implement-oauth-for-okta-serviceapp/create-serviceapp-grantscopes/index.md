@@ -61,7 +61,7 @@ Now that you've created the service app and registered the public key with that 
 2. Provide values for these parameters in your request:
 
     * `scopeID` &mdash; `okta.users.read`
-    * `issuer` &mdash; `https://{yourOktaDomain}`
+    * `issuer` &mdash; `https://{yourOktaDomain}`<br>
 
 ```bash
   curl -X POST \
