@@ -93,8 +93,9 @@ export default {
         docsBranch = 'master',
         docsRepo = repo
       } = this.$site.themeConfig.editLink
-      if (docsRepo && editLinks && this.$page.regularPath) {
-        return this.createEditLink(repo, docsRepo, docsDir, docsBranch, this.$page.regularPath)
+      if (docsRepo && editLinks && this.$page.relativePath) {
+        console.log('page: ', this.$page)
+        return this.createEditLink(repo, docsRepo, docsDir, docsBranch, this.$page.relativePath)
       }
     },
     editLinkText () {
@@ -121,8 +122,8 @@ export default {
         + `/edit`
         + `/${docsBranch}/`
         + (docsDir ? docsDir.replace(endingSlashRE, '') : '')
+        + '/'
         + path
-        + `/index.md`
       )
     }
   }
