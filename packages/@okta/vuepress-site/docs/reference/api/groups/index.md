@@ -307,7 +307,7 @@ curl -v -X GET \
       "objectSid": "S-1-5-21-717838489-685202119-709183397-1177",
       "groupScope": "Global",
       "dn": "CN=Engineering Users,OU=Engineering,DC=corp,DC=example,DC=com",
-      "windowsDomainQualifiedName": "CORP\Engineering Users",
+      "windowsDomainQualifiedName": "CORP\\Engineering Users",
       "externalId": "OZJdWdONCU6h7WjQKp+LPA=="
     },
     "source": {

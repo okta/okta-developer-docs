@@ -845,7 +845,7 @@ Used in the User Identifier Condition object, specifies the details of the patte
     "patterns": [
       {
         "matchType": "EXPRESSION",
-        "value": "^([a-zA-Z0-9_\-\.]+)\.test@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$"
+        "value": "^([a-zA-Z0-9_\\-\\.]+)\\.test@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.)|(([a-zA-Z0-9\\-]+\\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\\]?)$"
       }
     ],
     "type": "IDENTIFIER"
