@@ -73,7 +73,7 @@ module.exports = [
         title: 'Understanding SAML',
         subLinks: [
           {
-            title: 'SAML overview',
+            title: 'SAML Overview',
             path: '/docs/concepts/saml/',
           },
           {
@@ -86,7 +86,7 @@ module.exports = [
         title: 'Understanding SCIM', 
         subLinks: [
         {
-          title: 'SCIM overview' ,
+          title: 'SCIM Overview' ,
           path:'/docs/concepts/scim/'
         },
         {
