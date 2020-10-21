@@ -3088,7 +3088,7 @@ Polls a push verification transaction for completion. The transaction result is 
   "expiresAt": "2015-04-01T15:57:32.000Z",
   "factorResult": "WAITING",
   "profile":{
-     "credentialId":"jane.doe@example.com",
+     "credentialId":"jane.doe@example.com"
   },
   "_links": {
     "poll": {
@@ -3129,7 +3129,7 @@ Polls a push verification transaction for completion. The transaction result is 
 {
   "factorResult": "REJECTED",
   "profile":{
-     "credentialId":"jane.doe@example.com",
+     "credentialId":"jane.doe@example.com"
   },
   "_links": {
     "verify": {
@@ -3161,7 +3161,7 @@ Polls a push verification transaction for completion. The transaction result is 
 {
   "factorResult": "TIMEOUT",
   "profile":{
-     "credentialId":"jane.doe@example.com",
+     "credentialId":"jane.doe@example.com"
   },
   "_links": {
     "verify": {

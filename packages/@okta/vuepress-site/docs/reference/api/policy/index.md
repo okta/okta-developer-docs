@@ -868,7 +868,7 @@ Used in the User Identifier Condition object, specifies the details of the patte
       {
         "matchType": "SUFFIX",
         "value": "google.com"
-      },
+      }
     ],
     "type": "IDENTIFIER"
   }
@@ -916,8 +916,8 @@ Specifies either a general application or specific App Instance to match on
       {
         "type": "APP",
         "id":"0oai0y4zt7hd2PSAP0h7"
-      },
-    ],
+      }
+    ]
   }
 ```
 

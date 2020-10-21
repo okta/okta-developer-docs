@@ -1598,6 +1598,7 @@ The Policy object has several properties:
       }
     }
   }
+}
 ```
 
 #### About Policies

@@ -254,11 +254,7 @@ curl -v -X GET \
 
 > **Note:** <ApiLifecycle access="ea" /> The `source` section and the `source` link in the response example below are only present in groups of type `APP_GROUP`. See [Group attributes](#group-attributes) and [Links object](#links-object).
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups?limit=200>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups?after=00garwpuyxHaWOkdV0g4&limit=200>; rel="next"
+```json
 [
   {
     "id": "00g1emaKYZTWRYYRRTSK",
@@ -420,11 +416,7 @@ curl -v -X GET \
 ##### Response example
 
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups?limit=2&filter=type+eq+%22OKTA_GROUP%22>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups?after=00gak46y5hydV6NdM0g4&limit=2&filter=type+eq+%22OKTA_GROUP%22>; rel="next"
+```json
 [
   {
     "id": "00g1emaKYZTWRYYRRTSK",
@@ -513,11 +505,7 @@ curl -v -X GET \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups?limit=200&filter=lastUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups?after=00g1emaKYZTWRYYRRTSK&limit=200&filter=lastUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="next"
+```json
 [
   {
     "id": "00g1emaKYZTWRYYRRTSK",
@@ -572,11 +560,7 @@ curl -v -X GET \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups?limit=200&filter=lastMembershipUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups?after=00g1emaKYZTWRYYRRTSK&limit=200&filter=lastMembershipUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="next"
+```json
 [
   {
     "id": "00g1emaKYZTWRYYRRTSK",
@@ -665,11 +649,7 @@ curl -v -X GET \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups?limit=200&filter=lastUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22+or+lastMembershipUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups?after=00g1emaKYZTWRYYRRTSK&limit=200&filter=lastUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22+or+lastMembershipUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="next"
+```json
 [
   {
     "id": "00g1emaKYZTWRYYRRTSK",
@@ -794,11 +774,7 @@ curl -v -X GET \
 ##### Response example
 
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups?search=lastUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22+or+lastMembershipUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups?after=00g1emaKYZTWRYYRRTSK&search=lastUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22+or+lastMembershipUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="next"
+```json
 [
   {
     "id": "00g1emaKYZTWRYYRRTSK",
@@ -912,7 +888,6 @@ curl -v -X PUT \
 ##### Response example
 
 ```json
-
 {
   "id": "00ub0oNGTSWTBKOLGLNR",
   "created": "2015-02-06T10:11:28.000Z",
@@ -1226,7 +1201,6 @@ curl -v -X POST \
 ##### Response example
 
 ```json
-
 {
   "type": "group_rule",
   "id": "0pr3f7zMZZHPgUoWO0g4",
@@ -1396,10 +1370,6 @@ curl -v -X GET \
 ##### Response example
 
 ```json
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups/rules?limit=20>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups/rules?after=0pr3f7zMZZHPgUoWO0g4&limit=20>; rel="next"
 [
   {
     "type": "group_rule",
@@ -1685,11 +1655,7 @@ curl -v -X GET \
 ##### Response example
 
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/apps>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/apps?after=0oafxqCAJWWGELFTYASJ>; rel="next"
+```json
 [
  {
         "id": "0oafwvZDWJKVLDCUWUAC",
