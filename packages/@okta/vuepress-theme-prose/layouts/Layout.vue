@@ -81,7 +81,6 @@ export default {
   },
   methods: {
     redirIfRequired() {
-      debugger;
       if(this.$page && this.$page.redir) {
         let anchor = window.location.href.split('#')[1] || '';
         if(anchor) {
