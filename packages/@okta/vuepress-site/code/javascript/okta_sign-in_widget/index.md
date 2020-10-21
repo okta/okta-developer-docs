@@ -66,13 +66,17 @@ The code that initializes the Widget looks like this:
 ```html
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Okta Sign-In Widget</title>
-     <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
-     <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
-  </head>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>Okta Sign-In Widget</title>
+  <script
+    src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js"
+    type="text/javascript"></script>
+  <link
+    href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css"
+    type="text/css" rel="stylesheet"/>
+</head>
 <body>
 <!--
   Make sure to place the HTML element above the <script> tag.
@@ -88,9 +92,9 @@ The code that initializes the Widget looks like this:
     if (res.status === 'SUCCESS') {
       console.log('Do something with this sessionToken', res.session.token);
     } else {
-    // The user can be in another authentication state that requires further action.
-    // For more information about these states, see:
-    //   https://github.com/okta/okta-signin-widget#rendereloptions-success-error
+      // The user can be in another authentication state that requires further action.
+      // For more information about these states, see:
+      //   https://github.com/okta/okta-signin-widget#rendereloptions-success-error
     }
   });
 </script>
@@ -123,79 +127,79 @@ Sign in to your Okta developer dashboard and navigate to **Applications** > **Ad
 ```html
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <title>Simple Web Page</title>
-    <style>
-      h1 {
-        margin: 2em 0;
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+  <title>Simple Web Page</title>
+  <style>
+    h1 {
+      margin: 2em 0;
+    }
+  </style>
+  <!-- widget stuff here -->
+  <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
+  <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container">
+  <h1 class="text-center">Simple Web Page</h1>
+  <div id="messageBox" class="jumbotron">
+    You are not logged in. Get outta here! Shoo! >:S
+  </div>
+  <!-- where the sign-in form will be displayed -->
+  <div id="okta-login-container"></div>
+  <button id="logout" class="button" onclick="logout()" style="display: none">Logout</button>
+</div>
+<script type="text/javascript">
+  var oktaSignIn = new OktaSignIn({
+    baseUrl: 'https://${yourOktaDomain}',
+    clientId: '${yourClientId}',
+    authParams: {
+      issuer: 'https://${yourOktaDomain}/oauth2/default',
+      responseType: ['token', 'id_token'],
+      display: 'page'
+    }
+  });
+
+  if (oktaSignIn.hasTokensInUrl()) {
+    oktaSignIn.authClient.token.parseFromUrl().then(
+      // If we get here, the user just logged in.
+      function success(res) {
+        var accessToken = res.tokens.accessToken;
+        var idToken = res.tokens.idToken;
+
+        oktaSignIn.authClient.tokenManager.add('accessToken', accessToken);
+        oktaSignIn.authClient.tokenManager.add('idToken', idToken);
+
+        document.getElementById('messageBox').innerHTML = 'Hello, ' + idToken.claims.email + '! You just logged in! :)';
+        document.getElementById('logout').style.display = 'block';
+      },
+      function error(err) {
+        console.error(err);
       }
-    </style>
-    <!-- widget stuff here -->
-    <script src="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/js/okta-sign-in.min.js" type="text/javascript"></script>
-    <link href="https://global.oktacdn.com/okta-signin-widget/-=OKTA_REPLACE_WITH_WIDGET_VERSION=-/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="text-center">Simple Web Page</h1>
-      <div id="messageBox" class="jumbotron">
-        You are not logged in. Get outta here! Shoo! >:S
-      </div>
-      <!-- where the sign-in form will be displayed -->
-      <div id="okta-login-container"></div>
-      <button id="logout" class="button" onclick="logout()" style="display: none">Logout</button>
-    </div>
-    <script type="text/javascript">
-      var oktaSignIn = new OktaSignIn({
-        baseUrl: "https://${yourOktaDomain}",
-        clientId: "${yourClientId}",
-        authParams: {
-          issuer: "https://${yourOktaDomain}/oauth2/default",
-          responseType: ['token', 'id_token'],
-          display: 'page'
+    );
+  } else {
+    oktaSignIn.authClient.token.getUserInfo().then(function (user) {
+      document.getElementById('messageBox').innerHTML = 'Hello, ' + user.email + '! You are *still* logged in! :)';
+      document.getElementById('logout').style.display = 'block';
+    }, function (error) {
+      oktaSignIn.renderEl(
+        {el: '#okta-login-container'},
+        function success(res) {},
+        function error(err) {
+          console.error(err);
         }
-      });
+      );
+    });
+  }
 
-      if (oktaSignIn.hasTokensInUrl()) {
-        oktaSignIn.authClient.token.parseFromUrl().then(
-          // If we get here, the user just logged in.
-          function success(res) {
-            var accessToken = res.tokens.accessToken;
-            var idToken = res.tokens.idToken;
-
-            oktaSignIn.authClient.tokenManager.add('accessToken', accessToken);
-            oktaSignIn.authClient.tokenManager.add('idToken', idToken);
-
-            document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
-            document.getElementById("logout").style.display = 'block';
-          },
-          function error(err) {
-            console.error(err);
-          }
-        );
-      } else {
-        oktaSignIn.authClient.token.getUserInfo().then(function(user) {
-          document.getElementById("messageBox").innerHTML = "Hello, " + user.email + "! You are *still* logged in! :)";
-          document.getElementById("logout").style.display = 'block';
-        }, function(error) {
-          oktaSignIn.renderEl(
-            { el: '#okta-login-container' },
-            function success(res) {},
-            function error(err) {
-              console.error(err);
-            }
-          );
-        });
-      }
-
-      function logout() {
-        oktaSignIn.authClient.signOut();
-        location.reload();
-      }
-    </script>
-  </body>
+  function logout() {
+    oktaSignIn.authClient.signOut();
+    location.reload();
+  }
+</script>
+</body>
 </html>
 ```
 
@@ -240,7 +244,6 @@ function success(res) {
 If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom Authorization Server](/docs/guides/customize-authz-server/) in Okta. The Widget also needs to be configured to prompt the user to sign in, and then extract an ID token after a successful redirect:
 
 ```javascript
-
 var signIn = new OktaSignIn({
   baseUrl: 'https://${yourOktaDomain}',
   el: '#widget-container',
@@ -266,7 +269,6 @@ signIn.showSignInToGetTokens({
   getIdToken: true,
   scope: 'openid profile'
 });
-
 ```
 
 Here is an example of some front-end code that could use this token:
