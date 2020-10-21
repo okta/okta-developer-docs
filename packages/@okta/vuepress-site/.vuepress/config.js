@@ -133,7 +133,8 @@ module.exports = {
     sidebars: {
       codePages: require('./nav/codePages'),
       reference: require('./nav/reference'),
-      guides: require('./nav/guides')
+      guides: require('./nav/guides'),
+      concepts: require('./nav/concepts')
     },
 
     quickstarts: {
