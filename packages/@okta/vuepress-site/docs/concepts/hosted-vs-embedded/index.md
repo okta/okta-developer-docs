@@ -1,9 +1,8 @@
 ---
-title: Hosted vs Embedded
-meta:
-  - name: description
-    content: You have two primary choices when implementing an authentication experience. Learn more about the differences between a hosted approach and an embedded approach.
+title: Hosted Vs. Embedded
 ---
+
+# Hosted Vs. Embedded
 
 Okta offers multiple integration options when designing an authentication experience. The two most recommended concepts are the Okta hosted experience and the embedded widget experience. Both of these Okta built experiences provide easy implementation and maintenance, industry best practice, user self service, and built in user registration. The difference between the two concepts is where the experience itself is hosted.
 
