@@ -1,11 +1,26 @@
 
-* **What SCIM version should this integration use?** &mdash; Choose either **SCIM 2.0** (the preferred version), or **SCIM 1.1**.
+* **What SCIM version should this integration use?** &mdash; Choose either **SCIM 2.0** (Okta preferred version), or **SCIM 1.1**.
 
 * **Link to configuration guide** &mdash; Your configuration guide (in either HTML or PDF format) should have step by step instructions on how to set up provisioning between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
 
 * **Select provisioning features to be supported in the integration** &mdash; These provisioning features should match what you have selected in the **Provisioning** tab in the settings for your SCIM integration. For details on each of these options, see [Configure application provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_prov_lcm_prov_app). To activate the Profile Sourcing feature, see [Submission process](/docs/guides/submit-app/scim/overview/#submission-process).
 
-* **Base URL (enter “n/a” if the URL varies by tenant)** &mdash; Provide the base URL that your integration uses when sending an outbound call to your SCIM server. This should be a valid production endpoint. If the the URL varies according to which tenant is using it (e.g. `lasvegas.example.com/scim/v2/` or `seattle.example.com/scim/v2`), then type `n/a`. Explain in your configuration guide how your users should construct the URL while configuring the settings for your application.
+* **Does your Base URL vary per tenant?** &mdash; If **Yes**, a new field appears to assist you in setting up a per tenant configuration.
+  * **What variables do your admins need to specify to install your app?** &mdash; When you click **Add Variable**, the interface displays a dialog box to collect the following information:
+  * **Label Name** &mdash; A descriptive name for the dynamic variable that administrators see when installing your app integration.
+  * **Variable Name** &mdash; an automatically generated variable used when constructing the dynamic address. This is hidden from admins and is only passed to your external application.
+  * **Help Text** &mdash; Any descriptive text to be shown to administrators when installing your app integration.
+  * **Type** &mdash; The property type for your parameter. Options are "String", "URL", or "HTTPS URL".
+  * Click **Save** to add the variable to the list.
+
+  After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
+
+  * **Construct your dynamic Base URL by copying the variables above and pasting them where applicable** &mdash; Provide the base URL that your integration uses when sending an outbound call to your SCIM server.
+
+    If you're using a per tenant design, include the variable names that you created. For example:
+
+    * https://`${app.variableName}`.okta.com
+    * https://okta-`${app.variableName}`.com
 
 * **Does your SCIM server support HTTP PATCH operations for modifying resources?** &mdash; Select **Yes** if your SCIM server supports updates made through a PATCH.
 
