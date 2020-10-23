@@ -36,6 +36,10 @@ The Okta React Native client makes it easy to add authentication to your React N
 	<span class='fa fa-github'></span> <span>React Native SDK Source</span>
 </a>
 
+### Supported Platforms
+- iOS 11+ [Okta OIDC iOS Supported Platforms](https://github.com/okta/okta-oidc-ios#supported-platforms)
+- Android API 21+ [Okta OIDC Android MinSDK Requirements](https://github.com/okta/okta-oidc-android#requirements)
+
 ## Recommended Guides
 
 
