@@ -26,7 +26,7 @@
 
     After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
 
-  * **Construct your dynamic ACS URL by copying the variables above and pasting them where applicable** &mdash; Provide your complete Assertion Consumer Service (ACS) URL endpoint where Okta will post SAML responses for your app integration.
+  * **Construct your dynamic ACS URL by copying the variables above and pasting them where applicable** &mdash; Provide your complete Assertion Consumer Service (ACS) URL endpoint where Okta posts SAML responses for your app integration.
   
     If you're using a per tenant design, include the variable names that you created. For example:
     * https://`${app.variableName}`.okta.com
