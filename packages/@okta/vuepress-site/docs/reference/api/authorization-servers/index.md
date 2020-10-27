@@ -1737,10 +1737,9 @@ Example from a Rule object
       }
     },
     "scopes": {
-      "include": [{
-        "name": "*",
-        "access": "ALLOW"
-      }]
+      "include": [
+        "*"
+      ]
     }
   }
 }
@@ -1761,12 +1760,12 @@ Example from a Policy object
 
 #### Condition properties
 
-| Property     | Description                                                                                                                                                                            | Type                            | Required for create or update |
-| :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ | :---------------------------- |
-| clients      | For Policies, specifies which clients are included or excluded in the Policy                                                                                                           | `include` and `exclude` lists   | True                          |
-| grant_type   | Can be one of the following: `authorization_code`, `password`, `refresh_token`, or `client_credentials`. Determines the mechanism Okta uses to authorize the creation of the tokens.   | Enum                            | True                          |
-| people       | For rules, specifies which Users and Groups are included or excluded in the rule                                                                                                       | `include` and `exclude` lists   | True                          |
-| scopes       | Array of Scopes this condition includes or excludes                                                                                                                                    | `include` and `exclude` lists   | True                          |
+| Property     | Description                                                                                                                                                                                                                              | Type                            | Required for create or update |
+| :----------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ | :---------------------------- |
+| clients      | For Policies, specifies which clients are included or excluded in the Policy                                                                                                                                                             | `include` and `exclude` lists   | True                          |
+| grantTypes   | Array of grantTypes this condition includes. Can include any of the following: `authorization_code`, `password`, `refresh_token`, or `client_credentials`. Determines the mechanism Okta uses to authorize the creation of the tokens.   | `include` list                  | True                          |
+| people       | For rules, specifies which Users and Groups are included or excluded in the rule                                                                                                                                                         | `include` and `exclude` lists   | True                          |
+| scopes       | Array of Scopes this condition includes                                                                                                                                                                                                  | `include` list                  | True                          |
 
 See also the [Policy-Rule Conditions object](/docs/reference/api/policy/#conditions-object-2) section
 
