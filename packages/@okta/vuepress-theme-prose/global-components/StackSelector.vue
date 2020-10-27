@@ -37,7 +37,7 @@
     data() { 
       return { 
         offsetFromViewport: null,
-        amClicked: false,
+        hasFocus: false,
       };
     },
     methods: { 
@@ -48,7 +48,7 @@
       },
       inputChanged: function(value) {
         if (value && value.link) {
-          this.amClicked = true;
+          this.hasFocus = true;
           
           this.$router.push(value.link);
         }
@@ -103,8 +103,7 @@
     updated() { 
       // If we are the Stack Selector that was focused (clicked on), 
       // scroll that we stay in the same position relative to the viewport
-      const isActive = this.$el.querySelector('.router-link-active') === document.activeElement;
-      if( this.amClicked && this.offsetFromViewport ) { 
+      if(this.hasFocus && this.offsetFromViewport ) { 
         this.$nextTick(() => { // postponed to allow child components to rerender
           window.scroll(0, this.$el.offsetTop - this.offsetFromViewport );
           this.amClicked = false;
