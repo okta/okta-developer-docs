@@ -46,7 +46,12 @@ export default {
         },
         'iHaveChildrenActive' (isActivated, _) {
             if (isActivated) {
-                this.$el.scrollIntoViewIfNeeded();
+                // element.scrollIntoViewIfNeeded is not supported by Firefox (84)
+                if (this.$el.scrollIntoViewIfNeeded) {
+                    this.$el.scrollIntoViewIfNeeded();
+                } else {
+                    this.$el.scrollIntoView({block: 'nearest'});
+                }
             }
         }
     },
