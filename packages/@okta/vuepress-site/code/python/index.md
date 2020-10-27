@@ -27,6 +27,17 @@ meta:
 	</li>
 </ul>
 
+## Okta Management SDK for Python
+
+The Okta Python SDK can be used in your server-side code to create and update users, groups, and more.
+
+```bash
+pip install okta
+```
+<a href='https://github.com/okta/okta-sdk-python'>
+	<span class='fa fa-github'></span> <span>Okta Python SDK GitHub Project</span>
+</a>
+
 ## Recommended Guides
 
 
