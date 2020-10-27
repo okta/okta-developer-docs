@@ -1,5 +1,6 @@
 $border-color: #b7bcc0;
-$gray-100: #e4e5e7;
+$text-color: #5c6971;
+$gray-000: #fafafa;
 $small-spacing: 0.75rem;
 
 .stack-selector {
@@ -47,11 +48,6 @@ $small-spacing: 0.75rem;
       background: transparent;
     }
 
-    .vs--single.vs--open {
-      .vs__selected{
-        position: relative;
-      }
-    }
     .vs__dropdown-toggle{
       min-height: 45px;
       padding: 0.5rem;

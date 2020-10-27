@@ -106,7 +106,7 @@
       if(this.hasFocus && this.offsetFromViewport ) { 
         this.$nextTick(() => { // postponed to allow child components to rerender
           window.scroll(0, this.$el.offsetTop - this.offsetFromViewport );
-          this.amClicked = false;
+          this.hasFocus = false;
         });
       }
     },
