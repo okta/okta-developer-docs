@@ -3304,9 +3304,6 @@ curl -v -X POST \
 ##### Response example
 
 ```json
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/idps/credentials/keys/74bb2164-e0c8-4457-862b-7c29ba6cd2c9
 {
   "kid": "your-key-id",
   "created": "2016-01-03T18:15:47.000Z",
@@ -3546,9 +3543,6 @@ curl -v -X POST \
 ##### Response example
 
 ```json
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/keys/akm5hvbbevE341ovl0h7
 {
   "created": "2015-12-10T18:56:23.000Z",
   "expiresAt": "2017-12-10T18:56:22.000Z",
@@ -3565,8 +3559,6 @@ Location: https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials
 > **Note:** If `validityYears` is out of range (2 - 10 years), you receive an error response.
 
 ```json
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: generateKey",
@@ -3713,9 +3705,6 @@ curl -v -X POST \
 ##### Response example
 
 ```json
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/idps/0oal21k0DVN7DhS3R0g3/credentials/keys/SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4
 {
   "created": "2015-12-10T18:56:23.000Z",
   "expiresAt": "2017-12-10T18:56:22.000Z",
@@ -3732,8 +3721,6 @@ Location: https://${yourOktaDomain}/api/v1/idps/0oal21k0DVN7DhS3R0g3/credentials
 > **Note:** If the key is already present in the list of Key Credentials for the target IdP, you receive a 400 error response.
 
 ```json
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: cloneKey",
@@ -3828,9 +3815,6 @@ MIIC4DCCAcgCAQAwcTELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNh
 Return a [CSR object](#identity-provider-csr-object):
 
 ```json
-HTTP/1.1 201 Created
-Location: https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50
-Content-Type: application/json
 {
   "id": "h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
   "created": "2017-03-28T01:11:10.000Z",
@@ -3920,9 +3904,6 @@ curl -v -X POST \
 ##### Response example
 
 ```json
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/idps/0oal21k0DVN7DhS3R0g3/credentials/keys/ZC5C-1gEUwVxiYI8xdmYYDI3Noc4zI24fLNxBpZVR04
 {
     "created": "2017-03-27T21:19:57.000Z",
     "lastUpdated": "2017-03-27T21:19:57.000Z",
@@ -3942,8 +3923,6 @@ Location: https://${yourOktaDomain}/api/v1/idps/0oal21k0DVN7DhS3R0g3/credentials
 > **Note:** If the validity period of the certificate is less than 90 days, a 400 error response is returned.
 
 ```json
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: certificate",
@@ -4322,8 +4301,6 @@ curl -v -X GET \
 > **Note:** If the user doesn't exist, you receive an error response.
 
 ```json
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
 {
   "errorCode": "E0000007",
   "errorSummary": "Not found: Resource not found: 00ub0oNGTSWTBKOLGLNR (User)",
@@ -4400,13 +4377,10 @@ curl -v -X GET \
 
 > **Note:** If the IdP doesn't exist, you receive an error response.
 
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
+```json
 {
   "errorCode": "E0000007",
-  "errorSummary": Not found: Resource not found: 0oa62bfdiumsUndnZ0h8 (IdpAppInstance)",
+  "errorSummary": "Not found: Resource not found: 0oa62bfdiumsUndnZ0h8 (IdpAppInstance)",
   "errorLink": "E0000007",
   "errorId": "oaeYW9k9yJuSSSkhaMQdA1-Zg",
   "errorCauses": []
@@ -4475,10 +4449,7 @@ curl -v -X POST \
 
 > **Note:** If either the User or the IdP doesn't exist, you receive an error response.
 
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
+```json
 {
   "errorCode": "E0000007",
   "errorSummary": "Not found: Resource not found: 00ub0oNGTSWTBKOLGLNR (User)",

@@ -1,3 +1,0 @@
-# Non-public (Beta, EAP, etc) docs
-User-agent: *
-Disallow: /docs/reference/api/oie-policy-types/
