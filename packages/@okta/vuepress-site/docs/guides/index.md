@@ -28,7 +28,7 @@ guides:
  - implement-password
  - mfa
  - migrate-to-okta
- - oin-oidc-*guide*
+ - oin-oidc-guide
  - build-provisioning-integration
  - build-sso-integration
  - sms-customization
