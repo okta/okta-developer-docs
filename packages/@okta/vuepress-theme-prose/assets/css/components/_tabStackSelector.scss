@@ -9,109 +9,12 @@ $small-spacing: 0.75rem;
 $base-spacing: 1.5rem;
 
 .stack-selector {
-  border: 1px solid $border-color;
-  border-radius: 3px;
+
+    position: relative;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    overflow: hidden;
   
-  
-
-  .selector-control {
-    display: flex;
-    padding: $small-spacing;
-    background: $gray-000;
-    border-bottom: 1px solid $border-color;
-
-    .framework {
-      padding-left: 10px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-
-    nav {
-      flex: 1;
-      background-color: white;
-    }
-
-    .instructions-label {
-      flex: 0;
-      padding: 0.5rem 0.5rem 0.5rem 0;
-      font-weight: bold;
-      white-space: nowrap;
-    }
-    .icon {
-      width: 24px;
-      height: 24px;
-      &:before,
-      &:after {
-        font-size: 24px;
-        line-height: 24px;
-      }
-    }
-  
-    .dropdown-item {
-      display: flex;
-      position: relative;
-      top: 1px;
-      width: 100%;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-decoration: none;
-      color: $text-color;
-      background: transparent;
-    }
-
-    .vs--single.vs--open {
-      .vs__selected{
-        position: relative;
-      }
-    }
-    .vs__dropdown-toggle{
-      min-height: 45px;
-      padding: 0.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: nowrap;
-      .vs__selected-options{
-        flex-basis: auto;
-        padding: 0;
-        padding-left: 0.5rem;
-        max-width: 95%;
-        .vs__selected{
-          margin: 0;
-          padding: 0;
-        }
-      }
-    }
-
-    .vs__dropdown-menu {
-      overflow-x: hidden;
-      border-top-style: initial;
-      
-      .vs__dropdown-option {
-        padding: 0.7rem 1rem;
-        border-bottom: 1px solid cv('gray', '100');
-        width: 100%;
-
-        .dropdown-item{
-          width: 100%;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
-        &:last-child {
-          border-bottom: none;
-        }
-  
-        &--highlight {
-          background: inherit;
-          color: inherit;
-          border: 1px solid cv('action');
-          box-sizing: border-box;
-        }
-      }
-    }
-  }
-
     nav.tabs ul {
       background: $gray-000;
       display: flex; /*fallback*/

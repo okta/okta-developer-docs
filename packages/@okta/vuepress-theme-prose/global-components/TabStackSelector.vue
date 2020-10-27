@@ -1,25 +1,12 @@
 <template>
   <div class="stack-selector" v-if="options.length">
-    <div class="selector-control">
-      <span class="instructions-label">
-        Instructions for
-      </span>
-
-      <nav class="select-dropdown">
-        <v-select :options="options" v-model="selectedOption" :searchable="true" :multiple="false" :clearable="false" v-on:input="inputChanged">
-          <template #selected-option="{title, css}">
-            <i :class="css"></i><span class="framework">{{title}}</span>
-          </template>
-          <template #option="{title, link, css}">
-            <div class="dropdown-item" :key="link">
-
-              <i :class="css"></i><span class="framework">{{title}}</span>
-
-            </div>
-          </template>
-      </v-select>
-      </nav>
-    </div>
+    <nav class="tabs">
+      <ul>
+        <li v-for="opt in options" :class="{ current: opt.framework === framework }" :key="opt.link" >
+          <router-link :to="opt.link"><i :class="opt.css"></i><span class="framework">{{opt.title}}</span></router-link>
+        </li>
+      </ul>
+    </nav>
     <aside class="stack-content">
       <Content v-if="snippetComponentKey" :pageKey="snippetComponentKey" />
     </aside>
@@ -37,7 +24,6 @@
     data() { 
       return { 
         offsetFromViewport: null,
-        amClicked: false,
       };
     },
     methods: { 
@@ -46,13 +32,6 @@
         // thus we need to save this from before they swap tabs within the StackSelector
         this.offsetFromViewport = this.$el.getBoundingClientRect().top;
       },
-      inputChanged: function(value) {
-        if (value && value.link) {
-          this.amClicked = true;
-          
-          this.$router.push(value.link);
-        }
-      }
     },
     created () {
       if(typeof window !== "undefined") { 
@@ -75,9 +54,7 @@
       sectionName() {
         return guideFromPath( this.$route.path ).sectionName;
       },
-      guide() {
-         return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName];
-      },
+      guide() { return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName]; },
       section() { 
         return this.guide.sectionByName[this.sectionName];
       },
@@ -91,23 +68,14 @@
         const option = this.options.find( option => option.framework === this.framework );
         return (option ? option.componentKey : '');
       },
-      selectedOption: {
-          get: function() {
-            return this.options.find(option => option.framework === this.framework)
-          },
-          set: function (selectedOption) {
-            // no-op for silencing computed property assignemnt(by vue-select) warning
-          }
-      }
     },
     updated() { 
       // If we are the Stack Selector that was focused (clicked on), 
       // scroll that we stay in the same position relative to the viewport
-      const isActive = this.$el.querySelector('.router-link-active') === document.activeElement;
-      if( this.amClicked && this.offsetFromViewport ) { 
+      const isActive = Array.from(this.$el.querySelectorAll('.tabs a')).includes(document.activeElement);
+      if( isActive && this.offsetFromViewport ) { 
         this.$nextTick(() => { // postponed to allow child components to rerender
           window.scroll(0, this.$el.offsetTop - this.offsetFromViewport );
-          this.amClicked = false;
         });
       }
     },
