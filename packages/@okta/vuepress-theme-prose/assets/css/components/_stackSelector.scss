@@ -11,6 +11,9 @@ $small-spacing: 0.75rem;
     padding: $small-spacing;
     background: $gray-000;
     border-bottom: 1px solid $border-color;
+    @include media('<tablet') {
+      flex-direction: column;
+    }
     .framework {
       padding-left: 10px;
       overflow: hidden;
@@ -70,6 +73,8 @@ $small-spacing: 0.75rem;
     .vs__dropdown-menu {
       overflow-x: hidden;
       border-top-style: initial;
+      z-index: 50;
+      
       
       .vs__dropdown-option {
         padding: 0.7rem 1rem;
