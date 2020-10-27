@@ -36,6 +36,18 @@ export default {
         this.addStatesToLink(nav);
         return nav;
       });
+    },
+    isTreeNavMobileOpen(){
+      return this.appContext.isTreeNavMobileOpen
+    }
+  },
+  watch: {
+    isTreeNavMobileOpen(isOpen) {
+      if (isOpen) {
+        this.$el.querySelector('a.router-link-active').scrollIntoView({
+          block: 'center'
+        });
+      }
     }
   },
   methods: {
