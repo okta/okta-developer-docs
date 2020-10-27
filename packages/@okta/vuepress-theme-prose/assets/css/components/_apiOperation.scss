@@ -6,6 +6,7 @@
   background: cv('gray', '000');
   display: flex;
   align-items: center;
+  width: fit-content;
   @include media('<tablet') {
     width: auto;
     overflow-x: scroll;
