@@ -1,5 +1,5 @@
 <template>
-  <aside class="landing-navigation" :class="{active: appContext.isTreeNavMobileOpen}">
+  <aside class="landing-navigation">
     <ul class="landing">
       <SidebarItem v-for="link in navigation" :key="link.title" :link="link" />
     </ul>

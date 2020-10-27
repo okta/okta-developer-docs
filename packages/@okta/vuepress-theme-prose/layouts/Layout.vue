@@ -10,11 +10,11 @@
         <component :is="$page.frontmatter.component" />
       </div>
       <div class="content" v-else>
-        <div class="content--container">
+        <div :class="{'content--container': true, 'navigation-only': appContext.isTreeNavMobileOpen}">
           <div class="tree-nav">
             <Sidebar />
           </div>
-          <div class="content-area" v-show="!appContext.isTreeNavMobileOpen">
+          <div class="content-area">
             <PageTitle />
             <MobileOnThisPage />
             <ContentPage />
