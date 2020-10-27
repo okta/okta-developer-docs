@@ -18,6 +18,18 @@
             <PageTitle />
             <MobileOnThisPage />
             <ContentPage />
+            <div class="edit-on-github">
+              <span class='fa fa-github'></span>
+              <span>
+                <a v-if=editLink
+                   id="edit-link"
+                   :href="editLink"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   data-proofer-ignore
+                >{{ editLinkText }}</a>
+              </span>
+            </div>
           </div>
           <div class="on-this-page">
             <OnThisPage />
@@ -36,7 +48,7 @@
 export const LAYOUT_CONSTANTS = {
   HEADER_TO_CONTENT_GAP: 45, //px
 };
-
+export const endingSlashRE = /\/$/
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
@@ -69,6 +81,30 @@ export default {
       this.redirIfRequired();
     }
   },
+  computed: {
+    editLink () {
+      if (this.$page.frontmatter.editLink === false) {
+        return
+      }
+      const {
+        repo,
+        editLinks,
+        docsDir = '',
+        docsBranch = 'master',
+        docsRepo = repo
+      } = this.$site.themeConfig.editLink
+      if (docsRepo && editLinks && this.$page.relativePath) {
+        console.log('page: ', this.$page)
+        return this.createEditLink(repo, docsRepo, docsDir, docsBranch, this.$page.relativePath)
+      }
+    },
+    editLinkText () {
+      return (
+        this.$site.themeConfig.editLink.editLinkText
+        || `Edit this page`
+      )
+    }
+  },
   methods: {
     redirIfRequired() {
       if(this.$page && this.$page.redir) {
@@ -79,6 +115,16 @@ export default {
           this.$router.replace({ path: `${this.$page.redir}` });
         }
       }
+    },
+    createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
+      return (
+        `https://github.com/${docsRepo}`
+        + `/edit`
+        + `/${docsBranch}/`
+        + (docsDir ? docsDir.replace(endingSlashRE, '') : '')
+        + '/'
+        + path
+      )
     }
   }
 }
