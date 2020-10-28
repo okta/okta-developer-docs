@@ -37,18 +37,6 @@ export default {
         return nav;
       });
     },
-    isTreeNavMobileOpen(){
-      return this.appContext.isTreeNavMobileOpen
-    }
-  },
-  watch: {
-    isTreeNavMobileOpen(isOpen) {
-      if (isOpen) {
-        this.$el.querySelector('a.router-link-active').scrollIntoView({
-          block: 'center'
-        });
-      }
-    }
   },
   methods: {
     toggleSubNav: function(event) {
