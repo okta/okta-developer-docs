@@ -18,6 +18,7 @@ $small-spacing: 0.75rem;
       padding-left: 10px;
       overflow: hidden;
       text-overflow: ellipsis;
+      line-height: 24px;
     }
     nav {
       flex: 1;
@@ -34,7 +35,6 @@ $small-spacing: 0.75rem;
       height: 24px;
       &:before,
       &:after {
-        font-size: 24px;
         line-height: 24px;
       }
     }

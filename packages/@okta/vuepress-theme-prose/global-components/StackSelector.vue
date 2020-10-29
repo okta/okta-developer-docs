@@ -49,7 +49,6 @@
       inputChanged: function(value) {
         if (value && value.link) {
           this.hasFocus = true;
-          
           this.$router.push(value.link);
         }
       }

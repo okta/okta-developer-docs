@@ -69,7 +69,17 @@ const COMMON_NAME_TO_ICON_NAME = {
   php: 'code-php-32'
 };
 
+const IDP_COMMON_NAME_TO_ICON_NAME = {
+  apple: 'apple-16',
+  microsoft: 'microsoft-16',
+  facebook: 'facebook-16',
+  linkedin: 'linkedin-16',
+  google: 'google-16',
+  oktatookta: 'oktatookta-16',
+
+}
+
 export const commonify = framework => FRAMEWORK_TO_COMMON_NAME[framework] || framework.toLowerCase();
 export const fancify = framework => COMMON_NAME_TO_FANCY_NAME[framework] || framework.toUpperCase();
-export const iconify = framework => COMMON_NAME_TO_ICON_NAME[framework] || framework;
+export const iconify = framework => COMMON_NAME_TO_ICON_NAME[framework] || IDP_COMMON_NAME_TO_ICON_NAME[framework] || framework;
 export const cssForIcon = framework => `icon ${iconify(framework)}`;
