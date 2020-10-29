@@ -2,6 +2,10 @@
 title: OIN Integration best practices
 ---
 
+## Software Development Kits
+
+Due to the OIN restrictions of using an org authorization server and the authorization code flow, the SDKs provided by Okta should not be used for app integration development, since they cannot validate the access tokens.
+
 ## Logos
 
 A clear and well designed logo helps customers find your app integration in the OIN and ensures that your brand is well represented. When you create your app submission in the OIN manager, be sure to upload a graphic that your customers will instantly recognize.
