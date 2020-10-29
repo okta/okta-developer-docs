@@ -8,11 +8,12 @@ To set up and activate the Registration Inline Hook:
 
 1. Navigate to the **Workflow** > **Inline Hooks** page.
 2. Click **Add Inline Hook** and select **Registration Hook** from the drop-down menu.
-3. Add a name for the hook and your external service URL, including the endpoint (in this example, `registrationHook`).
-4. Include authorization field and secret.
-5. Click **Save**.
+3. Add a name for the hook and your external service URL, including the endpoint (in this example, `https://aged-garrulous-mango.glitch.me/registrationHook`).
+4. Include authorization field and secret. In this example:
 
-![Registration Inline Hook set up window](/img/registration-inline-hook-setup.png "Registration Inline Hook set up window")
+    * Authentication Field = 'authorization'
+    * Authorization Secret = 'Basic YWRtaW46c3VwZXJzZWNyZXQ='
+5. Click **Save**.
 
 > **Note:** You can also setup an inline hook using an API. See [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hook-setup) for further information.
 
@@ -27,7 +28,7 @@ To enable the Registration Inline Hook on the self-service registration page:
 
 The registation inline hook is now enabled for self-service registration. For a high-level overview of enabling the Registration Inline hook, see [Registration Inline Hook Reference](/docs/reference/registration-hook/).
 
-You are now ready to test the Registration Inline hook.
+You are now ready to preview and test the Registration Inline hook.
 
 <NextSectionLink/>
 

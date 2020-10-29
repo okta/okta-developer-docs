@@ -2,22 +2,23 @@
 title: Overview
 ---
 
-This guide provides example code for an external service to respond to calls from a Registration Inline hook. An external service is the customer-provided software that Okta calls when the Registration Inline hook fires.
+This guide provides example code for an external service to respond to calls from a Registration Inline hook.
 
 In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the end user's email domain is valid and allowed to register.
 
-This guide uses the website Glitch.me to act as an external service and to implement the Registration Inline hook with an Okta org. However, you can implement this code with your own web server if it is provisioned with HTTPS and with a certificate from a trusted authority.
+At a high-level, the following workflow occurs:
 
->**Note:** Okta will not call a non-HTTPS external service endpoint. You must implement HTTPS in order to use Inline Hooks.
+- A user attempts to self-register for your Okta org.
+- A Registration Inline hook fires during this process and sends a call to the exernal service with the user's data.
+- The external service evaluates the Okta call to make sure the user is from domain "yourDomain.com".
+- The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
-For further background on Inline Hooks and the Registration Inline Hook, see:
+This guide uses the website Glitch.me to act as an external service and to implement the Registration Inline hook with an Okta org. See the following Glitch project to copy a working code example that implements the Registration Inline hook or build your own using the code snippets:
+
+* [Okta-Registration-Inline-Hook-Example](https://resonant-rocky-slouch.glitch.me/)
+
+For further background on the Registration Inline Hook, see:
 
 * [Registration Inline Hook](/docs/reference/registration-hook/) for a complete description of this Inline Hook type.
-
-* [Inline Hooks](/docs/concepts/inline-hooks/) for a general conceptual overview of how Okta Inline Hooks work.
-
-## Support
-
-If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>
