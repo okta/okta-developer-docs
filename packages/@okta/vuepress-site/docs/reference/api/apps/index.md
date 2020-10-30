@@ -5865,7 +5865,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
 
 ### Profile object
 
-Profile object is a container for any valid JSON schema that can be referenced from a request. For example, add an app manager contact email address or define a whitelist of groups that you can then reference using the [Okta Expression `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
+Profile object is a container for any valid JSON schema that can be referenced from a request. For example, add an app manager contact email address or define an allow list of groups that you can then reference using the [Okta Expression `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
 
 Profile Requirements
 

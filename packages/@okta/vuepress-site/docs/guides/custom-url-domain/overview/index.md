@@ -2,7 +2,7 @@
 title: Before you begin
 ---
 
-You can customize your Okta organization by replacing the Okta domain name with your own domain name. This allows you to create a seamless and white-labeled experience for your users so that all URLs look like your application.
+You can customize your Okta organization by replacing the Okta domain name with your own domain name. This allows you to create a seamless and branded experience for your users so that all URLs look like your application.
 
 Okta organizations host pages on subdomains such as `example.okta.com`. Using this feature aliases your Okta organization's domain name to another subdomain that you own, like `login.example.com`.
 
