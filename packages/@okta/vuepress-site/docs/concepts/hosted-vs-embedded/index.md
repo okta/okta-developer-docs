@@ -24,7 +24,7 @@ The Customer-hosted widget is considered the best balance of flexibility and eff
 * Complex logic changes that require source code access are limited.
 * The user is redirected out of the application, to Okta, and then back.
 
-## What About Customer Hosted
+## What about Customer-hosted
 
 * Moderate maintenance may be required. If using CDN, maintenance is more limited as it is being kept up to date by Okta. NPM will package a specific version of the widget which means it may need to be updated in the project periodically. Customized or local versions of the widget source code would require regular updating.
 * Still considered very secure if implemented using recommended best practice.
