@@ -178,6 +178,7 @@ Enumerates Groups in your organization with pagination. A subset of Groups can b
 | filter    | [Filter expression](/docs/reference/api-overview/#filtering) for Groups      | Query     | String   | FALSE    |         |
 | limit     | Specifies the number of Group results in a page                                            | Query     | Number   | FALSE    | 10000   |
 | q         | Finds a group that matches the `name` property                                               | Query     | String   | FALSE    |         |
+| expand        | If specified, it causes additional metadata to be included in the response. Possible values are `stats` and/or `app`.                                             | Query     | String   | FALSE    |         |
 | search <ApiLifecycle access="ea" /> | Searches for groups with a supported [filtering](/docs/reference/api-overview/#filtering) expression for all [attributes](#group-attributes) except for `_embedded`, `_links`, and `objectClass`  | Query     | String   | FALSE    |         |
 
 > **Notes:** The `after` cursor should be treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).<br><br>
