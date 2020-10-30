@@ -20,7 +20,7 @@ The Customer-hosted widget is considered the best balance of flexibility and eff
 * Hosted and secured by Okta.
 * No [XSS](https://developer.okta.com/books/api-security/sanitizing/common-attacks/#xss-cross-site-scripting), cross site scripting, attacks.
 * Easy to integrate.
-* Extremely customizable via HTML, CSS, and JavaScript
+* Extremely customizable through HTML, CSS, and JavaScript
 * Complex logic changes that require source code access are limited.
 * The user is redirected out of the application, to Okta, and then back.
 
