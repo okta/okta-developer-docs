@@ -6,7 +6,7 @@ title: Okta Hosted Vs. Customer Hosted
 
 Okta offers multiple integration options when designing an authentication experience. The two most recommended concepts are using the Okta-hosted widget and the Customer-hosted widget. Both of these Okta-built experiences provide easy implementation and maintenance, industry best practice, user self service, and built-in user registration. The difference between the two concepts is where the widget itself is hosted.
 
-## Okta Hosted Widget
+## Okta-hosted widget
 
 The Okta-hosted widget is considered the easiest and most secure means of integration. This is because the widget itself is hosted by Okta, maintained by Okta, and kept secure by Okta. The Okta-hosted widget is recommended for most integrations. The OpenID Connect redirect flow is used to redirect users to Okta, where the user authenticates and is redirected back to a specified, allow listed, redirect URI. This design is considered security best practice. The look and feel, as well as the enabled features, are all configured within the Okta Admin Console. HTML customization of the page is accessible in the Admin Console, which provides a moderate level of customization to the experience itself.
 
