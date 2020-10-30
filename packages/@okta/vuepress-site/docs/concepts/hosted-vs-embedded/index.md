@@ -30,7 +30,7 @@ The Customer-hosted widget is considered the best balance of flexibility and eff
 * Still considered very secure if implemented using recommended best practice.
 * A great level of source code customization control while being drastically easier, and more secure, than building from scratch.
 * Slightly increased risk in security due to Okta not being able to guarantee that the widget has been implemented correctly. Specifically, the application code may have the ability to access the credentials that the user has entered into the widget, which need to be kept secure. This is not a risk if implemented correctly.
-* Potentially susceptible to XSS, cross site scripting, attacks.
+* Potentially susceptible to XSS (cross-site scripting) attacks.
 * Higher level of effort to integrate and maintain compared to the Okta hosted widget.
 * Keeps the user in the application, reducing redirects to and from Okta.
 
