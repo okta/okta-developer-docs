@@ -1,6 +1,6 @@
 module.exports = [
 
-  { title: 'Languages & SDKs', path: '/code/' },
+  { title: 'Languages & SDKs', path: '/code/overview/' },
   {
     title: "Mobile",
     subLinks: [
@@ -18,7 +18,7 @@ module.exports = [
         [
           {
             title: 'Add User Authentication to Your Angular App',
-            path: '/code/angular/',
+            path: '/code/angular/overview/',
           },
           {
             title: 'Okta Sign-In Widget and Angular',
@@ -36,7 +36,7 @@ module.exports = [
         [
           {
             title: 'Add User Authentication to Your JavaScript App',
-            path: '/code/javascript/',
+            path: '/code/javascript/overview/',
           },
           {
             title: 'Okta Sign-In Widget Guide',
@@ -54,7 +54,7 @@ module.exports = [
         [
           {
             title: 'Add User Authentication to Your React App',
-            path: '/code/react/',
+            path: '/code/react/overview/',
           },
           {
             title: 'Okta Sign-In Widget and React',
@@ -71,7 +71,7 @@ module.exports = [
         subLinks: [
           {
             title: 'Add User Authentication to Your Vue App',
-            path: '/code/vue/',
+            path: '/code/vue/overview/',
           },
           {
             title: 'Okta Sign-In Widget and Vue',

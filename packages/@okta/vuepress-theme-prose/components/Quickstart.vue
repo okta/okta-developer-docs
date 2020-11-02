@@ -74,7 +74,7 @@
 
     beforeMount: function () {
       if(!window.location.hash) {
-        window.location.replace("/docs/guides/")
+        window.location.replace("/docs/guides/overview/")
         return
       }
 

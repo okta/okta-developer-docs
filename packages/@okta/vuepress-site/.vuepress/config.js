@@ -66,9 +66,9 @@ module.exports = {
       { text: 'Docs', link: '/docs/', active: true,
         children: [
           { text: 'Get Started', link: '/docs/' },
-          { text: 'Concepts', link: '/docs/concepts/' },
-          { text: 'Guides', link: '/docs/guides/' },
-          { text: 'Reference', link: '/docs/reference/' }
+          { text: 'Concepts', link: '/docs/concepts/overview/' },
+          { text: 'Guides', link: '/docs/guides/overview/' },
+          { text: 'Reference', link: '/docs/reference/overview/' }
         ]
       },
       { text: 'Use Cases', link: '/product/',

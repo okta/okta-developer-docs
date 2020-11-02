@@ -17,19 +17,19 @@ languages:
       link: /code/android/
       icon: code-android-32
     - name: angular
-      link: /code/angular/
+      link: /code/angular/overview/
       icon: code-angular-32
     - name: react
-      link: /code/react/
+      link: /code/react/overview/
       icon: code-react-32
     - name: ios
       link: /code/ios/
       icon: code-ios-32
     - name: javascript
-      link: /code/javascript/
+      link: /code/javascript/overview/
       icon: code-javascript-32
     - name: vue.js
-      link: /code/vue/
+      link: /code/vue/overview/
       icon: code-vue-32
     - name: Go
       link: /code/go/
@@ -55,7 +55,7 @@ languages:
 
 sections:
   - title: Concepts
-    link: /docs/concepts/
+    link: /docs/concepts/overview/
     description: Understand the basics of Okta's APIs and architecture.
     links:
       - title: Okta-hosted flows
@@ -65,7 +65,7 @@ sections:
       - title: Authentication overview
         link: /docs/concepts/authentication/
       - title: More...
-        link: /docs/concepts/
+        link: /docs/concepts/overview/
 
   - title: Guides
     link: /docs/guides/
@@ -81,7 +81,7 @@ sections:
         link: /docs/guides/
 
   - title: Reference
-    link: /docs/reference/
+    link: /docs/reference/overview/
     description: Details on parameters, requests, and responses for Okta's API endpoints.
     links:
       - title: API Overview
@@ -91,7 +91,7 @@ sections:
       - title: Users API
         link: /docs/reference/api/users/
       - title: More...
-        link:  /docs/reference/
+        link:  /docs/reference/overview/
 
 changelog_title: API Products Release Notes
 

@@ -36,10 +36,7 @@ export default {
   },
   computed: {
     navigation() {
-      return (this.getNavigation() || []).map(nav => {
-        this.addStatesToLink(nav);
-        return nav;
-      });
+      return this.getNavigation() || []
     }
   },
   methods: {
@@ -59,19 +56,6 @@ export default {
 
       document.querySelector(".landing-navigation").style.height =
         maxHeight + "px";
-    },
-    addStatesToLink(link) {
-      if (link.path) {
-        // Add state to leaf link
-        link.imActive = link.path === this.$page.regularPath;
-      }
-      if (link.subLinks) {
-        for (const subLink of link.subLinks) {
-          // Compute state to section link
-          link.imActive = link.imActive || this.addStatesToLink(subLink);
-        }
-      }
-      return link.imActive;
     },
     getNavigation() {
       if (this.$page.path.includes("/code/")) {

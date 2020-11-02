@@ -1714,7 +1714,7 @@ redirects:
   - from: /docs/sdk/opp/javadoc/index.html
     to: /okta-sdk-java/
   - from: /code/react/okta_react.html
-    to: /code/react/okta_react/
+    to: /code/react/okta_react/overview/
   - from: /code/javascript/okta_auth_sdk.html
     to: /code/javascript/okta_auth_sdk/
   - from: /code/javascript/okta_sign-in_widget.html

@@ -1,7 +1,7 @@
 // the navigation that is shown across the guides pages
 
 module.exports = [
-  { title: 'Guides', path: '/docs/guides/' },
+  { title: 'Guides', path: "/docs/guides/overview/"},
   {
     title: 'Basics',
     subLinks: [

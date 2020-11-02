@@ -3,7 +3,7 @@
 module.exports = [
     {
         title: "Concepts",
-        path: "/docs/concepts/"
+        path: "/docs/concepts/overview/"
     },
     { 
         title: 'API Access Management', 
@@ -74,7 +74,7 @@ module.exports = [
         subLinks: [
           {
             title: 'SAML Overview',
-            path: '/docs/concepts/saml/',
+            path: '/docs/concepts/saml/overview/',
           },
           {
             title: 'SAML FAQ',
@@ -87,7 +87,7 @@ module.exports = [
         subLinks: [
         {
           title: 'SCIM Overview' ,
-          path:'/docs/concepts/scim/'
+          path:'/docs/concepts/scim/overview/'
         },
         {
           title: 'SCIM FAQ' ,
