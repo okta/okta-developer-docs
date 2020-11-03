@@ -38,4 +38,4 @@ The customer hosted widget is considered the best balance of flexibility and eff
 
 Continue reading about the Okta hosted widget in the [Sign Users In](/docs/guides/sign-into-spa/angular/before-you-begin/) guide.
 
-Continue reading about the customer hosted experience in the [Okta Sign-In Widget](/docs/concepts/okta-embedded-flows/) guide.
+Continue reading about the customer hosted experience in the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) guide.
