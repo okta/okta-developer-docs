@@ -2,7 +2,7 @@
 title: Use the Client Credentials Flow
 ---
 
-Your Client Application will need to have its client ID and secret stored in a secure manner. You can find the client ID and secret in your application's General tab. These are then passed via Basic Auth in the request to your Okta Authorization Server's `/token` endpoint:
+Your Client Application needs to have its client ID and secret stored in a secure manner. You can find the client ID and secret on your application's **General** tab. These are then passed through Basic Auth in the request to your [Okta Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint:
 
 ```
 curl --request POST \

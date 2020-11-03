@@ -65,7 +65,7 @@ The full URL to the `/authorize` endpoint looks like this:
 
 `https://${yourOktaDomain}/oauth2/default/v1/authorize`
 
-See [Create an Authorization Server](/docs/guides/customize-authz-server/) for information on how to create an authorization server.
+See [Authorization Servers](/docs/concepts/auth-servers/) for an overview of Authorization Servers and what you can do with them. See [Create an Authorization Server](/docs/guides/customize-authz-server/) for information on how to create an Authorization Server.
 
 ### /authorize
 
@@ -75,7 +75,7 @@ See [Create an Authorization Server](/docs/guides/customize-authz-server/) for i
 
 This is a starting point for browser-based OpenID Connect flows such as the implicit and authorization code flows. This request authenticates the user and returns tokens along with an authorization grant to the client application as a part of the callback response.
 
->  **Note:** When making requests to the `/authorize` endpoint, the browser (user agent) should be redirected to the endpoint. You can't use AJAX with this endpoint.
+> **Note:** When making requests to the `/authorize` endpoint, the browser (user agent) should be redirected to the endpoint. You can't use AJAX with this endpoint.
 
 #### Request Parameters
 

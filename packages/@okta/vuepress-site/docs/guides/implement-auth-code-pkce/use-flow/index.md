@@ -2,7 +2,7 @@
 title: Use the Authorization Code Flow with PKCE
 ---
 
-Just like with the regular authorization code flow, your app starts by redirecting the user's browser to your authorization server's `/authorize` endpoint. However, in this instance you will also have to pass along a code challenge.
+Just like with the regular authorization code flow, your app starts by redirecting the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. However, in this instance you also have to pass along a code challenge.
 
 Your first step is to generate a code verifier and challenge:
 

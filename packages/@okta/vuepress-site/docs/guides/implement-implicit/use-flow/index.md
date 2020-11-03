@@ -4,7 +4,7 @@ title: Use the Implicit Flow
 
 Kicking off this flow is very similar to the [authorization code flow](/docs/guides/implement-auth-code/) except that the `response_type` is `token` and/or `id_token` instead of `code`.
 
-Your application redirects the user's browser to your authorization server's `/authorize` endpoint. If you are using the default Okta authorization server, then your request URL would look something like this:
+Your application redirects the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the default Okta authorization server, then your request URL would look something like this:
 
 ```
 https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabv6kx4qq6

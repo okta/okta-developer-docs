@@ -2,7 +2,7 @@
 title: Exchange the Code for Tokens
 ---
 
-To exchange this code for access and ID tokens, you pass it to your authorization server's `/token` endpoint along with the `code_verifier` that was generated at the beginning:
+To exchange this code for access and ID tokens, you pass it to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint along with the `code_verifier` that was generated at the beginning:
 
 ```
 curl --request POST \
@@ -15,7 +15,7 @@ curl --request POST \
   3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
 
-> Important: Unlike the regular [Authorization Code Flow](/docs/guides/implement-auth-code/), this call does not require the Authorization header with the client ID and secret. This is why this version of the Authorization Code flow is appropriate for native apps.
+> **Important:** Unlike the regular [Authorization Code Flow](/docs/guides/implement-auth-code/), this call doesn't require the Authorization header with the client ID and secret. This is why this version of the Authorization Code flow is appropriate for native apps.
 
 Note the parameters that are being passed:
 

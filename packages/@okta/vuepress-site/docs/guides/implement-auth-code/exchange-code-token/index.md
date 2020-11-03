@@ -2,7 +2,7 @@
 title: Exchange the Code for Tokens
 ---
 
-To exchange this code for access and ID tokens, you pass it to your authorization server's `/token` endpoint. If you are using the default Okta authorization server, then your request would look something like this:
+To exchange this code for access and ID tokens, you pass it to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the default Okta authorization server, then your request would look something like this:
 
 ```
 curl --request POST \
@@ -13,7 +13,7 @@ curl --request POST \
   --data 'grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&code=P59yPm1_X1gxtdEOEZjn'
 ```
 
-> Important: The call to the `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the client ID and secret. You can find the client ID and secret in your application's General tab. This requirement is why this call is only appropriate for applications that can guarantee the confidentiality of the client secret. For more on Basic Auth, see [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
+> **Important:** The call to the `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the client ID and secret. You can find the client ID and secret in your application's General tab. This requirement is why this call is only appropriate for applications that can guarantee the confidentiality of the client secret. For more on Basic Auth, see [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
