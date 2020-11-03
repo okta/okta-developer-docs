@@ -892,16 +892,16 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 
 | Property                                 | Description                                                                                             | Type      | Default        | Required for create or update              |
 | :-------------------------------------   | :------------------------------------------------------------------------------------------------------ | :-------- | :------------- | :----------------------------              |
-| consent <ApiLifecycle access="ea" />     | Indicates whether a consent dialog is needed for the Scope. Valid values: `REQUIRED`, `IMPLICIT`       | Enum      | `IMPLICIT`     | True for update if this EA feature is enabled |
+| consent                                  | Indicates whether a consent dialog is needed for the Scope. Valid values: `REQUIRED`, `IMPLICIT`       | Enum      | `IMPLICIT`     | True for update                        |
 | default                                  | Whether the Scope is a default Scope                                                               | Boolean   |                | False                                      |
 | description                              | Description of the Scope                                                                                | String    |                | False                                      |
-| displayName <ApiLifecycle access="ea" /> | Name of the end user displayed in a consent dialog box                                                      | String    |                | False                                      |
+| displayName                              | Name of the end user displayed in a consent dialog box                                                      | String    |                | False                                      |
 | id                                       | ID of the Scope                                                                                         | String    |                | False                                      |
 | metadataPublish                          | Whether the Scope should be included in the metadata. Valid values: `NO_CLIENTS`, `ALL_CLIENTS`  | Enum      | `NO_CLIENTS`   | True except for create                     |
 | name                                     | Name of the Scope                                                                                       | String    |                | True                                       |
 | system                                   | Whether Okta created the Scope                                                                          | Boolean   |                | False                                      |
 
-* <ApiLifecycle access="ea" /> A consent dialog box appears depending on the values of three elements:
+* A consent dialog box appears depending on the values of three elements:
     * `prompt` - a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
     * `consent_method` - a property on [apps](/docs/reference/api/apps/#settings-7)
     * `consent` - a property on Scopes as listed in the table above
@@ -1771,11 +1771,7 @@ See also the [Policy-Rule Conditions object](/docs/reference/api/policy/#conditi
 
 ## Client Resource operations
 
-<ApiLifecycle access="ea" />
-
 ### List Client Resources for an Authorization Server
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/clients" />
 
@@ -2012,8 +2008,6 @@ curl -v -X GET \
 ### Revoke all refresh tokens
 
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/authorizationServers/${authorizationServerId}/clients/${clientId}/tokens" />
 
 Revokes all refresh tokens issued by an Authorization Server for the specified client. Any access tokens issued with these refresh tokens are also revoked, but access tokens issued without a refresh token aren't affected.
@@ -2046,8 +2040,6 @@ HTTP/1.1 204 No Content
 
 ### Revoke refresh token
 
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/authorizationServers/${authServerId}/clients/${clientId}/tokens/${tokenId}" />
 
