@@ -1674,28 +1674,33 @@ h1 {
 }
 
 .microsoft-16::before {
-  content: $microsoft;
-  color: $icon-color-dark;
+  content:'';
+  background-image: url('/img/icons/microsoft-logo-16.png');
 }
 
 .icon.facebook-16::before {
-  content: $facebook;
-  color: $icon-color-dark;
+  content: $facebook-square;
+  color: $icon-color-facebook;
 }
 
-.linkedin-16::before {
-  content: $linkedin;
-  color: $icon-color-dark;
+.icon.linkedin-16::before {
+  content: $linkedin-square;
+  color: $icon-color-linkedin;
 }
 
 .icon.google-16::before {
-  content: $google-logo;
-  color: $icon-color-dark;
+  content:'';
+  background-image: url('/img/icons/google-logo-32.png');
+}
+
+.azure::before {
+  content:'';
+  background-image: url('/img/icons/azure-ad-logo-75.png');
 }
 
 .oktatookta-16::before {
   content: $oktatookta;
-  color: $icon-color-dark;
+  color: $icon-color-okta;
 }
 
 

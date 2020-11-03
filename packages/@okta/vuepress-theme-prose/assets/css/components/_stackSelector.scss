@@ -26,7 +26,7 @@ $small-spacing: 0.75rem;
     }
     .instructions-label {
       flex: 0;
-      padding: 0.5rem 0.5rem 0.5rem 0;
+      padding: 0.65rem 0.5rem 0.5rem 0;
       font-weight: bold;
       white-space: nowrap;
     }
@@ -35,7 +35,15 @@ $small-spacing: 0.75rem;
       height: 24px;
       &:before,
       &:after {
+        width: 24px;
+        height: 24px;
         line-height: 24px;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 16px 16px;
       }
     }
     .dropdown-item {
@@ -44,11 +52,15 @@ $small-spacing: 0.75rem;
       top: 1px;
       width: 100%;
       white-space: nowrap;
-      overflow: hidden;
       text-overflow: ellipsis;
       text-decoration: none;
       color: $text-color;
       background: transparent;
+    }
+
+    .vs__search {
+      margin-top: 0;
+      margin-left: 1.7rem;
     }
 
     .vs__dropdown-toggle{
@@ -66,20 +78,31 @@ $small-spacing: 0.75rem;
         .vs__selected{
           margin: 0;
           padding: 0;
+          border: 0;
         }
       }
+    }
+
+    li:last-child {
+      //border: 1px solid blue;
+      //border-radius: 0 0 4px 4px;
     }
 
     .vs__dropdown-menu {
       overflow-x: hidden;
       border-top-style: initial;
+      padding-bottom: 0px;
       z-index: 50;
       
       
+      
       .vs__dropdown-option {
+        position: relative;
         padding: 0.7rem 1rem;
+        border: 1px solid transparent;
         border-bottom: 1px solid cv('gray', '100');
         width: 100%;
+        overflow: hidden;
 
         .dropdown-item{
           width: 100%;
@@ -87,7 +110,9 @@ $small-spacing: 0.75rem;
           text-overflow: ellipsis;
         }
         &:last-child {
-          border-bottom: none;
+          border-bottom: 1px solid transparent;;
+
+          
         }
   
         &--highlight {
@@ -95,7 +120,16 @@ $small-spacing: 0.75rem;
           color: inherit;
           border: 1px solid cv('action');
           box-sizing: border-box;
+
+          &:last-child {
+            border: 1px solid cv('action');
+            border-radius: 0 0 4px 4px;
+            box-sizing: border-box;
+          }
+
         }
+
+        
       }
     }
   }
