@@ -28,7 +28,7 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 4. Click the **x** to remove all of the scopes except for **openid** and **email**. This limits the scopes that the applications associated with this policy can request to just the `openid` and `email` scopes.
 
-> **Note:** Access policies rules are whitelists. Verify that there are no other rules in the policy that have **any scopes** selected and that all of your rules match only the `openid` and/or the `email` scopes.
+> **Note:** Access policies rules are allow lists. Verify that there are no other rules in the policy that have **any scopes** selected and that all of your rules match only the `openid` and/or the `email` scopes.
 
 5. Leave the other defaults and click **Create Rule**.
 

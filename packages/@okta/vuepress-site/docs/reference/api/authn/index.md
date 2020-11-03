@@ -560,7 +560,7 @@ Authenticates a user via a [trusted application](#trusted-application) or proxy 
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` will be ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for trusted application
 
@@ -616,7 +616,7 @@ Authenticates a user via a [trusted application](#trusted-application) or proxy 
 **Notes:**
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` is ignored.
-* The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for activation token
 
@@ -5867,7 +5867,7 @@ Allows a [trusted application](#trusted-application) such as an external portal 
 
 > **Note:** Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token and should be restricted to trusted web applications. Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
-> **Note:** The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Note:** The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for forgot password with trusted application
 
@@ -6085,7 +6085,7 @@ Allows a [trusted application](#trusted-application) such as an external portal 
 
 * Directly obtaining a `recoveryToken` is a highly privileged operation that requires an administrator API token and should be restricted to [trusted web applications](#trusted-application). Anyone that obtains a `recoveryToken` for a user and knows the answer to a user's recovery question can reset their password or unlock their account.
 
-* The **public IP address** of your [trusted application](#trusted-application) must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Request example for unlock account with SMS Factor (trusted application)
 

@@ -41,14 +41,24 @@
 
       .landing-navigation {
         display: none;
-
-        &.active {
-          display: block;
-        }
       }
     }
-
   }
+
+  &.navigation-only .tree-nav {
+    @include media('<tablet') {
+      flex-basis: auto;
+      margin: 0 1.5rem;
+
+      .landing-navigation {
+        display: block;
+        position: static;
+        border-right: none;
+        padding-top: 3rem;
+      }
+    }
+  }
+
 
   .content-area {
     flex: 1;
@@ -122,6 +132,12 @@
 
     p > code {
       overflow-wrap: break-word;
+    }
+  }
+
+  &.navigation-only .content-area {
+    @include media('<tablet') {
+      display: none;
     }
   }
 
