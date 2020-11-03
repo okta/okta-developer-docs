@@ -35,9 +35,12 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   computed: {
-    navigation() {
-      return this.getNavigation() || []
-    }
+   navigation() {
+      return (this.getNavigation() || []).map(nav => {
+        this.addStatesToLink(nav);
+        return nav;
+      });
+    },
   },
   methods: {
     toggleSubNav: function(event) {
@@ -56,6 +59,19 @@ export default {
 
       document.querySelector(".landing-navigation").style.height =
         maxHeight + "px";
+    },
+     addStatesToLink(link) {
+      if (link.path) {
+        // Add state to leaf link
+        link.iHaveChildrenActive = link.path === this.$page.regularPath;
+      }
+      if (link.subLinks) {
+        for (const subLink of link.subLinks) {
+          // Compute state to section link
+          link.iHaveChildrenActive = link.iHaveChildrenActive || this.addStatesToLink(subLink);
+        }
+      }
+      return link.iHaveChildrenActive;
     },
     getNavigation() {
       if (this.$page.path.includes("/code/")) {
