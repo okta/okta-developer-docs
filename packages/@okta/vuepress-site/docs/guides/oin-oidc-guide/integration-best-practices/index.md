@@ -1,8 +1,8 @@
 ---
-title: OIN Integration best practices
+title: OIN integration best practices
 ---
 
-### Software Development Kits
+### Software development kits
 
 Due to the OIN restrictions of using an org authorization server and the authorization code flow, the SDKs provided by Okta should not be used for app integration development, since they cannot validate the access tokens.
 
@@ -12,7 +12,7 @@ A clear and well-designed logo helps customers find your app integration in the 
 
 The logo file must be smaller than 1 MB in size and be in either PNG, JPG, or GIF file format. For best results, use a PNG image with a transparent background, a landscape orientation, and use a minimum resolution of 420 x 120 pixels to prevent any unsightly upscaling.
 
-### Rate Restrictions
+### Rate restrictions
 
 When constructing your OIDC application, you want to be aware of the limits on calls to the Okta API. For reference on the categories and cumulative rate limits, see [Rate limits overview](/docs/reference/rate-limits/). In order to monitor your calls to the API, Okta provides three headers in each response to report on both concurrent and org-wide rate limits.
 

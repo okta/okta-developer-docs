@@ -74,7 +74,7 @@ There are three URIs that you need to consider when creating an OIDC app for the
   This URI must exactly match the Initiate URI value pre-registered in the Okta app integration settings
 3. Optional &mdash; the **Post Logout Redirect URI** is a location to send the user after a sign off operation is performed and their session is terminated; otherwise the user is redirected back to the Okta sign-in page
 
-### Token Validation
+### Token validation
 
 For checking access tokens, the `/introspect` [endpoint](/docs/reference/api/oidc/#introspect) takes your token as a URL query parameter and returns a simple JSON response with the boolean `active` property.
 
