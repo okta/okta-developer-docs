@@ -4,7 +4,7 @@ title: Okta Hosted Vs. Customer Hosted
 
 ## Okta Hosted Vs. Customer Hosted
 
-Okta offers multiple integration options when designing an authentication experience. The two most recommended concepts are using the Okta-hosted widget and the Customer-hosted widget. Both of these Okta-built experiences provide easy implementation and maintenance, industry best practice, user self service, and built-in user registration. The difference between the two concepts is where the widget itself is hosted.
+Okta offers multiple integration options when designing an authentication experience. The two most recommended concepts are using the Okta-hosted Sign-In Widget and the Customer-hosted Sign-In Widget. Both of these Okta-built experiences provide easy implementation and maintenance, industry best practice, user self service, and built-in user registration. The difference between the two concepts is where the Sign-In Widget itself is hosted.
 
 ## Okta-hosted widget
 
