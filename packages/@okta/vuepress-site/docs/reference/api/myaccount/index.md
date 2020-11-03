@@ -1,19 +1,22 @@
-<ApiLifecycle access="ea" />
-
 ---
 title: MyAccount
-category: enduser
+category: management
 ---
 
 # MyAccount API
 
-<ApiLifecycle access="ea" /> The Okta MyAccount API is a non-admin group of endpoints that allows end users (with or without administrator access) to fetch and update their own Okta user profiles, using a non-administrator endpoint.  It implements a subset of the existing [Users API](/docs/reference/users/index.md) but with significant differences.  This API does not expose information an end-user should not have access to, and it does not support lifecycle operations.
+<ApiLifecycle access="ea" />
+
+The Okta MyAccount API is a non-admin group of endpoints that allows end users (with or without administrator access) to fetch and update their own Okta user profiles, using a non-administrator endpoint.  It implements a subset of the existing [Users API](/docs/reference/users/index.md) but with significant differences.  This API does not expose information an end-user should not have access to, and it does not support lifecycle operations.
 
 All operations in this API implicitly refer to the user making the API call.  No user ID is needed (or even accepted).
 
+<!--
 ## Get started
 
-Explore the MyAccount API: <Postman collection to be provided before GA>
+Explore the MyAccount API:
+
+-->
 
 ## MyAccount Operations
 
@@ -28,17 +31,25 @@ The MyAccount API has the following operations:
 
 <ApiOperation method="get" url="/api/v1/myaccount" />
 
-Fetches the caller's Me object.
+Fetches the curren user's Me object, a collection of links to information describing the user.
+
+#### Request path parameters
+
+N/A
+
+#### Request query parameters
+
+N/A
 
 #### Response body
 
-The caller's [Me](#me) object, a collection of links to information describing the caller.
+The requested [Me object](#me)
 
-Note: Currently not all the _links returned are implemented.  See the [Me object](#me) description for details.
+> **Note:** Currently not all the `_links` returned are implemented.  See the [Me object](#me) description for details.
 
 #### Usage example
 
-Any user with a valid session (even a non-administrator) can issue this request to get basic information about their account: A link to their user profile, and their user ID.
+Any user with a valid session can issue this request to get basic information about their account.
 
 ##### Request
 
@@ -80,9 +91,17 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/myaccount/profile/schema" />
 
-Fetches the appropriate MyUserSchema for the caller's [User Type](/docs/reference/user-types/index.md).
+Fetches the appropriate MyUserSchema for the caller's [User Type](/docs/reference/user-types/).
 
-If an attribute's value is not visible to an end user (because it is hidden or [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm)) then the attribute's definition will also be hidden in the output of this API.
+> **Note:** If an property's value is not visible to an end user (because it is hidden or [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm)) then the property's definition will also be hidden in the output of this API.
+
+#### Request path parameters
+
+N/A
+
+#### Request query parameters
+
+N/A
 
 #### Response body
 
@@ -90,7 +109,7 @@ The [MyUserSchema](#user-schema) for the caller.
 
 #### Usage example
 
-Any user with a valid session (even a non-administrator) can issue this request to get the schema for their user profile.
+Any user with a valid session can issue this request to get the MyUserSchema for their User Profile.
 
 ##### Request
 
@@ -165,11 +184,9 @@ Fetches the caller's Okta user profile, excluding any attribute also excluded by
 
 #### Request query parameters
 
-One query parameter is optionally supported.
-
 | Parameter | Type        | Description                                                                                            |
 | --------- | ----------- | ------------------------------------------------------------------------------------------------------ |
-| `expand`  | String      | Valid value: `schema`.  If specified, the user profile schema is included in the `embedded` attribute. |
+| `expand`  | String      | (Optional) If specified as `schema`, the user profile schema is included in the `embedded` attribute. |
 
 
 #### Response body
@@ -178,11 +195,11 @@ Returns a [MyUserProfile](#MyUserProfile-object).
 
 #### Usage example
 
-Any user with a valid session (even a non-administrator) can issue this request to get their user profile.
+Any user with a valid session can issue this request to get their user profile.
 
 ##### Request
 
-This request would ...
+This request would retriever the request user's profile.
 
 ```bash
 curl -v -X GET \
@@ -222,10 +239,17 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/myaccount/directoryProfile" />
 
-Updates the caller's MyUserProfile.  Note that this API differs from the the existing [Users API](/docs/reference/users/index.md) in that only PUT is supported.  This API also does not support partial update.  All values returned from fetching MyUserProfile must be passed to this API, or the update will not pass validation.  This applies even if the omitted schema property is optional.
+Updates the caller's MyUserProfile.
 
-To unset an optional property, explicitly pass the property with a value of null.
+> **Note:** This API differs from the the existing [Users API](/docs/reference/users/) in that only PUT is supported.  This API also does not support partial update.  All values returned from fetching MyUserProfile must be passed to this API, or the update will not pass validation.  This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
 
+#### Request path parameters
+
+N/A
+
+#### Request query parameters
+
+N/A
 
 #### Request body
 
