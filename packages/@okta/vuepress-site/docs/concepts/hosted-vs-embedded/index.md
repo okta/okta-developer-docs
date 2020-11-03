@@ -12,7 +12,7 @@ The Okta-hosted widget is considered the easiest and most secure means of integr
 
 ## Customer-hosted widget
 
-The Customer-hosted widget is considered the best balance of flexibility and effort to integrate. The Customer-hosted widget is recommended if an integration requires a deeper level of customization or a Okta-hosted experience isn't possible. The Customer-hosted widget works by providing an open source [JavaScript widget](https://github.com/okta/okta-signin-widget) to embed into the page. The widget is built and updated by Okta, uses industry best practice security design, and is added to a page with a few lines of HTML/JavaScript. The widget itself can be loaded directly from the CDN, NPM, or built from source. The look and feel is customized directly through HTML/CSS/SASS and JavaScript. Features are configured within the Okta Admin Console and enabled in the widget through JavaScript.
+The Customer-hosted widget is considered the best balance of flexibility and effort to integrate. The Customer-hosted widget is recommended if an integration requires a deeper level of customization or a Okta-hosted experience isn't possible. The Customer-hosted widget works by providing an open source [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) to embed into the page. The widget is built and updated by Okta, uses industry best practice security design, and is added to a page with a few lines of HTML/JavaScript. The widget itself can be loaded directly from the CDN, NPM, or built from source. The look and feel is customized directly through HTML/CSS/SASS and JavaScript. Features are configured within the Okta Admin Console and enabled in the widget through JavaScript.
 
 ## Most should use Okta-hosted
 
@@ -38,8 +38,4 @@ The Customer-hosted widget is considered the best balance of flexibility and eff
 
 Continue reading about the Okta-hosted widget in the [Sign Users In](/docs/guides/sign-into-spa/angular/before-you-begin/) guide.
 
-<<<<<<< HEAD
 Continue reading about the customer hosted experience in the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) guide.
-=======
-Continue reading about the Customer-hosted experience in the [Okta Sign-In Widget](/docs/concepts/okta-embedded-flows/) guide.
->>>>>>> 6e7b8fd10964f057e30b2143721a81fc0b1e6b7a
