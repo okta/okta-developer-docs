@@ -18,7 +18,6 @@ $small-spacing: 0.75rem;
       padding-left: 10px;
       overflow: hidden;
       text-overflow: ellipsis;
-      line-height: 24px;
     }
     nav {
       flex: 1;
@@ -35,6 +34,7 @@ $small-spacing: 0.75rem;
       height: 24px;
       &:before,
       &:after {
+        font-size: 24px;
         width: 24px;
         height: 24px;
         line-height: 24px;
@@ -43,7 +43,7 @@ $small-spacing: 0.75rem;
         text-align: center;
         background-position: center;
         background-repeat: no-repeat;
-        background-size: 16px 16px;
+        background-size: 20px 20px;
       }
     }
     .dropdown-item {
@@ -56,6 +56,9 @@ $small-spacing: 0.75rem;
       text-decoration: none;
       color: $text-color;
       background: transparent;
+      align-items: center;
+      width: 100%;
+      text-overflow: ellipsis;
     }
 
     .vs__search {
@@ -83,38 +86,22 @@ $small-spacing: 0.75rem;
       }
     }
 
-    li:last-child {
-      //border: 1px solid blue;
-      //border-radius: 0 0 4px 4px;
-    }
-
     .vs__dropdown-menu {
       overflow-x: hidden;
       border-top-style: initial;
       padding-bottom: 0px;
       z-index: 50;
-      
-      
-      
+
       .vs__dropdown-option {
-        position: relative;
         padding: 0.7rem 1rem;
         border: 1px solid transparent;
         border-bottom: 1px solid cv('gray', '100');
         width: 100%;
-        overflow: hidden;
 
-        .dropdown-item{
-          width: 100%;
-          overflow: hidden;
-          text-overflow: ellipsis;
-        }
         &:last-child {
           border-bottom: 1px solid transparent;;
-
-          
         }
-  
+
         &--highlight {
           background: inherit;
           color: inherit;
@@ -126,10 +113,7 @@ $small-spacing: 0.75rem;
             border-radius: 0 0 4px 4px;
             box-sizing: border-box;
           }
-
         }
-
-        
       }
     }
   }

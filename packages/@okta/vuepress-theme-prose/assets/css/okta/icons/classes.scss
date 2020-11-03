@@ -1693,8 +1693,8 @@ h1 {
   background-image: url('/img/icons/google-logo-32.png');
 }
 
-.azure::before {
-  content:'';
+.icon.azure::before {
+  content: '';
   background-image: url('/img/icons/azure-ad-logo-75.png');
 }
 
