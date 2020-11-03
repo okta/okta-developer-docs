@@ -21,19 +21,27 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
   > **Note:** Alternatively, you can [create an OAuth 2.0 access token](/docs/guides/implement-oauth-for-okta/) for use with a number of Okta endpoints. This is a feature that allows you to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
 2. [Install the Postman app](https://www.getpostman.com/apps).
-3. Launch Postman and select **Import** from the **File** menu.
-4. Click **Import From Link** and then paste this link into the box that appears: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment`
-5. Click **Import**.
-6. After the import is complete, verify that the `{yourOktaDomain}` environment is selected in the upper-right corner of the page.
+3. Start Postman if isn't already running.
+4. At the upper-left area, click **Import**.
+![Postman window](/img/postman_import_button.png "Points to the Import button at the upper-left area of the Postman window")
+5. In the Import dialog box, click **Link**, then paste this link: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment` in the **Enter a URL** box and  click **Continue**.
+![Postman Import dialog](/img/postman_import_dialog.png "Points to the Link tab in the Import dialog")
+6. Under _Confirm your import_, click **Import**. ![Postman Import dialog for confirming import](/img/postman_import_dialog_confirm.png "Points to Import button in the Import dialog")
+A notification confirms that the import is complete.
+7. At the upper-right area, click the box that lists the environments, and then select `{yourOktaDomain}` from the list. (The initial value is **No Environment** if you just installed Postman.) ![Postman environment list box](/img/postman_environment_list.png "Points to the box in the upper-right area of the window that contains environments for use with Postman")
 
-  ![Postman app with collections](/img/postman_example_start.png "Points to the box in the upper-right corner that contains environments for use with Postman")
+8. At the upper-right area, next to `{yourOktaDomain}`, click the **eye** symbol (Environment quick look). ![Postman environment quick look button](/img/postman_environment_quick_look.png "Points to the button with the eye symbol")
+9. In the upper-right corner of the {yourOktaDomain} dialog box, click **Edit**. 
+![Postman environment quick look edit link](/img/postman_environment_quick_look_edit.png "Points to the edit link in the environemnt quick look dialog box")
+10. In the MANAGE ENVIRONMENTS dialog box, do the following:
+    * In the **Environment Name** box, delete the placeholder text and name your environment to something you recognize, for example: `John's Okta Org`.
+    * In the table row for the VARIABLE `url`, on the INITIAL VALUE and CURRENT VALUE columns, replace the placeholder text with your org's full URL. For example, `https://dev-1234567.okta.com`. Remember to _remove_ the `-admin` part in the subdomain.
+    * In the table row for the VARIABLE `apikey`, on the INITIAL VALUE and CURRENT VALUE columns, enter your API token that you created earlier. For example, `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
-7. Click the gear icon to the right of `{yourOktaDomain}` and select your org to replace or add these values:
-    * Rename your environment to something that you recognize, for example: `My Org`.
-    * `url`: Replace the example value with your org's full URL: For example, `https://mytestorg.oktapreview.com`. Make sure that you don't include `-admin` in the subdomain.
-    * `apikey`: Enter the API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
-
-8. Click **Update** to save your changes and then close the **Manage Environments** window.
+    ![Postman MANAGE ENVIRONMENTS dialog box](/img/postman_manage_environments_dialog.png "Displays the values to be edited in he MANAGE ENVIRONMENTS dialog box")
+11. To save the changes you made, scroll down all the way and click **Update**.
+12. To close the MANAGE ENVIRONMENTS dialog box, click X in the upper-right corner.
+![Postman MANAGE ENVIRONMENTS dialog box with additional options](/img/postman_closing_manage_environments_dialog.png "Points to the X mark for closing the MANAGE ENVIRONMENTS dialog box")
 
 <DomainAdminWarning />
 
