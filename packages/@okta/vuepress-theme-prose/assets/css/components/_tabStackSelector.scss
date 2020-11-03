@@ -1,0 +1,101 @@
+$border-color: #b7bcc0;
+$text-color: #5c6971;
+$action-base: #1662dd;
+$action-dark: #124a94;
+$gray-000: #fafafa;
+$gray-100: #e4e5e7;
+$gray-900: #2f3f4a;
+$small-spacing: 0.75rem;
+$base-spacing: 1.5rem;
+
+.stack-selector {
+
+    position: relative;
+    border: 1px solid $border-color;
+    border-radius: 3px;
+    overflow: hidden;
+  
+    nav.tabs ul {
+      background: $gray-000;
+      display: flex; /*fallback*/
+      flex-wrap: wrap; /*fallback*/
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(15ch,1fr));
+      position: relative;
+      padding: 0;
+      top: -1px;
+      list-style-type: none;
+      border-bottom: 1px solid $border-color;
+  
+      li {
+        display: inline-block; /*fallback*/
+        flex-grow: 1; /*fallback*/
+        max-width: 30ch; /*fallback*/
+        margin: 0;
+  
+        &.current a {
+          font-weight: 600;
+          color: $gray-900;
+          border-bottom-width: 3px;
+          border-bottom-color: $action-base;
+  
+          &:hover {
+            background: transparent;
+            border-bottom-color: $action-base;
+          }
+        }
+  
+        /* scale icons to 24px */
+        .icon {
+          width: 24px;
+          height: 24px;
+          &:before,
+          &:after {
+            font-size: 24px;
+            line-height: 24px;
+          }
+        }
+  
+        a {
+          display: flex;
+          box-sizing: border-box;
+          position: relative;
+          top: 1px;
+          width: 100%;
+          height: 3rem;
+          padding: $small-spacing;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          text-decoration: none;
+          color: $text-color;
+          background: transparent;
+          border-bottom: 1px solid $border-color;
+          transition-property: color, background, border-color, border-width;
+          transition-duration: 250ms;
+          transition-timing-function: ease-in-out;
+  
+          &:hover {
+            color: $gray-900;
+            background: #e5edfb;
+            border-bottom-width: 3px;
+            border-bottom-color: $action-dark;
+          }
+  
+          .framework {
+            padding-left: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  
+    .stack-content {
+      padding: $base-spacing;
+  
+      pre {
+        margin: 0;
+      }
+    }
+}

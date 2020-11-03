@@ -63,6 +63,7 @@ const recordSnippetMeta = ({ section, page, framework, guideName, sectionName, s
     snippet,
     name, 
     title,
+    label: title,
     css: cssForIcon(name),
     link: makeGuidePath({ guideName, framework, sectionName }),
     page, 

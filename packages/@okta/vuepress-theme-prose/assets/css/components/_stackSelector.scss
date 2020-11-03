@@ -1,101 +1,128 @@
 $border-color: #b7bcc0;
 $text-color: #5c6971;
-$action-base: #1662dd;
-$action-dark: #124a94;
 $gray-000: #fafafa;
-$gray-100: #e4e5e7;
-$gray-900: #2f3f4a;
 $small-spacing: 0.75rem;
-$base-spacing: 1.5rem;
 
 .stack-selector {
-
-    position: relative;
-    border: 1px solid $border-color;
-    border-radius: 3px;
-    overflow: hidden;
-  
-    nav.tabs ul {
-      background: $gray-000;
-      display: flex; /*fallback*/
-      flex-wrap: wrap; /*fallback*/
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(15ch,1fr));
+  border: 1px solid $border-color;
+  border-radius: 3px;
+  .selector-control {
+    display: flex;
+    padding: $small-spacing;
+    background: $gray-000;
+    border-bottom: 1px solid $border-color;
+    @include media('<tablet') {
+      flex-direction: column;
+    }
+    .framework {
+      padding-left: 10px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    nav {
+      flex: 1;
+      background-color: white;
+    }
+    .instructions-label {
+      flex: 0;
+      padding: 0.65rem 0.5rem 0.5rem 0;
+      font-weight: bold;
+      white-space: nowrap;
+    }
+    .icon {
+      width: 24px;
+      height: 24px;
+      &:before,
+      &:after {
+        font-size: 24px;
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 20px 20px;
+      }
+    }
+    .dropdown-item {
+      display: flex;
       position: relative;
-      padding: 0;
-      top: -1px;
-      list-style-type: none;
-      border-bottom: 1px solid $border-color;
-  
-      li {
-        display: inline-block; /*fallback*/
-        flex-grow: 1; /*fallback*/
-        max-width: 30ch; /*fallback*/
-        margin: 0;
-  
-        &.current a {
-          font-weight: 600;
-          color: $gray-900;
-          border-bottom-width: 3px;
-          border-bottom-color: $action-base;
-  
-          &:hover {
-            background: transparent;
-            border-bottom-color: $action-base;
-          }
+      top: 1px;
+      width: 100%;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      text-decoration: none;
+      color: $text-color;
+      background: transparent;
+      align-items: center;
+      width: 100%;
+      text-overflow: ellipsis;
+    }
+
+    .vs__search {
+      margin-top: 0;
+      margin-left: 1.7rem;
+    }
+
+    .vs__dropdown-toggle{
+      min-height: 45px;
+      padding: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: nowrap;
+      .vs__selected-options{
+        flex-basis: auto;
+        padding: 0;
+        padding-left: 0.5rem;
+        max-width: 95%;
+        .vs__selected{
+          margin: 0;
+          padding: 0;
+          border: 0;
         }
-  
-        /* scale icons to 24px */
-        .icon {
-          width: 24px;
-          height: 24px;
-          &:before,
-          &:after {
-            font-size: 24px;
-            line-height: 24px;
-          }
+      }
+    }
+
+    .vs__dropdown-menu {
+      overflow-x: hidden;
+      border-top-style: initial;
+      padding-bottom: 0px;
+      z-index: 50;
+
+      .vs__dropdown-option {
+        padding: 0.7rem 1rem;
+        border: 1px solid transparent;
+        border-bottom: 1px solid cv('gray', '100');
+        width: 100%;
+
+        &:last-child {
+          border-bottom: 1px solid transparent;;
         }
-  
-        a {
-          display: flex;
+
+        &--highlight {
+          background: inherit;
+          color: inherit;
+          border: 1px solid cv('action');
           box-sizing: border-box;
-          position: relative;
-          top: 1px;
-          width: 100%;
-          height: 3rem;
-          padding: $small-spacing;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          text-decoration: none;
-          color: $text-color;
-          background: transparent;
-          border-bottom: 1px solid $border-color;
-          transition-property: color, background, border-color, border-width;
-          transition-duration: 250ms;
-          transition-timing-function: ease-in-out;
-  
-          &:hover {
-            color: $gray-900;
-            background: #e5edfb;
-            border-bottom-width: 3px;
-            border-bottom-color: $action-dark;
-          }
-  
-          .framework {
-            padding-left: 10px;
-            overflow: hidden;
-            text-overflow: ellipsis;
+
+          &:last-child {
+            border: 1px solid cv('action');
+            border-radius: 0 0 4px 4px;
+            box-sizing: border-box;
           }
         }
       }
     }
-  
-    .stack-content {
-      padding: $base-spacing;
-  
-      pre {
-        margin: 0;
-      }
+  }
+
+  .stack-content {
+    padding: $base-spacing;
+
+    pre {
+      margin: 0;
     }
+  }
 }
