@@ -31,7 +31,7 @@ The MyAccount API has the following operations:
 
 <ApiOperation method="get" url="/api/v1/myaccount" />
 
-Fetches the curren user's Me object, a collection of links to information describing the user.
+Fetches the current user's Me object, a collection of links to information describing the user.
 
 #### Request path parameters
 
@@ -466,6 +466,5 @@ The MyUserProfile object has several properties:
     }
 }
 ```
-
 
 
