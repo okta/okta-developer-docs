@@ -8,5 +8,5 @@ sections:
  - protocol-level-requirements
  - multi-tenancy
  - integration-best-practices
- - reference
+ - next-steps
 ---
