@@ -7,7 +7,7 @@ category: management
 
 <ApiLifecycle access="ea" />
 
-The Okta MyAccount API allows end users (with or without administrator access) to fetch and update their own Okta user profiles.  It implements a subset of the existing [Users API](/docs/reference/users/index.md) but with significant differences.  This API does not expose information an end-user should not have access to, and it does not support lifecycle operations.
+The Okta MyAccount API allows end users (with or without administrator access) to fetch and update their own Okta user profiles.  It implements a subset of the existing [Users API](/docs/reference/users/index.md) but with significant differences.  This API does not expose information an end user should not have access to, and it does not support lifecycle operations.
 
 All operations in this API implicitly refer to the user making the API call.  No user ID is needed (or even accepted).
 
@@ -23,9 +23,9 @@ Explore the MyAccount API:
 The MyAccount API has the following operations:
 
 * [Get data about Me](#get-me)
-* [Get my UserSchema](#get-my-user-schema)
-* [Get my UserProfile](#get-my-user-profile)
-* [Update my UserProfile](#update-my-user-profile)
+* [Get my User Profile Schema](#get-my-user-profile-schema)
+* [Get my User Profile](#get-my-user-profile)
+* [Update my User Profile](#update-my-user-profile)
 
 ### Get Me
 
@@ -43,7 +43,7 @@ N/A
 
 #### Response body
 
-The requested [Me object](#me)
+The requested [Me object](#me-object)
 
 #### Usage example
 
@@ -76,11 +76,11 @@ curl -v -X GET \
 ```
 
 
-### Get My User Schema
+### Get My User Profile Schema
 
 <ApiOperation method="get" url="/api/v1/myaccount/profile/schema" />
 
-Fetches the appropriate UserSchema for the caller's [User Type](/docs/reference/user-types/).
+Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/user-types/).
 
 > **Note:** If a property's value is not visible to an end user (because it is hidden or [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm)) then the property's definition will also be hidden in the output of this API.
 
@@ -94,11 +94,11 @@ N/A
 
 #### Response body
 
-The [UserSchema](#user-schema) for the caller.
+The [User Profile Schema](#user-profile-schema-object) for the caller.
 
 #### Usage example
 
-Any user with a valid session can issue this request to get the UserSchema for their User Profile.
+Any user with a valid session can issue this request to get the Schema for their User Profile.
 
 ##### Request
 
@@ -168,27 +168,27 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/myaccount/directoryProfile" />
 
-Fetches the caller's Okta user profile, excluding any attribute also excluded by [Get User Schema](#get-User-Schema)
+Fetches the caller's Okta User Profile, excluding any attribute also excluded by [Get User Profile Schema](#get-user-profile-schema)
 
 
 #### Request query parameters
 
 | Parameter | Type        | Description                                                                                            |
 | --------- | ----------- | ------------------------------------------------------------------------------------------------------ |
-| `expand`  | String      | (Optional) If specified as `schema`, the user profile schema is included in the `embedded` attribute. |
+| `expand`  | String      | (Optional) If specified as `schema`, the User Profile Schema is included in the `embedded` attribute. |
 
 
 #### Response body
 
-Returns a [UserProfile](#UserProfile-object).
+Returns a [User Profile](#user-profile-object).
 
 #### Usage example
 
-Any user with a valid session can issue this request to get their user profile.
+Any user with a valid session can issue this request to get their User Profile.
 
 ##### Request
 
-This request would retriever the request user's profile.
+This request would retriever the requesting User's Profile.
 
 ```bash
 curl -v -X GET \
@@ -228,9 +228,9 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/myaccount/directoryProfile" />
 
-Updates the caller's UserProfile.
+Updates the caller's User Profile.
 
-> **Note:** This API differs from the the existing [Users API](/docs/reference/users/) in that only PUT is supported.  This API also does not support partial update.  All values returned from fetching UserProfile must be passed to this API, or the update will not pass validation.  This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
+> **Note:** This API differs from the the existing [Users API](/docs/reference/users/) in that only PUT is supported.  This API also does not support partial update.  All values returned from fetching User Profile must be passed to this API, or the update will not pass validation.  This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
 
 #### Request path parameters
 
@@ -242,15 +242,15 @@ N/A
 
 #### Request body
 
-This API requires the `profile` property of a [UserProfile](#userprofile-object) as its request body.
+This API requires the `profile` property of a [User Profile](#user-profile-object) as its request body.
 
 | Property | Type                     | Description                          |
 | -------- | -------------------------|--------------------------------------|
-| profile  | A map of key-value pairs | The properties defined in the schema |
+| `profile`  | Object | The properties defined in the schema |
 
 #### Response body
 
-Returns the result of applying the update, as if the caller had invoked the GET UserProfile operation.
+Returns the result of applying the update, as if the caller had invoked the GET User Profile operation.
 
 #### Usage example
 
@@ -334,18 +334,18 @@ The Me object has several properties:
 }
 ```
 
-### UserSchema object
+### User Profile Schema object
 
-#### UserSchema properties
+#### User Profile Schema properties
 
-The UserSchema object has several properties:
+The User Profile Schema object has several properties:
 
 | Property           | Type                                                                                                              | Description                                                        |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| _links             | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                    | Discoverable resources related to the caller's user profile schema |
-| properties         | A subobject of [User Schema Properties](docs/reference/api/schemas/index.md#user-profile-schema-property-object)s | The properties defined in the schema                               |
+| `_links`             | Object([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))                                                    | Discoverable resources related to the caller's user profile schema |
+| `properties`         | Object | The properties defined in the [User Profile Schema](docs/reference/api/schemas/#user-profile-schema-property-object)                               |
 
-#### UserSchema example
+#### User Profile Schema example
 
 ```json
 {
@@ -403,22 +403,22 @@ The UserSchema object has several properties:
 
 
 
-### UserProfile object
+### User Profile object
 
-#### UserProfile properties
+#### User Profile properties
 
-The UserProfile object has several properties:
+The User Profile object has several properties:
 
 | Property   | Type                                                           | Description                                                                                                |
 | ---------- | ---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------- |
-| _embedded  | [UserSchema](UserSchema)                                   | If `expand`=`schema` is included in the request, the user profile schema will be included in the response. |
-| _links     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Discoverable resources related to the caller's user profile schema                                         |
-| createdAt  | String                                                         | The timestamp the caller's account was created                                                             |
-| profile    | A map of key-value pairs                                       | The properties defined in the schema                                                                       |
-| modifiedAt | String                                                         | The timestamp the caller's account was last updated                                                        |
+| `_embedded`  | Object                                   | If `expand`=`schema` is included in the request, the [User Profile Schema](#user-profile-schema-object) will be included in the response. |
+| `_links`     | Object([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)) | Discoverable resources related to the caller's user profile schema                                         |
+| `createdAt`  | String                                                         | The timestamp the caller's account was created                                                             |
+| `modifiedAt` | String                                                         | The timestamp the caller's account was last updated                                                        |
+| `profile`    | Object                                       | The properties defined in the [User Profile Schema](#user-profile-schema-object)                                                                       |
 
 
-#### UserProfile example
+#### User Profile example
 
 ```json
 {
