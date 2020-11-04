@@ -21,6 +21,8 @@ module.exports = [
         { title: 'Identity Providers', path: '/docs/reference/api/idps/'},
         { title: 'Inline Hooks', path: '/docs/reference/api/inline-hooks/'},
         { title: 'Linked Objects', path: '/docs/reference/api/linked-objects/'},
+        { title: 'Mappings', path: '/docs/reference/api/mappings/'},
+        { title: 'MyAccount', path: '/docs/reference/api/myaccount/'},
         { title: 'Policy', path: '/docs/reference/api/policy/'},
         { title: 'Schemas', path: '/docs/reference/api/schemas/'},
         { title: 'Sessions', path: '/docs/reference/api/sessions/'},
