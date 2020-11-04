@@ -6,7 +6,7 @@ Okta Event and Inline Hooks use outbound calls, which are received and parsed by
 
 An external service &ndash; a secure web server and application &ndash; is a requirement to implement an Okta Event or Inline Hook.
 
-For instructional purposes, the following example guides for Event and Inline Hook types use the third-party site, [Glitch](https://glitch.com) as an online external service, one you can use to quickly implement the sample code to preview the functionality of an Event or Inline Hook. You also need a working dev or preview Okta org to configure the hooks and implement the hook functionality.
+For instructional purposes, the following example guides for Event Hooks and Inline Hook types use the third-party site [Glitch](https://glitch.com) to function as an online external service, one you can use to quickly implement the sample code to preview the functionality of an Event or Inline Hook. You also need a working dev or preview Okta org to configure the hooks and implement the hook functionality.
 
 > **Note:** You can also use your own secure web server to implement the sample code.
 

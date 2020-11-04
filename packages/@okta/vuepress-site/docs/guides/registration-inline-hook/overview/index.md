@@ -13,7 +13,7 @@ At a high-level, the following workflow occurs:
 - The external service evaluates the Okta call to make sure the user is from domain "yourDomain.com".
 - The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
-This guide uses the website Glitch.me to act as an external service and to implement the Registration Inline hook with an Okta org. See the following Glitch project to copy a working code example that implements the Registration Inline hook or build your own using the code snippets:
+This guide uses the website Glitch.com to act as an external service and to implement the Registration Inline hook with an Okta org. See the following Glitch project to copy a working code example that implements the Registration Inline hook or build your own using the code snippets:
 
 * [Okta-Registration-Inline-Hook-Example](https://resonant-rocky-slouch.glitch.me/)
 

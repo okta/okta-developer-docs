@@ -17,5 +17,3 @@ After including the Basic Auth package, include the following code snippets in y
 As part of the configuration process, you will add the authorization field and secret in your Okta org, which inputs this content into the Okta request header. The authorization and secret are authorized by your external service.
 
 <StackSelector snippet="auth"/>
-
-<NextSectionLink/>
