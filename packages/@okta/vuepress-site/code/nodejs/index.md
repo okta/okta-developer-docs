@@ -12,20 +12,17 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
-			<span>Create Free Account</span>
-		</a>
-	</li>
-	<li>
 		<a href='/docs/guides/sign-into-web-app/nodeexpress/before-you-begin/' class='Button--blue' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
+	<li>
+		<a href='https://github.com/okta/samples-nodejs-express-4' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sample App</span>
+		</a>
+	</li>
 </ul>
 
-<a href='https://github.com/okta/samples-nodejs-express-4'>
-	<span class='fa fa-github'></span> <span>Node.js Sample App</span>
-</a>
 
 ## Okta Node.js SDK
 

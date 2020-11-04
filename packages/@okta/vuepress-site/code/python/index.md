@@ -8,14 +8,6 @@ meta:
     content: Our guide shows you how to add user authentication to your Python app with examples using Flask.
 ---
 
-<ul class='language-ctas'>
-	<li>
-		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
-			<span>Create Free Account</span>
-		</a>
-	</li>
-</ul>
-
 ## Python Samples
 
 <ul class="language-libraries">
