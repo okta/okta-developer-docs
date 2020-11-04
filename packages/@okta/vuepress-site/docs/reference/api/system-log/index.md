@@ -585,7 +585,7 @@ The table below summarizes the supported query parameters:
 | `since`     | Filters the lower time bound of the log events `published` property for bounded queries or persistence time for polling queries                                                          | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z`                                                       | 7 days prior to `until` |
 | `until`     | Filters the upper time bound of the log events `published` property for bounded queries or persistence time for polling queries                                                          | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z`                                                       | Current time            |
 | `after`     | Used to retrieve the next page of results. Okta returns a link in the HTTP Header (`rel=next`) that includes the after query parameter | Opaque token                                                                                                                                                                              |                         |
-| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/reference/api-overview/#filtering). All [operators](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) except `ew`, `ne`, `not`, and `[ ]`  are supported |                         |
+| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/reference/api-overview/#filtering). All [operators](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) except `[ ]` are supported |                         |
 | `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                                                         | URL encoded string. Max length is 40 characters per keyword, with a maximum of 10 keyword filters per query (before encoding)                                                             |                         |
 | `sortOrder` | The order of the returned events sorted by `published`                                                                                  | `ASCENDING` or `DESCENDING`                                                                                                                                                               | `ASCENDING`             |
 | `limit`     | Sets the number of results returned in the response                                                                                     | Integer between 0 and 1000                                                                                                                                                                | 100                     |
@@ -637,7 +637,7 @@ Bounded requests to the `/api/v1/logs` API have the following semantics:
 
 An expression filter is useful for performing structured queries where constraints on LogEvent attribute values can be explicitly targeted.
 
-The following expressions are supported for events with the `filter` query parameter:
+The following example expressions are supported for events with the `filter` query parameter:
 
 | Filter                                       | Description                                                                    |
 | -------------------------------------------- | ------------------------------------------------------------------------------ |
@@ -654,6 +654,11 @@ The following are some examples of common filter expressions.
 Events published for a target user:
 ```javascript
 filter=target.id eq "00uxc78lMKUMVIHLTAXY"
+```
+
+Events published for all actors except for a specific user:
+```javascript
+filter=actor.id ne "00uxc78lMKUMVIHLTAXY"
 ```
 
 Failed login events:
