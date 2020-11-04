@@ -8,7 +8,7 @@ Okta offers multiple integration options when designing an authentication experi
 
 ## Okta-hosted widget
 
-The Okta-hosted widget is considered the easiest and most secure means of integration. This is because the widget itself is hosted by Okta, maintained by Okta, and kept secure by Okta. The Okta-hosted widget is recommended for most integrations. The OpenID Connect redirect flow is used to redirect users to Okta, where the user authenticates and is redirected back to a specified, allow listed, redirect URI. This design is considered security best practice. The look and feel, as well as the enabled features, are all configured within the Okta Admin Console. HTML customization of the page is accessible in the Admin Console, which provides a moderate level of customization to the experience itself.
+The Okta-hosted Sign-In Widget is considered the easiest and most secure means of integration. This is because the Sign-In Widget itself is hosted by Okta, maintained by Okta, and kept secure by Okta. The Okta-hosted Sign-In Widget is recommended for most integrations. The OpenID Connect redirect flow is used to redirect users to Okta, where the user authenticates and is redirected back to a specified, allow listed, redirect URI. This design is considered security best practice. The look and feel, as well as the enabled features, are all configured within the Okta Admin Console. HTML customization of the page is accessible in the Admin Console, which provides a moderate level of customization to the experience itself.
 
 ## Customer-hosted widget
 
