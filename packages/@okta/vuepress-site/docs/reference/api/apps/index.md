@@ -9,7 +9,7 @@ The Okta Application API provides operations to manage applications and/or assig
 
 ## Get started
 
-Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/18dd817ee8abace68dd8)
+Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/41a737560876d6003ce5)
 
 ## Application operations
 
@@ -219,6 +219,138 @@ curl -v -X POST \
     },
     "deactivate": {
       "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/lifecycle/deactivate"
+    }
+  }
+}
+```
+
+#### Add Okta Org2Org application
+
+Adds a new Okta Org2Org application to your organization
+
+##### Settings
+
+
+| Parameter          | Description                                             | DataType | Nullable | Unique | Validation                                |
+| ------------------ | ------------------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
+| acsUrl  | The Assertion Consumer Service (ACS) URL of the source org | String | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| audRestriction  | Audience URI | String | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| baseUrl | The login URL of the target Okta org | String  | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+
+##### Request example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "name": "okta_org2org",
+  "label": "Sample Okta Org2Org App",
+  "signOnMode": "SAML_2_0",
+  "settings": {
+    "app": {
+      "acsUrl": "https://example.okta.com/sso/saml2/exampleid",
+      "audRestriction": "https://www.okta.com/saml2/service-provider/exampleid",
+      "baseUrl": "https://example.okta.com"
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/apps"
+```
+
+##### Response example
+
+
+```json
+{
+  "id":"0oawpacQMRQtvkxOf0g3",
+  "name":"okta_org2org",
+  "label":"Sample Okta Org2Org App",
+  "status":"ACTIVE",
+  "lastUpdated":"2020-10-29T17:31:38.000Z",
+  "created":"2020-10-29T17:31:37.000Z",
+  "accessibility":{
+    "selfService":false,
+    "errorRedirectUrl":null,
+    "loginRedirectUrl":null
+  },
+  "visibility":{
+    "autoSubmitToolbar":false,
+    "hide":{
+      "iOS":false,
+      "web":false
+    },
+    "appLinks":{
+      "login":true
+    }
+  },
+  "features":[],
+  "signOnMode":"SAML_2_0",
+  "credentials":{
+    "userNameTemplate":{
+      "template":"${source.login}",
+      "type":"BUILT_IN"
+    },
+    "signing":{
+      "kid":"8UZti4303PKyV45L1KmnSuI8obmjYEsj_X5kPp_ES60"
+    }
+  },
+  "settings":{
+    "app":{
+      "acsUrl":"https://example.okta.com/sso/saml2/exampleid",
+      "audRestriction":"https://www.okta.com/saml2/service-provider/exampleid",
+      "baseUrl":"https://example.okta.com"
+    },
+    "notifications":{
+      "vpn":{
+        "network":{
+          "connection":"DISABLED"
+        },
+        "message":null,
+        "helpUrl":null
+      }
+    },
+    "signOn":{
+      "defaultRelayState":null,
+      "ssoAcsUrlOverride":null,
+      "audienceOverride":null,
+      "recipientOverride":null,
+      "destinationOverride":null,
+      "attributeStatements":[]
+    }
+  },
+  "_links":{
+    "help":{
+      "href":"http://${yourOktaDomain}/app/okta_org2org/0oawpacQMRQtvkxOf0g3/setup/help/SAML_2_0/external-doc",
+      "type":"text/html"
+    },
+    "metadata":{
+      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/sso/saml/metadata",
+      "type":"application/xml"
+    },
+    "appLinks":[
+      {
+        "name":"login",
+        "href":"http://${yourOktaDomain}/home/okta_org2org/0oawpacQMRQtvkxOf0g3/1857",
+        "type":"text/html"
+      }
+    ],
+    "groups":{
+      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/groups"
+    },
+    "logo":[
+      {
+        "name":"medium",
+        "href":"http://${yourOktaDomain}/assets/img/logos/okta-logo-admin.f5cef92fdcff9fbc3b1835def5de1314.png",
+        "type":"image/png"
+      }
+    ],
+    "users":{
+      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/users"
+    },
+    "deactivate":{
+      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/lifecycle/deactivate"
     }
   }
 }
