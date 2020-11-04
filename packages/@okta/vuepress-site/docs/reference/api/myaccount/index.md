@@ -7,7 +7,7 @@ category: management
 
 <ApiLifecycle access="ea" />
 
-The Okta MyAccount API allows end users (with or without administrator access) to fetch and update their own Okta user profiles.  It implements a subset of the existing [Users API](/docs/reference/users/index.md) but with significant differences.  This API does not expose information an end user should not have access to, and it does not support lifecycle operations.
+The Okta MyAccount API allows end users (with or without administrator access) to fetch and update their own Okta user profiles.  It implements a subset of the existing [Users API](/docs/reference/api/users/) but with significant differences.  This API does not expose information an end user should not have access to, and it does not support lifecycle operations.
 
 All operations in this API implicitly refer to the user making the API call.  No user ID is needed (or even accepted).
 
@@ -80,7 +80,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/myaccount/profile/schema" />
 
-Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/user-types/).
+Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/api/user-types/).
 
 > **Note:** If a property's value is not visible to an end user (because it is hidden or [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm)) then the property's definition will also be hidden in the output of this API.
 
@@ -230,7 +230,7 @@ curl -v -X GET \
 
 Updates the caller's User Profile.
 
-> **Note:** This API differs from the the existing [Users API](/docs/reference/users/) in that only PUT is supported.  This API also does not support partial update.  All values returned from fetching User Profile must be passed to this API, or the update will not pass validation.  This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
+> **Note:** This API differs from the the existing [Users API](/docs/reference/api/users/) in that only PUT is supported.  This API also does not support partial update.  All values returned from fetching User Profile must be passed to this API, or the update will not pass validation.  This applies even if the omitted schema property is optional. To unset an optional property, explicitly pass the property with a value of `null`.
 
 #### Request path parameters
 
@@ -310,10 +310,10 @@ The Me object has several properties:
 
 | Property           | Type                                                            | Description                                                                                                       |
 | ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
-| _links             | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  | Discoverable resources related to the caller's account |
-| createdAt          | String                                                          | The timestamp the caller's account was created         |
-| id                 | Date                                                            | The caller's user ID                                   |
-| modifiedAt         | String                                                          | The timestamp the caller's account was last updated    |
+| `_links`             | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))  | Discoverable resources related to the caller's Account |
+| `createdAt`          | String (ISO-8601)                                                         | The timestamp the caller's account was created         |
+| `id`                 | String                                                            | The caller's user ID                                   |
+| `modifiedAt`         | String (ISO-8601)                                                         | The timestamp the caller's account was last updated    |
 
 
 #### Me example
@@ -342,7 +342,7 @@ The User Profile Schema object has several properties:
 
 | Property           | Type                                                                                                              | Description                                                        |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
-| `_links`             | Object([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))                                                    | Discoverable resources related to the caller's user profile schema |
+| `_links`             | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))                                                    | Discoverable resources related to the caller's User Profile Schema |
 | `properties`         | Object | The properties defined in the [User Profile Schema](docs/reference/api/schemas/#user-profile-schema-property-object)                               |
 
 #### User Profile Schema example
@@ -412,9 +412,9 @@ The User Profile object has several properties:
 | Property   | Type                                                           | Description                                                                                                |
 | ---------- | ---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------- |
 | `_embedded`  | Object                                   | If `expand`=`schema` is included in the request, the [User Profile Schema](#user-profile-schema-object) will be included in the response. |
-| `_links`     | Object([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)) | Discoverable resources related to the caller's user profile schema                                         |
-| `createdAt`  | String                                                         | The timestamp the caller's account was created                                                             |
-| `modifiedAt` | String                                                         | The timestamp the caller's account was last updated                                                        |
+| `_links`     | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)) | Discoverable resources related to the caller's user profile schema                                         |
+| `createdAt`  | String (ISO-8601)                                                        | The timestamp the caller's account was created                                                             |
+| `modifiedAt` | String (ISO-8601)                                                        | The timestamp the caller's account was last updated                                                        |
 | `profile`    | Object                                       | The properties defined in the [User Profile Schema](#user-profile-schema-object)                                                                       |
 
 
