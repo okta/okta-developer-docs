@@ -260,14 +260,14 @@ This request would update the user profile of the caller to have exactly the val
 
 ```bash
 curl -XPUT 'https://${yourOktaDomain}/api/v1/myaccount/directoryProfile' -H 'Authorization: SSWS {token}' -H 'Content-Type: application/json' --data '{
->     "profile": {
->         "customBoolean": false,
->         "foo": "bar",
->         "login": "dayton.williams@okta.com",
->         "notFive": 5,
->         "customInteger": null
->     }
-> }'
+     "profile": {
+         "customBoolean": false,
+         "foo": "bar",
+         "login": "dayton.williams@okta.com",
+         "notFive": 5,
+         "customInteger": null
+     }
+ }'
 ```
 
 ##### Response
