@@ -148,6 +148,26 @@
 	}
 }
 
+.Button--blueDarkOutline {
+	@extend %Button;
+
+	border-radius: 4px;
+	background-color: white;
+	border-color: cv('blue', '900');
+	color: cv('blue', '900');
+
+	&:active,
+	&:hover {
+		background-color: white;
+		border-color: cv('blue', '900');
+		color: cv('blue', '900');
+	}
+
+	&:visited {
+		color: cv('blue', '900');
+	}
+}
+
 .Button--blueOutline {
 	@extend %Button;
 
