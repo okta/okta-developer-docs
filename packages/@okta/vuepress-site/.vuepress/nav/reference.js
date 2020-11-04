@@ -26,6 +26,7 @@ module.exports = [
         { title: 'Sessions', path: '/docs/reference/api/sessions/'},
         { title: 'System Log', path: '/docs/reference/api/system-log/'},
         { title: 'Templates', path: '/docs/reference/api/templates/'},
+        { title: 'ThreatInsight', path: '/docs/reference/api/threat-insight/'},
         { title: 'Trusted Origins', path: '/docs/reference/api/trusted-origins/'},
         { title: 'User Types', path: '/docs/reference/api/user-types/'},
         { title: 'Users', path: '/docs/reference/api/users/'},

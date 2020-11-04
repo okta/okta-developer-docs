@@ -491,6 +491,8 @@ redirects:
     to: /docs/reference/api/system-log/
   - from: /docs/api/resources/templates/index.html
     to: /docs/reference/api/templates/
+  - from: /docs/api/resources/threat-insight/index.html
+    to: /docs/reference/api/threat-insight/
   - from: /docs/api/resources/trusted-origins/index.html
     to: /docs/reference/api/trusted-origins/
   - from: /docs/api/resources/users/index.html
