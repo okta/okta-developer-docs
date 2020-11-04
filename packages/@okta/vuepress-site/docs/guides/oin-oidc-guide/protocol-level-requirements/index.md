@@ -60,7 +60,7 @@ Other optional scopes available (these are returned from the `/userinfo` endpoin
 * `groups` &mdash; requests access to the `groups` claim. This is a custom scope for Okta
 * `offline_access` &mdash; requests that a refresh token be generated that can be exchanged for an access token that can then be used to access the end user’s `/userinfo` endpoint even if the end user is not signed on
 
-As an OIDC app integration destined for the OIN can't use a custom authorization server, including the `default` server, the only customization to the default scopes you can make is to configure a custom `groups` claim.
+As an OIDC app integration destined for the OIN can't use a custom authorization server, including the `default` server, the only customization you can make to the default scopes is to configure a custom `groups` claim.
 
 Okta utilizes access policies to decide whether the scopes can be granted. If any of the requested scopes are rejected by the access policies, the request is rejected.
 
