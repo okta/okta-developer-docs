@@ -78,6 +78,7 @@
       },
 
       setActiveHash: function (event) {
+        console.log('SET ACTIVE HASH TRIGGERED')
         const scrollTop = Math.max(
           window.pageYOffset,
           document.documentElement.scrollTop,
