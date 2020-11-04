@@ -82,7 +82,7 @@ curl -v -X GET \
 
 Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/api/user-types/).
 
-> **Note:** If a property's value is not visible to an end user (because it is hidden or [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm)) then the property's definition will also be hidden in the output of this API.
+> **Note:** If a property's value is not visible to an end user (because it is hidden or [sensitive](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-hide-sensitive-attributes) then the property's definition will also be hidden in the output of this API.
 
 #### Request path parameters
 
@@ -168,7 +168,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/myaccount/directoryProfile" />
 
-Fetches the caller's Okta User Profile, excluding any attribute also excluded by [Get User Profile Schema](#get-user-profile-schema)
+Fetches the caller's Okta User Profile, excluding any attribute also excluded by [Get My User Profile Schema](#get-my-user-profile-schema)
 
 
 #### Request query parameters
@@ -310,7 +310,7 @@ The Me object has several properties:
 
 | Property           | Type                                                            | Description                                                                                                       |
 | ------------------ | --------------------------------------------------------------- | ------------------------------------------------------ |
-| `_links`             | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))  | Discoverable resources related to the caller's Account |
+| `_links`             | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))  | Discoverable resources related to the caller's account |
 | `createdAt`          | String (ISO-8601)                                                         | The timestamp the caller's account was created         |
 | `id`                 | String                                                            | The caller's user ID                                   |
 | `modifiedAt`         | String (ISO-8601)                                                         | The timestamp the caller's account was last updated    |
@@ -343,7 +343,7 @@ The User Profile Schema object has several properties:
 | Property           | Type                                                                                                              | Description                                                        |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ |
 | `_links`             | Object ([JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06))                                                    | Discoverable resources related to the caller's User Profile Schema |
-| `properties`         | Object | The properties defined in the [User Profile Schema](docs/reference/api/schemas/#user-profile-schema-property-object)                               |
+| `properties`         | Object | The properties defined in the [User Profile Schema](/docs/reference/api/schemas/#user-profile-schema-property-object)                               |
 
 #### User Profile Schema example
 
