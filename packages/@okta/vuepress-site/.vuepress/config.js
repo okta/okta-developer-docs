@@ -1,6 +1,7 @@
 const guidesInfo = require('./scripts/build-guides-info');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
+const signInWidgetMajorVersion = 5;
 
 module.exports = {
   dest: 'dist',
@@ -192,7 +193,7 @@ module.exports = {
       repo: 'okta/okta-developer-docs',
       repoLabel: 'Edit',
       editLinks: true,
-      editLinkText: "Edit",
+      editLinkText: "Edit This Page On GitHub",
       docsDir: "packages/@okta/vuepress-site"
     }
 
@@ -210,7 +211,7 @@ module.exports = {
            *
            * Changes WILL require restarting `yarn dev` :(
            */
-          WIDGET_VERSION: findLatestWidgetVersion(4), // use major version
+          WIDGET_VERSION: findLatestWidgetVersion(signInWidgetMajorVersion), // use major version
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
       })
