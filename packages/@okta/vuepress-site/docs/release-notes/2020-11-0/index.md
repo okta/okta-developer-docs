@@ -7,10 +7,10 @@ title: Okta API Products Release Notes
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
 | [Inclusive language and terminology](#inclusive-language-and-terminology) | November 4, 2020         |
-| [System Logs API adds additional filter expressions](#system-logs-api-adds-additional-filter-expressions) | November 4, 2020         |
+| [System Log API adds additional filter expressions](#system-log-api-adds-additional-filter-expressions) | November 4, 2020         |
 | [Zones API includes `usage` property](#zones-api-includes-usage-property) | November 4, 2020         |
 | [Client-based rate limiting is now GA in Production](#client-based-rate-limiting-is-now-ga-in-production) | (See entry)         |
-| [User Consent for OAuth 2.0 and OpenID Connect Flows is rolling out to GA in Production](#user-consent-for-oauth-2-0-and-openid-connect-flows-is-rolling-out-to-ga-in-production) | (See entry) |
+| [User Consent for OAuth 2.0 and OpenID Connect flows is rolling out to GA in Production](#user-consent-for-oauth-2-0-and-openid-connect-flows-is-rolling-out-to-ga-in-production) | (See entry) |
 | [Account linking for SAML IdPs is now GA in Preview](#account-linking-for-saml-idps-is-now-ga-in-preview) | November 4, 2020         |
 | [Group object `source` property is now GA in Preview](#group-object-source-property-is-now-ga-in-preview) | November 4, 2020         |
 | [MyAccount API is now in Early Access (EA)](#myaccount-api-is-now-in-early-access-ea) | November 4, 2020         |
@@ -22,7 +22,7 @@ Okta is focused on the adoption of inclusive language and communication. Some lo
 
 The descriptive information returned on both the invalid redirect URI and invalid logout URI error pages has been updated to remove the term "whitelisted". <!--OKTA-336922-->
 
-### System Logs API adds additional filter expressions
+### System Log API adds additional filter expressions
 
 The [System Log API](/docs/reference/api/system-log/) `/logs` endpoint can now use the SCIM filter expression operators: `ew` (ends with), `ne` (not equal), and `not` (not function). <!--OKTA-188737-->
 
@@ -36,7 +36,7 @@ To help you manage zones in your organization, the Early Access [Zones API](/doc
 
 This feature will be available to orgs in Okta Production cells on November 9, 2020. <!--OKTA-342520-->
 
-### User Consent for OAuth 2.0 and OpenID Connect Flows is rolling out to GA in Production
+### User Consent for OAuth 2.0 and OpenID Connect flows is rolling out to GA in Production
 
 A consent represents a user's explicit permission to allow an application to access resources protected by scopes. As part of an OAuth 2.0 or OpenID Connect authentication flow, you can prompt the user with a page to approve your app's access to specified resources. See the [consent property for scopes](/docs/reference/api/authorization-servers/#scope-properties).
 
