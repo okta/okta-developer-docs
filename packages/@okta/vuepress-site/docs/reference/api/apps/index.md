@@ -233,9 +233,9 @@ Adds a new Okta Org2Org application to your organization
 
 | Parameter          | Description                                             | DataType | Nullable | Unique | Validation                                |
 | ------------------ | ------------------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
-| acsURl  | The Source org Assertion Consumer Service URL | String | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| acsUrl  | The Assertion Consumer Service (ACS) URL of the source org | String | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | audRestriction  | Audience URI | String | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
-| baseUrl | The login URL of the target Okta Org | String  | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| baseUrl | The login URL of the target Okta org | String  | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 
 ##### Request example
 
@@ -285,9 +285,7 @@ curl -v -X POST \
       "login":true
     }
   },
-  "features":[
-    
-  ],
+  "features":[],
   "signOnMode":"SAML_2_0",
   "credentials":{
     "userNameTemplate":{
@@ -319,9 +317,7 @@ curl -v -X POST \
       "audienceOverride":null,
       "recipientOverride":null,
       "destinationOverride":null,
-      "attributeStatements":[
-        
-      ]
+      "attributeStatements":[]
     }
   },
   "_links":{
