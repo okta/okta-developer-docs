@@ -10,7 +10,7 @@ meta:
 
 ## Python Samples
 
-<ul class="language-libraries">
+<ul class="language-ctas">
 	<li>
 		<a href='https://github.com/okta/samples-python-flask' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>Sample App</span>
