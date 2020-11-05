@@ -12,7 +12,7 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/protect-your-api/nodeexpress/before-you-begin/' class='Button--blue' data-proofer-ignore>
+		<a href='/docs/guides/protect-your-api/nodeexpress/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
