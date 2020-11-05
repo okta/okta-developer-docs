@@ -1,6 +1,6 @@
 {
-  "release" : "2020.10.1",
-  "build" : "2020.10.1-begin-81-gdedc4f5253dd",
+  "release" : "2020.11.1",
+  "build" : "2020.11.1-begin-125-gbebc1b0e6885",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -605,6 +605,10 @@
     "tags" : [ ]
   }, {
     "id" : "device-trust-cert-distribution-and-binding",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "device-identity",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -7743,7 +7747,7 @@
         "release" : "2017.43"
       },
       "beta" : false,
-      "tags" : [ "app-instance-request" ],
+      "tags" : [ "app-instance-request", "event-hook-eligible" ],
       "mappings" : [ "app.access_request.approver.approve" ],
       "schema" : {
         "debugData" : "AppInstanceDebugData",
@@ -7759,7 +7763,7 @@
         "release" : "2017.43"
       },
       "beta" : false,
-      "tags" : [ "app-instance-request" ],
+      "tags" : [ "app-instance-request", "event-hook-eligible" ],
       "mappings" : [ "app.access_request.approver.deny" ],
       "schema" : {
         "debugData" : "AppInstanceDebugData",
@@ -7775,7 +7779,7 @@
         "release" : "2017.43"
       },
       "beta" : false,
-      "tags" : [ "app-instance-request" ],
+      "tags" : [ "app-instance-request", "event-hook-eligible" ],
       "mappings" : [ "app.access_request.delete" ],
       "schema" : {
         "debugData" : null,
@@ -7791,7 +7795,7 @@
         "release" : "2017.43"
       },
       "beta" : false,
-      "tags" : [ "app-instance-request" ],
+      "tags" : [ "app-instance-request", "event-hook-eligible" ],
       "mappings" : [ "app.access_request.deny" ],
       "schema" : {
         "debugData" : null,
@@ -7807,7 +7811,7 @@
         "release" : "2017.43"
       },
       "beta" : false,
-      "tags" : [ "app-instance-request" ],
+      "tags" : [ "app-instance-request", "event-hook-eligible" ],
       "mappings" : [ "app.access_request.expire" ],
       "schema" : {
         "debugData" : null,
@@ -7823,7 +7827,7 @@
         "release" : "2017.43"
       },
       "beta" : false,
-      "tags" : [ "app-instance-request" ],
+      "tags" : [ "app-instance-request", "event-hook-eligible" ],
       "mappings" : [ "app.access_request.grant" ],
       "schema" : {
         "debugData" : null,
@@ -7839,7 +7843,7 @@
         "release" : "2017.43"
       },
       "beta" : false,
-      "tags" : [ "app-instance-request" ],
+      "tags" : [ "app-instance-request", "event-hook-eligible" ],
       "mappings" : [ "app.access_request.request" ],
       "schema" : {
         "debugData" : "AppInstanceDebugData",
@@ -12069,6 +12073,22 @@
         "debugData" : "YubikeyDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "device.enrollment.create",
+      "category" : "device-platform",
+      "description" : "Fired during Okta Device Authenticator enrollment when the device used to enroll is unknown. This can be used by any admin to monitor when a new device is registered successfully for Okta Verify. The user must have below the max allowed devices and a valid device state (not suspended or deactivated).The targets field contains key details of the enrolled device including name, status, serialNumber, imei, meid, osVersion, osPlatform. which may be useful for identifying the device, tracking  which device platforms and OS versions that enrolled in Okta Device Authenticator.",
+      "info" : {
+        "created" : "2020-09-29",
+        "release" : "2020.10.4"
+      },
+      "beta" : false,
+      "tags" : [ "device-identity", "event-hook-eligible", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "DeviceIdentityResourceDetails" ]
       }
     }, {
       "id" : "directory.app_user_profile.bootstrap",
@@ -27687,6 +27707,99 @@
             "customer" : false,
             "format" : "okta:agentInstanceId",
             "examples" : [ "0oaknbuyg3AoKdZ4f0x7", "0oa24wjaw8XsqB1b42p7", "0oa19bii09dnf8vgQ1d8" ]
+          }
+        }
+      },
+      "DeviceIdentityResourceDetails" : {
+        "name" : "DeviceIdentityResourceDetails",
+        "properties" : {
+          "tpm_present" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "os_version" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "version",
+            "examples" : [ "15.5.3", "10.15.7" ]
+          },
+          "os_platform" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OSx", "Android", "iOS" ]
+          },
+          "meid" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "id",
+            "examples" : [ "A100000AFC507D" ]
+          },
+          "imei" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "id",
+            "examples" : [ "490154203237518" ]
+          },
+          "udid" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "id",
+            "examples" : [ "002ebf12-a125-5ddf-a739-67c3c5d20177" ]
+          },
+          "serial_number" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "id",
+            "examples" : [ "DNPZMC29N6XNK" ]
+          },
+          "managed" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "device_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "CREATED", "ACTIVE", "SUSPENDED", "DEACTIVATED" ]
+          },
+          "device_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "Bens iPhone 11", "Shaolins Macbook Pro", "SM-G960U" ]
+          },
+          "okta_device_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "dtcza3l2p6IusKbuu0g3", "odt24w9STjx24Xr1l0g4", "00oyl7nvs3nff89jo0g3" ]
           }
         }
       },
