@@ -22,7 +22,7 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
 
 2. [Install the Postman app](https://www.getpostman.com/apps).
 3. Start Postman if it's not open already.
-4. At the upper-left corner, click **Import**.
+4. In the upper-left corner, click **Import**.
 ![Postman window](/img/postman_import_button.png "Displays an arrow pointing to the Import button at the upper-left corner of the Postman window")
 5. In the **Import** dialog box, click **Link**, then paste this link: `https://developer.okta.com/docs/api/postman/example.oktapreview.com.environment` in the **Enter a URL** box and click **Continue**.
 ![Postman Import dialog](/img/postman_import_dialog.png "Displays an arrow pointing to the Link tab in the Import dialog box")
