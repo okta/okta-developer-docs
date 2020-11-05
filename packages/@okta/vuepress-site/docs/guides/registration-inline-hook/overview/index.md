@@ -15,7 +15,7 @@ At a high-level, the following workflow occurs:
 
 This guide uses the website Glitch.com to act as an external service and to implement the Registration Inline hook with an Okta org. See the following Glitch project to copy a working code example that implements the Registration Inline hook or build your own using the code snippets:
 
-* [Okta-Registration-Inline-Hook-Example](https://resonant-rocky-slouch.glitch.me/)
+* [Okta Registration Inline Hook Example](https://okta-inlinehook-registrationhook.glitch.me/)
 
 For further background on the Registration Inline Hook, see:
 

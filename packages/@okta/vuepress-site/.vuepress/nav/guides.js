@@ -105,7 +105,7 @@ module.exports = [
       { title: 'Overview and Considerations', guideName: 'overview-and-considerations'},
       { title: 'Set Up Event Hooks', guideName: 'set-up-event-hook' },
       { title: 'Implement a Password Import Inline Hook', guideName: 'password-import-hook' },
-      { title: 'Implement a Registration Inline Hook', guideName: 'registration-inline-hook' },
+      { title: 'Registration Inline Hook', guideName: 'registration-inline-hook' },
     ]
   }
 ];

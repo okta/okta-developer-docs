@@ -1,5 +1,5 @@
 ---
-title: Implement a Registration Inline Hook
+title: Registration Inline Hook
 excerpt: Code the external service for a Registration Inline Hook
 layout: Guides
 sections:
@@ -8,6 +8,5 @@ sections:
  - send-response-code
  - activate-and-enable
  - test-registration-hook
- - resources
 ---
 
