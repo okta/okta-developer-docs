@@ -12,9 +12,8 @@ meta:
 
 <ul class="language-libraries">
 	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/samples-python-flask">
-			<span>Samples for Python + Flask</span>
+		<a href='https://github.com/okta/samples-python-flask' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sample App</span>
 		</a>
 	</li>
 </ul>
