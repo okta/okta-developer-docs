@@ -32,7 +32,7 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
 10. In the **MANAGE ENVIRONMENTS** dialog box, do the following:
     * In the **Environment Name** box, delete the placeholder text and name your environment, for example: `John's Okta Org`.
     * For the `url` variable, in the **INITIAL VALUE** and **CURRENT VALUE** columns, replace the placeholder text with your org's full URL, for example: `https://dev-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
-    * In the table row for the **VARIABLE** `apikey`, on the **INITIAL VALUE** and **CURRENT VALUE** columns, enter your API token that you created earlier. For example, `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
+    * For the `apikey` variable, in the **INITIAL VALUE** and **CURRENT VALUE** columns, enter your API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
     ![Postman MANAGE ENVIRONMENTS dialog box](/img/postman_manage_environments_dialog.png "Displays arrows that points to the Environment Name box and the url and apikey variables in the MANAGE ENVIRONMENTS dialog box")
 11. To save the changes you made, scroll down all the way and click **Update**.
