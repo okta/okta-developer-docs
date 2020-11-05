@@ -36,7 +36,7 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
 
     ![Postman MANAGE ENVIRONMENTS dialog box](/img/postman_manage_environments_dialog.png "Displays arrows that points to the Environment Name box and the url and apikey variables in the MANAGE ENVIRONMENTS dialog box")
 11. Scroll to the bottom of the dialog box and click **Update**.
-12. To close the **MANAGE ENVIRONMENTS** dialog box, click X in the upper-right corner.
+12. To close the dialog box, click the **X** in the upper-right corner.
 ![Postman MANAGE ENVIRONMENTS dialog box with additional options](/img/postman_closing_manage_environments_dialog.png "Displays an arrow pointing to the close button in the upper-right corner of the MANAGE ENVIRONMENTS dialog box")
 
 <DomainAdminWarning />
