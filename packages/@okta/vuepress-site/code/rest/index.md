@@ -35,7 +35,7 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
     * For the `apikey` variable, in the **INITIAL VALUE** and **CURRENT VALUE** columns, enter your API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
     ![Postman MANAGE ENVIRONMENTS dialog box](/img/postman_manage_environments_dialog.png "Displays arrows that points to the Environment Name box and the url and apikey variables in the MANAGE ENVIRONMENTS dialog box")
-11. To save the changes you made, scroll down all the way and click **Update**.
+11. Scroll to the bottom of the dialog box and click **Update**.
 12. To close the **MANAGE ENVIRONMENTS** dialog box, click X in the upper-right corner.
 ![Postman MANAGE ENVIRONMENTS dialog box with additional options](/img/postman_closing_manage_environments_dialog.png "Displays an arrow pointing to the close button in the upper-right corner of the MANAGE ENVIRONMENTS dialog box")
 
