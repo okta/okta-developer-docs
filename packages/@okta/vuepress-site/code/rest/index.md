@@ -30,7 +30,7 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
 9. In the upper-right corner of the {yourOktaDomain} dialog box, click **Edit**. 
 ![Postman environment quick look edit link](/img/postman_environment_quick_look_edit.png "Displays an arrow pointing to the edit link in the upper-right corner of the {yourOktaDomain} dialog box")
 10. In the **MANAGE ENVIRONMENTS** dialog box, do the following:
-    * In the **Environment Name** box, delete the placeholder text and name your environment to something you recognize, for example: `John's Okta Org`.
+    * In the **Environment Name** box, delete the placeholder text and name your environment, for example: `John's Okta Org`.
     * In the table row for the **VARIABLE** `url`, on the **INITIAL VALUE** and **CURRENT VALUE** columns, replace the placeholder text with your org's full URL. For example, `https://dev-1234567.okta.com`. Remember to _remove_ the `-admin` part in the subdomain.
     * In the table row for the **VARIABLE** `apikey`, on the **INITIAL VALUE** and **CURRENT VALUE** columns, enter your API token that you created earlier. For example, `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
