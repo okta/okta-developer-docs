@@ -36,6 +36,6 @@ The Customer-hosted Sign-In Widget is considered the best balance of flexibility
 
 ## Learn More
 
-Continue reading about the Okta-hosted widget in the [Sign Users In](/docs/guides/sign-into-spa/angular/before-you-begin/) guide.
+Continue reading about the Okta-hosted Sign-In Widget in the [Sign Users In](/docs/guides/sign-into-spa/angular/before-you-begin/) guide.
 
 Continue reading about the customer hosted experience in the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) guide.
