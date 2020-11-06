@@ -36,14 +36,19 @@ export default {
     },
     data() {
         return {
-           sublinksExpanded: false
+           sublinksExpanded: false,
+           iHaveChildrenActive: false
         }
     },
      mounted() {
-        this.sublinksExpanded = this.link.iHaveChildrenActive || false;
-     },
+          this.setData();
+          this.sublinksExpanded = this.link.iHaveChildrenActive || false;
+          },
     watch: {
-        'link.iHaveChildrenActive' (isActivated, _) {
+        'link'() {
+            this.setData();
+        },
+        'iHaveChildrenActive' (isActivated, _) {
             if (isActivated) {
                 // element.scrollIntoViewIfNeeded is not supported by Firefox
                 if (this.$el.scrollIntoViewIfNeeded) {
@@ -63,6 +68,9 @@ export default {
         toggleExpanded() {
             this.sublinksExpanded = !this.sublinksExpanded
         },
+        setData(){
+          this.iHaveChildrenActive = Boolean(this.link.iHaveChildrenActive);
+        }
     },
 }
 </script>
