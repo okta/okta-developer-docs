@@ -1,5 +1,5 @@
 ---
-title: Use a static group whitelist with a Custom Authorization Server
+title: Use a static group allow list with a Custom Authorization Server
 ---
 
 Add a Groups custom claim for an ID token or access token in a Custom Authorization Server. The maximum number of Groups specified must be less than 100. For the following example, we are adding a custom claim for an access token.
@@ -11,7 +11,7 @@ Add a Groups custom claim for an ID token or access token in a Custom Authorizat
 3. Enter a name for the claim. For this example, name it **groups**.
 4. In the **Include in token type** section, leave **Access Token** selected.
 5. Leave **Expression** as the **Value type**.
-6. Enter the following expression as the **Value**: `getFilteredGroups(app.profile.groupwhitelist, "group.name", 40)`
+6. Enter the following expression as the **Value**: `getFilteredGroups(app.profile.groupallowlist, "group.name", 40)`
 7. Click **Create**.
 8. Select the **Scopes** tab and click **Add Scope**.
 9. Add **groups** as the scope **Name** and **DisplayName**, and then select the **Metadata** check box.
@@ -19,7 +19,7 @@ Add a Groups custom claim for an ID token or access token in a Custom Authorizat
 
 > **Note:** Be sure that you have a policy and rule set up in your Custom Authorization Server or the request won't work.
 
-Now, when you mint a token, Groups in the `groupwhitelist` that also have the user as a member are included in the Groups claim.
+Now, when you mint a token, Groups in the `groupallowlist` that also have the user as a member are included in the Groups claim.
 
 ### Request an access token that contains the Groups claim
 
