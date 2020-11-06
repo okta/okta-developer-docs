@@ -12,7 +12,7 @@ The Okta-hosted Sign-In Widget is considered the easiest and most secure means o
 
 ## Customer-hosted widget
 
-The Customer-hosted widget is considered the best balance of flexibility and effort to integrate. The Customer-hosted widget is recommended if an integration requires a deeper level of customization or a Okta-hosted experience isn't possible. The Customer-hosted widget works by providing an open source [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) to embed into the page. The widget is built and updated by Okta, uses industry best practice security design, and is added to a page with a few lines of HTML/JavaScript. The widget itself can be loaded directly from the CDN, NPM, or built from source. The look and feel is customized directly through HTML/CSS/SASS and JavaScript. Features are configured within the Okta Admin Console and enabled in the widget through JavaScript.
+The Customer-hosted Sign-In Widget is considered the best balance of flexibility and effort to integrate. The Customer-hosted Sign-In Widget is recommended if an integration requires a deeper level of customization or a Okta-hosted experience isn't possible. The Customer-hosted Sign-In Widget works by providing an open source [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) to embed into the page. The Sign-In Widget is built and updated by Okta, uses industry best practice security design, and is added to a page with a few lines of HTML/JavaScript. It can be loaded directly from the CDN, NPM, or built from source. The look and feel is customized directly through HTML/CSS/SASS and JavaScript. Features are configured within the Okta Admin Console and enabled through JavaScript.
 
 ## Most should use Okta-hosted
 
