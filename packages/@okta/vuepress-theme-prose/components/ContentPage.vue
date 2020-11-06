@@ -29,12 +29,12 @@ export default {
   },
   watch: {
     $page(to, from) {
-      if (from.title !== to.title) {
-        this.$nextTick(function() {
-          this.scrollToActiveAnchor();
+      this.$nextTick(function() {
+        this.scrollToActiveAnchor();
+        if (from.title !== to.title) {
           this.captureAnchors();
-        });
-      }
+        }
+      });
     }
   },
   methods: {
@@ -50,10 +50,6 @@ export default {
         let scrollToAnchor = this.headingAnchorsMap[element.hash];
         if (scrollToAnchor) {
           event.preventDefault();
-          window.scrollTo(
-            0,
-            scrollToAnchor.offsetTop - this.paddedHeaderHeight
-          );
           location.hash = element.hash;
           return false;
         }
@@ -89,6 +85,9 @@ export default {
         if (target) {
           window.scrollTo(0, target.offsetTop - this.paddedHeaderHeight);
         }
+      } else {
+        // navigating via back button to no-anchor URL
+        window.scrollTo(0, 0);
       }
     }
   }

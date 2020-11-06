@@ -48,4 +48,17 @@ describe('content section', () => {
       throw err;
     }
   }));
-  });
+
+  it('navigates to previous anchor via back button', util.itHelper(async () => {
+    page.navigate('/test_page/#last-section');
+    page.refresh();
+    try {
+      await (page.getInPageLink('#first-section').getWebElement()).click();
+      browser.navigate().back();
+      const heading = await page.getHeading('#last-section').getWebElement();
+      expect(await util.isInViewport(heading), 'heading is not visible').to.equal(true);
+    } catch(err) {
+      throw err;
+    }
+  }));
+});
