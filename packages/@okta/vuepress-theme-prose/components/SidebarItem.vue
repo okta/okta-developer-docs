@@ -43,10 +43,7 @@ export default {
         this.sublinksExpanded = this.link.iHaveChildrenActive || false;
      },
     watch: {
-        // 'link'() {
-        //     this.setData();
-        // },
-        'iHaveChildrenActive' (isActivated, _) {
+        'link.iHaveChildrenActive' (isActivated, _) {
             if (isActivated) {
                 // element.scrollIntoViewIfNeeded is not supported by Firefox
                 if (this.$el.scrollIntoViewIfNeeded) {
@@ -61,24 +58,11 @@ export default {
                 this.$el.scrollIntoView({block: 'center'});
             }
         },
-        'iHaveChildrenActive' (isActivated, _) {
-            if (isActivated) {
-                // element.scrollIntoViewIfNeeded is not supported by Firefox
-                if (this.$el.scrollIntoViewIfNeeded) {
-                    this.$el.scrollIntoViewIfNeeded();
-                } else {
-                    this.$el.scrollIntoView({block: 'nearest'});
-                }
-            }
-        },
     },
     methods: {
         toggleExpanded() {
             this.sublinksExpanded = !this.sublinksExpanded
         },
-        // setData: function() {
-        //     this.iHaveChildrenActive = Boolean(this.link.imActive);
-        // }
     },
 }
 </script>
