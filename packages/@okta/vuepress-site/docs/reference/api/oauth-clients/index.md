@@ -36,7 +36,7 @@ Adds a new client Application to your organization
 
 The [OAuth client](#client-application-object) created by the request
 
-> **Note:** <ApiLifecycle access="ea" /> Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
+> **Note:** Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
 
 ##### Request example
 
@@ -757,13 +757,13 @@ Client Applications have the following properties:
 | initiate_login_uri                      | URL that a third party can use to initiate a login by the client                                                             | String                                                                                         | TRUE       | FALSE    | FALSE     |
 | jwks                                    | A [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                   | [JSON Web Key Set](#json-web-key-set)                                                          | TRUE       | FALSE    | FALSE     |
 | logo_uri                                | URL string that references a logo for the client consent dialog box (not the sign-in dialog box). See [Add an OAuth 2.0 client application](/docs/reference/api/apps/#details) for more information on how the `logo_uri` is used.   | String                                                                                         | TRUE       | FALSE    | FALSE     |
-| policy_uri <ApiLifecycle access="ea" /> | URL string of a web page providing the client's policy document                                                              | URL                                                                                           | TRUE       | FALSE    | FALSE     |
+| policy_uri                              | URL string of a web page providing the client's policy document                                                              | URL                                                                                           | TRUE       | FALSE    | FALSE     |
 | post_logout_redirect_uris               | Array of redirection URI strings for use for relying party initiated logouts                  | Array      | TRUE   | FALSE  | FALSE    |
 | redirect_uris                           | Array of redirection URI strings for use in redirect-based flows                              | Array      | TRUE   | FALSE  | FALSE    |
 | request_object_signing_alg              | The type of JSON Web Key Set (JWKS) algorithm that must be used for signing request objects. | `HS256`, `HS384`, `HS512`, `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, `ES512`  | TRUE      | FALSE     | FALSE      |
 | response_types                          | Array of OAuth 2.0 response type strings. Default value: `code`    | Array of `code`, `token`, `id_token`  | TRUE   | FALSE  | FALSE    |
 | token_endpoint_auth_method              | Requested authentication method for the token endpoint. Default value: `client_secret_basic`  | `none`, `client_secret_post`, `client_secret_basic`, or `client_secret_jwt`                    | TRUE       | FALSE    | FALSE     |
-| tos_uri <ApiLifecycle access="ea" />    | URL string of a web page providing the client's terms of service document                                                    | URL                                                                                            | TRUE       | FALSE    | FALSE     |
+| tos_uri                                 | URL string of a web page providing the client's terms of service document                                                    | URL                                                                                            | TRUE       | FALSE    | FALSE     |
 
 Property details
 

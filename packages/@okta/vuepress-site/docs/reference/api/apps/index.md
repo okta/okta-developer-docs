@@ -9,7 +9,7 @@ The Okta Application API provides operations to manage applications and/or assig
 
 ## Get started
 
-Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/18dd817ee8abace68dd8)
+Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/41a737560876d6003ce5)
 
 ## Application operations
 
@@ -219,6 +219,138 @@ curl -v -X POST \
     },
     "deactivate": {
       "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/lifecycle/deactivate"
+    }
+  }
+}
+```
+
+#### Add Okta Org2Org application
+
+Adds a new Okta Org2Org application to your organization
+
+##### Settings
+
+
+| Parameter          | Description                                             | DataType | Nullable | Unique | Validation                                |
+| ------------------ | ------------------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
+| acsUrl  | The Assertion Consumer Service (ACS) URL of the source org | String | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| audRestriction  | Audience URI | String | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| baseUrl | The login URL of the target Okta org | String  | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+
+##### Request example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "name": "okta_org2org",
+  "label": "Sample Okta Org2Org App",
+  "signOnMode": "SAML_2_0",
+  "settings": {
+    "app": {
+      "acsUrl": "https://example.okta.com/sso/saml2/exampleid",
+      "audRestriction": "https://www.okta.com/saml2/service-provider/exampleid",
+      "baseUrl": "https://example.okta.com"
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/apps"
+```
+
+##### Response example
+
+
+```json
+{
+  "id":"0oawpacQMRQtvkxOf0g3",
+  "name":"okta_org2org",
+  "label":"Sample Okta Org2Org App",
+  "status":"ACTIVE",
+  "lastUpdated":"2020-10-29T17:31:38.000Z",
+  "created":"2020-10-29T17:31:37.000Z",
+  "accessibility":{
+    "selfService":false,
+    "errorRedirectUrl":null,
+    "loginRedirectUrl":null
+  },
+  "visibility":{
+    "autoSubmitToolbar":false,
+    "hide":{
+      "iOS":false,
+      "web":false
+    },
+    "appLinks":{
+      "login":true
+    }
+  },
+  "features":[],
+  "signOnMode":"SAML_2_0",
+  "credentials":{
+    "userNameTemplate":{
+      "template":"${source.login}",
+      "type":"BUILT_IN"
+    },
+    "signing":{
+      "kid":"8UZti4303PKyV45L1KmnSuI8obmjYEsj_X5kPp_ES60"
+    }
+  },
+  "settings":{
+    "app":{
+      "acsUrl":"https://example.okta.com/sso/saml2/exampleid",
+      "audRestriction":"https://www.okta.com/saml2/service-provider/exampleid",
+      "baseUrl":"https://example.okta.com"
+    },
+    "notifications":{
+      "vpn":{
+        "network":{
+          "connection":"DISABLED"
+        },
+        "message":null,
+        "helpUrl":null
+      }
+    },
+    "signOn":{
+      "defaultRelayState":null,
+      "ssoAcsUrlOverride":null,
+      "audienceOverride":null,
+      "recipientOverride":null,
+      "destinationOverride":null,
+      "attributeStatements":[]
+    }
+  },
+  "_links":{
+    "help":{
+      "href":"http://${yourOktaDomain}/app/okta_org2org/0oawpacQMRQtvkxOf0g3/setup/help/SAML_2_0/external-doc",
+      "type":"text/html"
+    },
+    "metadata":{
+      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/sso/saml/metadata",
+      "type":"application/xml"
+    },
+    "appLinks":[
+      {
+        "name":"login",
+        "href":"http://${yourOktaDomain}/home/okta_org2org/0oawpacQMRQtvkxOf0g3/1857",
+        "type":"text/html"
+      }
+    ],
+    "groups":{
+      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/groups"
+    },
+    "logo":[
+      {
+        "name":"medium",
+        "href":"http://${yourOktaDomain}/assets/img/logos/okta-logo-admin.f5cef92fdcff9fbc3b1835def5de1314.png",
+        "type":"image/png"
+      }
+    ],
+    "users":{
+      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/users"
+    },
+    "deactivate":{
+      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/lifecycle/deactivate"
     }
   }
 }
@@ -1156,16 +1288,16 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | :------------------------------------------ | :--------------------------------------------------------------------------------------------                                                                                                                              | :--------------------------------------------------------------------------------------------- | :--------- | :------- | :--------- |
 | application_type                            | The type of client application                                                                                                                                                                                             | `web`, `native`, `browser`, or `service`                                                       | TRUE       | FALSE    | TRUE       |
 | client_uri                                  | URL string of a web page providing information about the client                                                                                                                                                            | String                                                                                         | TRUE       | FALSE    | FALSE      |
-| consent_method <ApiLifecycle access="ea" /> | Indicates whether user consent is required or implicit. Valid values: `REQUIRED`, `TRUSTED`. Default value is `TRUSTED`                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
+| consent_method                              | Indicates whether user consent is required or implicit. Valid values: `REQUIRED`, `TRUSTED`. Default value is `TRUSTED`                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
 | grant_types                                 | Array of OAuth 2.0 grant type strings                                                                                                                                                                                      | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`   | FALSE      | FALSE    | TRUE       |
 | initiate_login_uri                          | URL string that a third party can use to initiate a sign in by the client                                                                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
 | issuer_mode <ApiLifecycle access="ea" />    | Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client. See [Details](#details). | `CUSTOM_URL` or `ORG_URL`                                                                      | TRUE       | FALSE    | TRUE       |
 | logo_uri                                    | URL string that references a logo for the client. This value is used with the client consent dialog box during the client consent flow. See [Details](#details).| URL                                                                                            | TRUE       | FALSE    | FALSE      |
-| policy_uri <ApiLifecycle access="ea" />     | URL string of a web page providing the client's policy document                                                                                                                                                            | URL                                                                                            | TRUE       | FALSE    | FALSE      |
+| policy_uri                                  | URL string of a web page providing the client's policy document                                                                                                                                                            | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | post_logout_redirect_uris                               | Array of redirection URI strings for relying party-initiated logouts                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | FALSE       |
 | redirect_uris                               | Array of redirection URI strings for use in redirect-based flows                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | TRUE       |
 | response_types                              | Array of OAuth 2.0 response type strings                                                                                                                                                                                   | Array of `code`, `token`, `id_token`                                                           | TRUE       | FALSE    | TRUE       |
-| tos_uri <ApiLifecycle access="ea" />        | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
+| tos_uri                                     | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 
 ###### Details
 
@@ -1188,7 +1320,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * The `grant_types` and `response_types` values described above are partially orthogonal, as they refer to arguments passed to different endpoints in the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749). However, they are related in that the `grant_types` available to a client influence the `response_types` that the client is allowed to use, and vice versa. For instance, a `grant_types` value that includes `authorization_code` implies a `response_types` value that includes `code`, as both values are defined as part of the OAuth 2.0 authorization code grant.
 
-* <ApiLifecycle access="ea" /> A consent dialog appears depending on the values of three elements:
+* A consent dialog appears depending on the values of three elements:
     * `prompt`: a query parameter used in requests to [`/oauth2/${authServerId}/v1/authorize`](/docs/reference/api/oidc/#authorize)(custom authorization server) or [`/oauth2/v1/authorize`](/docs/reference/api/oidc/#authorize) (Org authorization server)
     * `consent_method`: a property listed in the Settings table above
     * `consent`: a property on [scopes](/docs/reference/api/authorization-servers/#scope-properties)
