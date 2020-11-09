@@ -29,12 +29,12 @@ You need a free Okta developer edition org to get started. Don't have one? [Crea
 8. In the upper-right corner, next to `{yourOktaDomain}`, click **Environment quick look** ![Postman environment quick look button](/img/postman_eye_icon_button.png  "Displays the eye icon button").
 9. In the upper-right corner of the **{yourOktaDomain}** dialog box, click **Edit**.
 ![Postman environment quick look edit link](/img/postman_environment_quick_look_edit.png "Displays an arrow pointing to the edit link in the upper-right corner of the {yourOktaDomain} dialog box")
-10. In the **Manage Environment** dialog box, do the following:
+10. In the **Manage Environments** dialog box, do the following:
     * In the **Environment Name** box, delete the placeholder text and name your environment, for example: `John's Okta Org`.
     * For the `url` variable, in the **Initial Value** and **Current Value** columns, replace the placeholder text with your org's full URL, for example: `https://dev-1234567.okta.com`. Remember to remove the `-admin` part of your subdomain.
     * For the `apikey` variable, in the **Initial Value** and **Current Value** columns, enter your API token that you created earlier, for example: `00LzMWxMq_0sdErHy9Jf1sijEGexYZlsdGr9a4QjkS`.
 
-    ![Postman MANAGE ENVIRONMENTS dialog box](/img/postman_manage_environments_dialog.png "Displays arrows that points to the Environment Name box and the url and apikey variables in the **Manage Environments** dialog box")
+    ![Postman Manage Environments dialog box](/img/postman_manage_environments_dialog.png "Displays arrows that points to the Environment Name box and the url and apikey variables in the Manage Environments dialog box")
 11. Scroll to the bottom of the dialog box and click **Update**.
 12. To close the dialog box, click the **X** in the upper-right corner.
 
