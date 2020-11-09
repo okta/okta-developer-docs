@@ -18,7 +18,7 @@
                     {{link.title}}
                 </div>
             </div>
-        </div>
+        </div> 
 
         <ul v-if="link.subLinks" class="sections" v-show="sublinksExpanded">
             <SidebarItem v-for="sublink in link.subLinks" :key="sublink.title" :link="sublink" />
