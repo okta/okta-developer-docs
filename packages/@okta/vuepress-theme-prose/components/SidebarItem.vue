@@ -20,7 +20,7 @@
             </div>
         </div>
 
-        <ul v-if="link.subLinks" class="sections" v-show="link.iHaveChildrenActive || sublinksExpanded">
+        <ul v-if="link.subLinks" class="sections" v-show="sublinksExpanded">
             <SidebarItem v-for="sublink in link.subLinks" :key="sublink.title" :link="sublink" />
         </ul>
       </li>
@@ -42,7 +42,6 @@ export default {
     },
      mounted() {
           this.setData();
-          this.sublinksExpanded = this.link.iHaveChildrenActive || false;
           },
     watch: {
         'link'() {
@@ -70,6 +69,7 @@ export default {
         },
         setData(){
           this.iHaveChildrenActive = Boolean(this.link.iHaveChildrenActive);
+          this.sublinksExpanded = this.link.iHaveChildrenActive || false;
         }
     },
 }
