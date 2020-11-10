@@ -1,8 +1,9 @@
 ---
-title: Use the Client Credentials Flow
+title: Use the Client Credentials flow
 ---
 
-Your Client Application needs to have its client ID and secret stored in a secure manner. You can find the client ID and secret on your application's **General** tab. These are then passed through Basic Auth in the request to your [Okta Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint:
+The Client Credentials flow is intended for server-side (AKA "confidential") client applications with no end user, which normally describes machine-to-machine communication. Your Client Application needs to have its client ID and secret stored in a secure manner. You can find the client ID and secret on your application's **General** tab. These are then passed through Basic Auth in the request to your [Custom Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint:
+
 
 ```
 curl --request POST \
@@ -21,7 +22,7 @@ Note the parameters that are being passed:
 - `grant_type` is `client_credentials`, indicating that we are using the Client Credentials grant type.
 - `scope` must be at least one custom scope that you have created. For more information about this, see the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
 
-If the credentials are valid, the application will receive back an access token:
+If the credentials are valid, the application receives back an access token:
 
 ```
 {
