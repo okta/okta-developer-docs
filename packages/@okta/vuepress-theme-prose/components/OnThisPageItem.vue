@@ -1,6 +1,6 @@
 <template>
   <li>
-    <a :href="link.path || '#' + link.slug" class="on-this-page-link" :class="{'router-link-active': imActive}" @click.prevent="clickLink">
+    <a :href="link.path" class="on-this-page-link" :class="{'router-link-active': imActive}" @click.prevent="clickLink">
       <span >{{link.title}}</span>
     </a>
     <ul v-if="link.children && (iHaveChildrenActive || imActive)">
@@ -26,52 +26,44 @@ export default {
   },
   mounted() {
     this.setActiveData();
-    this.calculateLinkHash();
   },
   watch: {
     $route(to, from){
-     this.imActive = this.isLinkActive(this.link, to.hash)
-    },
+      this.setActiveData(to.hash)
+     },
     activeAnchor(){
-      if(this.activeAnchor){
-        // this.$router.push(this.activeAnchor)
-        this.imActive = this.isLinkActive(this.link)
-      }
+      this.setActiveData()
     }
   },
   methods: {
     calculateLinkHash: function(link){
-      const linkPathDeconstructed = this.link.path.split('/');
-      this.linkHash = linkPathDeconstructed[linkPathDeconstructed.length-1];
+      const linkPathDeconstructed = link.path.split('/');
+      return linkPathDeconstructed[linkPathDeconstructed.length-1];
     },
-    isLinkActive: function( node, toLinkHash = null  ) {
-      if(this.activeAnchor && this.activeAnchor === this.linkHash){ 
-        return true 
+    isLinkActive: function( node, toLinkHash = this.$route.hash) {
+      const nodeHash = this.calculateLinkHash(node)
+      // console.log('CALCULATED NODEHASH', nodeHash)
+      if (toLinkHash === nodeHash) {
+        return true;
       }
-      if(toLinkHash && toLinkHash === this.linkHash) {
+      if(this.activeAnchor && this.activeAnchor === nodeHash){ 
         return true;
       }
       return false;
     },
-    setActiveData: function() {
-      const currentHash = this.activeAnchor || this.$route.hash
-      this.imActive = this.isLinkActive(this.link);
-      this.iHaveChildrenActive = (this.link.children || [] ).some( child => this.isLinkActive(child) );
+    setActiveData: function(toHash = null) {
+      this.linkHash = this.calculateLinkHash(this.link)
+      const currentHash = this.activeAnchor || toHash || this.$route.hash
+      console.log('CURRENT HASH', currentHash)
+      console.log(this.isLinkActive(this.link, currentHash))
+      this.imActive = this.isLinkActive(this.link, currentHash);
+      this.iHaveChildrenActive = (this.link.children || [] ).some( child => this.isLinkActive(child, currentHash));
     },
     clickLink: function(e) {
-      let hash = "";
-      if(e.target.tagName.toLowerCase() === 'span') {
-        hash = e.target.parentNode.hash
-      }
-
-      if(e.target.tagName.toLowerCase() === 'a') {
-        hash = e.target.hash
-      }
-
-      if(hash) {
-        const node = document.querySelector(hash);
+      if(this.linkHash) {
+        const node = document.querySelector(this.linkHash);
         if(node) { // node is sometimes null - perhaps content hasn't loaded?
-          this.$router.push(hash)
+          this.$router.push(this.linkHash)
           const scrollToPosition = node.offsetTop - document.querySelector('.fixed-header').clientHeight - LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
           window.scrollTo(0, scrollToPosition);
           // Chrome & Safari: when zoomed in/out, window.scrollTo does not always perform scroll strictly equal to passed parameter
