@@ -9,7 +9,7 @@ Refresh token rotation helps a public client to securely rotate refresh tokens a
 
 When a client wants to renew an access token, it sends the refresh token with the access token request to the `/token` endpoint. Okta validates the incoming refresh token and issues a new set of tokens. As soon as the new tokens are issued, Okta invalidates the refresh token that was passed with the initial request to the `/token` endpoint.
 
-If a previously used refresh token is used again with the token request, the Authorization Server automatically detects the attempted reuse of the refresh token. As a result, Okta immediately invalidates the most recently issued access and refresh token. This protects your application from token compromise and replay attacks.
+If a previously used refresh token is used again with the token request, the Authorization Server automatically detects the attempted reuse of the refresh token. As a result, Okta immediately invalidates the most recently issued refresh token and all access tokens issued since the user authenticated. This protects your application from token compromise and replay attacks.
 
 ### System Log events
 
@@ -40,23 +40,23 @@ When you create a new native or web app and want to use refresh token rotation:
 2. While walking through the app creation wizard, select **Refresh Token** in the **Allowed grant type** section.
 3. After you click **Done**, select the **General** tab and click **Edit**.
 4. In the **REFRESH TOKEN** section, select **Rotate token after every use**.
-5. Make any adjustments to the number of seconds for the **Grace period for token rotation**. You can change the value to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
+5. Make any adjustments to the number of seconds for the **Grace period for token rotation**. The default is set to 30 seconds. You can change the value to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
 
 ### Refresh token rotation properties
 
 After you enable refresh token rotation, the `refresh_token` property appears within `settings.oauthClient` for your app. The `refresh_token` property is an array that contains the `rotation_type` and `leeway` parameters. Accepted values for `rotation_type` are `ROTATE` or `STATIC`. The accepted value for `leeway` is any number between 0 and 60.
 
-```bash
+```json
 "refresh_token": {
-                "rotation_type": "ROTATE",
-                "leeway": 30
-                 }
+    "rotation_type": "ROTATE",
+    "leeway": 30
+}
 ```
 
-See [somewhere in the Apps API-LARS](/docs/reference/api/apps/).
+See [Refresh token object](/docs/reference/api/apps/#refresh-token-object).
 
 ## Refresh token lifetime
 
-Refresh token lifetimes are managed through the [Authorization Server access policy](/docs/reference/api/authorization-servers/#actions-object). When you use a refresh token with a SPA, make sure that you keep a short refresh token lifetime for better security.
+Refresh token lifetimes are managed through the [Authorization Server access policy](/docs/guides/configure-access-policy/overview/). The default value for the refresh token lifetime (`refreshTokenLifetimeMinutes`) for an [Authorization Server access policy](/docs/reference/api/authorization-servers/#actions-object) is **Unlimited**, but expires every seven days if hasn't been used. When you use a refresh token with a SPA, make sure that you keep a short refresh token lifetime for better security.
 
 <NextSectionLink/>
