@@ -2,7 +2,7 @@
 title: Exchange the Code for Tokens
 ---
 
-To exchange this code for access and ID tokens, you pass it to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the default Okta authorization server, then your request would look something like this:
+To exchange this code for access and ID tokens, you pass it to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the default Custom Authorization Server, then your request would look something like this:
 
 ```
 curl --request POST \
