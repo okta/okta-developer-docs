@@ -12,7 +12,7 @@ There are two standard protocols that you can use to implement SSO in your OIN a
 
 If you’ve previously developed applications using OAuth 2.0 or OIDC, you can skip ahead to the next section.
 
-OAuth 2.0 and OIDC are modern protocols for handling identity and access management between systems. OAuth 2.0 provides capabilities for delegated authorization. OIDC authenticates users and securely exchanges user information after users have been authorized. This guide focuses on understanding how OIDC works within the specific OIN context.
+OAuth 2.0 and OIDC are modern protocols for handling identity and access management between systems. OAuth 2.0 provides capabilities for delegated authorization. OIDC authenticates users and securely exchanges user information. This guide focuses on understanding how OIDC works within the specific OIN context.
 
 OAuth 2.0 provides security to API endpoints through access tokens. This enables an end user to delegate authorization for your client application in order to access API resources on a service on the user's behalf. OIDC extends the OAuth 2.0 flows to enable the client application to retrieve an identification (ID) token and additional information about the application's users. This provides authentication capabilities to the client application.
 
