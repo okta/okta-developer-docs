@@ -4,7 +4,7 @@ title: Overview
 
 Most Okta API endpoints require that you include an API token with your request. Currently, this API token takes the form of an SSWS token that you generate in the Admin Console. With OAuth for Okta, you are able to interact with Okta APIs using scoped OAuth 2.0 access tokens. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains.
 
-> **Important:** You request an access token by making a request to your Okta [Org Authorization Server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the Org Authorization Server can mint access tokens that contain Okta API scopes. See [Which authorization server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use).
+> **Important:** You request an access token by making a call to your Okta [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server) `/authorize` endpoint. Only the Org Authorization Server can mint access tokens that contain Okta API scopes. See [Which authorization server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use).
 
 Scoped access tokens have a number of advantages, including:
 
