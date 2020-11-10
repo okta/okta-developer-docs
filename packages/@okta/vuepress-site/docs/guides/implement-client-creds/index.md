@@ -1,6 +1,6 @@
 ---
-title: Implement the Client Credentials Flow
-excerpt: How to implement the client credentials flow with Okta
+title: Implement the Client Credentials flow
+excerpt: How to implement the Client Credentials flow with Okta
 layout: Guides
 sections:
 - overview

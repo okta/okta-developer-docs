@@ -1,8 +1,8 @@
 ---
-title: Use the Implicit Flow
+title: Use the Implicit flow
 ---
 
-Kicking off this flow is very similar to the [authorization code flow](/docs/guides/implement-auth-code/) except that the `response_type` is `token` and/or `id_token` instead of `code`.
+Using this flow is very similar to the [authorization code flow](/docs/guides/implement-auth-code/) except that the `response_type` is `token` and/or `id_token` instead of `code`.
 
 Your application redirects the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the default Custom Authorization Server, then your request URL would look something like this:
 
@@ -14,15 +14,15 @@ A8080&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo'
 
 Note the parameters that are being passed:
 
-- `client_id` matches the Client ID of your Okta OAuth application that you created above. You can find it at the bottom of your application's General tab.
+- `client_id` matches the Client ID of your Okta OAuth application that you created in the <GuideLink link="../setup-app">previous step</GuideLink>. You can find it at the bottom of your application's **General** tab.
 - `response_type` is `token`. It could also be `id_token` or both.
-- `scope` is `openid` which is required, though additional scopes can be requested. For more information about scopes, see [here](/docs/reference/api/oidc/#scopes).
-- `redirect_uri` is the callback location where the user-agent will be directed to along with the `access_token`. This must match one of the "Login redirect URIs" you specified when you were creating your Okta application in Step 1.
-- `state` is an arbitrary alphanumeric string that the authorization server will reproduce when redirecting the user-agent back to the client. This is used to help prevent cross-site request forgery.
+- `scope` is `openid`, which is required, but additional scopes can be requested. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
+- `redirect_uri` is the callback location where the user agent is directed to along with the `access_token`. This must match one of the **Login redirect URIs** that you specified when you were creating your Okta application in the <GuideLink link="../setup-app">previous step</GuideLink>.
+- `state` is an arbitrary alphanumeric string that the Authorization Server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 
-For more information on these parameters, see [the OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize).
+See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
 
-If the user does not have an existing session, this will open the Okta Sign-in Page. If they have an existing session, or after they authenticate, they will be redirected back to the specified `redirect_uri` along with a `token` as a hash fragment:
+If the user doesn't have an existing session, the request opens the Okta Sign-in Page. If they have an existing session, or after they authenticate, the user is redirected back to the specified `redirect_uri` along with a `token` as a hash fragment:
 
 ```
 http://localhost:8080/#access_token=eyJhb[...]erw&token_type=Bearer&expires_in=

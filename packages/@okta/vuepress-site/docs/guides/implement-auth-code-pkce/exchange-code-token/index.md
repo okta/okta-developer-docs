@@ -1,5 +1,5 @@
 ---
-title: Exchange the Code for Tokens
+title: Exchange the code for tokens
 ---
 
 To exchange this code for access and ID tokens, you pass it to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint along with the `code_verifier` that was generated at the beginning:
@@ -15,7 +15,7 @@ curl --request POST \
   3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
 
-> **Important:** Unlike the regular [Authorization Code Flow](/docs/guides/implement-auth-code/), this call doesn't require the Authorization header with the client ID and secret. This is why this version of the Authorization Code flow is appropriate for native apps.
+> **Important:** Unlike the regular [Authorization Code flow](/docs/guides/implement-auth-code/), this call doesn't require the Authorization header with the Client ID and secret. That is why this version of the Authorization Code flow is appropriate for native apps.
 
 Note the parameters that are being passed:
 
@@ -24,9 +24,9 @@ Note the parameters that are being passed:
 - `code` is the authorization code that you got from the `/authorize` endpoint.
 - `code_verifier` is the PKCE code verifier that your app generated at the beginning of this flow.
 
-For more information on these parameters, see the [OIDC & OAuth 2.0 API reference](/docs/reference/api/oidc/#token).
+See the [OIDC & OAuth 2.0 API reference](/docs/reference/api/oidc/#token) for more information on these parameters.
 
-If the code is still valid, and the code verifier matches, your application will receive back access and ID tokens:
+If the code is still valid, and the code verifier matches, your application receives back access and ID tokens:
 
 ```
 {

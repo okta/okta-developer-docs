@@ -1,12 +1,12 @@
 ---
-title:  Next Steps
+title:  Next steps
 ---
 
-When your application passes a request with an `access_token`, the resource server will need to validate it. For more on this, see [Validate Access Tokens](/docs/guides/validate-access-tokens/).
+When your application passes a request with an `access_token`, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).
 
 ### Examples
 
-The following web application examples show you the authorization code flow, as it would be implemented by a web app that needs to authenticate the end user and then create a local session for that user. These projects use popular web frameworks to handle the heavy lifting. Each project can be cloned and ran locally.
+The following web application examples show you the Authorization Code flow, as it would be implemented by a web app that needs to authenticate the end user and then create a local session for that user. These projects use popular web frameworks to handle the heavy lifting. Each project can be cloned and ran locally.
 
 |                                       | Framework    | Example Repository                                             |
 | :-----------------------------------: | ------------ | -------------------------------------------------------------- |

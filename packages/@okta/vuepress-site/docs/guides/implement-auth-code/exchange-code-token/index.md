@@ -1,5 +1,5 @@
 ---
-title: Exchange the Code for Tokens
+title: Exchange the code for tokens
 ---
 
 To exchange this code for access and ID tokens, you pass it to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the default Custom Authorization Server, then your request would look something like this:
@@ -13,7 +13,7 @@ curl --request POST \
   --data 'grant_type=authorization_code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&code=P59yPm1_X1gxtdEOEZjn'
 ```
 
-> **Important:** The call to the `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the client ID and secret. You can find the client ID and secret in your application's General tab. This requirement is why this call is only appropriate for applications that can guarantee the confidentiality of the client secret. For more on Basic Auth, see [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
+> **Important:** The call to the `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and secret. You can find the Client ID and secret on your application's **General** tab. This requirement is why this call is only appropriate for applications that can guarantee the confidentiality of the client secret. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
@@ -21,9 +21,9 @@ Note the parameters that are being passed:
 - `redirect_uri` must match the URI that was used to get the authorization code.
 - `code` is the authorization code that you got from the `/authorize` endpoint.
 
-For more information on these parameters, see the [OAuth 2.0 API reference](/docs/reference/api/oidc/#token).
+See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#token) for more information on these parameters.
 
-If the code is still valid, your application will receive back access and ID tokens:
+If the code is still valid, your application receives back access and ID tokens:
 
 ```json
 {
@@ -35,4 +35,4 @@ If the code is still valid, your application will receive back access and ID tok
 }
 ```
 
-<NextSectionLink>Next Steps</NextSectionLink>
+<NextSectionLink>Next steps</NextSectionLink>
