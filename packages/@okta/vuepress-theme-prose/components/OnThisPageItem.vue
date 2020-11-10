@@ -17,7 +17,8 @@ export default {
   data() {
     return {
       imActive: false,
-      iHaveChildrenActive: false
+      iHaveChildrenActive: false,
+      linkHash: '',
     }
   },
   components: {
@@ -25,23 +26,37 @@ export default {
   },
   mounted() {
     this.setActiveData();
+    this.calculateLinkHash();
   },
   watch: {
-    activeAnchor: function (val) {
-      this.setActiveData();
+    $route(to, from){
+     this.imActive = this.isLinkActive(this.link, to.hash)
+    },
+    activeAnchor(){
+      if(this.activeAnchor){
+        // this.$router.push(this.activeAnchor)
+        this.imActive = this.isLinkActive(this.link)
+      }
     }
   },
   methods: {
-    isActive: function( node ) {
-      if(this.activeAnchor === null) {
-        return false;
+    calculateLinkHash: function(link){
+      const linkPathDeconstructed = this.link.path.split('/');
+      this.linkHash = linkPathDeconstructed[linkPathDeconstructed.length-1];
+    },
+    isLinkActive: function( node, toLinkHash = null  ) {
+      if(this.activeAnchor && this.activeAnchor === this.linkHash){ 
+        return true 
       }
-      let anchor = this.activeAnchor.replace(/^#/, '');
-      return (node.path && node.path == node.basePath + '#' + anchor) || (node.slug && node.slug == anchor);
+      if(toLinkHash && toLinkHash === this.linkHash) {
+        return true;
+      }
+      return false;
     },
     setActiveData: function() {
-      this.imActive = this.isActive(this.link);
-      this.iHaveChildrenActive = (this.link.children || [] ).some( child => this.isActive(child) );
+      const currentHash = this.activeAnchor || this.$route.hash
+      this.imActive = this.isLinkActive(this.link);
+      this.iHaveChildrenActive = (this.link.children || [] ).some( child => this.isLinkActive(child) );
     },
     clickLink: function(e) {
       let hash = "";
@@ -56,6 +71,7 @@ export default {
       if(hash) {
         const node = document.querySelector(hash);
         if(node) { // node is sometimes null - perhaps content hasn't loaded?
+          this.$router.push(hash)
           const scrollToPosition = node.offsetTop - document.querySelector('.fixed-header').clientHeight - LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
           window.scrollTo(0, scrollToPosition);
           // Chrome & Safari: when zoomed in/out, window.scrollTo does not always perform scroll strictly equal to passed parameter
