@@ -10,9 +10,9 @@
         <component :is="$page.frontmatter.component" />
       </div>
       <div class="content" v-else>
-        <div class="content--container">
+        <div :class="{'content--container': true, 'navigation-only': appContext.isTreeNavMobileOpen}">
           <div class="tree-nav">
-            <Sidebar :sidebarActive="treeNavOpen" />
+            <Sidebar />
           </div>
           <div class="content-area">
             <PageTitle />
@@ -48,6 +48,7 @@
 export const LAYOUT_CONSTANTS = {
   HEADER_TO_CONTENT_GAP: 45, //px
 };
+const TABLET_BREAKPOINT = 767;
 export const endingSlashRE = /\/$/
 export default {
   components: {
@@ -65,19 +66,29 @@ export default {
   },
   data() {
     return {
-      treeNavOpen: false
+      appContext: {
+        isTreeNavMobileOpen: false,
+        isInMobileViewport: false
+      }
+    }
+  },
+  provide(){
+    return {
+      appContext: this.appContext
     }
   },
   mounted() {
     let that = this;
     this.$on('toggle-tree-nav', event => {
-      that.treeNavOpen = event.treeNavOpen;
+      that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
     });
-
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
     this.redirIfRequired();
   },
   watch: {
     $route(to, from) {
+      this.appContext.isTreeNavMobileOpen = false;
       this.redirIfRequired();
     }
   },
@@ -116,6 +127,9 @@ export default {
         }
       }
     },
+    onResize() {
+      this.appContext.isInMobileViewport = window.innerWidth < TABLET_BREAKPOINT;
+    },
     createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
       return (
         `https://github.com/${docsRepo}`
@@ -126,7 +140,11 @@ export default {
         + path
       )
     }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
   }
+
 }
 </script>
 

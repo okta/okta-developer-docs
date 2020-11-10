@@ -62,6 +62,10 @@ module.exports = [
         path: '/docs/concepts/okta-hosted-flows/'
     },
     { 
+      title: 'Hosted Vs. Embedded', 
+      path: '/docs/concepts/hosted-vs-embedded/'
+    },
+    { 
         title: 'Policies', 
         path: '/docs/concepts/policies/'
     },

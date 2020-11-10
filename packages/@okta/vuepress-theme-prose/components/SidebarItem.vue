@@ -29,6 +29,7 @@
 export default {
     name: 'SidebarItem',
     props: ['link'],
+    inject: ['appContext'],
     components: {
       SidebarItem: () => import('../components/SidebarItem.vue'),
     },
@@ -46,7 +47,17 @@ export default {
         },
         'iHaveChildrenActive' (isActivated, _) {
             if (isActivated) {
-                this.$el.scrollIntoViewIfNeeded();
+                // element.scrollIntoViewIfNeeded is not supported by Firefox
+                if (this.$el.scrollIntoViewIfNeeded) {
+                    this.$el.scrollIntoViewIfNeeded();
+                } else {
+                    this.$el.scrollIntoView({block: 'nearest'});
+                }
+            }
+        },
+        'appContext.isTreeNavMobileOpen'(isOpen, _) {
+            if (isOpen && this.link.imActive && this.link.path) {
+                this.$el.scrollIntoView({block: 'center'});
             }
         }
     },

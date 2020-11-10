@@ -3008,7 +3008,7 @@ Creates a new transaction and sends an asynchronous push notification to the dev
 | factorId     | `id` of a Factor                                    | URL        | String   | TRUE     |         |
 | userId       | `id` of a User                                      | URL        | String   | TRUE     |         |
 
-> **Notes:** The client `IP Address` and `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br><br>You should [always send a valid User-Agent HTTP header](/docs/reference/api-overview/#user-agent) when verifying a push Factor.<br><br> The **public IP address** of your application must be [whitelisted as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Notes:** The client `IP Address` and `User Agent` of the HTTP request is automatically captured and sent in the push notification as additional context.<br><br>You should [always send a valid User-Agent HTTP header](/docs/reference/api-overview/#user-agent) when verifying a push Factor.<br><br> The **public IP address** of your application must be [allow listed as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ##### Response parameters
 
