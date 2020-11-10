@@ -2,7 +2,7 @@
 title: Use the Resource Owner Password Flow
 ---
 
-Before you can begin this flow, collect the user's password in a manner of your choosing. After you have collected the credentials, all that is required is a single API call to the [Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint. If you are using the default Custom Authorization Server, then your request would look something like this:
+Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint. If you are using the default Custom Authorization Server, then your request would look something like this:
 
 ```
 curl --request POST \
