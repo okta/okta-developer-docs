@@ -2,7 +2,7 @@
 title: Test the authorization server
 ---
 
-Once you have followed the instructions to set up and customize your authorization server, you can test it by sending any one of the API calls that returns OAuth 2.0 and/or OpenID Connect tokens.
+After you have followed the instructions to set up and customize your authorization server, you can test it by sending any one of the API calls that returns OAuth 2.0 and/or OpenID Connect tokens.
 
 > **Note:** The `{authServerId}` for the default server is `default`.
 
@@ -37,7 +37,9 @@ For more information on this endpoint, see [Get all claims](/docs/reference/api/
 To test your authorization server more thoroughly, you can try a full authentication flow that returns an ID Token. To do this, you need a client application in Okta with at least one user assigned to it.
 
 For more information you can read about:
+
 - [The OpenID Connect Application Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc)
+
 - [How to assign a user to an application](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-assign-apps)
 
 You need the following values from your Okta OpenID Connect application, both of which can be found on your application's **General** tab:
