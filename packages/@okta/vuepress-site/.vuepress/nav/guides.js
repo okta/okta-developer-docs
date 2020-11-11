@@ -78,6 +78,7 @@ module.exports = [
     title: 'OIN Partner Integrations',
     subLinks: [
       { title: 'Build a SCIM provisioning integration', guideName: 'build-provisioning-integration' },
+      { title: 'OIDC and the OIN: A Developer Primer', guideName: 'oin-oidc-guide' },
       { title: 'Build a Single Sign-On (SSO) integration', guideName: 'build-sso-integration' },
       { title: 'Submit an app integration', guideName: 'submit-app' },
     ]
