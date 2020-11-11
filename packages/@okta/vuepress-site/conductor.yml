@@ -33,6 +33,10 @@ redirects:
     to: /code/java/spring_security_saml/index.html
   - from: /docs/guides/spring_security_saml.html
     to: /code/java/spring_security_saml/index.html
+  - from: /docs/guides/spring_security_saml
+    to: /code/java/spring_security_saml/index.html
+  - from: /docs/guides/spring_security_saml
+    to: /code/java/spring_security_saml/
   - from: /docs/guides/okta_auth_sdk.html
     to: /code/javascript/okta_auth_sdk/index.html
   - from: /docs/guides/okta_auth_sdk
@@ -270,6 +274,8 @@ redirects:
   - from: /docs/platform-release-notes/platform-release-notes2017-index/index.html
     to: /docs/release-notes/
   - from: /docs/getting_started/error-codes
+    to: /docs/reference/error-codes/index.html
+  - from: /docs/api/getting_started/error_codes
     to: /docs/reference/error-codes/index.html
   - from: /docs/api/getting_started/error-codes
     to: /docs/reference/error-codes/index.html
@@ -1865,6 +1871,10 @@ redirects:
     to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/guides/create-token-with-groups-claim/
     to: /docs/guides/customize-tokens-returned-from-okta/
+  - from: /docs/guides/customize-tokens-returned-from-okta/-/add-groups-claim-org-as/
+    to:  /docs/guides/customize-tokens-groups-claim/-/add-groups-claim-org-as
+  - from: /docs/guides/customize-tokens-returned-from-okta/-/add-groups-claim-org-as/
+    to:  /docs/guides/customize-tokens-groups-claim/-/add-groups-claim-org-as/index.html
   - from: /standards/SCIM/SCIMFiles/Okta-SCIM-1.1-CRUD-Test.json
     to: /standards/SCIM/SCIMFiles/Okta-SCIM-11-CRUD-Test.json
   - from: /standards/SCIM/SCIMFiles/Okta-SCIM-CRUD-Test.json
@@ -1991,3 +2001,12 @@ redirects:
     to: /docs/guides/style-the-widget/customization-examples/
   - from: /docs/guides/custom-hosted-signin/customization-examples/index.html
     to: /docs/guides/style-the-widget/customization-examples/
+  - from: /docs/guides/custom-hosted-signin/overview
+    to: /docs/guides/style-the-widget/style-okta-hosted/
+  - from: /docs/guides/custom-hosted-signin/overview/index.html
+    to: /docs/guides/style-the-widget/style-okta-hosted/
+  - from: /docs/reference/logs
+    to: /docs/reference/api/system-log
+  - from: /docs/reference/logs/index.html
+    to: /docs/reference/api/system-log
+
