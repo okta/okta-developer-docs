@@ -19,7 +19,7 @@ It’s important to note that this information is about a migration strategy and
 
 ## Private data and other sensitive information
 
-**Important:** Information security is a critical issue in today’s world, and user information is probably the most important information to keep secure. When preparing to migrate user data to Okta, you must consider all of your company policies and any regulatory concerns regarding personally identifiable information (PII), and user data in general. The European Union’s [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/) is an example of regulatory rules that may apply to your migration. Check with your legal department early in the planning process for your migration so that you can include these considerations when developing your plan.
+> **Important:** Information security is a critical issue in today’s world, and user information is probably the most important information to keep secure. When preparing to migrate user data to Okta, you must consider all of your company policies and any regulatory concerns regarding personally identifiable information (PII), and user data in general. The European Union’s [General Data Protection Regulation (GDPR)](https://gdpr-info.eu/) is an example of regulatory rules that may apply to your migration. Check with your legal department early in the planning process for your migration so that you can include these considerations when developing your plan.
 
 For some helpful information on this, see:
 
