@@ -11,7 +11,7 @@ If you need scopes in addition to the reserved scopes provided, you can create t
 3. Select **Scopes**, and then **Add Scope**.
 4. Enter a **Name**, **Display phrase**, and **Description**.
 
-    > **Note:** The Display phrase is what the user sees in the **Consent** dialog box.
+    > **Note:** The **Display phrase** is what the user sees in the **Consent** dialog box.
 
 5. Select **Require user consent for this scope** to require that a user grant consent for the scope.
 

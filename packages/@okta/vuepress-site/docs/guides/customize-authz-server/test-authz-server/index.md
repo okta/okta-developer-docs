@@ -39,7 +39,6 @@ To test your authorization server more thoroughly, you can try a full authentica
 For more information you can read about:
 
 - [The OpenID Connect Application Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc)
-
 - [How to assign a user to an application](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-assign-apps)
 
 You need the following values from your Okta OpenID Connect application, both of which can be found on your application's **General** tab:
