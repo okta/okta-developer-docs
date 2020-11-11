@@ -1872,7 +1872,7 @@ redirects:
   - from: /docs/guides/create-token-with-groups-claim/
     to: /docs/guides/customize-tokens-returned-from-okta/
   - from: /docs/guides/customize-tokens-returned-from-okta/-/add-groups-claim-org-as/
-    to:  /docs/guides/customize-tokens-groups-claim/-/add-groups-claim-org-as
+    to:  /docs/guides/customize-tokens-groups-claim/-/add-groups-claim-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/-/add-groups-claim-org-as/
     to:  /docs/guides/customize-tokens-groups-claim/-/add-groups-claim-org-as/index.html
   - from: /standards/SCIM/SCIMFiles/Okta-SCIM-1.1-CRUD-Test.json
@@ -2006,7 +2006,7 @@ redirects:
   - from: /docs/guides/custom-hosted-signin/overview/index.html
     to: /docs/guides/style-the-widget/style-okta-hosted/
   - from: /docs/reference/logs
-    to: /docs/reference/api/system-log
+    to: /docs/reference/api/system-log/
   - from: /docs/reference/logs/index.html
-    to: /docs/reference/api/system-log
+    to: /docs/reference/api/system-log/
 
