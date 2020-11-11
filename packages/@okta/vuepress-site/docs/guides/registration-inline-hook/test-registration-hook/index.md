@@ -20,7 +20,7 @@ To preview the Registration Inline hook:
 
 ### Test
 
-To run a test of your Registration Inline Hook, go to the Okta sign-in page for your Okta org, and attempt to self-register.
+To run a test of your Registration Inline Hook, go to the Okta sign-in page for your Okta org, click the "Sign Up" link, and attempt to self-register.
 
 - If you use an allowable email domain, the user registration goes through.
 - If you use an incorrect email domain, the user registration is denied; review the error message, which displays the error summary from the external service code and is passed back to Okta.

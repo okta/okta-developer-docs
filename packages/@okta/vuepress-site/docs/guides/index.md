@@ -19,6 +19,7 @@ guides:
  - find-your-app-credentials
  - find-your-domain
  - password-import-hook
+ - password-import-inline-hook
  - implement-auth-code
  - implement-auth-code-pkce
  - implement-client-creds
