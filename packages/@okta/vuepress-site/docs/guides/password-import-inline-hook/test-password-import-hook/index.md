@@ -23,5 +23,3 @@ Use Glitch's log feature to review and troublshoot your external service code:
 2. Click "Logs".
 
 A log pane appears that displays all `console.log()` output. Some console output code is available in the sample code.
-
-<NextSectionLink/>

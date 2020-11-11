@@ -18,10 +18,10 @@ This guide uses the website Glitch.com to act as an external service and to impl
 
 * [Okta Password Import Inline Hook Example](https://okta-passwordimport-inlinehook.glitch.me/)
 
-> **Tip** For another in-depth look at the Password Import Inline Hook, see the following great Developer Experience blog example by Heather Wallander, [Migrate user Passwords with Okta's Password Hook](https://developer.okta.com/blog/2020/09/18/password-hook-migration).
+> **Tip:** For another in-depth look at a Password Import Inline Hook implementation, see the following Developer Experience blog example by Heather Wallander, [Migrate user Passwords with Okta's Password Hook](https://developer.okta.com/blog/2020/09/18/password-hook-migration).
 
 For further reference data on the Password Import Inline Hook, see:
 
-* [Registration Inline Hook](/docs/reference/registration-hook/) for a complete description of this Inline Hook type.
+* [Password Import Inline Hook](/docs/reference/password-hook/) for a complete description of this Inline Hook type.
 
 <NextSectionLink/>
