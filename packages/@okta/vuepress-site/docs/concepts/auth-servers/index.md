@@ -28,7 +28,7 @@ Okta has two types of authorization servers: the Org Authorization Server and Cu
 
 Every Okta org comes with a built-in authorization server called the Org Authorization Server. The base URL for the Org Authorization Server is `https://${yourOktaOrg}`.
 
-You use the Org Authorization Server to perform SSO with Okta or to get an access token for the Okta APIs. You can't customize this authorization server with regards to audience, claims, policies, or scopes. Additionally, the resulting access token's issuer is `https://${yourOktaOrg}`, which indicates that only Okta can consume or validate it. The access token can't be used or validated by your own applications.
+You use the Org Authorization Server to perform SSO with Okta for your OpenID Connect apps or to get an access token for the Okta APIs. You can't customize this authorization server with regards to audience, claims, policies, or scopes. Additionally, the resulting access token's issuer is `https://${yourOktaOrg}`, which indicates that only Okta can consume or validate it. The access token can't be used or validated by your own applications.
 
 #### Org Authorization Server discovery endpoints
 
@@ -42,7 +42,7 @@ The following discovery endpoints return OpenID Connect or OAuth 2.0 metadata re
 
 You use a Custom Authorization Server to create and apply authorization policies to secure your APIs. An access token that is minted by a Custom Authorization Server is consumed by your APIs.
 
-Okta allows you to create multiple Custom Authorization Servers within a single Okta org that you can use to protect your own resource servers. Within each authorization server, you can define your own custom OAuth 2.0 scopes, claims, and access policies to support authorization for your APIs.
+Okta allows you to [create multiple Custom Authorization Servers](/docs/guides/customize-authz-server/create-authz-server/) within a single Okta org that you can use to protect your own resource servers. Within each authorization server, you can define your own custom OAuth 2.0 [scopes](/docs/guides/customize-authz-server/create-scopes/), [claims](/docs/guides/customize-authz-server/create-claims/), and [access policies](/docs/guides/customize-authz-server/create-access-policies/) to support authorization for your APIs.
 
 #### Default Custom Authorization Server
 
