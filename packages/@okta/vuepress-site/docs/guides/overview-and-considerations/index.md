@@ -6,4 +6,5 @@ sections:
  - hook-implementation-setup
  - setting-up-an-external-service
  - adding-basic-auth
+ - troubleshooting
 ---
