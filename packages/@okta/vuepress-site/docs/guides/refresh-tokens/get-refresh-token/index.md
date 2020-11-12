@@ -18,7 +18,7 @@ The only flows that support refresh tokens are the authorization code flow and t
 
 ## Get a refresh token with the code flow
 
-In the case of the authorization code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then send this code to the `/token` endpoint to get an access token and a refresh token.
+In the case of the authorization code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then use the `authorization_code` grant with this code in a request to the `/token` endpoint to get an access token and a refresh token.
 
 See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#authorize) and [Implementing the authorization code flow](/docs/guides/implement-auth-code/) for more information on the `/authorize` endpoint and the authorization code flow.
 
@@ -48,14 +48,14 @@ https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
 
 ### Example request for an access token, ID token, and refresh token
 
-The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code flow](/docs/guides/implement-auth-code/overview/). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
+The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code flow](/docs/guides/implement-auth-code/overview/). The value for `code` is the authorization code that you receive in the response from the request to the `/authorize` endpoint.
 
 ```bash
 POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code
  &redirect_uri=http%3A%2F%2Flocalhost%3A8080
- &code=code
+ &code=DPA9Utz2LkWlsronqehy
  &state=1
- &scope=openid
+ &scope=openid%20offline_access
 ```
 
 The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-auth-code-pkce/overview/). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
@@ -63,10 +63,10 @@ The following is an example request to the `/token` endpoint to obtain an access
 ```bash
 POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code
  &redirect_uri=http%3A%2F%2Flocalhost%3A8080
- &code=code
+ &code=CKA9Utz2GkWlsrmnqehz
  &state=1
- &scope=openid
- &code_verifier=code verifier
+ &scope=openid%20offline_access
+ &code_verifier=M25iVXpKU3puUjFjYWg3T1NDTDQtcW1rOUY5YXlwalNoc0hhaoxifmZHag
 ```
 
 ### Example response
