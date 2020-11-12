@@ -56,7 +56,7 @@ Before Okta can serve traffic over your domain, you need to add an alias from yo
 1. Return to your Domain Name registrar and locate the option to modify your DNS records.
 2. Create a new CNAME record and paste the value from the **Host** column in the **Create a DNS TXT record** section into the appropriate field at the registrar, for example, the **Name** or **Host** field.
 
-    Often a registrar/hosting provider creates an A record automatically when you create a subdomain. Be sure that the CNAME record and the A record don't have the same name.
+    Often a registrar creates an A record automatically when you create a subdomain. Make sure that the CNAME record and the A record don't have the same name.
 
     > **Note:** Depending on your registrar, you may only need to enter the subdomain part. For example, if you picked the subdomain `id.example.com`, your registrar may only require you to create a CNAME record for `id` (because `.example.com` is implied). If you're not sure, check your registrar's documentation.
 
