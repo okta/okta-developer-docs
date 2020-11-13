@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="on-this-page">
-            <OnThisPage />
+            <OnThisPage :items="$page.fullHeaders[0].children" />
           </div>
         </div>
       </div>
@@ -85,6 +85,7 @@ export default {
     this.onResize();
     window.addEventListener('resize', this.onResize);
     this.redirIfRequired();
+    console.log('FROM LAYOUT', this.$page.fullHeaders[0].children)
   },
   watch: {
     $route(to, from) {
