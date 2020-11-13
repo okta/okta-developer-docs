@@ -17,7 +17,7 @@ module.exports = ( options, ctx) => {
 }
 
 function resolveHeaders (page) {
-  const headers = groupHeaders(page.headers || [])
+  const headers = groupHeaders(page.headers || [], 5);
   return [{
     type: 'group',
     collapsable: false,
@@ -33,16 +33,21 @@ function resolveHeaders (page) {
   }]
 }
 
-function groupHeaders (headers) {
-  // group h3s under h2
-  headers = headers.map(h => Object.assign({}, h))
-  let lastH2
-  headers.forEach(h => {
-    if (h.level === 2) {
-      lastH2 = h
-    } else if (lastH2) {
-      (lastH2.children || (lastH2.children = [])).push(h)
+function groupHeaders(headers, headerLevel) {
+  var headersCopy = headers.map(h => Object.assign({}, h))
+  let lastHeaderOfContainingLevel
+  headersCopy.forEach(h => {
+    if (h.level === headerLevel - 1) {
+      lastHeaderOfContainingLevel = h
+    } else if (lastHeaderOfContainingLevel && h.level === headerLevel) {
+      (lastHeaderOfContainingLevel.children || (lastHeaderOfContainingLevel.children = [])).push(h)
     }
   })
-  return headers.filter(h => h.level === 2)
+
+  if (headerLevel === 2) {
+    return headers;
+  }
+
+  return groupHeaders(headersCopy.filter(h => h.level !== headerLevel), headerLevel - 1);
 }
+
