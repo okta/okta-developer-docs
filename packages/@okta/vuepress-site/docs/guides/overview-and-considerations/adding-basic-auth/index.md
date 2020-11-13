@@ -2,7 +2,7 @@
 title: Adding Basic Authorization and Body Parsing
 ---
 
-The Glitch projects do not have any authorization or body parsing code by default. To include this contentt:
+The Glitch projects do not have any authorization or body parsing code by default. To include this content:
 
 * Add the Body Parser and Basic Auth npm packages to your Glich project
 * Add the code snippet below

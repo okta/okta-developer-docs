@@ -25,14 +25,7 @@ To run a test of your Registration Inline Hook, go to the Okta sign-in page for 
 - If you use an allowable email domain, the user registration goes through.
 - If you use an incorrect email domain, the user registration is denied; review the error message, which displays the error summary from the external service code and is passed back to Okta.
 
-### Troubleshoot
-
-Use Glitch's log feature to review and troublshoot your external service code:
-
-1. In the Glitch project's left-hand folder navigation pane, click "Tools" at the bottom of the pane.
-2. Click "Logs".
-
-A log pane appears that displays all `console.log()` output. Some console output code is available in the sample code.
+> **Tip:** Review the [troubleshooting](/docs/guides/overview-and-considerations/troubleshooting) for information if encountering any setup or configuration difficulties.
 
 <NextSectionLink/>
 
