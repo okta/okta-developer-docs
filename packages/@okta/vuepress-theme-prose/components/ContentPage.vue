@@ -30,8 +30,8 @@ export default {
   watch: {
     $page(to, from) {
       this.$nextTick(function() {
-        this.scrollToActiveAnchor();
         if (from.title !== to.title) {
+           this.scrollToActiveAnchor();
           this.captureAnchors();
         }
       });
@@ -50,7 +50,13 @@ export default {
         let scrollToAnchor = this.headingAnchorsMap[element.hash];
         if (scrollToAnchor) {
           event.preventDefault();
-          location.hash = element.hash;
+          if(decodeURIComponent(this.$route.hash) !== decodeURIComponent(element.hash)) {
+            this.$router.push(element.hash, () => {
+              this.$nextTick(() => {
+                this.scrollToActiveAnchor();
+              })
+            })
+          }
           return false;
         }
       }
@@ -83,7 +89,14 @@ export default {
       if (anchor) {
         let target = document.getElementById(anchor);
         if (target) {
-          window.scrollTo(0, target.offsetTop - this.paddedHeaderHeight);
+          const scrollToPosition = target.offsetTop - this.paddedHeaderHeight;
+          window.scrollTo(0, scrollToPosition);
+          // Chrome & Safari: when zoomed in/out, window.scrollTo does not always perform scroll strictly equal to passed parameter
+          // https://bugs.chromium.org/p/chromium/issues/detail?id=890345
+          if(window.scrollY < scrollToPosition) {
+            const scrollAlignment = 2;
+            window.scrollBy(0, scrollAlignment);
+          }
         }
       } else {
         // navigating via back button to no-anchor URL

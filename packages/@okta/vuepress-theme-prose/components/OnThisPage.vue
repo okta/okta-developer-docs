@@ -16,6 +16,7 @@
 
 <script>
   import { LAYOUT_CONSTANTS } from '../layouts/Layout.vue';
+  import _ from 'lodash';
   export default {
     name: 'OnThisPage',
     inject: ['appContext'],
@@ -52,8 +53,6 @@
     updated() {
       if(!this.appContext.isInMobileViewport) {
         this.captureAnchors();
-        this.handleScroll();
-        this.setActiveHash();
       }
     },
     beforeDestroy() {
@@ -61,13 +60,13 @@
       window.removeEventListener('scroll', this.setActiveHash);
     },
     methods: {
-      handleScroll: function (event) {
+      handleScroll: _.debounce(function (event) {
         let maxHeight = document.querySelector('.on-this-page').clientHeight - window.scrollY
         if(maxHeight > window.innerHeight) {
           maxHeight = window.innerHeight - document.querySelector('.fixed-header').clientHeight - 60;
         }
         document.querySelector('.on-this-page-navigation').style.height = maxHeight + 'px';
-      },
+      }, 200),
 
       captureAnchors: function () {
         const sidebarLinks = [].slice.call(document.querySelectorAll('.on-this-page-link'));
@@ -77,7 +76,7 @@
         this.anchorOffsetPairs = anchorOffsets.map((anchorOffset, index, anchorOffsets) => [anchorOffset, anchorOffsets[index + 1]]);
       },
 
-      setActiveHash: function (event) {
+      setActiveHash: _.debounce(function (event) {
         const scrollTop = Math.max(
           window.pageYOffset,
           document.documentElement.scrollTop,
@@ -88,10 +87,19 @@
           (scrollTop >= pair[0] - this.paddedHeaderHeight) && (!pair[1] || scrollTop < pair[1] - this.paddedHeaderHeight), this);
 
         const activeAnchor = matchingPair ? this.anchors[this.anchorOffsetPairs.indexOf(matchingPair)] : this.anchors[0];
-        if (activeAnchor && decodeURIComponent(this.$route.hash) !== decodeURIComponent(activeAnchor.hash)) {
+        if (activeAnchor) {
           this.activeAnchor = activeAnchor.hash;
+          if(decodeURIComponent(this.$route.hash) !== decodeURIComponent(activeAnchor.hash)) {
+            this.$vuepress.$set('disableScrollBehavior', true)
+            this.$router.replace(activeAnchor.hash, () => {
+              // execute after scrollBehavior handler.
+              this.$nextTick(() => {
+                this.$vuepress.$set('disableScrollBehavior', false)
+              })
+            });
+          }
         }
-      }
+      }, 200, {leading: true})
     }
   }
 </script>

@@ -3,7 +3,7 @@
     <a :href="link.path || '#' + link.slug" class="on-this-page-link" :class="{'router-link-active': imActive}" @click.prevent="clickLink">
       <span >{{link.title}}</span>
     </a>
-    <ul v-if="link.children && (iHaveChildrenActive || imActive)">
+    <ul v-show="link.children && (iHaveChildrenActive || imActive)">
       <OnThisPageItem v-for="(childLink, index) in link.children" :key="index" :link="childLink" :activeAnchor=activeAnchor />
     </ul>
   </li>
@@ -39,9 +39,16 @@ export default {
       let anchor = this.activeAnchor.replace(/^#/, '');
       return (node.path && node.path == node.basePath + '#' + anchor) || (node.slug && node.slug == anchor);
     },
+    hasActiveChildren(node) {
+      let hasActiveChildren = false;
+      if (node.children) {
+        hasActiveChildren |= node.children.some(this.hasActiveChildren)
+      }
+      return hasActiveChildren || this.isActive(node);
+    },
     setActiveData: function() {
       this.imActive = this.isActive(this.link);
-      this.iHaveChildrenActive = (this.link.children || [] ).some( child => this.isActive(child) );
+      this.iHaveChildrenActive = this.hasActiveChildren(this.link);
     },
     clickLink: function(e) {
       let hash = "";
@@ -55,15 +62,8 @@ export default {
 
       if(hash) {
         const node = document.querySelector(hash);
-        if(node) { // node is sometimes null - perhaps content hasn't loaded?
-          const scrollToPosition = node.offsetTop - document.querySelector('.fixed-header').clientHeight - LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
-          window.scrollTo(0, scrollToPosition);
-          // Chrome & Safari: when zoomed in/out, window.scrollTo does not always perform scroll strictly equal to passed parameter
-          // https://bugs.chromium.org/p/chromium/issues/detail?id=890345
-          if(window.scrollY < scrollToPosition) {
-            const scrollAlignment = 2;
-            window.scrollBy(0, scrollAlignment);
-          }
+        if(node && decodeURIComponent(this.$route.hash) !== decodeURIComponent(hash)) { // node is sometimes null - perhaps content hasn't loaded?
+          this.$router.push(hash)
         }
       }
     }
