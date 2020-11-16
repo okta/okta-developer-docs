@@ -151,6 +151,10 @@
 .Button--blueDarkOutline {
 	@extend %Button;
 
+	@include media('<tablet') {
+		padding: 0 12px;
+	}
+
 	border-radius: 4px;
 	background-color: white;
 	border-color: cv('blue', '900');
