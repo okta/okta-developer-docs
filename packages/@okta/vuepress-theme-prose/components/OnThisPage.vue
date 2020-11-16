@@ -16,9 +16,11 @@
 
 <script>
   import { LAYOUT_CONSTANTS } from '../layouts/Layout.vue';
+  import AnchorHistory from '../mixins/AnchorHistory.vue';
   import _ from 'lodash';
   export default {
     name: 'OnThisPage',
+    mixins: [AnchorHistory],
     inject: ['appContext'],
     components: {
       OnThisPageItem: () => import('../components/OnThisPageItem.vue'),
@@ -89,15 +91,8 @@
         const activeAnchor = matchingPair ? this.anchors[this.anchorOffsetPairs.indexOf(matchingPair)] : this.anchors[0];
         if (activeAnchor) {
           this.activeAnchor = activeAnchor.hash;
-          if(decodeURIComponent(this.$route.hash) !== decodeURIComponent(activeAnchor.hash)) {
-            this.$vuepress.$set('disableScrollBehavior', true)
-            this.$router.replace(activeAnchor.hash, () => {
-              // execute after scrollBehavior handler.
-              this.$nextTick(() => {
-                this.$vuepress.$set('disableScrollBehavior', false)
-              })
-            });
-          }
+          this.historyReplaceAnchor(activeAnchor.hash)
+          
         }
       }, 200, {leading: true})
     }

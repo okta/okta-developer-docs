@@ -11,9 +11,11 @@
 
 <script>
 import { LAYOUT_CONSTANTS } from '../layouts/Layout.vue';
+import AnchorHistory from '../mixins/AnchorHistory.vue';
 export default {
   name: 'OnThisPageItem',
   props: ['link', 'activeAnchor'],
+  mixins: [AnchorHistory],
   data() {
     return {
       imActive: false,
@@ -62,8 +64,8 @@ export default {
 
       if(hash) {
         const node = document.querySelector(hash);
-        if(node && decodeURIComponent(this.$route.hash) !== decodeURIComponent(hash)) { // node is sometimes null - perhaps content hasn't loaded?
-          this.$router.push(hash)
+        if(node) { // node is sometimes null - perhaps content hasn't loaded?
+            this.historyPushAndScrollToAnchor(hash);
         }
       }
     }
