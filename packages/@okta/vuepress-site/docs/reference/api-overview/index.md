@@ -292,7 +292,7 @@ Object whose property names are link relation types (as defined by [RFC5988](htt
 
 ## Links in collections
 
-Note that HAL links returned in a collection of resources may not reflect the total set of operations that are possible on that resource. For example, in a user collection links indicating that a given user can be `"unlocked"` may not be returned and, if returned, may not reflect the correct user state.
+Note that HAL links returned in a collection of resources may not reflect the total set of operations that are possible on that resource. For example, in a user collection links indicating that a given user can be unlocked may not be returned and, if returned, may not reflect the correct user state.
 
 Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by `id` using the `"self"` link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state.
 
