@@ -13,4 +13,4 @@ To run a test of your Password Import Inline Hook, go to the Okta sign-in page f
 - Your result should be access to the Okta org and the import of the user's password into Okta.
 - Sign out and sign in again to ensure the hook is no longer called (by reviewing the Developer Console logs).
 
-> **Tip:** Review the [troubleshooting](/docs/guides/overview-and-considerations/troubleshooting) for information if encountering any setup or configuration difficulties.
+> **Tip:** Review the [troubleshooting](/docs/guides/overview-and-considerations/troubleshooting) setion for information if encountering any setup or configuration difficulties.

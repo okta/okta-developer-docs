@@ -14,7 +14,7 @@ At a high-level, the following workflow occurs:
 - If the credentials are verified, the external service responds to Okta with a command to import the password and sign in the user.
 - If the credentials are not verified, the user is not signed-in and the password does not import.
 
-This guide uses the website Glitch.com to act as an external service and to implement the Password Import Inline hook with an Okta org. See the following Glitch project to copy a working code example that implements the following example of a Password Import Inline hook or build your own using the code snippets:
+This guide uses the website Glitch.com to act as an external service and to implement the Password Import Inline hook with an Okta org. See the following Glitch project to copy a working code example that implements the following example or build your own using the code snippets:
 
 * [Okta Password Import Inline Hook Example](https://okta-passwordimport-inlinehook.glitch.me/)
 

@@ -4,7 +4,7 @@ The validation logic is contained in a file called `users.js`. Make sure to add 
 const users = require('./users');
 ```
 
-The file module `users.js` in our implementation contains the following code, which sets up the array `users` and defines the `validate` function. The `validate` function checks username and password pairs that are passed to it by looking them up in the `users` array.
+The file module `users.js` in our implementation contains the following code, which sets up the array `users` and defines the `validate` function. The `validate` function checks user name and password pairs that are passed to it by looking them up in the `users` array.
 
 ```javascript
 const users = [
