@@ -13,7 +13,7 @@ To add the `npm` packages:
 2. From the “Add Package” drop-down, search for `express-basic-auth` and `body-parser` packages.
 3. Click each package to add to your project.
 
-After including the packages, include the following code snippet in your project.
+After including the packages, add the following code snippet in your project.
 
 As part of the configuration process, you add the authorization field and secret in your Okta org, which inputs this content into the Okta request header. The authorization and secret are authorized by your external service.
 
