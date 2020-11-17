@@ -41,7 +41,7 @@ https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
 &response_type=code
 &scope=openid%20offline_access
 &redirect_uri=yourApp%3A%2Fcallback
-&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9
+&state=8600b31f-52d1-4dca-987c-386e3d8967e9
 &code_challenge_method=S256
 &code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
 ```
@@ -54,7 +54,7 @@ The following is an example request to the `/token` endpoint to obtain an access
 POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code
  &redirect_uri=http%3A%2F%2Flocalhost%3A8080
  &code=DPA9Utz2LkWlsronqehy
- &state=1
+ &state=9606b31k-51d1-4dca-987c-346e3d8767n9
  &scope=openid%20offline_access
 ```
 
@@ -64,7 +64,7 @@ The following is an example request to the `/token` endpoint to obtain an access
 POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code
  &redirect_uri=http%3A%2F%2Flocalhost%3A8080
  &code=CKA9Utz2GkWlsrmnqehz
- &state=1
+ &state=3606p31k-52d1-4dca-987c-546e3d0767n2
  &scope=openid%20offline_access
  &code_verifier=M25iVXpKU3puUjFjYWg3T1NDTDQtcW1rOUY5YXlwalNoc0hhaoxifmZHag
 ```

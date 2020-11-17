@@ -44,7 +44,7 @@ When you create a new native or web app and want to use refresh token rotation:
 
 ### Refresh token rotation properties
 
-After you enable refresh token rotation, the `refresh_token` property appears within `settings.oauthClient` for your app. The `refresh_token` property is an array that contains the `rotation_type` and `leeway` parameters. Accepted values for `rotation_type` are `ROTATE` or `STATIC`. The accepted value for `leeway` is any number between 0 and 60.
+After you enable refresh token rotation, the `refresh_token` property appears within `settings.oauthClient` for your app. The `refresh_token` property is an object that contains the `rotation_type` and `leeway` properties. Accepted values for `rotation_type` are `ROTATE` or `STATIC`. The accepted value for `leeway` is any number between 0 and 60.
 
 ```json
 "refresh_token": {
