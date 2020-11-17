@@ -7,7 +7,7 @@ meta:
 
 ## Versioning
 
-The Okta API is a versioned API. Okta reserves the right to add new parameters, properties, or resources to the API without advance notice. These updates are considered non-breaking and the compatibility rules below should be followed to ensure your application does not break. Breaking changes such as removing or renaming an attribute will be released as a new version of the API. Okta will provide a migration path for new versions of APIs and will communicate timelines for end-of-life when deprecating APIs.
+The Okta API is a versioned API. Okta reserves the right to add new parameters, properties, or objects to the API without advance notice. These updates are considered non-breaking and the compatibility rules below should be followed to ensure your application does not break. Breaking changes such as removing or renaming an attribute will be released as a new version of the API. Okta will provide a migration path for new versions of APIs and will communicate timelines for end-of-life when deprecating APIs.
 
 Do not consume any Okta API unless it is documented on this site. All undocumented endpoints should be considered private, subject to change without notice, and not covered by any agreements.
 
@@ -54,20 +54,20 @@ Where possible, the Okta API strives to use appropriate HTTP verbs for each acti
 
 ### GET
 
-Used for retrieving resources
+Used for retrieving objects
 
 ### POST
 
-Used for creating resources, or performing custom actions (such as
+Used for creating objects, or performing custom actions (such as
 user lifecycle operations). For POST requests with no `body` param, be sure to set the `Content-Length` header to zero.
 
 ### PUT
 
-Used for replacing resources or collections. For PUT requests with no `body` param, be sure to set the `Content-Length` header to zero.
+Used for replacing objects or collections. For PUT requests with no `body` param, be sure to set the `Content-Length` header to zero.
 
 ### DELETE
 
-Used for deleting resources
+Used for deleting objects
 
 > **Note:** Any PUT or POST request with no `Content-Length` header nor a body will return a 411 error. To get around this, include a `Content-Length: 0` header.
 
@@ -166,7 +166,7 @@ You can now interact with Okta APIs using scoped OAuth 2.0 access tokens for a n
 
 ## Pagination
 
-Requests that return a list of resources may support paging. Pagination is based on a cursor and not on page number. The cursor is opaque to the client and specified in either the `before` or `after` query parameter. For some resources, you can also set a custom page size with the `limit` parameter.
+Requests that return a list of objects may support paging. Pagination is based on a cursor and not on page number. The cursor is opaque to the client and specified in either the `before` or `after` query parameter. For some objects, you can also set a custom page size with the `limit` parameter.
 
 Note that for technical reasons not all APIs respect pagination or the `before` and `limit` parameters, see the [Events API](/docs/reference/api/events/) for example.
 
@@ -201,7 +201,7 @@ When you first make an API call and get a cursor-paged list of objects, the end 
 
 ## Filtering
 
-Filtering allows a requestor to specify a subset of resources to return and is often needed for large collection resources such as `Users`. While filtering semantics are standardized in the Okta API, not all resources in the Okta API support filtering. When filtering is supported for a resource, the `filter` URL query parameter contains a filter expression.
+Filtering allows a requestor to specify a subset of objects to return and is often needed for large collection objects such as `Users`. While filtering semantics are standardized in the Okta API, not all objects in the Okta API support filtering. When filtering is supported for an object, the `filter` URL query parameter contains a filter expression.
 
 The expression language that is used in the filter and search parameters supports references to JSON attributes and literals. The literal values can be strings enclosed in double quotes, numbers, date times enclosed in double quotes, and Boolean values; i.e., true or false. String literals must be valid JSON strings.
 
@@ -213,7 +213,7 @@ The attribute names are case-sensitive while attribute operators are case-insens
 
 The filter and search parameters must contain at least one valid Boolean expression. Each expression must contain an attribute name followed by an attribute operator and optional value. Multiple expressions may be combined using the two logical operators. Furthermore expressions can be grouped together using `()`.
 
-> **Note:** Each resource in the Okta API defines what attributes and operators are supported for expression. Please refer to resource-specific documentation for details.
+> **Note:** Each object in the Okta API defines what attributes and operators are supported for expression. Please refer to object-specific documentation for details.
 
 ## Operators
 
@@ -229,7 +229,7 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 | `pr`       | present (has value)   | If the attribute has a non-empty value, or if it contains a non-empty node for complex attributes there is a match.                                                                                                                                                           |
 | `sw`       | starts with           | The entire operator value must be a substring of the attribute value, starting at the beginning of the attribute value. This criterion is satisfied if the two strings are identical.                                                                                         |
 
-> **Note:** Some resources don't support all the listed operators.
+> **Note:** Some objects don't support all the listed operators.
 
 >**Note:** The `ne` (not equal) attribute is not supported, but the same result can be obtained by using `lt ... or ... gt`. For example, to see all user agents except for `"iOS"`, use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
 
@@ -252,7 +252,7 @@ Filters must be evaluated using standard order of operations. Attribute operator
 
 ## Hypermedia
 
-Resources in the Okta API use hypermedia for discoverability. Hypermedia enables API clients to navigate resources by following links like a web browser instead of hard-coding URLs in your application. Links are identified by link relations which are named keys. Link relations describe what resources are available and how they can be interacted with. Each resource may publish a set of link relationships based on the state of the resource. For example, the status of a user in the [User API](/docs/reference/api/users/#links-object) will govern which lifecycle operations are permitted. Only the permitted operations will be published as lifecycle operations.
+Objects in the Okta API use hypermedia for discoverability. Hypermedia enables API clients to navigate objects by following links like a web browser instead of hard-coding URLs in your application. Links are identified by link relations which are named keys. Link relations describe what objects are available and how they can be interacted with. Each object may publish a set of link relationships based on the state of the object. For example, the status of a user in the [User API](/docs/reference/api/users/#links-object) will govern which lifecycle operations are permitted. Only the permitted operations will be published as lifecycle operations.
 
 The Okta API had incorporated [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) or HAL format as the foundation for hypermedia discoverability. HAL provides a set of conventions for expressing hyperlinks in JSON responses representing two simple concepts: Resources and Links.
 
@@ -267,7 +267,7 @@ Object whose property names are link relation types (as defined by [RFC5988](htt
 - Other optional properties to help with deprecation, object state or lifecycle management, content negotiation, etc.
 - Links are implicitly of media type `application/json`. Other media types are only returned in cases where the link is not an API endpoint.
 
-> **Note:** A resource may have multiple links that share the same link relation, as shown below for the `"logo"` link.
+> **Note:** An object may have multiple links that share the same link relation, as shown below for the `"logo"` link.
 
 ``` json
 {
