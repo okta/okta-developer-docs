@@ -31,7 +31,7 @@ GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
  &response_type=code
  &scope=openid%20offline_access
  &redirect_uri=http%3A%2F%2Flocalhost%3A8080
- &state=1
+ &state=8610b61u-56d1-4dsa-987c-806c3d8967j9
 ```
 
 The following is an example request to the `/authorize` endpoint for an [authorization code with PKCE](/docs/guides/implement-auth-code-pkce/overview/) and includes the `offline_access` scope.
