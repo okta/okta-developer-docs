@@ -1,8 +1,11 @@
 
 ```javascript
+
 // Basic Auth
-const bodyParser = require('body-parser');
 const basicAuth = require('express-basic-auth');
+// Body Parsing
+const bodyParser = require('body-parser');
+
 
 app.use(bodyParser.json());
 app.use(basicAuth({

@@ -4,13 +4,13 @@ title: Adding Basic Authorization and Body Parsing
 
 The Glitch projects do not have any authorization or body parsing code by default. To include this content:
 
-* Add the Body Parser and Basic Auth npm packages to your Glich project
+* Add the Body Parser and Basic Auth `npm` packages to your Glich project
 * Add the code snippet below
 
-To add the npm packages:
+To add the `npm` packages:
 
 1. Click on the package.json file in the left-hand project menu.
-2. From the “Add Package” drop-down, search for “express-basic-auth" and "body-parser" packages.
+2. From the “Add Package” drop-down, search for `express-basic-auth` and `body-parser` packages.
 3. Click each package to add to your project.
 
 After including the packages, include the following code snippet in your project.
