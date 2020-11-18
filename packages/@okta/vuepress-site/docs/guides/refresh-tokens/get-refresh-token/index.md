@@ -31,7 +31,7 @@ GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
  &response_type=code
  &scope=openid%20offline_access
  &redirect_uri=http%3A%2F%2Flocalhost%3A8080
- &state=8610b61u-56d1-4dsa-987c-806c3d8967j9
+ &state=237c671a-29d7-11eb-adc1-0242ac120002
 ```
 
 The following is an example request to the `/authorize` endpoint for an [authorization code with PKCE](/docs/guides/implement-auth-code-pkce/overview/) and includes the `offline_access` scope.
@@ -41,7 +41,7 @@ https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
 &response_type=code
 &scope=openid%20offline_access
 &redirect_uri=yourApp%3A%2Fcallback
-&state=8600b31f-52d1-4dca-987c-386e3d8967e9
+&state=4ff7dcc0-29d7-11eb-adc1-0242ac120002
 &code_challenge_method=S256
 &code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
 ```
@@ -64,7 +64,7 @@ The following is an example request to the `/token` endpoint to obtain an access
 POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code
  &redirect_uri=http%3A%2F%2Flocalhost%3A8080
  &code=CKA9Utz2GkWlsrmnqehz
- &state=3606p31k-52d1-4dca-987c-546e3d0767n2
+ &state=419946f0-29d7-11eb-adc1-0242ac120002
  &scope=openid%20offline_access
  &code_verifier=M25iVXpKU3puUjFjYWg3T1NDTDQtcW1rOUY5YXlwalNoc0hhaoxifmZHag
 ```
