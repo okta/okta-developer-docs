@@ -6,7 +6,7 @@ The external service example is now ready with code to receive and respond to an
 ### Test
 To run a test of your Event Hook, go to the Okta sign-in page for your Okta org.
 
-1. Start by signing in as an administrator and creating a test user in the Developer Console. As an example, add the user John Doe as seen from the [Event Object sample code](docs/guides/event-hook-implementation/event-object).
+1. Start by signing in as an administrator and creating a test user in the Developer Console. As an example, add the user John Doe as seen from the [Event Object sample code](/docs/guides/event-hook-implementation/event-object).
 2. For this user, select the User's profile by clicking John Doe's name.
 3. Click the **More Actions** drop-down menu, and select **Deactivate**.
 4. Confirm the deactivation.

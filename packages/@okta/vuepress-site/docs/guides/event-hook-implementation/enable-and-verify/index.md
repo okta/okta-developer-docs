@@ -12,9 +12,11 @@ To set up the Event Hook:
 
 3. In the **Add Event Hook Endpoint** dialog box, complete the following fields:
 
-    - **Name**: Add a name for the hook (in this example, "Deactivated User Event Hook").
+    - **Name**: Add a name for the hook. In this example, "Deactivated User Event Hook".
 
-    - **URL**: Add your external service URL, including the endpoint. For example, use your Glitch project name with the end point: https://your-glitch-projectname.glitch.me/userDeactivated).
+    - **URL**: Add your external service URL, including the endpoint. For example, use your Glitch project name with the end point:
+
+    *https://your-glitch-projectname.glitch.me/userDeactivated*
 
     - **Authentication field**: Include an authentication field. In this example, `authorization`
 
