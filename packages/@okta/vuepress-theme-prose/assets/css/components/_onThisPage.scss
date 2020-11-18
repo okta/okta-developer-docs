@@ -30,7 +30,7 @@
     padding-left: 1rem;
   }
 
-  a.router-link-active {
+  span.router-link-active {
     border-left: 3px solid cv('action', 'base');
     font-weight: 600;
   }
@@ -43,17 +43,20 @@
       margin-left: 0;
       margin-bottom: 1rem;
 
-      a.router-link-active {
+      span.router-link-active {
         margin-left: -1.2rem;
         padding-left: 0.9rem;
       }
-
+      span.is-child{
+        padding-left: 2.5rem;
+        margin-left: -1.2rem;
+      }
       ul {
         margin-top: 1rem;
          
         li {
 
-          a.router-link-active {
+          span.router-link-active {
             margin-left: -2.7rem;
             padding-left: 2.5rem;
           }
@@ -62,9 +65,10 @@
 
       }
 
-      a {
+      span {
         text-decoration: none;
         display: block;
+        cursor: pointer;
       }
     
     }

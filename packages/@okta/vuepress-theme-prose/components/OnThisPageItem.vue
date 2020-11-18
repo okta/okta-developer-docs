@@ -1,6 +1,6 @@
 <template>
   <li>
-    <span class="on-this-page-link" :class="{'router-link-active': link.imActive}" v-on:click="$emit('emit-hash', link.hash)">
+    <span class="on-this-page-link" :class="{'router-link-active': link.imActive, 'is-child': link.level}" v-on:click="$emit('emit-hash', link.hash)">
       {{link.title}}
     </span>
   </li>

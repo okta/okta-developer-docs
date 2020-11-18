@@ -32,7 +32,7 @@
             </div>
           </div>
           <div class="on-this-page">
-            <OnThisPage :items="$page.fullHeaders[0].children" />
+            <OnThisPage :items="onThisPageLinks" />
           </div>
         </div>
       </div>
@@ -66,6 +66,7 @@ export default {
   },
   data() {
     return {
+      onThisPageLinks: [],
       appContext: {
         isTreeNavMobileOpen: false,
         isInMobileViewport: false
@@ -84,14 +85,16 @@ export default {
     });
     this.onResize();
     window.addEventListener('resize', this.onResize);
+    this.onThisPageLinks = this.getPageHeaders()
     this.redirIfRequired();
-    console.log('FROM LAYOUT', this.$page.fullHeaders[0].children)
+    console.log('FROM LAYOUT', this.$page.fullHeaders)
   },
   watch: {
     $route(to, from) {
       this.appContext.isTreeNavMobileOpen = false;
       this.redirIfRequired();
-    }
+      this.updateOnThisPageLinks();
+      }
   },
   computed: {
     editLink () {
@@ -120,12 +123,22 @@ export default {
   methods: {
     redirIfRequired() {
       if(this.$page && this.$page.redir) {
+        console.log(this.$page.redir)
         let anchor = window.location.href.split('#')[1] || '';
         if(anchor) {
           this.$router.replace({ path: `${this.$page.redir}#${anchor}` });
         } else {
           this.$router.replace({ path: `${this.$page.redir}` });
         }
+      }
+    },
+    getPageHeaders(){
+      return this.$page.fullHeaders[0].children
+    },
+    updateOnThisPageLinks(){
+      if (this.onThisPageLinks === this.getPageHeaders()) { return }
+      else{
+        this.onThisPageLinks = this.getPageHeaders()
       }
     },
     onResize() {

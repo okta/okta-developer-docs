@@ -12,7 +12,6 @@
 </template>
 
 <script>
-import func from '../../../../vue-temp/vue-editor-bridge';
   import { LAYOUT_CONSTANTS } from '../layouts/Layout.vue';
   export default {
     name: 'OnThisPage',
@@ -39,13 +38,13 @@ import func from '../../../../vue-temp/vue-editor-bridge';
       },
     },
     mounted() {
-      //set correct links structure from props and map them with active tab
+      // //set correct links structure from props and map them with active tab
       this.links = this.mutateAndFlatItems(this.items)
                   .map(
                     (link)=> ({...link, imActive: this.checkIsLinkActive(link)})
                   )
       //create hash map for links array for easy index access when hash is emmitted from onThisPageItem
-      // this.linksHashMap = this.createHashMapForLinkArray()
+      this.linksHashMap = this.createHashMapForLinkArray()
       //set active anchor (e.g. page was opened with ../#some-anchor-hash)
       this.activeAnchor = this.getInitialAnchor()
       this.paddedHeaderHeight = document.querySelector('.fixed-header').clientHeight + LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
@@ -57,6 +56,12 @@ import func from '../../../../vue-temp/vue-editor-bridge';
 
       window.addEventListener('scroll', this.handleScroll);
       window.addEventListener('scroll', this.setActiveHash);
+    },
+    watch: {
+        activeAnchor(){
+          this.$router.push(this.activeAnchor)
+          this.links = this.updateLinksActiveState(this.links)
+        }
     },
     updated() {
       if(!this.appContext.isInMobileViewport) {
@@ -99,19 +104,22 @@ import func from '../../../../vue-temp/vue-editor-bridge';
         },
         createHashMapForLinkArray: function(){
           let hashMap = {}
-          this.links.forEach((link, index)=> hasMap[link.hash] = index)
-          return hasMap
+          this.links.forEach((link, index)=> hashMap[link.hash] = index)
+          return hashMap
         },
         checkIsLinkActive: function(link){
            return this.activeAnchor === link.hash
+        },
+        updateLinksActiveState: function(links){
+          return links.map(link=>({...link, imActive: this.checkIsLinkActive(link)}))
         },
         getInitialAnchor: function(){
           if(this.$router.hash){
             return $this.$router.hash
           } else return this.links[0].hash
         },
-      onLinkClicked: function(e){
-        console.log(e)
+      onLinkClicked: function(eventHash){
+        this.activeAnchor = eventHash
       },
       handleScroll: function (event) {
         let maxHeight = document.querySelector('.on-this-page').clientHeight - window.scrollY
