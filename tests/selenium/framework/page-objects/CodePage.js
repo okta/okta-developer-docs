@@ -5,10 +5,11 @@ const BasePage = require('./BasePage');
 const rowSelector = '.Row';
 const quickStartSelector = 'span';
 const quickStartText = 'Spring Quickstart';
+const howToGuideSelector = 'span';
+const howToGuideText = 'How To Guide';
 const sampleAppSelector = 'span';
-const sampleAppText = 'Okta Spring Boot Starter';
-const createAccountSelector = 'span';
-const createAccountText = 'Create Free Account';
+const sampleAppLinkText = 'Okta Spring Boot Starter';
+const sampleAppButtonText = 'Sample App';
 const promoBannerSelector = '.DocsPromoBanner';
 
 class CodePage extends BasePage {
@@ -28,30 +29,38 @@ class CodePage extends BasePage {
     return element(by.css(rowSelector));
   }
 
+  getHowToGuideButton() {
+    return element(by.cssContainingText(howToGuideSelector, howToGuideText));
+  }
   getQuickStartElement() {
     return element(by.cssContainingText(quickStartSelector, quickStartText));
   }
   getSampleAppElement() {
-    return element(by.cssContainingText(sampleAppSelector, sampleAppText));
+    return element(by.cssContainingText(sampleAppSelector, sampleAppLinkText));
   }
-  getCreateAccountButton() {
-    return element(by.cssContainingText(createAccountSelector, createAccountText));
+
+  getSampleAppButton() {
+    return element(by.cssContainingText(sampleAppSelector, sampleAppButtonText));
   }
 
   getPromoBannerLabels() {
     return element.all(by.css(promoBannerSelector));
   }
 
+  hasHowToGuide() {
+    return this.getHowToGuideButton().isPresent();
+  }
+
   hasQuickStart() {
     return this.getQuickStartElement().isPresent();
   }
 
-  hasSampleApp() {
+  hasSampleAppLink() {
     return this.getSampleAppElement().isPresent();
   }
 
-  hasCreateAccountButton() {
-    return this.getCreateAccountButton().isPresent();
+  hasSampleAppButton() {
+    return this.getSampleAppButton().isPresent();
   }
 
   hasPromoBanner() {
