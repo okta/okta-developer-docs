@@ -10,9 +10,11 @@ category: asa
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](docs/reference/api/asa/introduction/) | `https://app.scaleft.com/v1/`
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](/docs/reference/api/asa/introduction/) | `https://app.scaleft.com/v1/`
 
 An Advanced Server Access (ASA) Client corresponds to a user's device. Clients are the primary way users access servers managed by ASA.
+
+Explore the Clients API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
 
 
 ## Clients API operations
@@ -172,7 +174,7 @@ https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/clients/${client_id}" />
 Revokes an ASA Client's access to this Team
 
-This endpoint requires one of the following roles: `access_user`, `access_admin`, or `authenticated_client`.
+This endpoint requires one of the following roles: `access_admin`, `authenticated_client`, or `access_user`.
 
 #### Request path parameters
 
