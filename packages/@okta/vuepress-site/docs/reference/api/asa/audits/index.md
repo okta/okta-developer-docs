@@ -5,19 +5,19 @@ category: asa
 
 # ASA Audit Events API
 
-## Get Started
+## Get started
 
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](/docs/reference/api/asa/introduction/) | `https://app.scaleft.com/v1/`
 
 Advanced Server Access (ASA) Audit Events provide log data of ASA User actions such as accessing ASA Servers, enrolling ASA Clients, and creating resources.
 
 Explore the Audit Events API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
 
 
-## Audit Events API Operation
+## Audit Events API operation
 
 
 The Audit Events API has the following operation:
@@ -27,25 +27,25 @@ The Audit Events API has the following operation:
 ### List the Audits for a Team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/auditsV2" />
-List the Audits for a Team.
+Lists the Audits for a Team
 
-This endpoint requires one of the following roles: `access_user`, `access_admin`, `reporting_user`.
+This endpoint requires one of the following roles: `access_user`, `access_admin`, or `reporting_user`.
 
 #### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string | The name of your Team. |
+| `team_name`   | string | The name of your Team |
 
 
 #### Request query parameters
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
-| `count`   |  number | (Optional) The number of objects per page. |
-| `descending`   |  boolean | (Optional) The object order. |
-| `offset`   |  string | (Optional) The page offset. |
-| `prev`   |  boolean | (Optional) The direction of paging. |
+| `count`   |  number | (Optional) The number of objects per page |
+| `descending`   |  boolean | (Optional) The object order |
+| `offset`   |  string | (Optional) The page offset |
+| `prev`   |  boolean | (Optional) The direction of paging |
 
 
 #### Request body
@@ -56,8 +56,8 @@ This endpoint has no request body.
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `list`   | array | The list of Audit events. |
-| `related_objects`   | object | All objects related to the Audit events. |
+| `list`   | array | The list of Audit events |
+| `related_objects`   | object | All objects related to the Audit events |
 
 #### Usage example
 
@@ -87,7 +87,7 @@ https://app.scaleft.com/v1/teams/${team_name}/auditsV2
 				"via": null
 			},
 			"id": "UD5pqjIhjKVQPmmqMiGMpQ==",
-			"timestamp": "2020-10-02T07:43:23.523284717Z"
+			"timestamp": "2020-11-18T18:05:08.277119888Z"
 		}
 	],
 	"related_objects": {
