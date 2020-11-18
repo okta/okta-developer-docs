@@ -36,13 +36,17 @@ After you have built a functioning integration, a few steps are required to subm
 
 1. Work with the Okta OIN team to test your integration using your input and then get it published to the OIN Catalog.
 
-The service-level agreement for OIN publication time is:
+For submissions that contain a SCIM component, the service-level agreement for publication to the OIN is:
 
 * Initial review by Okta - 5 business days
 * QA testing by Okta - 5 business days
 * Final publication in the OIN Catalog - 1 business day
 
-All submissions go through these phases. The Okta OIN team sends you an email that identifies any issues found in the initial review and QA testing phases. At any point in the process, you can check the status of your submission in the [OIN Manager](https://oinmanager.okta.com).
+The Okta OIN team reviews all OIDC and SAML submissions on a best-case basis. SWA app integrations are no longer accepted for publication in the OIN catalog; however, existing SWA apps are still maintained by the OIN team.
+
+The Okta OIN team sends you an email that identifies any issues found in the initial review and QA testing phases. At any point in the process, you can check the status of your submission in the [OIN Manager](https://oinmanager.okta.com).
+
+If you have an urgent customer requirement to add your app integration to their Okta org before it is published in the OIN Catalog, you can help them to create one using the Okta App Integration Wizard. See [Create a new Okta app integration](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard) and pick the instructions that correspond to your application protocol.
 
 ## Submission support
 
