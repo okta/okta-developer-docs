@@ -12,20 +12,16 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
-			<span>Create Free Account</span>
-		</a>
-	</li>
-	<li>
-		<a href='/docs/guides/sign-into-spa/react/before-you-begin/' class='Button--blue' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-spa/react/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
+	<li>
+		<a href='https://github.com/okta/samples-js-react' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sample App</span>
+		</a>
+	</li>
 </ul>
-
-<a href='https://github.com/okta/samples-js-react'>
-	<span class='fa fa-github'></span> <span>React Sample Apps</span>
-</a>
 
 ## Okta React SDK
 
