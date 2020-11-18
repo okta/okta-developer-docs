@@ -36,4 +36,4 @@ describe('code page spec (dotnet)', () => {
     expect(await codePage.hasSampleAppButton(), 'expects Sample App button to be present').to.be.true;
     expect(await codePage.hasHowToGuide(), 'expects How-to Guide button to be present').to.be.true;
   }));
-})
+});

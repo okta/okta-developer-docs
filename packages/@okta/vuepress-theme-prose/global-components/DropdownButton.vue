@@ -1,11 +1,11 @@
 <template>
   <div :class="{'dropdown-button': true, 'dropdown-button-expanded': isExpanded}" @click="isExpanded = !isExpanded">
-    <a class='Button--blueDarkOutline' data-proofer-ignore>
+    <div class='Button--blueDarkOutline' data-proofer-ignore>
       <span>
         {{caption}}
       </span>
       <span class="caret">◥◤</span>
-    </a>
+    </div>
     <div class="dropdown-button-options">
       <slot>
       </slot>

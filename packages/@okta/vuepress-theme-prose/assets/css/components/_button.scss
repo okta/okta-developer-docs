@@ -160,6 +160,10 @@
 	border-color: cv('blue', '900');
 	color: cv('blue', '900');
 
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	white-space: nowrap;
+
 	&:active,
 	&:hover {
 		background-color: white;

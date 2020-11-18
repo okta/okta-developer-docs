@@ -1,6 +1,6 @@
 <template>
   <div class='dropdown-button-option-value'>
-  <a href="/">
+  <a :href='href'>
     <slot></slot>
   </a>
   </div>
