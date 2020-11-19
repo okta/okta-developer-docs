@@ -5,44 +5,44 @@ category: asa
 
 # ASA Service Users API
 
-## Get Started
+## Get started
 
 
 | Product  | API Basics  | API Namespace        |
 |----------|-------------|----------------------|
-| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](../introduction/) | `https://app.scaleft.com/v1/`
+| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](/docs/reference/api/asa/introduction/) | `https://app.scaleft.com/v1/`
 
-Advanced Server Access (ASA) Service Users are used to access to the ASA API. ASA Service Users are provided tokens for authentication and authorization against the service.
+Advanced Server Access (ASA) Service Users are used to access the ASA API. ASA Service Users are provided tokens for authentication and authorization against the service.
 
 Explore the Service Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
 
 
-## Service Users API Operations
+## Service Users API operations
 
 
 The Service Users API has the following operations:
 * [Issue a Service User token](#issue-a-service-user-token)
-* [List the Service Users for a Team](#list-the-service-users-for-a-team)
+* [Lists the Service Users for a Team](#lists-the-service-users-for-a-team)
 * [Create a Service User](#create-a-service-user)
 * [Fetch a Service User](#fetch-a-service-user)
 * [Update the status of a Service User](#update-the-status-of-a-service-user)
 * [List the API keys for a Service User](#list-the-api-keys-for-a-service-user)
-* [Rotate API keys for a Service Users](#rotate-api-keys-for-a-service-users)
+* [Rotate API keys for a Service User](#rotate-api-keys-for-a-service-user)
 * [Delete an API key for a Service User](#delete-an-api-key-for-a-service-user)
 
 
 ### Issue a Service User token
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/service_token" />
-Most calls to the Okta Advanced Server Access API require an HTTP Authorization header with a value of the form `Bearer ${AUTH_TOKEN}`.
-To retrieve an auth token, you'll need to [create a service user and API key](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_asa_service_users), then pass the API key information to this endpoint.
-Auth tokens may expire at any time, so code using them should be prepared to handle a 401 response code by creating a new one.
+Most calls to the Okta Advanced Server Access API require an HTTP Authorization header with a value of `Bearer ${AUTH_TOKEN}`.
+To retrieve an auth token, you need to [create a Service User and API key](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_asa_service_users), then pass the API key information to this endpoint.
+Auth tokens may expire at any time, so code that uses them should be prepared to handle a 401 response code by creating a new auth token.
 
 #### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string | The name of your Team. |
+| `team_name`   | string | The name of your Team |
 
 
 #### Request query parameters
@@ -54,16 +54,16 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `key_id`   | string | The ID of the API key. |
-| `key_secret`   | string | The secret associated with the API key. |
+| `key_id`   | string | The ID of the API key |
+| `key_secret`   | string | The secret associated with the API key |
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `bearer_token`   | string | The JSON Web Token used to authenticate against the ASA API. |
-| `expires_at`   | string | The time at which the token expires, formatted in accordance with RFC 3339. |
-| `team_name`   | string | The name of the Team this token is for. |
+| `bearer_token`   | string | The JSON Web Token used to authenticate against the ASA API |
+| `expires_at`   | string | The time at which the token expires, formatted in accordance with [RFC 3339](https://tools.ietf.org/html/rfc3339) |
+| `team_name`   | string | The name of the Team this token is for |
 
 #### Usage example
 
@@ -74,8 +74,7 @@ curl -v -X POST \
 -H "Authorization: Bearer ${jwt}" \
 --data '{
 	"key_id": "6052868b-1b04-4a14-8288-e6496d7f2f4b",
-	"key_secret": "uF0SoVBVQP/hJmQSLUZdM2a7ArYzjD8ykzvG7n4tKaOEfSErcwMUUDWpEf4Q42/HaVKPZUfILkzy/bsQFv7WRg==",
-	"roles": null
+	"key_secret": "uF0SoVBVQP/hJmQSLUZdM2a7ArYzjD8ykzvG7n4tKaOEfSErcwMUUDWpEf4Q42/HaVKPZUfILkzy/bsQFv7WRg=="
 }' \
 https://app.scaleft.com/v1/teams/${team_name}/service_token
 ```
@@ -89,32 +88,32 @@ https://app.scaleft.com/v1/teams/${team_name}/service_token
 	"team_name": "scaleft"
 }
 ```
-### List the Service Users for a Team
+### Lists the Service Users for a Team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/service_users" />
-List all the Service Users for a Team
+Lists all the Service Users for a Team
 
-This endpoint requires one of the following roles: `access_admin`.
+This endpoint requires the `access_admin` role.
 
 #### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string | The name of your Team. |
+| `team_name`   | string | The name of your Team |
 
 
 #### Request query parameters
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
-| `contains`   |  string | (Optional) Includes ASA Users with name that contains the value. |
-| `count`   |  number | (Optional) The number of objects per page. |
-| `descending`   |  boolean | (Optional) The object order. |
-| `include_service_users`   |  string | (Optional) Include Service Users in result. |
-| `offset`   |  string | (Optional) The page offset. |
-| `prev`   |  boolean | (Optional) The direction of paging. |
-| `starts_with`   |  string | (Optional) Includes ASA Users with name that begins with the value. |
-| `status`   |  string | (Optional) Includes ASA Users with specified statuses. Valid statuses are `ACTIVE`, `DISABLED`, and `DELETED`. |
+| `contains`   |  string | (Optional) Includes ASA Users with name that contains the value |
+| `count`   |  number | (Optional) The number of objects per page |
+| `descending`   |  boolean | (Optional) The object order |
+| `include_service_users`   |  string | (Optional) Include Service Users in the results |
+| `offset`   |  string | (Optional) The UUID of the object used as an offset for pagination |
+| `prev`   |  boolean | (Optional) The direction of paging |
+| `starts_with`   |  string | (Optional) Includes ASA Users with name that begins with the value |
+| `status`   |  string | (Optional) Includes ASA Users with specified statuses. Valid statuses: `ACTIVE`, `DISABLED`, and `DELETED`. |
 
 
 #### Request body
@@ -125,14 +124,14 @@ This endpoint has no request body.
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `deleted_at`   | string | The time at which the ASA User was deleted. |
+| `deleted_at`   | string | The time at which the ASA User was deleted |
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `id`   | string | The UUID of the ASA User. |
-| `name`   | string | The username of the ASA User. |
-| `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists. |
-| `role_grants`   | array | The permission roles available to the ASA User. |
-| `status`   | string | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
-| `user_type`   | string | The type of ASA User, either `service` or `human`. |
+| `id`   | string | The UUID of the ASA User |
+| `name`   | string | The username of the ASA User |
+| `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
+| `role_grants`   | array | The permission roles available to the ASA User |
+| `status`   | string | Status of the ASA User: `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users can't disable or delete their own ASA User. |
+| `user_type`   | string | The type of ASA User: `service` or `human` |
 
 #### Usage example
 
@@ -175,15 +174,15 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 ### Create a Service User
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/service_users" />
-This endpoint creates a Service User, which can be used to automate interaction with the Advanced Server Access API.
+Creates a Service User that can be used to automate interaction with the Advanced Server Access API
 
-This endpoint requires one of the following roles: `access_admin`.
+This endpoint requires the `access_admin` role.
 
 #### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string | The name of your Team. |
+| `team_name`   | string | The name of your Team |
 
 
 #### Request query parameters
@@ -195,20 +194,20 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `name`   | string | The name of the Service User. |
+| `name`   | string | The name of the Service User |
 
 #### Response body
 This endpoint returns an object with the following fields and a `201` code on a successful call.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `deleted_at`   | string | The time at which the ASA User was deleted. |
+| `deleted_at`   | string | The time at which the ASA User was deleted |
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `id`   | string | The UUID of the ASA User. |
-| `name`   | string | The username of the ASA User. |
-| `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists. |
-| `role_grants`   | array | The permission roles available to the ASA User. |
-| `status`   | string | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
-| `user_type`   | string | The type of ASA User, either `service` or `human`. |
+| `id`   | string | The UUID of the ASA User |
+| `name`   | string | The username of the ASA User |
+| `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
+| `role_grants`   | array | The permission roles available to the ASA User |
+| `status`   | string | Status of the ASA User: `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users can't disable or delete their own ASA User. |
+| `user_type`   | string | The type of ASA User: `service` or `human` |
 
 #### Usage example
 
@@ -240,16 +239,16 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users
 ### Fetch a Service User
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}" />
-This endpoint fetches information regarding a specific Service User.
+Fetches information regarding a specific Service User
 
-This endpoint requires one of the following roles: `access_admin`.
+This endpoint requires the `access_admin` role.
 
 #### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string | The name of your Team. |
-| `user_name`   | string | The relevant username. |
+| `team_name`   | string | The name of your Team |
+| `user_name`   | string | The relevant username |
 
 
 #### Request query parameters
@@ -264,14 +263,14 @@ This endpoint has no request body.
 This endpoint returns an object with the following fields and a `200` code on a successful call.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `deleted_at`   | string | The time at which the ASA User was deleted. |
+| `deleted_at`   | string | The time at which the ASA User was deleted |
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `id`   | string | The UUID of the ASA User. |
-| `name`   | string | The username of the ASA User. |
-| `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists. |
-| `role_grants`   | array | The permission roles available to the ASA User. |
-| `status`   | string | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
-| `user_type`   | string | The type of ASA User, either `service` or `human`. |
+| `id`   | string | The UUID of the ASA User |
+| `name`   | string | The username of the ASA User |
+| `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
+| `role_grants`   | array | The permission roles available to the ASA User |
+| `status`   | string | Status of the ASA User: `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users can't disable or delete their own ASA User. |
+| `user_type`   | string | The type of ASA User: `service` or `human` |
 
 #### Usage example
 
@@ -289,7 +288,7 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
 {
 	"deleted_at": null,
 	"details": null,
-	"id": "0ef92677-ee45-4bb2-965f-243a8a4e54f3",
+	"id": "6b69de4e-90be-4016-9085-d54bf5815da1",
 	"name": "dilsey.gibson",
 	"oauth_client_application_id": null,
 	"role_grants": null,
@@ -300,16 +299,16 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
 ### Update the status of a Service User
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}" />
-This endpoint updates information regarding a specific Service User.
+Updates information about a specific Service User
 
-This endpoint requires one of the following roles: `access_admin`.
+This endpoint requires the `access_admin` role.
 
 #### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string | The name of your Team. |
-| `user_name`   | string | The relevant username. |
+| `team_name`   | string | The name of your Team |
+| `user_name`   | string | The relevant username |
 
 
 #### Request query parameters
@@ -321,27 +320,27 @@ This endpoint has no query parameters.
 This endpoint requires an object with the following fields.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `deleted_at`   | string | The time at which the ASA User was deleted. |
+| `deleted_at`   | string | The time at which the ASA User was deleted |
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `id`   | string | The UUID of the ASA User. |
-| `name`   | string | The username of the ASA User. |
-| `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists. |
-| `role_grants`   | array | The permission roles available to the ASA User. |
-| `status`   | string | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
-| `user_type`   | string | The type of ASA User, either `service` or `human`. |
+| `id`   | string | The UUID of the ASA User |
+| `name`   | string | The username of the ASA User |
+| `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
+| `role_grants`   | array | The permission roles available to the ASA User |
+| `status`   | string | Status of the ASA User: `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users can't disable or delete their own ASA User. |
+| `user_type`   | string | The type of ASA User: `service` or `human` |
 
 #### Response body
 This endpoint returns an object with the following fields and a `200` code on a successful call.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `deleted_at`   | string | The time at which the ASA User was deleted. |
+| `deleted_at`   | string | The time at which the ASA User was deleted |
 | `details`   | object | An object with the following keys, the values of which are all strings: `first_name`, `last_name`, `full_name`, `email`. |
-| `id`   | string | The UUID of the ASA User. |
-| `name`   | string | The username of the ASA User. |
-| `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists. |
-| `role_grants`   | array | The permission roles available to the ASA User. |
-| `status`   | string | One of `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users cannot disable or delete their own ASA User. |
-| `user_type`   | string | The type of ASA User, either `service` or `human`. |
+| `id`   | string | The UUID of the ASA User |
+| `name`   | string | The username of the ASA User |
+| `oauth_client_application_id`   | string | The ID of the ASA User provided by OAuth, if it exists |
+| `role_grants`   | array | The permission roles available to the ASA User |
+| `status`   | string | Status of the ASA User: `ACTIVE`, `DISABLED`, or `DELETED`. ASA Users can't disable or delete their own ASA User. |
+| `user_type`   | string | The type of ASA User: `service` or `human` |
 
 #### Usage example
 
@@ -380,16 +379,16 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}
 ### List the API keys for a Service User
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys" />
-This endpoint lists the API keys belonging to a specific Service User. The corresponding secret for each key is not provided.
+Lists the API keys that belong to a specific Service User. The corresponding secret for each key isn't provided.
 
-This endpoint requires one of the following roles: `access_admin`.
+This endpoint requires the `access_admin` role.
 
 #### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string | The name of your Team. |
-| `user_name`   | string | The relevant username. |
+| `team_name`   | string | The name of your Team |
+| `user_name`   | string | The relevant username |
 
 
 #### Request query parameters
@@ -404,10 +403,10 @@ This endpoint has no request body.
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `expires_at`   | string | The expiration time of the key. |
+| `expires_at`   | string | The expiration time of the key |
 | `id`   | string | The UUID of the API key |
-| `issued_at`   | string | The time at which the key was issued. |
-| `last_used`   | string | The last time the key was used against Advanced Server Access. |
+| `issued_at`   | string | The time at which the key was issued |
+| `last_used`   | string | The last time the key was used against Advanced Server Access |
 
 #### Usage example
 
@@ -439,19 +438,19 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys
 	]
 }
 ```
-### Rotate API keys for a Service Users
+### Rotate API keys for a Service User
 
 <ApiOperation method="POST" url="https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys" />
-Rotating an API key will automatically set an expiration date on the rest of the API keys a Service User has.
+Rotates API keys for a Service User. Rotating an API key automatically sets an expiration date for the rest of the API keys that a Service User has.
 
-This endpoint requires one of the following roles: `access_admin`.
+This endpoint requires the `access_admin` role.
 
 #### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `team_name`   | string | The name of your Team. |
-| `user_name`   | string | The relevant username. |
+| `team_name`   | string | The name of your Team |
+| `user_name`   | string | The relevant username |
 
 
 #### Request query parameters
@@ -466,11 +465,11 @@ This endpoint has no request body.
 This endpoint returns an object with the following fields and a `200` code on a successful call.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `expires_at`   | string | The expiration time of the key. |
+| `expires_at`   | string | The expiration time of the key |
 | `id`   | string | The UUID of the API key |
-| `issued_at`   | string | The time at which the key was issued. |
-| `last_used`   | string | The last time the key was used against Advanced Server Access. |
-| `secret`   | string | The secret of the API key. This is used to authenticate the Service User. Do not share. |
+| `issued_at`   | string | The time at which the key was issued |
+| `last_used`   | string | The last time the key was used against Advanced Server Access |
+| `secret`   | string | The secret of the API key. This is used to authenticate the Service User. Don't share. |
 
 #### Usage example
 
@@ -496,17 +495,17 @@ https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys
 ### Delete an API key for a Service User
 
 <ApiOperation method="DELETE" url="https://app.scaleft.com/v1/teams/${team_name}/service_users/${user_name}/keys/${key_id}" />
-This endpoint deletes an API key and prevents its future use.
+Deletes an API key and prevents its future use
 
-This endpoint requires one of the following roles: `access_admin`.
+This endpoint requires the `access_admin` role.
 
 #### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `key_id`   | string | The UUID of the Service User key. |
-| `team_name`   | string | The name of your Team. |
-| `user_name`   | string | The relevant username. |
+| `key_id`   | string | The UUID of the Service User key |
+| `team_name`   | string | The name of your Team |
+| `user_name`   | string | The relevant username |
 
 
 #### Request query parameters
