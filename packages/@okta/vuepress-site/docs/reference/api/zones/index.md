@@ -6,7 +6,7 @@ category: management
 
 > This API is an <ApiLifecycle access="ea" /> feature.
 
-The Okta Zones API provides operations to manage zones in your organization. There are two type of zones: Policy Network Zones and Block List Network Zones. Policy Network Zones may be used to guide policy decisions, and Block List Network Zones are used to deny access from certain IP addresses, locations, proxy types, or ASNs before policy evaluation.
+The Okta Zones API provides operations to manage Zones in your organization. There are two type of zones: Policy Network Zones and Block List Network Zones. Policy Network Zones may be used to guide policy decisions, and Block List Network Zones are used to deny access from certain IP addresses, locations, proxy types, or ASNs before policy evaluation.
 
 ## Zone object
 
@@ -16,32 +16,32 @@ The following attributes are shared by all Network Zone objects:
 
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
-| type           | Type of zone is one of the following: `IP`, `DYNAMIC`                                              | String                                        | Yes             | N/A           |
-| id             | Unique identifier for this zone                                                             | String                                        | No (Assigned)   | N/A           |
-| name           | Unique name for this zone                                                                   | String                                        | Yes             | 128 (chars)   |
-| system           | Indicates if this is a system network zone. For admin-created zones, this is always `false`                                                                 | boolean                                        | No  (Assigned)           | N/A   |
-| usage           | Usage of zone is one of the following: `POLICY`, `BLOCKLIST` 				| String                                        | No  		| N/A   |
+| type           | Type of Zone: `IP`, `DYNAMIC`                                              | String                                        | Yes             | N/A           |
+| id             | Unique identifier for this Zone                                                             | String                                        | No (Assigned)   | N/A           |
+| name           | Unique name for this Zone                                                                   | String                                        | Yes             | 128 (chars)   |
+| system           | Indicates if this is a system Network Zone. For admin-created Zones, this is always `false`.       | boolean                                        | No  (Assigned)           | N/A   |
+| usage           | Usage of Zone: `POLICY`, `BLOCKLIST` 				| String                                        | No  		| N/A   |
 
 ### IP Zone properties
 
-One of the following attributes must be defined  
-The follow attributes are defined by IP Zone objects:
+One of the following attributes must be defined. These attributes are defined by IP Zone objects:
 
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
-| gateways       | IP addresses (range or CIDR form) of this zone                                              | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
-| proxies        | IP addresses (range or CIDR form) allowed to forward request from gateway addresses above. These proxies are automatically trusted by Threat Insights. These proxies are used to identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
+| gateways       | IP addresses (range or CIDR form) of this Zone                                              | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
+| proxies        | IP addresses (range or CIDR form) that are allowed to forward a request from gateway addresses. These proxies are automatically trusted by Threat Insights. These proxies are used to identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
 
 #### Address object
 
-Each Address object specifies a set of IP addresses, expressed using either range or CIDR form.
+Each Address object specifies a set of IP addresses that are expressed using either range or CIDR form.
 
 | Field Name  | Description                                                | Data Type   | Required |
 | :---------- | :--------------------------------------------------------- | :---------- | :------- |
-| type        | Format of the value: either CIDR or RANGE                 | String      | Yes       |
+| type        | Format of the value: `CIDR`, `RANGE`                | String      | Yes       |
 | value       | Value in CIDR/range form depending on the type specified   | String      | Yes       |
 
 #### Address object example (CIDR)
+
 ```json
 {
     "type": "CIDR",
@@ -50,6 +50,7 @@ Each Address object specifies a set of IP addresses, expressed using either rang
 ```
 
 #### Address object example (range)
+
 ```json
 {
     "type": "RANGE",
@@ -58,6 +59,7 @@ Each Address object specifies a set of IP addresses, expressed using either rang
 ```
 
 ### IP Zone example
+
 ```json
 {
   "type": "IP",
@@ -92,18 +94,17 @@ Each Address object specifies a set of IP addresses, expressed using either rang
 
 ### Dynamic Zone properties
 
-One of the following attributes must be defined  
-The follow attributes are defined by Dynamic Zone objects:
+One of the following attributes must be defined. These attributes are defined by Dynamic Zone objects:
 
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
-| proxyType       | One of the following: `""` or `null` (When not specified), `Any`(Meaning any proxy), `Tor`, `NotTorAnonymizer`                                            | String   | No              | N/A |
-| locations        | The geolocations of this zone   | Array of [Location Objects](#location-object)   | No              | 75 (entries) |
-| asns        | Format of each array value: a String representation of an ASN numeric value   | Array of Strings   | No              | 75 (entries) |
+| proxyType       | One of: `""` or `null` (when not specified), `Any` (meaning any proxy), `Tor`, `NotTorAnonymizer`                                            | String   | No              | N/A |
+| locations        | The geolocations of this Zone   | Array of [Location objects](#location-object)   | No              | 75 (entries) |
+| asns        | Format of each array value: a string representation of an ASN numeric value   | Array of Strings   | No              | 75 (entries) |
 
 #### Location object
 
-Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code, and an optional [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) region code
+Each Location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code and an optional [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) region code.
 
 | Field Name  | Description                                                | Data Type   | Required |
 | :---------- | :--------------------------------------------------------- | :---------- | :------- |
@@ -111,6 +112,7 @@ Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
 | region       | Format of the value: `countryCode`-`regionCode`, or `null` if empty  | String      | No       |
 
 #### Location object example (with region)
+
 ```json
 {
     "country": "AF",
@@ -119,6 +121,7 @@ Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
 ```
 
 #### Location object example (without region)
+
 ```json
 {
     "country": "AF",
@@ -127,6 +130,7 @@ Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
 ```
 
 ### Dynamic Zone example
+
 ```json
 {
     "type": "DYNAMIC",
@@ -378,13 +382,14 @@ curl -X POST \
 ```
 
 ### Get a Network Zone
+
 <ApiOperation method="get" url="/api/v1/zones/${zoneId}" />
 
-Gets a Network Zone by id
+Gets a Network Zone by ID
 
 #### Request parameters
 
-The zone ID described in the [Zone object](#zone-object) is required.
+The Zone ID described in the [Zone object](#zone-object) is required.
 
 #### Request example
 
@@ -397,6 +402,7 @@ curl -X GET \
 ```
 
 #### Response example
+
 ```json
 {
     "type": "DYNAMIC",
@@ -431,21 +437,22 @@ curl -X GET \
 ```
 
 ### List Zones
+
 <ApiOperation method="get" url="/api/v1/zones" />
 
 Lists all zones
 
-A subset of zones can be returned that match a supported filter expression or query criteria.
+A subset of Zones can be returned that match a supported filter expression or query criteria.
 
 ##### Request parameters
 
 
-- [List All Zones](#list-all-zones) (no parameters)
-- [List Zones with a Filter](#list-zones-with-a-filter) (`filter`)
+- [List all Zones](#list-all-zones) (no parameters)
+- [List Zones with a filter](#list-zones-with-a-filter) (`filter`)
 
 | Parameter    | Description                                                                                                                          | Param Type   | DataType   | Required |
 | :----------- | :----------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
-| filter       | [Filter](/docs/reference/api-overview/#filtering) zones with a supported expression for `id` and `usage` properties         | Query        | String     | No       |
+| filter       | [Filter](/docs/reference/api-overview/#filtering) Zones with a supported expression for the `id` and `usage` properties         | Query        | String     | No       |
 | limit        | Specifies the number of results returned                                                                                             | Query        | Integer    | No       |
 
 ##### Response parameters
@@ -582,11 +589,11 @@ curl -X GET \
 #### List Zones with a filter
 
 
-Lists all zones that match the filter criteria
+Lists all Zones that match the filter criteria
 
 This operation requires [URL encoding](/docs/reference/api-overview/#filtering). For example, `filter=(id eq "nzoul0wf9jyb8xwZm0g3" or id eq "nzoul1MxmGN18NDQT0g3")` is encoded as `filter=%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29`.
 
-Currently we support filtering on `id` and `usage` properties. See [Filtering](/docs/reference/api-overview/#filtering) for more information about the expressions used in filtering.
+We support filtering on the `id` and `usage` properties. See [Filtering](/docs/reference/api-overview/#filtering) for more information about the expressions used in filtering.
 
 ##### Request example
 
@@ -745,9 +752,9 @@ Updates an existing Network Zone
 
 #### Request parameters
 
-A valid [Zone object](#zone-object) with the id of the network zone to update is required.
+A valid [Zone object](#zone-object) with the ID of the Network Zone to update is required.
 
-The updated Network Zone type must be the same as the existing type. 
+The updated Network Zone type must be the same as the existing type.
 
 You may update the usage (`POLICY`, `BLOCKLIST`) of a Network Zone by updating the `usage` attribute.
 
