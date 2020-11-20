@@ -13,11 +13,11 @@ This guide covers submissions that use one or more of these protocols:
 * [System for Cross-domain Identity Management (SCIM)](http://www.simplecloud.info/)
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
 
-    **Note:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
+    >**Note:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
 
 * [Security Assertion Markup Language (SAML)](https://en.wikipedia.org/wiki/SAML_2.0)
 
-    **Note:** SAML integrations must use SHA256 encryption for security. If you are using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/overview/).
+    >**Note:** SAML integrations must use SHA256 encryption for security. If you are using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/overview/).
 
 ## Prerequisites
 
