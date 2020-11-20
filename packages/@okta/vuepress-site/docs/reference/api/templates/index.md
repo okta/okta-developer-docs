@@ -223,7 +223,7 @@ curl -v -X PUT \
 
 Updates only some of the SMS Template properties:
 
-* All properties with the custom SMS Template with values are updated.
+* All properties within the custom SMS Template that have values are updated.
 * Any translation that doesn't exist is added.
 * Any translation with a null or empty value is removed.
 * Any translation with non-empty/null value is updated.
