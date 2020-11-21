@@ -1,4 +1,4 @@
-Call the `logout` method on [OktaAuthService](https://github.com/okta/okta-angular#oktaauthlogouturi).
+Call the [tokenManager.clear](https://github.com/okta/okta-auth-js#tokenmanagerclear) method on [OktaAuthService](https://github.com/okta/okta-angular#oktaauthservice).
 
 ```javascript
 
@@ -11,7 +11,7 @@ export class LogoutComponent {
 
   }
   logout() {
-    this.oktaAuth.logout('/');
+    this.oktaAuth.tokenManager.clear();
   }
 }
 
