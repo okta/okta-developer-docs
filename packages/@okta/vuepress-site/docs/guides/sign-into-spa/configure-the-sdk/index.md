@@ -37,7 +37,7 @@ const config = {
   clientId: CLIENT_ID,
   redirectUri: REDIRECT_URI,
   scope: SCOPES.split(/\s+/),
-});
+};
 ```
 
 With the configuration ready, initialize the SDK:
