@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   }
 
   async ngOnInit() {
-    // returns an array of claims
+    // returns an object with user's claims
     const userClaims = await this.oktaAuth.getUser();
 
     // user name is exposed directly as property

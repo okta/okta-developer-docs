@@ -25,14 +25,6 @@ meta:
 
 New to Okta? Our Java resources will help you add user authentication to your Java app.
 
-<ul class='language-ctas'>
-	<li>
-		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
-			<span>Create Free Account</span>
-		</a>
-	</li>
-</ul>
-
 ## Okta Management SDK for Java
 
 The Okta Java SDK can be used in your server-side code to create and update users, groups, and more.

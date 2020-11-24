@@ -1,10 +1,8 @@
 ---
-title: Use the Resource Owner Password Flow
+title: Use the Resource Owner Password flow
 ---
 
-Before you can begin this flow, you will have to collect the user's password in a manner of your choosing.
-
-Once you have collected the credentials, all that is required is a single API call to the `/token` endpoint:
+Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint. If you are using the default Custom Authorization Server, then your request would look something like this:
 
 ```
 curl --request POST \
@@ -16,18 +14,18 @@ curl --request POST \
   rlnU9oZU4qWGrhQSM%3Dyd&scope=openid'
 ```
 
-> Important: The call to the `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and Secret. You can find the client ID and secret in your application's General tab. For more on Basic Auth, see [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
+> **Important:** The call to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and secret. You can find the Client ID and secret on your application's **General** tab. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
 - `grant_type` is `password`, indicating that we are using the Resource Owner Password grant type.
 - `username` is the username of a user registered with Okta.
 - `password` is the password of a user registered with Okta.
-- `scope` must be at least `openid`. For more information about this, see the [Custom Authorization Server chapter](/docs/guides/customize-authz-server/create-scopes/).
+- `scope` must be at least `openid`. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
 
 For more information on these parameters, see the [OAuth 2.0 API reference](/docs/reference/api/oidc/#token).
 
-If the credentials are valid, your application will receive back access and ID tokens:
+If the credentials are valid, your application receives back access and ID tokens:
 
 ```
 {
@@ -39,4 +37,4 @@ If the credentials are valid, your application will receive back access and ID t
 }
 ```
 
-<NextSectionLink>Next Steps</NextSectionLink>
+<NextSectionLink>Next steps</NextSectionLink>

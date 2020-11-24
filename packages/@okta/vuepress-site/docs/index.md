@@ -58,6 +58,8 @@ sections:
     link: /docs/concepts/
     description: Understand the basics of Okta's APIs and architecture.
     links:
+      - title: Hosted Vs. Embedded
+        link: /docs/concepts/hosted-vs-embedded/
       - title: Okta-hosted flows
         link: /docs/concepts/okta-hosted-flows/
       - title: Inline Hooks
