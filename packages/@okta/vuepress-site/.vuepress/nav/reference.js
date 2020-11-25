@@ -57,6 +57,7 @@ module.exports = [
     { title: 'Token Hook', path: '/docs/reference/token-hook/'},
     { title: 'WebFinger', path: '/docs/reference/api/webfinger/'},
     { title: 'Advanced Server Access', subLinks: [
+        { title: 'ASA Audits API', path: '/docs/reference/api/asa/audits/'}
         { title: 'ASA Clients API', path: '/docs/reference/api/asa/clients/'}
       ]
     }
