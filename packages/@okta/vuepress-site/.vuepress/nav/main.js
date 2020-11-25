@@ -78,6 +78,8 @@ module.exports = [
       { title: 'WebFinger', link: '/docs/reference/webfinger/'},
       { title: 'Advanced Server Access', subLinks: [
         { title: 'ASA Entitlements API', link: '/docs/reference/api/asa/entitlements/'}
+        { title: 'ASA Audits API', link: '/docs/reference/api/asa/audits/'}
+        { title: 'ASA Clients API', link: '/docs/reference/api/asa/clients/'}
         ]
       }
     ]
