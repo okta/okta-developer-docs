@@ -755,9 +755,9 @@ Specifies a set of Groups whose Users are to be included or excluded
 
 Specifies an authentication entry point
 
-| Parameter | Description | Data Type         | Required | Default |
-| --------- | ----------- | ----------------- | -------- | ------- |
-| authType  |             | `ANY` or `RADIUS` | No       |         |
+| Parameter | Description | Data Type                             | Required | Default |
+| --------- | ----------- | ------------------------------------- | -------- | ------- |
+| authType  |             | `ANY` or `RADIUS` or `LDAP_INTERFACE` | No       |         |
 
 #### Network Condition object
 
