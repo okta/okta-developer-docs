@@ -77,6 +77,7 @@ module.exports = [
       { title: 'SCIM Protocol', link: '/docs/reference/scim/'},
       { title: 'WebFinger', link: '/docs/reference/webfinger/'},
       { title: 'Advanced Server Access', subLinks: [
+        { title: 'ASA Groups API', link: '/docs/reference/api/asa/groups/'},
         { title: 'ASA Projects API', link: '/docs/reference/api/asa/projects/'},
         { title: 'Introduction to the Advanced Server Access API', link: '/docs/reference/api/asa/introduction/'},
         { title: 'ASA Service Users API', link: '/docs/reference/api/asa/service-users/'},
