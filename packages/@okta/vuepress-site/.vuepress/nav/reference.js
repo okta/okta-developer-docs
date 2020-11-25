@@ -57,6 +57,7 @@ module.exports = [
     { title: 'Token Hook', path: '/docs/reference/token-hook/'},
     { title: 'WebFinger', path: '/docs/reference/api/webfinger/'},
     { title: 'Advanced Server Access', subLinks: [
+        { title: 'ASA Users API', path: '/docs/reference/api/asa/users/'},
         { title: 'ASA Groups API', path: '/docs/reference/api/asa/groups/'},
         { title: 'ASA Projects API', path: '/docs/reference/api/asa/projects/'},
         { title: 'Introduction to the Advanced Server Access API', path: '/docs/reference/api/asa/introduction/'},
