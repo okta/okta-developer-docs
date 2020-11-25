@@ -32,7 +32,7 @@ The Teams API has the following operations:
 ### List Servers for a Team
 
 <ApiOperation method="GET" url="https://app.scaleft.com/v1/teams/${team_name}/servers" />
-Lists all the Servers enrolled in a Team that the requesting ASA User has to
+Lists all the Servers enrolled in a Team that the requesting ASA User has access to
 
 This endpoint requires one of the following roles: `access_user`, `access_admin`, `authenticated_client`, `reporting_user`, or `server_admin`.
 
@@ -190,7 +190,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `reactivate_users_via_idp`   | boolean | If a disabled or deleted ASA User is able to authenticate through the IdP, their ASA User is re-enabled. |
 | `team`   | string | The name of the Team that is configured with the provided settings |
 | `user_provisioning_exact_username`   | boolean | If true, ASA has ASA Users configured through SCIM to maintain the exact username that is specified. |
-| `web_session_duration`   | number | Configure web session to be between 30 minutes and 25 hours. |
+| `web_session_duration`   | number | Defines the duration of the web session. Configure the web session to be between 30 minutes and 25 hours. |
 
 #### Usage example
 
@@ -248,7 +248,7 @@ This endpoint requires an object with the following fields.
 | `reactivate_users_via_idp`   | boolean | If a disabled or deleted ASA User is able to authenticate through the IdP, their ASA User is re-enabled. |
 | `team`   | string | The name of the Team that is configured with the provided settings |
 | `user_provisioning_exact_username`   | boolean | If true, ASA has ASA Users configured through SCIM to maintain the exact username that is specified. |
-| `web_session_duration`   | number | Configure web session to be between 30 minutes and 25 hours. |
+| `web_session_duration`   | number | Defines the duration of the web session. Configure the web session to be between 30 minutes and 25 hours. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
@@ -328,12 +328,10 @@ https://app.scaleft.com/v1/teams/${team_name}/team_stats
 
 ```json
 {
-	"num_af_applications": 0,
 	"num_clients": 0,
 	"num_gateways": 0,
 	"num_groups": 1,
 	"num_human_users": 1,
-	"num_oidc_applications": 0,
 	"num_projects": 2,
 	"num_servers": 1,
 	"num_service_users": 0
