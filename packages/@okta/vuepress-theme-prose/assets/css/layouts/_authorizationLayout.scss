@@ -1,0 +1,44 @@
+.authorization-layout {
+  display: flex;
+  background: linear-gradient(180deg, #1D2C33 0%, cv('brand','base') 100%);
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .authorization-layout--header {
+    display: flex;
+    padding: 0 80px;
+    width: 100%;
+    align-items: center;
+    height: 98px;
+    margin: 0 0 32px 0;
+    svg {
+      width: 6em;
+      fill: $white;
+    }
+  }
+
+  .authorization-layout--content {
+    display: flex;
+    padding: 0 0 20px 0;
+    justify-content: center;
+  }
+
+  .authorization-layout--footer {
+    img {
+      width: 100%;
+    }
+    flex-direction: column;
+  }
+
+  .social-btn {
+    background-color: transparent;
+    border: 2px solid cv("cerise", "base");
+    text-align: center;
+    color: $white;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}

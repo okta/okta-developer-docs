@@ -62,7 +62,7 @@ export default {
     Footer: () => import('../components/Footer.vue'),
     Documentation: () => import('../components/Documentation.vue'),
     Reference: () => import('../components/Reference.vue'),
-    Quickstart: () => import('../components/Quickstart.vue'),
+    Quickstart: () => import('../components/Quickstart.vue')
   },
   data() {
     return {
