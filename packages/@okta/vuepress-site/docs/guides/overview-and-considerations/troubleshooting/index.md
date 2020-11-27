@@ -2,7 +2,7 @@
 title: Troubleshooting hook implementations
 ---
 
-After setting up an external service and an Event or Inline Hook, you may need to troubleshoot or review your configurations. Use the following options to confirm a successful implementation.
+After setting up an external service and an Event Hook or Inline Hook, you may need to troubleshoot or review your configurations. Use the following options to confirm a successful implementation.
 
 ### Preview tab ###
 
@@ -19,11 +19,9 @@ Use the Developer Console System Log to review logs of the Event or Inline Hook 
 
 ### Glitch logs ###
 
-For implementations using the Glitch projects, use Glitch's log feature to review and troublshoot your external service code:
+For implementations using the Glitch projects, use Glitch's log feature to review and troubleshoot your external service code:
 
 1. In the Glitch project's left-hand folder navigation pane, click "Tools" at the bottom of the pane.
 2. Click "Logs".
 
 A log pane appears that displays all `console.log()` output. Some console output code is available in the sample code.
-
-<NextSectionLink/>

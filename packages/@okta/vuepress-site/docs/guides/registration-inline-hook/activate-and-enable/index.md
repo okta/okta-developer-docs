@@ -9,7 +9,7 @@ To set up and activate the Registration Inline Hook:
 1. Navigate to the **Workflow** > **Inline Hooks** page.
 2. Click **Add Inline Hook** and select **Registration** from the drop-down menu.
 3. Add a name for the hook (in this example, "Guide Registration Hook Code").
-4. Add your external service URL, including the endpoint. For example, use your Glitch project name with the end point:  https://*your-glitch-projectname*.glitch.me/registrationHook).
+4. Add your external service URL, including the endpoint. For example, use your Glitch project name with the end point:  https://your-glitch-projectname.glitch.me/registrationHook).
 5. Include authorization field and secret. In this example:
 
     * Authentication Field = `authorization`
@@ -27,9 +27,9 @@ To enable the Registration Inline Hook on the self-service registration page:
 3. From the **Extension** field drop-down menu, select the hook you set up and activated previously ("Guide Registration Hook Code") .
 4. Click **Save**.
 
-The registation inline hook is now enabled for self-service registration. For a high-level overview of enabling the Registration Inline hook, see [Registration Inline Hook Reference](/docs/reference/registration-hook/).
+The Registation Inline Hook is now enabled for self-service registration. For a high-level overview of enabling the Registration Inline hook, see [Registration Inline Hook Reference](/docs/reference/registration-hook/).
 
-You are now ready to preview and test the Registration Inline hook.
+You are now ready to preview and test the Registration Inline Hook.
 
 <NextSectionLink/>
 

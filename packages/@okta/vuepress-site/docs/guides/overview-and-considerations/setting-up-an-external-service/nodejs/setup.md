@@ -1,4 +1,4 @@
-The following code is included in the Glitch project templates and includes basic npm packages to define routine tasks for a Node.js application, including listening for requests:
+The following code is included in the Glitch project templates and includes basic `npm` packages to define routine tasks for a Node.js application, including listening for requests:
 
 Default code:
 

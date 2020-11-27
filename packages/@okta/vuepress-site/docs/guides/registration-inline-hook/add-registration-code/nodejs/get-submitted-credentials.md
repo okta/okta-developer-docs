@@ -11,4 +11,4 @@ app.post('/registrationHook', async (request, response) => {
 }
 ```
 
->**Note:** The method definition begun in this code snippet is incomplete and is completed in the <GuideLink link="../send-response-code/">Send response code</GuideLink> section.
+>**Note:** The method definition begun in this code snippet is incomplete and is completed in the <GuideLink link="../send-response-code/">Send response</GuideLink> section.
