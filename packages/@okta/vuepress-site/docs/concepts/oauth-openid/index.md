@@ -280,15 +280,15 @@ The Interaction Code flow is intended for use cases where you want more control 
 There are two entry points available for this flow:
 
 * The `/token` endpoint (for the password grant type)
-* The `/interaction` endpoint
+* The `/interact` endpoint
 
 > **Note:** You must register your clients with the authorization server to use this flow.
 
 Which entry point you choose for the Interaction Code flow is based on how the client is designed to handle authentication with the resource owner.
 
-At either entry point, the authorization server issues an `interaction_handle` required to initiate the remediation steps with the Okta Identity Engine. Successful completion of the remediation steps results in the Okta Identity Engine sending the /`interaction_code` as part of the success response. The client then makes a request to the `/token` endpoint for the access token and includes the `/interaction_code` in the request.
+At either entry point, the authorization server issues an `interaction_handle` required to initiate the remediation steps with the Okta Identity Engine. Successful completion of the remediation steps results in the Okta Identity Engine sending the `interaction_code` as part of the success response. The client then makes a request to the `/token` endpoint for the access token and includes the `interaction_code` in the request.
 
 The `/token` endpoint enables clients using the Resource Owner Password Grant to start the Interaction Code flow. This is designed to be an extension of the OAuth 2.0 `/token` endpoint and the OpenID Connect grant type.
 
-The `/interaction` endpoint enables clients without Resource Owner Password Grant to start the Interaction Code flow. It’s designed as an OAuth 2.0 extension in place of the `/authorize` endpoint as an alternative to redirecting your client app to the authorization server for authentication. It is similar to the `/authorize` endpoint in that it takes an authorization request, but it doesn’t support redirection parameters.
+The `/interact` endpoint enables clients without Resource Owner Password Grant to start the Interaction Code flow. It’s designed as an OAuth 2.0 extension in place of the `/authorize` endpoint as an alternative to redirecting your client app to the authorization server for authentication. It is similar to the `/authorize` endpoint in that it takes an authorization request, but it doesn’t support redirection parameters.
 
