@@ -41,4 +41,12 @@
     letter-spacing: 2px;
     text-transform: uppercase;
   }
+
+  .error {
+    border: 1px solid cv('cerise', 'base');
+  }
+
+  .error-color {
+    color: cv('cerise', 'base');
+  }
 }
