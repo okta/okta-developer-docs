@@ -732,6 +732,7 @@ The [authentication methods reference](https://tools.ietf.org/html/draft-ietf-oa
 | `kba`    | Knowledge-based authentication                         | Security Question factor                                                                               |
 | `mfa`    | Multiple-factor authentication                         | This value is present whenever any MFA factor verification is performed.                               |
 | `mca`    | Multiple-channel authentication                        | Authentication requires communication over more than one channel, such as Internet and mobile network. |
+| `sc`    | Smart Card                                | PIV cards                                                                          |
 
 ### IDP object
 
