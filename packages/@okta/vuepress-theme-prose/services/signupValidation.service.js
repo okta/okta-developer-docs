@@ -11,54 +11,54 @@ export class SignUpValidation {
   }
 
   checkFormInput(key, value) {
-    this.resetInput(key);
+    this._resetInput(key);
 
-    if (this.isEmptyValue(value)) {
-      this.setInputError(key, this.errorDictionary.emptyField);
+    if (this._isEmptyValue(value)) {
+      this._setInputError(key, this.errorDictionary.emptyField);
       return;
     }
 
-    if (this.isUrlValue(value)) {
-      this.setInputError(key);
+    if (this._isUrlValue(value)) {
+      this._setInputError(key);
     }
   }
 
   checkEmailInput(key, value) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    this.resetInput(key);
+    this._resetInput(key);
 
     // If empty field stop checking and display an applicable message
-    if (this.isEmptyValue(value)) {
-      this.setInputError(key, this.errorDictionary.emptyField);
+    if (this._isEmptyValue(value)) {
+      this._setInputError(key, this.errorDictionary.emptyField);
       return;
     }
 
     // If email not valid or email includes banned email profider, display errror
-    if (!re.test(value) || this.__isBannedEmailProvider(value)) {
-      this.setInputError(key);
+    if (!re.test(value) || this._isBannedEmailProvider(value)) {
+      this._setInputError(key);
     }
   }
 
-  setInputError(key, msg) {
+  _setInputError(key, msg) {
     this.form[key].errorList.push(msg || this.errorDictionary[key]);
     this.form[key].isValid = false;
   }
 
-  resetInput(key) {
+  _resetInput(key) {
     this.form[key].isValid = true;
     this.form[key].errorList = [];
   }
 
-  isEmptyValue(value) {
+  _isEmptyValue(value) {
     return !value.trim()
   }
 
-  isUrlValue(value) {
+  _isUrlValue(value) {
     const re = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
     return re.test(value);
   }
 
-  __isBannedEmailProvider(email) {
+  _isBannedEmailProvider(email) {
     const bannedEmailProviders = [
       "first-mail.info",
       "simpleemail.com",
