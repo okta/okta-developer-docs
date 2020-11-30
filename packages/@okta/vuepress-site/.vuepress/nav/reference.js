@@ -63,9 +63,9 @@ module.exports = [
         { title: 'ASA Projects API', path: '/docs/reference/api/asa/projects/'},
         { title: 'Introduction to the Advanced Server Access API', path: '/docs/reference/api/asa/introduction/'},
         { title: 'ASA Service Users API', path: '/docs/reference/api/asa/service-users/'},
-        { title: 'ASA Attributes API', path: '/docs/reference/api/asa/attributes/'}
-        { title: 'ASA Entitlements API', path: '/docs/reference/api/asa/entitlements/'}
-        { title: 'ASA Audits API', path: '/docs/reference/api/asa/audits/'}
+        { title: 'ASA Attributes API', path: '/docs/reference/api/asa/attributes/'},
+        { title: 'ASA Entitlements API', path: '/docs/reference/api/asa/entitlements/'},
+        { title: 'ASA Audits API', path: '/docs/reference/api/asa/audits/'},
         { title: 'ASA Clients API', path: '/docs/reference/api/asa/clients/'}
       ]
     }
