@@ -5593,10 +5593,10 @@ Applications have the following properties:
 | id                 | unique key for app                             | String                                                               | FALSE        | TRUE       | TRUE         |               |             |
 | label              | unique user-defined display name for app       | String                                                               | FALSE        | TRUE       | FALSE        | 1             | 100         |
 | lastUpdated        | timestamp when app was last updated            | Date                                                                 | FALSE        | FALSE      | TRUE         |               |             |
-| name               | unique key for app definition                  | String ([App Names and Settings](#app-names-and-settings))                | FALSE        | TRUE       | TRUE         | 1             | 255         |
+| name               | unique key for app definition                  | String ([App Names](#app-names))                | FALSE        | TRUE       | TRUE         | 1             | 255         |
 | profile            | Valid JSON schema for specifying properties    | [JSON](#profile-object)                                              | TRUE         | FALSE      | FALSE        |               |             |
 | request_object_signing_alg| The type of JSON Web Key Set (JWKS) algorithm that must be used for signing request objects | `HS256`, `HS384`, `HS512`, `RS256`, `RS384`, `RS512`, `ES256`, `ES384`, `ES512`  | TRUE      | FALSE     | FALSE      |
-| settings           | settings for app                               | Object ([App Names and Settings](#app-names-and-settings))                | TRUE         | FALSE      | FALSE        |               |             |
+| settings           | settings for app                               | Object ([App Settings](#app-settings))                | TRUE         | FALSE      | FALSE        |               |             |
 | signOnMode         | authentication mode of app                     | [SignOn Mode](#sign-on-modes)                                         | FALSE        | FALSE      | FALSE        |               |             |
 | status             | status of app                                  | `ACTIVE` or `INACTIVE`                                               | FALSE        | FALSE      | TRUE         |               |             |
 | visibility         | visibility settings for app                    | [Visibility object](#visibility-object)                              | TRUE         | FALSE      | FALSE        |               |             |
@@ -5607,9 +5607,9 @@ Property details
  * `profile` is only available for OAuth 2.0 client apps. See [Profile object](#profile-object).
  * When you specify a value for the `request_object_signing_alg` property, all request objects from the client are rejected if not signed with the specified algorithm. The algorithm must be used when the request object is passed by value (using the request parameter). If a value for `request_object_signing_alg` isn't specified, the default is any algorithm that is supported by both the client and the server.
 
-##### App names and settings
+##### App names
 
-The Okta Integration Network (OIN) defines the catalog of applications that can be added to your Okta organization. Each application has a unique name (key) and schema that defines the required and optional settings for the application. When adding an application, you must specify the unique app name in the request as well as any required settings.
+The Okta Integration Network (OIN) defines the catalog of applications that can be added to your Okta organization. Each application has a unique name (key) that you must specify.
 
 The catalog is currently not exposed via an API. While additional apps may be added via the API, only the following template applications are documented:
 
@@ -5618,7 +5618,8 @@ The catalog is currently not exposed via an API. While additional apps may be ad
 | Custom SAML 2.0     | [Add custom SAML 2.0 application](#add-custom-saml-application)               |
 | Custom SWA          | [Add custom SWA application](#add-custom-swa-application)                     |
 | bookmark            | [Add Bookmark application](#add-bookmark-application)                         |
-| oidc_client         | [Add OAuth 2.0 client application](#add-oauth-2-0-client-application)          |
+| oidc_client         | [Add OAuth 2.0 client application](#add-oauth-2-0-client-application)         |
+| okta_org2org        | [Add Okta Org2Org application](#add-okta-org2org-application)                 |
 | tempalte_sps        | [Add SWA application (no plugin)](#add-swa-application-no-plugin)             |
 | template_basic_auth | [Add Basic Authentication application](#add-basic-authentication-application) |
 | template_swa        | [Add plugin SWA application](#add-plugin-swa-application)                     |
@@ -5626,6 +5627,25 @@ The catalog is currently not exposed via an API. While additional apps may be ad
 | template_wsfed      | [Add WS-Federation application](#add-ws-federation-application)               |
 
 The current workaround is to manually configure the desired application via the administrator UI in a preview (sandbox) organization and view the application via [Get Application](#get-application).
+
+##### App settings
+
+Each application has a schema that defines the required and optional settings for the application. When adding an application, you must specify the required settings.
+
+The catalog is currently not exposed via an API. While additional apps may be added via the API, only the following template applications are documented:
+
+The current workaround is to manually configure the desired application via the administrator UI in a preview (sandbox) organization and view the application via [Get Application](#get-application).
+
+###### Notes Object
+
+<ApiLifecycle access="ea" />
+
+An additional `notes` object can be passed within the `settings` object. The notes object contains the following:
+
+| Property  | Description                                        | DataType | Nullable | Default | MinLength | MaxLength | Validation |
+| --------- | -------------------------------------------------- | -------- | -------- | ------- | --------- | --------- | ---------- |
+| admin       | Application notes for admins | String  | TRUE    | NULL   |           |           |            |
+| enduser       | Application notes for endusers                        | String  | TRUE    | NULL   |           |
 
 > **Note:** You can't currently manage app provisioning settings via the API. Use the administrator UI.
 
@@ -5699,6 +5719,7 @@ Specifies visibility settings for the application
 | Property          | Description                                        | DataType                            | Nullable | Default | MinLength | MaxLength | Validation |
 | ----------------- | -------------------------------------------------- | ----------------------------------- | -------- | ------- | --------- | --------- | ---------- |
 | appLinks          | Displays specific appLinks for the app             | [AppLinks object](#applinks-object) | FALSE    |         |           |           |            |
+| <ApiLifecycle access="ea" /> autoLaunch  |  Automatically sign into the app when user signs into Okta.            | Boolean | FALSE   | FALSE    |           |           |            |
 | autoSubmitToolbar | Automatically sign in when user lands on the sign-in page | Boolean                             | FALSE    | FALSE   |           |           |            |
 | hide              | Hides this app for specific end-user apps          | [Hide object](#hide-object)         | FALSE    | FALSE   |           |           |            |
 
