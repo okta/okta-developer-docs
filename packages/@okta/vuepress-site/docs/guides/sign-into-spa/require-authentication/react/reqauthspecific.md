@@ -9,8 +9,10 @@ const App = () => {
   return (
     <Router>
       <Security {...config} >
+        <Switch>
           <Route path="/public" />
           <SecureRoute path="/private" />
+        </Switch>
       </Security>
     </Router>
   );
