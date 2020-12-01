@@ -5691,6 +5691,260 @@ curl -v -X POST \
 HTTP/1.1 204 No Content
 ```
 
+## Application Features operations
+
+<ApiLifecycle access="ea" />
+
+>Note: Only Okta Org2Org application is supported
+
+### List Features for application
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/features" />
+
+Fetch Features for an application.
+
+>Note: Provisioning must be enabled for the application and currently only `USER_PROVISIONING` is supported. View [Provisioning Connections](#set-default-provisioning-connection-for-application) for enabling.
+
+#### Request parameters
+
+| Parameter       | Description                                | Parameter Type   | DataType   | Required |
+| :-------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
+| applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
+
+#### Response parameters
+
+Array of [Application Features](#application-feature-object).
+
+#### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/${applicationId}/features"
+```
+
+#### Response example
+
+```json
+[
+    {
+        "name": "USER_PROVISIONING",
+        "status": "ENABLED",
+        "description": "User provisioning settings from Okta to a downstream application",
+        "capabilities": {
+            "create": {
+                "lifecycleCreate": {
+                    "status": "DISABLED"
+                }
+            },
+            "update": {
+                "profile": {
+                    "status": "DISABLED"
+                },
+                "lifecycleDeactivate": {
+                    "status": "DISABLED"
+                },
+                "password": {
+                    "status": "DISABLED",
+                    "seed": "RANDOM",
+                    "change": "KEEP_EXISTING"
+                }
+            }
+        },
+        "_links": {
+            "self": {
+                "href": "http://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+                "hints": {
+                    "allow": [
+                        "GET",
+                        "PUT"
+                    ]
+                }
+            }
+        }
+    }
+]
+```
+
+### Get Feature for application
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/features/${name}" />
+
+Fetch an Feature for an application.
+
+#### Request parameters
+
+| Parameter       | Description                                | Parameter Type   | DataType   | Required |
+| :-------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
+| applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
+
+#### Response parameters
+
+An [Application Feature](#application-feature).
+
+#### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/${name}"
+```
+
+#### Response example
+
+```json
+{
+    "name": "USER_PROVISIONING",
+    "status": "ENABLED",
+    "description": "User provisioning settings from Okta to a downstream application",
+    "capabilities": {
+        "create": {
+            "lifecycleCreate": {
+                "status": "DISABLED"
+            }
+        },
+        "update": {
+            "profile": {
+                "status": "DISABLED"
+            },
+            "lifecycleDeactivate": {
+                "status": "DISABLED"
+            },
+            "password": {
+                "status": "DISABLED",
+                "seed": "RANDOM",
+                "change": "KEEP_EXISTING"
+            }
+        }
+    },
+    "_links": {
+        "self": {
+            "href": "http://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Update Feature for application
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="put" url="/api/v1/apps/${applicationId}/features/${featureName}" />
+
+Update a Feature for an application.
+
+#### Request parameters
+
+| Parameter       | Description                                | Parameter Type   | DataType   | Required |
+| :-------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
+| applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
+| capabilities   | capabilites of the feature                  | Body              | [Capabilites Object](#capabilties-object) | TRUE     |
+| name   | name of the feature                      | URL              | String     | TRUE     |
+
+#### Reponse Parameters
+
+Updated [Application Feature](#application-feature-object).
+
+#### Request Example
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "create": {
+        "lifecycleCreate": {
+            "status": "ENABLED"
+        }
+    },
+    "update": {
+        "lifecycleDeactivate": {
+            "status": "ENABLED"
+        },
+        "profile":{
+            "status": "ENABLED"
+        },
+        "password":{
+            "status": "ENABLED",
+            "seed": "RANDOM",
+            "change": "CYCLE"
+        }
+    }
+}' "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/${name}"
+```
+
+This endpoint supports partial updates.
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "create": {
+        "lifecycleCreate": {
+            "status": "DISABLED"
+        }
+    }
+}' "https://${yourOktaDomain}/api/v1/apps/${applicationId}/features/${name}"
+```
+
+#### Response example
+
+```json
+{
+    "name": "USER_PROVISIONING",
+    "status": "ENABLED",
+    "description": "User provisioning settings from Okta to a downstream application",
+    "capabilities": {
+        "create": {
+            "lifecycleCreate": {
+                "status": "DISABLED"
+            }
+        },
+        "update": {
+            "profile": {
+                "status": "DISABLED"
+            },
+            "lifecycleDeactivate": {
+                "status": "DISABLED"
+            },
+            "password": {
+                "status": "DISABLED",
+                "seed": "RANDOM",
+                "change": "KEEP_EXISTING"
+            }
+        }
+    },
+    "_links": {
+        "self": {
+            "href": "http://${yourOktaDomain}/api/v1/apps/${applicationId}/features/USER_PROVISIONING",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
 ## Models
 
 * [Application object](#application-object)
@@ -6669,3 +6923,152 @@ Defines the application provisioning connection profile. Currently, only token b
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
 | authScheme              | defines how to  connection is authenticated     | `TOKEN` | FALSE    | FALSE  | FALSE    |
 | token            | token used to authenticate with application      | String | FALSE    | TRUE   | FALSE    |
+
+### Application Feature object
+
+Defines the application feature.
+
+#### Application Feature example
+```json
+{
+    "name": "USER_PROVISIONING",
+    "status": "ENABLED",
+    "description": "User provisioning settings from Okta to a downstream application",
+    "capabilities": {
+        "create": {
+            "lifecycleCreate": {
+                "status": "DISABLED"
+            }
+        },
+        "update": {
+            "profile": {
+                "status": "DISABLED"
+            },
+            "lifecycleDeactivate": {
+                "status": "DISABLED"
+            },
+            "password": {
+                "status": "DISABLED",
+                "seed": "RANDOM",
+                "change": "KEEP_EXISTING"
+            }
+        }
+    },
+    "_links": {
+        "self": {
+            "href": "http://rain.okta1.com:1802/api/v1/apps/0oa1h43s0sZyK6Ft40g4/features/USER_PROVISIONING",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        }
+    }
+}
+```
+
+#### Application Feature properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
+| capabilities            | capabilites     | [Capabilities Object](#capabilties-object)                                                                  | FALSE    | FALSE   | TRUE    |           |
+| description            | description      | String  | FALSE    | FALSE   | TRUE    |           |
+| _links           | discoverable resources related to the app user     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)     | TRUE    | FALSE   | TRUE    |           |
+| name              | identifiying name     | `USER_PROVISIONING`  | FALSE    | FALSE  | TRUE    |           |       |      |
+| status            | status    | `ENABLED`, `DISABLED`    | FALSE    | FALSE   | TRUE    |      `DISABLED`  |
+
+##### Capabilties object
+
+The Capabilities object determines the capabilities of an app feature.
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| create            | determines whether the Okta creates or links a user in the application when assigning the app to a user in Okta | [Create Object](#create-object)  | TRUE    | FALSE   | FALSE    |
+| update            | determines whether the updates to a user's profile will be pushed to the application | [Update Object](#update-object)  | TRUE    | FALSE   | FALSE    |
+
+###### Create object
+
+The Create object is composed of a single setting that determines whether the application creates or links a user in the application when assigning the app to a user in Okta.
+
+```json
+{
+  "lifecycleCreate": {
+    "status": "DISABLED"
+  }
+}
+```
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- |
+| lifecycleCreate            | setting that determines whether the updates to a user in Okta will be update a user in the application   | [Lifecycle Create Setting Object](##lifecycle-create-setting-object)      | TRUE    | FALSE   | FALSE    |           |
+
+###### Update object
+
+The Create object is composed of multiple settings that determine whether the updates to a user in Okta will update a user in the application.
+
+```json
+{
+  "profile": {
+      "status": "DISABLED"
+  },
+  "lifecycleDeactivate": {
+      "status": "DISABLED"
+  },
+  "password": {
+      "status": "DISABLED",
+      "seed": "RANDOM",
+      "change": "KEEP_EXISTING"
+  }
+}
+```
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- |
+| lifecycleDeactivate           | setting that determines whether deprovisioning will occur when app is unassigned  | [Lifecycle Deactivate Setting Object](#lifecycle-deactivate-setting-object)   | TRUE    | FALSE   | FALSE    |
+| password           | setting that determines whether Okta creates and pushes a password in the application for each assigned user | [Password Setting Object](#password-setting-object)    | TRUE    | FALSE   | FALSE    |
+| profile           | setting that determines whether the updates to a user in Okta will be update a user in the application.     | [Profile Setting Object](#profile-setting-object)     | TRUE    | FALSE   | FALSE    |
+
+###### Lifecycle Create Setting object
+
+Creates or links a user in the application when assigning the app to a user in Okta.
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
+| status   | status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED` |
+
+###### Lifecycle Deactivate Setting object
+
+Deactivates a user's application account when it is unassigned in Okta or their Okta account is deactivated. Accounts can be reactivated if the app is reassigned to a user in Okta.
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
+| status   | status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED` |
+
+###### Password Setting object
+
+Creates and pushes a password in the application for each assigned user.
+
+```json
+{
+  "password": {
+    "status": "ENABLED",
+    "seed": "OKTA",
+    "change": "CHANGE"
+  }
+}
+```
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| change | determines whether a change in a users password will also update the password in the application.   | `KEEP_EXISTING`, `CHANGE` | TRUE  | FALSE   | FALSE    | `KEEP_EXISTING` |
+| seed | determines whether the generated password is the users Okta password or a randomly generated password.   | `OKTA`, `RANDOM`  | TRUE  | FALSE | FALSE  |  `RANDOM`  |
+| status | status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE  | FALSE  |  `DISABLED` |
+
+###### Profile Update Setting object
+
+Okta updates a user's attributes in the application when the app is assigned. Future attribute changes made to the Okta user profile will automatically overwrite the corresponding attribute value in the application.
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
+| status   | status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE   | FALSE    | `DISABLED`  |
