@@ -5506,6 +5506,191 @@ HTTP/1.1 201 Content Created
 Location: https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
 ```
 
+## Application Provisioning Connection operations
+
+<ApiLifecycle access="ea" />
+
+>Note: Only Okta Org2Org application is supported
+
+### Get default Provisioning Connection for application
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="get" url="/api/v1/apps/${applicationId}/connections/default" />
+
+Fetches the default Provisioning Connection for an application.
+
+#### Request parameters
+
+| Parameter       | Description                                | Parameter Type   | DataType   | Required |
+| :-------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
+| applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
+
+#### Response parameters
+
+The fetched [Provisioning Connection](#provisioning-connection-object).
+
+#### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default"
+```
+
+#### Response example
+
+```json
+{
+    "authScheme": "TOKEN",
+    "status": "ENABLED",
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
+            "hints": {
+                "allow": [
+                    "POST",
+                    "GET"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Set default Provisioning Connection for application
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/default" />
+
+Sets the default Provisioning Connection for an application.
+
+#### Request parameters
+
+| Parameter       | Description                                | Parameter Type   | DataType   | Required | Default |
+| :-------------- | :----------------------------------------- | :--------------- | :--------- | :------- | :-------|
+| activate        | Activate the provisioning connection       | Query            | Boolean    | FALSE    | FALSE   |
+| applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |         |
+| profile   | Provisioning profile     | Body              | [Provisioning Connection Profile](#provisioning-connection-profile-object)   | TRUE     |         |
+
+#### Response parameters
+
+The new default [Provisioning Connection](#provisioning-connection-object).
+
+#### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "profile": {
+        "authScheme": "TOKEN",
+        "token": "TEST"
+    }
+}' "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default?activate=TRUE"
+```
+
+#### Response example
+
+```json
+{
+    "authScheme": "TOKEN",
+    "status": "ENABLED",
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
+            "hints": {
+                "allow": [
+                    "POST",
+                    "GET"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Activate default Provisioning Connection for application
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/lifecycle/activate" />
+
+Activates the default Provisioning Connection for an application.
+
+#### Request parameters
+
+| Parameter       | Description                                | Parameter Type   | DataType   | Required |
+| :-------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
+| applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
+
+#### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/activate"
+```
+
+#### Response example
+
+``` http
+HTTP/1.1 204 No Content
+```
+
+### Deactivate default Provisioning Connection for application
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/lifecycle/deactivate" />
+
+Deactivates the default Provisioning Connection for an application.
+
+#### Request parameters
+
+| Parameter       | Description                                | Parameter Type   | DataType   | Required |
+| :-------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
+| applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
+
+#### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/deactivate"
+```
+
+#### Response example
+
+``` http
+HTTP/1.1 204 No Content
+```
+
 ## Models
 
 * [Application object](#application-object)
@@ -6422,3 +6607,65 @@ Property details
 
  * `url` can't have query or fragment parameters.
  * `index` has to be a non-negative number and cannot be duplicated in a set of ACS endpoints configured for an app.
+
+### Provisioning Connection object
+
+Defines the application provisioning connection.
+
+#### Example
+```json
+{
+    "authScheme": "TOKEN",
+    "status": "DISABLED",
+    "_links": {
+        "activate": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default/lifecycle/activate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default",
+            "hints": {
+                "allow": [
+                    "POST",
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+```
+
+#### Provisioning Connection properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
+| authScheme              | defines how to  connection is authenticated     | `TOKEN`, `UNKNOWN`                                                           | FALSE    | FALSE  | FALSE    |           |
+| _links            | discoverable resources related to the connection            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | TRUE    | FALSE   | TRUE    |           |
+| status            | status of the connection      | `ENABLED`, `DISABLED`, `UNKNOWN`  | FALSE    | FALSE   | TRUE    | `DISABLED` |
+
+An `UNKNOWN` `authScheme` signifies that the authentiication scheme used by the application is not supported yet or that the application does not support provisioning. An `UNKNOWN` `authScheme` will result in an `UNKNOWN` `status`.
+
+### Provisioning Connection Profile object
+
+Defines the application provisioning connection profile. Currently, only token based profile connection is supported.
+
+#### Token based Provisioning Connection Profile example
+```json
+{
+    "profile": {
+        "authScheme": "TOKEN",
+        "token": "TEST"
+    }
+}
+```
+
+#### Token based Provisioning Connection Profile properties
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| authScheme              | defines how to  connection is authenticated     | `TOKEN` | FALSE    | FALSE  | FALSE    |
+| token            | token used to authenticate with application      | String | FALSE    | TRUE   | FALSE    |
