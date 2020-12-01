@@ -14,7 +14,7 @@ Once the signed tokens are issued to the end users they can be passed to your ap
 
 A high-level overview of OAuth 2.0 can be found [here](/docs/concepts/oauth-openid/#oauth-2-0).
 
-The access tokens are in [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) format. They are signed using asynmmetrical [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
+The access tokens are in [JSON Web Token (JWT)](https://tools.ietf.org/html/rfc7519) format. They are signed using asymmetrical [JSON Web Keys (JWK)](https://tools.ietf.org/html/rfc7517).
 
 More information about Okta's access tokens can be found in the [OIDC & OAuth 2.0 Reference](/docs/reference/api/oidc/#access-token).
 
