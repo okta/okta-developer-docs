@@ -10,21 +10,21 @@ To set up the Event Hook:
 
 2. Click **Create Event Hook**.
 
-3. In the **Add Event Hook Endpoint** dialog box, complete the following fields:
+3. Add a name for the hook in the **Add Event Hook Endpoint** dialog box (in this example, "Deactivated User Event Hook").
 
-    - **Name**: Add a name for the hook. In this example, "Deactivated User Event Hook".
+4. Add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/userDeactivated`.
 
-    - **URL**: Add your external service URL, including the endpoint. For example, use your Glitch project name with the end point: `https://your-glitch-projectname.glitch.me/userDeactivated`
+5. Include authentication field and secret. In this example:
 
-    - **Authentication field**: Include an authentication field. In this example, `authorization`
+    - **Authentication field** = `authorization`
 
-    - **Authentication secret**: Include the authentication secret. In this example, `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
+    - **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 
-4. In the **Requests** section of the dialog box, subscribe to the Event Type you want to monitor. In this example, a user deactivated in the Okta org: `User deactivated`
+6. In the **Requests** section of the dialog box, subscribe to the Event Type you want to monitor. In this example, a user deactivated in the Okta org: `User deactivated`
 
-5. Click **Save & Continue**.
+7. Click **Save & Continue**.
 
-6. You can complete the one-time verification Okta call at this time or verify the Event Hook later. If using the Glitch example, proceed to verification.
+8. You can complete the one-time verification Okta call at this time or verify the Event Hook later. If using the Glitch example, proceed to verification.
 
 ### Verify the Event Hook
 To complete the one-time verification of the Event Hook:
@@ -35,6 +35,6 @@ or
 
 - In the Event Hooks table, click the Actions drop-down menu of any **UNVERIFIED** Event Hook, and select **Verify**, again, making sure that your external service is ready for the verification call.
 
-The Event Hook is now set up with a status of **VERFIFIED** and is ready to send Event Hook calls to your external service.
+The Event Hook is now set up with a status of **VERIFIED** and is ready to send Event Hook calls to your external service.
 
 <NextSectionLink/>
