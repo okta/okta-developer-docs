@@ -7,15 +7,13 @@ category: asa
 
 ## Get started
 
+The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is logically separate from the rest of the Okta APIs and uses a different API namespace:
 
-| Product  | API Basics  | API Namespace        |
-|----------|-------------|----------------------|
-| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](/docs/reference/api/asa/introduction/) | `https://app.scaleft.com/v1/`
+`https://app.scaleft.com/v1/`
 
 An Advanced Server Access (ASA) Group is a collection of ASA Users that share permissions and access.
 
 Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
-
 
 ## Groups API operations
 

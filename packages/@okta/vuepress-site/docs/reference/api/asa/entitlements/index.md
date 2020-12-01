@@ -7,10 +7,9 @@ category: asa
 
 ## Get started
 
+The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is logically separate from the rest of the Okta APIs and uses a different API namespace:
 
-| Product  | API Basics  | API Namespace        |
-|----------|-------------|----------------------|
-| [Advanced Server Access](https://www.okta.com/products/advanced-server-access/) | [How the ASA API works](/docs/reference/api/asa/introduction/) | `https://app.scaleft.com/v1/`
+`https://app.scaleft.com/v1/`
 
 Advanced Server Access (ASA) Entitlements offer ASA admins a system of layered permissions, which allow admins to specify the exact commands that their users can run on end servers.
 
