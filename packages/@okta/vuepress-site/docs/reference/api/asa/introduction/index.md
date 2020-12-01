@@ -1,8 +1,8 @@
-# Introduction to the Advanced Server Access (ASA) API
+# Introduction to the Advanced Server Access API
 
 ## Authentication
 
-Most calls to the Advanced Server Access API require an HTTP `Authorization`
+Most calls to the Advanced Server Access (ASA) API require an HTTP `Authorization`
 header with a value of `Bearer ${AUTH_TOKEN}`.
 
 To retrieve an auth token, you need to [create a Service User and API
@@ -103,7 +103,7 @@ An example of a paginated response body that contains a `list` field:
 }
 ```
 
-## Rate Limiting
+## Rate limiting
 
 Rate limits for Advanced Server Access limit access to APIs. By default users
 are limited to 10,000 API requests per hour collectively across most endpoints.
