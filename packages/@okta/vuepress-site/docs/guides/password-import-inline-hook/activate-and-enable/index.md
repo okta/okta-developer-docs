@@ -9,7 +9,7 @@ To set up and activate the Password Import Inline Hook:
 1. Navigate to the **Workflow** > **Inline Hooks** page.
 2. Click **Add Inline Hook** and select **Password Import** from the drop-down menu.
 3. Add a name for the hook (in this example, "Password Import Hook").
-4. Add your external service URL, including the endpoint. For example, use your Glitch project name with the end point:  `https://your-glitch-projectname.glitch.me/passwordImport`.
+4. Add your external service URL, including the endpoint. For example, use your Glitch project name with the endpoint:  `https://your-glitch-projectname.glitch.me/passwordImport`.
 5. Include authentication field and secret. In this example:
 
     * Authentication field = `authorization`
