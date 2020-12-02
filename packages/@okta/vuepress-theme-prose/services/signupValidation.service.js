@@ -1,42 +1,66 @@
+import { bannedEmailProviders } from "../models/signup.model";
 export class SignUpValidation {
   errorDictionary = {
     email: "Invalid email.",
     firstName: "invalid first name.",
     lastName: "invalid last name.",
     emptyField: "Whoops, looks like some information is missing."
-  }
+  };
 
   constructor(form) {
     this.form = form;
   }
 
-  checkFormInput(key, value) {
-    this._resetInput(key);
+  checkFormInput(key) {
+    if (!this.form[key].hidden) {
+      this.resetFormField(key);
 
-    if (this._isEmptyValue(value)) {
+      if (this._isEmptyValue(this.form[key].value)) {
+        this._setInputError(key, this.errorDictionary.emptyField);
+        return;
+      }
+
+      if (this._isUrlValue(this.form[key].value)) {
+        this._setInputError(key);
+      }
+    }
+  }
+
+  checkEmailInput(key) {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    this.resetFormField(key);
+
+    // If empty field stop checking and display an applicable message
+    if (this._isEmptyValue(this.form[key].value)) {
       this._setInputError(key, this.errorDictionary.emptyField);
       return;
     }
 
-    if (this._isUrlValue(value)) {
+    // If email not valid or email includes banned email provider, display errror
+    if (
+      !re.test(this.form[key].value) ||
+      this._isBannedEmailProvider(this.form[key].value)
+    ) {
       this._setInputError(key);
     }
   }
 
-  checkEmailInput(key, value) {
-    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    this._resetInput(key);
-
-    // If empty field stop checking and display an applicable message
-    if (this._isEmptyValue(value)) {
-      this._setInputError(key, this.errorDictionary.emptyField);
-      return;
+  isValidForm() {
+    let validForm = true;
+    for (const key of Object.keys(this.form)) {
+      if (!this.form[key].isValid) {
+        validForm = false;
+        return;
+      }
     }
+    return validForm;
+  }
 
-    // If email not valid or email includes banned email profider, display errror
-    if (!re.test(value) || this._isBannedEmailProvider(value)) {
-      this._setInputError(key);
-    }
+  resetFormField(key, resetValue) {
+    if (resetValue) this.form[key].value = "";
+
+    this.form[key].isValid = true;
+    this.form[key].errorList = [];
   }
 
   _setInputError(key, msg) {
@@ -44,13 +68,8 @@ export class SignUpValidation {
     this.form[key].isValid = false;
   }
 
-  _resetInput(key) {
-    this.form[key].isValid = true;
-    this.form[key].errorList = [];
-  }
-
-  _isEmptyValue(value) {
-    return !value.trim()
+  _isEmptyValue(value = "") {
+    return !value.trim();
   }
 
   _isUrlValue(value) {
@@ -59,41 +78,6 @@ export class SignUpValidation {
   }
 
   _isBannedEmailProvider(email) {
-    const bannedEmailProviders = [
-      "first-mail.info",
-      "simpleemail.com",
-      "click-email.com",
-      "alltempmail.com",
-      "crowd-mail.com",
-      "nextemail.in",
-      "emailapps.in",
-      "tempmailapp.com",
-      "mail-group.net",
-      "maxmail.in",
-      "maillist.in",
-      "mail-point.net",
-      "mail-space.net",
-      "tempcloud.in",
-      "quick-mail.cc",
-      "4qmail.com",
-      "ualmail.com",
-      "mailmyrss.com",
-      "mailboxt.com",
-      "itiomail.com",
-      "wwrmails.com",
-      "fft-mail.com",
-      "ismailgul.net",
-      "svpmail.com",
-      "gotkmail.com",
-      "smlmail.com",
-      "x3mailer.com",
-      "temp-mail.org",
-      "medicinemanshop.co",
-      "medicinemanshop.com",
-      "medicinemanshop.ca",
-      "medicinemanshop.net",
-      "medicinemanshop.org"
-    ];
     const emailProvider = email.substring(email.indexOf("@") + 1);
 
     return bannedEmailProviders.some(
