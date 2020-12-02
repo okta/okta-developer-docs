@@ -58,5 +58,18 @@ module.exports = [
     { title: 'SCIM Protocol', path: '/docs/reference/scim/'},
     { title: 'Social IdP Settings', path: '/docs/reference/social-settings/'},
     { title: 'Token Hook', path: '/docs/reference/token-hook/'},
-    { title: 'WebFinger', path: '/docs/reference/api/webfinger/'}
+    { title: 'WebFinger', path: '/docs/reference/api/webfinger/'},
+    { title: 'Advanced Server Access', subLinks: [
+        { title: 'Introduction to the Advanced Server Access API', path: '/docs/reference/api/asa/introduction/'},
+        { title: 'ASA Attributes API', path: '/docs/reference/api/asa/attributes/'},
+        { title: 'ASA Audits API', path: '/docs/reference/api/asa/audits/'},
+        { title: 'ASA Clients API', path: '/docs/reference/api/asa/clients/'},
+        { title: 'ASA Entitlements API', path: '/docs/reference/api/asa/entitlements/'},
+        { title: 'ASA Groups API', path: '/docs/reference/api/asa/groups/'},
+        { title: 'ASA Projects API', path: '/docs/reference/api/asa/projects/'},
+        { title: 'ASA Service Users API', path: '/docs/reference/api/asa/service-users/'},
+        { title: 'ASA Teams API', path: '/docs/reference/api/asa/teams/'},
+        { title: 'ASA Users API', path: '/docs/reference/api/asa/users/'}
+      ]
+    }
   ]
