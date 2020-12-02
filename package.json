@@ -5,7 +5,7 @@
   ],
   "scripts": {
     "dev": "yarn workspace @okta/vuepress-site dev",
-    "dev-redesign": "REDESIGN=true yarn run dev",
+    "dev:redesign": "REDESIGN=true yarn run dev",
     "build": "yarn workspace @okta/vuepress-site build",
     "broken-link-checker:all": "node scripts/broken-link-checker all",
     "broken-link-checker:internal": "node scripts/broken-link-checker internal",
