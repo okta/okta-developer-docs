@@ -14,7 +14,7 @@ module.exports = (options, ctx) => {
       $page.fullHeaders = resolveHeaders($page);
 
       // Set to true to enable the redesign in development
-      const redesign = true;
+      const redesign = process.env.REDESIGN || false;
       // Respect the redesign flag unless this is a production build
       $page.redesign = !ctx.isProd && redesign;
     }
