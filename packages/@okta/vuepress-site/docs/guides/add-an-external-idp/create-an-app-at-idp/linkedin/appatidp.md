@@ -8,7 +8,7 @@
 
   The redirect URL:
     - Is where the IdP returns the authentication response (the access token and the ID token)
-    - needs to be a secure domain that you own
+    - Needs to be a secure domain that you own
     - should match the redirect URI sent in the authorize request from the client
     - has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and the callback endpoint.
     - For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`.
