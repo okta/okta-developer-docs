@@ -12,7 +12,7 @@
     - Should match the redirect URI sent in the authorize request from the client
     - Has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and the callback endpoint
 For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`.
-    - If you have configured a custom domain in your Okta Org, use that value to build your redirect URL, such as `https://login.company.com/oauth2/v1/authorize/callback`.
+If you have configured a custom domain in your Okta Org, use that value to build your redirect URL, such as `https://login.company.com/oauth2/v1/authorize/callback`.
  
 5. Paste the redirect URL into the box.
 
