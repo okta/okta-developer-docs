@@ -6,7 +6,7 @@
 
 4. From the **Auth** tab, under **OAuth 2.0 settings**, click the pencil next to **Authorized redirect URLs for your app**.
 
-  - This redirect URL,
+  The redirect URL:
     - is where the IdP returns the authentication response (the access token and the ID token)
     - needs to be a secure domain that you own
     - should match the redirect URI sent in the authorize request from the client
