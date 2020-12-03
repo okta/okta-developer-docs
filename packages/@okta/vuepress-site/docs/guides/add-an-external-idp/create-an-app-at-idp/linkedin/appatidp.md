@@ -4,7 +4,7 @@
 
 3. From your app, click on the **Auth** tab and make note of the **Client ID** and **Client Secret** values so that you can add them to the Okta configuration in the next section.
 
-4. From the **Auth** tab, under **OAuth 2.0 settings** click the pencil next to **Authorized redirect URLs for your app**
+4. From the **Auth** tab, under **OAuth 2.0 settings**, click the pencil next to **Authorized redirect URLs for your app**.
 
   - This redirect URL,
     - is where the IdP returns the authentication response (the access token and the ID token)
