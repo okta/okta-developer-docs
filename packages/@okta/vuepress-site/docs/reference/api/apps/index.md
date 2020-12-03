@@ -5466,6 +5466,46 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
+## Application Logo operations
+
+<ApiLifecycle access="ea" />
+
+### Update Logo for application
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="post" url="/api/v1/apps/${applicationId}/logo" />
+
+Update the logo for an application.
+
+> Note: It is only possible to update the logo for applications with a "login" `appLink`.
+
+#### Request parameters
+
+| Parameter       | Description                                | Parameter Type   | DataType   | Required |
+| :-------------- | :----------------------------------------- | :--------------- | :--------- | :------- |
+| applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
+| file            | file containing logo                       | Body             | File       | TRUE     |
+
+The file must be must be a `PNG`, `JPG`, or `GIF` and less than `1Mb`. For best results use landscape orientation, a transparent background, and a minimum of 420px by 120px to prevent upscaling.
+
+#### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-F 'file=@/path/to/file' \
+"https://${yourOktaDomain}/api/v1/apps/${applicationId}/logo"
+```
+
+#### Response example
+
+``` http
+HTTP/1.1 201 Content Created
+Location: https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
+```
+
 ## Models
 
 * [Application object](#application-object)
