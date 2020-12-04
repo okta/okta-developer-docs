@@ -26,7 +26,11 @@ To set up the Event Hook:
 
 8. You can complete the one-time verification Okta call at this time or verify the Event Hook later. If using the Glitch example, proceed to verification.
 
+> **Note** You can also set up an Event Hook using an API. See [Inline Hooks Management](/docs/reference/api/inline-hooks/) for further information.
+
 ### Verify the Event Hook
+You must verify the Event Hook to prove your external service controls the endpoint. See the [One-Time Verification Request](docs/concepts/event-hooks/#one-time-verification-request) for further information on this process.
+
 To complete the one-time verification of the Event Hook:
 
 - After creating the Event Hook &ndash; and if your external service is ready to handle the request &ndash; click **Verify** to complete the one-time verification step.

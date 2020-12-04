@@ -16,7 +16,7 @@ These steps are explained in the following Event Hook example, which uses the Ok
 
 This guide uses the website [Glitch.com](https://glitch.com) to act as an external service and to implement the Event Hook with an Okta org. See the following Glitch project to copy a working code example that implements the following scenario or build your own using the code snippets:
 
-[Okta Event Hook Example](https://okta-event-hook.glitch.me/)
+[Okta Event Hook Example](https://glitch.com/~okta-event-hook/)
 
 > **Tip:** For another in-depth look at an Event Hook implementation, see the following Developer Experience blog example by Heather Wallander, [Build Easy User Sync Webhooks with Okta](https://developer.okta.com/blog/2020/07/20/easy-user-sync-hooks).
 
