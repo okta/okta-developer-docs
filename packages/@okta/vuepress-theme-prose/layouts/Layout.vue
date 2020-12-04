@@ -64,6 +64,7 @@ export default {
     Documentation: () => import('../components/Documentation.vue'),
     Reference: () => import('../components/Reference.vue'),
     Quickstart: () => import('../components/Quickstart.vue'),
+    Pricing: () => import('../components/Pricing.vue'),
   },
   data() {
     return {
