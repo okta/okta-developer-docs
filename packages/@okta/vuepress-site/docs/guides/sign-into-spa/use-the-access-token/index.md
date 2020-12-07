@@ -14,4 +14,11 @@ On your back-end (the API), make sure that you check for valid tokens in incomin
 
 <StackSelector snippet="getaccesstoken"/>
 
+<br/>
+
+In order to enable access token renewal it is required to obtain a refersh token. See [Get a refresh token with the code flow](/docs/guides/refresh-tokens/get-refresh-token/#get-a-refresh-token-with-the-code-flow).
+Note that using refresh token with SPA is an Early Access feature. To enable it, contact [Support](https://support.okta.com/help/open_case).
+
+Alternatively, tokens can be renewed by hitting `/authorize` endpoint. See [Get a new access token/ID token silently for your SPA ](/docs/guides/refresh-tokens/get-refresh-token/#get-a-new-access-token-id-token-silently-for-your-spa)
+
 <NextSectionLink>Next steps</NextSectionLink>
