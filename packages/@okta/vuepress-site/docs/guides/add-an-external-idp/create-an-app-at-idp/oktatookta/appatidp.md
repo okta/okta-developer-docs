@@ -1,5 +1,4 @@
-> **Note**
-This guide will refer to the Okta org that represents the Identity Provider as **Org A** and the second Okta org as **Org B**
+> **Note**: This guide will refer to the Okta org that represents the Identity Provider as **Org A** and the second Okta org as **Org B**.
 
 1. At **Org A**, select **Applications** and then click **Add Application**.
 
