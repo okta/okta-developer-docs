@@ -1,8 +1,22 @@
-.pricing {
-  background-color: #20313b;
+$darkBlue: #153b56;
+$gray: #d3d2d6;
+$darkGray: #20313b;
 
-  h1, h2 {
+.pricing {
+  background-color: $darkGray;
+
+  h1, h2, h3, h4 {
     color: white;
+  }
+
+  h5 {
+    color: $gray;
+    font-weight: 500;
+  }
+
+  .Button--red {
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
   .pricing--leader {
@@ -20,13 +34,91 @@
   }
 
   p.pricing--subtitle {
-    color: #d2d2d6;
+    color: $gray;
     font-size: 20px;
     font-weight: 400;
     line-height: 30px;
   }
 
+  .pricing-alt--container {
+    background-color: $darkBlue;
+  }
+
+  .pricing-wrap {
+    flex-grow: 1;
+  }
+
+  .pricing-section {
+    padding: 40px 0 88px;
+  }
+
+  .pricing-card {
+    color: white;
+    background-color: #142430;
+    display: flex;
+  }
+
+  .pricing-card-column {
+    padding: 30px;
+  }
+
+  .pricing-card-intro {
+    .pricing-card {
+      display: flex;
+    }
+
+    .pricing-card-column {
+      flex-grow: 1;
+      flex-basis: 0;
+
+      &:first-child {
+        border-right: 2px solid #163648;
+      }
+    }
+
+    @media(max-width: 859px) {
+      .pricing-card {
+        flex-direction: column;
+      }
+
+      .pricing-card-column {
+        &:first-child {
+          border-right: 0;
+          border-bottom: 2px solid #163648;
+        }
+      }
+    }
+  }
+
+  .pricing-card-table {
+  }
+
+  .pricing--addons {
+    text-align: center;
+    margin: 0 auto;
+    color: $gray;
+  }
+
+  .pricing--faq {
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+  }
+
+  .pricing--questions {
+    text-align: center;
+    margin: 0 auto;
+    color: white;
+  }
+
+  .pricing--footer {
+    background-color: $darkBlue;
+    text-align: center;
+    flex-grow: 1;
+  }
+
   .pricing--background-curve {
+    line-height: 0;
     img {
       width: 100%;
       height: 80px;
