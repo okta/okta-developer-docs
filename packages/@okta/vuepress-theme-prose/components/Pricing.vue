@@ -61,6 +61,32 @@
           <p>
             Learn more about add-on products at <a href="https://okta.com/pricing">okta.com/pricing</a>
           </p>
+          <div>
+            <a class="pricing-addons-tile" target="_blank" rel="noopener noreferrer" href="https://www.okta.com/pricing/?&_ga=2.233629918.1380425866.1607359849-1244033381.1605546128#api-b2b-integration">
+              <img src="/img/icons/icon--checkmark.svg" />
+              <p>B2B Integration</p>
+            </a>
+            <a class="pricing-addons-tile" target="_blank" rel="noopener noreferrer" href="https://www.okta.com/pricing/?&_ga=2.267241422.1380425866.1607359849-1244033381.1605546128#api-access-management">
+              <img src="/img/icons/icon--tool.svg" />
+              <p>API Access Management</p>
+            </a>
+            <a class="pricing-addons-tile" target="_blank" rel="noopener noreferrer" href="https://www.okta.com/pricing/?&_ga=2.263728972.1380425866.1607359849-1244033381.1605546128#api-multi-factor-authentication">
+              <img src="/img/icons/icon--multikey.svg" />
+              <p>Complete MFA</p>
+            </a>
+            <a class="pricing-addons-tile" target="_blank" rel="noopener noreferrer" href="https://www.okta.com/pricing/?&_ga=2.263728972.1380425866.1607359849-1244033381.1605546128#api-sso-oin-apps">
+              <img src="/img/icons/icon--lock.svg" />
+              <p>Single Sign-On Integrations</p>
+            </a>
+            <a class="pricing-addons-tile" target="_blank" rel="noopener noreferrer" href="https://www.okta.com/pricing/?&_ga=2.263728972.1380425866.1607359849-1244033381.1605546128#api-lifecycle-management">
+              <img src="/img/icons/icon--user-profiles.svg" />
+              <p>Lifecycle Management</p>
+            </a>
+            <a class="pricing-addons-tile" target="_blank" rel="noopener noreferrer" href="https://www.okta.com/pricing?&_ga=2.263728972.1380425866.1607359849-1244033381.1605546128#api-dynamic-scale">
+              <img src="/img/icons/icon--highcapacity.svg" />
+              <p>DynamicScale</p>
+            </a>
+          </div>
         </div>
       </div>
       <div class="pricing--background-curve">
@@ -87,7 +113,12 @@
       </div>
       <div class="pricing--footer">
         <h1>Trusted by developers</h1>
-        <br /><br />
+        <div class="pricing--footer--logos">
+          <img src="/img/logos/logo--adobe.png" />
+          <img src="/img/logos/logo--pitney.png" />
+          <img src="/img/logos/logo--experian.png" />
+          <img src="/img/logos/logo--advent.png" />
+        </div>
       </div>
     </section>
   </div>
