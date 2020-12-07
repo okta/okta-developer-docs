@@ -12,9 +12,7 @@ Authorization: Bearer {token}
 ```
 On your back-end (the API), make sure that you check for valid tokens in incoming requests. See [Protect your API endpoints](/docs/guides/protect-your-api/).
 
-<StackSelector snippet="getaccesstoken"/>
-
-<br/>
+<StackSelector snippet="getaccesstoken"/> 
 
 In order to enable access token renewal it is required to obtain a refersh token. See [Get a refresh token with the code flow](/docs/guides/refresh-tokens/get-refresh-token/#get-a-refresh-token-with-the-code-flow).
 Note that using refresh token with SPA is an Early Access feature. To enable it, contact [Support](https://support.okta.com/help/open_case).
