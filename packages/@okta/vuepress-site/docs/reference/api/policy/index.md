@@ -753,7 +753,7 @@ Specifies a set of Groups whose Users are to be included or excluded
 
 #### AuthContext Condition object
 
-Specifies an authentication entry point
+Specifies an authentication entry point. This tells how the user is authenticated.
 
 | Parameter | Description | Data Type                                                         | Required | Default |
 | --------- | ----------- | ----------------------------------------------------------------- | -------- | ------- |
