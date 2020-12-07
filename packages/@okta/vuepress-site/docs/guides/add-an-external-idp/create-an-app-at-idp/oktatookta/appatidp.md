@@ -1,19 +1,30 @@
-When you are configuring federation between two Okta orgs using OpenID Connect:
+> **Note**
+This guide will refer to the Okta org that represents the Identity Provider as **Org A** and the second Okta org as **Org B**
 
-1. At the Okta org that represents the Identity Provider, select **Applications** and then click **Add Application**.
+1. At **Org A**, select **Applications** and then click **Add Application**.
 
-2. You need a trusted client, so select **Web** as the platform. OpenID Connect is the sign-in method by default.
+2. Click **Create New App**.
 
-3. Click **Next**.
+3. You need a trusted client, so select **Web** as the platform. 
 
-4. Enter a name for your application.
+4. Select **OpenID Connect** as the sign-in method. 
 
-5. In the **Login Redirect URI** box, enter the Okta redirect URI. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the Identity Provider (IdP). This is the URL where the IdP returns the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URL has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and then the callback endpoint.
+5. Click **Create**.
 
-    For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
+6. Enter a name for your application.
 
-6. Assign a group or leave the **Everyone** default. Be sure to verify that the users you want to have access are assigned to the group that you select.
+7. In the **Login Redirect URIs** box, enter the redirect URI. The redirect URI:
+    * Is constructed using your Okta **Org B** subdomain and the callback endpoint.  
+    For example, if your Okta subdomain is called `company`, then the URI would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
+    * Is where the IdP returns the authentication response (the access token and the ID token)
+    * Needs to be a secure domain that you own
+    * Should match the redirect URI sent in the authorize request from the client
+    
 
-7. Click **Done**.
+8. Click **Save**.
 
-8. Copy the Client ID and Client Secret from the **Client Credentials** section and paste into a text editor. You need these when you configure this Identity Provider in your org.
+9. Assign the newly created app to a group or to individual users. If you assign the app to a group, be sure to verify that the users who need access to the app are members of the selected group.
+
+10. Click the **General** tab and scroll down to the **Client Credentials** section.
+
+11. Copy the **Client ID** and **Client Secret** and paste into a text editor. You will need these when you configure this Identity Provider in **Org B** in the next section.
