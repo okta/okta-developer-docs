@@ -18,6 +18,6 @@ To set up and activate the Password Import Inline Hook:
 
 The Password Import Inline Hook is now set up with a status of active.
 
-> **Note:** You can also setup an inline hook using an API. See [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hook-setup) for further information.
+> **Note:** You can also setup an inline hook using an API. See [Inline Hook Setup](/docs/reference/api/inline-hooks/) for further information.
 
 <NextSectionLink/>

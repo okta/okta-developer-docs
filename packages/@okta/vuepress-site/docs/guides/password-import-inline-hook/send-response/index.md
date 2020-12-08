@@ -10,7 +10,7 @@ Here, based on the results of the credential check, we return either a command t
 
 <StackSelector snippet="send-response"/>
 
->**Note:** Using an empty response to reject the credentials is based on the assumption that Okta is set to do that as the default action. In the request from Okta, the property `data.action.credential` specifies the default action. It is currently always set to `UNVERFIED`, meaning that the default is to reject.
+>**Note:** Using an empty response to reject the credentials is based on the assumption that Okta is set to do that as the default action. In the request from Okta, the property `data.action.credential` specifies the default action. It is currently always set to `UNVERIFIED`, meaning that the default is to reject.
 
 
 
