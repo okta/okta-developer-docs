@@ -57,182 +57,43 @@
                 </div>
                 <div class="pricing-card-column">
                   <h5>{{$page.frontmatter.editions[0].name}}</h5>
+                  <p>Priced at</p>
+                  <p>$400</p>
+                  <p>per month for up to</p>
+                  <a href="/signup/" class="Button--red">Start Free</a>
                 </div>
                 <div class="pricing-card-column">
                   <h5>{{$page.frontmatter.editions[1].name}}</h5>
+                  <p>{{$page.frontmatter.editions[1].subheading}}</p>
+                  <a href="/contact-sales-enterprise/" class="Button--whiteOutline">Contact Us</a>
                 </div>
                 <div class="pricing-card-column">
                   <h5>{{$page.frontmatter.editions[2].name}}</h5>
+                  <p>{{$page.frontmatter.editions[2].subheading}}</p>
+                  <a href="/contact-sales-enterprise/" class="Button--whiteOutline">Contact Us</a>
                 </div>
               </div>
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column">
-                  99.99% availability
+              <template v-for="(details, feature) in $page.frontmatter.features">
+                <div class="pricing-card-row pricing-card-header">
+                  <div class="pricing-card-column">
+                    {{details.name}}
+                    <ul v-if="details.bullets">
+                      <li v-for="bullet in details.bullets">
+                        {{bullet}}
+                      </li>
+                    </ul>
+                  </div>
+                  <template v-for="edition in $page.frontmatter.editions">
+                    <div class="pricing-card-column" v-if="typeof edition[feature] === 'object'">
+                      <img src="/img/icons/icon--check.svg" v-if="edition[feature].enabled" />
+                      {{edition[feature].additionalNote}}
+                    </div>
+                    <div class="pricing-card-column" v-else>
+                      <img src="/img/icons/icon--check.svg" v-if="edition[feature]" />
+                    </div>
+                  </template>
                 </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[0].hiAvailability}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[1].hiAvailability}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[2].hiAvailability}}
-                </div>
-              </div>
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column">
-                  Service level assurance
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[0].serviceAssurance}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[1].serviceAssurance}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[2].serviceAssurance}}
-                </div>
-              </div>
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column">
-                  User capacity
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[0].capacity}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[1].capacity}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[2].capacity}}
-                </div>
-              </div>
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column">
-                  Custom applications
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[0].customApps}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[1].customApps}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[2].customApps}}
-                </div>
-              </div>
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column">
-                  Support
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[0].support}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[1].support}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[2].support}}
-                </div>
-              </div>
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column">
-                  Authentication
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[0].authentication}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[1].authentication}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[2].authentication}}
-                </div>
-              </div>
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column">
-                  Authorization
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[0].authorization}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[1].authorization}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[2].authorization}}
-                </div>
-              </div>
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column">
-                  User management
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[0].userManagement}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[1].userManagement}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[2].userManagement}}
-                </div>
-              </div>
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column">
-                  Basic multi-factor authentication
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[0].mfa}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[1].mfa}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[2].mfa}}
-                </div>
-              </div>
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column">
-                  Customizable email templates and domains
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[0].customEmailTemplates.enabled}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[1].customEmailTemplates.enabled}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[2].customEmailTemplates.enabled}}
-                </div>
-              </div>
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column">
-                  Customizable sign-in and registration widget
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[0].customSignin}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[1].customSignin}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[2].customSignin}}
-                </div>
-              </div>
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column">
-                  Add-on products available
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[0].addons}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[1].addons}}
-                </div>
-                <div class="pricing-card-column">
-                  {{$page.frontmatter.editions[2].addons}}
-                </div>
-              </div>
+              </template>
             </div>
           </div>
         </div>

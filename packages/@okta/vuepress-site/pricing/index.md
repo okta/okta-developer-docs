@@ -6,6 +6,48 @@ title: Pricing
 
 showBreadcrumb: False
 
+features:
+  hiAvailability:
+    name: 99.9% availability
+  serviceAssurance:
+    name: Service level assurance
+  capacity:
+    name: User capacity
+  customApps:
+    name: Custom applications
+  support:
+    name: Support
+  authentication:
+    name: Authentication
+    bullets:
+      - Outbound federation to custom applications
+      - Social authentication
+      - Group-level password policies
+      - Group and application-level sign-in policies
+  authorization:
+    name: Authorization
+    bullets:
+      - 1 authorization server with 1 customizable access policy
+      - OAuth 2.0 support
+      - Customizable scopes and claims
+      - Token revocation
+  userManagement:
+    name: User management
+    bullets:
+      - Secure user store with customizable user attributes
+      - User lifecycle states (e.g. activated, suspended, deactivated)
+      - Attribute mapping and
+  mfa:
+    name: Basic multi-factor authentication
+    bullets:
+      - Okta Verify
+  customEmailTemplates:
+    name: Customizable email templates and domains
+  customSignin:
+    name: Customizable sign-in and registration widget
+  addons:
+    name: Add-on products available
+
 editions:
   - name: Developer
     hiAvailability: True
@@ -23,8 +65,9 @@ editions:
     customSignin: True
     addons: False
   - name: One App
+    subheading: High availability, premiere support and additional MAUs for scaling your application.
     hiAvailability: True
-    serviceAssurance: False
+    serviceAssurance: True
     capacity: Unlimited
     customApps: 5 OIDC Clients
     support: True
@@ -37,8 +80,9 @@ editions:
     customSignin: True
     addons: True
   - name: Enterprise
+    subheading: Reliable authentication and authorization for complex environments with multiple applications.
     hiAvailability: True
-    serviceAssurance: False
+    serviceAssurance: True
     capacity: Unlimited
     customApps: Unlimited OIDC and SAML applications
     support: True
@@ -49,7 +93,7 @@ editions:
     customEmailTemplates:
       enabled: True
     customSignin: True
-    addons: False
+    addons: True
 
 addons:
   - title: B2B Integration

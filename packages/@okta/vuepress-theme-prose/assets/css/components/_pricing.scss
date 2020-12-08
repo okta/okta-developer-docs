@@ -15,7 +15,7 @@ $darkGray: #20313b;
     font-weight: 500;
   }
 
-  .Button--red {
+  .Button--red, .Button--whiteOutline {
     text-transform: uppercase;
     letter-spacing: 2px;
   }
@@ -95,6 +95,11 @@ $darkGray: #20313b;
     flex-grow: 1;
     color: white;
 
+    .Button--red, .Button--whiteOutline {
+      font-size: 12px;
+      margin-top: auto;
+    }
+
     .pricing-card-row {
       background-color: $darkerBlue;
       display: flex;
@@ -102,6 +107,9 @@ $darkGray: #20313b;
 
     .pricing-card-column {
       padding: 30px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
     }
 
     .pricing-card-table {
@@ -109,7 +117,7 @@ $darkGray: #20313b;
         display: flex;
       }
       .pricing-card-column {
-        flex-basis: 20%;
+        flex-basis: 22%;
 
         &:first-child {
           flex-grow: 1;
