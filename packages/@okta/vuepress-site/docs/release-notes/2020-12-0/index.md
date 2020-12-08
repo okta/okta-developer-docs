@@ -7,53 +7,51 @@ title: Okta API Products Release Notes
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
 | [Inclusive language and terminology](#inclusive-language-and-terminology) | December 9, 2020         |
-| [System Log API adds additional filter expressions](#system-log-api-adds-additional-filter-expressions) | December 9, 2020         |
-| [Zones API includes `usage` property](#zones-api-includes-usage-property) | December 9, 2020         |
-| [Client-based rate limiting is now GA in Production](#client-based-rate-limiting-is-now-ga-in-production) | (See entry)         |
-| [User Consent for OAuth 2.0 and OpenID Connect flows is rolling out to GA in Production](#user-consent-for-oauth-2-0-and-openid-connect-flows-is-rolling-out-to-ga-in-production) | (See entry) |
-| [Account linking for SAML IdPs is now GA in Preview](#account-linking-for-saml-idps-is-now-ga-in-preview) | December 9, 2020         |
-| [Group object `source` property is now GA in Preview](#group-object-source-property-is-now-ga-in-preview) | December 9, 2020         |
-| [MyAccount API is now in Early Access (EA)](#myaccount-api-is-now-in-early-access-ea) | December 9, 2020         |
-| [Bug Fixed in 2020.11.0](#bug-fixed-in-2020-11-0) | December 9, 2020        |
+| [New OAuth Administrator Role API Scopes](#New-OAuth-Administrator-Role-API-Scopes) | December 9, 2020         |
+| [New endpoint added to DynamicScale Rate Limits](#New-endpoint-added-to-DynamicScale-Rate-Limits) | December 9, 2020         |
+| [New endpoint added to DynamicScale Rate Limits](New-endpoint-added-to-DynamicScale-Rate-Limits) | December 9, 2020        |
+| [Account linking for SAML IdPs is now GA in Production](#Account-linking-for-SAML-IdPs-is-now-GA-in-Production) | (See entry) |
+| [One Time Use Refresh Token is now in Early Access (EA)](#One-Time-Use-Refresh-Token-is-now-in-Early-Access-(EA)) | December 9, 2020         |
+| [Enhancements to Apps API for Idp Initiated Logins](#Enhancements-to-Apps-API-for-Idp-Initiated-Logins) | December 9, 2020         |
+| [Enhancements to Apps API for SAML Apps](#Enhancements-to-Apps-API-for-SAML-Apps) | December 9, 2020         |
+| [Group object `source` property is now GA in Production](#Group-object-source-property-is-now-GA-in-Production) | December 9, 2020        |
 
 ### Inclusive language and terminology
 
 Okta is focused on the adoption of inclusive language and communication. Some long-standing industry terminology and expressions have been updated in this release. More updates will be made in future releases.
 
-The descriptive information returned on both the invalid redirect URI and invalid logout URI error pages has been updated to remove the term "whitelisted". <!--OKTA-336922-->
+In this release, the documentation for Custom Groups Claims has been updated with inclusive terminology. The term "whitelist" has been replaced with "allow list":
 
-### System Log API adds additional filter expressions
+- [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/)
 
-The [System Log API](/docs/reference/api/system-log/) `/logs` endpoint can now use the SCIM filter expression operators: `ew` (ends with), `ne` (not equal), and `not` (not function). <!--OKTA-188737-->
+- [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as)
 
-### Zones API includes `usage` property
+Existing custom claims that use the `groupwhitelist` Profile property do not need to change.<!--OKTA-344317-->
 
-To help you manage zones in your organization, the Early Access [Zones API](/docs/reference/api/zones/) now includes the `usage` attribute. There are two types of zones: Policy Network Zones and Block List Network Zones. <!--OKTA-333653-->
+### New OAuth Administrator Role API Scopes
 
-### Client-based rate limiting is now GA in Production
+The [Administer Roles API](/docs/reference/api/roles) now supports OAuth scopes `okta.roles.manage` and `okta.roles.read`. These scopes allow applications to read and manage (create, update, and delete) administrator roles in your Okta organization.<!--OKTA-287229-->
 
-[Client-based rate limiting](/docs/reference/rl-clientbased/) for the `/authorize` endpoint is now available in production orgs. It provides granular isolation between requests made to the `/authorize` endpoint by using a combination of the Client ID, user's IP address, and Okta device identifier. This isolates rogue OAuth clients and bad actors, ensuring valid users and applications don't run into rate limit violations.
+### New endpoint added to DynamicScale Rate Limits
 
-This feature will be available to orgs in Okta Production cells on November 9, 2020. <!--OKTA-342520-->
+The [DynamicScale](/docs/reference/rl-dynamic-scale/) add-on service now includes the following additional authentication endpoint: `/login/login.html`.<!--OKTA-342112-->
 
-### User Consent for OAuth 2.0 and OpenID Connect flows is rolling out to GA in Production
+### Account linking for SAML IdPs is now GA in Production
 
-A consent represents a user's explicit permission to allow an application to access resources protected by scopes. As part of an OAuth 2.0 or OpenID Connect authentication flow, you can prompt the user with a page to approve your app's access to specified resources. See the [consent property for scopes](/docs/reference/api/authorization-servers/#scope-properties).
+Admins can now enable or disable automatic account linking between SAML Identity Providers and Okta using the [Identity Provider API](/docs/reference/api/idps/). They can also restrict account linking based on whether the end user is a member of any specified groups. <!--OKTA-334889-->
 
-This feature will be gradually made available to orgs in Okta Production cells beginning on November 11, 2020.
+### One Time Use Refresh Token is now in Early Access (EA)
 
-### Account linking for SAML IdPs is now GA in Preview
+One Time Use Refresh Token, also called Refresh Token Rotation, is now in Early Access. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. See [Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/).<!--OKTA-345754-->
 
-Admins can now enable or disable automatic account linking between SAML Identity Providers and Okta using the [Identity Provider API](/docs/reference/api/idps/). They can also restrict account linking based on whether the end user is a member of any specified groups. <!--OKTA-334818-->
+### Enhancements to Apps API for Idp Initiated Logins
 
-### Group object `source` property is now GA in Preview
+The [Apps API](/docs/reference/api/apps/) can now configure the Idp Initiated Login behavior, which is also available in the Admin Console user interface. Note: the Idp Initiated Login is limited to OIDC clients. <!--OKTA-342821-->
 
-For API requests that return a Group or a list of Groups, the Group object includes a `source` property that provides the ID of the source application for the returned Group. This property is now GA in all Preview orgs. See [Group attributes](/docs/reference/api/groups/#group-attributes). <!--OKTA-326610-->
+### Enhancements to Apps API for SAML Apps
 
-### MyAccount API is now in Early Access (EA)
+The [Apps API](/docs/reference/api/apps/) can now configure the Single Logout (SLO) URL behavior for SAML apps, which is also available in the Admin Console user interface.<!--OKTA-342882-->
 
-The [MyAccount API](/docs/reference/api/myaccount/) enables non-administrator end users to fetch their Okta user profiles. To enable this EA feature, contact [Support](https://support.okta.com/help/open_case). <!--OKTA-342090-->
+### Group object `source` property is now GA in Production
 
-### Bug fixed in 2020.11.0
-
-When the `expiresAt` property value of the [Authentication transaction object](/docs/reference/api/authn/#authentication-transaction-object) was returned with an `/authn` [response](/docs/reference/api/authn/) that also included the `sessionToken` [parameter](/docs/reference/api/authn/#session-token) (not `stateToken`), the value incorrectly indicated a 3-minute lifetime. (OKTA-319907)
+For API requests that return a Group or a list of Groups, the Group object includes a source property that provides the ID of the source application for the returned Group. This property is now GA in all Production orgs. See [Group attributes](docs/reference/api/groups/#group-attributes).<!--OKTA-344169-->
