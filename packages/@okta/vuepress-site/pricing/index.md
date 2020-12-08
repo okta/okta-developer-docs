@@ -4,7 +4,52 @@
 component: Pricing
 title: Pricing
 
-showBreadcrumb: false
+showBreadcrumb: False
+
+editions:
+  - name: Developer
+    hiAvailability: True
+    serviceAssurance: False
+    capacity: Up to 50K MAUs
+    customApps: 5 OIDC Clients
+    support: Email only
+    authentication: True
+    authorization: True
+    userManagement: True
+    mfa: True
+    customEmailTemplates:
+      enabled: True
+      additionalNote: (paid accounts only)
+    customSignin: True
+    addons: False
+  - name: One App
+    hiAvailability: True
+    serviceAssurance: False
+    capacity: Unlimited
+    customApps: 5 OIDC Clients
+    support: True
+    authentication: True
+    authorization: True
+    userManagement: True
+    mfa: True
+    customEmailTemplates:
+      enabled: True
+    customSignin: True
+    addons: True
+  - name: Enterprise
+    hiAvailability: True
+    serviceAssurance: False
+    capacity: Unlimited
+    customApps: Unlimited OIDC and SAML applications
+    support: True
+    authentication: True
+    authorization: True
+    userManagement: True
+    mfa: True
+    customEmailTemplates:
+      enabled: True
+    customSignin: True
+    addons: False
 
 addons:
   - title: B2B Integration
