@@ -88,8 +88,10 @@
                   </div>
                   <template v-for="edition in $page.frontmatter.editions">
                     <div class="pricing-card-column" v-if="typeof edition[feature] === 'object'">
-                      <img src="/img/icons/icon--check.svg" v-if="edition[feature].enabled" />
-                      {{edition[feature].additionalNote}}
+                      <div>
+                        <img src="/img/icons/icon--check.svg" v-if="edition[feature].enabled" />
+                        {{edition[feature].additionalNote}}
+                      </div>
                     </div>
                     <div class="pricing-card-column" v-else>
                       <img src="/img/icons/icon--check.svg" v-if="edition[feature]" />
