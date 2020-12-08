@@ -3,8 +3,12 @@
     <div class="fixed-header">
       <TopBar />
     </div>
-
     <div class="page-body">
+      <template v-if="isHomePage">
+         <RedesignHomePage/>
+      </template>
+      <template v-if="!isHomePage">
+
       <Breadcrumb />
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
@@ -36,6 +40,8 @@
           </div>
         </div>
       </div>
+      </template> 
+
     </div>
 
     <Footer />
@@ -63,13 +69,15 @@ export default {
     Documentation: () => import('../components/Documentation.vue'),
     Reference: () => import('../components/Reference.vue'),
     Quickstart: () => import('../components/Quickstart.vue'),
+    RedesignHomePage: () => import('../global-components/RedesignHomePage')
   },
   data() {
     return {
       appContext: {
         isTreeNavMobileOpen: false,
         isInMobileViewport: false
-      }
+      },
+      isHomePage: false,
     }
   },
   provide(){
@@ -78,6 +86,11 @@ export default {
     }
   },
   mounted() {
+    console.log(this.$page)
+    console.log(this.$page.path)
+    if(this.$page.path==='/'){
+      this.isHomePage = true
+    }
     let that = this;
     this.$on('toggle-tree-nav', event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
