@@ -13,7 +13,7 @@ Start by signing in to the Okta Developer Console:
 
 3. Next, enter values for the **Login redirect URI**. This is the callback from <GuideLink link="../define-callback/">Define a callback route</GuideLink>. Add values for local development (such as `http://localhost:8080/login/callback`) and production (such as `https://app.example.com/login/callback`).
 
-    > **Note:** You can exchange the authorization code for access and ID tokens from your SPA application as long as the request origin is from the same domain as of of the configured redirect URIs. Okta automatically adds CORS headers to the request.
+    > **Note:** You can exchange the authorization code for access and ID tokens from your SPA application as long as the request origin is from the same domain as one of the configured redirect URIs. Okta automatically adds CORS headers to the request.
 
 4. For **Allowed grant types**, check `Authorization Code`. This enables the PKCE flow for your application.
 
