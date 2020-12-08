@@ -7,14 +7,13 @@ title: Okta API Products Release Notes
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
 | [Inclusive language and terminology](#inclusive-language-and-terminology) | December 9, 2020         |
-| [New OAuth Administrator Role API Scopes](#New-OAuth-Administrator-Role-API-Scopes) | December 9, 2020         |
-| [New endpoint added to DynamicScale Rate Limits](#New-endpoint-added-to-DynamicScale-Rate-Limits) | December 9, 2020         |
-| [New endpoint added to DynamicScale Rate Limits](New-endpoint-added-to-DynamicScale-Rate-Limits) | December 9, 2020        |
-| [Account linking for SAML IdPs is now GA in Production](#Account-linking-for-SAML-IdPs-is-now-GA-in-Production) | (See entry) |
-| [One Time Use Refresh Token is now in Early Access (EA)](#One-Time-Use-Refresh-Token-is-now-in-Early-Access-(EA)) | December 9, 2020         |
-| [Enhancements to Apps API for Idp Initiated Logins](#Enhancements-to-Apps-API-for-Idp-Initiated-Logins) | December 9, 2020         |
-| [Enhancements to Apps API for SAML Apps](#Enhancements-to-Apps-API-for-SAML-Apps) | December 9, 2020         |
-| [Group object `source` property is now GA in Production](#Group-object-source-property-is-now-GA-in-Production) | December 9, 2020        |
+| [New OAuth Administrator Role API Scopes](#new-oauth-administrator-role-api-scopes) | December 9, 2020         |
+| [New endpoint added to DynamicScale Rate Limits](#new-endpoint-added-to-dynamicscale-rate-limits) | December 9, 2020         |
+| [Account linking for SAML IdPs is now GA in Production](#account-linking-for-saml-idps-is-now-ga-in-production) | December 9, 2020  |
+| [One Time Use Refresh Token is now in Early Access (EA)](#one-time-use-refresh-token-is-now-in-early-access-ea)      | December 9, 2020         |
+| [Enhancements to Apps API for Idp Initiated Logins](#enhancements-to-apps-api-for-idp-initiated-logins) | December 9, 2020         |
+| [Enhancements to Apps API for SAML Apps](#enhancements-to-apps-api-for-saml-apps) | December 9, 2020         |
+| [Group object `source` property is now GA in Production](#group-object-source-property-is-now-ga-in-production) | December 9, 2020        |
 
 ### Inclusive language and terminology
 
@@ -28,11 +27,11 @@ In this release, the documentation for Custom Groups Claims has been updated wit
 
 Existing custom claims that use the `groupwhitelist` Profile property do not need to change.<!--OKTA-344317-->
 
-### New OAuth Administrator Role API Scopes
+### New OAuth Administrator Roles API scopes
 
 The [Administer Roles API](/docs/reference/api/roles) now supports OAuth scopes `okta.roles.manage` and `okta.roles.read`. These scopes allow applications to read and manage (create, update, and delete) administrator roles in your Okta organization.<!--OKTA-287229-->
 
-### New endpoint added to DynamicScale Rate Limits
+### New endpoint added to DynamicScale rate limits
 
 The [DynamicScale](/docs/reference/rl-dynamic-scale/) add-on service now includes the following additional authentication endpoint: `/login/login.html`.<!--OKTA-342112-->
 
@@ -46,7 +45,7 @@ One Time Use Refresh Token, also called Refresh Token Rotation, is now in Early 
 
 ### Enhancements to Apps API for Idp Initiated Logins
 
-The [Apps API](/docs/reference/api/apps/) can now configure the Idp Initiated Login behavior, which is also available in the Admin Console user interface. Note: the Idp Initiated Login is limited to OIDC clients. <!--OKTA-342821-->
+The [Apps API](/docs/reference/api/apps/) can now configure the Idp Initiated Login behavior, which is also available in the Admin Console user interface. Note: The Idp Initiated Login is limited to OIDC clients. <!--OKTA-342821-->
 
 ### Enhancements to Apps API for SAML Apps
 
