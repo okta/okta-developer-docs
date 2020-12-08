@@ -56,13 +56,18 @@ $darkGray: #20313b;
 
   .pricing--costs {
     flex-grow: 1;
+    color: $gray;
+
+    h3 {
+      font-size: 22px;
+      font-weight: 500;
+    }
 
     .pricing-section {
       padding: 40px 0 88px;
     }
 
     .pricing-card {
-      color: white;
       background-color: $darkerBlue;
       display: flex;
     }
@@ -73,6 +78,23 @@ $darkGray: #20313b;
 
     .pricing-card-lists {
       display: flex;
+      ul {
+        flex-grow: 1;
+      }
+    }
+
+    .pricing-card-price {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 30px;
+
+      .pricing-card-amount {
+        font-size: 40px;
+        font-weight: 400;
+        color: #007dc1;
+        margin: 0 10px 0 0;
+        line-height: 1em;
+      }
     }
 
     .pricing-card-intro {

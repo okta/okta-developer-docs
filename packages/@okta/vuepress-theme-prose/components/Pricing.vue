@@ -15,8 +15,7 @@
           <div class="pricing-section pricing-card-intro">
             <div class="pricing-card">
               <div class="pricing-card-column">
-                <h3>Add Auth in minutes</h3>
-                <h4>(with no credit card)</h4>
+                <h3>Add Auth in minutes (with no credit card)</h3>
                 <div class="pricing-card-price">
                     <p class="pricing-card-amount">
                       $0
