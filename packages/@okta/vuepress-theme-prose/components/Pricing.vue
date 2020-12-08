@@ -32,7 +32,7 @@
                 </a>
               </div>
               <div class="pricing-card-column">
-                <h5>Identity and access control for your app</h5>
+                <h4>Identity and access control for your app</h4>
                 <div class="pricing-card-lists">
                   <ul class="pricing--icon-list">
                     <li>Authentication</li>
@@ -56,22 +56,22 @@
             <div class="pricing-card pricing-card-table">
               <div class="pricing-card-row pricing-card-header">
                 <div class="pricing-card-column">
-                  <h4 class="pricing-card-table-name">Editions</h4>
+                  <h3 class="pricing-card-table-name">Editions</h3>
                 </div>
                 <div class="pricing-card-column">
-                  <h5>{{$page.frontmatter.editions[0].name}}</h5>
+                  <h4>{{$page.frontmatter.editions[0].name}}</h4>
                   <p>Priced at</p>
                   <p>$400</p>
                   <p>per month for up to</p>
                   <a href="/signup/" class="Button--red">Start Free</a>
                 </div>
                 <div class="pricing-card-column">
-                  <h5>{{$page.frontmatter.editions[1].name}}</h5>
+                  <h4>{{$page.frontmatter.editions[1].name}}</h4>
                   <p>{{$page.frontmatter.editions[1].subheading}}</p>
                   <a href="/contact-sales-enterprise/" class="Button--whiteOutline">Contact Us</a>
                 </div>
                 <div class="pricing-card-column">
-                  <h5>{{$page.frontmatter.editions[2].name}}</h5>
+                  <h4>{{$page.frontmatter.editions[2].name}}</h4>
                   <p>{{$page.frontmatter.editions[2].subheading}}</p>
                   <a href="/contact-sales-enterprise/" class="Button--whiteOutline">Contact Us</a>
                 </div>
