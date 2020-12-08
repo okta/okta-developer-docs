@@ -105,11 +105,13 @@
       </div>
       <div class="pricing-alt--container">
         <div class="pricing--addons">
-          <h1>Add-Ons</h1>
-          <p>
-            Learn more about add-on products at <a href="https://okta.com/pricing">okta.com/pricing</a>
-          </p>
-          <div>
+          <div class="pricing-addons-header">
+            <h1>Add-Ons</h1>
+            <h4>
+              Learn more about add-on products at <a href="https://okta.com/pricing">okta.com/pricing</a>
+            </h4>
+          </div>
+          <div class="pricing-addons-tiles">
             <template v-for="addon in $page.frontmatter.addons">
               <a class="pricing-addons-tile" target="_blank" rel="noopener noreferrer" :href="addon.link">
                 <img :src="addon.icon" />

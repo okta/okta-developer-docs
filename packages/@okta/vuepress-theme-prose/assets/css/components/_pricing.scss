@@ -7,8 +7,15 @@ $darkGray: #20313b;
 .pricing {
   background-color: $darkGray;
 
-  h1, h2, h3, h4 {
+  h2 {
     color: white;
+  }
+
+  h1 {
+    color: white;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 50px;
   }
 
   h3 {
@@ -188,13 +195,31 @@ $darkGray: #20313b;
     margin: 0 auto;
     color: $gray;
 
+    .pricing-addons-header {
+      margin: 64px 0;
+    }
+
+    .pricing-addons-tiles {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      margin: 0 -15px;
+    }
+
     .pricing-addons-tile {
+      flex: 1 1 330px;
       display: block;
       background-color: $darkerBlue;
+      box-shadow: 0 6px 25px 0 rgba(5,5,5,.3);
       text-align: left;
       padding: 20px;
+      margin: 15px;
       border-top-left-radius: 3px;
       border-top-right-radius: 3px;
+      transition: .4s;
+      &:hover {
+        box-shadow: 0 6px 25px 0 rgba(5,5,5,.5);
+      }
       img {
         margin-bottom: 7px;
         width: 30px;
