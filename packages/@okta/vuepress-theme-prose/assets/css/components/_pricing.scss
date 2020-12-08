@@ -1,3 +1,4 @@
+$blue: #163648;
 $darkBlue: #153b56;
 $darkerBlue: #142430;
 $gray: #d3d2d6;
@@ -72,7 +73,7 @@ $darkGray: #20313b;
         flex-basis: 0;
 
         &:first-child {
-          border-right: 2px solid #163648;
+          border-right: 2px solid $blue;
         }
       }
 
@@ -84,7 +85,7 @@ $darkGray: #20313b;
         .pricing-card-column {
           &:first-child {
             border-right: 0;
-            border-bottom: 2px solid #163648;
+            border-bottom: 2px solid $blue;
           }
         }
       }
@@ -93,7 +94,7 @@ $darkGray: #20313b;
 
   .pricing--editions {
     flex-grow: 1;
-    color: white;
+    color: $gray;
 
     .Button--red, .Button--whiteOutline {
       font-size: 12px;
@@ -103,13 +104,26 @@ $darkGray: #20313b;
     .pricing-card-row {
       background-color: $darkerBlue;
       display: flex;
+      border-bottom: 2px solid $blue;
+
+      &:last-child {
+        border-bottom: 0;
+      }
     }
 
     .pricing-card-column {
-      padding: 30px;
+      padding: 10px 30px;
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      justify-content: center;
+    }
+
+    .pricing-card-header {
+      .pricing-card-column {
+        padding: 30px;
+        justify-content: flex-start;
+      }
     }
 
     .pricing-card-table {

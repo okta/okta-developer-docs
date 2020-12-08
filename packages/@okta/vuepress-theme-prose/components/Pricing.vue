@@ -74,7 +74,7 @@
                 </div>
               </div>
               <template v-for="(details, feature) in $page.frontmatter.features">
-                <div class="pricing-card-row pricing-card-header">
+                <div class="pricing-card-row">
                   <div class="pricing-card-column">
                     {{details.name}}
                     <ul v-if="details.bullets">
