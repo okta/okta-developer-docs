@@ -34,14 +34,18 @@
               </div>
               <div class="pricing-card-column">
                 <h5>Identity and access control for your app</h5>
-                <ul>
-                  <li>Authentication</li>
-                  <li>Authorization</li>
-                  <li>Basic multi-factor authentication</li>
-                  <li>User management</li>
-                  <li>Email support</li>
-                  <li>Customizable sign-in and registration</li>
-                </ul>
+                <div class="pricing-card-lists">
+                  <ul class="pricing--icon-list">
+                    <li>Authentication</li>
+                    <li>Authorization</li>
+                    <li>Basic multi-factor authentication</li>
+                  </ul>
+                  <ul class="pricing--icon-list">
+                    <li>User management</li>
+                    <li>Email support</li>
+                    <li>Customizable sign-in and registration</li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

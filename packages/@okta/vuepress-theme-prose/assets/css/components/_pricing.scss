@@ -42,6 +42,14 @@ $darkGray: #20313b;
     line-height: 30px;
   }
 
+  ul.pricing--icon-list {
+    list-style: disc outside url('/img/icons/icon--check.svg');
+    padding-left: 25px;
+    li {
+      padding: 10px;
+    }
+  }
+
   .pricing-alt--container {
     background-color: $darkBlue;
   }
@@ -61,6 +69,10 @@ $darkGray: #20313b;
 
     .pricing-card-column {
       padding: 30px;
+    }
+
+    .pricing-card-lists {
+      display: flex;
     }
 
     .pricing-card-intro {
