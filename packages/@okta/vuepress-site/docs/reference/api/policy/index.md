@@ -753,11 +753,13 @@ Specifies a set of Groups whose Users are to be included or excluded
 
 #### AuthContext Condition object
 
-Specifies an authentication entry point. This tells how the user is authenticated.
+Specifies an authentication entry point
 
-| Parameter | Description | Data Type                                                         | Required | Default |
-| --------- | ----------- | ----------------------------------------------------------------- | -------- | ------- |
-| authType  |             | `ANY` or `RADIUS` or `LDAP_INTERFACE`<ApiLifecycle access="ea" /> | No       |         |
+| Parameter | Description                              | Data Type                             | Required | Default |
+| --------- | ---------------------------------------- | ------------------------------------- | -------- | ------- |
+| authType  | This tells how the user is authenticated | `ANY` or `RADIUS` or `LDAP_INTERFACE` | No       |  `ANY`  |
+
+`LDAP_INTERFACE` is an <ApiLifecycle access="ea" /> release.
 
 #### Network Condition object
 
