@@ -3,7 +3,6 @@ For this example, only emails containing "yourDomain.com" are allowed and can se
 See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
 
-
 ```javascript
 app.post('/registrationHook', async (request, response) => {
   console.log(" "); // for separation of logs during testing
