@@ -25,7 +25,7 @@ In this release, the documentation for Custom Groups Claims has been updated wit
 
 - [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as)
 
-Existing custom claims that use the `groupwhitelist` Profile property do not need to change.<!--OKTA-344317-->
+Existing custom claims that use the `groupwhitelist` Profile property don't need to change.<!--OKTA-344317-->
 
 ### New OAuth Administrator Roles API scopes
 
