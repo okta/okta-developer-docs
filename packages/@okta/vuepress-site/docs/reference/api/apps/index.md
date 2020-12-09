@@ -1323,6 +1323,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | redirect_uris                               | Array of redirection URI strings for use in redirect-based flows                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | TRUE       |
 | response_types                              | Array of OAuth 2.0 response type strings                                                                                                                                                                                   | Array of `code`, `token`, `id_token`                                                           | TRUE       | FALSE    | TRUE       |
 | tos_uri                                     | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
+| refresh_token <ApiLifecycle access="ea" />  | Refresh token configuration                                                                                                                                                                                                | [Refresh Token object](#refresh-token-object)                                                                                            | TRUE       | FALSE    | TRUE      |
 
 ###### Details
 
@@ -1358,6 +1359,8 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
 | `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
 <!-- If you change this section, change it in authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
+
+> **Note:** The `refresh_token` <ApiLifecycle access="ea" /> parameter is visible only if the client has `refresh_token` defined as one of its allowed `grant_types`. See [Refresh token object](#refresh-token-object).
 
 **Notes:**
 
@@ -5871,6 +5874,34 @@ Determines the [key](#application-key-credential-object) used for signing assert
 {
   "signing": {
     "kid": "SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4"
+  }
+}
+```
+
+#### Refresh token object
+
+Determines the refresh token rotation configuration for the OAuth 2.0 client.
+
+| Property                   | Description                                                       | DataType | Nullable |
+| -------------------------- | ----------------------------------------------------------------- | -------- | -------- |
+| rotation_type              | The refresh token rotation mode for the OAuth 2.0 client          | `STATIC` or `ROTATE` | FALSE |
+| leeway                     | The leeway allowed for the OAuth 2.0 client. After the refresh token is rotated, the previous token remains valid for the configured amount of time to allow clients to get the new token.                                           | Number               | TRUE |
+
+* Refresh token rotation is an <ApiLifecycle access="ea" /> feature.
+
+* When you create or update an OAuth 2.0 client, you can configure refresh token rotation by setting the `rotation_type` and `leeway` properties within the `refresh_token` object. If you don't set these properties, the default values are used when you create an app and your previously configured values are used when you update an app.
+
+* The default `rotation_type` value is `ROTATE` for Single-Page Applications (SPAs). For all other clients, the default is `STATIC`.
+
+* The `rotation_type` property is required if the request contains the `refresh_token` object.
+
+* The `leeway` property value can be between 0 and 60. The default value is `30`.
+
+```json
+{
+  "refresh_token": {
+    "rotation_type": "ROTATE",
+    "leeway": "20"
   }
 }
 ```
