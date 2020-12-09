@@ -41,7 +41,7 @@ Admins can now enable or disable automatic account linking between SAML Identity
 
 ### One Time Use Refresh Token is now in Early Access (EA)
 
-One Time Use Refresh Token, also called Refresh Token Rotation, is now in Early Access. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. See [Refresh Token Rotation](/docs/guides/refresh-tokens/).<!--OKTA-345754-->
+One Time Use Refresh Token, also called Refresh Token Rotation, is now in Early Access. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. See [Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/).<!--OKTA-345754-->
 
 ### Enhancements to Apps API for Idp Initiated Logins
 

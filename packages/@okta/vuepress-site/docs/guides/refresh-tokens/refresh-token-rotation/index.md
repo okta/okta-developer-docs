@@ -1,7 +1,7 @@
 ---
 title: Refresh token rotation
 ---
-Refresh token rotation is an <ApiLifecycle access="ea" /> feature.
+Refresh token rotation is an <ApiLifecycle access="ea"/> feature.
 
 Refresh token rotation helps a public client to securely rotate refresh tokens after each use. When refresh token rotation behavior is enabled in Okta, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token.
 
