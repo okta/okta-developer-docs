@@ -7,7 +7,7 @@ title: Okta API Products Release Notes
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
 | [Inclusive language and terminology](#inclusive-language-and-terminology) | December 9, 2020         |
-| [New OAuth Administrator Role API Scopes](#new-oauth-administrator-role-api-scopes) | December 9, 2020         |
+| [New OAuth Administrator Roles API scopes](#new-oauth-administrator-roles-api-scopes) | December 9, 2020         |
 | [New endpoint added to DynamicScale Rate Limits](#new-endpoint-added-to-dynamicscale-rate-limits) | December 9, 2020         |
 | [Account linking for SAML IdPs is now GA in Production](#account-linking-for-saml-idps-is-now-ga-in-production) | December 9, 2020  |
 | [One Time Use Refresh Token is now in Early Access (EA)](#one-time-use-refresh-token-is-now-in-early-access-ea)      | December 9, 2020         |
@@ -41,7 +41,7 @@ Admins can now enable or disable automatic account linking between SAML Identity
 
 ### One Time Use Refresh Token is now in Early Access (EA)
 
-One Time Use Refresh Token, also called Refresh Token Rotation, is now in Early Access. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. See [Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/).<!--OKTA-345754-->
+One Time Use Refresh Token, also called Refresh Token Rotation, is now in Early Access. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. See [Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation).<!--OKTA-345754-->
 
 ### Enhancements to Apps API for Idp Initiated Logins
 
@@ -53,4 +53,4 @@ The [Apps API](/docs/reference/api/apps/) can now configure the SLO URL behavior
 
 ### Group object `source` property is now GA in Production
 
-For API requests that return a Group or a list of Groups, the Group object includes a source property that provides the ID of the source application for the returned Group. This property is now GA in all Production orgs. See [Group attributes](docs/reference/api/groups/#group-attributes).<!--OKTA-344169-->
+For API requests that return a Group or a list of Groups, the Group object includes a source property that provides the ID of the source application for the returned Group. This property is now GA in all Production orgs. See [Group attributes](/docs/reference/api/groups/#group-attributes).<!--OKTA-344169-->
