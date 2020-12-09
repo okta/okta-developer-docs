@@ -38,8 +38,8 @@
       </div>
     </div>
 
-    <Footer v-if="!$page.redesign" />
     <FooterRedesign v-if="$page.redesign" />
+    <Footer v-else />
   </div>
 </template>
 

@@ -230,7 +230,7 @@ module.exports = {
         websites: {
           items: [
             { text: 'OKTA.COM', link: 'https://www.okta.com/', description: 'Products, case studies, resources' },
-            { text: 'HELP CENTER', link: 'https://help.okta.com/', description: 'Knowledgebase, roadmaps, and more' },
+            { text: 'HELP CENTER', link: 'https://support.okta.com/', description: 'Knowledgebase, roadmaps, and more' },
             { text: 'TRUST', link: 'https://trust.okta.com/', description: 'System status, security, compliance' },
           ]
         }

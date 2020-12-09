@@ -79,13 +79,13 @@ footer:not(.redesign) {
 }
 
 $redesign_white: #FFFFFF;
-$footer_background: #16262F;
-$footer_border: #1F3B54;
-$link_default: #DD2864;
+$redesign_pink: #DD2864;
+$redesign_footer_background: #16262F;
+$redesign_footer_border: #1F3B54;
 
 footer.redesign {
-  background-color: $footer_background;
-  border-top: 1px solid $footer_border;
+  background-color: $redesign_footer_background;
+  border-top: 1px solid $redesign_footer_border;
   padding: 80px 96px 80px 126px;
 
   @include media('<tablet') {
@@ -258,7 +258,7 @@ footer.redesign {
     }
 
     &--red {
-      color: $link_default;
+      color: $redesign_pink;
     }
 
     &--bold {
@@ -314,7 +314,7 @@ footer.redesign {
         svg {
           width: 1.2em;
           height: 1.2em;
-          fill: $link_default;
+          fill: $redesign_pink;
         }
       }
 
