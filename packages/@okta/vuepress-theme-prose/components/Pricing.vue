@@ -28,7 +28,7 @@
                   <p class="pricing-card-subtitle">
                     Up to 1,000 monthly active users
                   </p>
-                  <a href="/signup/" class="Button--red">
+                  <a :href="$page.frontmatter.links.signup" class="Button--red">
                     Get Started Free
                   </a>
                 </div>
@@ -69,17 +69,17 @@
                         {{price.maus}}
                       </option>
                     </select>
-                    <a href="/signup/" class="Button--red">Start Free</a>
+                    <a :href="$page.frontmatter.links.signup" class="Button--red">Start Free</a>
                   </div>
                   <div class="pricing-card-column">
                     <h4>{{$page.frontmatter.editions[1].name}}</h4>
                     <p>{{$page.frontmatter.editions[1].subheading}}</p>
-                    <a href="/contact-sales-enterprise/" class="Button--whiteOutline">Contact Us</a>
+                    <a :href="$page.frontmatter.links.contactSales" class="Button--whiteOutline">Contact Us</a>
                   </div>
                   <div class="pricing-card-column">
                     <h4>{{$page.frontmatter.editions[2].name}}</h4>
                     <p>{{$page.frontmatter.editions[2].subheading}}</p>
-                    <a href="/contact-sales-enterprise/" class="Button--whiteOutline">Contact Us</a>
+                    <a :href="$page.frontmatter.links.contactSales" class="Button--whiteOutline">Contact Us</a>
                   </div>
                 </div>
                 <template v-for="(details, feature) in $page.frontmatter.features">
@@ -114,7 +114,7 @@
             <div class="pricing-addons-header">
               <h1>Add-Ons</h1>
               <h4>
-                Learn more about add-on products at <a href="https://okta.com/pricing">okta.com/pricing</a>
+                Learn more about add-on products at <a :href="$page.frontmatter.links.pricing">okta.com/pricing</a>
               </h4>
             </div>
             <div class="pricing-addons-tiles">
@@ -150,7 +150,7 @@
           <p>
             We'd love to hear them. A real, technical human will get back to you shortly.
           </p>
-          <a href="mailto:developers@okta.com" class="Button--red">
+          <a :href="$page.frontmatter.links.emailSupport" class="Button--red">
             Email Support
           </a>
         </div>

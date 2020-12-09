@@ -6,6 +6,12 @@ title: Pricing
 
 showBreadcrumb: False
 
+links:
+  signup: /signup/
+  contactSales: /contact-sales-enterprise/
+  pricing: https://okta.com/pricing
+  emailSupport: mailto:developers@okta.com
+
 features:
   hiAvailability:
     name: 99.9% availability
