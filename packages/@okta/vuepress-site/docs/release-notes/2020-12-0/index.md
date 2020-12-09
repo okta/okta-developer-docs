@@ -25,7 +25,7 @@ In this release, the documentation for Custom Groups Claims has been updated wit
 
 - [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as)
 
-Existing custom claims that use the `groupwhitelist` Profile property do not need to change.<!--OKTA-344317-->
+Existing custom claims that use the `groupwhitelist` Profile property don't need to change.<!--OKTA-344317-->
 
 ### New OAuth Administrator Roles API scopes
 
@@ -45,11 +45,11 @@ One Time Use Refresh Token, also called Refresh Token Rotation, is now in Early 
 
 ### Enhancements to Apps API for Idp Initiated Logins
 
-The [Apps API](/docs/reference/api/apps/) can now configure the Idp Initiated Login behavior, which is also available in the Admin Console user interface. Note: The Idp Initiated Login is limited to OIDC clients. <!--OKTA-342821-->
+The [Apps API](/docs/reference/api/apps/) can now configure the Idp Initiated Login behavior, which is also available in the Admin Console. **Note:** The Idp Initiated Login is limited to OpenID Connect clients. <!--OKTA-342821-->
 
 ### Enhancements to Apps API for SAML Apps
 
-The [Apps API](/docs/reference/api/apps/) can now configure the SLO URL behavior for SAML apps, which is also available in the Admin Console user interface.<!--OKTA-342882-->
+The [Apps API](/docs/reference/api/apps/) can now configure the SLO URL behavior for SAML apps, which is also available in the Admin Console.<!--OKTA-342882-->
 
 ### Group object `source` property is now GA in Production
 
