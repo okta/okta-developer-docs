@@ -49,7 +49,7 @@ The [Apps API](/docs/reference/api/apps/) can now configure the Idp Initiated Lo
 
 ### Enhancements to Apps API for SAML Apps
 
-The [Apps API](/docs/reference/api/apps/) can now configure the SLO URL behavior for SAML apps, which is also available in the Admin Console user interface.<!--OKTA-342882-->
+The [Apps API](/docs/reference/api/apps/) can now configure the SLO URL behavior for SAML apps, which is also available in the Admin Console.<!--OKTA-342882-->
 
 ### Group object `source` property is now GA in Production
 
