@@ -7,6 +7,10 @@ $darkGray: #20313b;
 .pricing {
   background-color: $darkGray;
 
+  .pricing--container {
+    max-width: 1280px;
+  }
+
   h2 {
     color: white;
     font-size: 32px;
@@ -68,7 +72,7 @@ $darkGray: #20313b;
     }
   }
 
-  .pricing-alt--container {
+  .pricing-alt-bg {
     background-color: $darkBlue;
   }
 
@@ -195,7 +199,7 @@ $darkGray: #20313b;
 
   .pricing--addons {
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 64px;
     color: $gray;
 
     .pricing-addons-header {
@@ -247,7 +251,8 @@ $darkGray: #20313b;
     .pricing-faq-item {
       text-align: left;
       color: $gray;
-      margin-bottom: 15px;
+      margin: 0 auto 15px;
+      max-width: 850px;
 
       .pricing-faq-item-title {
         width: 100%;
@@ -327,6 +332,7 @@ $darkGray: #20313b;
     background-color: $darkBlue;
     text-align: center;
     flex-grow: 1;
+    padding: 64px 0;
 
     .pricing--footer--logos {
       display: flex;
