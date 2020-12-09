@@ -3,6 +3,7 @@ $darkBlue: #153b56;
 $darkerBlue: #142430;
 $gray: #d3d2d6;
 $darkGray: #20313b;
+$magenta: #e22866;
 
 .pricing {
   background-color: $darkGray;
@@ -35,6 +36,13 @@ $darkGray: #20313b;
     color: $gray;
     font-size: 20px;
     font-weight: 500;
+
+    a {
+      color: $magenta;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   .Button--red, .Button--whiteOutline {
