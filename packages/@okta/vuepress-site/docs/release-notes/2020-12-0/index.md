@@ -45,7 +45,7 @@ One Time Use Refresh Token, also called Refresh Token Rotation, is now in Early 
 
 ### Enhancements to Apps API for Idp Initiated Logins
 
-The [Apps API](/docs/reference/api/apps/) can now configure the Idp Initiated Login behavior, which is also available in the Admin Console user interface. Note: The Idp Initiated Login is limited to OIDC clients. <!--OKTA-342821-->
+The [Apps API](/docs/reference/api/apps/) can now configure the Idp Initiated Login behavior, which is also available in the Admin Console. **Note:** The Idp Initiated Login is limited to OpenID Connect clients. <!--OKTA-342821-->
 
 ### Enhancements to Apps API for SAML Apps
 
