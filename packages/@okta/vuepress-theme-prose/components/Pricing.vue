@@ -62,7 +62,7 @@
                   <div class="pricing-card-column">
                     <h4>{{$page.frontmatter.editions[0].name}}</h4>
                     <p>Priced at</p>
-                    <p>$400</p>
+                    <p class="pricing-card-price">$400</p>
                     <p>per month for up to</p>
                     <a href="/signup/" class="Button--red">Start Free</a>
                   </div>

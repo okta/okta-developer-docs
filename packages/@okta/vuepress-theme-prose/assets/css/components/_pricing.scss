@@ -195,6 +195,17 @@ $darkGray: #20313b;
         }
       }
     }
+
+    p {
+      margin: 10px 0;
+    }
+    .pricing-card-price {
+      margin: 0;
+      color: #007dc1;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 48px;
+    }
   }
 
   .pricing--addons {
