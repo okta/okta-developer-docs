@@ -139,7 +139,7 @@
       </div>
       <div class="pricing--container">
         <div class="pricing--questions">
-          <h4>More questions?</h4>
+          <h2>More questions?</h2>
           <p>
             We'd love to hear them. A real, technical human will get back to you shortly.
           </p>

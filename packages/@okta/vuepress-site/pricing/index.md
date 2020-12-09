@@ -117,7 +117,7 @@ addons:
 
 faqs:
   - title: Why should I trust Okta with my users and data?
-    content: "Security is our utmost priority. We understand that identity is mission critical. Thousands of our customers depend on Okta to manage and protect access to applications and data. That trust requires our service to be highly available and secure. You can read more about what Okta does to meet your application's security and availability requirements here: <a href='https://www.okta.com/security/'>https://www.okta.com/security/</a>"
+    content: "Security is our utmost priority. We understand that identity is mission critical. Thousands of our customers depend on Okta to manage and protect access to applications and data. That trust requires our service to be highly available and secure. You can read more about what Okta does to meet your application's security and availability requirements here: <strong><a href='https://www.okta.com/security/'>https://www.okta.com/security/</a></strong>"
   - title: What is a monthly active user?
     content: A monthly active user is an end-user that authenticates to an application in a given month. A user that authenticates multiple times to one or more applications within a given month is counted once.
   - title: "What are the rate limits for Okta's APIs?"

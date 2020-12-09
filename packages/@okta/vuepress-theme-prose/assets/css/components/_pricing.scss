@@ -9,6 +9,9 @@ $darkGray: #20313b;
 
   h2 {
     color: white;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 48px;
   }
 
   h1 {
@@ -234,7 +237,7 @@ $darkGray: #20313b;
 
   .pricing--faq {
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 128px;
     flex-grow: 1;
 
     h1 {
@@ -300,9 +303,11 @@ $darkGray: #20313b;
         }
       }
     }
+    strong a {
+      font-weight: 700;
+    }
     a {
       color: white;
-      font-weight: 700;
       &:hover {
         text-decoration: underline;
       }
@@ -311,8 +316,11 @@ $darkGray: #20313b;
 
   .pricing--questions {
     text-align: center;
-    margin: 0 auto;
+    margin: 0 auto 64px;
     color: white;
+    p {
+      color: $gray;
+    }
   }
 
   .pricing--footer {
