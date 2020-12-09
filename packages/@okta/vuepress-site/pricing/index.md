@@ -114,4 +114,13 @@ addons:
   - title: DynamicScale
     link: https://www.okta.com/pricing?&_ga=2.263728972.1380425866.1607359849-1244033381.1605546128#api-dynamic-scale
     icon: /img/icons/icon--highcapacity.svg
+
+faqs:
+  - title: Why should I trust Okta with my users and data?
+    content: "Security is our utmost priority. We understand that identity is mission critical. Thousands of our customers depend on Okta to manage and protect access to applications and data. That trust requires our service to be highly available and secure. You can read more about what Okta does to meet your application's security and availability requirements here: <a href='https://www.okta.com/security/'>https://www.okta.com/security/</a>"
+  - title: What is a monthly active user?
+    content: A monthly active user is an end-user that authenticates to an application in a given month. A user that authenticates multiple times to one or more applications within a given month is counted once.
+  - title: "What are the rate limits for Okta's APIs?"
+    content: "The number of API requests for an organization is limited for all APIs in order to protect the service for all users. <a href='/docs/api/getting_started/rate-limits'>Get more details</a>."
+
 ---

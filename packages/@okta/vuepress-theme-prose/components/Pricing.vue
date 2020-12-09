@@ -127,6 +127,14 @@
       <div class="pricing--container">
         <div class="pricing--faq">
           <h1>Frequently asked questions</h1>
+          <template v-for="(item, index) in $page.frontmatter.faqs">
+            <div class="pricing-faq-item" v-bind:class="{ 'is-active': faqShownStates[index] }">
+              <button class="pricing-faq-item-title" v-on:click="toggleFaqShown(index)">
+                {{item.title}}
+              </button>
+              <div class="pricing-faq-item-content" v-html="item.content"></div>
+            </div>
+          </template>
         </div>
       </div>
       <div class="pricing--container">
@@ -155,3 +163,20 @@
     </section>
   </div>
 </template>
+
+<script>
+export default {
+  data: () => ({
+    faqShownStates: [
+      false,
+      false,
+      false,
+    ],
+  }),
+  methods: {
+    toggleFaqShown(faqIndex) {
+      this.$set(this.faqShownStates, faqIndex, !this.faqShownStates[faqIndex]);
+    }
+  }
+}
+</script>

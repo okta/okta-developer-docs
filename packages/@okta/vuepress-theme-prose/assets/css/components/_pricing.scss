@@ -235,7 +235,78 @@ $darkGray: #20313b;
   .pricing--faq {
     text-align: center;
     margin: 0 auto;
-    color: white;
+    flex-grow: 1;
+
+    h1 {
+      margin: 64px 0;
+    }
+
+    .pricing-faq-item {
+      text-align: left;
+      color: $gray;
+      margin-bottom: 15px;
+
+      .pricing-faq-item-title {
+        width: 100%;
+        padding: 10px 0 10px 50px;
+        position: relative;
+        background-color: #115d8b;
+        color: white;
+        border: 0;
+        border-radius: 3px;
+        outline: none;
+        font-size: 20px;
+        font-weight: 400;
+        text-align: left;
+        line-height: 30px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #007dc1;
+        }
+        &:before {
+          content: '';
+          background-image: url('/img/icons/icon--circle-with-chevron.svg');
+          height: 30px;
+          width: 30px;
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          margin: auto;
+          transform: rotate(0deg);
+        }
+      }
+
+      .pricing-faq-item-content {
+        background-color: #115d8b;
+        padding: 30px 30px 30px 50px;
+        font-size: 16px;
+        display: none;
+      }
+
+      &.is-active {
+        .pricing-faq-item-title {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          &:hover {
+            background-color: #115d8b;
+          }
+          &:before {
+            transform: rotate(180deg);
+          }
+        }
+        .pricing-faq-item-content {
+          display: block;
+        }
+      }
+    }
+    a {
+      color: white;
+      font-weight: 700;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
   }
 
   .pricing--questions {
