@@ -62,8 +62,13 @@
                   <div class="pricing-card-column">
                     <h4>{{$page.frontmatter.editions[0].name}}</h4>
                     <p>Priced at</p>
-                    <p class="pricing-card-price">$400</p>
+                    <p class="pricing-card-price">{{mauPrice}}</p>
                     <p>per month for up to</p>
+                    <select v-model="mauPrice">
+                      <option v-for="(price, index) in $page.frontmatter.pricing" :value="price.price" :key="index">
+                        {{price.maus}}
+                      </option>
+                    </select>
                     <a href="/signup/" class="Button--red">Start Free</a>
                   </div>
                   <div class="pricing-card-column">
@@ -174,6 +179,7 @@ export default {
       false,
       false,
     ],
+    mauPrice: '$0',
   }),
   methods: {
     toggleFaqShown(faqIndex) {

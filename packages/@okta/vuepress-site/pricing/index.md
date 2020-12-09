@@ -48,6 +48,20 @@ features:
   addons:
     name: Add-on products available
 
+pricing:
+  - maus: 1,000 MAUs
+    price: $0
+  - maus: 2,500 MAUs
+    price: $50
+  - maus: 5,000 MAUs
+    price: $100
+  - maus: 10,000 MAUs
+    price: $200
+  - maus: 20,000 MAUs
+    price: $400
+  - maus: 50,000 MAUs
+    price: $1000
+
 editions:
   - name: Developer
     hiAvailability: True
