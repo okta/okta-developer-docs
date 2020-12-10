@@ -6,7 +6,7 @@ title: Okta API Products Release Notes
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
-| [Inclusive language and terminology](#inclusive-language-and-terminology) | December 10, 2020         |
+| [Inclusive language and terminology](#inclusive-language-and-terminology) | December 9, 2020         |
 | [New OAuth Administrator Roles API scopes](#new-oauth-administrator-roles-api-scopes) | December 10, 2020         |
 | [New endpoint added to DynamicScale Rate Limits](#new-endpoint-added-to-dynamicscale-rate-limits) | December 10, 2020         |
 | [Account linking for SAML IdPs is now GA in Production](#account-linking-for-saml-idps-is-now-ga-in-production) | December 10, 2020  |
