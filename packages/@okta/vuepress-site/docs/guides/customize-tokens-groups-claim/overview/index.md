@@ -6,7 +6,7 @@ You can add a Groups claim to ID tokens for any combination of App Groups and Us
 
 This guide walks you through creating a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-mastered Groups. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token.
 
-Additionally, you can create a dynamic or static whitelist when you need to set group whitelists on a per-application basis using both the Org Authorization Server and a Custom Authorization Server. See [Add a Groups claim with a dynamic whitelist](/docs/guides/customize-tokens-dynamic/) and [Add a Groups claim with a static whitelist](/docs/guides/customize-tokens-static).
+Additionally, you can create a dynamic or static allow list when you need to set group allow lists on a per-application basis using both the Org Authorization Server and a Custom Authorization Server. See [Add a Groups claim with a dynamic allow list](/docs/guides/customize-tokens-dynamic/) and [Add a Groups claim with a static allow list](/docs/guides/customize-tokens-static).
 
 This guide assumes that you:
 

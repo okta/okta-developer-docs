@@ -30,6 +30,8 @@ The following table shows the scopes that are currently available:
 | `okta.linkedObjects.manage`| Allows the app to manage Linked Object definitions in your Okta organization.| [Linked Objects API](/docs/reference/api/linked-objects/)|
 | `okta.linkedObjects.read` | Allows the app to read Linked Object definitions in your Okta organization.| [Linked Objects API](/docs/reference/api/linked-objects/)|
 | `okta.logs.read`         | Allows the app to read information about System Log entries in your Okta organization| [System Log API](/docs/reference/api/system-log/)|
+| `okta.roles.manage`      | Allows the app to create and manage Administrator Roles in your Okta organization     | [Administrator Roles API](/docs/reference/api/roles/#get-started)|
+| `okta.roles.read`        | Allows the app to read information about Administrator Roles in your Okta organization | [Administrator Roles API](/docs/reference/api/roles/#get-started)|
 | `okta.schemas.manage`    | Allows the app to create and manage Schemas in your Okta organization   | [Schemas API](/docs/reference/api/schemas/#getting-started)|
 | `okta.schemas.read`      | Allows the app to read information about Schemas in your Okta organization| [Schemas API](/docs/reference/api/schemas/#getting-started)|
 | `okta.sessions.manage`      | Allows the app to manage all sessions in your Okta organization | [Sessions API](/docs/reference/api/sessions/#session-operations) |

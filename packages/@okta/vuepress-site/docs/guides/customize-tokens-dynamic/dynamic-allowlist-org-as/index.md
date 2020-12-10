@@ -1,15 +1,15 @@
 ---
-title: Use a dynamic group whitelist with the Org Authorization Server
+title: Use a dynamic group allow list with the Org Authorization Server
 ---
 
-To use the Group Functions to create a token using a dynamic group whitelist, create a Groups claim on an app. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim.
+To use the Group Functions to create a token using a dynamic group allow list, create a Groups claim on an app. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim.
 
 <RequireClassicUI/>
 
 1. In the Admin Console, from the **Applications** menu, select **Applications**, and then select the client application that you want to configure.
 2. Navigate to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
 3. In the **Groups claim type** section, select **Expression**.
-4. In the **Groups claims filter** section, leave the default name `groups` (or add it if the box is empty) and add one of the three functions with the criteria for your dynamic group whitelist. For this example: `Groups.startsWith("OKTA", "IT", 10)`
+4. In the **Groups claims filter** section, leave the default name `groups` (or add it if the box is empty) and add one of the three functions with the criteria for your dynamic group allow list. For this example: `Groups.startsWith("OKTA", "IT", 10)`
 5. Click **Save**.
 
 ### Request an ID token that contains the Groups claim
