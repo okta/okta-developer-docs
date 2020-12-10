@@ -136,7 +136,7 @@ $magenta: #e22866;
         }
       }
 
-      @media(max-width: 859px) {
+      @include media('<desktop') {
         .pricing-card {
           flex-direction: column;
         }
@@ -176,11 +176,16 @@ $magenta: #e22866;
     }
 
     .pricing-card-column {
+      flex-basis: 22%;
       padding: 10px 30px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
+
+      &:first-child {
+        flex-grow: 1;
+      }
     }
 
     .pricing-card-header {
@@ -188,19 +193,6 @@ $magenta: #e22866;
         padding: 30px;
         justify-content: flex-start;
         align-items: stretch;
-      }
-    }
-
-    .pricing-card-table {
-      .pricing-card-row {
-        display: flex;
-      }
-      .pricing-card-column {
-        flex-basis: 22%;
-
-        &:first-child {
-          flex-grow: 1;
-        }
       }
     }
 
@@ -372,7 +364,7 @@ $magenta: #e22866;
       }
     }
 
-    @media(max-width: 859px) {
+    @include media('<desktop') {
       .pricing--footer--logos {
         flex-direction: column;
       }
