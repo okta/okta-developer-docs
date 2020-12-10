@@ -6,6 +6,67 @@
   flex-direction: column;
   justify-content: space-between;
 
+  .row {
+    display: flex;
+    margin: 0 -24px 24px 0;
+    label {
+      padding: 0 24px 0 0;
+      flex: 1;
+    }
+  }
+
+  input,
+  select {
+    width: 100%;
+    cursor: pointer;
+    color: cv("brand", "base");
+    background-color: $white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    border: none;
+    padding: 0 20px;
+    height: 45px;
+    border-radius: 3px;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: textfield;
+    &:focus {
+      outline: none;
+    }
+  }
+  input[type="submit"]:disabled  {
+    cursor: default;
+    opacity: 0.6;
+  }
+  select {
+    padding: 10px 20px;
+    background-image: url("data:image/svg+xml,%3csvg width='9' height='5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M.4 0h8.2L4.5 5' fill='%235c6971'/%3e%3c/svg%3e");
+    background-position: calc(100% - 12px) center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    -webkit-appearance: none;
+    border-radius: 4px;
+  }
+
+  input.red-button {
+    background: cv("cerise", "base");
+    color: $white;
+    font-size: 15px;
+    line-height: 17px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0px 1px 0px #0000000f;
+    border-radius: 3px;
+  }
+
   .authorization-layout--header {
     display: flex;
     padding: 0 80px;

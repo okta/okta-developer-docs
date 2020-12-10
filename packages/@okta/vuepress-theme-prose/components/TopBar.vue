@@ -20,8 +20,8 @@
               </li>
             </ul>
               <div class="buttons-block">
-              <a class="buttons-block--button" href="https://login.okta.com/" >Login</a>
-              <a class="buttons-block--button red" href="/signup/" >Sign Up</a>
+              <a class="buttons-block--button" :href="signUpUrl" >Login</a>
+              <a class="buttons-block--button red" :href="loginUrl" >Sign Up</a>
             </div>
           </nav>
           <div class="top-bar-nav--controls">
@@ -55,6 +55,14 @@
     },
     mounted() {
       window.addEventListener('resize', this.handleResize)
+    },
+    computed: {
+      signUpUrl() {
+        return $page.redesign ? '/signup/' : 'https://developer.okta.com/developer/signup/'
+      },
+      loginUrl() {
+        return $page.redesign ? '/login/' : 'https://login.okta.com/'
+      }
     },
     watch: {
       burgerMenuOpened(){

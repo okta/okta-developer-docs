@@ -1,7 +1,7 @@
 <template>
-  <div class="signup" id="signup-form">
+  <div class="signup">
     <div class="signup--form">
-      <form @submit="submitForm">
+      <form @submit="submitForm" method="POST" action="https://developer.okta.com/developer/signup/">
         <div class="row">
           <label for="email">
             Email
@@ -69,6 +69,61 @@
             </ul>
           </label>
         </div>
+
+        <input type="hidden" name="number_of_apps" value="1" />
+        <input type="hidden" name="utm_campaign__c" value="" />
+        <input type="hidden" name="utm_content__c" value="" />
+        <input type="hidden" name="utm_date__c" value="" />
+        <input type="hidden" name="utm_medium__c" value="" />
+        <input type="hidden" name="utm_page__c" value="/signup/" />
+        <input type="hidden" name="utm_source__c" value="" />
+        <input type="hidden" name="utm_term__c" value="" />
+        <input type="hidden" name="original_utm_campaign__c" value="" />
+        <input type="hidden" name="original_utm_content__c" value="" />
+        <input type="hidden" name="original_utm_date__c" value="09/28/2020" />
+        <input type="hidden" name="original_utm_medium__c" value="" />
+        <input
+          type="hidden"
+          name="original_utm_page__c"
+          value="/services/training/"
+        />
+        <input type="hidden" name="original_utm_source__c" value="" />
+        <input type="hidden" name="original_utm_term__c" value="" />
+        <input type="hidden" name="session_utm_campaign__c" value="" />
+        <input type="hidden" name="session_utm_content__c" value="" />
+        <input type="hidden" name="session_utm_date__c" value="" />
+        <input type="hidden" name="session_utm_medium__c" value="" />
+        <input
+          type="hidden"
+          name="session_utm_page__c"
+          value="/services/training/"
+        />
+        <input type="hidden" name="session_utm_source__c" value="" />
+        <input type="hidden" name="session_utm_term__c" value="" />
+        <input
+          placeholder="First Name Alternate"
+          type="hidden"
+          name="first_name_alternate"
+          value=""
+        />
+        <input type="hidden" name="type" value="okta_dev_developer" />
+        <input type="hidden" name="campaign_id" value="701F0000000mDmx" />
+        <input
+          type="hidden"
+          name="redirect_url"
+          value="https://developer.okta.com/profile"
+        />
+        <input type="hidden" name="selectedApps" value="developer" />
+        <input type="hidden" name="form_nid" value="7311" />
+        <input
+          type="hidden"
+          name="form_build_id"
+          value="form-ssf-C6plAJ_tzlACwndTIQMUVEPG4scsPzsEnlQc2nU"
+        />
+        <input type="hidden" name="form_id" value="okta_occ_form" />
+        <input id="edit-hidden-captcha-msg" type="hidden" name="hidden_captcha_msg" value="">
+        <input type="hidden" id="gclid" name="GCLID__c">
+
         <div class="row">
           <label for="country">
             Country
@@ -120,10 +175,20 @@
           </label>
         </div>
         <div class="row">
+          <vue-recaptcha
+            ref="recaptcha"
+            :loadRecaptchaScript="true"
+            @verify="onCaptchaVerified"
+            @expired="onCaptchaExpired"
+            sitekey="6LeaS6UZAAAAADd6cKDSXw4m2grRsCpHGXjAFJcL"
+          >
+          </vue-recaptcha>
+        </div>
+        <div class="row">
           <label for="signup">
             <input
               type="submit"
-              class="btn"
+              class="btn red-button"
               :disabled="!validationService.isValidForm()"
               id="signup"
               value="sign up"
@@ -174,7 +239,9 @@
 </template>
 
 <script>
-import { SignUpValidation } from "../services/signupValidation.service";
+import VueRecaptcha from "vue-recaptcha";
+import { SignUpValidation } from "../util/signupValidation.service";
+import { Api } from "../util/api.service"
 import {
   countriesList,
   americanStates,
@@ -182,6 +249,9 @@ import {
 } from "../models/signup.model";
 
 export default {
+  components: {
+    VueRecaptcha
+  },
   data() {
     return {
       canada: "Canada",
@@ -203,7 +273,7 @@ export default {
       },
       set(country) {
         this.form.state.hidden = false;
-        
+
         if (country === this.usa) {
           this.state.list = americanStates;
           this.state.label = "States";
@@ -222,6 +292,9 @@ export default {
     },
     validationService() {
       return new SignUpValidation(this.form);
+    },
+    apiService() {
+      return new Api('https://developer.okta.com');
     }
   },
   methods: {
@@ -234,8 +307,13 @@ export default {
       this.validationService.checkFormInput("state");
 
       if (this.validationService.isValidForm()) {
-        // make POST call
+       // make api call
       }
+    },
+
+    onCaptchaVerified() {},
+    onCaptchaExpired() {
+      this.$refs.recaptcha.reset();
     }
   }
 };

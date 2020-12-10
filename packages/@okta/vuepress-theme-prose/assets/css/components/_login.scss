@@ -1,15 +1,22 @@
-.signup {
+.login {
   width: 100%;
   max-width: 1272px;
   display: inline-flex;
   flex-wrap: wrap;
   font-size: 16px;
+  align-items: center;
+  flex-direction: column;
   color: $white;
+  h1 {
+    color: $white;
+    text-align: center;
+  }
 
-  .signup--form {
+  .login--form {
     width: 100%;
     max-width: 588px;
-    margin: 0 80px 0 0;
+    min-width: 588px;
+    margin: 0;
     padding: 40px 48px 8px 48px;
     background-color: cv("blue", "whale");
     box-shadow: 0px 6px 25px cv("blue", "whale");
@@ -31,7 +38,7 @@
       }
     }
 
-    .goto-signin {
+    .goto-signup {
       justify-content: center;
       margin: 0;
       a {
@@ -41,29 +48,20 @@
       }
     }
   }
+}
 
-  .signup--description {
-    padding: 30px 0 0 0;
-    max-width: 604px;
-    h1 {
-      font-size: 40px;
-      color: $white;
-    }
+.logo-wrapper {
+  margin: 40px 0 0 0;
+  width: 338px;
+  h4 {
+    text-align: center;
+    font-size: 16px;
+    margin: 0 0 18px 0;
     color: $white;
-
-    .logo-wrapper {
-      margin: 40px 0 0 0;
-      width: 338px;
-      h4 {
-        font-size: 16px;
-        margin: 0 0 18px 0;
-        color: $white;
-      }
-      .partners-logo {
-        width: 100%;
-        display: inline-flex;
-        justify-content: space-between;
-      }
-    }
+  }
+  .partners-logo {
+    width: 100%;
+    display: inline-flex;
+    justify-content: space-between;
   }
 }
