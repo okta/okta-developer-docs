@@ -1,0 +1,62 @@
+.redesign-homepage{
+  background-color: #182a33;
+  font-family: $font-family;
+  min-height: 100vh;
+  color: #ffffff;
+  overflow: hidden;
+
+  .col-2.col-no-padding{
+    padding: 0px 0px;
+  }
+  
+  >row{
+    height: 100%;
+  }
+
+  .row.justify-content-around.no-wrap,
+  .row.justify-content-between.no-wrap{
+    flex-wrap: nowrap;
+  }
+
+  &--selector-block-margin{
+    margin-bottom: 80px;
+  }
+
+  &--assurance-block-margin{
+    margin-bottom: 100px;
+  }
+
+  &--color-main{
+    color: #ffffff;
+  }
+  &--color-sub{
+    color: #92999E;
+  }
+  &--main-heading{
+    font-size: 32px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+
+  &--sub-heading{
+    font-size: 22px;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+
+  &--sub-heading-disclaimer{
+    font-size: 18px;
+    margin-bottom: 30px;
+    &:last-child{
+      margin-bottom: 30px;
+    }
+  }
+
+  &--partners-block-margin{
+    margin-bottom: 91px;
+    >img{
+      display: block;
+      max-height: 46px;
+    }
+  }
+}

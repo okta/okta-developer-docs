@@ -1,0 +1,217 @@
+<template>
+  <div class="redesign-homepage container-fluid	">
+   <div class="row">
+     <div class="col-2 col-no-padding">
+       <RedesignedSideBar />
+     </div>
+     
+     <div class="col-10">
+       <div class="row justify-content-center">
+         <div class="col-11">
+
+          <div class="row"> 
+            <div class="col-12">
+              <h1 class="redesign-homepage--main-heading redesign-homepage--color-main">
+                Okta Developer Portal
+              </h1>
+            </div>
+          </div>
+
+          <div class="row"> 
+            <div class="col-12">
+              <h2 class="redesign-homepage--sub-heading redesign-homepage--color-main">
+                Let's get started
+              </h2>
+            </div>
+          </div>
+
+          <div class="row"> 
+            <div class="col-12">
+              <p class="redesign-homepage--sub-heading-disclaimer redesign-homepage--color-sub">
+                Authenticate up to 1,000 users per month for free forever
+              </p>
+            </div>
+          </div>
+
+          <div class="row redesign-homepage--selector-block-margin">
+            <div class="col-3" v-for="tile in tileData" :key="tile.name">
+              <SelectorTile :tileData="tile" :key="tile.name" />
+            </div>
+          </div>
+
+          <div class="row justify-content-around no-wrap redesign-homepage--assurance-block-margin">
+              <AssuranceItem v-for="assurance in assuranceData" :key="assurance.title" :item="assurance" /> 
+          </div>
+
+           <div class="row justify-content-around no-wrap redesign-homepage--partners-block-margin">
+             <img v-for="partner in partnerData" :src="partner.src" :key="partner.alt"/>
+           </div>
+          
+        </div>
+       </div>
+     </div>
+   </div>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'RedesignedHomePage',
+  components: {
+    RedesignedSideBar: () => import('../components/RedesignedSidebar'),
+    SelectorTile: () => import('../components/SelectorTile'),
+    AssuranceItem: () => import('../components/AssuranceItem')
+  },
+  data () {
+    return{
+      tileData: [
+        {
+          name: "Web App",
+          categoryLink: "/docs/guides/sign-into-web-app/aspnet/before-you-begin/",
+          items: [
+            {
+              name: 'Go',
+              link: '/go',
+              image: '/img/homepage/stackselectors/go.png'
+            },
+             {
+              name: 'Java',
+              link: '/go',
+              image: '/img/homepage/stackselectors/java.png'
+            },
+             {
+              name: '.net',
+              link: '/go',
+              image: '/img/homepage/stackselectors/dotnet.png'
+            },
+             {
+              name: 'Node.js',
+              link: '/go',
+              image: '/img/homepage/stackselectors/nodejs.png'
+            },
+             {
+              name: 'PHP',
+              link: '/go',
+              image: '/img/homepage/stackselectors/nodejs.png'
+            }
+          ]
+        },
+        {
+          name: "Single-page App",
+          categoryLink: "/docs/guides/sign-into-spa/angular/before-you-begin/",
+          items: [
+            {
+              name: 'React',
+              link: '/go',
+              image: '/img/homepage/stackselectors/react.png'
+            },
+             {
+              name: 'Angular',
+              link: '/go',
+              image: '/img/homepage/stackselectors/angular.png'
+            },
+             {
+              name: 'Vue.js',
+              link: '/go',
+              image: '/img/homepage/stackselectors/vue.png'
+            },
+          ]
+        },
+          {
+          name: "Native app",
+          categoryLink: "/docs/guides/sign-into-mobile-app/android/before-you-begin/",
+          items: [
+            {
+              name: 'native React',
+              link: '/go',
+              image: '/img/homepage/stackselectors/react.png'
+            },
+             {
+              name: 'android',
+              link: '/go',
+              image: '/img/homepage/stackselectors/android.png'
+            },
+             {
+              name: 'IOS',
+              link: '/go',
+              image: '/img/homepage/stackselectors/ios.png'
+            },
+          ]
+        },
+        {
+          name: "API services",
+          categoryLink: "/docs/guides/protect-your-api/aspnet/before-you-begin/",
+          items: [
+            {
+              name: 'Go',
+              link: '/go',
+              image: '/img/homepage/stackselectors/go.png'
+            },
+             {
+              name: 'Java',
+              link: '/go',
+              image: '/img/homepage/stackselectors/java.png'
+            },
+             {
+              name: '.net',
+              link: '/go',
+              image: '/img/homepage/stackselectors/dotnet.png'
+            },
+             {
+              name: 'Node.js',
+              link: '/go',
+              image: '/img/homepage/stackselectors/nodejs.png'
+            },
+             {
+              name: 'PHP',
+              link: '/go',
+              image: '/img/homepage/stackselectors/nodejs.png'
+            }
+          ]
+        },
+      ],
+      assuranceData:[
+        {
+          description: "with HIPAA, FedRamp, SOC and more, we have you covered",
+          title: "Compliant out of the Box",
+          img: "/img/homepage/compliance-out-of-box.png"
+        },
+          {
+          description: "so your apps are working even when you’re not",
+          title: "99.99% Uptime",
+          img: "/img/homepage/standards.png"
+        },
+          {
+          description: "SAML, OpenID Connect, and OAuth 2.0 connect you to everything",
+          title: "Open Standards",
+          img: "/img/homepage/uptime.png"
+        }
+      ],
+      partnerData: [
+        {
+          alt: 'major league baseball',
+          src: '/img/homepage/partners/baseball.png'
+        },
+         {
+          alt: 'splunk',
+          src: '/img/homepage/partners/splunk.png'
+        },
+          {
+          alt: 'adobe',
+          src: '/img/homepage/partners/adobe.png'
+        },
+          {
+          alt: 'jet-blue',
+          src: '/img/homepage/partners/jet-blue.png'
+        },
+          {
+          alt: 'experian',
+          src: '/img/homepage/partners/experian.png'
+        },
+
+      ]
+    }
+  }
+}
+
+</script>
