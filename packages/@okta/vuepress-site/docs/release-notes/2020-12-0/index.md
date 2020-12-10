@@ -51,6 +51,6 @@ The [Apps API](/docs/reference/api/apps/) can now configure the Idp Initiated Lo
 
 The [Apps API](/docs/reference/api/apps/) can now configure the SLO URL behavior for SAML apps, which is also available in the Admin Console.<!--OKTA-342882-->
 
-### Group object `source` property is now GA in Production
+### Group object source property is now GA in Production
 
 For API requests that return a Group or a list of Groups, the Group object includes a source property that provides the ID of the source application for the returned Group. This property is now GA in all Production orgs. See [Group attributes](/docs/reference/api/groups/#group-attributes).<!--OKTA-344169-->
