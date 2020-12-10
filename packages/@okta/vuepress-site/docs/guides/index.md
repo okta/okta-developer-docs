@@ -19,7 +19,6 @@ guides:
  - event-hook-implementation
  - find-your-app-credentials
  - find-your-domain
- - password-import-hook
  - password-import-inline-hook
  - implement-auth-code
  - implement-auth-code-pkce
@@ -46,7 +45,6 @@ guides:
  - revoke-tokens
  - saml-tracer
  - session-cookie
- - set-up-event-hook
  - set-up-self-service-registration
  - shared-sso-android-ios
  - sharing-cert
