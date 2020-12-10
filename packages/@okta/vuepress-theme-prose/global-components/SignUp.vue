@@ -70,60 +70,6 @@
           </label>
         </div>
 
-        <input type="hidden" name="number_of_apps" value="1" />
-        <input type="hidden" name="utm_campaign__c" value="" />
-        <input type="hidden" name="utm_content__c" value="" />
-        <input type="hidden" name="utm_date__c" value="" />
-        <input type="hidden" name="utm_medium__c" value="" />
-        <input type="hidden" name="utm_page__c" value="/signup/" />
-        <input type="hidden" name="utm_source__c" value="" />
-        <input type="hidden" name="utm_term__c" value="" />
-        <input type="hidden" name="original_utm_campaign__c" value="" />
-        <input type="hidden" name="original_utm_content__c" value="" />
-        <input type="hidden" name="original_utm_date__c" value="09/28/2020" />
-        <input type="hidden" name="original_utm_medium__c" value="" />
-        <input
-          type="hidden"
-          name="original_utm_page__c"
-          value="/services/training/"
-        />
-        <input type="hidden" name="original_utm_source__c" value="" />
-        <input type="hidden" name="original_utm_term__c" value="" />
-        <input type="hidden" name="session_utm_campaign__c" value="" />
-        <input type="hidden" name="session_utm_content__c" value="" />
-        <input type="hidden" name="session_utm_date__c" value="" />
-        <input type="hidden" name="session_utm_medium__c" value="" />
-        <input
-          type="hidden"
-          name="session_utm_page__c"
-          value="/services/training/"
-        />
-        <input type="hidden" name="session_utm_source__c" value="" />
-        <input type="hidden" name="session_utm_term__c" value="" />
-        <input
-          placeholder="First Name Alternate"
-          type="hidden"
-          name="first_name_alternate"
-          value=""
-        />
-        <input type="hidden" name="type" value="okta_dev_developer" />
-        <input type="hidden" name="campaign_id" value="701F0000000mDmx" />
-        <input
-          type="hidden"
-          name="redirect_url"
-          value="https://developer.okta.com/profile"
-        />
-        <input type="hidden" name="selectedApps" value="developer" />
-        <input type="hidden" name="form_nid" value="7311" />
-        <input
-          type="hidden"
-          name="form_build_id"
-          value="form-ssf-C6plAJ_tzlACwndTIQMUVEPG4scsPzsEnlQc2nU"
-        />
-        <input type="hidden" name="form_id" value="okta_occ_form" />
-        <input id="edit-hidden-captcha-msg" type="hidden" name="hidden_captcha_msg" value="">
-        <input type="hidden" id="gclid" name="GCLID__c">
-
         <div class="row">
           <label for="country">
             Country
@@ -300,6 +246,7 @@ export default {
   methods: {
     submitForm(e) {
       e.preventDefault();
+      console.log($page.redesign)
       this.validationService.checkFormInput("firstName");
       this.validationService.checkFormInput("lastName");
       this.validationService.checkFormInput("country");

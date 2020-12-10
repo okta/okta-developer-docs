@@ -1,6 +1,4 @@
 import axios from "axios";
-import jsonAdapter from "axios-jsonp";
-
 export class Api {
   baseheaders = {
     'content-type': 'application/x-www-form-urlencoded'
