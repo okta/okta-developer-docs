@@ -144,7 +144,7 @@ Sign in to your Okta developer dashboard and navigate to **Applications** > **Ad
         document.getElementById("messageBox").innerHTML = "Hello, " + user.email + "! You are *still* logged in! :)";
         document.getElementById("logout").style.display = 'block';
       }, function(error) {
-        oktaSignIn.showSignInAndGetTokens({
+        oktaSignIn.showSignInToGetTokens({
           el: '#okta-login-container'
         }).then(function(tokens) {
           oktaSignIn.authClient.setTokens(tokens);
