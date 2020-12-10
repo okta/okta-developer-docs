@@ -175,7 +175,7 @@
         <h4>Trusted by</h4>
         <div class="partners-logo">
           <img
-            src="@okta/vuepress-site/.vuepress/public/img/authorization/proof-by.png"
+            src="/img/authorization/proof-by.png"
             alt=""
           />
         </div>
@@ -246,7 +246,6 @@ export default {
   methods: {
     submitForm(e) {
       e.preventDefault();
-      console.log($page.redesign)
       this.validationService.checkFormInput("firstName");
       this.validationService.checkFormInput("lastName");
       this.validationService.checkFormInput("country");

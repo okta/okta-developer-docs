@@ -20,8 +20,8 @@
               </li>
             </ul>
               <div class="buttons-block">
-              <a class="buttons-block--button" :href="signUpUrl" >Login</a>
-              <a class="buttons-block--button red" :href="loginUrl" >Sign Up</a>
+              <a class="buttons-block--button" :href="loginUrl" >Login</a>
+              <a class="buttons-block--button red" :href="signUpUrl" >Sign Up</a>
             </div>
           </nav>
           <div class="top-bar-nav--controls">
@@ -58,10 +58,10 @@
     },
     computed: {
       signUpUrl() {
-        return $page.redesign ? '/signup/' : 'https://developer.okta.com/developer/signup/'
+        return this.$page.redesign ? '/signup/' : 'https://developer.okta.com/developer/signup/'
       },
       loginUrl() {
-        return $page.redesign ? '/login/' : 'https://login.okta.com/'
+        return this.$page.redesign ? '/login/' : 'https://login.okta.com/'
       }
     },
     watch: {
