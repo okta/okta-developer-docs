@@ -1,7 +1,7 @@
 ---
 title: Enable and verify Event Hook
 ---
-The Event Hook must be set up and verfied within your Okta Developer Console.
+The Event Hook must be set up and verified within your Okta Developer Console.
 
 ### Set up the Event Hook
 To set up the Event Hook:
@@ -29,7 +29,7 @@ To set up the Event Hook:
 > **Note** You can also set up an Event Hook using an API. See [Inline Hooks Management](/docs/reference/api/inline-hooks/) for further information.
 
 ### Verify the Event Hook
-You must verify the Event Hook to prove your external service controls the endpoint. See the [One-Time Verification Request](docs/concepts/event-hooks/#one-time-verification-request) for further information on this process.
+You must verify the Event Hook to prove your external service controls the endpoint. See the [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for further information on this process.
 
 To complete the one-time verification of the Event Hook:
 
