@@ -56,34 +56,51 @@
             <div class="pricing-section">
               <div class="pricing-card pricing-card-table">
                 <div class="pricing-card-row pricing-card-header">
-                  <div class="pricing-card-column">
+                  <div class="pricing-card-column desktop">
                     <h3 class="pricing-card-table-name">Editions</h3>
                   </div>
-                  <div class="pricing-card-column">
-                    <h4>{{$page.frontmatter.editions[0].name}}</h4>
-                    <p>Priced at</p>
-                    <p class="pricing-card-price">{{mauPrice}}</p>
-                    <p>per month for up to</p>
-                    <select v-model="mauPrice">
-                      <option v-for="(price, index) in $page.frontmatter.pricing" :value="price.price" :key="index">
-                        {{price.maus}}
-                      </option>
-                    </select>
-                    <a :href="$page.frontmatter.links.signup" class="Button--red">Start Free</a>
-                  </div>
-                  <div class="pricing-card-column">
-                    <h4>{{$page.frontmatter.editions[1].name}}</h4>
-                    <p>{{$page.frontmatter.editions[1].subheading}}</p>
-                    <a :href="$page.frontmatter.links.contactSales" class="Button--whiteOutline">Contact Us</a>
-                  </div>
-                  <div class="pricing-card-column">
-                    <h4>{{$page.frontmatter.editions[2].name}}</h4>
-                    <p>{{$page.frontmatter.editions[2].subheading}}</p>
-                    <a :href="$page.frontmatter.links.contactSales" class="Button--whiteOutline">Contact Us</a>
-                  </div>
+                  <template v-for="(edition, index) in $page.frontmatter.editions">
+                    <div class="pricing-card-column">
+                      <h4>{{edition.name}}</h4>
+                      <template v-if="index === 0">
+                        <p>Priced at</p>
+                        <p class="pricing-card-price">{{mauPrice}}</p>
+                        <p>per month for up to</p>
+                        <select v-model="mauPrice">
+                          <option v-for="(price, index) in $page.frontmatter.pricing" :value="price.price" :key="index">
+                            {{price.maus}}
+                          </option>
+                        </select>
+                        <a :href="$page.frontmatter.links.signup" class="Button--red">Start Free</a>
+                      </template>
+                      <template v-else>
+                        <p>{{edition.subheading}}</p>
+                        <a :href="$page.frontmatter.links.contactSales" class="Button--whiteOutline">Contact Us</a>
+                      </template>
+                      <template v-for="(details, feature) in $page.frontmatter.features">
+                        <div class="pricing-card-row mobile">
+                          <div class="pricing-card-column">
+                            {{details.name}}
+                            <ul v-if="details.bullets">
+                              <li v-for="bullet in details.bullets">
+                                {{bullet}}
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="pricing-card-column" v-if="typeof edition[feature] === 'object'">
+                              <img src="/img/icons/icon--check.svg" v-if="edition[feature].enabled" />
+                              {{edition[feature].additionalNote}}
+                          </div>
+                          <div class="pricing-card-column" v-else>
+                            <img src="/img/icons/icon--check.svg" v-if="edition[feature]" />
+                          </div>
+                        </div>
+                      </template>
+                    </div>
+                  </template>
                 </div>
                 <template v-for="(details, feature) in $page.frontmatter.features">
-                  <div class="pricing-card-row">
+                  <div class="pricing-card-row desktop">
                     <div class="pricing-card-column">
                       {{details.name}}
                       <ul v-if="details.bullets">
