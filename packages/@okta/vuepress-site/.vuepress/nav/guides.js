@@ -104,7 +104,7 @@ module.exports = [
     title: 'Hook Implementations',
     subLinks: [
       { title: 'Overview and Considerations', guideName: 'overview-and-considerations'},
-      { title: 'Event Hook Implementation', guideName: 'event-hook-implementation' },
+      { title: 'Event Hook', guideName: 'event-hook-implementation' },
       { title: 'Password Import Inline Hook', guideName: 'password-import-inline-hook' },
       { title: 'Registration Inline Hook', guideName: 'registration-inline-hook' }
     ]
