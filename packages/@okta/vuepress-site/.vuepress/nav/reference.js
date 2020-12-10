@@ -21,11 +21,14 @@ module.exports = [
         { title: 'Identity Providers', path: '/docs/reference/api/idps/'},
         { title: 'Inline Hooks', path: '/docs/reference/api/inline-hooks/'},
         { title: 'Linked Objects', path: '/docs/reference/api/linked-objects/'},
+        { title: 'Mappings', path: '/docs/reference/api/mappings/'},
+        { title: 'MyAccount', path: '/docs/reference/api/myaccount/'},
         { title: 'Policy', path: '/docs/reference/api/policy/'},
         { title: 'Schemas', path: '/docs/reference/api/schemas/'},
         { title: 'Sessions', path: '/docs/reference/api/sessions/'},
         { title: 'System Log', path: '/docs/reference/api/system-log/'},
         { title: 'Templates', path: '/docs/reference/api/templates/'},
+        { title: 'ThreatInsight', path: '/docs/reference/api/threat-insight/'},
         { title: 'Trusted Origins', path: '/docs/reference/api/trusted-origins/'},
         { title: 'User Types', path: '/docs/reference/api/user-types/'},
         { title: 'Users', path: '/docs/reference/api/users/'},
@@ -39,6 +42,7 @@ module.exports = [
       { title: 'Other endpoint rate limits', path: '/docs/reference/rl-global-other-endpoints/'},
       { title: 'Additional limits', path: '/docs/reference/rl-additional-limits/'},
       { title: 'Rate limit best practices', path: '/docs/reference/rl-best-practices/'},
+      { title: 'Client-based rate limits', path: '/docs/reference/rl-clientbased/'},
       { title: 'DynamicScale', path: '/docs/reference/rl-dynamic-scale/'},
       { title: 'Previous rate limits', path: '/docs/reference/rl-previous/'}
       ]
@@ -54,5 +58,18 @@ module.exports = [
     { title: 'SCIM Protocol', path: '/docs/reference/scim/'},
     { title: 'Social IdP Settings', path: '/docs/reference/social-settings/'},
     { title: 'Token Hook', path: '/docs/reference/token-hook/'},
-    { title: 'WebFinger', path: '/docs/reference/api/webfinger/'}
+    { title: 'WebFinger', path: '/docs/reference/api/webfinger/'},
+    { title: 'Advanced Server Access', subLinks: [
+        { title: 'Introduction to the Advanced Server Access API', path: '/docs/reference/api/asa/introduction/'},
+        { title: 'ASA Attributes API', path: '/docs/reference/api/asa/attributes/'},
+        { title: 'ASA Audits API', path: '/docs/reference/api/asa/audits/'},
+        { title: 'ASA Clients API', path: '/docs/reference/api/asa/clients/'},
+        { title: 'ASA Entitlements API', path: '/docs/reference/api/asa/entitlements/'},
+        { title: 'ASA Groups API', path: '/docs/reference/api/asa/groups/'},
+        { title: 'ASA Projects API', path: '/docs/reference/api/asa/projects/'},
+        { title: 'ASA Service Users API', path: '/docs/reference/api/asa/service-users/'},
+        { title: 'ASA Teams API', path: '/docs/reference/api/asa/teams/'},
+        { title: 'ASA Users API', path: '/docs/reference/api/asa/users/'}
+      ]
+    }
   ]

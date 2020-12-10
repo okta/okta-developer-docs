@@ -1,7 +1,7 @@
 Use the `refreshTokens` method to get a new access token:
 
 ```javascript
-cont tokens = await refreshTokens();
+const tokens = await refreshTokens();
 ```
 Reponse:
 ```json

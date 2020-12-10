@@ -148,6 +148,34 @@
 	}
 }
 
+.Button--blueDarkOutline {
+	@extend %Button;
+
+	@include media('<tablet') {
+		padding: 0 12px;
+	}
+
+	border-radius: 4px;
+	background-color: white;
+	border-color: cv('blue', '900');
+	color: cv('blue', '900');
+
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	white-space: nowrap;
+
+	&:active,
+	&:hover {
+		background-color: white;
+		border-color: cv('blue', '900');
+		color: cv('blue', '900');
+	}
+
+	&:visited {
+		color: cv('blue', '900');
+	}
+}
+
 .Button--blueOutline {
 	@extend %Button;
 

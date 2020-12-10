@@ -12,20 +12,16 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
-			<span>Create Free Account</span>
-		</a>
-	</li>
-	<li>
-		<a href='/docs/guides/sign-into-spa/react/before-you-begin/' class='Button--blue' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-spa/react/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
+	<li>
+		<a href='https://github.com/okta/samples-js-react' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sample App</span>
+		</a>
+	</li>
 </ul>
-
-<a href='https://github.com/okta/samples-js-react'>
-	<span class='fa fa-github'></span> <span>React Sample App</span>
-</a>
 
 ## Okta React SDK
 
@@ -35,14 +31,14 @@ The Okta React SDK makes it easy to integrate react-router with Okta's OpenID Co
 	<span class='icon download-16'></span> <span>okta-react on npm</span>
 </a>
 
-<a href='https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react'>
+<a href='https://github.com/okta/okta-react'>
 	<span class='fa fa-github'></span> <span>React SDK Source</span>
 </a>
 
 ## Recommended Guides
 
-- [Okta React Overview](/code/react/okta_react/)
 - [Okta Sign-In Widget and React](/code/react/okta_react_sign-in_widget/)
+- [Okta Auth JS and React](/code/react/okta_react/)
 - [Implementing the PKCE Flow](/docs/guides/implement-auth-code-pkce/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)

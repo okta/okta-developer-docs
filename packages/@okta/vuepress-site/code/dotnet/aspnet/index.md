@@ -32,24 +32,18 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
-			<span>Create Free Account</span>
-		</a>
-	</li>
-	<li>
-		<a href='/docs/guides/sign-into-web-app/aspnet/before-you-begin/' class='Button--blue' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-web-app/aspnet/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
+  <li>
+    <DropdownButton caption="Sample App">
+      <DropdownButtonOption href='https://github.com/okta/samples-aspnet'>MVC & Web API</DropdownButtonOption>
+      <DropdownButtonOption href='https://github.com/okta/samples-aspnet-webforms'>Web Forms</DropdownButtonOption>
+    </DropdownButton>
+  </li>
 </ul>
 
-<a href='https://github.com/okta/samples-aspnet'>
-  <span class='fa fa-github'></span> <span>ASP.NET MVC & Web API Sample App</span>
-</a>
-</br>
-<a href='https://github.com/okta/samples-aspnet-webforms'>
-  <span class='fa fa-github'></span> <span>ASP.NET Web Forms Sample App</span>
-</a>
 
 
 ## Okta ASP.NET Integration

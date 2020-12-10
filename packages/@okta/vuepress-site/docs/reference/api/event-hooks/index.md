@@ -138,7 +138,7 @@ The response is an [Event Hook object](#event-hook-object) that represents the r
 
 ##### Request example
 
-```json
+```bash
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/eventHooks/${id}"
@@ -173,7 +173,7 @@ curl -v -X GET \
             ],
             "authScheme" : {
                 "type" : "HEADER",
-                "key" : "Authorization",
+                "key" : "Authorization"
             }
         }
     },
@@ -190,7 +190,7 @@ Returns a list of registered event hooks
 
 ##### Request example
 
-```json
+```bash
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/eventHooks"
@@ -226,7 +226,7 @@ curl -v -X GET \
             ],
             "authScheme" : {
                 "type" : "HEADER",
-                "key" : "Authorization",
+                "key" : "Authorization"
             }
         }
     },
@@ -321,7 +321,7 @@ curl -v -X PUT \
             ],
             "authScheme" : {
                 "type" : "HEADER",
-                "key" : "Authorization",
+                "key" : "Authorization"
             }
         }
     },
@@ -383,7 +383,7 @@ curl -v -X POST \
             ],
             "authScheme" : {
                 "type" : "HEADER",
-                "key" : "Authorization",
+                "key" : "Authorization"
             }
         }
     },
@@ -411,7 +411,7 @@ The response is an [Event Hook object](#event-hook-object) that represents the a
 
 ##### Request example
 
-```json
+```bash
 curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/eventHooks/${id}/lifecycle/activate"
@@ -446,7 +446,7 @@ curl -v -X POST \
             ],
             "authScheme" : {
                 "type" : "HEADER",
-                "key" : "Authorization",
+                "key" : "Authorization"
             }
         }
     },
@@ -473,7 +473,7 @@ The response is an [Event Hook object](#event-hook-object) that represents the d
 
 ##### Request example
 
-```json
+```bash
 curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/eventHooks/${id}/lifecycle/deactivate"
@@ -508,7 +508,7 @@ curl -v -X POST \
             ],
             "authScheme" : {
                 "type" : "HEADER",
-                "key" : "Authorization",
+                "key" : "Authorization"
             }
         }
     },
@@ -535,7 +535,7 @@ All responses return a 204 status with no content.
 
 ##### Request example
 
-```json
+```bash
 curl -v -X DELETE \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/eventHooks/${id}"

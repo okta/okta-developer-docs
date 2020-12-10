@@ -1665,6 +1665,44 @@ h1 {
   color: $icon-color-dark;
 }
 
+//----------------------------------------------------------//
+//        IDP icons (16px)                                  //
+//----------------------------------------------------------//
+.apple-16::before {
+  content: $apple;
+  color: $icon-color-dark;
+}
+
+.microsoft-16::before {
+  content:'';
+  background-image: url('/img/icons/microsoft-logo-16.png');
+}
+
+.icon.facebook-16::before {
+  content: $facebook-square;
+  color: $icon-color-facebook;
+}
+
+.icon.linkedin-16::before {
+  content: $linkedin-square;
+  color: $icon-color-linkedin;
+}
+
+.icon.google-16::before {
+  content:'';
+  background-image: url('/img/icons/google-logo-32.png');
+}
+
+.icon.azure::before {
+  content: '';
+  background-image: url('/img/icons/azure-ad-logo-75.png');
+}
+
+.oktatookta-16::before {
+  content: $oktatookta;
+  color: $icon-color-okta;
+}
+
 
 //----------------------------------------------------------//
 //        code/language icons (32px and generic)            //

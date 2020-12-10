@@ -15,24 +15,22 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
-			<span>Create Free Account</span>
+		<a href='/docs/guides/sign-into-mobile-app/android/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>How To Guide</span>
 		</a>
 	</li>
 	<li>
-		<a href='/docs/guides/sign-into-mobile-app/android/before-you-begin/' class='Button--blue' data-proofer-ignore>
-			<span>How To Guide</span>
+		<a href='https://github.com/okta/samples-android' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sample App</span>
 		</a>
 	</li>
 </ul>
 
-<a href='https://github.com/okta/samples-android'>
-	<span class='fa fa-github'></span> <span>Android Sample App</span>
-</a>
-
 ## Okta Android SDK
 
 The Okta OpenID Connect (OIDC) Android SDK is for communicating with OAuth 2.0 and OIDC providers.
+
+The [Okta OIDC Android SDK](https://github.com/okta/okta-oidc-android#requirements) supports Android 5.0 (lolipop) and above (minSdkVersion >= 21).
 
 <a href='https://github.com/okta/okta-oidc-android'>
 	<span class='fa fa-github'></span> <span>Android SDK Source</span>
@@ -49,7 +47,7 @@ The Okta OpenID Connect (OIDC) Android SDK is for communicating with OAuth 2.0 a
 	</li>
 	<li>
 		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-oidc-js/tree/master/packages/okta-react-native/android">
+		<a href="https://github.com/okta/okta-react-native#android-setup">
 			<span>React Native app with Okta's OpenID Connect API</span>
 		</a>
 	</li>

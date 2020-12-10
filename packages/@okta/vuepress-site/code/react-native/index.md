@@ -9,20 +9,16 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
-			<span>Create Free Account</span>
-		</a>
-	</li>
-	<li>
-		<a href='/docs/guides/sign-into-mobile-app/react-native/before-you-begin/' class='Button--blue' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-mobile-app/react-native/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
+	<li>
+		<a href='https://github.com/okta/samples-js-react-native' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sample App</span>
+		</a>
+	</li>
 </ul>
-
-<a href='https://github.com/okta/samples-js-react-native'>
-	<span class='fa fa-github'></span> <span>React Native Sample App</span>
-</a>
 
 ## Okta React Native SDK
 
@@ -35,6 +31,10 @@ The Okta React Native client makes it easy to add authentication to your React N
 <a href='https://github.com/okta/okta-react-native'>
 	<span class='fa fa-github'></span> <span>React Native SDK Source</span>
 </a>
+
+### Supported Platforms
+- iOS 11+ [Okta OIDC iOS Supported Platforms](https://github.com/okta/okta-oidc-ios#supported-platforms)
+- Android API 21+ [Okta OIDC Android MinSDK Requirements](https://github.com/okta/okta-oidc-android#requirements)
 
 ## Recommended Guides
 

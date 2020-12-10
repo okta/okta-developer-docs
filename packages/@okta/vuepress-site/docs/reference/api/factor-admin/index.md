@@ -100,154 +100,154 @@ curl -v -H "Authorization: SSWS yourtoken" \
 
 #### Response example
 
-
 ```json
-{
-        "id": "google_otp",
-        "provider": "GOOGLE",
-        "factorType": "token:software:totp",
-        "status": "ACTIVE",
-        "_links": {
-            "self": {
-                "href": "https://${yourOktaDomain}/api/v1/org/factors/google_otp",
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                }
-            },
-            "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/org/factors/google_otp/lifecycle/deactivate",
-                "hints": {
-                    "allow": [
-                        "POST"
-                    ]
-                }
-            }
+[
+  {
+    "id": "google_otp",
+    "provider": "GOOGLE",
+    "factorType": "token:software:totp",
+    "status": "ACTIVE",
+    "_links": {
+      "self": {
+        "href": "https://${yourOktaDomain}/api/v1/org/factors/google_otp",
+        "hints": {
+          "allow": [
+            "GET"
+          ]
         }
-    },
-    {
-        "id": "okta_question",
-        "provider": "OKTA",
-        "factorType": "question",
-        "status": "INACTIVE",
-        "_links": {
-            "activate": {
-                "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_question/lifecycle/activate",
-                "hints": {
-                    "allow": [
-                        "POST"
-                    ]
-                }
-            },
-            "self": {
-                "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_question",
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                }
-            }
+      },
+      "deactivate": {
+        "href": "https://${yourOktaDomain}/api/v1/org/factors/google_otp/lifecycle/deactivate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
         }
-    },
-    {
-        "id": "okta_otp",
-        "provider": "OKTA",
-        "factorType": "token:software:totp",
-        "status": "ACTIVE",
-        "_links": {
-            "self": {
-                "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_otp",
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                }
-            },
-            "deactivate": {
-                "href": "http://ryour-domain.okta.com/api/v1/org/factors/okta_otp/lifecycle/deactivate",
-                "hints": {
-                    "allow": [
-                        "POST"
-                    ]
-                }
-            }
-        }
-    },
-    {
-        "id": "okta_sms",
-        "provider": "OKTA",
-        "factorType": "sms",
-        "status": "ACTIVE",
-        "_links": {
-            "self": {
-                "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_sms",
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                }
-            },
-            "deactivate": {
-                "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_sms/lifecycle/deactivate",
-                "hints": {
-                    "allow": [
-                        "POST"
-                    ]
-                }
-            }
-        }
-    },
-    {
-        "id": "symantec_vip",
-        "provider": "SYMANTEC",
-        "factorType": "token",
-        "status": "NOT_SETUP",
-        "_links": {
-            "activate": {
-                "href": "http://ryour-domain.okta.com/api/v1/org/factors/symantec_vip/lifecycle/activate",
-                "hints": {
-                    "allow": [
-                        "POST"
-                    ]
-                }
-            },
-            "self": {
-                "href": "https://${yourOktaDomain}/api/v1/org/factors/symantec_vip",
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                }
-            }
-        }
-    },
-    {
-        "id": "rsa_token",
-        "provider": "RSA",
-        "factorType": "token",
-        "status": "NOT_SETUP",
-        "_links": {
-            "activate": {
-                "href": "https://${yourOktaDomain}/api/v1/org/factors/rsa_token/lifecycle/activate",
-                "hints": {
-                    "allow": [
-                        "POST"
-                    ]
-                }
-            },
-            "self": {
-                "href": "https://${yourOktaDomain}/api/v1/org/factors/rsa_token",
-                "hints": {
-                    "allow": [
-                        "GET"
-                    ]
-                }
-            }
-        }
+      }
     }
+  },
+  {
+    "id": "okta_question",
+    "provider": "OKTA",
+    "factorType": "question",
+    "status": "INACTIVE",
+    "_links": {
+      "activate": {
+        "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_question/lifecycle/activate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      },
+      "self": {
+        "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_question",
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "okta_otp",
+    "provider": "OKTA",
+    "factorType": "token:software:totp",
+    "status": "ACTIVE",
+    "_links": {
+      "self": {
+        "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_otp",
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      "deactivate": {
+        "href": "http://ryour-domain.okta.com/api/v1/org/factors/okta_otp/lifecycle/deactivate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "okta_sms",
+    "provider": "OKTA",
+    "factorType": "sms",
+    "status": "ACTIVE",
+    "_links": {
+      "self": {
+        "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_sms",
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      "deactivate": {
+        "href": "https://${yourOktaDomain}/api/v1/org/factors/okta_sms/lifecycle/deactivate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "symantec_vip",
+    "provider": "SYMANTEC",
+    "factorType": "token",
+    "status": "NOT_SETUP",
+    "_links": {
+      "activate": {
+        "href": "http://ryour-domain.okta.com/api/v1/org/factors/symantec_vip/lifecycle/activate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      },
+      "self": {
+        "href": "https://${yourOktaDomain}/api/v1/org/factors/symantec_vip",
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "rsa_token",
+    "provider": "RSA",
+    "factorType": "token",
+    "status": "NOT_SETUP",
+    "_links": {
+      "activate": {
+        "href": "https://${yourOktaDomain}/api/v1/org/factors/rsa_token/lifecycle/activate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      },
+      "self": {
+        "href": "https://${yourOktaDomain}/api/v1/org/factors/rsa_token",
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      }
+    }
+  }
+]
 ```
-
 ### Activate SMS
 
 

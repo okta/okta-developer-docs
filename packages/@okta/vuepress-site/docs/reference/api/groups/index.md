@@ -162,11 +162,12 @@ curl -v -X GET \
 Enumerates Groups in your organization with pagination. A subset of Groups can be returned that match a supported filter expression or query.
 
 - [List Groups with defaults](#list-groups-with-defaults)
-- [Search Groups](#search-groups)
+- [Find Groups](#find-groups)
 - [List Groups with type](#list-groups-with-type)
 - [List Groups with Profile updated after timestamp](#list-groups-with-profile-updated-after-timestamp)
 - [List Groups with membership updated after timestamp](#list-groups-with-membership-updated-after-timestamp)
 - [List Groups updated after timestamp](#list-groups-updated-after-timestamp)
+- [List Groups with Search](#list-groups-with-search)
 
 ##### Request parameters
 
@@ -176,7 +177,9 @@ Enumerates Groups in your organization with pagination. A subset of Groups can b
 | after     | Specifies the pagination cursor for the next page of Groups                                | Query     | String   | FALSE    |         |
 | filter    | [Filter expression](/docs/reference/api-overview/#filtering) for Groups      | Query     | String   | FALSE    |         |
 | limit     | Specifies the number of Group results in a page                                            | Query     | Number   | FALSE    | 10000   |
-| q         | Searches the `name` property of Groups for matching value                                  | Query     | String   | FALSE    |         |
+| q         | Finds a group that matches the `name` property                                               | Query     | String   | FALSE    |         |
+| expand        | If specified, it causes additional metadata to be included in the response. Possible values are `stats` and/or `app`.                                             | Query     | String   | FALSE    |         |
+| search <ApiLifecycle access="ea" /> | Searches for groups with a supported [filtering](/docs/reference/api-overview/#filtering) expression for all [attributes](#group-attributes) except for `_embedded`, `_links`, and `objectClass`  | Query     | String   | FALSE    |         |
 
 > **Notes:** The `after` cursor should be treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).<br><br>
 Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future.
@@ -250,11 +253,9 @@ curl -v -X GET \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups?limit=200>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups?after=00garwpuyxHaWOkdV0g4&limit=200>; rel="next"
+> **Note:** <ApiLifecycle access="ea" /> The `source` section and the `source` link in the response example below are only present in groups of type `APP_GROUP`. See [Group attributes](#group-attributes) and [Links object](#links-object).
+
+```json
 [
   {
     "id": "00g1emaKYZTWRYYRRTSK",
@@ -307,8 +308,11 @@ Link: <https://${yourOktaDomain}/api/v1/groups?after=00garwpuyxHaWOkdV0g4&limit=
       "objectSid": "S-1-5-21-717838489-685202119-709183397-1177",
       "groupScope": "Global",
       "dn": "CN=Engineering Users,OU=Engineering,DC=corp,DC=example,DC=com",
-      "windowsDomainQualifiedName": "CORP\Engineering Users",
+      "windowsDomainQualifiedName": "CORP\\Engineering Users",
       "externalId": "OZJdWdONCU6h7WjQKp+LPA=="
+    },
+    "source": {
+      "id": "0oa2v0el0gP90aqjJ0g7"
     },
     "_links": {
       "logo": [
@@ -323,6 +327,9 @@ Link: <https://${yourOktaDomain}/api/v1/groups?after=00garwpuyxHaWOkdV0g4&limit=
           "type": "image/png"
         }
       ],
+      "source": {
+        "href": "https://${yourOktaDomain}/api/v1/apps/0oa2v0el0gP90aqjJ0g7"
+      },
       "users": {
         "href": "https://${yourOktaDomain}/api/v1/groups/00garwpuyxHaWOkdV0g4/users"
       },
@@ -334,9 +341,9 @@ Link: <https://${yourOktaDomain}/api/v1/groups?after=00garwpuyxHaWOkdV0g4&limit=
 ]
 ```
 
-#### Search Groups
+#### Find Groups
 
-Searches for groups by `name` in your organization
+Finds groups by `name` in your organization
 
 > **Note:** Paging and searching are currently mutually exclusive. You can't page a query. The default limit for a query is `300` results. Query is intended for an auto-complete picker use case where users refine their search string to constrain the results. Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future. Exact matches are always returned before partial matches.
 
@@ -410,11 +417,7 @@ curl -v -X GET \
 ##### Response example
 
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups?limit=2&filter=type+eq+%22OKTA_GROUP%22>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups?after=00gak46y5hydV6NdM0g4&limit=2&filter=type+eq+%22OKTA_GROUP%22>; rel="next"
+```json
 [
   {
     "id": "00g1emaKYZTWRYYRRTSK",
@@ -503,11 +506,7 @@ curl -v -X GET \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups?limit=200&filter=lastUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups?after=00g1emaKYZTWRYYRRTSK&limit=200&filter=lastUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="next"
+```json
 [
   {
     "id": "00g1emaKYZTWRYYRRTSK",
@@ -562,11 +561,7 @@ curl -v -X GET \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups?limit=200&filter=lastMembershipUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups?after=00g1emaKYZTWRYYRRTSK&limit=200&filter=lastMembershipUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="next"
+```json
 [
   {
     "id": "00g1emaKYZTWRYYRRTSK",
@@ -655,11 +650,132 @@ curl -v -X GET \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups?limit=200&filter=lastUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22+or+lastMembershipUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups?after=00g1emaKYZTWRYYRRTSK&limit=200&filter=lastUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22+or+lastMembershipUpdated+gt+%222015-10-01T00%3A00%3A00.000Z%22>; rel="next"
+```json
+[
+  {
+    "id": "00g1emaKYZTWRYYRRTSK",
+    "created": "2015-02-06T10:11:28.000Z",
+    "lastUpdated": "2015-10-05T19:16:43.000Z",
+    "lastMembershipUpdated": "2015-11-28T19:15:32.000Z",
+    "objectClass": [
+      "okta:user_group"
+    ],
+    "type": "OKTA_GROUP",
+    "profile": {
+      "name": "West Coast Users",
+      "description": "All Users West of The Rockies"
+    },
+    "_links": {
+      "logo": [
+        {
+          "name": "medium",
+          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "type": "image/png"
+        },
+        {
+          "name": "large",
+          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "type": "image/png"
+        }
+      ],
+      "users": {
+        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/users"
+      },
+      "apps": {
+        "href": "https://${yourOktaDomain}/api/v1/groups/00g1emaKYZTWRYYRRTSK/apps"
+      }
+    }
+  },
+  {
+    "id": "00gak46y5hydV6NdM0g4",
+    "created": "2015-07-22T08:45:03.000Z",
+    "lastUpdated": "2015-07-22T08:45:03.000Z",
+    "lastMembershipUpdated": "2015-10-22T08:45:03.000Z",
+    "objectClass": [
+      "okta:user_group"
+    ],
+    "type": "OKTA_GROUP",
+    "profile": {
+      "name": "Squabble of Users",
+      "description": "Keep Calm and Single Sign-On"
+    },
+    "_links": {
+      "logo": [
+        {
+          "name": "medium",
+          "href": "https://${yourOktaDomain}/img/logos/groups/okta-medium.png",
+          "type": "image/png"
+        },
+        {
+          "name": "large",
+          "href": "https://${yourOktaDomain}/img/logos/groups/okta-large.png",
+          "type": "image/png"
+        }
+      ],
+      "users": {
+        "href": "https://${yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/users"
+      },
+      "apps": {
+        "href": "https://${yourOktaDomain}/api/v1/groups/00gak46y5hydV6NdM0g4/apps"
+      }
+    }
+  }
+]
+```
+
+#### List Groups with Search
+
+<ApiLifecycle access="ea" />
+
+Searches for groups based on the properties specified in the search parameter
+
+Property names in the search parameter are case sensitive, whereas operators (`eq`, `sw`, etc.) and string values are case insensitive.
+
+This operation:
+
+* Supports [pagination](/docs/reference/api-overview/#pagination).
+* Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
+For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`.
+Examples use cURL-style escaping instead of URL encoding to make them easier to read.
+Use an ID lookup for records that you update to ensure your results contain the latest data. Search results are eventually consistent.
+* Searches many properties:
+   - Any group profile property, including imported app group profile properties.
+   - The top-level properties `id`, `created`, `lastMembershipUpdated`, `lastUpdated`, and `type`.
+   - The <ApiLifecycle access="ea" /> [source](#group-attributes) of groups with type of `APP_GROUP`, accessed as `source.id`.
+
+| Search Term Example                                       | Description                                                               |
+| :-------------------------------------------------------- | :------------------------------------------------------------------------ |
+| `type eq "APP_GROUP"`                                     | Groups that have a `type` of `APP_GROUP`                                  |
+| `lastMembershipUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Groups whose memberships were last updated after a specific timestamp     |
+| `id eq "00gak46y5hydV6NdM0g4"`                            | Groups with a specified `id`                                              |
+| `profile.name eq "West Coast Users"`                      | Groups that have a `name` of `West Coast Users`                           |
+| `profile.samAccountName sw "West Coast" `                 | Groups whose `samAccountName` starts with `West Coast`                    |
+| `source.id` eq `0oa2v0el0gP90aqjJ0g7`                     | Groups that have the source application with a specified `source.id`      |
+
+##### Search Examples
+
+List groups of type `APP_GROUP` that were created before `01/01/2014` and whose source application has the ID `0oa2v0el0gP90aqjJ0g7`.
+
+    search=type eq "APP_GROUP" and (created lt "2014-01-01T00:00:00.000Z" and source.id eq "0oa2v0el0gP90aqjJ0g7")
+
+List groups that have a `name` that starts with `West Coast` or have a `samAccountName` of `West Coast Users` or whose source application has the ID `0oa2v0el0gP90aqjJ0g7`.
+
+    search=profile.name sw "West Coast" or profile.samAccountName eq "West Coast Users" or source.id eq "0oa2v0el0gP90aqjJ0g7"
+
+##### Request Example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/groups?search=lastUpdated+gt+\"2015-10-01T00:00:00.000Z\"+or+lastMembershipUpdated+gt+\"2015-10-01T00:00:00.000Z\""
+```
+
+##### Response example
+
+
+```json
 [
   {
     "id": "00g1emaKYZTWRYYRRTSK",
@@ -736,10 +852,10 @@ Link: <https://${yourOktaDomain}/api/v1/groups?after=00g1emaKYZTWRYYRRTSK&limit=
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}" />
 
-Updates the Profile for a Group with `OKTA_GROUP` type from your organization
+Updates the profile for a group of `OKTA_GROUP` type from your organization
 
-> **Notes:** You can modify only Profiles for Groups with `OKTA_GROUP` type.<br><br>
-Application imports are responsible for updating Group Profiles with `APP_GROUP` type such as Active Directory Groups.
+> **Notes:** You can modify only profiles for groups of `OKTA_GROUP` type.<br><br>
+Application imports are responsible for updating profiles for groups of `APP_GROUP` type such as Active Directory groups.
 
 ##### Request parameters
 
@@ -749,7 +865,7 @@ Application imports are responsible for updating Group Profiles with `APP_GROUP`
 | id        | ID of the Group to update     | URL       | String                            | TRUE     |         |
 | profile   | Updated Profile for the Group | Body      | [Profile object](#profile-object) | TRUE     |         |
 
-> **Note:** All Profile properties must be specified when updating a Groups's Profile. Partial updates aren't supported.
+> **Note:** All Profile properties must be specified when updating a groups's profile. Partial updates aren't supported.
 
 ##### Response parameters
 
@@ -773,7 +889,6 @@ curl -v -X PUT \
 ##### Response example
 
 ```json
-
 {
   "id": "00ub0oNGTSWTBKOLGLNR",
   "created": "2015-02-06T10:11:28.000Z",
@@ -814,24 +929,22 @@ curl -v -X PUT \
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}" />
 
-Removes a Group with `OKTA_GROUP` or `APP_GROUP` type from your organization
+Removes a group of `OKTA_GROUP` or `APP_GROUP` type from your organization
 
-> **Note:** You can't remove Groups with type `APP_GROUP` if they are used in a Group push mapping.
+> **Note:** You can't remove groups of type `APP_GROUP` if they are used in a group push mapping.
 
 ##### Request parameters
 
 
 | Parameter | Description                 | ParamType | DataType | Required | Default |
 | --------- | --------------------------- | --------- | -------- | -------- | ------- |
-| id        | `id` of the Group to delete | URL       | String   | TRUE     |         |
+| id        | ID of the Group to delete | URL       | String   | TRUE     |         |
 
 ##### Response parameters
-
 
 N/A
 
 ##### Request example
-
 
 ```bash
 curl -v -X DELETE \
@@ -841,9 +954,7 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/groups/00ub0oNGTSWTBKOLGLNR"
 ```
 
-
 ##### Response example
-
 
 ```http
 HTTP/1.1 204 No Content
@@ -853,18 +964,16 @@ HTTP/1.1 204 No Content
 
 ### List Group members
 
-
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/users" />
 
 Enumerates all [users](/docs/reference/api/users/#user-object) that are a member of a Group
 
 ##### Request parameters
 
-
 | Parameter | Description                                                | ParamType | DataType | Required | Default |
 | --------- | ---------------------------------------------------------- | --------- | -------- | -------- | ------- |
 | after     | Specifies the pagination cursor for the next page of users | Query     | String   | FALSE    |         |
-| id        | `id` of the Group                                          | URL       | String   | TRUE     |         |
+| id        | ID of the Group                                          | URL       | String   | TRUE     |         |
 | limit     | Specifies the number of user results in a page             | Query     | Number   | FALSE    | 1000    |
 
 > **Note:** Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
@@ -889,11 +998,7 @@ curl -v -X GET \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/users?limit=200>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/users?after=00u1f9cMYQZFMPVXIDIZ&limit=200>; rel="next"
+```json
 [
   {
     "id": "00u1f96ECLNVOKVMUSEA",
@@ -960,17 +1065,17 @@ Link: <https://${yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/users?after=
 
 <ApiOperation method="put" url="/api/v1/groups/${groupId}/users/${userId}" />
 
-Adds a [user](/docs/reference/api/users/#user-object) to a Group with `OKTA_GROUP` type
+Adds a [user](/docs/reference/api/users/#user-object) to a group of `OKTA_GROUP` type
 
-> **Notes:** You can modify only memberships for Groups with `OKTA_GROUP` type.<br><br>
-Application imports are responsible for managing Group memberships for Groups with `APP_GROUP` type such as Active Directory Groups.
+> **Notes:** You can modify only memberships for groups of `OKTA_GROUP` type.<br><br>
+Application imports are responsible for managing group memberships for groups of `APP_GROUP` type such as Active Directory groups.
 
 ##### Request parameters
 
 
 | Parameter | Description     | ParamType | DataType | Required | Default |
 | --------- | --------------- | --------- | -------- | -------- | ------- |
-| groupId   | id of the Group | URL       | String   | TRUE     |         |
+| groupId   | `id` of the Group | URL       | String   | TRUE     |         |
 | userId    | `id` of a user  | URL       | String   | TRUE     |         |
 
 ##### Response parameters
@@ -997,10 +1102,10 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/users/${userId}" />
 
-Removes a [user](/docs/reference/api/users/#user-object) from a Group with `OKTA_GROUP` type
+Removes a [user](/docs/reference/api/users/#user-object) from a group of `OKTA_GROUP` type
 
-> **Notes:** You can modify only memberships for Groups with `OKTA_GROUP` type.<br><br>
-Application imports are responsible for managing Group memberships for Groups with `APP_GROUP` type such as Active Directory Groups.
+> **Notes:** You can modify only memberships for groups of `OKTA_GROUP` type.<br><br>
+Application imports are responsible for managing group memberships for groups of `APP_GROUP` type such as Active Directory groups.
 
 ##### Request parameters
 
@@ -1097,7 +1202,6 @@ curl -v -X POST \
 ##### Response example
 
 ```json
-
 {
   "type": "group_rule",
   "id": "0pr3f7zMZZHPgUoWO0g4",
@@ -1267,10 +1371,6 @@ curl -v -X GET \
 ##### Response example
 
 ```json
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups/rules?limit=20>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups/rules?after=0pr3f7zMZZHPgUoWO0g4&limit=20>; rel="next"
 [
   {
     "type": "group_rule",
@@ -1359,7 +1459,7 @@ Fetches a specific Group rule by ID from your organization
 | Parameter      | Description                                                    | ParamType  | DataType                          | Required | Default |
 | -------------- | -------------------------------------------------------------- | ---------- | --------------------------------- | -------- | ------- |
 | expand         | If specified as `groupIdToGroupNameMap`, then show Group names | Query      | String                            | FALSE    |         |
-| id             | id of a Group rule                                             | URL        | String                            | TRUE     |         |
+| id             | ID of a Group Rule                                             | URL        | String                            | TRUE     |         |
 
 ##### Response parameters
 
@@ -1423,7 +1523,7 @@ Removes a specific Group rule by ID from your organization
 
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
-| `id`             | ID of a Group rule                                           | URL        | String                            | TRUE     |         |
+| `id`             | ID of a Group Rule                                           | URL        | String                            | TRUE     |         |
 
 ##### Response parameters
 
@@ -1459,7 +1559,7 @@ Activates a specific Group rule by ID from your organization
 
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
-| `id`             | ID of a Group rule                                           | URL        | String                            | TRUE     |         |
+| `id`             | ID of a Group Rule                                           | URL        | String                            | TRUE     |         |
 
 ##### Response parameters
 
@@ -1495,7 +1595,7 @@ Deactivates a specific Group rule by ID from your organization
 
 | Parameter      | Description                                                  | ParamType  | DataType                          | Required | Default |
 | -------------- | ------------------------------------------------------------ | ---------- | --------------------------------- | -------- | ------- |
-| `id `            | ID of a group rule                                           | URL        | String                            | TRUE     |         |
+| `id `            | ID of a Group Rule                                           | URL        | String                            | TRUE     |         |
 
 ##### Response parameters
 
@@ -1534,7 +1634,7 @@ Enumerates all [Applications](/docs/reference/api/apps/#application-object) that
 | Parameter | Description                                               | ParamType | DataType | Required | Default |
 | --------- | --------------------------------------------------------- | --------- | -------- | -------- | ------- |
 | after     | Specifies the pagination cursor for the next page of apps | Query     | String   | FALSE    |         |
-| id        | id of the Group                                           | URL       | String   | TRUE     |         |
+| id        | ID of the Group                                           | URL       | String   | TRUE     |         |
 | limit     | Specifies the number of app results for a page            | Query     | Number   | FALSE    | 20      |
 
 > **Note:** Treat the page cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
@@ -1556,11 +1656,7 @@ curl -v -X GET \
 ##### Response example
 
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/apps>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/groups/00g1fanEFIQHMQQJMHZP/apps?after=0oafxqCAJWWGELFTYASJ>; rel="next"
+```json
 [
  {
         "id": "0oafwvZDWJKVLDCUWUAC",
@@ -1721,17 +1817,23 @@ All groups have the following properties:
 
 | Property              | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
 | --------------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| _embedded             | embedded resources related to the Group                      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
-| _links                | [discoverable resources](#links-object) related to the Group | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
-| created               | timestamp when Group was created                             | Date                                                           | FALSE    | FALSE  | TRUE     |           |           |            |
-| id                    | unique key for Group                                         | String                                                         | FALSE    | TRUE   | TRUE     |           |           |            |
-| lastMembershipUpdated | timestamp when Group's memberships were last updated         | Date                                                           | FALSE    | FALSE  | TRUE     |           |           |            |
-| lastUpdated           | timestamp when Group's `profile` was last updated            | Date                                                           | FALSE    | FALSE  | TRUE     |           |           |            |
-| objectClass           | determines the Group's `profile`                             | Array of String                                                | TRUE     | FALSE  | TRUE     | 1         |           |            |
-| profile               | the Group's Profile properties                               | [Profile object](#profile-object)                              | FALSE    | FALSE  | FALSE    |           |           |            |
-| type                  | determines how a Group's Profile and memberships are managed | [Group Type](#group-type)                                      | FALSE    | FALSE  | TRUE     |           |           |            |
+| _embedded             | Embedded resources related to the Group                      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
+| _links                | [Discoverable resources](#links-object) related to the Group | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |           |           |            |
+| created               | Timestamp when Group was created                             | Date                                                           | FALSE    | FALSE  | TRUE     |           |           |            |
+| id                    | Unique key for Group                                         | String                                                         | FALSE    | TRUE   | TRUE     |           |           |            |
+| lastMembershipUpdated | Timestamp when Group's memberships were last updated         | Date                                                           | FALSE    | FALSE  | TRUE     |           |           |            |
+| lastUpdated           | Timestamp when Group's `profile` was last updated            | Date                                                           | FALSE    | FALSE  | TRUE     |           |           |            |
+| objectClass           | Determines the Group's `profile`                             | Array of String                                                | TRUE     | FALSE  | TRUE     | 1         |           |            |
+| profile               | The Group's Profile properties                               | [Profile object](#profile-object)                              | FALSE    | FALSE  | FALSE    |           |           |            |
+| type                  | Determines how a Group's Profile and memberships are managed | [Group Type](#group-type)                                      | FALSE    | FALSE  | TRUE     |           |           |            |
 
 > **Note:** The `id`, `created`, `lastUpdated`, `lastMembershipUpdated`, `objectClass`, `type`, and `_links` properties are available only after you create a Group.
+
+In addition, groups of type `APP_GROUP` also have the following properties:
+
+| Property                              | Description                                                                                     | DataType                   | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------- | -------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| source <ApiLifecycle access="ea" />   | The ID of the source [application](/docs/reference/api/apps/#application-object) of the group   | Array of String            | FALSE    | FALSE  | TRUE     |           |           |            |
 
 ### Group type
 
@@ -1755,8 +1857,8 @@ Profile for any Group that is not imported from Active Directory
 
 | Property    | Description              | DataType | Nullable | Readonly | MinLength | MaxLength | Validation |
 | ----------- | ------------------------ | -------- | -------- | -------- | --------- | --------- | ---------- |
-| name        | name of the Group        | String   | FALSE    | FALSE    | 1         | 255       |            |
-| description | description of the Group | String   | TRUE     | FALSE    | 0         | 1024      |            |
+| name        | Name of the Group        | String   | FALSE    | FALSE    | 1         | 255       |            |
+| description | Description of the Group | String   | TRUE     | FALSE    | 0         | 1024      |            |
 
 ```json
 {
@@ -1809,12 +1911,12 @@ Profile for a Group that is imported from Active Directory
 
 | Property                   | Description                                            | DataType | Nullable  | Readonly | MinLength | MaxLength | Validation |
 | -------------------------- | ------------------------------------------------------ | -------- | --------- | -------- | --------- | --------- | ---------- |
-| description                | description of the Windows Group                       | String   | FALSE     | TRUE     |           |           |            |
-| dn                         | the distinguished name of the Windows Group            | String   | FALSE     | TRUE     |           |           |            |
-| externalId                 | base-64 encoded GUID (objectGUID) of the Windows Group | String   | FALSE     | TRUE     |           |           |            |
-| name                       | name of the Windows Group                              | String   | FALSE     | TRUE     |           |           |            |
-| samAccountName             | pre-Windows 2000 name of the Windows Group             | String   | FALSE     | TRUE     |           |           |            |
-| windowsDomainQualifiedName | fully qualified name of the Windows Group              | String   | FALSE     | TRUE     |           |           |            |
+| description                | Description of the Windows Group                       | String   | FALSE     | TRUE     |           |           |            |
+| dn                         | The distinguished name of the Windows Group            | String   | FALSE     | TRUE     |           |           |            |
+| externalId                 | Base-64 encoded GUID (objectGUID) of the Windows Group | String   | FALSE     | TRUE     |           |           |            |
+| name                       | Name of the Windows Group                              | String   | FALSE     | TRUE     |           |           |            |
+| samAccountName             | Pre-Windows 2000 name of the Windows Group             | String   | FALSE     | TRUE     |           |           |            |
+| windowsDomainQualifiedName | Fully qualified name of the Windows Group              | String   | FALSE     | TRUE     |           |           |            |
 
 ```json
 {
@@ -1838,6 +1940,7 @@ Specifies link relations. See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | apps               | Lists all [applications](/docs/reference/api/apps/#application-object) that are assigned to the Group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations).          |
 | logo               | Provides links to logo images for the Group if available                     |
 | self               | The primary URL for the Group                                                                                             |
+| source <ApiLifecycle access="ea" /> | The URL for the source [application](/docs/reference/api/apps/#application-object) of the group. This link attribute is only present in groups of `APP_GROUP` type.          |
 | users              | Provides [Group member operations](#group-member-operations) for the Group                                                      |
 
 > **Note:** The Links object is read-only.

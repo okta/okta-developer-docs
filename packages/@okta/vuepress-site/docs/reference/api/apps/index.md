@@ -9,7 +9,7 @@ The Okta Application API provides operations to manage applications and/or assig
 
 ## Get started
 
-Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/18dd817ee8abace68dd8)
+Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/41a737560876d6003ce5)
 
 ## Application operations
 
@@ -45,7 +45,6 @@ Adds a new Bookmark application to your organization
 | url                | The URL of the launch page for this app                 | String   | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 
 ##### Request example
-
 
 ```bash
 curl -v -X POST \
@@ -220,6 +219,138 @@ curl -v -X POST \
     },
     "deactivate": {
       "href": "https://${yourOktaDomain}/api/v1/apps/0oafwvZDWJKVLDCUWUAC/lifecycle/deactivate"
+    }
+  }
+}
+```
+
+#### Add Okta Org2Org application
+
+Adds a new Okta Org2Org application to your organization
+
+##### Settings
+
+
+| Parameter          | Description                                             | DataType | Nullable | Unique | Validation                                |
+| ------------------ | ------------------------------------------------------- | -------- | -------- | ------ | ----------------------------------------  |
+| acsUrl  | The Assertion Consumer Service (ACS) URL of the source org | String | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| audRestriction  | Audience URI | String | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+| baseUrl | The login URL of the target Okta org | String  | TRUE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
+
+##### Request example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "name": "okta_org2org",
+  "label": "Sample Okta Org2Org App",
+  "signOnMode": "SAML_2_0",
+  "settings": {
+    "app": {
+      "acsUrl": "https://example.okta.com/sso/saml2/exampleid",
+      "audRestriction": "https://www.okta.com/saml2/service-provider/exampleid",
+      "baseUrl": "https://example.okta.com"
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/apps"
+```
+
+##### Response example
+
+
+```json
+{
+  "id":"0oawpacQMRQtvkxOf0g3",
+  "name":"okta_org2org",
+  "label":"Sample Okta Org2Org App",
+  "status":"ACTIVE",
+  "lastUpdated":"2020-10-29T17:31:38.000Z",
+  "created":"2020-10-29T17:31:37.000Z",
+  "accessibility":{
+    "selfService":false,
+    "errorRedirectUrl":null,
+    "loginRedirectUrl":null
+  },
+  "visibility":{
+    "autoSubmitToolbar":false,
+    "hide":{
+      "iOS":false,
+      "web":false
+    },
+    "appLinks":{
+      "login":true
+    }
+  },
+  "features":[],
+  "signOnMode":"SAML_2_0",
+  "credentials":{
+    "userNameTemplate":{
+      "template":"${source.login}",
+      "type":"BUILT_IN"
+    },
+    "signing":{
+      "kid":"8UZti4303PKyV45L1KmnSuI8obmjYEsj_X5kPp_ES60"
+    }
+  },
+  "settings":{
+    "app":{
+      "acsUrl":"https://example.okta.com/sso/saml2/exampleid",
+      "audRestriction":"https://www.okta.com/saml2/service-provider/exampleid",
+      "baseUrl":"https://example.okta.com"
+    },
+    "notifications":{
+      "vpn":{
+        "network":{
+          "connection":"DISABLED"
+        },
+        "message":null,
+        "helpUrl":null
+      }
+    },
+    "signOn":{
+      "defaultRelayState":null,
+      "ssoAcsUrlOverride":null,
+      "audienceOverride":null,
+      "recipientOverride":null,
+      "destinationOverride":null,
+      "attributeStatements":[]
+    }
+  },
+  "_links":{
+    "help":{
+      "href":"http://${yourOktaDomain}/app/okta_org2org/0oawpacQMRQtvkxOf0g3/setup/help/SAML_2_0/external-doc",
+      "type":"text/html"
+    },
+    "metadata":{
+      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/sso/saml/metadata",
+      "type":"application/xml"
+    },
+    "appLinks":[
+      {
+        "name":"login",
+        "href":"http://${yourOktaDomain}/home/okta_org2org/0oawpacQMRQtvkxOf0g3/1857",
+        "type":"text/html"
+      }
+    ],
+    "groups":{
+      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/groups"
+    },
+    "logo":[
+      {
+        "name":"medium",
+        "href":"http://${yourOktaDomain}/assets/img/logos/okta-logo-admin.f5cef92fdcff9fbc3b1835def5de1314.png",
+        "type":"image/png"
+      }
+    ],
+    "users":{
+      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/users"
+    },
+    "deactivate":{
+      "href":"http://${yourOktaDomain}/api/v1/apps/0oawpacQMRQtvkxOf0g3/lifecycle/deactivate"
     }
   }
 }
@@ -1157,16 +1288,16 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | :------------------------------------------ | :--------------------------------------------------------------------------------------------                                                                                                                              | :--------------------------------------------------------------------------------------------- | :--------- | :------- | :--------- |
 | application_type                            | The type of client application                                                                                                                                                                                             | `web`, `native`, `browser`, or `service`                                                       | TRUE       | FALSE    | TRUE       |
 | client_uri                                  | URL string of a web page providing information about the client                                                                                                                                                            | String                                                                                         | TRUE       | FALSE    | FALSE      |
-| consent_method <ApiLifecycle access="ea" /> | Indicates whether user consent is required or implicit. Valid values: `REQUIRED`, `TRUSTED`. Default value is `TRUSTED`                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
+| consent_method                              | Indicates whether user consent is required or implicit. Valid values: `REQUIRED`, `TRUSTED`. Default value is `TRUSTED`                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
 | grant_types                                 | Array of OAuth 2.0 grant type strings                                                                                                                                                                                      | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`   | FALSE      | FALSE    | TRUE       |
 | initiate_login_uri                          | URL string that a third party can use to initiate a sign in by the client                                                                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
 | issuer_mode <ApiLifecycle access="ea" />    | Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client. See [Details](#details). | `CUSTOM_URL` or `ORG_URL`                                                                      | TRUE       | FALSE    | TRUE       |
 | logo_uri                                    | URL string that references a logo for the client. This value is used with the client consent dialog box during the client consent flow. See [Details](#details).| URL                                                                                            | TRUE       | FALSE    | FALSE      |
-| policy_uri <ApiLifecycle access="ea" />     | URL string of a web page providing the client's policy document                                                                                                                                                            | URL                                                                                            | TRUE       | FALSE    | FALSE      |
+| policy_uri                                  | URL string of a web page providing the client's policy document                                                                                                                                                            | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | post_logout_redirect_uris                               | Array of redirection URI strings for relying party-initiated logouts                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | FALSE       |
 | redirect_uris                               | Array of redirection URI strings for use in redirect-based flows                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | TRUE       |
 | response_types                              | Array of OAuth 2.0 response type strings                                                                                                                                                                                   | Array of `code`, `token`, `id_token`                                                           | TRUE       | FALSE    | TRUE       |
-| tos_uri <ApiLifecycle access="ea" />        | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
+| tos_uri                                     | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 
 ###### Details
 
@@ -1189,7 +1320,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * The `grant_types` and `response_types` values described above are partially orthogonal, as they refer to arguments passed to different endpoints in the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749). However, they are related in that the `grant_types` available to a client influence the `response_types` that the client is allowed to use, and vice versa. For instance, a `grant_types` value that includes `authorization_code` implies a `response_types` value that includes `code`, as both values are defined as part of the OAuth 2.0 authorization code grant.
 
-* <ApiLifecycle access="ea" /> A consent dialog appears depending on the values of three elements:
+* A consent dialog appears depending on the values of three elements:
     * `prompt`: a query parameter used in requests to [`/oauth2/${authServerId}/v1/authorize`](/docs/reference/api/oidc/#authorize)(custom authorization server) or [`/oauth2/v1/authorize`](/docs/reference/api/oidc/#authorize) (Org authorization server)
     * `consent_method`: a property listed in the Settings table above
     * `consent`: a property on [scopes](/docs/reference/api/authorization-servers/#scope-properties)
@@ -3069,9 +3200,9 @@ curl -v -X PUT \
 
 ##### Response example (self-service application assignment not available)
 
-If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) with profile mappings (Universal Directory) and how to update user permissions on properties in the user profile to secure your app before enabling self-service.
+If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) with profile mappings (Universal Directory). You can also read about how to update user permissions on properties in the user profile to secure your app before enabling self-service.
 
-``` http
+```http
 HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
@@ -3331,13 +3462,13 @@ curl -v -X DELETE \
 
 ##### Response example
 
-``` http
+```http
 HTTP/1.1 204 No Content
 ```
 
 If the application has an `ACTIVE` status, the response contains an error message.
 
-``` http
+```http
 HTTP/1.1 403 Forbidden
 Content-Type: application/json
 
@@ -4167,11 +4298,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```http
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/keys/SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4
-
+```json
 {
   "created": "2015-12-10T18:56:23.000Z",
   "expiresAt": "2017-12-10T18:56:22.000Z",
@@ -4189,10 +4316,7 @@ Location: https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials
 
 If `validityYears` is out of range (2 - 10 years), you receive an error response.
 
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
+```json
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: generateKey",
@@ -4241,11 +4365,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```http
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/apps/0oal21k0DVN7DhS3R0g3/credentials/keys/SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4
-
+```json
 {
   "created": "2015-12-10T18:56:23.000Z",
   "expiresAt": "2017-12-10T18:56:22.000Z",
@@ -4263,10 +4383,7 @@ Location: https://${yourOktaDomain}/api/v1/apps/0oal21k0DVN7DhS3R0g3/credentials
 
 If the key is already present in the list of key credentials for the target application, you receive a 400 error response.
 
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
+```json
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: cloneKey",
@@ -4528,11 +4645,7 @@ MIIC4DCCAcgCAQAwcTELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNh
 
 Returns a [CSR object](#application-csr-object)
 
-```http
-HTTP/1.1 201 Created
-Location: https://${yourOktaDomain}/api/v1/apps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50
-Content-Type: application/json
-
+```json
 {
   "id": "h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
   "created": "2017-03-28T01:11:10.000Z",
@@ -4584,7 +4697,7 @@ Returns the new [Application Key Credential](#application-key-credential-object)
 
 ##### Request example
 
-Publishes with an X.509 certificate in base64 encoded `DER``
+Publishes with an X.509 certificate in base64 encoded `DER`
 
 ```bash
 curl -v -X POST \
@@ -4620,11 +4733,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```http
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/apps/0oal21k0DVN7DhS3R0g3/credentials/keys/ZC5C-1gEUwVxiYI8xdmYYDI3Noc4zI24fLNxBpZVR04
-
+```json
 {
     "created": "2017-03-27T21:19:57.000Z",
     "lastUpdated": "2017-03-27T21:19:57.000Z",
@@ -4643,10 +4752,7 @@ Location: https://${yourOktaDomain}/api/v1/apps/0oal21k0DVN7DhS3R0g3/credentials
 
 If the certificate doesn't match the CSR or its validaty period is less than 90 days, you receive a 400 error response.
 
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
+```json
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: certificate",
@@ -4912,7 +5018,6 @@ curl -v -X POST \
 }
 ```
 
-
 ### List scope consent grants for application
 
 <ApiLifecycle access="ea" />
@@ -5112,7 +5217,7 @@ curl -v -X DELETE \
 
 #### Response example
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -5326,7 +5431,7 @@ curl -v -X DELETE \
 
 #### Response example
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -5357,7 +5462,7 @@ curl -v -X DELETE \
 
 #### Response example
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -5854,13 +5959,13 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
 | URI Reference    | urn:oasis:names:tc:SAML:2.0:attrname-format:uri         |
 | Unspecified      | urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified |
 
+> **Note:** This example is abbreviated.
+
 ```json
 {
-  ...
   "settings": {
     "signOn": {
-      ...
-      "attributeStatements": [
+        "attributeStatements": [
         {
           "type": "EXPRESSION",
           "name": "Attribute One",
@@ -5892,7 +5997,7 @@ Group Attribute Statements can be used in place of Attribute Statements if your 
 
 ### Profile object
 
-Profile object is a container for any valid JSON schema that can be referenced from a request. For example, add an app manager contact email address or define a whitelist of groups that you can then reference using the [Okta Expression `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
+Profile object is a container for any valid JSON schema that can be referenced from a request. For example, add an app manager contact email address or define an allow list of groups that you can then reference using the [Okta Expression `getFilteredGroups`](/docs/reference/okta-expression-language/#group-functions).
 
 Profile Requirements
 

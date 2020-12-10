@@ -1,4 +1,4 @@
-Your code can get the user's profile using the [getUser](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular#oktaauthgetuser) method on the [OktaAuthService](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular#oktaauthservice).
+Your code can get the user's profile using the [getUser](https://github.com/okta/okta-angular#oktaauthgetuser) method on the [OktaAuthService](https://github.com/okta/okta-angular#oktaauthservice).
 
 ```javascript
 import { Component, OnInit } from '@angular/core';
@@ -15,7 +15,7 @@ export class ProfileComponent implements OnInit {
   }
 
   async ngOnInit() {
-    // returns an array of claims
+    // returns an object with user's claims
     const userClaims = await this.oktaAuth.getUser();
 
     // user name is exposed directly as property

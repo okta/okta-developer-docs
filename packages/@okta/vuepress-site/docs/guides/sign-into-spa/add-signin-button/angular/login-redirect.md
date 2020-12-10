@@ -1,4 +1,4 @@
-The [OktaAuthService](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular#oktaauthservice) is injected in your component's constructor by Angular's dependency injection system. You can use the [oktaAuth.isAuthenticated()](https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular#oktaauthisauthenticated) method to show/hide the correct button.
+The [OktaAuthService](https://github.com/okta/okta-angular#oktaauthservice) is injected in your component's constructor by Angular's dependency injection system. You can use the [oktaAuth.isAuthenticated()](https://github.com/okta/okta-angular#oktaauthisauthenticated) method to show/hide the correct button.
 
 ```javascript
 import { Component } from '@angular/core';

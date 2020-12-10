@@ -13,15 +13,10 @@ The OIN Manager always shows the current status of your integration.
 
 ### Step 2: Code Review
 
-* **Pending review by Okta** &mdash; The Okta OIN team is now conducting internal QA tests and will notify you by email when the QA review is complete.
+* **Pending review by Okta** &mdash; The Okta OIN team is now conducting internal QA tests and will notify you by email when the QA review is complete. If the QA test is successful, your submission is automatically published in the OIN.
 * **Action required** &mdash; Okta has found QA issues that require your correction. Check your email for results from the Okta QA review. Make the requested changes as an update to your existing submission.
 
-### Step 3: Approved
-
-* **Action required** &mdash; Your submission has passed the QA testing process. Click **Publish Integration** to approve it for publication to the OIN catalog.
-* **Pending review by Okta** &mdash; The Okta OIN team will publish your submission within three business days.
-
-### Step 4: Published
+### Step 3: Published
 
 * Congratulations, your integration is published in the OIN!
 

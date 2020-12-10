@@ -1,38 +1,17 @@
-After performing [local signout](/docs/guides/sign-users-out/react/sign-out-of-your-app/), navigate the user's browser to the [OIDC logout page](https://developer.okta.com/docs/reference/api/oidc/#logout).
-
-This page clears the user's Okta session, and then redirects back to the `post_logout_redirect_uri` that is provided. This URI must be one of those listed in the `Logout redirect URI` section of your application's settings.
-
-Open your Okta Developer Console:
-
-<a href="https://login.okta.com/" target="_blank" class="Button--blue">Go to Console</a>
-
-1. Select **Applications**, and then select your application.
-
-2. Select **General** and click **Edit**.
-
-3. In the **Logout redirect URI section**, add the **Base URI** of your application. You can optionally follow that URI with a path (for example, `http://localhost:8080/logged_out`). Also, add any URIs where your application runs in production, such as `https://app.example.com/logged_out`.
-
-4. Click **Save**.
+This navigate the user's browser to the [OIDC logout page](/docs/reference/api/oidc/#logout), and then redirects back to the [postLogoutRedirectUri](https://github.com/okta/okta-auth-js#postlogoutredirecturi) that was specified in the config (or `window.location.origin` if no `postLogoutRedirectUri` was specified). This URI must be one of those listed in the `Logout redirect URI` section of your application's settings. See [Define the signout callback](/docs/guides/sign-users-out/define-signout-callback/).
 
 Function-based component example:
 ```javascript
 import React from 'react';
 import { useOktaAuth } from '@okta/okta-react';
 
-const issuer = 'https://${yourOktaDomain}/oauth2/default';
-const redirectUri = `${window.location.origin}/logged_out`;
-
 // Basic component with logout button
 const Logout = () => { 
-  const { authState, authService } = useOktaAuth();
+  const { authService } = useOktaAuth();
 
   const logout = async () => {
-    // Read idToken before local session is cleared
-    const idToken = authState.idToken;
-    await authService.logout('/');
-
-    // Clear remote session
-    window.location.href = `${issuer}/v1/logout?id_token_hint=${idToken}&post_logout_redirect_uri=${redirectUri}`;
+    // Will redirect to Okta to end the session then redirect back to the configured `postLogoutRedirectUri`
+    await authService.signOut();
   };
 
   return (
@@ -56,14 +35,8 @@ class Logout extends Component {
   }
 
   async logout() {
-    // Read idToken before local session is cleared
-    const idToken = this.props.authState.idToken;
-
-    // Clear local session
-    await this.props.authService.logout('/');
-
-    // Clear remote session
-    window.location.href = `${issuer}/v1/logout?id_token_hint=${idToken}&post_logout_redirect_uri=${redirectUri}`;
+    // Will redirect to Okta to end the session then redirect back to the configured `postLogoutRedirectUri`
+    await this.props.authService.signOut();
   }
 
   render() {
@@ -75,7 +48,6 @@ class Logout extends Component {
 
 // withOktaAuth() makes the Okta 
 // - "authService" object available as "this.props.authService"
-// - "authState" object available as "this.props.authState"
 Logout = withOktaAuth(Logout);
 export default Logout;
 ```

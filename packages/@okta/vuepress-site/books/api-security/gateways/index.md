@@ -5,7 +5,7 @@ title: API Gateways
 
 <div class="chapter-author">By Keith Casey</div>
 
-An API gateway is a firewall that sits between your API and your users. They range from the simplest proxies which apply throttling and white/blacklisting to fully configurable platforms with fine-grained access mapping individual permissions to specific HTTP verbs and endpoints. Realistically, using an API gateway is not necessary but it makes some things faster, easier, and more reliable, which allows you to focus on your API.
+An API gateway is a firewall that sits between your API and your users. They range from the simplest proxies which apply throttling and IP address allowing/blocking to fully configurable platforms with fine-grained access mapping individual permissions to specific HTTP verbs and endpoints. Realistically, using an API gateway is not necessary but it makes some things faster, easier, and more reliable, which allows you to focus on your API.
 
 The most prominent gateways are [Google's Apigee](https://apigee.com/api-management/), [Salesforce's MuleSoft](https://www.mulesoft.com/), the [AWS API Gateway](https://aws.amazon.com/api-gateway/), [Microsoft Azure's API Management](https://azure.microsoft.com/en-us/services/api-management/), and the [Kong API Gateway](https://konghq.com/) but the most appropriate gateway for your project will vary depending on context, use cases, and budget.
 

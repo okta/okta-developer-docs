@@ -1,6 +1,6 @@
 {
-  "release" : "2020.09.2",
-  "build" : "2020.09.2-begin-18-g149a027075ea",
+  "release" : "2020.11.1",
+  "build" : "2020.11.1-begin-125-gbebc1b0e6885",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1144,6 +1144,22 @@
     "statusReasonPhrase" : "Not Acceptable",
     "errorCode" : "E0000149",
     "errorSummary" : "The HTTP request is not acceptable.",
+    "errorDescription" : null
+  }, {
+    "title" : "SMS rate limit exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000150",
+    "errorSummary" : "You have reached the limit of sms requests, please try again later.",
+    "errorDescription" : null
+  }, {
+    "title" : "Call rate limit exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000151",
+    "errorSummary" : "You have reached the limit of call requests, please try again later.",
     "errorDescription" : null
   } ]
 }

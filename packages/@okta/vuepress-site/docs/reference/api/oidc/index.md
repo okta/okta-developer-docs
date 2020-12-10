@@ -65,7 +65,7 @@ The full URL to the `/authorize` endpoint looks like this:
 
 `https://${yourOktaDomain}/oauth2/default/v1/authorize`
 
-See [Create an Authorization Server](/docs/guides/customize-authz-server/) for information on how to create an authorization server.
+See [Authorization Servers](/docs/concepts/auth-servers/) for an overview of Authorization Servers and what you can do with them. See [Create an Authorization Server](/docs/guides/customize-authz-server/) for information on how to create an Authorization Server.
 
 ### /authorize
 
@@ -75,7 +75,7 @@ See [Create an Authorization Server](/docs/guides/customize-authz-server/) for i
 
 This is a starting point for browser-based OpenID Connect flows such as the implicit and authorization code flows. This request authenticates the user and returns tokens along with an authorization grant to the client application as a part of the callback response.
 
->  **Note:** When making requests to the `/authorize` endpoint, the browser (user agent) should be redirected to the endpoint. You can't use AJAX with this endpoint.
+> **Note:** When making requests to the `/authorize` endpoint, the browser (user agent) should be redirected to the endpoint. You can't use AJAX with this endpoint.
 
 #### Request Parameters
 
@@ -113,7 +113,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 
   * `none`: Don't prompt for authentication or consent. If an Okta session already exists, the user is silently authenticated. Otherwise, an error is returned.
   * `login`: Always prompt the user for authentication, regardless of whether they have an Okta session.
-  * `consent`: <ApiLifecycle access="ea" /> Depending on the [values set for `consent_method` in the app and `consent` on the scope](/docs/reference/api/apps/#add-oauth-20-client-application), display the Okta consent dialog, even if the user has already given consent. User consent is available for Custom Authorization Servers (requires the API Access Management feature and the User Consent feature enabled).
+  * `consent`: Depending on the [values set for `consent_method` in the app and `consent` on the scope](/docs/reference/api/apps/#add-oauth-20-client-application), display the Okta consent dialog, even if the user has already given consent. User consent is available for Custom Authorization Servers (requires the API Access Management feature and the User Consent feature enabled).
   * `login consent` or `consent login` (order doesn't matter): The user is always prompted for authentication, and the user consent dialog appears depending on the [values set for `consent_method` in the app and `consent` on the scope](/docs/reference/api/apps/#add-oauth-20-client-application), even if the user has already given consent.
 
 * `request`:
@@ -139,7 +139,7 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 
     `okta_post_message` is an adaptation of the [Web Message Response Mode](https://tools.ietf.org/html/draft-sakimura-oauth-wmrm-00#section-4.1).
     This value provides a secure way for a single-page application to perform a sign-in flow in a pop-up window or an iFrame and receive the ID token, access token, and/or authorization code back in the parent page without leaving the context of that page. The data object for the `postMessage` call is in the next section.
-  
+
   The `Referrer-Policy` header is automatically included in the response when either the `fragment` or `query` parameter values are used. The header is set to `Referrer-Policy: no-referrer`.
 
 * `state`:
@@ -1006,7 +1006,7 @@ curl -X GET \
         "client_secret_jwt",
         "none"
     ],
-    "end_session_endpoint": "https://{baseUrl}/logout"
+    "end_session_endpoint": "https://{baseUrl}/logout",
     "request_parameter_supported": true,
     "request_object_signing_alg_values_supported": [
         "HS256",
@@ -1057,16 +1057,16 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 
 | Property                                 | Description                                                                                             | Type      | Default        | Required for create or update              |
 | :-------------------------------------   | :------------------------------------------------------------------------------------------------------ | :-------- | :------------- | :----------------------------              |
-| consent <ApiLifecycle access="ea" />     | Indicates whether a consent dialog is needed for the scope. Valid values: `REQUIRED`, `IMPLICIT`.       | Enum      | `IMPLICIT`     | True unless this EA feature isn't enabled |
+| consent                                  | Indicates whether a consent dialog is needed for the scope. Valid values: `REQUIRED`, `IMPLICIT`.       | Enum      | `IMPLICIT`     | True                                       |
 | default                                  | Whether the scope is a default scope                                                               | Boolean   |                | False                                      |
 | description                              | Description of the scope                                                                                | String    |                | False                                      |
-| displayName <ApiLifecycle access="ea" /> | Name of the end user displayed in a consent dialog window                                                      | String    |                | False                                      |
+| displayName                              | Name of the end user displayed in a consent dialog window                                                      | String    |                | False                                      |
 | id                                       | ID of the scope                                                                                         | String    |                | False                                      |
 | metadataPublish                          | Whether the scope should be included in the metadata. Valid values: `NO_CLIENTS`, `ALL_CLIENTS`  | Enum      | `NO_CLIENTS`   | True except for create                     |
 | name                                     | Name of the scope                                                                                       | String    |                | True                                       |
 | system                                   | Whether Okta created the scope                                                                          | Boolean   |                | False                                      |
 
-<ApiLifecycle access="ea" /> A consent dialog appears depending on the values of three elements:
+A consent dialog appears depending on the values of three elements:
 
 * `prompt`: a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
 * `consent_method`: a property on [apps](/docs/reference/api/apps/#settings-7)

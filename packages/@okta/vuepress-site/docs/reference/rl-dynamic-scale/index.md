@@ -27,9 +27,9 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 
 **Single User/Group/App operations (Get, Update, and Delete):**
 
-* `/api/v1/apps/{id}`
-* `/api/v1/groups/{id}`
-* `/api/v1/users/{idOrLogin}`
+* `/api/v1/apps/{id}`<br>
+* `/api/v1/groups/{id}`<br>
+* `/api/v1/users/{idOrLogin}`<br>
 
 > **Notes:**
 >
@@ -38,8 +38,9 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 > 3. Customers purchasing the DynamicScale add-on service get best-effort additional protection beyond the multiplier that they've purchased to handle any additional unforeseen spikes in Production:
 >     * This protection isn't always guaranteed and shouldn't be counted towards available rate limits.
 >     * Additional protection availability is subject to infrastructure capacity available to your org.
+> 4. Not all DynamicScale multipliers are available when a customer uses both the DynamicScale add-on service and Okta inline hooks. When a customer is using Okta inline hooks, it is assumed that the 3rd party system responds to the inline hook requests in under 500 milliseconds.
 >
 
-If your usage pattern exceeds the rate limits offered by DynamicScale add-on or the endpoint that you're consuming isn't listed as part of the DynamicScale add-on, then please contact your Okta Sales Representative regarding other options.
+If your usage pattern exceeds the rate limits offered by the DynamicScale add-on or the endpoint that you're consuming isn't listed as part of the DynamicScale add-on, then please contact your Okta Sales Representative regarding other options.
 
 For orgs that purchased the High Capacity Rate Limit SKU before 2019-10-24, the [previous rate limits](/docs/reference/rl-previous/) still apply.

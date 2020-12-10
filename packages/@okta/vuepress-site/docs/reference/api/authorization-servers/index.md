@@ -49,7 +49,9 @@ When you use these API endpoints to create or modify an Authorization Server res
   "id": "ausain6z9zIedDCxB0h7",
   "name": "Sample Authorization Server",
   "description": "Authorization Server Description",
-  "audiences": ["https://api.resource.com"],
+  "audiences": [
+    "https://api.resource.com"
+  ],
   "issuer": "https://${yourOktaDomain}/oauth2/ausain6z9zIedDCxB0h7",
   "issuerMode": "ORG_URL",
   "status": "ACTIVE",
@@ -64,29 +66,28 @@ When you use these API endpoints to create or modify an Authorization Server res
     }
   },
   "_links": {
-      "scopes": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes",
-        "hints": {
-          "allow": [
-            "GET"
-          ]
-        }
-      },
-      "claims": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/claims",
-        "hints": {
-          "allow": [
-            "GET"
-          ]
-        }
-      },
-      "policies": {
-        "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies",
-        "hints": {
-          "allow": [
-            "GET"
-          ]
-        }
+    "scopes": {
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/scopes",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
+      }
+    },
+    "claims": {
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/claims",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
+      }
+    },
+    "policies": {
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/policies",
+      "hints": {
+        "allow": [
+          "GET"
+        ]
       }
     },
     "self": {
@@ -128,10 +129,10 @@ When you use these API endpoints to create or modify an Authorization Server res
       }
     },
     "deactivate": {
-          "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/lifecycle/deactivate",
-          "hints": {
-            "allow": [
-              "POST"
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7/lifecycle/deactivate",
+      "hints": {
+        "allow": [
+          "POST"
         ]
       }
     }
@@ -321,7 +322,7 @@ curl -X DELETE \
 
 
 ```http
-HTTP 204: No Content
+HTTP/1.1 204 No Content
 ```
 
 #### Activate Authorization Server
@@ -352,7 +353,7 @@ curl -v -X POST \
 
 
 ```http
-HTTP 204: No Content
+HTTP/1.1 204 No Content
 ```
 
 #### Deactivate Authorization Server
@@ -384,7 +385,7 @@ curl -v -X POST \
 
 
 ```http
-HTTP 204: No Content
+HTTP/1.1 204 No Content
 ```
 
 ### Policy operations
@@ -636,8 +637,8 @@ curl -v -X DELETE \
 ##### Response example
 
 
-```json
-Status 204: No content
+```http
+HTTP/1.1 204 No Content
 ```
 
 ### Policy Rule operations
@@ -856,8 +857,8 @@ curl -v -X DELETE \
 
 ##### Response example
 
-```json
-Status 204: No content
+```http
+HTTP/1.1 204 No Content
 ```
 
 ### Scope operations
@@ -891,16 +892,16 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 
 | Property                                 | Description                                                                                             | Type      | Default        | Required for create or update              |
 | :-------------------------------------   | :------------------------------------------------------------------------------------------------------ | :-------- | :------------- | :----------------------------              |
-| consent <ApiLifecycle access="ea" />     | Indicates whether a consent dialog is needed for the Scope. Valid values: `REQUIRED`, `IMPLICIT`       | Enum      | `IMPLICIT`     | True for update if this EA feature is enabled |
+| consent                                  | Indicates whether a consent dialog is needed for the Scope. Valid values: `REQUIRED`, `IMPLICIT`       | Enum      | `IMPLICIT`     | True for update                        |
 | default                                  | Whether the Scope is a default Scope                                                               | Boolean   |                | False                                      |
 | description                              | Description of the Scope                                                                                | String    |                | False                                      |
-| displayName <ApiLifecycle access="ea" /> | Name of the end user displayed in a consent dialog box                                                      | String    |                | False                                      |
+| displayName                              | Name of the end user displayed in a consent dialog box                                                      | String    |                | False                                      |
 | id                                       | ID of the Scope                                                                                         | String    |                | False                                      |
 | metadataPublish                          | Whether the Scope should be included in the metadata. Valid values: `NO_CLIENTS`, `ALL_CLIENTS`  | Enum      | `NO_CLIENTS`   | True except for create                     |
 | name                                     | Name of the Scope                                                                                       | String    |                | True                                       |
 | system                                   | Whether Okta created the Scope                                                                          | Boolean   |                | False                                      |
 
-* <ApiLifecycle access="ea" /> A consent dialog box appears depending on the values of three elements:
+* A consent dialog box appears depending on the values of three elements:
     * `prompt` - a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
     * `consent_method` - a property on [apps](/docs/reference/api/apps/#settings-7)
     * `consent` - a property on Scopes as listed in the table above
@@ -1077,7 +1078,7 @@ curl -v -X DELETE \
 
 
 ```http
-HTTP 204: No Content
+HTTP/1.1 204 No Content
 ```
 
 ### Claim operations
@@ -1304,7 +1305,7 @@ curl -v -X DELETE \
 
 
 ```http
-HTTP 204: No Content
+HTTP/1.1 204 No Content
 ```
 
 ### Key Store operations
@@ -1736,10 +1737,9 @@ Example from a Rule object
       }
     },
     "scopes": {
-      "include": [{
-        "name": "*",
-        "access": "ALLOW"
-      }]
+      "include": [
+        "*"
+      ]
     }
   }
 }
@@ -1760,22 +1760,18 @@ Example from a Policy object
 
 #### Condition properties
 
-| Property     | Description                                                                                                                                                                            | Type                            | Required for create or update |
-| :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ | :---------------------------- |
-| clients      | For Policies, specifies which clients are included or excluded in the Policy                                                                                                           | `include` and `exclude` lists   | True                          |
-| grant_type   | Can be one of the following: `authorization_code`, `password`, `refresh_token`, or `client_credentials`. Determines the mechanism Okta uses to authorize the creation of the tokens.   | Enum                            | True                          |
-| people       | For rules, specifies which Users and Groups are included or excluded in the rule                                                                                                       | `include` and `exclude` lists   | True                          |
-| scopes       | Array of Scopes this condition includes or excludes                                                                                                                                    | `include` and `exclude` lists   | True                          |
+| Property     | Description                                                                                                                                                                                                                              | Type                            | Required for create or update |
+| :----------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------ | :---------------------------- |
+| clients      | For Policies, specifies which clients are included or excluded in the Policy                                                                                                                                                             | `include` and `exclude` lists   | True                          |
+| grantTypes   | Array of grantTypes that this condition includes. Accepted grantTypes: `authorization_code`, `password`, `refresh_token` or `client_credentials`. Determines the mechanism Okta uses to authorize the creation of the tokens.           | `include` list                  | True                          |
+| people       | For rules, specifies which Users and Groups are included or excluded in the rule                                                                                                                                                         | `include` and `exclude` lists   | True                          |
+| scopes       | Array of Scopes that this condition includes                                                                                                                                                                                             | `include` list                  | True                          |
 
 See also the [Policy-Rule Conditions object](/docs/reference/api/policy/#conditions-object-2) section
 
 ## Client Resource operations
 
-<ApiLifecycle access="ea" />
-
 ### List Client Resources for an Authorization Server
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/authorizationServers/${authorizationServerId}/clients" />
 
@@ -2012,8 +2008,6 @@ curl -v -X GET \
 ### Revoke all refresh tokens
 
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/authorizationServers/${authorizationServerId}/clients/${clientId}/tokens" />
 
 Revokes all refresh tokens issued by an Authorization Server for the specified client. Any access tokens issued with these refresh tokens are also revoked, but access tokens issued without a refresh token aren't affected.
@@ -2040,14 +2034,12 @@ curl -v -X DELETE \
 #### Response example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
 ### Revoke refresh token
 
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/authorizationServers/${authServerId}/clients/${clientId}/tokens/${tokenId}" />
 
@@ -2076,6 +2068,6 @@ curl -v -X DELETE \
 #### Response example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```

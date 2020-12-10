@@ -5,39 +5,35 @@ category: management
 
 # Custom Templates API
 
-The Okta Templates API provides operations to manage custom templates.
+The Okta Templates API provides operations to manage custom Templates.
 
-> Currently, only SMS custom templates are available via the API.
+> **Note:** Only SMS custom Templates are available through the API.
 
-SMS templates customize the SMS message sent to users. One default SMS template is provided. All custom templates must have the variable `${code}` as part of the text. The `${code}` variable is replaced with the actual SMS code when the message is sent. Optionally, you can also use the variable `${org.name}`. If a template contains `${org.name}`, it is replaced with organization name before the SMS message is sent.
+SMS Templates customize the SMS message that is sent to users. One default SMS Template is provided. All custom Templates must have the variable `${code}` as part of the text. The `${code}` variable is replaced with the actual SMS code when the message is sent. Optionally, you can also use the variable `${org.name}`. If a Template contains `${org.name}`, it is replaced with the organization name before the SMS message is sent.
 
-## Get started with Custom Templates
+## Get started with custom Templates
 
-Explore the Custom Templates API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6806eb23befaf5bb3b6c)
+Explore the custom Templates API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6806eb23befaf5bb3b6c)
 
-## Template Operations
+## Template operations
 
 ### Add SMS Template
 
-
 <ApiOperation method="post" url="/api/v1/templates/sms" />
 
-Adds a new custom SMS template to your organization.
+Adds a new custom SMS Template to your organization
 
-##### Request Parameters
-
+##### Request parameters
 
 | Parameter                                 | Description                               | ParamType                           | DataType                          | Required |
 | ---------                                 | ----------------------------------------- | ---------                           | --------------------------------- | -------- |
-| Definition of the new custom SMS template | Body                                      | [SMS Template](#sms-template-object) | TRUE                              |          |
+| Definition of the new custom SMS Template | Body                                      | [SMS Template](#sms-template-object) | TRUE                              |          |
 
-##### Response Parameters
+##### Response parameters
 
+The created [SMS Template](#sms-template-object)
 
-The created [SMS Template](#sms-template-object).
-
-##### Request Example
-
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -56,8 +52,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/templates/sms"
 ```
 
-##### Response Example
-
+##### Response example
 
 ```json
 {
@@ -75,28 +70,24 @@ curl -v -X POST \
   }
 ```
 
-
 ### Get SMS Template
-
 
 <ApiOperation method="get" url="/api/v1/templates/sms/${smsTemplateId}" />
 
-Fetches a specific template by `id`
+Fetches a specific Template by `id`
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter     | Description        | ParamType | DataType | Required |
 | ---------     | ------------------ | --------- | -------- | -------- |
-| smsTemplateId | `id` of a template | URL       | String   | TRUE     |
+| smsTemplateId | `id` of a Template | URL       | String   | TRUE     |
 
-##### Response Parameters
-
+##### Response parameters
 
 Fetched [SMS Template](#sms-template-object)
 
-##### Request Example
-
+##### Request example
 
 ```bash
 curl -v -X GET \
@@ -106,8 +97,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/templates/sms/${templateId}"
 ```
 
-##### Response Example
-
+##### Response example
 
 ```json
 {
@@ -127,27 +117,23 @@ curl -v -X GET \
 
 ### List SMS Templates
 
-
 <ApiOperation method="get" url="/api/v1/templates/sms" />
 
-Enumerates custom SMS templates in your organization. Optionally, a subset of templates can be returned that match a template type.
+Enumerates custom SMS Templates in your organization. Optionally, a subset of Templates can be returned that match a Template type.
 
-##### Request Parameters
-
+##### Request parameters
 
 | Parameter      | Description                                                                                | ParamType | DataType | Required | Default |
 | -------------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- |
-| templateType   | The type of template that you are searching for. Valid value: `SMS_VERIFY_CODE`            | Query     | String   | FALSE    | N/A     |
+| templateType   | The type of Template that you are searching for. Valid value: `SMS_VERIFY_CODE`            | Query     | String   | FALSE    | N/A     |
 
-> Search currently performs an exact match of the type but this is an implementation detail and may change without notice in the future.
+> **Note:** Search performs an exact match of the type, but this is an implementation detail and may change without notice.
 
-##### Response Parameters
+##### Response parameters
 
+Array of [SMS Templates](#sms-template-object) of matching type
 
-Array of [SMS Templates](#sms-template-object) of matching type.
-
-##### Request Example
-
+##### Request example
 
 ```bash
 curl -v -X GET \
@@ -157,8 +143,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/templates/sms"
 ```
 
-##### Response Example
-
+##### Response example
 
 ```json
 [
@@ -180,30 +165,27 @@ curl -v -X GET \
 
 ### Update SMS Template
 
-
 <ApiOperation method="put" url="/api/v1/templates/sms/${smsTemplateId}" />
 
-Updates the SMS template.
+Updates the SMS Template
 
-> **Note:** The default SMS template can't be updated.
+> **Note:** The default SMS Template can't be updated.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter                                   | Description                                 | ParamType                           | DataType                            | Required |
 | ---------                                   | ------------------------------------------- | ---------                           | ----------------------------------- | -------- |
-| smsTemplateId                               | `id` of the SMS template to update          | URL                                 | String                              | TRUE     |
-| Full description of the custom SMS template | Body                                        | [SMS Template](#sms-template-object) | TRUE                                |          |
+| smsTemplateId                               | `id` of the SMS Template to update          | URL                                 | String                              | TRUE     |
+| Full description of the custom SMS Template | Body                                        | [SMS Template](#sms-template-object) | TRUE                                |          |
 
-> All profile properties must be specified when updating an SMS custom template. Partial updates are described [here](#partial-sms-template-update).
+> **Note:** All profile properties must be specified when you update an SMS custom Template. Partial updates are described in the [Partial SMS Template update](#partial-sms-template-update) section.
 
-##### Response Parameters
-
+##### Response parameters
 
 Updated [SMS Template](#sms-template-object)
 
-##### Request Example
-
+##### Request example
 
 ```bash
 curl -v -X PUT \
@@ -222,8 +204,7 @@ curl -v -X PUT \
 }' "https://${yourOktaDomain}/api/v1/templates/sms/${templateId}"
 ```
 
-##### Response Example
-
+##### Response example
 
 ```json
 {
@@ -236,37 +217,34 @@ curl -v -X PUT \
 }
 ```
 
-### Partial SMS Template Update
-
+### Partial SMS Template update
 
 <ApiOperation method="post" url="/api/v1/templates/sms/${smsTemplateId}" />
 
-Updates only some of the SMS template properties:
+Updates only some of the SMS Template properties:
 
-* All properties with the custom SMS template with values are updated.
+* All properties within the custom SMS Template that have values are updated.
 * Any translation that doesn't exist is added.
 * Any translation with a null or empty value is removed.
 * Any translation with non-empty/null value is updated.
 
-> The default SMS template can't be updated.
+> **Note:** The default SMS Template can't be updated.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter                         | Description                                 | ParamType                           | DataType                            | Required |
 | ---------                         | ------------------------------------------- | ---------                           | ----------------------------------- | -------- |
-| smsTemplateId                     | `id` of the SMS template to update          | URL                                 | String                              | TRUE     |
+| smsTemplateId                     | `id` of the SMS Template to update          | URL                                 | String                              | TRUE     |
 | Attributes that we want to change | Body                                        | [SMS Template](#sms-template-object) | TRUE                                |          |
 
-> Full SMS template update is described [here](#update-sms-template).
+> **Note:** A full SMS Template update is described in the [Update SMS Template](#update-sms-template) section.
 
-##### Response Parameters
-
+##### Response parameters
 
 Updated [SMS Template](#sms-template-object)
 
-##### Request Example
-
+##### Request example
 
 ```bash
 curl -v -X POST \
@@ -280,8 +258,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/templates/sms/${templateId}"
 ```
 
-##### Response Example
-
+##### Response example
 
 ```json
 {
@@ -302,27 +279,24 @@ curl -v -X POST \
 
 ### Remove SMS Template
 
-
 <ApiOperation method="delete" url="/api/v1/templates/sms/${smsTemplateId}" />
 
-Removes an SMS template.
+Removes an SMS Template
 
-> The default SMS template can't be removed.
+> **Note:** The default SMS Template can't be removed.
 
-##### Request Parameters
+##### Request parameters
 
 
 | Parameter     | Description                        | ParamType | DataType | Required |
 | ---------     | ---------------------------------- | --------- | -------- | -------- |
-| smsTemplateId | `id` of the SMS template to delete | URL       | String   | TRUE     |
+| smsTemplateId | `id` of the SMS Template to delete | URL       | String   | TRUE     |
 
-##### Response Parameters
-
+##### Response parameters
 
 There is no content in the response.
 
-##### Request Example
-
+##### Request example
 
 ```bash
 curl -v -X DELETE \
@@ -332,9 +306,7 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/templates/sms/${templateId}"
 ```
 
-
-##### Response Example
-
+##### Response example
 
 ```http
 HTTP/1.1 204 No Content
@@ -342,7 +314,8 @@ HTTP/1.1 204 No Content
 
 ## SMS Template object
 
-### Example
+#### Example
+
 ```json
 {
   "id": "cstk2flOtuCMDJK4b0g3",
@@ -359,25 +332,25 @@ HTTP/1.1 204 No Content
 }
 ```
 
-### SMS Template Attributes
+### SMS Template attributes
 
-All templates have the following properties:
+All Templates have the following properties:
 
 | Property               | Description                                                         | DataType                                                       | Readonly | MinLength | MaxLength |
 | ---------------------- | ------------------------------------------------------------        | -------------------------------------------------------------- | -------- | --------- | --------- |
-| id                     | Unique key for template                                             | String                                                         | TRUE     | 20        | 20        |
-| name                   | Human-readable name of the template                                 | String                                                         | FALSE    | 1         | 50        |
-| type                   | Type of the template                                                | String                                                         | FALSE    | 1         | 50        |
-| template               | Text of the template, including any [macros](#sms-template-macros). | String (See note below)                                        | FALSE    | 1         | 161       |
-| created                | Timestamp when template was created                                 | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
-| lastUpdated            | Timestamp when template was last updated                            | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
-| translations           | A key-value map of [translations](#translation-attributes)                    | Translations Object                                                          | N/A      | N/A       | N/A       |
+| id                     | Unique key for the Template                                         | String                                                         | TRUE     | 20        | 20        |
+| name                   | Human-readable name of the Template                                 | String                                                         | FALSE    | 1         | 50        |
+| type                   | Type of the Template                                                | String                                                         | FALSE    | 1         | 50        |
+| template               | Text of the Template, including any [macros](#sms-template-macros). | String (See note below)                                        | FALSE    | 1         | 161       |
+| created                | Timestamp when the Template was created                             | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
+| lastUpdated            | Timestamp when the Template was last updated                        | String (ISO-8601)                                              | TRUE     | N/A       | N/A       |
+| translations           | A key/value map of [translations](#translation-attributes)          | Translations object                                                          | N/A      | N/A       | N/A       |
 
-> **Note:** The final length of your SMS message cannot exceed 160 characters. If the verification code portion of the message falls outside of the 160-character limit, your message will not be sent.
+> **Note:** The length of your SMS message can't exceed 160 characters. If the verification code portion of the message falls outside of the 160-character limit, your message isn't sent.
 
-#### Translation Attributes
+#### Translation attributes
 
-Template translations are optionally provided when you want to localize the SMS messages. Translations are provided as an object containing `key:value` pairs: the language and translated template text.
+Template translations are optionally provided when you want to localize the SMS messages. Translations are provided as an object that contains `key:value` pairs: the language and the translated Template text.
 
 ```json
 "translations": {
@@ -387,21 +360,21 @@ Template translations are optionally provided when you want to localize the SMS 
   }
 ```
 
-The key portion is a two-letter country code conforming to [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), and the value is the translated SMS template.
+The key portion is a two-letter country code that conforms to [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes), and the value is the translated SMS Template.
 
-> **Note:** Just like with regular SMS templates, the final processed SMS message cannot exceed 160 characters.
+> **Note:** Just like with regular SMS Templates, the length of the SMS message can't exceed 160 characters.
 
-### SMS Template Types
-
-| Type              | Description                                                                                      |
-| ----------------- | ------------------------------------------------------------------------------------------------ |
-| `SMS_VERIFY_CODE` | This template is used when the SMS for code verification is sent.                                |
-
-### SMS Template Macros
-
-Currently only two macros are supported for SMS templates.
+### SMS Template types
 
 | Type              | Description                                                                                      |
 | ----------------- | ------------------------------------------------------------------------------------------------ |
-| `${code}`         | The one-time verification code that is required for login.                                       |
+| `SMS_VERIFY_CODE` | This Template is used when the SMS for code verification is sent.                                |
+
+### SMS Template macros
+
+Only two macros are supported for SMS Templates:
+
+| Type              | Description                                                                                      |
+| ----------------- | ------------------------------------------------------------------------------------------------ |
+| `${code}`         | The one-time verification code that is required for sign in.                                       |
 | `${org.name}`     | The name of the Okta organization that the user is trying to authenticate into.                  |

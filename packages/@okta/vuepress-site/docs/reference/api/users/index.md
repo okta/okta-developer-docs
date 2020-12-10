@@ -2454,7 +2454,9 @@ is required to delete the user.
 ##### Response Parameters
 
 
-`204 No Content`
+```http
+HTTP/1.1 204 No Content
+```
 
 Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 
@@ -2476,7 +2478,7 @@ curl -v -X DELETE \
 
 
 ```http
-`204 No Content`
+HTTP/1.1 204 No Content
 ```
 
 #### Delete user asynchronously
@@ -2498,7 +2500,7 @@ curl -v -X DELETE \
 
 
 ```http
-`204 No Content`
+HTTP/1.1 204 No Content
 ```
 
 ### Unlock User
@@ -2827,7 +2829,9 @@ Removes all active identity provider sessions. This forces the user to authentic
 #### Response Parameters
 
 
-`204 No Content`
+```http
+HTTP/1.1 204 No Content
+```
 
 #### Request Example
 
@@ -2844,7 +2848,7 @@ curl -v -X DELETE \
 
 
 ```http
-`204 No Content`
+HTTP/1.1 204 No Content
 ```
 
 ## Credential Operations
@@ -3353,7 +3357,7 @@ curl -v -X DELETE \
 #### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -3388,7 +3392,7 @@ curl -v -X DELETE \
 #### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -3423,7 +3427,7 @@ curl -v -X DELETE \
 #### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -3667,7 +3671,7 @@ curl -v -X DELETE \
 #### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -3703,7 +3707,7 @@ curl -v -X DELETE \
 #### Response Example
 
 
-```bash
+```http
 HTTP/1.1 204 No Content
 ```
 
@@ -4210,15 +4214,15 @@ Here are some links that may be available on a User, as determined by your polic
     },
     "_links": {
         "app": {
-            "href": "https://${yourOktaDomain}:1802/api/v1/apps/0oaozwn7Qlfx0wl280g3",
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oaozwn7Qlfx0wl280g3",
             "title": "Native client"
         },
         "scope": {
-            "href": "https://${yourOktaDomain}:1802/api/v1/authorizationServers/ausoxdmNlCV4Rw9Ec0g3/scopes/scpp4bmzfCV7dHf8y0g3",
+            "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausoxdmNlCV4Rw9Ec0g3/scopes/scpp4bmzfCV7dHf8y0g3",
             "title": "test"
         },
         "self": {
-            "href": "https://${yourOktaDomain}:1802/api/v1/users/00uol9oQZaWN47WQZ0g3/grants/oag2n8HU1vTmvCdQ50g3",
+            "href": "https://${yourOktaDomain}/api/v1/users/00uol9oQZaWN47WQZ0g3/grants/oag2n8HU1vTmvCdQ50g3",
             "hints": {
                 "allow": [
                     "GET",
@@ -4227,11 +4231,11 @@ Here are some links that may be available on a User, as determined by your polic
             }
         },
         "client": {
-            "href": "https://${yourOktaDomain}:1802/oauth2/v1/clients/customClientIdNative",
+            "href": "https://${yourOktaDomain}/oauth2/v1/clients/customClientIdNative",
             "title": "Native client"
         },
         "user": {
-            "href": "https://${yourOktaDomain}:1802/api/v1/users/00uol9oQZaWN47WQZ0g3",
+            "href": "https://${yourOktaDomain}/api/v1/users/00uol9oQZaWN47WQZ0g3",
             "title": "Saml Jackson"
         },
         "authorizationServer": {
