@@ -2,7 +2,7 @@ You can create an account on our website:
 
 1. Go to: <https://developer.okta.com/signup>
 
-2. Fill out the form. You'll need to supply:
+2. Fill out the form with the following information:
 
     - First name
     - Last name
@@ -16,4 +16,3 @@ You can create an account on our website:
    Your Okta domain is important: It’s the base of the URL you use to access your org.  Authorization requests for users will be directed to an endpoint that has this as its base, and any Okta API endpoints you call will also have this URL as their base.
 
 5. You're prompted to change your password.
-
