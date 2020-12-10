@@ -16,6 +16,7 @@ guides:
  - customize-tokens-groups-claim
  - email-customization
  - enable-cors
+ - event-hook-implementation
  - find-your-app-credentials
  - find-your-domain
  - password-import-hook
