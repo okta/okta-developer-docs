@@ -30,6 +30,7 @@ guides:
  - implement-password
  - mfa
  - migrate-to-okta
+ - overview-and-considerations
  - oin-oidc-guide
  - build-provisioning-integration
  - build-sso-integration
@@ -40,6 +41,7 @@ guides:
  - protect-your-api
  - quickstart
  - refresh-tokens
+ - registration-inline-hook
  - request-user-consent
  - revoke-tokens
  - saml-tracer
