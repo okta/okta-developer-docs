@@ -12,7 +12,7 @@ title: Okta API Products Release Notes
 | [Account linking for SAML IdPs is now GA in Production](#account-linking-for-saml-idps-is-now-ga-in-production) | December 10, 2020  |
 | [One Time Use Refresh Token is now in Early Access (EA)](#one-time-use-refresh-token-is-now-in-early-access-ea)      | December 9, 2020         |
 | [Enhancements to Apps API for Idp Initiated Logins](#enhancements-to-apps-api-for-idp-initiated-logins) | December 10, 2020         |
-| [Enhancements to Apps API for SAML Apps](#enhancements-to-apps-api-for-saml-apps) | December 10, 2020         |
+| [Enhancements to Apps API for SAML Apps](#enhancements-to-apps-api-for-saml-apps) | December 9, 2020         |
 | [Group object `source` property is now GA in Production](#group-object-source-property-is-now-ga-in-production) | December 10, 2020        |
 
 ### Inclusive language and terminology
