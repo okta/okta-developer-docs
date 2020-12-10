@@ -27,7 +27,7 @@ To start, find the example applications provided by Okta on GitHub for the langu
 
 Specifically, look for the `okta-hosted-login` example (there are samples provided for several use cases).
 
-You can try building the example app as-is to start or you can use it as a template for modifying your own app. When you have an app running, you're ready to connect it to your Okta org.
+You can try building the example app as-is to start, or you can use it as a template for modifying your own app. When you have an app running, you're ready to connect it to your Okta org.
 
 #### Tell Okta about the app
 
@@ -50,4 +50,3 @@ Remaining in Developer Console, go to **API > Authorization Servers** and gather
 You now have the specific values for Client ID, Client Secret, and Issuer ID, which your app needs to use. The various example apps all provide ways of setting these values, but some of the example apps expect you to set environment variables, while some expect settings in a configuration file. Consult the README file for the example app you're using and set the three values.
 
 <NextSectionLink/>
-
