@@ -101,6 +101,8 @@ export default {
   },
   watch: {
     $route(to, from) {
+      if(to.path!=='/'){this.isHomePage=false}
+      if(to.path ==='/'){this.isHomePage=true}
       this.appContext.isTreeNavMobileOpen = false;
       this.redirIfRequired();
     }
