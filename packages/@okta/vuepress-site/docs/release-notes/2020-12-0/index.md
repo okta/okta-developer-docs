@@ -9,7 +9,7 @@ title: Okta API Products Release Notes
 | [Inclusive language and terminology](#inclusive-language-and-terminology) | December 9, 2020         |
 | [New OAuth Administrator Roles API scopes](#new-oauth-administrator-roles-api-scopes) | December 9, 2020         |
 | [New endpoint added to DynamicScale Rate Limits](#new-endpoint-added-to-dynamicscale-rate-limits) | December 9, 2020         |
-| [Account linking for SAML IdPs is now GA in Production](#account-linking-for-saml-idps-is-now-ga-in-production) | December 10, 2020  |
+| [Account linking for SAML IdPs is now GA in Production](#account-linking-for-saml-idps-is-now-ga-in-production) | December 9, 2020  |
 | [One Time Use Refresh Token is now in Early Access (EA)](#one-time-use-refresh-token-is-now-in-early-access-ea)      | December 9, 2020         |
 | [Enhancements to Apps API for Idp Initiated Logins](#enhancements-to-apps-api-for-idp-initiated-logins) | December 9, 2020         |
 | [Enhancements to Apps API for SAML Apps](#enhancements-to-apps-api-for-saml-apps) | December 9, 2020         |
