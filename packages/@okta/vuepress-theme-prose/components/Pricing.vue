@@ -61,22 +61,24 @@
                   </div>
                   <template v-for="(edition, index) in $page.frontmatter.editions">
                     <div class="pricing-card-column">
-                      <h4>{{edition.name}}</h4>
-                      <template v-if="index === 0">
-                        <p>Priced at</p>
-                        <p class="pricing-card-price">{{mauPrice}}</p>
-                        <p>per month for up to</p>
-                        <select v-model="mauPrice">
-                          <option v-for="(price, index) in $page.frontmatter.pricing" :value="price.price" :key="index">
-                            {{price.maus}}
-                          </option>
-                        </select>
-                        <a :href="$page.frontmatter.links.signup" class="Button--red">Start Free</a>
-                      </template>
-                      <template v-else>
-                        <p>{{edition.subheading}}</p>
-                        <a :href="$page.frontmatter.links.contactSales" class="Button--whiteOutline">Contact Us</a>
-                      </template>
+                      <div class="pricing-card-column-header">
+                        <h4>{{edition.name}}</h4>
+                        <template v-if="index === 0">
+                          <p>Priced at</p>
+                          <p class="pricing-card-price">{{mauPrice}}</p>
+                          <p>per month for up to</p>
+                          <select v-model="mauPrice">
+                            <option v-for="(price, index) in $page.frontmatter.pricing" :value="price.price" :key="index">
+                              {{price.maus}}
+                            </option>
+                          </select>
+                          <a :href="$page.frontmatter.links.signup" class="Button--red">Start Free</a>
+                        </template>
+                        <template v-else>
+                          <p>{{edition.subheading}}</p>
+                          <a :href="$page.frontmatter.links.contactSales" class="Button--whiteOutline">Contact Us</a>
+                        </template>
+                      </div>
                       <template v-for="(details, feature) in $page.frontmatter.features">
                         <div class="pricing-card-row mobile">
                           <div class="pricing-card-column">

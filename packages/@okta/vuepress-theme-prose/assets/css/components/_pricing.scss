@@ -175,7 +175,6 @@ $magenta: #e22866;
     }
 
     .pricing-card-row {
-      background-color: $darkerBlue;
       display: flex;
       border-bottom: 2px solid $blue;
 
@@ -198,9 +197,10 @@ $magenta: #e22866;
     }
 
     .pricing-card-column {
-      flex-basis: 22%;
+      background-color: $darkerBlue;
       padding: 10px 30px;
       display: flex;
+      flex-basis: 22%;
       flex-direction: column;
       justify-content: center;
       align-items: flex-start;
@@ -216,25 +216,55 @@ $magenta: #e22866;
     }
 
     .pricing-card-header {
+      .pricing-card-column {
+        padding: 30px;
+        justify-content: flex-start;
+        align-items: stretch;
+        display: flex;
+        flex-direction: column;
+
+        @include media('<desktop') {
+          &.desktop {
+            display: none;
+          }
+        }
+      }
+
+      .pricing-card-column-header {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+      }
+
+
       @include media('<desktop') {
         display: flex;
         flex-direction: column;
+        border-bottom: 0;
+
+        .pricing-card-column-header {
+          padding: 30px;
+          border-bottom: 2px solid $blue;
+        }
+
         .pricing-card-row {
           display: flex;
         }
+
+        > .pricing-card-column {
+          margin-bottom: 64px;
+          padding: 0;
+        }
       }
+
       @include media('<tablet') {
         .pricing-card-column {
           ul {
             display: none;
           }
         }
-      }
-
-      .pricing-card-column {
-        padding: 30px;
-        justify-content: flex-start;
-        align-items: stretch;
       }
     }
 
