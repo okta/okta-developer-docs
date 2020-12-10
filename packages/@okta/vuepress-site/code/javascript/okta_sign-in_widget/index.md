@@ -136,43 +136,28 @@ Sign in to your Okta developer dashboard and navigate to **Applications** > **Ad
         baseUrl: "https://${yourOktaDomain}",
         clientId: "${yourClientId}",
         authParams: {
-          issuer: "https://${yourOktaDomain}/oauth2/default",
-          responseType: ['token', 'id_token'],
-          display: 'page'
+          issuer: "https://${yourOktaDomain}/oauth2/default"
         }
       });
 
-      if (oktaSignIn.hasTokensInUrl()) {
-        oktaSignIn.authClient.token.parseFromUrl().then(
-          // If we get here, the user just logged in.
-          function success(res) {
-            var accessToken = res.tokens.accessToken;
-            var idToken = res.tokens.idToken;
+      oktaSignIn.authClient.token.getUserInfo().then(function(user) {
+        document.getElementById("messageBox").innerHTML = "Hello, " + user.email + "! You are *still* logged in! :)";
+        document.getElementById("logout").style.display = 'block';
+      }, function(error) {
+        oktaSignIn.showSignInToGetTokens({
+          el: '#okta-login-container'
+        }).then(function(tokens) {
+          oktaSignIn.authClient.setTokens(tokens);
+          oktaSignIn.remove();
 
-            oktaSignIn.authClient.tokenManager.add('accessToken', accessToken);
-            oktaSignIn.authClient.tokenManager.add('idToken', idToken);
-
-            document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
-            document.getElementById("logout").style.display = 'block';
-          },
-          function error(err) {
-            console.error(err);
-          }
-        );
-      } else {
-        oktaSignIn.authClient.token.getUserInfo().then(function(user) {
-          document.getElementById("messageBox").innerHTML = "Hello, " + user.email + "! You are *still* logged in! :)";
+          var idToken = tokens.idToken;
+          document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
           document.getElementById("logout").style.display = 'block';
-        }, function(error) {
-          oktaSignIn.renderEl(
-            { el: '#okta-login-container' },
-            function success(res) {},
-            function error(err) {
-              console.error(err);
-            }
-          );
+
+        }).catch(function(err) {
+          console.error(err);
         });
-      }
+      });
 
       function logout() {
         oktaSignIn.authClient.signOut();
@@ -221,34 +206,49 @@ function success(res) {
 
 #### Sign In to Your Application
 
-If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom Authorization Server](/docs/guides/customize-authz-server/) in Okta. The Widget also needs to be configured to prompt the user to sign in, and then extract an ID token after a successful redirect:
+If you'd like to use the Widget to sign in to your own application instead of Okta, you will have to [set-up a custom Authorization Server](/docs/guides/customize-authz-server/) in Okta.
+
+#### Server-side Web Application using "authorization_code" flow
 
 ```javascript
 
 var signIn = new OktaSignIn({
   baseUrl: 'https://${yourOktaDomain}',
   el: '#widget-container',
+  clientId: '${clientId}',
+  // must be in the list of redirect URIs enabled for the OIDC app
+  redirectUri: '${redirectUri}',
+  authParams: {
+    issuer: 'https://${yourOktaDomain}/oauth2/default',
+    pkce: false,
+    responseType: ['code']
+  }
+});
+
+// A query parameter named `code` will be passed to the login redirect URI
+// This should be handled by server-side code. The code can be exchanged for tokens
+signIn.showSignInAndRedirect();
+
+```
+
+#### SPA or Native Application using PKCE
+
+```javascript
+
+var signIn = new OktaSignIn({
+  baseUrl: 'https://${yourOktaDomain}',
+  el: '#widget-container',
+  clientId: '${clientId}',
+  // must be in the list of redirect URIs enabled for the OIDC app
+  redirectUri: '${redirectUri}',
   authParams: {
     issuer: 'https://${yourOktaDomain}/oauth2/default'
   }
 });
 
-signIn.showSignInToGetTokens({
-  clientId: '${clientId}',
-
-  // must be in the list of redirect URIs enabled for the OIDC app
-  redirectUri: '${redirectUri}',
-
-  // Return an access token from the authorization server
-  getAccessToken: true,
-
-  // By default, new applications are configured to use the Authorization Code Flow with Proof-of-Code-Key-Exchange (PKCE)
-  // If your application uses the Implicit Flow instead, tell the widget not to use PKCE by uncommenting the below line
-  // pkce: false,
-
-  // Return an ID token from the authorization server
-  getIdToken: true,
-  scope: 'openid profile'
+// SPA and Native apps using PKCE can receive tokens directly without any redirect
+signIn.showSignInToGetTokens().then(function(tokens) {
+  // store/use tokens
 });
 
 ```
@@ -257,7 +257,7 @@ Here is an example of some front-end code that could use this token:
 
 ```javascript
 function callMessagesApi() {
-  var accessToken = signIn.tokenManager.get('access_token');
+  var accessToken = signIn.authClient.getAccessToken();
 
   if (!accessToken) {
     // This means that the user is not logged in
@@ -315,21 +315,21 @@ Using the Sign-In Widget with our SDKs that target the web is fairly straightfor
 
 ### Angular
 
-The [Okta Sign-In Widget and Angular guide](/code/angular/okta_angular_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in an Angular app.
+The [Okta Sign-In Widget and Angular guide](/code/angular/okta_angular_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in an Angular app. (Note: this code does not use the [okta-angular](https://github.com/okta/okta-angular) SDK)
 
-See the [Okta Angular + Custom Login Example](https://github.com/okta/samples-js-angular/tree/master/custom-login) for a working example.
+See the [Okta Angular + Custom Login Example](https://github.com/okta/samples-js-angular/tree/master/custom-login) for a working example using the [okta-angular](https://github.com/okta/okta-angular) SDK.
 
 ### React
 
 The [Okta Sign-In Widget and React guide](/code/react/okta_react_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in a React app.
 
-See the [Okta React + Custom Login Example](https://github.com/okta/samples-js-react/tree/master/custom-login) for a working example.
+See the [Okta React + Custom Login Example](https://github.com/okta/samples-js-react/tree/master/custom-login) for a working example using the [okta-react](https://github.com/okta/okta-react) SDK.
 
 ### Vue
 
 The [Okta Sign-In Widget and Vue guide](/code/vue/okta_vue_sign-in_widget/) shows the code you'll need in order to embed the Sign-In Widget in a Vue app.
 
-See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue/tree/master/custom-login) for a working example.
+See the [Okta Vue + Custom Login Example](https://github.com/okta/samples-js-vue/tree/master/custom-login) for a working example using the [okta-vue](https://github.com/okta/okta-vue) SDK.
 
 ### Mobile SDKs
 

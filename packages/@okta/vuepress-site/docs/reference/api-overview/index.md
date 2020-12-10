@@ -231,7 +231,7 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 
 > **Note:** Some objects don't support all the listed operators.
 
->**Note:** The `ne` (not equal) attribute is not supported, but the same result can be obtained by using `lt ... or ... gt`. For example, to see all user agents except for `"iOS"`, use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
+> **Note:** The `ne` (not equal) attribute is not supported, but the same result can be obtained by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
 
 > **Note:** All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`
 
@@ -298,7 +298,7 @@ Search and list operations are intended to find matching resources and their ide
 
 ## Request debugging
 
-The request ID will always be present in every API response and can be used for debugging. This value can be used to correlate events from the [Events API](/docs/reference/api/events/) as well as the System Log events.
+The request ID will always be present in every API response and can be used for debugging. This value can be used to correlate events from the [System Log](/docs/reference/api/system-log/) events as well as the [Events API](/docs/reference/api/events/).
 
 The following header is set in each response:
 

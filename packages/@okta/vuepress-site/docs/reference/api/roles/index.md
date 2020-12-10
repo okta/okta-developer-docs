@@ -760,7 +760,6 @@ The example shows two applications and two instances. Note the response for inst
       "IMPORT_NEW_USERS",
       "IMPORT_PROFILE_UPDATES",
       "IMPORT_USER_SCHEMA",
-      "PROFILE_MASTERING",
       "PUSH_NEW_USERS",
       "PUSH_PASSWORD_UPDATES",
       "PUSH_PROFILE_UPDATES",
