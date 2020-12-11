@@ -8,8 +8,8 @@ showBreadcrumb: False
 
 links:
   signup: /signup/
-  contactSales: /contact-sales-enterprise/
-  pricing: https://okta.com/pricing
+  contactSales: https://www.okta.com/contact-sales/
+  pricing: https://www.okta.com/pricing
   emailSupport: mailto:developers@okta.com
 
 features:

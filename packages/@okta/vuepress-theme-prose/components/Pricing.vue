@@ -60,7 +60,7 @@
                     <h3 class="pricing-card-table-name">Editions</h3>
                   </div>
                   <template v-for="(edition, index) in $page.frontmatter.editions">
-                    <div class="pricing-card-column">
+                    <div class="pricing-card-column" v-bind:key="edition.name">
                       <div class="pricing-card-column-header">
                         <h4>{{edition.name}}</h4>
                         <template v-if="index === 0">
@@ -80,11 +80,11 @@
                         </template>
                       </div>
                       <template v-for="(details, feature) in $page.frontmatter.features">
-                        <div class="pricing-card-row mobile">
+                        <div class="pricing-card-row mobile" v-bind:key="details.name">
                           <div class="pricing-card-column">
                             {{details.name}}
                             <ul v-if="details.bullets">
-                              <li v-for="bullet in details.bullets">
+                              <li v-for="(bullet, bulletIndex) in details.bullets" v-bind:key="bulletIndex">
                                 {{bullet}}
                               </li>
                             </ul>
@@ -102,23 +102,23 @@
                   </template>
                 </div>
                 <template v-for="(details, feature) in $page.frontmatter.features">
-                  <div class="pricing-card-row desktop">
+                  <div class="pricing-card-row desktop" v-bind:key="details.name">
                     <div class="pricing-card-column">
                       {{details.name}}
                       <ul v-if="details.bullets">
-                        <li v-for="bullet in details.bullets">
+                        <li v-for="(bullet, bulletIndex) in details.bullets" v-bind:key="bulletIndex">
                           {{bullet}}
                         </li>
                       </ul>
                     </div>
                     <template v-for="edition in $page.frontmatter.editions">
-                      <div class="pricing-card-column" v-if="typeof edition[feature] === 'object'">
+                      <div class="pricing-card-column" v-if="typeof edition[feature] === 'object'" v-bind:key="edition.name">
                         <div>
                           <img src="/img/icons/icon--check.svg" v-if="edition[feature].enabled" />
                           {{edition[feature].additionalNote}}
                         </div>
                       </div>
-                      <div class="pricing-card-column" v-else>
+                      <div class="pricing-card-column" v-else v-bind:key="edition.name">
                         <img src="/img/icons/icon--check.svg" v-if="edition[feature]" />
                       </div>
                     </template>
@@ -138,7 +138,7 @@
             </div>
             <div class="pricing-addons-tiles">
               <template v-for="addon in $page.frontmatter.addons">
-                <a class="pricing-addons-tile" target="_blank" rel="noopener noreferrer" :href="addon.link">
+                <a class="pricing-addons-tile" target="_blank" rel="noopener noreferrer" :href="addon.link" v-bind:key="addon.title">
                   <img :src="addon.icon" />
                   <p>{{addon.title}}</p>
                 </a>
@@ -154,7 +154,7 @@
         <div class="pricing--faq">
           <h1>Frequently asked questions</h1>
           <template v-for="(item, index) in $page.frontmatter.faqs">
-            <div class="pricing-faq-item" v-bind:class="{ 'is-active': faqShownStates[index] }">
+            <div class="pricing-faq-item" v-bind:class="{ 'is-active': faqShownStates[index] }" v-bind:key="index">
               <button class="pricing-faq-item-title" v-on:click="toggleFaqShown(index)">
                 {{item.title}}
               </button>
