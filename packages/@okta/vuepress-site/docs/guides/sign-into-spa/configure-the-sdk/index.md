@@ -34,7 +34,7 @@ const config = {
   issuer: ISSUER,
   clientId: CLIENT_ID,
   redirectUri: REDIRECT_URI,
-  scope: SCOPES.split(/\s+/)
+  scopes: SCOPES.split(/\s+/)
 };
 ```
 
