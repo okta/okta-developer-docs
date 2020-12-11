@@ -7,7 +7,7 @@
      
      <div class="col-10">
        <div class="row justify-content-center">
-         <div class="col-11">
+         <div class="col-11 redesign-homepage--elevated">
 
           <div class="row"> 
             <div class="col-12">
@@ -33,7 +33,7 @@
             </div>
           </div>
 
-          <div class="row redesign-homepage--selector-block-margin">
+          <div class="row redesign-homepage--selector-block-margin ">
             <div class="col-3" v-for="tile in tileData" :key="tile.name">
               <SelectorTile :tileData="tile" :key="tile.name" />
             </div>
@@ -43,12 +43,38 @@
               <AssuranceItem v-for="assurance in assuranceData" :key="assurance.title" :item="assurance" /> 
           </div>
 
+
+          <div class="row redesign-homepage--customize-your-app-margin ">
+              <div class="col-12">
+                <h2 class="redesign-homepage--sub-heading redesign-homepage--color-main">
+                  Customize for your app, try it here
+                </h2>
+              </div>
+              <div class="col-7">
+                <div class="redesign-homepage--code-example">
+                  <span>Javascript</span>
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="redesign-homepage--live-widget">
+                  <span>Authenticate</span>
+                </div>
+              </div>
+          </div>
+
            <div class="row justify-content-around no-wrap redesign-homepage--partners-block-margin">
              <img v-for="partner in partnerData" :src="partner.src" :key="partner.alt"/>
            </div>
-          
+           
         </div>
+        <div class="redesign-homepage--backgrounds">
+          <div class="redesign-homepage--backgrounds--top-layer-background">
+            <div class=""/>
+          </div>
+
+        </div> 
        </div>
+
      </div>
    </div>
   </div>

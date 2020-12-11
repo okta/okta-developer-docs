@@ -14,6 +14,10 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    color: #DFEAF1;
+    &:visited{
+        color: #DFEAF1;
+    }
     >i,span{
       display: block;
     }
@@ -21,6 +25,7 @@
       color: #bac1c6;
     }
     &:hover{
+      color: #ffffff;
       >i{
         color: #ffffff;
       }
