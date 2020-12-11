@@ -11,7 +11,7 @@ Creating an org is easy using the [Okta CLI](https://github.com/okta/okta-cli):
 
 3. Okta creates the org. The CLI returns your Okta domain and lets you know that a verification code is being sent to your email.
 
-   Make a note of your Okta domain: It’s the base of the URL you use to access your org. Authorization requests for users will be directed to an endpoint that has this as its base, and any Okta API endpoints you call will also have this URL as their base.
+> **Note:** Make a note of your Okta domain: It’s the base of the URL you use to access your org. Authorization requests for users will be directed to an endpoint that has this as its base, and any Okta API endpoints you call will also have this URL as their base.
 
 4. Check your email for the verification code. Enter it at the CLI's prompt.
 
