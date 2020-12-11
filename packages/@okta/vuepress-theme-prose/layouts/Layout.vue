@@ -38,8 +38,8 @@
       </div>
     </div>
 
-    <Footer />
-
+    <FooterRedesign v-if="$page.redesign" />
+    <Footer v-else />
   </div>
 </template>
 
@@ -60,6 +60,7 @@ export default {
     Breadcrumb: () => import('../components/Breadcrumb.vue'),
     ContentPage: () => import('../components/ContentPage.vue'),
     Footer: () => import('../components/Footer.vue'),
+    FooterRedesign: () => import('../components/Footer.redesign.vue'),
     Documentation: () => import('../components/Documentation.vue'),
     Reference: () => import('../components/Reference.vue'),
     Quickstart: () => import('../components/Quickstart.vue')
