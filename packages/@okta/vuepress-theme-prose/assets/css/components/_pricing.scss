@@ -12,18 +12,18 @@ $magenta: #e22866;
     max-width: 1280px;
   }
 
-  h2 {
-    color: white;
-    font-size: 32px;
-    font-weight: 500;
-    line-height: 48px;
-  }
-
   h1 {
     color: white;
     font-size: 40px;
     font-weight: 400;
     line-height: 50px;
+  }
+
+  h2 {
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 48px;
   }
 
   h3 {
@@ -258,14 +258,6 @@ $magenta: #e22866;
           padding: 0;
         }
       }
-
-      @include media('<tablet') {
-        .pricing-card-column {
-          ul {
-            display: none;
-          }
-        }
-      }
     }
 
     select {
@@ -348,7 +340,7 @@ $magenta: #e22866;
 
       .pricing-faq-item-title {
         width: 100%;
-        padding: 10px 0 10px 50px;
+        padding: 10px 10px 10px 50px;
         position: relative;
         background-color: #115d8b;
         color: white;
@@ -417,6 +409,7 @@ $magenta: #e22866;
     color: white;
     p {
       color: $gray;
+      max-width: 40em;
     }
   }
 
