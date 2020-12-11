@@ -9,7 +9,7 @@
   .row {
     display: flex;
     margin: 0 -24px 24px 0;
-    label {
+    .field-wrapper {
       padding: 0 24px 0 0;
       flex: 1;
     }

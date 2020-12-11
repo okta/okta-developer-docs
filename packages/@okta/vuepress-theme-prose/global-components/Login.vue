@@ -3,7 +3,7 @@
     <h1>Welcome back to Okta</h1>
     <div class="login--form">
       <div class="row">
-        <label for="login-email">
+        <label class="field-wrapper" for="login-email">
           <input
             id="login-email"
             type="button"
@@ -18,22 +18,22 @@
         <span></span>
       </div>
       <div class="row">
-        <label for="">
+        <div class="field-wrapper">
           <input
             type="button"
             class="social-btn"
             value="continue with github"
           />
-        </label>
+        </div>
       </div>
       <div class="row">
-        <label for="">
+        <div class="field-wrapper">
           <input
             type="button"
             class="social-btn"
             value="continue with google"
           />
-        </label>
+        </div>
       </div>
       <div class="row goto-signup">
         Need an account? <a href="/signup">Sign up</a>

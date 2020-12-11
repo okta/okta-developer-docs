@@ -3,7 +3,7 @@
     <div class="signup--form">
       <form @submit="submitForm" method="POST" action="https://developer.okta.com/developer/signup/">
         <div class="row">
-          <label for="email">
+          <label class="field-wrapper" for="email">
             Email
             <input
               type="text"
@@ -26,7 +26,7 @@
           </label>
         </div>
         <div class="row">
-          <label for="firstName">
+          <label class="field-wrapper" for="firstName">
             First Name
             <input
               type="text"
@@ -47,7 +47,7 @@
               </li>
             </ul>
           </label>
-          <label for="lastName">
+          <label class="field-wrapper" for="lastName">
             Last Name
             <input
               type="text"
@@ -71,7 +71,7 @@
         </div>
 
         <div class="row">
-          <label for="country">
+          <label class="field-wrapper" for="country">
             Country
             <select
               name=""
@@ -98,7 +98,7 @@
           </label>
         </div>
         <div class="row" v-if="states.list.length">
-          <label for="state">
+          <label class="field-wrapper" for="state">
             {{ states.label }}
             <select
               name=""
@@ -131,7 +131,7 @@
           </vue-recaptcha>
         </div>
         <div class="row">
-          <label for="signup">
+          <label class="field-wrapper" for="signup">
             <input
               type="submit"
               class="btn red-button"
@@ -148,22 +148,22 @@
         <span></span>
       </div>
       <div class="row">
-        <label for="">
+        <div class="field-wrapper">
           <input
             type="button"
             class="social-btn"
             value="continue with github"
           />
-        </label>
+        </div>
       </div>
       <div class="row">
-        <label for="">
+        <div class="field-wrapper">
           <input
             type="button"
             class="social-btn"
             value="continue with google"
           />
-        </label>
+        </div>
       </div>
       <div class="row goto-signin">
         Already signed up? <a href="/signin">Sign in</a>
