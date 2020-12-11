@@ -44,7 +44,8 @@ module.exports = [
       { title: 'Rate limit best practices', path: '/docs/reference/rl-best-practices/'},
       { title: 'Client-based rate limits', path: '/docs/reference/rl-clientbased/'},
       { title: 'DynamicScale', path: '/docs/reference/rl-dynamic-scale/'},
-      { title: 'Previous rate limits', path: '/docs/reference/rl-previous/'}
+      { title: 'Previous rate limits', path: '/docs/reference/rl-previous/'},
+      { title: 'System Log event guidance for rate limits', path: '/docs/reference/rl-system-log-events/'}
       ]
     },
     { title: 'Error Codes', path: '/docs/reference/error-codes/'},

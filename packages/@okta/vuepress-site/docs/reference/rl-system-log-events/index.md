@@ -1,15 +1,17 @@
 ---
-title: System Log Event Guidance for Rate Limiting
+title: System Log Event Guidance for rate limits
 category: rate limits
 ---
 
-Okta supports a few standard System Log events for your use with rate limiting. If you are implementing anything that can reject an operation within Okta because it has exceeded a [rate limit](/docs/reference/rate-limits/) (attempts per unit time), then use these standard System Log event types. This also applies to auxiliary events that may represent actions that modify the conditions under which an operation would be rejected.
+# System Log event guidance for rate limits
+
+Okta supports a few standard System Log events for your use with rate limiting. If you are implementing anything that can reject an operation within Okta because it has exceeded a [rate limit](/docs/reference/rate-limits/) (attempts per unit time), then use these standard System Log event types.
 
 The HTML response code returned when rejected should be HTTP 429.
 
 ## System Log event types for rate limits
 
-The following rate limit System Log events are supported:
+The following System Log events for use with rate limiting are available:
 
 * `system.operation.rate_limit.violation`<br>
 Emit this event type once per rate limiting period when rejecting a request for exceeding a rate limit. For example, if a client exceeds their calls per minute quota, then you should emit one event within that window maximum.
@@ -24,30 +26,30 @@ If you want to provide additional information about rate limiting decisions you 
 
 For some types of events, the fields provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the [DebugContext](/docs/reference/api/system-log/#debugcontext-object) object provides a way to store additional information.
 
-## Rate limit DebugContext object properties
+## DebugContext object properties for rate limiting
 
 The following table describes the rate limit information that is returned in the DebugContext object.
 
 > **Important:** The information contained in `debugContext.debugData` is intended to add context when troubleshooting customer platform issues. Note that both key names and values may change from release to release and aren't guaranteed to be stable. Therefore, they shouldn't be viewed as a data contract but as a debugging aid instead.
 
-| Property                           | Type        | Description                                                                                                       |
-| ---------------------------------- | ----------- | ----------------------------------------------------------------------------------------------------------------- |
-| `operationRateLimitScopeType`      |             | The type of rate limit scope effected. Example scopes: `org`, `user`, `application`                                                                       |
-| `operationRateLimitSecondsToReset` |             | The number of seconds until the rate limit resets.  |
-| `operationRateLimitSubtype`        |             | The subtype of the rate limit event effected. Example subtypes: `email`, `phone`, `rsa_token`                      |
-| `operationRateLimitThreshold`      |             | The relevant numerical limit that this event is associated with |
-| `operationRateLimitTimeSpan`       |             | The amount of time before the rate limit resets ??Is this in minute or seconds?? |
-| `operationRateLimitTimeUnit`       |             | The reset interval in minutes, seconds, and so on |                                                                   |
-| `operationRateLimitType`           |             | The type of rate limit event effected. Example types: `web_request`, `authenticator_otp_verification`, `sms_factor_enroll`, `event_hook_delivery`, `elastic_rate_limit_activated`, `phone_enrollment` |
+| Property                           | Type                     | Description                                                                                                       |
+| ---------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
+| `operationRateLimitScopeType`      | ??what is the datatype?? | The type of rate limit scope effected. Example scopes: `org`, `user`, `application`                               |
+| `operationRateLimitSecondsToReset` | ??what is the datatype?? | The number of seconds until the rate limit resets.                                                                |
+| `operationRateLimitSubtype`        | ??what is the datatype?? | The subtype of the rate limit event effected. Example subtypes: `email`, `phone`, `rsa_token`                     |
+| `operationRateLimitThreshold`      | ??what is the datatype?? | The relevant numerical limit that this event is associated with                                                   |
+| `operationRateLimitTimeSpan`       | ??what is the datatype?? | The amount of time before the rate limit resets ??Is this in minute or seconds??                                  |
+| `operationRateLimitTimeUnit`       | ??what is the datatype?? | The reset interval in ??Is this in minutes or secondes??                                                          |
+| `operationRateLimitType`           | ??what is the datatype?? | The type of rate limit event effected. Example types: `web_request`, `authenticator_otp_verification`, `sms_factor_enroll`, `event_hook_delivery`, `elastic_rate_limit_activated`, `phone_enrollment`|
 
-> **Note:** You may need to include additional information for some events, such as the Notification event type. For example:
-> For Notification:
+> **Note:** You may need to include additional information for some events, such as the Notification or the Warning event types. For example:<br>
+> For Notification event types:<br>
 >
 > * ERL activation might show which multiplier is being applied
 > * A preview-type event might contain a link to where the admin can toggle some behavior
 >
-> For Warning:
-> The event should include the threshold % that is being used to trigger the warning
+> For Warning event types:<br>
+> The event should include the threshold % that is being used to trigger the warning<br>
 >
 
 ## DebugContext object examples
