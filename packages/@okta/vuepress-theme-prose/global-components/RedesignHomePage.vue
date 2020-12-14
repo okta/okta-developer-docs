@@ -1,11 +1,11 @@
 <template>
   <div class="redesign-homepage container-fluid	">
    <div class="row">
-     <div class="col-2 col-no-padding">
+     <div class="col-xl-2 col-lg-2 d-md-none d-sm-none d-lg-block redesign-homepage--col-no-padding">
        <RedesignedSideBar />
      </div>
      
-     <div class="col-10">
+     <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
        <div class="row justify-content-center">
          <div class="col-11 redesign-homepage--elevated">
 
@@ -34,44 +34,54 @@
           </div>
 
           <div class="row redesign-homepage--selector-block-margin ">
-            <div class="col-3" v-for="tile in tileData" :key="tile.name">
+            <div class="col-xl-3 col-lg-6 col-md-6" v-for="tile in tileData" :key="tile.name">
               <SelectorTile :tileData="tile" :key="tile.name" />
             </div>
           </div>
 
-          <div class="row justify-content-around no-wrap redesign-homepage--assurance-block-margin">
-              <AssuranceItem v-for="assurance in assuranceData" :key="assurance.title" :item="assurance" /> 
+          <div class="row justify-content-around align-items-center flex-lg-row-reverse flex-md-row-reverse redesign-homepage--assurance-block-margin">
+              <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12" v-for="assurance in assuranceData" :key="assurance.title">
+                <AssuranceItem :key="assurance.title" :item="assurance" /> 
+              </div>
           </div>
 
 
-          <div class="row redesign-homepage--customize-your-app-margin ">
+          <div class="row justify-content-center redesign-homepage--customize-your-app-margin ">
               <div class="col-12">
-                <h2 class="redesign-homepage--sub-heading redesign-homepage--color-main">
+                <h2 class="redesign-homepage--sub-heading redesign-homepage--color-main redesign-homepage--centered-md">
                   Customize for your app, try it here
                 </h2>
               </div>
-              <div class="col-7">
+              <div class="col-xl-7 col-md-12 col-sm-12">
                 <div class="redesign-homepage--code-example">
                   <span>Javascript</span>
                 </div>
               </div>
-              <div class="col-5">
+              <div class="col-xl-5 col-md-10 col-sm-12">
                 <div class="redesign-homepage--live-widget">
                   <span>Authenticate</span>
                 </div>
               </div>
           </div>
 
-           <div class="row justify-content-around no-wrap redesign-homepage--partners-block-margin">
-             <img v-for="partner in partnerData" :src="partner.src" :key="partner.alt"/>
-           </div>
-           
+          <div class="row justify-content-center">
+            <div class="col-lg-10 col-md-10 col-sm-12">
+                <div class="row justify-content-around align-items-center redesign-homepage--partners-block-margin">
+                      <div v-for="partner in partnerData" :key="partner.alt" class="col-lg-auto col-md-4 col-sm-12 col-xs-12"> 
+                        <div class="redesign-homepage--partner-wrapper">
+                          <img :src="partner.src" />
+                        </div>
+                      </div>
+                </div>
+            </div>
+          </div>  
+          
         </div>
-        <div class="redesign-homepage--backgrounds">
-          <div class="redesign-homepage--backgrounds--top-layer-background">
-            <div class=""/>
-          </div>
 
+        <div class="redesign-homepage--backgrounds">
+          <div class="redesign-homepage--backgrounds--wrapper">
+            <div class="redesign-homepage--backgrounds--wrapper--top-layer-background" />
+          </div>
         </div> 
        </div>
 
@@ -205,12 +215,12 @@ export default {
           {
           description: "so your apps are working even when you’re not",
           title: "99.99% Uptime",
-          img: "/img/homepage/standards.png"
+          img: "/img/homepage/uptime.png"
         },
           {
           description: "SAML, OpenID Connect, and OAuth 2.0 connect you to everything",
           title: "Open Standards",
-          img: "/img/homepage/uptime.png"
+          img: "/img/homepage/standards.png"
         }
       ],
       partnerData: [

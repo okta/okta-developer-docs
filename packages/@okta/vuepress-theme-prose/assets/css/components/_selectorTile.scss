@@ -7,6 +7,11 @@
   height: 375px;
   box-sizing: border-box;
   overflow: hidden;
+  box-shadow: 2px 33px 30px -26px rgba(18,30,36,1);
+  @include media("<=bootstrap-xl"){
+    margin-bottom: 30px;
+  }
+
   &--header{
     font-size: 18px;
     padding: 20px;
