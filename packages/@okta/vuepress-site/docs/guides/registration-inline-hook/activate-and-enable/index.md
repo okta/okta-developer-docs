@@ -18,7 +18,7 @@ To set up and activate the Registration Inline Hook:
 
 The Registration Inline Hook is now set up with a status of active.
 
-> **Note:** You can also setup an inline hook using an API. See [Inline Hook Setup](/docs/reference/api/inline-hooks/) for further information.
+> **Note:** You can also setup an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/) for further information.
 
 To enable the Registration Inline Hook on the self-service registration page:
 
