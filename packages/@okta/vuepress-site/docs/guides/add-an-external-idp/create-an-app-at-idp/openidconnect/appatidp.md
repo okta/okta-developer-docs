@@ -1,4 +1,4 @@
-Use the Identity Provider's documentation to create a client application. For example, if you want to use PayPal as your OpenID Connect Identity Provider, click **Create App** on [this page](https://developer.paypal.com/developer/applications/) to create a PayPal client application.
+Use the Identity Provider's documentation to create a client application. 
 
 You also need to add the redirect URI to the appropriate section. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the Identity Provider (IdP). This is the URL where the IdP returns the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URL has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and then the callback endpoint.
 
