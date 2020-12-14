@@ -13,13 +13,17 @@
   }
 
   .login--form {
-    width: 100%;
-    max-width: 588px;
-    min-width: 588px;
+    display: flex;
+    flex-direction: column;
+    width: 588px;
     margin: 0;
     padding: 40px 48px 8px 48px;
     background-color: cv("blue", "whale");
     box-shadow: 0px 6px 25px cv("blue", "whale");
+    @include media("<tablet") {
+      padding: 10px;
+      width: 100%;
+    }
 
     .splitter {
       display: flex;
@@ -45,6 +49,9 @@
         font-size: 17px;
         text-indent: 5px;
         color: cv("cerise", "base");
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
   }
@@ -52,6 +59,9 @@
   .logo-wrapper {
     margin: 40px 0 0 0;
     width: 338px;
+    @include media("<=phone") {
+      width: 250px;
+    }
     h4 {
       text-align: center;
       font-size: 16px;

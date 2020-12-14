@@ -25,6 +25,7 @@
             </ul>
           </label>
         </div>
+        <div class="user-name">
         <div class="row">
           <label class="field-wrapper" for="firstName">
             First Name
@@ -47,6 +48,8 @@
               </li>
             </ul>
           </label>
+        </div>
+        <div class="row">
           <label class="field-wrapper" for="lastName">
             Last Name
             <input
@@ -68,6 +71,7 @@
               </li>
             </ul>
           </label>
+        </div>
         </div>
 
         <div class="row">

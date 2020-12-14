@@ -26,9 +26,10 @@ export class Api {
   }
 
   post(url, options = {}) {
-    options.headers = options.headers
-      ? { ...options.headers, ...this.postHeaders }
-      : { ...this.postHeaders };
+    options.headers = {
+      ...this.postHeaders,
+      ...options.headers
+    };
     return this.httpRequest("POST", url, options);
   }
 }

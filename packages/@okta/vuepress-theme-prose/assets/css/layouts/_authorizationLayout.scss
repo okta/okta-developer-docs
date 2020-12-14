@@ -9,9 +9,15 @@
   .row {
     display: flex;
     margin: 0 -24px 24px 0;
+    @include media("<tablet") {
+      margin: 0 0 24px 0;
+    }
     .field-wrapper {
       padding: 0 24px 0 0;
       flex: 1;
+      @include media("<tablet") {
+        padding: 0;
+      }
     }
   }
 
@@ -74,6 +80,14 @@
     align-items: center;
     height: 98px;
     margin: 0 0 32px 0;
+    @include media("<desktop") {
+      margin: 0;
+      padding: 46px;
+    }
+    @include media("<475px") {
+      margin: 0;
+      padding: 10px;
+    }
   }
 
   .authorization-layout--content {
@@ -87,6 +101,7 @@
       width: 100%;
     }
     flex-direction: column;
+    display: flex;
   }
 
   .social-btn {
