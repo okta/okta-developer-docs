@@ -170,7 +170,7 @@
         </div>
       </div>
       <div class="row goto-signin">
-        Already signed up? <a href="/signin">Sign in</a>
+        Already signed up? <a href="/login">Sign in</a>
       </div>
     </div>
     <div class="signup--description">
