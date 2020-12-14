@@ -63,7 +63,8 @@ export default {
     FooterRedesign: () => import('../components/Footer.redesign.vue'),
     Documentation: () => import('../components/Documentation.vue'),
     Reference: () => import('../components/Reference.vue'),
-    Quickstart: () => import('../components/Quickstart.vue')
+    Quickstart: () => import('../components/Quickstart.vue'),
+    Pricing: () => import('../components/Pricing.vue'),
   },
   data() {
     return {
