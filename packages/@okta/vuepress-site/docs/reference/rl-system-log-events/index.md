@@ -32,15 +32,15 @@ The following table describes the rate limit information that is returned in the
 
 > **Important:** The information contained in `debugContext.debugData` is intended to add context when troubleshooting customer platform issues. Note that both key names and values may change from release to release and aren't guaranteed to be stable. Therefore, they shouldn't be viewed as a data contract but as a debugging aid instead.
 
-| Property                           | Type                     | Description                                                                                                       |
-| ---------------------------------- | ------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `operationRateLimitScopeType`      | ??what is the datatype?? | The type of rate limit scope effected. Example scopes: `org`, `user`, `application`                               |
-| `operationRateLimitSecondsToReset` | ??what is the datatype?? | The number of seconds until the rate limit resets.                                                                |
-| `operationRateLimitSubtype`        | ??what is the datatype?? | The subtype of the rate limit event effected. Example subtypes: `email`, `phone`, `rsa_token`                     |
-| `operationRateLimitThreshold`      | ??what is the datatype?? | The relevant numerical limit that this event is associated with                                                   |
-| `operationRateLimitTimeSpan`       | ??what is the datatype?? | The amount of time before the rate limit resets ??Is this in minute or seconds??                                  |
-| `operationRateLimitTimeUnit`       | ??what is the datatype?? | The reset interval in ??Is this in minutes or secondes??                                                          |
-| `operationRateLimitType`           | ??what is the datatype?? | The type of rate limit event effected. Example types: `web_request`, `authenticator_otp_verification`, `sms_factor_enroll`, `event_hook_delivery`, `elastic_rate_limit_activated`, `phone_enrollment`|
+| Property                           | Type   | Description                                                                                                       |
+| ---------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------- |
+| `operationRateLimitScopeType`      | String | The type of rate limit scope effected. Example scopes: `org`, `user`, `application`                               |
+| `operationRateLimitSecondsToReset` | String | The number of seconds until the rate limit resets                                                                |
+| `operationRateLimitSubtype`        | String | The subtype of the rate limit event effected. Example subtypes: `email`, `phone`, `rsa_token`                     |
+| `operationRateLimitThreshold`      | String | The relevant numerical limit that this event is associated with                                                   |
+| `operationRateLimitTimeSpan`       | String | The amount of time before the rate limit resets                                                                   |
+| `operationRateLimitTimeUnit`       | String | Indicates the reset interval for `operationRateLmitTimeSpan` in minutes or seconds                                |
+| `operationRateLimitType`           | String | The type of rate limit event effected. Example types: `web_request`, `authenticator_otp_verification`, `sms_factor_enroll`, `event_hook_delivery`, `elastic_rate_limit_activated`, `phone_enrollment`, and so on|
 
 > **Note:** You may need to include additional information for some events, such as the Notification or the Warning event types. For example:<br>
 > For Notification event types:<br>
