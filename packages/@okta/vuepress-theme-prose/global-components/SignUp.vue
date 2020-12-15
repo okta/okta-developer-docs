@@ -196,7 +196,7 @@ import {
   countriesList,
   americanStates,
   canadaProvinces
-} from "../models/signup.model";
+} from "../const/signup.const";
 
 export default {
   components: {
