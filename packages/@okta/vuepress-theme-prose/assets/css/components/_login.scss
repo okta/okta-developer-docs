@@ -55,23 +55,4 @@
       }
     }
   }
-
-  .logo-wrapper {
-    margin: 40px 0 0 0;
-    width: 338px;
-    @include media("<=phone") {
-      width: 250px;
-    }
-    h4 {
-      text-align: center;
-      font-size: 16px;
-      margin: 0 0 18px 0;
-      color: $white;
-    }
-    .partners-logo {
-      width: 100%;
-      display: inline-flex;
-      justify-content: space-between;
-    }
-  }
 }

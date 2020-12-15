@@ -17,6 +17,10 @@ body {
   background-color: cv('brand');
 }
 
+.text-center {
+  text-align: center;
+}
+
 .container {
   max-width: $container-width;
   margin: 0 auto;
