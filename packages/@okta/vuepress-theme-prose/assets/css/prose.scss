@@ -12,12 +12,13 @@
 @import 'okta/global/fontello';
 @import 'okta/icons/all';
 
-// Base 
+// Base
 @import 'base/typography';
 @import 'base/mixins.scss';
 
 // Layouts
 @import 'layouts/layout.scss';
+@import 'layouts/authorizationLayout.scss';
 
 // Components
 @import 'components/apiLifecycle';
@@ -44,4 +45,6 @@
 @import 'components/featuredGuides';
 @import 'components/stackSelector';
 @import 'components/nextSectionLink';
+@import 'components/signUp';
+@import 'components/login';
 @import 'components/pricing';
