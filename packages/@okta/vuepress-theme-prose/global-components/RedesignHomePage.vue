@@ -82,6 +82,7 @@
         <div class="redesign-homepage--backgrounds">
             <div class="redesign-homepage--backgrounds--bottom-layer" />
             <div class="redesign-homepage--backgrounds--top-layer" />
+            <div class="redesign-homepage--backgrounds--circle" />
         </div>
         </div> 
        </div>
