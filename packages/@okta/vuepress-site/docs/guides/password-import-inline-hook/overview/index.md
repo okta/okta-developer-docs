@@ -4,9 +4,9 @@ title: Overview
 
 This guide provides example code for an external service to respond to calls from a Password Import Inline Hook.
 
-In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the end user's credentials are valid. If the credentials are valid, the password imports into the Okta org.
+In the following example, the external service code parses requests from Okta and responds to Okta with commands that indicate whether the end user's credentials are valid. If the credentials are valid, the password is imported into the Okta org.
 
-At a high-level, the following workflow occurs:
+At a high level, the following workflow occurs:
 
 - User profiles are imported into an Okta org that use the Password Import Inline Hook.
 - The Password Import Inline Hook triggers on first sign-in request by a user.

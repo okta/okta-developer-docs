@@ -12,7 +12,7 @@ Setting up an Event Hook in your Okta org requires the following generic steps:
 3. Verify to Okta that you control the endpoint.
 4. Begin receiving ongoing delivery of event notifications.
 
-These steps are explained in the following Event Hook example, which uses the Okta event of a user deactivation. When this event occurs, the example external service code receives an Okta request. The external service responds with an acknowledgement to Okta that the request has been received and, in this example, simply displays the deactivated user’s name to the console.
+These steps are explained in the following Event Hook example, which uses the Okta event for a user deactivation. When this event occurs, the example external service code receives an Okta request. The external service responds with an acknowledgement to Okta that the request has been received and, in this example, simply displays the deactivated user’s name to the console.
 
 This guide uses the website [Glitch.com](https://glitch.com) to act as an external service and to implement the Event Hook with an Okta org. See the following Glitch project to copy a working code example that implements the following scenario or build your own using the code snippets:
 

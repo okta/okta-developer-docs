@@ -1,4 +1,4 @@
-For this example, only emails containing "yourDomain.com" are allowed and can self-register. You can also include an `error` object in the response for those users denied registration.
+For this example, only emails containing "example.com" are allowed and can self-register. You can also include an `error` object in the response for those users denied registration.
 
 See the [response properties](/docs/reference/registration-hook/#objects-in-the-response-from-okta) of a Registration Inline Hook for full details.
 
@@ -9,7 +9,7 @@ app.post('/registrationHook', async (request, response) => {
   console.log('Email for ' + request.body.data.userProfile['firstName'] + " " + request.body.data.userProfile['lastName'] + " " + request.body.data.userProfile['email']);
 
   var emailRegistration = request.body.data.userProfile['email'];
-  if (emailRegistration.includes("yourDomain.com")){
+  if (emailRegistration.includes("example.com")){
 
     var returnValue = { "commands":[
                           { "type":"com.okta.action.update",

@@ -7,8 +7,8 @@ curl -v -X POST \
   "profile": {
     "firstName": "Michelle",
     "lastName": "Test",
-    "email": "michelletest@doesnotexist.com",
-    "login": "michelletest@doesnotexist.com",
+    "email": "michelletest@example.com",
+    "login": "michelletest@example.com",
   },
   "credentials": {
     "password" : {

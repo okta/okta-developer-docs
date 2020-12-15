@@ -21,7 +21,7 @@ Use the Developer Console System Log to review logs of the Event or Inline Hook 
 
 For implementations using the Glitch projects, use Glitch's log feature to review and troubleshoot your external service code:
 
-1. In the Glitch project's left-hand folder navigation pane, click "Tools" at the bottom of the pane.
-2. Click "Logs".
+1. In the Glitch project's left-hand folder navigation pane, click **Tools** at the bottom of the pane.
+2. Click **Logs**.
 
 A log pane appears that displays all `console.log()` output. Some console output code is available in the sample code.

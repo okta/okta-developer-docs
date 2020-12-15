@@ -16,8 +16,8 @@ To set up and activate the Password Import Inline Hook:
     - **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 6. Click **Save**.
 
-The Password Import Inline Hook is now set up with a status of active.
+The Password Import Inline Hook is now set up with a status of "Active".
 
-> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/) for further information.
+> **Note:** You can also set up an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook) for further information.
 
 <NextSectionLink/>

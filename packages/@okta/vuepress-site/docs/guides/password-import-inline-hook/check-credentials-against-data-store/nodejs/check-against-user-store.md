@@ -9,15 +9,15 @@ The file module `users.js` in our implementation contains the following code, wh
 ```javascript
 const users = [
   {
-    username: 'michelletest@doesnotexist.com',
+    username: 'michelletest@example.com',
     password: 'hunter2',
   },
   {
-    username: 'sanjaytest@doesnotexist.com',
+    username: 'sanjaytest@example.com',
     password: 'password1',
   },
     {
-    username: 'josephtest@doesnotexist.com',
+    username: 'josephtest@dexample.com',
     password: 'password2',
   },
 ]

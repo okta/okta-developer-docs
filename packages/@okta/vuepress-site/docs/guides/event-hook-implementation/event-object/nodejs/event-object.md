@@ -91,7 +91,7 @@
             {
                 "id": "00u3m90rxKjGQ0G6L1d6",
                 "type": "User",
-                "alternateId": "johndoet@doesnotexist.com",
+                "alternateId": "johndoe@example.com",
                 "displayName": "John Doe",
                 "detailEntry": null
             }

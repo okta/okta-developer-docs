@@ -1,7 +1,7 @@
 ---
 title: Test the Event Hook
 ---
-The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service when an Event is triggered; in this example, when a user is deactivated in the Okta org.
+The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service when an event is triggered. In this example, the event is triggered when a user is deactivated in the Okta org.
 
 ### Test
 To run a test of your Event Hook, go to the Okta sign-in page for your Okta org.
@@ -17,4 +17,4 @@ To run a test of your Event Hook, go to the Okta sign-in page for your Okta org.
 
     `The user John Doe has been deactivated on the Okta org!`
 
-> **Tip:** Review the [troubleshooting](/docs/guides/overview-and-considerations/troubleshooting) section for information if encountering any setup or configuration difficulties.
+> **Note:** Review the [troubleshooting](/docs/guides/overview-and-considerations/troubleshooting) section for information if you encounter any setup or configuration difficulties.
