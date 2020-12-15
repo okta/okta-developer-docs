@@ -1,4 +1,4 @@
-import { bannedEmailProviders } from "../models/signup.model";
+import { bannedEmailProviders } from "../const/signup.const";
 export class SignUpValidation {
   errorDictionary = {
     email: "Invalid email.",
