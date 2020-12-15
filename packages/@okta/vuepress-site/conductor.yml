@@ -1,6 +1,4 @@
 redirects:
-  - from: /code/index.html
-    to: /docs/
   - from: /use_cases/api_security
     to: /docs/concepts/api-access-management/
   - from: /3rd_party_notices/Okta_Rum_Tool
