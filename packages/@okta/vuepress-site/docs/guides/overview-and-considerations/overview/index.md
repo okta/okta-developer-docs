@@ -1,5 +1,5 @@
 ---
-title: Hook implementation setup
+title: Overview
 ---
 
 Okta Event and Inline Hooks use outbound calls, which are received and parsed by an external service to implement additional custom functionality for your Okta implementation.

@@ -1,9 +1,9 @@
 ---
-title: Overview and considerations 
+title: Common Hook Setup Steps
 excerpt: Overview and considerations when implementing an Event or Inline Hook
 layout: Guides
 sections:
- - hook-implementation-setup
+ - overview
  - setting-up-an-external-service
  - adding-basic-auth
  - troubleshooting
