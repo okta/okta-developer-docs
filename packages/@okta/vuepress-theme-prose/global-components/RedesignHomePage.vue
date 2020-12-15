@@ -1,7 +1,7 @@
 <template>
   <div class="redesign-homepage container-fluid	">
    <div class="row">
-     <div class="col-xl-2 col-lg-2 d-md-none d-sm-none d-lg-block redesign-homepage--col-no-padding">
+     <div class="col-xl-2 col-lg-2 d-none d-lg-block redesign-homepage--col-no-padding">
        <RedesignedSideBar />
      </div>
      
