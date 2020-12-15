@@ -43,7 +43,7 @@
       <h4 class="text-center">Trusted by</h4>
       <div class="partners-logo">
         <img
-          src="@okta/vuepress-site/.vuepress/public/img/authorization/proof-by.png"
+          src="/img/authorization/proof-by.png"
           alt=""
         />
       </div>
