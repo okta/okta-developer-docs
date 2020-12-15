@@ -6,6 +6,7 @@
      </div>
      
      <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+       
        <div class="row justify-content-center">
          <div class="col-11 redesign-homepage--elevated">
 
@@ -79,15 +80,15 @@
         </div>
 
         <div class="redesign-homepage--backgrounds">
-          <div class="redesign-homepage--backgrounds--wrapper">
-            <div class="redesign-homepage--backgrounds--wrapper--top-layer-background" />
-          </div>
+            <div class="redesign-homepage--backgrounds--bottom-layer" />
+            <div class="redesign-homepage--backgrounds--top-layer" />
+        </div>
         </div> 
        </div>
 
      </div>
    </div>
-  </div>
+
 </template>
 
 <script>

@@ -108,54 +108,8 @@
     margin-bottom: 60px;
   }
 
-  &--backgrounds{
-    position: absolute;
-    display: flex;
-    flex-direction: column-reverse;
-    bottom: 0;
-    width: 100%;
-    height: 400px;
-    background: linear-gradient(#192f3b, #203b54);
-    z-index: 0;
-   
-    &::before{
-      content: "";
-      position: absolute;
-      top: -10%;
-      width: 100%;
-      height: 16%;
-      background: linear-gradient(#1E3646, #192f3b);
-      border-top-left-radius: 50%;
-      border-top-right-radius: 50%;
-    }
-    &--wrapper{
-      overflow: hidden;
-      height: 400px;
-      width: 100%;
-      background: linear-gradient(#192f3b, #203b54);
-      position: relative;
-      &--top-layer-background{
-        position: relative;
-        height: 63%;
-        width: 120%;
-        transform: rotate(-1.5deg);
-        &::before{
-          content: "";
-          position: absolute;
-          top: -27%;
-          width: 85%;
-          height: 28%;
-          background-color: #203b54;
-          border-top-left-radius: 50%;
-          border-top-right-radius: 50%;
-        }
-      }
-    }
-   
-  }
   &--partner-wrapper{
-    
-     display: flex;
+      display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 90px;
@@ -165,4 +119,51 @@
       max-height: 40px !important;
     }
   }
+
+  &--backgrounds{
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+    bottom: 0;
+    width: 100%;
+    height: 540px;
+    z-index: 0;
+    overflow: hidden;
+
+      &--top-layer{
+        background-color: #1a2f3b;
+        height: 63px;
+        position: relative;
+        z-index: -1;
+        transform: rotate(2deg) scale(1.1);
+        &::before{
+          content: "";
+          position: absolute;
+          top: -100%;
+          width: 100%;
+          height: 70px;
+          background: linear-gradient(#1e3645, #1a2f3b);
+          border-top-left-radius: 50%;
+          border-top-right-radius: 50%;
+        }
+      }
+        &--bottom-layer{
+          background-color: #203b54;
+          position: relative;
+          height: 65%;
+          width: 120%;
+          transform: rotate(1.5deg) scaleX(1.2) scaleY(1.2) translateY(60px);
+          &::before{
+            content: "";
+            position: absolute;
+            top: -27%;
+            width: 85%;
+            height: 28%;
+            background-color: #203b54;
+            border-top-left-radius: 50%;
+            border-top-right-radius: 50%;
+          }
+        }
+    }
 }
+ 
