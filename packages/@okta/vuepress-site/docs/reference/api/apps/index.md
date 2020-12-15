@@ -4751,7 +4751,7 @@ Updates the CSR with a signed X.509 certificate and adds it into the application
 | Parameter     | Description                                                                     | Param Type | DataType                                                 | Required | Default |
 | ------------- | ------------------------------------------------------------------------------- | ---------- | ---------------------------------------------            | -------- | ------- |
 | applicationId | Unique key of the [Application](#application-properties)                        | URL        | String                                                   | TRUE     |         |
-| certificate   | The signed X.509 certificate                                                    | Body       | X.509 certififcate in `DER``, `PEM` or `CER` format | TRUE     |         |
+| certificate   | The signed X.509 certificate                                                    | Body       | X.509 certififcate in `DER`, `PEM` or `CER` format | TRUE     |         |
 | csrid         | Unique key of an [Application CSR](#application-csr-object)                         | URL        | String                                                   | TRUE     |         |
 
 For `DER` and `CER` formated certificate, the client can either post in binary or in base64 encoded. If the post is base64 encoded, the `Content-Transfer-Encoding` header should be set to `base64`.
