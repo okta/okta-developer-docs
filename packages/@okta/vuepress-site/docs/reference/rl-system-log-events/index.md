@@ -1,26 +1,20 @@
 ---
-title: System Log Event Guidance for rate limits
+title: System Log events for rate limits
 category: rate limits
 ---
 
-# System Log event guidance for rate limits
+# System Log events for rate limits
 
-Okta supports a few standard System Log events for your use with rate limiting. If you are implementing anything that can reject an operation within Okta because it has exceeded a [rate limit](/docs/reference/rate-limits/) (attempts per unit time), then use these standard System Log event types.
-
-The HTML response code returned when rejected should be HTTP 429.
-
-## System Log event types for rate limits
-
-The following System Log events for use with rate limiting are available:
+The Okta [System Log](/docs/reference/api/system-log/) records system events related to your organization to provide an audit trail that you can use to understand platform activity and to diagnose problems. There are a few standard System Log events that you may encounter when Okta is enforcing [rate limits](/docs/reference/rate-limits/) on specific operations.
 
 * `system.operation.rate_limit.violation`<br>
-Emit this event type once per rate limiting period when rejecting a request for exceeding a rate limit. For example, if a client exceeds their calls per minute quota, then you should emit one event within that window maximum.
+This event type is sent once per rate limiting period when a request is rejected for exceeding a rate limit. For example, if you exceed your calls per minute quota (60 seconds), then one event is sent within that 60 seconds.
 
 * `system.operation.rate_limit.warning`<br>
-If you want to warn the caller that some significant portion of their rate limit has already been used within a period, you may also emit this event type once per rate limiting period. For example, you warn the customer that 60% of their daily limit for event delivery has been reached.
+This event type is sent once per rate limiting period as a warning that some significant portion of your rate limit has already been used within a period. For example, you receive a warning that you have reached 60% of your daily limit for event delivery.
 
 * `system.operation.rate_limit.notification`<br>
-If you want to provide additional information about rate limiting decisions you may emit this event type. For example, Elastic Rate Limiting (ERL) was activated for a customer within a rate limiting period, or a violation event would have been emitted if the customer had a different configuration.
+This event type can provide additional information about rate limiting decisions. For example, Elastic Rate Limiting (ERL) was activated for you within a rate limiting period, or a violation event would have been emitted if you had a different configuration.
 
 ## DebugContext object
 
@@ -34,22 +28,22 @@ The following table describes the rate limit information that is returned in the
 
 | Property                           | Type   | Description                                                                                                       |
 | ---------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------- |
-| `operationRateLimitScopeType`      | String | The type of rate limit scope effected. Example scopes: `org`, `user`, `application`                               |
+| `operationRateLimitScopeType`      | String | The type of rate limit scope affected. Example scopes: `org` or `user`                                            |
 | `operationRateLimitSecondsToReset` | String | The number of seconds until the rate limit resets                                                                |
-| `operationRateLimitSubtype`        | String | The subtype of the rate limit event effected. Example subtypes: `email`, `phone`, `rsa_token`                     |
+| `operationRateLimitSubtype`        | String | The subtype of the rate limit event affected. Example subtypes: `email`, `phone`, `rsa_token`                     |
 | `operationRateLimitThreshold`      | String | The relevant numerical limit that this event is associated with                                                   |
 | `operationRateLimitTimeSpan`       | String | The amount of time before the rate limit resets                                                                   |
 | `operationRateLimitTimeUnit`       | String | Indicates the reset interval for `operationRateLmitTimeSpan` in minutes or seconds                                |
-| `operationRateLimitType`           | String | The type of rate limit event effected. Example types: `web_request`, `authenticator_otp_verification`, `sms_factor_enroll`, `event_hook_delivery`, `elastic_rate_limit_activated`, `phone_enrollment`, and so on|
+| `operationRateLimitType`           | String | The type of rate limit event affected. Example types: `web_request`, `authenticator_otp_verification`, `sms_factor_enroll`, `event_hook_delivery`, `elastic_rate_limit_activated`, `phone_enrollment`, and so on|
 
-> **Note:** You may need to include additional information for some events, such as the Notification or the Warning event types. For example:<br>
-> For Notification event types:<br>
+> **Note:** Additional information for some events may be included in the DebugContext object, such as for the Notification or Warning event types. For example:<br>
+> **For Notification event types**<br>
 >
 > * ERL activation might show which multiplier is being applied
-> * A preview-type event might contain a link to where the admin can toggle some behavior
+> * A preview-type event might contain a link to where you can toggle some behavior
 >
-> For Warning event types:<br>
-> The event should include the threshold % that is being used to trigger the warning<br>
+> **For Warning event types**<br>
+> The event might include the threshold % that is being used to trigger the warning<br>
 >
 
 ## DebugContext object examples
