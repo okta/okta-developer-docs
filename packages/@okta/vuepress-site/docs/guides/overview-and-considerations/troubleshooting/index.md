@@ -11,8 +11,6 @@ A preview tab, accessible in the Developer Console, is available for the followi
 * Registration Inline Hook
 * SAML Inline  Hook
 
-> **Note:** The preview tab is not available in Okta Developer Edition orgs.
-
 Before enabling the hook, the preview tab can run a sample Okta request call, and receive the external service response. Review the request and response formats to make sure responses are accurate.
 
 ### Developer Console System Log ###

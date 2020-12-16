@@ -16,7 +16,7 @@ At a high level, the following workflow occurs:
 
 This guide uses the website Glitch.com to act as an external service and to implement the Password Import Inline hook with an Okta org. See the following Glitch project to copy working code that implements the following example or build your own using the code snippets:
 
-* [Okta Password Import Inline Hook Example](https://okta-passwordimport-inlinehook.glitch.me/)
+* [Okta Password Import Inline Hook Example](https://glitch.com/~okta-passwordimport-inlinehook)
 
 > **Tip:** For another in-depth look at a Password Import Inline Hook implementation, see the following Developer Experience blog example by Heather Wallander, [Migrate user Passwords with Okta's Password Hook](https://developer.okta.com/blog/2020/09/18/password-hook-migration).
 
