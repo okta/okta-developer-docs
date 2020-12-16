@@ -1552,7 +1552,7 @@ Get subscriptions of a Role with a specific type
 | Parameter        | Description                                            | Param Type  | DataType                                    | Required  |
 | :--------------- | :----------------------------------------------------- | :---------- | :------------------------------------------ | :-------- |
 | roleType         | `type` of a Role                                       | URL         | [Role Type](#role-types)                    | TRUE      |
-| notificationType | `type` of a notification                               | URL         | [Notification Type](#notification-type)    | TRUE      |
+| notificationType | `type` of a notification                               | URL         | [Notification Type](#notification-type)     | TRUE      |
 
 ##### Response parameters
 
@@ -1602,7 +1602,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/roles/${roleType}/subscriptions/${notificationType}/subscribe" />
 
-Make a Role subscribes to a specific type
+Make a Role subscribes to a specific type. When you change the subscription status of a role, it will override the subscription of any individual user of that role.
 
 ##### Request parameters
 
@@ -1610,7 +1610,7 @@ Make a Role subscribes to a specific type
 | Parameter        | Description                                            | Param Type  | DataType                                 | Required  |
 | :--------------- | :----------------------------------------------------- | :---------- | :--------------------------------------- | :-------- |
 | roleType         | `type` of a Role                                       | URL         | [Role Type](#role-types)                 | TRUE      |
-| notificationType | `type` of a notification                               | URL         | [Notification Type](#notification-type) | TRUE      |
+| notificationType | `type` of a notification                               | URL         | [Notification Type](#notification-type)  | TRUE      |
 
 ##### Response parameters
 
@@ -1643,7 +1643,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="post" url="/api/v1/roles/${roleType}/subscriptions/${notificationType}/unsubscribe" />
 
-Make a Role unsubscribes to a specific type
+Make a Role unsubscribes to a specific type. When you change the subscription status of a role, it will override the subscription of any individual user of that role.
 
 ##### Request parameters
 
@@ -1685,7 +1685,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/subscriptions" />
 
-List subscriptions of a User. We only support operations for current user right now.
+List subscriptions of a User. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
 
 ##### Request parameters
 
@@ -1944,7 +1944,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/roles/${userId}/subscriptions/${notificationType}" />
 
-Get the subscriptions of a User with a specific type. We only support operations for current user right now.
+Get the subscriptions of a User with a specific type. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
 
 ##### Request parameters
 
@@ -2002,7 +2002,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/subscriptions/${notificationType}/subscribe" />
 
-Make a User subscribes to a specific type. We only support operations for current user right now.
+Make a User subscribes to a specific type. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
 
 ##### Request parameters
 
@@ -2043,7 +2043,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/subscriptions/${notificationType}/unsubscribe" />
 
-Make a User unsubscribes to a specific type. We only support operations for current user right now.
+Make a User unsubscribes to a specific type. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
 
 ##### Request parameters
 
@@ -2211,4 +2211,19 @@ The Subscription object defines several properties:
 We currently only support `email`
 
 ### Notification type
-Since we currently only support `email`, the notification types are the same as email types: `CONNECTOR_AGENT`, `USER_LOCKED_OUT`, `APP_IMPORT`, `LDAP_AGENT`, `AD_AGENT`, `OKTA_ANNOUNCEMENT`, `OKTA_ISSUE`, `OKTA_UPDATE`, `IWA_AGENT`, `USER_DEPROVISION`, `REPORT_SUSPICIOUS_ACTIVITY`, `RATELIMIT_NOTIFICATION`.
+Since we currently only support `email`, the notification types are the same as email types.
+
+| Type                       | Description                                                                                                    |
+| :--------------------------| :--------------------------------------------------------------------------------------------------------------|
+| CONNECTOR_AGENT            | System notification sent when an on-premises provisioning or Okta on-prem MFA agent disconnects or reconnects. |
+| USER_LOCKED_OUT            | System notification sent when a user is locked out from logging in to Okta.                                    |
+| APP_IMPORT                 | System notification sent with the status of an app user import.                                                |
+| LDAP_AGENT                 | System notification sent when an LDAP agent disconnects or reconnects.                                         |
+| AD_AGENT                   | System notification sent when an AD agent disconnects or reconnects.                                           |
+| OKTA_ANNOUNCEMENT          | Okta communication sent for announcements and release notes.                                                   |
+| OKTA_ISSUE                 | Okta communication sent for trust incident alerts and updates.                                                 |
+| OKTA_UPDATE                | Okta communication sent for scheduled system updates.                                                          |
+| IWA_AGENT                  | System notification sent when an IGA agent disconnects or reconnects.                                          |
+| USER_DEPROVISION           | System notification sent when a user is deprovisioned from apps.                                               |
+| REPORT_SUSPICIOUS_ACTIVITY | System notification sent when a user reports suspicious activity.                                              |
+| RATELIMIT_NOTIFICATION     | System notification sent when an org reaches rate limit warning or violation thresholds.                       |
