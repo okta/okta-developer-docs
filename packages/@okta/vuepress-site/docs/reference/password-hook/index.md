@@ -33,7 +33,7 @@ If your service returns a response that indicates that the password is valid, Ok
 
 The outbound call from Okta to your external service includes the following objects in its JSON payload:
 
-### data.credential
+### data.context.credential
 
 This object contains `username` and `password` properties. These are the user name and password that the end user supplied when attempting to sign in to Okta.
 
