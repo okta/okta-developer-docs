@@ -55,7 +55,7 @@ Use this section to Base64 encode the client ID and secret. When you finish enco
 
 To use the command line for Mac and Linux:
 
-1. Follow steps one through four above.
+1. Follow steps 1 through 4 above.
 
 2. Launch a terminal and enter the following command, replacing `clientid:clientsecret` with the value that you just copied to the clipboard.
 
@@ -68,7 +68,7 @@ To use the command line for Mac and Linux:
 
 To use the command line for Windows:
 
-1. Follow steps one through three above.
+1. Follow steps 1 through 3 above.
 
 2. Save the file to `C:\temp` and name the file appCreds.txt.
 
