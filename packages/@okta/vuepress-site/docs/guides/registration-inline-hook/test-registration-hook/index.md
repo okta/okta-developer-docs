@@ -25,4 +25,4 @@ To run a test of your Registration Inline Hook, go to the Okta sign-in page for 
 - If you use an allowable email domain, such as `john@example.com`, the user registration goes through.
 - If you use an incorrect email domain, the user registration is denied; review the error message, which displays the error summary from the external service code and is passed back to Okta.
 
-> **Note:** Review [Troubleshooting hook implementations](/docs/guides/overview-and-considerations/troubleshooting) for information if encountering any setup or configuration difficulties.
+> **Note:** Review [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/troubleshooting) for information if encountering any setup or configuration difficulties.

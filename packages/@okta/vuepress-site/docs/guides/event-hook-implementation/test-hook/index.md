@@ -17,4 +17,4 @@ To run a test of your Event Hook, go to the Okta sign-in page for your Okta org.
 
     `The user John Doe has been deactivated on the Okta org!`
 
-> **Note:** Review the [troubleshooting](/docs/guides/overview-and-considerations/troubleshooting) section for information if you encounter any setup or configuration difficulties.
+> **Note:** Review the [troubleshooting](/docs/guides/common-hook-set-up-steps/troubleshooting) section for information if you encounter any setup or configuration difficulties.

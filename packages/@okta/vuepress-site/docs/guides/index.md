@@ -4,6 +4,7 @@ guides:
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - common-hook-set-up-steps
  - configure-access-policy
  - configure-signon-policy
  - create-an-api-token
@@ -29,7 +30,6 @@ guides:
  - implement-password
  - mfa
  - migrate-to-okta
- - overview-and-considerations
  - oin-oidc-guide
  - build-provisioning-integration
  - build-sso-integration

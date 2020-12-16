@@ -103,7 +103,7 @@ module.exports = [
   {
     title: 'Hooks',
     subLinks: [
-      { title: 'Common Hook Set-up Steps', guideName: 'overview-and-considerations'},
+      { title: 'Common Hook Set-up Steps', guideName: 'common-hook-set-up-steps'},
       { title: 'Event Hook', guideName: 'event-hook-implementation' },
       { title: 'Password Import Inline Hook', guideName: 'password-import-inline-hook' },
       { title: 'Registration Inline Hook', guideName: 'registration-inline-hook' }
