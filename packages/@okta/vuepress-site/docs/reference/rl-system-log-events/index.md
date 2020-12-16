@@ -167,6 +167,8 @@ The following is an example System Log rate limit event where too many enrollmen
 
 The following is an example System Log rate limit event where too many OTP verification attempts were made for the Email factor.
 
+> **Note:** This event is valid with Identity Experience flows only.
+
 ```json
 {
   "actor": {
