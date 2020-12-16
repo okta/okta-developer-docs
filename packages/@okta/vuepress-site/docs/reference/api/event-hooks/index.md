@@ -8,7 +8,9 @@ excerpt:
 
 # Event Hooks Management API
 
-For general information on event hooks and how to create and use them, see [Event Hooks](/docs/concepts/event-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering Event Hooks. For a step-by-step guide to registering an Event Hook, see [Set Up Event Hooks](/docs/guides/set-up-event-hook/).
+For general information on event hooks and how to create and use them, see [Event Hooks](/docs/concepts/event-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering Event Hooks.
+
+For a step-by-step guide on implementing an example Event Hook, see the [Event Hook](/docs/guides/event-hook-implementation/) guide.
 
 ## Get started
 

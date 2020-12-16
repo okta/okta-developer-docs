@@ -31,7 +31,7 @@ To see the list of event types currently eligible for use in Event Hooks, query 
 
 For general information on how Okta encapsulates events, see the [System Log API](/docs/reference/api/system-log/) documentation.
 
-Examples of available types of events include user lifecycle changes, the completion by a user of a specific stage in an Okta process flow, and changes in Okta objects. You could configure an Event Hook, for example, to deliver notifications of user deactivation events. You could use this to trigger processes that you need to execute internally every time a user is deactivated, like updating a record in an HR system, creating a ticket in a support system, or generating an email message.  
+Examples of available types of events include user lifecycle changes, the completion by a user of a specific stage in an Okta process flow, and changes in Okta objects. You could configure an Event Hook, for example, to deliver notifications of user deactivation events. You could use this to trigger processes that you need to execute internally every time a user is deactivated, like updating a record in an HR system, creating a ticket in a support system, or generating an email message.
 
 ## Requests Sent by Okta
 
@@ -47,7 +47,7 @@ This one-time verification request is the only GET request Okta will send to you
 
 The way your service needs to handle this one-time verification is as follows: The request from Okta will contain an HTTP header named `X-Okta-Verification-Challenge`. Your service needs to read the value of that header and return it in the response body, in a JSON object named `verification`, i.e.: `{ "verification" : "value_from_header" }`. Note that the value comes to you in an HTTP header, but you need to send it back in a JSON object.
 
-See [Set Up Event Hooks](/docs/guides/set-up-event-hook/overview/) for more information on triggering that one-time verification step, in the context of the other steps required to register and verify a new Event Hook endpoint. 
+See [Event Hooks](/docs/guides/event-hook-implementation) for a working example of an Event Hook setup, including code that completes the one-time verification step.
 
 ### Ongoing Event Delivery
 
@@ -107,7 +107,22 @@ Event Hook delivery attempts that have timed-out, or been detected as having fai
 
 ## Event Hook Setup
 
-For the steps to register and verify a new Event Hook endpoint, see [Set Up Event Hooks](/docs/guides/set-up-event-hook/overview/).
+The basic steps to register and verify a new Event Hook are as follows:
+
+- Implement your external web service to receive Event Hook calls from Okta.
+- Register the endpoint of your external service with Okta and configure Event Hook parameters.
+- Verify to Okta that you control the endpoint.
+
+### Implement your service
+You need to implement a web service with an Internet-accessible endpoint to receive Event Hook calls from Okta. It's your responsibility to develop the code and to arrange its hosting on a system external to Okta. Okta defines the REST API contract for the REST requests it sends to your service. See [Requests Sent by Okta](/docs/concepts/event-hooks/#requests-sent-by-okta) for information on the REST API contract.
+
+### Register your endpoint
+After implementing your external service, you need to register it with Okta. To do so, you use the Admin Console from the **Workflow > Event Hooks** page. For details on this procedure, see [Add Event Hooks](https://help.okta.com/en/prod/Content/Topics/automation-hooks/add-event-hooks.htm).
+
+### Verify your endpoint
+After registering the Event Hook, you need to trigger a one-time verification process by clicking the Verify button that is displayed in Admin Console. When you trigger verification, Okta calls out to your external service, making the one-time verification request to it. You need to have implemented functionality in your service to handle the expected request and response. The purpose of this step is to prove that you control the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for more information.
+
+For a working example of an end-to-end Event Hook set up, see the following guide [Event Hooks](/docs/guides/event-hook-implementation).
 
 ## Sample Event Delivery Payload
 
