@@ -1,29 +1,19 @@
-After setting up the previous steps, you stored the profile data in the `sessionStore`:
+// NOTE: I would change this to talk about exchanging tokens
 
+The final step after all remediation is handled, is to exchange your interaction code to get access tokens
 
 ```go
-func getProfileData(r *http.Request) map[string]string {
-	m := make(map[string]string)
-
-	session, err := sessionStore.Get(r, "okta-hosted-login-session-store")
-
-	if err != nil || session.Values["access_token"] == nil || session.Values["access_token"] == "" {
-		return m
-	}
-
-	reqUrl := os.Getenv("ISSUER") + "/v1/userinfo"
-
-	req, _ := http.NewRequest("GET", reqUrl, bytes.NewReader([]byte("")))
-	h := req.Header
-	h.Add("Authorization", "Bearer "+session.Values["access_token"].(string))
-	h.Add("Accept", "application/json")
-
-	client := &http.Client{}
-	resp, _ := client.Do(req)
-	body, _ := ioutil.ReadAll(resp.Body)
-	defer resp.Body.Close()
-	json.Unmarshal(body, &m)
-
-	return m
+// These properties are based on the `successWithInteractionCode` object, and the properties that you are required to fill out
+exchangeForm := []byte(`{
+    "client_secret": "` + client.GetClientSecret() + `",
+    "code_verifier": "` + string(client.GetCodeVerifier()) + `" // We generate your code_verfier for you and store it in the client struct. You can gain access to it through the method `GetCodeVerifier()` which will return a string
+}`)
+tokens, err := response.SuccessResponse.ExchangeCode(context.Background(), exchangeForm)
+if err != nil {
+    panic(err)
 }
+
+fmt.Printf("%+v\n", tokens)
+fmt.Printf("%+s\n", tokens.AccessToken)
+fmt.Printf("%+s\n", tokens.IDToken)
 ```
