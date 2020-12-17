@@ -47,7 +47,7 @@
           </div>
 
 
-          <div class="row justify-content-center redesign-homepage--customize-your-app-margin ">
+          <div class="row redesign-homepage--customize-your-app-margin ">
               <div class="col-12">
                 <h2 class="redesign-homepage--sub-heading redesign-homepage--color-main redesign-homepage--centered-md">
                   Customize for your app, try it here
@@ -60,7 +60,7 @@
               </div>
               <div class="col-xl-5 col-md-10 col-sm-12">
                 <div class="redesign-homepage--live-widget">
-                  <span>Authenticate</span>
+                  <FrontPageWidget/>
                 </div>
               </div>
           </div>
@@ -98,7 +98,8 @@ export default {
   components: {
     RedesignedSideBar: () => import('../components/RedesignedSidebar'),
     SelectorTile: () => import('../components/SelectorTile'),
-    AssuranceItem: () => import('../components/AssuranceItem')
+    AssuranceItem: () => import('../components/AssuranceItem'),
+    FrontPageWidget: () => import('../components/FrontPageWidget')
   },
   data () {
     return{

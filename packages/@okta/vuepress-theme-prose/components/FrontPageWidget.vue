@@ -1,0 +1,68 @@
+<template>
+  <div  class="main-page-widget-wrapper" id="okta-sign-in"></div>
+</template>
+
+<script>
+import OktaSignIn from '@okta/okta-signin-widget'
+import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css'
+
+  export default {
+    name: 'FrontPageWidget',
+    mounted: function () {
+    this.$nextTick(function () {
+      this.widget = new OktaSignIn({
+        baseUrl: 'https://{yourOktaDomain}',
+        logo: '/img/homepage/alliance.png',
+        username: 'leia@rebelalliance.io',
+        processCreds: (creds, callback) => {
+          console.log(creds)
+          alert(creds)
+        },
+        helpLinks: {
+              help: 'https://developer.okta.com/code/javascript/okta_sign-in_widget'
+        },
+        i18n: {
+            en: {
+              "primaryauth.title": "Alliance Authentication",
+              "primaryauth.submit": "Sign In"
+            },
+        },
+      })
+      this.widget.on('afterRender', () => {
+                if (!this.rendered) {
+                  this.widget.hide();
+
+                  // Prefill password input
+                  const password = document.getElementById('okta-signin-password');
+                  if (password) {
+                    password.setAttribute('value', 'secret');
+                    password.dispatchEvent(new Event('input', { 'bubbles': true } ));
+                  }
+
+                  setTimeout(() => {
+                    this.widget.show();
+                    this.rendered = true;
+                  }, 100);
+                } else {
+                  // Last focused element to return to
+                  const elementToFocus = (document.activeElement);
+                  setTimeout(() => {
+                    const activeElement = (document.activeElement);
+                    if (activeElement.id === 'okta-signin-password') {
+                      activeElement.blur();
+                      elementToFocus.focus();
+                    }
+                  }, 100);
+                }
+              });
+      this.widget.renderEl(
+        { el: '#okta-sign-in' },
+      )
+    })
+  },
+  destroyed () {
+    // Remove the widget from the DOM on path change
+    this.widget.remove()
+  }
+  }
+</script>

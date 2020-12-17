@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      usingFile: false
+      usingFile: false,
     };
   },
   mounted() {

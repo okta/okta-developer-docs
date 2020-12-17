@@ -40,9 +40,8 @@
     }
   }
 
-  &--customize-your-app-margin{
-    margin-bottom: 80px;
-    z-index: 100000;
+  &--customize-your-app-margin.row{
+    margin-bottom: 10px;
   }
 
   &--color-main{
@@ -98,14 +97,13 @@
   }
 
   &--live-widget{
-    height: 400px; 
     background-color: #ffffff;
     border: 1px solid #CECECE;
     border-radius: 10px;
     width: 100%;
-    z-index: 1000;
     box-shadow: 2px 33px 30px -26px rgba(18,30,36,1);
     margin-bottom: 60px;
+    overflow: hidden;
   }
 
   &--partner-wrapper{
