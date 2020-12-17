@@ -1,10 +1,14 @@
 ---
 title: Before you begin
 ---
+
 This guide shows you how to use Okta as the user store for your web application and sign users in using the interact code grant type.
+
+> **Note:** This functionality requires the usage of the Okta Identity Engine. This functionality is in general availability but is being gradually rolled out to customers. If you want to request to gain access to the Okta Identity Engine, please reach out to your account manager. If you do not have an account manager, please reach out to <oie@okta.com> for more information.
+
 #### Interact Code Overview
 
-To enable a more customized user authentication experience, Okta has introduced an addition to the  OIDC standard, called the "Interaction Code" grant type. This grant type allows Web Apps and SPAs to manage the user interaction with the Okta authorization server directly, rather than redirecting to the authorization server. This is useful when the client has a particular way that it wants to interact with the user and does not need to share an authenticated session with other applications. This interaction flow consists of a series of "remediation" steps, each of which corresponds to a required piece of user data.
+To enable a more customized user authentication experience, Okta has introduced an addition to the OIDC standard, called the "Interaction Code" grant type. This grant type allows Web Apps and SPAs to manage the user interaction with the Okta authorization server directly, rather than redirecting to the authorization server. This is useful when the client has a particular way that it wants to interact with the user and does not need to share an authenticated session with other applications. This interaction flow consists of a series of "remediation" steps, each of which corresponds to a required piece of user data.
 
 For example, a user could start an authentication flow by entering only a username, and this flow would  prompt the client to request more information, or "remediation", as required. An example of remediation step is prompting the user for a password or to add a second factor. Remediation allows the client to kick off authentication requests from users with no prior data entered, and to respond to those requests with a back-and-forth interaction flow.
 
@@ -47,7 +51,7 @@ If you are building a single-page (browser) app, we recommend that you use the O
 
 This guide assumes that you:
 
-* Have Okta Identity Engine enabled for your org. If you'd like to get it enabled, please contact your Okta account rep.
+* Have Okta Identity Engine enabled for your org. If you'd like to get it enabled, please contact your account manager. If you do not have an account manager, please reach out to <oie@okta.com> for more information.
 * Know the basics of building web applications.
 * Have a project or application that you want to add authentication to.
 * Are building a web app that's rendered by a server.

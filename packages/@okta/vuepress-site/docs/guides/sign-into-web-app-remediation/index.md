@@ -7,5 +7,6 @@ sections:
  - create-okta-application
  - configure-packages
  - handle-remediation
+ - get-tokens
  - next-steps
 ---
