@@ -1,23 +1,10 @@
-ASP.NET automatically populates `HttpContext.User` with the information Okta sends back about the user. You can check whether the user is signed in with `User.Identity.IsAuthenticated` in your actions or views and see all of the user's claims in `User.Claims`.
-
-To access claims in your controllers, use the OWIN `IAuthenticationManager` interface that is attached to the `HttpContext` object:
+The final step after all remediation is handled, is to exchange your interaction code to get access tokens
 
 ```csharp
-[Authorize]
-public ActionResult Profile()
-{
-    var userClaims = HttpContext.GetOwinContext().Authentication.User.Claims;
-    ...
-    return View();
-}
-```
+var challengeResponse = await identifyResponse.Remediation.RemediationOptions
+                                            .FirstOrDefault(x => x.Name == "challenge-authenticator")
+                                            .ProceedAsync(identifyRequest);
 
-Or use the `User` property directly in your views:
-
-```cshtml
-@foreach (var claim in ((ClaimsIdentity)Context.User.Identity).Claims)
-{
-    <dt title="@claim.Type">@claim.Type</dt>
-    <dd>@claim.Value</dd>
-}
+// Exchange tokens
+var tokenResponse = await challengeResponse.SuccessWithInteractionCode.ExchangeCodeAsync();
 ```

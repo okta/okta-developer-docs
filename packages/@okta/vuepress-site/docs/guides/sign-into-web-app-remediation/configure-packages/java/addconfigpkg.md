@@ -1,11 +1,26 @@
-If you created your application with the Spring Initializr on the <GuideLink link="../before-you-begin/">first page of this guide</GuideLink>, this dependency has already been added.
+To use this SDK, you will need to include the following dependencies:
 
-For existing applications, you can add the Okta Spring Boot Starter by including the following Apache Maven dependency: 
+For Apache Maven:
 
-```xml
+``` xml
 <dependency>
-    <groupId>com.okta.spring</groupId>
-    <artifactId>okta-spring-boot-starter</artifactId>
-    <version>1.3.0</version>
+    <groupId>com.okta.idx.sdk</groupId>
+    <artifactId>okta-idx-java-api</artifactId>
+    <version>${okta.sdk.version}</version>
+</dependency>
+<dependency>
+    <groupId>com.okta.idx.sdk</groupId>
+    <artifactId>okta-idx-java-impl</artifactId>
+    <version>${okta.sdk.version}</version>
+    <scope>runtime</scope>
 </dependency>
 ```
+
+For Gradle:
+
+```groovy
+compile "com.okta.idx.sdk:okta-idx-java-api:${okta.sdk.version}"
+runtime "com.okta.idx.sdk:okta-idx-java-impl:${okta.sdk.version}"
+```
+
+where `okta.sdk.version` is the latest stable release version listed [on the idx repository](https://github.com/okta/okta-idx-java/#release-status).

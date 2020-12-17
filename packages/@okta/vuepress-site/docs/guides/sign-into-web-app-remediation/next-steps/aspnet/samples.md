@@ -1,1 +1,1 @@
-We have samples available in our [ASP.NET MVC Sample repo](https://github.com/okta/samples-aspnet) on GitHub.
+Check out our full usage documentation for the [.Net IDX SDK](https://github.com/okta/okta-idx-dotnet)

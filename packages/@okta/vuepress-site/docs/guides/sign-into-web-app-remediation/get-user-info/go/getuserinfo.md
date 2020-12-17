@@ -1,5 +1,3 @@
-// NOTE: I would change this to talk about exchanging tokens
-
 The final step after all remediation is handled, is to exchange your interaction code to get access tokens
 
 ```go
