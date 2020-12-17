@@ -1602,7 +1602,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/roles/${roleType}/subscriptions/${notificationType}/subscribe" />
 
-Make a Role subscribes to a specific type. When you change the subscription status of a role, it will override the subscription of any individual user of that role.
+Subscribes a Role to a specific type. When you change the subscription status of a role, it will override the subscription of any individual user of that role.
 
 ##### Request parameters
 
@@ -1643,7 +1643,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="post" url="/api/v1/roles/${roleType}/subscriptions/${notificationType}/unsubscribe" />
 
-Make a Role unsubscribes to a specific type. When you change the subscription status of a role, it will override the subscription of any individual user of that role.
+Unsubscribes a Role to a specific type. When you change the subscription status of a role, it will override the subscription of any individual user of that role.
 
 ##### Request parameters
 
@@ -2002,7 +2002,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/subscriptions/${notificationType}/subscribe" />
 
-Make a User subscribes to a specific type. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
+Subscribes a User to a specific type. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
 
 ##### Request parameters
 
@@ -2043,7 +2043,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/subscriptions/${notificationType}/unsubscribe" />
 
-Make a User unsubscribes to a specific type. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
+Unsubscribes a User to a specific type. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
 
 ##### Request parameters
 
