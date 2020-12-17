@@ -11,7 +11,7 @@ The Okta [System Log](/docs/reference/api/system-log/) records system events rel
 This event type is sent once per rate limiting period when a request is rejected for exceeding a rate limit. For example, if the rate limit that was exceeded has a reset period of one minute, then one event of this type is emitted during that period for the applicable scope.
 
 * `system.operation.rate_limit.warning`<br>
-This event type is sent once per rate limiting period as a warning that some significant portion of your rate limit has already been used within a period. For example, you receive a warning that you have reached 60% of your daily limit for event delivery.
+This event type may be sent once per rate limiting period as a warning that some significant portion of your rate limit has already been used within a period. For example, you may receive a warning that you have reached 60% of your rate limit for an endpoint within a rate limiting period.
 
 * `system.operation.rate_limit.notification`<br>
 This event type can provide additional information about rate limiting decisions. For example, a violation event would have been emitted if you had a different configuration.
