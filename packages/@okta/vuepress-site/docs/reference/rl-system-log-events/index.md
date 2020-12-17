@@ -5,7 +5,7 @@ category: rate limits
 
 # System Log events for rate limits
 
-The Okta [System Log](/docs/reference/api/system-log/) records system events related to your organization to provide an audit trail that you can use to understand platform activity and to diagnose problems. There are a few standard System Log events that you may encounter when Okta is enforcing [rate limits](/docs/reference/rate-limits/) on specific operations.
+Okta offers three standard System Log event types that you may encounter when Okta is enforcing [rate limits](/docs/reference/rate-limits/) on specific operations.
 
 * `system.operation.rate_limit.violation`<br>
 This event type is sent once per rate limiting period when a request is rejected for exceeding a rate limit. For example, if the rate limit that was exceeded has a reset period of one minute, then one event of this type is emitted during that period for the applicable scope.
@@ -15,6 +15,8 @@ This event type may be sent once per rate limiting period as a warning that some
 
 * `system.operation.rate_limit.notification`<br>
 This event type can provide additional information about rate limiting decisions. For example, a violation event would have been emitted if you had a different configuration.
+
+Additionally, there are specific [org-based System Log events](/docs/reference/api/system-log/#system-events) and [client-based System Log events](/docs/reference/rl-clientbased/#system-log-events). The org-based System Log events record system events related to your organization to provide an audit trail that you can use to understand platform activity and to diagnose problems. Client-based System Log events are fired when an individual user violates their assigned per minute requests limit for the OAuth `/authorize` endpoint. Which event that is fired depends on the client-based rate-limiting mode that is set.
 
 ## DebugContext object
 
