@@ -7,8 +7,8 @@
   position: sticky;
   overflow-y: auto;
   top: 155px;
-  
-   
+
+
   @include media('>=tablet') {
     top: 150px;
   }
@@ -39,7 +39,7 @@
     font-weight: bold;
   }
 
- 
+
 
   ul, li {
     list-style: none;
@@ -49,7 +49,7 @@
 
   li {
     margin-bottom: 0.5rem;
-    
+
     &.subnav.open > .link-wrap > a {
       padding-bottom: 0.4rem;
     }
@@ -107,5 +107,9 @@
         padding-left: 0.5em;
       }
     }
+  }
+
+  .hidden {
+    display: none;
   }
 }
