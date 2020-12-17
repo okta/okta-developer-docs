@@ -8,13 +8,13 @@ category: rate limits
 The Okta [System Log](/docs/reference/api/system-log/) records system events related to your organization to provide an audit trail that you can use to understand platform activity and to diagnose problems. There are a few standard System Log events that you may encounter when Okta is enforcing [rate limits](/docs/reference/rate-limits/) on specific operations.
 
 * `system.operation.rate_limit.violation`<br>
-This event type is sent once per rate limiting period when a request is rejected for exceeding a rate limit. For example, if you exceed your calls per minute quota (60 seconds), then one event is sent within that 60 seconds.
+This event type is sent once per rate limiting period when a request is rejected for exceeding a rate limit. For example, if the rate limit that was exceeded has a reset period of one minute, then one event of this type is emitted during that period for the applicable scope.
 
 * `system.operation.rate_limit.warning`<br>
 This event type is sent once per rate limiting period as a warning that some significant portion of your rate limit has already been used within a period. For example, you receive a warning that you have reached 60% of your daily limit for event delivery.
 
 * `system.operation.rate_limit.notification`<br>
-This event type can provide additional information about rate limiting decisions. For example, Elastic Rate Limiting (ERL) was activated for you within a rate limiting period, or a violation event would have been emitted if you had a different configuration.
+This event type can provide additional information about rate limiting decisions. For example, a violation event would have been emitted if you had a different configuration.
 
 ## DebugContext object
 
@@ -24,12 +24,12 @@ For some types of events, the fields provided in other response objects aren't s
 
 The following table describes the rate limit information that is returned in the DebugContext object.
 
-> **Important:** The information contained in `debugContext.debugData` is intended to add context when troubleshooting customer platform issues. Note that both key names and values may change from release to release and aren't guaranteed to be stable. Therefore, they shouldn't be viewed as a data contract but as a debugging aid instead.
+> **Important:** The information contained in `debugContext.debugData` is intended to add context when troubleshooting customer platform issues. The key names and values in the following table are standard properties for rate limit events. However, other properties may be included in the DebugContext object, for example: `countryCallingCode`. These types of event-specific properties may change from release to release and aren't guaranteed to be stable. Therefore, they shouldn't be viewed as a data contract but as a debugging aid instead.
 
 | Property                           | Type   | Description                                                                                                       |
 | ---------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------- |
 | `operationRateLimitScopeType`      | String | The type of rate limit scope affected. Example scopes: `org` or `user`                                            |
-| `operationRateLimitSecondsToReset` | String | The number of seconds until the rate limit resets                                                                |
+| `operationRateLimitSecondsToReset` | String | The number of seconds that remain until the current rate limiting period ends                                     |
 | `operationRateLimitSubtype`        | String | The subtype of the rate limit event affected. Example subtypes: `email`, `phone`, `rsa_token`                     |
 | `operationRateLimitThreshold`      | String | The relevant numerical limit that this event is associated with                                                   |
 | `operationRateLimitTimeSpan`       | String | The amount of time before the rate limit resets                                                                   |
@@ -38,9 +38,7 @@ The following table describes the rate limit information that is returned in the
 
 > **Note:** Additional information for some events may be included in the DebugContext object, such as for the Notification or Warning event types. For example:<br>
 > **For Notification event types**<br>
->
-> * ERL activation might show which multiplier is being applied
-> * A preview-type event might contain a link to where you can toggle some behavior
+> A preview-type event might contain a link to where you can toggle some behavior
 >
 > **For Warning event types**<br>
 > The event might include the threshold % that is being used to trigger the warning<br>
@@ -55,8 +53,8 @@ The following is an example System Log rate limit event where too many enrollmen
   "actor": {
     "id": "00uw8nGF9OiREtZyr0g3",
     "type": "User",
-    "alternateId": "oie-u1@oie.okta1.com",
-    "displayName": "oie1 oie1",
+    "alternateId": "john.smith@example.com",
+    "displayName": "John Smith",
     "detailEntry": null
   },
   "client": {
@@ -168,8 +166,8 @@ The following is an example System Log rate limit event where too many OTP verif
   "actor": {
     "id": "00u177cNaulNGQ8uT0g4",
     "type": "User",
-    "alternateId": "dave@ad.oktatest.com",
-    "displayName": "Dave Minion",
+    "alternateId": "john.smith@example.com",
+    "displayName": "John Smith",
     "detailEntry": null
   },
   "client": {
