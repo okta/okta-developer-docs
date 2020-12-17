@@ -14,7 +14,7 @@ This guide will walk you through integrating authentication into a React app wit
 6. [Connect the Routes](#connect-the-routes)
 7. [Start Your App](#start-your-app)
 
-> This guide is for `@okta/okta-auth-js` v4.0.2 and `@okta/okta-react` v3.0.8.
+> This guide is for `@okta/okta-auth-js` v4.0.2 and `@okta/okta-react` v4.1.0.
 
 ## Prerequisites
 If you do not already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
@@ -69,66 +69,58 @@ Create a `src/SignInForm.jsx` file:
 
 ```jsx
 import React, { useState } from 'react';
-import { OktaAuth } from '@okta/okta-auth-js';
 import { useOktaAuth } from '@okta/okta-react';
 
 const SignInForm = ({ issuer }) => {
-  const { authService } = useOktaAuth();
-  const [sessionToken, setSessionToken] = useState();
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+    const { oktaAuth } = useOktaAuth();
+    const [sessionToken, setSessionToken] = useState();
+    const [username, setUsername] = useState();
+    const [password, setPassword] = useState();
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const oktaAuth = new OktaAuth({
-      // If your app is configured to use the Implicit Flow
-      // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
-      // you will need to uncomment the below line:
-      // pkce: false,
-      issuer: issuer
-      });
-    oktaAuth.signIn({ username, password })
-    .then(res => {
-      const sessionToken = res.sessionToken;
-      setSessionToken(sessionToken);
-      // sessionToken is a one-use token, so make sure this is only called once
-      authService.redirect({ sessionToken });
-    })
-    .catch(err => console.log('Found an error', err));
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        oktaAuth.signIn({ username, password })
+            .then(res => {
+                const sessionToken = res.sessionToken;
+                setSessionToken(sessionToken);
+                // sessionToken is a one-use token, so make sure this is only called once
+                oktaAuth.signInWithRedirect({ sessionToken });
+            })
+            .catch(err => console.log('Found an error', err));
+    };
 
-  const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
-  };
+    const handleUsernameChange = (e) => {
+        setUsername(e.target.value);
+    };
 
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
+    const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+    };
 
-  if (sessionToken) {
-    // Hide form while sessionToken is converted into id/access tokens
-    return null;
-  }
+    if (sessionToken) {
+        // Hide form while sessionToken is converted into id/access tokens
+        return null;
+    }
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input
-          id="username" type="text"
-          value={username}
-          onChange={handleUsernameChange} />
-      </label>
-      <label>
-        Password:
-        <input
-          id="password" type="password"
-          value={password}
-          onChange={handlePasswordChange} />
-      </label>
-      <input id="submit" type="submit" value="Submit" />
-    </form>
-  );
+    return (
+        <form onSubmit={handleSubmit}>
+            <label>
+                Username:
+                <input
+                    id="username" type="text"
+                    value={username || ''}
+                    onChange={handleUsernameChange} />
+            </label>
+            <label>
+                Password:
+                <input
+                    id="password" type="password"
+                    value={password || ''}
+                    onChange={handlePasswordChange} />
+            </label>
+            <input id="submit" type="submit" value="Submit" />
+        </form>
+    );
 };
 export default SignInForm;
 ```
@@ -141,78 +133,78 @@ import { OktaAuth } from '@okta/okta-auth-js';
 import { withOktaAuth } from '@okta/okta-react';
 
 export default withOktaAuth(class SignInForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      sessionToken: null,
-      username: '',
-      password: ''
-    };
+    constructor(props) {
+        super(props);
+        this.state = {
+            sessionToken: null,
+            username: '',
+            password: ''
+        };
 
-    this.oktaAuth = new OktaAuth({
-      // If your app is configured to use the Implicit Flow
-      // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
-      // you will need to uncomment the below line:
-      // pkce: false,
-      issuer: props.issuer
-    });
+        this.oktaAuth = new OktaAuth({
+            // If your app is configured to use the Implicit Flow
+            // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
+            // you will need to uncomment the below line:
+            // pkce: false,
+            issuer: props.issuer
+        });
 
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleUsernameChange = this.handleUsernameChange.bind(this);
-    this.handlePasswordChange = this.handlePasswordChange.bind(this);
-  }
-
-  handleSubmit(e) {
-    e.preventDefault();
-    this.oktaAuth.signIn({
-      username: this.state.username,
-      password: this.state.password
-    })
-    .then(res => {
-      const sessionToken = res.sessionToken;
-      this.setState(
-        { sessionToken },
-        // sessionToken is a one-use token, so make sure this is only called once
-        () => this.props.authService.redirect({sessionToken})
-      );
-    })
-    .catch(err => console.log('Found an error', err));
-  }
-
-  handleUsernameChange(e) {
-    this.setState({username: e.target.value});
-  }
-
-  handlePasswordChange(e) {
-    this.setState({password: e.target.value});
-  }
-
-  render() {
-    if (this.state.sessionToken) {
-      // Hide form while sessionToken is converted into id/access tokens
-      return null;
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleUsernameChange = this.handleUsernameChange.bind(this);
+        this.handlePasswordChange = this.handlePasswordChange.bind(this);
     }
 
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Username:
-          <input
-            id="username" type="text"
-            value={this.state.username}
-            onChange={this.handleUsernameChange} />
-        </label>
-        <label>
-          Password:
-          <input
-            id="password" type="password"
-            value={this.state.password}
-            onChange={this.handlePasswordChange} />
-        </label>
-        <input id="submit" type="submit" value="Submit" />
-      </form>
-    );
-  }
+    handleSubmit(e) {
+        e.preventDefault();
+        this.oktaAuth.signIn({
+            username: this.state.username,
+            password: this.state.password
+        })
+            .then(res => {
+                const sessionToken = res.sessionToken;
+                this.setState(
+                    { sessionToken },
+                    // sessionToken is a one-use token, so make sure this is only called once
+                    () => this.props.oktaAuth.signInWithRedirect({sessionToken})
+                );
+            })
+            .catch(err => console.log('Found an error', err));
+    }
+
+    handleUsernameChange(e) {
+        this.setState({username: e.target.value});
+    }
+
+    handlePasswordChange(e) {
+        this.setState({password: e.target.value});
+    }
+
+    render() {
+        if (this.state.sessionToken) {
+            // Hide form while sessionToken is converted into id/access tokens
+            return null;
+        }
+
+        return (
+            <form onSubmit={this.handleSubmit}>
+                <label>
+                    Username:
+                    <input
+                        id="username" type="text"
+                        value={this.state.username}
+                        onChange={this.handleUsernameChange} />
+                </label>
+                <label>
+                    Password:
+                    <input
+                        id="password" type="password"
+                        value={this.state.password}
+                        onChange={this.handlePasswordChange} />
+                </label>
+                <input id="submit" type="submit" value="Submit" />
+            </form>
+        );
+    }
 });
 ```
 
@@ -235,24 +227,24 @@ import { Link, useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 
 const Home = () => {
-  const { authState, authService } = useOktaAuth();
-  const history = useHistory();
+    const { authState, oktaAuth } = useOktaAuth();
+    const history = useHistory();
 
-  if (authState.isPending) {
-    return <div>Loading...</div>;
-  }
+    if (authState.isPending) {
+        return <div>Loading...</div>;
+    }
 
-  const button = authState.isAuthenticated ?
-    <button onClick={() => {authService.logout()}}>Logout</button> :
-    <button onClick={() => {history.push('/login')}}>Login</button>;
+    const button = authState.isAuthenticated ?
+        <button onClick={() => {oktaAuth.signOut()}}>Logout</button> :
+        <button onClick={() => {history.push('/login')}}>Login</button>;
 
-  return (
-    <div>
-      <Link to='/'>Home</Link><br/>
-      <Link to='/protected'>Protected</Link><br/>
-      {button}
-    </div>
-  );
+    return (
+        <div>
+            <Link to='/'>Home</Link><br/>
+            <Link to='/protected'>Protected</Link><br/>
+            {button}
+        </div>
+    );
 };
 export default Home;
 ```
@@ -266,23 +258,23 @@ import { withOktaAuth } from '@okta/okta-react';
 
 export default withOktaAuth(class Home extends Component {
 
-  render() {
-    if (this.props.authState.isPending) {
-      return <div>Loading...</div>;
+    render() {
+        if (this.props.authState.isPending) {
+            return <div>Loading...</div>;
+        }
+
+        const button = this.props.authState.isAuthenticated ?
+            <button onClick={() => {this.props.oktaAuth.signOut()}}>Logout</button> :
+            <button onClick={() => {this.props.history.push('/login')}}>Login</button>;
+
+        return (
+            <div>
+                <Link to='/'>Home</Link><br/>
+                <Link to='/protected'>Protected</Link><br/>
+                {button}
+            </div>
+        );
     }
-
-    const button = this.props.authState.isAuthenticated ?
-      <button onClick={() => {this.props.authService.logout()}}>Logout</button> :
-      <button onClick={() => {this.props.history.push('/login')}}>Login</button>;
-
-    return (
-      <div>
-        <Link to='/'>Home</Link><br/>
-        <Link to='/protected'>Protected</Link><br/>
-        {button}
-      </div>
-    );
-  }
 });
 ```
 
@@ -374,28 +366,32 @@ And, create its companion at `src/AppWithRouterAccess.jsx`. Make sure to replace
 import React from 'react';
 import { Route, useHistory } from 'react-router-dom';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
+import { OktaAuth } from '@okta/okta-auth-js';
 import Home from './Home';
 import SignIn from './SignIn';
 import Protected from './Protected';
 
+const config = {
+    issuer: 'https://{yourOktaDomain}/oauth2/default',
+    redirectUri: window.location.origin + '/login/callback',
+    clientId: '{clientId}',
+    pkce: true
+}
+const oktaAuth = new OktaAuth(config);
 const AppWithRouterAccess = () => {
-  const history = useHistory();
-  const onAuthRequired = () => {
-    history.push('/login');
-  };
+    const history = useHistory();
+    const onAuthRequired = () => {
+        history.push('/login');
+    };
 
-  return (
-    <Security issuer='https://{yourOktaDomain}/oauth2/default'
-              clientId='{clientId}'
-              redirectUri={window.location.origin + '/login/callback'}
-              onAuthRequired={onAuthRequired}
-              pkce={true} >
-      <Route path='/' exact={true} component={Home} />
-      <SecureRoute path='/protected' component={Protected} />
-      <Route path='/login' render={() => <SignIn issuer='https://{yourOktaDomain}/oauth2/default' />} />
-      <Route path='/login/callback' component={LoginCallback} />
-    </Security>
-  );
+    return (
+        <Security oktaAuth={oktaAuth} onAuthRequired={onAuthRequired}>
+            <Route path='/' exact={true} component={Home} />
+            <SecureRoute path='/protected' component={Protected} />
+            <Route path='/login' render={() => <SignIn issuer='https://{yourOktaDomain}/oauth2/default' />} />
+            <Route path='/login/callback' component={LoginCallback} />
+        </Security>
+    );
 };
 export default AppWithRouterAccess;
 ```
@@ -423,34 +419,39 @@ export default App;
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
+import { OktaAuth } from '@okta/okta-auth-js';
 import Home from './Home';
 import SignIn from './SignIn';
 import Protected from './Protected';
+const config = {
+    issuer: 'https://{yourOktaDomain}/oauth2/default',
+    redirectUri: window.location.origin + '/login/callback',
+    clientId: '{clientId}',
+    pkce: true
+}
+const oktaAuth = new OktaAuth(config);
 
 export default withRouter(class AppWithRouterAccess extends Component {
-  constructor(props) {
-    super(props);
-    this.onAuthRequired = this.onAuthRequired.bind(this);
-  }
+    constructor(props) {
+        super(props);
+        this.onAuthRequired = this.onAuthRequired.bind(this);
+    }
 
-  onAuthRequired() {
-    this.props.history.push('/login');
-  }
+    onAuthRequired() {
+        this.props.history.push('/login');
+    }
 
-  render() {
-    return (
-      <Security issuer='https://{yourOktaDomain}/oauth2/default'
-                clientId='{clientId}'
-                redirectUri={window.location.origin + '/login/callback'}
-                onAuthRequired={this.onAuthRequired}
-                pkce={true} >
-        <Route path='/' exact={true} component={Home} />
-        <SecureRoute path='/protected' component={Protected} />
-        <Route path='/login' render={() => <SignIn issuer='https://{yourOktaDomain}/oauth2/default' />} />
-        <Route path='/login/callback' component={LoginCallback} />
-      </Security>
-    );
-  }
+    render() {
+        return (
+            <Security oktaAuth={oktaAuth}
+                      onAuthRequired={this.onAuthRequired}>
+                <Route path='/' exact={true} component={Home} />
+                <SecureRoute path='/protected' component={Protected} />
+                <Route path='/login' render={() => <SignIn issuer='https://{yourOktaDomain}/oauth2/default' />} />
+                <Route path='/login/callback' component={LoginCallback} />
+            </Security>
+        );
+    }
 });
 ```
 
