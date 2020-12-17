@@ -7,7 +7,5 @@ sections:
  - create-okta-application
  - configure-packages
  - handle-remediation
- - require-authentication
- - get-user-info
  - next-steps
 ---

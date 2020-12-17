@@ -47,8 +47,8 @@ If you are building a single-page (browser) app, we recommend that you use the O
 
 This guide assumes that you:
 
-* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup). //this is specifically not true, right?
-* Know the basics of building Web applications.
+* Have Okta Identity Engine enabled for your org. If you'd like to get it enabled, please contact your Okta account rep.
+* Know the basics of building web applications.
 * Have a project or application that you want to add authentication to.
 * Are building a web app that's rendered by a server.
 
@@ -58,6 +58,6 @@ If you don't have an existing app, or are new to building apps, start with this 
 
 #### Support
 
-If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+If you need help or have an issue, please [contact Support](https://support.okta.com/help/s/opencase).
 
 <NextSectionLink/>
