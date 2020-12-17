@@ -1,23 +1,82 @@
 .SearchBox .CoveoOmnibox {
-    border-color: #b7bcc0;
-    height: 45px;
-    width: 85%;
-    max-width: 710px;
+  border-color: #b7bcc0;
+  height: 45px;
+  width: 85%;
+  max-width: 710px;
 }
 
 .SearchBar {
-    top: 0px;
-    left: 0;
-    @include media(">desktop") {
-        top: 95px;
-    }
+  top: 0px;
+  left: 0;
+  @include media(">desktop") {
+    top: 95px;
+  }
 
-    @include media(">859px") {
-        top: 75px;
-    }
+  @include media(">859px") {
+    top: 75px;
+  }
 
-    .Wrap {
-        width: 100%;
-    }
+  .Wrap {
+    width: 100%;
+  }
 }
 
+$redesign_placeholder_color: #616161;
+
+.search--wrapper {
+  position: relative;
+
+  .input--icon {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 11px;
+    left: 12px;
+  }
+
+  .CoveoSearchInterface {
+    min-width: initial;
+    max-width: initial;
+  }
+
+  .CoveoOmnibox.magic-box {
+    width: 100%;
+    height: 38px;
+    border: none;
+
+    .magic-box-input {
+      height: 38px;
+      border-radius: 4px;
+
+      .magic-box-underlay {
+        height: 38px;
+        padding-left: 40px;
+        padding-right: 12px;
+      }
+
+      input {
+        height: 38px;
+        padding-left: 40px;
+        padding-right: 12px;
+        font-size: 14px;
+        font-family: inherit;
+
+        &::placeholder {
+          color: $redesign_placeholder_color;
+        }
+
+        @include media("<desktop") {
+          &::placeholder {
+            color: transparent;
+          }
+        }
+
+        @include media("<tablet") {
+          &::placeholder {
+            color: $redesign_placeholder_color;
+          }
+        }
+      }
+    }
+  }
+}

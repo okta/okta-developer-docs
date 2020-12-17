@@ -17,6 +17,10 @@ body {
   background-color: cv('brand');
 }
 
+.text-center {
+  text-align: center;
+}
+
 .container {
   max-width: $container-width;
   margin: 0 auto;
@@ -49,11 +53,16 @@ body {
   background-color: cv('brand');
 }
 
-.page-body {
+.page-body:not(.redesign) {
   padding-top: 6rem;
+
   @media(max-width:1024px){
     padding-top: 5rem;
   }
+}
+
+.page-body.redesign {
+  padding-top: 4.3rem;
 }
 
 a[target='_blank']:not([href^='mailto:'])::after {

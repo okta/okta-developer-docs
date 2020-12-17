@@ -1,15 +1,15 @@
 ---
-title: Use a static group whitelist with the Org Authorization Server
+title: Use a static group allow list with the Org Authorization Server
 ---
 
-For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. For the steps to configure a Groups claim for use with an access token, see the <GuideLink link="../use-static-group-allowlist-custom-as">Use a static group whitelist with a Custom Authorization Server</GuideLink> section.
+For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. For the steps to configure a Groups claim for use with an access token, see the <GuideLink link="../use-static-group-allowlist-custom-as">Use a static group allow list with a Custom Authorization Server</GuideLink> section.
 
 <RequireClassicUI/>
 
 1. In the Admin Console, from the **Applications** menu, select **Applications**, and then select the OpenID Connect client application that you want to configure.
 2. Navigate to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
 3. In the **Groups claim type** section, select **Expression**.
-4. In **Group claims expression**, leave the default name `groups` (or add it if the box is empty) and then add this expression in the second box: `getFilteredGroups(app.profile.groupwhitelist, "group.name", 40)`
+4. In **Group claims expression**, leave the default name `groups` (or add it if the box is empty) and then add this expression in the second box: `getFilteredGroups(app.profile.groupallowlist, "group.name", 40)`
 5. Click **Save**.
 
 ### Request an ID token that contains the Groups claim
@@ -57,7 +57,7 @@ The decoded JWT looks something like this:
 
 The ID token contains the group **IT**, so the audience (`aud`) has access to the group information about the user.
 
-> **Note:** For flows other than implicit, post to the token endpoint `https://${yourOktaDomain}/oauth2/v1/token` with the user or client that you want. Make sure that the user is assigned to the app and to one of the Groups from your whitelist.
+> **Note:** For flows other than implicit, post to the token endpoint `https://${yourOktaDomain}/oauth2/v1/token` with the user or client that you want. Make sure that the user is assigned to the app and to one of the Groups from your allow list.
 
 If the results aren't as expected, start your troubleshooting by inspecting the [System Log](/docs/reference/api/system-log/) to see what went wrong.
 

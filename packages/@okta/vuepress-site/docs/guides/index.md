@@ -73,7 +73,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
-    * [Quickstart: Signing in your first user](/docs/guides/quickstart/)
+    * [Quickstart: Signing in your first user](/docs/guides/quickstart/cli/create-org/)
     * [Set up self-service registration](/docs/guides/set-up-self-service-registration/before-you-begin/)
 
 2. Sign users in
@@ -95,8 +95,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Configure an access policy](/docs/guides/configure-access-policy/overview/)
     * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/overview/)
     * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/overview/)
-    * [Customize tokens returned from Okta with a dynamic whitelist](/docs/guides/customize-tokens-dynamic/overview/)
-    * [Customize tokens returned from Okta with a static whitelist](/docs/guides/customize-tokens-static/overview/)
+    * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/overview/)
+    * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/overview/)
 
 4. Brand and customize
 
