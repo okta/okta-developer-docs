@@ -8,7 +8,7 @@ layout: Guides
 
 ## Enable OIE for your organization
 
-To enable Okta Identity Engine, please reach out to your account manager. If you do not have an account manager, please reach out to oie@okta.com for more information.
+To enable Okta Identity Engine, please reach out to your account manager. If you do not have an account manager, please reach out to <oie@okta.com> for more information.
 
 ## Enable `interaction code` grant
 
