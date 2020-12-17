@@ -15,7 +15,7 @@ This guide will walk you through integrating authentication into a React app wit
 6. [Connect the Routes](#connect-the-routes)
 7. [Start Your App](#start-your-app)
 
-> This guide is for `@okta/okta-signin-widget` v4.5.1 and `@okta/okta-react` v3.0.8.
+> This guide is for `@okta/okta-signin-widget` v4.5.1 and `@okta/okta-react` v4.1.0.
 
 ## Prerequisites
 
