@@ -753,7 +753,7 @@ Client Applications have the following properties:
 | client_name                             | Human-readable string name of the client application                                                                         | String                                                                                         | FALSE      | TRUE     | FALSE     |
 | client_secret                           | OAuth 2.0 client secret string (used for confidential clients)                                                               | String                                                                                         | TRUE       | TRUE     | TRUE      |
 | client_secret_expires_at                | Time at which the client_secret will expire or 0 if it will not expire(measured in unix seconds)                             | Number                                                                                         | TRUE       | FALSE    | TRUE      |
-| grant_types                             | Array of OAuth 2.0 grant type strings. Default value: `authorization_code`                    | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`   | TRUE       | FALSE    | FALSE     |
+| grant_types                             | Array of OAuth 2.0 grant type strings. Default value: `authorization_code`                    | Array of `authorization_code`, `implicit`, `interaction_code`, `password`, `refresh_token`, `client_credentials`   | TRUE       | FALSE    | FALSE     |
 | initiate_login_uri                      | URL that a third party can use to initiate a login by the client                                                             | String                                                                                         | TRUE       | FALSE    | FALSE     |
 | jwks                                    | A [JSON Web Key Set](https://tools.ietf.org/html/rfc7517#section-5) for validating JWTs presented to Okta.                   | [JSON Web Key Set](#json-web-key-set)                                                          | TRUE       | FALSE    | FALSE     |
 | logo_uri                                | URL string that references a logo for the client consent dialog box (not the sign-in dialog box). See [Add an OAuth 2.0 client application](/docs/reference/api/apps/#details) for more information on how the `logo_uri` is used.   | String                                                                                         | TRUE       | FALSE    | FALSE     |
@@ -784,12 +784,14 @@ Property details
 
 | Application Type  | Valid Grant Type                                                           | Requirements                                   |
 | :---------------- | :------------------------------------------------------------------------- | :--------------------------------------------- |
-| `browser`         | `authorization_code`, `implicit`                                           |                                                |
-| `native`          | `authorization_code`, `implicit`, `password`, `refresh_token`              | Must have at least `authorization_code`        |
+| `browser`         | `authorization_code`, `implicit`, `interaction_code`                       |                                                |
+| `native`          | `authorization_code`, `implicit`, `interaction_code`, `password`, `refresh_token` | Must have at least `authorization_code`        |
 | `service`         | `client_credentials`                                                       | Works with OAuth 2.0 flow (not OpenID Connect) |
-| `web`             | `authorization_code`, `implicit`, `refresh_token`, `client_credentials`(*) | Must have at least `authorization_code`        |
+| `web`             | `authorization_code`, `implicit`, `interaction_code`, `refresh_token`, `client_credentials`(*) | Must have at least `authorization_code`        |
 
 * `client_credentials` with a `web` Application type allows you to use one `client_id` for an Application that needs to make user-specific calls and back-end calls for data.
+
+* The `interaction_code` grant type is only available as part of the Okta Identity Engine.
 
 * The `grant_types` and `response_types` values described above are partially orthogonal, as they refer to arguments passed to different endpoints in the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749). However, they are related in that the `grant_types` available to a client influence the `response_types` that the client is allowed to use, and vice versa. For instance, a `grant_types` value that includes `authorization_code` implies a `response_types` value that includes `code`, as both values are defined as part of the OAuth 2.0 authorization code grant.
 
