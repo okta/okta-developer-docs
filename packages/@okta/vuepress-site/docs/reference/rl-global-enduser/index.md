@@ -32,6 +32,8 @@ This page provides the API rate limits for authentication and end-user activitie
 | `/app/office365{appType}/{key}/sso/wsfed/passive`                                                                      | N/A              | N/A              | N/A     | 250        | 250                   |
 | `/app/template_saml_2_0/{key}/sso/saml`                                                                                | 100              | 600              | 600     | 600        | 2,500                  |
 | `/login/login.htm`                                                                                                     | 100              | 600              | 600     | 600        | 850                   |
+| `/login/getimage`                                                                                                     | 100              | 600              | 600     | 600        | 850                   |
+| `/login/sessionCookieRedirect`                                                                                                     | 100              | 600              | 600     | 600        | 850                   |
 | `/login/sso_iwa_auth`                                                                                                  | 100              | 600              | 600     | 600        | 500                   |
 | `/api/{apiVersion}/radius`                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 | `/idp/idx`                                                                                                             | 100              | 600              | 600     | 600        | 500                   |
