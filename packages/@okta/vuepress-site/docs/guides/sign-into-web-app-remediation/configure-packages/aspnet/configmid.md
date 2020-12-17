@@ -20,3 +20,4 @@ OKTA_IDX_SCOPES=openid profile
 OKTA_IDX_REDIRECTURI=https://okta.com
 ```
 
+You can also configure the IDX client by explicitly passing the configuration in the constructor. Check out the [Configuration section](https://github.com/okta/okta-idx-dotnet#configuration-reference) for more details. 
