@@ -181,7 +181,7 @@ export default withOktaAuth(class Login extends Component {
 
   onSuccess(res) {
     if (res.status === 'SUCCESS') {
-      return this.props.authService.redirect({
+      return this.props.oktaAuth.signInWithRedirect({
         sessionToken: res.session.token
       });
    } else {
@@ -245,7 +245,13 @@ import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
 import Home from './Home';
 import Login from './Login';
 import Protected from './Protected';
-
+import { OktaAuth } from '@okta/okta-auth-js';
+const config = {
+    issuer: 'https://{yourOktaDomain}/oauth2/default',
+    redirectUri: window.location.origin + '/login/callback',
+    clientId: '{clientId}',
+}
+const oktaAuth = new OktaAuth(config);
 export default withRouter(class AppWithRouterAccess extends Component {
   constructor(props) {
     super(props);
@@ -264,18 +270,16 @@ export default withRouter(class AppWithRouterAccess extends Component {
     //
     // pkce={false}
 
-    return (
-        <Security issuer='https://{yourOktaDomain}/oauth2/default'
-                  clientId='{clientId}'
-                  redirectUri={window.location.origin + '/login/callback'}
-                  onAuthRequired={this.onAuthRequired} >
-          <Route path='/' exact={true} component={Home} />
-          <SecureRoute path='/protected' component={Protected} />
-          <Route path='/login' render={() => <Login baseUrl='https://{yourOktaDomain}' />} />
-          <Route path='/login/callback' component={LoginCallback} />
-        </Security>
-    );
-  }
+     return (
+         <Security oktaAuth={oktaAuth}
+                   onAuthRequired={this.onAuthRequired} >
+           <Route path='/' exact={true} component={Home} />
+           <SecureRoute path='/protected' component={Protected} />
+           <Route path='/login' render={() => <Login baseUrl='https://{yourOktaDomain}' />} />
+           <Route path='/login/callback' component={LoginCallback} />
+         </Security>
+     );
+   }
 });
 ```
 
