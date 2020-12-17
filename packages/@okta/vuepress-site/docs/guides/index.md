@@ -49,6 +49,7 @@ guides:
  - sign-into-mobile-app
  - sign-into-spa
  - sign-into-web-app
+ - sign-into-web-app-remediation
  - sign-users-out
  - sign-your-own-saml-csr
  - style-the-widget
