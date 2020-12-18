@@ -7,7 +7,7 @@ category: management
 
 The Okta System Log records system events related to your organization in order to provide an audit trail that can be used to understand platform activity and to diagnose problems.
 
-The Okta System Log API provides near real-time read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/en/prod/Content/Topics/Reports/Reports_SysLog.htm).
+The Okta System Log API provides near real-time read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports_SysLog).
 
 Often the terms "event" and "log event" are used interchangeably. In the context of this API, an "event" is an occurrence of interest within the system and "log" or "log event" is the recorded fact.
 
@@ -294,7 +294,7 @@ The request object describes details related to the HTTP request that triggers t
 
 ### GeographicalContext object
 
-Geographical Context describes a set of geographic coordinates. In addition to containing latitude and longitude data, this object also contains address data of postal code-level granularity. Within the [Client](#client-object) object, the geographical context refers to the physical location of the client when it sends the request that triggers this event. All [Transaction](#transaction-object) events with `type` equal to `WEB` will have a geographical context set. [Transaction](#transaction-object) events with `type` equal to `JOB` will have no geographical context set. The geographical context data could be missing if the geographical data for a request could not be resolved.  
+Geographical Context describes a set of geographic coordinates. In addition to containing latitude and longitude data, this object also contains address data of postal code-level granularity. Within the [Client](#client-object) object, the geographical context refers to the physical location of the client when it sends the request that triggers this event. All [Transaction](#transaction-object) events with `type` equal to `WEB` will have a geographical context set. [Transaction](#transaction-object) events with `type` equal to `JOB` will have no geographical context set. The geographical context data could be missing if the geographical data for a request could not be resolved.
 
 | Property    | Description                                                                                                          | DataType                                  | Nullable |
 | ----------- | ----------------------------------------------------------------------------------                                   | -------------------------------------     | -------- |
@@ -508,9 +508,9 @@ Rate limit violations are sent when a rate limit is exceeded.
 
 ### Security Events
 
-| Event                    | Description                                                                                  |
-| :-------------------     | :----------------------------------                                                          |
-| security.request.blocked | A request was blocked due to a blacklist rule (such as an IP network zone or location rule). |
+| Event                    | Description                                                                                   |
+| :-------------------     | :----------------------------------                                                           |
+| security.request.blocked | A request was blocked due to a block list rule (such as an IP network zone or location rule). |
 
 ### User Events
 
@@ -585,7 +585,7 @@ The table below summarizes the supported query parameters:
 | `since`     | Filters the lower time bound of the log events `published` property for bounded queries or persistence time for polling queries                                                          | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z`                                                       | 7 days prior to `until` |
 | `until`     | Filters the upper time bound of the log events `published` property for bounded queries or persistence time for polling queries                                                          | The [Internet Date/Time Format profile of ISO 8601](https://tools.ietf.org/html/rfc3339#page-8). An example: `2017-05-03T16:22:18Z`                                                       | Current time            |
 | `after`     | Used to retrieve the next page of results. Okta returns a link in the HTTP Header (`rel=next`) that includes the after query parameter | Opaque token                                                                                                                                                                              |                         |
-| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/reference/api-overview/#filtering). All [operators](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) except `ew`, `ne`, `not`, and `[ ]`  are supported |                         |
+| `filter`    | [Filter Expression](#expression-filter) that filters the results                                                                        | [SCIM Filter expression](/docs/reference/api-overview/#filtering). All [operators](https://tools.ietf.org/html/rfc7644#section-3.4.2.2) except `[ ]` are supported |                         |
 | `q`         | Filters the log events results by one or more exact [keywords](#keyword-filter)                                                         | URL encoded string. Max length is 40 characters per keyword, with a maximum of 10 keyword filters per query (before encoding)                                                             |                         |
 | `sortOrder` | The order of the returned events sorted by `published`                                                                                  | `ASCENDING` or `DESCENDING`                                                                                                                                                               | `ASCENDING`             |
 | `limit`     | Sets the number of results returned in the response                                                                                     | Integer between 0 and 1000                                                                                                                                                                | 100                     |
@@ -611,7 +611,7 @@ Polling requests to the `/api/v1/logs` API have the following semantics:
   - They return every event that occurs in your organization.
   - The returned events are time filtered by their internal "persistence time" to avoid skipping records due to system delays (unlike [Bounded Requests](#bounded-requests)).
   - They may return events out of order according to the `published` field.
-  - They have an infinite number of pages. That is, a [`next` `Link` relation header](#next-link-response-header) is always present, even if there are no new events (the event list may be empty).
+  - They have an infinite number of pages. That is, a [`next` `link` relation header](#next-link-response-header) is always present, even if there are no new events (the event list may be empty).
 
 ###### Bounded Requests
 Bounded requests are for situations when you know the definite time period of logs you want to retrieve.
@@ -627,7 +627,7 @@ For a request to be a _bounded_ request it must meet the following request param
 Bounded requests to the `/api/v1/logs` API have the following semantics:
   - The returned events are time filtered by their associated `published` field (unlike [Polling Requests](#polling-requests)).
   - The returned events are guaranteed to be in order according to the `published` field.
-  - They have a finite number of pages. That is, the last page does not contain a [`next` `Link` relation header](#next-link-response-header).
+  - They have a finite number of pages. That is, the last page does not contain a [`next` `link` relation header](#next-link-response-header).
   - Not all events for the specified time range may be present— events may be delayed. Such delays are rare but possible.
 
 
@@ -637,7 +637,7 @@ Bounded requests to the `/api/v1/logs` API have the following semantics:
 
 An expression filter is useful for performing structured queries where constraints on LogEvent attribute values can be explicitly targeted.
 
-The following expressions are supported for events with the `filter` query parameter:
+The following example expressions are supported for events with the `filter` query parameter:
 
 | Filter                                       | Description                                                                    |
 | -------------------------------------------- | ------------------------------------------------------------------------------ |
@@ -654,6 +654,11 @@ The following are some examples of common filter expressions.
 Events published for a target user:
 ```javascript
 filter=target.id eq "00uxc78lMKUMVIHLTAXY"
+```
+
+Events published for all actors except for a specific user:
+```javascript
+filter=actor.id ne "00uxc78lMKUMVIHLTAXY"
 ```
 
 Failed login events:
@@ -708,29 +713,29 @@ The `after` parameter is system generated for use in ["next" links](#next-link-r
 The response contains a JSON array of [LogEvent objects](#logevent-object).
 
 ###### Self Link Response Header
-The response always includes a `self` `Link` header, which is a link to the current query that was executed.
+The response always includes a `self` `link` header, which is a link to the current query that was executed.
 
 This header is of the form:
 ```
-Link: <url>; rel="self"
+link: <url>; rel="self"
 ```
 
 For example:
 ```
-Link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T23%3A59%3A59%2B00%3A00&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="self"
+link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T23%3A59%3A59%2B00%3A00&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="self"
 ```
 
 ###### Next Link Response Header
-The response may include a `next` `Link` header, which is a link to the next page of results, if there is one. Note that while the `self` `Link` will always exist, the `next` `Link` may not exist.
+The response may include a `next` `link` header, which is a link to the next page of results, if there is one. Note that while the `self` `link` will always exist, the `next` `link` may not exist.
 
 This header is of the form:
 ```
-Link: <url>; rel="next"
+link: <url>; rel="next"
 ```
 
 For example:
 ```
-Link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T15%3A41%3A12.994Z&after=349996bd-5091-45dc-a39f-d357867a30d7&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="next"
+link: <https://${yourOktaDomain}/api/v1/logs?q=&sortOrder=DESCENDING&limit=20&until=2017-09-17T15%3A41%3A12.994Z&after=349996bd-5091-45dc-a39f-d357867a30d7&since=2017-06-10T00%3A00%3A00%2B00%3A00>; rel="next"
 ```
 
 #### Timeouts
@@ -856,6 +861,6 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/logs?since=2017-10-01T00:00:00.000Z"
 ```
 
-and retrieve the next page of events through the [`Link` response header](/docs/reference/api-overview/#link-header) value with the `next` link relation. Continue this process until no events are returned.
+and retrieve the next page of events through the [`link` response header](/docs/reference/api-overview/#link-header) value with the `next` link relation. Continue this process until no events are returned.
 
 > Do not attempt to transfer data by manually paginating using `since` and `until` as this may lead to skipped or duplicated events. Instead, always follow the `next` links.

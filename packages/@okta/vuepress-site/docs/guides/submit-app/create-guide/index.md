@@ -51,6 +51,7 @@ In this section of your guide, you want to outline what features your applicatio
 * Import Users
 * Import Groups
 * Sync Password
+* Profile Sourcing (formerly called Profile Mastering)
 
 Also include any restrictions. For example:
 

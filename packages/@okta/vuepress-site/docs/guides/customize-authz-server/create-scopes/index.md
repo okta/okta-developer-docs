@@ -9,9 +9,9 @@ If you need scopes in addition to the reserved scopes provided, you can create t
 1. In the Developer Console, navigate to **API > Authorization Servers**.
 2. Select the name of the Authorization Server, and then select **Scopes**.
 3. Select **Scopes**, and then **Add Scope**.
-4. Enter a **Name**, **Display Name**, and **Description**.
+4. Enter a **Name**, **Display phrase**, and **Description**.
 
-    > **Note:** The Display Name is what the user sees in the **Consent** dialog box.
+    > **Note:** The **Display phrase** is what the user sees in the **Consent** dialog box.
 
 5. Select **Require user consent for this scope** to require that a user grant consent for the scope.
 

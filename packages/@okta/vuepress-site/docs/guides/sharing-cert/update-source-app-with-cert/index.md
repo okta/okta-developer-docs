@@ -47,7 +47,7 @@ Response:
     "signing": {
       "kid": "w__Yr9AElCftDtLP5CmjzZFMKXndqHtx7B3QPkg8jrI"
     }
-  },
+  }
 }
 ```
 

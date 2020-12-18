@@ -4,13 +4,19 @@ The `LoginCallback` component in the React SDK contains logic to parse the respo
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Security, LoginCallback } from '@okta/okta-react';
+import { OktaAuth } from '@okta/okta-auth-js';
 
-const CALLBACK_PATH = '/implicit/callback';
+const config = {
+  // Configuration here
+};
+const oktaAuth = new OktaAuth(config);
 
-const App = () => { 
+const CALLBACK_PATH = '/login/callback';
+
+const App = () => {
   return (
     <Router>
-      <Security {...config} >
+      <Security oktaAuth={oktaAuth}>
           <Route path={CALLBACK_PATH} component={LoginCallback} />
       </Security>
     </Router>

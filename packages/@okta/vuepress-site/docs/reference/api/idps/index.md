@@ -245,8 +245,7 @@ curl -v -X POST \
 
 Adds a new `SAML2` type IdP to your organization
 
-> **Notes:** You must first add the IdP's signature certificate to the IdP key store before you can add a SAML 2.0 IdP with a `kid` credential reference.<br><br>
-Don't use `fromURI` to automatically redirect a user to a particular app after successfully authenticating with a third-party IdP. Instead, use [SAML Deep Links](#redirecting-with-saml-deep-links). Using `fromURI` isn't tested and not supported. For more information about using deep links when signing users in using an SP-initiated flow, see [Understanding SP-Initiated Login Flow](/docs/concepts/saml/#understanding-sp-initiated-login-flow).
+> **Notes:** You must first add the IdP's signature certificate to the IdP key store before you can add a SAML 2.0 IdP with a `kid` credential reference. Don't use `fromURI` to automatically redirect a user to a particular app after successfully authenticating with a third-party IdP. Instead, use [SAML Deep Links](#redirect-with-saml-deep-links). Using `fromURI` isn't tested and not supported. For more information about using deep links when signing users in using an SP-initiated flow, see [Understanding SP-Initiated Login Flow](/docs/concepts/saml/#understanding-sp-initiated-login-flow).
 
 ##### Request example
 
@@ -1201,8 +1200,10 @@ Adds a new Smart Card `X509` type IdP to your organization
 
 ##### Request example
 
-> **Notes:** You must first add the IdP's server certificate to the IdP key store before you can add a Smart Card `X509` IdP with a `kid` credential reference. You need to upload the whole trust chain as a single key using the [Key Store API](#add-x-509-certificate-public-key).<br>
-Depending on the information stored in the smart card, select the proper [template](/docs/reference/okta-expression-language/#idp-user-profile) `idpuser.subjectAltNameEmail` or `idpuser.subjectAltNameUpn`.
+> **Notes:** You must first add the IdP's server certificate to the IdP key store before you can add a Smart Card `X509` IdP with a `kid` credential reference.
+> You need to upload the whole trust chain as a single key using the [Key Store API](#add-x-509-certificate-public-key).
+> Depending on the information stored in the smart card, select the proper [template](/docs/reference/okta-expression-language/#idp-user-profile) `idpuser.subjectAltNameEmail` or `idpuser.subjectAltNameUpn`.
+>
 
 ```bash
 curl -v -X POST \
@@ -1243,7 +1244,6 @@ curl -v -X POST \
 ```
 
 ##### Response example
-
 
 ```json
 {
@@ -1311,7 +1311,7 @@ curl -v -X POST \
         ]
       }
     }
-  } 
+  }
 }
 ```
 
@@ -2067,7 +2067,7 @@ curl -v -X GET \
         ]
       }
     }
-  } 
+  }
 }
 ]
 ```
@@ -2222,11 +2222,7 @@ curl -v -X GET \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 200 OK
-Content-Type: application/json
-Link: <https://${yourOktaDomain}/api/v1/idps?limit=20>; rel="self"
-Link: <https://${yourOktaDomain}/api/v1/idps?after=0oaxdqpA88PtFNmhu0g3&limit=20>; rel="next"
+```json
 [
   {
     "id": "0oa62bc8wppPw0UGr0h7",
@@ -3199,7 +3195,7 @@ curl -v -X POST \
 
 ### Finish Identity Provider Transaction
 
-<ApiOperation method="POST" url=" /api/v1/idps/tx/${transactionId}/finish" />
+<ApiOperation method="POST" url="/api/v1/idps/tx/${transactionId}/finish" />
 
 Finishes an IdP Transaction
 
@@ -3224,7 +3220,7 @@ curl -v -X POST \
 
 #### Response example
 
-```bash
+```http
 HTTP/1.1 200 OK
 ```
 
@@ -3255,7 +3251,7 @@ curl -v -X POST \
 
 #### Response example
 
-```bash
+```http
 HTTP/1.1 200 OK
 ```
 
@@ -3308,10 +3304,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/idps/credentials/keys/74bb2164-e0c8-4457-862b-7c29ba6cd2c9
+```json
 {
   "kid": "your-key-id",
   "created": "2016-01-03T18:15:47.000Z",
@@ -3550,10 +3543,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/keys/akm5hvbbevE341ovl0h7
+```json
 {
   "created": "2015-12-10T18:56:23.000Z",
   "expiresAt": "2017-12-10T18:56:22.000Z",
@@ -3569,9 +3559,7 @@ Location: https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials
 
 > **Note:** If `validityYears` is out of range (2 - 10 years), you receive an error response.
 
-```JSON
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
+```json
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: generateKey",
@@ -3717,10 +3705,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/idps/0oal21k0DVN7DhS3R0g3/credentials/keys/SIMcCQNY3uwXoW3y0vf6VxiBb5n9pf8L2fK8d-FIbm4
+```json
 {
   "created": "2015-12-10T18:56:23.000Z",
   "expiresAt": "2017-12-10T18:56:22.000Z",
@@ -3736,9 +3721,7 @@ Location: https://${yourOktaDomain}/api/v1/idps/0oal21k0DVN7DhS3R0g3/credentials
 
 > **Note:** If the key is already present in the list of Key Credentials for the target IdP, you receive a 400 error response.
 
-```JSON
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
+```json
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: cloneKey",
@@ -3832,10 +3815,7 @@ MIIC4DCCAcgCAQAwcTELMAkGA1UEBhMCVVMxEzARBgNVBAgMCkNhbGlmb3JuaWExFjAUBgNVBAcMDVNh
 
 Return a [CSR object](#identity-provider-csr-object):
 
-```JSON
-HTTP/1.1 201 Created
-Location: https://${yourOktaDomain}/api/v1/idps/0oad5lTSBOMUBOBVVQSC/credentials/csrs/h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50
-Content-Type: application/json
+```json
 {
   "id": "h9zkutaSe7fZX0SwN1GqDApofgD1OW8g2B5l2azha50",
   "created": "2017-03-28T01:11:10.000Z",
@@ -3924,10 +3904,7 @@ curl -v -X POST \
 
 ##### Response example
 
-```JSON
-HTTP/1.1 201 Created
-Content-Type: application/json
-Location: https://${yourOktaDomain}/api/v1/idps/0oal21k0DVN7DhS3R0g3/credentials/keys/ZC5C-1gEUwVxiYI8xdmYYDI3Noc4zI24fLNxBpZVR04
+```json
 {
     "created": "2017-03-27T21:19:57.000Z",
     "lastUpdated": "2017-03-27T21:19:57.000Z",
@@ -3946,9 +3923,7 @@ Location: https://${yourOktaDomain}/api/v1/idps/0oal21k0DVN7DhS3R0g3/credentials
 
 > **Note:** If the validity period of the certificate is less than 90 days, a 400 error response is returned.
 
-```JSON
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
+```json
 {
   "errorCode": "E0000001",
   "errorSummary": "Api validation failed: certificate",
@@ -4326,9 +4301,7 @@ curl -v -X GET \
 
 > **Note:** If the user doesn't exist, you receive an error response.
 
-```JSON
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
+```json
 {
   "errorCode": "E0000007",
   "errorSummary": "Not found: Resource not found: 00ub0oNGTSWTBKOLGLNR (User)",
@@ -4405,13 +4378,10 @@ curl -v -X GET \
 
 > **Note:** If the IdP doesn't exist, you receive an error response.
 
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
+```json
 {
   "errorCode": "E0000007",
-  "errorSummary": Not found: Resource not found: 0oa62bfdiumsUndnZ0h8 (IdpAppInstance)",
+  "errorSummary": "Not found: Resource not found: 0oa62bfdiumsUndnZ0h8 (IdpAppInstance)",
   "errorLink": "E0000007",
   "errorId": "oaeYW9k9yJuSSSkhaMQdA1-Zg",
   "errorCauses": []
@@ -4423,7 +4393,7 @@ Content-Type: application/json
 
 <ApiOperation method="POST" url="/api/v1/idps/${idpId}/users/${userId}" />
 
-Links an Okta User to an existing [social provider](#identity-provider-object). This endpoint doesn't support the SAML2 [Identity Provider type](#identity-provider-type).
+Links an Okta User to an existing SAML or [social provider](#identity-provider-object). The SAML Identity Provider must have `honorPersistentNameId` set to `true` to use this API. The [Name Identifier Format](/docs/reference/api/idps/#saml-2-0-settings-object) of the incoming assertion must be `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`.
 
 ##### Request parameters
 
@@ -4480,10 +4450,7 @@ curl -v -X POST \
 
 > **Note:** If either the User or the IdP doesn't exist, you receive an error response.
 
-```http
-HTTP/1.1 400 Bad Request
-Content-Type: application/json
-
+```json
 {
   "errorCode": "E0000007",
   "errorSummary": "Not found: Resource not found: 00ub0oNGTSWTBKOLGLNR (User)",
@@ -4803,7 +4770,8 @@ Protocol settings for the [SAML 2.0 Authentication Request Protocol](http://docs
       }
     },
     "settings": {
-        "nameFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+        "nameFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
+        "honorPersistentNameId": false
     }
   }
 }
@@ -5077,16 +5045,18 @@ Determines the [IdP Key Credential](#identity-provider-key-credential-object) us
 
 ##### SAML 2.0 Settings object
 
-| Property   | Description                       | DataType    | Nullable | Readonly | DataType                                                             | Default                                               |
+| Property   | Description                       | DataType    | Nullable | Readonly | Default     |
 | ---------- | ---------------------             | ----------- | -------- | -------- | -------------------------------------------------------------------- | ----------------------------------------------        |
-| nameFormat | The name identifier format to use | String      | TRUE     | FALSE    | [SAML 2.0 Name Identifier Formats](#saml-2-0-name-identifier-formats) | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified |
+| nameFormat | The name identifier format to use. See [SAML 2.0 Name Identifier Formats](#saml-2-0-name-identifier-formats). | String      | TRUE     | FALSE    | urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified |
+| honorPersistentNameId | Determines if the IdP should persist account linking when the incoming assertion NameID format is `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`| Boolean | TRUE | FALSE | FALSE|
 
 ```json
 {
   "protocol": {
     "type": "SAML2",
     "settings": {
-      "nameFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:transient"
+      "nameFormat": "urn:oasis:names:tc:SAML:2.0:nameid-format:transient",
+      "honorPersistentNameId" : false
     }
   }
 }
@@ -5376,7 +5346,7 @@ Property Details
     "type": "MTLS",
     "endpoints": {
       "sso": {
-        "url": "https://${yourOktaDomain}.okta.com/login/cert",
+        "url": "https://${yourOktaDomain}.okta.com/login/cert"
       }
     }
   }
@@ -5469,10 +5439,10 @@ Certificate chain description for verifying assertions from the Smart Card.
 | `FACEBOOK`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
 | `GOOGLE`     | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
 | `LINKEDIN`   | `AUTO`, `CALLOUT`, `DISABLED` | `NONE` or `ASSIGN`                    | `AUTO`, `CALLOUT`, `DISABLED` | `groups`              |
-| `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`                        |                       |
+| `SAML2`      | `AUTO` or `DISABLED`          | `NONE`, `ASSIGN`, `APPEND`, or `SYNC` | `AUTO`, `DISABLED`            | `groups`              |
 | `X509`       | `DISABLED`                    | No support for JIT provisioning       |                               |                       |
 
-> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action. 
+> **Note:** `CALLOUT` is a <ApiLifecycle access="deprecated" /> User provisioning action and Account Link action.
 
 #### Provisioning Policy object
 
@@ -5580,10 +5550,10 @@ The Group provisioning action for an IdP User:
 
 | Action      | Description                                                                                                                                                        | Existing OKTA_GROUP Memberships                                                               | Existing APP_GROUP Memberships                     | Existing BUILT_IN Memberships                |
 | ----------- | ---------------------------------                                                                                                                                  | ------------------------------------------------------                                        | -------------------------------------------------- | -------------------------------------------- |
-| `APPEND`    | Adds a User to any Group defined by the IdP as a value of the `sourceAttributeName` array that matches the name of the whitelisted Group defined in the `filter` | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
+| `APPEND`    | Adds a User to any Group defined by the IdP as a value of the `sourceAttributeName` array that matches the name of the allow listed Group defined in the `filter` | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `ASSIGN`    | Assigns a User to Groups defined in the `assignments` array                                                                                                          | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
 | `NONE`      | Skips processing of Group memberships                                                                                                                              | Unchanged                                                                                     | Unchanged                                          | Unchanged                                    |
-| `SYNC`      | Group memberships are mastered by the IdP as a value of the `sourceAttributeName` array that matches the name of the whitelisted Group defined in the `filter` | Removed if not defined by the IdP in `sourceAttributeName` and matching name of the Group in `filter` | Unchanged                                          | Unchanged                                    |
+| `SYNC`      | Group memberships are mastered by the IdP as a value of the `sourceAttributeName` array that matches the name of the allow listed Group defined in the `filter` | Removed if not defined by the IdP in `sourceAttributeName` and matching name of the Group in `filter` | Unchanged                                          | Unchanged                                    |
 
 > **Note:** Group provisioning action is processed independently from profile mastering. You can sync Group memberships through SAML with profile mastering disabled.
 
@@ -5777,11 +5747,11 @@ Specifies Group memberships to restrict which Users are available for account li
 
 ###### Groups Account Link Filter object
 
-Defines a whitelist of Group membership to restrict which Users are available for account linking by an IdP.
+Defines an allow list of Group membership to restrict which Users are available for account linking by an IdP.
 
 | Property | Description                                                   | DataType                     | Nullable | Readonly |
 | -------- | ------------------------------------------------------------- | ---------------------------- | -------- | -------- |
-| include  | Specifies the whitelist of Group identifiers to match against | Array of String (Group IDs)  | TRUE     | FALSE    |
+| include  | Specifies the allow list of Group identifiers to match against | Array of String (Group IDs)  | TRUE     | FALSE    |
 
 > **Note:** Group memberships are restricted to type `OKTA_GROUP`.
 

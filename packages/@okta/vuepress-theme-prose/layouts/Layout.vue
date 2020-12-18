@@ -1,23 +1,39 @@
 <template>
   <div>
     <div class="fixed-header">
-      <TopBar />
+      <HeaderRedesign v-if="$page.redesign" />
+      <TopBar v-else />
     </div>
 
-    <div class="page-body">
+    <div :class="{
+      'page-body': true,
+      redesign: $page.redesign
+    }">
       <Breadcrumb />
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
       <div class="content" v-else>
-        <div class="content--container">
+        <div :class="{'content--container': true, 'navigation-only': appContext.isTreeNavMobileOpen}">
           <div class="tree-nav">
-            <Sidebar :sidebarActive="treeNavOpen" />
+            <Sidebar />
           </div>
           <div class="content-area">
             <PageTitle />
             <MobileOnThisPage />
-            <Content />
+            <ContentPage />
+            <div class="edit-on-github">
+              <span class='fa fa-github'></span>
+              <span>
+                <a v-if=editLink
+                   id="edit-link"
+                   :href="editLink"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   data-proofer-ignore
+                >{{ editLinkText }}</a>
+              </span>
+            </div>
           </div>
           <div class="on-this-page">
             <OnThisPage />
@@ -26,73 +42,85 @@
       </div>
     </div>
 
-    <Footer />
-
+    <FooterRedesign v-if="$page.redesign" />
+    <Footer v-else />
   </div>
 </template>
 
 <script>
 
+export const LAYOUT_CONSTANTS = {
+  HEADER_TO_CONTENT_GAP: 45, //px
+};
+const TABLET_BREAKPOINT = 767;
+export const endingSlashRE = /\/$/
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
+    HeaderRedesign: () => import('../components/Header.redesign.vue'),
     Sidebar: () => import('../components/Sidebar.vue'),
     OnThisPage: () => import('../components/OnThisPage.vue'),
     MobileOnThisPage: () => import('../components/MobileOnThisPage.vue'),
     PageTitle: () => import('../components/PageTitle.vue'),
     Breadcrumb: () => import('../components/Breadcrumb.vue'),
+    ContentPage: () => import('../components/ContentPage.vue'),
     Footer: () => import('../components/Footer.vue'),
+    FooterRedesign: () => import('../components/Footer.redesign.vue'),
     Documentation: () => import('../components/Documentation.vue'),
     Reference: () => import('../components/Reference.vue'),
     Quickstart: () => import('../components/Quickstart.vue'),
+    Pricing: () => import('../components/Pricing.vue'),
   },
   data() {
     return {
-      treeNavOpen: false
+      appContext: {
+        isTreeNavMobileOpen: false,
+        isInMobileViewport: false
+      }
+    }
+  },
+  provide(){
+    return {
+      appContext: this.appContext
     }
   },
   mounted() {
-    window.addEventListener('load', () => {
-        window.setTimeout(() => {
-          let anchor = window.location.href.split('#')[1];
-          if (anchor) {
-            let target = document.getElementById(anchor);
-            if (target) {
-              window.scrollTo(0, target.offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
-            }
-          }
-
-          // let links = document.querySelectorAll('a[href*="#"]:not([href="#"]):not([href*="/quickstart/#"])');
-          let links = document.querySelectorAll('.header-anchor.header-link');
-
-          Array.from(links).forEach((link) => {
-            link.addEventListener('click', function(event) {
-
-              if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-
-                let target = document.querySelector(this.hash);
-                if (target) {
-                  event.preventDefault();
-                  window.scrollTo(0, target.offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
-                  location.hash = this.hash;
-                  return false;
-                }
-              }
-            })
-          })
-        }, 500);
-    });
-
     let that = this;
     this.$on('toggle-tree-nav', event => {
-      that.treeNavOpen = event.treeNavOpen;
+      that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
     });
-
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
     this.redirIfRequired();
   },
   watch: {
     $route(to, from) {
+      this.appContext.isTreeNavMobileOpen = false;
       this.redirIfRequired();
+    }
+  },
+  computed: {
+    editLink () {
+      if (this.$page.frontmatter.editLink === false) {
+        return
+      }
+      const {
+        repo,
+        editLinks,
+        docsDir = '',
+        docsBranch = 'master',
+        docsRepo = repo
+      } = this.$site.themeConfig.editLink
+      if (docsRepo && editLinks && this.$page.relativePath) {
+        console.log('page: ', this.$page)
+        return this.createEditLink(repo, docsRepo, docsDir, docsBranch, this.$page.relativePath)
+      }
+    },
+    editLinkText () {
+      return (
+        this.$site.themeConfig.editLink.editLinkText
+        || `Edit this page`
+      )
     }
   },
   methods: {
@@ -105,8 +133,25 @@ export default {
           this.$router.replace({ path: `${this.$page.redir}` });
         }
       }
+    },
+    onResize() {
+      this.appContext.isInMobileViewport = window.innerWidth < TABLET_BREAKPOINT;
+    },
+    createEditLink (repo, docsRepo, docsDir, docsBranch, path) {
+      return (
+        `https://github.com/${docsRepo}`
+        + `/edit`
+        + `/${docsBranch}/`
+        + (docsDir ? docsDir.replace(endingSlashRE, '') : '')
+        + '/'
+        + path
+      )
     }
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
   }
+
 }
 </script>
 

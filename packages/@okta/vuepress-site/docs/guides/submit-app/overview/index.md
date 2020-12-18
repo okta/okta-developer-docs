@@ -12,9 +12,12 @@ This guide covers submissions that use one or more of these protocols:
 
 * [System for Cross-domain Identity Management (SCIM)](http://www.simplecloud.info/)
 * [OpenID Connect (OIDC)](https://openid.net/connect/)
+
+    >**Note:** To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server.
+
 * [Security Assertion Markup Language (SAML)](https://en.wikipedia.org/wiki/SAML_2.0)
 
-    **Note:** SAML integrations must use SHA256 encryption for security. If you are using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/overview/).
+    >**Note:** SAML integrations must use SHA256 encryption for security. If you are using SHA-1 for encryption, see our guide on how to [Upgrade SAML Apps to SHA256](/docs/guides/updating-saml-cert/overview/).
 
 ## Prerequisites
 
@@ -25,19 +28,19 @@ As a prerequisite to submission, you must have a functional integration created 
 
 ## Submission process
 
-After you have built a functioning integration, a few steps are required to submit it to Okta for review and publication in the OIN:
+After you have built a functioning app integration, a few steps are required to submit it to Okta for review and publication in the OIN:
 
 1. Create a customer-facing configuration guide.
-1. Submit your integration to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol-specific metadata needed to create a customized integration for publication in the OIN.
+1. Submit your integration to Okta through the OIN Manager tool. Your submission must provide Okta with the general and protocol-specific metadata that is required to create a customized integration for publication in the OIN.
+    >**Note:** In the OIN manager, the Profile Sourcing option (formerly known as Profile Mastering) is enabled for developer orgs by Okta Developer Support. You can contact <developers@okta.com> to have this capability temporarily activated when submitting a SCIM app integration.
+
 1. Work with the Okta OIN team to test your integration using your input and then get it published to the OIN Catalog.
 
-The service-level agreement for OIN publication time is:
+The Okta OIN team reviews all submissions on a best-case basis.
 
-* Initial review by Okta - 5 business days
-* QA testing by Okta - 5 business days
-* Final publication in the OIN Catalog - 3 business days
+If the Okta OIN team identifies any issues in the initial review and QA testing phases, you are sent an email with the specific details. At any point in the process, you can check the status of your submission in the [OIN Manager](https://oinmanager.okta.com).
 
-All submissions go through these phases. The Okta OIN team sends you an email that identifies any issues found in the initial review and QA testing phases. At any point in the process, you can check the status of your submission in the [OIN Manager](https://oinmanager.okta.com).
+  >**Note:** SWA app integrations are no longer accepted for publication in the OIN catalog; however, existing SWA apps are still maintained by the OIN team.
 
 ## Submission support
 
@@ -47,6 +50,6 @@ When you are constructing your Okta integration, you can post a question on the 
 
 When you are troubleshooting a submission or need to know the current publication status, sign in to the [OIN Manager](https://oinmanager.okta.com) using your dev credentials. You can make any necessary changes to your submission there. If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
 
->**Note:** All integrations in the OIN catalog are public. If you want to submit a private integration request for applications that use SCIM 1.1 or Profile Mastering, or for applications that use a custom header expression for the Header Auth, then use the SCIM [App Integration Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard) to create your integration and then send an email to <oin@okta.com>. The Okta OIN team will work with you to create an internal-only integration that isn't included in the OIN.
+>**Note:** All integrations in the OIN catalog are public. If you want to submit a request to create a private app integration for an application that uses SCIM 1.1 or Profile Sourcing, or for an application that uses a custom header expression for the Header Auth, then use the [SCIM App Integration Wizard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-scim) to create your integration and submit your app via the [OIN Manager](https://oinmanager.okta.com). The Okta OIN team will work with you to create an internal-only integration that isn't included in the OIN.
 
 <NextSectionLink/>

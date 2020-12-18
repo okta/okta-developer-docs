@@ -6,7 +6,7 @@ If you would like to disable an access or refresh token, simply send a request t
 
 This example makes a request to revoke an access token issued by the Org Authorization Server. The URL of the Authorization Server for your request might be different than this example. See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) for more information.
 
-```BASH
+```bash
 http --form POST https://${yourOktaDomain}/oauth2/v1/revoke \
   accept:application/json \
   authorization:'Basic ZmEz...' \

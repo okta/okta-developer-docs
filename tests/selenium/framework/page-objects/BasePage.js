@@ -146,5 +146,14 @@ class BasePage {
     }
   }
 
+  getInPageLink(hash) {
+    return element(by.css(`a[href='${hash}']:not(.header-anchor)`));
+  }
+
+  getHeading(selector) {
+    return element(by.css(selector));
+  }
+
+
 }
 module.exports = BasePage;

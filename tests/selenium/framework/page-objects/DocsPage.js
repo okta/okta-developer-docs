@@ -1,6 +1,7 @@
 'use strict';
 
 const BasePage = require('./BasePage');
+const util = require('../shared/util');
 
 const tableOfContentsSelector = '.has-tableOfContents';
 const footerSelector = '.Footer';
@@ -16,6 +17,10 @@ const getLabelSelector = '.api-uri-get';
 const postLabelSelector = '.api-uri-post';
 const deleteLabelSelector = '.api-uri-delete';
 const promoBannerLabelSelector = '.DocsPromoBanner';
+const treeNavSelector = '.tree-nav';
+const treeNavLinkSelector = '.tree-nav-link';
+const showTreeNavSelector = '.crumb-show-contents';
+
 
 class DocsPage extends BasePage {
   constructor(url) {
@@ -137,6 +142,24 @@ class DocsPage extends BasePage {
 
   hasPromoBanner() {
     return this.hasElements(this.getPromoBannerLabels());
+  }
+
+  async getTreeNavLink(linkText) {
+    await util.wait(element(by.css(treeNavLinkSelector)), 2000);
+    return element(by.cssContainingText(treeNavLinkSelector, linkText));
+  }
+
+  async toggleTreeNavMobile() {
+    const showContentsElement = element(by.css(showTreeNavSelector));
+    return await showContentsElement.click();
+  }
+
+  async isTreeNavVisible() {
+    const treeNavElement = (await element.all(by.css(treeNavSelector)).getWebElements())[0]
+    if (treeNavElement) {
+      return await util.isInViewport(treeNavElement);
+    }
+    return false;
   }
 }
 

@@ -4,13 +4,17 @@ meta:
   - name: description
     content: An overview of what an authorization server is and the types of authorization servers available at Okta.
 ---
+## Authorization Servers
+
+Authentication and authorization are essential to application development. Whether you are developing an internal IT app for your employees, building a portal for your partners, or exposing a set of APIs for developers building apps around your resources, you need the right authentication and authorization support for your projects. With Okta, you can control access to your application using both [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/). Use Okta as your authorization server to retain all of your user information and grant users tokens to control their authorization and authentication.
+
 ## What is an authorization server
 
-At its core, an authorization server is simply an engine for minting OpenID Connect or [OAuth 2.0](/docs/concepts/auth-overview/#oauth-2-0) tokens. An authorization server is also used to apply access policies. Each authorization server has a unique issuer URI and its own signing key for tokens to keep a proper boundary between security domains.
+At its core, an authorization server is simply an engine for minting OpenID Connect or [OAuth 2.0](/docs/concepts/oauth-openid/#oauth-2-0) tokens. An authorization server is also used to apply access policies. Each authorization server has a unique issuer URI and its own signing key for tokens to keep a proper boundary between security domains.
 
 ## What you can use an authorization server for
 
-You can use an authorization server to perform Single Sign-On (SSO) with Okta for your OpenID Connect apps, and to secure your own APIs and provide user authorization to access your web services.
+You can use an authorization server to perform Single Sign-On (SSO) with Okta for your OpenID Connect apps. You can also use an authorization server to secure your own APIs and provide user authorization to access your web services.
 
 OpenID Connect is used to authenticate users with a web app. The app uses the ID token that is returned from the authorization server to know if a user is authenticated and to obtain profile information about the user, such as their username or locale. OAuth 2.0 is used to authorize user access to an API. An access token is used by the resource server to validate a user's level of authorization/access. When using OpenID Connect or OAuth, the authorization server authenticates a user and issues an ID token and/or an access token.
 
@@ -18,13 +22,13 @@ OpenID Connect is used to authenticate users with a web app. The app uses the ID
 
 ## Available authorization server types
 
-Okta has two types of authorization servers: the Org Authorization Server and Custom Authorization Servers.
+Okta has two types of authorization servers: the Org Authorization Server and Custom Authorization Server.
 
 ### Org Authorization Server
 
 Every Okta org comes with a built-in authorization server called the Org Authorization Server. The base URL for the Org Authorization Server is `https://${yourOktaOrg}`.
 
-You use the Org Authorization Server to perform SSO with Okta or to get an access token for the Okta APIs. You can't customize this authorization server with regards to audience, claims, policies, or scopes. Additionally, the resulting access token's issuer is `https://${yourOktaOrg}`, which indicates that only Okta can consume or validate it. The access token can't be used or validated by your own applications.
+You use the Org Authorization Server to perform SSO with Okta for your OpenID Connect apps or to get an access token for the Okta APIs. You can't customize this authorization server with regards to audience, claims, policies, or scopes. Additionally, the resulting access token's issuer is `https://${yourOktaOrg}`, which indicates that only Okta can consume or validate it. The access token can't be used or validated by your own applications.
 
 #### Org Authorization Server discovery endpoints
 
@@ -38,7 +42,7 @@ The following discovery endpoints return OpenID Connect or OAuth 2.0 metadata re
 
 You use a Custom Authorization Server to create and apply authorization policies to secure your APIs. An access token that is minted by a Custom Authorization Server is consumed by your APIs.
 
-Okta allows you to create multiple Custom Authorization Servers within a single Okta org that you can use to protect your own resource servers. Within each authorization server, you can define your own custom OAuth 2.0 scopes, claims, and access policies to support authorization for your APIs.
+Okta allows you to [create multiple Custom Authorization Servers](/docs/guides/customize-authz-server/create-authz-server/) within a single Okta org that you can use to protect your own resource servers. Within each authorization server, you can define your own custom OAuth 2.0 [scopes](/docs/guides/customize-authz-server/create-scopes/), [claims](/docs/guides/customize-authz-server/create-claims/), and [access policies](/docs/guides/customize-authz-server/create-access-policies/) to support authorization for your APIs.
 
 #### Default Custom Authorization Server
 
@@ -86,39 +90,3 @@ The following table describes which capabilities are supported by the Custom Aut
 | Integrate with an API Gateway              | Yes                                  | No                          |
 | Machine-to-Machine or Microservices        | Yes                                  | No                          |
 | Mint Access Tokens with Okta API Scopes    | No                                   | Yes                         |
-
-## Key rotation
-
-Key rotation is when a signing key is retired and replaced by generating a new cryptographic key. Rotating keys on a regular basis is an industry standard and follows cryptographic best practices.
-
-> **Note:** The current Okta key rotation schedule is four times a year, but can change without notice.
-
-If you are using a Custom Authorization Server, configure and perform key rollover/rotation at the [Authorization Server level](/docs/reference/api/authorization-servers/#credentials-object).
-
-If you are using the Org Authorization Server, configure and perform key rollover/rotation at the [client level](/docs/reference/api/apps/#generate-new-application-key-credential).
-
-### Key rotation for Custom Authorization Servers
-
-* For security purposes, Okta automatically rotates keys used to sign tokens.
-
-* In case of an emergency, Okta can rotate keys as needed.
-
-* Okta always publishes keys to the `jwks_uri`.
-
-* To save the network round trip, your app should cache the `jwks_uri` response locally. The [standard HTTP caching headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) are used and should be respected.
-
-* You can switch the Authorization Server key rotation mode by updating the Authorization Server's `rotationMode` property. For more information see the API Reference: [Authorization Server Credentials Signing Object](/docs/reference/api/authorization-servers/#credentials-object).
-
-> **Caution:** Keys used to sign tokens automatically rotate and should always be resolved dynamically against the published JWKS. Your app might fail if you hardcode public keys in your applications. Be sure to include key rollover in your implementation.
-
-> **Note:** When using a Custom Authorization Server, you may work with a client that can't call the `/keys` endpoint to dynamically fetch the JWKS. You can pin that specific client to a specific key by [generating a key credential](/docs/reference/api/apps/#generate-new-application-key-credential) and [updating the application](/docs/reference/api/apps/#update-key-credential-for-application) to use it for signing. This overrides the Custom AS rollover/pinning behavior for that client. Should you need to turn off automatic key rotation for the entire Custom Authorization Server, you can do that by switching the **Signing Key Rotation** value to **Manual** in the Admin Console.
-
-### Key rotation for the Org Authorization Server
-
-* For security purposes, Okta automatically rotates keys used to sign the ID token.
-
-* Okta doesn't expose the public keys used to sign the access token minted by the Org Authorization Server. You can use the [`/introspect`](/docs/reference/api/oidc/#introspect) endpoint to validate the access token.
-
-* You can't manually rotate the Org Authorization Server's signing keys.
-
-> **Note:** If your application can't retrieve keys dynamically, you can pin that specific client to a specific key by [generating a key credential](/docs/reference/api/apps/#generate-new-application-key-credential) and [updating the application](/docs/reference/api/apps/#update-key-credential-for-application) to use it for signing.

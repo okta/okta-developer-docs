@@ -43,6 +43,7 @@
     - sessions
     - system_log
     - templates
+    - threat-insight
     - tokens
     - trusted-origins
     - users

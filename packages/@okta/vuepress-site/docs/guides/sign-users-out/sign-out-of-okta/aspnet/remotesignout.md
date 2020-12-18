@@ -24,48 +24,4 @@ using Microsoft.Owin.Security.Cookies;
 using Okta.AspNet;
 ```
 
-After you sign users out of your app and out of Okta, you have to redirect users to a specific location in your application. You need to whitelist the post sign-out URL in your Okta application settings.
-
-Open the Okta Developer Console:
-
-<a href="https://login.okta.com/" target="_blank" class="Button--blue">Go to Console</a>
-
-1. Select **Applications**, and then pick your application.
-
-2. Select **General** and click **Edit**.
-
-3. Add the post sign-out URL in the  **Logout redirect URI** field (for example, `http://localhost:3000/account/postsignout`).
-
-4. Click **Save**.
-
-Then, you have to modify the Okta configuration in your application to also include the **Logout redirect URI**.
-Open the `Startup.cs` file and update the `Configuration` method to include `PostLogoutRedirectUri` in the Okta configuration:
-
-```csharp
-public class Startup
-{
-    public void Configuration(IAppBuilder app)
-    {
-        //...
-        app.UseOktaMvc(new OktaMvcOptions()
-        {
-            //...
-            PostLogoutRedirectUri = "http://localhost:3000/Account/PostSignOut",
-        });
-    }
-}
-```
-
-Finally, add the desired logic for the post sign-out callback.
-Open the controller where you handle the sign-out process and add a `PostSignOut` method:
-
-```csharp
-public class AccountController : Controller
-{
-    public ActionResult PostSignOut()
-    {
-        // Return to the home page after sign out
-        return RedirectToAction("Index", "Home");
-    }
-}
-```
+After users sign out of Okta, they are redirected to the location defined in <GuideLink link="../define-signout-callback">Define the sign-out callback</GuideLink> section.

@@ -1,24 +1,18 @@
 <template>
-  <aside class="landing-navigation" :class="{active: sidebarActive}">
+  <aside class="landing-navigation">
     <ul class="landing">
-      <SidebarItem v-for="(link, key) in navigation" :key="key" :link="link" />
+      <SidebarItem v-for="link in navigation" :key="link.title" :link="link" />
     </ul>
   </aside>
 </template>
 
 <script>
 import _ from "lodash";
-import { getGuidesInfo, guideFromPath } from "../util/guides";
+import { getGuidesInfo, guideFromPath } from "../util/guides";  
 
 export default {
   name: "Sidebar",
-  props: {
-    sidebarActive: {
-      type: Boolean,
-      required: false,
-      default: false
-    }
-  },
+  inject: ['appContext'],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },
@@ -28,8 +22,10 @@ export default {
     };
   },
   mounted() {
-    this.handleScroll();
-    window.addEventListener("scroll", this.handleScroll);
+    if(!this.appContext.isInMobileViewport) {
+      this.handleScroll();
+      window.addEventListener("scroll", this.handleScroll);
+    }
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -40,7 +36,7 @@ export default {
         this.addStatesToLink(nav);
         return nav;
       });
-    }
+    },
   },
   methods: {
     toggleSubNav: function(event) {
@@ -82,17 +78,12 @@ export default {
         this.usingFile = true;
         return _.cloneDeep(this.$site.themeConfig.sidebars.reference);
       }
+      if (this.$page.path.includes("/docs/concepts/")){
+        this.usingFile = true;
+        return _.cloneDeep(this.$site.themeConfig.sidebars.concepts);
+      }
       if (this.$page.path.includes("/docs/guides")) {
         return this.getGuides();
-      }
-      if (this.$page.path.includes("/docs/concepts/")) {
-        const conceptsRegex = /(\/docs\/concepts\/)[A-Za-z-]*\/$/;
-        return _.chain(this.$site.pages)
-          .filter(page => page.path.match(conceptsRegex))
-          .sortBy(page => page.title)
-          .sort()
-          .unshift({ title: "Concepts", path: "/docs/concepts/" })
-          .value();
       }
       if (this.$page.path.includes("/books/")) {
         const booksRegex = /(\/books\/)[A-Za-z-]*\/$/;

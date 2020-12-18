@@ -1,7 +1,8 @@
 .landing-navigation {
+  padding-left: 1.5rem;
   padding-right: 2rem;
   flex: 0 0 auto;
-  border-right: 1px solid cv('gray', '400');
+  border-right: 1px solid cv('gray', '100');
   color: cv('action');
   position: sticky;
   overflow-y: auto;
@@ -10,21 +11,6 @@
    
   @include media('>=tablet') {
     top: 150px;
-    padding-left: 22px;
-  }
-
-  &.active {
-    
-    @include media('<tablet') {
-      position: sticky;
-      z-index: 100;
-      left: 0rem;
-      height: 555px;
-      padding-left: 0px;
-      width: 300px;
-      margin-right:5rem;
-    }
-
   }
 
   .router-link-active {
@@ -35,6 +21,7 @@
     border-left: 0.2rem solid cv('gray', '900');
     margin-left: -1.2rem;
     padding-left: 1.0rem;
+    padding-right: 0.65rem;
     color: cv('gray', '900');
   }
 
@@ -69,19 +56,20 @@
 
     .link-wrap {
       display: flex;
-      align-items: center;
 
-      
+      .item-collapsable {
+        display: flex;
+        align-items: center;
 
-      svg {
-        flex-shrink: 0;
-        margin-right: 0.5em;
-        fill: currentColor;
-        height: 1em;
-        margin-left: -1.2rem;
-
-        &.open {
-          margin-top: -0.5rem;
+        svg {
+          flex-shrink: 0;
+          margin-right: 0.5em;
+          fill: currentColor;
+          height: 1em;
+          margin-left: -1.2rem;
+          &.open {
+            margin-top: -0.5rem;
+          }
         }
       }
     }
@@ -96,7 +84,9 @@
     font-size: 1em;
     text-decoration: none;
     display: block;
+    padding-right: 1.3rem;
   }
+
 
   .sections {
     margin-left: 1.5rem;

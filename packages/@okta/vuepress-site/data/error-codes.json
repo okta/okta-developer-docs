@@ -1,6 +1,6 @@
 {
-  "release" : "2020.07.1",
-  "build" : "2020.07.1-begin-109-g80b46798ce40",
+  "release" : "2020.12.1",
+  "build" : "2020.12.1-begin-99-gd9effb0ab7f0",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1135,7 +1135,7 @@
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
     "errorCode" : "E0000148",
-    "errorSummary" : "The operation is not permitted by policy.",
+    "errorSummary" : "Cannot disable this authenticator because it is enabled in one or more policies. To continue, disable the authenticator in these policies.",
     "errorDescription" : null
   }, {
     "title" : "HTTP request not acceptable",
@@ -1144,6 +1144,38 @@
     "statusReasonPhrase" : "Not Acceptable",
     "errorCode" : "E0000149",
     "errorSummary" : "The HTTP request is not acceptable.",
+    "errorDescription" : null
+  }, {
+    "title" : "SMS rate limit exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000150",
+    "errorSummary" : "You have reached the limit of sms requests, please try again later.",
+    "errorDescription" : null
+  }, {
+    "title" : "Call rate limit exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 429,
+    "statusReasonPhrase" : "Too Many Requests",
+    "errorCode" : "E0000151",
+    "errorSummary" : "You have reached the limit of call requests, please try again later.",
+    "errorDescription" : null
+  }, {
+    "title" : "Illegal device status exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000152",
+    "errorSummary" : "Illegal device status, cannot perform action.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid device id exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 410,
+    "statusReasonPhrase" : "Gone",
+    "errorCode" : "E0000153",
+    "errorSummary" : "Invalid device id, it no longer exists.",
     "errorDescription" : null
   } ]
 }

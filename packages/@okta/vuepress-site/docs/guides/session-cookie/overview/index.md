@@ -4,6 +4,8 @@ title: Overview
 
 Okta utilizes an HTTP session cookie to provide access to your Okta organization and applications across web requests for interactive user-agents such as a browser. This document provides examples for programmatically retrieving and setting a session cookie for different deployment scenarios to provide SSO capabilities for custom web applications built on Okta.
 
+>**Note:** Some browsers have begun blocking third-party cookies by default, disrupting Okta functionality in certain flows. For information see [FAQ: How Blocking Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
+
 Okta sessions are created and managed with the [Session API](/docs/reference/api/sessions/).
 
 ## Retrieving a session cookie via OpenID Connect Authorization Endpoint
@@ -48,7 +50,7 @@ The session token along with the URL for your landing page can then be used to c
 
 Be aware of the following requirements:
 
-* You must have your redirect URI white-listed as a Trusted Origin (<ApiLifecycle access="ea" />) within Okta. This is required to protect against open redirect attacks.
+* You must have your redirect URI listed as a Trusted Origin (<ApiLifecycle access="ea" />) within Okta. This is required to protect against open redirect attacks.
 * The session token may only be used **once** to establish a session. If the session expires or the user logs out of Okta after using the token, they will not be able to reuse the same session token to get a new session cookie.
 * When using a GET request to `https://${yourOktaDomain}/login/sessionCookieRedirect`, Internet Explorer is only compatible with redirect URLs that don't grow beyond 255 characters, including request parameters.
     If the `redirectUrl` is only going to Okta and the request parameters are longer, then use a POST request to this API and provide additional request parameters as POST form parameters. For more information about the character limitation, see the [Microsoft documentation](https://support.microsoft.com/en-us/help/208427/maximum-url-length-is-2-083-characters-in-internet-explorer).

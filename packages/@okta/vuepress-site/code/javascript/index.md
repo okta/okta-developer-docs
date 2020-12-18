@@ -12,20 +12,11 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
-			<span>Create Free Account</span>
-		</a>
-	</li>
-	<li>
-		<a href='/docs/guides/protect-your-api/nodeexpress/before-you-begin/' class='Button--blue' data-proofer-ignore>
+		<a href='/docs/guides/protect-your-api/nodeexpress/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
 </ul>
-
-<a href='https://github.com/okta/samples-nodejs-express-4/tree/master/custom-login'>
-	<span class='fa fa-github'></span> <span>JavaScript Sample App</span>
-</a>
 
 ## Okta JavaScript Authentication SDK
 
@@ -46,6 +37,12 @@ Auth.js is a library wrapper for the Okta Authentication API. Use it when you ne
 		<i class='fa fa-github'></i>
 		<a href="https://github.com/okta/okta-signin-widget">
 			<span>Okta Sign-In Widget</span>
+		</a>
+	</li>
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/okta-oidc-js">
+			<span>Okta's OpenID Connect</span>
 		</a>
 	</li>
 </ul>

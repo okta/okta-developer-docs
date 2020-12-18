@@ -25,45 +25,67 @@ meta:
 
 New to Okta? Our Java resources will help you add user authentication to your Java app.
 
-<ul class='language-ctas'>
-	<li>
-		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
-			<span>Create Free Account</span>
-		</a>
-	</li>
-</ul>
-
 ## Okta Management SDK for Java
 
 The Okta Java SDK can be used in your server-side code to create and update users, groups, and more.
 
+<a href='https://github.com/okta/okta-sdk-java'>
+	<span class='fa fa-github'></span> <span>Okta Java SDK GitHub Project</span>
+</a>
 <p class="language-reference">
 	<a href='https://developer.okta.com/okta-sdk-java/apidocs/' class="language-reference">
 		<span class='icon expression-16'></span>
-		<span>Okta Java SDK Reference</span>
+		<span>Okta Java SDK Reference (Javadoc)</span>
 	</a>
 </p>
 
-<a href='https://github.com/okta/okta-sdk-java'>
-	<span class='fa fa-github'></span> <span>Java SDK Source</span>
+## Okta Hooks SDK for Java
+
+The Okta Hooks SDK can be used to respond to [Okta's Inline Hooks](https://developer.okta.com/docs/concepts/inline-hooks/) from custom applications.
+
+<a href='https://github.com/okta/okta-hooks-sdk-java'>
+	<span class='fa fa-github'></span> <span>Okta Hooks SDK GitHub Project</span>
 </a>
+<p class="language-reference">
+	<a href='https://developer.okta.com/okta-hooks-sdk-java/apidocs/' class="language-reference">
+		<span class='icon expression-16'></span>
+		<span>Okta Hooks SDK Reference (Javadoc)</span>
+	</a>
+</p>
 
-## Java Libraries
+## Okta JWT Verifier for Java
 
-<ul class="language-libraries">
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-auth-java">
-			 <span>Okta Java Authentication SDK</span>
-		</a>
-	</li>
-	<li>
-		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-jwt-verifier-java">
-			 <span>Okta JWT Verifier for Java</span>
-		</a>
-	</li>
-</ul>
+The Okta JWT Verifier can be used in products that do not have existing OAuth 2.0 support.  This library supports validating Okta's OAuth access tokens and ID tokens.
+
+<a href='https://github.com/okta/okta-jwt-verifier-java'>
+	<span class='fa fa-github'></span> <span>Okta JWT Verifier GitHub Project</span>
+</a>
+<p class="language-reference">
+	<a href='https://developer.okta.com/okta-jwt-verifier-java/apidocs/' class="language-reference">
+		<span class='icon expression-16'></span>
+		<span>Okta JWT Verifier Reference (Javadoc)</span>
+	</a>
+</p>
+
+## Okta Authentication SDK for Java
+
+The Okta Authentication SDK can be used in scenarios where using OAuth 2.0 is not possible.
+
+<a href='https://github.com/okta/okta-auth-java'>
+	<span class='fa fa-github'></span> <span>Okta Authentication SDK GitHub Project</span>
+</a>
+<p class="language-reference">
+	<a href='https://developer.okta.com/okta-auth-java/apidocs/' class="language-reference">
+		<span class='icon expression-16'></span>
+		<span>Okta Authentication SDK Reference (Javadoc)</span>
+	</a>
+</p>
+
+## Java Servlet Sample
+
+<a href='https://github.com/okta/samples-java-servlet'>
+	<span class='fa fa-github'></span> <span>Java Servlet Sample</span>
+</a>
 
 ## Recommended Guides
 

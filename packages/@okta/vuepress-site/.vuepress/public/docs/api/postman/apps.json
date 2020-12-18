@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "a2fd9b5b-1bed-445c-b843-169fc2902fbf",
+		"_postman_id": "c4506b10-2933-4f8b-a191-eb4dc646509f",
 		"name": "Apps (Okta API)",
 		"description": "The [Okta Application API](/docs/api/rest/apps.html) provides operations to manage applications and/or assignments to users or groups for your organization.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -283,6 +283,83 @@
 						"body": {
 							"mode": "raw",
 							"raw": "{\n    \"name\": \"oidc_client\",\n    \"label\": \"Sample Client\",\n    \"signOnMode\": \"OPENID_CONNECT\",\n    \"credentials\": {\n      \"oauthClient\": {\n        \"token_endpoint_auth_method\": \"client_secret_post\"\n      }\n    },\n    \"settings\": {\n      \"oauthClient\": {\n        \"client_uri\": \"http://localhost:8080\",\n        \"logo_uri\": \"http://developer.okta.com/assets/images/logo-new.png\",\n        \"redirect_uris\": [\n          \"https://example.com/oauth2/callback\",\n          \"myapp://callback\"\n        ],\n        \"response_types\": [\n          \"token\",\n          \"id_token\",\n          \"code\"\n        ],\n        \"grant_types\": [\n          \"implicit\",\n          \"authorization_code\"\n        ],\n        \"application_type\": \"native\"\n      }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/apps",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Bookmark App",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"bookmark\",\n  \"label\": \"Sample Bookmark App\",\n  \"signOnMode\": \"BOOKMARK\",\n  \"settings\": {\n    \"app\": {\n      \"requestIntegration\": false,\n      \"url\": \"https://example.com/bookmark.html\"\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/apps",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"apps"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Okta Org2Org App",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"okta_org2org\",\n  \"label\": \"Sample Okta Org2Org App\",\n  \"signOnMode\": \"SAML_2_0\",\n  \"settings\": {\n    \"app\": {\n      \"acsUrl\": \"https://example.okta.com/sso/saml2/exampleid\",\n      \"audRestriction\": \"https://www.okta.com/saml2/service-provider/exampleid\",\n      \"baseUrl\": \"https://example.okta.com\"\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
 						},
 						"url": {
 							"raw": "{{url}}/api/v1/apps",

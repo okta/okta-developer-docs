@@ -1,7 +1,7 @@
 ---
-title: Create Custom Scopes
+title: Create custom scopes
 ---
 
-The Client Credentials flow never has a user context, so you can't request OpenID scopes. Instead, you must create a custom scope. For more information on creating custom scopes, see the [Custom Authorization Server Guide](/docs/guides/customize-authz-server/create-scopes/).
+The Client Credentials flow never has a user context, so you can't request OpenID scopes. Instead, you must create a custom scope. See the **Scopes** section of the [Create a Custom Authorization Server](/docs/guides/customize-authz-server/create-scopes/) guide for more information on creating custom scopes.
 
 <NextSectionLink/>

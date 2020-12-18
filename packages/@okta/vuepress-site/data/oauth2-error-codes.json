@@ -1,6 +1,6 @@
 {
-  "release" : "2020.07.1",
-  "build" : "2020.07.1-begin-109-g80b46798ce40",
+  "release" : "2020.12.1",
+  "build" : "2020.12.1-begin-99-gd9effb0ab7f0",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -296,13 +296,6 @@
     "errorCode" : "idp_initated_flow_disabled",
     "errorDescription" : "IdP-initiated login is disabled for this client."
   }, {
-    "title" : "Illegal post logout redirect URI",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "illegal_post_logout_redirect_uri",
-    "errorCode" : "illegal_post_logout_redirect_uri",
-    "errorDescription" : "The 'post_logout_redirect_uri' parameter must be an absolute URI that is whitelisted in the client app settings."
-  }, {
     "title" : "Insufficient scope",
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
@@ -316,6 +309,34 @@
     "internalErrorCode" : "access_token_insufficient_scopes",
     "errorCode" : "insufficient_scope",
     "errorDescription" : "The access token provided does not contain the required scopes."
+  }, {
+    "title" : "Interaction required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "interaction_required",
+    "errorCode" : "interaction_required",
+    "errorDescription" : "Your client is configured to use the interaction code flow and user interaction is required to complete the request."
+  }, {
+    "title" : "Invalid authorization details",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_authorization_details",
+    "errorCode" : "invalid_authorization_details",
+    "errorDescription" : "Invalid authorization_details."
+  }, {
+    "title" : "Invalid authorization details with errors",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_authorization_details_with_errors",
+    "errorCode" : "invalid_authorization_details",
+    "errorDescription" : "Invalid authorization_details. Errors: [{0}]."
+  }, {
+    "title" : "Invalid authorization details invalid type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_authorization_details_invalid_resource_type",
+    "errorCode" : "invalid_authorization_details",
+    "errorDescription" : "The type value {0} in authorization_details is not supported."
   }, {
     "title" : "Invalid client",
     "statusCode" : 401,
@@ -485,6 +506,13 @@
     "errorCode" : "invalid_client",
     "errorDescription" : "The client_assertion JWT signature algorithm is invalid."
   }, {
+    "title" : "Client assertion invalid secret length",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "client_assertion_invalid_secret_length",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client secret is too short to verify a JWT HMAC."
+  }, {
     "title" : "Authorize request object invalid issuer",
     "statusCode" : 401,
     "statusReasonPhrase" : "Unauthorized",
@@ -583,6 +611,41 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "The user has multiple passwords."
   }, {
+    "title" : "Invalid saml assertion",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_saml_assertion",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "'assertion' is not a valid SAML 2.0 Assertion."
+  }, {
+    "title" : "Saml assertion auth denied MFA",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "saml_assertion_auth_denied_mfa",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "SAML Assertion credentials cannot be used with MFA enabled."
+  }, {
+    "title" : "Saml assertion auth denied policy",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "saml_assertion_auth_denied_policy",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "SAML Assertion credentials authentication denied by sign on policy."
+  }, {
+    "title" : "Invalid interaction code",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_interaction_code",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The interaction code is invalid or has expired."
+  }, {
+    "title" : "Interaction code unsatisfiable",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "interaction_code_unsatisfiable",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "Additional user authentication is required but the assurance requirements cannot be met with the allowed authenticators. Check the authenticator and assurance configuration for the user and client."
+  }, {
     "title" : "Invalid initiate login URI",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -595,7 +658,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "invalid_redirect_uri",
     "errorCode" : "invalid_redirect_uri",
-    "errorDescription" : "The 'redirect_uri' parameter must be an absolute URI that is whitelisted in the client app settings."
+    "errorDescription" : "The 'redirect_uri' parameter must be a Login redirect URI in the client app settings."
   }, {
     "title" : "Invalid request",
     "statusCode" : 400,
@@ -644,7 +707,21 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "illegal_redirect_uri",
     "errorCode" : "invalid_request",
-    "errorDescription" : "The 'redirect_uri' parameter must be an absolute URI that is whitelisted in the client app settings."
+    "errorDescription" : "The 'redirect_uri' parameter must be a Login redirect URI in the client app settings."
+  }, {
+    "title" : "Illegal redirect URI enhanced",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "illegal_redirect_uri_enhanced",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'redirect_uri' parameter must be a Login redirect URI in the client app settings: {0}"
+  }, {
+    "title" : "Invalid client application type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_client_application_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Clients with 'application_type' of 'service' are not allowed to access the '{0}' endpoint."
   }, {
     "title" : "Invalid state",
     "statusCode" : 400,
@@ -751,9 +828,37 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "'login_hint' is required for MFA attestation."
   }, {
-    "title" : "Access token missing",
+    "title" : "Invalid subject token",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token' is invalid."
+  }, {
+    "title" : "Invalid subject token type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_token_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'subject_token_type' is invalid or not supported."
+  }, {
+    "title" : "Illegal post logout redirect URI",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "illegal_post_logout_redirect_uri",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'post_logout_redirect_uri' parameter must be a Logout redirect URI in the client app settings."
+  }, {
+    "title" : "Illegal post logout redirect URI enhanced",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "illegal_post_logout_redirect_uri_enhanced",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'post_logout_redirect_uri' parameter must be a Logout redirect URI in the client app settings: {0}"
+  }, {
+    "title" : "Access token missing",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
     "internalErrorCode" : "access_token_missing",
     "errorCode" : "invalid_request",
     "errorDescription" : "The access token is missing."
@@ -862,6 +967,20 @@
     "internalErrorCode" : "authorize_request_object_invalid_signature_algorithm",
     "errorCode" : "invalid_request_object",
     "errorDescription" : "The JWT signature algorithm of the authorize request object is invalid."
+  }, {
+    "title" : "Authorize request object invalid secret length",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "authorize_request_object_invalid_secret_length",
+    "errorCode" : "invalid_request_object",
+    "errorDescription" : "The JWT signature secret length is too short."
+  }, {
+    "title" : "Invalid authorization details request response type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_response_type",
+    "errorCode" : "invalid_response_type",
+    "errorDescription" : "Invalid rich authorization request. The response_type must be 'code'."
   }, {
     "title" : "Invalid scope",
     "statusCode" : 400,
@@ -1108,6 +1227,13 @@
     "errorCode" : "request_uri_not_supported",
     "errorDescription" : "The authorize request uri is not supported by this client."
   }, {
+    "title" : "Invalid authorization details request scope present",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "scope_present",
+    "errorCode" : "scope_present",
+    "errorDescription" : "Invalid rich authorization request. The request should not include 'scope' parameter."
+  }, {
     "title" : "Server error",
     "statusCode" : 500,
     "statusReasonPhrase" : "Internal Server Error",
@@ -1136,9 +1262,16 @@
     "errorCode" : "server_error",
     "errorDescription" : "Failed to create the access_token."
   }, {
-    "title" : "Too many groups in groups claim",
+    "title" : "Rar token not created",
     "statusCode" : 500,
     "statusReasonPhrase" : "Internal Server Error",
+    "internalErrorCode" : "rar_token_not_generated",
+    "errorCode" : "server_error",
+    "errorDescription" : "Failed to create the RAR based access_token."
+  }, {
+    "title" : "Too many groups in groups claim",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "too_many_groups_in_groups_claim",
     "errorCode" : "server_error",
     "errorDescription" : "The groups claim matched too many groups and must be configured to match fewer groups."

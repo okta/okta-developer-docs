@@ -5,7 +5,7 @@ Create the client application that you want to use with the Okta APIs.
 
 1. Sign in to your Okta organization as a user with administrative privileges. [Create an org for free](https://developer.okta.com/signup).
 
-    > **Note:** Make sure that you are using the Developer Console. If you see Admin Console in the top left of the page, click it and select **Developer Console** to switch.
+    > **Note:** Make sure that you are using the Developer Console. If you see **Classic UI** in the top left of the page, click it and select **Developer Console** to switch.
 
 2. Click **Applications** from the menu, and then click **Add Application**.
 
@@ -13,7 +13,7 @@ Create the client application that you want to use with the Okta APIs.
 
 4. Enter a name for your app and, in the **Login redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating.
 
-5. For testing purposes, select the **Implicit (Hybrid)** grant flow. Using Implicit streamlines authentication for testing by returning a token without introducing any additional steps. In a production environment, we recommend that you always use the Authorization Code grant flow and clear the **Implicit (Hybrid)** check box.
+5. We recommend that you always use the Authorization Code grant flow and clear the **Implicit (Hybrid)** check box.
 
     > **Note:** You can leave the rest of the defaults as they work with this guide for testing purposes.
 

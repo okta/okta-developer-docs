@@ -4,8 +4,8 @@ This code uses the [Okta JWT Verifier for Golang](https://github.com/okta/okta-j
 For any access token to be valid, the following must be asserted:
 
 - Signature is valid (the token was signed by a private key which has a corresponding public key in the JWKS response from the authorization server).
-- Access token is not expired (requires local system time to be in sync with Okta, checks the exp claim of the access token).
-- The `aud` claim matches any expected `aud` claim passed to `verifyAccessToken()`.
+- Access token isn't expired (requires local system time to be in sync with Okta, checks the exp claim of the access token).
+- The `aud` claim in the JWT matches any expected `aud` claim passed in `ClaimsToValidate` during setup.
 - The `iss` claim matches the issuer the verifier is constructed with.
 - Any custom claim assertions that you add are confirmed
 

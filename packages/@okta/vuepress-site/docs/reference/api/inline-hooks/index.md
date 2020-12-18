@@ -33,7 +33,7 @@ You can also optionally specify extra headers that you wish Okta to pass to your
 
 Your external service's endpoint needs to be a valid HTTPS endpoint, and therefore the URI you specify should always begin with `https://`.
 
-The total number of Inline Hooks that you can create in an Okta org is limited to 10, which is a combined total for any combination of Inline Hook types.
+The total number of Inline Hooks that you can create in an Okta org is limited to 50, which is a combined total for any combination of Inline Hook types.
 
 ##### Request Parameters
 
@@ -104,7 +104,7 @@ curl -v -X POST \
             ],
             "authScheme" : {
                 "type" : "HEADER",
-                "key" : "Authorization",
+                "key" : "Authorization"
             }
         }
     },
@@ -132,7 +132,7 @@ The response is an [Inline Hook object](#inline-hook-object) representing the re
 ##### Request Example
 
 
-```json
+```bash
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/inlineHooks/${id}"
@@ -162,7 +162,7 @@ curl -v -X GET \
             "method": "POST",
             "authScheme": {
                 "type": "HEADER",
-                "key": "Authorization",
+                "key": "Authorization"
             }
         }
     },
@@ -184,13 +184,13 @@ Returns a list of registered Inline Hooks, optionally filtered by Inline Hook ty
 ##### Request Examples
 
 
-```json
+```bash
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/inlineHooks"
 ```
 
-```json
+```bash
 curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/inlineHooks?type=com.okta.oauth2.tokens.transform"
@@ -221,7 +221,7 @@ curl -v -X GET \
 	            "method": "POST",
 	            "authScheme": {
 	                "type": "HEADER",
-	                "key": "Authorization",
+	                "key": "Authorization"
 	            }
 	        }
 	    },
@@ -306,7 +306,7 @@ curl -v -X PUT \
             ],
             "authScheme" : {
                 "type" : "HEADER",
-                "key" : "Authorization",
+                "key" : "Authorization"
             }
         }
     },
@@ -365,7 +365,7 @@ curl -v -X POST \
             ],
             "authScheme" : {
                 "type" : "HEADER",
-                "key" : "Authorization",
+                "key" : "Authorization"
             }
         }
     },
@@ -424,7 +424,7 @@ curl -v -X POST \
             ],
             "authScheme" : {
                 "type" : "HEADER",
-                "key" : "Authorization",
+                "key" : "Authorization"
             }
         }
     },
@@ -452,7 +452,7 @@ All responses will return a 204 status with no content.
 ##### Request Example
 
 
-```json
+```bash
 curl -v -X DELETE \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/inlineHooks/${id}"
@@ -698,7 +698,7 @@ curl -v -X POST \
             ],
             "authScheme" : {
                 "type" : "HEADER",
-                "key" : "Authorization",
+                "key" : "Authorization"
             }
         }
     },

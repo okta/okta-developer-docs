@@ -17,9 +17,17 @@ body {
   background-color: cv('brand');
 }
 
+.text-center {
+  text-align: center;
+}
+
 .container {
   max-width: $container-width;
   margin: 0 auto;
+
+  @include media('>=desktop-xx-large') {
+    max-width: $container-width-desktop-large;
+  }
 }
 
 .page-content {
@@ -32,6 +40,10 @@ body {
   padding: 0em 1.5em;
   display: flex;
   justify-content: space-between;
+
+  @include media('>=desktop-xx-large') {
+    max-width: $container-width-desktop-large;
+  }
 }
 
 .fixed-header {
@@ -41,8 +53,16 @@ body {
   background-color: cv('brand');
 }
 
-.page-body {
+.page-body:not(.redesign) {
   padding-top: 6rem;
+
+  @media(max-width:1024px){
+    padding-top: 5rem;
+  }
+}
+
+.page-body.redesign {
+  padding-top: 4.3rem;
 }
 
 a[target='_blank']:not([href^='mailto:'])::after {

@@ -6,41 +6,42 @@ category: management
 
 > This API is an <ApiLifecycle access="ea" /> feature.
 
-The Okta Zones API provides operations to manage zones in your organization. Zones may be used to guide policy decisions.
+The Okta Zones API provides operations to manage Zones in your organization. There are two type of zones: Policy Network Zones and Block List Network Zones. Policy Network Zones may be used to guide policy decisions, and Block List Network Zones are used to deny access from certain IP addresses, locations, proxy types, or ASNs before policy evaluation.
 
 ## Zone object
 
-### Base Network Zone Properties
+### Base Network Zone properties
 
 The following attributes are shared by all Network Zone objects:
 
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
-| type           | Type of zone is one of the following: `IP`, `DYNAMIC`                                              | String                                        | Yes             | N/A           |
-| id             | Unique identifier for this zone                                                             | String                                        | No (Assigned)   | N/A           |
-| name           | Unique name for this zone                                                                   | String                                        | Yes             | 128 (chars)   |
-| system           | Indicates if this is a system network zone. For admin-created zones, this is always `false`                                                                 | boolean                                        | No  (Assigned)           | N/A   |
+| type           | Type of Zone: `IP`, `DYNAMIC`                                              | String                                        | Yes             | N/A           |
+| id             | Unique identifier for this Zone                                                             | String                                        | No (Assigned)   | N/A           |
+| name           | Unique name for this Zone                                                                   | String                                        | Yes             | 128 (chars)   |
+| system           | Indicates if this is a system Network Zone. For admin-created Zones, this is always `false`.       | boolean                                        | No  (Assigned)           | N/A   |
+| usage           | Usage of Zone: `POLICY`, `BLOCKLIST` 				| String                                        | No  		| N/A   |
 
-### IP Zone Properties
+### IP Zone properties
 
-One of the following attributes must be defined  
-The follow attributes are defined by IP Zone objects:
+One of the following attributes must be defined. These attributes are defined by IP Zone objects:
 
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
-| gateways       | IP addresses (range or CIDR form) of this zone                                              | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
-| proxies        | IP addresses (range or CIDR form) allowed to forward request from gateway addresses above. These proxies are automatically trusted by Threat Insights. These proxies are used to identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
+| gateways       | IP addresses (range or CIDR form) of this Zone                                              | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
+| proxies        | IP addresses (range or CIDR form) that are allowed to forward a request from gateway addresses. These proxies are automatically trusted by Threat Insights. These proxies are used to identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
 
 #### Address object
 
-Each Address object specifies a set of IP addresses, expressed using either range or CIDR form.
+Each Address object specifies a set of IP addresses that are expressed using either range or CIDR form.
 
 | Field Name  | Description                                                | Data Type   | Required |
 | :---------- | :--------------------------------------------------------- | :---------- | :------- |
-| type        | Format of the value: either CIDR or RANGE                 | String      | Yes       |
+| type        | Format of the value: `CIDR`, `RANGE`                | String      | Yes       |
 | value       | Value in CIDR/range form depending on the type specified   | String      | Yes       |
 
 #### Address object example (CIDR)
+
 ```json
 {
     "type": "CIDR",
@@ -49,6 +50,7 @@ Each Address object specifies a set of IP addresses, expressed using either rang
 ```
 
 #### Address object example (range)
+
 ```json
 {
     "type": "RANGE",
@@ -56,7 +58,8 @@ Each Address object specifies a set of IP addresses, expressed using either rang
   }
 ```
 
-### IP Zone Example
+### IP Zone example
+
 ```json
 {
   "type": "IP",
@@ -89,27 +92,27 @@ Each Address object specifies a set of IP addresses, expressed using either rang
 }
 ```
 
-### Dynamic Zone Properties
+### Dynamic Zone properties
 
-One of the following attributes must be defined  
-The follow attributes are defined by Dynamic Zone objects:
+One of the following attributes must be defined. These attributes are defined by Dynamic Zone objects:
 
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
-| proxyType       | One of the following: `""` or `null` (When not specified), `Any`(Meaning any proxy), `Tor`, `NotTorAnonymizer`                                            | String   | No              | N/A |
-| locations        | The geolocations of this zone   | Array of [Location Objects](#location-object)   | No              | 75 (entries) |
-| asns        | Format of each array value: a String representation of an ASN numeric value   | Array of Strings   | No              | 75 (entries) |
+| proxyType       | One of: `""` or `null` (when not specified), `Any` (meaning any proxy), `Tor`, `NotTorAnonymizer`                                            | String   | No              | N/A |
+| locations        | The geolocations of this Zone   | Array of [Location objects](#location-object)   | No              | 75 (entries) |
+| asns        | Format of each array value: a string representation of an ASN numeric value   | Array of Strings   | No              | 75 (entries) |
 
 #### Location object
 
-Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code, and an optional [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) region code
+Each Location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code and an optional [ISO-3166-2](https://en.wikipedia.org/wiki/ISO_3166-2) region code.
 
 | Field Name  | Description                                                | Data Type   | Required |
 | :---------- | :--------------------------------------------------------- | :---------- | :------- |
 | country        | Format of the value: length 2 ISO-3166-1 country code                | String      | Yes       |
 | region       | Format of the value: `countryCode`-`regionCode`, or `null` if empty  | String      | No       |
 
-#### Location object example (With Region)
+#### Location object example (with region)
+
 ```json
 {
     "country": "AF",
@@ -117,7 +120,8 @@ Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
   }
 ```
 
-#### Location object example (Without Region)
+#### Location object example (without region)
+
 ```json
 {
     "country": "AF",
@@ -125,7 +129,8 @@ Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
   }
 ```
 
-### Dynamic Zone Example
+### Dynamic Zone example
+
 ```json
 {
     "type": "DYNAMIC",
@@ -148,16 +153,16 @@ Each location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
 }
 ```
 
-## Zone API Operations
+## Zone API operations
 
-### Create a Network Zone
+### Create a Policy Network Zone
 
 
 <ApiOperation method="post" url="/api/v1/zones" />
 
-Creates a new Network Zone
+Creates a new Policy Network Zone
 
-#### Valid Request Example
+#### Valid request example
 
 ```bash
 curl -X POST \
@@ -194,7 +199,7 @@ curl -X POST \
 }' "https://${yourOktaDomain}/api/v1/zones"
 ```
 
-#### Successful Response Example
+#### Successful response example
 
 ```json
 {
@@ -202,6 +207,7 @@ curl -X POST \
   "id": "nzouagptWUz5DlLfM0g3",
   "name": "newNetworkZone",
   "status": "ACTIVE",
+  "usage": "POLICY",
   "created": "2017-01-24T19:52:34.000Z",
   "lastUpdated": "2017-01-24T19:52:34.000Z",
   "gateways": [
@@ -247,7 +253,7 @@ curl -X POST \
 }
 ```
 
-#### Invalid Request Example
+#### Invalid request example
 
 ```bash
 curl -X POST \
@@ -277,7 +283,7 @@ curl -X POST \
 }' "https://${yourOktaDomain}/api/v1/zones"
 ```
 
-#### Unsuccessful Response Example
+#### Unsuccessful response example
 
 ```json
 {
@@ -293,16 +299,99 @@ curl -X POST \
 }
 ```
 
+### Create a Block List Network Zone
+
+
+<ApiOperation method="post" url="/api/v1/zones" />
+
+Creates a new Block List Network Zone
+
+#### Request example
+
+```bash
+curl -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "type": "IP",
+  "id": null,
+  "name": "newBlockListNetworkZone",
+  "status": "ACTIVE",
+  "usage": "BLOCKLIST",
+  "created": null,
+  "lastUpdated": null,
+  "gateways": [
+    {
+      "type": "CIDR",
+      "value": "1.2.3.4/24"
+    },
+    {
+      "type": "CIDR",
+      "value": "2.3.4.5/24"
+    }
+  ],
+  "proxies": null
+}' "https://${yourOktaDomain}/api/v1/zones"
+```
+
+#### Response example
+
+```json
+{
+    "type": "IP",
+    "id": "nzo1qasnPb1kqEq0e0g4",
+    "name": "newBlockListNetworkZone",
+    "status": "ACTIVE",
+    "usage": "BLOCKLIST",
+    "created": "2020-10-12T18:58:02.000Z",
+    "lastUpdated": "2020-10-12T18:58:02.000Z",
+    "system": false,
+    "gateways": [
+        {
+            "type": "CIDR",
+            "value": "1.2.3.4/24"
+        },
+        {
+            "type": "CIDR",
+            "value": "2.3.4.5/24"
+        }
+    ],
+    "proxies": null,
+    "_links": {
+        "self": {
+            "href": "http://rain.okta1.com:1802/api/v1/zones/nzo1qasnPb1kqEq0e0g4",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "http://rain.okta1.com:1802/api/v1/zones/nzo1qasnPb1kqEq0e0g4/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
 ### Get a Network Zone
+
 <ApiOperation method="get" url="/api/v1/zones/${zoneId}" />
 
-Gets a Network Zone by id
+Gets a Network Zone by ID
 
-#### Request Parameters
+#### Request parameters
 
-The zone ID described in the [Zone object](#zone-object) is required.
+The Zone ID described in the [Zone object](#zone-object) is required.
 
-#### Request Example
+#### Request example
 
 ```bash
 curl -X GET \
@@ -312,13 +401,15 @@ curl -X GET \
 "https://${yourOktaDomain}/api/v1/zones/nzowc1U5Jh5xuAK0o0g3"
 ```
 
-#### Response Example
+#### Response example
+
 ```json
 {
     "type": "DYNAMIC",
     "id": "nzowc1U5Jh5xuAK0o0g3",
     "name": "test",
     "status": "ACTIVE",
+    "usage": "POLICY",
     "created": "2019-05-17T18:44:31.000Z",
     "lastUpdated": "2019-05-21T13:50:49.000Z",
     "system": false,
@@ -346,34 +437,35 @@ curl -X GET \
 ```
 
 ### List Zones
+
 <ApiOperation method="get" url="/api/v1/zones" />
 
 Lists all zones
 
-A subset of zones can be returned that match a supported filter expression or query criteria.
+A subset of Zones can be returned that match a supported filter expression or query criteria.
 
-##### Request Parameters
+##### Request parameters
 
 
-- [List All Zones](#list-all-zones) (no parameters)
-- [List Zones with a Filter](#list-zones-with-a-filter) (`filter`)
+- [List all Zones](#list-all-zones) (no parameters)
+- [List Zones with a filter](#list-zones-with-a-filter) (`filter`)
 
 | Parameter    | Description                                                                                                                          | Param Type   | DataType   | Required |
 | :----------- | :----------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
-| filter       | [Filter](/docs/reference/api-overview/#filtering) zones with a supported expression for a subset of properties         | Query        | String     | No       |
+| filter       | [Filter](/docs/reference/api-overview/#filtering) Zones with a supported expression for the `id` and `usage` properties         | Query        | String     | No       |
 | limit        | Specifies the number of results returned                                                                                             | Query        | Integer    | No       |
 
-##### Response Parameters
+##### Response parameters
 
 
 Array of [Zones](#zone-object)
 
-#### List All Zones
+#### List all Zones
 
 
 Returns a list of all zones
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -X GET \
@@ -383,7 +475,7 @@ curl -X GET \
 "https://${yourOktaDomain}/api/v1/zones"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 [
@@ -392,6 +484,7 @@ curl -X GET \
         "name": "BlockedIpZone",
         "type": "IP",
         "status": "ACTIVE",
+	"usage": "BLOCKLIST",
         "created": "2017-07-28T23:24:36.000Z",
         "lastUpdated": "2017-08-14T20:41:08.000Z",
         "system": true,
@@ -428,6 +521,7 @@ curl -X GET \
         "type": "DYNAMIC",
         "name": "test",
         "status": "ACTIVE",
+	"usage": "POLICY",
         "created": "2019-05-17T18:44:31.000Z",
         "lastUpdated": "2019-05-21T13:50:49.000Z",
         "system": false,
@@ -457,6 +551,7 @@ curl -X GET \
         "name": "AiurIpZone",
         "type": "IP",
         "status": "ACTIVE",
+	"usage": "POLICY",
         "created": "2017-08-14T20:08:15.000Z",
         "lastUpdated": "2017-08-14T20:08:15.000Z",
         "system": false,
@@ -491,26 +586,26 @@ curl -X GET \
 ]
 ```
 
-#### List Zones with a Filter
+#### List Zones with a filter
 
 
-Lists all zones that match the filter criteria
+Lists all Zones that match the filter criteria
 
 This operation requires [URL encoding](/docs/reference/api-overview/#filtering). For example, `filter=(id eq "nzoul0wf9jyb8xwZm0g3" or id eq "nzoul1MxmGN18NDQT0g3")` is encoded as `filter=%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29`.
 
-See [Filtering](/docs/reference/api-overview/#filtering) for more information about the expressions used in filtering.
+We support filtering on the `id` and `usage` properties. See [Filtering](/docs/reference/api-overview/#filtering) for more information about the expressions used in filtering.
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/zones?limit=100&filter=%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29"
+"https://${yourOktaDomain}/api/v1/zones?limit=100&filter=%28%28id+eq+%22nzoul0wf9jyb8xwZm0g3%22+or+id+eq+%22nzoul1MxmGN18NDQT0g3%22%29+and+usage+eq+%22POLICY%22%29"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 [
@@ -519,6 +614,7 @@ curl -X GET \
     "name": "0",
     "type": "IP",
     "status": "ACTIVE",
+    "usage": "POLICY",
     "created": "2017-01-24T19:52:48.000Z",
     "lastUpdated": "2017-01-24T19:52:48.000Z",
     "system": false,
@@ -584,6 +680,7 @@ curl -X GET \
     "name": "1",
     "type": "IP",
     "status": "ACTIVE",
+    "usage": "POLICY",
     "created": "2017-01-24T19:52:48.000Z",
     "lastUpdated": "2017-01-24T19:52:48.000Z",
     "system": false,
@@ -653,13 +750,15 @@ curl -X GET \
 
 Updates an existing Network Zone
 
-#### Request Parameters
+#### Request parameters
 
-A valid [Zone object](#zone-object) with the id of the network zone to update is required.
+A valid [Zone object](#zone-object) with the ID of the Network Zone to update is required.
 
 The updated Network Zone type must be the same as the existing type.
 
-#### Request Example
+You may update the usage (`POLICY`, `BLOCKLIST`) of a Network Zone by updating the `usage` attribute.
+
+#### Request example
 
 ```bash
 curl -X PUT \
@@ -671,6 +770,7 @@ curl -X PUT \
   "id": "nzovw2rFz2YoqmvwZ0g3",
   "name": "UpdatedNetZone",
   "status": "ACTIVE",
+  "usage": "POLICY",
   "created": "2017-01-24T19:53:28.000Z",
   "lastUpdated": "2017-01-24T19:53:28.000Z",
   "gateways": [
@@ -712,7 +812,7 @@ curl -X PUT \
 }' "https://${yourOktaDomain}/api/v1/zones/nzovw2rFz2YoqmvwZ0g3"
 ```
 
-#### Response Example
+#### Response example
 
 ```json
 {
@@ -720,6 +820,7 @@ curl -X PUT \
   "id": "nzovw2rFz2YoqmvwZ0g3",
   "name": "UpdatedNetZone",
   "status": "ACTIVE",
+  "usage": "POLICY",
   "created": "2017-01-24T19:53:28.000Z",
   "lastUpdated": "2017-01-24T19:53:28.000Z",
   "system": false,

@@ -18,7 +18,10 @@ When do you use API Access Management and when do you use OpenID Connect?
 ### Simple use cases
 
 In general, use OpenID Connect to sign users in to apps, and use API Access Management to secure your APIs:
-create one or more Custom Authorization Servers, define scopes and claims, and create policies and rules to determine who can access your API resources.
+
+* Create one or more Custom Authorization Servers
+* Define scopes and claims
+* Create policies and rules to determine who can access your API resources
 
 For example:
 
@@ -29,7 +32,7 @@ For example:
 
 You can also specify authorization servers in your OpenID Connect API calls.
 Every OpenID resource is also available in a version that lets you specify an authorization server that you created in Okta.
-See [OAuth 2.0 and OpenID Connect](/docs/concepts/auth-overview/) for details.
+See [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) for details.
 
 ## Benefits of API Access Management
 
@@ -75,7 +78,7 @@ Custom claims also help you by reducing the number of lookup calls required to r
 
 ## Get started with API Access Management
 
-* [Learn more](/docs/concepts/auth-overview/) about Okta and OAuth 2.0.
+* [Learn more](/docs/concepts/oauth-openid/) about Okta and OAuth 2.0.
 * [Set up a custom authorization server](/docs/guides/customize-authz-server/) and use the power of Okta's API Access Management.
 * Visit [the OIDC/OAuth 2.0 endpoint documentation](/docs/reference/api/oidc/) and start building your integration today.
 * For simpler use cases focused on SSO, visit [the OpenID Connect documentation](/docs/reference/api/oidc/).
@@ -107,7 +110,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 * A client secret is a password. Protect it as you would any other password.
 * Configure clients to support only the grant types that are required by the specific use cases under development. Disable all other grant types.
 * Within Okta, only assigned users and groups can authenticate with a client (application). Use the **Everyone** group only when necessary.
-* Okta sends tokens and authorization codes to a redirect URI (bound to the application's client ID) only if it is on the whitelist. Therefore, limit this list to URIs in active use.
+* Okta sends tokens and authorization codes to a redirect URI (bound to the application's client ID) only if it is on the allow list. Therefore, limit this list to URIs in active use.
 
 ##### Authorization server
 

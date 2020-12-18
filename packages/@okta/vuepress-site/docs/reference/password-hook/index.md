@@ -33,13 +33,13 @@ If your service returns a response that indicates that the password is valid, Ok
 
 The outbound call from Okta to your external service includes the following objects in its JSON payload:
 
-### data.credential
+### data.context.credential
 
-This object contains `username` and `password` properties. These are user name and password that the end user supplied when attempting to sign in to Okta.
+This object contains `username` and `password` properties. These are the user name and password that the end user supplied when attempting to sign in to Okta.
 
 ### data.action
 
-This specifies the default action Okta is set to take. Okta will take this action if your external service sends an empty HTTP 204 response. You can override the default action by returning a `command` object in your response specifying the action to take.
+This specifies the default action Okta is set to take. Okta will take this action if your external service sends an empty HTTP 204 response. You can override the default action by returning a `commands` object in your response specifying the action to take.
 
 ## Objects in Response You Send
 
@@ -49,7 +49,7 @@ The objects that you can return in the JSON payload of your response are an arra
 
 For the Password Import Inline Hook, the `commands` object lets you specify whether Okta should accept the end user's login credentials as valid or not.
 
-This object is an array. Each array element requires a `type` property and a `value` property. The `type` property is where you specify the command, and `value` is where you supply the parameter for the command
+This object is an array. Each array element requires a `type` property and a `value` property. The `type` property is where you specify the command, and `value` is where you supply the parameter for the command.
 
 | Property | Description                                | Data Type       |
 |----------|--------------------------------------------|-----------------|
@@ -88,7 +88,7 @@ For example, to indicate that the supplied credentials should not be accepted as
       {
          "type":"com.okta.action.update",
          "value":{
-            "credential":"UNVERIFIED",  
+            "credential":"UNVERIFIED"
          }
       }
    ]
@@ -151,7 +151,7 @@ To enable a Password Import Inline Hook, you first need to register your externa
 
 When creating a new user with the `/users` API, you need to use the [Create User with Password Import Inline Hook](/docs/reference/api/users#create-user-with-password-import-inline-hook) use case. This involves specifying a `credentials.password.hook` property in the request body.
 
-When the end user that you have added attempts to sign in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not.
+When the end user that you have added attempts to sign in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that the end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not.
 
 ## Password Inline Hook and Okta Service Mode
 

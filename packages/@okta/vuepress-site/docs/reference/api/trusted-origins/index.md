@@ -7,8 +7,8 @@ category: management
 
 The Okta Trusted Origins API provides operations to manage trusted origins and sources.
 
-When external URLs are requested during login, logout, or recovery operations, Okta checks those URLs against the whitelist of trusted origins.
-Trusted origins also enable browser-based applications to access Okta APIs from Javascript (CORS).
+When external URLs are requested during login, logout, or recovery operations, Okta checks those URLs against the allow list of trusted origins.
+Trusted origins also enable browser-based applications to access Okta APIs from JavaScript (CORS).
 If the origins are not specified, the related operation (redirect or Okta API access) would not be permitted.
 
 ## Trusted Origins API Operations

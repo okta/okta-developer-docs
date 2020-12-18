@@ -12,20 +12,18 @@ In your application code, build a config object. This is used to initialize the 
 const config = {
   clientId: '{clientId}',
   issuer: 'https://${yourOktaDomain}/oauth2/default',
-  redirectUri: 'http://localhost:8080/implicit/callback',
+  redirectUri: 'http://localhost:8080/login/callback',
   scopes: ['openid', 'profile', 'email'],
   pkce: true
 };
 ```
-
-> **Note:** `openid`, `profile`, and `email` are reserved scopes in OpenID Connect that allow you to get access to user's data. You can read more about scopes [here](/docs/reference/api/oidc/#scopes).
 
 You can also build it from dynamic values like environment variables:
 
 ```javascript
 const OKTA_DOMAIN = process.env.DOMAIN;
 const CLIENT_ID = process.env.CLIENT_ID;
-const CALLBACK_PATH = '/implicit/callback';
+const CALLBACK_PATH = '/login/callback';
 
 const ISSUER = `https://${OKTA_DOMAIN}/oauth2/default`;
 const HOST = window.location.host;
@@ -36,9 +34,17 @@ const config = {
   issuer: ISSUER,
   clientId: CLIENT_ID,
   redirectUri: REDIRECT_URI,
-  scope: SCOPES.split(/\s+/),
-});
+  scopes: SCOPES.split(/\s+/)
+};
 ```
+
+> **Note:**
+>
+> `openid`, `profile`, and `email` are reserved scopes in OpenID Connect that allow you to get access to user's data. You can read more about scopes [here](/docs/reference/api/oidc/#scopes).
+>
+> The `issuer` in the configuration above points to the default [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server),
+which is created by default with the [Okta Developer Edition](https://developer.okta.com/signup/) account.
+See [Which Authorization Server should you use](/docs/concepts/auth-servers/#which-authorization-server-should-you-use) for more information on the types of Authorization Servers available to you and what you can use them for.
 
 With the configuration ready, initialize the SDK:
 

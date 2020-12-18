@@ -2,7 +2,7 @@
 title: Create a service app and grant scopes
 ---
 
-Create an OAuth service app and register the public key with the service app using the dynamic client registration endpoint (`/oauth/v1/clients`). Then grant the scopes that you want to allow for the service app.
+Create an OAuth service app and register the public key with the service app using the dynamic client registration endpoint (`/oauth2/v1/clients`). Then grant the scopes that you want to allow for the service app.
 
 ## Create a service app
 
@@ -14,7 +14,7 @@ Create an OAuth service app and register the public key with the service app usi
     * `application_type` &mdash; `service`
     * `jwks` &mdash; Add the JSON Web Key Set (JWKS) that you created in the <GuideLink link="../create-publicprivate-keypair">last step</GuideLink>.
 
-```JSON
+```bash
     curl -X POST \
     -H 'Accept: application/json' \
     -H "Authorization: SSWS ${api_token}" \
@@ -61,9 +61,9 @@ Now that you've created the service app and registered the public key with that 
 2. Provide values for these parameters in your request:
 
     * `scopeID` &mdash; `okta.users.read`
-    * `issuer` &mdash; `https://{yourOktaDomain}`
+    * `issuer` &mdash; `https://{yourOktaDomain}`<br>
 
-```JSON
+```bash
   curl -X POST \
   -H 'Accept: application/json' \
   -H "Authorization: SSWS ${api_token}" \

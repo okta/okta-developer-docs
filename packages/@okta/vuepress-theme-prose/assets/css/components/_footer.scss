@@ -1,4 +1,4 @@
-footer {
+footer:not(.redesign) {
   background-color: cv('brand');
   display: flex;
   padding: 4em 1.5em;
@@ -10,6 +10,10 @@ footer {
   @include media('>=tablet') {
     flex-direction: row;
     justify-content: space-between;
+  }
+
+  @include media('>=desktop-xx-large') {
+    max-width: $container-width-desktop-large;
   }
 
   .footer--logo {
@@ -71,5 +75,252 @@ footer {
     font-size: 1.25em;
     color: cv('gray', '100');
     font-weight: 300;
+  }
+}
+
+$redesign_white: #FFFFFF;
+$redesign_pink: #DD2864;
+$redesign_footer_background: #16262F;
+$redesign_footer_border: #1F3B54;
+
+footer.redesign {
+  background-color: $redesign_footer_background;
+  border-top: 1px solid $redesign_footer_border;
+  padding: 80px 96px 80px 126px;
+
+  @include media('<tablet') {
+    padding: 46px;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.7em;
+    letter-spacing: 0.01em;
+    color: $redesign_white;
+    margin-bottom: 66px;
+
+
+    @include media('<tablet') {
+      font-size: 18px;
+      line-height: 1.5em;
+      margin-bottom: 50px;
+    }
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  .footer--columns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .footer--column {
+      flex: 0 0 150px;
+
+      .column--header {
+        font-weight: bold;
+        font-size: 14px;
+        line-height: 1.3em;
+        letter-spacing: 1.5px;
+        color: $redesign_white;
+        text-transform: uppercase;
+        margin-bottom: 30px;
+
+        @include media('<tablet') {
+          font-size: 12px;
+          margin-bottom: 24px;
+        }
+      }
+    }
+
+    .social {
+      @include media('<desktop') {
+        order: 4;
+        flex: 1 0 100%;
+        margin-bottom: 46px;
+
+        .column--header {
+          display: none;
+        }
+
+        ul.link-list {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        span.link-list--text {
+          display: none;
+        }
+      }
+    }
+
+    .contact {
+      @include media('<desktop') {
+        flex: 1 0 30%;
+        order: 1;
+        margin-bottom: 46px;
+      }
+
+      @include media('<tablet') {
+        flex: 1 0 50%;
+      }
+
+      @include media('<phone') {
+        flex: 1 0 100%;
+      }
+    }
+
+    .more {
+      @include media('<desktop') {
+        flex: 1 0 30%;
+        order: 2;
+        margin-bottom: 46px;
+      }
+
+      @include media('<tablet') {
+        flex: 1 0 50%;
+      }
+
+      @include media('<phone') {
+        flex: 1 0 100%;
+      }
+    }
+
+    .websites {
+      flex: 0 0 280px;
+
+      @include media('<desktop') {
+        flex: 1 0 40%;
+        order: 3;
+        margin-bottom: 46px;
+      }
+
+      @include media('<tablet') {
+        flex: 1 0 100%;
+      }
+
+      .website {
+        display: flex;
+        flex-direction: column;
+
+        & + .website {
+          margin-top: 40px;
+        }
+
+        .description {
+          font-size: 16px;
+          line-height: 1.7em;
+          letter-spacing: 0.01em;
+          color: $redesign_white;
+          margin-top: 6px;
+        }
+      }
+    }
+
+    .copyright {
+      flex: 0 0 180px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      
+
+      @include media('<desktop') {
+        order: 5;
+        flex: 1 0 100%;
+        justify-content: center;
+      }
+
+      span {
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 1.7em;
+        letter-spacing: 0.01em;
+        color: $redesign_white;
+        opacity: 0.9;
+      }      
+    }
+  }
+
+  a.link {
+    font-size: inherit;
+    line-height: 1.3em;
+    color: $redesign_white;
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    &--small {
+      font-size: 14px;
+    }
+
+    &--red {
+      color: $redesign_pink;
+    }
+
+    &--bold {
+      font-weight: bold;
+    }
+
+    &--uppercase {
+      text-transform: uppercase;
+    }
+
+    &--underline {
+      text-decoration: underline;
+    }
+
+    &--spacing-large {
+      letter-spacing: 1.5px;
+    }
+
+    &[target='_blank']:not([href^='mailto:'])::after {
+      content: '';
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      margin-left: 0.2em;
+      background-image: url('/img/icons/external--cherry.svg');
+      background-repeat: no-repeat;
+      vertical-align: middle;
+    }
+  }
+
+  ul.link-list {
+    margin-left: 0;
+    padding-inline-start: 0;
+
+    li.link-list--item {
+      margin-top: 12px;
+      
+      a.link-list--link {
+        font-size: 16px;
+        line-height: 1.2em;
+        display: flex;
+        align-items: center;
+
+        @include media('<tablet') {
+          font-size: 14px;
+        }
+      }
+
+      i.link-list--icon {
+        display: flex;
+        font-size: 16px;
+
+        svg {
+          width: 1.2em;
+          height: 1.2em;
+          fill: $redesign_pink;
+        }
+      }
+
+      i.link-list--icon + span.link-list--text {
+        margin-left: 16px;
+      }
+    }
   }
 }

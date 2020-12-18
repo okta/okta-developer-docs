@@ -6,7 +6,7 @@ There are several ways to verify that you've successfully created a user grant:
 
 * Check the ID token payload if you requested an ID token. To check the ID token payload, you can copy the token value and paste it into any [JWT decoder](https://www.jsonwebtoken.io/). The payload should look similar to this. Note that no scopes are returned in an ID token:
 
-    ```JSON
+    ```json
     {
         "sub": "00uixa271s6x7qt8I0h7",
         "ver": 1,
@@ -28,7 +28,7 @@ There are several ways to verify that you've successfully created a user grant:
 
 * Check the access token if you requested one. To check the access token payload, you can copy the token value and paste it into any JWT decoder. The payload should look something like this:
 
-    ```JSON
+    ```json
     {
         "ver": 1,
         "jti": "AT.xtjhr8FeMkyMfgLiFzVYOYPbgqWdd6ONULT3ffeK7d4",

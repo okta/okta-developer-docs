@@ -29,6 +29,7 @@ var options = {
     "/product/",
     "/product/*",
     "/okta-integration-network/",
+    "github.com/okta/okta-developer-docs/edit",
   ]
 };
 
@@ -101,11 +102,9 @@ var siteChecker = new blc.SiteChecker(options, {
   junk: function(result, customData){},
   link: function(result, customData){
     if (customData.firstLink) {
-      console.log("Getting links from: " + result.base.resolved);
       customData.firstLink = false;
     }
     if (result.broken) {
-      console.log(chalk.bold.red("─BROKEN─ ") + chalk.cyan(result.url.resolved));
       customData.brokenLinks.push(result);
       customData.pageBrokenCount++;
     } else if (result.excluded) {
@@ -113,15 +112,12 @@ var siteChecker = new blc.SiteChecker(options, {
     } else {
       //good link
       if (customData.outputGoodLinks) {
-        console.log(chalk.bold.green("───OK─── ") + chalk.gray(result.url.resolved));
       }
     }
     customData.pageLinkCount++;
   },
   page: function(error, pageUrl, customData){
     if (customData.pageLinkCount > 0) {
-      console.log("Finished! " + customData.pageLinkCount + " link(s) found. " + customData.pageBrokenCount + " broken.");
-      console.log();
       customData.totalLinkCount += customData.pageLinkCount;
       customData.totalExcludedCount += customData.pageExcludedCount;
       customData.totalBrokenCount += customData.pageBrokenCount;

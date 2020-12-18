@@ -1,6 +1,7 @@
 ---
 title: Include app-specific information in a custom claim
 ---
+
 If you want to include certain app-specific information in a token claim, you can do so by first adding the metadata into the profile section of the app. You can access any values that are put inside the app profile using `app.profile` written in [Okta Expression Language](/docs/reference/okta-expression-language/).
 
 To include, for example, the app `label` parameter in a token claim:
@@ -14,7 +15,7 @@ To include, for example, the app `label` parameter in a token claim:
 
 Create an app with the Profile object using the [Apps API](/docs/reference/api/apps/).
 
-```JSON
+```json
 {
       "name": "oidc_client",
       "label": "Example App",
@@ -79,9 +80,9 @@ To add a custom claim:
 
 ## Request a token that contains the custom claim
 
-In this example, the service application's `token_endpoint_auth_method` was set to `client_secret_post` when we created the app above. Include both the `client_id` and the `client_secret` values as additional parameters in the POST request body to your Custom Authorization Server's `/token` endpoint.
+In this example, the service application's `token_endpoint_auth_method` was set to `client_secret_post` when we created the app above. Include both the `client_id` and the `client_secret` values as additional parameters in the POST request body to your Custom Authorization Server's `/token` endpoint. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains a custom claim</GuideLink>.
 
-```BASH
+```bash
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
 "https://${yourOktaDomain}/oauth2/default/v1/token" \
@@ -90,7 +91,7 @@ curl -v -X POST \
 
 If the credentials are valid, the access token is sent in the response:
 
-```JSON
+```json
 {
     "access_token": "eyJhbG[...]1LQ",
     "token_type": "Bearer",
@@ -98,3 +99,5 @@ If the credentials are valid, the access token is sent in the response:
     "scope": "aCustomScope"
 }
 ```
+
+<NextSectionLink>Next Steps</NextSectionLink>

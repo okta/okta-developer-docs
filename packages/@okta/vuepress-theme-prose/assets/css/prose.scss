@@ -12,12 +12,13 @@
 @import 'okta/global/fontello';
 @import 'okta/icons/all';
 
-// Base 
+// Base
 @import 'base/typography';
 @import 'base/mixins.scss';
 
 // Layouts
 @import 'layouts/layout.scss';
+@import 'layouts/authorizationLayout.scss';
 
 // Components
 @import 'components/apiLifecycle';
@@ -26,6 +27,7 @@
 @import 'components/button';
 @import 'components/code';
 @import 'components/content';
+@import 'components/editLink';
 @import 'components/footer';
 @import 'components/pageTitle';
 @import 'components/top-bar';
@@ -40,6 +42,11 @@
 @import 'components/quickstart';
 @import 'components/search';
 @import 'components/frameworkIconBlock';
+@import 'components/header';
+@import 'components/menuItem';
 @import 'components/featuredGuides';
 @import 'components/stackSelector';
 @import 'components/nextSectionLink';
+@import 'components/signUp';
+@import 'components/login';
+@import 'components/pricing';

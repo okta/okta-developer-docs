@@ -2,13 +2,13 @@
 title: Get an access token
 ---
 
-To request an access token using the Client Credentials grant flow, you make a request to your Okta [Org Authorization Server's](/docs/concepts/auth-servers) `/token` endpoint.
+To request an access token using the Client Credentials grant flow, your app makes a request to your Okta [Org Authorization Server's](/docs/concepts/auth-servers) `/token` endpoint.
 
 Include the following parameters:
 
 * `scope` &mdash; Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the <GuideLink link="../create-serviceapp-grantscopes/#grant-allowed-scopes">application's grants collection</GuideLink>. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/).
 
-    In this example, we only request access for one scope. When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read+okta.apps.read`
+    In this example, we only request access for one scope. When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read okta.apps.read`
 
 * `client_assertion_type` &mdash; Specifies the type of assertion, in this case a JWT token:  `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
@@ -16,7 +16,7 @@ Include the following parameters:
 
 The following is an example request for an access token (the JWT is truncated for brevity).
 
-```BASH
+```bash
     curl -X POST "https://{yourOktaDomain}/oauth2/v1/token"
     -H "Accept: application/json"
     -H "Content-Type: application/x-www-form-urlencoded"
@@ -28,7 +28,7 @@ The following is an example request for an access token (the JWT is truncated fo
 
 The response should look something like this (the token is truncated for brevity):
 
-```JSON
+```json
 {
     "token_type": "Bearer",
     "expires_in": 3600,
@@ -50,7 +50,7 @@ Make a request to the `/users` endpoint using the access token.
 
 **Example Request**
 
-```BASH
+```bash
 curl -X GET "https://{yourOktaDomain}/api/v1/users"
     -H "Accept: application/json"
     -H "Content-Type: application/json"

@@ -1,6 +1,6 @@
 ---
-title: Implement the Implicit Flow
-excerpt: How to implement the implicit code flow with Okta
+title: Implement the Implicit flow
+excerpt: How to implement the Implicit code flow with Okta
 layout: Guides
 sections:
 - overview

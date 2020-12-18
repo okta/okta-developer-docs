@@ -53,7 +53,7 @@ This table lists the current (and historical) major versions of our open-source 
 | Library                                                         | Version                              | Status                               |
 | --------------------------------------------------------------- | ------------------------------------ | ------------------------------------ |
 | [Sign-In Widget][signin-widget]                                 | 1.13.0<br>2.21.0<br>3.9.2<br>**4.x** | Retired<br>Retired<br>Retiring on 2021-02-01<br>**Stable** |
-| [Auth.js][authjs]                                               | 1.x<br>2.x<br>**3.x**                | Retired<br>Retiring on 2020-12-04<br>**Stable** |
+| [Auth.js][authjs]                                               | 1.x<br>2.x<br>3.x<br>**4.x**         | Retired<br>Retiring on 2020-09-30<br>Retiring on 2021-05-30<br>**Stable** |
 | [Android AppAuth SDK][appauth-android]                          | 0.2.4                                | Retired                              |
 | [Android OIDC][oidc-android]                                    | 1.0.1                                | **Stable**                           |
 | [Angular SDK][sdk-angular]                                      | 0.1.0<br>1.x<br>**2.x**              | Retired<br>Retiring on 2020-12-10<br>**Stable**                |
@@ -67,8 +67,8 @@ This table lists the current (and historical) major versions of our open-source 
 | [Java authentication SDK][authsdk-java]                         | **1.x**                              | **Stable**                           |
 | [JWT verifier for Java][java-jwt-verifier]                      | **0.x**                              | **Stable**                           |
 | [Spring Boot Starter][spring-boot-starter]                      | **0.x**                              | **Stable**                           |
-| [.NET management SDK][sdk-dotnet]                               |[0.3.3][sdk-dotnet-033]<br>1.x<br>**2.x**                            | Retired<br>Retiring on 2020-12-27<br>**Stable**  |
-| [.NET authentication SDK][sdk-auth-dotnet]                      | **1.x**                              | **Stable**                           |
+| [.NET management SDK][sdk-dotnet]                               |[0.3.3][sdk-dotnet-033]<br>1.x<br>2.x<br>**3.x**                            | Retired<br>Retiring on 2020-12-27<br> Retiring on 2021-04-10<br>**Stable**  |
+| [.NET authentication SDK][sdk-auth-dotnet]                      | 1.x<br>**2.x**                             | Retiring on 2021-03-29<br>**Stable**                           |
 | [Node.js management SDK][sdk-nodejs]                            | 1.2.0<br>2.x<br>3.x<br>**4.x**       | Retired<br>Retiring on 2020-12-04<br>Retiring on 2021-04-08<br>**Stable**  |
 | [JWT verifier for Node.js][nodejs-jwt-verifier]                 | **0.x**                              | **Stable**                           |
 | [OpenID Connect middleware for Node.js][nodejs-oidc-middleware] | 1.x<br>2.x<br>3.x<br>**4.x**         | Retired<br>Retiring on 2020-10-10<br>Retiring on 2020-11-26<br>**Stable** |
@@ -79,7 +79,7 @@ This table lists the current (and historical) major versions of our open-source 
 | [React Native SDK][sdk-react]                                   | 0.1.0<br>**1.x**                     | Retired<br>**Stable**                |
 | [Vue SDK][sdk-vue]                                              | 0.1.0<br>1.x<br>**2.x**              | Retired<br>Retiring on 2021-01-03<br>**Stable**                |
 
-[sdk-angular]: https://github.com/okta/okta-oidc-js/tree/master/packages/okta-angular
+[sdk-angular]: https://github.com/okta/okta-angular
 [sdk-dotnet]: https://github.com/okta/okta-sdk-dotnet
 [sdk-dotnet-033]: https://github.com/okta/okta-sdk-dotnet/releases/tag/0.3.3.0
 [powershell-module]: https://github.com/okta/okta-sdk-dotnet/tree/legacy/Okta.Core.Automation
@@ -93,7 +93,7 @@ This table lists the current (and historical) major versions of our open-source 
 [nodejs-jwt-verifier]: https://github.com/okta/okta-oidc-js/tree/master/packages/jwt-verifier
 [nodejs-oidc-middleware]: https://github.com/okta/okta-oidc-js/blob/master/packages/oidc-middleware
 [sdk-react]: https://github.com/okta/okta-oidc-js/blob/master/packages/okta-react
-[sdk-react-native]: https://github.com/okta/okta-oidc-js/blob/master/packages/okta-react-native
+[sdk-react-native]: https://github.com/okta/okta-react-native
 [sdk-vue]: https://github.com/okta/okta-vue
 [sdk-php]: https://github.com/okta/okta-sdk-php
 [php-jwt-verifier]: https://github.com/okta/okta-jwt-verifier-php

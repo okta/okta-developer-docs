@@ -11,6 +11,6 @@ Be sure to clone the certificate to every app or IdP with which you want to shar
 
 If the certificate that you cloned from changes, you must repeat the cloning operation for each app or IdP.
 
-**Important:** Sharing certificates isn't a recommended security practice. This API is provided to support legacy use cases.
+> **Important:** Sharing certificates isn't a recommended security practice. This API is provided to support legacy use cases.
 
 <NextSectionLink/>

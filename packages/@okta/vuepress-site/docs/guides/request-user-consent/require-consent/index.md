@@ -15,7 +15,7 @@ Use the following steps to display the user consent dialog box as part of an Ope
 
 4. In this example, we use the **Implicit** flow for testing purposes. In the **Application** section, select **Implicit** flow and then both **Allow ID Token with implicit grant type** and **Allow Access Token with implicit grant type**.
 
-    For the [Authorization Code flow](/docs/concepts/auth-overview/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
+    For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
 5. Click **Save**.
 
@@ -33,13 +33,13 @@ The following section provides example requests for enabling the consent dialog 
 
 > **Note:** See the [Settings table in the Apps API doc](/docs/reference/api/apps/#settings-8) for more information on this parameter.
 
-**Update the App**
+## Update the App
 
-This example shows the JSON body of a PUT request to an existing OpenID Connect app. The request updates the `consent_method` parameter from `TRUSTED` (which is the default) to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`. Check the tables in the [Add OAuth 2.0 Client Application](/docs/reference/api/apps/#add-oauth-2-0-client-application) section for information on these three properties. In most cases, `REQUIRED` is the correct value.
+This example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` (which is the default) to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`. Check the tables in the [Add OAuth 2.0 Client Application](/docs/reference/api/apps/#add-oauth-2-0-client-application) section for information on these three properties. In most cases, `REQUIRED` is the correct value.
 
 > **Note:** You need the `applicationId` of the app that you want to update. Do a [List Applications](/docs/reference/api/apps/#list-applications-with-defaults) to locate that ID.
 
-```JSON
+```json
 {
     "id": "0oaosna3ilNxgPTmk0h7",
     "name": "oidc_client",
@@ -93,19 +93,18 @@ This example shows the JSON body of a PUT request to an existing OpenID Connect 
         }
     }
 }
-https://${yourOktaDomain}/api/v1/apps/${applicationId}
 ```
 
 To enable consent for a scope that you want to require consent for, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by setting the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`.
 
-**Update Scope consent**
+## Update Scope consent
 
-This example shows the JSON body for a PUT request to the default Custom Authorization Server. You need the following information for the request:
+This example shows the JSON body for a PUT request to the default Custom Authorization Server (`https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}/scopes/${scopeId}`). You need the following information for the request:
 
 * `authServerId`: Do a [List Authorization Servers](/docs/reference/api/authorization-servers/#list-authorization-servers) to locate the appropriate ID.
 * `scopeId`: Do a [List Scopes](/docs/reference/api/authorization-servers/#get-all-scopes) to locate the appropriate ID.
 
-```JSON
+```json
 {
     "id": "scpixa2zmc8Eumvjb0h7",
     "name": "phone",
@@ -116,7 +115,6 @@ This example shows the JSON body for a PUT request to the default Custom Authori
     "consent": "REQUIRED",
     "default": false
 }
-https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}/scopes/${scopeId}
 ```
 
 <NextSectionLink/>

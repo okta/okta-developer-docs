@@ -12,7 +12,7 @@ export class MyComponent implements OnInit {
   }
 
   async ngOnInit() {
-    const accessToken = await this.oktaAuth.getAccessToken();
+    const accessToken = this.oktaAuth.getAccessToken();
     this.http.get(url, {
       headers: {
         Authorization: 'Bearer ' + accessToken,

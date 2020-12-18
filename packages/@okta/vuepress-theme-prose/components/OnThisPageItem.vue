@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import { LAYOUT_CONSTANTS } from '../layouts/Layout.vue';
 export default {
   name: 'OnThisPageItem',
   props: ['link', 'activeAnchor'],
@@ -51,11 +52,18 @@ export default {
       if(e.target.tagName.toLowerCase() === 'a') {
         hash = e.target.hash
       }
-    
+
       if(hash) {
         const node = document.querySelector(hash);
         if(node) { // node is sometimes null - perhaps content hasn't loaded?
-          window.scrollTo(0, node.offsetTop - document.querySelector('.fixed-header').clientHeight - 45);
+          const scrollToPosition = node.offsetTop - document.querySelector('.fixed-header').clientHeight - LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
+          window.scrollTo(0, scrollToPosition);
+          // Chrome & Safari: when zoomed in/out, window.scrollTo does not always perform scroll strictly equal to passed parameter
+          // https://bugs.chromium.org/p/chromium/issues/detail?id=890345
+          if(window.scrollY < scrollToPosition) {
+            const scrollAlignment = 2;
+            window.scrollBy(0, scrollAlignment);
+          }
         }
       }
     }

@@ -10,7 +10,7 @@ For testing purposes, use [this tool](https://www.jsonwebtoken.dev/) to generate
 
 > **Note:** After the service app has Okta-scoped grants, only an admin with Super Admin role permissions can rotate the keys.
 
-The following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) can be used in the request for a scoped access token:
+You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) in the request for a scoped access token:
 
 * `aud` &mdash; The full URL of the resource that you're using the JWT to authenticate to
 * `exp` &mdash; The expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only an hour in the future.
@@ -27,7 +27,7 @@ The following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-aut
 
     **Payload example**
 
-```JSON
+```json
     {
     "aud": "https://{yourOktaDomain}/oauth2/v1/token",
     "iss": "0oar95zt9zIpYuz6A0h7",

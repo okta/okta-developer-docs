@@ -5,7 +5,7 @@
 set -o errexit -o pipefail
 
 # Constants
-readonly url=https://bit.ly/2z4dsuv
+readonly url=https://bit.ly/339Iik5
 readonly archive=/tmp/event-types.zip
 readonly file=event-types.json
 readonly dir=packages/@okta/vuepress-site/data

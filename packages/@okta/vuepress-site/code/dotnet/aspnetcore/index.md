@@ -19,6 +19,11 @@ meta:
 			<i class='icon code-dotnet-32'></i><span>ASP.NET</span>
 		</RouterLink>
 	</li>
+	<li>
+		<RouterLink to='/code/dotnet/blazor/'>
+			<i class='icon code-dotnet-32'></i><span>Blazor</span>
+		</RouterLink>
+	</li>
 </ul>
 
 ## Get Started with ASP.NET Core + Okta
@@ -27,39 +32,66 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='https://developer.okta.com/signup/' class='Button--red' data-proofer-ignore>
-			<span>Create Free Account</span>
+		<a href='/docs/guides/sign-into-web-app/aspnetcore/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>How To Guide</span>
 		</a>
 	</li>
 	<li>
-		<a href='/docs/guides/sign-into-web-app/aspnetcore/before-you-begin/' class='Button--blue' data-proofer-ignore>
-			<span>How To Guide</span>
+		<a href='https://github.com/okta/samples-aspnetcore' class='Button--blueDarkOutline' data-proofer-ignore>
+			<span>Sample App</span>
 		</a>
 	</li>
 </ul>
 
-<a href='https://github.com/okta/samples-aspnetcore'>
-	<span class='fa fa-github'></span> <span>ASP.NET Core Sample App</span>
-</a>
-
 ## Okta ASP.NET Core Integration
 
-Okta's integration with ASP.NET Core makes it easy to add sign-in to your ASP.NET Core applications and APIs.
+Okta's OIDC middleware integration with ASP.NET Core makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
 
 
 <a href='https://www.nuget.org/packages/Okta.AspNetCore' class="language-reference">
 	<span class='icon download-16'></span>
-	<span>ASP.NET Core integration on NuGet</span>
+	<span>Okta ASP.NET Core OIDC integration on NuGet</span>
 </a>
 
 
 <a href='https://github.com/okta/okta-aspnet'>
-	<span class='fa fa-github'></span> <span>ASP.NET Core integration Source</span>
+	<span class='fa fa-github'></span> <span>Okta ASP.NET Core OIDC integration Source</span>
 </a>
 
 ## Other .NET Libraries
 
-<Card href="" :showHeaderIcon=false cardTitle="Okta management SDK for .NET" :showFooter=false>Enable your ASP.NET application to work with Okta via OAuth 2.0/OIDC</Card>
+The Okta Management SDK for .NET uses .NET Standard and will work with both .NET Framework and .NET Core. It is helpful to work with the Okta Management API to manage users, groups, apps, etc on the fly.
+
+<ul class="language-libraries">
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/okta-sdk-dotnet">
+			 <span>Okta Management SDK for .NET</span>
+		</a>
+	</li>
+</ul>
+
+The Okta Authentication SDK for .NET is useful if you cannot use OIDC and need your server-side code to interact with the Authentication API for handling the sign in flow.
+
+<ul class="language-libraries">
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/okta-auth-dotnet">
+			 <span>Okta .NET Authentication SDK</span>
+		</a>
+	</li>
+</ul>
+
+The Okta SDK for Xamarin follows current best practice for native apps using ODIC, the Authorization Code Flow + PKCE.
+
+<ul class="language-libraries">
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/okta-oidc-xamarin">
+			 <span>Okta Xamarin SDK (beta)</span>
+		</a>
+	</li>
+</ul>
 
 ## Recommended Guides
 
@@ -76,5 +108,4 @@ Okta's integration with ASP.NET Core makes it easy to add sign-in to your ASP.NE
 - [Build a Secure CRUD App with ASP.NET Core and React](/blog/2018/07/02/build-a-secure-crud-app-with-aspnetcore-and-react)
 - [OpenID Connect for User Authentication in ASP.NET Core](/blog/2017/06/29/oidc-user-auth-aspnet-core)
 - [User Authorization in ASP.NET Core with Okta](/blog/2017/10/04/aspnet-authorization)
-- [Build a Secure To-Do App with Vue, ASP.NET Core, and Okta](/blog/2018/01/31/build-secure-todo-app-vuejs-aspnetcore)
 
