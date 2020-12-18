@@ -125,3 +125,38 @@ signIn.showSignInToGetTokens({
   // Handle error
 })
 ```
+
+### Direct authentication
+
+Javascript clients, whether browser-based or running in nodeJS, can use the [okta-idx-js](https://github.com/okta/okta-idx-js) and [okta-auth-js](https://github.com/okta/okta-auth-js) SDKs to authenticate using the interaction code flow.
+
+```javascript
+// Get PKCE params
+const params = await oktaAuth.token.prepareTokenParams();
+const { codeVerifier, codeChallenge, codeChallengeMethod } = params;
+
+// Start IDX
+const idxState = await idx.start({
+  issuer,
+  clientId,
+  redirectUri,
+  // ... other params for IDX
+  // PKCE code challenge is needed for call to /interact
+  codeChallenge,
+  codeChallengeMethod,
+});
+
+// based on responses, build the UI to collect input from the user, submit data using idxState.proceed(), and repeat until success state is reached...
+
+// When idx reaches success state, use the interactionCode to obtain tokens
+if (idxState.hasInteractionCode()) {
+  const interactionCode = idxState.interactionCode;
+  const { tokens } = await oktaAuth.token.exchangeCodeForTokens({
+    codeVerifier,
+    interactionCode
+  });
+
+  // Do something with tokens
+  const { idToken, accessToken } = tokens;
+}
+```
