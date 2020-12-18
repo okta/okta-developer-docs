@@ -53,7 +53,7 @@
                   Customize for your app, try it here
                 </h2>
               </div>
-              <div class="col-xl-7 col-md-12 col-sm-12">
+              <div v-if="!pseudoAuthorized" class="col-xl-7 col-md-12 col-sm-12">
                 <div class="redesign-homepage--code-example">
                   <div class="redesign-homepage--code-example--header">Javascript</div>
                    <div class="redesign-homepage--code-example--cm-wrapper"> 
@@ -61,9 +61,30 @@
                     </div>
                 </div>
               </div>
-              <div class="col-xl-5 col-md-10 col-sm-12">
+              <div v-if="!pseudoAuthorized" class="col-xl-5 col-md-10 col-sm-12">
                 <div class="redesign-homepage--live-widget">
-                  <FrontPageWidget/>
+                  <FrontPageWidget @authLeia="togglePseudoAuth"/>
+                </div>
+              </div>
+              <div v-if="pseudoAuthorized" class="col-12">
+                <div class="redesign-homepage--welcome-leia">
+                    <div class="redesign-homepage--welcome-leia--close" @click="togglePseudoAuth">
+                      <span>X</span> close
+                    </div>
+                    <div class="redesign-homepage--welcome-leia--header">
+                      Welcome, Leia
+                    </div>
+                    <div class="redesign-homepage--welcome-leia--info">
+                        Okta makes authentication straightforward. Connect your apps, choose an identity provider (or use ours), add users, configure rules, customize your login page, and then gain insights from our built in reports.
+                    </div>
+                    <div class="redesign-homepage--welcome-leia--actions">
+                        <a href="https://developer.okta.com/signup" class="redesign-homepage--welcome-leia--actions--cta">
+                          sign up for okta
+                        </a>
+                        <a href="https://developer.okta.com/code/javascript/okta_sign-in_widget" class="redesign-homepage--welcome-leia--actions--docs">
+                          vue widget docs
+                        </a>
+                    </div>
                 </div>
               </div>
           </div>
@@ -108,6 +129,7 @@ export default {
   },
   data () {
     return{
+      pseudoAuthorized: false,
       tileData: [
         {
           name: "Web App",
@@ -253,6 +275,11 @@ export default {
           src: '/img/homepage/partners/experian.png'
         },
       ],
+    }
+  },
+  methods: {
+    togglePseudoAuth: function(e){
+      this.pseudoAuthorized = !this.pseudoAuthorized
     }
   }
 }

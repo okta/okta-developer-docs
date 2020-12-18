@@ -122,6 +122,60 @@
     min-height: 500px;
   }
 
+  &--welcome-leia{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+    border-radius: 3px;
+    background-color: #ffffff;
+    color: #3d3d3d;
+    height: 500px;
+    &--header {
+      font-size: 26px;
+      animation: moveToRight .6s ease both;
+      text-align: center;
+    }
+    &--info{
+    text-align: center;
+    font-size: 15px;
+    line-height: 25px;
+    color: #5D5D5D;
+    }
+    &--actions {
+      >a{
+        font-size: 13px;
+        margin-right: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        padding: 0;
+        color: inherit;
+        display: block;
+        padding: 10px 40px;
+        text-decoration: none;
+        &:hover, &:active, &:focus { 
+          color: inherit;
+        }
+      }
+    }
+    &--close{
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: #20313B !important;
+      z-index: 1;
+      cursor: pointer;
+    }
+  }
+
+@keyframes moveToRight {
+  from { transform: translateY(10px);}
+  to {  }
+}
+
   &--partner-wrapper{
       display: flex;
       align-items: center;

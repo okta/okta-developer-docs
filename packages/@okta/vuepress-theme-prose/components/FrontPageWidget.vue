@@ -16,7 +16,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css'
         username: 'leia@rebelalliance.io',
         processCreds: (creds, callback) => {
           if (creds.username === 'leia@rebelalliance.io' && creds.password === 'secret') {
-            alert(creds)
+            this.$emit('authLeia')
           } else {
             callback();
           }
