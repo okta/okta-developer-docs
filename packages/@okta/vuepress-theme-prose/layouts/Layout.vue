@@ -74,7 +74,7 @@ export default {
     Documentation: () => import('../components/Documentation.vue'),
     Reference: () => import('../components/Reference.vue'),
     Quickstart: () => import('../components/Quickstart.vue'),
-    RedesignHomePage: () => import('../global-components/RedesignHomePage')
+    RedesignHomePage: () => import('../global-components/RedesignHomePage'),
     Pricing: () => import('../components/Pricing.vue'),
   },
   data() {
