@@ -1,4 +1,7 @@
+
 <template>
+  <div>
+  <HeaderRedesign/>
   <div class="redesign-homepage container-fluid	">
    <div class="row">
      <div class="col-xl-2 col-lg-2 d-none d-lg-block redesign-homepage--col-no-padding">
@@ -113,25 +116,29 @@
 
      </div>
    </div>
-
+       <FooterRedesign/>
+</div>
 </template>
 
 <script>
+const TABLET_BREAKPOINT = 767;
 
 export default {
   name: 'RedesignedHomePage',
   components: {
+    HeaderRedesign: () => import('../components/Header.redesign.vue'),
+        FooterRedesign: () => import('../components/Footer.redesign.vue'),
     RedesignedSideBar: () => import('../components/RedesignedSidebar'),
     SelectorTile: () => import('../components/SelectorTile'),
     AssuranceItem: () => import('../components/AssuranceItem'),
     FrontPageWidget: () => import('../components/FrontPageWidget'),
     FrontPageCodeMirror: ()=> import('../components/FrontPageCodeMirror')
   },
-  props: ['isInMobileViewport'],
   data () {
     return{
       pseudoAuthorized: false,
       pseudoAuthorizedCodeBlock: false,
+      isTreeNavMobileOpen: false,
       tileData: [
         {
           name: "Web App",
@@ -279,8 +286,15 @@ export default {
       ],
     }
   },
+  mounted(){
+    this.onResize()
+    window.addEventListener('resize', this.onResize);
+  },
   methods: {
-    togglePseudoAuth: function(e){
+    onResize() {
+      this.appContext.isInMobileViewport = window.innerWidth < TABLET_BREAKPOINT;
+    },
+    togglePseudoAuth(e){
       if(this.isInMobileViewport){
         this.pseudoAuthorized = !this.pseudoAuthorized
       }
@@ -289,7 +303,14 @@ export default {
         this.pseudoAuthorizedCodeBlock = !this.pseudoAuthorizedCodeBlock
       }
     },
+  },
+   beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
   }
 }
 
 </script>
+
+<style lang="scss">
+@import '../assets/css/prose';
+</style>

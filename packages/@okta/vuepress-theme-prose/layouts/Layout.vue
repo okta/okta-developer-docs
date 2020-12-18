@@ -8,9 +8,6 @@
       'page-body': true,
       redesign: $page.redesign
     }">
-       <template v-if="isHomePage">
-         <RedesignHomePage :is-in-mobile-viewport="appContext.isInMobileViewport"/>
-      </template>
       <template v-if="!isHomePage">
       <Breadcrumb />
       <div class="content" v-if="$page.frontmatter.component">
@@ -74,7 +71,6 @@ export default {
     Documentation: () => import('../components/Documentation.vue'),
     Reference: () => import('../components/Reference.vue'),
     Quickstart: () => import('../components/Quickstart.vue'),
-    RedesignHomePage: () => import('../global-components/RedesignHomePage'),
     Pricing: () => import('../components/Pricing.vue'),
   },
   data() {
@@ -83,7 +79,6 @@ export default {
         isTreeNavMobileOpen: false,
         isInMobileViewport: false
       },
-      isHomePage: false,
     }
   },
   provide(){
