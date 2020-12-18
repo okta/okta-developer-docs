@@ -410,7 +410,7 @@ curl -v -X POST \
 
 ### Deactivate an Authenticator
 
-<ApiOperation method="POST" url="/api/v1/authenticators/${authenticatorId}/lifecycle/activate" />
+<ApiOperation method="POST" url="/api/v1/authenticators/${authenticatorId}/lifecycle/deactivate" />
 
 Deactivates an Authenticator.
 
