@@ -1,9 +1,11 @@
 ---
 title: Authenticators Administration
-category: management
+category: other
 ---
 
 # Authenticators Administration API
+
+<ApiLifecycle access="beta" />
 
 The Authenticators Administration API enables an Org Administrator to configure which Authenticators are available to end users to be used for signing into applications.
 
