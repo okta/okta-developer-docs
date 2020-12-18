@@ -1,6 +1,6 @@
 {
-  "release" : "2020.11.1",
-  "build" : "2020.11.1-begin-125-gbebc1b0e6885",
+  "release" : "2020.12.1",
+  "build" : "2020.12.1-begin-99-gd9effb0ab7f0",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -632,6 +632,20 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "SAML Assertion credentials authentication denied by sign on policy."
   }, {
+    "title" : "Invalid interaction code",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_interaction_code",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The interaction code is invalid or has expired."
+  }, {
+    "title" : "Interaction code unsatisfiable",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "interaction_code_unsatisfiable",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "Additional user authentication is required but the assurance requirements cannot be met with the allowed authenticators. Check the authenticator and assurance configuration for the user and client."
+  }, {
     "title" : "Invalid initiate login URI",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -707,7 +721,7 @@
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "invalid_client_application_type",
     "errorCode" : "invalid_request",
-    "errorDescription" : "Clients with 'application_type' of 'service' are not allowed to access the 'authorize' endpoint."
+    "errorDescription" : "Clients with 'application_type' of 'service' are not allowed to access the '{0}' endpoint."
   }, {
     "title" : "Invalid state",
     "statusCode" : 400,

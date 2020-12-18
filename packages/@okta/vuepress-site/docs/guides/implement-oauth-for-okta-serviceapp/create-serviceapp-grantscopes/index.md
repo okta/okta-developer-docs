@@ -2,7 +2,7 @@
 title: Create a service app and grant scopes
 ---
 
-Create an OAuth service app and register the public key with the service app using the dynamic client registration endpoint (`/oauth/v1/clients`). Then grant the scopes that you want to allow for the service app.
+Create an OAuth service app and register the public key with the service app using the dynamic client registration endpoint (`/oauth2/v1/clients`). Then grant the scopes that you want to allow for the service app.
 
 ## Create a service app
 

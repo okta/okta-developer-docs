@@ -1,14 +1,17 @@
 <template>
   <div>
     <div class="fixed-header">
-      <TopBar />
+      <HeaderRedesign v-if="$page.redesign" />
+      <TopBar v-else />
     </div>
-    <div class="page-body">
-      <template v-if="isHomePage">
+   <div :class="{
+      'page-body': true,
+      redesign: $page.redesign
+    }">
+       <template v-if="isHomePage">
          <RedesignHomePage :is-in-mobile-viewport="appContext.isInMobileViewport"/>
       </template>
       <template v-if="!isHomePage">
-
       <Breadcrumb />
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
@@ -44,8 +47,8 @@
 
     </div>
 
-    <Footer />
-
+    <FooterRedesign v-if="$page.redesign" />
+    <Footer v-else />
   </div>
 </template>
 
@@ -59,6 +62,7 @@ export const endingSlashRE = /\/$/
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
+    HeaderRedesign: () => import('../components/Header.redesign.vue'),
     Sidebar: () => import('../components/Sidebar.vue'),
     OnThisPage: () => import('../components/OnThisPage.vue'),
     MobileOnThisPage: () => import('../components/MobileOnThisPage.vue'),
@@ -66,10 +70,12 @@ export default {
     Breadcrumb: () => import('../components/Breadcrumb.vue'),
     ContentPage: () => import('../components/ContentPage.vue'),
     Footer: () => import('../components/Footer.vue'),
+    FooterRedesign: () => import('../components/Footer.redesign.vue'),
     Documentation: () => import('../components/Documentation.vue'),
     Reference: () => import('../components/Reference.vue'),
     Quickstart: () => import('../components/Quickstart.vue'),
     RedesignHomePage: () => import('../global-components/RedesignHomePage')
+    Pricing: () => import('../components/Pricing.vue'),
   },
   data() {
     return {
