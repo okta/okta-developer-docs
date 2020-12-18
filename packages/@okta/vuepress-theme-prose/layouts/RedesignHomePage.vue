@@ -292,7 +292,7 @@ export default {
   },
   methods: {
     onResize() {
-      this.appContext.isInMobileViewport = window.innerWidth < TABLET_BREAKPOINT;
+      this.isInMobileViewport = window.innerWidth < TABLET_BREAKPOINT;
     },
     togglePseudoAuth(e){
       if(this.isInMobileViewport){
