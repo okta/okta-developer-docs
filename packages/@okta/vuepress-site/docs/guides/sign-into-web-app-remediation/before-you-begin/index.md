@@ -12,7 +12,7 @@ To enable a more customized user authentication experience, Okta has introduced 
 
 For example, a user could start an authentication flow by entering only a username, and this flow would  prompt the client to request more information, or "remediation", as required. An example of remediation step is prompting the user for a password or to add a second factor. Remediation allows the client to kick off authentication requests from users with no prior data entered, and to respond to those requests with a back-and-forth interaction flow.
 
-The Interaction Code grant is intended for developers who want a step-by-step remediation user experience without redirecting to an authorization server. Customers using SPAs should use the [Sign-in Widget(#), while those with Web Apps should use one of our [IDX SDKs](/docs/guides/sign-into-web-app-remediation/go/next-steps/#sdks). All clients are required to pass along a Client ID, as well as a Proof Key for Code Exchange (PKCE) to keep the flow secure. Confidential clients such as web apps must also pass a Client Secret in their token request.
+The Interaction Code grant is intended for developers who want a step-by-step remediation user experience without redirecting to an authorization server. Customers using SPAs should use the [Sign-in Widget](/docs/guides/migrate-to-oie/), while those with Web Apps should use one of our [IDX SDKs](/docs/guides/sign-into-web-app-remediation/go/next-steps/#sdks). All clients are required to pass along a Client ID, as well as a Proof Key for Code Exchange (PKCE) to keep the flow secure. Confidential clients such as web apps must also pass a Client Secret in their token request.
 
 The Interaction Code flow starts when the client makes a request to the Okta authorization server. The authorization server then responds with an Interaction Handle, which the client passes on to the Okta Identity Engine. The Identity Engine responds with one or more remediation requirements that the client should act on and return the result to the Okta Identity Engine. Once the remediation requirements have been fulfilled, the Identity Engine returns a short-lived, one-time Interaction Code, which the client passes to the authorization server. The authorization server then responds with the requested tokens.
 
@@ -47,7 +47,7 @@ app -> client: Response
 
 #### Get started
 
-If you are building a single-page (browser) app, we recommend that you use the Okta Sign-In Widget. See [our Sign-In Widget OIE migration guide(#).
+If you are building a single-page (browser) app, we recommend that you use the Okta Sign-In Widget. See [our Sign-In Widget OIE migration guide](/docs/guides/migrate-to-oie/).
 
 This guide assumes that you:
 

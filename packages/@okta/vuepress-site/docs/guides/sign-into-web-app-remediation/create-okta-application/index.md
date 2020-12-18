@@ -13,7 +13,7 @@ Start by signing in to the Okta Developer Console:
 
 3. Add the **Base URI** of your application during local development, such as `http://localhost:3000`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`.
 
-4. Next, enter values for the **Login redirect URI**. Add values for local development (such as `http://localhost:8080/authorization-code/callback`) and production (such as `https://app.example.com/authorization-code/callback`).
+4. Next, enter values for the **Login redirect URI**. Add values for local development (such as `http://localhost:8080/authorization-code/callback`) and production (such as `https://app.example.com/authorization-code/callback`). Your users will not be redirected, but this URL is required by the API to validate the request.
 
 5. Under **Grant type allowed**, make sure that **Interaction Code** is checked off.
 
