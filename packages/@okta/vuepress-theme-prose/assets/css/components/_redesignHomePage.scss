@@ -86,14 +86,29 @@
   }
 
   &--code-example{
-    height: 400px; 
+    height: 500px; 
     background-color: #16262F;
     border: 1.5px solid #2A4C63;
     border-radius: 10px;
     width: 100%;
-    z-index: 1000;
     box-shadow: 2px 33px 30px -26px rgba(18,30,36,1);
     margin-bottom: 30px;
+    overflow: hidden;
+    &--header{
+      height: 50px;
+      background: #192e3a;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+    &--cm-wrapper{
+      height: 450px;
+      .vue-codemirror{
+        height: 100%;
+      }
+      .CodeMirror{
+        height: 100%;
+      }
+    }
   }
 
   &--live-widget{
@@ -104,6 +119,7 @@
     box-shadow: 2px 33px 30px -26px rgba(18,30,36,1);
     margin-bottom: 60px;
     overflow: hidden;
+    min-height: 500px;
   }
 
   &--partner-wrapper{

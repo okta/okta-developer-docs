@@ -55,7 +55,10 @@
               </div>
               <div class="col-xl-7 col-md-12 col-sm-12">
                 <div class="redesign-homepage--code-example">
-                  <span>Javascript</span>
+                  <div class="redesign-homepage--code-example--header">Javascript</div>
+                   <div class="redesign-homepage--code-example--cm-wrapper"> 
+                     <FrontPageCodeMirror/>
+                    </div>
                 </div>
               </div>
               <div class="col-xl-5 col-md-10 col-sm-12">
@@ -93,13 +96,15 @@
 </template>
 
 <script>
+
 export default {
   name: 'RedesignedHomePage',
   components: {
     RedesignedSideBar: () => import('../components/RedesignedSidebar'),
     SelectorTile: () => import('../components/SelectorTile'),
     AssuranceItem: () => import('../components/AssuranceItem'),
-    FrontPageWidget: () => import('../components/FrontPageWidget')
+    FrontPageWidget: () => import('../components/FrontPageWidget'),
+    FrontPageCodeMirror: ()=> import('../components/FrontPageCodeMirror')
   },
   data () {
     return{
@@ -247,8 +252,7 @@ export default {
           alt: 'experian',
           src: '/img/homepage/partners/experian.png'
         },
-
-      ]
+      ],
     }
   }
 }

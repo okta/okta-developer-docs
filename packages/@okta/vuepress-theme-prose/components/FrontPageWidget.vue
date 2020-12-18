@@ -15,8 +15,11 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css'
         logo: '/img/homepage/alliance.png',
         username: 'leia@rebelalliance.io',
         processCreds: (creds, callback) => {
-          console.log(creds)
-          alert(creds)
+          if (creds.username === 'leia@rebelalliance.io' && creds.password === 'secret') {
+            alert(creds)
+          } else {
+            callback();
+          }
         },
         helpLinks: {
               help: 'https://developer.okta.com/code/javascript/okta_sign-in_widget'
@@ -60,9 +63,8 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css'
       )
     })
   },
-  destroyed () {
-    // Remove the widget from the DOM on path change
-    this.widget.remove()
-  }
+    destroyed () {
+      this.widget.remove()
+    }
   }
 </script>
