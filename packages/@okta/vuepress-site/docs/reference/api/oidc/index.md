@@ -309,7 +309,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 | invalid_grant            | The `code`, `refresh_token`, or `username` and `password` combination is invalid, or the `redirect_uri` doesn't match the one used in the authorization request.                                          |
 | invalid_request          | The request structure was invalid. For example: the basic authentication header is malformed, both header and form parameters were used for authentication, or no authentication information was provided. |
 | invalid_scope            | The scopes list contains an invalid or unsupported value.                                                                                                                                                  |
-| unsupported_grant_type   | The `grant_type` isn't `authorization_code`, `refresh_token`, or `password`.                                                                                                                               |
+| unsupported_grant_type   | The `grant_type` isn't `authorization_code`, `interaction_code`, `refresh_token`, or `password`.                                                                                                           |
 
 #### Request example
 
@@ -791,7 +791,8 @@ curl -X GET \
         "implicit",
         "refresh_token",
         "password",
-        "client_credentials"
+        "client_credentials",
+        "interaction_code"
     ],
     "subject_types_supported": [
         "public"
@@ -945,7 +946,8 @@ curl -X GET \
         "authorization_code",
         "implicit",
         "refresh_token",
-        "password"
+        "password",
+        "interaction_code"
     ],
     "subject_types_supported": [
         "public"

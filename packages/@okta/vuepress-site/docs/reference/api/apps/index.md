@@ -1313,7 +1313,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | application_type                            | The type of client application                                                                                                                                                                                             | `web`, `native`, `browser`, or `service`                                                       | TRUE       | FALSE    | TRUE       |
 | client_uri                                  | URL string of a web page providing information about the client                                                                                                                                                            | String                                                                                         | TRUE       | FALSE    | FALSE      |
 | consent_method                              | Indicates whether user consent is required or implicit. Valid values: `REQUIRED`, `TRUSTED`. Default value is `TRUSTED`                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
-| grant_types                                 | Array of OAuth 2.0 grant type strings                                                                                                                                                                                      | Array of `authorization_code`, `implicit`, `password`, `refresh_token`, `client_credentials`   | FALSE      | FALSE    | TRUE       |
+| grant_types                                 | Array of OAuth 2.0 grant type strings                                                                                                                                                                                      | Array of `authorization_code`, `implicit`, `interaction_code`, `password`, `refresh_token`, `client_credentials` | FALSE      | FALSE    | TRUE       |
 | initiate_login_uri                          | URL string that a third party can use to initiate a sign in by the client                                                                                                                                                    | String                                                                                         | TRUE       | FALSE    | TRUE       |
 | issuer_mode <ApiLifecycle access="ea" />    | Indicates whether the Okta Authorization Server uses the original Okta org domain URL or a custom domain URL as the issuer of ID token for this client. See [Details](#details). | `CUSTOM_URL` or `ORG_URL`                                                                      | TRUE       | FALSE    | TRUE       |
 | idp_initiated_login                         | The type of Idp-Initiated login that the client supports, if any                                                                                                                 |  [Idp-Initiated Login](#idp-initiated-login-object)                                                                     | TRUE       | FALSE    | TRUE       |
@@ -1339,12 +1339,14 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 | Application Type  | Valid Grant Type                                              | Requirements                                                                      |
 | ----------------- | ------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `browser`         | `authorization_code`, `implicit`                              |                                                                                   |
-| `native`          | `authorization_code`, `implicit`, `password`, `refresh_token` | Must have at least `authorization_code`                                           |
+| `browser`         | `authorization_code`, `implicit`, `interaction_code`          |                                                                                   |
+| `native`          | `authorization_code`, `implicit`, `interaction_code`, `password`, `refresh_token` | Must have at least `authorization_code`                       |
 | `service`         | `client_credentials`                                          | Works with OAuth 2.0 flow (not OpenID Connect)                                    |
-| `web`             | `authorization_code`, `implicit`, `refresh_token`             | Must have at least `authorization_code`                                           |
+| `web`             | `authorization_code`, `implicit`, `interaction_code`, `refresh_token` | Must have at least `authorization_code`                                   |
 
 * The `grant_types` and `response_types` values described above are partially orthogonal, as they refer to arguments passed to different endpoints in the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749). However, they are related in that the `grant_types` available to a client influence the `response_types` that the client is allowed to use, and vice versa. For instance, a `grant_types` value that includes `authorization_code` implies a `response_types` value that includes `code`, as both values are defined as part of the OAuth 2.0 authorization code grant.
+
+* The `interaction_code` grant type is only available as part of the Okta Identity Engine.
 
 * A consent dialog appears depending on the values of three elements:
     * `prompt`: a query parameter used in requests to [`/oauth2/${authServerId}/v1/authorize`](/docs/reference/api/oidc/#authorize)(custom authorization server) or [`/oauth2/v1/authorize`](/docs/reference/api/oidc/#authorize) (Org authorization server)
@@ -1375,7 +1377,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated Login flows that an OAuth Client supports.
 
 | Property      | Description                                           | DataType                   | Nullable |
-| ------------- | ----------------------------------------------------- | -------------------------- | -------- | 
+| ------------- | ----------------------------------------------------- | -------------------------- | -------- |
 | mode          | What mode to use for Idp-Initiated Login              | `DISABLED`, `SPEC`, `OKTA` | FALSE    |
 | default_scope | What scopes to use for the request when mode = `OKTA` | List of String             | TRUE     |
 
@@ -1421,7 +1423,8 @@ curl -v -X POST \
         ],
         "grant_types": [
           "implicit",
-          "authorization_code"
+          "authorization_code",
+          "interaction_code"
         ],
         "application_type": "native",
         "tos_uri":"https://example.com/client/tos",
@@ -1504,7 +1507,8 @@ curl -v -X POST \
             ],
             "grant_types": [
                 "implicit",
-                "authorization_code"
+                "authorization_code",
+                "interaction_code"
             ],
             "application_type": "native",
             "tos_uri": "https://example.com/client/tos",
@@ -6036,10 +6040,10 @@ Specifies (optional) attribute statements for a SAML application
 
 Specifies the Single Logout (SLO) behavior for a Custom SAML application
 
-| Property  | Description                                                                  | Datatype | Nullable | 
-| --------- | ---------------------------------------------------------------------------- | -------- | -------- | 
-| enabled   | Whether the application supports SLO                                         | Boolean  | FALSE    | 
-| issuer    | The issuer of the Service Provider that generates the Single Logout request  | String   | TRUE     | 
+| Property  | Description                                                                  | Datatype | Nullable |
+| --------- | ---------------------------------------------------------------------------- | -------- | -------- |
+| enabled   | Whether the application supports SLO                                         | Boolean  | FALSE    |
+| issuer    | The issuer of the Service Provider that generates the Single Logout request  | String   | TRUE     |
 | logoutUrl | The location where the logout response is sent                               | String   | TRUE     |
 
 ```json
