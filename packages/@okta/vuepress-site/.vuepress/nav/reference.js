@@ -26,6 +26,7 @@ module.exports = [
         { title: 'Policy', path: '/docs/reference/api/policy/'},
         { title: 'Schemas', path: '/docs/reference/api/schemas/'},
         { title: 'Sessions', path: '/docs/reference/api/sessions/'},
+        { title: 'Subscriptions', path: '/docs/reference/api/admin-notifications/'},
         { title: 'System Log', path: '/docs/reference/api/system-log/'},
         { title: 'Templates', path: '/docs/reference/api/templates/'},
         { title: 'ThreatInsight', path: '/docs/reference/api/threat-insight/'},
