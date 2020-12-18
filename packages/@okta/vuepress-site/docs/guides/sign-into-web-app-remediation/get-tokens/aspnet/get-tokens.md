@@ -1,9 +1,12 @@
 
 
 ```csharp
-var challengeResponse = await identifyResponse.Remediation.RemediationOptions
-                                            .FirstOrDefault(x => x.Name == "challenge-authenticator")
-                                            .ProceedAsync(identifyRequest);
-// Exchange tokens
-var tokenResponse = await challengeResponse.SuccessWithInteractionCode.ExchangeCodeAsync();
+// If login is successful, exchange tokens.
+if (idxResponse.IsLoginSuccess)
+{
+    var tokenResponse = await idxResponse.SuccessWithInteractionCode.ExchangeCodeAsync();
+    var idToken = tokenResponse.IdToken;
+    var accessToken = tokenResponse.AccessToken;
+    var refreshToken = tokenResponse.RefreshToken;
+}
 ```
