@@ -41,7 +41,8 @@
   }
 
   &--customize-your-app-margin.row{
-    margin-bottom: 10px;
+    margin-bottom: 80px;
+    min-height: 600px;
   }
 
   &--color-main{
@@ -112,7 +113,7 @@
   }
 
   &--live-widget{
-    background-color: #ffffff;
+    background-color: #f9f9f9;
     border: 1px solid #CECECE;
     border-radius: 10px;
     width: 100%;
@@ -123,6 +124,7 @@
   }
 
   &--welcome-leia{
+    font-family: 'Montserrat';
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -132,6 +134,10 @@
     background-color: #ffffff;
     color: #3d3d3d;
     height: 500px;
+    padding: 10% 15%;
+    @include media('<=bootstrap-md'){
+      padding: 10px
+    }
     &--header {
       font-size: 26px;
       animation: moveToRight .6s ease both;
@@ -144,7 +150,13 @@
     color: #5D5D5D;
     }
     &--actions {
-      >a{
+      display: flex;
+      flex-direction: row;
+      @include media('<=bootstrap-md'){
+        flex-direction: column;
+      }
+      .act-btn{
+        display: block;
         font-size: 13px;
         margin-right: 10px;
         text-transform: uppercase;
@@ -154,10 +166,30 @@
         display: block;
         padding: 10px 40px;
         text-decoration: none;
+        border-radius: 0.25rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
         &:hover, &:active, &:focus { 
           color: inherit;
         }
       }
+      &--cta.act-btn{
+        background: #e22866;
+        border-color: #e22866;
+        color: #ffffff;
+        &:hover{
+          color: #ffffff;
+        }
+      }
+      &--docs.act-btn{
+        color: #e22866;
+        border-color: #e22866;
+        &:hover{
+          background: #e22866;
+          border-color: #e22866;
+          color: #ffffff;
+        }
+      }
+
     }
     &--close{
       text-transform: uppercase;
@@ -170,11 +202,6 @@
       cursor: pointer;
     }
   }
-
-@keyframes moveToRight {
-  from { transform: translateY(10px);}
-  to {  }
-}
 
   &--partner-wrapper{
       display: flex;
@@ -247,6 +274,33 @@
           border-radius: 50%;
           z-index: 0;
         }
+    @include media("<=bootstrap-md"){
+      height: 50%;
+      &--top-layer{
+        height: 96px;
+        &::before{
+          width: 112%;
+        }
+      }
+      &--bottom-layer{
+        margin-bottom: 0;
+        height: 78%;
+        border-bottom-right-radius: 0%;
+        
+        transform: rotate(1.5deg) scaleX(1.2) scaleY(1.2) translateY(60px) translateX(0%);
+        &::before{
+            height: 50px;
+            top: -2%;
+        }
+      }
+      &--circle{
+        display: none;
+      }
+    }    
     }
 }
  
+@keyframes moveToRight {
+  from { transform: translateY(10px);}
+  to {  }
+}

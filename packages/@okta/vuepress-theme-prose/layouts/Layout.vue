@@ -5,7 +5,7 @@
     </div>
     <div class="page-body">
       <template v-if="isHomePage">
-         <RedesignHomePage/>
+         <RedesignHomePage :is-in-mobile-viewport="appContext.isInMobileViewport"/>
       </template>
       <template v-if="!isHomePage">
 
