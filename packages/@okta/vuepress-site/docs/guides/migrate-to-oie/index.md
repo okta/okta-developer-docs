@@ -12,7 +12,7 @@ To enable Okta Identity Engine, please reach out to your account manager. If you
 
 ## Enable `interaction code` grant
 
-Once the Okta Identity Engine feature is enabled for your org, it should become active for Okta-hosted signin flows that do not involve an OAuth application. Enabling the `interaction_code` grant type will allow OAuth applications to use the Okta Identity Engine.
+Once the Okta Identity Engine feature is enabled for your org, it should become active for Okta-hosted sign-in flows that do not involve an OAuth application. Enabling the `interaction_code` grant type will allow OAuth applications to use the Okta Identity Engine.
 
 ### Enable `interaction code` grant on an authorization server
 
@@ -32,15 +32,15 @@ Once the Okta Identity Engine feature is enabled for your org, it should become 
 
 ## Web clients
 
-### Okta-hosted signin page (default)
+### Okta-hosted sign-in page (default)
 
 For most authentication flows that involve redirecting to Okta, there should be no other changes needed. Once the feature is enabled, the Okta Identity Engine will be used automatically, by default.
 
-### Customized signin page / custom domain
+### Customized sign-in page / custom domain
 
 For most users of the [custom domain](/docs/guides/custom-url-domain/overview/) feature, there are no other changes needed. The default template will detect and use the Okta Identity Engine automatically.
 
-However if you have [modified the template](https://developer.okta.com/docs/guides/style-the-widget/style-okta-hosted/) in certain ways, such as to perform redirects or set cookies, these modificiations may not be compatible with the Okta Identity Engine. In particular, use of these methods and objects may not work with OIE:
+However if you have [modified the template](https://developer.okta.com/docs/guides/style-the-widget/style-okta-hosted/) in certain ways, such as to perform redirects or set cookies, these modificiations may not be compatible with the Okta Identity Engine. In particular, these methods and objects will not work with OIE:
 
 - setCookieAndRedirect
 - sessionToken
@@ -90,7 +90,9 @@ For reference, here is the default template:
 </html>
 ```
 
-### Embedded signin widget
+### Embedded sign-in widget
+
+> **Note:** "Embedded" means the widget is included directly in your application via NPM module or script tag
 
 Set the option `useInteractionCodeFlow` to `true` on the object passed to the Sign-In Widget constructor. This will enable Okta Identity Engine for the widget. Both the authorization server and the application must have the [interaction code](#enable-interaction-code-grant) grant type enabled.
 
@@ -103,6 +105,9 @@ var signIn = new OktaSignIn(
     clientId: '{{clientId of your OIDC app}}'
     redirectUri: '{{redirectUri configured in OIDC app}}'
     useInteractionCodeFlow: true
+    authParams: {
+      issuer: 'https://{yourOktaDomain}/oauth2/default'
+    }
     // other options...
   }
 );
@@ -140,6 +145,8 @@ const idxState = await idx.start({
   codeChallenge,
   codeChallengeMethod,
 });
+
+// based on responses, build the UI to collect input from the user, submit data using idxState.proceed(), and repeat until success state is reached...
 
 // When idx reaches success state, use the interactionCode to obtain tokens
 if (idxState.hasInteractionCode()) {
