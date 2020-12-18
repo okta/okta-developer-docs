@@ -55,6 +55,7 @@ export const LAYOUT_CONSTANTS = {
   HEADER_TO_CONTENT_GAP: 45, //px
 };
 const TABLET_BREAKPOINT = 767;
+
 export const endingSlashRE = /\/$/
 export default {
   components: {
