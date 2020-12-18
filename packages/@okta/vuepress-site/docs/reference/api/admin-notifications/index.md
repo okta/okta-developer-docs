@@ -7,11 +7,12 @@ meta:
 ---
 
 # Subscriptions API
+
+<ApiLifecycle access="ea" />
+
 The subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.
 
 ## List subscriptions of a Role
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/roles/${roleType}/subscriptions" />
 
@@ -270,8 +271,6 @@ curl -v -X GET \
 
 ## Get subscription of a Role with a specific type
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/roles/${roleType}/subscriptions/${notificationType}" />
 
 Get subscriptions of a Role with a specific type
@@ -328,8 +327,6 @@ curl -v -X GET \
 
 ## Subscribe to a specific type
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="post" url="/api/v1/roles/${roleType}/subscriptions/${notificationType}/subscribe" />
 
 Subscribes a Role to a specific type. When you change the subscription status of a role, it will override the subscription of any individual user of that role.
@@ -368,8 +365,6 @@ HTTP/1.1 200 OK
 ```
 
 ## Unsubscribe to a specific type
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/roles/${roleType}/subscriptions/${notificationType}/unsubscribe" />
 
@@ -410,8 +405,6 @@ HTTP/1.1 200 OK
 ```
 
 ## List subscriptions of a User
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/subscriptions" />
 
@@ -670,8 +663,6 @@ curl -v -X GET \
 
 ## Get the subscription of a User with a specific type
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/roles/${userId}/subscriptions/${notificationType}" />
 
 Get the subscriptions of a User with a specific type. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
@@ -728,8 +719,6 @@ curl -v -X GET \
 
 ## Subscribe to a specific type
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/subscriptions/${notificationType}/subscribe" />
 
 Subscribes a User to a specific type. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
@@ -768,8 +757,6 @@ HTTP/1.1 200 OK
 ```
 
 ## Unsubscribe to a specific type
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/subscriptions/${notificationType}/unsubscribe" />
 
