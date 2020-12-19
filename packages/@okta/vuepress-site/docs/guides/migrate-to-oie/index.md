@@ -128,25 +128,48 @@ signIn.showSignInToGetTokens({
 
 ### Direct authentication
 
-Javascript clients, whether browser-based or running in nodeJS, can use the [okta-idx-js](https://github.com/okta/okta-idx-js) and [okta-auth-js](https://github.com/okta/okta-auth-js) SDKs to authenticate using the interaction code flow.
+Javascript clients that do not wish to use the Sign-in Widget can use the [okta-idx-js](https://github.com/okta/okta-idx-js) and [okta-auth-js](https://github.com/okta/okta-auth-js) SDKs to authenticate using the interaction code flow.
 
 ```javascript
 // Get PKCE params
 const params = await oktaAuth.token.prepareTokenParams();
 const { codeVerifier, codeChallenge, codeChallengeMethod } = params;
 
+// API version is required
+const version = '1.0.0';
+
 // Start IDX
 const idxState = await idx.start({
   issuer,
   clientId,
   redirectUri,
+  version,
   // ... other params for IDX
   // PKCE code challenge is needed for call to /interact
   codeChallenge,
   codeChallengeMethod,
 });
 
-// based on responses, build the UI to collect input from the user, submit data using idxState.proceed(), and repeat until success state is reached...
+// based on the previous idxState.neededToProceed gather the needed data fields
+// The needed fields will depend on the policy choices for your org and app
+// How you build a UI and gather these fields is up to your application and is not shown here
+
+// As an example, the `identify` step might need `identifier` and `rememberMe` fields
+// Once you have those fields, send them to get the next set of remediation options
+
+idxState = await idxState.proceed('identify', {
+  identifier,
+  rememberMe,
+});
+
+// If your policies allow for a simple username -> password flow, this might be the next step
+// Again, building the UI and gathering the data will depend on the consumer application and is not shown here
+
+idxState = await idxState.proceed('challenge-authenticator', {
+  credentials: {
+    passcode,
+  },
+});
 
 // When idx reaches success state, use the interactionCode to obtain tokens
 if (idxState.hasInteractionCode()) {
