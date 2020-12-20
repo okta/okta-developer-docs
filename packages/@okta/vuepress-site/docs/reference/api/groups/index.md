@@ -253,7 +253,7 @@ curl -v -X GET \
 
 ##### Response example
 
-> **Note:** <ApiLifecycle access="ea" /> The `source` section and the `source` link in the response example below are only present in groups of type `APP_GROUP`. See [Group attributes](#group-attributes) and [Links object](#links-object).
+> **Note:** The `source` section and the `source` link in the response example below are only present in groups of type `APP_GROUP`. See [Group attributes](#group-attributes) and [Links object](#links-object).
 
 ```json
 [
@@ -741,7 +741,7 @@ Use an ID lookup for records that you update to ensure your results contain the 
 * Searches many properties:
    - Any group profile property, including imported app group profile properties.
    - The top-level properties `id`, `created`, `lastMembershipUpdated`, `lastUpdated`, and `type`.
-   - The <ApiLifecycle access="ea" /> [source](#group-attributes) of groups with type of `APP_GROUP`, accessed as `source.id`.
+   - The [source](#group-attributes) of groups with type of `APP_GROUP`, accessed as `source.id`.
 
 | Search Term Example                                       | Description                                                               |
 | :-------------------------------------------------------- | :------------------------------------------------------------------------ |
@@ -1831,9 +1831,9 @@ All groups have the following properties:
 
 In addition, groups of type `APP_GROUP` also have the following properties:
 
-| Property                              | Description                                                                                     | DataType                   | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
-| ------------------------------------- | ----------------------------------------------------------------------------------------------- | -------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| source <ApiLifecycle access="ea" />   | The ID of the source [application](/docs/reference/api/apps/#application-object) of the group   | Array of String            | FALSE    | FALSE  | TRUE     |           |           |            |
+| Property | Description                                                                                     | DataType                   | Nullable | Unique | Readonly | MinLength | MaxLength | Validation |
+| -------- | ----------------------------------------------------------------------------------------------- | -------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| source   | The ID of the source [application](/docs/reference/api/apps/#application-object) of the group   | Array of String            | FALSE    | FALSE  | TRUE     |           |           |            |
 
 ### Group type
 
@@ -1940,7 +1940,7 @@ Specifies link relations. See [Web Linking](http://tools.ietf.org/html/rfc5988))
 | apps               | Lists all [applications](/docs/reference/api/apps/#application-object) that are assigned to the Group. See [Application Group Operations](/docs/reference/api/apps/#application-group-operations).          |
 | logo               | Provides links to logo images for the Group if available                     |
 | self               | The primary URL for the Group                                                                                             |
-| source <ApiLifecycle access="ea" /> | The URL for the source [application](/docs/reference/api/apps/#application-object) of the group. This link attribute is only present in groups of `APP_GROUP` type.          |
+| source             | The URL for the source [application](/docs/reference/api/apps/#application-object) of the group. This link attribute is only present in groups of `APP_GROUP` type. |
 | users              | Provides [Group member operations](#group-member-operations) for the Group                                                      |
 
 > **Note:** The Links object is read-only.
