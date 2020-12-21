@@ -1239,7 +1239,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"profile\": {\n        \"authScheme\": \"TOKEN\",\n        \"token\": \"TESTTOKEN\"\n    }\n}s"
+							"raw": "{\n    \"profile\": {\n        \"authScheme\": \"TOKEN\",\n        \"token\": \"TESTTOKEN\"\n    }\n}"
 						},
 						"url": {
 							"raw": "{{url}}/api/v1/apps/{{appId}}/connections/default?activate=true",
