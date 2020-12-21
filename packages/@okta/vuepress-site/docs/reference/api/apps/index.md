@@ -5487,7 +5487,7 @@ Update the logo for an application.
 | applicationId   | `id` of an [app](#application-object)      | URL              | String     | TRUE     |
 | file            | File containing logo                       | Body             | File       | TRUE     |
 
-**The file must be in PNG, JPG, or GIF format, and less than 1 MB in size.** For best results use landscape orientation, a transparent background, and a minimum **size** of 420px by 120px to prevent upscaling.
+The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
 
 ##### Request example
 
@@ -6112,9 +6112,9 @@ The current workaround is to manually configure the desired application via the 
 
 Each application has a schema that defines the required and optional settings for the application. When adding an application, you must specify the required settings.
 
-The catalog is currently not exposed via an API. The current solution is to manually configure the desired application using the Okta Admin Dashboard and a preview (sandbox) Okta org. You can then view the application details using the [Get Application](#get-application) API.
+Currently, the catalog isn't exposed via an API. The current solution is to manually configure the desired application using the Okta Admin Dashboard and a preview (sandbox) Okta org. You can then view the application details using the [Get Application](#get-application) API.
 
-###### Notes Object
+###### Notes object
 
 <ApiLifecycle access="ea" />
 
@@ -6197,7 +6197,7 @@ Specifies visibility settings for the application
 | Property          | Description                                        | DataType                            | Nullable | Default | MinLength | MaxLength | Validation |
 | ----------------- | -------------------------------------------------- | ----------------------------------- | -------- | ------- | --------- | --------- | ---------- |
 | appLinks          | Displays specific appLinks for the app             | [AppLinks object](#applinks-object) | FALSE    |         |           |           |            |
-| <ApiLifecycle access="ea" /> autoLaunch  |  Automatically signs into the app when user signs into Okta.            | Boolean | FALSE   | FALSE    |           |           |            |
+| <ApiLifecycle access="ea" /> autoLaunch  |  Automatically signs in to the app when user signs into Okta.            | Boolean | FALSE   | FALSE    |           |           |            |
 | autoSubmitToolbar | Automatically sign in when user lands on the sign-in page | Boolean                             | FALSE    | FALSE   |           |           |            |
 | hide              | Hides this app for specific end-user apps          | [Hide object](#hide-object)         | FALSE    | FALSE   |           |           |            |
 
@@ -6900,7 +6900,7 @@ The provisioning connection object is a read only object that displays the metho
 | _links            | Discoverable resources related to the connection            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | TRUE    | FALSE   | TRUE    |           |
 | status            | Status of the connection      | `ENABLED`, `DISABLED`, `UNKNOWN`  | FALSE    | FALSE   | TRUE    | `DISABLED` |
 
-If the authScheme is `UNKNOWN`, then either the authentication scheme used by the application is not yet supported or the the application does not support provisioning. An object with an `UNKNOWN` `authScheme` results in an `UNKNOWN` `status`.
+If the authScheme is UNKNOWN, then either the authentication scheme used by the application isn't supported or the the application doesn't support provisioning. An object with an `UNKNOWN` `authScheme` results in an `UNKNOWN` `status`.
 
 ### Provisioning Connection Profile object
 
@@ -6983,12 +6983,12 @@ The Capabilities object is used to configure settings specific to an app feature
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| create            | Determines whether Okta aassigns a new app account to each user managed by Okta | [Create Object](#create-object)  | TRUE    | FALSE   | FALSE    |
+| create            | Determines whether Okta assigns a new application account to each user managed by Okta | [Create Object](#create-object)  | TRUE    | FALSE   | FALSE    |
 | update            | Determines whether updates to a user's profile are pushed to the application | [Update Object](#update-object)  | TRUE    | FALSE   | FALSE    |
 
 ###### Create object
 
-The Create object is a single setting to specify whether Okta assigns a new app account to each user managed by Okta. Okta does not create a new account if it detects that the username specified in Okta already exists in the app. The user's Okta username is assigned by default.
+The Create object is a single setting to specify whether Okta assigns a new application account to each user managed by Okta. Okta doesn't create a new account if it detects that the username specified in Okta already exists in the application. The user's Okta username is assigned by default.
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- |
@@ -7004,7 +7004,7 @@ The Create object is a single setting to specify whether Okta assigns a new app 
 
 ###### Update object
 
-The Create object is composed of multiple settings that determines whether an Okta user profile, user deactivation, or password change will update a user in the application.
+There are multiple settings in the Create object that determine if an Okta user profile change, user deactivation, or a password change will update a user in the application.
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- |
@@ -7030,7 +7030,7 @@ The Create object is composed of multiple settings that determines whether an Ok
 
 ###### Lifecycle Create Setting object
 
-Assigns a new app account to each user managed by Okta. Okta does not create a new account if it detects that the username specified in Okta already exists in the app. The user's Okta username is assigned by default.
+Assigns a new application account to each user managed by Okta. Okta doesn't create a new account if it detects that the username specified in Okta already exists in the application. The user's Okta username is assigned by default.
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
@@ -7066,7 +7066,7 @@ Ensures users' app passwords are always the same as their Okta passwords or allo
 
 ###### Profile Update Setting object
 
-Okta updates a user's attributes in the application when the app is assigned. Future changes made to the Okta user's profile automatically overwrite the corresponding attribute value in the application
+Okta updates a user's attributes in the application when the application is assigned. Future changes made to the Okta user's profile automatically overwrite the corresponding attribute value in the application.
 
 | Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
