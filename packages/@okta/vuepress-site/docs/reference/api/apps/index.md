@@ -5540,7 +5540,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/apps/${applicationId}/connections/default"
 ```
 
-#### Response example
+##### Response example
 
 ```json
 {
@@ -6990,6 +6990,10 @@ The Capabilities object is used to configure settings specific to an app feature
 
 The Create object is a single setting to specify whether Okta assigns a new app account to each user managed by Okta. Okta does not create a new account if it detects that the username specified in Okta already exists in the app. The user's Okta username is assigned by default.
 
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- |
+| lifecycleCreate  | Setting that determines whether the updates to a user in Okta will be update a user in the application   | [Lifecycle Create Setting Object](##lifecycle-create-setting-object)      | TRUE    | FALSE   | FALSE    |           |
+
 ```json
 {
   "lifecycleCreate": {
@@ -6998,13 +7002,15 @@ The Create object is a single setting to specify whether Okta assigns a new app 
 }
 ```
 
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- |
-| lifecycleCreate            | Setting that determines whether the updates to a user in Okta will be update a user in the application   | [Lifecycle Create Setting Object](##lifecycle-create-setting-object)      | TRUE    | FALSE   | FALSE    |           |
-
 ###### Update object
 
 The Create object is composed of multiple settings that determines whether an Okta user profile, user deactivation, or password change will update a user in the application.
+
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- |
+| lifecycleDeactivate           | Setting that determines whether deprovisioning will occur when app is unassigned  | [Lifecycle Deactivate Setting Object](#lifecycle-deactivate-setting-object)   | TRUE    | FALSE   | FALSE    |
+| password           | Setting that determines whether Okta creates and pushes a password in the application for each assigned user | [Password Setting Object](#password-setting-object)    | TRUE    | FALSE   | FALSE    |
+| profile           | Setting that determines whether the updates to a user in Okta will be update a user in the application.     | [Profile Setting Object](#profile-setting-object)     | TRUE    | FALSE   | FALSE    |
 
 ```json
 {
@@ -7021,12 +7027,6 @@ The Create object is composed of multiple settings that determines whether an Ok
   }
 }
 ```
-
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- |
-| lifecycleDeactivate           | Setting that determines whether deprovisioning will occur when app is unassigned  | [Lifecycle Deactivate Setting Object](#lifecycle-deactivate-setting-object)   | TRUE    | FALSE   | FALSE    |
-| password           | Setting that determines whether Okta creates and pushes a password in the application for each assigned user | [Password Setting Object](#password-setting-object)    | TRUE    | FALSE   | FALSE    |
-| profile           | Setting that determines whether the updates to a user in Okta will be update a user in the application.     | [Profile Setting Object](#profile-setting-object)     | TRUE    | FALSE   | FALSE    |
 
 ###### Lifecycle Create Setting object
 
@@ -7048,6 +7048,12 @@ Deactivates a user's application account when it is unassigned in Okta or if the
 
 Ensures users' app passwords are always the same as their Okta passwords or allows Okta to generate a unique password for the user.
 
+| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
+| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
+| change | Determines whether a change in a users password will also update the password in the application.   | `KEEP_EXISTING`, `CHANGE` | TRUE  | FALSE   | FALSE    | `KEEP_EXISTING` |
+| seed | Determines whether the generated password is the users Okta password or a randomly generated password.   | `OKTA`, `RANDOM`  | TRUE  | FALSE | FALSE  |  `RANDOM`  |
+| status | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE  | FALSE  |  `DISABLED` |
+
 ```json
 {
   "password": {
@@ -7057,12 +7063,6 @@ Ensures users' app passwords are always the same as their Okta passwords or allo
   }
 }
 ```
-
-| Property         | Description                                                  | DataType                                                                    | Nullable | Unique | Readonly | Default |
-| ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- | ---------- |
-| change | Determines whether a change in a users password will also update the password in the application.   | `KEEP_EXISTING`, `CHANGE` | TRUE  | FALSE   | FALSE    | `KEEP_EXISTING` |
-| seed | Determines whether the generated password is the users Okta password or a randomly generated password.   | `OKTA`, `RANDOM`  | TRUE  | FALSE | FALSE  |  `RANDOM`  |
-| status | Status of the setting     | `ENABLED`, `DISABLED` | FALSE    | FALSE  | FALSE  |  `DISABLED` |
 
 ###### Profile Update Setting object
 
