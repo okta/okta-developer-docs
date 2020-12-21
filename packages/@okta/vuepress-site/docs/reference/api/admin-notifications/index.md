@@ -408,7 +408,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/subscriptions" />
 
-List subscriptions of a User. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
+List subscriptions of a User. Only lists subscriptions for current user. An `AccessDeniedException` message is sent if requests are made from other users.
 
 ### Request parameters
 
