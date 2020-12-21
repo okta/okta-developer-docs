@@ -368,7 +368,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="post" url="/api/v1/roles/${roleType}/subscriptions/${notificationType}/unsubscribe" />
 
-Unsubscribes a Role to a specific type. When you change the subscription status of a role, it will override the subscription of any individual user of that role.
+Unsubscribes a Role to a specific type. When you change the subscription status of a Role, it overrides the subscription of any individual user of that Role.
 
 ### Request parameters
 
@@ -876,4 +876,3 @@ Refer to the [product documentation](https://help.okta.com/en/prod/okta_help_CSH
 | `REPORT_ADMIN`                | Report Administrator                |
 | `SUPER_ADMIN`                 | Super Administrator                 |
 | `USER_ADMIN`                  | Group Administrator                 |
-
