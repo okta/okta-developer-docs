@@ -10,6 +10,7 @@ Create the client application that you want to use with the Okta APIs.
 2. Click **Applications** from the menu, and then click **Add Application**.
 
 3. On the **Create New Application** page, select any app type and then click **Next**. We suggest creating a web, single-page, or native app for an easy way to test scope-based access to Okta's APIs using an OAuth 2.0 bearer token.
+  > **Note:** It is important to choose appropirate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify app's client secret, which public client are not designed to have, hence breaking sign in or sign out flow.
 
 4. Enter a name for your app and, in the **Login redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating.
 
