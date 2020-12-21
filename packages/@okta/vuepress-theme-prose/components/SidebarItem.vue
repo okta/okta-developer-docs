@@ -1,5 +1,5 @@
 <template>
-    <li :class="{'subnav': link.subLinks}">
+    <li :class="{'subnav': link.subLinks, 'hidden':hidden}">
         <div class="link-wrap">
             <div v-if="link.path">
                 <router-link :to="link.path" exact @click="setData" class="tree-nav-link">{{link.title}}</router-link>
@@ -35,7 +35,8 @@ export default {
     },
     data() {
         return {
-            iHaveChildrenActive: false
+            iHaveChildrenActive: false,
+            hidden: !!this.link.hidden
         }
     },
     mounted() {
