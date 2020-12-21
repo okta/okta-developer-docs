@@ -665,7 +665,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/roles/${userId}/subscriptions/${notificationType}" />
 
-Get the subscriptions of a User with a specific type. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
+Get the subscriptions of a User with a specific type. Only gets subscriptions for current user. An `AccessDeniedException` message is sent if requests are made from other users.
 
 ### Request parameters
 
