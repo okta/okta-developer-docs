@@ -11,10 +11,10 @@ Okta offers three standard System Log event types that you may encounter when Ok
 This event type is sent once per rate limiting period when a request is rejected for exceeding a rate limit. For example, if the rate limit that was exceeded has a reset period of one minute, then one event of this type is emitted during that period for the applicable scope.
 
 * `system.operation.rate_limit.warning`<br>
-This event type may be sent once per rate limiting period as a warning that some significant portion of your rate limit has already been used within a period. For example, you may receive a warning that you have reached 60% of your rate limit for an endpoint within a rate limiting period.
+This event type may be sent once per rate limiting period as a warning that some significant portion of your rate limit has already been used within a period. For example, you might receive a warning that you have reached 60% of your rate limit for an endpoint within a rate limiting period.
 
 * `system.operation.rate_limit.notification`<br>
-This event type can provide additional information about rate limiting decisions. For example, a violation event would have been emitted if you had a different configuration.
+This event type can provide additional information about rate limiting decisions. For example, this event might indicate that a violation event would have been emitted for a specific client rather than for a broader scope if you had chosen a different configuration.
 
 Additionally, there are specific [org-based System Log events](/docs/reference/api/system-log/#system-events) and [client-based System Log events](/docs/reference/rl-clientbased/#system-log-events). The org-based System Log events record system events related to your organization to provide an audit trail that you can use to understand platform activity and to diagnose problems. Client-based System Log events are fired when an individual user violates their assigned per minute requests limit for the OAuth `/authorize` endpoint. Which event that is fired depends on the client-based rate-limiting mode that is set.
 
