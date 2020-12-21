@@ -8,7 +8,7 @@ Start by signing in to the Okta Developer Console:
 <a href="https://login.okta.com/" target="_blank" class="Button--blue">Go to Console</a>
 
 1. Select **Applications**, then **Add Application**. Pick **Single-Page App (SPA)** as the platform. Enter a name for your application (or leave the default value).
-> **Note:** It is important to choose appropirate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify app's client secret, which public client are not designed to have, hence breaking sign in or sign out flow.
+  > **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 
 2. Add the **Base URI** of your application during local development, such as `http://localhost:8080`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`.
 
