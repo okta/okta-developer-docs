@@ -6973,7 +6973,7 @@ The Feature object is used to configure settings of the application. For example
 | ---------------- | ------------------------------------------------------------ | --------------------------------------------------------------------------- | -------- | ------ | -------- | --------- |
 | capabilities            | Defines the configuration of specific settings related to an application feature    | [Capabilities Object](#capabilties-object)                                                                  | FALSE    | FALSE   | TRUE    |           |
 | description            | Description of the feature      | String  | FALSE    | FALSE   | TRUE    |           |
-| _links           | Discoverable resources related to the app user     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)     | TRUE    | FALSE   | TRUE    |           |
+| _links           | Discoverable resources related to the application feature     | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)     | TRUE    | FALSE   | TRUE    |           |
 | name              | Identifiying name     | `USER_PROVISIONING`  | FALSE    | FALSE  | TRUE    |           |       |      |
 | status            | Status of the feature   | `ENABLED`, `DISABLED`    | FALSE    | FALSE   | TRUE    |      `DISABLED`  |
 
