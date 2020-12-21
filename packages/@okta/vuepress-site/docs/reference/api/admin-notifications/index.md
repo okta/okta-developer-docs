@@ -760,7 +760,7 @@ HTTP/1.1 200 OK
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/subscriptions/${notificationType}/unsubscribe" />
 
-Unsubscribes a User to a specific type. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
+Unsubscribes a User from a specific type. Only the current User can unsubscribe from a specific type. An `AccessDeniedException` message is sent if requests are made from other users.
 
 ### Request parameters
 
