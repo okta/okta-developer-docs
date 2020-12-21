@@ -721,7 +721,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/subscriptions/${notificationType}/subscribe" />
 
-Subscribes a User to a specific type. We only support operations for current user right now. Requesting for other users will get AccessDeniedException.
+Subscribes a User to a specific type. Only the current User can subscribe to a specific type. An `AccessDeniedException` message is sent if requests are made from other users.
 
 ### Request parameters
 
