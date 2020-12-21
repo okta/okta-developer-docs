@@ -832,7 +832,7 @@ The Subscription object defines several properties:
 | Property         | Description                                                  | DataType                                                        | Nullable   | Unique   | Read Only |
 | :--------------- | :----------------------------------------------------------- | :-------------------------------------------------------------- | :--------- | :------- | :-------- |
 | notificationType | Type of subscriptions                                        | [Notification Type](#notification-type)                         | FALSE      | TRUE     | TRUE      |
-| channels         | Array of sources that the user will get notification from    | array of [Channel](#subscription-channel)                       | FALSE      | FALSE    | TRUE      |
+| channels         | Array of sources that the user gets notification from    | array of [Channel](#subscription-channel)                       | FALSE      | FALSE    | TRUE      |
 | status           | Status of subscriptions                                      | `subscribed`, `unsubscribed`                                    | FALSE      | FALSE    | FALSE     |
 | _links           | Discoverable resources related to the subscription           | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)  | FALSE      | FALSE    | TRUE      |
 
