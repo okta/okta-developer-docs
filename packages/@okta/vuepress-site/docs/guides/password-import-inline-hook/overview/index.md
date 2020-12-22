@@ -22,4 +22,8 @@ This guide uses the website Glitch.com to act as an external service and to impl
 
 For further reference data on the Password Import Inline Hook, see: [Password Import Inline Hook](/docs/reference/password-hook/).
 
+## Support
+
+If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+
 <NextSectionLink/>

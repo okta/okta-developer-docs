@@ -9,8 +9,8 @@ The Glitch projects do not have any authorization or body parsing code by defaul
 
 To add the `npm` packages:
 
-1. Click on the "package.json" file in the left-hand project menu.
-2. From the “Add Package” drop-down, search for the `express-basic-auth` and `body-parser` packages.
+1. Click on the `package.json` file in the left-hand project menu.
+2. From the `Add Package` drop-down, search for the `express-basic-auth` and `body-parser` packages.
 3. Click each package to add to your project.
 
 After including the packages, add the following code snippet in your project.
