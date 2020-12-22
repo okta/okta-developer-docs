@@ -13,7 +13,7 @@ title: Okta API Products Release Notes
 | [One Time Use Refresh Token is now in Early Access (EA)](#one-time-use-refresh-token-is-now-in-early-access-ea)      | December 9, 2020         |
 | [Enhancements to Apps API for Idp Initiated Logins](#enhancements-to-apps-api-for-idp-initiated-logins) | December 9, 2020         |
 | [Enhancements to Apps API for SAML Apps](#enhancements-to-apps-api-for-saml-apps) | December 9, 2020         |
-| [Group object `source` property is now GA in Production](#group-object-source-property-is-now-ga-in-production) | December 9, 2020        |
+| [Groups API extended search is now GA in Preview](#groups-api-extended-search-is-now-ga-in-preview) | December 9, 2020        |
 
 ### Inclusive language and terminology
 
@@ -51,6 +51,6 @@ The [Apps API](/docs/reference/api/apps/) can now configure the Idp Initiated Lo
 
 The [Apps API](/docs/reference/api/apps/) can now configure the SLO URL behavior for SAML apps, which is also available in the Admin Console.<!--OKTA-342882-->
 
-### Group object source property is now GA in Production
+### Groups API extended search is now GA in Preview
 
-For API requests that return a Group or a list of Groups, the Group object includes a source property that provides the ID of the source application for the returned Group. This property is now GA in all Production orgs. See [Group attributes](/docs/reference/api/groups/#group-attributes).<!--OKTA-344169-->
+The Groups API support for extended search is now Generally Available (GA) in Preview.<!--OKTA-344169-->
