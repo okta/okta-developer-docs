@@ -15,7 +15,7 @@ Start by signing in to the Okta Developer Console:
 
 4. For allowed grant types, make sure that both **Authorization Code** and **Refresh Token** are selected. This enables PKCE flow for your application and the ability to refresh the access token when it expires without prompting the user to reauthenticate. [Refresh token rotation](/docs/guides/refresh-tokens/refresh-token-rotation) is automatically set as the default refresh token behavior.
 
-    Refresh tokens for SPA is an <ApiLifecycle access="ea"/> feature. Enable an [Early Access (Self-Service)](/docs/reference/releases-at-okta/#early-access-ea) feature for your org from the **Settings** > **Features** page in the Admin Console. To switch from the Developer Console to the Admin Console, select **Classic UI** in the top left of the page.
+    Refresh tokens for SPA is an <ApiLifecycle access="ea"/> feature. Enable an [Early Access (Self-Service)](/docs/reference/releases-at-okta/#early-access-ea) feature for your org from the **Settings** > **Features** page in the Admin Console. To switch from the Developer Console to the Admin Console, select **Classic UI** in the upper-left corner of the page.
 
     > **Note:** There is a default grace period for token rotation of 30 seconds. You can [change the value](/docs/guides/refresh-tokens/refresh-token-rotation/#enable-refresh-token-rotation) to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token. Using a value of 0 indicates that there is no grace period.
 
