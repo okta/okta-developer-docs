@@ -22,6 +22,6 @@ This guide also uses the website Glitch.com to act as an external service and to
 
 > **Tip** For another in-depth look at a Token Inline Hook implementation, see the following Developer Experience blog example by Micah Silverman, [Use Okta Token Hooks to Supercharge OpenID Connect](https://developer.okta.com/blog/2019/12/23/extend-oidc-okta-token-hooks)
 
-For further reference data on the Token Inline Hook, see [Token Inline Hook](/docs/reference/token-hook/.
+For further reference data on the Token Inline Hook, see [Token Inline Hook](/docs/reference/token-hook/).
 
 <NextSectionLink/>
