@@ -6900,7 +6900,7 @@ The provisioning connection object is a read only object that displays the metho
 | _links            | Discoverable resources related to the connection            | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)              | TRUE    | FALSE   | TRUE    |           |
 | status            | Status of the connection      | `ENABLED`, `DISABLED`, `UNKNOWN`  | FALSE    | FALSE   | TRUE    | `DISABLED` |
 
-If the authScheme is UNKNOWN, then either the authentication scheme used by the application isn't supported or the the application doesn't support provisioning. An object with an `UNKNOWN` `authScheme` results in an `UNKNOWN` `status`.
+If the authScheme is `UNKNOWN`, then either the authentication scheme used by the application isn't supported or the the application doesn't support provisioning. An object with an `UNKNOWN` `authScheme` results in an `UNKNOWN` `status`.
 
 ### Provisioning Connection Profile object
 
