@@ -11,10 +11,10 @@ title: Okta API Products Release Notes
 
 ### The Subscription API is now available in Self-Service EA
 
-The `/subscription` API is now available in Self-Service EA. The [Subscriptions API](/docs/reference/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications. <OKTA-325794>
+The `/subscription` API is now available in Self-Service EA. The [Subscriptions API](/docs/reference/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications. <!--OKTA-325794-->
 
 ### Bugs fixed in 2020.12.2
 
-* Clients making GET requests to `/api/v1/users/{usernameprefix}` received a “The requested path was not found” error if the user's [short name]{https://developer.okta.com/docs/reference/api/users/#get-user-with-login-shortname) (usernameprefix) ended with .jpg, .png, .js, .css, or a similar file extension even if a user matching that short name existed. (OKTA-322140)
+* Clients making GET requests to `/api/v1/users/{usernameprefix}` received a “The requested path was not found” error if the user's [short name](https://developer.okta.com/docs/reference/api/users/#get-user-with-login-shortname) (usernameprefix) ended with .jpg, .png, .js, .css, or a similar file extension even if a user matching that short name existed. (OKTA-322140)
 * When an [MFA policy](https://developer.okta.com/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) was created without specifying the `consent` format, subsequent GET and UPDATE requests resulted in an error. (OKTA-339250)
 * When a GET request was made to '/api/v1/users/${userId}/groups' (to obtain a list of a user's groups), an internal server error was returned when the user making the API call didn't have access to any of the [groups](https://developer.okta.com/docs/reference/api/users/#get-user-s-groups) returned in the current page of results. (OKTA-351477)
