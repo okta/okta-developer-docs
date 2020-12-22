@@ -114,7 +114,7 @@ The following is an example System Log rate limit event where too many enrollmen
       "operationRateLimitTimeSpan": "5",
       "requestUri": "/api/v1/authn/factors",
       "url": "/api/v1/authn/factors?updatePhone=true",
-      "phoneNumber": "+14037894561",
+      "phoneNumber": "+1555555555",
       "authnRequestId": "reqWXOTNi2FQV6sUFQxWGCf8A",
       "countryCallingCode": "1",
       "requestId": "reqS9xgtpvOTcukX8Yu-SLRDQ",
