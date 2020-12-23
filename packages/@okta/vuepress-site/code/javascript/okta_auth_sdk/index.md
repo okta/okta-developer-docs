@@ -14,7 +14,7 @@ In this guide you will learn how to use the Auth SDK on a simple static page to:
 - Retrieve and store an OpenID Connect (OIDC) token (id_token)
 - Get an Okta session
 
-> **Note:** `@okta/okta-auth-js` version 3.2.2 or above is required to run samples in this guide.
+> **Note:** `@okta/okta-auth-js` version 4.5.0 or above is required to run samples in this guide.
 
 If you'd like to explore the entire Auth SDK, please see the [Okta AuthJS Source &amp; API Reference][authjs-reference].
 
@@ -32,7 +32,7 @@ You will need the following things for this guide:
 Include the following script tag in your target web page:
 
 ```html
-<script src="https://global.oktacdn.com/okta-auth-js/4.0.0/okta-auth-js.min.js" type="text/javascript"></script>
+<script src="https://global.oktacdn.com/okta-auth-js/4.5.0/okta-auth-js.min.js" type="text/javascript"></script>
 ```
 
 ## Part 1: Retrieve and Store an OpenID Connect Token
@@ -79,6 +79,9 @@ After the redirect, the URL will contain an ID Token in the form of a JWT. The `
 
 ``` js
 authClient.token.parseFromUrl()
+  .then(res => {
+    const { idToken } = res.tokens;
+  })
 ```
 
 You can also display a specific part of the parsed token:
@@ -103,7 +106,8 @@ The full code to parse the token, display the email from it, and then add it to 
 
 ``` js
 authClient.token.parseFromUrl()
-  .then(idToken => {
+  .then(res => {
+    const { idToken } = res.tokens;
     console.log(`Hi ${idToken.claims.email}!`);
     authClient.tokenManager.add('idToken', idToken);
   })
@@ -141,7 +145,7 @@ const authClient = new OktaAuth({
   redirectUri: 'http://localhost:8080'
 });
 
-if (authClient.token.isLoginRedirect()) {
+if (authClient.isLoginRedirect()) {
   // Parse token from redirect url
   authClient.token.parseFromUrl()
     .then(data => {
@@ -180,11 +184,11 @@ else {
   var username = prompt('What is your username?');
   var password = prompt('What is your password?');
 
-  authClient.signIn({username, password})
-    .then(res => {
-      if (res.status === 'SUCCESS') {
+  authClient.signInWithCredentials({username, password})
+    .then(transaction => {
+      if (transaction.status === 'SUCCESS') {
         authClient.token.getWithRedirect({
-          sessionToken: res.sessionToken,
+          sessionToken: transaction.sessionToken,
           responseType: 'id_token'
         });
       }
@@ -207,7 +211,7 @@ const authClient = new OktaAuth({
   redirectUri: 'http://localhost:8080'
 });
 
-if (authClient.token.isLoginRedirect()) {
+if (authClient.isLoginRedirect()) {
   // Parse token from redirect url
   authClient.token.parseFromUrl()
     .then(data => {
@@ -228,11 +232,11 @@ if (authClient.token.isLoginRedirect()) {
         var username = prompt('What is your username?');
         var password = prompt('What is your password?');
 
-        authClient.signIn({username, password})
-          .then(res => {
-            if (res.status === 'SUCCESS') {
+        authClient.signInWithCredentials({username, password})
+          .then(transaction => {
+            if (transaction.status === 'SUCCESS') {
               authClient.token.getWithRedirect({
-                sessionToken: res.sessionToken,
+                sessionToken: transaction.sessionToken,
                 responseType: 'id_token'
               });
             }
