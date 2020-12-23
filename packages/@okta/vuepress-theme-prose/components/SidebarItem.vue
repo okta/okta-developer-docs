@@ -19,6 +19,7 @@
             </div>
         </div>
 
+
         <ul v-if="link.subLinks" class="sections" v-show="iHaveChildrenActive">
             <SidebarItem v-for="sublink in link.subLinks" :key="sublink.title" :link="sublink" />
         </ul>

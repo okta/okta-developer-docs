@@ -1,42 +1,53 @@
 <template>
   <aside class="landing-navigation">
     <ul class="landing">
-      <SidebarItem v-for="link in navigation" :key="link.title" :link="link" />
+      <ul class="sections">
+        <SidebarItem
+          v-for="link in navBarItems"
+          :key="link.title"
+          :link="link"
+        />
+      </ul>
     </ul>
   </aside>
 </template>
 
 <script>
 import _ from "lodash";
-import { getGuidesInfo, guideFromPath } from "../util/guides";  
+import { getGuidesInfo, guideFromPath } from "../util/guides";
 
 export default {
   name: "Sidebar",
-  inject: ['appContext'],
+  inject: ["appContext"],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },
-  data() {
-    return {
-      usingFile: false
-    };
-  },
-  mounted() {
-    if(!this.appContext.isInMobileViewport) {
-      this.handleScroll();
-      window.addEventListener("scroll", this.handleScroll);
-    }
-  },
-  beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
-  },
   computed: {
     navigation() {
-      return (this.getNavigation() || []).map(nav => {
+      return (this.$page.redesign
+        ? this.getNewNavigation()
+        : this.getNavigation() || []
+      ).map(nav => {
         this.addStatesToLink(nav);
         return nav;
       });
-    },
+    }
+  },
+  data() {
+    return {
+      usingFile: false,
+      navBarItems: []
+    };
+  },
+  mounted() {
+    if (!this.appContext.isInMobileViewport) {
+      this.handleScroll();
+      window.addEventListener("scroll", this.handleScroll);
+    }
+    this.navBarItems = this.navigation;
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
     toggleSubNav: function(event) {
@@ -69,6 +80,16 @@ export default {
       }
       return link.imActive;
     },
+    getNewNavigation() {
+      const homeLink =  { title: 'Home', path: '/'};
+      return [
+        homeLink,
+        ...this.getGuides(),
+        ..._.cloneDeep(this.$site.themeConfig.sidebars.concepts),
+        ..._.cloneDeep(this.$site.themeConfig.sidebars.reference),
+        ..._.cloneDeep(this.$site.themeConfig.sidebars.codePages)
+      ];
+    },
     getNavigation() {
       if (this.$page.path.includes("/code/")) {
         this.usingFile = true;
@@ -78,7 +99,7 @@ export default {
         this.usingFile = true;
         return _.cloneDeep(this.$site.themeConfig.sidebars.reference);
       }
-      if (this.$page.path.includes("/docs/concepts/")){
+      if (this.$page.path.includes("/docs/concepts/")) {
         this.usingFile = true;
         return _.cloneDeep(this.$site.themeConfig.sidebars.concepts);
       }
@@ -103,10 +124,10 @@ export default {
         let queue = new Array();
         queue.push(nav);
         let current = queue.pop();
-        while(current){
-          if( current && current.subLinks ){
-            queue.push(...current.subLinks)
-          } else if( current && current.guideName ) {
+        while (current) {
+          if (current && current.subLinks) {
+            queue.push(...current.subLinks);
+          } else if (current && current.guideName) {
             // add sections
             current.subLinks = [];
             const guide = guides.byName[current.guideName];
@@ -114,7 +135,11 @@ export default {
               guide.sections.forEach(section => {
                 current.subLinks.push({
                   title: section.title,
-                  path: section.makeLink(guide.frameworks.includes(framework) ? framework : guide.mainFramework)
+                  path: section.makeLink(
+                    guide.frameworks.includes(framework)
+                      ? framework
+                      : guide.mainFramework
+                  )
                 });
               });
             }

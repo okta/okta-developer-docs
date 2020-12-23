@@ -5,7 +5,7 @@
     </div>
 
     <div class="page-body">
-      <Breadcrumb />
+      <Breadcrumb  v-if="!$page.redesign || ($page.redesign && appContext.isInMobileViewport)"/>
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
@@ -107,7 +107,6 @@ export default {
         docsRepo = repo
       } = this.$site.themeConfig.editLink
       if (docsRepo && editLinks && this.$page.relativePath) {
-        console.log('page: ', this.$page)
         return this.createEditLink(repo, docsRepo, docsDir, docsBranch, this.$page.relativePath)
       }
     },
