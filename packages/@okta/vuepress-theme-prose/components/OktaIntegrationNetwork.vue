@@ -45,14 +45,27 @@
         </div>
       </div>
       <div class="oin--background-curve">
-        <img src="/img/curve-singleRightLight.png" />
+        <img src="/img/curve-singleRightDark.png" />
       </div>
       <div class="oin--container">
         <div class="oin--develop">
-          <h1>Are you ready to submit your integration for review?</h1>
-          <p class="oin--subtitle">
-            <a href="/docs/guides/submit-app/overview/" class="Button--red">Get Started</a>
-          </p>
+          <div class="oin--develop-header">
+            <h1>Are you ready to submit your integration for review?</h1>
+            <p class="oin--subtitle">
+              <a href="/docs/guides/submit-app/overview/" class="Button--red">Get Started</a>
+            </p>
+          </div>
+          <div class="oin--develop-content">
+            <h2>Develop your app for the Okta Integration Network</h2>
+            <div class="oin--develop-tiles">
+              <div v-for="(step, index) in $page.frontmatter.developSteps" class="tile">
+                <img :src="step.icon" />
+                <h3>{{step.name}}</h3>
+                <p>{{step.description}}</p>
+              </div>
+              <div class="tile empty"></div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
