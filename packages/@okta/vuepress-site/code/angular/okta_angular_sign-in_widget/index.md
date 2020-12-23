@@ -30,6 +30,8 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 | Logout redirect URIs | `http://localhost:4200/login`                       |
 | Allowed grant types  | Authorization Code                                  |
 
+> **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
+
 ## Create an Angular App
 
 To quickly create an Angular app, we recommend the **Angular CLI**.
