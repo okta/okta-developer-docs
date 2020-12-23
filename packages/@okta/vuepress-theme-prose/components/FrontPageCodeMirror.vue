@@ -1,28 +1,34 @@
 <template>
-  <codemirror 
-    ref="myCm" 
-    :value="widgetCode"
-    :options="cmOptions"
-    >
-  </codemirror>
+  <textarea disabled ref="codemirror" name="codemirror" id="codemirror"></textarea>
 </template>
 
 <script>
 
-import dedent from 'dedent'
-import { codemirror } from 'vue-codemirror'
-import 'codemirror/mode/javascript/javascript.js'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/base16-dark.css'
 
 export default {
   name: 'FrontPageCodeMirror',
   components: {
-    codemirror
   },
+  mounted: function(){
+    //load side effects for code mode
+    (async () => {
+            await import('codemirror/mode/javascript/javascript.js');
+      })()
+    //load codemirror
+    import('codemirror').then(
+      module=> {
+        const CodeMirror = module.default
+        this.codemirror = CodeMirror.fromTextArea(this.$refs.codemirror, this.cmOptions)
+        this.codemirror.setValue(this.widgetCode)
+        this.codemirror.setOption('mode',  'javascript')
+      })
+    },
   data (){
     return{
-      widgetCode: dedent`
+     dedent: null,
+     widgetCode:`
       // Uses okta-signin-widget version 3.8.1
 
       var widget = new OktaSignIn({
@@ -37,7 +43,6 @@ export default {
         },
         
       });
-
       widget.renderEl({
         el: "#widget-container"
       });`,
@@ -46,6 +51,7 @@ export default {
         mode: 'text/javascript',
         theme: 'base16-dark',
         styleActiveLine: true,
+        readOnly: true,
       }
     }
   }
