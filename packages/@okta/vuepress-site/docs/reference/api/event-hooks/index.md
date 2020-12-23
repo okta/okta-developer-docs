@@ -8,7 +8,9 @@ excerpt:
 
 # Event Hooks Management API
 
-For general information on event hooks and how to create and use them, see [Event Hooks](/docs/concepts/event-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering Event Hooks. For a step-by-step guide to registering an Event Hook, see [Set Up Event Hooks](/docs/guides/set-up-event-hook/).
+For general information on event hooks and how to create and use them, see [Event Hooks](/docs/concepts/event-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering Event Hooks.
+
+For a step-by-step guide on implementing an example Event Hook, see the [Event Hook](/docs/guides/event-hook-implementation/) guide.
 
 ## Get started
 
@@ -23,15 +25,15 @@ Explore the Event Hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)
 Registers a new event hook to your organization in `ACTIVE` status. You need to pass an [Event Hook object](#event-hook-object) in the JSON payload of your request. That object represents the set of required information about the event hook you are registering, including:
 
  - The URI of your external service endpoint.
- - The [events](#supported-events-for-subscription) in Okta you wish to subscribe to.
+ - The [events](#supported-events-for-subscription) in Okta you want to subscribe to.
 
-In addition, the object lets you specify a secret API key that you want Okta to pass to your external service endpoint (so that your external service can check for its presence as a security measure).
+Additionally, the object lets you specify a secret API key that you want Okta to pass to your external service endpoint (so that your external service can check for its presence as a security measure).
 
 Note that the API key you set here is unrelated to the Okta API token you must supply when making calls to Okta APIs.
 
-You can also optionally specify extra headers that you wish Okta to pass to your external service with each call.
+Optionally, you can specify extra headers that you wish Okta to pass to your external service with each call.
 
-Your external service's endpoint needs to be a valid HTTPS endpoint, and therefore the URI you specify should always begin with `https://`.
+Your external service's endpoint needs to be a valid HTTPS endpoint, where the URI you specify should always begin with `https://`.
 
 ##### Request parameters
 

@@ -4,6 +4,7 @@ guides:
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - common-hook-set-up-steps
  - configure-access-policy
  - configure-signon-policy
  - create-an-api-token
@@ -16,9 +17,10 @@ guides:
  - customize-tokens-groups-claim
  - email-customization
  - enable-cors
+ - event-hook-implementation
  - find-your-app-credentials
  - find-your-domain
- - password-import-hook
+ - password-import-inline-hook
  - implement-auth-code
  - implement-auth-code-pkce
  - implement-client-creds
@@ -38,11 +40,11 @@ guides:
  - protect-your-api
  - quickstart
  - refresh-tokens
+ - registration-inline-hook
  - request-user-consent
  - revoke-tokens
  - saml-tracer
  - session-cookie
- - set-up-event-hook
  - set-up-self-service-registration
  - shared-sso-android-ios
  - sharing-cert
