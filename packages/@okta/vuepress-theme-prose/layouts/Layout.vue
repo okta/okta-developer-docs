@@ -1,11 +1,15 @@
 <template>
   <div>
     <div class="fixed-header">
-      <TopBar />
+      <HeaderRedesign v-if="$page.redesign" />
+      <TopBar v-else />
     </div>
 
-    <div class="page-body">
-      <Breadcrumb  v-if="!$page.redesign || ($page.redesign && appContext.isInMobileViewport)"/>
+    <div :class="{
+      'page-body': true,
+      redesign: $page.redesign
+    }">
+      <Breadcrumb v-if="!$page.redesign || ($page.redesign && appContext.isInMobileViewport)" />
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
@@ -53,6 +57,7 @@ export const endingSlashRE = /\/$/
 export default {
   components: {
     TopBar: () => import('../components/TopBar.vue'),
+    HeaderRedesign: () => import('../components/Header.redesign.vue'),
     Sidebar: () => import('../components/Sidebar.vue'),
     OnThisPage: () => import('../components/OnThisPage.vue'),
     MobileOnThisPage: () => import('../components/MobileOnThisPage.vue'),
