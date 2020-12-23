@@ -53,6 +53,8 @@ features:
     name: Customizable sign-in and registration widget
   addons:
     name: Add-on products available
+  threatInsight:
+    name: Okta ThreatInsight
 
 pricing:
   - maus: 1,000 MAUs
@@ -84,6 +86,7 @@ editions:
       additionalNote: (paid accounts only)
     customSignin: True
     addons: False
+    threatInsight: True
   - name: One App
     subheading: High availability, premiere support and additional MAUs for scaling your application.
     hiAvailability: True
@@ -99,6 +102,7 @@ editions:
       enabled: True
     customSignin: True
     addons: True
+    threatInsight: True
   - name: Enterprise
     subheading: Reliable authentication and authorization for complex environments with multiple applications.
     hiAvailability: True
@@ -114,6 +118,7 @@ editions:
       enabled: True
     customSignin: True
     addons: True
+    threatInsight: True
 
 addons:
   - title: B2B Integration
