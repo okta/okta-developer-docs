@@ -271,8 +271,8 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | Parameter               | Description                                                                                                                                                                                                                                                                                                                        | Type   |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
 | code                    | Required if `grant_type` is `authorization_code`. The value is what was returned from the [authorization endpoint](#authorize). The code has a lifetime of 60 seconds.                                                                                                                                                             | String |
-| code_verifier           | Required if `grant_type` is `interaction_code`, or if the `grant_type` is `authorization_code`  and `code_challenge` was specified in the original `/authorize` request. This value is the code verifier for [PKCE](#parameter-details). Okta uses it to recompute the `code_challenge` and verify if it matches the original `code_challenge` in the authorization request.     | String |
-| grant_type              | Can be one of the following: `authorization_code`, `interaction_code`, `password`, `client_credentials`, or `refresh_token`. Determines the mechanism Okta uses to authorize the creation of the tokens.                                                                                                                           | String |
+| code_verifier           | Required if `grant_type` is `interaction_code`, or if the `grant_type` is `authorization_code`  and `code_challenge` was specified in the original `/authorize` request. This value is the code verifier for [PKCE](#parameter-details). Okta uses it to recompute the `code_challenge` and verify if it matches the original `code_challenge` in the authorization, interact, or initial token request. | String |
+| grant_type              | Can be one of the following: `authorization_code`, `client_credentials`, `interaction_code`, `password`, or `refresh_token`. Determines the mechanism that Okta uses to authorize token creation.                                                                                                                                  | String |
 | interaction_code        | Required if `grant_type` is `interaction_code`. The value is what was returned from the `/idx` API. The code has a lifetime of 60 seconds.                                                                                                                                                                                         | String |
 | password                | Required if the grant_type is `password`.                                                                                                                                                                                                                                                                                          | String |
 | redirect_uri            | Required if `grant_type` is `authorization_code`. Specifies the callback location where the authorization was sent. This value must match the `redirect_uri` used to generate the original `authorization_code`.                                                                                                                   | String |
@@ -281,7 +281,7 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | username                | Required if the grant_type is `password`.                                                                                                                                                                                                                                                                                          | String |
 
 #### Parameter details
-* `interaction_code` grant type is an Okta extension to [the OpenID specification](http://openid.net/specs/openid-connect-core-1_0.html#Authentication).
+* `interaction_code` grant type is an Okta extension to the [the OpenID specification](http://openid.net/specs/openid-connect-core-1_0.html#Authentication).
     All other parameters comply with the OpenID Connect specification and their behavior is consistent with the specification.
 
 * To obtain an interaction handle using the `password` grant type, the following parameters are required in addition to those specified above: `code_challenge`, `code_challenge_method`, `redirect_uri`, and `state`. See the `/interact` endpoint for more details.
@@ -298,18 +298,18 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 | scope           | The scopes contained in the access token.                                               | String  |
 | refresh_token   | An opaque refresh token. This is returned if the `offline_access` scope is granted.     | String  |
 | id_token        | An [ID token](#id-token). This is returned if the `openid` scope is granted.            | String  |
-| interaction_handle | An opaque handle that can be used to start a transaction with the Okta Identity Engine. See guide for more details.            | String  |
+| interaction_handle | An opaque handle that you can use to start a transaction with the Okta Identity Engine. See guide for more details. | String  |
 
 #### List of errors
 
 | Error Id                 | Details                                                                                                                                                                                                    |
 | :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| interaction_required     | The client is configured to use the Interaction Code Flow and user interaction is required to complete the request.                                                                                        |
+| interaction_required     | The client is configured to use the Interaction Code flow and user interaction is required to complete the request. This error returns an `interaction_handle` that you can use to start a transaction with the Okta Identity Engine. |
 | invalid_client           | The specified `client_id` wasn't found.                                                                                                                                                                      |
 | invalid_grant            | The `code`, `refresh_token`, or `username` and `password` combination is invalid, or the `redirect_uri` doesn't match the one used in the authorization request.                                          |
 | invalid_request          | The request structure was invalid. For example: the basic authentication header is malformed, both header and form parameters were used for authentication, or no authentication information was provided. |
 | invalid_scope            | The scopes list contains an invalid or unsupported value.                                                                                                                                                  |
-| unsupported_grant_type   | The `grant_type` isn't `authorization_code`, `interaction_code`, `refresh_token`, or `password`.                                                                                                           |
+| unsupported_grant_type   | The `grant_type` isn't `authorization_code`, `interaction_code`, `password`, or `refresh_token`.                                                                                                           |
 
 #### Request example
 
