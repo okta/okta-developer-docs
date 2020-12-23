@@ -26,14 +26,14 @@
               <p>Use our step-by-step guides to build your integration.</p>
             </div>
             <div class="oin--integration-content">
-              <div v-for="guide in $page.frontmatter.guides" class="oin-guide">
+              <div v-for="(guide, index) in $page.frontmatter.guides" v-bind:key="index" class="oin-guide">
                 <img :src="guide.icon" />
                 <h5>{{guide.name}}</h5>
                 <p>{{guide.description}}</p>
                 <p>
                   <template v-for="(link, index) in guide.links">
                     <span v-if="index > 0"> | </span>
-                    <a class="magentaLink" :href="link.url">{{link.text}}</a>
+                    <a class="magentaLink" :href="link.url" v-bind:key="index">{{link.text}}</a>
                   </template>
                 </p>
                 <p>
@@ -58,7 +58,7 @@
           <div class="oin--develop-content">
             <h2>Develop your app for the Okta Integration Network</h2>
             <div class="oin--develop-tiles">
-              <div v-for="(step, index) in $page.frontmatter.developSteps" class="tile">
+              <div v-for="(step, index) in $page.frontmatter.developSteps" v-bind:key="index" class="tile">
                 <img :src="step.icon" />
                 <h3>{{step.name}}</h3>
                 <p>{{step.description}}</p>
