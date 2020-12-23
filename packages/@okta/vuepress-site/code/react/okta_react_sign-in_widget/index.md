@@ -246,6 +246,13 @@ import Home from './Home';
 import Login from './Login';
 import Protected from './Protected';
 import { OktaAuth } from '@okta/okta-auth-js';
+
+    // Note: If your app is configured to use the Implicit Flow
+    // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
+    // you will need to add the below property to what is passed to <Security>
+    //
+    // pkce={false}
+
 const config = {
     issuer: 'https://{yourOktaDomain}/oauth2/default',
     redirectUri: window.location.origin + '/login/callback',
@@ -263,13 +270,6 @@ export default withRouter(class AppWithRouterAccess extends Component {
   }
 
   render() {
-
-    // Note: If your app is configured to use the Implicit Flow
-    // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
-    // you will need to add the below property to what is passed to <Security>
-    //
-    // pkce={false}
-
      return (
          <Security oktaAuth={oktaAuth}
                    onAuthRequired={this.onAuthRequired} >
