@@ -146,27 +146,27 @@ export default {
           items: [
             {
               name: 'Go',
-              link: '/go',
+              link: '/code/go/',
               image: '/img/homepage/stackselectors/go.png'
             },
              {
               name: 'Java',
-              link: '/go',
+              link: '/code/java/',
               image: '/img/homepage/stackselectors/java.png'
             },
              {
               name: '.net',
-              link: '/go',
+              link: '/code/dotnet/aspnetcore/',
               image: '/img/homepage/stackselectors/dotnet.png'
             },
              {
               name: 'Node.js',
-              link: '/go',
+              link: '/code/nodejs/',
               image: '/img/homepage/stackselectors/nodejs.png'
             },
              {
               name: 'PHP',
-              link: '/go',
+              link: '/code/php/',
               image: '/img/homepage/stackselectors/nodejs.png'
             }
           ]
@@ -177,17 +177,17 @@ export default {
           items: [
             {
               name: 'React',
-              link: '/go',
+              link: '/code/react/',
               image: '/img/homepage/stackselectors/react.png'
             },
              {
               name: 'Angular',
-              link: '/go',
+              link: '/code/angular/',
               image: '/img/homepage/stackselectors/angular.png'
             },
              {
               name: 'Vue.js',
-              link: '/go',
+              link: '/code/vue/',
               image: '/img/homepage/stackselectors/vue.png'
             },
           ]
@@ -198,17 +198,17 @@ export default {
           items: [
             {
               name: 'native React',
-              link: '/go',
+              link: '/code/react-native/',
               image: '/img/homepage/stackselectors/react.png'
             },
              {
               name: 'android',
-              link: '/go',
+              link: '/code/android/',
               image: '/img/homepage/stackselectors/android.png'
             },
              {
               name: 'IOS',
-              link: '/go',
+              link: '/code/ios/',
               image: '/img/homepage/stackselectors/ios.png'
             },
           ]
@@ -219,27 +219,27 @@ export default {
           items: [
             {
               name: 'Go',
-              link: '/go',
+              link: '/code/go/',
               image: '/img/homepage/stackselectors/go.png'
             },
              {
               name: 'Java',
-              link: '/go',
+              link: '/code/java/',
               image: '/img/homepage/stackselectors/java.png'
             },
              {
               name: '.net',
-              link: '/go',
+              link: '/code/dotnet/aspnetcore/',
               image: '/img/homepage/stackselectors/dotnet.png'
             },
              {
               name: 'Node.js',
-              link: '/go',
+              link: '/code/nodejs/',
               image: '/img/homepage/stackselectors/nodejs.png'
             },
              {
               name: 'PHP',
-              link: '/go',
+              link: '/code/php/',
               image: '/img/homepage/stackselectors/nodejs.png'
             }
           ]
