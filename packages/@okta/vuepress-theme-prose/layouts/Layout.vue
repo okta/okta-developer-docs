@@ -70,6 +70,7 @@ export default {
     Reference: () => import('../components/Reference.vue'),
     Quickstart: () => import('../components/Quickstart.vue'),
     Pricing: () => import('../components/Pricing.vue'),
+    OktaIntegrationNetwork: () => import ('../components/OktaIntegrationNetwork.vue'),
   },
   data() {
     return {
