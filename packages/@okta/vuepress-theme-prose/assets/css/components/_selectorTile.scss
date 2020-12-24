@@ -20,7 +20,7 @@
     justify-content: space-between;
     align-items: center;
     color: #DFEAF1;
-    &:visited{
+    &:visited,&:active{
         color: #DFEAF1;
     }
     >i,span{
@@ -53,8 +53,9 @@
       border-right: none;
       color: #bcc2c5;
       text-decoration: none;
-      &:visited{
+      &:visited,&:active,&:focus{
         color: #DFEAF1;
+        text-decoration: none;
       }
       >img{
         border-radius: 50%;
@@ -78,6 +79,10 @@
       }
       &:hover{
         background-color: #1D374A;
+        color: #ffffff;
+        >span{
+          color: #ffffff;
+        }
         >i{
           color: #ffffff;
         }

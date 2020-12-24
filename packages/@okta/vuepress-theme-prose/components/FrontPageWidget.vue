@@ -4,37 +4,35 @@
 
 <script>
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css'
-
-const WIDGET_CONF = {
-        baseUrl: 'https://{yourOktaDomain}',
-        logo: '/img/homepage/alliance.png',
-        username: 'leia@rebelalliance.io',
-        processCreds: (creds, callback) => {
-          if (creds.username === 'leia@rebelalliance.io' && creds.password === 'secret') {
-            this.$emit('authLeia')
-          } else {
-            callback();
-          }
-        }, 
-        helpLinks: {
-              help: 'https://developer.okta.com/code/javascript/okta_sign-in_widget'
-        },
-        i18n: {
-            en: {
-              "primaryauth.title": "Alliance Authentication",
-              "primaryauth.submit": "Sign In"
-            },
-        },
-      }
-
   export default {
     name: 'FrontPageWidget',
     mounted: function () {
     import('@okta/okta-signin-widget').then(
       module =>{
             this.$nextTick(function () {
-                  const OktaSignIn = module.default
-                  this.widget = new OktaSignIn(WIDGET_CONF)
+                    const OktaSignIn = module.default
+                    this.widget = new OktaSignIn({
+                    baseUrl: 'https://{yourOktaDomain}',
+                    logo: '/img/homepage/alliance.png',
+                    username: 'leia@rebelalliance.io',
+                    processCreds: (creds, callback) => {
+                      console.log('PROCES CRED')
+                      if (creds.username === 'leia@rebelalliance.io' && creds.password === 'secret') {
+                        this.$emit('authLeia')
+                      } else {
+                        callback();
+                      }
+                    }, 
+                    helpLinks: {
+                          help: 'https://developer.okta.com/code/javascript/okta_sign-in_widget'
+                    },
+                    i18n: {
+                        en: {
+                          "primaryauth.title": "Alliance Authentication",
+                          "primaryauth.submit": "Sign In"
+                        },
+                    },
+                  })
                   this.widget.on('afterRender', () => {
                             if (!this.rendered) {
                               this.widget.hide();

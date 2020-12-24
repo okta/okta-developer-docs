@@ -54,6 +54,15 @@ export default {
         readOnly: true,
       }
     }
+  },
+  beforeDestroy: function() {
+        this.destroyCm()    
+  },
+  methods: {
+    destroyCm(){
+      const element = this.codemirror.doc.cm.getWrapperElement()
+      element && element.remove && element.remove()
+    }
   }
 }
 

@@ -70,7 +70,7 @@
                 </div>
               </div>
               <div v-if="pseudoAuthorized" class="col-sm-12 col-xs-12 col-lg-10">
-                <div class="redesign-homepage--welcome-leia">
+                 <div class="redesign-homepage--welcome-leia">
                     <div class="redesign-homepage--welcome-leia--close" @click="togglePseudoAuth">
                       <span>X</span> close
                     </div>
