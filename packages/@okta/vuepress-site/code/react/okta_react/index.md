@@ -14,7 +14,7 @@ This guide will walk you through integrating authentication into a React app wit
 6. [Connect the Routes](#connect-the-routes)
 7. [Start Your App](#start-your-app)
 
-> This guide is for `@okta/okta-auth-js` v4.0.2 and `@okta/okta-react` v4.1.0.
+> This guide is for `@okta/okta-auth-js` v4.5.0 and `@okta/okta-react` v4.1.0.
 
 ## Prerequisites
 If you do not already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
@@ -79,12 +79,12 @@ const SignInForm = ({ issuer }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    oktaAuth.signIn({ username, password })
+    oktaAuth.signInWithCredentials({ username, password })
     .then(res => {
       const sessionToken = res.sessionToken;
       setSessionToken(sessionToken);
       // sessionToken is a one-use token, so make sure this is only called once
-          oktaAuth.signInWithRedirect({ sessionToken });
+      oktaAuth.signInWithRedirect({ sessionToken });
     })
     .catch(err => console.log('Found an error', err));
   };
