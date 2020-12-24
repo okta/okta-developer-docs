@@ -1,7 +1,7 @@
 <template>
   <div class="authorization-layout">
     <div class="authorization-layout--header">
-      <a href="https://www.okta.com/" rel="noopener noreferrer">
+      <a href="/">
       <img src="/img/icons/okta-developer.svg" alt="Okta Developer Logo"/>
       </a>
     </div>
