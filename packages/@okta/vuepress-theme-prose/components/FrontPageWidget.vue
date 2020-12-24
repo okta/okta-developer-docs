@@ -47,7 +47,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css'
                               setTimeout(() => {
                                 this.widget.show();
                                 this.rendered = true;
-                              }, 100);
+                              }, 0);
                             } else {
                               // Last focused element to return to
                               const elementToFocus = (document.activeElement);

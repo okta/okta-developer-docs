@@ -11,19 +11,15 @@ export default {
   name: 'FrontPageCodeMirror',
   components: {
   },
-  mounted: function(){
+  mounted: async function(){
     //load side effects for code mode
-    (async () => {
-            await import('codemirror/mode/javascript/javascript.js');
-      })()
+    await import('codemirror/mode/javascript/javascript.js');
     //load codemirror
-    import('codemirror').then(
-      module=> {
-        const CodeMirror = module.default
-        this.codemirror = CodeMirror.fromTextArea(this.$refs.codemirror, this.cmOptions)
-        this.codemirror.setValue(this.widgetCode)
-        this.codemirror.setOption('mode',  'javascript')
-      })
+    const module = await import('codemirror')
+    const CodeMirror = module.default
+    this.codemirror = CodeMirror.fromTextArea(this.$refs.codemirror, this.cmOptions)
+    this.codemirror.setValue(this.widgetCode)
+    this.codemirror.setOption('mode',  'javascript')
     },
   data (){
     return{
