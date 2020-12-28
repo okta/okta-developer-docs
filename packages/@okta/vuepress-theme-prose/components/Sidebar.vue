@@ -3,7 +3,7 @@
     <ul class="landing">
       <ul class="sections">
         <SidebarItem
-          v-for="link in navBarItems"
+          v-for="link in navigation"
           :key="link.title"
           :link="link"
         />
@@ -15,6 +15,18 @@
 <script>
 import _ from "lodash";
 import { getGuidesInfo, guideFromPath } from "../util/guides";
+import {
+  concepts as conceptsRedesign,
+  guides as gidesRedesign,
+  languagesSdk as languagesSdkRedesign,
+  reference as referenceRedesign
+} from "../const/navbar/redesign/navbar.const";
+import {
+  concepts,
+  guides,
+  languagesSdk,
+  reference
+} from "../const/navbar/navbar.const";
 
 export default {
   name: "Sidebar",
@@ -24,6 +36,7 @@ export default {
   },
   computed: {
     navigation() {
+      // FeatureFlag.
       return (this.$page.redesign
         ? this.getNewNavigation()
         : this.getNavigation() || []
@@ -35,8 +48,7 @@ export default {
   },
   data() {
     return {
-      usingFile: false,
-      navBarItems: []
+      usingFile: false
     };
   },
   mounted() {
@@ -44,7 +56,6 @@ export default {
       this.handleScroll();
       window.addEventListener("scroll", this.handleScroll);
     }
-    this.navBarItems = this.navigation;
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
@@ -81,27 +92,27 @@ export default {
       return link.imActive;
     },
     getNewNavigation() {
-      const homeLink =  { title: 'Home', path: '/'};
+      const homeLink = { title: "Home", path: "/" };
       return [
         homeLink,
-        ...this.getGuides(),
-        ..._.cloneDeep(this.$site.themeConfig.sidebars.concepts),
-        ..._.cloneDeep(this.$site.themeConfig.sidebars.reference),
-        ..._.cloneDeep(this.$site.themeConfig.sidebars.codePages)
+        ...this.getGuides(gidesRedesign),
+        ..._.cloneDeep(conceptsRedesign),
+        ..._.cloneDeep(referenceRedesign),
+        ..._.cloneDeep(languagesSdkRedesign)
       ];
     },
     getNavigation() {
       if (this.$page.path.includes("/code/")) {
         this.usingFile = true;
-        return _.cloneDeep(this.$site.themeConfig.sidebars.codePages);
+        return _.cloneDeep(languagesSdk);
       }
       if (this.$page.path.includes("/docs/reference/")) {
         this.usingFile = true;
-        return _.cloneDeep(this.$site.themeConfig.sidebars.reference);
+        return _.cloneDeep(reference);
       }
       if (this.$page.path.includes("/docs/concepts/")) {
         this.usingFile = true;
-        return _.cloneDeep(this.$site.themeConfig.sidebars.concepts);
+        return _.cloneDeep(concepts);
       }
       if (this.$page.path.includes("/docs/guides")) {
         return this.getGuides();
@@ -115,10 +126,11 @@ export default {
           .value();
       }
     },
-    getGuides() {
+    getGuides(guidesRedesign) {
       const pages = this.$site.pages;
-      const guides = getGuidesInfo({ pages });
-      let navs = _.cloneDeep(this.$site.themeConfig.sidebars.guides);
+      const guidesInfo = getGuidesInfo({ pages });
+      // FeatureFlag.
+      let navs = _.cloneDeep(guidesRedesign || guides);
       const framework = guideFromPath(this.$route.path).framework;
       navs.forEach(nav => {
         let queue = new Array();
@@ -130,7 +142,7 @@ export default {
           } else if (current && current.guideName) {
             // add sections
             current.subLinks = [];
-            const guide = guides.byName[current.guideName];
+            const guide = guidesInfo.byName[current.guideName];
             if (guide && guide.sections) {
               guide.sections.forEach(section => {
                 current.subLinks.push({

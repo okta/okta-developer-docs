@@ -2,7 +2,6 @@ const guidesInfo = require('./scripts/build-guides-info');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
 const signInWidgetMajorVersion = 5;
-const redesign = true; //!!process.env.REDESIGN;
 
 module.exports = {
   dest: 'dist',
@@ -131,14 +130,6 @@ module.exports = {
         ]
       }
     ],
-
-    sidebars: {
-      codePages: redesign ? require('./nav/newNav/languagesSdk') : require('./nav/codePages'),
-      reference: redesign ? require('./nav/newNav/reference') : require('./nav/reference'),
-      guides: redesign ? require('./nav/newNav/guides') : require('./nav/guides'),
-      concepts: redesign ? require('./nav/newNav/concepts') : require('./nav/concepts')
-    },
-
     quickstarts: {
       clients: [
         { name: 'okta-sign-in-page', label: 'Okta Sign-In Page', serverExampleType: 'auth-code', default: true },
