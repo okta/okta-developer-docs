@@ -68,13 +68,16 @@ Create a `src/OktaSignInWidget.js` file:
 
 ```jsx
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import OktaSignIn from '@okta/okta-signin-widget';
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 export default class OktaSignInWidget extends Component {
+  constructor() {
+    super();
+    this.widgetWrapperRef = React.createRef();
+  }
+
   componentDidMount() {
-    const el = ReactDOM.findDOMNode(this);
     this.widget = new OktaSignIn({
       baseUrl: this.props.baseUrl,
       authParams: {
@@ -84,7 +87,7 @@ export default class OktaSignInWidget extends Component {
         // pkce: false
       }
     });
-    this.widget.renderEl({el}, this.props.onSuccess, this.props.onError);
+    this.widget.renderEl({el: this.widgetWrapperRef.current}, this.props.onSuccess, this.props.onError);
   }
 
   componentWillUnmount() {
@@ -92,7 +95,7 @@ export default class OktaSignInWidget extends Component {
   }
 
   render() {
-    return <div />;
+    return <div ref={this.widgetWrapperRef}/>;
   }
 };
 ```
