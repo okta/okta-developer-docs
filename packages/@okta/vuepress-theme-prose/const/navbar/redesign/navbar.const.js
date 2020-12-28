@@ -324,10 +324,18 @@ export const guides = [
       {
         title: "Hooks",
         subLinks: [
-          { title: "Set Up Event Hooks", guideName: "set-up-event-hook" },
           {
-            title: "Implement a Password Import Inline Hook",
-            guideName: "password-import-hook"
+            title: "Common Hook Set-up Steps",
+            guideName: "common-hook-set-up-steps"
+          },
+          { title: "Event Hook", guideName: "event-hook-implementation" },
+          {
+            title: "Password Import Inline Hook",
+            guideName: "password-import-inline-hook"
+          },
+          {
+            title: "Registration Inline Hook",
+            guideName: "registration-inline-hook"
           }
         ]
       }
