@@ -115,6 +115,8 @@ If you don't use the Okta Sign-In Widget, instead interacting directly with the 
 ## See also
 See the following guides for information on how to set up various IdPs:
 
+* [Apple](/docs/guides/add-an-external-idp/apple/before-you-begin/)
+* [Azure AD](/docs/guides/add-an-external-idp/azure/create-an-app-at-idp/)
 * [Facebook](/docs/guides/add-an-external-idp/facebook/before-you-begin/)
 * [Google](/docs/guides/add-an-external-idp/google/before-you-begin/)
 * [LinkedIn](/docs/guides/add-an-external-idp/linkedin/before-you-begin/)
