@@ -621,7 +621,7 @@ The Authenticator object defines the following properties:
   "type": "phone",
   "id": "aut1nbuyD8m1ckAYc0g4",
   "key": "phone_number",
-  "status": "INACTIVE",
+  "status": "ACTIVE",
   "name": "Phone",
   "created": "2020-07-26T21:05:23.000Z",
   "lastUpdated": "2020-07-29T00:21:29.000Z",
