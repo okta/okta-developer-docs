@@ -33,7 +33,7 @@ This Inline Hook works only when using custom SAML apps, not apps from the OIN.
 
 The outbound call from Okta to your external service provides you with the contents of the SAML assertion that was generated, which you will be able to augment or modify by means of the commands you return. Also provided is contextual information about the authentication request.
 
-Because SAML is XML-based, but the call from Okta to your service uses a JSON payload, the contents of the SAML assertion are converted to a JSON representation for sending.
+Because SAML is XML-based, but the call from Okta to your service uses a JSON payload, the contents of the SAML assertion are mapped to a JSON representation for sending.
 
 ### data.assertion.subject
 
@@ -58,9 +58,25 @@ Provides a JSON representation of the `<saml:Subject>` element of the SAML asser
 
 Provides a JSON representation of the `<saml:AuthnStatement>` element of the SAML assertion.
 
+```JSON
+"authentication": {
+        "sessionIndex": "id1553800523546.312669168",
+        "authnContext": {
+          "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
+        }
+      },
+```
 ### data.assertion.conditions
 
 Provides a JSON representation of the `<saml:Conditions>` element of the SAML assertion.
+
+```JSON
+"conditions": {
+        "audienceRestriction": [
+          "urn:example:sp"
+        ]
+```
+
 
 ### data.assertion.claims
 
