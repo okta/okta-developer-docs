@@ -86,6 +86,9 @@ curl -v -X GET \
     "name": "Email",
     "created": "2020-07-26T21:05:23.000Z",
     "lastUpdated": "2020-07-28T21:45:52.000Z",
+    "settings": {
+            "allowedFor": "any"
+     },
     "_links": {
       "self": {
         "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4",
@@ -150,6 +153,9 @@ curl -v -X GET \
     "name": "Phone",
     "created": "2020-07-26T21:05:23.000Z",
     "lastUpdated": "2020-07-29T00:21:29.000Z",
+    "settings": {
+            "allowedFor": "none"
+     },
     "_links": {
       "self": {
         "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4",
@@ -528,6 +534,7 @@ The Authenticator object defines the following properties:
 | `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified.                             |
 | `name`        | String                                                          | Display name of this Authenticator.                                             |
 | `type`        | String (Enum)                                                   | The type of Authenticator. Possible values: `password`, `security_question`, `phone`, `email`, `security_key`                            |
+| `allowedFor`        | String (Enum)                                                   | The allowed types of usages for the Authenticator. Possible values: `recovery`, `sso`, `any`, `none`                            |
 
 
 #### Example of Email Authenticator
@@ -541,6 +548,9 @@ The Authenticator object defines the following properties:
   "name": "Email",
   "created": "2020-07-26T21:05:23.000Z",
   "lastUpdated": "2020-07-28T21:45:52.000Z",
+  "settings": {
+            "allowedFor": "recovery"
+   },
   "_links": {
     "self": {
       "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbsPHh7jNjjyP0g4",
@@ -615,6 +625,9 @@ The Authenticator object defines the following properties:
   "name": "Phone",
   "created": "2020-07-26T21:05:23.000Z",
   "lastUpdated": "2020-07-29T00:21:29.000Z",
+  "settings": {
+            "allowedFor": "sso"
+  },
   "_links": {
     "self": {
       "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4",
@@ -634,7 +647,7 @@ The Authenticator object defines the following properties:
       }
     },
     "activate": {
-      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4/lifecycle/activate",
+      "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1nbuyD8m1ckAYc0g4/lifecycle/deactivate",
       "hints": {
         "allow": [
           "POST"
