@@ -533,8 +533,8 @@ The Authenticator object defines the following properties:
 | `key`         | String                                                          | A human-readable string that identifies the Authenticator.                                |
 | `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified.                             |
 | `name`        | String                                                          | Display name of this Authenticator.                                             |
-| `type`        | String (Enum)                                                   | The type of Authenticator. Possible values: `password`, `security_question`, `phone`, `email`, `security_key`                            |
-| `allowedFor`        | String (Enum)                                                   | The allowed types of usages for the Authenticator. Possible values: `recovery`, `sso`, `any`, `none`                            |
+| `type`        | String (Enum)                                                   | The type of Authenticator. Values include `password`, `security_question`, `phone`, `email` and `security_key`                            |
+| `allowedFor`        | String (Enum)                                                   | The allowed types of usages for the Authenticator. Values include `recovery`, `sso`, `any` and `none`                            |
 
 
 #### Example of Email Authenticator
