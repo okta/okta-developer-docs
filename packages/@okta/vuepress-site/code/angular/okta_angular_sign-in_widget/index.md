@@ -119,12 +119,12 @@ export class AppComponent implements OnInit {
   }
 
   login() {
-    this.oktaAuth.loginRedirect('/profile');
+    this.oktaAuth.signIn('/profile');
   }
 
   async logout() {
     // Terminates the session with Okta and removes current tokens.
-    await this.oktaAuth.logout();
+    await this.oktaAuth.signOut();
     this.router.navigateByUrl('/');
   }
 }
@@ -180,16 +180,19 @@ import * as OktaSignIn from '@okta/okta-signin-widget';
   `
 })
 export class LoginComponent implements OnInit {
-  signIn;
+  authService;
   widget = new OktaSignIn({
+    el: '#okta-signin-container',
     baseUrl: 'https://${yourOktaDomain}',
     authParams: {
       pkce: true
-    }
+    },
+         clientId: '${clientId}',
+         redirectUri: 'http://localhost:4200/login/callback'
   });
 
   constructor(oktaAuth: OktaAuthService, router: Router) {
-    this.signIn = oktaAuth;
+    this.authService = oktaAuth;
 
     // Show the widget when prompted, otherwise remove it from the DOM.
     router.events.forEach(event => {
@@ -208,19 +211,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.widget.renderEl({
-      el: '#okta-signin-container'},
-      (res) => {
-        if (res.status === 'SUCCESS') {
-          this.signIn.loginRedirect('/', { sessionToken: res.session.token });
-          // Hide the widget
-          this.widget.hide();
-        }
-      },
-      (err) => {
-        throw err;
-      }
-    );
+    this.widget.showSignInAndRedirect().catch(err => {
+      throw(err);
+    });
   }
 }
 ```
