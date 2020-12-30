@@ -76,8 +76,6 @@ Provides a JSON representation of the `<saml:Conditions>` element of the SAML as
           "urn:example:sp"
         ]
 ```
-
-
 ### data.assertion.claims
 
 Provides a JSON representation of the `<saml:AttributeStatement>` element contained in the generated SAML assertion, which will contain any optional SAML attribute statements that you have defined for the app using the Okta Admin Console's **SAML Settings**.
@@ -87,16 +85,16 @@ The following is an example of how an XML `<saml:AttributeStatement>` element is
 ```json
 {
   "claims": {
-    "foobie": {
+    "extPatientId": {
       "attributes": {
         "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
       },
       "attributeValues": [
         {
           "attributes": {
-            "xsi:type": "xs:string"
+            "xsi:type": "xs:integer"
           },
-          "value": "doobie"
+          "value": "4321"
         }
       ]
     }
@@ -107,6 +105,12 @@ The following is an example of how an XML `<saml:AttributeStatement>` element is
 ### data.assertion.lifetime
 
 Specifies the expiration time, in seconds, of the SAML assertion.
+
+```JSON
+"lifetime": {
+                "expiration": 300
+            }
+```
 
 ### data.context
 
@@ -159,15 +163,15 @@ The `value` object is where you specify the specific operation to perform. It is
 | Op      | Description                             |
 |---------|-----------------------------------------|
 | add     | Add a new claim to the assertion.       |
-| replace | Modify an existing attribute statement. |
+| replace | Modify any element of the assertion.    |
 
 ### Specifying Location within the Assertion
 
-You specify the location within the assertion at which to apply your operation using a slash-delimited path.
+You specify the location within the assertion at which to apply your operation using a slash-delimited path, which follows JSON Patch conventions.
 
 When performing an `add` op to add a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding.
 
-When modifying an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, for example, `/claims/array/attributeValues/1/value`.
+When modifying an existing assertions statement, the path begins with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, for example, `/claims/array/attributeValues/1/value`. (The `/1/` in the path indicates the index of the array.)
 
 ### URI claims
 
@@ -219,9 +223,9 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
         "id": "00uq8tMo3zV0OfJON0g3",
         "passwordChanged": "2018-09-11T23:19:12.000Z",
         "profile": {
-          "login": "administrator1@clouditude.net",
-          "firstName": "Add-Mine",
-          "lastName": "O'Cloudy Tud",
+          "login": "administrator1@example.com",
+          "firstName": "Admin",
+          "lastName": "Last",
           "locale": "en",
           "timeZone": "America/Los_Angeles"
         },
@@ -237,7 +241,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
     },
     "assertion": {
       "subject": {
-        "nameId": "administrator1@clouditude.net",
+        "nameId": "administrator1@example.com",
         "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
         "confirmation": {
           "method": "urn:oasis:names:tc:SAML:2.0:cm:bearer",
@@ -258,16 +262,16 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
         ]
       },
       "claims": {
-        "foobie": {
+        "extPatientId": {
           "attributes": {
             "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
           },
           "attributeValues": [
             {
               "attributes": {
-                "xsi:type": "xs:string"
+                "xsi:type": "xs:integer"
               },
-              "value": "doobie"
+              "value": "4321"
             }
           ]
         },
@@ -305,7 +309,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
               "attributes": {
                 "xsi:type": "xs:string"
               },
-              "value": "middellllll"
+              "value": "admin"
             }
           ]
         },
@@ -352,12 +356,12 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
           "op": "replace",
           "path": "/authentication/authnContext",
           "value": {
-            "authnContextClassRef": "Something:different?"
+            "authnContextClassRef": "replacementValue"
           }
         },
         {
           "op": "add",
-          "path": "/claims/foo",
+          "path": "/claims/extPatientId",
           "value": {
             "attributes": {
               "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
@@ -367,7 +371,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
                 "attributes": {
                   "xsi:type": "xs:string"
                 },
-                "value": "barer"
+                "value": "4321"
               }
             ]
           }
