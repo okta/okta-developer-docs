@@ -14,6 +14,8 @@ This guide will walk you through integrating authentication into an Angular appl
 5. [Connect the Routes](#connect-the-routes)
 6. [Start your App](#start-your-app)
 
+> This guide is for `@okta/okta-signin-widget` v5.2.0 and `@okta/okta-angular` v3.0.1.
+
 ## Prerequisites
 
 If you do not already have a  **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
@@ -104,7 +106,7 @@ import { OktaAuthService } from '@okta/okta-angular';
 })
 
 export class AppComponent implements OnInit {
-  isAuthenticated: boolean;
+  isAuthenticated: boolean = false;
 
   constructor(public oktaAuth: OktaAuthService, public router: Router) {
     // Subscribe to authentication state changes
@@ -119,7 +121,9 @@ export class AppComponent implements OnInit {
   }
 
   login() {
-    this.oktaAuth.loginRedirect('/profile');
+    this.oktaAuth.signInWithRedirect({
+      originalUri: '/profile'
+    });
   }
 
   async logout() {
@@ -170,7 +174,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationStart} from '@angular/router';
 
 import { OktaAuthService } from '@okta/okta-angular';
-import * as OktaSignIn from '@okta/okta-signin-widget';
+import { Tokens } from '@okta/okta-auth-js';
+const OktaSignIn = require('@okta/okta-signin-widget');
 
 @Component({
   selector: 'app-secure',
@@ -183,6 +188,8 @@ export class LoginComponent implements OnInit {
   signIn;
   widget = new OktaSignIn({
     baseUrl: 'https://${yourOktaDomain}',
+    clientId: '{clientId}',
+    redirectUri: window.location.origin + '/login/callback',
     authParams: {
       pkce: true
     }
@@ -207,20 +214,13 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.widget.renderEl({
-      el: '#okta-signin-container'},
-      (res) => {
-        if (res.status === 'SUCCESS') {
-          this.signIn.loginRedirect('/', { sessionToken: res.session.token });
-          // Hide the widget
-          this.widget.hide();
-        }
-      },
-      (err) => {
-        throw err;
-      }
-    );
+  async ngOnInit() {
+    const tokens: Tokens = await this.widget.showSignInToGetTokens({
+      el: '#okta-signin-container',
+    });
+    this.signIn.handleLoginRedirect(tokens);
+    // Hide the widget
+    this.widget.hide();
   }
 }
 ```
@@ -235,8 +235,9 @@ Update `src/app/app.module.ts` to include your project components and routes. Yo
 // app.module.ts
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
+import { OktaAuthService } from '@okta/okta-angular';
 
 import {
   OKTA_CONFIG,
@@ -256,7 +257,7 @@ const config = {
   pkce: true
 }
 
-export function onAuthRequired(oktaAuth, injector) {
+export function onAuthRequired(_oktaAuth: OktaAuthService, injector: Injector) {
   const router = injector.get(Router);
 
   // Redirect the user to your custom login page
