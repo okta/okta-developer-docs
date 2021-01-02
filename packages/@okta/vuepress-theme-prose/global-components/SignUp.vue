@@ -246,12 +246,7 @@ export default {
       displayConsent: false,
       displayAgree: false,
       form: {
-        state: {
-          value: "",
-          isValid: true,
-          errorList: [],
-          hidden: { value: true }
-        },
+        state: { value: "", isValid: true, errorList: [], hidden: true },
         email: { value: "", isValid: true, errorList: [] },
         firstName: { value: "", isValid: true, errorList: [] },
         lastName: { value: "", isValid: true, errorList: [] },
@@ -260,7 +255,7 @@ export default {
           value: false,
           isValid: true,
           errorList: [],
-          hidden: { value: true }
+          hidden: true
         }
       }
     };
@@ -271,7 +266,7 @@ export default {
         return this.state;
       },
       set(country) {
-        this.form.state.hidden.value = false;
+        this.form.state.hidden = false;
 
         if (country === this.usa) {
           this.state.list = americanStates;
@@ -282,7 +277,7 @@ export default {
         } else {
           this.state.list = [];
           this.state.label = "";
-          this.form.state.hidden.value = true;
+          this.form.state.hidden = true;
         }
       }
     },
@@ -316,6 +311,7 @@ export default {
       this.displayConsent = true;
       // Hide consent opt checkbox.
       this.displayAgree = false;
+      this.form.consentAgree.hidden = true;
       this.validationService.resetFormField("consentAgree", {
         reset: true,
         value: false

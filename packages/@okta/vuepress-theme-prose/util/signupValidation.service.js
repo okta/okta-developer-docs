@@ -12,7 +12,7 @@ export class SignUpValidation {
   }
 
   checkFormInput(key) {
-    if (!this.form[key].hidden || !this.form[key].hidden.value) {
+    if (!this.form[key].hidden) {
       this.resetFormField(key);
 
       if (this._isEmptyValue(this.form[key].value)) {
@@ -27,7 +27,7 @@ export class SignUpValidation {
   }
 
   checkFormCheckboxInput(key) {
-    if (!this.form[key].hidden || !this.form[key].hidden.value) {
+    if (!this.form[key].hidden) {
       this.resetFormField(key);
       if (!this.form[key].value) {
         this._setInputError(key, this.errorDictionary.emptyField);
@@ -67,7 +67,6 @@ export class SignUpValidation {
 
   resetFormField(key, resetValue = { reset: false, value: "" }) {
     if (resetValue.reset) this.form[key].value = resetValue.value;
-    if (this.form[key].hidden) this.form[key].hidden.value = true;
 
     this.form[key].isValid = true;
     this.form[key].errorList = [];
