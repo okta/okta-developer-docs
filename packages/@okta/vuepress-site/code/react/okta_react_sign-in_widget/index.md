@@ -193,7 +193,7 @@ import { useOktaAuth } from '@okta/okta-react';
 const Login = ({ config }) => {
   const { oktaAuth, authState } = useOktaAuth();
 
-  const onSuccess = (transaction) => {
+  const onSuccess = (tokens) => {
     oktaAuth.handleLoginRedirect(tokens);
   };
 
