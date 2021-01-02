@@ -246,7 +246,12 @@ export default {
       displayConsent: false,
       displayAgree: false,
       form: {
-        state: { value: "", isValid: true, errorList: [], hidden: true },
+        state: {
+          value: "",
+          isValid: true,
+          errorList: [],
+          hidden: { value: true }
+        },
         email: { value: "", isValid: true, errorList: [] },
         firstName: { value: "", isValid: true, errorList: [] },
         lastName: { value: "", isValid: true, errorList: [] },
@@ -255,7 +260,7 @@ export default {
           value: false,
           isValid: true,
           errorList: [],
-          hidden: true
+          hidden: { value: true }
         }
       }
     };
@@ -266,7 +271,7 @@ export default {
         return this.state;
       },
       set(country) {
-        this.form.state.hidden = false;
+        this.form.state.hidden.value = false;
 
         if (country === this.usa) {
           this.state.list = americanStates;
@@ -277,7 +282,7 @@ export default {
         } else {
           this.state.list = [];
           this.state.label = "";
-          this.form.state.hidden = true;
+          this.form.state.hidden.value = true;
         }
       }
     },
