@@ -45,6 +45,10 @@ $magenta: #e22866;
     }
   }
 
+  button {
+    font: inherit;
+  }
+
   .Button--red, .Button--whiteOutline {
     text-transform: uppercase;
     letter-spacing: 2px;
