@@ -110,6 +110,9 @@ $magenta: #e22866;
       ul {
         flex-grow: 1;
       }
+      @include media('<tablet') {
+        flex-direction: column;
+      }
     }
 
     .pricing-card-price {
