@@ -73,4 +73,3 @@ module.exports = [
         { title: 'ASA Users API', path: '/docs/reference/api/asa/users/'}
       ]
     }
-  ]

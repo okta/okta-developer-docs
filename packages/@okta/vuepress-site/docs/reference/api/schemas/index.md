@@ -322,7 +322,7 @@ The following response is only a subset of properties for brevity.
 
 <ApiOperation method="post" url="/api/v1/meta/schemas/user/${typeId}" />
 
-Updates one or more [custom User Profile properties](#user-profile-schema-property-object) in the schema, a [permission](#schema-property-permission-object) for a [User Profile base property](#user-profile-base-subschema), or the nullability of the `firstName` and `lastName` properties in the [User Profile base schema](#user-profile-base-subschema).
+Updates one or more [custom User Profile properties](#user-profile-schema-property-object) in the schema, and/or makes limited changes to [base User Profile properties](#user-profile-base-subschema) ([permissions](#schema-property-permission-object), nullability of the `firstName` and `lastName` properties, or [pattern](#login-pattern-validation) for `login`).
 
 ##### Request parameters
 

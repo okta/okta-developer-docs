@@ -1,8 +1,8 @@
 ---
-title: Use a dynamic group whitelist with a Custom Authorization Server
+title: Use a dynamic group allow list with a Custom Authorization Server
 ---
 
-To use the Group Functions to create an ID token or an access token using a dynamic group whitelist, create a Groups claim and a Groups scope in the Custom Authorization Server. For this example, we are adding a claim for use with an access token.
+To use the Group Functions to create an ID token or an access token using a dynamic group allow list, create a Groups claim and a Groups scope in the Custom Authorization Server. For this example, we are adding a claim for use with an access token.
 
 <RequireClassicUI/>
 
@@ -17,7 +17,7 @@ To use the Group Functions to create an ID token or an access token using a dyna
     >
     >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
     >
-    >See the Parameter Examples section of [Use group functions for static group whitelists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-whitelists) for more information on the parameters used in this Group function.
+    >See the Parameter Examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
 
 7. Click **Create**.
 8. Select the **Scopes** tab and click **Add Scope**.

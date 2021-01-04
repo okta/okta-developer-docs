@@ -4,6 +4,7 @@ guides:
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
+ - common-hook-set-up-steps
  - configure-access-policy
  - configure-signon-policy
  - create-an-api-token
@@ -16,9 +17,10 @@ guides:
  - customize-tokens-groups-claim
  - email-customization
  - enable-cors
+ - event-hook-implementation
  - find-your-app-credentials
  - find-your-domain
- - password-import-hook
+ - password-import-inline-hook
  - implement-auth-code
  - implement-auth-code-pkce
  - implement-client-creds
@@ -38,17 +40,18 @@ guides:
  - protect-your-api
  - quickstart
  - refresh-tokens
+ - registration-inline-hook
  - request-user-consent
  - revoke-tokens
  - saml-tracer
  - session-cookie
- - set-up-event-hook
  - set-up-self-service-registration
  - shared-sso-android-ios
  - sharing-cert
  - sign-into-mobile-app
  - sign-into-spa
  - sign-into-web-app
+ - sign-into-web-app-remediation
  - sign-users-out
  - sign-your-own-saml-csr
  - style-the-widget
@@ -72,7 +75,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
-    * [Quickstart: Signing in your first user](/docs/guides/quickstart/)
+    * [Quickstart: Signing in your first user](/docs/guides/quickstart/cli/create-org/)
     * [Set up self-service registration](/docs/guides/set-up-self-service-registration/before-you-begin/)
 
 2. Sign users in
@@ -94,8 +97,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Configure an access policy](/docs/guides/configure-access-policy/overview/)
     * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/overview/)
     * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/overview/)
-    * [Customize tokens returned from Okta with a dynamic whitelist](/docs/guides/customize-tokens-dynamic/overview/)
-    * [Customize tokens returned from Okta with a static whitelist](/docs/guides/customize-tokens-static/overview/)
+    * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/overview/)
+    * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/overview/)
 
 4. Brand and customize
 

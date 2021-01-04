@@ -1,6 +1,6 @@
 {
-  "release" : "2020.11.1",
-  "build" : "2020.11.1-begin-125-gbebc1b0e6885",
+  "release" : "2020.12.1",
+  "build" : "2020.12.1-begin-99-gd9effb0ab7f0",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -12397,13 +12397,13 @@
     }, {
       "id" : "group.privilege.grant",
       "category" : "dda",
-      "description" : "Fired when a group within Okta has been granted admin privileges. The group granted privileges can be an Okta mastered group, and AD mastered group, or an LDAP mastered group. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been granted, and what entity masters the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
+      "description" : "Group's admin privilege granted. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been granted, and what entity sources the group. The group granted privileges can be an Okta sourced group, and AD-sourced group, or an LDAP-sourced group Related events include: GROUP_PRIVILEGE_REVOKE.",
       "info" : {
         "created" : "2019-02-25",
         "release" : "2019.03.0"
       },
       "beta" : false,
-      "tags" : [ "group" ],
+      "tags" : [ "event-hook-eligible", "group" ],
       "mappings" : [ "core.group.admin_privilege.granted" ],
       "schema" : {
         "debugData" : "GroupRoleDebugData",
@@ -12413,13 +12413,13 @@
     }, {
       "id" : "group.privilege.revoke",
       "category" : "dda",
-      "description" : "Fired when a group within Okta has had admin privileges revoked. The group with revoked privileges can be an Okta mastered group, and AD mastered group, or an LDAP mastered group. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been revoked, and what entity masters the group. Related events include: GROUP_PRIVILEGE_REVOKE.",
+      "description" : "Group's admin privilege revoked. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been revoked, and what entity sources the group. The group with revoked privileges can be an Okta sourced group, and AD-sourced group, or an LDAP-sourced group Related events include: GROUP_PRIVILEGE_REVOKE.",
       "info" : {
         "created" : "2019-02-25",
         "release" : "2019.03.0"
       },
       "beta" : false,
-      "tags" : [ "group" ],
+      "tags" : [ "event-hook-eligible", "group" ],
       "mappings" : [ "core.group.admin_privilege.revoked" ],
       "schema" : {
         "debugData" : "GroupRoleDebugData",
@@ -14731,6 +14731,86 @@
         "targets" : null
       }
     }, {
+      "id" : "system.custom_error.update",
+      "category" : "developer-platform",
+      "description" : "Custom Error page is updated. Can be used to identify when an admin has customized the Error page. Event fired when Error page is successfully updated.",
+      "info" : {
+        "created" : "2020-11-09",
+        "release" : "2020.12.0"
+      },
+      "beta" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "system.custom_signin.update",
+      "category" : "developer-platform",
+      "description" : "Custom Sign in page is updated. Can be used to identify when an admin has customized the Okta-hosted Sign-In Widget. Event fired when Okta-hosted Sign-In Widget is successfully updated.",
+      "info" : {
+        "created" : "2020-11-09",
+        "release" : "2020.12.0"
+      },
+      "beta" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "system.custom_url_domain.cert_upload",
+      "category" : "developer-platform",
+      "description" : "Custom URL domain certificates are uploaded. Can be used to identify when an admin has uploaded certificates for their custom URL domain. When fired, the validation status in the event will be updated to COMPLETED.",
+      "info" : {
+        "created" : "2020-11-09",
+        "release" : "2020.12.0"
+      },
+      "beta" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "CustomDomainResourceDetails" ]
+      }
+    }, {
+      "id" : "system.custom_url_domain.initiate",
+      "category" : "developer-platform",
+      "description" : "Custom URL domain setup is initiated. Admin has initiated custom URL domain setup by inputting their custom domain for DNS verification. When fired, the event contains information about the domain name and initial validation status.",
+      "info" : {
+        "created" : "2020-11-09",
+        "release" : "2020.12.0"
+      },
+      "beta" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "CustomDomainResourceDetails" ]
+      }
+    }, {
+      "id" : "system.custom_url_domain.verify",
+      "category" : "developer-platform",
+      "description" : "Custom URL domain name ownership is successfully verified by Okta. Identifies when an admin has successfully verified the ownership of the domain name. When fired, the validation status in the event will be updated to VERIFIED.",
+      "info" : {
+        "created" : "2020-11-09",
+        "release" : "2020.12.0"
+      },
+      "beta" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "CustomDomainResourceDetails" ]
+      }
+    }, {
       "id" : "system.directory.debugger.extend",
       "category" : "directories",
       "description" : "Extend Directory Debugger access for Okta support. This can be used to audit the Directory Debugger access extension. When fired, this event contains information about Directory Debugger access extension.",
@@ -15963,6 +16043,22 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.operation.rate_limit.violation",
+      "category" : "performance",
+      "description" : "Operation rate limit violation. This can be used to track if an operation is exceeding its rate limit. When fired, this event contains information about the operation such as actor, type, scope and threshold details. OperationRateLimitType in debugData will indicate the category to which the rate limit is being applied (e.g. authenticator_otp_verification), OperationRateLimitSubtype defines specific subtypes (e.g. Email, SMS or Voice call for authenticator_otp_verification type) and OperationRateLimitScope will indicate the scope of the rate limit (e.g. user or org level).",
+      "info" : {
+        "created" : "2020-12-02",
+        "release" : "2020.12.0"
+      },
+      "beta" : false,
+      "tags" : [ "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OperationRateLimitDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.org.lifecycle.create",
       "category" : "ace",
       "description" : "Org creation.",
@@ -16381,13 +16477,13 @@
     }, {
       "id" : "user.account.privilege.grant",
       "category" : "dda",
-      "description" : "Grant user privilege.",
+      "description" : "User's admin privilege granted.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
       "beta" : false,
-      "tags" : [ "user" ],
+      "tags" : [ "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.admin_privilege.granted" ],
       "schema" : {
         "debugData" : "UserRoleDebugData",
@@ -16397,13 +16493,13 @@
     }, {
       "id" : "user.account.privilege.revoke",
       "category" : "dda",
-      "description" : "Revoke user privilege.",
+      "description" : "User's admin privilege revoked.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
       },
       "beta" : false,
-      "tags" : [ "user" ],
+      "tags" : [ "event-hook-eligible", "user" ],
       "mappings" : [ "core.user.admin_privilege.revoked" ],
       "schema" : {
         "debugData" : "UserRoleDebugData",
@@ -16429,7 +16525,7 @@
     }, {
       "id" : "user.account.reset_password",
       "category" : "authn",
-      "description" : "User reset password for Okta (by admin).",
+      "description" : "Fired when the user's Okta password is reset.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
@@ -23350,6 +23446,187 @@
           }
         }
       },
+      "OperationRateLimitDebugData" : {
+        "name" : "OperationRateLimitDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "threat_suspected" : {
+            "type" : "boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "operation_rate_limit_seconds_to_reset" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "1", "5", "10" ]
+          },
+          "operation_rate_limit_time_span" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "1", "5", "10" ]
+          },
+          "operation_rate_limit_time_unit" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "SECONDS", "MINUTES" ]
+          },
+          "operation_rate_limit_threshold" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "5000", "4000", "1200", "8000" ]
+          },
+          "operation_rate_limit_scope_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "org", "user", "application" ]
+          },
+          "operation_rate_limit_subtype" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "email", "phone", "rsa_token" ]
+          },
+          "operation_rate_limit_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "web_request", "authenticator_otp_verification", "sms_factor_enroll", "event_hook_delivery", "elastic_rate_limit_activated" ]
+          }
+        }
+      },
       "OrgLifecycleDebugData" : {
         "name" : "OrgLifecycleDebugData",
         "properties" : {
@@ -27707,6 +27984,27 @@
             "customer" : false,
             "format" : "okta:agentInstanceId",
             "examples" : [ "0oaknbuyg3AoKdZ4f0x7", "0oa24wjaw8XsqB1b42p7", "0oa19bii09dnf8vgQ1d8" ]
+          }
+        }
+      },
+      "CustomDomainResourceDetails" : {
+        "name" : "CustomDomainResourceDetails",
+        "properties" : {
+          "custom_domain_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "verified", "in_progress" ]
+          },
+          "custom_domain_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "domainName",
+            "examples" : [ "example.google.com" ]
           }
         }
       },

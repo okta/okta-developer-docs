@@ -33,6 +33,7 @@ module.exports = [
       },
       { title: 'Sign users in to your single-page application', guideName: 'sign-into-spa' },
       { title: 'Sign users in to your web application', guideName: 'sign-into-web-app' },
+      { title: 'Sign users in to your web application without redirection', guideName: 'sign-into-web-app-remediation' , hidden: true},
       { title: 'Sign users out', guideName: 'sign-users-out' },
       { title: 'Configure Okta sign-on and App sign-on policies', guideName: 'configure-signon-policy' },
     ]
@@ -53,8 +54,8 @@ module.exports = [
           { title: 'Build a JWT for Client Authentication', guideName: 'build-self-signed-jwt' },
           { title: 'Customize tokens returned from Okta with custom claims', guideName: 'customize-tokens-returned-from-okta' },
           { title: 'Customize tokens returned from Okta with a Groups claim', guideName: 'customize-tokens-groups-claim' },
-          { title: 'Customize tokens returned from Okta with a dynamic whitelist', guideName: 'customize-tokens-dynamic' },
-          { title: 'Customize tokens returned from Okta with a static whitelist', guideName: 'customize-tokens-static' },
+          { title: 'Customize tokens returned from Okta with a dynamic allow list', guideName: 'customize-tokens-dynamic' },
+          { title: 'Customize tokens returned from Okta with a static allow list', guideName: 'customize-tokens-static' },
           { title: 'Refresh access tokens', guideName: 'refresh-tokens' },
           { title: 'Revoke Tokens', guideName: 'revoke-tokens' },
           { title: 'Work with Okta session cookies', guideName: 'session-cookie' },
@@ -103,8 +104,10 @@ module.exports = [
   {
     title: 'Hooks',
     subLinks: [
-      { title: 'Set Up Event Hooks', guideName: 'set-up-event-hook' },
-      { title: 'Implement a Password Import Inline Hook', guideName: 'password-import-hook' },
+      { title: 'Common Hook Set-up Steps', guideName: 'common-hook-set-up-steps'},
+      { title: 'Event Hook', guideName: 'event-hook-implementation' },
+      { title: 'Password Import Inline Hook', guideName: 'password-import-inline-hook' },
+      { title: 'Registration Inline Hook', guideName: 'registration-inline-hook' }
     ]
   }
 ];

@@ -1,0 +1,58 @@
+.login {
+  width: 100%;
+  max-width: 1272px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  font-size: 16px;
+  align-items: center;
+  flex-direction: column;
+  color: $white;
+  h1 {
+    color: $white;
+    text-align: center;
+  }
+
+  .login--form {
+    display: flex;
+    flex-direction: column;
+    width: 588px;
+    margin: 0;
+    padding: 40px 48px 8px 48px;
+    background-color: cv("blue", "whale");
+    box-shadow: 0px 6px 25px cv("blue", "whale");
+    @include media("<tablet") {
+      padding: 10px;
+      width: 100%;
+    }
+
+    .splitter {
+      display: flex;
+      height: 27px;
+      margin: 19.5px 0;
+      justify-content: space-between;
+      align-items: center;
+      span:nth-child(2) {
+        margin: 0 16px;
+      }
+      span:nth-child(1),
+      span:nth-child(3) {
+        height: 0;
+        flex-grow: 1;
+        border: 2px solid cv("brand", "base");
+      }
+    }
+
+    .goto-signup {
+      justify-content: center;
+      margin: 0;
+      a {
+        font-size: 17px;
+        text-indent: 5px;
+        color: cv("cerise", "base");
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

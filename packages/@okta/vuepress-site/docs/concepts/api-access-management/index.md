@@ -18,7 +18,10 @@ When do you use API Access Management and when do you use OpenID Connect?
 ### Simple use cases
 
 In general, use OpenID Connect to sign users in to apps, and use API Access Management to secure your APIs:
-create one or more Custom Authorization Servers, define scopes and claims, and create policies and rules to determine who can access your API resources.
+
+* Create one or more Custom Authorization Servers
+* Define scopes and claims
+* Create policies and rules to determine who can access your API resources
 
 For example:
 
