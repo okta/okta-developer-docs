@@ -90,11 +90,11 @@
                             </ul>
                           </div>
                           <div class="pricing-card-column" v-if="typeof edition[feature] === 'object'">
-                              <img src="/img/icons/icon--check.svg" v-if="edition[feature].enabled" />
+                              <img src="/img/icons/icon--check.svg" v-if="edition[feature].enabled" class="pricing-card-check" />
                               {{edition[feature].additionalNote}}
                           </div>
                           <div class="pricing-card-column" v-else>
-                            <img src="/img/icons/icon--check.svg" v-if="edition[feature]" />
+                            <img src="/img/icons/icon--check.svg" v-if="edition[feature]" class="pricing-card-check" />
                           </div>
                         </div>
                       </template>
