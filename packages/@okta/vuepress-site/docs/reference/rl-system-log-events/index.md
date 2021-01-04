@@ -20,7 +20,7 @@ Additionally, there are specific [org-based System Log events](/docs/reference/a
 
 ## DebugContext object
 
-For some types of events, the fields provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the [DebugContext](/docs/reference/api/system-log/#debugcontext-object) object provides a way to store additional information.
+For some event types, the fields provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the [DebugContext](/docs/reference/api/system-log/#debugcontext-object) object provides a way to store additional information.
 
 ## DebugContext object properties for rate limiting
 
