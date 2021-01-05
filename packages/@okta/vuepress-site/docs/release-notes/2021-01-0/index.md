@@ -22,9 +22,9 @@ For [Groups API](/docs/reference/api/groups/) requests that return a Group or a 
 
 The [Apps API](/docs/reference/api/apps/) now includes additional Early Access endpoints and objects for provisioning connections and features:
 
-- [Application logo operations](/docs/reference/api/apps/#application-logo-operations) (`apps/${applicationId}/logo`)
-- [Application Provisioning Connection operations](/docs/reference/api/apps/#application-provisioning-connection-operations) (`apps/${applicationId}/connections`)
-- [Application Features operations](/docs/reference/api/apps/#application-feature-operations) (`apps/${applicationId}/features`)
+- [Application Logo operations](/docs/reference/api/apps/#application-logo-operations) (`/apps/${applicationId}/logo`)
+- [Application Provisioning Connection operations](/docs/reference/api/apps/#application-provisioning-connection-operations) (`/apps/${applicationId}/connections`)
+- [Application Features operations](/docs/reference/api/apps/#application-feature-operations) (`/apps/${applicationId}/features`)
 - [Provisioning Connection object](/docs/reference/api/apps/#provisioning-connection-object)
 - [Provisioning Connection Profile object](/docs/reference/api/apps/#provisioning-connection-profile-object)
 - [Application Feature object](/docs/reference/api/apps/#application-feature-object)
@@ -58,4 +58,4 @@ The WebAuthn feature now supports trusted cross-origin and cross-Relying Party I
 
 ### Bug fixed in 2021.01.0
 
-Non-CORS requests to the OAuth 2.0 `/introspect` and `/revoke` endpoints failed when the Okta session cookie was present.(OKTA-356288)
+Non-CORS requests to the OAuth 2.0 `/introspect` and `/revoke` endpoints failed when the Okta session cookie was present. (OKTA-356288)
