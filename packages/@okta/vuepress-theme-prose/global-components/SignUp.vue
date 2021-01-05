@@ -21,8 +21,8 @@
             <ul class="error-color" v-if="form.email.errorList.length">
               <li
                 class="error-color"
-                v-for="error in form.email.errorList"
-                v-bind:key="error.length * Math.random()"
+                v-for="(error, index) in form.email.errorList"
+                v-bind:key="index"
               >
                 {{ error }}
               </li>
@@ -45,8 +45,8 @@
               <ul class="error-color" v-if="form.firstName.errorList.length">
                 <li
                   class="error-color"
-                  v-for="error in form.firstName.errorList"
-                  v-bind:key="error.length * Math.random()"
+                  v-for="(error, index) in form.firstName.errorList"
+                  v-bind:key="index"
                 >
                   {{ error }}
                 </li>
@@ -68,8 +68,8 @@
               <ul class="error-color" v-if="form.lastName.errorList.length">
                 <li
                   class="error-color"
-                  v-for="error in form.lastName.errorList"
-                  v-bind:key="error.length * Math.random()"
+                  v-for="(error, index) in form.lastName.errorList"
+                  v-bind:key="index"
                 >
                   {{ error }}
                 </li>
@@ -99,7 +99,7 @@
               <option disabled selected>Country</option>
               <option
                 v-for="country in getCountries"
-                v-bind:key="country.value.length * Math.random()"
+                v-bind:key="country.value"
                 :value="country.value"
                 >{{ country.name }}</option
               >
@@ -122,7 +122,7 @@
               <option selected disabled>{{ states.label }}</option>
               <option
                 v-for="state in states.list"
-                v-bind:key="state.name.length * Math.random()"
+                v-bind:key="state.name"
                 :value="state.value"
                 >{{ state.name }}</option
               >
