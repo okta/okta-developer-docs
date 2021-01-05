@@ -77,10 +77,11 @@ $magenta: #e22866;
   }
 
   ul.pricing--icon-list {
-    list-style: disc outside url('/img/icons/icon--check.svg');
-    padding-left: 25px;
+    list-style: none;
+
     li {
-      padding: 10px;
+      background: url('/img/icons/icon--check.svg') no-repeat left 13px;
+      padding: 10px 10px 10px 30px;
     }
   }
 
