@@ -213,6 +213,10 @@ $magenta: #e22866;
       justify-content: center;
       align-items: flex-start;
 
+      li {
+        margin-bottom: initial;
+      }
+
       @include media('<desktop') {
         &.desktop {
           display: none;
