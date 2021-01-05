@@ -1,5 +1,5 @@
 export const countriesList = [
-  { name: "United States", value: "United States", states: americanStates },
+  { name: "United States", value: "United States" },
   { name: "Canada", value: "Canada" },
   { name: "Afghanistan", value: "Afghanistan" },
   { name: "Aland Islands", value: "Aland Islands" },
@@ -356,6 +356,48 @@ export const americanStates = [
   { name: "Wisconsin", value: "WI" },
   { name: "West Virginia", value: "WV" },
   { name: "Wyoming", value: "WY" }
+];
+
+export const GDPR_COUNTRIES = [
+  'Canada',
+  'Australia',
+  'Austria',
+  'Belgium',
+  'Bulgaria',
+  'Canary Islands',
+  'Channel Islands',
+  'Croatia',
+  'Cyprus',
+  'Czech Republic',
+  'Denmark',
+  'Estonia',
+  'Finland',
+  'France',
+  'Germany',
+  'Greece',
+  'Hungary',
+  'Ireland',
+  'Israel',
+  'Italy',
+  'Japan',
+  'Latvia',
+  'Lithuania',
+  'Luxembourg',
+  'Malta',
+  'Netherlands',
+  'New Zealand',
+  'Poland',
+  'Portugal',
+  'Romania',
+  'Russia',
+  'Singapore',
+  'Slovakia',
+  'Slovenia',
+  'South Korea',
+  'Spain',
+  'Sweden',
+  'Switzerland',
+  'United Kingdom'
 ];
 
 export const bannedEmailProviders = [
