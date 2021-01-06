@@ -16,7 +16,7 @@ title: Okta API Products Release Notes
 
 ### Group object source property is now GA in Production
 
-For [Groups API](/docs/reference/api/groups/) requests that return a Group or a list of Groups, the Group object, of type APP_GROUP, includes a `source` property that provides the ID of the source application for the returned Group. This property is now GA in Production. See [Group attributes](/docs/reference/api/groups/#group-attributes).<!--OKTA-326611-->
+For [Groups API](/docs/reference/api/groups/) requests that return a Group or a list of Groups, the Group object type APP_GROUP includes a `source` property that provides the ID of the source application for the returned Group. This property is now GA in Production. See [Group attributes](/docs/reference/api/groups/#group-attributes).<!--OKTA-326611-->
 
 ### New Apps API endpoints in Early Access (EA)
 
@@ -32,10 +32,6 @@ The [Apps API](/docs/reference/api/apps/) now includes additional Early Access e
 These updates improve the ability of administrators to configure application logos and provisioning details, previously available only through the Admin Console.
 
 >**Note** Currently, only the Okta Org2Org application supports Application Provisioning Connection and Application Features operations. <!--OKTA-335123-->
-
-<!-- ### AuthType LDAP_INTERFACE for Policy API Now in Early Access (EA)
-
-The [Policy API](/docs/reference/api/policy/) now includes the data type [LDAP_INTERFACE](/docs/reference/api/policy/#authcontext-condition-object) for use with the AuthContext Condition object, which provides another option for user authentication.<!--OKTA-343973-->
 
 ### Developers can now use SWA for testing SCIM app integrations
 
