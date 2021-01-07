@@ -26,6 +26,15 @@ export class SignUpValidation {
     }
   }
 
+  checkFormCheckboxInput(key) {
+    if (!this.form[key].hidden) {
+      this.resetFormField(key);
+      if (!this.form[key].value) {
+        this._setInputError(key, this.errorDictionary.emptyField);
+      }
+    }
+  }
+
   checkEmailInput(key) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     this.resetFormField(key);
@@ -56,8 +65,8 @@ export class SignUpValidation {
     return validForm;
   }
 
-  resetFormField(key, resetValue) {
-    if (resetValue) this.form[key].value = "";
+  resetFormField(key, resetValue = { reset: false, value: "" }) {
+    if (resetValue.reset) this.form[key].value = resetValue.value;
 
     this.form[key].isValid = true;
     this.form[key].errorList = [];

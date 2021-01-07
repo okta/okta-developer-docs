@@ -76,7 +76,7 @@ Enter the credentials for a user who is mapped to your Open ID Connect applicati
 
 `https://yourRedirectUriHere.com/#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImluZUdjZVQ4SzB1SnZyWGVUX082WnZLQlB2RFowO[...]z7UvPoMEIjuBTH-zNkTS5T8mGbY8y7532VeWKA&state=WM6D`
 
-To check the returned ID Token, you can copy the value and paste it into any JWT decoder (for example: <https://jsonwebtoken.io>). Using a JWT decoder you can check the payload to confirm that it contains all of the claims that you are expecting, including custom ones. If you included a `nonce` value, that is also included:
+To check the returned ID Token, you can copy the value and paste it into any JWT decoder (for example: <https://token.dev>). Using a JWT decoder you can check the payload to confirm that it contains all of the claims that you are expecting, including custom ones. If you included a `nonce` value, that is also included:
 
 ```json
 {
