@@ -109,7 +109,7 @@
 </template>
 
 <script>
-const TABLET_BREAKPOINT = 767;
+const TABLET_BREAKPOINT = 768;
 
 export default {
   name: 'RedesignedHomePage',
@@ -280,7 +280,7 @@ export default {
   },
   methods: {
     onResize() {
-      this.isInMobileViewport = window.innerWidth < TABLET_BREAKPOINT;
+      this.isInMobileViewport = window.innerWidth <= TABLET_BREAKPOINT;
     },
     togglePseudoAuth(e) {
       if (this.isInMobileViewport) {
