@@ -80,8 +80,9 @@ export default {
     return {
       appContext: {
         isTreeNavMobileOpen: false,
-        isInMobileViewport: false
+        isInMobileViewport: false,
       },
+      isHomePage: false,
     }
   },
   provide(){
