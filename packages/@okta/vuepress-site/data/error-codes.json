@@ -1,6 +1,6 @@
 {
-  "release" : "2020.12.1",
-  "build" : "2020.12.1-begin-99-gd9effb0ab7f0",
+  "release" : "2021.01.1",
+  "build" : "2021.01.1-begin-115-g04e1a2262beb",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
