@@ -31,7 +31,7 @@ The [Apps API](/docs/reference/api/apps/) now includes additional Early Access e
 
 These updates improve the ability of administrators to configure application logos and provisioning details, previously available only through the Admin Console.
 
->**Note** Currently, only the Okta Org2Org application supports Application Provisioning Connection and Application Features operations. <!--OKTA-335123-->
+>**Note:** Currently, only the Okta Org2Org application supports Application Provisioning Connection and Application Features operations. <!--OKTA-335123-->
 
 ### Developers can now use SWA for testing SCIM app integrations
 
