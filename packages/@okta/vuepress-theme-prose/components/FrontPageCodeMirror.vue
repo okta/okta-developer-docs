@@ -21,7 +21,6 @@ export default {
   },
   data() {
     return {
-     dedent: null,
      widgetCode:`
       // Uses okta-signin-widget version 5.2.0
 
