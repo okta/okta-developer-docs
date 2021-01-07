@@ -92,7 +92,7 @@ For reference, here is the default template:
 
 ### Embedded sign-in widget
 
-> **Note:** "Embedded" means the widget is included directly in your application via NPM module or script tag
+> **Note:** "Embedded" means the widget is included directly in your application via NPM module or script tag. @okta/okta-signin-widget version 5.2.0 or above is needed to enable the interaction code flow.
 
 Set the option `useInteractionCodeFlow` to `true` on the object passed to the Sign-In Widget constructor. This will enable Okta Identity Engine for the widget. Both the authorization server and the application must have the [interaction code](#enable-interaction-code-grant) grant type enabled.
 
