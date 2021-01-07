@@ -35,7 +35,18 @@ export default {
         });
 
         this.widget.on('afterRender', () => {
-          if (!this.rendered) {
+          if (this.rendered) {
+            // Last focused element to return to
+            const elementToFocus = (document.activeElement);
+            setTimeout(() => {
+              const activeElement = (document.activeElement);
+
+              if (activeElement.id === 'okta-signin-password') {
+                activeElement.blur();
+                elementToFocus.focus();
+              }
+            }, 0);
+          } else {
             this.widget.hide();
 
             // Prefill password input
@@ -48,18 +59,7 @@ export default {
             setTimeout(() => {
               this.widget.show();
               this.rendered = true;
-            }, 0);
-          } else {
-            // Last focused element to return to
-            const elementToFocus = (document.activeElement);
-            setTimeout(() => {
-              const activeElement = (document.activeElement);
-
-              if (activeElement.id === 'okta-signin-password') {
-                activeElement.blur();
-                elementToFocus.focus();
-              }
-            }, 0);
+            }, 100);
           }
         });
 
@@ -68,7 +68,7 @@ export default {
     });
   },
   destroyed () {
-   this.widget ? this.widget.remove() : null;
+    this.widget ? this.widget.remove() : null;
   },
 };
 </script>
