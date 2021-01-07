@@ -1,82 +1,413 @@
-.SearchBox .CoveoOmnibox {
-  border-color: #b7bcc0;
-  height: 45px;
-  width: 85%;
-  max-width: 710px;
+.proxima {
+  font-family: "proxima-nova", sans-serif;
+  font-style: normal;
+  font-weight: 400;
 }
 
-.SearchBar {
-  top: 0px;
-  left: 0;
-  @include media(">desktop") {
-    top: 95px;
-  }
-
-  @include media(">859px") {
-    top: 75px;
-  }
-
-  .Wrap {
-    width: 100%;
-  }
-}
-
-$redesign_placeholder_color: #616161;
-
-.search--wrapper {
+#SearchPage {
   position: relative;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1280px;
 
-  .input--icon {
-    position: absolute;
-    width: 15px;
-    height: 15px;
-    top: 11px;
-    left: 12px;
+  .coveo-main-section {
+    max-width: 100%;
   }
-
-  .CoveoSearchInterface {
-    min-width: initial;
-    max-width: initial;
+  .coveo-results-column {
+    margin: 0;
+    padding: 0;
+    max-width: 800px;
   }
+  .coveo-facet-column {
+    margin: 0 20px 0 0;
+    padding: 0 20px 0 0;
+    p {
+      visibility: hidden;
+    }
+  }
+  #sourceFilter {
+    margin-top: 0;
+  }
+  .coveo-result-row {
+    margin: 14px 0;
+    &.is-primary {
+      margin: 12px 0;
+    }
+    &.is-secondary {
+      margin: 12px 0 16px 0;
+    }
+  }
+  .coveo-facet-header {
+    @extend .proxima;
+    color: cv("gray", "800");
+    background: none;
+    padding-top: 0;
+  }
+  .coveo-facet-header-title {
+    display: none;
+  }
+  .coveo-facet-header-settings-section,
+  .coveo-facet-header-wait-animation {
+    @include is-visually-hidden;
+  }
+  .CoveoQuerySummary,
+  .coveo-summary-section {
+    @extend .proxima;
+    color: cv("gray", "500");
+    font-weight: 300;
+    .coveo-highlight {
+      font-weight: 300;
+    }
+  }
+  .coveo-facet-value {
+    padding: 0;
 
-  .CoveoOmnibox.magic-box {
-    width: 100%;
-    height: 38px;
-    border: none;
+    &:last-child {
+      margin-bottom: 0;
+    }
 
-    .magic-box-input {
-      height: 38px;
+    .coveo-facet-value-checkbox {
+      top: -1px;
       border-radius: 4px;
-
-      .magic-box-underlay {
-        height: 38px;
-        padding-left: 40px;
-        padding-right: 12px;
+      border-color: cv("gray", "600");
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+    }
+    &.coveo-selected .coveo-facet-value-checkbox {
+      background-color: cv("action");
+    }
+    &.coveo-selected .coveo-facet-value-checkbox svg {
+      transform: translate(0, -1px);
+      fill: $white;
+      stroke-width: 2;
+    }
+    .coveo-facet-value-checkbox-svg {
+      .coveo-hook-svg {
+        fill: $white;
       }
-
-      input {
-        height: 38px;
-        padding-left: 40px;
-        padding-right: 12px;
-        font-size: 14px;
-        font-family: inherit;
-
-        &::placeholder {
-          color: $redesign_placeholder_color;
+    }
+    &:hover {
+      background: none;
+      .coveo-facet-value-checkbox-svg {
+        .coveo-hook-svg {
+          fill: cv("action");
         }
-
-        @include media("<desktop") {
-          &::placeholder {
-            color: transparent;
-          }
-        }
-
-        @include media("<tablet") {
-          &::placeholder {
-            color: $redesign_placeholder_color;
+      }
+    }
+    &.coveo-selected {
+      .coveo-facet-value-caption {
+        color: cv("gray", "800");
+      }
+      &:hover {
+        .coveo-facet-value-checkbox-svg {
+          .coveo-hook-svg {
+            fill: $white;
           }
         }
       }
     }
+  }
+  .coveo-facet-search-button,
+  .coveo-facet-value-exclude,
+  .coveo-facet-value-count {
+    @include is-visually-hidden;
+  }
+  .coveo-facet-values {
+    border-bottom: 1px solid cv("gray", "100");
+    padding-bottom: 48px;
+    margin-bottom: 48px;
+  }
+  .coveo-facet-value-caption {
+    color: cv("gray", "900");
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 16px;
+    margin: 0 0 8px;
+  }
+  .coveo-pager-list-item,
+  .coveo-pager-list-item-text,
+  .coveo-pager-anchor,
+  .coveo-active {
+    @extend .proxima;
+    border: none;
+    color: cv("action");
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .coveo-pager-list {
+    display: flex;
+    margin-left: -5px;
+  }
+  .coveo-pager-list-item {
+    @extend .proxima;
+    font-weight: 600;
+    font-size: 16px;
+    width: 36px;
+    height: 36px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:hover {
+      color: cv("action");
+      background: cv("gray", "100");
+      border: none;
+      text-decoration: none;
+    }
+  }
+  .coveo-facet-footer {
+    display: none;
+  }
+  .coveo-active {
+    background: cv("gray", "100");
+    &:hover,
+    & > .coveo-pager-anchor {
+      text-decoration: none;
+      color: cv("gray", "900");
+    }
+  }
+  .coveo-pager-next,
+  .coveo-pager-previous {
+    border: 1px solid cv("action");
+    border-radius: 3px;
+    &:hover {
+      border: 1px solid cv("action");
+    }
+  }
+  .coveo-pager-next-icon,
+  .coveo-pager-previous-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  .coveo-pager-next-icon-svg,
+  .coveo-pager-previous-icon-svg {
+    height: 9px;
+    color: cv("action");
+  }
+  .coveo-results-header {
+    box-shadow: 0 -1px 0 0 cv("gray", "100") inset;
+    margin: 0;
+    padding: 0;
+  }
+  .CoveoSearchInterface {
+    &,
+    * {
+      @extend .proxima;
+    }
+  }
+  .CoveoResultList {
+    margin-top: 0;
+  }
+  .CoveoResultLink {
+    @extend .proxima;
+    &,
+    &:visited {
+      color: cv("action");
+      font-size: 16px;
+      font-weight: 600;
+    }
+    &:hover,
+    &:focus {
+      color: cv("action");
+      cursor: pointer;
+    }
+    &.coveo-printable-uri-part {
+      color: cv("gray", "500");
+      font-size: 14px;
+      font-weight: 400;
+    }
+  }
+  .is-secondary .CoveoResultLink {
+    color: cv("gray", "500");
+    font-size: 14px;
+    outline: none;
+    &:hover,
+    &:focus,
+    &:visited {
+      color: cv("gray", "500");
+      cursor: pointer;
+    }
+  }
+  .is-external-link {
+    $icon-size: 0.6em;
+    background-image: url("/img/icons/external--gray.svg");
+    background-repeat: no-repeat;
+    background-position: 100% 50%;
+    background-size: $icon-size;
+    padding-right: calc(#{$icon-size} + 5px);
+  }
+  .CoveoExcerpt {
+    @extend .proxima;
+    color: cv("gray", "700");
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .CoveoPrintableUri {
+    padding: 0;
+  }
+  .CoveoResult {
+    @extend .proxima;
+    border: none;
+    color: cv("gray", "600");
+    padding: 5px 0;
+  }
+  .CoveoFacet {
+    @extend .proxima;
+    border: none;
+    background: none;
+    font-weight: bold;
+    margin-top: 0;
+  }
+  .CoveoFieldValue {
+    @extend .proxima;
+    .highlight {
+      background: cv("gray", "100");
+      border-radius: 4px;
+      color: cv("gray", "900");
+      font-size: 16px;
+      line-height: 16px;
+      font-weight: 400;
+      padding: 7px;
+      display: inline-block;
+      .coveo-clickable {
+        color: cv("gray", "900");
+        font-weight: 400;
+        text-decoration: none;
+      }
+    }
+    &.date {
+      span {
+        font-size: 14px;
+        color: cv("gray", "700");
+        margin: 0;
+      }
+    }
+  }
+  .coveo-dropdown-header-wrapper {
+    justify-content: flex-start;
+    .coveo-facet-dropdown-header {
+      @extend .proxima;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 50%;
+      margin-bottom: 20px;
+      > p {
+        @extend .proxima;
+        font-weight: 400;
+      }
+    }
+  }
+  .CoveoPager {
+    margin-left: 0;
+    padding: 10px 0 20px;
+    + .coveo-facet-help {
+      display: none;
+    }
+  }
+  .CoveoBreadcrumb {
+    @extend .proxima;
+    border-color: cv("gray", "500");
+    padding: 5px 0;
+  }
+  .coveo-facet-column-heading {
+    @extend .proxima;
+    color: cv("gray", "800");
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 18px;
+    margin: 0 0 20px;
+  }
+  .coveo-facet-help {
+    padding-right: 60px;
+    p {
+      @extend .proxima;
+      visibility: visible;
+      color: cv("gray", "900");
+    }
+    a {
+      color: cv("action");
+      &:hover {
+        color: cv("action");
+      }
+    }
+  }
+  .u-mb-0 {
+    margin-bottom: 0;
+  }
+  .u-mt-0 {
+    margin-top: 0;
+  }
+}
+
+@include media("<desktop") {
+  #SearchPage {
+    .coveo-results-column {
+      padding-left: 0;
+    }
+    .coveo-facet-value {
+      &.coveo-no-state {
+        .coveo-facet-value-checkbox-svg {
+          visibility: hidden;
+        }
+      }
+    }
+  }
+}
+
+@include media("<tablet") {
+  #SearchPage {
+    padding-top: 100px;
+
+    .coveo-main-section {
+      display: flex;
+      flex-direction: column;
+    }
+    .coveo-results-header {
+      margin: 0 0 25px;
+    }
+    .coveo-facet-column,
+    .coveo-results-column {
+      width: 100%;
+    }
+    .coveo-facet-values {
+      margin-bottom: 0;
+      padding-bottom: 25px;
+    }
+    .coveo-facet-column {
+      float: none;
+      margin: 0;
+      padding: 0;
+      .coveo-facet-header,
+      .coveo-facet-values,
+      .coveo-facet-value {
+        margin-left: 0;
+        padding-left: 0;
+      }
+    }
+    .CoveoResultList {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .CoveoFacet {
+      + .coveo-facet-help {
+        display: none;
+      }
+    }
+    .CoveoPager {
+      + .coveo-facet-help {
+        padding-top: 30px;
+        display: block;
+      }
+    }
+  }
+}
+
+@include media("<phone") {
+  #SearchPage {
+    min-width: 100%;
   }
 }

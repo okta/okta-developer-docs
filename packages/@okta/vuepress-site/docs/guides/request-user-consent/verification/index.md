@@ -4,7 +4,7 @@ title: Verification
 
 There are several ways to verify that you've successfully created a user grant:
 
-* Check the ID token payload if you requested an ID token. To check the ID token payload, you can copy the token value and paste it into any [JWT decoder](https://www.jsonwebtoken.io/). The payload should look similar to this. Note that no scopes are returned in an ID token:
+* Check the ID token payload if you requested an ID token. To check the ID token payload, you can copy the token value and paste it into any [JWT decoder](https://token.dev/). The payload should look similar to this. Note that no scopes are returned in an ID token:
 
     ```json
     {

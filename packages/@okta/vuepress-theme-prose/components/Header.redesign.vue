@@ -3,8 +3,8 @@
     <a href="https://developer.okta.com/" class="header--logo">
       <img src="/img/icons/okta-developer.svg" />
     </a>
-    <div :class="{ 'search--slideout': true, opened: searchOpened }">
-      <Search />
+    <div :class="{ 'search--slideout': true, opened: searchOpened || isSearchPage }">
+      <SearchBar />
     </div>
     <div :class="{ 'menu--slideout': true, opened: menuOpened }">
       <div class="header--links">
@@ -27,7 +27,7 @@
       <a class="sign-up--button" href="/signup/">Sign Up</a>
     </div>
     <div class="mobile--toggles">
-      <div class="mobile--toggle" @click="toggleSearch()">
+      <div v-if="!isSearchPage" class="mobile--toggle" @click="toggleSearch()">
         <img v-if="searchOpened" src="/img/icons/icon--search-cherry.svg" />
         <img v-else src="/img/icons/icon--search-white.svg" />
       </div>
@@ -44,16 +44,18 @@ export default {
   components: {
     MenuItems: () => import("../components/MenuItems.vue"),
     MenuItem: () => import("../components/MenuItem.vue"),
-    Search: () => import("../components/Search.redesign.vue")
+    SearchBar: () => import("../components/SearchBar.redesign.vue")
   },
   data() {
     return {
+      isSearchPage: false,
       searchOpened: false,
       menuOpened: false
     };
   },
   mounted() {
     window.addEventListener("resize", this.handleResize);
+    this.isSearchPage = window.location.pathname === "/search/";
   },
   methods: {
     toggleSearch: function() {

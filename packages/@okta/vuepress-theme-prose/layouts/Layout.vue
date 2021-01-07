@@ -71,6 +71,7 @@ export default {
     Quickstart: () => import('../components/Quickstart.vue'),
     Pricing: () => import('../components/Pricing.vue'),
     OktaIntegrationNetwork: () => import ('../components/OktaIntegrationNetwork.vue'),
+    Search: () => import('../components/Search.redesign.vue'),
   },
   data() {
     return {

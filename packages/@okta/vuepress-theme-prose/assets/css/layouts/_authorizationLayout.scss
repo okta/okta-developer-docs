@@ -1,6 +1,6 @@
 .authorization-layout {
   display: flex;
-  background: cv('brand','base');
+  background: cv("brand", "base");
   width: 100%;
   min-height: 100vh;
   flex-direction: column;
@@ -21,7 +21,9 @@
     }
   }
 
-  input,
+  input[type="text"],
+  input[type="submit"],
+  input[type="button"],
   select {
     width: 100%;
     color: cv("brand", "base");
@@ -46,12 +48,13 @@
       outline: none;
     }
   }
-  input[type="submit"]:disabled  {
+  input[type="submit"]:disabled {
     cursor: not-allowed;
     opacity: 0.6;
   }
   select {
     padding: 10px 20px;
+    cursor: pointer;
     background-image: url("data:image/svg+xml,%3csvg width='9' height='5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M.4 0h8.2L4.5 5' fill='%235c6971'/%3e%3c/svg%3e");
     background-position: calc(100% - 12px) center;
     background-repeat: no-repeat;
@@ -72,7 +75,8 @@
     border-radius: 3px;
   }
 
-  input[type="submit"], input[type="button"] {
+  input[type="submit"],
+  input[type="button"] {
     cursor: pointer;
   }
 
@@ -124,7 +128,7 @@
     display: flex;
   }
 
-  .social-btn {
+  input.social-btn {
     background-color: transparent;
     border: 2px solid cv("cerise", "base");
     text-align: center;
@@ -135,10 +139,10 @@
   }
 
   .error {
-    border: 1px solid cv('cerise', 'base');
+    border: 1px solid cv("cerise", "base");
   }
 
   .error-color {
-    color: cv('cerise', 'base');
+    color: cv("cerise", "base");
   }
 }
