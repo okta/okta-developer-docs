@@ -88,8 +88,6 @@ export default {
     }
   },
   mounted() {
-    // console.log(this.$page)
-    // console.log(this.$page.path)
     if(this.$page.path==='/'){
       this.isHomePage = true
     }
@@ -122,7 +120,6 @@ export default {
         docsRepo = repo
       } = this.$site.themeConfig.editLink
       if (docsRepo && editLinks && this.$page.relativePath) {
-        // console.log('page: ', this.$page)
         return this.createEditLink(repo, docsRepo, docsDir, docsBranch, this.$page.relativePath)
       }
     },
