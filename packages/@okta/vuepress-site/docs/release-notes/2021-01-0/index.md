@@ -9,7 +9,7 @@ title: Okta API Products Release Notes
 | [Group object source property is now GA in Production](#group-object-source-property-is-now-ga-in-production) | January 7, 2021         |
 | [New Apps API endpoints in Early Access (EA)](#new-apps-api-endpoints-in-early-access-ea) | January 7, 2021         |
 | [Developers can now use SWA for testing SCIM app integrations](#developers-can-now-use-swa-for-testing-scim-app-integrations)      | January 7, 2021          |
-| [The Subscription API is now available in Self-Service Early Access (EA)](#the-subscription-api-is-now-available-in-self-service-early-access-ea) | January 7, 2021          |
+| [The Subscriptions API is now available in Self-Service Early Access (EA)](#the-subscriptions-api-is-now-available-in-self-service-early-access-ea) | January 7, 2021          |
 | [New phone rate limits](#new-phone-rate-limits) | January 7, 2021          |
 | [WebAuthn feature validation updates with Trusted Origins API](#webauthn-feature-validation-updates-with-trusted-origins-api) | January 7, 2021         |
 | [Bug fixed in 2021.01.0](#bug-fixed-in-2021-01-0) | January 7, 2021         |
@@ -37,15 +37,15 @@ These updates improve the ability of administrators to configure application log
 
 ISVs and developers who want to create and submit a SCIM-only app integration to the OIN can now use SWA as the sign-in method for SCIM app testing.<!--OKTA-352742-->
 
-### The Subscription API is now available in Self-Service Early Access (EA)
+### The Subscriptions API is now available in Self-Service Early Access (EA)
 
-The [Subscription API](/docs/reference/api/admin-notifications/) is now available in Self-Service EA. The subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.<!--OKTA-325794-->
+The [Subscriptions API](/docs/reference/api/admin-notifications/) is now available in Self-Service EA. The subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.<!--OKTA-325794-->
 
 ### New phone rate limits
 
 Users who attempt Voice and SMS enrollment can now be rate limited. Voice and SMS enrollment rate-limit events are now logged in the System Log.
 
-See [System Log events for rate limits](/docs/reference/).<!--OKTA-355134-->
+See [System Log events for rate limits](/docs/reference/rl-system-log-events).<!--OKTA-355134-->
 
 ### WebAuthn feature validation updates with Trusted Origins API
 
