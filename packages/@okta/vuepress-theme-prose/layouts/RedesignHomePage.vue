@@ -1,15 +1,12 @@
-
 <template>
   <div>
   <HeaderRedesign/>
-  <div class="redesign-homepage container-fluid	">
+  <div class="redesign-homepage container-fluid">
    <div class="row">
      <div class="col-xl-2 col-lg-2 d-none d-lg-block redesign-homepage--col-no-padding">
        <RedesignedSideBar />
      </div>
-     
      <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
-       
        <div class="row justify-content-center">
          <div class="col-11 redesign-homepage--elevated">
 
