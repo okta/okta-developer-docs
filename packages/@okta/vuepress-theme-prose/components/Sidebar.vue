@@ -36,7 +36,7 @@ export default {
   },
   computed: {
     navigation() {
-      // FeatureFlag.
+      // Redesign FeatureFlag
       return (this.$page.redesign
         ? this.getNewNavigation()
         : this.getNavigation() || []
@@ -129,7 +129,7 @@ export default {
     getGuides(overrides) {
       const pages = this.$site.pages;
       const guidesInfo = getGuidesInfo({ pages });
-      // FeatureFlag.
+      // Redesign FeatureFlag
       let navs = _.cloneDeep(overrides || guides);
       const framework = guideFromPath(this.$route.path).framework;
       navs.forEach(nav => {
