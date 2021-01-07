@@ -90,7 +90,7 @@ API endpoints that take username and password credentials, including the [Authen
 
 ### Workforce license rate limit multiplier
 
-Workforce orgs that are created after January 7, 2020 have increased default rate limits. This increase is for [specific endpoints](#list-of-endpoints) and depends on a Workforce org's license count (Universal Directory or Single-Sign On).
+Workforce orgs that are created after January 7, 2021 have increased default rate limits. This increase is for [specific endpoints](#list-of-endpoints) and depends on a Workforce org's license count (Universal Directory or Single-Sign On).
 
 
 | Workforce licenses | Rate limit multiplier      |
