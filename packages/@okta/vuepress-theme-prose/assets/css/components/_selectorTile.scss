@@ -1,7 +1,7 @@
 .selector-tile{
   border: 2px solid #1F3B54;
   border-radius: 15px;
-  color: #ffffff;
+  color: white;
   width: 100%;
   background: linear-gradient(rgba(22,39,47,1) 66%, rgba(26,49,66,1) 84%);
   height: 375px;
@@ -33,9 +33,9 @@
       color: #bac1c6;
     }
     &:hover{
-      color: #ffffff;
+      color: white;
       >i{
-        color: #ffffff;
+        color: white;
       }
     }
   }
@@ -81,12 +81,12 @@
       }
       &:hover{
         background-color: #1D374A;
-        color: #ffffff;
+        color: white;
         >span{
-          color: #ffffff;
+          color: white;
         }
         >i{
-          color: #ffffff;
+          color: white;
         }
       }
     }

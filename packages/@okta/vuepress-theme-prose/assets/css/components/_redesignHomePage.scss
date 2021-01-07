@@ -2,7 +2,7 @@
   background-color: #182a33;
   font-family: $font-family;
   min-height: 100vh;
-  color: #ffffff;
+  color: white;
   overflow: hidden;
   &--col-no-padding.col-lg-2,
   &--col-no-padding.col-xl-2{
@@ -46,7 +46,7 @@
   }
 
   &--color-main{
-    color: #ffffff;
+    color: white;
   }
   &--color-sub{
     color: #92999E;
@@ -131,7 +131,7 @@
     justify-content: space-around;
     position: relative;
     border-radius: 3px;
-    background-color: #ffffff;
+    background-color: white;
     color: #3d3d3d;
     height: 500px;
     padding: 10% 15%;
@@ -175,9 +175,9 @@
       &--cta.act-btn{
         background: #e22866;
         border-color: #e22866;
-        color: #ffffff;
+        color: white;
         &:hover{
-          color: #ffffff;
+          color: white;
         }
       }
       &--docs.act-btn{
@@ -186,7 +186,7 @@
         &:hover{
           background: #e22866;
           border-color: #e22866;
-          color: #ffffff;
+          color: white;
         }
       }
 
