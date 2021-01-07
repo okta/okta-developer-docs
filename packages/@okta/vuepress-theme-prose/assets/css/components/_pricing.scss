@@ -45,6 +45,10 @@ $magenta: #e22866;
     }
   }
 
+  button {
+    font: inherit;
+  }
+
   .Button--red, .Button--whiteOutline {
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -73,10 +77,11 @@ $magenta: #e22866;
   }
 
   ul.pricing--icon-list {
-    list-style: disc outside url('/img/icons/icon--check.svg');
-    padding-left: 25px;
+    list-style: none;
+
     li {
-      padding: 10px;
+      background: url('/img/icons/icon--check.svg') no-repeat left 13px;
+      padding: 10px 10px 10px 30px;
     }
   }
 
@@ -105,6 +110,9 @@ $magenta: #e22866;
       display: flex;
       ul {
         flex-grow: 1;
+      }
+      @include media('<tablet') {
+        flex-direction: column;
       }
     }
 
@@ -205,6 +213,10 @@ $magenta: #e22866;
       justify-content: center;
       align-items: flex-start;
 
+      li {
+        margin-bottom: initial;
+      }
+
       @include media('<desktop') {
         &.desktop {
           display: none;
@@ -258,6 +270,10 @@ $magenta: #e22866;
           padding: 0;
         }
       }
+    }
+
+    img.pricing-card-check {
+      max-width: initial;
     }
 
     select {

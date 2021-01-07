@@ -9,37 +9,37 @@
       redesign: $page.redesign
     }">
       <template v-if="!isHomePage">
-      <Breadcrumb />
-      <div class="content" v-if="$page.frontmatter.component">
-        <component :is="$page.frontmatter.component" />
-      </div>
-      <div class="content" v-else>
-        <div :class="{'content--container': true, 'navigation-only': appContext.isTreeNavMobileOpen}">
-          <div class="tree-nav">
-            <Sidebar />
-          </div>
-          <div class="content-area">
-            <PageTitle />
-            <MobileOnThisPage />
-            <ContentPage />
-            <div class="edit-on-github">
-              <span class='fa fa-github'></span>
-              <span>
-                <a v-if=editLink
-                   id="edit-link"
-                   :href="editLink"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   data-proofer-ignore
-                >{{ editLinkText }}</a>
-              </span>
+        <Breadcrumb v-if="!$page.redesign || ($page.redesign && appContext.isInMobileViewport)" />
+        <div class="content" v-if="$page.frontmatter.component">
+          <component :is="$page.frontmatter.component" />
+        </div>
+        <div class="content" v-else>
+          <div :class="{'content--container': true, 'navigation-only': appContext.isTreeNavMobileOpen}">
+            <div class="tree-nav">
+              <Sidebar />
+            </div>
+            <div class="content-area">
+              <PageTitle />
+              <MobileOnThisPage />
+              <ContentPage />
+              <div class="edit-on-github">
+                <span class='fa fa-github'></span>
+                <span>
+                  <a v-if=editLink
+                     id="edit-link"
+                     :href="editLink"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     data-proofer-ignore
+                  >{{ editLinkText }}</a>
+                </span>
+              </div>
+            </div>
+            <div class="on-this-page">
+              <OnThisPage />
             </div>
           </div>
-          <div class="on-this-page">
-            <OnThisPage />
-          </div>
         </div>
-      </div>
       </template> 
 
     </div>
@@ -73,6 +73,8 @@ export default {
     Reference: () => import('../components/Reference.vue'),
     Quickstart: () => import('../components/Quickstart.vue'),
     Pricing: () => import('../components/Pricing.vue'),
+    OktaIntegrationNetwork: () => import ('../components/OktaIntegrationNetwork.vue'),
+    Search: () => import('../components/Search.redesign.vue'),
   },
   data() {
     return {

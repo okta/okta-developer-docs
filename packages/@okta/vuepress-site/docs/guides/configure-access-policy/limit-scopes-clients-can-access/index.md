@@ -72,7 +72,7 @@ Let's test your access policy and get back an access token.
 
      `http://yourRedirectUriHere.com#access_token=eyJraWQiOiJYc2hYcGZTSHdEMk1zU2pvSTlZTmozWF9KdE1mclpmYWFOUklfNlBCVjQwIi[...]i7U9uW0mI0Bb8SbUeKZjzuxP9aDog&token_type=Bearer&expires_in=3600&scope=openid+email&state=WM6D`
 
-     To check the returned access token, you can copy that URL and paste it into any [JWT decoder](https://jsonwebtoken.io). Check the payload to confirm that it contains the scopes that you are expecting.
+     To check the returned access token, you can copy that URL and paste it into any [JWT decoder](https://token.dev). Check the payload to confirm that it contains the scopes that you are expecting.
 
 ```json
 {
