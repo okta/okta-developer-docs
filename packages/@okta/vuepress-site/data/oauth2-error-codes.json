@@ -1,6 +1,6 @@
 {
-  "release" : "2020.12.1",
-  "build" : "2020.12.1-begin-99-gd9effb0ab7f0",
+  "release" : "2021.01.1",
+  "build" : "2021.01.1-begin-115-g04e1a2262beb",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -694,6 +694,13 @@
     "internalErrorCode" : "illegal_origin_browser_request",
     "errorCode" : "invalid_request",
     "errorDescription" : "Browser requests to the token endpoint must be part of at least one whitelisted redirect_uri."
+  }, {
+    "title" : "Not trusted origin browser request",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "not_trusted_origin_browser_request",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Browser requests to the token endpoint must be made from one of the registered Trusted Origins."
   }, {
     "title" : "Unknown IdP",
     "statusCode" : 400,
