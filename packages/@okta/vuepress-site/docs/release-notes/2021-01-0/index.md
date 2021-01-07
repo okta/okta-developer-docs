@@ -39,7 +39,7 @@ ISVs and developers who want to create and submit a SCIM-only app integration to
 
 ### The Subscriptions API is now available in Self-Service Early Access (EA)
 
-The [Subscriptions API](/docs/reference/api/admin-notifications/) is now available in Self-Service EA. The subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.<!--OKTA-325794-->
+The [Subscriptions API](/docs/reference/api/admin-notifications/) is now available in Self-Service EA. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.<!--OKTA-325794-->
 
 ### New phone rate limits
 
