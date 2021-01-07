@@ -11,7 +11,7 @@
   @include media("<=bootstrap-xl"){
     margin-bottom: 30px;
   }
-  @include media("<=bootstrap-md"){
+  @include media("<=tablet"){
     height: auto;
   }
 
