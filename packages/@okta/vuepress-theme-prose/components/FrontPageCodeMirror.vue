@@ -45,7 +45,7 @@ export default {
         styleActiveLine: true,
         readOnly: true,
       },
-    },
+    };
   },
   beforeDestroy: function() {
     this.destroyCm();
