@@ -49,6 +49,16 @@ $redesign_placeholder_color: #616161;
         height: 38px;
         border-radius: 4px;
 
+        .magic-box-clear {
+          &:before {
+            border-left: none;
+          }
+  
+          .magic-box-icon:before {
+            display: none;
+          }
+        }
+
         .magic-box-underlay {
           height: 38px;
           padding-left: 40px;
@@ -64,6 +74,12 @@ $redesign_placeholder_color: #616161;
 
           &::placeholder {
             color: $redesign_placeholder_color;
+          }
+
+          @media (max-width: 1080px) {
+            &::placeholder {
+              color: transparent;
+            }
           }
 
           @include media("<desktop") {
@@ -82,8 +98,12 @@ $redesign_placeholder_color: #616161;
         }
       }
 
-      .magic-box-clear {
-        display: none;
+      &.magic-box-notEmpty .magic-box-clear {
+        height: 38px;
+        background-image: url("/img/icons/icon--close.svg");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 30%;
       }
 
       &.has-suggestions-hidden {

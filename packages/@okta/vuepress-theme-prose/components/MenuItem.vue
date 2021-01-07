@@ -1,9 +1,11 @@
 <template>
   <li
     :class="{
-      expanded: expanded,
-      active: item.active
+      expandable: isExpandable,
+      active: item.active,
+      open: isOpen
     }"
+    @click="isOpen = !isOpen"
   >
     <a
       v-if="item.link"
@@ -56,8 +58,13 @@ export default {
       default: ""
     }
   },
+  data() {
+    return {
+      isOpen: false,
+    }
+  },
   computed: {
-    expanded() {
+    isExpandable() {
       return this.item.children && this.item.children.length;
     }
   }
