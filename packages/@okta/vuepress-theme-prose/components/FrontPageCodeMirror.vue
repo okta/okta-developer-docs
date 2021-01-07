@@ -4,7 +4,7 @@
 
 <script>
 import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/base16-dark.css';
+import 'codemirror/theme/material.css';
 
 export default {
   name: 'FrontPageCodeMirror',
@@ -21,27 +21,28 @@ export default {
   },
   data() {
     return {
-     widgetCode:`
-      // Uses okta-signin-widget version 5.2.0
+     widgetCode: `
+// Uses okta-signin-widget version 5.2.0
 
-      var widget = new OktaSignIn({
-        baseUrl: "{{yourOktaDomain}}",
-        logo: "/sites/all/themes/developer/owb/alliance.png",
-        i18n: {
-          // Overriding English properties
-          en: {
-            "primaryauth.title": "Alliance Authentication",
-            "primaryauth.submit": "Sign In"
-          },
-        },
-      });
-      widget.renderEl({
-        el: "#widget-container"
-      });`,
+var widget = new OktaSignIn({
+  baseUrl: "{{yourOktaDomain}}",
+  logo: "/sites/all/themes/developer/owb/alliance.png",
+  i18n: {
+    // Overriding English properties
+    en: {
+      "primaryauth.title": "Alliance Authentication",
+      "primaryauth.submit": "Sign In"
+    },
+  },
+});
+widget.renderEl({
+  el: "#widget-container"
+});
+      `.trim(),
       cmOptions: {
         lineNumbers: true,
         mode: 'text/javascript',
-        theme: 'base16-dark',
+        theme: 'material',
         styleActiveLine: true,
         readOnly: true,
       },
