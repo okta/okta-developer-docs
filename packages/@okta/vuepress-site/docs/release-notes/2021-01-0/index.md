@@ -45,7 +45,7 @@ The [Subscription API](/docs/reference/api/admin-notifications/) is now availabl
 
 Users who attempt Voice and SMS enrollment can now be rate limited. Voice and SMS enrollment rate-limit events are now logged in the System Log.
 
-See [Rate Limits](/docs/reference/rl-system-log-events/).<!--OKTA-355134-->
+See [System Log events for rate limits](/docs/reference/rl-system-log-events/).<!--OKTA-355134-->
 
 ### WebAuthn feature validation updates with Trusted Origins API
 
