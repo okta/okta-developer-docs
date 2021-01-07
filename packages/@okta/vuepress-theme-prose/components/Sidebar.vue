@@ -17,7 +17,7 @@ import _ from "lodash";
 import { getGuidesInfo, guideFromPath } from "../util/guides";
 import {
   concepts as conceptsRedesign,
-  guides as gidesRedesign,
+  guides as guidesRedesign,
   languagesSdk as languagesSdkRedesign,
   reference as referenceRedesign
 } from "../const/navbar/redesign/navbar.const";
@@ -95,7 +95,7 @@ export default {
       const homeLink = { title: "Home", path: "/" };
       return [
         homeLink,
-        ...this.getGuides(gidesRedesign),
+        ...this.getGuides(guidesRedesign),
         ..._.cloneDeep(conceptsRedesign),
         ..._.cloneDeep(referenceRedesign),
         ..._.cloneDeep(languagesSdkRedesign)
@@ -126,11 +126,11 @@ export default {
           .value();
       }
     },
-    getGuides(guidesRedesign) {
+    getGuides(overrides) {
       const pages = this.$site.pages;
       const guidesInfo = getGuidesInfo({ pages });
       // FeatureFlag.
-      let navs = _.cloneDeep(guidesRedesign || guides);
+      let navs = _.cloneDeep(overrides || guides);
       const framework = guideFromPath(this.$route.path).framework;
       navs.forEach(nav => {
         let queue = new Array();
