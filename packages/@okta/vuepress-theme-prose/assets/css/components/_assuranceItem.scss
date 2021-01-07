@@ -1,0 +1,43 @@
+.assurance-item{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  @include media("<=bootstrap-xl"){
+    margin-bottom: 30px;
+  }
+  @include media("<=bootstrap-lg"){
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  &--rounded{
+    background-color: #2b3f4a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 75px;
+    flex-basis: 75px;
+    height: 75px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    border-radius: 50%;
+  }
+  &--content{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    &--title{
+      font-size: 20px;
+      color: white;
+    }
+    &--description{
+      color: #92999E;
+      font-size: 16px;
+    }
+  }
+}

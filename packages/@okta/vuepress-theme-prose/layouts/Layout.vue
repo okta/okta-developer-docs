@@ -4,42 +4,44 @@
       <HeaderRedesign v-if="$page.redesign" />
       <TopBar v-else />
     </div>
-
-    <div :class="{
+   <div :class="{
       'page-body': true,
       redesign: $page.redesign
     }">
-      <Breadcrumb v-if="!$page.redesign || ($page.redesign && appContext.isInMobileViewport)" />
-      <div class="content" v-if="$page.frontmatter.component">
-        <component :is="$page.frontmatter.component" />
-      </div>
-      <div class="content" v-else>
-        <div :class="{'content--container': true, 'navigation-only': appContext.isTreeNavMobileOpen}">
-          <div class="tree-nav">
-            <Sidebar />
-          </div>
-          <div class="content-area">
-            <PageTitle />
-            <MobileOnThisPage />
-            <ContentPage />
-            <div class="edit-on-github">
-              <span class='fa fa-github'></span>
-              <span>
-                <a v-if=editLink
-                   id="edit-link"
-                   :href="editLink"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   data-proofer-ignore
-                >{{ editLinkText }}</a>
-              </span>
+      <template v-if="!isHomePage">
+        <Breadcrumb v-if="!$page.redesign || ($page.redesign && appContext.isInMobileViewport)" />
+        <div class="content" v-if="$page.frontmatter.component">
+          <component :is="$page.frontmatter.component" />
+        </div>
+        <div class="content" v-else>
+          <div :class="{'content--container': true, 'navigation-only': appContext.isTreeNavMobileOpen}">
+            <div class="tree-nav">
+              <Sidebar />
+            </div>
+            <div class="content-area">
+              <PageTitle />
+              <MobileOnThisPage />
+              <ContentPage />
+              <div class="edit-on-github">
+                <span class='fa fa-github'></span>
+                <span>
+                  <a v-if=editLink
+                     id="edit-link"
+                     :href="editLink"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     data-proofer-ignore
+                  >{{ editLinkText }}</a>
+                </span>
+              </div>
+            </div>
+            <div class="on-this-page">
+              <OnThisPage />
             </div>
           </div>
-          <div class="on-this-page">
-            <OnThisPage />
-          </div>
         </div>
-      </div>
+      </template> 
+
     </div>
 
     <FooterRedesign v-if="$page.redesign" />
@@ -53,6 +55,7 @@ export const LAYOUT_CONSTANTS = {
   HEADER_TO_CONTENT_GAP: 45, //px
 };
 const TABLET_BREAKPOINT = 767;
+
 export const endingSlashRE = /\/$/
 export default {
   components: {
@@ -77,8 +80,9 @@ export default {
     return {
       appContext: {
         isTreeNavMobileOpen: false,
-        isInMobileViewport: false
-      }
+        isInMobileViewport: false,
+      },
+      isHomePage: false,
     }
   },
   provide(){
@@ -87,6 +91,9 @@ export default {
     }
   },
   mounted() {
+    if(this.$page.path==='/'){
+      this.isHomePage = true
+    }
     let that = this;
     this.$on('toggle-tree-nav', event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
@@ -97,6 +104,8 @@ export default {
   },
   watch: {
     $route(to, from) {
+      if(to.path!=='/'){this.isHomePage=false}
+      if(to.path ==='/'){this.isHomePage=true}
       this.appContext.isTreeNavMobileOpen = false;
       this.redirIfRequired();
     }
