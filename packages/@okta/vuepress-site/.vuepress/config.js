@@ -128,14 +128,6 @@ module.exports = {
         ]
       }
     ],
-
-    sidebars: {
-      codePages: require('./nav/codePages'),
-      reference: require('./nav/reference'),
-      guides: require('./nav/guides'),
-      concepts: require('./nav/concepts')
-    },
-
     quickstarts: {
       clients: [
         { name: 'okta-sign-in-page', label: 'Okta Sign-In Page', serverExampleType: 'auth-code', default: true },
