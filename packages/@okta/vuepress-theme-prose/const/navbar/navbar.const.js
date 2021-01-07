@@ -515,7 +515,11 @@ export const reference = [
         path: "/docs/reference/rl-clientbased/"
       },
       { title: "DynamicScale", path: "/docs/reference/rl-dynamic-scale/" },
-      { title: "Previous rate limits", path: "/docs/reference/rl-previous/" }
+      { title: "Previous rate limits", path: "/docs/reference/rl-previous/" },
+      {
+        title: "System Log events for rate limits",
+        path: "/docs/reference/rl-system-log-events/"
+      }
     ]
   },
   { title: "Error Codes", path: "/docs/reference/error-codes/" },
