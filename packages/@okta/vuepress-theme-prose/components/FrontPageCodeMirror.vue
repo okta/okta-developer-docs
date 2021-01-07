@@ -3,29 +3,27 @@
 </template>
 
 <script>
-
-import 'codemirror/lib/codemirror.css'
-import 'codemirror/theme/base16-dark.css'
+import 'codemirror/lib/codemirror.css';
+import 'codemirror/theme/base16-dark.css';
 
 export default {
   name: 'FrontPageCodeMirror',
-  components: {
-  },
-  mounted: async function(){
-    //load side effects for code mode
+  mounted: async function() {
+    // load side effects for code mirror
     await import('codemirror/mode/javascript/javascript.js');
-    //load codemirror
-    const module = await import('codemirror')
-    const CodeMirror = module.default
-    this.codemirror = CodeMirror.fromTextArea(this.$refs.codemirror, this.cmOptions)
-    this.codemirror.setValue(this.widgetCode)
-    this.codemirror.setOption('mode',  'javascript')
-    },
-  data (){
-    return{
+    // load codemirror
+    const module = await import('codemirror');
+    const CodeMirror = module.default;
+
+    this.codemirror = CodeMirror.fromTextArea(this.$refs.codemirror, this.cmOptions);
+    this.codemirror.setValue(this.widgetCode);
+    this.codemirror.setOption('mode',  'javascript');
+  },
+  data() {
+    return {
      dedent: null,
      widgetCode:`
-      // Uses okta-signin-widget version 3.8.1
+      // Uses okta-signin-widget version 5.2.0
 
       var widget = new OktaSignIn({
         baseUrl: "{{yourOktaDomain}}",
@@ -37,29 +35,27 @@ export default {
             "primaryauth.submit": "Sign In"
           },
         },
-        
       });
       widget.renderEl({
         el: "#widget-container"
       });`,
-      cmOptions:{
+      cmOptions: {
         lineNumbers: true,
         mode: 'text/javascript',
         theme: 'base16-dark',
         styleActiveLine: true,
         readOnly: true,
-      }
-    }
+      },
+    },
   },
   beforeDestroy: function() {
-        this.destroyCm()    
+    this.destroyCm();
   },
   methods: {
-    destroyCm(){
-      const element = this.codemirror.doc.cm.getWrapperElement()
-      element && element.remove && element.remove()
-    }
-  }
-}
-
+    destroyCm() {
+      const element = this.codemirror.doc.cm.getWrapperElement();
+      element && element.remove && element.remove();
+    },
+  },
+};
 </script>
