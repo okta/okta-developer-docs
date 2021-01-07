@@ -148,6 +148,8 @@ footer.redesign {
         ul.link-list {
           display: flex;
           justify-content: space-between;
+          max-width: 225px;
+          margin: 0 auto;
         }
 
         span.link-list--text {
