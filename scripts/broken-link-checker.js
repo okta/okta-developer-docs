@@ -25,10 +25,10 @@ var options = {
     "/docs/api/postman",
     "/favicon",
     "/blog/",
-    "/pricing/",
+    "/pricing/", // TO REMOVE AFTER REDESIGN
     "/product/",
     "/product/*",
-    "/okta-integration-network/",
+    "/okta-integration-network/", // TO REMOVE AFTER REDESIGN
     "github.com/okta/okta-developer-docs/edit",
   ]
 };

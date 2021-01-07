@@ -37,7 +37,7 @@
           </div>
   </nav>
   <div class="searchbar" v-show="showSearchBar && burgerMenuOpened">
-              <Search />
+              <SearchBar />
             </div>
 </div>
 </template>
@@ -45,7 +45,7 @@
 <script>
   export default {
     components: {
-      Search: () => import('../components/Search.vue'),
+      SearchBar: () => import('../components/SearchBar.vue'),
     },
     data() {
       return {
