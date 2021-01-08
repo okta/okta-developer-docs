@@ -2141,7 +2141,7 @@ For example, you can't unlock a user that is `ACTIVE`.
 
 Activates a user
 
-This operation can only be performed on users with a `STAGED` status.  Activation of a user is an asynchronous operation.
+This operation can only be performed on users with a `STAGED` or `DEPROVISIONED` status.  Activation of a user is an asynchronous operation.
 
 * The user's `transitioningToStatus` property has a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.
 * The user's status is `ACTIVE` when the activation process is complete.
