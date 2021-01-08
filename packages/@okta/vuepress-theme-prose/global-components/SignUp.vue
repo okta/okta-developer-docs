@@ -2,6 +2,7 @@
   <div class="signup">
     <div class="signup--form">
       <form
+        id="signupForm"
         @submit="submitForm"
         method="POST"
         action="https://developer.okta.com/developer/signup/"
@@ -233,6 +234,10 @@ import {
   canadaProvinces,
   GDPR_COUNTRIES
 } from "../const/signup.const";
+import setHiddenUtmValues from "../util/attribution/attribution";
+
+const CANADA = "Canada";
+const USA = "United States";
 
 export default {
   components: {
@@ -240,8 +245,6 @@ export default {
   },
   data() {
     return {
-      canada: "Canada",
-      usa: "United States",
       state: { lable: "", list: [] },
       displayConsent: false,
       displayAgree: false,
@@ -268,10 +271,10 @@ export default {
       set(country) {
         this.form.state.hidden = false;
 
-        if (country === this.usa) {
+        if (country === USA) {
           this.state.list = americanStates;
-          this.state.label = "States";
-        } else if (country === this.canada) {
+          this.state.label = "State";
+        } else if (country === CANADA) {
           this.state.list = canadaProvinces;
           this.state.label = "Province";
         } else {
@@ -327,6 +330,10 @@ export default {
     onCaptchaExpired() {
       this.$refs.recaptcha.reset();
     }
+  },
+  mounted() {
+    const formElement = document.querySelector("#signupForm");
+    setHiddenUtmValues(formElement);
   }
 };
 </script>
