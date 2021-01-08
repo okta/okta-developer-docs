@@ -12,7 +12,11 @@
             <h2 class="terms--section-title" v-if="section.heading">
               {{section.heading}}
             </h2>
-            <p class="terms--section-paragraph" v-for="(paragraph, paragraphIdx) in section.paragraphs" v-bind:key="paragraphIdx" v-html="paragraph"></p>
+            <p class="terms--section-paragraph"
+              v-for="(paragraph, paragraphIdx) in section.paragraphs"
+              v-bind:key="paragraphIdx"
+              v-html="paragraph">
+            </p>
           </section>
         </div>
       </div>
