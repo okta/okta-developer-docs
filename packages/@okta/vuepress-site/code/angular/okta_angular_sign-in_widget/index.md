@@ -119,7 +119,9 @@ export class AppComponent implements OnInit {
   }
 
   login() {
-    this.oktaAuth.signIn('/profile');
+    this.oktaAuth.signInWithRedirect({
+      originalUri: '/profile'
+    });
   }
 
   async logout() {
