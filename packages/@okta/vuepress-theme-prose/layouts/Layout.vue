@@ -8,40 +8,37 @@
       'page-body': true,
       redesign: $page.redesign
     }">
-      <template v-if="!isHomePage">
-      <Breadcrumb />
-      <div class="content" v-if="$page.frontmatter.component">
-        <component :is="$page.frontmatter.component" />
-      </div>
-      <div class="content" v-else>
-        <div :class="{'content--container': true, 'navigation-only': appContext.isTreeNavMobileOpen}">
-          <div class="tree-nav">
-            <Sidebar />
-          </div>
-          <div class="content-area">
-            <PageTitle />
-            <MobileOnThisPage />
-            <ContentPage />
-            <div class="edit-on-github">
-              <span class='fa fa-github'></span>
-              <span>
-                <a v-if=editLink
-                   id="edit-link"
-                   :href="editLink"
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   data-proofer-ignore
-                >{{ editLinkText }}</a>
-              </span>
+        <Breadcrumb v-if="!$page.redesign || ($page.redesign && appContext.isInMobileViewport)" />
+        <div class="content" v-if="$page.frontmatter.component">
+          <component :is="$page.frontmatter.component" />
+        </div>
+        <div class="content" v-else>
+          <div :class="{'content--container': true, 'navigation-only': appContext.isTreeNavMobileOpen}">
+            <div class="tree-nav">
+              <Sidebar />
+            </div>
+            <div class="content-area">
+              <PageTitle />
+              <MobileOnThisPage />
+              <ContentPage />
+              <div class="edit-on-github">
+                <span class='fa fa-github'></span>
+                <span>
+                  <a v-if=editLink
+                     id="edit-link"
+                     :href="editLink"
+                     target="_blank"
+                     rel="noopener noreferrer"
+                     data-proofer-ignore
+                  >{{ editLinkText }}</a>
+                </span>
+              </div>
+            </div>
+            <div class="on-this-page">
+              <OnThisPage />
             </div>
           </div>
-          <div class="on-this-page">
-            <OnThisPage />
-          </div>
         </div>
-      </div>
-      </template> 
-
     </div>
 
     <FooterRedesign v-if="$page.redesign" />
@@ -73,6 +70,8 @@ export default {
     Reference: () => import('../components/Reference.vue'),
     Quickstart: () => import('../components/Quickstart.vue'),
     Pricing: () => import('../components/Pricing.vue'),
+    OktaIntegrationNetwork: () => import ('../components/OktaIntegrationNetwork.vue'),
+    Search: () => import('../components/Search.redesign.vue'),
   },
   data() {
     return {
@@ -88,11 +87,6 @@ export default {
     }
   },
   mounted() {
-    // console.log(this.$page)
-    // console.log(this.$page.path)
-    if(this.$page.path==='/'){
-      this.isHomePage = true
-    }
     let that = this;
     this.$on('toggle-tree-nav', event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
@@ -103,8 +97,6 @@ export default {
   },
   watch: {
     $route(to, from) {
-      if(to.path!=='/'){this.isHomePage=false}
-      if(to.path ==='/'){this.isHomePage=true}
       this.appContext.isTreeNavMobileOpen = false;
       this.redirIfRequired();
     }

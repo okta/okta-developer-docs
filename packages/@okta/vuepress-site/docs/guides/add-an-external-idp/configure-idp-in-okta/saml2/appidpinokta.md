@@ -14,7 +14,7 @@ In the **SAML Protocol Settings** section:
 
 > **Note:** When you are setting up the IdP in Okta, sometimes the Issuer, Single Sign-On URL, and Certificate aren't available from the external IdP until the metadata (the Assertion Consumer Service URL (ACS URL) and Audience URI) is uploaded to the IdP. And, the ACS URL and Audience URI values aren't available until the IdP in Okta is configured.<br>
 <br>
-We recommend that if the external IdP requires information from Okta for setup before you have that information, enter any text for the **IdP Issuer URI** and enter **https:url** for the **IdP Single Sign-On URL**. After you upload the metadata to the external IdP in the next step, you can edit the IdP in Okta and enter the appropriate **IdP Issuer URI**, **IdP Single Sign-On URL**, and **Certificate** information.
+We recommend that if the external IdP requires information from Okta for setup before you have that information, enter any text for the **IdP Issuer URI**, enter `https://URL` for the **IdP Single Sign-On URL**, and upload a temporary certificate. After you upload the metadata to the external IdP in the next step, you can edit the IdP in Okta and enter the appropriate **IdP Issuer URI**, **IdP Single Sign-On URL**, and **Certificate** information.
 
 * **IdP Issuer URI** &mdash; The issuer. The Identity Provider provides this value.
 

@@ -26,15 +26,15 @@
           link: '/docs/guides/'
         },
         {
+          name: 'Concepts',
+          link: '/docs/concepts/'
+        },
+        {
           name: 'Reference',
-          link: '/docs/reference/'
+          link: '/docs/reference/',
         },
         {
-          name: 'Language',
-          link: '/code/',
-        },
-        {
-          name: 'SDKs',
+          name: 'Languages & SDKs',
           link: '/code/',
         },
         ]

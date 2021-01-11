@@ -10,18 +10,16 @@ module.exports = {
    * Custom head elements here
    */
   head: [
-    ['script', { src: "https://www.okta.com/sites/all/modules/okta_coveo_search_developer/js/lib/CoveoJsSearch.Lazy.min.js?20200128", defer: true}],
+    ['link', { rel: 'stylesheet', href: 'https://static.cloud.coveo.com/searchui/v2.7968/10/css/CoveoFullSearch.min.css', integrity: 'sha512-tfvkdC1he/nwwFbCfPfFYa7PlN9aX+CEmmceZIQ8MHhgKAaW+CNnNaVSLTGc+Wsxmcz8Rj1vbLWguGG4JCuPGw==', crossorigin: 'anonymous' }],
+    ['script', { class: 'coveo-script', src: 'https://static.cloud.coveo.com/searchui/v2.7968/10/js/CoveoJsSearch.Lazy.min.js', integrity: 'sha512-xjeJNDVvl2ZWpD6SzRVeOHSERJX/ord4BENDzd83KxlD5r1/JgxmwtAyw/nr5yIDuwA/NvU/hYBMtLsCpdFCcQ==', crossorigin: 'anonymous', defer: true}],
     ['link', { rel: 'apple-touch-icon', sizes:'180x180', href: '/favicon/apple-touch-icon.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"32x32",  href: '/favicon/favicon-32x32.png' }],
     ['link', { rel: 'icon', type:"image/png", sizes:"16x16",  href: '/favicon/favicon-16x16.png' }],
     ['link', { rel: 'manifest',  href: '/favicon/manifest.json' }],
     ['link', { rel: 'mask-icon',  href: '/favicon/safari-pinned-tab.svg' }],
-    ['script', { src: "https://developer.okta.com/sites/all/modules/okta_coveo_search_developer/js/lib/CoveoJsSearch.Lazy.min.js?20200228", defer: true}],
     ['link', { rel: 'preload', href: 'https://use.typekit.net/osg6paw.css', as: 'style', crossorigin: true}],
     ['link', { rel: 'stylesheet', href: 'https://use.typekit.net/osg6paw.css', crossorigin: true}],
-    ['link', { rel: 'stylesheet', href: 'https://developer.okta.com/sites/all/modules/okta_coveo_search_developer/css/okta_coveo_search_developer.css?20200128' }],
     ['meta', { name: 'msapplication-config',  content: '/favicon/browserconfig.xml' }],
-    ['link', { rel: 'stylesheet', href: 'https://www.okta.com/sites/all/modules/okta_coveo_search_developer/css/okta_coveo_search_developer.css?20200128' }],
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
 
     /**
@@ -130,14 +128,6 @@ module.exports = {
         ]
       }
     ],
-
-    sidebars: {
-      codePages: require('./nav/codePages'),
-      reference: require('./nav/reference'),
-      guides: require('./nav/guides'),
-      concepts: require('./nav/concepts')
-    },
-
     quickstarts: {
       clients: [
         { name: 'okta-sign-in-page', label: 'Okta Sign-In Page', serverExampleType: 'auth-code', default: true },

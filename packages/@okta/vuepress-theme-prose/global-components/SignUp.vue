@@ -1,7 +1,11 @@
 <template>
   <div class="signup">
     <div class="signup--form">
-      <form @submit="submitForm" method="POST" action="https://developer.okta.com/developer/signup/">
+      <form
+        @submit="submitForm"
+        method="POST"
+        action="https://developer.okta.com/developer/signup/"
+      >
         <div class="row">
           <label class="field-wrapper" for="email">
             Email
@@ -17,8 +21,8 @@
             <ul class="error-color" v-if="form.email.errorList.length">
               <li
                 class="error-color"
-                v-for="error in form.email.errorList"
-                v-bind:key="error.length * Math.random()"
+                v-for="(error, index) in form.email.errorList"
+                v-bind:key="index"
               >
                 {{ error }}
               </li>
@@ -26,52 +30,52 @@
           </label>
         </div>
         <div class="user-name">
-        <div class="row">
-          <label class="field-wrapper" for="firstName">
-            First Name
-            <input
-              type="text"
-              id="firstName"
-              maxlength="128"
-              placeholder="First Name"
-              v-model="form.firstName.value"
-              :class="{ error: !form.firstName.isValid }"
-              @blur="validationService.checkFormInput('firstName')"
-            />
-            <ul class="error-color" v-if="form.firstName.errorList.length">
-              <li
-                class="error-color"
-                v-for="error in form.firstName.errorList"
-                v-bind:key="error.length * Math.random()"
-              >
-                {{ error }}
-              </li>
-            </ul>
-          </label>
-        </div>
-        <div class="row">
-          <label class="field-wrapper" for="lastName">
-            Last Name
-            <input
-              type="text"
-              id="lastName"
-              maxlength="128"
-              placeholder="Last Name"
-              v-model="form.lastName.value"
-              :class="{ error: !form.lastName.isValid }"
-              @blur="validationService.checkFormInput('lastName')"
-            />
-            <ul class="error-color" v-if="form.lastName.errorList.length">
-              <li
-                class="error-color"
-                v-for="error in form.lastName.errorList"
-                v-bind:key="error.length * Math.random()"
-              >
-                {{ error }}
-              </li>
-            </ul>
-          </label>
-        </div>
+          <div class="row">
+            <label class="field-wrapper" for="firstName">
+              First Name
+              <input
+                type="text"
+                id="firstName"
+                maxlength="128"
+                placeholder="First Name"
+                v-model="form.firstName.value"
+                :class="{ error: !form.firstName.isValid }"
+                @blur="validationService.checkFormInput('firstName')"
+              />
+              <ul class="error-color" v-if="form.firstName.errorList.length">
+                <li
+                  class="error-color"
+                  v-for="(error, index) in form.firstName.errorList"
+                  v-bind:key="index"
+                >
+                  {{ error }}
+                </li>
+              </ul>
+            </label>
+          </div>
+          <div class="row">
+            <label class="field-wrapper" for="lastName">
+              Last Name
+              <input
+                type="text"
+                id="lastName"
+                maxlength="128"
+                placeholder="Last Name"
+                v-model="form.lastName.value"
+                :class="{ error: !form.lastName.isValid }"
+                @blur="validationService.checkFormInput('lastName')"
+              />
+              <ul class="error-color" v-if="form.lastName.errorList.length">
+                <li
+                  class="error-color"
+                  v-for="(error, index) in form.lastName.errorList"
+                  v-bind:key="index"
+                >
+                  {{ error }}
+                </li>
+              </ul>
+            </label>
+          </div>
         </div>
 
         <div class="row">
@@ -83,7 +87,11 @@
               id="country"
               @change="
                 validationService.checkFormInput('country');
-                validationService.resetFormField('state', true);
+                validationService.resetFormField('state', {
+                  reset: true,
+                  value: ''
+                });
+                showConsentSection(form.country.value);
                 states = form.country.value;
               "
               :class="{ error: !form.country.isValid }"
@@ -91,7 +99,7 @@
               <option disabled selected>Country</option>
               <option
                 v-for="country in getCountries"
-                v-bind:key="country.value.length * Math.random()"
+                v-bind:key="country.value"
                 :value="country.value"
                 >{{ country.name }}</option
               >
@@ -114,7 +122,7 @@
               <option selected disabled>{{ states.label }}</option>
               <option
                 v-for="state in states.list"
-                v-bind:key="state.name.length * Math.random()"
+                v-bind:key="state.name"
                 :value="state.value"
                 >{{ state.name }}</option
               >
@@ -144,6 +152,36 @@
               value="sign up"
             />
           </label>
+        </div>
+
+        <div class="consent--section" v-show="displayConsent">
+          <p class="consent--section-text">
+            By clicking “SIGN UP” I agree to the applicable Free Trial terms in
+            <a href="https://developer.okta.com/terms">Okta’s Terms of Service</a> during my use of the
+            Free Trial Service and Okta’s
+            <a href="https://www.okta.com/privacy-policy">Privacy Policy</a>. I further agree that
+            Okta may contact me with marketing communications (details on how to
+            unsubscribe are located in the Privacy Policy link).
+          </p>
+          <div class="consent--section-agree" v-show="displayAgree">
+            <label for="agree-checkbox">
+              <input
+                type="checkbox"
+                name=""
+                id="agree-checkbox"
+                @change="
+                  validationService.checkFormCheckboxInput('consentAgree')
+                "
+                v-model="form.consentAgree.value"
+              />
+              I agree
+            </label>
+            <span
+              class="error-color"
+              v-if="form.consentAgree.errorList.length"
+              >{{ validationService.errorDictionary.emptyField }}</span
+            >
+          </div>
         </div>
       </form>
       <div class="splitter">
@@ -178,10 +216,7 @@
       <div class="logo-wrapper">
         <h4>Trusted by</h4>
         <div class="partners-logo">
-          <img
-            src="/img/authorization/proof-by.png"
-            alt=""
-          />
+          <img src="/img/authorization/proof-by.png" alt="" />
         </div>
       </div>
     </div>
@@ -191,11 +226,12 @@
 <script>
 import VueRecaptcha from "vue-recaptcha";
 import { SignUpValidation } from "../util/signupValidation.service";
-import { Api } from "../util/api.service"
+import { Api } from "../util/api.service";
 import {
   countriesList,
   americanStates,
-  canadaProvinces
+  canadaProvinces,
+  GDPR_COUNTRIES
 } from "../const/signup.const";
 
 export default {
@@ -207,12 +243,20 @@ export default {
       canada: "Canada",
       usa: "United States",
       state: { lable: "", list: [] },
+      displayConsent: false,
+      displayAgree: false,
       form: {
         state: { value: "", isValid: true, errorList: [], hidden: true },
         email: { value: "", isValid: true, errorList: [] },
         firstName: { value: "", isValid: true, errorList: [] },
         lastName: { value: "", isValid: true, errorList: [] },
-        country: { value: "", isValid: true, errorList: [] }
+        country: { value: "", isValid: true, errorList: [] },
+        consentAgree: {
+          value: false,
+          isValid: true,
+          errorList: [],
+          hidden: true
+        }
       }
     };
   },
@@ -244,7 +288,7 @@ export default {
       return new SignUpValidation(this.form);
     },
     apiService() {
-      return new Api('https://developer.okta.com');
+      return new Api("https://developer.okta.com");
     }
   },
   methods: {
@@ -255,9 +299,27 @@ export default {
       this.validationService.checkFormInput("country");
       this.validationService.checkEmailInput("email");
       this.validationService.checkFormInput("state");
+      this.validationService.checkFormCheckboxInput("consentAgree");
 
       if (this.validationService.isValidForm()) {
-       // make api call
+        // make api call
+      }
+    },
+
+    showConsentSection(country) {
+      // Show consent section while selecting country.
+      this.displayConsent = true;
+      // Hide consent opt checkbox.
+      this.displayAgree = false;
+      this.form.consentAgree.hidden = true;
+      this.validationService.resetFormField("consentAgree", {
+        reset: true,
+        value: false
+      });
+
+      if (GDPR_COUNTRIES.indexOf(country) !== -1) {
+        this.displayAgree = true;
+        this.form.consentAgree.hidden = false;
       }
     },
 

@@ -23,7 +23,6 @@ export default {
     },
   data (){
     return{
-     dedent: null,
      widgetCode:`
       // Uses okta-signin-widget version 3.8.1
 
@@ -37,7 +36,6 @@ export default {
             "primaryauth.submit": "Sign In"
           },
         },
-        
       });
       widget.renderEl({
         el: "#widget-container"

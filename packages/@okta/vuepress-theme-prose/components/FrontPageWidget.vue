@@ -57,7 +57,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css'
                                   activeElement.blur();
                                   elementToFocus.focus();
                                 }
-                              }, 100);
+                              }, 0);
                             }
                           });
                   this.widget.renderEl(

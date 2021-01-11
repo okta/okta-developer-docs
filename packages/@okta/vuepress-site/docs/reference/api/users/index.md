@@ -244,7 +244,7 @@ curl -v -X POST \
 ```json
 {
   "id": "00ub0oNGTSWTBKOLGLNR",
-  "status": "STAGED",
+  "status": "ACTIVE",
   "created": "2013-07-02T21:36:25.344Z",
   "activated": null,
   "statusChanged": null,
