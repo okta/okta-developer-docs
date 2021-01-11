@@ -16,7 +16,7 @@ module.exports = (options, ctx) => {
       // Set to true to enable the redesign in development
       const redesign = process.env.REDESIGN || false;
       // Respect the redesign flag unless this is a production build
-      $page.redesign = true; //!ctx.isProd && redesign;
+      $page.redesign = !ctx.isProd && redesign;
     }
   }
 }
