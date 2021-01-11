@@ -12,13 +12,12 @@
             <input
               type="text"
               id="email"
-              placeholder="Email"
               maxlength="128"
               v-model="form.email.value"
               :class="{ error: !form.email.isValid }"
               @blur="validationService.checkEmailInput('email')"
             />
-            <ul class="error-color" v-if="form.email.errorList.length">
+            <ul class="error-color error-msg" v-if="form.email.errorList.length">
               <li
                 class="error-color"
                 v-for="(error, index) in form.email.errorList"
@@ -37,12 +36,11 @@
                 type="text"
                 id="firstName"
                 maxlength="128"
-                placeholder="First Name"
                 v-model="form.firstName.value"
                 :class="{ error: !form.firstName.isValid }"
                 @blur="validationService.checkFormInput('firstName')"
               />
-              <ul class="error-color" v-if="form.firstName.errorList.length">
+              <ul class="error-color error-msg" v-if="form.firstName.errorList.length">
                 <li
                   class="error-color"
                   v-for="(error, index) in form.firstName.errorList"
@@ -60,12 +58,11 @@
                 type="text"
                 id="lastName"
                 maxlength="128"
-                placeholder="Last Name"
                 v-model="form.lastName.value"
                 :class="{ error: !form.lastName.isValid }"
                 @blur="validationService.checkFormInput('lastName')"
               />
-              <ul class="error-color" v-if="form.lastName.errorList.length">
+              <ul class="error-color error-msg" v-if="form.lastName.errorList.length">
                 <li
                   class="error-color"
                   v-for="(error, index) in form.lastName.errorList"
@@ -104,7 +101,7 @@
                 >{{ country.name }}</option
               >
             </select>
-            <span class="error-color" v-if="form.country.errorList.length">{{
+            <span class="error-color error-msg" v-if="form.country.errorList.length">{{
               validationService.errorDictionary.emptyField
             }}</span>
           </label>
@@ -127,7 +124,7 @@
                 >{{ state.name }}</option
               >
             </select>
-            <span class="error-color" v-if="form.state.errorList.length">{{
+            <span class="error-color error-msg" v-if="form.state.errorList.length">{{
               validationService.errorDictionary.emptyField
             }}</span>
           </label>
@@ -177,7 +174,7 @@
               I agree
             </label>
             <span
-              class="error-color"
+              class="error-color error-msg"
               v-if="form.consentAgree.errorList.length"
               >{{ validationService.errorDictionary.emptyField }}</span
             >

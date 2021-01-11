@@ -4,7 +4,7 @@ export class SignUpValidation {
     email: "Invalid email.",
     firstName: "invalid first name.",
     lastName: "invalid last name.",
-    emptyField: "Whoops, looks like some information is missing."
+    emptyField: "This field is required."
   };
 
   constructor(form) {
