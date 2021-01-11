@@ -80,7 +80,7 @@ Limits are applied on a per-recipient basis and vary by email type. The limit fo
 
 ### Per-user limits
 
-API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/), the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), and SMS and Voice factor endpoints, have a per-username rate limit to prevent brute force attacks with the user's password:
+API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/), the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), and SMS and Call factor endpoints, have a per-username rate limit to prevent brute force attacks with the user's password:
 
 | Action and Okta API endpoint                                      | Per User limits (all orgs) |
 | ----------------------------------------------------------------- | -------------------------: |
