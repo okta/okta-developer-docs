@@ -223,7 +223,9 @@ header.redesign {
             }
           }
 
-          > li.expanded {
+          > li.expandable {
+            cursor: pointer;
+
             &:before {
               display: none;
             }
@@ -231,10 +233,12 @@ header.redesign {
             > ul.submenu--items {
               background: transparent;
               box-shadow: none;
-              max-height: initial;
+              max-height: 0;
+              overflow: hidden;
               padding: 0 16px;
               position: initial;
               transform: none;
+              transition: max-height 300ms ease-in-out;
 
               &:before {
                 display: none;
@@ -247,6 +251,21 @@ header.redesign {
               .menu--divider,
               .menu--icons {
                 display: none;
+              }
+            }
+
+            span.link:after {
+              transform: rotate(-90deg);
+              transition: transform 300ms ease-in-out;
+            }
+
+            &.open {
+              > ul.submenu--items {
+                max-height: 100%;
+              }
+              
+              > span.link:after {
+                transform: rotate(0deg);
               }
             }
           }

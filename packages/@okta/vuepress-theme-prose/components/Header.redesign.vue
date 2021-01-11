@@ -1,6 +1,6 @@
 <template>
   <header class="redesign">
-    <a href="https://developer.okta.com/" class="header--logo">
+    <a href="/" class="header--logo">
       <img src="/img/icons/okta-developer.svg" />
     </a>
     <div :class="{ 'search--slideout': true, opened: searchOpened || isSearchPage }">
