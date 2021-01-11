@@ -14,6 +14,8 @@ This guide will walk you through integrating authentication into a Vue app with 
 6. [Connect the Routes](#connect-the-routes)
 7. [Start Your App](#start-your-app)
 
+> This guide is for `@okta/okta-auth-js` >= v4.1.0 and < 5.0.0.
+
 ## Prerequisites
 If you do not already have a **Developer Edition Account**, you can create one at <https://developer.okta.com/signup/>.
 
@@ -86,7 +88,7 @@ export default {
       this.onChange(true)
       return
     }
-    return authClient.signIn({
+    return authClient.signInWithCredentials({
       username: email,
       password: pass
     }).then(transaction => {
