@@ -1,8 +1,7 @@
 ---
 title: Additional rate limits
 excerpt: >-
-  Understand what other rate limit options there are at Okta and learn how to design for efficient use of
-  resources
+  Understand what other rate limit options there are at Okta and learn how to design for efficient use of resources
 ---
 
 # Additional rate limits
@@ -81,12 +80,22 @@ Limits are applied on a per-recipient basis and vary by email type. The limit fo
 
 ### Per-user limits
 
-API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password:
+API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/), the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), and SMS and Voice factor endpoints, have a per-username rate limit to prevent brute force attacks with the user's password:
 
 | Action and Okta API endpoint                                      | Per User limits (all orgs) |
 | ----------------------------------------------------------------- | -------------------------: |
 | **Authenticate the same user:**<br>`/api/v1/authn`                | 4 per second               |
 | **Generate or refresh an OAuth 2.0 token:**<br>`/oauth2/v1/token` | 4 per second               |
+
+#### 30 second verification rate limits
+
+This rate limit applies to a user's attempt to send an SMS or Call enrollment or verification message to the same phone number.
+
+The Sign-In Widget works within this limit. It doesn't display the resend message button until 30 seconds have passed.
+
+#### Enrollment rate limit
+
+The Enrollment rate limit applies to a user's attempt to enroll an SMS or a Call factor using any phone number. This rate limit applies to only the enrollment operation.
 
 ### Workforce license rate limit multiplier
 
