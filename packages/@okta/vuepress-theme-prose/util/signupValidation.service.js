@@ -2,8 +2,8 @@ import { bannedEmailProviders } from "../const/signup.const";
 export class SignUpValidation {
   errorDictionary = {
     email: "Invalid email.",
-    firstName: "invalid first name.",
-    lastName: "invalid last name.",
+    firstName: "Invalid first name.",
+    lastName: "Invalid last name.",
     emptyField: "This field is required."
   };
 

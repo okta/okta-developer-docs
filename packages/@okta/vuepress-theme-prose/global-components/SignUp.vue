@@ -155,9 +155,9 @@
         <div class="consent--section" v-show="displayConsent">
           <p class="consent--section-text">
             By clicking “SIGN UP” I agree to the applicable Free Trial terms in
-            <a href="/terms">Okta’s Terms of Service</a> during my use of the
+            <a href="/terms" target="_blank">Okta’s Terms of Service</a> during my use of the
             Free Trial Service and Okta’s
-            <a href="https://www.okta.com/privacy-policy">Privacy Policy</a>. I further agree that
+            <a href="https://www.okta.com/privacy-policy" target="_blank">Privacy Policy</a>. I further agree that
             Okta may contact me with marketing communications (details on how to
             unsubscribe are located in the Privacy Policy link).
           </p>
