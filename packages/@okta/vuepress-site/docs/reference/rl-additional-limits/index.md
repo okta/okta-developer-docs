@@ -80,22 +80,24 @@ Limits are applied on a per-recipient basis and vary by email type. The limit fo
 
 ### Per-user limits
 
-API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/), the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), and SMS and Call factor endpoints, have a per-username rate limit to prevent brute force attacks with the user's password:
+API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/), the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password:
 
 | Action and Okta API endpoint                                      | Per User limits (all orgs) |
 | ----------------------------------------------------------------- | -------------------------: |
 | **Authenticate the same user:**<br>`/api/v1/authn`                | 4 per second               |
 | **Generate or refresh an OAuth 2.0 token:**<br>`/oauth2/v1/token` | 4 per second               |
 
+SMS and Call factor endpoints also have a per-username rate limit:
+
 #### 30 second verification rate limits
 
-This rate limit applies to a user's attempt to send an SMS or Call enrollment or verification message to the same phone number.
+This rate limit applies to a user's attempt to send an SMS or Call enrollment or verification message to the same phone number. The rate limit is one SMS or Call challenge per device every 30 seconds.
 
-The Sign-In Widget works within this limit. It doesn't display the resend message button until 30 seconds have passed.
+> **Note:** Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
 
 #### Enrollment rate limit
 
-The Enrollment rate limit applies to a user's attempt to enroll an SMS or a Call factor using any phone number. This rate limit applies to only the enrollment operation.
+The Enrollment rate limit applies to a user's attempt to enroll an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies to only the enrollment operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples) for examples of System Log rate limit events where too many enrollment attempts for the SMS or Call factors were made.
 
 ### Workforce license rate limit multiplier
 
