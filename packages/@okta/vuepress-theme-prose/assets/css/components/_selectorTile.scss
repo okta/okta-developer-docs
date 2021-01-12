@@ -55,6 +55,13 @@
       border-bottom: 1px solid #334c61;
       color: #bcc2c5;
       text-decoration: none;
+
+      @include media("<=tablet") {
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+
       &:visited,&:active,&:focus{
         color: #DFEAF1;
         text-decoration: none;

@@ -231,10 +231,10 @@ module.exports = {
         contact: {
           heading: 'Contact & Legal',
           items: [
-            { text: 'Contact our team', link: 'https://developer.okta.com/contact/' },
-            { text: 'Contact sales', link: 'https://developer.okta.com/contact-sales-enterprise/' },
-            { text: 'Terms & conditions', link: 'https://developer.okta.com/terms/' },
-            { text: 'Privacy policy', link: 'https://developer.okta.com/privacy/' },
+            { text: 'Contact our team', link: 'https://www.okta.com/contact/' },
+            { text: 'Contact sales', link: 'https://www.okta.com/contact-sales/' },
+            { text: 'Terms & conditions', link: '/terms/' },
+            { text: 'Privacy policy', link: 'https://www.okta.com/privacy-policy/' },
           ]
         },
         more: {
