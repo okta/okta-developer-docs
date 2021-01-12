@@ -83,7 +83,7 @@
         },
          {
           name: 'Java',
-          link: '/docs/guides/protect-your-api/java/before-you-begin/',
+          link: '/docs/guides/protect-your-api/springboot/before-you-begin/',
           image: '/img/homepage/stackselectors/java.png'
         },
          {
