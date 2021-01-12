@@ -2,9 +2,9 @@ import { bannedEmailProviders } from "../const/signup.const";
 export class SignUpValidation {
   errorDictionary = {
     email: "Invalid email.",
-    firstName: "invalid first name.",
-    lastName: "invalid last name.",
-    emptyField: "Whoops, looks like some information is missing."
+    firstName: "Invalid first name.",
+    lastName: "Invalid last name.",
+    emptyField: "This field is required."
   };
 
   constructor(form) {
