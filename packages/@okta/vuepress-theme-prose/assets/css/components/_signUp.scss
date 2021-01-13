@@ -19,7 +19,7 @@
     width: 100%;
     max-width: 588px;
     margin: 0 80px 0 0;
-    padding: 40px 48px 8px 48px;
+    padding: 40px;
     background-color: cv("blue", "whale");
     box-shadow: 0px 6px 25px cv("blue", "whale");
     a {
@@ -51,6 +51,7 @@
         margin: 24px 0 10px 0;
       }
       .consent--section-agree {
+        position: relative;
         display: flex;
         flex-direction: column;
         label {
@@ -62,6 +63,12 @@
           cursor: pointer;
         }
       }
+    }
+
+    .error-msg {
+      position: absolute;
+      bottom: -24px;
+      left: 0;
     }
 
     @include media("<desktop") {

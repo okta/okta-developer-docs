@@ -47,5 +47,19 @@
         <span>{{$themeConfig.redesign.copyright_text}}</span>
       </div>
     </div>
+    <img v-if="isHomePage" src="/img/home-magenta-circle.svg" class="home--magenta-circle" />
   </footer>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isHomePage: false,
+    };
+  },
+  mounted() {
+    this.isHomePage = window.location.pathname === "/";
+  }
+};
+</script>
