@@ -109,20 +109,14 @@
 </template>
 
 <script>
-import {
-  tileData,
-  assuranceData,
-  partnerData,
-} from '../const/home.const';
 import pendo from '../util/pendo'
-
 const TABLET_BREAKPOINT = 768;
 
 export default {
   name: 'RedesignedHomePage',
   components: {
     HeaderRedesign: () => import('../components/Header.redesign.vue'),
-        FooterRedesign: () => import('../components/Footer.redesign.vue'),
+    FooterRedesign: () => import('../components/Footer.redesign.vue'),
     RedesignedSideBar: () => import('../components/RedesignedSidebar'),
     SelectorTile: () => import('../components/SelectorTile'),
     AssuranceItem: () => import('../components/AssuranceItem'),

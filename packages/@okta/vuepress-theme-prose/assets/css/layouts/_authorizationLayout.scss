@@ -13,6 +13,7 @@
       margin: 0 0 24px 0;
     }
     .field-wrapper {
+      position: relative;
       padding: 0 24px 0 0;
       flex: 1;
       @include media("<tablet") {
@@ -46,6 +47,9 @@
     appearance: textfield;
     &:focus {
       outline: none;
+    }
+    &.error {
+      border: 1px solid cv("cerise", "base");
     }
   }
   input[type="submit"]:disabled {
@@ -136,10 +140,6 @@
     font-size: 15px;
     letter-spacing: 2px;
     text-transform: uppercase;
-  }
-
-  .error {
-    border: 1px solid cv("cerise", "base");
   }
 
   .error-color {
