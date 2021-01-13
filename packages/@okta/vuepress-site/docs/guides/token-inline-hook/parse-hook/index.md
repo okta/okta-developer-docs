@@ -2,11 +2,11 @@
 title: Parse the Token Inline Hook request
 ---
 
-The external service (implemented in this example by Glitch.com) to handle the Token Inline Hook request now requires code to parse the Okta request. (Or a review of the code if using the re-mixed sample application).
+The external service in this scenario requires code to handle the Token Inline Hook request from the Okta org. Use the Glitch example to either build or copy the code (re-mix on Glitch) that parses the Token Inline Hook call.
 
 > **Note**: Make sure to have the required default code and packages in your project. See [Overview and Considerations](/docs/guides/overview-and-considerations).
 
-From the Token Inline Hook request, the code retrieves the value of the user name from `data.identity`.
+From the Token Inline Hook request, the code retrieves the value of the user name from the `data.identity` object.
 
 <StackSelector snippet="request"/>
 

@@ -3,15 +3,15 @@
 
 const patients = [
   {
-    username: 'michelletest@example.com',
+    username: 'michelle.test@example.com',
     ExternalServicePatientID: '1235',
   },
   {
-    username: 'bob.uncle@oexample.com',
+    username: 'raj.gupta@example.com',
      ExternalServicePatientID: '6789',
   },
     {
-    username: 'mark.christie2777@gmail.com',
+    username: 'mark.christie2777@example.com',
      ExternalServicePatientID: '4235',
   },
 

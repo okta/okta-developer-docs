@@ -2,9 +2,9 @@
 title: Activate and enable
 ---
 
-The Token Inline Hook must be activated and enabled within your Okta Developer Console.
+The Token Inline Hook must be activated and enabled within your Okta Admin Console.
 
-- Activating the Token Inline Hook registers the hook with the Okta org and associates it with your external service
+- Activating the Token Inline Hook registers the hook with the Okta org and associates it with your external service.
 - Enabling the Token Inline Hook associates the hook with your Okta custom authorization server, which authenticates the Okta-Hosted-Login sample application.
 
 To set up and activate the Token Inline Hook:

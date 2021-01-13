@@ -1,4 +1,4 @@
-The following code parses the Okta request body for the user name and stores it in the variable 'patientName'.
+The following code parses the Okta request body for the user name and stores it in the variable `patientName`.
 
 
 ```JavaScript
