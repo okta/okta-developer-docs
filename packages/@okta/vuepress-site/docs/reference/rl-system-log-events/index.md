@@ -32,7 +32,7 @@ The following table describes the rate limit information that is returned in the
 | ---------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------- |
 | `operationRateLimitScopeType`      | String | The type of rate limit scope affected. Example scopes: `org` or `user`                                            |
 | `operationRateLimitSecondsToReset` | String | The number of seconds that remain until the current rate limiting period ends                                     |
-| `operationRateLimitSubtype`        | String | The [Subtype](#operation-rate-limit-subtypes) of the rate limit event affected. Example Subtypes: `Email`, `SMS`, `Call`|
+| `operationRateLimitSubtype`        | String | The [Subtype](#operation-rate-limit-subtypes) of the rate limit event affected. Example Subtypes: `Email`, `SMS`, `Voice call`|
 | `operationRateLimitThreshold`      | String | The relevant numerical limit that this event is associated with                                                   |
 | `operationRateLimitTimeSpan`       | String | The amount of time before the rate limit resets                                                                   |
 | `operationRateLimitTimeUnit`       | String | Indicates the reset interval for `operationRateLmitTimeSpan` in minutes or seconds                                |
