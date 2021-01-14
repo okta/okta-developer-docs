@@ -4,7 +4,7 @@
     <div class="login--form">
       <div class="row">
         <label class="field-wrapper" for="login-email">
-          <a class="btn" href="#">
+          <a class="btn" :href="uris.email">
             Sign In With Email
           </a>
         </label>
@@ -16,14 +16,14 @@
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <a class="btn social-btn" href="#">
+          <a class="btn social-btn" :href="uris.github">
             Continue With GitHub
           </a>
         </div>
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <a class="btn social-btn" href="#">
+          <a class="btn social-btn" :href="uris.google">
             Continue With Google
           </a>
         </div>
@@ -45,5 +45,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    uris() {
+      const { uris } = this.$site.themeConfig;
+
+      return {
+        email: `${uris.baseUri}/login/login.htm`,
+        github: `${uris.baseUri}/sso/idps/${uris.idps.github}`,
+        google: `${uris.baseUri}/sso/idps/${uris.idps.google}`,
+      };
+    },
+  }
+};
 </script>
