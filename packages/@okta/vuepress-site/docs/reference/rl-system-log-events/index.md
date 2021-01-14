@@ -32,7 +32,7 @@ The following table describes the rate limit information that is returned in the
 | ---------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------- |
 | `operationRateLimitScopeType`      | String | The type of rate limit scope affected. Example scopes: `org` or `user`                                            |
 | `operationRateLimitSecondsToReset` | String | The number of seconds that remain until the current rate limiting period ends                                     |
-| `operationRateLimitSubtype`        | String | The [subtype](#operation-rate-limit-subtypes) of the rate limit event affected. Example subtypes: `email`, `phone`, `rsa_token`|
+| `operationRateLimitSubtype`        | String | The [Subtype](#operation-rate-limit-subtypes) of the rate limit event affected. Example Subtypes: `Email`, `SMS`, `Call`|
 | `operationRateLimitThreshold`      | String | The relevant numerical limit that this event is associated with                                                   |
 | `operationRateLimitTimeSpan`       | String | The amount of time before the rate limit resets                                                                   |
 | `operationRateLimitTimeUnit`       | String | Indicates the reset interval for `operationRateLmitTimeSpan` in minutes or seconds                                |
@@ -264,10 +264,10 @@ The following is an example System Log rate limit event where too many OTP verif
 
 ## Operation rate limit subtypes
 
-The following table includes the available subtypes for operation rate limits.
+The following table includes the available `Subtypes` for operation rate limits.
 
-| Subtype                   | Description                                                                   | Rate limit |
-| ------------------------- | ----------------------------------------------------------------------------- | ---------- |
-| `email`                   | ?                                                                             |            |
-| `phone`                   | ?                                                                             |            |
-| `rsa_token`               | ?                                                                             |            |
+| Subtype           | Description                                                         |
+| ----------------- | ------------------------------------------------------------------- |
+| `Email`           | The user exceeded their limit for sending email messages            |
+| `SMS`             | The user exceeded their limit for sending SMS                       |
+| `Voice call`      | The user exceeded their limit for sending voice-call messages       |
