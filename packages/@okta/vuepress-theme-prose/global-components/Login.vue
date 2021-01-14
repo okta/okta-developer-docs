@@ -4,12 +4,9 @@
     <div class="login--form">
       <div class="row">
         <label class="field-wrapper" for="login-email">
-          <input
-            id="login-email"
-            type="button"
-            value="sign in with email"
-            class="btn red-button"
-          />
+          <a class="btn" href="#">
+            Sign In With Email
+          </a>
         </label>
       </div>
       <div class="splitter">
@@ -19,20 +16,16 @@
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <input
-            type="button"
-            class="social-btn"
-            value="continue with github"
-          />
+          <a class="btn social-btn" href="#">
+            Continue With GitHub
+          </a>
         </div>
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <input
-            type="button"
-            class="social-btn"
-            value="continue with google"
-          />
+          <a class="btn social-btn" href="#">
+            Continue With Google
+          </a>
         </div>
       </div>
       <div class="row goto-signup">
