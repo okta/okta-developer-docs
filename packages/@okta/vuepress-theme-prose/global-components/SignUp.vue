@@ -288,7 +288,7 @@ export default {
       return new SignUpValidation(this.form);
     },
     apiService() {
-      return new Api("https://developer.okta.com");
+      return new Api(this.$site.themeConfig.uris.baseUri);
     }
   },
   methods: {
