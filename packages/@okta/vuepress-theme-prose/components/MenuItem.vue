@@ -12,6 +12,7 @@
       :href="item.link"
       :class="{ [itemCss]: true, active: $page.path.includes(item.link) }"
       :target="item.target"
+      :rel="item.target && 'noopener noreferrer'"
       v-html="item.text"
     ></a>
     <span v-else-if="item.text" v-html="item.text" :class="itemCss"></span>
