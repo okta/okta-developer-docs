@@ -309,9 +309,6 @@ export default {
         // make api call
         const { baseUri, orgId } = this.$site.themeConfig.uris;
         const registrationPath = `/api/v1/registration/${orgId}/register`;
-
-        console.warn({ baseUri, orgId});
-
         const body = {
           userProfile: {
             email: this.form.email.value,
@@ -323,9 +320,7 @@ export default {
           },
         };
 
-        console.warn({ ...body});
-
-        this.apiService.post(registrationPath, body)
+        this.apiService.post(registrationPath, { body })
       }
     },
 
