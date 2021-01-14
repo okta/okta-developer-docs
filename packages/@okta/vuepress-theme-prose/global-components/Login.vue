@@ -51,7 +51,7 @@ export default {
       const { uris } = this.$site.themeConfig;
 
       return {
-        email: `${uris.baseUri}/login/login.htm`,
+        email: "https://login.okta.com/",
         github: `${uris.baseUri}/sso/idps/${uris.idps.github}`,
         google: `${uris.baseUri}/sso/idps/${uris.idps.google}`,
       };
