@@ -311,8 +311,8 @@ export default {
 
       if (this.validationService.isValidForm()) {
         // make api call
-        const { baseUri, orgId } = this.$site.themeConfig.uris;
-        const registrationPath = `/api/v1/registration/${orgId}/register`;
+        const { baseUri, registrationPolicyId} = this.$site.themeConfig.uris;
+        const registrationPath = `/api/v1/registration/${registrationPolicyId}/register`;
         const body = {
           userProfile: {
             email: this.form.email.value,

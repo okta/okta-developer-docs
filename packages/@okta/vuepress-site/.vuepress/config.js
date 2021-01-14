@@ -64,7 +64,7 @@ module.exports = {
      */
     uris: {
       baseUri: 'https://okta-dev-parent.trexcloud.com',
-      orgId: 'reg3kwstakmbOrIly0g7',
+      registrationPolicyId: 'reg3kwstakmbOrIly0g7',
       idps: {
         github: '0oa3jobx2bBlylNft0g7',
         google: '0oa3jaktbqkiwCthn0g7',
