@@ -10,11 +10,11 @@ excerpt:
 
 For general information on Inline Hooks and how to create and use them, see [Inline Hooks](/docs/concepts/inline-hooks/). The following documentation is only for the management API, which provides a CRUD interface for registering Inline Hooks.
 
-## Getting Started
+## Get started
 
 Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8be0f0b6e03d02c3bb45)
 
-## Inline Hook Operations
+## Inline Hook operations
 
 ### Create Inline Hook
 
@@ -35,17 +35,17 @@ Your external service's endpoint needs to be a valid HTTPS endpoint, and therefo
 
 The total number of Inline Hooks that you can create in an Okta org is limited to 50, which is a combined total for any combination of Inline Hook types.
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter   | Description                                                                                  | Param Type   | DataType                                    | Required |
 | ----------- | -------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
 | Inline Hook | A valid Inline Hook object, specifying the details of the Inline Hook you are registering.   | Body         | [Inline Hook object](#inline-hook-object)   | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 The response is an [Inline Hook object](#inline-hook-object) representing the Inline Hook that was registered. The `id` property returned in the response serves as the unique ID for the registered Inline Hook, which you can specify when invoking other CRUD operations.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -80,7 +80,7 @@ curl -v -X POST \
 
 > **Note:** `X-Other-Header` is an example of an additional optional header, with its value specified as `some-other-value`. For each optional header, you choose the name and value you wish Okta to pass to your external service.
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -119,17 +119,17 @@ curl -v -X POST \
 
 <ApiOperation method="get" url="/api/v1/inlineHooks/${id}" />
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter | Description               | Param Type   | DataType   | Required |
 | --------- | ------------------------- | ------------ | ---------- | -------- |
 | `id`      | A valid Inline Hook ID.   | Path         | String     | TRUE     |
 
-##### Response Parameters
+##### Response parameters
 
 The response is an [Inline Hook object](#inline-hook-object) representing the registered Inline Hook that matches the `id` you specified.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -138,7 +138,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/inlineHooks/${id}"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -181,7 +181,7 @@ curl -v -X GET \
 
 Returns a list of registered Inline Hooks, optionally filtered by Inline Hook type if you supply a `type` query parameter.
 
-##### Request Examples
+##### Request examples
 
 
 ```bash
@@ -196,7 +196,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/inlineHooks?type=com.okta.oauth2.tokens.transform"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -235,7 +235,7 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/inlineHooks/${id}" />
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter  | Description                                                                     | Param Type   | DataType                                    | Required |
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
@@ -244,11 +244,11 @@ curl -v -X GET \
 
 The submitted Inline Hook properties will replace the existing properties after passing validation. Note that some properties are immutable and cannot be updated. Refer to the description of each property in the [Inline Hook object](#inline-hook-object) table for information.
 
-##### Response Parameters
+##### Response parameters
 
 The response is an [Inline Hook object](#inline-hook-object) representing the updated Inline Hook.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -282,7 +282,7 @@ curl -v -X PUT \
 }' "https://${yourOktaDomain}/api/v1/inlineHooks/${id}"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -319,7 +319,7 @@ curl -v -X PUT \
 
 <ApiOperation method="post" url="/api/v1/inlineHooks/${id}/lifecycle/activate" />
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter  | Description                                                                     | Param Type   | DataType                                    | Required |
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
@@ -327,11 +327,11 @@ curl -v -X PUT \
 
 Activates the Inline Hook matching the provided `id`.
 
-##### Response Parameters
+##### Response parameters
 
 The response is an [Inline Hook object](#inline-hook-object) representing the activated Inline Hook.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -341,7 +341,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/inlineHooks/${id}/lifecycle/activate"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -378,7 +378,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/inlineHooks/${id}/lifecycle/deactivate" />
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter  | Description                                                                     | Param Type   | DataType                                    | Required |
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
@@ -386,11 +386,11 @@ curl -v -X POST \
 
 Deactivates the Inline Hook matching the provided `id`.
 
-##### Response Parameters
+##### Response parameters
 
 The response is an [Inline Hook object](#inline-hook-object) representing the deactivated Inline Hook.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -400,7 +400,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/inlineHooks/${id}/lifecycle/deactivate"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -437,7 +437,7 @@ curl -v -X POST \
 
 <ApiOperation method="delete" url="/api/v1/inlineHooks/${id}" />
 
-##### Request Parameters
+##### Request parameters
 
 | Parameter | Description                            | Param Type   | DataType   | Required |
 | --------- | -------------------------------------- | ------------ | ---------- | -------- |
@@ -445,11 +445,11 @@ curl -v -X POST \
 
 Deletes the Inline Hook matching the provided `id`. Once deleted, the Inline Hook is unrecoverable. As a safety precaution, only Inline Hooks with a status of `INACTIVE` are eligible for deletion.
 
-##### Response Parameters
+##### Response parameters
 
 All responses will return a 204 status with no content.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -458,7 +458,7 @@ curl -v -X DELETE \
 "https://${yourOktaDomain}/api/v1/inlineHooks/${id}"
 ```
 
-##### Response Example
+##### Response example
 
 
 204 with no content.
@@ -478,12 +478,12 @@ A timeout of 3 seconds is enforced on all outbound requests, with one retry in t
 
 Note that this execution endpoint is not tied to any other functionality in Okta and should only be used for testing purposes.
 
-##### Response Parameters
+##### Response parameters
 
 Successful responses will return the full response returned by the external service, which should match the data contract for
 the given `inlineHookType` and version.
 
-##### Request Example
+##### Request example
 
 
 ```bash
@@ -632,7 +632,7 @@ curl -v -X POST \
 ' "https://${yourOktaDomain}/api/v1/inlineHooks/${id}/execute"
 ```
 
-##### Response Example
+##### Response example
 
 
 ```json
@@ -734,7 +734,7 @@ curl -v -X POST \
 
 To use Basic Auth, you would set `type` to `HEADER`, `key` to `Authorization`, and `value` to the Base64-encoded string of "username:password".
 
-### Supported Inline Hook Types
+### Supported Inline Hook types
 
 When registering an Inline Hook, you need to specify what type it is. The following types are currently supported:
 
