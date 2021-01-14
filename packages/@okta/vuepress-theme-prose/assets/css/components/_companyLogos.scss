@@ -1,0 +1,57 @@
+.company-logos--wrapper {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  h1 {
+    color: white;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 50px;
+  }
+
+  h4 {
+    color: white;
+    font-size: 16px;
+  }
+
+  .company-logos--icons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
+
+    .company-logos--icon {
+      max-width: 85px;
+      max-height: 40px;
+      margin: 0 10px 45px;
+    }
+
+    @include media("<tablet") {
+      flex-direction: column;
+    }
+  }
+
+  &.company-logos--centered {
+    text-align: center;
+    align-items: center;
+  }
+  &:not(.company-logos--centered) {
+    .company-logos--icon:first-child {
+      margin-left: 0;
+    }
+    .company-logos--icon:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &.company-logos--small {
+    .company-logos--icons {
+      .company-logos--icon {
+        max-width: 70px;
+      }
+    }
+  }
+}

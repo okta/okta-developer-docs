@@ -215,19 +215,6 @@
     }
   }
 
-  &--partner-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 90px;
-    position: relative;
-
-    > img {
-      width: auto !important;
-      max-height: 40px !important;
-    }
-  }
-
   &--shapes {
     display: flex;
     flex-direction: column;

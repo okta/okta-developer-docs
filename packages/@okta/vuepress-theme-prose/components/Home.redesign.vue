@@ -125,27 +125,16 @@
               </div>
             </div>
 
-            <div class="row justify-content-center">
-              <div class="col-lg-10 col-md-10 col-sm-12">
-                <div
-                  class="row justify-content-around align-items-center redesign-homepage--partners-block-margin"
-                >
-                  <div
-                    v-for="(partner, index) in $page.frontmatter.partners"
-                    :key="index"
-                    class="col-lg-auto col-md-4 col-sm-12 col-xs-12"
-                  >
-                    <div class="redesign-homepage--partner-wrapper">
-                      <img :src="partner.icon" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="redesign-homepage--partners-block-margin">
+              <CompanyLogos />
             </div>
           </div>
 
           <div class="redesign-homepage--shapes">
-            <img src="/img/home-curves.svg" class="redesign-homepage--shapes-curves" />
+            <img
+              src="/img/home-curves.svg"
+              class="redesign-homepage--shapes-curves"
+            />
             <div class="redesign-homepage--shapes-fill"></div>
           </div>
         </div>
@@ -155,6 +144,7 @@
 </template>
 
 <script>
+import CompanyLogos from "./CompanyLogos.vue";
 const TABLET_BREAKPOINT = 768;
 
 export default {
@@ -164,8 +154,10 @@ export default {
     SelectorTile: () => import("../components/SelectorTile"),
     AssuranceItem: () => import("../components/AssuranceItem"),
     FrontPageWidget: () => import("../components/FrontPageWidget"),
-    FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror")
+    FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror"),
+    CompanyLogos: () => import("../components/CompanyLogos")
   },
+
   data() {
     return {
       pseudoAuthorized: false,

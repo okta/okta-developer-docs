@@ -78,16 +78,4 @@ assurances:
   - title: Open Standards
     description: SAML, OpenID Connect, and OAuth 2.0 connect you to everything
     image: /img/homepage/standards.png
-
-partners:
-  - name: major league baseball
-    icon: /img/homepage/partners/baseball.png
-  - name: splunk
-    icon: /img/homepage/partners/splunk.png
-  - name: adobe
-    icon: /img/homepage/partners/adobe.png
-  - name: jet-blue
-    icon: /img/homepage/partners/jet-blue.png
-  - name: experian
-    icon: /img/homepage/partners/experian.png
 ---

@@ -212,10 +212,7 @@
     <div class="signup--description">
       <Content slot-key="signup-description" />
       <div class="logo-wrapper">
-        <h4>Trusted by</h4>
-        <div class="partners-logo">
-          <img src="/img/authorization/proof-by.png" alt="" />
-        </div>
+        <CompanyLogos withHeading small v-bind:centered="false" />
       </div>
     </div>
   </div>
@@ -238,7 +235,8 @@ const USA = "United States";
 
 export default {
   components: {
-    VueRecaptcha
+    VueRecaptcha,
+    CompanyLogos: () => import("../components/CompanyLogos")
   },
   data() {
     return {

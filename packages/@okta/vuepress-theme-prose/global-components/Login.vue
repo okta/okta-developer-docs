@@ -40,17 +40,15 @@
       </div>
     </div>
     <div class="logo-wrapper">
-      <h4 class="text-center">Trusted by</h4>
-      <div class="partners-logo">
-        <img
-          src="/img/authorization/proof-by.png"
-          alt=""
-        />
-      </div>
+      <CompanyLogos withHeading small />
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  components: {
+    CompanyLogos: () => import("../components/CompanyLogos")
+  }
+};
 </script>
