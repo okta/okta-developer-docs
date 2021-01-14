@@ -58,6 +58,19 @@ module.exports = {
    * Global theme config
    */
   themeConfig: {
+
+    /**
+     * URI config
+     */
+    uris: {
+      baseUri: 'https://okta-dev-parent.trexcloud.com',
+      orgId: 'reg3kwstakmbOrIly0g7',
+      idps: {
+        github: '0oa3jobx2bBlylNft0g7',
+        google: '0oa3jaktbqkiwCthn0g7',
+      },
+    },
+
     /**
      * Primary Nav: Array of MenuItem components to iterate over within TopNavigation component
      */
