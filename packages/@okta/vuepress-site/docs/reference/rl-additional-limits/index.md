@@ -90,7 +90,7 @@ API endpoints that take username and password credentials, including the [Authen
 
 ### SMS and Call rate limits
 
-* **Per user/per phone number rate limit:** The 30 second verification rate limit applies to a user's attempt to send an SMS or Call enrollment or verification message to the same phone number. The rate limit is one SMS or Call challenge per device every 30 seconds.
+* **Per user/per phone number rate limit:** The 30 second verification rate limit applies to a user's attempt to send an SMS or Call enrollment or verification message to the same phone number. The rate limit is one SMS or Call challenge per phone number every 30 seconds.
 
 > **Note:** Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
 
