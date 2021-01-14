@@ -303,6 +303,7 @@ export default {
 
       if (this.validationService.isValidForm()) {
         // make api call
+        console.warn(this.apiService.baseUrl);
       }
     },
 
