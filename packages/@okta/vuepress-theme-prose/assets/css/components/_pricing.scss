@@ -1,0 +1,462 @@
+$blue: #163648;
+$darkBlue: #153b56;
+$darkerBlue: #142430;
+$gray: #d3d2d6;
+$darkGray: #20313b;
+$magenta: #e22866;
+
+.pricing {
+  background-color: $darkGray;
+
+  .pricing--container {
+    max-width: 1280px;
+  }
+
+  h1 {
+    color: white;
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 50px;
+  }
+
+  h2 {
+    color: white;
+    font-size: 32px;
+    font-weight: 500;
+    line-height: 48px;
+  }
+
+  h3 {
+    color: white;
+    font-size: 22px;
+    font-weight: 500;
+  }
+
+  h4 {
+    color: $gray;
+    font-size: 20px;
+    font-weight: 500;
+
+    a {
+      color: $magenta;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  button {
+    font: inherit;
+  }
+
+  .Button--red, .Button--whiteOutline {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    white-space: nowrap;
+  }
+
+  .pricing--leader {
+    margin: 0 auto;
+    text-align: center;
+    padding: 128px 0;
+  }
+
+  h1.pricing--title {
+    letter-spacing: 4px;
+    font-size: 44px;
+    font-weight: 700;
+    margin: 0 0 64px;
+    line-height: 64px;
+  }
+
+  p.pricing--subtitle {
+    color: $gray;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+
+  ul.pricing--icon-list {
+    list-style: none;
+
+    li {
+      background: url('/img/icons/icon--check.svg') no-repeat left 13px;
+      padding: 10px 10px 10px 30px;
+    }
+  }
+
+  .pricing-alt-bg {
+    background-color: $darkBlue;
+  }
+
+  .pricing--costs {
+    flex-grow: 1;
+    color: $gray;
+
+    .pricing-section {
+      padding: 40px 0 88px;
+    }
+
+    .pricing-card {
+      background-color: $darkerBlue;
+      display: flex;
+    }
+
+    .pricing-card-column {
+      padding: 30px;
+    }
+
+    .pricing-card-lists {
+      display: flex;
+      ul {
+        flex-grow: 1;
+      }
+      @include media('<tablet') {
+        flex-direction: column;
+      }
+    }
+
+    .pricing-card-price {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 30px;
+
+      .pricing-card-amount {
+        font-size: 40px;
+        font-weight: 400;
+        color: #007dc1;
+        margin: 0 10px 0 0;
+        line-height: 1em;
+      }
+    }
+
+    .pricing-card-intro {
+      .pricing-card {
+        display: flex;
+      }
+
+      .pricing-card-column {
+        flex-grow: 1;
+        flex-basis: 0;
+
+        &:first-child {
+          border-right: 2px solid $blue;
+        }
+      }
+
+      @include media('<desktop') {
+        .pricing-card {
+          flex-direction: column;
+        }
+
+        .pricing-card-column {
+          &:first-child {
+            border-right: 0;
+            border-bottom: 2px solid $blue;
+          }
+        }
+      }
+    }
+  }
+
+  .pricing--editions {
+    flex-grow: 1;
+    color: $gray;
+
+    .Button--red, .Button--whiteOutline {
+      font-size: 12px;
+      margin-top: auto;
+      max-width: 150px;
+      padding: 0;
+      height: 41px;
+      line-height: 37px;
+      text-align: center;
+    }
+
+    .pricing-card-table {
+      display: block;
+
+      @include media('<desktop') {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    .pricing-card-row {
+      display: flex;
+      border-bottom: 2px solid $blue;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+
+      &.mobile {
+        display: none;
+      }
+
+      @include media('<desktop') {
+        &.desktop {
+          display: none;
+        }
+        &.mobile {
+          display: block;
+        }
+      }
+    }
+
+    .pricing-card-column {
+      background-color: $darkerBlue;
+      padding: 10px 30px;
+      display: flex;
+      flex-basis: 22%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+
+      li {
+        margin-bottom: initial;
+      }
+
+      @include media('<desktop') {
+        &.desktop {
+          display: none;
+        }
+      }
+      &:first-child {
+        flex-grow: 1;
+      }
+    }
+
+    .pricing-card-header {
+      .pricing-card-column {
+        padding: 30px;
+        justify-content: flex-start;
+        align-items: stretch;
+        display: flex;
+        flex-direction: column;
+
+        @include media('<desktop') {
+          &.desktop {
+            display: none;
+          }
+        }
+      }
+
+      .pricing-card-column-header {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: stretch;
+      }
+
+
+      @include media('<desktop') {
+        display: flex;
+        flex-direction: column;
+        border-bottom: 0;
+
+        .pricing-card-column-header {
+          padding: 30px;
+          border-bottom: 2px solid $blue;
+        }
+
+        .pricing-card-row {
+          display: flex;
+        }
+
+        > .pricing-card-column {
+          margin-bottom: 64px;
+          padding: 0;
+        }
+      }
+    }
+
+    img.pricing-card-check {
+      max-width: initial;
+    }
+
+    select {
+      background-color: #20313b;
+      border-color: #20313b;
+      border-radius: 3px;
+      color: white;
+      font-size: 16px;
+      padding: 7px 4px;
+      margin: 0 0 20px;
+    }
+    p {
+      margin: 10px 0;
+    }
+    .pricing-card-price {
+      margin: 0;
+      color: #007dc1;
+      font-size: 32px;
+      font-weight: 600;
+      line-height: 48px;
+    }
+  }
+
+  .pricing--addons {
+    text-align: center;
+    margin: 0 auto 64px;
+    color: $gray;
+
+    .pricing-addons-header {
+      margin: 64px 0;
+    }
+
+    .pricing-addons-tiles {
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-between;
+      margin: 0 -15px;
+    }
+
+    .pricing-addons-tile {
+      flex: 1 1 330px;
+      display: block;
+      background-color: $darkerBlue;
+      box-shadow: 0 6px 25px 0 rgba(5,5,5,.3);
+      text-align: left;
+      padding: 20px;
+      margin: 15px;
+      border-top-left-radius: 3px;
+      border-top-right-radius: 3px;
+      transition: .4s;
+      &:hover {
+        box-shadow: 0 6px 25px 0 rgba(5,5,5,.5);
+      }
+      img {
+        margin-bottom: 7px;
+        width: 30px;
+        height: 30px;
+      }
+      p {
+        color: white;
+        font-size: 20px;
+      }
+    }
+  }
+
+  .pricing--faq {
+    text-align: center;
+    margin: 0 auto 128px;
+    flex-grow: 1;
+
+    h1 {
+      margin: 64px 0;
+    }
+
+    .pricing-faq-item {
+      text-align: left;
+      color: $gray;
+      margin: 0 auto 15px;
+      max-width: 850px;
+
+      .pricing-faq-item-title {
+        width: 100%;
+        padding: 10px 10px 10px 50px;
+        position: relative;
+        background-color: #115d8b;
+        color: white;
+        border: 0;
+        border-radius: 3px;
+        outline: none;
+        font-size: 20px;
+        font-weight: 400;
+        text-align: left;
+        line-height: 30px;
+        cursor: pointer;
+
+        &:hover {
+          background-color: #007dc1;
+        }
+        &:before {
+          content: '';
+          background-image: url('/img/icons/icon--circle-with-chevron.svg');
+          height: 30px;
+          width: 30px;
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          margin: auto;
+          transform: rotate(0deg);
+        }
+      }
+
+      .pricing-faq-item-content {
+        background-color: #115d8b;
+        padding: 30px 30px 30px 50px;
+        font-size: 16px;
+        display: none;
+      }
+
+      &.is-active {
+        .pricing-faq-item-title {
+          border-bottom-left-radius: 0;
+          border-bottom-right-radius: 0;
+          &:hover {
+            background-color: #115d8b;
+          }
+          &:before {
+            transform: rotate(180deg);
+          }
+        }
+        .pricing-faq-item-content {
+          display: block;
+        }
+      }
+    }
+    strong a {
+      font-weight: 700;
+    }
+    a {
+      color: white;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .pricing--questions {
+    text-align: center;
+    margin: 0 auto 64px;
+    color: white;
+    p {
+      color: $gray;
+      max-width: 40em;
+    }
+  }
+
+  .pricing--footer {
+    background-color: $darkBlue;
+    text-align: center;
+    flex-grow: 1;
+    padding: 64px 0;
+
+    .pricing--footer--logos {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      img {
+        padding: 0 40px 30px;
+      }
+    }
+
+    @include media('<desktop') {
+      .pricing--footer--logos {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .pricing--background-curve {
+    line-height: 0;
+    img {
+      width: 100%;
+      height: 80px;
+    }
+  }
+}

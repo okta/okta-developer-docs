@@ -1,0 +1,122 @@
+.signup {
+  width: 100%;
+  max-width: 1272px;
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 16px;
+  color: $white;
+
+  @include media("<tablet") {
+    padding: 0 36px;
+  }
+
+  @include media("<475px") {
+    padding: 10px;
+  }
+
+  .signup--form {
+    width: 100%;
+    max-width: 588px;
+    margin: 0 80px 0 0;
+    padding: 40px;
+    background-color: cv("blue", "whale");
+    box-shadow: 0px 6px 25px cv("blue", "whale");
+    a {
+      color: cv("cerise", "base");
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+    .user-name {
+      display: flex;
+      .row:nth-child(1) {
+        margin-right: 10px;
+      }
+      @include media("<tablet") {
+        .row:nth-child(1) {
+          margin-right: 0;
+        }
+        flex-direction: column;
+      }
+    }
+
+    .consent--section {
+      font-size: 12px;
+      line-height: 20px;
+      .consent--section-text {
+        width: 100%;
+        text-align: justify;
+        max-width: inherit;
+        margin: 24px 0 10px 0;
+      }
+      .consent--section-agree {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        label {
+          input {
+            margin: 0 8px 0 0;
+          }
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .error-msg {
+      position: absolute;
+      bottom: -24px;
+      left: 0;
+    }
+
+    @include media("<desktop") {
+      margin: 0;
+    }
+
+    @include media("<475px") {
+      padding: 10px;
+    }
+
+    @include media("<=phone") {
+      padding: 0;
+    }
+
+    .splitter {
+      display: flex;
+      height: 27px;
+      margin: 19.5px 0;
+      justify-content: space-between;
+      align-items: center;
+      span:nth-child(2) {
+        margin: 0 16px;
+      }
+      span:nth-child(1),
+      span:nth-child(3) {
+        height: 0;
+        flex-grow: 1;
+        border: 2px solid cv("brand", "base");
+      }
+    }
+
+    .goto-signin {
+      justify-content: center;
+      margin: 0;
+      a {
+        font-size: 17px;
+        text-indent: 5px;
+      }
+    }
+  }
+
+  .signup--description {
+    padding: 30px 0 0 0;
+    max-width: 604px;
+    h1 {
+      font-size: 40px;
+      color: $white;
+    }
+    color: $white;
+  }
+}

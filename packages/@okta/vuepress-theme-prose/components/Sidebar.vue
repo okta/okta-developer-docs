@@ -1,42 +1,64 @@
 <template>
   <aside class="landing-navigation">
     <ul class="landing">
-      <SidebarItem v-for="link in navigation" :key="link.title" :link="link" />
+      <ul class="sections">
+        <SidebarItem
+          v-for="link in navigation"
+          :key="link.title"
+          :link="link"
+        />
+      </ul>
     </ul>
   </aside>
 </template>
 
 <script>
 import _ from "lodash";
-import { getGuidesInfo, guideFromPath } from "../util/guides";  
+import { getGuidesInfo, guideFromPath } from "../util/guides";
+import {
+  concepts as conceptsRedesign,
+  guides as guidesRedesign,
+  languagesSdk as languagesSdkRedesign,
+  reference as referenceRedesign
+} from "../const/navbar/redesign/navbar.const";
+import {
+  concepts,
+  guides,
+  languagesSdk,
+  reference
+} from "../const/navbar/navbar.const";
 
 export default {
   name: "Sidebar",
-  inject: ['appContext'],
+  inject: ["appContext"],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },
+  computed: {
+    navigation() {
+      // Redesign FeatureFlag
+      return (this.$page.redesign
+        ? this.getNewNavigation()
+        : this.getNavigation() || []
+      ).map(nav => {
+        this.addStatesToLink(nav);
+        return nav;
+      });
+    }
+  },
   data() {
     return {
-      usingFile: false
+      usingFile: false,
     };
   },
   mounted() {
-    if(!this.appContext.isInMobileViewport) {
+    if (!this.appContext.isInMobileViewport) {
       this.handleScroll();
       window.addEventListener("scroll", this.handleScroll);
     }
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
-  },
-  computed: {
-    navigation() {
-      return (this.getNavigation() || []).map(nav => {
-        this.addStatesToLink(nav);
-        return nav;
-      });
-    },
   },
   methods: {
     toggleSubNav: function(event) {
@@ -69,18 +91,28 @@ export default {
       }
       return link.imActive;
     },
+    getNewNavigation() {
+      const homeLink = { title: "Home", path: "/" };
+      return [
+        homeLink,
+        ...this.getGuides(guidesRedesign),
+        ..._.cloneDeep(conceptsRedesign),
+        ..._.cloneDeep(referenceRedesign),
+        ..._.cloneDeep(languagesSdkRedesign)
+      ];
+    },
     getNavigation() {
       if (this.$page.path.includes("/code/")) {
         this.usingFile = true;
-        return _.cloneDeep(this.$site.themeConfig.sidebars.codePages);
+        return _.cloneDeep(languagesSdk);
       }
       if (this.$page.path.includes("/docs/reference/")) {
         this.usingFile = true;
-        return _.cloneDeep(this.$site.themeConfig.sidebars.reference);
+        return _.cloneDeep(reference);
       }
-      if (this.$page.path.includes("/docs/concepts/")){
+      if (this.$page.path.includes("/docs/concepts/")) {
         this.usingFile = true;
-        return _.cloneDeep(this.$site.themeConfig.sidebars.concepts);
+        return _.cloneDeep(concepts);
       }
       if (this.$page.path.includes("/docs/guides")) {
         return this.getGuides();
@@ -94,27 +126,32 @@ export default {
           .value();
       }
     },
-    getGuides() {
+    getGuides(overrides) {
       const pages = this.$site.pages;
-      const guides = getGuidesInfo({ pages });
-      let navs = _.cloneDeep(this.$site.themeConfig.sidebars.guides);
+      const guidesInfo = getGuidesInfo({ pages });
+      // Redesign FeatureFlag
+      let navs = _.cloneDeep(overrides || guides);
       const framework = guideFromPath(this.$route.path).framework;
       navs.forEach(nav => {
         let queue = new Array();
         queue.push(nav);
         let current = queue.pop();
-        while(current){
-          if( current && current.subLinks ){
-            queue.push(...current.subLinks)
-          } else if( current && current.guideName ) {
+        while (current) {
+          if (current && current.subLinks) {
+            queue.push(...current.subLinks);
+          } else if (current && current.guideName) {
             // add sections
             current.subLinks = [];
-            const guide = guides.byName[current.guideName];
+            const guide = guidesInfo.byName[current.guideName];
             if (guide && guide.sections) {
               guide.sections.forEach(section => {
                 current.subLinks.push({
                   title: section.title,
-                  path: section.makeLink(guide.frameworks.includes(framework) ? framework : guide.mainFramework)
+                  path: section.makeLink(
+                    guide.frameworks.includes(framework)
+                      ? framework
+                      : guide.mainFramework
+                  )
                 });
               });
             }

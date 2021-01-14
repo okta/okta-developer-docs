@@ -244,7 +244,7 @@ curl -v -X POST \
 ```json
 {
   "id": "00ub0oNGTSWTBKOLGLNR",
-  "status": "STAGED",
+  "status": "ACTIVE",
   "created": "2013-07-02T21:36:25.344Z",
   "activated": null,
   "statusChanged": null,
@@ -1624,7 +1624,7 @@ in the request is deleted.
 
 `profile` and `credentials` can be updated independently or together with a single request.
 
->**Note:** Currently, the User Type of a user can only be changed via a full replacement [PUT operation](/docs/reference/api/user-types/#update-user-type). If the Request Parameters of a partial update include the `type` element from the [User object](#user-object), the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type.
+>**Note:** Currently, the User Type of a user can only be changed via a full replacement PUT operation. If the Request Parameters of a partial update include the `type` element from the [User object](#user-object), the value must match the existing type of the user. Only administrators are permitted to change the user type of a user; end users are not allowed to change their own user type.
 
 ##### Response Parameters
 

@@ -1,6 +1,6 @@
 {
-  "release" : "2020.11.1",
-  "build" : "2020.11.1-begin-125-gbebc1b0e6885",
+  "release" : "2021.01.1",
+  "build" : "2021.01.1-begin-115-g04e1a2262beb",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1160,6 +1160,22 @@
     "statusReasonPhrase" : "Too Many Requests",
     "errorCode" : "E0000151",
     "errorSummary" : "You have reached the limit of call requests, please try again later.",
+    "errorDescription" : null
+  }, {
+    "title" : "Illegal device status exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000152",
+    "errorSummary" : "Illegal device status, cannot perform action.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid device id exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 410,
+    "statusReasonPhrase" : "Gone",
+    "errorCode" : "E0000153",
+    "errorSummary" : "Invalid device id, it no longer exists.",
     "errorDescription" : null
   } ]
 }

@@ -576,7 +576,7 @@ curl -v -X POST \
       "claims": {
         "sub": "00uq8tMo3zV0OfJON0g3",
         "name": "Add-Min OCloudy Tud",
-        "email": "webmaster@clouditude.net",
+        "email": "administrator1@clouditude.net",
         "ver": 1,
         "iss": "https://${yourOktaDomain}/oauth2/default",
         "aud": "customClientIdNative",

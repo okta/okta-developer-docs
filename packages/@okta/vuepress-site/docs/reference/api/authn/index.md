@@ -1048,7 +1048,7 @@ For example, if the custom sign-in page is set as **https://login.example.com**,
 
 #### Step-up authentication without Okta session
 
-##### Request example for step-up suthentication without Okta session (get transaction state)
+##### Request example for step-up authentication without Okta session (get transaction state)
 
 
 ```bash

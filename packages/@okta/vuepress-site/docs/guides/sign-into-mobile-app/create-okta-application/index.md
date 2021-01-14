@@ -8,6 +8,7 @@ First, sign in to the Okta Developer Console:
 <a href="https://login.okta.com/" target="_blank" class="Button--blue">Go to Console</a>
 
 1. Select **Applications**, then **Add Application**. Pick **Native** as the platform. Enter a name for your application (or leave the default value).
+  > **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 
 2. Enter your callback route for the **Login redirect URI**. This is the full redirect URI that you defined in the <GuideLink link="../define-callback/">previous step</GuideLink> (like `com.okta.example:/login`).
 

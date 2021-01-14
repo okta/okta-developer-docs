@@ -3,4 +3,8 @@ $breakpoints: (
   'tablet': 768px,
   'desktop': 1024px,
   'desktop-xx-large': 1920px,
+  'bootstrap-xl': 1200px,
+  'bootstrap-lg': 992px,
+  /* for 'bootstrap-md' use 'tablet' */
+  'bootstrap-sm': 576px,
 );

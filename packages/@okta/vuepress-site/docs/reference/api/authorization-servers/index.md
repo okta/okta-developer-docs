@@ -1133,7 +1133,7 @@ If `valueType` is `GROUPS`, then the groups returned are filtered according to t
 * `CONTAINS`: Group names contain `value` (not case-sensitive). For example, if `value` is `group1`, then `MyGroup123` and `group1` are included.
 * `REGEX`: Group names match the regular expression in `value` (case-sensitive). For example if `value` is `/^[a-z0-9_-]{3,16}$/`, then any Group name that has at least three letters, no more than 16, and contains lowercase letters, a hyphen, or numbers.
 
-If you have complex filters for Groups, you can [create a Groups whitelist](/docs/guides/customize-tokens-groups-claim/overview/) to put them all in a Claim.
+If you have complex filters for Groups, you can [create a Groups allow list](/docs/guides/customize-tokens-groups-claim/overview/) to put them all in a Claim.
 
 ##### Details for `alwaysIncludeInToken`
 

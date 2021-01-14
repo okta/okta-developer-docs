@@ -1,70 +1,72 @@
 <template>
-
   <li
     :class="{
-      'first': (index == 0),
-      'leaf': (index == last),
-      'expanded': (item.children && item.children.length),
-      'active': (item.active)
-    }">
-
+      expandable: isExpandable,
+      active: item.active,
+      open: isOpen
+    }"
+    @click="isOpen = !isOpen"
+  >
     <a
+      v-if="item.link"
       :href="item.link"
-      :class="(item.css)"
+      :class="{ [itemCss]: true, active: $page.path.includes(item.link) }"
       :target="item.target"
-      v-html="item.text"></a>
+      v-html="item.text"
+    ></a>
+    <span v-else-if="item.text" v-html="item.text" :class="itemCss"></span>
+    <div v-else-if="item.type === 'divider'" class="menu--divider"></div>
+    <div v-else-if="item.type === 'icons'" class="menu--icons">
+      <a
+        v-for="(icon, index) in item.icons"
+        class="menu--icon"
+        :key="index"
+        :href="icon.link"
+        :title="icon.text"
+      >
+        <i v-if="icon.icon" v-html="icon.icon"></i>
+      </a>
+    </div>
 
-    <ul
-      class="menu"
-      v-if="item.children && item.children.length">
-
+    <ul v-if="item.children && item.children.length" class="submenu--items">
       <MenuItem
         v-for="(child, index) in item.children"
         :key="index"
         :item="child"
-        :index="index"
-        :last="item.children.length"></MenuItem>
-
+        :itemCss="subItemCss"
+      ></MenuItem>
     </ul>
-
   </li>
-
 </template>
 
 <script>
-
-
 export default {
-
   components: {
-    MenuItem: () => import('./MenuItem.vue')
+    MenuItem: () => import("./MenuItem.vue")
   },
-
   props: {
-
-    index: {
-      type: Number,
-      default: 0
-    },
-
-    last: {
-      type: Number,
-      default: 0,
-    },
-
     item: {
       type: Object,
       default: () => {}
     },
-
-    css: {
+    itemCss: {
       type: String,
-      default: ''
+      default: ""
+    },
+    subItemCss: {
+      type: String,
+      default: ""
     }
-
   },
-
-}
-
+  data() {
+    return {
+      isOpen: false,
+    }
+  },
+  computed: {
+    isExpandable() {
+      return this.item.children && this.item.children.length;
+    }
+  }
+};
 </script>
-

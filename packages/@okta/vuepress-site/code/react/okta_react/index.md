@@ -14,7 +14,7 @@ This guide will walk you through integrating authentication into a React app wit
 6. [Connect the Routes](#connect-the-routes)
 7. [Start Your App](#start-your-app)
 
-> This guide is for `@okta/okta-auth-js` v4.0.2 and `@okta/okta-react` v3.0.8.
+> This guide is for `@okta/okta-auth-js` v4.5.2 and `@okta/okta-react` v4.1.0.
 
 ## Prerequisites
 If you do not already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
@@ -30,6 +30,7 @@ If you do not already have a **Developer Edition Account**, you can create one a
 | Logout redirect URIs | `http://localhost:3000/`                       |
 | Allowed grant types  | Authorization Code                                  |
 
+> **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
 
 ## Create a React App
@@ -69,30 +70,23 @@ Create a `src/SignInForm.jsx` file:
 
 ```jsx
 import React, { useState } from 'react';
-import { OktaAuth } from '@okta/okta-auth-js';
 import { useOktaAuth } from '@okta/okta-react';
 
-const SignInForm = ({ issuer }) => {
-  const { authService } = useOktaAuth();
+const SignInForm = () => {
+  const { oktaAuth } = useOktaAuth();
   const [sessionToken, setSessionToken] = useState();
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const oktaAuth = new OktaAuth({
-      // If your app is configured to use the Implicit Flow
-      // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
-      // you will need to uncomment the below line:
-      // pkce: false,
-      issuer: issuer
-      });
-    oktaAuth.signIn({ username, password })
+
+    oktaAuth.signInWithCredentials({ username, password })
     .then(res => {
       const sessionToken = res.sessionToken;
       setSessionToken(sessionToken);
       // sessionToken is a one-use token, so make sure this is only called once
-      authService.redirect({ sessionToken });
+      oktaAuth.signInWithRedirect({ sessionToken });
     })
     .catch(err => console.log('Found an error', err));
   };
@@ -137,7 +131,6 @@ export default SignInForm;
 
 ```jsx
 import React, { Component } from 'react';
-import { OktaAuth } from '@okta/okta-auth-js';
 import { withOktaAuth } from '@okta/okta-react';
 
 export default withOktaAuth(class SignInForm extends Component {
@@ -149,14 +142,6 @@ export default withOktaAuth(class SignInForm extends Component {
       password: ''
     };
 
-    this.oktaAuth = new OktaAuth({
-      // If your app is configured to use the Implicit Flow
-      // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
-      // you will need to uncomment the below line:
-      // pkce: false,
-      issuer: props.issuer
-    });
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleUsernameChange = this.handleUsernameChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -164,7 +149,7 @@ export default withOktaAuth(class SignInForm extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.oktaAuth.signIn({
+    this.props.oktaAuth.signIn({
       username: this.state.username,
       password: this.state.password
     })
@@ -173,7 +158,7 @@ export default withOktaAuth(class SignInForm extends Component {
       this.setState(
         { sessionToken },
         // sessionToken is a one-use token, so make sure this is only called once
-        () => this.props.authService.redirect({sessionToken})
+        () => this.props.oktaAuth.signInWithRedirect({sessionToken})
       );
     })
     .catch(err => console.log('Found an error', err));
@@ -235,7 +220,7 @@ import { Link, useHistory } from 'react-router-dom';
 import { useOktaAuth } from '@okta/okta-react';
 
 const Home = () => {
-  const { authState, authService } = useOktaAuth();
+  const { authState, oktaAuth } = useOktaAuth();
   const history = useHistory();
 
   if (authState.isPending) {
@@ -243,7 +228,7 @@ const Home = () => {
   }
 
   const button = authState.isAuthenticated ?
-    <button onClick={() => {authService.logout()}}>Logout</button> :
+    <button onClick={() => {oktaAuth.signOut()}}>Logout</button> :
     <button onClick={() => {history.push('/login')}}>Login</button>;
 
   return (
@@ -272,7 +257,7 @@ export default withOktaAuth(class Home extends Component {
     }
 
     const button = this.props.authState.isAuthenticated ?
-      <button onClick={() => {this.props.authService.logout()}}>Logout</button> :
+      <button onClick={() => {this.props.oktaAuth.signOut()}}>Logout</button> :
       <button onClick={() => {this.props.history.push('/login')}}>Login</button>;
 
     return (
@@ -309,7 +294,7 @@ import { Redirect } from 'react-router-dom';
 import SignInForm from './SignInForm';
 import { useOktaAuth } from '@okta/okta-react';
 
-const SignIn = ({ issuer }) => {
+const SignIn = () => {
   const { authState } = useOktaAuth();
 
   if (authState.isPending) {
@@ -317,7 +302,7 @@ const SignIn = ({ issuer }) => {
   }
   return authState.isAuthenticated ?
     <Redirect to={{ pathname: '/' }}/> :
-    <SignInForm issuer={issuer} />;
+    <SignInForm />;
 };
 
 export default SignIn;
@@ -338,7 +323,7 @@ export default withOktaAuth(class SignIn extends Component {
     }
     return this.props.authState.isAuthenticated ?
       <Redirect to={{ pathname: '/' }}/> :
-      <SignInForm issuer={this.props.issuer} />;
+      <SignInForm />;
   }
 });
 ```
@@ -374,6 +359,7 @@ And, create its companion at `src/AppWithRouterAccess.jsx`. Make sure to replace
 import React from 'react';
 import { Route, useHistory } from 'react-router-dom';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
+import { OktaAuth } from '@okta/okta-auth-js';
 import Home from './Home';
 import SignIn from './SignIn';
 import Protected from './Protected';
@@ -384,15 +370,19 @@ const AppWithRouterAccess = () => {
     history.push('/login');
   };
 
+  const oktaAuth = new OktaAuth({
+    issuer: 'https://{yourOktaDomain}/oauth2/default',
+    clientId: '{clientId}',
+    redirectUri: window.location.origin + '/login/callback',
+    onAuthRequired: onAuthRequired,
+    pkce: true
+  });
+
   return (
-    <Security issuer='https://{yourOktaDomain}/oauth2/default'
-              clientId='{clientId}'
-              redirectUri={window.location.origin + '/login/callback'}
-              onAuthRequired={onAuthRequired}
-              pkce={true} >
+    <Security oktaAuth={oktaAuth}>
       <Route path='/' exact={true} component={Home} />
       <SecureRoute path='/protected' component={Protected} />
-      <Route path='/login' render={() => <SignIn issuer='https://{yourOktaDomain}/oauth2/default' />} />
+      <Route path='/login' render={() => <SignIn />} />
       <Route path='/login/callback' component={LoginCallback} />
     </Security>
   );
@@ -411,7 +401,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <AppWithRouterAccess/>
+        <AppWithRouterAccess />
       </Router>
     );
   }
@@ -423,6 +413,7 @@ export default App;
 import React, { Component } from 'react';
 import { Route, withRouter } from 'react-router-dom';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
+import { OktaAuth } from '@okta/okta-auth-js';
 import Home from './Home';
 import SignIn from './SignIn';
 import Protected from './Protected';
@@ -431,6 +422,14 @@ export default withRouter(class AppWithRouterAccess extends Component {
   constructor(props) {
     super(props);
     this.onAuthRequired = this.onAuthRequired.bind(this);
+
+    this.oktaAuth = new OktaAuth({
+      issuer: 'https://{yourOktaDomain}/oauth2/default',
+      clientId: '{clientId}',
+      redirectUri: window.location.origin + '/login/callback',
+      onAuthRequired: this.onAuthRequired,
+      pkce: true
+    });
   }
 
   onAuthRequired() {
@@ -439,14 +438,10 @@ export default withRouter(class AppWithRouterAccess extends Component {
 
   render() {
     return (
-      <Security issuer='https://{yourOktaDomain}/oauth2/default'
-                clientId='{clientId}'
-                redirectUri={window.location.origin + '/login/callback'}
-                onAuthRequired={this.onAuthRequired}
-                pkce={true} >
+      <Security oktaAuth={this.oktaAuth} >
         <Route path='/' exact={true} component={Home} />
         <SecureRoute path='/protected' component={Protected} />
-        <Route path='/login' render={() => <SignIn issuer='https://{yourOktaDomain}/oauth2/default' />} />
+        <Route path='/login' render={() => <SignIn />} />
         <Route path='/login/callback' component={LoginCallback} />
       </Security>
     );

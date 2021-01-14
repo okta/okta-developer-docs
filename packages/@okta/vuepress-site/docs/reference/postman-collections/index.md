@@ -12,8 +12,9 @@ Import any Okta API collection for Postman from the following list:
 | Collections                         | Click to Run                                                                                                                           |
 | :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------- |
 | Administrator Roles                 | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4f1233beeef282acbcfb)                   |
+| Advanced Server Access              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fba803e43a4ae53667d4)                   |
 | API Access Management (OAuth 2.0)   | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/01108eafad818f5aa3c7)                   |
-| Apps                                | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/41a737560876d6003ce5)                   |
+| Apps                                | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/377eaf77fdbeaedced17)                   |
 | Authentication                      | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6f4f9ca4145db4d80270)                   |
 | Authorization Servers               | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6e58e52a03637c290665)                   |
 | Custom Templates                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6806eb23befaf5bb3b6c)                   |

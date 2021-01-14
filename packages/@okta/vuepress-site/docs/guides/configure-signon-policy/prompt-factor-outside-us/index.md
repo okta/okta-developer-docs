@@ -2,7 +2,7 @@
 title: Prompt for an MFA factor when a user is outside the US
 ---
 
-In addition to the Okta Sign-On Policy, there is a sign-on policy for each application that determines the extra levels of authentication that you may want performed before a user can access an application. The following are step-by-step instructions to configure an App sign-on policy to prompt a user for an MFA factor when the user is outside the United States.
+In addition to the Okta Sign-On Policy, there is an App Sign-On Policy for each application that determines the extra levels of authentication that you may want performed before a user can access an application. The following are step-by-step instructions to configure an App Sign-On Policy to prompt a user for an MFA factor when the user is outside the United States.
 
 > **Note:** This example assumes that you have already [set up a Dynamic Zone](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network) for the United States.
 
@@ -10,7 +10,7 @@ In addition to the Okta Sign-On Policy, there is a sign-on policy for each appli
 
 1. From the Developer Console, select **Applications**.
 
-2. Select the app that you want to configure a sign-on policy for. In this example, we are using a Web App.
+2. Select the app that you want to configure a Sign-On Policy for. In this example, we are using a Web App.
 
 3. Click **Sign On** and scroll down to the **Sign On Policy** section.
 

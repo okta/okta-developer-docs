@@ -1,0 +1,148 @@
+.authorization-layout {
+  display: flex;
+  background: cv("brand", "base");
+  width: 100%;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .row {
+    display: flex;
+    margin: 0 -24px 24px 0;
+    @include media("<tablet") {
+      margin: 0 0 24px 0;
+    }
+    .field-wrapper {
+      position: relative;
+      padding: 0 24px 0 0;
+      flex: 1;
+      @include media("<tablet") {
+        padding: 0;
+      }
+    }
+  }
+
+  input[type="text"],
+  input[type="submit"],
+  input[type="button"],
+  select {
+    width: 100%;
+    color: cv("brand", "base");
+    background-color: $white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    border: none;
+    padding: 0 20px;
+    height: 45px;
+    border-radius: 3px;
+    text-rendering: auto;
+    letter-spacing: normal;
+    word-spacing: normal;
+    text-transform: none;
+    text-indent: 0px;
+    text-shadow: none;
+    display: inline-block;
+    text-align: start;
+    appearance: textfield;
+    &:focus {
+      outline: none;
+    }
+    &.error {
+      border: 1px solid cv("cerise", "base");
+    }
+  }
+  input[type="submit"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  select {
+    padding: 10px 20px;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg width='9' height='5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M.4 0h8.2L4.5 5' fill='%235c6971'/%3e%3c/svg%3e");
+    background-position: calc(100% - 12px) center;
+    background-repeat: no-repeat;
+    background-size: auto;
+    -webkit-appearance: none;
+    border-radius: 4px;
+  }
+
+  input.red-button {
+    background: cv("cerise", "base");
+    color: $white;
+    font-size: 15px;
+    line-height: 17px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-align: center;
+    box-shadow: 0px 1px 0px #0000000f;
+    border-radius: 3px;
+  }
+
+  input[type="submit"],
+  input[type="button"] {
+    cursor: pointer;
+  }
+
+  .authorization-layout--header {
+    display: flex;
+    padding: 0 80px;
+    width: 100%;
+    align-items: center;
+    height: 98px;
+    margin: 0 0 32px 0;
+    @include media("<desktop") {
+      margin: 0;
+      padding: 46px;
+    }
+    @include media("<475px") {
+      margin: 0;
+      padding: 10px;
+    }
+  }
+
+  .authorization-layout--content {
+    display: flex;
+    padding: 0 0 20px 0;
+    justify-content: center;
+    .logo-wrapper {
+      margin: 40px 0 0 0;
+      width: 338px;
+      @include media("<=phone") {
+        width: 250px;
+      }
+      h4 {
+        font-size: 16px;
+        margin: 0 0 18px 0;
+        color: $white;
+      }
+      .partners-logo {
+        width: 100%;
+        display: inline-flex;
+        align-items: flex-start;
+      }
+    }
+  }
+
+  .authorization-layout--footer {
+    img {
+      width: 100%;
+    }
+    flex-direction: column;
+    display: flex;
+  }
+
+  input.social-btn {
+    background-color: transparent;
+    border: 2px solid cv("cerise", "base");
+    text-align: center;
+    color: $white;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .error-color {
+    color: cv("cerise", "base");
+  }
+}

@@ -6,8 +6,8 @@ Follow the third-party Certificate Authority (CA) process that your company uses
 
 > **Note:** There is a cost associated with SSL certificates being signed by a third-party CA.
 
-The CA that you choose provides instructions on how to upload the CSR that you generated in the previous steps.
+The CA that you choose provides instructions on how to upload the CSR that you generated in the previous step.
 
-The CSR is generated in Base64 DER format. If your process requires a different format, convert it using OpenSSL or a third-party decoder. Free, third-party decoders are readily available.
+Okta generates the CSR in Base64 DER format. If your process requires a different format, convert it using OpenSSL or a third-party decoder. Free third-party decoders are readily available.
 
 <NextSectionLink/>
