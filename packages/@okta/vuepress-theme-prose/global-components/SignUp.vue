@@ -189,14 +189,14 @@
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <a class="btn social-btn" href="#">
+          <a class="btn social-btn" :href="uris.github">
             Continue With GitHub
           </a>
         </div>
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <a class="btn social-btn" href="#">
+          <a class="btn social-btn" :href="uris.google">
             Continue With Google
           </a>
         </div>
@@ -285,7 +285,15 @@ export default {
     },
     apiService() {
       return new Api(this.$site.themeConfig.uris.baseUri);
-    }
+    },
+    uris() {
+      const { uris } = this.$site.themeConfig;
+
+      return {
+        github: `${uris.baseUri}/sso/idps/${uris.idps.github}`,
+        google: `${uris.baseUri}/sso/idps/${uris.idps.google}`,
+      };
+    },
   },
   methods: {
     submitForm(e) {
