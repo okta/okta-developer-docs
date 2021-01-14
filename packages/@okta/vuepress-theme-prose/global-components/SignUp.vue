@@ -238,7 +238,7 @@ export default {
   },
   data() {
     return {
-      state: { lable: "", list: [] },
+      state: { label: "", list: [] },
       displayConsent: false,
       displayAgree: false,
       form: {
