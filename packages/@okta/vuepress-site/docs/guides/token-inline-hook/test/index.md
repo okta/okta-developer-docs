@@ -24,4 +24,4 @@ To run a test of your Token Inline Hook:
 5. Sign out of the sample application and now sign in with an Okta user who IS in the Patients data store.
     - The user should sign in as normal; however, this user should have a patient ID displayed in the Glitch console output, as well as a successful implementation record of the Token Inline Hook, available for review in your Okta org's System Log (**Reports** > **System Log**).
 
-> **Note:** Review the [Token Inline Hooks troubleshooting](/docs/reference/token-hook/#troubleshooting) content or the [Troubleshooting](/docs/guides/overview-and-considerations/troubleshooting) section for information on any difficulties.
+> **Note:** Review the [Token Inline Hooks troubleshooting](/docs/reference/token-hook/#troubleshooting) content or the [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/troubleshooting/) section for information on any difficulties.
