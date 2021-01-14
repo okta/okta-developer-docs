@@ -299,7 +299,25 @@ export default {
 
       if (this.validationService.isValidForm()) {
         // make api call
-        console.warn(this.apiService.baseUrl);
+        const { baseUri, orgId } = this.$site.themeConfig.uris;
+        const registrationPath = `/api/v1/registration/${orgId}/register`;
+
+        console.warn({ baseUri, orgId});
+
+        const body = {
+          userProfile: {
+            email: this.form.email.value,
+            firstName: this.form.firstName.value,
+            lastName: this.form.lastName.value,
+            country: this.form.country.value,
+            state: this.form.state.value,
+            emailOptInC: this.form.consentAgree.value,
+          },
+        };
+
+        console.warn({ ...body});
+
+        this.apiService.post(registrationPath, body)
       }
     },
 
