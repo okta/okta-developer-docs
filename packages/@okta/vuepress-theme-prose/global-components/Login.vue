@@ -47,6 +47,7 @@
 
 <script>
 export default {
+  name: "Login",
   components: {
     CompanyLogos: () => import("../components/CompanyLogos")
   }
