@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import { getIdpUri } from "../util/uris";
+
 export default {
   components: {
     CompanyLogos: () => import("../components/CompanyLogos")
@@ -49,8 +51,8 @@ export default {
 
       return {
         email: "https://login.okta.com/",
-        github: `${uris.baseUri}/sso/idps/${uris.idps.github}`,
-        google: `${uris.baseUri}/sso/idps/${uris.idps.google}`,
+        github: getIdpUri(uris, "github"),
+        google: getIdpUri(uris, "google"),
       };
     },
 };

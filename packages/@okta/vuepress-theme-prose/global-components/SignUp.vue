@@ -226,6 +226,7 @@ import {
   GDPR_COUNTRIES
 } from "../const/signup.const";
 import setHiddenUtmValues from "../util/attribution/attribution";
+import { getIdpUri } from "../util/uris";
 
 const CANADA = "Canada";
 const USA = "United States";
@@ -291,8 +292,8 @@ export default {
       const { uris } = this.$site.themeConfig;
 
       return {
-        github: `${uris.baseUri}/sso/idps/${uris.idps.github}`,
-        google: `${uris.baseUri}/sso/idps/${uris.idps.google}`,
+        github: getIdpUri(uris, "github"),
+        google: getIdpUri(uris, "google"),
       };
     },
   },
@@ -356,7 +357,7 @@ export default {
     const formElement = document.querySelector("#signupForm");
     setHiddenUtmValues(formElement);
 
-    if (window.location.hostname !== 'developer.okta.com') {
+    if (window.location.hostname !== "developer.okta.com") {
       // Do not show/enforce CAPTCHA on non-production deploys
       this.form.captcha.value = "mocked-captcha-response";
       this.displayCaptcha = false;
