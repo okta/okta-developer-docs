@@ -16,9 +16,8 @@ The Okta API supports CORS on an API by API basis. If you're building an applica
 
 ### Browser Support
 
-Not all browsers supports CORS. The following table describes which browsers support this feature.
+Not all browsers supports CORS. You can review which browsers support CORs on [caniuse.com/cors](https://caniuse.com/cors)
 
-<iframe frameborder="0" width="225%" height="460px" src="https://caniuse.com/cors/embed/description&amp;links"></iframe>
 
 > **Note:** IE8 and IE9 don't support authenticated requests and can't use the Okta session cookie with CORS.
 
