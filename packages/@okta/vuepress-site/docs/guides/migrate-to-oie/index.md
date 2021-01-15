@@ -1,14 +1,14 @@
 ---
-title: Migrate to Okta Identity Engine
+title: Upgrade to Okta Identity Engine
 meta:
   - name: description
-    content: Our guide shows how to migrate your organization and clients to OIE 
+    content: Our guide shows how to upgrade your organization and clients to OIE 
 layout: Guides
 ---
 
 ## Enable OIE for your organization
 
-To enable Okta Identity Engine, please reach out to your account manager. If you do not have an account manager, please reach out to <oie@okta.com> for more information.
+To upgrade to Okta Identity Engine, please reach out to your account manager. If you do not have an account manager, please reach out to <oie@okta.com> for more information.
 
 ## Enable `interaction code` grant
 
