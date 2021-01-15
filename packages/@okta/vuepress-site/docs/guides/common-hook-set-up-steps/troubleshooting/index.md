@@ -6,12 +6,14 @@ After setting up an external service and an Event Hook or Inline Hook, you may n
 
 ### Preview tab ###
 
-A preview tab, accessible in the Developer Console, is available for the following two Inline Hooks:
+A preview tab, accessible in the Admin Console, is available for the following two Inline Hooks:
 
 * Registration Inline Hook
 * SAML Inline  Hook
 
 Before enabling the hook, the preview tab can run a sample Okta request call, and receive the external service response. Review the request and response formats to make sure responses are accurate.
+
+A preview tab is also available for Event Hooks, and displays the JSON payload for the selected Event Type. The preview tab can confirm a successful delivery of the request.
 
 ### Developer Console System Log ###
 

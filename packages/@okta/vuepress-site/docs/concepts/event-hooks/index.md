@@ -112,6 +112,9 @@ The basic steps to register and verify a new Event Hook are as follows:
 - Implement your external web service to receive Event Hook calls from Okta.
 - Register the endpoint of your external service with Okta and configure Event Hook parameters.
 - Verify to Okta that you control the endpoint.
+- Preview the Event Hook in the Admin Console.
+
+For a working example of an end-to-end Event Hook setup, see the following guide [Event Hook](/docs/guides/event-hook-implementation).
 
 ### Implement your service
 
@@ -125,7 +128,9 @@ After implementing your external service, you need to register it with Okta. To 
 
 After registering the Event Hook, you need to trigger a one-time verification process by clicking the Verify button that is displayed in Admin Console. When you trigger verification, Okta calls out to your external service, making the one-time verification request to it. You need to have implemented functionality in your service to handle the expected request and response. The purpose of this step is to prove that you control the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for more information.
 
-For a working example of an end-to-end Event Hook set up, see the following guide [Event Hooks](/docs/guides/event-hook-implementation).
+### Preview your hook
+
+You can preview the the JSON payload for the Event Hook request from the Admin Console's **Preview** tab, which provides a review of the Event Hook request syntax for the specific Event Type. If verified, the request can be delivered to your external service to make sure it is successfully received. See [Event Hook Preview](https://help.okta.com/en/betas/Content/Topics/betas/open/event-hooks-preview.htm) for more information.
 
 ## Sample Event Delivery Payload
 
