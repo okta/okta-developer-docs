@@ -79,6 +79,26 @@
     border-radius: 3px;
   }
 
+  a.btn {
+    display: block;
+    background-color: cv("cerise", "base");
+    padding: 10px 20px;
+    border: 2px solid cv("cerise", "base");
+    border-radius: 3px;
+    text-align: center;
+    color: $white;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  a.social-btn {
+    background-color: transparent;
+  }
+
   input[type="submit"],
   input[type="button"] {
     cursor: pointer;
@@ -117,16 +137,6 @@
     }
     flex-direction: column;
     display: flex;
-  }
-
-  input.social-btn {
-    background-color: transparent;
-    border: 2px solid cv("cerise", "base");
-    text-align: center;
-    color: $white;
-    font-size: 15px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
   }
 
   .error-color {

@@ -137,6 +137,7 @@
             @verify="onCaptchaVerified"
             @expired="onCaptchaExpired"
             sitekey="6LeaS6UZAAAAADd6cKDSXw4m2grRsCpHGXjAFJcL"
+            v-if="displayCaptcha"
           >
           </vue-recaptcha>
         </div>
@@ -189,20 +190,16 @@
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <input
-            type="button"
-            class="social-btn"
-            value="continue with github"
-          />
+          <a class="btn social-btn" :href="uris.github">
+            Continue With GitHub
+          </a>
         </div>
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <input
-            type="button"
-            class="social-btn"
-            value="continue with google"
-          />
+          <a class="btn social-btn" :href="uris.google">
+            Continue With Google
+          </a>
         </div>
       </div>
       <div class="row goto-signin">
@@ -229,6 +226,7 @@ import {
   GDPR_COUNTRIES
 } from "../const/signup.const";
 import setHiddenUtmValues from "../util/attribution/attribution";
+import { getIdpUri } from "../util/uris";
 
 const CANADA = "Canada";
 const USA = "United States";
@@ -240,9 +238,10 @@ export default {
   },
   data() {
     return {
-      state: { lable: "", list: [] },
+      state: { label: "", list: [] },
       displayConsent: false,
       displayAgree: false,
+      displayCaptcha: true,
       form: {
         state: { value: "", isValid: true, errorList: [], hidden: true },
         email: { value: "", isValid: true, errorList: [] },
@@ -254,7 +253,8 @@ export default {
           isValid: true,
           errorList: [],
           hidden: true
-        }
+        },
+        captcha: { value: "", isValid: true, errorList: [] }
       }
     };
   },
@@ -286,8 +286,16 @@ export default {
       return new SignUpValidation(this.form);
     },
     apiService() {
-      return new Api("https://developer.okta.com");
-    }
+      return new Api(this.$site.themeConfig.uris.baseUri);
+    },
+    uris() {
+      const { uris } = this.$site.themeConfig;
+
+      return {
+        github: getIdpUri(uris, "github"),
+        google: getIdpUri(uris, "google"),
+      };
+    },
   },
   methods: {
     submitForm(e) {
@@ -298,9 +306,25 @@ export default {
       this.validationService.checkEmailInput("email");
       this.validationService.checkFormInput("state");
       this.validationService.checkFormCheckboxInput("consentAgree");
+      this.validationService.checkFormInput("captcha");
 
       if (this.validationService.isValidForm()) {
         // make api call
+        const { baseUri, registrationPolicyId} = this.$site.themeConfig.uris;
+        const registrationPath = `/api/v1/registration/${registrationPolicyId}/register`;
+        const body = {
+          userProfile: {
+            email: this.form.email.value,
+            firstName: this.form.firstName.value,
+            lastName: this.form.lastName.value,
+            country: this.form.country.value,
+            state: this.form.state.value,
+            emailOptInC: this.form.consentAgree.value,
+            captchaResponse: this.form.captcha.value,
+          },
+        };
+
+        this.apiService.post(registrationPath, { body })
       }
     },
 
@@ -321,14 +345,23 @@ export default {
       }
     },
 
-    onCaptchaVerified() {},
+    onCaptchaVerified(response) {
+      this.form.captcha.value = response;
+    },
     onCaptchaExpired() {
       this.$refs.recaptcha.reset();
+      this.form.captcha.value = "";
     }
   },
   mounted() {
     const formElement = document.querySelector("#signupForm");
     setHiddenUtmValues(formElement);
+
+    if (window.location.hostname !== "developer.okta.com") {
+      // Do not show/enforce CAPTCHA on non-production deploys
+      this.form.captcha.value = "mocked-captcha-response";
+      this.displayCaptcha = false;
+    }
   }
 };
 </script>

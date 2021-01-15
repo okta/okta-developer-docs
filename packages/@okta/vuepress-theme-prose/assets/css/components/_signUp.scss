@@ -7,6 +7,13 @@
   font-size: 16px;
   color: $white;
 
+  a {
+    color: cv("cerise", "base");
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   @include media("<tablet") {
     padding: 0 36px;
   }
@@ -22,12 +29,6 @@
     padding: 40px;
     background-color: cv("blue", "whale");
     box-shadow: 0px 6px 25px cv("blue", "whale");
-    a {
-      color: cv("cerise", "base");
-      &:hover {
-        text-decoration: underline;
-      }
-    }
     .user-name {
       display: flex;
       .row:nth-child(1) {
