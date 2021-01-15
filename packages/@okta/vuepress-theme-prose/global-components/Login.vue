@@ -55,5 +55,6 @@ export default {
         google: getIdpUri(uris, "google"),
       };
     },
+  },
 };
 </script>
