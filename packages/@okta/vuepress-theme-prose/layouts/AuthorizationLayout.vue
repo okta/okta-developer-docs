@@ -19,14 +19,13 @@
 </template>
 
 <script>
-import pendo from '../util/pendo'
 
 export default {
   components: {
     Footer: () => import('../components/Footer.redesign')
   },
   mounted: async function() {
-    await pendo;
+        await import('../util/pendo');
   }
 }
 </script>

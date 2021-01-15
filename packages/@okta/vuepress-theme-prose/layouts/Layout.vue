@@ -60,7 +60,6 @@
 </template>
 
 <script>
-import pendo from '../util/pendo'
 export const LAYOUT_CONSTANTS = {
   HEADER_TO_CONTENT_GAP: 45 //px
 };
@@ -103,7 +102,7 @@ export default {
     };
   },
   mounted: async function() {
-    await pendo;
+    await import('../util/pendo');
     let that = this;
     this.$on("toggle-tree-nav", event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
