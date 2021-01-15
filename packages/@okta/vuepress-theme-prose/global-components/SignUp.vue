@@ -130,25 +130,31 @@
             }}</span>
           </label>
         </div>
-        <div class="row">
+        <div class="row" v-if="displayCaptcha">
           <vue-recaptcha
             ref="recaptcha"
             :loadRecaptchaScript="true"
             @verify="onCaptchaVerified"
             @expired="onCaptchaExpired"
             sitekey="6LeaS6UZAAAAADd6cKDSXw4m2grRsCpHGXjAFJcL"
-            v-if="displayCaptcha"
           >
           </vue-recaptcha>
         </div>
+        <div class="row error-color" v-if="error !== null">
+          {{error}}
+        </div>
         <div class="row">
-          <label class="field-wrapper" for="signup">
+          <label class="field-wrapper" for="signup" id="submitbutton">
+            <a class="btn red-button pending" v-if="isPending">
+              <img src="/img/ajax-loader-white.gif" />
+            </a>
             <input
               type="submit"
               class="btn red-button"
               :disabled="!validationService.isValidForm()"
               id="signup"
               value="sign up"
+              v-else
             />
           </label>
         </div>
@@ -231,6 +237,8 @@ import { getIdpUri } from "../util/uris";
 const CANADA = "Canada";
 const USA = "United States";
 
+const GENERIC_ERROR_MSG = "Something unexpected happened while processing your registration. Please try again.";
+
 export default {
   components: {
     VueRecaptcha,
@@ -255,7 +263,9 @@ export default {
           hidden: true
         },
         captcha: { value: "", isValid: true, errorList: [] }
-      }
+      },
+      isPending: false,
+      error: null,
     };
   },
   computed: {
@@ -324,7 +334,44 @@ export default {
           },
         };
 
-        this.apiService.post(registrationPath, { body })
+        this.isPending = true;
+
+        this.apiService
+          .post(registrationPath, { body })
+          .then(res => {
+            // Reset error in case of transient failure that succeeds later
+            this.error = null;
+            // Redirect user to success landing page
+            window.location.assign('/signup/thank-you');
+          })
+          .catch(err => {
+            this.handleApiError(err);
+          })
+          .finally(() => {
+            this.isPending = false;
+          });
+      };
+    },
+
+    handleApiError(err) {
+      if (err.response) {
+        const { status, data } = err.response;
+
+        switch (status) {
+          case 400: {
+            if (data.errorCauses && data.errorCauses.length) {
+              this.error = data.errorCauses[0].errorSummary;
+            }
+            break;
+          }
+          default: {
+            this.error = GENERIC_ERROR_MSG;
+          }
+        }
+      } else {
+        console.error(err);
+
+        this.error = GENERIC_ERROR_MSG;
       }
     },
 
