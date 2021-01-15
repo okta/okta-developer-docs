@@ -126,21 +126,8 @@
     padding: 0 0 20px 0;
     justify-content: center;
     .logo-wrapper {
+      width: 100%;
       margin: 40px 0 0 0;
-      width: 338px;
-      @include media("<=phone") {
-        width: 250px;
-      }
-      h4 {
-        font-size: 16px;
-        margin: 0 0 18px 0;
-        color: $white;
-      }
-      .partners-logo {
-        width: 100%;
-        display: inline-flex;
-        align-items: flex-start;
-      }
     }
   }
 

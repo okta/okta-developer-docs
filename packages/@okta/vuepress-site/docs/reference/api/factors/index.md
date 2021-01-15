@@ -792,7 +792,7 @@ curl -v -X POST \
 
 A `429 Too Many Requests` status code may be returned if you attempt to resend an SMS challenge (OTP) within the same time window.
 
-> **Notes:** The current rate limit is one SMS challenge per device every 30 seconds.<br><br> Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
+> **Notes:** The current [rate limit](/docs/reference/rate-limits/) is one SMS challenge per phone number every 30 seconds.<br><br> Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
 
 ```json
 {
@@ -1037,7 +1037,7 @@ curl -v -X POST \
 
 A `429 Too Many Requests` status code may be returned if you attempt to resend a voice call challenge (OTP) within the same time window.
 
-> **Note:** The current rate limit is one voice call challenge per device every 30 seconds.
+> **Note:** The current [rate limit](/docs/reference/rate-limits/) is one voice call challenge per phone number every 30 seconds.
 
 ```json
 {

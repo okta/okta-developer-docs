@@ -268,6 +268,14 @@ module.exports = {
         }
       },
 
+      company_logos: [
+        { name: 'Major League Baseball', icon: '/img/logos/baseball.png' },
+        { name: 'Splunk', icon: '/img/logos/splunk.png' },
+        { name: 'Adobe', icon: '/img/logos/adobe.png' },
+        { name: 'JetBlue', icon: '/img/logos/jet-blue.png' },
+        { name: 'Experian', icon: '/img/logos/experian.png' },
+      ],
+
       forum_url: 'https://devforum.okta.com/',
       copyright_text: 'Copyright © 2020 Okta.'
     },
