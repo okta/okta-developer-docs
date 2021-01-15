@@ -178,13 +178,7 @@
         <img src="/img/curve-doubleLeft.png" />
       </div>
       <div class="pricing--footer">
-        <h1>Trusted by developers</h1>
-        <div class="pricing--footer--logos">
-          <img src="/img/logos/logo--adobe.png" />
-          <img src="/img/logos/logo--pitney.png" />
-          <img src="/img/logos/logo--experian.png" />
-          <img src="/img/logos/logo--advent.png" />
-        </div>
+        <CompanyLogos withHeading />
       </div>
     </section>
   </div>
@@ -192,6 +186,9 @@
 
 <script>
 export default {
+  components: {
+    CompanyLogos: () => import("../components/CompanyLogos")
+  },
   data: () => ({
     faqShownStates: [
       false,
