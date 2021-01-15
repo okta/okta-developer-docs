@@ -26,7 +26,7 @@ After the Okta Identity Engine feature is enabled for your org, it should become
 
 1. Navigate to **Applications > Applications** in the Admin Console.
 2. Click an application in the list.
-3. Click the **General**` tab on the application detail.
+3. Click the **General** tab on the application detail.
 4. Click edit on the **General Settings** panel.
 5. In the **Allowed grant types** section, click the **Interaction Code** check box.
 
