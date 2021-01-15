@@ -42,6 +42,7 @@
 import { getIdpUri } from "../util/uris";
 
 export default {
+  name: "Login",
   components: {
     CompanyLogos: () => import("../components/CompanyLogos")
   },
