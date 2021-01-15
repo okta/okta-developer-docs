@@ -29,7 +29,7 @@ In addition, the object lets you specify a secret API key that you want Okta to 
 
 > **Note:** The API key you set here is unrelated to the Okta API token you must supply when making calls to Okta APIs.
 
-You can also optionally specify extra headers that you wish Okta to pass to your external service with each call.
+You can also optionally specify extra headers that you want Okta to pass to your external service with each call.
 
 Your external service's endpoint needs to be a valid HTTPS endpoint, and therefore the URI you specify should always begin with `https://`.
 
@@ -240,7 +240,7 @@ curl -v -X GET \
 | Parameter  | Description                                                                     | Param Type   | DataType                                    | Required |
 | ---------- | ------------------------------------------------------------------------------- | ------------ | ------------------------------------------- | -------- |
 | id         | The ID of the Inline Hook that you want to update                                   | Path         | String                                      | TRUE     |
-| inlineHook | An `inlineHook` object that represents the updated properties that you wish to apply   | Body         | [Inline Hook object](#inline-hook-object)   | TRUE     |
+| inlineHook | An `inlineHook` object that represents the updated properties that you want to apply   | Body         | [Inline Hook object](#inline-hook-object)   | TRUE     |
 
 The submitted Inline Hook properties replace the existing properties after passing validation. 
 
@@ -472,11 +472,11 @@ curl -v -X DELETE \
 | Parameter                            | Description                                                                         | Param Type   | DataType   | Required |
 | ------------------------------------ | ----------------------------------------------------------------------------------- | ------------ | ---------- | -------- |
 | id                                   | ID of the Inline Hook to execute                                                   | Path         | String     | TRUE     |
-| Payload to send to external service | JSON that matches the data contract of the  `inlineHookType` of this Inline Hook   | Body         | JSON       | TRUE     |
+| Payload to send to external service | JSON that matches the data contract of the `inlineHookType` of this Inline Hook   | Body         | JSON       | TRUE     |
 
 Executes the Inline Hook that matches the provided `inlineHookId` by using the request body as the input. This Inline Hook sends the provided data through the Channel and returns a response if it matches the correct data contract. Otherwise it returns an error. Therefore, you need to construct a JSON payload that matches the payloads that Okta would send to your external service for this Inline Hook type.
 
-A timeout of 3 seconds is enforced on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response isn't received after the request, a 400 error is returned with more information about what failed.
+A timeout of three seconds is enforced on all outbound requests, with one retry in the event of a timeout or an error response from the remote system. If a successful response isn't received after the request, a 400 error is returned with more information about what failed.
 
 > **Note:** This execution endpoint isn't tied to any other functionality in Okta, and you should only use it for testing purposes.
 
@@ -672,8 +672,8 @@ curl -v -X POST \
 | status         | Status of the Inline Hook. `INACTIVE` will block execution.                                         | String                              | FALSE      | FALSE    | FALSE      | System assigned. Will be either `ACTIVE` or `INACTIVE`.            |
 | name           | Display name for the Inline Hook                                                                   | String                              | FALSE      | TRUE     | FALSE      | Must be between 1 and 255 characters in length   |
 | type           | Type of the Inline Hook. See list of [Supported Inline Hook Types](#supported-inline-hook-types).   | inlineHookType                      | FALSE      | FALSE    | TRUE       | Immutable after Inline Hook creation             |
-| version        | Version of the Inline Hook type. The currently-supported version is "1.0.0".                                 | String                              | FALSE      | FALSE    | TRUE       | Must match a valid version number                |
-| channel | Properties of the communications channel that is used to contact your external service                     | [Channel object](#channel-object)   | FALSE      | FALSE    | FALSE      | Validation is determined by the specific channel. |
+| version        | Version of the Inline Hook type. The currently supported version is "1.0.0".                                 | String                              | FALSE      | FALSE    | TRUE       | Must match a valid version number                |
+| channel | Properties of the communications channel that are used to contact your external service                     | [Channel object](#channel-object)   | FALSE      | FALSE    | FALSE      | Validation is determined by the specific channel. |
 | created        | Date of Inline Hook creation                                                                       | String (Date)                       | TRUE       | FALSE    | TRUE       | System assigned                                          |
 | lastUpdated    | Date of Inline Hook update                                                                         | String (Date)                       | TRUE       | FALSE    | TRUE       | System assigned                                          |
 
@@ -713,8 +713,8 @@ curl -v -X POST \
 | Property | Description                                                                     | DataType                                | Nullable | Unique | Validation                                        |
 |----------|---------------------------------------------------------------------------------|-----------------------------------------|----------|--------|---------------------------------------------------|
 | type     | The channel type. Currently the only supported type is `HTTP`.                  | channelType                             | FALSE    | FALSE  | TRUE|Must match a valid channel type.             |
-| version  | Version of the channel. The currently-supported version is "1.0.0".             | String                                  | FALSE    | FALSE  | Must match a valid version number                |
-| config   | Properties of the communications channel that is used to contact your external service. | [Channel Config object](#config-object) | FALSE    | FALSE  | Validation is determined by the specific channel. |
+| version  | Version of the channel. The currently supported version is "1.0.0".             | String                                  | FALSE    | FALSE  | Must match a valid version number                |
+| config   | Properties of the communications channel that are used to contact your external service. | [Channel Config object](#config-object) | FALSE    | FALSE  | Validation is determined by the specific channel. |
 
 
 ### Config object
@@ -722,7 +722,7 @@ curl -v -X POST \
 | Property   | Description                                                                                                | DataType                                | Required | Unique | ReadOnly | Validation                                                                                                             |
 |------------|------------------------------------------------------------------------------------------------------------|-----------------------------------------|----------|--------|----------|------------------------------------------------------------------------------------------------------------------------|
 | uri        | External service endpoint to call to execute the Inline Hook handler                                      | String                                  | TRUE     | FALSE  | TRUE     | Must begin with `https://`. Maximum length 1024 characters. No white space allowed. The URI must be reachable by Okta. |
-| headers    | An optional list of key/value pairs for headers that should be sent with the request to the external service | JSON object                             | FALSE    | FALSE  | FALSE    | Some reserved headers, such as `Accept`, are disallowed.                                                               |
+| headers    | An optional list of key/value pairs for headers that you should send with the request to the external service | JSON object                             | FALSE    | FALSE  | FALSE    | Some reserved headers, such as `Accept`, are disallowed.                                                               |
 | authScheme | The authentication scheme to use for this request                                                          | [AuthScheme object](#authscheme-object) | FALSE    | FALSE  | FALSE    | Valid `authscheme` object|                                                                                            |
 
 ### AuthScheme object
