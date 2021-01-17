@@ -277,7 +277,7 @@ module.exports = {
       ],
 
       forum_url: 'https://devforum.okta.com/',
-      copyright_text: 'Copyright © 2020 Okta.'
+      copyright_text: 'Copyright © 2021 Okta.'
     },
   },
 
