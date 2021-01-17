@@ -27,6 +27,7 @@
     "axios": "^0.21.0",
     "cookies.js": "^2.1.15",
     "include-media": "^1.4.9",
+    "jwt-decode": "^3.1.2",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.32",
     "query-string": "^6.13.8",
