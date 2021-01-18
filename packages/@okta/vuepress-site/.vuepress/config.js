@@ -255,7 +255,7 @@ module.exports = {
           items: [
             { text: 'Pricing', link: '/pricing/' },
             { text: 'Integrate with Okta', link: 'https://developer.okta.com/integrate-with-okta/' },
-            { text: 'Change Log', link: '/docs/release-notes/' },
+            { text: 'Change log', link: '/docs/release-notes/' },
             { text: '3rd-party notes', link: '/3rd_party_notices/' },
           ]
         },
