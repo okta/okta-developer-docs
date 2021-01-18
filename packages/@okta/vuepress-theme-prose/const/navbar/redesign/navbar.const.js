@@ -449,6 +449,7 @@ export const reference = [
   {
     title: "Reference",
     subLinks: [
+      { title: "Reference Overview", path: "/docs/reference/" },
       { title: "API Overview", path: "/docs/reference/api-overview/" },
       {
         title: "Sign in Your Users",
