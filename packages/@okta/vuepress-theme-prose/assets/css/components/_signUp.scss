@@ -82,6 +82,15 @@
       left: 0;
     }
 
+    a.pending {
+      cursor: wait;
+      img {
+        vertical-align: middle;
+        width: 15px;
+        height: 15px;
+      }
+    }
+
     @include media("<desktop") {
       margin: 0;
     }
