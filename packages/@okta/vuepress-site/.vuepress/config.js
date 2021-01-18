@@ -272,7 +272,7 @@ module.exports = {
         { name: 'Major League Baseball', icon: '/img/logos/baseball.png' },
         { name: 'Splunk', icon: '/img/logos/splunk.png' },
         { name: 'Adobe', icon: '/img/logos/adobe.png' },
-        { name: 'JetBlue', icon: '/img/logos/jet-blue.png' },
+        { name: 'JetBlue', icon: '/img/logos/jetblue.png' },
         { name: 'Experian', icon: '/img/logos/experian.png' },
       ],
 
