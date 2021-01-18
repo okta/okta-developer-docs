@@ -71,7 +71,7 @@ tiles:
         image: /img/homepage/stackselectors/php.png
 
 assurances:
-  - title: Compliant out of the Box
+  - title: Compliant Out of the Box
     description: with HIPAA, FedRamp, SOC and more, we have you covered
     image: /img/homepage/compliance-out-of-box.png
   - title: 99.99% Uptime
