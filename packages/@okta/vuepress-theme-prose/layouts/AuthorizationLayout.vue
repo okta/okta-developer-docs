@@ -24,8 +24,8 @@ export default {
   components: {
     Footer: () => import('../components/Footer.redesign')
   },
-  mounted: async function() {
-        await import('../util/pendo');
+  mounted: function() {
+       import('../util/pendo');
   }
 }
 </script>
