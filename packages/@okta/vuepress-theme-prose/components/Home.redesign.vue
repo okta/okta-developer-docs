@@ -145,7 +145,7 @@
 
 <script>
 import CompanyLogos from "./CompanyLogos.vue";
-const TABLET_BREAKPOINT = 768;
+const SIDE_BY_SIDE_BREAKPOINT = 1200;
 
 export default {
   name: "Home",
@@ -170,7 +170,7 @@ export default {
   },
   methods: {
     onResize() {
-      this.isInMobileViewport = window.innerWidth <= TABLET_BREAKPOINT;
+      this.isInMobileViewport = window.innerWidth < SIDE_BY_SIDE_BREAKPOINT;
     },
     togglePseudoAuth(e) {
       if (this.isInMobileViewport) {
