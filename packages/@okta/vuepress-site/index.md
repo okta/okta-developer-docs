@@ -46,8 +46,8 @@ tiles:
         link: /docs/guides/sign-into-mobile-app/react-native/before-you-begin/
         image: /img/homepage/stackselectors/react.png
       - name: Android
-        link: /code/android/
-        image: /docs/guides/sign-into-mobile-app/android/before-you-begin/
+        link: /docs/guides/sign-into-mobile-app/android/before-you-begin/
+        image: /img/homepage/stackselectors/android.png
       - name: IOS
         link: /docs/guides/sign-into-mobile-app/ios/before-you-begin/
         image: /img/homepage/stackselectors/ios.png
