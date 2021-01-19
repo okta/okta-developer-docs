@@ -19,9 +19,13 @@
 </template>
 
 <script>
+
 export default {
   components: {
     Footer: () => import('../components/Footer.redesign')
+  },
+  mounted: function() {
+       import('../util/pendo');
   }
 }
 </script>

@@ -101,7 +101,8 @@ export default {
       appContext: this.appContext
     };
   },
-  mounted() {
+  mounted: function() {
+    import('../util/pendo');
     let that = this;
     this.$on("toggle-tree-nav", event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
