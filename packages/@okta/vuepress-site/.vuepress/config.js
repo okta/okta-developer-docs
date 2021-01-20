@@ -21,6 +21,7 @@ module.exports = {
     ['link', { rel: 'stylesheet', href: 'https://use.typekit.net/osg6paw.css', crossorigin: true}],
     ['meta', { name: 'msapplication-config',  content: '/favicon/browserconfig.xml' }],
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
+    ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0'}],
 
     /**
      * Header scripts for typekit, GA, GTM (WIP)
@@ -254,7 +255,7 @@ module.exports = {
           heading: 'More Info',
           items: [
             { text: 'Pricing', link: '/pricing/' },
-            { text: 'Integrate with Okta', link: 'https://developer.okta.com/okta-integration-network/' },
+            { text: 'Integrate with Okta', link: '/okta-integration-network/' },
             { text: 'Change log', link: '/docs/release-notes/' },
             { text: '3rd-party notes', link: '/3rd_party_notices/' },
           ]
