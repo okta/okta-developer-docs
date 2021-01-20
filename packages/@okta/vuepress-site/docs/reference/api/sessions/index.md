@@ -9,7 +9,7 @@ Okta uses a cookie-based authentication mechanism to maintain a user's authentic
 
 >**Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [FAQ: How Blocked Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
 
->The Sessions API doesn't support direct authentication. Direct authentication is supported through the [Authentication API](/docs/reference/api/authn/#authentication-operations) or through OIDC using the [Resource Owner Password Flow](/docs/guides/implement-password/overview/).
+>**Note:** The Sessions API doesn't support direct authentication. Direct authentication is supported through the [Authentication API](/docs/reference/api/authn/#authentication-operations) or through OIDC using the [Resource Owner Password Flow](/docs/guides/implement-password/overview/).
 
 ### Session cookie
 
@@ -25,7 +25,7 @@ Okta provides a very rich [Authentication API](/docs/reference/api/authn/) to va
 - [Retrieving a session cookie by visiting a session redirect link](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link)
 - [Retrieving a session cookie by visiting an application embed link](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-an-application-embed-link)
 
-> **Session tokens** are secrets and should be protected at rest and during transit. A session token for a user is equivalent to having the user's actual credentials.
+>**Note:** **Session tokens** are secrets and should be protected at rest and during transit. A session token for a user is equivalent to having the user's actual credentials.
 
 ## Get started
 
@@ -143,7 +143,7 @@ curl -v -X GET \
 
 If the Session is valid, a [Session object](#session-object) is returned.
 
-If the Session is invalid, a `404 Not Found` response will be returned.
+If the Session is invalid, a `404 Not Found` response is returned.
 
 ``` json
 {
@@ -199,7 +199,7 @@ If the Session is invalid, a `404 Not Found` response will be returned.
 
 Extends the lifetime of a user's Session
 
-> This endpoint is deprecated. Use the [Refresh Session](#refresh-session) API instead.
+>**Note:** This endpoint is deprecated. Use the [Refresh Session](#refresh-session) API instead.
 
 >**Note:** This is an administrator operation and requires an API token.
 
@@ -549,7 +549,7 @@ curl -v -X POST \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/sessions/me/refresh"
 ```
-Note: `me` can also be an ID.
+>**Note:** `me` can also be an ID.
 
 ##### Response example
 
@@ -649,14 +649,14 @@ Sessions have the following properties:
 | login                                     | A unique identifier for the user (username)                                                     | String                                    | FALSE    | TRUE   | TRUE     |
 | userId                                    | A unique key for the [user](/docs/reference/api/users/#get-user-with-id)                                             | String                                    | FALSE    | TRUE   | TRUE     |
 | expiresAt                                 | A timestamp when the Session expires                                                                | Date                                      | FALSE    | TRUE   | TRUE     |
-| status                                    | current [status](#session-status) of the Session                                              | `ACTIVE`, `MFA_REQUIRED`, or `MFA_ENROLL` | FALSE    | TRUE   | TRUE     |
+| status                                    | Current [status](#session-status) of the Session                                              | `ACTIVE`, `MFA_REQUIRED`, or `MFA_ENROLL` | FALSE    | TRUE   | TRUE     |
 | lastPasswordVerification                  | A timestamp when the user last performs the primary or step-up authentication with a password            | Date                                      | TRUE     | TRUE   | TRUE     |
 | lastFactorVerification                    | A timestamp when user last performs multifactor authentication                                | Date                                      | TRUE     | TRUE   | TRUE     |
 | amr                                       | Authentication method reference                                                               | [AMR object](#amr-object)                 | FALSE    | FALSE  | TRUE     |
-| idp                                       | The identity provider that is used to authenticate the user                                               | [IDP object](#idp-object)                 | FALSE    | FALSE  | TRUE     |
+| idp                                       | The Identity Provider that is used to authenticate the user                                               | [IDP object](#idp-object)                 | FALSE    | FALSE  | TRUE     |
 | mfaActive                                 | Indicates whether the user has [enrolled an MFA factor](/docs/reference/api/factors/#list-enrolled-factors)        | Boolean                                   | FALSE    | FALSE  | TRUE     |
 
-> The `mfaActive` parameter is a <ApiLifecycle access="deprecated" /> feature. Use the `lastFactorVerification` attribute in conjunction with `amr` to understand if the user has performed MFA for the current Session. Use the [Factors API](/docs/reference/api/factors/#list-enrolled-factors) to query the factor enrollment status for a given user.
+>**Note:** The `mfaActive` parameter is a <ApiLifecycle access="deprecated" /> feature. Use the `lastFactorVerification` attribute in conjunction with `amr` to understand if the user has performed MFA for the current Session. Use the [Factors API](/docs/reference/api/factors/#list-enrolled-factors) to query the factor enrollment status for a given user.
 
 #### Optional Session properties
 
@@ -667,9 +667,9 @@ The [Create Session](#create-session-with-session-token) operation can optionall
 | cookieToken                                   | Another one-time token that is used to obtain a session cookie by visiting either an application's embed link or a Session redirect URL.                                     |
 | cookieTokenUrl                                | The URL for a transparent 1x1 pixel image that contains a one-time session token that, when visited, sets the session cookie in your browser for your organization.                 |
 
-> The `cookieToken` is a <ApiLifecycle access="deprecated" /> property. Instead, use the [Authentication API](/docs/reference/api/authn/), which supports the full user authentication pipeline and produces a `sessionToken` that you can use in this API.
+>**Note:** The `cookieToken` is a <ApiLifecycle access="deprecated" /> property. Instead, use the [Authentication API](/docs/reference/api/authn/) that supports the full user authentication pipeline and produces a `sessionToken` that you can use in this API.
 
-> The `cookieTokenUrl` is a <ApiLifecycle access="deprecated" /> property, because modern browsers block cookies that are set through embedding images from another origin (cross-domain).
+>**Note:** The `cookieTokenUrl` is a <ApiLifecycle access="deprecated" /> property, because modern browsers block cookies that are set through embedding images from another origin (cross-domain).
 
 ### Session status
 
