@@ -4,8 +4,6 @@
       <form
         id="signupForm"
         @submit="submitForm"
-        method="POST"
-        action="https://developer.okta.com/developer/signup/"
       >
         <div class="row">
           <label class="field-wrapper" for="email">

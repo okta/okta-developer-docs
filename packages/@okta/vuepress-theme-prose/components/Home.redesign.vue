@@ -109,16 +109,16 @@
                   </div>
                   <div class="redesign-homepage--welcome-leia--actions">
                     <a
-                      href="https://developer.okta.com/signup"
+                      href="/signup/"
                       class="redesign-homepage--welcome-leia--actions--cta act-btn"
                     >
-                      sign up for okta
+                      Sign up for Okta
                     </a>
                     <a
-                      href="https://developer.okta.com/code/javascript/okta_sign-in_widget"
+                      href="/code/javascript/okta_sign-in_widget/"
                       class="redesign-homepage--welcome-leia--actions--docs act-btn"
                     >
-                      vue widget docs
+                      View widget docs
                     </a>
                   </div>
                 </div>
