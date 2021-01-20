@@ -119,6 +119,8 @@ The `Accept-Language` HTTP header advertises which languages the client is able 
 
 ## Device Fingerprint
 
+<ApiLifecycle access="deprecated" />
+
 The `X-Device-Fingerprint` HTTP header supplies the device fingerprint used in an authentication request.
 
 ## Errors
