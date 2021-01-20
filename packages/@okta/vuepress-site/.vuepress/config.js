@@ -323,10 +323,11 @@ module.exports = {
     },
     'robots': {
       host: 'https://developer.okta.com',
-      sitemap: "/docs-sitemap.xml",
+      sitemap: '/docs-sitemap.xml',
       policies: [
         {
           userAgent: '*',
+          crawlDelay: 10,
           disallow: [
               '/docs/reference/api/oie-policy-types/',
               '/docs/guides/sign-into-web-app-remediation/',
