@@ -321,6 +321,26 @@ module.exports = {
         '/test_page/'
       ]
     },
+    'robots': {
+      host: 'https://developer.okta.com',
+      sitemap: "/docs-sitemap.xml",
+      policies: [
+        {
+          userAgent: '*',
+          disallow: [
+              '/docs/reference/api/oie-policy-types/',
+              '/docs/guides/sign-into-web-app-remediation/',
+              '/docs/guides/sign-into-web-app-remediation/before-you-begin/',
+              '/docs/guides/sign-into-web-app-remediation/configure-packages/',
+              '/docs/guides/sign-into-web-app-remediation/create-okta-application/',
+              '/docs/guides/sign-into-web-app-remediation/handle-remediation/',
+              '/docs/guides/sign-into-web-app-remediation/get-tokens/',
+              '/docs/guides/sign-into-web-app-remediation/next-steps/',
+              '/docs/reference/api/authenticators-admin/'
+          ]
+        }
+      ]
+    },
     '@okta/vuepress-plugin-qualtrics-feedback': {}
   },
 
