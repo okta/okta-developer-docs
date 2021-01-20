@@ -432,7 +432,7 @@ export const guides = [
 // the navigation that is shown across the reference pages
 
 export const reference = [
-  { title: "Reference overview", path: "/docs/reference/" },
+  { title: "Reference Overview", path: "/docs/reference/" },
   { title: "API Overview", path: "/docs/reference/api-overview/" },
   {
     title: "Sign in Your Users",
