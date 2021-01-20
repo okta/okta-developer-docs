@@ -462,7 +462,7 @@ export const reference = [
         ]
       },
       {
-        title: "Manage Okta objects",
+        title: "Manage Okta Objects",
         subLinks: [
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
           { title: "Apps", path: "/docs/reference/api/apps/" },
