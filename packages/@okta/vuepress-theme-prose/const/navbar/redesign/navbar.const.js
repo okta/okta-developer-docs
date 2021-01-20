@@ -449,6 +449,7 @@ export const reference = [
   {
     title: "Reference",
     subLinks: [
+      { title: "Reference Overview", path: "/docs/reference/" },
       { title: "API Overview", path: "/docs/reference/api-overview/" },
       {
         title: "Sign in Your Users",
@@ -461,7 +462,7 @@ export const reference = [
         ]
       },
       {
-        title: "Manage Okta Resources",
+        title: "Manage Okta objects",
         subLinks: [
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
           { title: "Apps", path: "/docs/reference/api/apps/" },
