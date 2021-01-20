@@ -39,7 +39,7 @@ Explore the Sessions API: [![Run in Postman](https://run.pstmn.io/button.svg)](h
 
 Creates a new Session for a user with a valid session token. Use this API if, for example, you want to set the session cookie yourself instead of allowing Okta to set it, or you want to hold the Session ID to delete a Session through the API instead of visiting the logout URL.
 
-> Don't use this API unless you need a Session `id`. Instead, use one of the following flows to obtain a SSO session with a `sessionToken`:
+Don't use this API unless you need a Session `id`. Instead, use one of the following flows to obtain a SSO session with a `sessionToken`:
 
 - [Retrieving a session cookie by visiting the OpenID Connect Authorization Endpoint](/docs/guides/session-cookie/#retrieving-a-session-cookie-via-openid-connect-authorization-endpoint)
 - [Retrieving a session cookie by visiting a session redirect link](/docs/guides/session-cookie/#retrieving-a-session-cookie-by-visiting-a-session-redirect-link)
