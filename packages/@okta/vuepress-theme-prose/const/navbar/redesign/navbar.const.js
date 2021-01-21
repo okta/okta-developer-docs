@@ -487,6 +487,8 @@ export const reference = [
           { title: "Mappings", path: "/docs/reference/api/mappings/" },
           { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
           { title: "Policy", path: "/docs/reference/api/policy/" },
+          { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
+          { title: "Risk Events", path: "/docs/reference/api/risk-events/" },
           { title: "Schemas", path: "/docs/reference/api/schemas/" },
           { title: "Sessions", path: "/docs/reference/api/sessions/" },
           { title: "System Log", path: "/docs/reference/api/system-log/" },
