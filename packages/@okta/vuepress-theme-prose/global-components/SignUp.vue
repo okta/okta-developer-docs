@@ -135,7 +135,7 @@
               :loadRecaptchaScript="true"
               @verify="onCaptchaVerified"
               @expired="onCaptchaExpired"
-              sitekey="6LcgkzYaAAAAAAgXBo2cLdct9D-kUtyCOgcyd5WW"
+              :sitekey="captchaSiteKey"
             >
             </vue-recaptcha>
             <span class="error-color error-msg" v-if="form.captcha.errorList.length">{{
@@ -309,6 +309,13 @@ export default {
         google: getIdpUri(uris, "google"),
       };
     },
+    captchaSiteKey() {
+      const { captcha } = this.$site.themeConfig;
+      if (window.location.hostname === "developer.okta.com") {
+        return captcha.production;
+      }
+      return captcha.test;
+    },
   },
   methods: {
     submitForm(e) {
@@ -413,14 +420,6 @@ export default {
   mounted() {
     const formElement = document.querySelector("#signupForm");
     setHiddenUtmValues(formElement);
-
-    /*
-    if (window.location.hostname !== "developer.okta.com") {
-      // Do not show/enforce CAPTCHA on non-production deploys
-      this.form.captcha.value = "mocked-captcha-response";
-      this.displayCaptcha = false;
-    }
-    */
   }
 };
 </script>
