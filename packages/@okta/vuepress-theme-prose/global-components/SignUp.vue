@@ -129,14 +129,19 @@
           </label>
         </div>
         <div class="row" v-if="displayCaptcha">
-          <vue-recaptcha
-            ref="recaptcha"
-            :loadRecaptchaScript="true"
-            @verify="onCaptchaVerified"
-            @expired="onCaptchaExpired"
-            sitekey="6LcgkzYaAAAAAAgXBo2cLdct9D-kUtyCOgcyd5WW"
-          >
-          </vue-recaptcha>
+          <label class="field-wrapper" for="recaptcha">
+            <vue-recaptcha
+              ref="recaptcha"
+              :loadRecaptchaScript="true"
+              @verify="onCaptchaVerified"
+              @expired="onCaptchaExpired"
+              sitekey="6LcgkzYaAAAAAAgXBo2cLdct9D-kUtyCOgcyd5WW"
+            >
+            </vue-recaptcha>
+            <span class="error-color error-msg" v-if="form.captcha.errorList.length">{{
+              validationService.errorDictionary.emptyField
+            }}</span>
+          </label>
         </div>
         <div class="row error-color" v-if="error !== null">
           {{error}}
@@ -318,7 +323,7 @@ export default {
 
       if (this.validationService.isValidForm()) {
         // make api call
-        const { baseUri, registrationPolicyId} = this.$site.themeConfig.uris;
+        const { baseUri, registrationPolicyId } = this.$site.themeConfig.uris;
         const registrationPath = `/api/v1/registration/${registrationPolicyId}/register`;
         const body = {
           userProfile: {
@@ -391,11 +396,17 @@ export default {
     },
 
     onCaptchaVerified(response) {
-      this.form.captcha.value = response;
+      this.validationService.resetFormField("captcha", {
+        reset: true,
+        value: response,
+      });
     },
     onCaptchaExpired() {
       this.$refs.recaptcha.reset();
-      this.form.captcha.value = "";
+      this.validationService.resetFormField("captcha", {
+        reset: true,
+        value: "",
+      });
     }
   },
   mounted() {
