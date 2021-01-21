@@ -13,10 +13,8 @@ module.exports = (options, ctx) => {
     extendPageData ($page) {
       $page.fullHeaders = resolveHeaders($page);
 
-      // Set to true to enable the redesign in development
-      const redesign = process.env.REDESIGN || false;
-      // Respect the redesign flag unless this is a production build
-      $page.redesign = !ctx.isProd && redesign;
+      // Sets `redesign` FF to true to render the updated website
+      $page.redesign = true
     }
   }
 }
