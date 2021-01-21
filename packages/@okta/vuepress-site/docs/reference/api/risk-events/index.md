@@ -3,43 +3,44 @@ title: RiskEvents
 category: management
 ---
 
-# Risk Events API
+# RiskEvents API
 
-This API providers operations to send risk events to Okta.
+The Okta RiskEvents API provides the ability for RiskProviders to send RiskEvents to Okta.
 
-## Risk Event object
+## Get Started
+Explore the RiskEvents API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1c449b51a4a0adf90198)
 
-This object contains a list of risk signals that are produced at a particular timestamp.
+## RiskEvents API Operations
+The RiskEvents API has the following operations:
 
-| Field Name     | Description                                                         	| Data Type                                     | Required      | Max Length    |
-| :------------- | :------------------------------------------------------------------	| :-------------------------------------------- | :------------ | :------------ |
-| timestamp             | Timestamp at which the the signal is produced (Should be in ISO 8601 format)  | String                                        | Yes		| N/A           |
-| expiresAt             | Timestamp at which the signal expires (Should be in ISO 8601 format). If this optional field is not included, Okta automatically expires 24 hours after the timestamp. | String                                        | No		| N/A           |
-| subjects         | List of [Risk Subjects](#risk-subject) | List                                        | Yes		| 50           |
-
-### Risk Subject
-
-This object contains the ip, risk level and the message associated with a single risk signal.
-
- Field Name     | Description                                                         	| Data Type                                     | Required      | Max Length    |
-| :------------- | :------------------------------------------------------------------	| :-------------------------------------------- | :------------ | :------------ |
-| ip             | The IP address  | String                                        | Yes		| N/A           |
-| riskLevel             | The risk level associated with the IP. Possible values are `LOW`, `MEDIUM`, `HIGH` | String                                        | Yes		| N/A           |
-| message         | Any additional message that the provider can send specifying the reason for the risk level of the IP.  | List                                        | No		| 512           |
+* [Send RiskEvents](#send-riskevents)
 
 
-## Risk Events API operations
+### Send RiskEvents
 
-### Send Risk Events
+<ApiOperation method="post" url="/api/v1/risk/events/ip" />
 
-<ApiOperation method="post" url="/api/v1/risk/evnets/ip" />
+A RiskProvider can send RiskEvents to Okta using this API.
 
-This API provides the operation to send multiple risk events to Okta.
+#### Request body
 
-`Note: A maximum of 20 events can be sent in the API call. In each event, a maximum of 50 IPs can be sent.`
+The request body should include an array of [RiskEvent](#riskevent-object). A max of 20 events can be included in a request. Each RiskEvent can include these:
 
+| Property    | Type           | Description   |
+| ----------- | -------------- | ------------- |
+| `timestamp` | String | Timestamp at which the the event is produced (Should be in ISO 8601 format). This is a required field. |
+| `expiresAt` | String | Timestamp at which the event expires (Should be in ISO 8601 format). If this optional field is not included, Okta automatically expires the event 24 hours after the `timestamp`. |
+| `subjects` | List | List of [Risk Subjects](#risksubject-object). A max of 50 subjects can be included in an event |
 
-#### Request example
+#### Response body
+
+Http 202 (Accepted) is returned if the request is successful. If there are validation errors, the API would return a 400.
+
+#### Usage example
+
+This request sends RiskEvents to Okta
+
+##### Request
 
 ```bash
 curl -X POST \
@@ -53,8 +54,7 @@ curl -X POST \
        "subjects": [
           {
             "ip": "6.7.6.7",
-            "riskLevel": "MEDIUM",
-            "message": "none"
+            "riskLevel": "MEDIUM"
           },
           {
             "ip": "1.1.1.1",
@@ -68,8 +68,7 @@ curl -X POST \
        "subjects": [
           {
             "ip": "6.7.6.7",
-            "riskLevel": "LOW",
-            "message": "none"
+            "riskLevel": "LOW"
           },
           {
             "ip": "2.2.2.2",
@@ -81,5 +80,64 @@ curl -X POST \
 }' "https://${yourOktaDomain}/api/v1/risk/events/ip"
 ```
 
-#### Response
-The response for this API would be Http 202 if it is successful. If there are validation errors, the API would return a Http 400.
+##### Response
+```http
+HTTP/1.1 202 Accepted
+```
+
+## RiskEvents API objects
+
+### RiskEvent object
+
+#### RiskEvent properties
+
+The RiskEvent object has several properties:
+
+
+| Property    | Type           | Description   |
+| ----------- | -------------- | ------------- |
+| `timestamp` | String | Timestamp at which the the event is produced (Should be in ISO 8601 format). This is a required field. |
+| `expiresAt` | String | Timestamp at which the event expires (Should be in ISO 8601 format). If this optional field is not included, Okta automatically expires the event 24 hours after the `timestamp`. |
+| `subjects` | List | List of [Risk Subjects](#risksubject-object) |
+
+#### RiskEvent example
+
+```json
+{
+       "timestamp": "2021-01-20T00:00:00.001Z",
+       "subjects": [
+          {
+            "ip": "6.7.6.7",
+            "riskLevel": "MEDIUM"
+          },
+          {
+            "ip": "1.1.1.1",
+            "riskLevel": "HIGH" ,
+            "message": "Detected Attack tooling and suspicious activity"
+          }
+        ]
+}
+```
+
+### RiskSubject object
+
+#### RiskSubject properties
+
+The RiskSubject object has several properties:
+
+| Property    | Type           | Description   |
+| ----------- | -------------- | ------------- |
+| `ip` | String | The IP address. This is a required field. |
+| `riskLevel` | String | The risk level associated with the IP. Possible values are `LOW`, `MEDIUM`, `HIGH`. This is a required field. |
+| `message` | String | Any additional message that the provider can send specifying the reason for the risk level of the IP. This is an optional field and can be of max 512 characters. |
+
+
+#### RiskEvent example
+
+```json
+{
+    "ip": "6.7.6.7",
+    "riskLevel": "MEDIUM",
+    "message": "none"
+}
+```

@@ -3,31 +3,48 @@ title: RiskProviders
 category: management
 ---
 
-# Risk Providers API
+# RiskProviders API
 
-This API providers operations to manage the risk providers within Okta.
+The Okta RiskProviders API provides the ability to manage the risk providers within Okta.
 
-## Risk Provider object
+## Get Started
+Explore the RiskProviders API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6831b9d37e12fe1f3401)
 
-| Field Name     | Description                                                         	| Data Type                                     | Required      | Max Length    |
-| :------------- | :------------------------------------------------------------------	| :-------------------------------------------- | :------------ | :------------ |
-| id             | Id of the risk provider | String                                        | Yes		| Assigned           |
-| name           | Name of the risk provider. This should be unique. | String                                        | Yes		| 50           |
-| action         | Specifies how Okta responds to authentication requests from end users that are associated with the signals sent by the provider. Values are none, log, or enfoce_and_log. A value of none indicates that no action is taken. A value of log indicates that Okta logs the risk signal information in the System Log. A value of enfoce_and_log indicates that Okta logs the risk signal information and also uses that to determine the overall risk of the login attempt . | String                                        | Yes		| N/A           |
-| clientId       | The id of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/) that would be used to send risk signals to Okta    | String	                                        | Yes		| N/A           |
+## Risk Providers API Operations
+The RiskProviders API has the following CRUD operations:
+
+* [Create RiskProvider](#create-riskprovider)
+* [Get a RiskProvider by id](#get-a-riskprovider)
+* [Update RiskProvider](#update-riskprovider)
+* [Get all RiskProviders](#list-all-riskproviders)
 
 
-## Risk Providers API operations
-
-### Create a Risk Provider
+### Create RiskProvider
 
 <ApiOperation method="post" url="/api/v1/risk/providers" />
 
-Create a new Risk Provider.
+Creates a RiskProvider object.
+`A maximum of 3 providers can be created.`
+`By Default, one risk provider is created by Okta`.
 
-`Note: A maximum of 3 providers can be created.`
+#### Request body
 
-#### Request example
+
+| Property    | Type           | Description   |
+| ----------- | -------------- | ------------- |
+| `action` | String | The action taken by Okta during authentication attempts based on the risk events sent by this provider. Possible Values: `none` (No Action), `log` (Include the risk event information in SystemLog only), `enforce_and_log` (Include the risk event information in SystemLog and also use that information while evaluating risk during authentication attempts). The default action is `log`. |
+| `name` | String | Name of the risk provider. Should be less than `50` characters and should be unique. This is a required field. |
+| `clientId` | String | The id of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/) that would be used to send risk events to Okta. This is a required field. |
+
+#### Response body
+
+Returns the created [RiskProvider](#riskprovider-object).
+
+#### Usage example
+
+This request creates a RiskProvider object:
+
+##### Request
 
 ```bash
 curl -X POST \
@@ -41,7 +58,7 @@ curl -X POST \
 }' "https://${yourOktaDomain}/api/v1/risk/providers"
 ```
 
-#### Response example
+##### Response
 
 ```json
 {
@@ -65,13 +82,38 @@ curl -X POST \
 }
 ```
 
-### Update a Risk Provider
+### Update RiskProvider
 
-<ApiOperation method="put" url="/api/v1/risk/providers/${providerId}" />
+<ApiOperation method="put" url="/api/v1/risk/providers/{providerId}" />
 
-Update a Risk Provider associated with the `providerId`
+Updates a RiskProvider.
 
-#### Request example
+
+#### Request path parameters
+
+| Parameter | Type        | Description   |
+| --------- | ----------- | ------------- |
+| `providerId`  | String | The ID of the provider to update|
+
+
+#### Request body
+
+| Property    | Type           | Description   |
+| ----------- | -------------- | ------------- |
+| `action` | String | The action taken by Okta during authentication attempts based on the risk events sent by this provider. Possible Values: `none` (No Action), `log` (Include the risk event information in SystemLog only), `enforce_and_log` (Include the risk event information in SystemLog and also use that information while evaluating risk during authentication attempts). The default action is `log`. |
+| `name` | String | Name of the risk provider. Should be less than `50` characters and should be unique. This is a required field. |
+| `clientId` | String | The id of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/) that would be used to send risk events to Okta. This is a required field. |
+
+
+#### Response body
+
+Returns the updated [RiskProvider](#riskprovider-object).
+
+#### Usage example
+
+##### Request
+
+This request would update a risk provider
 
 ```bash
 curl -X POST \
@@ -85,7 +127,7 @@ curl -X POST \
 }' "https://${yourOktaDomain}/api/v1/risk/providers/00rp12r4skkjkjgsn"
 ```
 
-#### Response example
+##### Response
 
 ```json
 {
@@ -109,13 +151,77 @@ curl -X POST \
 }
 ```
 
-### List all Risk Providers
+### Get a RiskProvider by id
+
+<ApiOperation method="get" url="/api/v1/risk/providers/{providerId}" />
+
+Fetches a RiskProvider by its `id`.
+
+
+#### Request path parameters
+
+| Parameter | Type        | Description   |
+| --------- | ----------- | ------------- |
+| `providerId`  | String | The ID of the provider to update|
+
+#### Response body
+
+Returns the requested [RiskProvider](#riskprovider-object).
+
+#### Usage example
+
+This request fetches a risk provider object based on the id:
+
+##### Request
+
+```bash
+curl -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn"
+```
+
+##### Response
+
+```json
+{
+      "id": "00rp23r4skkjkjgsn",
+      "action": "log",
+      "name": "Risk-Partner-X",
+      "clientId": "00cjkjjkkgjkdkjdkkljjsd",
+      "created": "2021-01-04 22:18:30",
+      "lastUpdated": "2021-01-04 23:18:30",
+      "_links": {
+          "self": {
+              "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn",
+              "hints": {
+                  "allow": [
+                      "GET",
+                      "PUT"
+                  ]
+              }
+          }
+      }
+}
+```
+
+
+### List all RiskProviders
 
 <ApiOperation method="get" url="/api/v1/risk/providers" />
 
 List all the risk providers
 
-#### Request example
+#### Response body
+
+Returns a list of [RiskProvider](#riskprovider-object).
+
+#### Usage example
+
+This request fetches all risk providers.
+
+##### Request
 
 ```bash
 curl -X GET \
@@ -125,7 +231,8 @@ curl -X GET \
 "https://${yourOktaDomain}/api/v1/risk/providers"
 ```
 
-#### Response example
+##### Response
+
 ```json
 [
   {
@@ -169,41 +276,32 @@ curl -X GET \
 ]
 ```
 
-### Get a Risk Provider
+## RiskProvider API objects
 
-<ApiOperation method="get" url="/api/v1/risk/providers/${providerId}" />
+### RiskProvider object
 
-Get a risk provider associated with the `providerId`
+#### RiskProvider properties
 
-#### Request example
+The RiskProvider object has several properties:
 
-```bash
-curl -X GET \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn"
-```
 
-#### Response example
+| Property    | Type           | Description   |
+| ----------- | -------------- | ------------- |
+| `id` | String | ID of the risk provider. This is an assigned field. |
+| `action` | String | The action taken by Okta during authentication attempts based on the risk events sent by this provider. Possible Values: `none` (No Action), `log` (Include the risk event information in SystemLog only), `enforce_and_log` (Include the risk event information in SystemLog and also use that information while evaluating risk during authentication attempts). The default action is `log`. |
+| `name` | String | Name of the risk provider. Should be less than `50` characters and should be unique. This is a required field. |
+| `clientId` | String | The id of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/) that would be used to send risk events to Okta. This is a required field. |
+
+
+#### RiskProvider example
+
 ```json
 {
-      "id": "00rp23r4skkjkjgsn",
-      "action": "log",
-      "name": "Risk-Partner-X",
-      "clientId": "00cjkjjkkgjkdkjdkkljjsd",
-      "created": "2021-01-04 22:18:30",
-      "lastUpdated": "2021-01-04 23:18:30",
-      "_links": {
-          "self": {
-              "href": "https://{yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn",
-              "hints": {
-                  "allow": [
-                      "GET",
-                      "PUT"
-                  ]
-              }
-          }
-      }
-}
+    "id": "00rpdfgkljdlkklhktlrh",
+    "name": "A-Provider-Name",
+    "action": "log",
+    "clientId": "A-Valid-Client-ID"
+  }
 ```
+
+

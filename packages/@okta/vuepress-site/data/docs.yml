@@ -38,8 +38,6 @@
     - idps
     - linked-objects
     - policy
-    - risk-providers
-    - risk-events
     - roles
     - schemas
     - sessions

@@ -481,10 +481,6 @@ redirects:
     to: /docs/reference/api/linked-objects/
   - from: /docs/api/resources/policy/index.html
     to: /docs/reference/api/policy/
-  - from: /docs/api/resources/risk-providers/index.html
-    to: /docs/reference/api/risk-providers/
-  - from: /docs/api/resources/risk-events/index.html
-    to: /docs/reference/api/risk-events/
   - from: /docs/api/resources/schemas/index.html
     to: /docs/reference/api/schemas/
   - from: /docs/api/resources/sessions/index.html
