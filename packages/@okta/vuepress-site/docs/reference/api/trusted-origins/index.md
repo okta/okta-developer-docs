@@ -5,22 +5,22 @@ category: management
 
 # Trusted Origins API
 
-The Okta Trusted Origins API provides operations to manage trusted origins and sources.
+The Okta Trusted Origins API provides operations to manage Trusted Origins and sources.
 
-When external URLs are requested during login, logout, or recovery operations, Okta checks those URLs against the allow list of trusted origins.
-Trusted origins also enable browser-based applications to access Okta APIs from JavaScript (CORS).
-If the origins are not specified, the related operation (redirect or Okta API access) would not be permitted.
+When external URLs are requested during sign-in, sign-out, or recovery operations, Okta checks those URLs against the allowed list of Trusted Origins.
+Trusted Origins also enable browser-based applications to access Okta APIs from JavaScript (CORS).
+If the origins aren't specified, the related operation (redirect or Okta API access) isn't permitted.
 
-## Trusted Origins API Operations
+## Trusted Origins API operations
 
 ### Create Trusted Origin
 
 
 <ApiOperation method="post" url="/api/v1/trustedOrigins" />
 
-Creates a new trusted origin
+Creates a new Trusted Origin
 
-#### Valid Request Example
+#### Valid request example
 
 ```bash
 curl -X POST \
@@ -41,7 +41,7 @@ curl -X POST \
 }' "https://${yourOktaDomain}/api/v1/trustedOrigins"
 ```
 
-#### Successful Response Example
+#### Successful response example
 
 ```json
 {
@@ -84,7 +84,7 @@ curl -X POST \
 }
 ```
 
-#### Invalid Request Example
+#### Invalid request example
 
 ```bash
 curl -X POST \
@@ -105,7 +105,7 @@ curl -X POST \
 }' "https://${yourOktaDomain}/api/v1/trustedOrigins"
 ```
 
-#### Unsuccessful Response Example
+#### Unsuccessful response example
 
 ```json
 {
@@ -124,21 +124,21 @@ curl -X POST \
 ### Get Trusted Origin
 <ApiOperation method="get" url="/api/v1/trustedOrigins/${trustedOriginId}" />
 
-Gets a trusted origin by ID
+Gets a Trusted Origin by ID
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter         | Description              | Param Type | DataType | Required |
 | ----------------- | ------------------------ | ---------- | -------- | -------- |
-| `trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
+| `trustedOriginId` | `id` of a Trusted Origin | String     | String   | Yes      |
 
-#### Response Parameters
+#### Response parameters
 
 
 [Trusted Origin object](#trusted-origin-object)
 
-#### Request Example
+#### Request example
 
 ```bash
 curl -X GET \
@@ -148,7 +148,7 @@ curl -X GET \
 "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3"
 ```
 
-#### Response Example
+#### Response example
 ```json
     {
         "id": "tosue7JvguwJ7U6kz0g3",
@@ -193,32 +193,32 @@ curl -X GET \
 ### List Trusted Origins
 <ApiOperation method="get" url="/api/v1/trustedOrigins" />
 
-Lists all trusted origins
+Lists all Trusted Origins
 
-A subset of trusted origins can be returned that match a supported filter expression or query criteria.
+A subset of Trusted Origins that match a supported filter expression or query criteria is returned.
 
-##### Request Parameters
+##### Request parameters
 
 
-- [List All Trusted Origins](#list-all-trusted-origins) (no parameters)
-- [List Trusted Origins with a Filter](#list-trusted-origins-with-a-filter) (`filter`)
+- [List all Trusted Origins](#list-all-trusted-origins) (no parameters)
+- [List Trusted Origins with a filter](#list-trusted-origins-with-a-filter) (`filter`)
 
 | Parameter    | Description                                                                                                                                       | Param Type   | DataType   | Required |
 | :----------- | :------------------------------------------------------------------------------------------------------------------------------------------------ | :----------- | :--------- | :------- |
-| filter       | [Filter](/docs/reference/api-overview/#filtering) Trusted origins with a supported expression for a subset of properties            | Query        | String     | No       |
+| filter       | [Filter](/docs/reference/api-overview/#filtering) Trusted Origins with a supported expression for a subset of properties            | Query        | String     | No       |
 | limit        | Specifies the number of results returned                                                                                                          | Query        | Integer    | No       |
 
-##### Response Parameters
+##### Response parameters
 
 
 Array of [Trusted Origins](#trusted-origin-object)
 
-#### List All Trusted Origins
+#### List all Trusted Origins
 
 
-Returns a list of all trusted origins
+Returns a list of all Trusted Origins
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -X GET \
@@ -228,7 +228,7 @@ curl -X GET \
 "https://${yourOktaDomain}/api/v1/trustedOrigins"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 [
@@ -346,16 +346,15 @@ curl -X GET \
 ]
 ```
 
-#### List Trusted Origins with a Filter
+#### List Trusted Origins with a filter
 
-
-Lists all trusted origins that match the filter criteria
+Lists all Trusted Origins that match the filter criteria
 
 This operation requires [URL encoding](/docs/reference/api-overview/#filtering). For example, `filter=(id eq "tosue7JvguwJ7U6kz0g3" or id eq "tos10hzarOl8zfPM80g4")` is encoded as `filter=%28id+eq+%22tosue7JvguwJ7U6kz0g3%22+or+id+eq+%22tos10hzarOl8zfPM80g4%22%29`.
 
-See [Filtering](/docs/reference/api-overview/#filtering) for more information about the expressions used in filtering.
+See [Filtering](/docs/reference/api-overview/#filtering) for more information on the expressions used in filtering.
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -X GET \
@@ -365,7 +364,7 @@ curl -X GET \
 "https://${yourOktaDomain}/api/v1/trustedOrigins?limit=100&filter=%28id+eq+%22tosue7JvguwJ7U6kz0g3%22+or+id+eq+%22tos10hzarOl8zfPM80g4%22%29"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 [
@@ -447,24 +446,23 @@ curl -X GET \
 
 ### Update Trusted Origin
 
-
 <ApiOperation method="put" url="/api/v1/trustedOrigins/${trustedOriginId}" />
 
-Updates an existing trusted origin
+Updates an existing Trusted Origin
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter         | Description              | Param Type | DataType | Required |
 | ----------------- | ------------------------ | ---------- | -------- | -------- |
-| `trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
+| `trustedOriginId` | `id` of a Trusted Origin | String     | String   | Yes      |
 
-#### Response Parameters
+#### Response parameters
 
 
 [Trusted Origin object](#trusted-origin-object)
 
-#### Request Example
+#### Request example
 
 ```bash
 curl -X PUT \
@@ -511,7 +509,7 @@ curl -X PUT \
 }' "https://${yourOktaDomain}/api/v1/trustedOrigins/tosue7JvguwJ7U6kz0g3"
 ```
 
-#### Response Example
+#### Response example
 
 ```json
 {
@@ -559,21 +557,21 @@ curl -X PUT \
 
 <ApiOperation method="post" url="/api/v1/trustedOrigins/${trustedOriginId}/lifecycle/activate" />
 
-Activates an existing trusted origin
+Activates an existing Trusted Origin
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter         | Description              | Param Type | DataType | Required |
 | ----------------- | ------------------------ | ---------- | -------- | -------- |
-| `trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
+| `trustedOriginId` | `id` of a Trusted Origin | String     | String   | Yes      |
 
-#### Response Parameters
+#### Response parameters
 
 
 [Trusted Origin object](#trusted-origin-object)
 
-#### Request Example
+#### Request example
 
 ```bash
 curl -X POST \
@@ -583,7 +581,7 @@ curl -X POST \
 "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4/lifecycle/activate"
 ```
 
-#### Response Example
+#### Response example
 
 ```json
 {
@@ -625,24 +623,23 @@ curl -X POST \
 
 ### Deactivate Trusted Origin
 
-
 <ApiOperation method="post" url="/api/v1/trustedOrigins/${trustedOriginId}/lifecycle/deactivate" />
 
-Deactivates an existing trusted origin
+Deactivates an existing Trusted Origin
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter         | Description              | Param Type | DataType | Required |
 | ----------------- | ------------------------ | ---------- | -------- | -------- |
-| `trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
+| `trustedOriginId` | `id` of a Trusted Origin | String     | String   | Yes      |
 
-#### Response Parameters
+#### Response parameters
 
 
 [Trusted Origin object](#trusted-origin-object)
 
-#### Request Example
+#### Request example
 
 ```bash
 curl -X POST \
@@ -652,7 +649,7 @@ curl -X POST \
 "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g4/lifecycle/deactivate"
 ```
 
-#### Response Example
+#### Response example
 
 ```json
 {
@@ -697,21 +694,21 @@ curl -X POST \
 
 <ApiOperation method="delete" url="/api/v1/trustedOrigins/${trustedOriginId}" />
 
-Deletes an existing trusted origin
+Deletes an existing Trusted Origin
 
-#### Request Parameters
+#### Request parameters
 
 
 | Parameter         | Description              | Param Type | DataType | Required |
 | ----------------- | ------------------------ | ---------- | -------- | -------- |
-| `trustedOriginId` | `id` of a trusted origin | String     | String   | Yes      |
+| `trustedOriginId` | `id` of a Trusted Origin | String     | String   | Yes      |
 
-#### Response Parameters
+#### Response parameters
 
 
 [Trusted Origin object](#trusted-origin-object)
 
-#### Request Example
+#### Request example
 
 ```bash
 curl -X DELETE \
@@ -721,34 +718,32 @@ curl -X DELETE \
 "https://${yourOktaDomain}/api/v1/trustedOrigins/tos10hzarOl8zfPM80g3"
 ```
 
-#### Response Example
-
+#### Response example
 
 Returns an empty object.
 
-Passing an invalid trusted origin ID returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid Trusted Origin ID returns a `404 Not Found` status code with error code `E0000007`.
 
 ## Trusted Origin object
 
+### Trusted Origin properties
 
-### Trusted Origin Properties
-
-A trusted origin defines several attributes:
+A Trusted Origin defines several attributes:
 
 | Field Name     | Description                                                  | Data Type                                 | Required        | Max Length      |
 | :------------- | :----------------------------------------------------------- | :---------------------------------------- | :-------------- | :-------------- |
-| id             | Unique identifier for this trusted origin                    | String                                    | No (Assigned)   | N/A             |
-| name           | Unique name for this trusted origin                          | String                                    | Yes             | 255 (chars)     |
-| origin         | Unique origin URL for this trusted origin                    | String                                    | Yes             | 255 (chars)     |
-| scopes         | Array of scope types for which this trusted origin is used   | Array of [Scope Objects](#scope-object)   | Yes             | 2 (scope types) |
+| id             | Unique identifier for the Trusted Origin                    | String                                    | No (assigned)   | N/A             |
+| name           | Unique name for the Trusted Origin                          | String                                    | Yes             | 255 (chars)     |
+| origin         | Unique origin URL for the Trusted Origin                    | String                                    | Yes             | 255 (chars)     |
+| scopes         | Array of Scope types that this Trusted Origin is used for  | Array of [Scope objects](#scope-object)   | Yes             | 2 (Scope types) |
 
 #### Scope object
 
-Each scope object specifies the type of scope for which its trusted origin is used
+Each Scope object specifies the type of Scope that its Trusted Origin is used for.
 
 | Field Name  | Description                                                    | Data Type                         | Required |
 | :---------- | :------------------------------------------------------------- | :-------------------------------- | :------- |
-| type        | Type of the scope: either "CORS" or "REDIRECT                  | String                            | Yes      |
+| type        | The Scope type, which can be either "CORS" or "REDIRECT"                  | String                            | Yes      |
 
 #### Scope object example (CORS)
 ```json
@@ -757,14 +752,14 @@ Each scope object specifies the type of scope for which its trusted origin is us
 }
 ```
 
-#### Scope object example (Redirect)
+#### Scope object example (redirect)
 ```json
 {
     "type": "REDIRECT"
 }
 ```
 
-### Trusted Origin Example
+### Trusted Origin example
 ```json
 {
     "id": "tosue7JvguwJ7U6kz0g3",
