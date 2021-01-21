@@ -23,6 +23,8 @@ Before you begin, be sure to:
     GET https://${yourOktaDomain}/api/v1/policies/00p2sy9ploJnRwPwp5g7/rules
     ```
 7. In the response, locate the rule that you want to modify, copy its `id` value, and copy the `actions` property section of the JSON payload.
+    > **Note:** The rule named `Default Rule` cannot be modified. Therefore, copy `id` of a custom rule. If you see only `Default Rule` in the response then [create a custom rule](/docs/guides/customize-authz-server/create-rules-for-policy/).
+
     > **Tip:** You can also highlight the rule ID, right-click, and set it as the value for the `ruleId` variable in your environment.
 8. Click the **Update Sign On Rule** request to open it.
 9. In the request URL, replace the `policyId` and `ruleId` variables with the policy ID and rule ID that you copied previously. If you assigned these as variables in your environment, skip this step.
