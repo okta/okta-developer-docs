@@ -254,7 +254,7 @@ module.exports = {
           heading: 'More Info',
           items: [
             { text: 'Pricing', link: '/pricing/' },
-            { text: 'Integrate with Okta', link: 'https://developer.okta.com/integrate-with-okta/' },
+            { text: 'Integrate with Okta', link: 'https://developer.okta.com/okta-integration-network/' },
             { text: 'Change log', link: '/docs/release-notes/' },
             { text: '3rd-party notes', link: '/3rd_party_notices/' },
           ]
@@ -262,7 +262,7 @@ module.exports = {
         websites: {
           items: [
             { text: 'OKTA.COM', link: 'https://www.okta.com/', description: 'Products, case studies, resources' },
-            { text: 'HELP CENTER', link: 'https://support.okta.com/', description: 'Knowledgebase, roadmaps, and more' },
+            { text: 'HELP CENTER', link: 'https://support.okta.com/help/s/', description: 'Knowledgebase, roadmaps, and more' },
             { text: 'TRUST', link: 'https://trust.okta.com/', description: 'System status, security, compliance' },
           ]
         }
