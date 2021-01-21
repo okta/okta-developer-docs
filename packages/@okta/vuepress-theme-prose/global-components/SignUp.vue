@@ -128,7 +128,7 @@
             }}</span>
           </label>
         </div>
-        <div class="row" v-if="displayCaptcha">
+        <div class="row">
           <label class="field-wrapper" for="recaptcha">
             <vue-recaptcha
               ref="recaptcha"
@@ -252,7 +252,6 @@ export default {
       state: { label: "", list: [] },
       displayConsent: false,
       displayAgree: false,
-      displayCaptcha: true,
       form: {
         state: { value: "", isValid: true, errorList: [], hidden: true },
         email: { value: "", isValid: true, errorList: [] },
