@@ -134,7 +134,7 @@
             :loadRecaptchaScript="true"
             @verify="onCaptchaVerified"
             @expired="onCaptchaExpired"
-            sitekey="6LeaS6UZAAAAADd6cKDSXw4m2grRsCpHGXjAFJcL"
+            sitekey="6LcgkzYaAAAAAAgXBo2cLdct9D-kUtyCOgcyd5WW"
           >
           </vue-recaptcha>
         </div>
@@ -402,11 +402,13 @@ export default {
     const formElement = document.querySelector("#signupForm");
     setHiddenUtmValues(formElement);
 
+    /*
     if (window.location.hostname !== "developer.okta.com") {
       // Do not show/enforce CAPTCHA on non-production deploys
       this.form.captcha.value = "mocked-captcha-response";
       this.displayCaptcha = false;
     }
+    */
   }
 };
 </script>
