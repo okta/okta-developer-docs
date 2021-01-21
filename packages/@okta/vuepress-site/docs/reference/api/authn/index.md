@@ -5669,7 +5669,7 @@ Starts a new password recovery transaction for a given user and issues a [recove
 
 > **Note:** A valid `factorType` is required for requests without an API token with administrator privileges. For more information, see [Forgot Password with Trusted Application](#forgot-password-with-trusted-application).
 
-> **Note:** The optional parameter `relayState` can be included as part of the body in the Forgot Password request. `relayState` is a deep link to return to after the response comes back.
+> **Note:** The optional parameter `relayState` can be included as part of the body in the Forgot Password request. `relayState` is a link to a site where the user will be redirected when the password recovery operation completes. The 'relayState' link must point to a trusted origin.
 
 The response is different, depending on whether the request is for a public application or a trusted application.
 
