@@ -407,6 +407,7 @@ export default {
         reset: true,
         value: "",
       });
+      this.validationService.checkFormInput("captcha");
     }
   },
   mounted() {
