@@ -58,8 +58,16 @@ export default {
       isHomePage: false,
     };
   },
+  watch: {
+    '$route': 'setIsHomepage'
+  },
+  methods: {
+    setIsHomepage () {
+      this.isHomePage = window.location.pathname === "/";
+    }
+  },
   mounted() {
-    this.isHomePage = window.location.pathname === "/";
+    this.setIsHomepage()
   }
 };
 </script>
