@@ -63,7 +63,7 @@
                 <h2
                   class="redesign-homepage--sub-heading redesign-homepage--color-main redesign-homepage--centered-md"
                 >
-                  Customize for your app, try it here
+                  Customize your sign-in
                 </h2>
               </div>
               <div
