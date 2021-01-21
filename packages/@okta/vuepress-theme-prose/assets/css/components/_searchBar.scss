@@ -25,6 +25,10 @@ $redesign_placeholder_color: #616161;
 
 .search--wrapper {
   position: relative;
+  width: 100%;
+  height: 38px;
+  border-radius: 4px;
+  background-color: white;
 
   .input--icon {
     position: absolute;
