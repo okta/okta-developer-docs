@@ -63,7 +63,7 @@
                 <h2
                   class="redesign-homepage--sub-heading redesign-homepage--color-main redesign-homepage--centered-md"
                 >
-                  Customize for your app, try it here
+                  Customize your sign-in
                 </h2>
               </div>
               <div
@@ -72,7 +72,7 @@
               >
                 <div class="redesign-homepage--code-example">
                   <div class="redesign-homepage--code-example--header">
-                    Javascript
+                    JavaScript
                   </div>
                   <div class="redesign-homepage--code-example--cm-wrapper">
                     <FrontPageCodeMirror />
