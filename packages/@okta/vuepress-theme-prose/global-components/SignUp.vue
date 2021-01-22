@@ -268,6 +268,7 @@ export default {
       },
       isPending: false,
       error: null,
+      captchaSitekey: null,
     };
   },
   computed: {
@@ -307,13 +308,6 @@ export default {
         github: getIdpUri(uris, "github"),
         google: getIdpUri(uris, "google"),
       };
-    },
-    captchaSiteKey() {
-      const { captcha } = this.$site.themeConfig;
-      if (window.location.hostname === "developer.okta.com") {
-        return captcha.production;
-      }
-      return captcha.test;
     },
   },
   methods: {
@@ -416,9 +410,18 @@ export default {
       this.validationService.checkFormInput("captcha");
     }
   },
+  beforeMount() {
+    const { captcha } = this.$site.themeConfig;
+
+    if (window.location.hostname === "developer.okta.com") {
+      this.captchaSiteKey = captcha.production;
+    } else {
+      this.captchaSiteKey = captcha.test;
+    }
+  },
   mounted() {
     const formElement = document.querySelector("#signupForm");
     setHiddenUtmValues(formElement);
-  }
+  },
 };
 </script>
