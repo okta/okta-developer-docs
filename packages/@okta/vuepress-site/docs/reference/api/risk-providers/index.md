@@ -32,7 +32,7 @@ Creates a RiskProvider object.
 
 | Property    | Type           | Description   |
 | ----------- | -------------- | ------------- |
-| `action` | String | The action taken by Okta during authentication attempts based on the risk events sent by this provider. Possible Values: `none` (No Action), `log` (Include the risk event information in SystemLog only), `enforce_and_log` (Include the risk event information in SystemLog and also use that information while evaluating risk during authentication attempts). The default action is `log`. |
+| `action` | String | The action taken by Okta during authentication attempts based on the risk events sent by this provider. Possible Values: `none` (No Action), `log_only` (Include the risk event information in SystemLog only), `enforce_and_log` (Include the risk event information in SystemLog and also use that information while evaluating risk during authentication attempts). The default action is `log_only`. |
 | `name` | String | Name of the risk provider. Should be less than `50` characters and should be unique. This is a required field. |
 | `clientId` | String | The id of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/) that would be used to send risk events to Okta. This is a required field. |
 
@@ -53,7 +53,7 @@ curl -X POST \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
     "name": "Risk-Partner-X"
-    "action": "log",
+    "action": "log_only",
     "clientId": "00ckjsfgjkdkjdkkljjsd"
 }' "https://${yourOktaDomain}/api/v1/risk/providers"
 ```
@@ -63,7 +63,7 @@ curl -X POST \
 ```json
 {
     "id": "00rp12r4skkjkjgsn",
-    "action": "log",
+    "action": "log_only",
     "name": "Risk-Partner-X",
     "clientId": "00ckjsfgjkdkjdkkljjsd",
     "created": "2021-01-05 22:18:30",
@@ -100,7 +100,7 @@ Updates a RiskProvider.
 
 | Property    | Type           | Description   |
 | ----------- | -------------- | ------------- |
-| `action` | String | The action taken by Okta during authentication attempts based on the risk events sent by this provider. Possible Values: `none` (No Action), `log` (Include the risk event information in SystemLog only), `enforce_and_log` (Include the risk event information in SystemLog and also use that information while evaluating risk during authentication attempts). The default action is `log`. |
+| `action` | String | The action taken by Okta during authentication attempts based on the risk events sent by this provider. Possible Values: `none` (No Action), `log_only` (Include the risk event information in SystemLog only), `enforce_and_log` (Include the risk event information in SystemLog and also use that information while evaluating risk during authentication attempts). The default action is `log_only`. |
 | `name` | String | Name of the risk provider. Should be less than `50` characters and should be unique. This is a required field. |
 | `clientId` | String | The id of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/) that would be used to send risk events to Okta. This is a required field. |
 
@@ -187,7 +187,7 @@ curl -X GET \
 ```json
 {
       "id": "00rp23r4skkjkjgsn",
-      "action": "log",
+      "action": "log_only",
       "name": "Risk-Partner-X",
       "clientId": "00cjkjjkkgjkdkjdkkljjsd",
       "created": "2021-01-04 22:18:30",
@@ -256,7 +256,7 @@ curl -X GET \
   },
   {
       "id": "00rp23r4skkjkjgsn",
-      "action": "log",
+      "action": "log_only",
       "name": "Risk-Partner-X",
       "clientId": "00cjkjjkkgjkdkjdkkljjsd",
       "created": "2021-01-04 22:18:30",
@@ -288,13 +288,13 @@ The RiskProvider object has several properties:
 | Property    | Type           | Description   |
 | ----------- | -------------- | ------------- |
 | `id` | String | ID of the risk provider. This is an assigned field. |
-| `action` | String | The action taken by Okta during authentication attempts based on the risk events sent by this provider. Possible Values: `none` (No Action), `log` (Include the risk event information in SystemLog only), `enforce_and_log` (Include the risk event information in SystemLog and also use that information while evaluating risk during authentication attempts). The default action is `log`. |
+| `action` | String | The action taken by Okta during authentication attempts based on the risk events sent by this provider. Possible Values: `none` (No Action), `log_only` (Include the risk event information in SystemLog only), `enforce_and_log` (Include the risk event information in SystemLog and also use that information while evaluating risk during authentication attempts). The default action is `log_only`. |
 | `name` | String | Name of the risk provider. Should be less than `50` characters and should be unique. This is a required field. |
 | `clientId` | String | The id of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/) that would be used to send risk events to Okta. This is a required field. |
 
 
 #### RiskProvider example
-
+```
 ```json
 {
     "id": "00rpdfgkljdlkklhktlrh",

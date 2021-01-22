@@ -28,8 +28,8 @@ The request body should include an array of [RiskEvent](#riskevent-object). A ma
 
 | Property    | Type           | Description   |
 | ----------- | -------------- | ------------- |
-| `timestamp` | String | Timestamp at which the the event is produced (Should be in ISO 8601 format). This is a required field. |
-| `expiresAt` | String | Timestamp at which the event expires (Should be in ISO 8601 format). If this optional field is not included, Okta automatically expires the event 24 hours after the `timestamp`. |
+| `timestamp` | String | Timestamp at which the the event is produced (Should be in UTC timezone expressed in this ISO 8601 format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). This is a required field. |
+| `expiresAt` | String | Timestamp at which the event expires (Should be in UTC timezone expressed in this ISO 8601 format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). If this optional field is not included, Okta automatically expires the event 24 hours after the `timestamp`. |
 | `subjects` | List | List of [Risk Subjects](#risksubject-object). A max of 50 subjects can be included in an event |
 
 #### Response body
@@ -96,8 +96,8 @@ The RiskEvent object has several properties:
 
 | Property    | Type           | Description   |
 | ----------- | -------------- | ------------- |
-| `timestamp` | String | Timestamp at which the the event is produced (Should be in ISO 8601 format). This is a required field. |
-| `expiresAt` | String | Timestamp at which the event expires (Should be in ISO 8601 format). If this optional field is not included, Okta automatically expires the event 24 hours after the `timestamp`. |
+| `timestamp` | String | Timestamp at which the the event is produced (Should be in UTC timezone expressed in this ISO 8601 format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). This is a required field. |
+| `expiresAt` | String | Timestamp at which the event expires (Should be in UTC timezone expressed in this ISO 8601 format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). If this optional field is not included, Okta automatically expires the event 24 hours after the `timestamp`. |
 | `subjects` | List | List of [Risk Subjects](#risksubject-object) |
 
 #### RiskEvent example
