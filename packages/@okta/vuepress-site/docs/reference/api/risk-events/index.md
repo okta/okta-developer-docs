@@ -1,22 +1,22 @@
 ---
-title: RiskEvents
+title: Risk Events
 category: management
 ---
 
-# RiskEvents API
+# Risk Events API
 
 The Okta RiskEvents API provides the ability for RiskProviders to send RiskEvents to Okta.
 
 ## Get Started
-Explore the RiskEvents API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1c449b51a4a0adf90198)
+Explore the Risk Events API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1c449b51a4a0adf90198)
 
-## RiskEvents API Operations
-The RiskEvents API has the following operations:
+## Risk Events Operations
+The Risk Events API has the following operations:
 
 * [Send RiskEvents](#send-riskevents)
 
 
-### Send RiskEvents
+### Send Risk Events
 
 <ApiOperation method="post" url="/api/v1/risk/events/ip" />
 
@@ -24,23 +24,21 @@ A RiskProvider can send RiskEvents to Okta using this API.
 
 #### Request body
 
-The request body should include an array of [RiskEvent](#riskevent-object). A max of 20 events can be included in a request. Each RiskEvent can include these:
+The request body should include an array of [RiskEvents](#riskevent-object). A maximum of 20 events can be included in a request. Each RiskEvent can include the following properties:
 
 | Property    | Type           | Description   |
 | ----------- | -------------- | ------------- |
-| `timestamp` | String | Timestamp at which the the event is produced (Should be in UTC timezone expressed in this ISO 8601 format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). This is a required field. |
-| `expiresAt` | String | Timestamp at which the event expires (Should be in UTC timezone expressed in this ISO 8601 format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). If this optional field is not included, Okta automatically expires the event 24 hours after the `timestamp`. |
+| `timestamp` | String | Time stamp at which the the event is produced (Expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). This is a required field. |
+| `expiresAt` | String | Time stamp at which the event expires (Expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). If this optional field is not included, Okta automatically expires the event 24 hours after the `timestamp`. |
 | `subjects` | List | List of [Risk Subjects](#risksubject-object). A max of 50 subjects can be included in an event |
 
 #### Response body
 
-Http 202 (Accepted) is returned if the request is successful. If there are validation errors, the API would return a 400.
+Http 202 (Accepted) is returned if the request is successful. If there are validation errors, the API returns a 400.
 
-#### Usage example
+#### Request example
 
 This request sends RiskEvents to Okta
-
-##### Request
 
 ```bash
 curl -X POST \
@@ -80,24 +78,22 @@ curl -X POST \
 }' "https://${yourOktaDomain}/api/v1/risk/events/ip"
 ```
 
-##### Response
+#### Response example
 ```http
 HTTP/1.1 202 Accepted
 ```
 
-## RiskEvents API objects
+## RiskEvents objects
 
 ### RiskEvent object
 
-#### RiskEvent properties
-
-The RiskEvent object has several properties:
+The RiskEvent object has the following properties:
 
 
 | Property    | Type           | Description   |
 | ----------- | -------------- | ------------- |
-| `timestamp` | String | Timestamp at which the the event is produced (Should be in UTC timezone expressed in this ISO 8601 format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). This is a required field. |
-| `expiresAt` | String | Timestamp at which the event expires (Should be in UTC timezone expressed in this ISO 8601 format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). If this optional field is not included, Okta automatically expires the event 24 hours after the `timestamp`. |
+| `timestamp` | String | Time stamp at which the event is produced (Expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). This is a required field. |
+| `expiresAt` | String | Time stamp at which the event expires (Expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). If this optional field is not included, Okta automatically expires the event 24 hours after the `timestamp`. |
 | `subjects` | List | List of [Risk Subjects](#risksubject-object) |
 
 #### RiskEvent example
@@ -121,15 +117,13 @@ The RiskEvent object has several properties:
 
 ### RiskSubject object
 
-#### RiskSubject properties
-
-The RiskSubject object has several properties:
+The RiskSubject object has the following properties:
 
 | Property    | Type           | Description   |
 | ----------- | -------------- | ------------- |
 | `ip` | String | The IP address. This is a required field. |
-| `riskLevel` | String | The risk level associated with the IP. Possible values are `LOW`, `MEDIUM`, `HIGH`. This is a required field. |
-| `message` | String | Any additional message that the provider can send specifying the reason for the risk level of the IP. This is an optional field and can be of max 512 characters. |
+| `riskLevel` | String | The risk level associated with the IP. The values can be `LOW`, `MEDIUM`, or `HIGH`. This is a required field. |
+| `message` | String | Any additional message that the provider can send specifying the reason for the risk level of the IP. This is an optional field with a maximum of 512 characters. |
 
 
 #### RiskEvent example
