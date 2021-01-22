@@ -128,15 +128,20 @@
             }}</span>
           </label>
         </div>
-        <div class="row" v-if="displayCaptcha">
-          <vue-recaptcha
-            ref="recaptcha"
-            :loadRecaptchaScript="true"
-            @verify="onCaptchaVerified"
-            @expired="onCaptchaExpired"
-            sitekey="6LeaS6UZAAAAADd6cKDSXw4m2grRsCpHGXjAFJcL"
-          >
-          </vue-recaptcha>
+        <div class="row">
+          <label class="field-wrapper" for="recaptcha">
+            <vue-recaptcha
+              ref="recaptcha"
+              :loadRecaptchaScript="true"
+              @verify="onCaptchaVerified"
+              @expired="onCaptchaExpired"
+              :sitekey="captchaSiteKey"
+            >
+            </vue-recaptcha>
+            <span class="error-color error-msg" v-if="form.captcha.errorList.length">{{
+              validationService.errorDictionary.emptyField
+            }}</span>
+          </label>
         </div>
         <div class="row error-color" v-if="error !== null">
           {{error}}
@@ -247,7 +252,6 @@ export default {
       state: { label: "", list: [] },
       displayConsent: false,
       displayAgree: false,
-      displayCaptcha: true,
       form: {
         state: { value: "", isValid: true, errorList: [], hidden: true },
         email: { value: "", isValid: true, errorList: [] },
@@ -264,6 +268,7 @@ export default {
       },
       isPending: false,
       error: null,
+      captchaSitekey: null,
     };
   },
   computed: {
@@ -318,7 +323,7 @@ export default {
 
       if (this.validationService.isValidForm()) {
         // make api call
-        const { baseUri, registrationPolicyId} = this.$site.themeConfig.uris;
+        const { baseUri, registrationPolicyId } = this.$site.themeConfig.uris;
         const registrationPath = `/api/v1/registration/${registrationPolicyId}/register`;
         const body = {
           userProfile: {
@@ -391,22 +396,32 @@ export default {
     },
 
     onCaptchaVerified(response) {
-      this.form.captcha.value = response;
+      this.validationService.resetFormField("captcha", {
+        reset: true,
+        value: response,
+      });
     },
     onCaptchaExpired() {
       this.$refs.recaptcha.reset();
-      this.form.captcha.value = "";
+      this.validationService.resetFormField("captcha", {
+        reset: true,
+        value: "",
+      });
+      this.validationService.checkFormInput("captcha");
+    }
+  },
+  beforeMount() {
+    const { captcha } = this.$site.themeConfig;
+
+    if (window.location.hostname === "developer.okta.com") {
+      this.captchaSiteKey = captcha.production;
+    } else {
+      this.captchaSiteKey = captcha.test;
     }
   },
   mounted() {
     const formElement = document.querySelector("#signupForm");
     setHiddenUtmValues(formElement);
-
-    if (window.location.hostname !== "developer.okta.com") {
-      // Do not show/enforce CAPTCHA on non-production deploys
-      this.form.captcha.value = "mocked-captcha-response";
-      this.displayCaptcha = false;
-    }
-  }
+  },
 };
 </script>

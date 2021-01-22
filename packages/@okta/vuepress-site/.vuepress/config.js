@@ -73,6 +73,14 @@ module.exports = {
     },
 
     /**
+     * CAPTCHA config
+     */
+    captcha: {
+      production: '6LeaS6UZAAAAADd6cKDSXw4m2grRsCpHGXjAFJcL',
+      test: '6LcgkzYaAAAAAAgXBo2cLdct9D-kUtyCOgcyd5WW',
+    },
+
+    /**
      * Primary Nav: Array of MenuItem components to iterate over within TopNavigation component
      */
     primary_nav: [
