@@ -72,7 +72,7 @@
               >
                 <div class="redesign-homepage--code-example">
                   <div class="redesign-homepage--code-example--header">
-                    Javascript
+                    JavaScript
                   </div>
                   <div class="redesign-homepage--code-example--cm-wrapper">
                     <FrontPageCodeMirror />
