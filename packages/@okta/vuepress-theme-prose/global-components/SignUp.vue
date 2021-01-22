@@ -344,6 +344,8 @@ export default {
           .then(res => {
             // Reset error in case of transient failure that succeeds later
             this.error = null;
+            // Google Analytics email signup success event
+            window.dataLayer && window.dataLayer.push({ 'event': '07_CIAMTrial' });
             // Redirect user to success landing page
             window.location.assign('/signup/thank-you');
           })

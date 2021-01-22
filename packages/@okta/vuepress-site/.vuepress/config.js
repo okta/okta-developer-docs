@@ -27,6 +27,7 @@ module.exports = {
      * Header scripts for typekit, GA, GTM (WIP)
      */
     ['script', {}, `
+      window.dataLayer = window.dataLayer || [];
 
       var isProduction = window.location.hostname === 'developer.okta.com';
       if (isProduction) {
