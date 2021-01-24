@@ -194,6 +194,14 @@ $magenta: #e22866;
         display: none;
       }
 
+      &.desktop {
+        .additional-note {
+          position: relative;
+          top: -3px;
+          margin-left: 5px;
+        }
+      }
+
       @include media('<desktop') {
         &.desktop {
           display: none;

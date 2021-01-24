@@ -115,7 +115,7 @@
                       <div class="pricing-card-column" v-if="typeof edition[feature] === 'object'" v-bind:key="edition.name">
                         <div>
                           <img src="/img/icons/icon--check.svg" v-if="edition[feature].enabled" />
-                          {{edition[feature].additionalNote}}
+                          <span class="additional-note" v-if="edition[feature].additionalNote">{{edition[feature].additionalNote}}</span>
                         </div>
                       </div>
                       <div class="pricing-card-column" v-else v-bind:key="edition.name">
