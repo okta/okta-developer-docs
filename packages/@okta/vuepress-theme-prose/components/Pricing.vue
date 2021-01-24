@@ -83,6 +83,7 @@
                         <div class="pricing-card-row mobile" v-bind:key="details.name">
                           <div class="pricing-card-column">
                             {{details.name}}
+                            {{edition[feature].additionalNote}}
                             <ul v-if="details.bullets">
                               <li v-for="(bullet, bulletIndex) in details.bullets" v-bind:key="bulletIndex">
                                 {{bullet}}
@@ -91,7 +92,6 @@
                           </div>
                           <div class="pricing-card-column" v-if="typeof edition[feature] === 'object'">
                               <img src="/img/icons/icon--check.svg" v-if="edition[feature].enabled" class="pricing-card-check" />
-                              {{edition[feature].additionalNote}}
                           </div>
                           <div class="pricing-card-column" v-else>
                             <img src="/img/icons/icon--check.svg" v-if="edition[feature]" class="pricing-card-check" />
