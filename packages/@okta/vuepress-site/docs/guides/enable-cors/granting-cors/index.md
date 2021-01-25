@@ -2,7 +2,7 @@
 title: Grant cross-origin access to websites
 ---
 
-You can enable CORS for websites that need cross-origin requests to the Okta API using the Developer Console.
+You can enable CORS for websites that need cross-origin requests to the Okta API.
 
 1. Select **API** and then **Trusted Origins**.
 2. Select **Add Origin** and then enter a name for the organization origin.
