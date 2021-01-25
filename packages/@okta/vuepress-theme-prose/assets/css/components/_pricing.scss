@@ -194,6 +194,15 @@ $magenta: #e22866;
         display: none;
       }
 
+      &.desktop {
+        .additional-note {
+          margin-left: 5px;
+        }
+        .check-icon {
+          vertical-align: middle;
+        }        
+      }
+
       @include media('<desktop') {
         &.desktop {
           display: none;
