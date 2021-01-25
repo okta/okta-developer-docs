@@ -13,11 +13,14 @@
           <section v-for="(section, sectionIdx) in $page.frontmatter.terms" v-bind:key="sectionIdx">
             <component
               :is="section.tag || 'h2'"
-              class="terms--section-title" v-if="section.heading">
+              class="terms--section-title"
+              v-if="section.heading">
               {{section.heading}}
             </component>
             <template v-for="(paragraph, paragraphIdx) in section.paragraphs">
-              <ul v-if="Array.isArray(paragraph)">
+              <ul
+                v-if="Array.isArray(paragraph)"
+                v-bind:key="paragraphIdx">
                 <li v-for="(bullet, bulletIdx) in paragraph"
                     v-bind:key="bulletIdx"
                     v-html="bullet">
