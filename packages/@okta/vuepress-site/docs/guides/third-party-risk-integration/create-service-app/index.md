@@ -1,21 +1,20 @@
 ---
-title: Create a service application for third-party risk provider
+title: Create a service app for third-party risk provider
 ---
 
 Your Okta org requires the set up of an OAuth service application to integrate and authenticate third-party risk signals from a third-party risk provider.
 
 Use the following high-level steps to configure this service application:
 
-1. [Create a public-private key pair](/docs/guides/third-party-integration/create-service-app)
-2. [Create and verify the service application](/docs/guides/third-party-integration/create-service-app)
-3. [Add a scope grant to the service application](/docs/guides/third-party-integration/create-service-app)
+1. [Create a public-private key pair](docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair)
+2. [Create and verify the service application](docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair)
+3. [Add a scope grant to the service application](docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair)
 
 For background information on this general process, see [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/overview/).
 
 ### Create a public-private key pair
 Prior to creating the service application for the third-party risk provider, you need to create a public-private key pair for client authentication. Use a tool such as the [JSON Web Key Generator](https://mkjwk.org/) to generate  a public-private key pair for an example setup.
 
-To generate a public-private key pair:
 1. Navigate to [JSON Web Key Generator](https://mkjwk.org/).
 2. Use the following values when generating the pair:
 
@@ -24,7 +23,18 @@ To generate a public-private key pair:
     - **Algorithm**: RS256
     - **Key ID**: SHA-256
 
-3. Click **Generate**.
+3. Click **Generate**. A sample **Public Key** value follows:
+
+    ```JSON
+    {
+    "kty": "RSA",
+    "e": "AQAB",
+    "use": "sig",
+    "kid": "NhIpAobkW_7CfLFA2d1UUB8odnWbZMebCR8dm-O6aMM",
+    "alg": "RS256",
+    "n": "pqEM9uy9rPs6M8E3zGqnSjdgHRYj9pZ2LCb0sRzpg2r1BItPXknLPmrcVI0K4a84FpDRRoOc5zV-YILYIPA8JdAnazQiiGHfzzrNsTfcT-iD45-4Fb7tyuU2KQdwwZpP0FfWNcILgbdJbYdjfPM7AuKg3zok7xzZnk-wTJkGzdcya-0X5jX4hKl48hm8506CBep6fKhwZbjMXTt3R2bm-zqxYqjC5dXawx0ICniRnZyzNscmO6e3SYd0WDB-etQTHehbj1r0v6NOVZBWwsQEMP7_WZoUUS02mOODYSh-TI-deJ3Aw61iG5rKsQDgOZzGy2ZazyXJGhhfngGgzL4xfw"
+    }
+    ```
 4. Copy the **Public Key** JSON value to your Postman environment's `publicKey` variable.
 5. Make sure to save the JSON value for the **Public and Private Key pair**, which is required during testing.
 
@@ -33,8 +43,7 @@ For background information on this process, see [Create a public/private key pai
 ### Create a service application
 Create the service application that integrates with the third-party Risk Provider using the previously generated public key for authentication.
 
-To create the service application:
-1. Call the following POST API from the Risk Integration Postman collection: Admin: API to create OAuth service client (for the provider) (`{{url}}/oauth2/v1/clients`).
+1. Call the following POST API from the Risk Integration Postman collection: **Admin: API to create OAuth service client (for the provider)** (`{{url}}/oauth2/v1/clients`).
 
 2. Review the response, which includes the `jwks` key pair. Note, the `clint_name` value is the same value you gave to the `providerName` variable. A sample response follows:
 
@@ -73,7 +82,7 @@ To create the service application:
 
 3. From the response, copy the `client_id` value, in this example `0oaaaboyxsbrWdsk81d6`, to your Postman environment's `clientId` variable.
 
-4. Verify the application is available by calling the following GET API from the Risk Integration Postman collection: Admin: API to get all OAuth service clients (`{{url}}/oauth2/v1/clients`).
+4. Verify the application is available by calling the following GET API from the Risk Integration Postman collection: **Admin: API to get all OAuth service clients** (`{{url}}/oauth2/v1/clients`).
 
 This call retrieves all service applications from your Okta org, including the new Risk Integration service application.
 
@@ -82,9 +91,7 @@ For background information on this process, see [Create a service app and grant 
 ### Add scope grant to application
 You must now define the allowed Risk scope for use with the third-party Risk Provider service application.
 
-To add the Risk scope grant to the service application:
-
-1. Call the following POST API from the Risk Integration Postman collection: Admin: API to grant scopes to the OAuth service client (`{{url}}/api/v1/apps/{{clientId}}/grants`).
+1. Call the following POST API from the Risk Integration Postman collection: **Admin: API to grant scopes to the OAuth service client** (`{{url}}/api/v1/apps/{{clientId}}/grants`).
 
     This call adds the `scopeId` to  the value of: `okta.riskEvents.manage`.
 
@@ -99,3 +106,5 @@ To add the Risk scope grant to the service application:
     ```
 
 For background information on granting scopes, see [Grant allowed scopes](docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/#grant-allowed-scopes).
+
+<NextSectionLink/>
