@@ -196,10 +196,11 @@ $magenta: #e22866;
 
       &.desktop {
         .additional-note {
-          position: relative;
-          top: -3px;
           margin-left: 5px;
         }
+        .check-icon {
+          vertical-align: middle;
+        }        
       }
 
       @include media('<desktop') {
