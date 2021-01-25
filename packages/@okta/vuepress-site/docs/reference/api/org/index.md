@@ -36,7 +36,7 @@ curl -v -X GET \
 {
     "id": "00ou8s5wploBwX4710g3",
     "subdomain": "okta",
-    "name": "Okta",
+    "companyName": "Okta",
     "status": "ACTIVE",
     "expiresAt": null,
     "created": "2020-10-26T15:03:08.000Z",
@@ -124,7 +124,7 @@ curl -v -X PUT \
 {
     "id": "00ou8s5wploBwX4710g3",
     "subdomain": "okta",
-    "name": "Okta",
+    "companyName": "Okta",
     "status": "ACTIVE",
     "expiresAt": null,
     "created": "2020-10-26T15:03:08.000Z",
