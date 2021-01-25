@@ -1,5 +1,5 @@
 ---
-# This file controls the links and content shown on the /terms page.
+# This file controls the links and content shown on the /cla page.
 
 component: Terms
 title: CLA
