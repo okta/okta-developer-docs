@@ -13,7 +13,7 @@ The terms "event" and "log event" are often used interchangeably. In the context
 
 The System Log API, which contains much more [structured data](#logevent-object) than the [Events API](/docs/reference/api/events/#event-object), supports:
 
-* Additional [SCIM filters](#request-parameters) and the `q` query parameter, because of the presence of more structured data than the [Events API](/docs/reference/api/events/#request-parameters)
+* Additional [SCIM filters](#request-parameters) and the `q` query parameter because of the presence of more structured data than the [Events API](/docs/reference/api/events/#request-parameters)
 * These primary use cases:
   * Event data export into a security information and event management system (SIEM)
   * System monitoring
@@ -58,8 +58,8 @@ Each LogEvent object describes a single logged action or "event" that is perform
   "actor": {
     "id": "00u1qw1mqitPHM8AJ0g7",
     "type": "User",
-    "alternateId": "admin@tc1-trexcloud.com",
-    "displayName": "John Fung"
+    "alternateId": "admin@example.com",
+    "displayName": "John Doe"
   },
   "outcome": {
     "result": "SUCCESS"
@@ -221,7 +221,7 @@ LogEvent objects are read-only. The following properties are available:
 | authenticationContext | The authentication data of an action                                                   | [AuthenticationContext object](#authenticationcontext-object)   | TRUE     | FALSE  | TRUE     |           |           |
 | securityContext       | The security data of an action                                                         | [SecurityContext object](#securitycontext-object)               | TRUE     | FALSE  | TRUE     |           |           |
 
->**NOTE:** The actor and/or target of an event is dependent on the action that is performed. All events have actors but not all have targets.
+>**NOTE:** The actor or target of an event is dependent on the action that is performed. All events have actors but not all have targets.
 
 >**NOTE:** See [Event Correlation](#event-correlation) for information on `authenticationContext.externalSessionId` and `transaction.id`.
 
@@ -261,7 +261,7 @@ The entity that an actor performs an action on. Targets can be anything, such as
 
 ### Client object
 
-When an event is triggered by an HTTP request, the `client` object describes the [client](https://en.wikipedia.org/wiki/Category:Hypertext_Transfer_Protocol_clients) that issues the HTTP request. For instance, the web browser is the client when a user accesses Okta. When this request is received and processed, a sign-in event is fired. When the event isn't sourced to an HTTP request, such as an automatic update, the `client` object field is blank.
+When an event is triggered by an HTTP request, the client object describes the [client](https://en.wikipedia.org/wiki/Category:Hypertext_Transfer_Protocol_clients) that issues the HTTP request. For instance, the web browser is the client when a user accesses Okta. When this request is received and processed, a sign-in event is fired. When the event isn't sourced to an HTTP request, such as an automatic update, the client object field is blank.
 
 | Property            | Description                                                                                                                                                                                           | DataType                                                  | Nullable |
 | ----------          | ------------------------------------------------------------------------------------------------------------------                                                                                    | ---------------                                           | -------- |
@@ -294,24 +294,24 @@ The Request object describes details that are related to the HTTP request that t
 
 ### GeographicalContext object
 
-Geographical context describes a set of geographic coordinates. In addition to containing latitude and longitude data, the GeographicalContext object also contains address data of postal code-level granularity. Within the [Client](#client-object) object, the geographical context refers to the physical location of the client when it sends the request that triggers this event. All [Transaction](#transaction-object) events with `type` equal to `WEB` has a geographical context set. [Transaction](#transaction-object) events with `type` equal to `JOB` doesn't have a geographical context set. The geographical context data can be missing if the geographical data for a request can't be resolved.
+Geographical context describes a set of geographic coordinates. In addition to containing latitude and longitude data, the GeographicalContext object also contains address data of postal code-level granularity. Within the [Client](#client-object) object, the geographical context refers to the physical location of the client when it sends the request that triggers this event. All [Transaction](#transaction-object) events with `type` equal to `WEB` have a geographical context set. [Transaction](#transaction-object) events with `type` equal to `JOB` don't have a geographical context set. The geographical context data can be missing if the geographical data for a request can't be resolved.
 
 | Property    | Description                                                                                                          | DataType                                  | Nullable |
 | ----------- | ----------------------------------------------------------------------------------                                   | -------------------------------------     | -------- |
 | geolocation | Contains the geolocation coordinates (latitude, longitude)                                                           | [Geolocation object](#geolocation-object) | TRUE     |
 | city        | The city that encompasses the area that contains the geolocation coordinates, if available (for example, Seattle, San Francisco)    | String                                    | TRUE     |
-| state       | Full name of the state/province that encompasses the area that contains the geolocation coordinates (for example, Montana, Incheon) | String                                    | TRUE     |
+| state       | Full name of the state or province that encompasses the area that contains the geolocation coordinates (for example, Montana, Ontario) | String                                    | TRUE     |
 | country     | Full name of the country that encompasses the area that contains the geolocation coordinates (for example, France, Uganda)          | String                                    | TRUE     |
 | postalCode  | Postal code of the area that encompasses the geolocation coordinates                                                     | String                                    | TRUE     |
 
 ### Geolocation object
 
-The latitude and longitude of the geolocation where an action was performed that is formatted according to the [ISO-6709](https://en.wikipedia.org/wiki/ISO_6709) standard
+The latitude and longitude of the geolocation where an action was performed. The object is formatted according to the [ISO-6709](https://en.wikipedia.org/wiki/ISO_6709) standard
 
 | Property   | Description                                                                                       | DataType        | Nullable |
 | ---------- | ------------------------------------------------------------------------------------------------- | --------------- | -------- |
-| lat        | Latitude. Uses two digits for the [integer part](https://en.wikipedia.org/wiki/ISO_6709#Latitude).   | Double          | FALSE    |
-| lon        | Longitude. Uses three digits for the [integer part](https://en.wikipedia.org/wiki/ISO_6709#Longitude). | Double          | FALSE    |
+| lat        | Latitude: Uses two digits for the [integer part](https://en.wikipedia.org/wiki/ISO_6709#Latitude)   | Double          | FALSE    |
+| lon        | Longitude: Uses three digits for the [integer part](https://en.wikipedia.org/wiki/ISO_6709#Longitude) | Double          | FALSE    |
 
 ### Outcome object
 
@@ -370,7 +370,7 @@ If for some reason the information that is needed to implement a feature isn't p
 
 | Property   | Description                                                                     | DataType            | Nullable |
 | ---------- | ------------------------------------------------------------------------------- | ---------------     | -------- |
-| debugData  | Dynamic field that contains miscellaneous information that is dependent on the event type. | Map[String->Object] | TRUE     |
+| debugData  | Dynamic field that contains miscellaneous information that is dependent on the event type | Map[String->Object] | TRUE     |
 
 ### AuthenticationContext object
 
@@ -447,7 +447,7 @@ Describes an IP address used in a request
 
 ## Event types
 
-Event types categorize event instances by action and is recorded in a LogEvent's [`eventType`](#attributes) attribute. They are key to navigating the system log through [Expression Filters](#expression-filter).
+Event types categorize event instances by action and are recorded in a LogEvent's [`eventType`](#attributes) attribute. They are key to navigating the system log through [Expression Filters](#expression-filter).
 
 The following sections outline the key event types that are captured by the system log. See [Event Types catalog](/docs/reference/api/event-types/#catalog) for a complete list.
 
@@ -476,11 +476,11 @@ The following sections outline the key event types that are captured by the syst
 
 | Event                         | Description                         |
 | :---------------------------- | :---------------------------------- |
-| policy.lifecycle.activate     | A rule in a policy is activated.   |
-| policy.lifecycle.create       | A rule in a policy is created.     |
-| policy.lifecycle.deactivate   | A rule in a policy is deactivated. |
-| policy.lifecycle.delete       | A rule in a policy is deleted.     |
-| policy.lifecycle.update       | A rule in a policy is updated.     |
+| policy.lifecycle.activate     | A lifecycle policy is activated.   |
+| policy.lifecycle.create       | A lifecycle policy is created.     |
+| policy.lifecycle.deactivate   | A lifecycle policy is deactivated. |
+| policy.lifecycle.delete       | A lifecycle policy is deleted.     |
+| policy.lifecycle.update       | A lifecycle policy is updated.     |
 | policy.rule.activate          | A rule in a policy is activated.   |
 | policy.rule.add               | A rule is added to a policy.       |
 | policy.rule.deactivate        | A rule in a policy is deactivated. |
@@ -687,7 +687,7 @@ The query parameter `q` can be used to perform keyword matching against a LogEve
 The following are examples of common keyword filtering:
 
 * Events that mention a specific city: `q=San Francisco`
-* Events that mention a specific url: `q=interestingURI.com`
+* Events that mention a specific URL: `q=interestingURI.com`
 * Events that mention a specific person: `q=firstName lastName`
 
 > **Note:** When hyphens are present in an event instance's attribute value, they are split and added to the list of matching candidates, in addition to the full hyphenated value. Therefore, a `q` value of `XOxBw-2JIRnCFd0gG0GjHAAABjY` matches events that contain the text `XOxBw`, `2JIRnCFd0gG0GjHAAABjY`, or `XOxBw-2JIRnCFd0gG0GjHAAABjY`.
@@ -860,6 +860,6 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/logs?since=2017-10-01T00:00:00.000Z"
 ```
 
-Then retrieve the next page of events through the [`link` response header](/docs/reference/api-overview/#link-header) value with the `next` link relation. Continue this process until no events are returned.
+Then retrieve the next page of events through the [link response header](/docs/reference/api-overview/#link-header) value with the `next` link relation. Continue this process until no events are returned.
 
 >**Note:** Don't transfer data by manually paginating using `since` and `until`, as this may lead to skipped or duplicated events. Instead, always follow the `next` links.
