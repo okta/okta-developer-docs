@@ -1,4 +1,7 @@
 
+
+
+
 ---
 title: Org
 category: management
@@ -10,17 +13,37 @@ category: management
 
 The Okta Org API provides operations to manage your org account settings such as contact information, granting Okta Support access, and more.
 
-## Get Org Settings
+## Org Operations
+
+The Org Setting API has the following CRUD operations:
+
+* [Get Org Setting](#get-org-setting)
+* [Update Org Setting](#update-org-setting)
+
+### Get Org Setting
 
 <ApiOperation method="get" url="/api/v1/org" />
 
 Gets your Organization's current settings.
 
-### Response parameters
+#### Request path parameters
+N/A
 
-The [Org Object](#org-object)
+#### Request query parameters
+N/A
 
-### Request example
+#### Request body 
+N/A
+
+#### Response body
+
+The [Org Setting](#org-setting-object)
+
+#### Usage Examples
+
+The following request would return the [Org Setting Object](#org-setting-object)
+
+##### Request
 
 ```bash
 curl -v -X GET \
@@ -30,7 +53,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/org"
 ```
 
-### Response example
+##### Response
 
 ```json
 {
@@ -41,7 +64,7 @@ curl -v -X GET \
     "expiresAt": null,
     "created": "2020-10-26T15:03:08.000Z",
     "lastUpdated": "2021-01-20T21:02:28.000Z",
-    "website": "http://okta.com",
+    "website": "https://okta.com",
     "phoneNumber": "+1-555-415-1337",
     "endUserSupportHelpURL": "https://support.okta.com",
     "supportPhoneNumber": "+1-555-514-1337",
@@ -53,10 +76,10 @@ curl -v -X GET \
     "postalCode": "94107",
     "_links": {
         "preferences": {
-            "href": "http://okta.okta.com/api/v1/org/preferences"
+            "href": "https://${yourOktaDomain}.com/api/v1/org/preferences"
         },
         "uploadLogo": {
-            "href": "http://okta.okta.com/api/v1/org/logo",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/logo",
             "hints": {
                 "allow": [
                     "POST"
@@ -64,41 +87,50 @@ curl -v -X GET \
             }
         },
         "oktaCommunication": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaCommunication"
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaCommunication"
         },
         "logo": {
-            "href": "http://okta.okta.com/bc/image/fileStoreRecord?id=fs02ju1ejvy2Cv2Yx0g4"
+            "href": "https://${yourOktaDomain}.com/bc/image/fileStoreRecord?id=fs02ju1ejvy2Cv2Yx0g4"
         },
         "oktaSupport": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaSupport"
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaSupport"
         },
         "contacts": {
-            "href": "http://okta.okta.com/api/v1/org/contacts"
+            "href": "https://${yourOktaDomain}.com/api/v1/org/contacts"
         }
     }
 }
 ```
-## Update Org Settings
+### Update Org Setting
 
-> **Note:** Use the `POST` method to make a partial update and the `PUT` method to delete unspecified properties.
+> **Note:** Use the `POST` method to make a partial update and the `PUT` method to make a full update.
 
 <ApiOperation method="put" url="/api/v1/org" />
 
 Updates your Organization's current settings
 
-All org properties must be specified when updating an org's profile with a `PUT` method. Any property not specified in the request is deleted.
+All org setting properties must be specified when updating an org's profile with a `PUT` method. Any property not specified in the request is deleted.
 
->Important: Don't use `PUT` method for partial updates.
+>**Note:**: Don't use `PUT` method for partial updates.
 
-### Request parameters
+#### Request path parameters
+N/A
 
-The [Org](#org-object) Object
+#### Request query parameters
+N/A
 
-### Response parameters
+#### Request body 
+The desired [Org Setting](#org-setting-object)
 
-The [Org](#org-object) Object
+#### Response body
 
-### Request example
+The applied [Org Setting](#org-setting-object)
+
+#### Usage Examples
+
+The following request would update the Org with these desired settings.
+
+##### Request
 
 ```bash
 curl -v -X PUT \
@@ -107,7 +139,7 @@ curl -v -X PUT \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
     "companyName": "Okta",
-    "website": "http://okta.com",
+    "website": "https://okta.com",
     "phoneNumber": "+1-555-415-1337",
     "endUserSupportHelpURL": "https://support.okta.com",
     "supportPhoneNumber": "+1-555-514-1337",
@@ -119,7 +151,8 @@ curl -v -X PUT \
     "postalCode": "94107"
 }' "https://${yourOktaDomain}/api/v1/org"
 ```
-### Response Example 
+#### Response 
+
 ```json
 {
     "id": "00ou8s5wploBwX4710g3",
@@ -129,7 +162,7 @@ curl -v -X PUT \
     "expiresAt": null,
     "created": "2020-10-26T15:03:08.000Z",
     "lastUpdated": "2021-01-20T21:02:28.000Z",
-    "website": "http://okta.com",
+    "website": "https://okta.com",
     "phoneNumber": "+1-555-415-1337",
     "endUserSupportHelpURL": "https://support.okta.com",
     "supportPhoneNumber": "+1-555-514-1337",
@@ -141,10 +174,10 @@ curl -v -X PUT \
     "postalCode": "94107",
     "_links": {
         "preferences": {
-            "href": "http://okta.okta.com/api/v1/org/preferences"
+            "href": "https://${yourOktaDomain}.com/api/v1/org/preferences"
         },
         "uploadLogo": {
-            "href": "http://okta.okta.com/api/v1/org/logo",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/logo",
             "hints": {
                 "allow": [
                     "POST"
@@ -152,27 +185,53 @@ curl -v -X PUT \
             }
         },
         "oktaCommunication": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaCommunication"
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaCommunication"
         },
         "logo": {
-            "href": "http://okta.okta.com/bc/image/fileStoreRecord?id=fs02ju1ejvy2Cv2Yx0g4"
+            "href": "https://${yourOktaDomain}.com/bc/image/fileStoreRecord?id=fs02ju1ejvy2Cv2Yx0g4"
         },
         "oktaSupport": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaSupport"
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaSupport"
         },
         "contacts": {
-            "href": "http://okta.okta.com/api/v1/org/contacts"
+            "href": "https://${yourOktaDomain}.com/api/v1/org/contacts"
         }
     }
 }
 ```
-## Get Contact Types
+## Org Contact Operations
+
+The Org Contact API has the following CRUD operations:
+
+* [Get Contact Types](#get-contact-types)
+* [Get User of Contact Type](#get-user-of-contact-type)
+* [Update User of Contact Type](#update-user-of-contact-type)
+
+
+### Get Contact Types
 
 <ApiOperation method="get" url="/api/v1/org/contacts" />
 
-Gets your Organization's contact Types
+Gets your Organization's Contact Types
 
-### Request example
+#### Request path parameters
+N/A
+
+#### Request query parameters
+N/A
+
+#### Request body 
+N/A
+
+#### Response body
+
+The [Contact Type](#contact-type-object)
+
+#### Usage Examples
+
+The following request would retrieve the supported Org Contact Types.
+
+##### Request
 
 ```bash
 curl -v -X GET \
@@ -182,7 +241,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/org/contacts"
 ```
 
-### Response example
+##### Response
 
 ```json
 [
@@ -190,7 +249,7 @@ curl -v -X GET \
         "contactType": "BILLING",
         "_links": {
             "billing": {
-                "href": "http://okta.okta.com/api/v1/org/contacts/billing"
+                "href": "https://${yourOktaDomain}.com/api/v1/org/contacts/billing"
             }
         }
     },
@@ -198,25 +257,42 @@ curl -v -X GET \
         "contactType": "TECHNICAL",
         "_links": {
             "technical": {
-                "href": "http://okta.okta.com/api/v1/org/contacts/technical"
+                "href": "https://${yourOktaDomain}.com/api/v1/org/contacts/technical"
             }
         }
     }
 ]
 ```
 
-## Get User of a Contact Type
+### Get User of Contact Type
 
 <ApiOperation method="get" url="/api/v1/org/contacts/${contactType}" />
 
-Get specific user of a Contact Type.
+Retrieves the specific user of a contact type. 
 
-### Request parameters
-| Parameter        | Description                                            | Param Type  | DataType                                 | Required  |
-| :--------------- | :----------------------------------------------------- | :---------- | :--------------------------------------- | :-------- |
-| contactType      | `type` of a Contact                                    | URL         | [Contact Type](#contact-types)           | TRUE      |
+#### Request path parameters
 
-### Request example
+| Parameter        | Type                           | Description     |  
+| :--------------- | :----------------------------- | :-------------- | 
+| contactType      | `BILLING`, `TECHNICAL`         | Type of Contact |   
+      
+#### Request query parameters
+
+N/A
+
+#### Request body 
+
+N/A
+
+#### Response body
+
+The [Contact User](#contact-user-object)
+
+#### Usage Examples
+
+The following request would retrieve the User associated with the given `${contactType}`.
+
+##### Request
 
 ```bash
 curl -v -X GET \
@@ -226,34 +302,44 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/org/contacts/${contactType}"
 ```
 
-### Response example
+##### Response 
 
 ```json
 {
     "userId": "00uuibMot2FBByTbs0g3",
     "_links": {
         "user": {
-            "href": "http://okta.okta.com/api/v1/users/00uuibMot2FBByTbs0g3"
+            "href": "https://${yourOktaDomain}.com/api/v1/users/00uuibMot2FBByTbs0g3"
         }
     }
 }
 ```
 
-## Update Contact of a Type
+### Update User of Contact Type
 
 <ApiOperation method="put" url="/api/v1/org/contacts/${contactType}" />
 
 Updates the user to your Organization's contact of a specific type
 
-### Request parameters
-| Parameter        | Description                                            | Param Type  | DataType                                 | Required  |
-| :--------------- | :----------------------------------------------------- | :---------- | :--------------------------------------- | :-------- |
-| contactType      | `type` of Contact                                    | URL         | [Contact Type](#contact-types)           | TRUE      |
-| userId           | `id` of the User                                    | Body        | String                                   | TRUE      |
+#### Request path parameters
 
-### Response Parameters
+| Parameter        | Type                           | Description     |  
+| :--------------- | :----------------------------- | :-------------- | 
+| contactType      | `BILLING`, `TECHNICAL`         | Type of Contact |   
+      
+#### Request query parameters
 
-Fetched [Contact User Object](#contact-user-object)
+N/A
+
+#### Request body 
+
+| Parameter        | Type     | Description     |  
+| :--------------- | :------- | :-------------- | 
+| userId           | String   | Id of User      |   
+
+#### Response body
+
+The [Contact Type](#contact-type-object)
 
 An invalid `id` returns a `404 Not Found` status code.
 
@@ -270,7 +356,11 @@ Content-Type: application/json
 }
 ```
 
-### Request example
+#### Usage Examples
+
+The following request would update the User associated with the given `${contactType}`.
+
+##### Request 
 
 ```bash
 curl -v -X PUT \
@@ -282,26 +372,40 @@ curl -v -X PUT \
 }' "https://${yourOktaDomain}/api/v1/org/contacts/${contactType}"
 ```
 
-### Response example
+##### Response 
 
 ```json
 {
     "userId": "00uuibMot2FBByTbs0g3",
     "_links": {
         "user": {
-            "href": "http://okta.okta.com/api/v1/users/00uuibMot2FBByTbs0g3"
+            "href": "https://${yourOktaDomain}.com/api/v1/users/00uuibMot2FBByTbs0g3"
         }
     }
 }
 ```
 
-## Upload Logo for Org
+## Org Logo Operations
+
+The Org Logo API has the following CRUD operations:
+
+* [Upload Logo for Org](#upload-logo-for-org)
+
+### Upload Logo for Org
 
 <ApiOperation method="post" url="/api/v1/org/logo" />
 
 Update the logo for your org.
 
-### Request Parameters
+#### Request path parameters
+
+N/A
+      
+#### Request query parameters
+
+N/A
+
+#### Request body
 
 | Parameter        | Description                                            | Param Type  | DataType          | Required  |
 | :--------------- | :----------------------------------------------------- | :---------- | :---------------- | :-------- |
@@ -309,7 +413,15 @@ Update the logo for your org.
 
 The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
 
-### Request Example
+#### Response body
+
+Returns `201 Created`
+
+#### Usage Examples
+
+The following request would update the Org Logo with the uploaded file. 
+
+##### Request 
 
 ```
 curl -v -X POST \
@@ -318,24 +430,50 @@ curl -v -X POST \
 -F 'file=@/path/to/file' \
 "https://${yourOktaDomain}/api/v1/org/logo"
 ```
-### Response Example
+
+#### Response 
 
 ```
 HTTP/1.1 201 Content Created
 Location: https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
 ```
 
-## Get Okta Support Settings
+## Okta Support Operations
+
+The Org Support API has the following CRUD operations:
+
+* [Get Okta Support Settings](#get-okta-support-settings)
+* [Grant Okta Support](#grant-okta-support)
+* [Extend Okta Support](#extend-okta-support)
+* [Revoke Okta Support Settings](#revoke-okta-support)
+
+### Get Okta Support Settings
 
 <ApiOperation method="get" url="/api/v1/org/privacy/oktaSupport" />
 
 Gets your Organization's Okta Support settings.
 
-### Response Parameters
+#### Request path parameters
 
-Fetched [Okta Support Setting Object](#okta-support-setting-object)
+N/A
+      
+#### Request query parameters
 
-### Request Example
+N/A
+
+#### Request body
+
+N/A
+
+#### Response body
+
+Fetched [Okta Support Setting](#okta-support-setting-object)
+
+#### Usage Examples
+
+The following request would retrieve the Org's Support Setting.
+
+##### Request 
 
 ```
 curl -v -X GET \
@@ -345,15 +483,14 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport"
 ```
 
-### Response Example
-
+##### Response 
 ```json
 {
     "support": "ENABLED",
     "expiration": "2021-01-24T11:13:14.000Z",
     "_links": {
         "extend": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaSupport/extend",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaSupport/extend",
             "hints": {
                 "allow": [
                     "POST"
@@ -361,7 +498,7 @@ curl -v -X GET \
             }
         },
         "revoke": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaSupport/revoke",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaSupport/revoke",
             "hints": {
                 "allow": [
                     "POST"
@@ -372,17 +509,33 @@ curl -v -X GET \
 }
 ```
 
-## Grant Okta Support 
+### Grant Okta Support 
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaSupport/grant" />
 
 Grant Okta Support for your organization.
 
-### Response Parameters
+#### Request path parameters
 
-Fetched [Okta Support Setting Object](#okta-support-setting-object)
+N/A
+      
+#### Request query parameters
 
-### Request Example
+N/A
+
+#### Request body
+
+N/A
+
+#### Response body
+
+Fetched [Okta Support Setting](#okta-support-setting-object)
+
+#### Usage Examples
+
+The following request would grant Okta Support to the Org.
+
+##### Request
 
 ```
 curl -v -X POST \
@@ -392,7 +545,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/grant"
 ```
 
-### Response Example
+##### Response
 
 ```json
 {
@@ -400,7 +553,7 @@ curl -v -X POST \
     "expiration": "2021-01-24T11:13:14.000Z",
     "_links": {
         "extend": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaSupport/extend",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaSupport/extend",
             "hints": {
                 "allow": [
                     "POST"
@@ -408,7 +561,7 @@ curl -v -X POST \
             }
         },
         "revoke": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaSupport/revoke",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaSupport/revoke",
             "hints": {
                 "allow": [
                     "POST"
@@ -419,17 +572,33 @@ curl -v -X POST \
 }
 ```
 
-## Extend Okta Support 
+### Extend Okta Support 
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaSupport/extend" />
 
 Extend Okta Support for your organization, extends expiration by 24 hours. 
 
-### Response Parameters
+#### Request path parameters
 
-Fetched [Okta Support Setting Object](#okta-support-setting-object)
+N/A
+      
+#### Request query parameters
 
-### Request Example
+N/A
+
+#### Request body
+
+N/A
+
+#### Response body
+
+Fetched [Okta Support Setting](#okta-support-setting-object)
+
+#### Example Usages
+
+The following request would extend Okta Support to the Org for 24 hours.
+
+##### Request Example
 
 ```
 curl -v -X POST \
@@ -439,7 +608,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/extend"
 ```
 
-### Response Example
+##### Response Example
 
 ```json
 {
@@ -447,7 +616,7 @@ curl -v -X POST \
     "expiration": "2021-01-25T11:13:14.000Z",
     "_links": {
         "extend": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaSupport/extend",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaSupport/extend",
             "hints": {
                 "allow": [
                     "POST"
@@ -455,7 +624,7 @@ curl -v -X POST \
             }
         },
         "revoke": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaSupport/revoke",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaSupport/revoke",
             "hints": {
                 "allow": [
                     "POST"
@@ -466,17 +635,34 @@ curl -v -X POST \
 }
 ```
 
-## Revoke Okta Support 
+### Revoke Okta Support 
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaSupport/revoke" />
 
 Revoke Okta Support for your organization.
 
-### Response Parameters
 
-Fetched [Okta Support Setting Object](#okta-support-setting-object)
+#### Request path parameters
 
-### Request Example
+N/A
+      
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+N/A
+
+#### Response body
+
+Fetched [Okta Support Setting](#okta-support-setting-object)
+
+#### Usage Examples
+
+The following request would revoke Okta Support to the Org.
+
+##### Request Example
 
 ```
 curl -v -X POST \
@@ -486,7 +672,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/revoke"
 ```
 
-### Response Example
+##### Response Example
 
 ```json
 {
@@ -494,7 +680,7 @@ curl -v -X POST \
     "expiration": null,
     "_links": {
         "grant": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaSupport/grant",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaSupport/grant",
             "hints": {
                 "allow": [
                     "POST"
@@ -505,17 +691,41 @@ curl -v -X POST \
 }
 ```
 
-## Get Okta Communication Settings
+## Okta Communication Operations
+
+The Org Communication API has the following CRUD operations:
+
+* [Get Okta Communication Settings](#get-okta-communication-settings)
+* [Opt Out of Okta Communications](#opt-out-of-okta-communications)
+* [Opt In to Okta Communications](#opt-in-to-okta-communications)
+
+### Get Okta Communication Settings
 
 <ApiOperation method="get" url="/api/v1/org/privacy/oktaCommunication" />
 
 Gets your Organization's Okta Communication settings.
 
-### Response Parameters
+#### Request path parameters
 
-Fetched [Okta Communication Setting Object](#okta-communication-setting-object)
+N/A
+      
+#### Request query parameters
 
-### Request Example
+N/A
+
+#### Request body
+
+N/A
+
+#### Response body
+
+Fetched [Okta Communication Setting](#okta-communication-setting-object)
+
+#### Usage Examples
+
+The following request would retrieve the Org's Okta Communication Setting. 
+
+##### Request
 
 ```
 curl -v -X GET \
@@ -525,14 +735,14 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/org/privacy/oktaCommunication"
 ```
 
-### Response Example
+##### Response
 
 ```json
 {
     "optOutEmailUsers": true,
     "_links": {
         "optIn": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaCommunication/optIn",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaCommunication/optIn",
             "hints": {
                 "allow": [
                     "POST"
@@ -543,17 +753,33 @@ curl -v -X GET \
 }
 ```
 
-## Opt Out of Okta Communication Settings
+### Opt Out of Okta Communications
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaCommunication/optOut" />
 
 Opts out end users from Okta Communication Emails
 
-### Response Parameters
+#### Request path parameters
 
-Fetched [Okta Support Setting Object](#okta-support-setting-object)
+N/A
+      
+#### Request query parameters
 
-### Request Example
+N/A
+
+#### Request body
+
+N/A
+
+#### Response body
+
+Fetched [Okta Communication Setting](#okta-communication-setting-object)
+
+#### Usage Examples
+
+The following request would opt out of Okta Communication Emails for the end users of the Org. 
+
+##### Request 
 
 ```
 curl -v -X POST \
@@ -563,14 +789,14 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/org/privacy/oktaCommunication/optOut"
 ```
 
-### Response Example
+##### Response
 
 ```json
 {
     "optOutEmailUsers": true,
     "_links": {
         "optIn": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaCommunication/optIn",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaCommunication/optIn",
             "hints": {
                 "allow": [
                     "POST"
@@ -581,17 +807,33 @@ curl -v -X POST \
 }
 ```
 
-## Opt In of Okta Communication Settings
+### Opt In to Okta Communications
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaCommunication/optIn" />
 
 Opts in end users to Okta Communication Emails
 
-### Response Parameters
+#### Request path parameters
 
-Fetched [Okta Support Setting Object](#okta-support-setting-object)
+N/A
+      
+#### Request query parameters
 
-### Request Example
+N/A
+
+#### Request body
+
+N/A
+
+#### Response body
+
+Fetched [Okta Communication Setting](#okta-communication-setting-object)
+
+#### Usage Examples
+
+The following request would opt in to Okta Communication Emails for the end users of the Org. 
+
+##### Request
 
 ```
 curl -v -X POST \
@@ -601,14 +843,14 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/org/privacy/oktaCommunication/optIn"
 ```
 
-### Response Example
+##### Response
 
 ```json
 {
     "optOutEmailUsers": false,
     "_links": {
         "optOut": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaCommunication/optOut",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaCommunication/optOut",
             "hints": {
                 "allow": [
                     "POST"
@@ -618,17 +860,40 @@ curl -v -X POST \
     }
 }
 ```
+## Org Preference Operations
 
-## Get Org Preferences
+The Org Communication API has the following CRUD operations:
+
+* [Get Org Preferences](#get-org-preferences)
+* [Show End User Page Footer](#show-end-user-page-footer)
+* [Hide End User Page Footer](#hide-end-user-page-footer)
+
+### Get Org Preferences
 <ApiOperation method="get" url="/api/v1/org/preferences" />
 
 Gets your Organization's Preferences. 
 
-### Response Parameters
+#### Request path parameters
 
-Fetched [Okta Preference Object](#okta-preference-object)
+N/A
+      
+#### Request query parameters
 
-### Request Example
+N/A
+
+#### Request body
+
+N/A
+
+#### Response body
+
+Fetched [Org Preferences](#org-preferences-object)
+
+#### Usage Examples
+
+The following request would retrieve the Org's Preferences. 
+
+##### Request Example
 
 ```
 curl -v -X GET \
@@ -638,14 +903,14 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/org/preferences"
 ```
 
-### Response Example
+##### Response Example
 
 ```json
 {
     "showEndUserFooter": true,
     "_links": {
         "hideEndUserFooter": {
-            "href": "http://okta.okta.com/api/v1/org/preferences/hideEndUserFooter",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/preferences/hideEndUserFooter",
             "hints": {
                 "allow": [
                     "POST"
@@ -656,17 +921,32 @@ curl -v -X GET \
 }
 ```
 
-## Show End User Page Footer
+### Show End User Page Footer
 <ApiOperation method="post" url="/api/v1/org/preferences/showEndUserFooter" />
 
-Show end user footer for End User Page
+Show footer for End User Page
 
-### Response Parameters
+#### Request path parameters
 
-Fetched [Okta Preference Object](#okta-preference-object)
+N/A
+      
+#### Request query parameters
 
-### Request Example
+N/A
 
+#### Request body
+
+N/A
+
+#### Response body
+
+Fetched [Org Preferences](#org-preferences-object)
+
+#### Usage Examples
+
+The following request would show the footer for the end user page. 
+
+##### Request 
 ```
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -675,14 +955,14 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/org/preferences/showEndUserFooter"
 ```
 
-### Response Example
+##### Response 
 
 ```json
 {
     "showEndUserFooter": true,
     "_links": {
         "hideEndUserFooter": {
-            "href": "http://okta.okta.com/api/v1/org/preferences/hideEndUserFooter",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/preferences/hideEndUserFooter",
             "hints": {
                 "allow": [
                     "POST"
@@ -693,17 +973,32 @@ curl -v -X POST \
 }
 ```
 
-
-## Hide End User Page Footer
+### Hide End User Page Footer
 <ApiOperation method="post" url="/api/v1/org/preferences/hideEndUserFooter" />
 
-Hide end user footer for End User Page
+Hide footer for End User Page
 
-### Response Parameters
+#### Request path parameters
 
-Fetched [Okta Preference Object](#okta-preference-object)
+N/A
+      
+#### Request query parameters
 
-### Request Example
+N/A
+
+#### Request body
+
+N/A
+
+#### Response body
+
+Fetched [Org Preferences](#org-preferences-object)
+
+#### Usage Examples
+
+The following request would hide the footer for the end user page. 
+
+#### Request 
 
 ```
 curl -v -X POST \
@@ -713,14 +1008,14 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/org/preferences/hideEndUserFooter"
 ```
 
-### Response Example
+#### Response
 
 ```json
 {
     "showEndUserFooter": false,
     "_links": {
         "hideEndUserFooter": {
-            "href": "http://okta.okta.com/api/v1/org/preferences/showEndUserFooter",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/preferences/showEndUserFooter",
             "hints": {
                 "allow": [
                     "POST"
@@ -731,12 +1026,38 @@ curl -v -X POST \
 }
 ```
 
-## Org object
+## Org API Objects
 
-### Examples
+### Org Setting object
 
-#### Sample Org
+#### Org Setting properties
 
+The Org Setting object defines several properties:
+
+| Property              | Type                                                           | Description                           |
+|-----------------------|----------------------------------------------------------------|---------------------------------------|
+| _links                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object        |
+| address1              | String                                                         | Address1 of Org                       |
+| address2              | String                                                         | Address2 of Org                       |
+| city                  | String                                                         | City of Org                           |
+| country               | String                                                         | County of Org                         |
+| created               | String (ISO-8601)                                              | When Org was Created (Read-only)      |
+| endUserSupportHelpURL | String                                                         | Support Link for Org                  |
+| expiresAt             | String (ISO-8601)                                              | Expiration of Org (Read-only)         |
+| id                    | String                                                         | Id of Org (Read-only)                 |
+| lastUpdated           | String (ISO-8601)                                              | When Org was last Updated (Read-only) |
+| name                  | String                                                         | Name of Org                           |
+| phoneNumber           | String                                                         | Org Phone Number                      |
+| postalCode            | String                                                         | Postal code of Org                    |
+| state                 | String                                                         | State of Org                          |
+| status                | `ACTIVE`, `INACTIVE`                                           | Status of Org                         |
+| subdomain             | String                                                         | Subdomain of Org                      |
+| supportPhoneNumber    | String                                                         | Support Help Phone for Org            |
+| website               | String                                                         | The Org website                       |
+
+
+
+#### Org Setting example
 ```json
 {
     "id": "00ou8s5wploBwX4710g3",
@@ -746,7 +1067,7 @@ curl -v -X POST \
     "expiresAt": null,
     "created": "2020-10-26T15:03:08.000Z",
     "lastUpdated": "2021-01-20T21:02:28.000Z",
-    "website": "http://okta.com",
+    "website": "https://okta.com",
     "phoneNumber": "+1-555-415-1337",
     "endUserSupportHelpURL": "https://support.okta.com",
     "supportPhoneNumber": "+1-555-514-1337",
@@ -758,10 +1079,10 @@ curl -v -X POST \
     "postalCode": "94107",
     "_links": {
         "preferences": {
-            "href": "http://okta.okta.com/api/v1/org/preferences"
+            "href": "https://${yourOktaDomain}.com/api/v1/org/preferences"
         },
         "uploadLogo": {
-            "href": "http://okta.okta.com/api/v1/org/logo",
+            "href": "https://${yourOktaDomain}.com/api/v1/org/logo",
             "hints": {
                 "allow": [
                     "POST"
@@ -769,89 +1090,159 @@ curl -v -X POST \
             }
         },
         "oktaCommunication": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaCommunication"
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaCommunication"
         },
         "logo": {
-            "href": "http://okta.okta.com/bc/image/fileStoreRecord?id=fs02ju1ejvy2Cv2Yx0g4"
+            "href": "https://${yourOktaDomain}.com/bc/image/fileStoreRecord?id=fs02ju1ejvy2Cv2Yx0g4"
         },
         "oktaSupport": {
-            "href": "http://okta.okta.com/api/v1/org/privacy/oktaSupport"
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaSupport"
         },
         "contacts": {
-            "href": "http://okta.okta.com/api/v1/org/contacts"
+            "href": "https://${yourOktaDomain}.com/api/v1/org/contacts"
         }
     }
 }
 ```
-### Org properties
+### Contact Type object
 
-The Org object defines several properties:
+#### Contact Type properties
 
-| Property              | Description                               | DataType                                                       | Nullable | Unique | Read Only |
-|-----------------------|-------------------------------------------|----------------------------------------------------------------|----------|--------|-----------|
-| address1              | address1 of Org                           | String                                                         | TRUE     | FALSE  | FALSE     |
-| address2              | address2 of Org                           | String                                                         | TRUE     | FALSE  | FALSE     |
-| city                  | city of Org                               | String                                                         | TRUE     | FALSE  | FALSE     |
-| companyName           | name of Org                               | String                                                         | FALSE    | TRUE   | FALSE     |
-| country               | county of Org                             | String                                                         | TRUE     | FALSE  | FALSE     |
-| created               | When Org was Created                      | Date                                                           | FALSE    | FALSE  | TRUE      |
-| endUserSupportHelpURL | support Link for Org                      | String                                                         | TRUE     | FALSE  | FALSE     |
-| expiresAt             | Expiration of Org                         | Date                                                           | TRUE     | FALSE  | TRUE      |
-| id                    | Id of Org                                 | String                                                         | FALSE    | TRUE   | TRUE      |
-| lastUpdated           | When Org was last Updated                 | Date                                                           | FALSE    | FALSE  | TRUE      |
-| phoneNumber           | org Phone Number                          | String                                                         | TRUE     | FALSE  | FALSE     |
-| postalCode            | postal code of Org                        | String                                                         | TRUE     | FALSE  | FALSE     |
-| state                 | state of Org                              | String                                                         | TRUE     | FALSE  | FALSE     |
-| status                | status of Org                             | String                                                         | FALSE    | FALSE  | FALSE     |
-| subdomain             | subdomain of Org                          | String                                                         | TRUE     | TRUE   | FALSE     |
-| supportPhoneNumber    | Support Help Phone for Org                | String                                                         | TRUE     | FALSE  | FALSE     |
-| website               | the org wbsite                            | String                                                         | TRUE     | FALSE  | FALSE     |
-| _links                | Discoverable resources related to the Org | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | FALSE    | FALSE  | TRUE      |
+The Contact Type object defines several properties:
 
-## Contact Types
+| Property              | Type                                                           | Description                           |
+|-----------------------|----------------------------------------------------------------|---------------------------------------|
+| _links                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object        |
+| contactType           | `BILLING`, `TECHNICAL`                                         | Type of contact                       |
 
-Currently we support two contact types `BILLING` and `Technical`
+#### Contact Type example
+```json
+{
+        "contactType": "TECHNICAL",
+        "_links": {
+            "technical": {
+                "href": "https://${yourOktaDomain}.com/api/v1/org/contacts/technical"
+            }
+        }
+    } 
 
-| Contact type                  | Label                               |
-| :---------------------------- | :---------------------------------- |
-| `BILLING`                     | The billing contact of your Org     |
-| `TECHNICAL`                   | The technical contact of your Org   |
-
-## Contact User Object
+```
+### Contact User Object
 
 The Contact User Object defines several properties: 
 
-### Contact Properties
+#### Contact User Properties
 
-| Property  | Description                                  | DataType                                                       | Nullable | Unique | Read Only |
-|-----------|----------------------------------------------|----------------------------------------------------------------|----------|--------|-----------|
-| userId    | id of User                                   | String                                                         | FALSE    | TRUE   | FALSE     |
-| _links    | Discoverable resources related to the Object | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | FALSE    | FALSE  | TRUE      |
+| Property              | Type                                                           | Description                           |
+|-----------------------|----------------------------------------------------------------|---------------------------------------|
+| _links                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object        |
+| userId                | userId                                                         | Id of associated User                 |  
 
-## Okta Support Setting Object
+#### Contact Type example
+```json
+{
+        "userId": "TECHNICAL",
+        "_links": {
+            "technical": {
+                "href": "https://${yourOktaDomain}.com/api/v1/org/contacts/technical"
+            }
+        }
+    } 
 
-The Okta Support Setting Object defines several properties:
+```
 
-| Property    | Description                                  | DataType                                                       | Nullable | Unique | Read Only |
-|-------------|----------------------------------------------|----------------------------------------------------------------|----------|--------|-----------|
-| support     | status of Okta Support Setting               | `DISABLED`, `ENABLED`	                                      | FALSE    | FALSE  | TRUE      |
-| expiration  | expiration of Okta Support Setting           | Date        	                                                  | TRUE     | FALSE  | TRUE      |
-| _links      | Discoverable resources related to the Object | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | FALSE    | FALSE  | TRUE      |
+### Okta Support Setting object
 
-## Okta Communication Setting Object
+The Okta Support Setting object defines several properties:
 
-The Okta Communication Setting Object defines several properties:
+#### Okta Support Setting Properties
 
-| Property         | Description                                  | DataType                                                       | Nullable | Unique | Read Only |
-|------------------|----------------------------------------------|----------------------------------------------------------------|----------|--------|-----------|
-| optOutEmailUsers | End User do not receive Okta Emails          | Boolean                                                        | FALSE    | FALSE  | TRUE      |
-| _links           | Discoverable resources related to the Object | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | FALSE    | FALSE  | TRUE      |
+| Property              | Type                                                           | Description                           |
+|-----------------------|----------------------------------------------------------------|---------------------------------------|
+| _links                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object        |
+| expiration            | String (ISO-8601)                                              | Expiration of Okta Support (Nullable) |
+| support               | `ENABLED`, `DISABLED`                                          | Status of Okta Support Setting        |
 
-## Okta Preferences Object
+#### Okta Support Setting Example 
+```json
+{
+    "support": "ENABLED",
+    "expiration": "2021-01-24T11:13:14.000Z",
+    "_links": {
+        "extend": {
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaSupport/extend",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "revoke": {
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaSupport/revoke",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
 
-The Okta Preferences Object defines several properties:
+### Okta Communication Setting object
 
-| Property          | Description                                  | DataType                                                       | Nullable | Unique | Read Only |
-|-------------------|----------------------------------------------|----------------------------------------------------------------|----------|--------|-----------|
-| showEndUserFooter | Show Footer on End User page                 | Boolean                                                        | FALSE    | FALSE  | TRUE      |
-| _links            | Discoverable resources related to the Object | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | FALSE    | FALSE  | TRUE      |
+The Okta Communication Setting object defines several properties:
+
+#### Okta Communication Setting Properties
+
+| Property              | Type                                                           | Description                            |
+|-----------------------|----------------------------------------------------------------|--------------------------------------- |
+| _links                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object         |
+| optOutEmailUsers      | Boolean                                                        | End User do not receive Okta Emails    |
+
+#### Okta Communication Setting Example
+
+```json
+{
+    "optOutEmailUsers": true,
+    "_links": {
+        "optIn": {
+            "href": "https://${yourOktaDomain}.com/api/v1/org/privacy/oktaCommunication/optIn",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+### Org Preferences object
+
+The Org Preferences object defines several properties:
+
+#### Org Preferences Properties
+
+| Property              | Type                                                           | Description                            |
+|-----------------------|----------------------------------------------------------------|--------------------------------------- |
+| _links                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object         |
+| showEndUserFooter     | Boolean                                                        | Show Footer on End User page           |
+
+#### Org Preferences Example
+
+```json
+{
+    "showEndUserFooter": true,
+    "_links": {
+        "hideEndUserFooter": {
+            "href": "https://${yourOktaDomain}.com/api/v1/org/preferences/hideEndUserFooter",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
