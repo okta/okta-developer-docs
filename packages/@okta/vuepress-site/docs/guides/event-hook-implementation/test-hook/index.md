@@ -4,7 +4,7 @@ title: Preview and Test the Event Hook
 The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service when an event is triggered. In this example, the event is triggered when a user is deactivated in the Okta org.
 
 ### Preview
-To run a preview call of your Event Hook, sign-in to your Okta org as the super admin.
+To run a preview call of your Event Hook, sign in to your Okta org as the super admin.
 
 1. In the Admin Console, go to **Workflow** > **Event Hooks**.
 2. Locate the Event Hook you created during the set-up step. In this example, select `Deactivated User Event Hook` or the name you gave the Event Hook.
