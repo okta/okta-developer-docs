@@ -95,7 +95,7 @@ As a best practice, you should return the HTTP response immediately, rather than
 
 ### Rate Limits
 
-Event Hooks are limited to sending 100,000 events per 24-hour period. 
+Event Hooks are limited to sending 100,000 events per 24-hour period.
 
 ### Debugging
 

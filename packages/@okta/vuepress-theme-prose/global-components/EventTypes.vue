@@ -60,7 +60,7 @@
 
         return this.eventTypes.filter((eventType) => {
           const value = this.search.toLowerCase();
-          return (!this.release || eventType.info.release == this.release) && (  
+          return (!this.release || eventType.info.release == this.release) && (
              eventType.id.toLowerCase().indexOf(value)>=0
           || eventType.description.toLowerCase().includes(value)
           || eventType.info.release.includes(this.search)
@@ -96,7 +96,7 @@
       },
       release() {
         this.addHistory()
-      }      
+      }
     },
     methods: {
       updateSearch: _.debounce(function(e) {
@@ -168,6 +168,7 @@
       .event-type-mappings {
         margin: -1em 0;
         padding: 10px 15px;
+        word-break: break-all;
         color: #888888;
         font-size: 0.9em;
       }

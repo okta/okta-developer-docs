@@ -8,19 +8,52 @@
     margin-top: 0.5rem;
   }
 
+  code {
+    // line breakes single <code> text if it necessary.
+    white-space: pre-wrap;       /* css-3 */
+    word-break: break-all
+  }
+
+  pre {
+    overflow-x: auto;
+    code {
+      // I'm assuming that all code examples with <pre> tag includes multiple lines.
+      // That's why all white-spaces should be in the right position for good readability.
+      // In case of code example with multiple lines it will not break line. <pre> scroll will do the trick.
+      white-space: pre;
+      word-break: keep-all;
+    }
+  }
+
+  h1, h3 {
+    word-break: break-all;
+  }
 
   @include media('>=tablet') {
     flex-direction: row;
     margin-top: 4rem;
 
+    // Normalize usual look in case screen > tablet.
+    code {
+      white-space: normal;
+      word-break: normal;
+    }
 
     p, ol, ul {
       max-width: inherit;
     }
 
+    h1, h3 {
+      word-break: normal;
+    }
+
     h3, h4, h5, h6 {
       margin-top: $base-spacing;
     }
+  }
+
+  .video-tutorial {
+    max-width: 650px;
   }
 
   .tree-nav {
@@ -71,10 +104,15 @@
       margin: 0rem $big-spacing;
       width: 64%;
       max-width: 64%;
+
+      a {
+        word-break: normal;
+      }
     }
 
     a {
       text-decoration: underline;
+      word-break: break-all;
     }
 
     .language-tabs a,
@@ -189,6 +227,7 @@
     }
 
     table {
+      position: relative;
       overflow-x: scroll;
 
       @include media('>=tablet') {
