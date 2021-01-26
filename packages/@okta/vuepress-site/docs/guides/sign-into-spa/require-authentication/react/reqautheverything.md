@@ -30,7 +30,7 @@ const App = () => {
     <Router>
       <Security {...config} >
         <Switch>
-          <Route path="/login/callback" component={LoginCallback}>
+          <Route path="/login/callback" component={LoginCallback} />
           <SecureRoute path="/" />
         </Switch>
       </Security>
