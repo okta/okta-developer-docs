@@ -79,7 +79,6 @@ export default {
     Footer: () => import("../components/Footer.vue"),
     FooterRedesign: () => import("../components/Footer.redesign.vue"),
     Documentation: () => import("../components/Documentation.vue"),
-    Reference: () => import("../components/Reference.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),
     OktaIntegrationNetwork: () =>
