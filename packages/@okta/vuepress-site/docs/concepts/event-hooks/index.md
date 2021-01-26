@@ -114,7 +114,7 @@ The basic steps to register and verify a new Event Hook are as follows:
 - Verify to Okta that you control the endpoint.
 - Preview the Event Hook in the Admin Console.
 
-For a working example of an end-to-end Event Hook setup, see the following guide [Event Hook](/docs/guides/event-hook-implementation).
+For a working example of an end-to-end Event Hook setup, see the [Event Hook guide](/docs/guides/event-hook-implementation).
 
 ### Implement your service
 
