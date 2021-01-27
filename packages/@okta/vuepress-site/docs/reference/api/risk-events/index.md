@@ -117,7 +117,7 @@ The RiskEvent object has the following properties:
 
 ### Risk Subject object
 
-The RiskSubject object has the following properties:
+The Risk Subject object has the following properties:
 
 | Property    | Type           | Description   |
 | ----------- | -------------- | ------------- |
