@@ -20,7 +20,7 @@ The Risk Events API has the following operations:
 
 <ApiOperation method="post" url="/api/v1/risk/events/ip" />
 
-A RiskProvider can send RiskEvents to Okta using this API.
+A Risk Provider can send Risk Events to Okta using this API.
 
 #### Request body
 
