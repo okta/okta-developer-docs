@@ -115,7 +115,7 @@ The RiskEvent object has the following properties:
 }
 ```
 
-### RiskSubject object
+### Risk Subject object
 
 The RiskSubject object has the following properties:
 
