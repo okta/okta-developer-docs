@@ -15,7 +15,7 @@ This procedure retrieves the default Risk Provider profile and Provider ID.
 
 1. Call the following GET API from the Risk Integration Postman collection: **Admin: API to get all Provider Settings** (`{{url}}/api/v1/risk/providers`).
 
-2. Review the response, which includes the Provider ID, name, and action properties. A sample response follows:
+2. Review the response, which includes the Provider ID, default name, and action properties. A sample response follows:
 
     ```JSON
     [
@@ -39,6 +39,7 @@ This procedure retrieves the default Risk Provider profile and Provider ID.
     ]
     ```
 3. From the response, copy the `id` value, in this example `rkpa9y5jpfe8l4ktr1d6`, to your Postman environment's `providerId` variable.
+4. Copy the name of your third-party Risk Provider to your Postman environment's `providerName` variable. In this example, use `Risk Provider Example`.
 
 ### Update Risk Provider
 This procedure updates the default Risk Provider profile with the service application ID, risk Provider name, and the risk provider action.
@@ -57,7 +58,7 @@ This procedure updates the default Risk Provider profile with the service applic
     ```JSON
     {
     "id": "rkpa9y5jpfe8l4ktr1d6",
-    "name": "Risk Provider Default",
+    "name": "Risk Provider Example",
     "clientId": "0oaaaboyxsbrWdsk81d6",
     "action": "enforce_and_log",
     "_links": {
