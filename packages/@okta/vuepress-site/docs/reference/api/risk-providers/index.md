@@ -200,7 +200,7 @@ curl -X GET \
 ```
 
 
-### List all RiskProviders
+### List all Risk Providers
 
 <ApiOperation method="get" url="/api/v1/risk/providers" />
 
