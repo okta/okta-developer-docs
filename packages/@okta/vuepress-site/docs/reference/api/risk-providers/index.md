@@ -146,7 +146,7 @@ curl -X POST \
 }
 ```
 
-### Get a RiskProvider by ID
+### Get a Risk Provider by ID
 
 <ApiOperation method="get" url="/api/v1/risk/providers/${providerId}" />
 
