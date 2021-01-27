@@ -83,7 +83,7 @@ curl -X POST \
 HTTP/1.1 202 Accepted
 ```
 
-## RiskEvents objects
+## Risk Events objects
 
 ### RiskEvent object
 
