@@ -273,7 +273,7 @@ curl -X GET \
 
 #### Risk Provider properties
 
-The RiskProvider object has the following properties:
+The Risk Provider object has the following properties:
 
 
 | Property    | Type           | Description   |
