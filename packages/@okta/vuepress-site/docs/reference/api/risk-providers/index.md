@@ -271,7 +271,7 @@ curl -X GET \
 
 ### RiskProvider object
 
-#### RiskProvider properties
+#### Risk Provider properties
 
 The RiskProvider object has the following properties:
 
