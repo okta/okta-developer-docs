@@ -14,7 +14,7 @@ Explore the Risk Providers API: [![Run in Postman](https://run.pstmn.io/button.s
 The Risk Providers API has the following CRUD operations:
 
 * [Create RiskProvider](#create-risk provider)
-* [Get a RiskProvider by id](#get-a-riskprovider)
+* [Get a Risk Provider by ID](#get-a-riskprovider)
 * [Update RiskProvider](#update-riskprovider)
 * [Get all RiskProviders](#list-all-riskproviders)
 
