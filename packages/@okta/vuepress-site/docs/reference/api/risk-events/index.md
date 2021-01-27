@@ -13,7 +13,7 @@ Explore the Risk Events API: [![Run in Postman](https://run.pstmn.io/button.svg)
 ## Risk Events Operations
 The Risk Events API has the following operations:
 
-* [Send RiskEvents](#send-riskevents)
+* [Send Risk Events](#send-riskevents)
 
 
 ### Send Risk Events
