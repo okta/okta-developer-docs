@@ -4,8 +4,6 @@
       <form
         id="signupForm"
         @submit="submitForm"
-        method="POST"
-        action="https://developer.okta.com/developer/signup/"
       >
         <div class="row">
           <label class="field-wrapper" for="email">
@@ -131,23 +129,35 @@
           </label>
         </div>
         <div class="row">
-          <vue-recaptcha
-            ref="recaptcha"
-            :loadRecaptchaScript="true"
-            @verify="onCaptchaVerified"
-            @expired="onCaptchaExpired"
-            sitekey="6LeaS6UZAAAAADd6cKDSXw4m2grRsCpHGXjAFJcL"
-          >
-          </vue-recaptcha>
+          <label class="field-wrapper" for="recaptcha">
+            <vue-recaptcha
+              ref="recaptcha"
+              :loadRecaptchaScript="true"
+              @verify="onCaptchaVerified"
+              @expired="onCaptchaExpired"
+              :sitekey="captchaSiteKey"
+            >
+            </vue-recaptcha>
+            <span class="error-color error-msg" v-if="form.captcha.errorList.length">{{
+              validationService.errorDictionary.emptyField
+            }}</span>
+          </label>
+        </div>
+        <div class="row error-color" v-if="error !== null">
+          {{error}}
         </div>
         <div class="row">
-          <label class="field-wrapper" for="signup">
+          <label class="field-wrapper" for="signup" id="submitbutton">
+            <a class="btn red-button pending" v-if="isPending">
+              <img src="/img/ajax-loader-white.gif" />
+            </a>
             <input
               type="submit"
               class="btn red-button"
               :disabled="!validationService.isValidForm()"
               id="signup"
               value="sign up"
+              v-else
             />
           </label>
         </div>
@@ -189,20 +199,16 @@
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <input
-            type="button"
-            class="social-btn"
-            value="continue with github"
-          />
+          <a class="btn social-btn" :href="uris.github">
+            Continue With GitHub
+          </a>
         </div>
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <input
-            type="button"
-            class="social-btn"
-            value="continue with google"
-          />
+          <a class="btn social-btn" :href="uris.google">
+            Continue With Google
+          </a>
         </div>
       </div>
       <div class="row goto-signin">
@@ -212,10 +218,7 @@
     <div class="signup--description">
       <Content slot-key="signup-description" />
       <div class="logo-wrapper">
-        <h4>Trusted by</h4>
-        <div class="partners-logo">
-          <img src="/img/authorization/proof-by.png" alt="" />
-        </div>
+        <CompanyLogos withHeading small v-bind:centered="false" />
       </div>
     </div>
   </div>
@@ -232,17 +235,21 @@ import {
   GDPR_COUNTRIES
 } from "../const/signup.const";
 import setHiddenUtmValues from "../util/attribution/attribution";
+import { getIdpUri } from "../util/uris";
 
 const CANADA = "Canada";
 const USA = "United States";
 
+const GENERIC_ERROR_MSG = "Something unexpected happened while processing your registration. Please try again.";
+
 export default {
   components: {
-    VueRecaptcha
+    VueRecaptcha,
+    CompanyLogos: () => import("../components/CompanyLogos")
   },
   data() {
     return {
-      state: { lable: "", list: [] },
+      state: { label: "", list: [] },
       displayConsent: false,
       displayAgree: false,
       form: {
@@ -256,8 +263,12 @@ export default {
           isValid: true,
           errorList: [],
           hidden: true
-        }
-      }
+        },
+        captcha: { value: "", isValid: true, errorList: [] }
+      },
+      isPending: false,
+      error: null,
+      captchaSitekey: null,
     };
   },
   computed: {
@@ -288,8 +299,16 @@ export default {
       return new SignUpValidation(this.form);
     },
     apiService() {
-      return new Api("https://developer.okta.com");
-    }
+      return new Api(this.$site.themeConfig.uris.baseUri);
+    },
+    uris() {
+      const { uris } = this.$site.themeConfig;
+
+      return {
+        github: getIdpUri(uris, "github"),
+        google: getIdpUri(uris, "google"),
+      };
+    },
   },
   methods: {
     submitForm(e) {
@@ -300,9 +319,64 @@ export default {
       this.validationService.checkEmailInput("email");
       this.validationService.checkFormInput("state");
       this.validationService.checkFormCheckboxInput("consentAgree");
+      this.validationService.checkFormInput("captcha");
 
       if (this.validationService.isValidForm()) {
         // make api call
+        const { baseUri, registrationPolicyId } = this.$site.themeConfig.uris;
+        const registrationPath = `/api/v1/registration/${registrationPolicyId}/register`;
+        const body = {
+          userProfile: {
+            email: this.form.email.value,
+            firstName: this.form.firstName.value,
+            lastName: this.form.lastName.value,
+            country: this.form.country.value,
+            state: this.form.state.value,
+            emailOptInC: this.form.consentAgree.value,
+            captchaResponse: this.form.captcha.value,
+          },
+        };
+
+        this.isPending = true;
+
+        this.apiService
+          .post(registrationPath, { body })
+          .then(res => {
+            // Reset error in case of transient failure that succeeds later
+            this.error = null;
+            // Google Analytics email signup success event
+            window.dataLayer && window.dataLayer.push({ 'event': '07_CIAMTrial' });
+            // Redirect user to success landing page
+            window.location.assign('/signup/thank-you');
+          })
+          .catch(err => {
+            this.handleApiError(err);
+          })
+          .finally(() => {
+            this.isPending = false;
+          });
+      };
+    },
+
+    handleApiError(err) {
+      if (err.response) {
+        const { status, data } = err.response;
+
+        switch (status) {
+          case 400: {
+            if (data.errorCauses && data.errorCauses.length) {
+              this.error = data.errorCauses[0].errorSummary;
+            }
+            break;
+          }
+          default: {
+            this.error = GENERIC_ERROR_MSG;
+          }
+        }
+      } else {
+        console.error(err);
+
+        this.error = GENERIC_ERROR_MSG;
       }
     },
 
@@ -323,14 +397,33 @@ export default {
       }
     },
 
-    onCaptchaVerified() {},
+    onCaptchaVerified(response) {
+      this.validationService.resetFormField("captcha", {
+        reset: true,
+        value: response,
+      });
+    },
     onCaptchaExpired() {
       this.$refs.recaptcha.reset();
+      this.validationService.resetFormField("captcha", {
+        reset: true,
+        value: "",
+      });
+      this.validationService.checkFormInput("captcha");
+    }
+  },
+  beforeMount() {
+    const { captcha } = this.$site.themeConfig;
+
+    if (window.location.hostname === "developer.okta.com") {
+      this.captchaSiteKey = captcha.production;
+    } else {
+      this.captchaSiteKey = captcha.test;
     }
   },
   mounted() {
     const formElement = document.querySelector("#signupForm");
     setHiddenUtmValues(formElement);
-  }
+  },
 };
 </script>

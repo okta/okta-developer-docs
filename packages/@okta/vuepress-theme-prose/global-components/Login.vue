@@ -4,12 +4,9 @@
     <div class="login--form">
       <div class="row">
         <label class="field-wrapper" for="login-email">
-          <input
-            id="login-email"
-            type="button"
-            value="sign in with email"
-            class="btn red-button"
-          />
+          <a class="btn" :href="uris.email">
+            Sign In With Email
+          </a>
         </label>
       </div>
       <div class="splitter">
@@ -19,20 +16,16 @@
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <input
-            type="button"
-            class="social-btn"
-            value="continue with github"
-          />
+          <a class="btn social-btn" :href="uris.github">
+            Continue With GitHub
+          </a>
         </div>
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <input
-            type="button"
-            class="social-btn"
-            value="continue with google"
-          />
+          <a class="btn social-btn" :href="uris.google">
+            Continue With Google
+          </a>
         </div>
       </div>
       <div class="row goto-signup">
@@ -40,17 +33,29 @@
       </div>
     </div>
     <div class="logo-wrapper">
-      <h4 class="text-center">Trusted by</h4>
-      <div class="partners-logo">
-        <img
-          src="/img/authorization/proof-by.png"
-          alt=""
-        />
-      </div>
+      <CompanyLogos withHeading small />
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+import { getIdpUri } from "../util/uris";
+
+export default {
+  name: "Login",
+  components: {
+    CompanyLogos: () => import("../components/CompanyLogos")
+  },
+  computed: {
+    uris() {
+      const { uris } = this.$site.themeConfig;
+
+      return {
+        email: "https://login.okta.com/",
+        github: getIdpUri(uris, "github"),
+        google: getIdpUri(uris, "google"),
+      };
+    },
+  },
+};
 </script>

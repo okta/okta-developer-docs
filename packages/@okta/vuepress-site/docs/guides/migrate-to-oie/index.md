@@ -1,34 +1,34 @@
 ---
-title: Migrate to Okta Identity Engine
+title: Upgrade to Okta Identity Engine
 meta:
   - name: description
-    content: Our guide shows how to migrate your organization and clients to OIE 
+    content: Our guide shows how to upgrade your organization and clients to OIE 
 layout: Guides
 ---
 
 ## Enable OIE for your organization
 
-To enable Okta Identity Engine, please reach out to your account manager. If you do not have an account manager, please reach out to <oie@okta.com> for more information.
+To upgrade to Okta Identity Engine, please reach out to your account manager. If you do not have an account manager, please reach out to <oie@okta.com> for more information.
 
-## Enable `interaction code` grant
+## Enable interaction code grant
 
-Once the Okta Identity Engine feature is enabled for your org, it should become active for Okta-hosted sign-in flows that do not involve an OAuth application. Enabling the `interaction_code` grant type will allow OAuth applications to use the Okta Identity Engine.
+After the Okta Identity Engine feature is enabled for your org, it should become active for Okta-hosted sign-in flows that don't involve an OAuth application. Enabling the `interaction_code` grant type allows OAuth applications to use the Okta Identity Engine.
 
-### Enable `interaction code` grant on an authorization server
+### Enable interaction code grant on an authorization server
 
-1. Navigate to `Security > API > Authorization Servers` in the Admin UI
+1. Navigate to **Security > API > Authorization Servers** in the Admin Console.
 2. Select an authorization server and click the edit icon.
-3. Click on `Access Policies` tab.
-4. Edit `Default Policy Rule`.
-5. In the section `IF Grant type is`, click the `Interaction Code` checkbox.
+3. Click the **Access Policies** tab.
+4. Edit the **Default Policy Rule**.
+5. In the **IF Grant type is** section, click the **Interaction Code** check box.
 
-### Enable `interaction code` grant on an application
+### Enable interaction code grant on an application
 
-1. Navigate to `Applications > Applications` in the Admin UI
-2. Click an application in the list
-3. Click the `General` tab on the application detail
-4. Click edit on the `General Settings` panel
-5. In the section `Allowed grant types`, click the `Interaction Code` checkbox.
+1. Navigate to **Applications > Applications** in the Admin Console.
+2. Click an application in the list.
+3. Click the **General** tab on the application detail.
+4. Click edit on the **General Settings** panel.
+5. In the **Allowed grant types** section, click the **Interaction Code** check box.
 
 ## Web clients
 
@@ -38,14 +38,14 @@ For most authentication flows that involve redirecting to Okta, there should be 
 
 ### Customized sign-in page / custom domain
 
-For most users of the [custom domain](/docs/guides/custom-url-domain/overview/) feature, there are no other changes needed. The default template will detect and use the Okta Identity Engine automatically.
+For most users of the [custom domain](/docs/guides/custom-url-domain/overview/) feature, there are no other changes needed. The default template detects and uses the Okta Identity Engine automatically.
 
-However if you have [modified the template](https://developer.okta.com/docs/guides/style-the-widget/style-okta-hosted/) in certain ways, such as to perform redirects or set cookies, these modificiations may not be compatible with the Okta Identity Engine. In particular, these methods and objects will not work with OIE:
+However, if you have [modified the template](/docs/guides/style-the-widget/style-okta-hosted/) in certain ways (such as to perform redirects or set cookies), these modifications may not be compatible with the Okta Identity Engine. In particular, these methods and objects won't work with OIE:
 
-- setCookieAndRedirect
-- sessionToken
+- `setCookieAndRedirect`
+- `sessionToken`
 
-In the default template, the `success` callback from `renderEl` is being handled by `OktaUtil.completeLogin`. This method correctly handles the authentication flow and we recommend using it.
+In the default template, the `success` callback from `renderEl` is being handled by `OktaUtil.completeLogin`. This method correctly handles the authentication flow, and we recommend using it.
 
 For reference, here is the default template:
 
@@ -90,11 +90,11 @@ For reference, here is the default template:
 </html>
 ```
 
-### Embedded sign-in widget
+### Embedded Sign-In Widget
 
-> **Note:** "Embedded" means the widget is included directly in your application via NPM module or script tag. @okta/okta-signin-widget version 5.2.0 or above is needed to enable the interaction code flow.
+> **Note:** "Embedded" means the Sign-In Widget is included directly in your application through npm module or script tag. The `@okta/okta-signin-widget` version 5.2.0 or above is needed to enable the interaction code flow.
 
-Set the option `useInteractionCodeFlow` to `true` on the object passed to the Sign-In Widget constructor. This will enable Okta Identity Engine for the widget. Both the authorization server and the application must have the [interaction code](#enable-interaction-code-grant) grant type enabled.
+Set the option `useInteractionCodeFlow` to `true` on the object passed to the Sign-In Widget constructor. This enables Okta Identity Engine for the Widget. Both the authorization server and the application must have the [interaction code](#enable-interaction-code-grant) grant type enabled.
 
 > **Note:** Your code may break if it is calling the `renderEl` method and expects `sessionToken` or `session.setCookieAndRedirect` on the response object. Instead of `renderEl`, we recommend calling the `showSignInToGetTokens` method. This method receives and returns tokens without any browser redirect.
 

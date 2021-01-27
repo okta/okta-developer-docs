@@ -2,7 +2,7 @@ import axios from "axios";
 export class Api {
   baseheaders = {};
   postHeaders = {
-    "content-type": "application/x-www-form-urlencoded"
+    "content-type": "application/json"
   };
   constructor(baseUrl) {
     this.baseUrl = baseUrl;

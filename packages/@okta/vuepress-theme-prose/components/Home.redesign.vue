@@ -63,7 +63,7 @@
                 <h2
                   class="redesign-homepage--sub-heading redesign-homepage--color-main redesign-homepage--centered-md"
                 >
-                  Customize for your app, try it here
+                  Customize your sign-in
                 </h2>
               </div>
               <div
@@ -72,7 +72,7 @@
               >
                 <div class="redesign-homepage--code-example">
                   <div class="redesign-homepage--code-example--header">
-                    Javascript
+                    JavaScript
                   </div>
                   <div class="redesign-homepage--code-example--cm-wrapper">
                     <FrontPageCodeMirror />
@@ -109,43 +109,32 @@
                   </div>
                   <div class="redesign-homepage--welcome-leia--actions">
                     <a
-                      href="https://developer.okta.com/signup"
+                      href="/signup/"
                       class="redesign-homepage--welcome-leia--actions--cta act-btn"
                     >
-                      sign up for okta
+                      Sign up for Okta
                     </a>
                     <a
-                      href="https://developer.okta.com/code/javascript/okta_sign-in_widget"
+                      href="/code/javascript/okta_sign-in_widget/"
                       class="redesign-homepage--welcome-leia--actions--docs act-btn"
                     >
-                      vue widget docs
+                      View widget docs
                     </a>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="row justify-content-center">
-              <div class="col-lg-10 col-md-10 col-sm-12">
-                <div
-                  class="row justify-content-around align-items-center redesign-homepage--partners-block-margin"
-                >
-                  <div
-                    v-for="(partner, index) in $page.frontmatter.partners"
-                    :key="index"
-                    class="col-lg-auto col-md-4 col-sm-12 col-xs-12"
-                  >
-                    <div class="redesign-homepage--partner-wrapper">
-                      <img :src="partner.icon" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="redesign-homepage--partners-block-margin">
+              <CompanyLogos />
             </div>
           </div>
 
           <div class="redesign-homepage--shapes">
-            <img src="/img/home-curves.svg" class="redesign-homepage--shapes-curves" />
+            <img
+              src="/img/home-curves.svg"
+              class="redesign-homepage--shapes-curves"
+            />
             <div class="redesign-homepage--shapes-fill"></div>
           </div>
         </div>
@@ -155,7 +144,8 @@
 </template>
 
 <script>
-const TABLET_BREAKPOINT = 768;
+import CompanyLogos from "./CompanyLogos.vue";
+const SIDE_BY_SIDE_BREAKPOINT = 1200;
 
 export default {
   name: "Home",
@@ -164,8 +154,10 @@ export default {
     SelectorTile: () => import("../components/SelectorTile"),
     AssuranceItem: () => import("../components/AssuranceItem"),
     FrontPageWidget: () => import("../components/FrontPageWidget"),
-    FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror")
+    FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror"),
+    CompanyLogos: () => import("../components/CompanyLogos")
   },
+
   data() {
     return {
       pseudoAuthorized: false,
@@ -178,7 +170,7 @@ export default {
   },
   methods: {
     onResize() {
-      this.isInMobileViewport = window.innerWidth <= TABLET_BREAKPOINT;
+      this.isInMobileViewport = window.innerWidth < SIDE_BY_SIDE_BREAKPOINT;
     },
     togglePseudoAuth(e) {
       if (this.isInMobileViewport) {

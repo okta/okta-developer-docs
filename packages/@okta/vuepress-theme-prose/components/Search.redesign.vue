@@ -39,7 +39,7 @@
               Visit our
               <a
                 class="is-external-link"
-                href="https://support.okta.com/"
+                href="https://support.okta.com/help/s/"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Help Center</a
@@ -125,7 +125,7 @@
               Visit our
               <a
                 class="is-external-link"
-                href="https://support.okta.com/"
+                href="https://support.okta.com/help/s/"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Help Center</a

@@ -273,7 +273,7 @@ $magenta: #e22866;
     }
 
     img.pricing-card-check {
-      max-width: initial;
+      flex: 0;
     }
 
     select {
@@ -431,25 +431,8 @@ $magenta: #e22866;
 
   .pricing--footer {
     background-color: $darkBlue;
-    text-align: center;
     flex-grow: 1;
     padding: 64px 0;
-
-    .pricing--footer--logos {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-
-      img {
-        padding: 0 40px 30px;
-      }
-    }
-
-    @include media('<desktop') {
-      .pricing--footer--logos {
-        flex-direction: column;
-      }
-    }
   }
 
   .pricing--background-curve {

@@ -42,7 +42,8 @@ features:
     bullets:
       - Secure user store with customizable user attributes
       - User lifecycle states (e.g. activated, suspended, deactivated)
-      - Attribute mapping and
+      - Attribute mapping and transformation
+      - Registration as a service
   mfa:
     name: Basic multi-factor authentication
     bullets:
@@ -137,7 +138,7 @@ addons:
     link: https://www.okta.com/pricing/?&_ga=2.263728972.1380425866.1607359849-1244033381.1605546128#api-lifecycle-management
     icon: /img/icons/icon--user-profiles.svg
   - title: DynamicScale
-    link: https://www.okta.com/pricing?&_ga=2.263728972.1380425866.1607359849-1244033381.1605546128#api-dynamic-scale
+    link: https://www.okta.com/pricing?&_ga=2.263728972.1380425866.1607359849-1244033381.1605546128#api-dynamicscale
     icon: /img/icons/icon--highcapacity.svg
 
 faqs:
@@ -146,6 +147,6 @@ faqs:
   - title: What is a monthly active user?
     content: A monthly active user is an end-user that authenticates to an application in a given month. A user that authenticates multiple times to one or more applications within a given month is counted once.
   - title: "What are the rate limits for Okta's APIs?"
-    content: "The number of API requests for an organization is limited for all APIs in order to protect the service for all users. <a href='/docs/api/getting_started/rate-limits'>Get more details</a>."
+    content: "The number of API requests for an organization is limited for all APIs in order to protect the service for all users. <a href='/docs/reference/rate-limits/'>Get more details</a>."
 
 ---

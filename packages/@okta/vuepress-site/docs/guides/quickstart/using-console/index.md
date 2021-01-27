@@ -29,7 +29,7 @@ Menus take you from the Dashboard to the management screens for various aspects 
 
 | Menu          | What can you do there?                                                                                 |
 |---------------|----------------------------------------------------------------------------------------------------|
-| Users         | Manager your end users.                                                                            |
+| Users         | Manage your end users.                                                                             |
 | Applications  | Configure the connection between your Okta org and the apps you want to handle authentication for. |
 | API           | Get an API token to be able to use the Okta API.                                                   |
 | Workflows     | Augment Okta process flows with your own additions.                                                |

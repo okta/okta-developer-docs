@@ -6,70 +6,72 @@ title: Home
 
 showBreadcrumb: False
 
+
+
 tiles:
   - name: Web App
-    link: /docs/guides/sign-into-web-app/aspnet/before-you-begin/
+    link: /docs/guides/sign-into-web-app/
     items:
       - name: Go
-        link: /code/go/
+        link: /docs/guides/sign-into-web-app/go/before-you-begin/
         image: /img/homepage/stackselectors/go.png
       - name: Java
-        link: /code/java/
+        link: /docs/guides/sign-into-web-app/springboot/before-you-begin/
         image: /img/homepage/stackselectors/java.png
       - name: .net
-        link: /code/dotnet/aspnetcore/
+        link: /docs/guides/sign-into-web-app/aspnet/before-you-begin/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
-        link: /code/nodejs/
+        link: /docs/guides/sign-into-web-app/nodeexpress/before-you-begin/
         image: /img/homepage/stackselectors/nodejs.png
       - name: PHP
-        link: /code/php/
-        image: /img/homepage/stackselectors/nodejs.png
+        link: /docs/guides/sign-into-web-app/php/before-you-begin/
+        image: /img/homepage/stackselectors/php.png
   - name: Single-page App
-    link: /docs/guides/sign-into-spa/angular/before-you-begin/
+    link: /docs/guides/sign-into-spa/
     items:
       - name: React
-        link: /code/react/
+        link: /docs/guides/sign-into-spa/react/before-you-begin/
         image: /img/homepage/stackselectors/react.png
       - name: Angular
-        link: /code/angular/
+        link: /docs/guides/sign-into-spa/angular/before-you-begin/
         image: /img/homepage/stackselectors/angular.png
       - name: Vue.js
-        link: /code/vue/
+        link: /docs/guides/sign-into-spa/vue/before-you-begin/
         image: /img/homepage/stackselectors/vue.png
   - name: Native App
-    link: /docs/guides/sign-into-mobile-app/android/before-you-begin/
+    link: /docs/guides/sign-into-mobile-app/
     items:
       - name: React Native
-        link: /code/react-native/
+        link: /docs/guides/sign-into-mobile-app/react-native/before-you-begin/
         image: /img/homepage/stackselectors/react.png
       - name: Android
-        link: /code/android/
+        link: /docs/guides/sign-into-mobile-app/android/before-you-begin/
         image: /img/homepage/stackselectors/android.png
       - name: IOS
-        link: /code/ios/
+        link: /docs/guides/sign-into-mobile-app/ios/before-you-begin/
         image: /img/homepage/stackselectors/ios.png
   - name: API Services
-    link: /docs/guides/protect-your-api/aspnet/before-you-begin/
+    link: /docs/guides/protect-your-api/
     items:
       - name: Go
-        link: /code/go/
+        link: /docs/guides/protect-your-api/go/before-you-begin/
         image: /img/homepage/stackselectors/go.png
       - name: Java
-        link: /code/java/
+        link: /docs/guides/protect-your-api/springboot/before-you-begin/
         image: /img/homepage/stackselectors/java.png
       - name: .net
-        link: /code/dotnet/aspnetcore/
+        link: /docs/guides/protect-your-api/aspnet/before-you-begin/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
-        link: /code/nodejs/
+        link: /docs/guides/protect-your-api/nodeexpress/before-you-begin/
         image: /img/homepage/stackselectors/nodejs.png
       - name: PHP
-        link: /code/php/
-        image: /img/homepage/stackselectors/nodejs.png
+        link: /docs/guides/protect-your-api/php/before-you-begin/
+        image: /img/homepage/stackselectors/php.png
 
 assurances:
-  - title: Compliant out of the Box
+  - title: Compliant Out of the Box
     description: with HIPAA, FedRamp, SOC and more, we have you covered
     image: /img/homepage/compliance-out-of-box.png
   - title: 99.99% Uptime
@@ -78,16 +80,4 @@ assurances:
   - title: Open Standards
     description: SAML, OpenID Connect, and OAuth 2.0 connect you to everything
     image: /img/homepage/standards.png
-
-partners:
-  - name: major league baseball
-    icon: /img/homepage/partners/baseball.png
-  - name: splunk
-    icon: /img/homepage/partners/splunk.png
-  - name: adobe
-    icon: /img/homepage/partners/adobe.png
-  - name: jet-blue
-    icon: /img/homepage/partners/jet-blue.png
-  - name: experian
-    icon: /img/homepage/partners/experian.png
 ---
