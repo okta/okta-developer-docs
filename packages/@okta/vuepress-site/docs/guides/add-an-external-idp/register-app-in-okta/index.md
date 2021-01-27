@@ -1,6 +1,9 @@
 ---
 title: Register an App in Okta
 ---
+
+> **Note:** If you only need to authenticate user into Okta and not have them redirected to a particular OIDC client the IdP configuration would be complete at this point and [routing rules](https://help.okta.com/en/prod/Content/Topics/Security/Identity_Provider_Discovery.htm) have to be set to redirect users from the Okta login page to the correct provider.
+
 You can either use an existing OpenID Connect app or create one. This is the app that consumes the response from the Identity Provider after authentication and authorization. Users that sign in for the first time are created in Okta and are associated with this application.
 
 1. In your Okta org, click **Applications**, and then **Add Application**.
