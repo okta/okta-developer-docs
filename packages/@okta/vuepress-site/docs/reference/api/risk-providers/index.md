@@ -284,7 +284,7 @@ The Risk Provider object has the following properties:
 | `clientId` | String | The ID of the [OAuth service app](https://developer.okta.com/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/) that is used to send risk events to Okta. This is a required field. |
 
 
-#### RiskProvider example
+#### Risk Provider example
 ```
 ```json
 {
