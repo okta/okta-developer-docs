@@ -13,10 +13,10 @@ Explore the Risk Providers API: [![Run in Postman](https://run.pstmn.io/button.s
 ## Risk Providers Operations
 The Risk Providers API has the following CRUD operations:
 
-* [Create RiskProvider](#create-risk provider)
-* [Get a Risk Provider by ID](#get-a-riskprovider)
-* [Update Risk Provider](#update-riskprovider)
-* [Get all Risk Providers](#list-all-riskproviders)
+* [Create Risk Provider](#create-risk-provider)
+* [Get a Risk Provider by ID](#get-a-risk-provider)
+* [Update Risk Provider](#update-risk-provider)
+* [Get all Risk Providers](#list-all-risk-providers)
 
 
 ### Create Risk Provider
@@ -37,11 +37,11 @@ A maximum of 3 providers can be created. By default, one risk provider is create
 
 #### Response body
 
-Returns the created [RiskProvider](#riskprovider-object).
+Returns the created [RiskProvider](#risk-provider-object).
 
 #### Request example
 
-This request creates a RiskProvider object:
+This request creates a Risk Provider object:
 
 ```bash
 curl -X POST \
@@ -79,11 +79,11 @@ curl -X POST \
 }
 ```
 
-### Update RiskProvider
+### Update Risk Provider
 
 <ApiOperation method="put" url="/api/v1/risk/providers/${providerId}" />
 
-Updates a RiskProvider.
+Updates a Risk Provider.
 
 
 #### Request path parameters
@@ -104,7 +104,7 @@ Updates a RiskProvider.
 
 #### Response body
 
-Returns the updated [Risk Provider](#riskprovider-object).
+Returns the updated [Risk Provider](#risk-provider-object).
 
 #### Request example
 
@@ -161,7 +161,7 @@ Fetches a Risk Provider by its `id`.
 
 #### Response body
 
-Returns the requested [RiskProvider](#riskprovider-object).
+Returns the requested [Risk Provider](#risk-provider-object).
 
 #### Request example
 
@@ -208,7 +208,7 @@ Lists all the risk providers
 
 #### Response body
 
-Returns a list of [Risk Providers](#riskprovider-object).
+Returns a list of [Risk Providers](#risk-provider-object).
 
 #### Request example
 
@@ -269,7 +269,7 @@ curl -X GET \
 
 ## Risk Provider objects
 
-### RiskProvider object
+### Risk Provider object
 
 #### Risk Provider properties
 
