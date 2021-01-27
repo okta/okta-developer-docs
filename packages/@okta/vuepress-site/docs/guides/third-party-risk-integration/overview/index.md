@@ -1,10 +1,10 @@
 ---
-title: Overview
+title: Third-Party Risk Provider Integration Overview
 ---
 
 <ApiLifecycle access="beta" /> This is a beta feature guide.
 
-The Okta Risk Engine evaluates authentication attempts by reviewing the risk score of the sign-in based on context and historical data. Using Okta Risk APIs, third-party Risk Providers can now integrate with the Okta Risk Engine using a standard Okta service application. The third-party risk signals from the Risk Provider can be used when calculating the risk based on the risk policy configured in the Okta org, as well as logged as part of the System Log.
+The Okta Risk Engine evaluates authentication attempts by reviewing the risk score of the sign-in based on context and historical data. Using Okta Risk APIs, third-party Risk Providers can integrate with the Okta Risk Engine using a standard Okta service application. The third-party Risk Provider can send risk signals or events, which can be used when calculating the authentication risk based on the risk policy configured in the Okta org. The risk signals are additionally logged as part of the System Log.
 
 This guide provides an example third-party Risk Provider implementation with your Okta org.
 
@@ -20,7 +20,7 @@ To use this guide, you need the following:
 - Download the Risk API Collection:
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1c449b51a4a0adf90198)
 
-### High-level Configurations
+### High-level configurations
 Creating a third-party Risk Provider integration follows the general configurations for creating an OAuth service application using the OAuth client credentials grant flow. The service application provides an integration for the default Risk Provider and the Okta Risk Engine, and Risk Event API calls can test for a successful setup. Follow the high-level steps below to set up an example third-part Risk Provider integration.
 
 1. [Create self-service application for the Risk Provider](/docs/guides/third-party-risk-integration/create-service-app)

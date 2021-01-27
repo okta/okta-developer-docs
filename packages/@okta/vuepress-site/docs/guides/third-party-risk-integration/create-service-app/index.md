@@ -2,7 +2,7 @@
 title: Create a service app for third-party risk provider
 ---
 
-Your Okta org requires the set up of an OAuth service application to integrate and authenticate third-party risk signals from a third-party risk provider.
+Your Okta org requires the set up of an OAuth service application to integrate and consume third-party risk signals from a third-party risk provider.
 
 Use the following high-level steps to configure this service application:
 
