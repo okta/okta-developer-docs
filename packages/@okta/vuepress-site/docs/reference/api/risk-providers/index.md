@@ -19,7 +19,7 @@ The Risk Providers API has the following CRUD operations:
 * [Get all Risk Providers](#list-all-riskproviders)
 
 
-### Create RiskProvider
+### Create Risk Provider
 
 <ApiOperation method="post" url="/api/v1/risk/providers" />
 
