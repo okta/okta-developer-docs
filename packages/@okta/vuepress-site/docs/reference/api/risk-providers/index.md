@@ -267,7 +267,7 @@ curl -X GET \
 ]
 ```
 
-## RiskProvider objects
+## Risk Provider objects
 
 ### RiskProvider object
 
