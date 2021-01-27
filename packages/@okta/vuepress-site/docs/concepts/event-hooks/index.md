@@ -130,7 +130,7 @@ After registering the Event Hook, you need to trigger a one-time verification pr
 
 ### Preview your hook
 
-You can preview the the JSON payload for the Event Hook request from the Admin Console's **Preview** tab, which provides a review of the Event Hook request syntax for the specific Event Type. If verified, the request can be delivered to your external service to make sure it is successfully received. See [Event Hook Preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/event-hooks-preview.htm) for more information.
+You can preview the the JSON payload for the Event Hook request from the Admin Console's **Preview** tab, which provides a review of the Event Hook request syntax for the specific Event Type. The request can be delivered to your external service to make sure it is successfully received. See [Event Hook Preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/event-hooks-preview.htm) for more information.
 
 ## Sample Event Delivery Payload
 
