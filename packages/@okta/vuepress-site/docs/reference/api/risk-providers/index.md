@@ -208,7 +208,7 @@ Lists all the risk providers
 
 #### Response body
 
-Returns a list of [RiskProvider](#riskprovider-object).
+Returns a list of [Risk Providers](#riskprovider-object).
 
 #### Request example
 
