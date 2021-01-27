@@ -8,7 +8,7 @@ category: management
 The Okta Risk Providers API provides the ability to manage the Risk Providers within Okta.
 
 ## Get Started
-Explore the RiskProviders API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6831b9d37e12fe1f3401)
+Explore the Risk Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6831b9d37e12fe1f3401)
 
 ## Risk Providers Operations
 The RiskProviders API has the following CRUD operations:
@@ -294,4 +294,3 @@ The RiskProvider object has the following properties:
     "clientId": "A-Valid-Client-ID"
   }
 ```
-
