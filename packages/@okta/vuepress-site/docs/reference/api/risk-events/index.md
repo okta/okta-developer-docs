@@ -96,7 +96,7 @@ The RiskEvent object has the following properties:
 | `expiresAt` | String | Time stamp at which the event expires (Expressed as a UTC time zone using ISO 8601 format: yyyy-MM-dd'T'HH:mm:ss.SSS'Z'). If this optional field is not included, Okta automatically expires the event 24 hours after the `timestamp`. |
 | `subjects` | List | List of [Risk Subjects](#risksubject-object) |
 
-#### RiskEvent example
+#### Risk Event example
 
 ```json
 {
