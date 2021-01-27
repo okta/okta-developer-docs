@@ -4,9 +4,12 @@ title: Overview
 
 <ApiLifecycle access="beta" /> This is a beta feature guide.
 
-[Overview blurb on Risk Integration, Risk Providers, and Risk Signals, and overall configuration. Discussion on risk authtenticaion and analysis. Okta version and then extension.
+The Okta Risk Engine evaluates authentication attempts by reviewing the risk score of the sign-in based on context and historical data. Using Okta Risk APIs, third-party Risk Providers can now integrate with the Okta Risk Engine using a standard Okta service application. The third-party risk signals from the Risk Provider can be used when calculating the risk based on the risk policy configured in the Okta org, as well as logged as part of the System Log.
 
-This guide provides an example third-party Risk Provider implementation]
+This guide provides an example third-party Risk Provider implementation with your Okta org.
+
+>**Note**: Third Party Partners
+Third party risk signals are received from Non-Okta Applications. You are not required to receive or utilize third party risk signals within Okta Risk Engine, but if you configure Okta Risk Engine to utilize third party risk signals, then you are consenting to Okta receiving and sharing data with the Non-Okta Application as necessary to provide this functionality. You may only utilize these third party risk signals if you are a customer of both Okta and the Non-Okta Application. Okta cannot guarantee continued partnerships or functionality with any Non-Okta Applications.
 
 ### Prerequisites
 To use this guide, you need the following:
@@ -18,16 +21,17 @@ To use this guide, you need the following:
 [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1c449b51a4a0adf90198)
 
 ### High-level Configurations
-Creating a third-party Risk Provider integration follows the general configurations for creating an OAuth service application using the OAuth client credentials grant flow, which can be reviewed in [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/overview/). The service application provides an integration for the default Risk Provider and the Okta Risk Engine, and Risk Event API calls can test for a successful setup. Follow the high-level steps below, documented in the subsequent three sections.
+Creating a third-party Risk Provider integration follows the general configurations for creating an OAuth service application using the OAuth client credentials grant flow. The service application provides an integration for the default Risk Provider and the Okta Risk Engine, and Risk Event API calls can test for a successful setup. Follow the high-level steps below to set up an example third-part Risk Provider integration.
 
-1. Create self-service application for the Risk Provider
-2. Update the default Risk Provider (only three, default name )
-3. Test the integration
-
+1. [Create self-service application for the Risk Provider](/docs/guides/third-party-risk-integration/create-service-app)
+2. [Update the default Risk Provider](/docs/guides/third-party-risk-integration/update-default-provider)
+3. [Test the integration](/docs/guides/third-party-risk-integration/test-integration)
 
 ### See also
-- risk provider api
-- risk events api
-- client credentials flow link
+
+- [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/overview/)
+- [Risk Provider API](/docs/reference/apis/risk-providers)
+- [Risk Events API](/docs/reference/apis/risk-events)]
+- [Risk Scoring and Risk Based Authentication](https://help.okta.com/en/prod/Content/Topics/Security/Security_Risk_Scoring.htm)
 
 <NextSectionLink/>

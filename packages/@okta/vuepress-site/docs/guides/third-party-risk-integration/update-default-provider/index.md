@@ -1,14 +1,16 @@
 ---
 title: Update default third-party risk provider
 ---
-what is happening here?
 
+The Okta org contains a default Risk Provider profile, which must be configured for your third-party risk provider by using the Risk Provider API. On your Okta org, you can have as many as three third-party Risk Providers available to send risk signals to the Okta Risk Engine.
 
-The Risk Provider can have only 3 actions: `none`, `log_only` (default), and `enforce_and_log`.
+Each third-party risk provider can also be configured to send three action types to the Okta Risk Engine: `none`, `log_only` (default), and `enforce_and_log`. In this example, the action is set to `enforce_and_log`, which uses the third-party risk signal when calculating the risk for a sign-in.
 
-For further detail on this API see the following reference documentation: [Risk Provider API](/docs/reference/api/risk-providers).
+For further detail on the Risk Provider API see the following reference documentation: [Risk Provider API](/docs/reference/api/risk-providers).
 
-
+In this example, follow the following two procedures to set up your third-party Risk Provider:
+- [Retrieve Default Risk Provider](/docs/guides/third-party-risk-integration/update-default-provider/#retrieve-default-risk-provider)
+- [Update the Risk Provider ](/docs/guides/third-party-risk-integration/update-default-provider/#update-risk-provider)
 
 ### Retrieve Default Risk Provider
 This procedure retrieves the default Risk Provider profile and Provider ID.
@@ -53,6 +55,7 @@ This procedure updates the default Risk Provider profile with the service applic
     "action": "enforce_and_log"
     }
     ```
+
 2. Review the response from the call to make sure the Risk Provider now contains the required data. A sample response follows:
 
     ```JSON
