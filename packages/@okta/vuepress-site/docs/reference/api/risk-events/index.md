@@ -38,7 +38,7 @@ Http 202 (Accepted) is returned if the request is successful. If there are valid
 
 #### Request example
 
-This request sends RiskEvents to Okta
+This request sends Risk Events to Okta
 
 ```bash
 curl -X POST \
