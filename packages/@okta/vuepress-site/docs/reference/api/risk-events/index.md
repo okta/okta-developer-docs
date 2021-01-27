@@ -24,7 +24,7 @@ A Risk Provider can send Risk Events to Okta using this API.
 
 #### Request body
 
-The request body should include an array of [RiskEvents](#riskevent-object). A maximum of 20 events can be included in a request. Each RiskEvent can include the following properties:
+The request body should include an array of [Risk Events](#riskevent-object). A maximum of 20 events can be included in a request. Each Risk Event can include the following properties:
 
 | Property    | Type           | Description   |
 | ----------- | -------------- | ------------- |
