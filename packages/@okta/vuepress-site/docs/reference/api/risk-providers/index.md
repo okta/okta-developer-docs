@@ -15,7 +15,7 @@ The Risk Providers API has the following CRUD operations:
 
 * [Create RiskProvider](#create-risk provider)
 * [Get a Risk Provider by ID](#get-a-riskprovider)
-* [Update RiskProvider](#update-riskprovider)
+* [Update Risk Provider](#update-riskprovider)
 * [Get all RiskProviders](#list-all-riskproviders)
 
 
