@@ -104,7 +104,7 @@ Updates a RiskProvider.
 
 #### Response body
 
-Returns the updated [RiskProvider](#riskprovider-object).
+Returns the updated [Risk Provider](#riskprovider-object).
 
 #### Request example
 
