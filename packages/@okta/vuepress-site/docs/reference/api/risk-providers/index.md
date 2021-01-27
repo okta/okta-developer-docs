@@ -150,7 +150,7 @@ curl -X POST \
 
 <ApiOperation method="get" url="/api/v1/risk/providers/${providerId}" />
 
-Fetches a RiskProvider by its `id`.
+Fetches a Risk Provider by its `id`.
 
 
 #### Request path parameters
