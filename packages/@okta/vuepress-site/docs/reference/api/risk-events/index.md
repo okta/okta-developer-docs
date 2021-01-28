@@ -1,6 +1,6 @@
 ---
 title: Risk Events
-category: management
+category: beta
 ---
 
 # Risk Events API

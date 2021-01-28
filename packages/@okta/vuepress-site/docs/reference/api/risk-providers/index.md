@@ -1,6 +1,6 @@
 ---
 title: Risk Providers
-category: management
+category: beta
 ---
 
 # Risk Providers API
