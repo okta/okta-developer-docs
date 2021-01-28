@@ -31,7 +31,7 @@ export default {
   data() {
     return {
       widgetCode: `
-// Uses okta-signin-widget version 5.2.0
+// Uses okta-signin-widget version -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
 
 var widget = new OktaSignIn({
   baseUrl: "{{yourOktaDomain}}",
