@@ -25,7 +25,7 @@ The Risk Providers API has the following CRUD operations:
 
 <ApiOperation method="post" url="/api/v1/risk/providers" />
 
-Creates a RiskProvider object.
+Creates a Risk Provider object.
 A maximum of 3 providers can be created. By default, one risk provider is created by Okta.
 
 
