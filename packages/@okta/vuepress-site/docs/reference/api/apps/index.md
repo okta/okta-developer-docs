@@ -1321,6 +1321,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | policy_uri                                  | URL string of a web page providing the client's policy document                                                                                                                                                            | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | post_logout_redirect_uris                               | Array of redirection URI strings for relying party-initiated logouts                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | FALSE       |
 | redirect_uris                               | Array of redirection URI strings for use in redirect-based flows                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | TRUE       |
+| wildcard_redirect <ApiLifecycle access="ea" /> | Indicates if the client is allowed to use wildcard matching of redirect_uris. See [Details](#details) for matching rules.                                                                                                  | String                                                                                         | TRUE       | FALSE    | `DISABLED`, `SUBDOMAIN`. Default value is `SUBDOMAIN`       |
 | response_types                              | Array of OAuth 2.0 response type strings                                                                                                                                                                                   | Array of `code`, `token`, `id_token`                                                           | TRUE       | FALSE    | TRUE       |
 | tos_uri                                     | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | refresh_token <ApiLifecycle access="ea" />  | Refresh token configuration                                                                                                                                                                                                | [Refresh Token object](#refresh-token-object)                                                                                            | TRUE       | FALSE    | TRUE      |
@@ -1331,7 +1332,15 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * At least one redirect URI and response type is required for all client types, with exceptions: if the client uses the [Resource Owner Password](https://tools.ietf.org/html/rfc6749#section-4.3) flow (if `grant_types` contains the value `password`) or [Client Credentials](https://tools.ietf.org/html/rfc6749#section-4.4) flow (if `grant_types` contains the value `client_credentials`) then no redirect URI or response type is necessary. In these cases you can pass either null or an empty array for these attributes.
 
-* All redirect URIs must be absolute URIs and must not include a fragment component.
+* If `wildcard_redirect` is `DISABLED` all redirect URIs must be absolute URIs and must not include a fragment component.
+
+* If `wildcard_redirect` is `SUBDOMAIN` then configured redirect URIs may contain a single `*` character in the lowest-level domain to act as a wildcard. The wildcard subdomain must have at least one subdomain between it and the top level domain.
+
+* The wildcard can match any valid hostname characters and cannot span more than one domain. As an example, if `https://redirect-*-domain.example.com/oidc/redirect` is configured as a redirect URI, then `https://redirect-1-domain.example.com/oidc/redirect` and `https://redirect-sub-domain.example.com/oidc/redirect` will match, but `https://redirect-1.sub-domain.example.com/oidc/redirect` will not match.
+
+* Only the `https` URI scheme can use wildcard redirect URIs.
+
+* The use of wildcard subdomains is discouraged as an insecure practice, since it may allow malicious actors to have tokens or authorization codes sent to unexpected or attacker-controlled pages. Exercise great caution if you decide to include a wildcard redirect URI in your configuration.
 
 * When you create an app using the App Wizard in the UI, and you specify an app logo for the **Application logo** property, that value is stored as the `logo_uri` value and used as the logo on the application's tile for the dashboard as well as the client consent dialog box during the client consent flow. If you add or modify a `logo_uri` value later, that value is used only on the client consent dialog box during the client consent flow.
 
@@ -1370,7 +1379,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
   * The following properties can also be configured in the App Wizard and on the **General** tab in the Admin Console: `tos_uri`, `policy_uri`, and `logo_uri` and can be set using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
   * The `consent_method` property can be configured in the App Wizard and on the **General** tab in the Admin Console, but cannot be set using the Dynamic Client Registration API.
 
-### Idp-Initiated Login object
+##### Idp-Initiated Login object
 
 The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated Login flows that an OAuth Client supports.
 
@@ -1411,6 +1420,7 @@ curl -v -X POST \
           "https://example.com/oauth2/callback",
           "myapp://callback"
         ],
+        "wildcard_redirect": "DISABLED",
         "post_logout_redirect_uris": [
           "https://example.com/oauth2/postLogoutRedirectUri"
         ],
@@ -1494,6 +1504,7 @@ curl -v -X POST \
                 "https://example.com/oauth2/callback",
                 "myapp://callback"
             ],
+            "wildcard_redirect": "DISABLED",	    
             "post_logout_redirect_uris": [
                 "https://example.com/oauth2/postLogoutRedirectUri"
             ],
@@ -1568,6 +1579,7 @@ curl -X POST \
             "redirect_uris": [
                 "https://example.com"
             ],
+            "wildcard_redirect": "DISABLED",
             "response_types": [
                 "code"
             ],
@@ -1659,6 +1671,7 @@ curl -X POST \
             "redirect_uris": [
                 "https://example.com"
             ],
+            "wildcard_redirect": "DISABLED",
             "response_types": [
                 "code"
             ],
@@ -3369,6 +3382,7 @@ curl -v -X PUT \
                 "https://example.com/oauth2/callback",
                 "myapp://callback"
             ],
+            "wildcard_redirect": "DISABLED",
             "post_logout_redirect_uris": [
                 "https://example.com/oauth2/postLogoutRedirectUri"
             ],
@@ -3449,6 +3463,7 @@ curl -v -X PUT \
                 "https://example.com/oauth2/callback",
                 "myapp://callback"
             ],
+            "wildcard_redirect": "DISABLED",
             "post_logout_redirect_uris": [
                 "https://example.com/oauth2/postLogoutRedirectUri"
             ],
