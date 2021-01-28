@@ -2,7 +2,7 @@
 title: Create a service app for third-party risk provider
 ---
 
-Your Okta org requires the set up of an OAuth service application to integrate and consume third-party risk signals from a third-party risk provider.
+Your Okta org requires the set up of an OAuth service application to integrate and consume risk signals from a third-party risk provider.
 
 Use the following high-level steps to configure this service application:
 
@@ -36,22 +36,24 @@ Prior to creating the service application for the third-party risk provider, you
     }
     ```
 4. Copy the **Public Key** JSON value to your Postman environment's `publicKey` variable.
-5. Make sure to save the JSON value for the **Public and Private Key pair**, which is required during testing.
+5. Make sure to save the JSON value for the **Public and Private Keypair**, which is required during testing.
 
 For background information on this process, see [Create a public/private key pair](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair).
 
 ### Create a service application
 Create the service application that integrates with the third-party Risk Provider using the previously generated public key for authentication.
 
-1. Call the following POST API from the Risk Integration Postman collection: **Admin: API to create OAuth service client (for the provider)** (`{{url}}/oauth2/v1/clients`).
+1. Copy the name of your third-party Risk Provider to your Postman environment's `providerName` variable. In this example, use `Risk Provider Example`.
 
-2. Review the response, which includes the `jwks` key pair. Note, the `clint_name` value is the same value you gave to the `providerName` variable. A sample response follows:
+2. Call the following POST API from the Risk Integration Postman collection: **Admin: API to create OAuth service client (for the provider)** (`{{url}}/oauth2/v1/clients`).
+
+3. Review the response, which includes the `jwks` key pair. Note, the `clint_name` value is the same value you gave to the `providerName` variable. A sample response follows:
 
     ```JSON
     {
     "client_id": "0oaaaboyxsbrWdsk81d6",
     "client_id_issued_at": 1611263018,
-    "client_name": "Risk Provider Company",
+    "client_name": "Risk Provider Example",
     "client_uri": null,
     "logo_uri": null,
     "redirect_uris": [
@@ -80,9 +82,9 @@ Create the service application that integrates with the third-party Risk Provide
     }
     ```
 
-3. From the response, copy the `client_id` value, in this example `0oaaaboyxsbrWdsk81d6`, to your Postman environment's `clientId` variable.
+4. From the response, copy the `client_id` value, in this example `0oaaaboyxsbrWdsk81d6`, to your Postman environment's `clientId` variable.
 
-4. Verify the application is available by calling the following GET API from the Risk Integration Postman collection: **Admin: API to get all OAuth service clients** (`{{url}}/oauth2/v1/clients`).
+5. Verify the application is available by calling the following GET API from the Risk Integration Postman collection: **Admin: API to get all OAuth service clients** (`{{url}}/oauth2/v1/clients`).
 
 This call retrieves all service applications from your Okta org, including the new Risk Integration service application.
 

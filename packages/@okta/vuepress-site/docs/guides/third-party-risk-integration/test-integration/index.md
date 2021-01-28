@@ -14,11 +14,11 @@ Use the following high-level steps to test the Risk Provider integration:
 4. [Confirm the response and system log](docs/guides/third-party-risk-integration/test-integration/)
 
 ### Create a client assertion
-This procedure creates a signed JSON Web Token (JWT), which is used as the client assertion value required in the request for a scoped access token (the following step).
+This procedure creates a signed JSON Web Token (JWT), which is used as the client assertion value required in the request for a scoped access token (the following procedure).
 
 1. Navigate to [Generate JWT](https://www.jsonwebtoken.dev/) to create a JWT.
-2. In the **JWK KEY** field, copy the **Public and Private Key pair** generated when creating the service application ([Create a public-private key pair](docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair).)
-3. In the **Payload** field, add the following JSON payload substituting your self-service client ID and your Okta org URL:
+2. In the **JWK KEY** field, copy the **Public and Private Key pair** generated when you created the service application ([Create a public-private key pair](docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair).)
+3. In the **Payload** field, add the following JSON payload, substituting your service application ID (client ID) and your Okta org URL:
 
     ```JSON
     {
@@ -86,4 +86,4 @@ This procedure reviews the Admin Console's System Log to identify the risk signa
 1. Sign in to your Okta org as an administrator.
 2. From the Admin Console, navigate to the System Log (**Reports** > **System Log**).
 3. Review the log file or search for the event `security.risk.signal.consume`, which is logged when a Risk Provider sends a risk signal to Okta.
-4. With a risk action of `enforce_and_log`, and if a risk-based policy is set up, the third-party Risk Provider signal is used when calculating the authentication risk. This information is logged in the `user.session.start` event.
+4. With a risk action of `enforce_and_log`, and a risk-based policy setup, the third-party Risk Provider signal is used when calculating the authentication risk. This information is logged in the `user.session.start` event.
