@@ -301,8 +301,8 @@ module.exports = {
 
   chainWebpack(config) {
     config.module
-      .rule('md')
-      .test(/\.md$/)
+      .rule('string-replacement')
+      .test(/(\.md|\.vue)$/)
       .use('string-replace-loaded')
       .loader('string-replace-loader')
       .options({
@@ -314,7 +314,7 @@ module.exports = {
           WIDGET_VERSION: WIDGET_VERSION,
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
-      })
+      });
   },
 
   evergreen: false,
