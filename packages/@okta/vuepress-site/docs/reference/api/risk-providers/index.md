@@ -110,7 +110,7 @@ Returns the updated [Risk Provider](#risk-provider-object).
 
 #### Request example
 
-This request updates a risk provider
+This request updates a Risk Provider
 
 ```bash
 curl -X POST \
