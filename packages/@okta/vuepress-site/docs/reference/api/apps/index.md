@@ -1332,15 +1332,15 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * At least one redirect URI and response type is required for all client types, with exceptions: if the client uses the [Resource Owner Password](https://tools.ietf.org/html/rfc6749#section-4.3) flow (if `grant_types` contains the value `password`) or [Client Credentials](https://tools.ietf.org/html/rfc6749#section-4.4) flow (if `grant_types` contains the value `client_credentials`) then no redirect URI or response type is necessary. In these cases you can pass either null or an empty array for these attributes.
 
-* If `wildcard_redirect` is `DISABLED` all redirect URIs must be absolute URIs and must not include a fragment component.
+* If `wildcard_redirect` is `DISABLED`, all redirect URIs must be absolute URIs and must not include a fragment component.
 
-* If `wildcard_redirect` is `SUBDOMAIN` then configured redirect URIs may contain a single `*` character in the lowest-level domain to act as a wildcard. The wildcard subdomain must have at least one subdomain between it and the top level domain.
+* If `wildcard_redirect` is `SUBDOMAIN`, then configured redirect URIs may contain a single `*` character in the lowest-level domain to act as a wildcard. The wildcard subdomain must have at least one subdomain between it and the top level domain.
 
-* The wildcard can match any valid hostname characters and cannot span more than one domain. As an example, if `https://redirect-*-domain.example.com/oidc/redirect` is configured as a redirect URI, then `https://redirect-1-domain.example.com/oidc/redirect` and `https://redirect-sub-domain.example.com/oidc/redirect` will match, but `https://redirect-1.sub-domain.example.com/oidc/redirect` will not match.
+* The wildcard can match any valid hostname characters and can't span more than one domain. As an example, if `https://redirect-*-domain.example.com/oidc/redirect` is configured as a redirect URI, then `https://redirect-1-domain.example.com/oidc/redirect` and `https://redirect-sub-domain.example.com/oidc/redirect` match, but `https://redirect-1.sub-domain.example.com/oidc/redirect` won't match.
 
 * Only the `https` URI scheme can use wildcard redirect URIs.
 
-* The use of wildcard subdomains is discouraged as an insecure practice, since it may allow malicious actors to have tokens or authorization codes sent to unexpected or attacker-controlled pages. Exercise great caution if you decide to include a wildcard redirect URI in your configuration.
+> **Caution:** The use of wildcard subdomains is discouraged as an insecure practice, since it may allow malicious actors to have tokens or authorization codes sent to unexpected or attacker-controlled pages. Exercise great caution if you decide to include a wildcard redirect URI in your configuration.
 
 * When you create an app using the App Wizard in the UI, and you specify an app logo for the **Application logo** property, that value is stored as the `logo_uri` value and used as the logo on the application's tile for the dashboard as well as the client consent dialog box during the client consent flow. If you add or modify a `logo_uri` value later, that value is used only on the client consent dialog box during the client consent flow.
 
