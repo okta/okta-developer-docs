@@ -6,6 +6,8 @@ title: Developer Terms
 
 showBreadcrumb: False
 
+heading: Terms
+
 terms:
   - paragraphs:
     - "OKTA DEVELOPER EDITION SUBSCRIPTION AGREEMENT"
