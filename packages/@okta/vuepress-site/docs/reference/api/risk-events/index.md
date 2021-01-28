@@ -89,7 +89,7 @@ HTTP/1.1 202 Accepted
 
 ### Risk Event object
 
-The RiskEvent object has the following properties:
+The Risk Event object has the following properties:
 
 
 | Property    | Type           | Description   |
