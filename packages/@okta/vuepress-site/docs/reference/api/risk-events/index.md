@@ -7,7 +7,7 @@ category: management
 
 <ApiLifecycle access="beta" />
 
-The Okta RiskEvents API provides the ability for RiskProviders to send RiskEvents to Okta.
+The Okta Risk Events API provides the ability for third-party Risk Providers to send Risk Events to Okta.
 
 ## Get Started
 Explore the Risk Events API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1c449b51a4a0adf90198)
