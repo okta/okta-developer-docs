@@ -3,6 +3,8 @@ const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
 const signInWidgetMajorVersion = 5;
 
+const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
+
 module.exports = {
   dest: 'dist',
   theme: "@okta/vuepress-theme-prose",
@@ -22,6 +24,12 @@ module.exports = {
     ['meta', { name: 'msapplication-config',  content: '/favicon/browserconfig.xml' }],
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0'}],
+
+    /*
+     * Okta sign-in widget
+     */
+    ['link', { href: `https://global.oktacdn.com/okta-signin-widget/${WIDGET_VERSION}/css/okta-sign-in.min.css`, type: 'text/css', rel: 'stylesheet'}],
+    ['script', { src: `https://global.oktacdn.com/okta-signin-widget/${WIDGET_VERSION}/js/okta-sign-in.min.js`, type: 'text/javascript'}],
 
     /**
      * Header scripts for typekit, GA, GTM (WIP)
@@ -231,7 +239,7 @@ module.exports = {
       ],
       primary_right_nav: [
         { text: 'Okta.com', target: '_blank', link: 'https://www.okta.com/' },
-        { text: 'Admin Console', target: '_blank', link: 'https://login.okta.com/' },
+        { text: 'Sign in to Okta', target: '_blank', link: '/login/' },
       ],
       primary_doc_nav: [
         { text: 'Guides', link: '/docs/guides/' },
@@ -293,8 +301,8 @@ module.exports = {
 
   chainWebpack(config) {
     config.module
-      .rule('md')
-      .test(/\.md$/)
+      .rule('string-replacement')
+      .test(/(\.md|\.vue)$/)
       .use('string-replace-loaded')
       .loader('string-replace-loader')
       .options({
@@ -303,10 +311,10 @@ module.exports = {
            *
            * Changes WILL require restarting `yarn dev` :(
            */
-          WIDGET_VERSION: findLatestWidgetVersion(signInWidgetMajorVersion), // use major version
+          WIDGET_VERSION: WIDGET_VERSION,
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
-      })
+      });
   },
 
   evergreen: false,

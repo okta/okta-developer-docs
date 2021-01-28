@@ -4,6 +4,7 @@ body {
   font-weight: 400;
   line-height: 1.5;
   font-feature-settings: "lnum","pnum";
+  background-color: cv('brand', 'dark');
 }
 
 .flex {
@@ -63,6 +64,7 @@ body {
 
 .page-body.redesign {
   padding-top: 4.3rem;
+  background-color: white;
 }
 
 a[target='_blank']:not([href^='mailto:'])::after {

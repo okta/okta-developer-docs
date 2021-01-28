@@ -2,21 +2,20 @@ $gray: #d3d2d6;
 $darkGray: #20313b;
 $magenta: #e22866;
 
-.terms {
+.errors {
   background-color: $darkGray;
   color: $gray;
 
-  .terms--container {
+  .errors--container {
     max-width: 668px;
   }
 
-  .terms--leader {
-    margin: 200px 0 100px;
+  .errors--leader {
+    margin: 100px 0 50px;
     flex-grow: 1;
-    text-align: center;
   }
 
-  .terms--text {
+  .errors--text {
     margin: 0 0 100px;
   }
 
@@ -34,14 +33,6 @@ $magenta: #e22866;
     line-height: 48px;
   }
 
-  h3 {
-    color: white;
-    font-size: 24px;
-    font-weight: 500;
-    line-height: 34px;
-    margin-top: 2rem;
-  }
-
   a {
     color: $magenta;
     &:hover {
@@ -51,11 +42,5 @@ $magenta: #e22866;
 
   p {
     max-width: initial;
-  }
-
-  ul {
-    li {
-      margin-bottom: 0.3rem;
-    }
   }
 }

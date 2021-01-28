@@ -79,14 +79,14 @@ export default {
     Footer: () => import("../components/Footer.vue"),
     FooterRedesign: () => import("../components/Footer.redesign.vue"),
     Documentation: () => import("../components/Documentation.vue"),
-    Reference: () => import("../components/Reference.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),
     OktaIntegrationNetwork: () =>
       import("../components/OktaIntegrationNetwork.vue"),
     Search: () => import("../components/Search.redesign.vue"),
     Home: () => import("../components/Home.redesign.vue"),
-    Terms: () => import("../components/Terms.vue")
+    Terms: () => import("../components/Terms.vue"),
+    Errors: () => import("../components/Errors.vue"),
   },
   data() {
     return {
