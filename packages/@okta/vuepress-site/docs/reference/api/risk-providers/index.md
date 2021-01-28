@@ -5,6 +5,8 @@ category: management
 
 # Risk Providers API
 
+<ApiLifecycle access="beta" />
+
 The Okta Risk Providers API provides the ability to manage the Risk Providers within Okta.
 
 ## Get Started

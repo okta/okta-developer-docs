@@ -5,6 +5,8 @@ category: management
 
 # Risk Events API
 
+<ApiLifecycle access="beta" />
+
 The Okta RiskEvents API provides the ability for RiskProviders to send RiskEvents to Okta.
 
 ## Get Started
