@@ -85,7 +85,8 @@ export default {
       import("../components/OktaIntegrationNetwork.vue"),
     Search: () => import("../components/Search.redesign.vue"),
     Home: () => import("../components/Home.redesign.vue"),
-    Terms: () => import("../components/Terms.vue")
+    Terms: () => import("../components/Terms.vue"),
+    Errors: () => import("../components/Errors.vue"),
   },
   data() {
     return {
