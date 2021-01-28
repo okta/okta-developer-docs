@@ -1,10 +1,6 @@
 <template>
   <div class="page-content">
-    <section
-      id="SearchPage"
-      class="CoveoSearchInterface"
-      data-search-page
-    >
+    <section id="SearchPage" class="CoveoSearchInterface" data-search-page>
       <div class="CoveoAnalytics"></div>
       <div class="CoveoFolding"></div>
       <div class="coveo-main-section">
@@ -144,10 +140,8 @@
 export default {
   mounted() {
     import("../util/coveo/init").then(({ initSearchPage }) => {
-      window.addEventListener("load", function(event) {
-        initSearchPage();
-      });
+      initSearchPage();
     });
-  }
+  },
 };
 </script>
