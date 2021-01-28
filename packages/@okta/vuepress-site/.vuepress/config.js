@@ -23,6 +23,12 @@ module.exports = {
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0'}],
 
+    /*
+     * Okta sign-in widget
+     */
+    ['link', { href: 'https://global.oktacdn.com/okta-signin-widget/5.2.0/css/okta-sign-in.min.css', type: 'text/css', rel: 'stylesheet'}],
+    ['script', { src: 'https://global.oktacdn.com/okta-signin-widget/5.2.0/js/okta-sign-in.min.js', type: 'text/javascript'}],
+
     /**
      * Header scripts for typekit, GA, GTM (WIP)
      */
