@@ -147,13 +147,13 @@ Sign in to your Okta developer dashboard and navigate to **Applications** > **Ad
         oktaSignIn.showSignInToGetTokens({
           el: '#okta-login-container'
         }).then(function(tokens) {
-          oktaSignIn.authClient.setTokens(tokens);
-          oktaSignIn.remove();
-
           const idToken = tokens.idToken;
+          oktaSignIn.authClient.tokenManager.add('idToken', idToken);
+          oktaSignIn.remove();
+          
           document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
           document.getElementById("logout").style.display = 'block';
-
+      
         }).catch(function(err) {
           console.error(err);
         });
