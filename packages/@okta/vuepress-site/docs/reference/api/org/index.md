@@ -1,7 +1,4 @@
 
-
-
-
 ---
 title: Org
 category: management
@@ -20,11 +17,11 @@ The Org Setting API has the following CRUD operations:
 * [Get Org Setting](#get-org-setting)
 * [Update Org Setting](#update-org-setting)
 
-### Get Org Setting
+### Get Org settings
 
 <ApiOperation method="get" url="/api/v1/org" />
 
-Gets your Organization's current settings.
+Gets your Org's settings.
 
 #### Request path parameters
 N/A
@@ -107,9 +104,11 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/org" />
 
+<ApiOperation method="post" url="/api/v1/org" />
+
 Updates your Organization's current settings
 
-All org setting properties must be specified when updating an org's profile with a `PUT` method. Any property not specified in the request is deleted.
+All org setting properties must be specified when updating an Org's profile with a `PUT` method. Any property not specified in the request is deleted.
 
 >**Note:**: Don't use `PUT` method for partial updates.
 
@@ -212,7 +211,7 @@ The Org Contact API has the following CRUD operations:
 
 <ApiOperation method="get" url="/api/v1/org/contacts" />
 
-Gets your Organization's Contact Types
+Gets your Org's Contact Types
 
 #### Request path parameters
 N/A
@@ -268,13 +267,13 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/org/contacts/${contactType}" />
 
-Retrieves the specific user of a contact type. 
+Retrieves the URL of the User associated with the specified Contact Type.
 
 #### Request path parameters
 
-| Parameter        | Type                           | Description     |  
-| :--------------- | :----------------------------- | :-------------- | 
-| contactType      | `BILLING`, `TECHNICAL`         | Type of Contact |   
+| Parameter        | Type                           | Description                                              |  
+| :--------------- | :----------------------------- | :------------------------------------------------------- | 
+| `contactType`    | String                         | Type of Contact. Accepted values: `BILLING`, `TECHNICAL` |   
       
 #### Request query parameters
 
@@ -319,13 +318,13 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/org/contacts/${contactType}" />
 
-Updates the user to your Organization's contact of a specific type
+Updates the User associated with the the specified Contact Type.
 
 #### Request path parameters
 
-| Parameter        | Type                           | Description     |  
-| :--------------- | :----------------------------- | :-------------- | 
-| contactType      | `BILLING`, `TECHNICAL`         | Type of Contact |   
+| Parameter        | Type                           | Description                                              |  
+| :--------------- | :----------------------------- | :------------------------------------------------------- | 
+| `contactType`    | String                         | Type of Contact. Accepted values: `BILLING`, `TECHNICAL` |   
       
 #### Request query parameters
 
@@ -333,15 +332,15 @@ N/A
 
 #### Request body 
 
-| Parameter        | Type     | Description     |  
+| Property         | Type     | Description     |  
 | :--------------- | :------- | :-------------- | 
-| userId           | String   | Id of User      |   
+| `userId`         | String   | A User's ID     |   
 
 #### Response body
 
 The [Contact Type](#contact-type-object)
 
-An invalid `id` returns a `404 Not Found` status code.
+An invalid `userId` returns a `404 Not Found` status code.
 
 ```http
 HTTP/1.1 404 Not Found
@@ -407,11 +406,9 @@ N/A
 
 #### Request body
 
-| Parameter        | Description                                            | Param Type  | DataType          | Required  |
-| :--------------- | :----------------------------------------------------- | :---------- | :---------------- | :-------- |
-| file             | File containing logo                                   | Body        | File              | TRUE      |
-
-The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
+| Property | Type | Description                                                                                                                                                                                               |
+|----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `file`   | File | The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling. |
 
 #### Response body
 
@@ -451,7 +448,7 @@ The Org Support API has the following CRUD operations:
 
 <ApiOperation method="get" url="/api/v1/org/privacy/oktaSupport" />
 
-Gets your Organization's Okta Support settings.
+Gets your Org's Okta Support settings.
 
 #### Request path parameters
 
@@ -513,7 +510,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaSupport/grant" />
 
-Grant Okta Support for your organization.
+Enables the option to temporarily allow Okta Support to access your org as an administrator for 8 hours.
 
 #### Request path parameters
 
@@ -576,7 +573,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaSupport/extend" />
 
-Extend Okta Support for your organization, extends expiration by 24 hours. 
+Extend the length of time Okta Support can access to your org by 24 hours. This means 24 hours are added to the remaining access time. 
 
 #### Request path parameters
 
@@ -596,7 +593,7 @@ Fetched [Okta Support Setting](#okta-support-setting-object)
 
 #### Example Usages
 
-The following request would extend Okta Support to the Org for 24 hours.
+The following request would extend Okta Support to the org for 24 hours.
 
 ##### Request Example
 
@@ -639,7 +636,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaSupport/revoke" />
 
-Revoke Okta Support for your organization.
+Revoke Okta Support access to your org.
 
 
 #### Request path parameters
@@ -757,7 +754,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaCommunication/optOut" />
 
-Opts out end users from Okta Communication Emails
+Opts out all users of this org from Okta Communication Emails.
 
 #### Request path parameters
 
@@ -777,7 +774,7 @@ Fetched [Okta Communication Setting](#okta-communication-setting-object)
 
 #### Usage Examples
 
-The following request would opt out of Okta Communication Emails for the end users of the Org. 
+The following request would opt the org's users out of Okta Communication Emails.  
 
 ##### Request 
 
@@ -811,7 +808,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaCommunication/optIn" />
 
-Opts in end users to Okta Communication Emails
+Opts in all of this org's users to Okta Communication Emails.
 
 #### Request path parameters
 
@@ -831,7 +828,7 @@ Fetched [Okta Communication Setting](#okta-communication-setting-object)
 
 #### Usage Examples
 
-The following request would opt in to Okta Communication Emails for the end users of the Org. 
+The following request would opt in all of the Org's Users to Okta Communication Emails.
 
 ##### Request
 
@@ -924,7 +921,7 @@ curl -v -X GET \
 ### Show End User Page Footer
 <ApiOperation method="post" url="/api/v1/org/preferences/showEndUserFooter" />
 
-Show footer for End User Page
+Makes the Okta UI footer visible for all of your org's end users.
 
 #### Request path parameters
 
@@ -976,7 +973,7 @@ curl -v -X POST \
 ### Hide End User Page Footer
 <ApiOperation method="post" url="/api/v1/org/preferences/hideEndUserFooter" />
 
-Hide footer for End User Page
+Hides the Okta UI footer for all of your org's end users.
 
 #### Request path parameters
 
@@ -1034,26 +1031,26 @@ curl -v -X POST \
 
 The Org Setting object defines several properties:
 
-| Property              | Type                                                           | Description                           |
-|-----------------------|----------------------------------------------------------------|---------------------------------------|
-| _links                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object        |
-| address1              | String                                                         | Address1 of Org                       |
-| address2              | String                                                         | Address2 of Org                       |
-| city                  | String                                                         | City of Org                           |
-| country               | String                                                         | County of Org                         |
-| created               | String (ISO-8601)                                              | When Org was Created (Read-only)      |
-| endUserSupportHelpURL | String                                                         | Support Link for Org                  |
-| expiresAt             | String (ISO-8601)                                              | Expiration of Org (Read-only)         |
-| id                    | String                                                         | Id of Org (Read-only)                 |
-| lastUpdated           | String (ISO-8601)                                              | When Org was last Updated (Read-only) |
-| name                  | String                                                         | Name of Org                           |
-| phoneNumber           | String                                                         | Org Phone Number                      |
-| postalCode            | String                                                         | Postal code of Org                    |
-| state                 | String                                                         | State of Org                          |
-| status                | `ACTIVE`, `INACTIVE`                                           | Status of Org                         |
-| subdomain             | String                                                         | Subdomain of Org                      |
-| supportPhoneNumber    | String                                                         | Support Help Phone for Org            |
-| website               | String                                                         | The Org website                       |
+| Property                | Type                                                           | Description                                                         |
+|-------------------------|----------------------------------------------------------------|---------------------------------------------------------------------|
+| `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                      |
+| `address1`              | String                                                         | Primary Address Information of Org                                  |
+| `address2`              | String                                                         | Secondary Address Information of Org                                |
+| `city`                  | String                                                         | City of Org                                                         |
+| `country`               | String                                                         | County of Org                                                       |
+| `created`               | String (ISO-8601)                                              | When Org was Created (Read-only)                                    |
+| `endUserSupportHelpURL` | String                                                         | Support Link for Org                                                |
+| `expiresAt`             | String (ISO-8601)                                              | Expiration of Org (Read-only)                                       |
+| `id`                    | String                                                         | Id of Org (Read-only)                                               |
+| `lastUpdated`           | String (ISO-8601)                                              | When Org was last Updated (Read-only)                               |
+| `name`                  | String                                                         | Name of Org                                                         |
+| `phoneNumber`           | String                                                         | Org Phone Number                                                    |
+| `postalCode`            | String                                                         | Postal code of Org                                                  |
+| `state`                 | String                                                         | State of Org                                                        |
+| `status`                | String                                                         | Status of Org.  Accepted values: `ACTIVE`, `INACTIVE` (Read-only)   |
+| `subdomain`             | String                                                         | Subdomain of Org (Read-only)                                        |
+| `supportPhoneNumber`    | String                                                         | Support Help Phone for Org                                          |
+| `website`               | String                                                         | The Org website                                                     |
 
 
 
@@ -1110,11 +1107,10 @@ The Org Setting object defines several properties:
 
 The Contact Type object defines several properties:
 
-| Property              | Type                                                           | Description                           |
-|-----------------------|----------------------------------------------------------------|---------------------------------------|
-| _links                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object        |
-| contactType           | `BILLING`, `TECHNICAL`                                         | Type of contact                       |
-
+| Property                | Type                                                           | Description                                             |
+|-------------------------|----------------------------------------------------------------|---------------------------------------------------------|
+| `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                          |
+| contactType             | String                                                         | Type of contact. Accepted values: `BILLING`, `TECHNICAL`|
 #### Contact Type example
 ```json
 {
@@ -1133,10 +1129,10 @@ The Contact User Object defines several properties:
 
 #### Contact User Properties
 
-| Property              | Type                                                           | Description                           |
-|-----------------------|----------------------------------------------------------------|---------------------------------------|
-| _links                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object        |
-| userId                | userId                                                         | Id of associated User                 |  
+| Property                | Type                                                           | Description                           |
+|-------------------------|----------------------------------------------------------------|---------------------------------------|
+| `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object        |
+| `userId`                | String                                                         | Id of associated User                 |  
 
 #### Contact Type example
 ```json
@@ -1157,11 +1153,12 @@ The Okta Support Setting object defines several properties:
 
 #### Okta Support Setting Properties
 
-| Property              | Type                                                           | Description                           |
-|-----------------------|----------------------------------------------------------------|---------------------------------------|
-| _links                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object        |
-| expiration            | String (ISO-8601)                                              | Expiration of Okta Support (Nullable) |
-| support               | `ENABLED`, `DISABLED`                                          | Status of Okta Support Setting        |
+| Property                | Type                                                           | Description                                                           |
+|-------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
+| `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                        |
+| `expiration`            | String (ISO-8601)                                              | Expiration of Okta Support (Nullable)                                 |
+| support                 | String                                                         | Status of Okta Support Setting. Accepted values: `ENABLED`, `DISABLED`|
+
 
 #### Okta Support Setting Example 
 ```json
@@ -1195,10 +1192,10 @@ The Okta Communication Setting object defines several properties:
 
 #### Okta Communication Setting Properties
 
-| Property              | Type                                                           | Description                            |
-|-----------------------|----------------------------------------------------------------|--------------------------------------- |
-| _links                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object         |
-| optOutEmailUsers      | Boolean                                                        | End User do not receive Okta Emails    |
+| Property                | Type                                                           | Description                                                     |
+|-------------------------|----------------------------------------------------------------|---------------------------------------------------------------- |
+| `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                  |
+| `optOutEmailUsers`      | Boolean                                                        | Indicates whether org's users receive Okta Communication Emails |
 
 #### Okta Communication Setting Example
 
@@ -1224,10 +1221,10 @@ The Org Preferences object defines several properties:
 
 #### Org Preferences Properties
 
-| Property              | Type                                                           | Description                            |
-|-----------------------|----------------------------------------------------------------|--------------------------------------- |
-| _links                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object         |
-| showEndUserFooter     | Boolean                                                        | Show Footer on End User page           |
+| Property                | Type                                                           | Description                            |
+|-------------------------|----------------------------------------------------------------|--------------------------------------- |
+| `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object         |
+| `showEndUserFooter`     | Boolean                                                        | Show Footer on End User page           |
 
 #### Org Preferences Example
 
