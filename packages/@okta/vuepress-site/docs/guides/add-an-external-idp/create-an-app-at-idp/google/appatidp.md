@@ -4,8 +4,6 @@
 
 1. In the **Authorized redirect URIs** section of the creation wizard, click **ADD URI** to add the Okta redirect URI for your app integration.
 
-    The redirect URI sent in the authorize request from the client needs to match the redirect URI set at the Identity Provider (IdP). This is the URL where the IdP sends the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URI has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and then the callback endpoint.
-
     The redirect URI is the location where the Identity Provider (IdP) sends the authentication response (the access token and the ID token). The URI sent in the authorize request from the client needs to match the redirect URI set at the IdP. The URI needs to be located a secure domain that you own. This URI has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and the callback endpoint.
 
     Paste your redirect URI into the text field.
