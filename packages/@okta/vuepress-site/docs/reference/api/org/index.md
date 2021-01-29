@@ -1034,23 +1034,23 @@ The Org Setting object defines several properties:
 | Property                | Type                                                           | Description                                                         |
 |-------------------------|----------------------------------------------------------------|---------------------------------------------------------------------|
 | `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                      |
-| `address1`              | String                                                         | Primary Address Information of Org                                  |
-| `address2`              | String                                                         | Secondary Address Information of Org                                |
-| `city`                  | String                                                         | City of Org                                                         |
-| `country`               | String                                                         | County of Org                                                       |
-| `created`               | String (ISO-8601)                                              | When Org was Created (Read-only)                                    |
-| `endUserSupportHelpURL` | String                                                         | Support Link for Org                                                |
-| `expiresAt`             | String (ISO-8601)                                              | Expiration of Org (Read-only)                                       |
-| `id`                    | String                                                         | Id of Org (Read-only)                                               |
-| `lastUpdated`           | String (ISO-8601)                                              | When Org was last Updated (Read-only)                               |
-| `name`                  | String                                                         | Name of Org                                                         |
-| `phoneNumber`           | String                                                         | Org Phone Number                                                    |
-| `postalCode`            | String                                                         | Postal code of Org                                                  |
-| `state`                 | String                                                         | State of Org                                                        |
-| `status`                | String                                                         | Status of Org.  Accepted values: `ACTIVE`, `INACTIVE` (Read-only)   |
-| `subdomain`             | String                                                         | Subdomain of Org (Read-only)                                        |
-| `supportPhoneNumber`    | String                                                         | Support Help Phone for Org                                          |
-| `website`               | String                                                         | The Org website                                                     |
+| `address1`              | String                                                         | Primary address information of org                                  |
+| `address2`              | String                                                         | Secondary address information of org                                |
+| `city`                  | String                                                         | City of org                                                         |
+| `country`               | String                                                         | County of org                                                       |
+| `created`               | String (ISO-8601)                                              | When org was created (Read-only)                                    |
+| `endUserSupportHelpURL` | String                                                         | Support Link of org                                                 |
+| `expiresAt`             | String (ISO-8601)                                              | Expiration of org (Read-only)                                       |
+| `id`                    | String                                                         | Id of org (Read-only)                                               |
+| `lastUpdated`           | String (ISO-8601)                                              | When org was last updated (Read-only)                               |
+| `name`                  | String                                                         | Name of org                                                         |
+| `phoneNumber`           | String                                                         | Phone number of org                                                 |
+| `postalCode`            | String                                                         | Postal code of org                                                  |
+| `state`                 | String                                                         | State of org                                                        |
+| `status`                | String                                                         | Status of org.  Accepted values: `ACTIVE`, `INACTIVE` (Read-only)   |
+| `subdomain`             | String                                                         | Subdomain of org (Read-only)                                        |
+| `supportPhoneNumber`    | String                                                         | Support help phone of org                                           |
+| `website`               | String                                                         | The org's website                                                   |
 
 
 
