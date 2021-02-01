@@ -669,7 +669,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/revoke"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
