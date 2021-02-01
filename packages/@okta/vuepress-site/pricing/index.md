@@ -14,7 +14,7 @@ links:
 
 features:
   hiAvailability:
-    name: 99.9% availability
+    name: 99.99% availability
   serviceAssurance:
     name: Service level assurance
   capacity:
