@@ -17,7 +17,7 @@ To use this guide, you need the following:
 - To configure your Okta org for third-party risk providers. Contact your Okta customer support representative for this configuration.
 - A [Postman client](https://www.postman.com/downloads/) to configure and test the risk provider integration. See [Get Started with the Okta APIs](/code/rest/) for information on setting up Postman.
 - Download the Risk API Collection:
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1c449b51a4a0adf90198)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/47546754d382762468c6)
 
 ### High-level configurations
 Creating a third-party risk provider integration follows the general configurations for creating an OAuth service application using the OAuth client credentials grant flow. The service application provides an integration for the default risk provider and the Okta Risk Engine, and Risk Event API calls can test for a successful setup. Follow the high-level steps below to set up an example third-party risk provider integration.
