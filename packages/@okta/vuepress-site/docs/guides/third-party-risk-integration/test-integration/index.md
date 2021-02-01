@@ -4,9 +4,9 @@ title: Test the integration
 
 With the creation of a service application for the third-party risk provider, and the update of the third-party risk provider profile, you can now test the integration using the Risk Events API. In this test, the API sends a sample payload risk signal to the Okta org, which can be consumed by Okta and used to calculate the risk of the authentication.
 
->**Note:** Only IP-related risk signals are available for consumption by the Okta org.
+>**Note:** Only IP-related risk events are available for consumption by the Okta org.
 
-Use the following high-level steps to test the Risk Provider integration:
+Use the following high-level steps to test the risk provider integration:
 
 1. [Create a client assertion for the access token](docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair)
 2. [Create an access token](docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair)
@@ -14,7 +14,7 @@ Use the following high-level steps to test the Risk Provider integration:
 4. [Confirm the response and system log](docs/guides/third-party-risk-integration/test-integration/)
 
 ### Create a client assertion
-This procedure creates a signed JSON Web Token (JWT), which is used as the client assertion value required in the request for a scoped access token (the following procedure).
+This procedure creates a signed JSON Web Token (JWT), which is used as the client assertion value required in the request for a scoped access token.
 
 1. Navigate to [Generate JWT](https://www.jsonwebtoken.dev/) to create a JWT.
 2. In the **JWK KEY** field, copy the **Public and Private Key pair** generated when you created the service application ([Create a public-private key pair](docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair).)
@@ -34,7 +34,7 @@ This procedure creates a signed JSON Web Token (JWT), which is used as the clien
 For further background information on this process, see [Create and sign the JWT](/docs/guides/implement-oauth-for-okta-serviceapp/create-sign-jwt/).
 
 ### Create an access token
-This procedure creates an access token using the `clientAssertion` value required for authentication into the Risk Provider service application.
+This procedure creates an access token using the `clientAssertion` value required for authentication into the risk provider service application.
 
 1. Call the following POST API from the Risk Integration Postman collection: **Partner: API to get the access token** (`{{url}}/oauth2/v1/token`).
 2. Review the response from the call, and copy the `access_token` value to your Postman's `accessToken` environment variable. A sample response follows:
@@ -51,10 +51,10 @@ This procedure creates an access token using the `clientAssertion` value require
 
 For further background information on this process, see [Get an access token](/docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/).
 
-### Send a risk signal to Okta
+### Send a risk event to Okta
 This procedure sends a sample risk signal payload to the Okta org.
 
-1. Call the following POST API from the Risk Integration Postman collection: **Partner: API to send RiskEvents (Auth using access token)** (`{{url}}/api/v1/risk/events/ip`). A sample payload follows, which includes two signals:
+1. Call the following POST API from the Risk Integration Postman collection: **Partner: API to send RiskEvents (Auth using access token)** (`{{url}}/api/v1/risk/events/ip`). A sample payload follows, which includes two events:
 
     ```JSON
     [
@@ -76,7 +76,7 @@ This procedure sends a sample risk signal payload to the Okta org.
     ]
     ```
 
-2. Review the request status of the API call. If the status is `202 Accepted`, the risk signals were consumed by the Okta org.
+2. Review the request status of the API call. If the status is `202 Accepted`, the risk events were consumed by the Okta org.
 
 For reference information on this API, see [Risk Events](/docs/reference/api/risk-events).
 
@@ -85,5 +85,5 @@ This procedure reviews the Admin Console's System Log to identify the risk signa
 
 1. Sign in to your Okta org as an administrator.
 2. From the Admin Console, navigate to the System Log (**Reports** > **System Log**).
-3. Review the log file or search for the event `security.risk.signal.consume`, which is logged when a Risk Provider sends a risk signal to Okta.
-4. With a risk action of `enforce_and_log`, and a risk-based policy setup, the third-party Risk Provider signal is used when calculating the authentication risk. This information is logged in the `user.session.start` event.
+3. Review the log file or search for the event `security.risk.signal.consume`, which is logged when a risk provider sends a risk signal to Okta.
+4. With a risk action of `enforce_and_log`, and a risk-based policy setup, the third-party risk provider signal is used when calculating the authentication risk. This information is logged in the `user.session.start` event.

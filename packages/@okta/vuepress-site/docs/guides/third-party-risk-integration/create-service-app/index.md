@@ -2,7 +2,7 @@
 title: Create a service app for third-party risk provider
 ---
 
-Your Okta org requires the set up of an OAuth service application to integrate and consume risk signals from a third-party risk provider.
+Your Okta org requires the set up of an OAuth service application to integrate and consume risk events from a third-party risk provider.
 
 Use the following high-level steps to configure this service application:
 
@@ -41,9 +41,9 @@ Prior to creating the service application for the third-party risk provider, you
 For background information on this process, see [Create a public/private key pair](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair).
 
 ### Create a service application
-Create the service application that integrates with the third-party Risk Provider using the previously generated public key for authentication.
+Create the service application that integrates with the third-party risk provider using the previously generated public key for authentication.
 
-1. Copy the name of your third-party Risk Provider to your Postman environment's `providerName` variable. In this example, use `Risk Provider Example`.
+1. Copy the name of your third-party risk provider to your Postman environment's `providerName` variable. In this example, use `Risk Provider Example`.
 
 2. Call the following POST API from the Risk Integration Postman collection: **Admin: API to create OAuth service client (for the provider)** (`{{url}}/oauth2/v1/clients`).
 
@@ -91,7 +91,7 @@ This call retrieves all service applications from your Okta org, including the n
 For background information on this process, see [Create a service app and grant scopes](/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/).
 
 ### Add scope grant to application
-You must now define the allowed Risk scope for use with the third-party Risk Provider service application.
+You must now define the allowed Risk scope for use with the third-party risk provider service application.
 
 1. Call the following POST API from the Risk Integration Postman collection: **Admin: API to grant scopes to the OAuth service client** (`{{url}}/api/v1/apps/{{clientId}}/grants`).
 
