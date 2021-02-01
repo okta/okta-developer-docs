@@ -7,6 +7,7 @@ const signInWithButtonLinkText = 'SIGN IN WITH EMAIL';
 const signInWithGithubLinkText = 'CONTINUE WITH GITHUB';
 const signInWithGoogleLinkText = 'CONTINUE WITH GOOGLE';
 const signUpLinkText = 'Sign up';
+const redirectUrl = '/login';
 
 class SignInPage extends BasePage {
   constructor() {
@@ -29,9 +30,9 @@ class SignInPage extends BasePage {
     return this.getGoogleSignInButtonElement().isPresent();
   }
 
-  navigate(url) {
+  navigate() {
     const pageLoadElement = SignInPage.getPageLoadElement();
-    this.load(url, pageLoadElement);
+    this.load(redirectUrl, pageLoadElement);
     this.waitForPresence(pageLoadElement);
   }
 

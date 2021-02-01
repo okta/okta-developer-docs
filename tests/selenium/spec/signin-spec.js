@@ -11,7 +11,7 @@ describe('Sign in page check spec', () => {
   const signInPage = new SignInPage();
 
   beforeEach(util.itHelper(async () => {
-    await signInPage.navigate('/login');
+    await signInPage.navigate();
   }));
 
   it('shows all the buttons', util.itHelper(async () => {

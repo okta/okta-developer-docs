@@ -11,7 +11,7 @@ describe('Sign up page check spec', () => {
   const signUpPage = new SignUpPage();
 
   beforeEach(util.itHelper(async () => {
-    await signUpPage.navigate('/signup');
+    await signUpPage.navigate();
   }));
 
   it('shows all the fields and button', util.itHelper(async () => {
