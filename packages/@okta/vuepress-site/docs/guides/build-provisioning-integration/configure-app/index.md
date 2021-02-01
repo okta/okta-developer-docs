@@ -52,11 +52,11 @@ Click **Edit** to make changes to the following sections.
 
   * **Confirm new users** &mdash; Automates the confirmation or activation of a newly imported user. If this option is selected, you can clear it during import confirmation. Note that this feature doesn't apply to users who already exist in Okta.
 
-* **Profile & Lifecycle Mastering** &mdash; Allows your downstream application to master Okta user profiles. If enabled, your application appears in the list of profile masters on the [Profile Masters](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Masters) page.
+* **Profile & Lifecycle Sourcing** &mdash; Allows your downstream application to be a source for Okta user profiles. If enabled, your application appears in the list of profile sources on the [Profile Sources](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Sources) page.
 
-  * **Allow `<app>` to master Okta users** &mdash; Enables profile mastering and determine what happens when a user is deactivated or reactivated in your application. Only the highest priority profile master for that Okta user can deactivate or suspend an Okta user. To verify the highest priority profile master, check the Profile Masters page for your integration.
+  * **Allow `<app>` to source Okta users** &mdash; Enables profile sourcing and determines what happens when a user is deactivated or reactivated in your application. Only the highest priority profile source for that Okta user can deactivate or suspend an Okta user. To verify the highest priority profile source, check the Profile Sources page for your integration.
 
-  * **When a user is deactivated in the app** &mdash; Select **Do Nothing** to prevent activity in your application from controlling the user life cycle when a user is removed from your application. This option still permits profile master control of attributes and mappings.
+  * **When a user is deactivated in the app** &mdash; Select **Do Nothing** to prevent activity in your application from controlling the user life cycle when a user is removed from your application. This option still permits profile source control of attributes and mappings.
 
     The other options are to deactivate or suspend the Okta user profile if the user is removed from your downstream application.
 
