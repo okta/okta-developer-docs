@@ -10,7 +10,7 @@ category: management
 
 The Okta Org API provides operations to manage your org account settings such as contact information, granting Okta Support access, and more.
 
-## Org Operations
+## Org operations
 
 The Org Setting API has the following CRUD operations:
 
@@ -211,7 +211,7 @@ The Org Contact API has the following CRUD operations:
 
 <ApiOperation method="get" url="/api/v1/org/contacts" />
 
-Gets your Org's Contact Types
+Gets your org's Contact Types
 
 #### Request path parameters
 N/A
@@ -318,7 +318,7 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/org/contacts/${contactType}" />
 
-Updates the User associated with the the specified Contact Type
+Updates the User associated with the specified Contact Type
 
 #### Request path parameters
 
@@ -390,7 +390,7 @@ The Org Logo API has the following CRUD operations:
 
 * [Upload Logo for org](#upload-logo-for-org)
 
-### Upload Logo for Org
+### Upload Logo for org
 
 <ApiOperation method="post" url="/api/v1/org/logo" />
 
@@ -439,7 +439,7 @@ Location: https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUO
 
 The Org Support API has the following CRUD operations:
 
-* [Get Okta Support settings](#get-okta-support-settings)
+* [Get Okta Support Settings](#get-okta-support-settings)
 * [Grant Okta Support](#grant-okta-support)
 * [Extend Okta Support](#extend-okta-support)
 * [Revoke Okta Support Settings](#revoke-okta-support)
@@ -510,7 +510,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaSupport/grant" />
 
-Enables the option to temporarily allow Okta Support to access your org as an administrator for eight hours
+Enables you to temporarily allow Okta Support to access your org as an administrator for eight hours
 
 #### Request path parameters
 
@@ -808,7 +808,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaCommunication/optIn" />
 
-Opts in all of this org's users to Okta Communication emails.
+Opts in all of the org's users to Okta Communication emails.
 
 #### Request path parameters
 
@@ -868,7 +868,7 @@ The Org Preference API has the following CRUD operations:
 ### Get Org Preferences
 <ApiOperation method="get" url="/api/v1/org/preferences" />
 
-Gets your Organization's Preferences. 
+Gets your Organization's Preferences
 
 #### Request path parameters
 
@@ -973,7 +973,7 @@ curl -v -X POST \
 ### Hide end-user page footer
 <ApiOperation method="post" url="/api/v1/org/preferences/hideEndUserFooter" />
 
-Hides the Okta UI footer for all of your org's end-users
+Hides the Okta UI footer for all of your org's end users
 
 #### Request path parameters
 
@@ -1041,7 +1041,7 @@ The Org Setting object defines several properties:
 | `created`               | String (ISO-8601)                                              | When org was created (read-only)                                    |
 | `endUserSupportHelpURL` | String                                                         | Support link of org                                                 |
 | `expiresAt`             | String (ISO-8601)                                              | Expiration of org (read-only)                                       |
-| `id`                    | String                                                         | Id of org (read-only)                                               |
+| `id`                    | String                                                         | ID of org (read-only)                                               |
 | `lastUpdated`           | String (ISO-8601)                                              | When org was last updated (read-only)                               |
 | `name`                  | String                                                         | Name of org                                                         |
 | `phoneNumber`           | String                                                         | Phone number of org                                                 |
