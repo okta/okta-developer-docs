@@ -4,7 +4,7 @@ title: Test the integration
 
 With the creation of a service application for the third-party risk provider, and the update of the third-party risk provider profile, you can now test the integration using the Risk Events API. In this test, the API sends a sample payload risk signal to the Okta org, which can be consumed by Okta and used to calculate the risk of the authentication.
 
->**Note**: Only IP related risk signals are available for consumption by the Okta org.
+>**Note:** Only IP-related risk signals are available for consumption by the Okta org.
 
 Use the following high-level steps to test the Risk Provider integration:
 
