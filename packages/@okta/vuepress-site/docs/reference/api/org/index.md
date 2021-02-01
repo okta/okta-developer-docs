@@ -605,7 +605,7 @@ curl -v -X POST \
 "https://${yourOktaDomain}/api/v1/org/privacy/oktaSupport/extend"
 ```
 
-##### Response Example
+##### Response example
 
 ```json
 {
