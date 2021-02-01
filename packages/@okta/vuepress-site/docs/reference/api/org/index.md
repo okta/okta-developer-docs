@@ -14,14 +14,14 @@ The Okta Org API provides operations to manage your org account settings such as
 
 The Org Setting API has the following CRUD operations:
 
-* [Get Org Setting](#get-org-setting)
-* [Update Org Setting](#update-org-setting)
+* [Get Org Settings](#get-org-settings)
+* [Update Org Settings](#update-org-settings)
 
-### Get Org settings
+### Get Org Settings
 
 <ApiOperation method="get" url="/api/v1/org" />
 
-Gets your Org's settings.
+Gets your Org's Settings
 
 #### Request path parameters
 N/A
@@ -36,9 +36,9 @@ N/A
 
 The [Org Setting](#org-setting-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would return the [Org Setting Object](#org-setting-object)
+The following request returns the [Org Setting object](#org-setting-object).
 
 ##### Request
 
@@ -98,7 +98,7 @@ curl -v -X GET \
     }
 }
 ```
-### Update Org Setting
+### Update Org Settings
 
 > **Note:** Use the `POST` method to make a partial update and the `PUT` method to make a full update.
 
@@ -106,11 +106,11 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/org" />
 
-Updates your Organization's current settings
+Updates your organization's current settings
 
-All org setting properties must be specified when updating an Org's profile with a `PUT` method. Any property not specified in the request is deleted.
+You must specify all Org Setting properties when you update an org's profile with a `PUT` method. Any property not specified in the request is deleted.
 
->**Note:**: Don't use `PUT` method for partial updates.
+> **Note:**: Don't use the `PUT` method for partial updates.
 
 #### Request path parameters
 N/A
@@ -125,9 +125,9 @@ The desired [Org Setting](#org-setting-object)
 
 The applied [Org Setting](#org-setting-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would update the Org with these desired settings.
+The following request updates the org with the requested settings.
 
 ##### Request
 
@@ -198,7 +198,7 @@ curl -v -X PUT \
     }
 }
 ```
-## Org Contact Operations
+## Org Contact operations
 
 The Org Contact API has the following CRUD operations:
 
@@ -226,9 +226,9 @@ N/A
 
 The [Contact Type](#contact-type-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would retrieve the supported Org Contact Types.
+The following request retrieves the supported Org Contact Types.
 
 ##### Request
 
@@ -267,7 +267,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/org/contacts/${contactType}" />
 
-Retrieves the URL of the User associated with the specified Contact Type.
+Retrieves the URL of the User associated with the specified Contact Type
 
 #### Request path parameters
 
@@ -287,9 +287,9 @@ N/A
 
 The [Contact User](#contact-user-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would retrieve the User associated with the given `${contactType}`.
+The following request retrieves the User associated with the given `${contactType}`.
 
 ##### Request
 
@@ -318,7 +318,7 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/org/contacts/${contactType}" />
 
-Updates the User associated with the the specified Contact Type.
+Updates the User associated with the the specified Contact Type
 
 #### Request path parameters
 
@@ -355,9 +355,9 @@ Content-Type: application/json
 }
 ```
 
-#### Usage Examples
+#### Usage examples
 
-The following request would update the User associated with the given `${contactType}`.
+The following request updates the User associated with the given `${contactType}`.
 
 ##### Request 
 
@@ -384,17 +384,17 @@ curl -v -X PUT \
 }
 ```
 
-## Org Logo Operations
+## Org Logo operations
 
 The Org Logo API has the following CRUD operations:
 
-* [Upload Logo for Org](#upload-logo-for-org)
+* [Upload Logo for org](#upload-logo-for-org)
 
 ### Upload Logo for Org
 
 <ApiOperation method="post" url="/api/v1/org/logo" />
 
-Update the logo for your org.
+Updates the logo for your org
 
 #### Request path parameters
 
@@ -408,15 +408,15 @@ N/A
 
 | Property | Type | Description                                                                                                                                                                                               |
 |----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`   | File | The file must be in PNG, JPG, or GIF format, and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling. |
+| `file`   | File | The file must be in PNG, JPG, or GIF format and less than 1 MB in size. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling. |
 
 #### Response body
 
 Returns `201 Created`
 
-#### Usage Examples
+#### Usage examples
 
-The following request would update the Org Logo with the uploaded file. 
+The following request updates the Org Logo with the uploaded file. 
 
 ##### Request 
 
@@ -435,11 +435,11 @@ HTTP/1.1 201 Content Created
 Location: https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUOe0g4
 ```
 
-## Okta Support Operations
+## Okta Support operations
 
 The Org Support API has the following CRUD operations:
 
-* [Get Okta Support Settings](#get-okta-support-settings)
+* [Get Okta Support settings](#get-okta-support-settings)
 * [Grant Okta Support](#grant-okta-support)
 * [Extend Okta Support](#extend-okta-support)
 * [Revoke Okta Support Settings](#revoke-okta-support)
@@ -448,7 +448,7 @@ The Org Support API has the following CRUD operations:
 
 <ApiOperation method="get" url="/api/v1/org/privacy/oktaSupport" />
 
-Gets your Org's Okta Support settings.
+Gets your org's Okta Support Settings
 
 #### Request path parameters
 
@@ -466,9 +466,9 @@ N/A
 
 Fetched [Okta Support Setting](#okta-support-setting-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would retrieve the Org's Support Setting.
+The following request retrieves the org's Support Setting.
 
 ##### Request 
 
@@ -510,7 +510,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaSupport/grant" />
 
-Enables the option to temporarily allow Okta Support to access your org as an administrator for 8 hours.
+Enables the option to temporarily allow Okta Support to access your org as an administrator for eight hours
 
 #### Request path parameters
 
@@ -528,9 +528,9 @@ N/A
 
 Fetched [Okta Support Setting](#okta-support-setting-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would grant Okta Support to the Org.
+The following request grants Okta Support to the org.
 
 ##### Request
 
@@ -573,7 +573,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaSupport/extend" />
 
-Extend the length of time Okta Support can access to your org by 24 hours. This means 24 hours are added to the remaining access time. 
+Extends the length of time that Okta Support can access your org by 24 hours. This means that 24 hours are added to the remaining access time. 
 
 #### Request path parameters
 
@@ -591,11 +591,11 @@ N/A
 
 Fetched [Okta Support Setting](#okta-support-setting-object)
 
-#### Example Usages
+#### Usage examples
 
-The following request would extend Okta Support to the org for 24 hours.
+The following request extends Okta Support to the org for 24 hours.
 
-##### Request Example
+##### Request example
 
 ```
 curl -v -X POST \
@@ -636,7 +636,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaSupport/revoke" />
 
-Revoke Okta Support access to your org.
+Revokes Okta Support access to your org
 
 
 #### Request path parameters
@@ -655,11 +655,11 @@ N/A
 
 Fetched [Okta Support Setting](#okta-support-setting-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would revoke Okta Support to the Org.
+The following request revokes Okta Support to the org.
 
-##### Request Example
+##### Request example
 
 ```
 curl -v -X POST \
@@ -688,19 +688,19 @@ curl -v -X POST \
 }
 ```
 
-## Okta Communication Operations
+## Okta Communication operations
 
 The Org Communication API has the following CRUD operations:
 
 * [Get Okta Communication Settings](#get-okta-communication-settings)
-* [Opt Out of Okta Communications](#opt-out-of-okta-communications)
-* [Opt In to Okta Communications](#opt-in-to-okta-communications)
+* [Opt out of Okta Communications](#opt-out-of-okta-communications)
+* [Opt in to Okta Communications](#opt-in-to-okta-communications)
 
 ### Get Okta Communication Settings
 
 <ApiOperation method="get" url="/api/v1/org/privacy/oktaCommunication" />
 
-Gets your Organization's Okta Communication settings.
+Gets your organization's Okta Communication Settings.
 
 #### Request path parameters
 
@@ -718,9 +718,9 @@ N/A
 
 Fetched [Okta Communication Setting](#okta-communication-setting-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would retrieve the Org's Okta Communication Setting. 
+The following request retrieves the org's Okta Communication Setting. 
 
 ##### Request
 
@@ -750,11 +750,11 @@ curl -v -X GET \
 }
 ```
 
-### Opt Out of Okta Communications
+### Opt out of Okta Communications
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaCommunication/optOut" />
 
-Opts out all users of this org from Okta Communication Emails.
+Opts out all users of this org from Okta Communication emails
 
 #### Request path parameters
 
@@ -772,9 +772,9 @@ N/A
 
 Fetched [Okta Communication Setting](#okta-communication-setting-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would opt the org's users out of Okta Communication Emails.  
+The following request opts the org's users out of Okta Communication emails.  
 
 ##### Request 
 
@@ -804,11 +804,11 @@ curl -v -X POST \
 }
 ```
 
-### Opt In to Okta Communications
+### Opt in to Okta Communications
 
 <ApiOperation method="post" url="/api/v1/org/privacy/oktaCommunication/optIn" />
 
-Opts in all of this org's users to Okta Communication Emails.
+Opts in all of this org's users to Okta Communication emails.
 
 #### Request path parameters
 
@@ -826,9 +826,9 @@ N/A
 
 Fetched [Okta Communication Setting](#okta-communication-setting-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would opt in all of the Org's Users to Okta Communication Emails.
+The following request opts in all of the org's users to Okta Communication emails.
 
 ##### Request
 
@@ -857,13 +857,13 @@ curl -v -X POST \
     }
 }
 ```
-## Org Preference Operations
+## Org Preference operations
 
-The Org Communication API has the following CRUD operations:
+The Org Preference API has the following CRUD operations:
 
 * [Get Org Preferences](#get-org-preferences)
-* [Show End User Page Footer](#show-end-user-page-footer)
-* [Hide End User Page Footer](#hide-end-user-page-footer)
+* [Show end-user page footer](#show-end-user-page-footer)
+* [Hide end-user page footer](#hide-end-user-page-footer)
 
 ### Get Org Preferences
 <ApiOperation method="get" url="/api/v1/org/preferences" />
@@ -886,11 +886,11 @@ N/A
 
 Fetched [Org Preferences](#org-preferences-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would retrieve the Org's Preferences. 
+The following request retrieves the Org Preferences. 
 
-##### Request Example
+##### Request
 
 ```
 curl -v -X GET \
@@ -900,7 +900,7 @@ curl -v -X GET \
 "https://${yourOktaDomain}/api/v1/org/preferences"
 ```
 
-##### Response Example
+##### Response
 
 ```json
 {
@@ -918,10 +918,10 @@ curl -v -X GET \
 }
 ```
 
-### Show End User Page Footer
+### Show end-user page footer
 <ApiOperation method="post" url="/api/v1/org/preferences/showEndUserFooter" />
 
-Makes the Okta UI footer visible for all of your org's end users.
+Makes the Okta UI footer visible for all of your org's end users
 
 #### Request path parameters
 
@@ -939,9 +939,9 @@ N/A
 
 Fetched [Org Preferences](#org-preferences-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would show the footer for the end user page. 
+The following request shows the footer for the end-user page. 
 
 ##### Request 
 ```
@@ -970,10 +970,10 @@ curl -v -X POST \
 }
 ```
 
-### Hide End User Page Footer
+### Hide end-user page footer
 <ApiOperation method="post" url="/api/v1/org/preferences/hideEndUserFooter" />
 
-Hides the Okta UI footer for all of your org's end users.
+Hides the Okta UI footer for all of your org's end-users
 
 #### Request path parameters
 
@@ -991,9 +991,9 @@ N/A
 
 Fetched [Org Preferences](#org-preferences-object)
 
-#### Usage Examples
+#### Usage examples
 
-The following request would hide the footer for the end user page. 
+The following request hides the footer for the end-user page. 
 
 #### Request 
 
@@ -1023,7 +1023,7 @@ curl -v -X POST \
 }
 ```
 
-## Org API Objects
+## Org API objects
 
 ### Org Setting object
 
@@ -1034,21 +1034,21 @@ The Org Setting object defines several properties:
 | Property                | Type                                                           | Description                                                         |
 |-------------------------|----------------------------------------------------------------|---------------------------------------------------------------------|
 | `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                      |
-| `address1`              | String                                                         | Primary address information of org                                  |
-| `address2`              | String                                                         | Secondary address information of org                                |
+| `address1`              | String                                                         | Primary address of org                                  |
+| `address2`              | String                                                         | Secondary address of org                                |
 | `city`                  | String                                                         | City of org                                                         |
 | `country`               | String                                                         | County of org                                                       |
-| `created`               | String (ISO-8601)                                              | When org was created (Read-only)                                    |
-| `endUserSupportHelpURL` | String                                                         | Support Link of org                                                 |
-| `expiresAt`             | String (ISO-8601)                                              | Expiration of org (Read-only)                                       |
-| `id`                    | String                                                         | Id of org (Read-only)                                               |
-| `lastUpdated`           | String (ISO-8601)                                              | When org was last updated (Read-only)                               |
+| `created`               | String (ISO-8601)                                              | When org was created (read-only)                                    |
+| `endUserSupportHelpURL` | String                                                         | Support link of org                                                 |
+| `expiresAt`             | String (ISO-8601)                                              | Expiration of org (read-only)                                       |
+| `id`                    | String                                                         | Id of org (read-only)                                               |
+| `lastUpdated`           | String (ISO-8601)                                              | When org was last updated (read-only)                               |
 | `name`                  | String                                                         | Name of org                                                         |
 | `phoneNumber`           | String                                                         | Phone number of org                                                 |
 | `postalCode`            | String                                                         | Postal code of org                                                  |
 | `state`                 | String                                                         | State of org                                                        |
-| `status`                | String                                                         | Status of org.  Accepted values: `ACTIVE`, `INACTIVE` (Read-only)   |
-| `subdomain`             | String                                                         | Subdomain of org (Read-only)                                        |
+| `status`                | String                                                         | Status of org.  Accepted values: `ACTIVE`, `INACTIVE` (read-only)   |
+| `subdomain`             | String                                                         | Subdomain of org (read-only)                                        |
 | `supportPhoneNumber`    | String                                                         | Support help phone of org                                           |
 | `website`               | String                                                         | The org's website                                                   |
 
@@ -1111,6 +1111,7 @@ The Contact Type object defines several properties:
 |-------------------------|----------------------------------------------------------------|---------------------------------------------------------|
 | `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                          |
 | contactType             | String                                                         | Type of contact. Accepted values: `BILLING`, `TECHNICAL`|
+
 #### Contact Type example
 ```json
 {
@@ -1123,16 +1124,16 @@ The Contact Type object defines several properties:
     } 
 
 ```
-### Contact User Object
+### Contact User object
 
-The Contact User Object defines several properties: 
+The Contact User object defines several properties: 
 
-#### Contact User Properties
+#### Contact User properties
 
 | Property                | Type                                                           | Description                           |
 |-------------------------|----------------------------------------------------------------|---------------------------------------|
 | `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object        |
-| `userId`                | String                                                         | Id of associated User                 |  
+| `userId`                | String                                                         | ID of associated User                 |  
 
 #### Contact Type example
 ```json
@@ -1151,16 +1152,16 @@ The Contact User Object defines several properties:
 
 The Okta Support Setting object defines several properties:
 
-#### Okta Support Setting Properties
+#### Okta Support Setting properties
 
 | Property                | Type                                                           | Description                                                           |
 |-------------------------|----------------------------------------------------------------|-----------------------------------------------------------------------|
 | `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                        |
-| `expiration`            | String (ISO-8601)                                              | Expiration of Okta Support (Nullable)                                 |
+| `expiration`            | String (ISO-8601)                                              | Expiration of Okta Support (nullable)                                 |
 | support                 | String                                                         | Status of Okta Support Setting. Accepted values: `ENABLED`, `DISABLED`|
 
 
-#### Okta Support Setting Example 
+#### Okta Support Setting example 
 ```json
 {
     "support": "ENABLED",
@@ -1190,14 +1191,14 @@ The Okta Support Setting object defines several properties:
 
 The Okta Communication Setting object defines several properties:
 
-#### Okta Communication Setting Properties
+#### Okta Communication Setting properties
 
-| Property                | Type                                                           | Description                                                     |
-|-------------------------|----------------------------------------------------------------|---------------------------------------------------------------- |
-| `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                  |
-| `optOutEmailUsers`      | Boolean                                                        | Indicates whether org's users receive Okta Communication Emails |
+| Property                | Type                                                           | Description                                                         |
+|-------------------------|----------------------------------------------------------------|-------------------------------------------------------------------- |
+| `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                      |
+| `optOutEmailUsers`      | Boolean                                                        | Indicates whether the org's users receive Okta Communication emails |
 
-#### Okta Communication Setting Example
+#### Okta Communication Setting example
 
 ```json
 {
@@ -1224,9 +1225,9 @@ The Org Preferences object defines several properties:
 | Property                | Type                                                           | Description                            |
 |-------------------------|----------------------------------------------------------------|--------------------------------------- |
 | `_links`                | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object         |
-| `showEndUserFooter`     | Boolean                                                        | Show Footer on End User page           |
+| `showEndUserFooter`     | Boolean                                                        | Show footer on end-user page           |
 
-#### Org Preferences Example
+#### Org Preferences example
 
 ```json
 {
