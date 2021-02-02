@@ -1,22 +1,27 @@
 ---
 title: Register an App in Okta
 ---
-You can either use an existing OpenID Connect app or create one. This is the app that consumes the response from the Identity Provider after authentication and authorization. Users that sign in for the first time are created in Okta and are associated with this application.
+You can either use an existing OpenID Connect (OIDC) app integration or create a new one. This is the app that consumes the response from the Identity Provider after authentication and authorization. Users that sign in for the first time are created in Okta and are associated with this app integration.
 
-1. In your Okta org, click **Applications**, and then **Add Application**.
+1. In the Admin Console for your Okta org, click **Applications**.
+1. Click **Add Application**.
 
-2. Select the appropriate platform for your use case, enter a name for your new application, and then click **Next**.
+If you want to add an existing OIDC app integration:
 
-3. Add one or more **Login redirect URIs**. This is where the user is directed after they authenticate with the Identity Provider.
+1. Enter the name of the app integration in the **Search...** text box
+1. On the app integration catalog page, click **Add**.
+1. On the **Assignments** settings tab, you can assign the app integration to any user or group in your org or leave the **Everyone** default. Click **Done**.
+1. On the **Sign On** settings tab, copy the **Client ID** needed to complete the Authorize URL in the next step.
 
-4. Assign the group of your choosing (if you [set Group Assignments](/docs/reference/social-settings/) for your app) or leave the **Everyone** default.
+If you need to create a new OIDC app integration:
 
-5. In the **Grant type allowed** section, enable **Implicit**. Using the [Implicit](/docs/guides/implement-implicit/overview/) flow streamlines authentication by returning tokens without introducing any unnecessary additional steps. It allows you to get an ID token quickly, which makes it easy to test your configuration.
-
+1. Click **Create New App**.
+1. Select the appropriate platform for your external application and select the OpenID Connect sign-on method. Click **Create**.
+1. Enter a label for your new application.
+1. Add one or more **Login redirect URIs**. This is where the user is directed after they authenticate with the Identity Provider.
+1. On the **General** settings tab, copy the **Client ID** from the **Client Credentials** section. You need this ID to complete the Authorize URL in the next section.
+1. Click **Edit** to change the **General Settings** pane. In the **Allowed grant types** section, enable **Implicit**. Using the [Implicit](/docs/guides/implement-implicit/overview/) flow streamlines authentication by returning tokens without introducing additional steps. It allows you to get an ID token quickly, which makes it easy to test your configuration. Click **Save** to confirm your changes.
     > **Note:** The Authorization Code grant flow is also supported.
-
-6. Click **Done**.
-
-7. Scroll to the **Client Credentials** section and copy the client ID that you use to complete the Authorize URL in the next step.
+1. On the **Assignments** settings tab, you can assign the app integration to any user or group in your org or leave the **Everyone** default. Click **Done**.
 
 <NextSectionLink/>
