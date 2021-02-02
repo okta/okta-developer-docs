@@ -326,14 +326,14 @@ module.exports = {
   plugins: {
     'sitemap': {
       hostname: 'https://developer.okta.com',
-      outFile: 'sitemap.xml',
+      outFile: 'docs-sitemap.xml',
       exclude: [
         '/test_page/'
       ]
-    },
+    }, 
     'robots': {
       host: 'https://developer.okta.com',
-      sitemap: '/sitemap.xml',
+      sitemap: '/docs-sitemap.xml',
       policies: [
         {
           userAgent: '*',

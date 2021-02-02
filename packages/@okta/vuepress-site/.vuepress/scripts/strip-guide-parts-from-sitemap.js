@@ -11,7 +11,7 @@ function isValidUrl(url) {
 };
 
 
-const sitemapFilename = path.join('dist','sitemap.xml');
+const sitemapFilename = path.join('dist','docs-sitemap.xml');
 const rawXml = fs.readFileSync( sitemapFilename, 'utf-8');
 
 parser(rawXml)
