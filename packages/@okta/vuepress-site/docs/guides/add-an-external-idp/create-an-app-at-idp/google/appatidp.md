@@ -9,4 +9,4 @@
     Paste your redirect URI into the text field.
 1. Save the generated Client ID and Client Secret values so you can add them to your Okta configuration.
 
-> **Note:** There may be additional settings on the [Google Developers Console](https://console.developers.google.com) site that you can configure for the app. The steps in this guide address the quickest route to setting up Google as an Identity Provider with Okta. See the Google documentation for more information on additional configuration settings.
+> **Note:** There may be additional settings on the [Google Developers Console](https://console.developers.google.com) site that you can configure for your application. The steps in this guide address the quickest route to setting up Google as an Identity Provider with Okta. See the Google documentation for more information on additional configuration settings.

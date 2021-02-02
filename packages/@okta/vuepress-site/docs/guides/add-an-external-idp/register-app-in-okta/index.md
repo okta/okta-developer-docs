@@ -1,7 +1,7 @@
 ---
 title: Register an App in Okta
 ---
-You can either use an existing OpenID Connect app or create one. This is the app that consumes the response from the Identity Provider after authentication and authorization. Users that sign in for the first time are created in Okta and are associated with this application.
+You can either use an existing OpenID Connect app or create one. This is the app that consumes the response from the Identity Provider after authentication and authorization. Users that sign in for the first time are created in Okta and are associated with this app integration.
 
 1. In your Okta org, click **Applications**, and then **Add Application**.
 
