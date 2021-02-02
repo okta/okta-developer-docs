@@ -1,4 +1,3 @@
-
 ---
 title: Org
 category: management
