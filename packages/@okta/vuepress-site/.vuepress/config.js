@@ -330,7 +330,7 @@ module.exports = {
       exclude: [
         '/test_page/'
       ]
-    }, 
+    },
     'robots': {
       host: 'https://developer.okta.com',
       sitemap: '/docs-sitemap.xml',
