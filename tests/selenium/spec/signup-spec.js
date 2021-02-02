@@ -35,6 +35,39 @@ describe('Sign up page check spec', () => {
 
   }));
 
+  it('shows agree checkbox for Canada', util.itHelper(async () => {
+    await signUpPage.getCountryFieldElement().sendKeys("Canada");
+
+    expect(await signUpPage.getAgreeCheckboxElement().getAttribute('style'), 'expects I Agree checkbox to be present').to.equal('');
+  }));
+
+
+  it('shows Province selection for Canada', util.itHelper(async () => {
+    await signUpPage.getCountryFieldElement().sendKeys("Canada");
+
+    expect(await signUpPage.isStateSelectionPresent(), 'expects state selection to be present').to.equal(true);
+  }));
+
+
+  it('shows State selection for United States', util.itHelper(async () => {
+    await signUpPage.getCountryFieldElement().sendKeys("United States");
+
+    expect(await signUpPage.isStateSelectionPresent(), 'expects state selection to be present').to.equal(true);
+  }));
+
+  it('does not shows State selection for Albania', util.itHelper(async () => {
+    await signUpPage.getCountryFieldElement().sendKeys("Albania");
+
+    expect(await signUpPage.isStateSelectionPresent(), 'does not expect state selection to be present').to.equal(false);
+  }));
+
+
+  it('does not shows agree checkbox for United States', util.itHelper(async () => {
+    await signUpPage.getCountryFieldElement().sendKeys("United States");
+
+    expect(await signUpPage.getAgreeCheckboxElement().getAttribute('style'), 'does not expect I Agree checkbox to be present').to.equal('display: none;');
+  }));
+
   describe('verify button clicks', () => {
 
     it('sign up with github button click takes user to github', util.itHelper(async () => {

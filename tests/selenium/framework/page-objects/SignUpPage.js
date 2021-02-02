@@ -13,6 +13,8 @@ const signUpWithGoogleButtonText = 'CONTINUE WITH GOOGLE';
 const signInLinkText = 'Sign in';
 const redirectUrl = '/signup';
 const captchaIFrameXpath = "//*[@for='recaptcha']/div/div/div/iframe";
+const agreeCheckboxDivCss = ".consent--section-agree";
+const stateSelectionId = "state";
 
 class SignUpPage extends BasePage {
   constructor() {
@@ -55,8 +57,8 @@ class SignUpPage extends BasePage {
     return this.getCaptchaIframeElement().isPresent();
   }
 
-  isAgreeCheckboxPresent() {
-    return this.getAgreeCheckboxElement().isPresent();
+  isStateSelectionPresent() {
+    return this.getStateSelectionElement().isPresent();
   }
 
   navigate() {
@@ -87,6 +89,14 @@ class SignUpPage extends BasePage {
 
   getCaptchaIframeElement() {
     return element(by.xpath(captchaIFrameXpath));
+  }
+
+  getAgreeCheckboxElement() {
+    return element(by.css(agreeCheckboxDivCss));
+  }
+
+  getStateSelectionElement() {
+    return element(by.id(stateSelectionId));
   }
 
   getSignInLinkElement() {
