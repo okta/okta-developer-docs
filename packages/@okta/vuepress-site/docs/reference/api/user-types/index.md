@@ -5,7 +5,7 @@ category: management
 
 # User Types API
 
-The User Types API provides operations to manage User Types. See [User Schema API reference](/docs/reference/api/schemas/#user-schema-operations) for information on managing the schemas associated with the User Types.
+The User Types API provides operations to manage User Types. See the [User Schema API reference](/docs/reference/api/schemas/#user-schema-operations) for information on managing the schemas associated with the User Types.
 
 ## Get started
 
@@ -152,9 +152,9 @@ curl -s -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/m
 
 Creates a new User Type. A `default` User Type is automatically created with your org, and you can add another nine User Types for a maximum of 10.
 
-Okta periodically updates the default schema template used for new orgs. New User Types are based on the most up-to-date template. This means the properties that a new User Type is initialized with are not necessarily the same properties that your default type have received.
+Okta periodically updates the default schema template used for new orgs. New User Types are based on the most up-to-date template. This means the properties that a new User Type is initialized with aren't necessarily the same properties that your default type received.
 
->**Note:** If you have modified your default schema, those changes are not going to propagate into this new User Type.
+>**Note:** If you modified your default schema, those changes won't propagate into this new User Type.
 
 ##### Request Parameters
 
@@ -222,7 +222,7 @@ The [User Type](#user-type-object) you want to update
 
 ##### Response parameters
 
-The updated [User Type](#user-type-object)
+The updated [User Types](#user-type-object)
 
 ##### Request example
 
@@ -270,7 +270,7 @@ curl -s -XPUT -H "Content-Type: application/json" -H "Authorization: SSWS ${api_
 
 <ApiOperation method="delete" url="/api/v1/meta/types/user/${typeId}" />
 
-Deletes a User Type permanently. This operation isn't permitted for the default type or for any User Type that has existing users. After a User Type has been deleted, it can't be used as the type for new users, and it no longer counts against the limit of 10 User Types.
+Deletes a User Type permanently. This operation isn't permitted for the default type or for any User Type that has existing users. After you delete a User Type, it can't be used as the type for new users, and it no longer counts against the limit of 10 User Types.
 
 ##### Request parameters
 
@@ -308,7 +308,7 @@ HTTP/1.1 204 No Content
 
 ## Specify the User Type of a new user
 
-The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently, the only key permitted is `id`. The type specification is also added to the [User object](/docs/reference/api/users/#user-object), but after user creation, the type can only be updated by an administrator on a [full replace of an existing user](/docs/reference/api/users/#update-user), not a partial update.
+The [Create User](/docs/reference/api/users/#create-user-with-non-default-user-type) operation accepts a type specification as part of the request body. The specification is a map, but currently the only key permitted is `id`. The type specification is also added to the [User object](/docs/reference/api/users/#user-object), but after user creation, only an administrator can update the type by doing a [full replace of an existing user](/docs/reference/api/users/#update-user), not a partial update.
 
 ##### Example
 
@@ -357,6 +357,6 @@ The User Type object defines several properties:
 | createdBy     | The user ID of the creator of this type           | String                                                         | FALSE    | FALSE  | TRUE     |
 | lastUpdatedBy | The user ID of the last user to edit this type    | String                                                         | FALSE    | FALSE  | TRUE     |
 | default       | Boolean to indicate if this type is the default    | Boolean                                                        | FALSE    | FALSE  | TRUE     |
-| created       | Timestamp that the User Type was created               | String (ISO-8601)                                              | FALSE    | FALSE  | TRUE     |
-| lastUpdated   | Timestamp that the User Type was last updated          | String (ISO-8601)                                              | FALSE    | FALSE  | TRUE     |
+| created       | Timestamp when the User Type was created               | String (ISO-8601)                                              | FALSE    | FALSE  | TRUE     |
+| lastUpdated   | Timestamp when the User Type was last updated          | String (ISO-8601)                                              | FALSE    | FALSE  | TRUE     |
 | _links        | [Link relations](#links-object) for the User Type | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE     | FALSE  | TRUE     |
