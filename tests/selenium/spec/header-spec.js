@@ -11,10 +11,10 @@ describe('header sanity check', () => {
   const mainPage = new MainPage();
 
   beforeEach(util.itHelper(async () => {
-    await mainPage.navigate('/');
+    await mainPage.navigate();
   }));
 
-  it('url link validation', util.itHelper(async () => {
+  it('validate developer okta main page links', util.itHelper(async () => {
     expect(await mainPage.isSignupButtonPresent(), 'expects signup button to be present on header').to.equal(true);
 
     expect(await mainPage.isSignInLinkPresent(), 'expects sign-in link to be present on header').to.equal(true);
@@ -27,7 +27,7 @@ describe('header sanity check', () => {
   }));
 
 
-  describe('url clicks', () => {
+  describe('validate sign up page elements', () => {
     it('sign up button click takes user to sign up page', util.itHelper(async () => {
       await mainPage.getSignUpButtonElement().click();
       expect(await mainPage.getCurrentURL())

@@ -12,6 +12,7 @@ const signUpWithGitHubButtonText = 'CONTINUE WITH GITHUB';
 const signUpWithGoogleButtonText = 'CONTINUE WITH GOOGLE';
 const signInLinkText = 'Sign in';
 const redirectUrl = '/signup';
+const captchaIFrameXpath = "//*[@for='recaptcha']/div/div/div/iframe";
 
 class SignUpPage extends BasePage {
   constructor() {
@@ -31,11 +32,11 @@ class SignUpPage extends BasePage {
   }
 
   isCountryFieldPresent() {
-    return element(by.id(countryFieldId)).isPresent();
+    return this.getCountryFieldElement().isPresent();
   }
 
   isSignUpByEmailButtonPresent() {
-    return element(by.id(signUpByEmailButtonId)).isPresent();
+    return this.getSignUpByEmailButtonElement().isPresent();
   }
 
   isSignUpByGithubButtonPresent() {
@@ -48,6 +49,14 @@ class SignUpPage extends BasePage {
 
   isSignInLinkPresent() {
     return this.getSignInLinkElement().isPresent();
+  }
+
+  isCaptchaPresent() {
+    return this.getCaptchaIframeElement().isPresent();
+  }
+
+  isAgreeCheckboxPresent() {
+    return this.getAgreeCheckboxElement().isPresent();
   }
 
   navigate() {
@@ -66,6 +75,18 @@ class SignUpPage extends BasePage {
 
   getGoogleSignUpButtonElement() {
     return element(by.linkText(signUpWithGoogleButtonText));
+  }
+
+  getSignUpByEmailButtonElement() {
+    return element(by.id(signUpByEmailButtonId));
+  }
+
+  getCountryFieldElement() {
+    return element(by.id(countryFieldId));
+  }
+
+  getCaptchaIframeElement() {
+    return element(by.xpath(captchaIFrameXpath));
   }
 
   getSignInLinkElement() {

@@ -24,7 +24,7 @@ describe('Sign in page check spec', () => {
     expect(await signInPage.isSignUpLinkPresent(), 'expects sign up link to be present').to.equal(true);
   }));
 
-  describe('button clicks check', () => {
+  describe('verify button clicks', () => {
 
     it('sign in with email button click takes user to okta login', util.itHelper(async () => {
       await signInPage.getEmailSignInButtonElement().click();
@@ -50,5 +50,26 @@ describe('Sign in page check spec', () => {
         .to.contain("signup");
     }));
 
+  });
+
+  describe('verify button text', () => {
+
+    it('email sign in button text verification', util.itHelper(async () => {
+      await signInPage.getEmailSignInButtonElement().getText().then((text) => {
+        expect(text, 'button text does not match').to.equal("SIGN IN WITH EMAIL");
+      });
+    }));
+
+    it('github sign in button text verification', util.itHelper(async () => {
+      await signInPage.getGithubSignInButtonElement().getText().then((text) => {
+        expect(text, 'button text does not match').to.equal("CONTINUE WITH GITHUB");
+      });
+    }));
+
+    it('google sign in button text verification', util.itHelper(async () => {
+      await signInPage.getGoogleSignInButtonElement().getText().then((text) => {
+        expect(text, 'button text does not match').to.equal("CONTINUE WITH GOOGLE");
+      });
+    }));
   });
 });

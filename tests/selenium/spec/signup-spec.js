@@ -31,9 +31,11 @@ describe('Sign up page check spec', () => {
 
     expect(await signUpPage.isSignInLinkPresent(), 'expects sign in link to be present').to.equal(true);
 
+    expect(await signUpPage.isCaptchaPresent(), 'expects captcha to be present').to.equal(true);
+
   }));
 
-  describe('button clicks check', () => {
+  describe('verify button clicks', () => {
 
     it('sign up with github button click takes user to github', util.itHelper(async () => {
       await signUpPage.getGithubSignUpButtonElement().click();
@@ -53,5 +55,24 @@ describe('Sign up page check spec', () => {
         .to.contain("login");
     }));
 
+  });
+
+  describe('verify button text', () => {
+
+    it('email signup button text verification', util.itHelper(async () => {
+      expect(await signUpPage.getSignUpByEmailButtonElement().getAttribute('value'), 'button text does not match').to.equal("sign up");
+    }));
+
+    it('github signup button text verification', util.itHelper(async () => {
+      await signUpPage.getGithubSignUpButtonElement().getText().then((text) => {
+        expect(text, 'button text does not match').to.equal("CONTINUE WITH GITHUB");
+      });
+    }));
+
+    it('google signup button text verification', util.itHelper(async () => {
+      await signUpPage.getGoogleSignUpButtonElement().getText().then((text) => {
+        expect(text, 'button text does not match').to.equal("CONTINUE WITH GOOGLE");
+      });
+    }));
   });
 });

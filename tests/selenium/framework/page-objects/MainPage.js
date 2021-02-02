@@ -34,9 +34,9 @@ class MainPage extends BasePage {
     return this.getCommunityLinkElement().isPresent();
   }
 
-  navigate(url) {
+  navigate() {
     const pageLoadElement = MainPage.getPageLoadElement();
-    this.load(url, pageLoadElement);
+    this.load('/', pageLoadElement);
     this.waitForPresence(pageLoadElement);
   }
 
