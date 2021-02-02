@@ -610,3 +610,32 @@ export const reference = [
     ]
   }
 ];
+
+export const releaseNotes = [
+  {
+    title: "Release Notes",
+    subLinks: [
+      { title: "Overview", path: "/docs/release-notes/" },
+      {
+        title: "2021",
+        subLinks: [
+          { title: "January", subLinks: [
+            { title: "2021-01-0", path: "/docs/release-notes/2021/january/2021-01-0/" },
+            { title: "2021-01-1", path: "/docs/release-notes/2021/january/2021-01-1/" }
+          ] },
+          { title: "February", subLinks: [] },
+          { title: "March", subLinks: [] },
+          { title: "April", subLinks: [] },
+          { title: "May", subLinks: [] },
+          { title: "June", subLinks: [] },
+          { title: "July", subLinks: [] },
+          { title: "August", subLinks: [] },
+          { title: "September", subLinks: [] },
+          { title: "October", subLinks: [] },
+          { title: "November", subLinks: [] },
+          { title: "December", subLinks: [] }
+        ]
+      }
+    ]
+  }
+];

@@ -19,7 +19,8 @@ import {
   concepts as conceptsRedesign,
   guides as guidesRedesign,
   languagesSdk as languagesSdkRedesign,
-  reference as referenceRedesign
+  reference as referenceRedesign,
+  releaseNotes as releaseNotesRedesign
 } from "../const/navbar/redesign/navbar.const";
 import {
   concepts,
@@ -98,7 +99,8 @@ export default {
         ...this.getGuides(guidesRedesign),
         ..._.cloneDeep(conceptsRedesign),
         ..._.cloneDeep(referenceRedesign),
-        ..._.cloneDeep(languagesSdkRedesign)
+        ..._.cloneDeep(languagesSdkRedesign),
+        ..._.cloneDeep(releaseNotesRedesign)
       ];
     },
     getNavigation() {
