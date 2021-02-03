@@ -6,9 +6,9 @@ Your Okta org requires the set up of an OAuth service application to integrate a
 
 Use the following high-level steps to configure this service application:
 
-1. [Create a public-private key pair](docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair)
-2. [Create and verify the service application](docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair)
-3. [Add a scope grant to the service application](docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair)
+1. [Create a public-private key pair](/docs/guides/third-party-risk-integration/create-service-app/#create-a-public-private-key-pair)
+2. [Create and verify the service application](/docs/guides/third-party-risk-integration/create-service-app/#create-a-service-application)
+3. [Add a scope grant to the service application](/docs/guides/third-party-risk-integration/create-service-app/#add-scope-grant-to-application)
 
 For background information on this general process, see [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/overview/).
 
@@ -107,6 +107,6 @@ You must now define the allowed Risk scope for use with the third-party risk pro
     },
     ```
 
-For background information on granting scopes, see [Grant allowed scopes](docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/#grant-allowed-scopes).
+For background information on granting scopes, see [Grant allowed scopes](/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/#grant-allowed-scopes).
 
 <NextSectionLink/>
