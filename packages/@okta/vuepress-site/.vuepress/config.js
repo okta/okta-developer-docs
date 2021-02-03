@@ -333,7 +333,7 @@ module.exports = {
     },
     'robots': {
       host: 'https://developer.okta.com',
-      sitemap: '/docs-sitemap.xml',
+      sitemap: '/sitemap_index.xml',
       policies: [
         {
           userAgent: '*',
