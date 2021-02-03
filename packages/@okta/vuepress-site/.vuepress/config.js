@@ -355,7 +355,13 @@ module.exports = {
               '/docs/guides/sign-into-web-app-remediation/handle-remediation/',
               '/docs/guides/sign-into-web-app-remediation/get-tokens/',
               '/docs/guides/sign-into-web-app-remediation/next-steps/',
-              '/docs/reference/api/authenticators-admin/'
+              '/docs/reference/api/authenticators-admin/',
+              '/docs/guides/third-party-risk-integration/overview/', //Beta release of Risk APIs and Guide
+              '/docs/guides/third-party-risk-integration/create-service-app/',
+              '/docs/guides/third-party-risk-integration/update-default-provider/',
+              '/docs/guides/third-party-risk-integration/test-integration/',
+              '/docs/reference/api/risk-providers/',
+              '/docs/reference/api/risk-events/'
           ]
         }
       ]
