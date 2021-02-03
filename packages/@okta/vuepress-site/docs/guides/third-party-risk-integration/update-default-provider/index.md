@@ -2,7 +2,7 @@
 title: Update default third-party risk provider
 ---
 
-The Okta org contains a default risk provider profile, which must be configured for your third-party risk provider by the Okta administrator using the risk provider API. On your Okta org, you can have as many as three third-party risk providers available to send risk events to the Okta Risk Engine.
+The Okta org contains a default risk provider profile, which must be configured for the third-party risk provider by your Okta administrator using the risk provider API. On your Okta org, you can have as many as three third-party risk providers available to send risk events to the Okta Risk Engine.
 
 Each third-party risk provider can also be configured to send three action types to the Okta Risk Engine: `none`, `log_only` (default), and `enforce_and_log`. In this example, the action is set to `enforce_and_log`, which uses the third-party risk event when calculating the risk for a sign-in.
 

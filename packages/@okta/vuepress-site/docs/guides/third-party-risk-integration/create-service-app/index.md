@@ -10,7 +10,7 @@ Use the following high-level steps to configure this service application:
 2. [Create and verify the service application](/docs/guides/third-party-risk-integration/create-service-app/#create-a-service-application)
 3. [Add a scope grant to the service application](/docs/guides/third-party-risk-integration/create-service-app/#add-scope-grant-to-application)
 
-For background information on this general process, see [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/overview/).
+For information on this general process, see [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/overview/).
 
 ### Create a public-private key pair
 Prior to creating the service application for the third-party risk provider, you need to create a public-private key pair for client authentication. Use a tool such as the [JSON Web Key Generator](https://mkjwk.org/) to generate  a public-private key pair for an example setup.
