@@ -1,9 +1,9 @@
 <template>
   <div class="authorization-layout">
     <div class="authorization-layout--header">
-      <a href="/">
-      <img src="/img/icons/okta-developer.svg" alt="Okta Developer Logo"/>
-      </a>
+      <SmartLink :item="{ link: '/' }">
+        <img src="/img/icons/okta-developer.svg" />
+      </SmartLink>
     </div>
 
     <section class="authorization-layout--content">
@@ -11,25 +11,24 @@
     </section>
 
     <div class="authorization-layout--footer">
-      <img src="/img/authorization/bg-image.png" alt="">
+      <img src="/img/authorization/bg-image.png" alt="" />
       <Footer />
     </div>
-
   </div>
 </template>
 
 <script>
-
 export default {
   components: {
-    Footer: () => import('../components/Footer.redesign')
+    Footer: () => import("../components/Footer.redesign"),
+    SmartLink: () => import("../components/SmartLink"),
   },
   mounted: function() {
-       import('../util/pendo');
-  }
-}
+    import("../util/pendo");
+  },
+};
 </script>
 
 <style lang="scss">
-@import '../assets/css/prose';
+@import "../assets/css/prose";
 </style>

@@ -29,7 +29,8 @@
         </div>
       </div>
       <div class="row goto-signup">
-        Need an account? <a href="/signup">Sign up</a>
+        Need an account?
+        <SmartLink :item="{ link: '/signup/' }">Sign up</SmartLink>
       </div>
     </div>
     <div class="logo-wrapper">
@@ -44,7 +45,8 @@ import { getIdpUri } from "../util/uris";
 export default {
   name: "Login",
   components: {
-    CompanyLogos: () => import("../components/CompanyLogos")
+    CompanyLogos: () => import("../components/CompanyLogos"),
+    SmartLink: () => import("../components/SmartLink"),
   },
   computed: {
     uris() {
