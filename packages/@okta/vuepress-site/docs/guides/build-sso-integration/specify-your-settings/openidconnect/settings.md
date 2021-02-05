@@ -25,7 +25,7 @@
   2. (Optional). Enter the **Logout redirect URIs** where Okta redirects the browser after receiving the sign out request from the relying-party and terminating its end-user session. See [Single Logout](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Single_Logout) or the [`/logout` API endpoint](/docs/reference/api/oidc/#logout).
   3. Change the **Login initiated by** field to **Either Okta or App** to give your integration an Okta tile.
       >**Note:** When you select this option, an **App Embed Link** section appears at the bottom of the page with the URL that can be used to sign in to the OIDC client from outside of Okta.
-  4. Check the box for **Display application icon to users**.
+  4. Select **Display application icon to users**.
   5. Select the **Login flow** option. For OIN app integrations, you must select **Redirect to app to initiate login (OIDC Compliant)**.
   6. Enter or change the URI used to initiate the sign-in request.
   7. Click **Save** to commit your changes.
