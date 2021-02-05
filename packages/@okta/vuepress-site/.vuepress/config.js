@@ -34,11 +34,12 @@ module.exports = {
     /**
      * Header scripts for typekit, GA, GTM (WIP)
      */
+    ['script', { async: true, src: '//www.google-analytics.com/analytics.js' }],
     ['script', {}, `
       window.dataLayer = window.dataLayer || [];
 
       var isProduction = window.location.hostname === 'developer.okta.com';
-      if (isProduction) {
+      if (true || isProduction) {
 
         // START Google Tag Manager
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
