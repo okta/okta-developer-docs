@@ -43,20 +43,17 @@ import { stringify } from 'query-string'
       toggleTabs(){
         this.jsTabShown = !this.jsTabShown
       },
-      handleJSchange(e){
-        const newLine = e.split(/\n/).map( el => el.trim())
-        console.log(newLine)
-        const cleared = newLine.filter(el=>
+      makeValidJSON(dirtyJSON){
+        const resultNormalized = []
+        const result = dirtyJSON.split(/\n/).map( el => el.trim())
+          .filter(el=>
            !el.startsWith('//') && el!=='')  
-        const result = cleared
           .map(
             el => el.includes(' /') ? el.slice(0, el.search(' /')).trim() : el )
           .map(
             el => el[el.length-1] == ',' ? el.substring(0, el.length - 1) : el
           )
-        const resultNormalized = []
         result.forEach( (element,index) => {
-          console.log(index)
           if (element.includes(": ")){
            element.split(': ').forEach(
              (elementTransformed, innerIndex) => {
@@ -94,7 +91,10 @@ import { stringify } from 'query-string'
             } else return element
           }
         )
-        this.configJS = JSON.parse(resultCleared.join(""))
+        return JSON.parse(resultCleared.join(""))
+      },
+      handleJSchange(e){
+        this.configJS = this.makeValidJSON(e)
       },
       handleSCSSChange(e){
         this.scssCode = e
