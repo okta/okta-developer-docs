@@ -369,7 +369,7 @@ export default {
             window.dataLayer &&
               window.dataLayer.push({ event: "07_CIAMTrial" });
             // Redirect user to success landing page
-            window.location.assign("/signup/thank-you");
+            window.location.assign("/signup/thank-you/");
           })
           .catch(err => {
             this.handleApiError(err);
