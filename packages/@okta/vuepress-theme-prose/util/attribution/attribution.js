@@ -21,9 +21,9 @@ const allParams = [
 ];
 
 const gaTrackingFieldsMap = {
-  trackingId: "GATRACKID",
-  clientId: "GACLIENTID",
-  userId: "GAUSERID",
+  trackingId: "gaTrackId",
+  clientId: "gaClientId",
+  userId: "gaUserId",
 };
 
 let isAttached = false;
