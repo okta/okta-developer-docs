@@ -268,7 +268,7 @@ import {
   canadianProvinces,
   GDPR_COUNTRIES
 } from "../const/signup.const";
-import setHiddenUtmValues from "../util/attribution/attribution";
+import getAnalyticsValues from "../util/attribution/attribution";
 import { getIdpUri } from "../util/uris";
 
 const CANADA = "Canada";
@@ -479,8 +479,8 @@ export default {
     }
   },
   mounted() {
-    const formElement = document.querySelector("#signupForm");
-    setHiddenUtmValues(formElement);
-  }
+    this.analyticsValues = getAnalyticsValues();
+    console.log(this.analyticsValues);
+  },
 };
 </script>

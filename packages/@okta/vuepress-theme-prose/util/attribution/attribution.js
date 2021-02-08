@@ -20,6 +20,12 @@ const allParams = [
   "utm_term"
 ];
 
+const gaTrackingFieldsMap = {
+  trackingId: "GATRACKID",
+  clientId: "GACLIENTID",
+  userId: "GAUSERID",
+};
+
 let isAttached = false;
 
 function filterParams(params) {
@@ -116,97 +122,35 @@ function getAttribution() {
   };
 }
 
-function setFieldAttribution($form, key, value = {}) {
-  let $fields, fieldExistsInForm;
-
+function setFieldAttribution(analytics, key, value = {}) {
   if ("page" in value) {
-    $fields = [].concat(
-      [].slice.call(document.querySelectorAll(`[name=${key}]`)),
-      [].slice.call(document.querySelectorAll(`[name=${key}__c]`))
-    );
-
-    fieldExistsInForm =
-      $form &&
-      (!!$form.querySelectorAll(`[name=${key}]`).length ||
-        !!$form.querySelectorAll(`[name=${key}__c]`).length);
-
-    $fields.forEach(($el) => {
-      $el.value = value.page;
-    })
-
-    if (!fieldExistsInForm) {
-      let $el = document.createElement("input");
-      $el.type = "hidden";
-      $el.name = `${key}__c`;
-      $el.value = value.page;
-      $form.appendChild($el);
-    }
+    analytics[`${key}__c`] = value.page;
   }
 
   if ("original" in value) {
-    $fields = [].concat(
-      [].slice.call(document.querySelectorAll(`[name=original_${key}]`)),
-      [].slice.call(document.querySelectorAll(`[name=original_${key}__c]`))
-    );
-
-    fieldExistsInForm =
-      $form &&
-      (!!$form.querySelectorAll(`[name=original_${key}]`).length ||
-        !!$form.querySelectorAll(`[name=original_${key}__c]`).length);
-
-    $fields.forEach(($el) => {
-      $el.value = value.original;
-    })
-
-    if (!fieldExistsInForm) {
-      let $el = document.createElement("input");
-      $el.type = "hidden";
-      $el.name = `original_${key}__c`;
-      $el.value = value.original;
-      $form.appendChild($el);
-    }
+    analytics[`original_${key}__c`] = value.page;
   }
 
   if ("session" in value) {
-    $fields = [].concat(
-      [].slice.call(document.querySelectorAll(`[name=session_${key}]`)),
-      [].slice.call(document.querySelectorAll(`[name=session_${key}__c]`))
-    );
-
-    fieldExistsInForm =
-      $form &&
-      (!!$form.querySelectorAll(`[name=session_${key}]`).length ||
-        !!$form.querySelectorAll(`[name=session_${key}__c]`).length);
-
-    $fields.forEach(($el) => {
-      $el.value = value.session;
-    })
-
-    if (!fieldExistsInForm) {
-      let $el = document.createElement("input");
-      $el.type = "hidden";
-      $el.name = `session_${key}__c`;
-      $el.value = value.session;
-      $form.appendChild($el);
-    }
+    analytics[`session_${key}__c`] = value.session;
   }
 }
 
 /**
- * setHiddenUtmValues function.
+ * getAnalyticsValues function.
  *
  * @access public
  * @return void
  */
 
-function setHiddenUtmValues(form) {
+function getAnalyticsValues() {
   onAttach();
 
   const attribution = getAttribution();
+  let paramValues = {};
+  let analytics = {};
 
   if (attribution) {
-    let paramValues;
-
     acceptedParams.forEach((param) => {
       paramValues = {
         page: "",
@@ -226,7 +170,7 @@ function setHiddenUtmValues(form) {
         paramValues.session = attribution.session[param];
       }
 
-      setFieldAttribution(form, param, paramValues);
+      setFieldAttribution(analytics, param, paramValues);
     })
 
     paramValues = {
@@ -237,7 +181,7 @@ function setHiddenUtmValues(form) {
       paramValues.original = attribution.original["utm_date"];
     }
 
-    setFieldAttribution(form, "utm_date", paramValues);
+    setFieldAttribution(analytics, "utm_date", paramValues);
 
     paramValues = {
       page: "",
@@ -257,8 +201,27 @@ function setHiddenUtmValues(form) {
       paramValues.session = attribution.session["utm_page"];
     }
 
-    setFieldAttribution(form, "utm_page", paramValues);
+    setFieldAttribution(analytics, "utm_page", paramValues);
   }
+
+  // Add google analytics tracking data if GA is loaded
+  if (window.ga && typeof window.ga.getAll === 'function') {
+    const tracker = window.ga.getAll()[0] || {
+      get: () => undefined,
+    };
+
+    if (tracker && typeof tracker.get === 'function') {
+      Object.entries(gaTrackingFieldsMap).forEach(([key, field]) => {
+        const values = {
+          page: tracker.get(key),
+        };
+
+        setFieldAttribution(analytics, field, values);
+      });
+    }
+  }
+
+  return analytics;
 }
 
-export default setHiddenUtmValues;
+export default getAnalyticsValues;
