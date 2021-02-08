@@ -206,9 +206,7 @@ function getAnalyticsValues() {
 
   // Add google analytics tracking data if GA is loaded
   if (window.ga && typeof window.ga.getAll === "function") {
-    const tracker = window.ga.getAll()[0] || {
-      get: () => undefined,
-    };
+    const tracker = window.ga.getAll()[0];
 
     if (tracker && typeof tracker.get === "function") {
       Object.entries(gaTrackingFieldsMap).forEach(([key, field]) => {
