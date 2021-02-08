@@ -11,7 +11,7 @@
   code {
     // line breakes single <code> text if it necessary.
     white-space: pre-wrap;       /* css-3 */
-    word-break: break-all
+    word-break: break-word
   }
 
   pre {
@@ -26,7 +26,7 @@
   }
 
   h1, h3 {
-    // white-space: inherit;
+    word-break: break-word;
   }
 
   @include media('>=tablet') {
@@ -112,7 +112,7 @@
 
     a {
       text-decoration: underline;
-      word-break: break-all;
+      word-break: break-word;
     }
 
     .language-tabs a,
