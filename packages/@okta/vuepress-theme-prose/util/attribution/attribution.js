@@ -122,17 +122,36 @@ function getAttribution() {
   };
 }
 
+/**
+ * Very simple form of a function that converts pascal_case strings to camelCase
+ *
+ * @access public
+ * @return String
+ */
+
+function pascalToCamelCase(input = "") {
+  const [first, ...rest] = input.split("_");
+  const cased = rest.map(rest => rest.charAt(0).toUpperCase() + rest.slice(1));
+  return [first, ...cased].join("");
+}
+
 function setFieldAttribution(analytics, key, value = {}) {
   if ("page" in value) {
-    analytics[`${key}__c`] = value.page;
+    const casedKey = pascalToCamelCase(`${key}_C`);
+
+    analytics[casedKey] = value.page;
   }
 
   if ("original" in value) {
-    analytics[`original_${key}__c`] = value.original;
+    const casedKey = pascalToCamelCase(`original_${key}_C`);
+
+    analytics[casedKey] = value.original;
   }
 
   if ("session" in value) {
-    analytics[`session_${key}__c`] = value.session;
+    const casedKey = pascalToCamelCase(`session_${key}_C`);
+
+    analytics[casedKey] = value.session;
   }
 }
 
