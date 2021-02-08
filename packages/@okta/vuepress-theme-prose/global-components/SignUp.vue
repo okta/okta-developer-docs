@@ -353,6 +353,8 @@ export default {
             state: this.form.state.value,
             emailOptInC: this.form.consentAgree.value,
             captchaResponse: this.form.captcha.value,
+            // Merge in analytics tracking data
+            ...this.analyticsValues,
           },
         };
 
@@ -443,7 +445,6 @@ export default {
   },
   mounted() {
     this.analyticsValues = getAnalyticsValues();
-    console.log(this.analyticsValues);
   },
 };
 </script>

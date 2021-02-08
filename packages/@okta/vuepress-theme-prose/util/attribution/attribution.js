@@ -128,7 +128,7 @@ function setFieldAttribution(analytics, key, value = {}) {
   }
 
   if ("original" in value) {
-    analytics[`original_${key}__c`] = value.page;
+    analytics[`original_${key}__c`] = value.original;
   }
 
   if ("session" in value) {
@@ -155,7 +155,7 @@ function getAnalyticsValues() {
       paramValues = {
         page: "",
         original: "",
-        session: ""
+        session: "",
       };
 
       if (param in attribution.page) {
@@ -174,7 +174,7 @@ function getAnalyticsValues() {
     })
 
     paramValues = {
-      original: ""
+      original: "",
     };
 
     if ("utm_date" in attribution.original) {
@@ -186,7 +186,7 @@ function getAnalyticsValues() {
     paramValues = {
       page: "",
       original: "",
-      session: ""
+      session: "",
     };
 
     if ("utm_page" in attribution.page) {
@@ -205,15 +205,15 @@ function getAnalyticsValues() {
   }
 
   // Add google analytics tracking data if GA is loaded
-  if (window.ga && typeof window.ga.getAll === 'function') {
+  if (window.ga && typeof window.ga.getAll === "function") {
     const tracker = window.ga.getAll()[0] || {
       get: () => undefined,
     };
 
-    if (tracker && typeof tracker.get === 'function') {
+    if (tracker && typeof tracker.get === "function") {
       Object.entries(gaTrackingFieldsMap).forEach(([key, field]) => {
         const values = {
-          page: tracker.get(key),
+          page: tracker.get(key) || "",
         };
 
         setFieldAttribution(analytics, field, values);
