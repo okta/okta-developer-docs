@@ -378,8 +378,10 @@ export default {
             country: this.form.country.value,
             state: this.form.state.value,
             emailOptInC: this.form.consentAgree.value,
-            captchaResponse: this.form.captcha.value
-          }
+            captchaResponse: this.form.captcha.value,
+            // Merge in analytics tracking data
+            ...this.analyticsValues,
+          },
         };
 
         if (this.isOie) {
@@ -480,7 +482,6 @@ export default {
   },
   mounted() {
     this.analyticsValues = getAnalyticsValues();
-    console.log(this.analyticsValues);
   },
 };
 </script>
