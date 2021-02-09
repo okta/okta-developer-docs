@@ -5603,11 +5603,11 @@ Updates a Feature object for an application.
 | capabilities   | Capabilites of the feature                  | Body              | [Capabilites Object](#capabilties-object) | TRUE     |
 | name   | Name of the feature                      | URL              | String     | TRUE     |
 
-##### Reponse Parameters
+##### Reponse parameters
 
 Updated [Application Feature](#application-feature-object).
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X PUT \
