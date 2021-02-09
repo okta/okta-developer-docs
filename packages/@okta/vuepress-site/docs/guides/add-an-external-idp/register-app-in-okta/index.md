@@ -12,7 +12,7 @@ If you want to add an existing OIDC app integration:
 1. Enter the name of the app integration in the **Search...** text box
 1. On the catalog page for the app integration, click **Add**.
 1. Enter a label for your copy of this app integration. Click **Done** to add this to your org.
-1. On the **Assignments** settings tab, click **Assign** to assign the app integration to any user or group in your org. Click **Done** when the assignments are complete.
+1. On the **Assignments** tab, click **Assign** to assign the app integration to any user or group in your org. Click **Done** when the assignments are complete.
 
 If you need to create a new OIDC app integration:
 
@@ -23,10 +23,10 @@ If you need to create a new OIDC app integration:
 1. Click **Save**.
 1. Click **Edit** to change the **General Settings** pane. In the **Allowed grant types** section, enable **Implicit**. Using the [Implicit](/docs/guides/implement-implicit/overview/) flow streamlines authentication by returning tokens without introducing additional steps. It allows you to get an ID token quickly, which makes it easy to test your configuration. Click **Save** to confirm your changes.
     > **Note:** The Authorization Code grant flow is also supported.
-1. On the **Assignments** settings tab, click **Assign** to assign the app integration to any user or group in your org. Click **Done** when the assignments are complete.
+1. On the **Assignments** tab, click **Assign** to assign the app integration to any user or group in your org. Click **Done** when the assignments are complete.
 
 To get the client credentials for your app integration:
 
-1. On the **General** settings tab, copy the **Client ID** from the **Client Credentials** section. You need this ID to complete the Authorize URL in the next section.
+1. On the **General** tab, copy the **Client ID** from the **Client Credentials** section. You need this ID to complete the Authorize URL in the next section.
 
 <NextSectionLink/>

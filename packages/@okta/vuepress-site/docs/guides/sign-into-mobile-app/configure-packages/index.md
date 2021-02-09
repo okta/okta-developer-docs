@@ -11,7 +11,7 @@ Next you need to add Okta to your application by installing our SDK.
 
 You need the following values from the Okta app integration and the Admin Console that you worked with in <GuideLink link="../create-okta-application">Create an Okta app integration</GuideLink>:
 
-* **Client ID** &mdash; Find it in the applications list or on the **General** settings tab of your app integration.
+* **Client ID** &mdash; Find it in the applications list or on the **General** tab of your app integration.
 * **Okta Domain** &mdash; Find it on the Admin Console dashboard in the upper-right corner as the **Org URL**.
 
 > **Note:** Your Okta domain is different from your admin domain. Don't include `-admin` in your Okta domain.

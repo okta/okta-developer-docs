@@ -7,7 +7,7 @@ Before you can sign a user in, you need to create an Okta app integration that r
 <a href="https://developer.okta.com/login" target="_blank" class="Button--blue">Go to Admin Console</a>
 
 1. From the Admin Console side navigation, click **Applications** > **Applications**.
-1. Click **Add Application** and click **Create New App**.
+1. Click **Add Application** and then **Create New App**.
 1. Pick **Native** as the platform and click **Create**.
     > **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 1. Enter a name for your app integration (or leave the default value).
