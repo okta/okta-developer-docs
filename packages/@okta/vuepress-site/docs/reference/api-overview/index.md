@@ -111,7 +111,7 @@ Add browser information such as `chrome` or `safari` to the `User-Agent` string.
 
 The public IP address of your application will be automatically used as the client IP address for your request. Okta supports the standard `X-Forwarded-For` HTTP header to forward the originating client's IP address if your application is behind a proxy server or acting as a login portal or gateway.
 
-> **Note:** The public IP address of your trusted web application must be allow listed in your [org's network security settings](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network) as a trusted gateway in order to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Note:** The public IP address of your trusted web application must be listed in your [org's network security settings](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network) as a trusted proxy in order to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ## Accept Language
 
