@@ -109,8 +109,6 @@ When a specific client/IP/device identifier combination exceeds either the 60 re
 
 To configure client-based rate limiting for existing orgs:
 
-> **Note:** The Admin Console is required for these steps. If you see **Developer Console** in the top left of the page, click it and select **Classic UI** to switch.
-
 1. From the Admin Console select **Settings** > **Account**, and then scroll down to the **Client-based rate limiting** section.
 
 2. Select the type of **Rate limit per client** that you want to implement:

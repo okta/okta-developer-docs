@@ -6,8 +6,8 @@ Tokens contain claims that are statements about the subject (for example: name, 
 
 Create ID Token claims for OpenID Connect or access tokens for OAuth 2.0:
 
-1. In the Developer Console, navigate to **API > Authorization Servers**.
-2. Select the name of the authorization server, and then click **Claims**. Okta provides a default subject claim. You can edit the mapping or create your own claims.
+1. In the Admin Console, navigate to **Security > API**.
+2. On the **Authorization Servers** tab, select the name of the authorization server, and then click **Claims**. Okta provides a default subject claim. You can edit the mapping or create your own claims.
 3. Click **Add Claim**, enter a **Name** for the claim, and configure the claim settings:
 
    * **Include in token type** &mdash; Select **Access Token** (OAuth 2.0) or **ID Token** (OpenID Connect). If you choose **ID Token**, you can also define whether you want the claim included only when requested or always included.

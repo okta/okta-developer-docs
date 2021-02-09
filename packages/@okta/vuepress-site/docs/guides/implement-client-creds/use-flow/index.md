@@ -38,19 +38,21 @@ If the credentials are valid, the application receives an access token:
 
 Use this section to Base64 encode the client ID and secret. When you finish encoding, you can then use the encoded client ID and secret in the HTTP Authorization header in the following format: `'authorization: Basic <Base64 encoded client ID and secret>'`
 
-1. From the Developer Console, click **Applications**, select the application that you want to use, and then on the **General** tab, copy the client ID and secret.
+1. From the Admin Console, select **Applications** and then **Applications**.
 
-2. Launch your preferred text editor and then paste the client ID and secret into a new file.
+1. On the **Applications** page, select the application that you want to use, and then on the **General** tab, copy the client ID and secret.
 
-3. Place the client ID and secret on the same line and insert a colon between them: `clientid:clientsecret`
+1. Launch your preferred text editor and then paste the client ID and secret into a new file.
 
-4. Copy the `clientid:clientsecret` line.
+1. Place the client ID and secret on the same line and insert a colon between them: `clientid:clientsecret`
 
-5. Access the [base64encode.org](https://www.base64encode.org/) web site and paste the `clientid:clientsecret` line in the **Encode to Base64 format** box.
+1. Copy the `clientid:clientsecret` line.
 
-6. Leave **UTF-8** as the **Destination character set** and click **Encode**.
+1. Access the [base64encode.org](https://www.base64encode.org/) web site and paste the `clientid:clientsecret` line in the **Encode to Base64 format** box.
 
-7. Copy the encoded line that appears.
+1. Leave **UTF-8** as the **Destination character set** and click **Encode**.
+
+1. Copy the encoded line that appears.
 
 
 To use the command line for Mac and Linux:

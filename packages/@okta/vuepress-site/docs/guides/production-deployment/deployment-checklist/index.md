@@ -38,9 +38,7 @@ Ensure your application fits your brand:
 
 ## Troubleshooting
 
-Okta provides a set of reports and logs to help you troubleshoot user problems. These reports are available in the **Classic UI**.
-
-If the top of your Okta Admin Console says **Developer Console**, click the drop-down box and select **Classic UI**.
+Okta provides a set of reports and logs to help you troubleshoot user problems. These reports are available under the **Reports** menu in the **Admin Console's** side navigation.
 
 * [View activity and security reports](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports): Help diagnose sign-in problems for your users.
 * [View events in the System Log](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports_SysLog): To see a more general log of all events in your Okta organization.

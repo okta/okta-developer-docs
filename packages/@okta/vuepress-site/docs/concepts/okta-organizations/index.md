@@ -29,17 +29,15 @@ Preview orgs allow you to see the next release early and play with Beta features
 
 Production orgs are always a known-stable release, covered by our Software License Agreement, and don't include [Beta](/docs/reference/releases-at-okta/#beta) features. Production orgs include EA features by request and include all features that are GA.
 
-> **Tip:** To verify which type of org you have, look at the footer of any page of your Okta Admin or Developer Console. Preview org footers have the word `Preview` in the cell name (for example: `OP1 Preview Cell (US)`) and include `oktapreview` as part of the org URL (for example: `companyname.oktapreview.com`). Production org don't have production indicators in their URLs or cells.
+> **Tip:** To verify which type of org you have, look at the footer of any page of your Okta Admin. Preview org footers have the word `Preview` in the cell name (for example: `OP1 Preview Cell (US)`) and include `oktapreview` as part of the org URL (for example: `companyname.oktapreview.com`). Production org don't have production indicators in their URLs or cells.
 
 ## Administrator Console
-The Administrator Console (or Admin Console) is where you go to manage your Okta org. The first page that you see when you sign in as an Okta admin is the Dashboard tab. This landing page provides a summary of activity in Okta and your apps. The page also lists notifications of any problems or outstanding work that you need to complete.
-
-There are two views of the Administrator Console available in each org, the Classic UI and the Developer Console. The Developer Console provides you with quick access to your application configuration and API Access Management features. The Classic UI isn't developer-centric, so it presents all the menus and features in the original format. You can change between the Classic UI and the Developer Console using the drop-down menu in the upper-left corner of the page.
+The Administrator Console (or Admin Console) is where you go to manage your Okta org. The first page that you see when you sign in as an Okta admin is the Dashboard tab. This landing page provides a summary of activity in Okta and your apps. The page also lists notifications of any problems or outstanding work that you need to complete. The Admin Console also provides you with quick access to your application configuration and API Access Management features.
 
 ## Cells
 Each Okta org exists in a specific segment (or "cell") of Okta's infrastructure. A cell is a conceptual grouping of Okta's public-facing services and UI for a subset of orgs. Cells are completely independent of each other and of feature redundancy to ensure availability.
 
-> **Tip:** You can locate the cell that your org belongs to by looking at the footer of any page of your Okta Admin or Developer Console.
+> **Tip:** You can locate the cell that your org belongs to by looking at the footer of any page of your Okta Admin.
 
 * `OK` represents a production cell.
 * `EU ` represents a European production cell.

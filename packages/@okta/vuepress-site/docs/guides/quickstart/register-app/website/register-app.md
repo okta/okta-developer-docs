@@ -1,6 +1,6 @@
-In the Developer Console, complete these steps:
+In the Admin Console, complete these steps:
 
-1. Click **Applications**.
+1. Select **Applications > Applications** in the side navigation.
 
 2. Click **Add Application**.
 

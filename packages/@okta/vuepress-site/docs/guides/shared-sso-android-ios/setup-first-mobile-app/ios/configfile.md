@@ -14,8 +14,10 @@ Make the following modifications in the `OktaBrowserSignIn/Okta.plist` file of y
 
 * `redirectUri`: Enter `com.first.sample:/callback` as the value, which is what you defined as the **Login Redirect URI** in the Native app that you created in the <GuideLink link="../configure-oidc-native-apps">last step</GuideLink>. 
 * `clientId`: Enter the Client ID that you copied during the <GuideLink link="../configure-oidc-native-apps">last step</GuideLink>.
-* `issuer`: This is the URL for the authorization server that performs authentication. It's a combination of your Org URL that appears in the upper-right corner of your Okta Org dashboard and `/oauth2/default`.
+* `issuer`: This is the URL for the authorization server that performs authentication. It's a combination of your `Org URL` and `/oauth2/default`.
 
     For example: `https//{yourOrgURL}/oauth2/default`
+
+> **Note:** The `Org URL` can found on the Admin Console's global header in the upper-right corner. Click the section which displays your email and company name.  A drop-down menu will appear and display general org information including the full `Org URL` (e.g. subdomain.okta.com).
 
 * `logoutRedirectUri`: Enter `com.first.sample:/logout` as the value, which is what you defined as the **Logout Redirect URI** in the Native app that you created in the <GuideLink link="../configure-oidc-native-apps">last step</GuideLink>. 

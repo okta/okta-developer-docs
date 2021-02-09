@@ -1,10 +1,10 @@
 ---
 title: Configure the SDK
 ---
-You'll need two values from the Okta application and the Developer Console that you worked with in <GuideLink link="../create-okta-application">Create an Okta application</GuideLink>:
+You'll need two values from the Okta application and the Admin Console that you worked with in <GuideLink link="../create-okta-application">Create an Okta application</GuideLink>:
 
 * **Client ID** &mdash; Find it in the applications list or on the application's **General** tab.
-* **Okta domain** &mdash; Find it on the Developer Console dashboard in the upper-right corner as the **Org URL**.
+* **Okta domain** &mdash; The Okta Domain can be found on the Admin Console's global header in the upper-right corner. Click the section which displays your email and company name.  A drop-down menu will appear and display general org information including the full Okta domain (e.g. subdomain.okta.com).
 
 In your application code, build a config object. This is used to initialize the Okta services with the values specific to your application:
 

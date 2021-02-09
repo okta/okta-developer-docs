@@ -7,7 +7,7 @@ The external service example is now ready with code to receive and respond to an
 To run a test of your Event Hook, go to the Okta sign-in page for your Okta org.
 
 1. Start by going to your Glitch application and opening the log console (**Tools** > **Logs**). Make sure your application is listening for requests.
-2. In your Okta org, sign in as an administrator and create a test user in the Developer Console.
+2. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
     - Navigate to **Directory** > **People**, and click **Add Person**.
     - As an example, add the user John Doe as seen from the [Event Object sample code](/docs/guides/event-hook-implementation/event-object).
 3. For this user, select the User's profile by clicking John Doe's name.

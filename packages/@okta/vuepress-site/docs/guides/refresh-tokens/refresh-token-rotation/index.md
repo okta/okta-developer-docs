@@ -28,19 +28,21 @@ Rotating refresh token behavior is the default for SPAs. When you create a new S
 
 To update existing OpenID Connect applications to use refresh token rotation:
 
-1. From the Developer Console, click **Applications** and then select the application that you want to configure.
-2. Select the **General** tab and click **Edit**.
-3. In the **Allowed grant type** section, select **Refresh Token**.
-4. In the **REFRESH TOKEN** section that appears, select **Rotate token after every use**.
-5. Make any adjustments to the number of seconds for the **Grace period for token rotation**. You can change the value to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
+1. From the Admin Console, click **Applications** and then **Applications**.
+1. Select the application that you want to configure.
+1. Select the **General** tab and click **Edit**.
+1. In the **Allowed grant type** section, select **Refresh Token**.
+1. In the **REFRESH TOKEN** section that appears, select **Rotate token after every use**.
+1. Make any adjustments to the number of seconds for the **Grace period for token rotation**. You can change the value to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
 
 When you create a new native or web app and want to use refresh token rotation:
 
-1. From the Developer Console, click **Applications** and then **Add Application**.
-2. While walking through the app creation wizard, select **Refresh Token** in the **Allowed grant type** section.
-3. After you click **Done**, select the **General** tab and click **Edit**.
-4. In the **REFRESH TOKEN** section, select **Rotate token after every use**.
-5. Make any adjustments to the number of seconds for the **Grace period for token rotation**. The default is set to 30 seconds. You can change the value to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
+1. From the Admin Console, click **Applications** and then **Applications**.
+1. Click **Add Application**.
+1. While walking through the app creation wizard, select **Refresh Token** in the **Allowed grant type** section.
+1. After you click **Done**, select the **General** tab and click **Edit**.
+1. In the **REFRESH TOKEN** section, select **Rotate token after every use**.
+1. Make any adjustments to the number of seconds for the **Grace period for token rotation**. The default is set to 30 seconds. You can change the value to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
 
 ### Refresh token rotation properties
 
