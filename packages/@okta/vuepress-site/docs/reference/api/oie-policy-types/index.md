@@ -263,57 +263,59 @@ curl -v -X GET \
 ##### Response
 
 ```json
-{
-  "id": "rst30qv3igD5OpiL50g7",
-  "name": "My App Assurance Policy",
-  "type": "Okta:SignOn",
-  "status": "ACTIVE",
-  "default": false,
-  "_links": {
-    "mappings": {
-      "href": "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7/mappings",
-      "hints": {
-        "allow": [
-          "GET"
-        ]
-      }
-    },
-    "self": {
-      "href": "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7",
-      "hints": {
-        "allow": [
-          "GET",
-          "PUT",
-          "DELETE"
-        ]
-      }
-    },
-    "rules": {
-      "href": "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7/rules",
-      "hints": {
-        "allow": [
-          "GET"
-        ]
-      }
-    },
-    "deactivate": {
-      "href": "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7/lifecycle/deactivate",
-      "hints": {
-        "allow": [
-          "POST"
-        ]
-      }
-    },
-    "applications": {
-      "href": "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7/app",
-      "hints": {
-        "allow": [
-          "GET"
-        ]
+[
+  {
+    "id": "rst30qv3igD5OpiL50g7",
+    "name": "My App Assurance Policy",
+    "type": "Okta:SignOn",
+    "status": "ACTIVE",
+    "default": false,
+    "_links": {
+      "mappings": {
+        "href": "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7/mappings",
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      "self": {
+        "href": "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7",
+        "hints": {
+          "allow": [
+            "GET",
+            "PUT",
+            "DELETE"
+          ]
+        }
+      },
+      "rules": {
+        "href": "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7/rules",
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
+      },
+      "deactivate": {
+        "href": "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7/lifecycle/deactivate",
+        "hints": {
+          "allow": [
+            "POST"
+          ]
+        }
+      },
+      "applications": {
+        "href": "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7/app",
+        "hints": {
+          "allow": [
+            "GET"
+          ]
+        }
       }
     }
   }
-}
+]
 ```
 
 ### Update a Policy
@@ -633,7 +635,7 @@ curl -v -X POST \
      }
   ],
   "action": "ALLOW",
-  "requirement: [
+  "requirement": {
      "verificationMethod": {
          "type": "ASSURANCE",
          "factorMode": "1FA",
@@ -648,7 +650,7 @@ curl -v -X POST \
          ],
          "reauthenticateIn": "PT1M"
      }
-  ]
+  }
 }' "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7/rules"
 ```
 
