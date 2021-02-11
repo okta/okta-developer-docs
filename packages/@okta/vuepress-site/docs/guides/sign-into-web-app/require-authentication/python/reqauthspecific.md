@@ -51,7 +51,7 @@ def is_authenticated():
     return is_access_token_valid(token, config["issuer"], config["client_id"])
 ```
 
-For both variants you need to define custom `User` model:
+For both variants you need to define a custom `User` model:
 ```py
 from flask_login import UserMixin
 
