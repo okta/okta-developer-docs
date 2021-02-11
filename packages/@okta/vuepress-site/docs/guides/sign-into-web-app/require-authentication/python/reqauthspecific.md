@@ -10,7 +10,7 @@ def profile():
     return render_template("profile.html", user=current_user)
 ```
 
-But first you need to setup LoginManager:
+But first you need to set up LoginManager:
 
 ```py
 from flask_login import LoginManager
