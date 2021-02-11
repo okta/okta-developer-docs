@@ -1,5 +1,5 @@
 ---
-title: Use the Implicit flow
+title: Use the SAML 2. 0 Assertion flow
 ---
 
 Using this flow is very similar to the [authorization code flow](/docs/guides/implement-auth-code/) except that the `response_type` is `token` and/or `id_token` instead of `code`.
@@ -30,5 +30,16 @@ http://localhost:8080/#access_token=eyJhb[...]erw&token_type=Bearer&expires_in=
 ```
 
 Your application must now extract the token(s) from the URI and store them.
+
+- On behalf of a user, your web application attempts to access a resource server hosted on a secure server.
+- The client application obtains a SAML 2.0 assertion from the SAML Identity Provider.
+- The client application requests an access token from the authorization server using the Base64-encoded SAML 2.0 assertion as proof of identity.
+- The authorization server verifies the assertion and passes back an access token.
+- Your application extracts the tokens from the HTTP response body.
+- Your application can now use these tokens to call the resource server (for example, an API) on behalf of the user.
+
+
+	https://roostertailconsulting.oktapreview.com/sso/saml2/0oa9hrd8z4cnbjZW81d6
+
 
 <NextSectionLink>Next Steps</NextSectionLink>
