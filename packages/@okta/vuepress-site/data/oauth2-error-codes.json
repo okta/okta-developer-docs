@@ -1,6 +1,6 @@
 {
-  "release" : "2021.02.1",
-  "build" : "2021.02.1-begin-92-g9c38991a385d",
+  "release" : "2021.02.2",
+  "build" : "2021.02.2-begin-164-ga1fbb9c33f68",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -1002,6 +1002,13 @@
     "internalErrorCode" : "authorize_request_object_invalid_secret_length",
     "errorCode" : "invalid_request_object",
     "errorDescription" : "The JWT signature secret length is too short."
+  }, {
+    "title" : "Invalid request URI",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_request_uri",
+    "errorCode" : "invalid_request_uri",
+    "errorDescription" : "The authorize request uri is invalid."
   }, {
     "title" : "Invalid authorization details request response type",
     "statusCode" : 400,
