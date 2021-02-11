@@ -467,7 +467,6 @@ export const reference = [
       { title: "Linked Objects", path: "/docs/reference/api/linked-objects/" },
       { title: "Mappings", path: "/docs/reference/api/mappings/" },
       { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
-      { title: "Org", path: "/docs/reference/api/org/" },
       { title: "Policy", path: "/docs/reference/api/policy/" },
       { title: "Schemas", path: "/docs/reference/api/schemas/" },
       { title: "Sessions", path: "/docs/reference/api/sessions/" },
