@@ -633,7 +633,7 @@ curl -v -X POST \
      }
   ],
   "action": "ALLOW",
-  "requirement: [
+  "requirement": {
      "verificationMethod": {
          "type": "ASSURANCE",
          "factorMode": "1FA",
@@ -648,7 +648,7 @@ curl -v -X POST \
          ],
          "reauthenticateIn": "PT1M"
      }
-  ]
+  }
 }' "https://${yourOktaDomain}/api/v1/policies/rst30qv3igD5OpiL50g7/rules"
 ```
 
