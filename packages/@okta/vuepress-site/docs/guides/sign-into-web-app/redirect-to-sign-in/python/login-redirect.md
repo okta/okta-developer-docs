@@ -4,7 +4,7 @@ You can give the user a **Sign In** button or link to direct the user to your lo
 <a href="/login">Sign In</a>
 ```
 
-Your login handler will generate the link and redirect the user to Okta:
+Your login handler generates the link and redirects the user to Okta:
 
 ```py
 @app.route("/login")
