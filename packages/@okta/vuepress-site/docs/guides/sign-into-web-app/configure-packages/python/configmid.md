@@ -1,5 +1,5 @@
 Flask samples read the configuration from `client_secrets.json`.
-Add file `client_secrets.json` to the folder with your application which include the following parameters:
+Add the file `client_secrets.json` to the folder with your application that includes the following parameters:
 
 ```bash
 {
