@@ -1,4 +1,4 @@
-For example, you could require authentication for any route by adding decorator `@login_required` from lib flask-login:
+For example, you could require authentication for any route by adding the decorator `@login_required` from lib flask-login:
 
 ```py
 from flask_login import login_required, current_user
