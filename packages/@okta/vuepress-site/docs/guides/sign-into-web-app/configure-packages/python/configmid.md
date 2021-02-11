@@ -13,7 +13,7 @@ Add the file `client_secrets.json` to the folder with your application that incl
 }
 ```
 
-Then you can load config in your application:
+Then you can load the config in your application:
 
 ```py
 import json
