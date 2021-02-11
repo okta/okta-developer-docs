@@ -17,4 +17,4 @@ if not User.get(unique_id):
 login_user(user)
 ```
 
-This step is being performed during [Define a callback step](/docs/guides/sign-into-web-app/python/define-callback/).
+This step is being performed during [Define a callback](/docs/guides/sign-into-web-app/python/define-callback/).
