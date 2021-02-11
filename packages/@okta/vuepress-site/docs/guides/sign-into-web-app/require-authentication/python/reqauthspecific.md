@@ -35,7 +35,7 @@ Sign in is being performed during the [Define a callback step](/docs/guides/sign
 
 You can find more details on sign in and user management in the [Flask-Login docs](https://flask-login.readthedocs.io/en/latest/).
 
-The other possible way to manage users and require authentication is to do everything by hand:
+Another possible way to manage users and require authentication is to do everything manually:
 
 ```py
 @app.route("/profile")
