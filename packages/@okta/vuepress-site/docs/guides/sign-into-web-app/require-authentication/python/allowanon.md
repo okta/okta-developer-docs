@@ -1,1 +1,1 @@
-Allowing anonymous access for a route just means you do not need to include any of the `@login_required` decorator or some middleware in your route.
+Allowing anonymous access for a route means that you don't need to include the `@login_required` decorator or middleware in your route.
