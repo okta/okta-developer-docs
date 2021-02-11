@@ -6,6 +6,7 @@ sections:
 - overview
 - configuration
 - setup-app
+- configure-policy-as
 - use-flow
 - next-steps
 ---

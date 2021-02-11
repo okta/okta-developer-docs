@@ -4,7 +4,9 @@ title: Overview
 
 Use the SAML 2.0 Assertion grant flow to request an access token when a client app wants to use an existing trust relationship without a direct user approval step at the authorization server. For example, this flow is useful when you want to fetch data from APIs that only support delegated permissions without prompting the user for credentials. It enables a client application to reuse an existing authorization by supplying a valid, signed SAML assertion to the OAuth Authorization Server in exchange for an OAuth access token.
 
-To use a SAML 2.0 Assertion as an authorization grant, the client uses an access token request with the `urn:ietf:params:oauth:grant-type:saml2-bearer` grant type and the value of the `assertion` parameter is a single SAML 2.0 assertion (that is base64url encoded).
+To use a SAML 2.0 Assertion as an authorization grant, the client uses an access token request with the `urn:ietf:params:oauth:grant-type:saml2-bearer` grant type and the value of the `assertion` parameter is a single SAML 2.0 assertion that is base64url encoded.
+
+> **Note:** See our [SAML concept page](/docs/concepts/saml/) for more information on SAML.
 
 At a high level, the SAML 2.0 Assertion flow has the following steps:
 
