@@ -6,7 +6,7 @@ def callback():
     # do some stuff
 ```
 
-Then you need to define how the handler works. During this, you exchange the code for an access token and id token.
+Then you need to define how the handler works. You need to exchange the code for an access token and ID token.
 
 ```py
 @app.route("/authorization-code/callback")
