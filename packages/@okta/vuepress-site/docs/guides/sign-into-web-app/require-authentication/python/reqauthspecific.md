@@ -25,7 +25,7 @@ def load_user(user_id):
     return User.get(user_id)
 ```
 
-Users are being logged in and logged out with functions `login_user` and `logout_user`, respectively:
+Users are being signed in and signed out with functions `login_user` and `logout_user`, respectively:
 
 ```py
 from flask_login login_user, logout_user
