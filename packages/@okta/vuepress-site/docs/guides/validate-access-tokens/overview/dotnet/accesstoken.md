@@ -1,6 +1,6 @@
 Although Okta doesn't provide a .Net library for JWT validation, the Microsoft OpenID Connect JWT libraries may be used for this purpose.
 
-This code is taken from [.NET JWT Validation Guide](/code/dotnet/jwt-validation/), please see that page for more details.
+For additional details about the code described here, see [.NET JWT Validation Guide](/code/dotnet/jwt-validation/).
 
 ### Get the signing keys
 
