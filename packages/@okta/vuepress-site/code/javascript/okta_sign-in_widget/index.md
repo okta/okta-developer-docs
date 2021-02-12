@@ -147,7 +147,7 @@ Sign in to your Okta developer dashboard and navigate to **Applications** > **Ad
         oktaSignIn.showSignInToGetTokens({
           el: '#okta-login-container'
         }).then(function(tokens) {
-          oktaSignIn.authClient.setTokens(tokens);
+          oktaSignIn.authClient.tokenManager.setTokens(tokens);
           oktaSignIn.remove();
 
           const idToken = tokens.idToken;

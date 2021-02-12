@@ -28,21 +28,25 @@ Rotating refresh token behavior is the default for SPAs. When you create a new S
 
 To update existing OpenID Connect applications to use refresh token rotation:
 
-1. From the Admin Console, click **Applications** and then **Applications**.
-1. Select the application that you want to configure.
-1. Select the **General** tab and click **Edit**.
-1. In the **Allowed grant type** section, select **Refresh Token**.
-1. In the **REFRESH TOKEN** section that appears, select **Rotate token after every use**.
-1. Make any adjustments to the number of seconds for the **Grace period for token rotation**. You can change the value to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
+1. Sign in to your Okta organization with your administrator account.
+1. From the Admin Console side navigation, click **Applications** > **Applications**.
+1. Select the app integration that you want to configure.
+1. On the **General** tab, click **Edit** in the **General Settings** section.
+1. In the **Allowed grant types** section, select **Refresh Token**.
+1. In the **Refresh Token** section, select **Rotate token after every use**.
+1. The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can change the value to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
+1. Click **Save** to confirm your changes.
 
 When you create a new native or web app and want to use refresh token rotation:
 
-1. From the Admin Console, click **Applications** and then **Applications**.
-1. Click **Add Application**.
-1. While walking through the app creation wizard, select **Refresh Token** in the **Allowed grant type** section.
-1. After you click **Done**, select the **General** tab and click **Edit**.
-1. In the **REFRESH TOKEN** section, select **Rotate token after every use**.
-1. Make any adjustments to the number of seconds for the **Grace period for token rotation**. The default is set to 30 seconds. You can change the value to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
+1. Sign in to your Okta organization with your administrator account.
+1. From the Admin Console side navigation, click **Applications** > **Applications**.
+1. Click **Add Application** and then **Create New App**.
+1. After creating the app integration using the wizard, on the **General** tab, click **Edit** in the **General Settings** section.
+1. In the **Allowed grant types** section, select **Refresh Token**.
+1. In the **Refresh Token** section, select **Rotate token after every use**.
+1. The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can change the value to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token.
+1. Click **Save** to confirm your changes.
 
 ### Refresh token rotation properties
 
