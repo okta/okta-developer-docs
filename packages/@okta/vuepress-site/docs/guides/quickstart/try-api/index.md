@@ -2,21 +2,23 @@
 title: Try our APIs and SDKs
 ---
 
-You've seen how Okta handles sign-in for your app and how you can use the Developer Console to manage users. Okta offers much more, including a large set of APIs your software can interact with, either directly, through REST calls, or by means of SDKs that support various coding languages.
+You've seen how Okta handles sign-in for your app and how you can use the Admin Console to manage users. Okta offers much more, including a large set of APIs that your software can interact with, either directly, through REST calls, or by means of SDKs that support various coding languages.
 
 #### Get an API token
 
 To secure access to API endpoints, Okta requires an API token consisting of a secret value to be included in the header of each request.
 
-To obtain an API token, use the Developer Console:
+To obtain an API token, use the Admin Console:
 
-1. Select **Tokens** from the **API** menu.
+1. Select **API** from the **Security** menu.
 
-2. Click **Create Token**.
+1. Click the **Tokens** tab.
 
-3. Name your token and click **Create Token**.
+1. Click **Create Token**.
 
-4. Record the token value. This is the only opportunity to see it and record it.
+1. Name your token and click **Create Token**.
+
+1. Record the token value. This is the only opportunity to see it and record it.
 
 For full details on API tokens, see [Create an API token](/docs/guides/create-an-api-token/create-the-token/).
 
@@ -71,4 +73,3 @@ User user = UserBuilder.instance()
 The Java SDK and its documentation are available at its [GitHub Repository](https://github.com/okta/okta-sdk-java).
 
 See [Languages & SDKs](/docs/) for information on getting started with a variety of Okta SDKs.
-

@@ -53,7 +53,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
 
-> If you are using the Widget to sign users in to your own application, then you can skip this step. When you create an Application in Okta, you will need to specify a `redirectURI`, and the Okta Developer Console will automatically add it as a CORS URL.
+> If you are using the Widget to sign users in to your own application, then you can skip this step. When you create an Application in Okta, you need to specify a `redirectURI`, and the Okta Admin Console automatically adds it as a CORS URL.
 
 ## Usage
 

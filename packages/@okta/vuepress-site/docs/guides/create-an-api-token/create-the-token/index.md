@@ -11,9 +11,7 @@ To create an API token, follow these steps:
 
     If you don't have an Okta organization, you can [create one for free](https://developer.okta.com/signup).
 
-2. Access the API page:
-    - If you use the Developer Console, select **Tokens** from the **API** menu.
-    - If you use the Administrator Console (Classic UI), select **API** from the **Security** menu, and then select **Tokens**.
+2. Access the API page: In the Admin Console, select **API** from the **Security** menu and then select the **Tokens** tab.
 
 3. Click **Create Token**.
 

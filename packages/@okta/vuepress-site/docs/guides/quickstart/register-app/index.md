@@ -35,13 +35,13 @@ You can try building the example app as-is to start, or you can use it as a temp
 
 #### Get values from Okta to set in the app
 
-In the Developer Console, gather the following information from your app's settings page:
+In the Admin Console, gather the following information from the **General** tab of your Application:
 
  - **Client ID**: This is the public identifier for the client, which is required for all OAuth flows.
 
  - **Client Secret**: This is the secret used by the client to exchange an authorization code for a token. This must be kept confidential.
 
-Remaining in Developer Console, go to **API > Authorization Servers** and gather the following value found on that page:
+Remaining in the Admin Console, go to **Security > API** and gather the following value found on the **Authorization Servers** tab:
 
  - **Issuer URI**: This is the URI of the authorization server that will perform authentication. All Developer Accounts have a "default" authorization server you can use..
 

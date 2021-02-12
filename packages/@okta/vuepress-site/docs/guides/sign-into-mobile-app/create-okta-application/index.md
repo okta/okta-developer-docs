@@ -13,6 +13,5 @@ Before you can sign a user in, you need to create an Okta app integration that r
 1. Enter a name for your app integration (or leave the default value).
 1. Enter your callback route for the **Login redirect URI**. This is the full redirect URI that you defined in the <GuideLink link="../define-callback/">previous step</GuideLink> (for example, `com.okta.example:/login`).
 1. Enter your callback route for the **Logout redirect URI**. This is the full redirect URI that you defined in the <GuideLink link="../define-callback/">previous step</GuideLink> (for example, `com.okta.example:/logout`).
-1. Click **Save** to finish creating the Okta app integration. You need to copy some values into your application later, so leave your Admin Console open.
 
 <NextSectionLink/>
