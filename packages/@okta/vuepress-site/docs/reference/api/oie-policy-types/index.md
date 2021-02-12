@@ -2056,3 +2056,141 @@ A Mapping object links together an Application and a Policy.
   }
 }
 ```
+
+## Updates to Password Policy
+
+The Password Policy API went through a few changes as part of the Identity Engine. The section below shows only the delta from the [Password Policy API](/docs/reference/api/policy/#password-policy)
+
+Earlier, we supported setting recovery factors on the policy. While we will still continue to support it for backwards compatibility of older clients, the new password policy model does not contain recovery factors. This is now moved to the password policy rule model.
+
+### Password Policy Settings Example
+
+```json
+"settings": {
+     "password": {
+       "complexity": {
+         "minLength": 8,
+         "minLowerCase": 1,
+         "minUpperCase": 1,
+         "minNumber": 1,
+         "minSymbol": 0,
+         "excludeUsername": true
+       },
+       "age": {
+         "maxAgeDays": 0,
+         "expireWarnDays": 0,
+         "minAgeMinutes": 0,
+         "historyCount": 0
+       },
+       "lockout": {
+         "maxAttempts": 10,
+         "autoUnlockMinutes": 0,
+         "showLockoutFailures": false
+       }
+     },
+     "delegation": {
+       "options": {
+         "skipUnlock": false
+       }
+     }
+}
+```
+
+The recovery factors are now on the password policy rule configured inside the action `selfServicePasswordReset`. Below are 3 examples of how recovery factors are configured on the rule based on admin requirements.
+
+### Password Policy Rule Action Data
+
+Admin requires end users to verify with just 1 authenticator before they can recover password. Email, Sms, Voice and Okta Verify Push can be used by end users to initiate recovery. No step up authenticators are required.
+
+```json
+"actions": {
+      "passwordChange": {
+        "access": "ALLOW"
+      },
+      "selfServicePasswordReset": {
+        "access": "ALLOW",
+        "requirement": {
+          "primary": {
+            "methods": [
+              "EMAIL",
+              "SMS",
+              "VOICE",
+              "PUSH"
+            ]
+          },
+          "stepUp": {
+            "required": false
+          }
+        }
+      },
+      "selfServiceUnlock": {
+        "access": "ALLOW"
+      }
+}
+```
+
+Admin requires end users to verify 2 authenticators before they can recover password. Email and Okta Verify Push can be used by end users to initiate recovery. Security Question is required as step-up.
+
+```json
+"actions": {
+      "passwordChange": {
+        "access": "ALLOW"
+      },
+      "selfServicePasswordReset": {
+        "access": "ALLOW",
+        "requirement": {
+          "primary": {
+            "methods": [
+              "EMAIL",
+              "PUSH"
+            ]
+          },
+          "stepUp": {
+            "required": true,
+            "methods": [
+              "SECURITY_QUESTION"
+            ]
+          }
+        }
+      },
+      "selfServiceUnlock": {
+        "access": "ALLOW"
+      }
+}
+```
+
+Admin requires end users to verify 2 authenticators before they can recover password. Okta Verify Push can be used by end users to initiate recovery. Any authenticator allowed for MFA/SSO is required as step-up.
+
+```json
+"actions": {
+      "passwordChange": {
+        "access": "ALLOW"
+      },
+      "selfServicePasswordReset": {
+        "access": "ALLOW",
+        "requirement": {
+          "primary": {
+            "methods": [
+              "PUSH"
+            ]
+          },
+          "stepUp": {
+            "required": true
+          }
+        }
+      },
+      "selfServiceUnlock": {
+        "access": "ALLOW"
+      }
+}
+```
+
+### Self Service Password Reset Action object
+
+| Property                      | Type    | Description                                                                                 | Supported Values
+| ---                           | ---     | ---                                                                                         | ---
+| `access`                      | String  | Indicates if the action is permitted                                                         | `ALLOW`, `DENY`
+| `requirement`                 | Object  | JSON object containing authenticator methods required to be verified if `access` is `ALLOW` | N/A
+| `requirement.primary.methods` | Array   | Authenticator methods that can be used by end user to initiate password recovery             | `EMAIL`, `SMS`, `VOICE`, `PUSH`
+| `requirement.stepUp.required` | Boolean | If any stepUp verification is required to recover password following primary methods verification | `true`, `false`
+| `requirement.stepUp.methods`  | Array   | If `requirement.stepUp.required` is true, JSON object containing authenticator methods required to be verified as a stepUp. If not specified, any MFA allowed authenticator methods can be used as stepUp. | `SECURITY_QUESTION`
