@@ -10,7 +10,7 @@ After signing in to Admin Console, you see the Dashboard, which is a landing pag
 
 You won't yet have much to see if you just created your org, but the Dashboard shows various statistics grouped into several different widgets. These widgets include:
 
-- **Overview:**: Shows totals and other statistics for your org's users, groups and apps.
+- **Overview:**: Shows totals and other statistics for your org's users, groups, and apps.
 - **Status:**: Lists the operation status of the Okta service and any running agents.
 - **Tasks:**: Lists issues in your org that require attention. You can filter by active (default) or unsubscribed tasks.
 - **Org changes:**: Displays system logs showing all the org changes in the last 7 days.
