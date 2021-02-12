@@ -28,7 +28,7 @@ The footer of the dashboard displays the version of the Okta system that you're 
 
 #### Side navigation
 
-The side navigation takes you from the Dashboard to the management screens for various aspects of your org's functionality:
+The side navigation takes you from the Dashboard to the management pages for various aspects of your org's functionality:
 
 | Menu          | What can you do there?                                                                             |
 |---------------|----------------------------------------------------------------------------------------------------|
