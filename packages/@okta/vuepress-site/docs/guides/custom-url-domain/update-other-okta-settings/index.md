@@ -16,7 +16,7 @@ You need to update existing Custom Authorization Servers to return the custom do
 
 Additionally, you might want to change the issuer for your OpenID Connect applications that are using the Org authorization server.
 
-1. In the Admin Console, open the **Applications** menu and then select **Applications**.
+1. From the Admin Console side navigation, select **Applications** and then **Applications**.
 1. Click on the OpenID Connect application that you want to update.
 1. Select the **Sign On** tab, scroll to the **OpenID Connect ID Token** section, and then click **Edit**.
 1. From the **Issuer** drop-down box, select the custom URL and click **Save**.
