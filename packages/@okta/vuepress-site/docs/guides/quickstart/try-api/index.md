@@ -2,7 +2,7 @@
 title: Try our APIs and SDKs
 ---
 
-You've seen how Okta handles sign-in for your app and how you can use the Admin Console to manage users. Okta offers much more, including a large set of APIs your software can interact with, either directly, through REST calls, or by means of SDKs that support various coding languages.
+You've seen how Okta handles sign-in for your app and how you can use the Admin Console to manage users. Okta offers much more, including a large set of APIs that your software can interact with, either directly, through REST calls, or by means of SDKs that support various coding languages.
 
 #### Get an API token
 
@@ -73,4 +73,3 @@ User user = UserBuilder.instance()
 The Java SDK and its documentation are available at its [GitHub Repository](https://github.com/okta/okta-sdk-java).
 
 See [Languages & SDKs](/docs/) for information on getting started with a variety of Okta SDKs.
-
