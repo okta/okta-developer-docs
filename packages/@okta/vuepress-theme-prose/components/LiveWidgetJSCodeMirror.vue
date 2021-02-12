@@ -27,7 +27,7 @@ export default {
     this.codemirror.setValue(this.code);
     this.codemirror.setOption('mode',  'javascript');
     this.codemirror.on('change', this.emitCMValue)
-    this.emitCMValue()
+    // this.emitCMValue()
   },
   data() {
     return {

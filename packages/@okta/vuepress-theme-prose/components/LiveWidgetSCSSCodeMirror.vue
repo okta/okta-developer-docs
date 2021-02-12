@@ -19,9 +19,7 @@ export default {
     this.codemirror = CodeMirror.fromTextArea(this.$refs.codemirrorscss, this.cmOptions);
     this.codemirror.setValue(this.code);
     this.codemirror.setOption('mode',  'javascript');
-    this.codemirror.on('change', ()=> {
-      console.log(this.codemirror.value)
-    })
+    this.codemirror.on('change', this.emitCSS)
   },
   data() {
     return {
@@ -40,6 +38,10 @@ export default {
     this.destroyCm();
   },
   methods: {
+    emitCSS(){
+      const name = 'cmCSSValueSet'
+      this.$emit('cmCSSValueSet', this.codemirror.getValue())
+    },
     destroyCm() {
       const element = this.codemirror.doc.cm.getWrapperElement();
       element && element.remove && element.remove();

@@ -75,7 +75,7 @@
                     Javascript
                   </div>
                   <div class="redesign-homepage--code-example--cm-wrapper">
-                    <FrontPageCodeMirror />
+                    <FrontPageCodeMirror />  
                   </div>
                 </div>
               </div>

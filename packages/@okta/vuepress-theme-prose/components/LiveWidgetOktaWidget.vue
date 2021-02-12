@@ -4,7 +4,6 @@
 
 <script>
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
-
 export default {
   name: 'LiveWidgetOktaWidget',
   props: ['jsCode'],

@@ -26,7 +26,7 @@ export const initialJSWidgetConf = `{
   clientId: '0oaexo9c530ZUVuOj0h7',
   redirectUri: 'https://developer.okta.com/live-widget',
   authParams: {
-    issuer: 'https://live-widget.oktapreview.com/oauth2/ausexqn31sz3HMxdf0h7',
+    issuer: 'https://live-widget.oktapreview.com/oauth2/au sexqn31sz3HMxdf0h7',
     responseType: ['id_token', 'token'],
     scopes: ['openid', 'email', 'profile'],
   }

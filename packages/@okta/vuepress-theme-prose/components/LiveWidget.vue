@@ -16,15 +16,15 @@
     </div>
     <div class="col-8">
       <LiveWidgetJSCodeMirror :initialConfig="configJS" v-on:cmJSValueSet='handleJSchange' v-if="jsTabShown"/>
-      <LiveWidgetSCSSCodeMirror :initialConfig="configSCSS" v-else/>
+      <LiveWidgetSCSSCodeMirror :initialConfig="configSCSS" v-on:cmCSSValueSet='handleSCSSChange' v-else/>
     </div>
     </div>
   </div>
 </template>
 
 <script>
-import { stringify } from 'query-string'
   import {initialJSWidgetConf, widgetMountExample, initialWidgetSCSS} from '../const/live-widget.const'
+  import sass from '../util/sass/sass'
   export default {
     name: 'LiveWidget',
     components: {
@@ -35,15 +35,27 @@ import { stringify } from 'query-string'
     data() {
       return {
         jsTabShown: true,
-        configJS: initialJSWidgetConf,
+        configJS:  initialJSWidgetConf,
         configSCSS: initialWidgetSCSS,
+        sassCompiler: {}
       }
     },
+    mounted:  function(){
+      const testStr = '$someVar: 123px; .some-selector { width: $someVar; }';
+      sass.setWorkerUrl('/script/sass.worker.js')  
+      this.sassCompiler = new sass()
+      this.sassCompiler.compile(testStr, function(res){
+        console.log(res.text)
+      })
+    },
+
     methods: {
       toggleTabs(){
         this.jsTabShown = !this.jsTabShown
       },
       makeValidJSON(dirtyJSON){
+        //take dirty input, clear it from comments, trim all unneccecary spaces, make JSON-valid, remove trailing comas
+        //TO DO: FIX VALIDATION IN SUBCOMPONENT
         const resultNormalized = []
         const result = dirtyJSON.split(/\n/).map( el => el.trim())
           .filter(el=>
@@ -97,7 +109,10 @@ import { stringify } from 'query-string'
         this.configJS = this.makeValidJSON(e)
       },
       handleSCSSChange(e){
-        this.scssCode = e
+        // this.scssCode = CSSJSON.toJSON(e)  
+        console.log('SCSS')
+        console.log(e)
+        console.log(this.scssCode)
       }
     }
   }
