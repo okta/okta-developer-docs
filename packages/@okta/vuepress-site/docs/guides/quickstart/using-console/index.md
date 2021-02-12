@@ -8,7 +8,7 @@ The Admin Console is the web UI that provides you with a window into your org an
 
 After signing in to Admin Console, you see the Dashboard, which is a landing page that provides a summary of activity in your org.
 
-You won't yet have much to see if you just created your org, but the Dashboard shows various statistics group into several different widgets. These widgets include:
+You won't yet have much to see if you just created your org, but the Dashboard shows various statistics grouped into several different widgets. These widgets include:
 
 - **Overview:**: Shows totals and other statistics for your org's users, groups and apps.
 - **Status:**: Lists the operation status of the Okta service and any running agents.
