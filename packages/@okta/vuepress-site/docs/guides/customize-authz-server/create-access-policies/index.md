@@ -4,7 +4,7 @@ title: Create access policies
 
 Access policies are containers for rules. Each [access policy](/docs/guides/configure-access-policy/overview/) applies to a particular OpenID Connect application, and the rules that it contains define different access and refresh token lifetimes depending on the nature of the token request.
 
-1. In the Admin Console open the **Security** menu and then select **API**.
+1. From the Admin Console side navigation, select **Security** and then **API**.
 1. From the **Authorization Servers** tab, select the name of an authorization server.
 1. Select **Access Policies**, and then **Add Policy**.
 1. Enter a **Name** and a **Description** for the policy.
