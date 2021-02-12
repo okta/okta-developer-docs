@@ -13,7 +13,7 @@ Example
 ### Native sign in
 To compile your project, you need to set up the `AuthenticationClient` with an `Org URL`.
 
-The `Org URL` can found on the Admin Console's global header in the upper-right corner. Click the section which displays your email and company name.  A drop-down menu will appear and display general org information including the `Org URL` (e.g. subdomain.okta.com).
+You can find the `Org URL` in the Admin Console's global header in the upper-right corner of the page. Click the section that displays your email and company name.  A drop-down box appears and displays general org information including the `Org URL` (for example, subdomain.okta.com).
  
 Once you find your `Org URL`, add the following to your `local.properties` file:
 
