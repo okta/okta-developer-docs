@@ -11,7 +11,7 @@ You need the following values from the Okta Application and the Admin Console th
 
 * **Client ID** &mdash; Find it in the applications list or on the application's **General** tab.
 * **Client Secret** &mdash; Find it on the application's **General** tab.
-* **Okta Domain** &mdash; The Okta Domain can be found on the Admin Console's global header in the upper-right corner. Click the section which displays your email and company name.  A drop-down menu will appear and display general org information including the full Okta domain (e.g. subdomain.okta.com).
+* **Okta Domain** &mdash; You can find the Okta Domain in the Admin Console's global header in the upper-right corner of the page. Click the section that displays your email and company name.  A drop-down box appears and displays general org information including the full Okta domain (for example, subdomain.okta.com).
 
 You can configure the properties of your application with configuration files, environment variables, or other framework specific techniques.
 
