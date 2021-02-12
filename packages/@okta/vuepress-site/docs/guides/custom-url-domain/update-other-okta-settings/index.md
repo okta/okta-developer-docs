@@ -10,7 +10,7 @@ After you customize your Okta domain URL, existing [Custom Authorization Servers
 You need to update existing Custom Authorization Servers to return the custom domain as the `issuer` value:
 
 1. From the Admin Console side navigation, select **Security** and then **API**.
-1. From the **Authorization Servers** tab, select the Custom Authorization Server you want to update.
+1. From the **Authorization Servers** tab, select the Custom Authorization Server that you want to update.
 1. Click **Edit** on the Custom Authorization Server you selected.
 1. From the **Issuer** drop-down box, select the custom URL and click **Save**.
 
