@@ -10,7 +10,7 @@ Begin by signing up for an [Okta developer account](https://developer.okta.com/s
 1. Click **Applications** > **Applications** on the side navigation.
 1. Click **Add Application**.
 1. Search for "SCIM 2.0" or "SCIM 1.1" (your choice depends on which version your SCIM server supports). You'll see three different SCIM template applications, one for each of the three authentication methods that you can use to connect to your SCIM implementation (Basic Auth, Header Auth, or OAuth Bearer Token).
-1. Click **Add** on the template you want to use and complete the add steps.
+1. Click **Add** on the template that you want to use and complete the add steps.
 1. On the **General Settings** page, give your integration a descriptive name and specify whether you want it to be hidden from general and mobile users. Additionally, you can decide if you want to have your users automatically be logged in when they reach the landing page in their web browser. Click **Next**.
 1. On the **Sign-On Options** page, you specify how your users sign in to your integration. You can select either SAML or SWA. See the [Applications topic](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps) in the Okta product documentation if you need guidance on which single sign-on access method to choose. Click **Done** to create the integration.
 1. After the integration is created, click the **Provisioning** tab, and in the main panel, click **Configure API Integration**. Select the **Enable API Integration** check box.
