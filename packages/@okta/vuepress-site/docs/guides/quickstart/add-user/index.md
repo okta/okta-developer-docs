@@ -21,6 +21,6 @@ To create a new user:
 4. For password, select "Set by user".
 5. Click **Save**.
 
-As you’ll see later, in addition to manually creating a user in the Admin Console, you can also create users via API, and there are multiple ways of doing batch imports of users from existing user stores.
+In addition to manually creating a user in the Admin Console, you can also create users through the API, and there are multiple ways of doing batch imports of users from existing user stores.
 
 <NextSectionLink/>
