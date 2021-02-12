@@ -14,7 +14,7 @@ You won't yet have much to see if you just created your org, but the Dashboard s
 - **Status:**: Lists the operation status of the Okta service and any running agents.
 - **Tasks:**: Lists issues in your org that require attention. You can filter by active (default) or unsubscribed tasks.
 - **Org changes:**: Displays system logs showing all the org changes in the last seven days.
-- **Security Monitoring:**: Displays security related information such as recommended security tasks and suspicious user activity.
+- **Security Monitoring:**: Displays security-related information such as recommended security tasks and suspicious user activity.
 
 A search bar at the top of the Dashboard lets you quickly bring up information on a specific user or app.
 
