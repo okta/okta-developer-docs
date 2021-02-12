@@ -36,7 +36,7 @@ Adds a new client Application to your organization
 
 The [OAuth client](#client-application-object) created by the request
 
-> **Note:** Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
+> **Note:** Apps created on the Apps endpoint (`/api/v1/apps`) default to `consent_method=TRUSTED`, while those created with Dynamic Client Registration (`/oauth2/v1/clients`) default to `consent_method=REQUIRED`.
 
 ##### Request example
 
