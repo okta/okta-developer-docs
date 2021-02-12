@@ -18,6 +18,6 @@ Make the following modifications in the `OktaBrowserSignIn/Okta.plist` file of y
 
     For example: `https//{yourOrgURL}/oauth2/default`
 
-> **Note:** The `Org URL` can found on the Admin Console's global header in the upper-right corner. Click the section which displays your email and company name.  A drop-down menu will appear and display general org information including the full `Org URL` (e.g. subdomain.okta.com).
+> **Note:** You can find the `Org URL`ion the Admin Console's global header in the upper-right corner of the page. Click the section that displays your email and company name.  A drop-down box appears and displays general org information including the full `Org URL` (for example, subdomain.okta.com).
 
 * `logoutRedirectUri`: Enter `com.first.sample:/logout` as the value, which is what you defined as the **Logout Redirect URI** in the Native app that you created in the <GuideLink link="../configure-oidc-native-apps">last step</GuideLink>. 
