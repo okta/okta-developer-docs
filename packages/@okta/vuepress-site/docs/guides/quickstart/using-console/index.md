@@ -6,7 +6,7 @@ The Admin Console is the web UI that provides you with a window into your org an
 
 #### Dashboard
 
-On signing in to Admin Console, you see the Dashboard, a landing page that provides a summary of activity in your org.
+After signing in to Admin Console, you see the Dashboard, which is a landing page that provides a summary of activity in your org.
 
 You won't yet have much to see if you just created your org, but the Dashboard shows various statistics group into several different widgets. These widgets include:
 
