@@ -9,7 +9,7 @@ When you use Okta for authentication, you don't need to implement your own user 
 
 To create a new user:
 
-1. From the Dashboard's side navigation, select **Directory** and then **People**
+1. From the Admin Console side navigation, select **Directory** and then **People**
 2. Click **Add Person**.
 3. Fill in first name, last name, username (must be an email address), and primary email. For example:
 
