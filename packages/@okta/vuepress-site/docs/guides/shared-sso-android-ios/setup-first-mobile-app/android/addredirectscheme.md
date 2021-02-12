@@ -15,7 +15,7 @@ To compile your project, you need to set up the `AuthenticationClient` with an `
 
 You can find the `Org URL` in the Admin Console's global header in the upper-right corner of the page. Click the section that displays your email and company name.  A drop-down box appears and displays general org information including the `Org URL` (for example, subdomain.okta.com).
  
-Once you find your `Org URL`, add the following to your `local.properties` file:
+After you find your `Org URL`, add the following to your `local.properties` file:
 
 Example
 ```groovy
