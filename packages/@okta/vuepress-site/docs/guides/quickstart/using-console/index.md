@@ -26,7 +26,7 @@ In the global header in the upper-right corner of the page, you can view the Okt
 
 The footer of the dashboard displays the version of the Okta system that you're currently running, e.g., "Version: 2020.06.4". It also displays the Okta cell your org is running in, e.g. "OK11 Cell (US)".
 
-#### Side Navigation
+#### Side navigation
 
 The side navigation takes you from the Dashboard to the management screens for various aspects of your org's functionality:
 
