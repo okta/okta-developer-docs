@@ -120,7 +120,7 @@ Depending on your application, you could change this method to return a boolean,
 
 ### Additional validation for access tokens
 
-If you are validating access tokens, you should verify that the `aud` (audience) claim equals the audience that is configured for your Authorization Server in the Okta Developer Console.
+If you are validating access tokens, you should verify that the `aud` (audience) claim equals the audience that is configured for your Authorization Server in the Okta Admin Console.
 
 For example, if your Authorization Server audience is set to `MyAwesomeApi`, add this to the validation parameters:
 
