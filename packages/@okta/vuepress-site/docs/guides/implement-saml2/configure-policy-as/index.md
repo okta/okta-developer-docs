@@ -2,6 +2,8 @@
 title: Configure the Authorization Server policy
 ---
 
+??See request consent for better wording for accessing the default as??
+
 Make sure that the SAML 2.0 Assertion grant type is enabled in the Authorization Server default policy rule.
 
 1. From the Admin Console side navigation, select **Security** and then **API**.

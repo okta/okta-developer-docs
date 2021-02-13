@@ -2,7 +2,7 @@
 title: Use the SAML 2.0 Assertion flow
 ---
 
-Before you can begin this flow, you must collect the SAML assertion from the Identity Provider and then [base64-encode](https://www.base64decode.org/) it if it isn't already. You can then use the assertion in the API call to the [Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint.
+Before you can begin this flow, you must collect the SAML assertion from the Identity Provider and make sure that it is [base64-encoded](https://www.base64decode.org/). You can then use the assertion in the API call to the [Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint.
 
 ## Request example
 
@@ -15,20 +15,19 @@ curl --request POST \
   --header 'authorization: Basic MG9hDc....' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer' \
-  --data 'redirect_uri=https://oidcdebugger.com/debug' \
+  --data 'redirect_uri=https://example.com' \
   --data 'assertion=<base64-encoded assertion>' \
-  --data 'scope=openid'
+  --data 'scope=openid offline_access'
 ```
 
 > **Note:** The call to your authorization server's `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and secret. You can find the Client ID and secret on your application's **General** tab. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
-- `grant_type` matches the Client ID of your Okta OAuth application that you created in the <GuideLink link="../setup-app">previous step</GuideLink>. You can find it at the bottom of your application's **General** tab.
-- `redirect_uri` is the callback location where the user agent is directed to along with the `access_token`. This must match one of the **Login redirect URIs** that you specified when you were creating your Okta application in the <GuideLink link="../setup-app">previous step</GuideLink>.
+- `grant_type` blah blah
+- `redirect_uri` is the callback location where the user agent is directed to along with the `access_token`. This must match one of the **Login redirect URIs** that you specified when you created your Okta application in the <GuideLink link="../setup-app">previous step</GuideLink>.
 - `assertion` blah blah
-- `scope` is `openid`, which is required, but additional scopes can be requested. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
-- `state` is an arbitrary alphanumeric string that the Authorization Server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
+- `scope` is `openid`, which is required, but you can request additional scopes. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
 - `response_type` is `token`. It could also be `id_token` or both.
 
 ## Response example

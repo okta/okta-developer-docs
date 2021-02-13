@@ -14,8 +14,8 @@ At a high level, the SAML 2.0 Assertion flow has the following steps:
 - The client application obtains a SAML 2.0 assertion from the SAML Identity Provider.
 - The client application requests an access token from the authorization server using the Base64-encoded SAML 2.0 assertion as proof of identity.
 - The authorization server verifies the assertion and passes back an access token.
-- Your application extracts the tokens from the HTTP response body.
-- Your application can now use these tokens to call the resource server (for example, an API) on behalf of the user.
+- Your application extracts the token(s) from the HTTP response body.
+- Your application can now use the token(s) to call the resource server (for example, an API) on behalf of the user.
 
 See our [OAuth 2.0 overview](/docs/concepts/oauth-openid/#saml2-flow) for more information on the SAML 2.0 Assertion flow.
 

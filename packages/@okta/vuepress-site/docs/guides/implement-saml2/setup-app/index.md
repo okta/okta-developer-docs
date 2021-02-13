@@ -10,7 +10,7 @@ Create the client application that you want to use:
 
 3. Select **Native** as the type of app **Platform** on the **Create a New Application Integration** window and then click **Create**.
 
-    > **Note:** Use the ??app API?? to create a SPA or Web application for use with the SAML 2.0 Assertion grant type.
+    > **Note:** Use the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#client-application-object) to create a SPA or Web client application for use with the SAML 2.0 Assertion grant type.
 
 4. Enter a name for your app and, in the **Login redirect URIs** box, specify the callback location where Okta returns a browser (along with the token) after the user finishes authenticating.
 
