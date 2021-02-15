@@ -1,14 +1,19 @@
 <template>
-  <div class="main-page-widget-wrapper" id="widget-container"></div>
+  <div 
+    class="main-page-widget-wrapper" 
+    id="widget-container"
+    v-bind:style='configSCSS'>
+    WOLOLOLOLOLOOLO
+  </div>
 </template>
 
 <script>
 import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 export default {
   name: 'LiveWidgetOktaWidget',
-  props: ['jsCode'],
+  props: ['configJS', 'configSCSS'],
   mounted: function() {
-    import('@okta/okta-signin-widget').then(module => {
+     import('@okta/okta-signin-widget').then(module => {
       this.$nextTick(function() {
         const OktaSignIn = module.default;
         this.widget = new OktaSignIn({
@@ -66,7 +71,11 @@ export default {
       });
     });
   },
-
+  watch: {
+    configSCSS: function(){
+      console.log('SCSS CHANGED', this.configSCSS)
+    }
+  },
   destroyed () {
     this.widget ? this.widget.remove() : null;
   },

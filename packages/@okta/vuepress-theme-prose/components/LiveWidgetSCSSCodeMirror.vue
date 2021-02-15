@@ -15,11 +15,11 @@ export default {
     // load codemirror
     const module = await import('codemirror');
     const CodeMirror = module.default;
-
     this.codemirror = CodeMirror.fromTextArea(this.$refs.codemirrorscss, this.cmOptions);
     this.codemirror.setValue(this.code);
     this.codemirror.setOption('mode',  'javascript');
     this.codemirror.on('change', this.emitCSS)
+    this.emitCSS()
   },
   data() {
     return {
@@ -39,7 +39,6 @@ export default {
   },
   methods: {
     emitCSS(){
-      const name = 'cmCSSValueSet'
       this.$emit('cmCSSValueSet', this.codemirror.getValue())
     },
     destroyCm() {

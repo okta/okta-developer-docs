@@ -12,18 +12,26 @@
     </div>
     <div class="row">
     <div class="col-4">
-      <LiveWidgetOktaWidget :configJS="configJS" :configSCSS="configSCSS"/>
+      <LiveWidgetOktaWidget :configJS="jsValid" :configSCSS="computedSCSS"/>
     </div>
     <div class="col-8">
-      <LiveWidgetJSCodeMirror :initialConfig="configJS" v-on:cmJSValueSet='handleJSchange' v-if="jsTabShown"/>
-      <LiveWidgetSCSSCodeMirror :initialConfig="configSCSS" v-on:cmCSSValueSet='handleSCSSChange' v-else/>
+      <LiveWidgetJSCodeMirror 
+      :initialConfig="configJS" 
+      v-on:cmJSValueSet='onJSCodeChange' 
+      v-bind:style="jsTabShown ? {'display' : 'block'} : {'display' : 'none'}"
+      />
+      <LiveWidgetSCSSCodeMirror 
+      :initialConfig="testStr"
+      v-on:cmCSSValueSet='onSCSSCodeChange' 
+      v-bind:style="!jsTabShown ? {'display' : 'block !important'} : {'display' : 'none !important'}"
+      />
     </div>
     </div>
   </div>
 </template>
 
 <script>
-  import {initialJSWidgetConf, widgetMountExample, initialWidgetSCSS} from '../const/live-widget.const'
+  import {initialJSWidgetConf, initialWidgetSCSS} from '../const/live-widget.const'
   import sass from '../util/sass/sass'
   export default {
     name: 'LiveWidget',
@@ -37,18 +45,21 @@
         jsTabShown: true,
         configJS:  initialJSWidgetConf,
         configSCSS: initialWidgetSCSS,
-        sassCompiler: {}
+        computedSCSS: '',
+        testStr: '$someVar: 123px; .some-selector { width: $someVar; }',
+        sassCompiler: new sass()
       }
     },
-    mounted:  function(){
-      const testStr = '$someVar: 123px; .some-selector { width: $someVar; }';
-      sass.setWorkerUrl('/script/sass.worker.js')  
-      this.sassCompiler = new sass()
-      this.sassCompiler.compile(testStr, function(res){
-        console.log(res.text)
-      })
-    },
-
+    computed: {
+      jsValid: function(){
+        return this.makeValidJSON(this.configJS)
+        },
+    }, 
+    // watch: {
+    //   computedSCSS: function(){
+    //     console.log('Computed changed')
+    //   }
+    // },
     methods: {
       toggleTabs(){
         this.jsTabShown = !this.jsTabShown
@@ -71,7 +82,6 @@
              (elementTransformed, innerIndex) => {
               let strToPush = '' 
                if (elementTransformed === '{') {
-                 console.log('BRACKET FOUND')
                  strToPush = elementTransformed}
                else {
                       if (elementTransformed[0] && elementTransformed[elementTransformed.length-1] === "'")
@@ -105,14 +115,13 @@
         )
         return JSON.parse(resultCleared.join(""))
       },
-      handleJSchange(e){
-        this.configJS = this.makeValidJSON(e)
+      onJSCodeChange(e){
+        this.configJS = e
       },
-      handleSCSSChange(e){
-        // this.scssCode = CSSJSON.toJSON(e)  
-        console.log('SCSS')
-        console.log(e)
-        console.log(this.scssCode)
+      onSCSSCodeChange(e){
+        this.sassCompiler.compile(e, (res)=> {
+          this.computedSCSS = res.text
+        })
       }
     }
   }
