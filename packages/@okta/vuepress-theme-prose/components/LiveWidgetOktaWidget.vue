@@ -1,9 +1,13 @@
 <template>
+  <div class="main-page-widget-wrapper" >
+  <style ref="wrapEl">
+  </style>
   <div 
-    class="main-page-widget-wrapper" 
+    class="wkocknff"
     id="widget-container"
     v-bind:style='configSCSS'>
     WOLOLOLOLOLOOLO
+  </div>
   </div>
 </template>
 
@@ -74,6 +78,11 @@ export default {
   watch: {
     configSCSS: function(){
       console.log('SCSS CHANGED', this.configSCSS)
+      console.log(this.$refs.wrapEl.innerHTML)
+      this.$refs.wrapEl.innerHTML = this.configSCSS
+      // if(this.configSCSS !== undefined) {
+      //   this.$refs.wrapEl.$el.innerHTML = this.configSCSS
+      // }
     }
   },
   destroyed () {
