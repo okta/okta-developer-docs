@@ -5,29 +5,28 @@
 <script>
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/neat.css';
+import 'codemirror/addon/lint/lint.css'
+
 import {JSHINT} from 'jshint'
 
 export default {
   name: 'LiveWidgetJSCodeMirror',
   props: ['initialConfig'],
   mounted: async function() {
-    // load side effects for code mirror
+    // load side effects for code mirror, linter, matchbrackets, etc. 
     await import('codemirror/mode/javascript/javascript.js');
     await import('codemirror/addon/lint/lint')
     await import('codemirror/addon/lint/javascript-lint')
+    await import('codemirror/addon/edit/matchbrackets')
     window.JSHINT = JSHINT
     // load codemirror
     const module = await import('codemirror');
     const CodeMirror = module.default;
-    // CodeMirror.defineInitHook(function(cm){
-    //   cm.on(changes, this.editHook)
-    // })
-
     this.codemirror = CodeMirror.fromTextArea(this.$refs.codemirrorjs, this.cmOptions);
     this.codemirror.setValue(this.code);
     this.codemirror.setOption('mode',  'javascript');
+    //emit cm value for
     this.codemirror.on('change', this.emitCMValue)
-    // this.emitCMValue()
   },
   data() {
     return {
@@ -38,8 +37,6 @@ export default {
             name: 'javascript',
             json: true
           },
-          // mode: "javascript",
-          // json: true,
     	    gutters: ["CodeMirror-lint-markers"],
     	    lint: true,
     	    matchBrackets: true,
@@ -56,6 +53,7 @@ export default {
       element && element.remove && element.remove();
     },
     emitCMValue(){
+      console.log(this.codemirror)
       this.$emit('cmJSValueSet', this.codemirror.getValue())
     }
   },
