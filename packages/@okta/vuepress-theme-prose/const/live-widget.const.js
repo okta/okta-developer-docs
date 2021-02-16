@@ -1,7 +1,7 @@
-export const initialJSWidgetConf = `{
+export const initialJSWidgetConf = `widgetConfig = {
   // Enable or disable widget functionality with the following options. Some of these features require additional configuration in your Okta admin settings. Detailed information can be found here: https://github.com/okta/okta-signin-widget#okta-sign-in-widget
   // Look and feel changes:
-  logo: '//logo.clearbit.com/okta.com', // Try changing "okta.com" to other domains, like: "workday.com", "splunk.com", or "delmonte.com"
+  logo: 'http://logo.clearbit.com/okta.com', // Try changing "okta.com" to other domains, like: "workday.com", "splunk.com", or "delmonte.com"
   language: 'en',                       // Try: [fr, de, es, ja, zh-CN] Full list: https://github.com/okta/okta-signin-widget#language-and-text
   i18n: {
     //Overrides default text when using English. Override other languages by adding additional sections.
@@ -21,7 +21,7 @@ export const initialJSWidgetConf = `{
     //smsRecovery: true,                // Enable SMS-based account recovery
     //callRecovery: true,               // Enable voice call-based account recovery
     router: true,                       // Leave this set to true for the API demo
-  },
+  },  
   baseUrl: 'https://live-widget.oktapreview.com',
   clientId: '0oaexo9c530ZUVuOj0h7',
   redirectUri: 'https://developer.okta.com/live-widget',
@@ -30,7 +30,7 @@ export const initialJSWidgetConf = `{
     responseType: ['id_token', 'token'],
     scopes: ['openid', 'email', 'profile'],
   }
-}`
+};`
 
 
   export const widgetMountExample = `signInWidget = new OktaSignIn(signInWidgetConfig);

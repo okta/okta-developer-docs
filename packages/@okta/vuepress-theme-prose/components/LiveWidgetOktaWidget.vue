@@ -1,13 +1,14 @@
 <template>
   <div class="main-page-widget-wrapper" >
-  <style ref="wrapEl">
-  </style>
-  <div 
-    class="wkocknff"
-    id="widget-container"
-    v-bind:style='configSCSS'>
-    WOLOLOLOLOLOOLO
-  </div>
+
+    <style ref="styleContainer">
+    </style>
+
+    <div 
+      id="widget-container"
+    >
+    </div>
+
   </div>
 </template>
 
@@ -16,77 +17,52 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 export default {
   name: 'LiveWidgetOktaWidget',
   props: ['configJS', 'configSCSS'],
+  data(){
+    return {
+      rendered: true
+    }
+  },
   mounted: function() {
      import('@okta/okta-signin-widget').then(module => {
       this.$nextTick(function() {
-        const OktaSignIn = module.default;
-        this.widget = new OktaSignIn({
-          baseUrl: 'https://{yourOktaDomain}',
-          logo: '/img/homepage/alliance.png',
-          username: 'leia@rebelalliance.io',
-          processCreds: (creds, callback) => {
-            if (creds.username === 'leia@rebelalliance.io' && creds.password === 'secret') {
-              this.$emit('authLeia');
-            } else {
-              callback();
-            }
-          }, 
-          helpLinks: {
-            help: 'https://developer.okta.com/code/javascript/okta_sign-in_widget',
-          },
-          i18n: {
-            en: {
-              "primaryauth.title": "Alliance Authentication",
-              "primaryauth.submit": "Sign In"
-            },
-          },
+        this.OktaSignIn = module.default;
+        this.renderWidget()
         });
-
-        this.widget.on('afterRender', () => {
-          if (this.rendered) {
-            // Last focused element to return to
-            const elementToFocus = (document.activeElement);
-            setTimeout(() => {
-              const activeElement = (document.activeElement);
-
-              if (activeElement.id === 'okta-signin-password') {
-                activeElement.blur();
-                elementToFocus.focus();
-              }
-            }, 0);
-          } else {
-            this.widget.hide();
-
-            // Prefill password input
-            const password = document.getElementById('okta-signin-password');
-            if (password) {
-              password.setAttribute('value', 'secret');
-              password.dispatchEvent(new Event('input', { 'bubbles': true } ));
-            }
-
-            setTimeout(() => {
-              this.widget.show();
-              this.rendered = true;
-            }, 100);
-          }
-        });
-
-        this.widget.renderEl({ el: '#okta-sign-in' });
-      });
     });
   },
   watch: {
     configSCSS: function(){
-      console.log('SCSS CHANGED', this.configSCSS)
-      console.log(this.$refs.wrapEl.innerHTML)
-      this.$refs.wrapEl.innerHTML = this.configSCSS
-      // if(this.configSCSS !== undefined) {
-      //   this.$refs.wrapEl.$el.innerHTML = this.configSCSS
-      // }
+      this.$refs.styleContainer.innerHTML = this.configSCSS
+    },
+    configJS: function(){
+      this.renderWidget()
     }
   },
   destroyed () {
     this.widget ? this.widget.remove() : null;
   },
+  methods:{
+    renderWidget(){
+      console.log('RENDER WIDGET CALLED')
+      this.widget ? this.widget.remove() : null;
+      this.widget = new this.OktaSignIn(this.configJS);
+
+      this.widget.on('afterRender', () => {
+          if (this.rendered) {
+            // Last focused element to return to
+            const elementToFocus = (document.activeElement);
+            setTimeout(() => {
+              const activeElement = (document.activeElement);
+              if (activeElement.id === 'okta-signin-password') {
+                activeElement.blur();
+                elementToFocus.focus();
+              }
+            }, 100);
+          }
+        });
+
+      this.widget.renderEl({ el: '#widget-container' });
+    }
+  }
 };
 </script>

@@ -1,8 +1,7 @@
 <template>
   <div class="container-fluid">
     <div class="row">
-    
-    <h1>Instantly customize your login page</h1>
+       <h1>Instantly customize your login page</h1>
     </div>
     <div class="row">
       <div class="col-12">
@@ -11,21 +10,25 @@
       </div>
     </div>
     <div class="row">
-    <div class="col-4">
-      <LiveWidgetOktaWidget :configJS="jsValid" :configSCSS="computedSCSS"/>
-    </div>
-    <div class="col-8">
-      <LiveWidgetJSCodeMirror 
-      :initialConfig="configJS" 
-      v-on:cmJSValueSet='onJSCodeChange' 
-      v-bind:style="jsTabShown ? {'display' : 'block'} : {'display' : 'none'}"
-      />
-      <LiveWidgetSCSSCodeMirror 
-      :initialConfig="testStr"
-      v-on:cmCSSValueSet='onSCSSCodeChange' 
-      v-bind:style="!jsTabShown ? {'display' : 'block !important'} : {'display' : 'none !important'}"
-      />
-    </div>
+      <div class="col-4">
+        <LiveWidgetOktaWidget :configJS="jsValid" :configSCSS="computedSCSS"/>
+      </div>
+      <div 
+          class="col-4" 
+        >
+        <LiveWidgetJSCodeMirror 
+        :initialConfig="configJS" 
+        v-on:cmJSValueSet='onJSCodeChange' 
+        />
+      </div>
+      <div 
+        class="col-4"
+      >  
+        <LiveWidgetSCSSCodeMirror 
+        :initialConfig="testStr"
+        v-on:cmCSSValueSet='onSCSSCodeChange' 
+        />
+      </div>
     </div>
   </div>
 </template>
@@ -65,10 +68,9 @@
         this.jsTabShown = !this.jsTabShown
       },
       makeValidJSON(dirtyJSON){
-        //take dirty input, clear it from comments, trim all unneccecary spaces, make JSON-valid, remove trailing comas
-        //TO DO: FIX VALIDATION IN SUBCOMPONENT
+        //take dirty input, get rid of variable name, clear it from comments, trim all unneccecary spaces, make all brackets valid for JSON, remove trailing comas, make string and parse it for json
         const resultNormalized = []
-        const result = dirtyJSON.split(/\n/).map( el => el.trim())
+        const result = dirtyJSON.slice(dirtyJSON.indexOf('{')).split(/\n/).map( el => el.trim())
           .filter(el=>
            !el.startsWith('//') && el!=='')  
           .map(
@@ -112,8 +114,8 @@
              return element.substring(0, element.length - 1)
             } else return element
           }
-        )
-        return JSON.parse(resultCleared.join(""))
+        ).join('').slice(0, -1)
+        return JSON.parse(resultCleared)
       },
       onJSCodeChange(e){
         this.configJS = e

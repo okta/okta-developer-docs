@@ -39,6 +39,11 @@ export default {
   },
   methods: {
     emitCSS(){
+      // //check for linting errors in codemirror val
+      // if (codeMirror.state.lint.marked.length !== 0) {
+      //   return
+      // }
+      //emit value if no errors
       this.$emit('cmCSSValueSet', this.codemirror.getValue())
     },
     destroyCm() {
