@@ -68,13 +68,14 @@ export default {
             this.lintErrors = annotationsNotSorted;
     },
     emitCMValue(){
-      if (this.lintErrors.length !==0 ) {
-        return
-      }
+      
       if(this.typingDelayTimer){
         clearTimeout(this.typingDelayTimer)
       }
       this.typingDelayTimer = setTimeout(()=>{
+          if (this.lintErrors.length !==0 ) {
+            return
+          }
           this.$emit('cmJSValueSet', this.codeMirror.getValue())
       }, this.emitDelay);   
     }
