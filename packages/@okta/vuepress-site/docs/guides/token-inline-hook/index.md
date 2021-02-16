@@ -9,5 +9,6 @@ sections:
  - check-against-store
  - send-response
  - activate-and-enable
+ - extend-express
  - test
 ---

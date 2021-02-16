@@ -21,10 +21,11 @@ app.post("/tokenHook", (request, response) => {
                           }
                                   ],
                     }
-  console.log("Added patient ID: " + returnValue.commands[0].value[0]["value"]);
+  console.log("Added claim to ID Token, with a value of: " + returnValue.commands[0].value[0]["value"]);
   response.send(JSON.stringify(returnValue));
   }
   else {
+  console.log("Not part of patient data store");
   response.status(204).send();
   }
 }
