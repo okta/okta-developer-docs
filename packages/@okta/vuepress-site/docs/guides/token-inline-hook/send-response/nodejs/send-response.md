@@ -1,5 +1,5 @@
 ```JavaScript
-//Inline Token Hook POST from Okta (endpoint: tokenHook)
+//Token Inline Hook POST from Okta (endpoint: tokenHook)
 
 app.post("/tokenHook", (request, response) => {
   console.log(" ");

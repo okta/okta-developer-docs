@@ -2,7 +2,7 @@
 title: Extend the sample Express app
 ---
 
-The following code extends the local sample Node.js Express application to display the results of the Inline Token Hook claim addition. This step is optional. The Inline Token Hook is functional and the results of the implementation are available in the external service logs, as well the System Log on your Okta org. But this extension is a nice-to-have!
+The following code extends the local sample Node.js Express application to display the results of the Token Inline Hook claim addition. This step is optional. The Token Inline Hook is functional and the results of the implementation are available in the external service logs, as well the System Log on your Okta org. But this extension is a nice-to-have!
 
 To extend the local sample Node.js Express application, you need to:
 
@@ -13,7 +13,7 @@ To extend the local sample Node.js Express application, you need to:
 
 1. Navigate to your project folder `samples-nodejs-express-4` and continue to the `views` folder (`samples-nodejs-express-4/common/views`).
 2. In an editor, open the `profile.mustache` page.
-3. In the `doc-overview` `<div>` structure, add the following paragraph tagged content between the comments, which displays the results of the Inline Token Hook claim addition.
+3. In the `doc-overview` `<div>` structure, add the following paragraph tagged content between the comments, which displays the results of the Token Inline Hook claim addition.
 
 ```HTML
 <p><strong>Inline Token Hook Extension: </strong>Is {{userinfo.name}} a patient? {{profileTokenString}}.</p>

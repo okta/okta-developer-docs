@@ -6,7 +6,7 @@ The external service in this scenario requires code to handle the Token Inline H
 
 > **Note**: Make sure to have the required default code and packages in your project. See [Common Hook Set-up Steps](/docs/guides/common-hook-set-up-steps/nodejs/overview/).
 
-From the Token Inline Hook request, the code retrieves the value of the user name from the `data.identity` object.
+From the Token Inline Hook request, the following code retrieves the value of the user name from the `data.identity` object.
 
 <StackSelector snippet="request"/>
 
