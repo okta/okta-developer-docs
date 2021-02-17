@@ -90,13 +90,14 @@ The table shows you which OAuth 2.0 flow to use for the type of application that
 
 Any OAuth flow can give you an access token, but not all support ID tokens.
 
-|                                  | Access Token     | ID Token     |
+| Grant Type                       | Access Token     | ID Token     |
 | -------------------------------- | :--------------: | :----------: |
 | **Authorization Code**           | &#9989;          | &#9989;      |
 | **Authorization Code with PKCE** | &#9989;          | &#9989;      |
 | **Implicit**                     | &#9989;          | &#9989;      |
 | **Resource Owner Password**      | &#9989;          | &#9989;      |
 | **Client Credentials**           | &#9989;          | &#10060;     |
+| **SAML 2.0 Assertion**           | &#9989;          | &#9989;      |
 
 ### What kind of client are you building?
 
@@ -248,7 +249,7 @@ app -> client: Response
 
 For information on how to set up your application to use this flow, see [Implement the Resource Owner Password Flow](/docs/guides/implement-password/).
 
-### Client Credentials Flow
+### Client Credentials flow
 
 The Client Credentials flow is intended for server-side (AKA "confidential") client applications with no end user, which normally describes machine-to-machine communication. The application must be server-side because it must be trusted with the client secret, and since the credentials are hard-coded, it can't be used by an actual end user. It involves a single, authenticated request to the `/token` endpoint, which returns an access token.
 
@@ -272,3 +273,33 @@ app -> client: Response
 -->
 
 For information on how to set up your application to use this flow, see [Implement the Client Credentials Flow](/docs/guides/implement-client-creds/).
+
+
+### SAML 2.0 Assertion flow
+
+The SAML 2.0 Assertion flow is intended for server-side (AKA "confidential") client applications with no end user, which normally describes machine-to-machine communication. The application must be server-side because it must be trusted with the client secret, and since the credentials are hard-coded, it can't be used by an actual end user. It involves a request to the IdP for?
+
+
+single, authenticated request to the `/token` endpoint, which returns an access token.
+
+> **Note:** The Client Credentials Flow doesn't support refresh tokens.
+
+![Client Credentials Flow width:](/img/oauth_client_creds_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Client Credentials Flow")
+
+<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
+
+skinparam monochrome true
+
+participant "Client + Resource Owner" as client
+participant "External Identity Provider " as idp
+participant "Authorization Server (Okta) " as okta
+participant "Resource Server (Your App) " as app
+
+client -> idp: Authorize request to the IdP
+idp -> client: SAML 2.0 Assertion after authorization
+client -> okta: Send Base64-encoded SAML 2.0 Assertion to /token
+okta -> client: Verify assertion and send access token (optionally ID token, refresh token)
+client -> app: Request with access token
+app -> client: Response
+
+-->
