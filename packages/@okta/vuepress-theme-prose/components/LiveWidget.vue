@@ -68,8 +68,48 @@
         this.jsTabShown = !this.jsTabShown
       },
       makeValidJSON(dirtyJSON){
-        //take dirty input, get rid of variable name, clear it from comments, trim all unneccecary spaces, make all brackets valid for JSON, remove trailing comas, make string and parse it for json
+        //get type of string and use result for envoking function from transformByStrType structure
+        const defineStrType = (str) => {
+
+          const length = str.length
+          const firstChar = str[0]
+          const lastChar = str[length-1]
+
+          const areWrongParanthesis = firstChar === lastChar && firstChar=== "'"
+          const areCorrectParanthesis = firstChar === lastChar && firstChar === '"'
+          const moreThanOneSymbol = length!==1
+          const isArr = firstChar === '[' && lastChar===']'
+
+          if(areCorrectParanthesis){return 'isValidJsonString'}
+          if (!moreThanOneSymbol) {return 'isBracket'}
+          if (isArr) {return 'isArray'}
+          if (areWrongParanthesis && moreThanOneSymbol) {return 'wrongParenthasis'} 
+          if (!areWrongParanthesis && !isArr && moreThanOneSymbol) {return 'noParenthasis'}
+        }
+        //transform string due to string type
+        const transformByStrType = {
+          isArray: (str) => {
+            const strToArrConversion = str.substring(1,str.length-1)
+                                          .split(', ')
+                                          .map( (el)=> transformByStrType.wrongParenthasis(el))
+                                          .join(', ')
+            return `[${strToArrConversion}]`
+          },
+          isBracket: (str) => str,
+          isValidJsonString: (str)=> str,
+          wrongParenthasis: (str) => `"${str.substring(1, str.length-1)}"`,
+          noParenthasis: (str) => `"${str}"`
+        }
+
+        //add , or : to needed places s
+        const addRightSeparator = (indexStr, str, isLastElement = false)=>{
+          if (str === '{') return str
+          return indexStr === 0 ? `${str}:` : `${str},`
+        }
+        
         const resultNormalized = []
+
+        //clean up initial string from comments, name of object and unneccary semicolon
         const result = dirtyJSON.slice(dirtyJSON.indexOf('{')).split(/\n/).map( el => el.trim())
           .filter(el=>
            !el.startsWith('//') && el!=='')  
@@ -78,23 +118,14 @@
           .map(
             el => el[el.length-1] == ',' ? el.substring(0, el.length - 1) : el
           )
+
+        //make valid json string from strings included  
         result.forEach( (element,index) => {
           if (element.includes(": ")){
            element.split(': ').forEach(
-             (elementTransformed, innerIndex) => {
-              let strToPush = '' 
-               if (elementTransformed === '{') {
-                 strToPush = elementTransformed}
-               else {
-                      if (elementTransformed[0] && elementTransformed[elementTransformed.length-1] === "'")
-                      {
-                        strToPush = `"${elementTransformed.substring(1, elementTransformed[length-1])}"`
-                      } else {
-                        strToPush = `"${elementTransformed}"`
-                    }
-                     strToPush = (innerIndex === 0) ? `${strToPush}:` : `${strToPush},`
-                 }
-               resultNormalized.push(strToPush)
+             (elementToTransform, innerIndex) => {
+               const transformed = transformByStrType[defineStrType(elementToTransform)](elementToTransform)
+               resultNormalized.push(addRightSeparator(innerIndex, transformed))
              }
            )
           } else {
@@ -103,6 +134,7 @@
                `${element},`: element)
           }
         });
+        // console.log('RESULT NORMALIZED', resultNormalized)
         const resultCleared = resultNormalized.map(
           (element, index) => {
             if (

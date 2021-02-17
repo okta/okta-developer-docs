@@ -68,7 +68,6 @@ export default {
             this.lintErrors = annotationsNotSorted;
     },
     emitCMValue(){
-      
       if(this.typingDelayTimer){
         clearTimeout(this.typingDelayTimer)
       }
