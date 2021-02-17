@@ -73,7 +73,7 @@ ok -> ua: 302 to redirect_uri
 
 ## Account Linking and Just-in-Time Provisioning
 
-When you allow your users to sign in to your app using their choice of Identity Providers, you can use account linking to help create a unified view of your users within your org. Additionally, you can use Just-In-Time (JIT) provisioning to create a seamless experience for users that sign-in to your application for the first time using their credentials from another Identity Provider.
+When you allow your users to sign in to your app using their choice of Identity Providers, you can use account linking to help create a unified view of your users within your org. Additionally, you can use Just-in-Time (JIT) provisioning to create a seamless experience for users that sign-in to your application for the first time using their credentials from another Identity Provider.
 
 ### Account Linking
 

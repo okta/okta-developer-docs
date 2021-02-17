@@ -20,7 +20,7 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
     <StackSelector snippet="afterappidpinokta" />
 
 ### Attribute Mapping
-When a user first signs in to Okta using an OpenID Connect Identity Provider, their Identity Provider user profile is mapped to an Okta Universal Directory profile using Just-In-Time provisioning. This user account creation and linking includes default mappings that are based on standard claims defined by the OpenID Connect specification.
+When a user first signs in to Okta using an OpenID Connect Identity Provider, their Identity Provider user profile is mapped to an Okta Universal Directory profile using Just-in-Time provisioning. This user account creation and linking includes default mappings that are based on standard claims defined by the OpenID Connect specification.
 
 To view and modify the mappings, access the Identity Provider that you created by selecting **Social & Identity Providers** from the **Users** menu. Click **Configure** for the Identity Provider and select **Edit Mappings**.
 
