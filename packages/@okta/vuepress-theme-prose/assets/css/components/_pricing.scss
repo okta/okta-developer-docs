@@ -192,6 +192,10 @@ $magenta: #e22866;
 
       &.mobile {
         display: none;
+
+        .pricing-card-column:not(:first-child) {
+          flex: 0 0 auto;
+        }
       }
 
       &.desktop {
@@ -282,7 +286,8 @@ $magenta: #e22866;
     }
 
     img.pricing-card-check {
-      flex: 0;
+      width: 16px;
+      height: 16px;
     }
 
     select {

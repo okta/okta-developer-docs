@@ -4,7 +4,7 @@ $redesign_light_pink: #f64882;
   ul.menu--items {
     display: flex;
 
-    a.active {
+    a.router-link-exact-active {
       color: $redesign_light_pink;
     }
 

@@ -5,27 +5,31 @@ Use the following steps to display the user consent dialog box as part of an Ope
 
 > **Note:** Currently OAuth Consent works only with custom authorization servers. See [Authorization Servers](/docs/concepts/auth-servers/) for more information on the types of authorization servers available to you and what you can use them for.
 
-1. In the Developer Console, select **Applications** and then select the OpenID Connect app that you want to require user consent for.
+1. In the Admin Console, select **Applications** and then **Applications**.
 
-2. Select the **General** tab and click **Edit**.
+1. Select the OpenID Connect app that you want to require user consent for.
 
-3. Scroll down to the **User Consent** section and select **Require consent**.
+1. Select the **General** tab and click **Edit**.
+
+1. Scroll down to the **User Consent** section and select **Require consent**.
 
     > **Note:** If the **User Consent** section doesn't appear, you don't have the API Access Management and the User Consent features enabled. To enable these features, contact [Support](https://support.okta.com/help/open_case?_).
 
-4. In this example, we use the **Implicit** flow for testing purposes. In the **Application** section, select **Implicit** flow and then both **Allow ID Token with implicit grant type** and **Allow Access Token with implicit grant type**.
+1. In this example, we use the **Implicit** flow for testing purposes. In the **Application** section, select **Implicit** flow and then both **Allow ID Token with implicit grant type** and **Allow Access Token with implicit grant type**.
 
     For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
-5. Click **Save**.
+1. Click **Save**.
 
-6. To enable consent for the [scopes](/docs/reference/api/authorization-servers/#create-a-scope) that you want to require consent for, select **API**, **Authorization Servers**, and then select **default** (Custom Authorization Server) in the table. In this example, we are enabling consent for default Custom Authorization Server scopes.
+1. To enable consent for the [scopes](/docs/reference/api/authorization-servers/#create-a-scope) that you want to require consent for, select **Security** and then **API**.  
 
-7. Select the **Scopes** tab.
+1. On the **Authorization Servers** tab, select **default** (Custom Authorization Server) in the table. In this example, we are enabling consent for default Custom Authorization Server scopes.
 
-8. Click the edit icon for the **phone** scope. The Edit Scope dialog box appears.
+1. Select the **Scopes** tab.
 
-9. Select **Require user consent for this scope** and click **Save**.
+1. Click the edit icon for the **phone** scope. The Edit Scope dialog box appears.
+
+1. Select **Require user consent for this scope** and click **Save**.
 
 ## Enable consent using the APIs
 

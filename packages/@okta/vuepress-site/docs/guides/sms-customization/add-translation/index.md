@@ -4,7 +4,7 @@ title: Add a translation
 
 If you support other languages in your org, you need to create a translation for each language to match your <GuideLink link="../customize-default-sms">new custom SMS message</GuideLink>. You also need to provide the translated text for each message.
 
-1. In the Developer Console, go to **Customizations**, and then **Emails & SMS**.
+1. In the Admin Console, go to **Settings**, and then **Emails & SMS**.
 
 2. Select the **SMS** tab.
 

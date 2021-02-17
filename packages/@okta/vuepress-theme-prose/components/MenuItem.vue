@@ -2,31 +2,22 @@
   <li
     :class="{
       expandable: isExpandable,
-      active: item.active,
-      open: isOpen
+      open: isOpen,
     }"
     @click="isOpen = !isOpen"
   >
-    <a
-      v-if="item.link"
-      :href="item.link"
-      :class="{ [itemCss]: true, active: $page.path.includes(item.link) }"
-      :target="item.target"
-      :rel="item.target && 'noopener noreferrer'"
-      v-html="item.text"
-    ></a>
+    <SmartLink v-if="item.link" :item="item" :classes="itemCss" />
     <span v-else-if="item.text" v-html="item.text" :class="itemCss"></span>
     <div v-else-if="item.type === 'divider'" class="menu--divider"></div>
     <div v-else-if="item.type === 'icons'" class="menu--icons">
-      <a
+      <SmartLink
         v-for="(icon, index) in item.icons"
-        class="menu--icon"
         :key="index"
-        :href="icon.link"
-        :title="icon.text"
+        :item="icon"
+        classes="menu--icon"
       >
         <i v-if="icon.icon" v-html="icon.icon"></i>
-      </a>
+      </SmartLink>
     </div>
 
     <ul v-if="item.children && item.children.length" class="submenu--items">
@@ -43,31 +34,32 @@
 <script>
 export default {
   components: {
-    MenuItem: () => import("./MenuItem.vue")
+    MenuItem: () => import("./MenuItem.vue"),
+    SmartLink: () => import("./SmartLink.vue"),
   },
   props: {
     item: {
       type: Object,
-      default: () => {}
+      default: () => {},
     },
     itemCss: {
       type: String,
-      default: ""
+      default: "",
     },
     subItemCss: {
       type: String,
-      default: ""
-    }
+      default: "",
+    },
   },
   data() {
     return {
       isOpen: false,
-    }
+    };
   },
   computed: {
     isExpandable() {
       return this.item.children && this.item.children.length;
-    }
-  }
+    },
+  },
 };
 </script>

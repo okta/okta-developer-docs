@@ -15,6 +15,6 @@ export default {
     if (!isSearchPage) {
       import("../util/coveo/init").then(({ initSearchBar }) => initSearchBar());
     }
-  }
+  },
 };
 </script>

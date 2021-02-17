@@ -33,6 +33,6 @@ Version 2.7.0 of the Okta Sign-in Widget provides new features, notable changes,
 ### Bugs Fixed for 2018.11
 
 * An incorrect error message was returned when a blank password was specified in a password reset request. (OKTA-144982)
-* If administrators in an org with the Developer Console enabled used the Classic user interface instead, and had no apps assigned, they couldn't access their own user home page. (OKTA-152324)
+* If administrators in an org with the Admin Console enabled used the Classic user interface instead, and had no apps assigned, they couldn't access their own user home page. (OKTA-152324)
 * For [the System Log API](/docs/reference/api/system-log/), the `displayName` in the Target object was set to `Unknown` if the `eventType` was `user.authentication.sso` and if the value didn't exist in the profile editor.
 This behavior matches the behavior in `/events`. (OKTA-156484)

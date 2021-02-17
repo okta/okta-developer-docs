@@ -149,7 +149,7 @@ Okta provides the API Access Management administrator role to manage authorizati
 * A client secret is a password and should be treated and protected as such. Therefore, it shouldn't be embedded in mobile applications, frontend JavaScript applications, or any other scenario where an attacker could access it.
 * Avoid using the resource owner password grant type (`password`) except in legacy application or transitional scenarios. The authorization code, implicit, or hybrid grant types are recommended for most scenarios.
 * For mobile and single-page web applications, using the authorization code grant type with PKCE is the best practice. The implicit or hybrid grant type is the next best option.
-* For Android or iOS applications, use [Okta OIDC iOS](https://github.com/okta/okta-oidc-ios) or [AppAuth for Android](https://github.com/okta/okta-sdk-appauth-android/).
+* For Android or iOS applications, use [Okta OIDC iOS](https://github.com/okta/okta-oidc-ios) or [Okta OIDC Android](https://github.com/okta/okta-oidc-android).
 * When an application successfully validates an access token, cache the result until the expiration time (`exp`). Do this for validation that is either [local](/docs/guides/validate-access-tokens/) or via the [introspection endpoint](/docs/reference/api/oidc/#introspect).
 * When an application retrieves the JWKS (public keys) to validate a token, it should cache the result until a new or unknown key is referenced in a token.
 

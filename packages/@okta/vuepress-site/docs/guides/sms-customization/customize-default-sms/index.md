@@ -6,7 +6,7 @@ This section walks you through customizing the Okta Default SMS message.
 
 > **Note:**  If you don't want to customize the Default SMS message and just need to add translations for the languages that your org supports, skip to the <GuideLink link="../add-translation">Add a translation</GuideLink> section.
 
-1. In the Developer Console, go to **Customizations**, and then **Emails & SMS**.
+1. In the Admin Console, go to **Settings**, and then **Emails & SMS**.
 
 2. Select the **SMS** tab.
 

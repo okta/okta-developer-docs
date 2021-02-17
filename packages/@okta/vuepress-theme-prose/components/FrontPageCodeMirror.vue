@@ -35,7 +35,7 @@ export default {
 
 var widget = new OktaSignIn({
   baseUrl: "{{yourOktaDomain}}",
-  logo: "/sites/all/themes/developer/owb/alliance.png",
+  logo: "/alliance.png",
   i18n: {
     // Overriding English properties
     en: {
