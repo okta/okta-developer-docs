@@ -14,6 +14,7 @@
       <img src="/img/authorization/bg-image.png" alt="" />
       <Footer />
     </div>
+    <portal-target name="dialog-wrapper"></portal-target>
   </div>
 </template>
 

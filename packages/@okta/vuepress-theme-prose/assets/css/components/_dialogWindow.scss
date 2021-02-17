@@ -1,0 +1,43 @@
+.dialog-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  color: #fff;
+}
+
+.dialog {
+  max-width: 712px;
+  position: absolute;
+  margin: auto;
+  top: 197px;
+  left: 0;
+  right: 0;
+  padding: 37px 0 31px 0;
+  background-color: cv('blue','whale');
+  box-shadow: 0px 6px 25px cv('blue','whale');
+  a {
+    color: cv('cerise','base');
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  .dailog--header,
+  .dialog--body {
+    padding: 0 47px 0 47px;
+  }
+  .dailog--header {
+    margin: 0 0 48px 0;
+    font-size: 28px;
+  }
+  .dialog--body {
+    font-size: 16px;
+    margin: 0 0 117px 0;
+  }
+  .dialog--footer {
+    padding: 0 36px 0 36px;
+  }
+  @include media("<tablet") {
+      top: 0;
+  }
+}

@@ -6,6 +6,10 @@
   flex-direction: column;
   justify-content: space-between;
 
+  .mr-15 {
+    margin-right: 15px;
+  }
+
   .row {
     display: flex;
     margin: 0 -24px 24px 0;
@@ -79,7 +83,8 @@
     border-radius: 3px;
   }
 
-  a.btn {
+  a.btn,
+  input.btn {
     display: block;
     background-color: cv("cerise", "base");
     padding: 10px 20px 9px;
@@ -95,7 +100,8 @@
     }
   }
 
-  a.social-btn {
+  a.social-btn,
+  input.social-btn {
     background-color: transparent;
   }
 

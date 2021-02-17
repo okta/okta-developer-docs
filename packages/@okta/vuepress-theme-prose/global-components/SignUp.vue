@@ -91,7 +91,7 @@
                 validationService.checkFormInput('country');
                 validationService.resetFormField('state', {
                   reset: true,
-                  value: '',
+                  value: ''
                 });
                 showConsentSection(form.country.value);
                 states = form.country.value;
@@ -215,16 +215,34 @@
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <a class="btn social-btn" :href="uris.github">
+          <input
+            type="button"
+            value="Continue With GitHub"
+            class="btn social-btn"
+            @click="
+              socialUrl = uris.github;
+              isShowTermsConditionsDialog = true;
+            "
+          />
+          <!-- <a class="btn social-btn" :href="uris.github">
             Continue With GitHub
-          </a>
+          </a> -->
         </div>
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <a class="btn social-btn" :href="uris.google">
+          <input
+            type="button"
+            class="btn social-btn"
+            value="Continue With Google"
+            @click="
+              socialUrl = uris.google;
+              isShowTermsConditionsDialog = true;
+            "
+          />
+          <!-- <a class="btn social-btn" :href="uris.google">
             Continue With Google
-          </a>
+          </a> -->
         </div>
       </div>
       <div class="row goto-signin">
@@ -238,6 +256,34 @@
         <CompanyLogos withHeading small v-bind:centered="false" />
       </div>
     </div>
+    <DialogWindow
+      v-if="isShowTermsConditionsDialog"
+      @close="isShowTermsConditionsDialog = false"
+      title="Terms and Conditions"
+    >
+      <div class="dialog-text">
+        <p>
+          By clicking continue, I agree to the
+        <SmartLink :item="{ link: '/terms/' }">Terms of Service</SmartLink> and
+        agree my data will be processed according to Okta’s
+        <SmartLink :item="{ link: '/privacy-policy/' }">Privacy Policy</SmartLink>.
+        </p>
+        <label for="okta-contact">
+          <input type="checkbox" name="" id="okta-contact">
+          In addtion, Okta may contact me with marketing communications (optional).
+        </label>
+      </div>
+      <template v-slot:footer>
+        <div class="terms-conditions-btns">
+          <div class="btn-container">
+            <a class="btn red-button" :href="socialUrl">continue</a>
+          </div>
+          <div class="btn-container mr-15">
+            <input type="button" class="btn social-btn" value="cancel" @click="isShowTermsConditionsDialog = false" />
+          </div>
+        </div>
+      </template>
+    </DialogWindow>
   </div>
 </template>
 
@@ -249,7 +295,7 @@ import {
   countriesList,
   americanStates,
   canadaProvinces,
-  GDPR_COUNTRIES,
+  GDPR_COUNTRIES
 } from "../const/signup.const";
 import setHiddenUtmValues from "../util/attribution/attribution";
 import { getIdpUri } from "../util/uris";
@@ -265,9 +311,12 @@ export default {
     VueRecaptcha,
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
+    DialogWindow: () => import("../components/DialogWindow")
   },
   data() {
     return {
+      isShowTermsConditionsDialog: false,
+      socialUrl: String,
       state: { label: "", list: [] },
       displayConsent: false,
       displayAgree: false,
@@ -281,13 +330,13 @@ export default {
           value: false,
           isValid: true,
           errorList: [],
-          hidden: true,
+          hidden: true
         },
-        captcha: { value: "", isValid: true, errorList: [] },
+        captcha: { value: "", isValid: true, errorList: [] }
       },
       isPending: false,
       error: null,
-      captchaSitekey: null,
+      captchaSitekey: null
     };
   },
   computed: {
@@ -309,7 +358,7 @@ export default {
           this.state.label = "";
           this.form.state.hidden = true;
         }
-      },
+      }
     },
     getCountries() {
       return countriesList;
@@ -325,9 +374,9 @@ export default {
 
       return {
         github: getIdpUri(uris, "github"),
-        google: getIdpUri(uris, "google"),
+        google: getIdpUri(uris, "google")
       };
-    },
+    }
   },
   methods: {
     submitForm(e) {
@@ -352,8 +401,8 @@ export default {
             country: this.form.country.value,
             state: this.form.state.value,
             emailOptInC: this.form.consentAgree.value,
-            captchaResponse: this.form.captcha.value,
-          },
+            captchaResponse: this.form.captcha.value
+          }
         };
 
         this.isPending = true;
@@ -408,7 +457,7 @@ export default {
       this.form.consentAgree.hidden = true;
       this.validationService.resetFormField("consentAgree", {
         reset: true,
-        value: false,
+        value: false
       });
 
       if (GDPR_COUNTRIES.indexOf(country) !== -1) {
@@ -420,17 +469,21 @@ export default {
     onCaptchaVerified(response) {
       this.validationService.resetFormField("captcha", {
         reset: true,
-        value: response,
+        value: response
       });
     },
     onCaptchaExpired() {
       this.$refs.recaptcha.reset();
       this.validationService.resetFormField("captcha", {
         reset: true,
-        value: "",
+        value: ""
       });
       this.validationService.checkFormInput("captcha");
     },
+
+    toggleModel() {
+      this.isShowModel = !this.isShowModel;
+    }
   },
   beforeMount() {
     const { captcha } = this.$site.themeConfig;
@@ -444,6 +497,6 @@ export default {
   mounted() {
     const formElement = document.querySelector("#signupForm");
     setHiddenUtmValues(formElement);
-  },
+  }
 };
 </script>
