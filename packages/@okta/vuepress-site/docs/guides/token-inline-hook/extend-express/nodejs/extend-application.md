@@ -31,9 +31,9 @@
       }
     }
 
-  /*
-  * End of the Inline Token Hook code extension. Add one further line below to the existing render function.
-  */
+    /*
+    * End of the Inline Token Hook code extension. Add one further line below to the existing render function.
+    */
 
 
     // Convert the userinfo object into an attribute array, for rendering with mustache
@@ -42,9 +42,9 @@
     res.render('profile', {
       isLoggedIn: !!userinfo,
       userinfo: userinfo,
-      // Add variable below to display the results of the Inline Token Hook claim addition.
+      // Add variable below to display the results of the Token Inline Hook claim addition.
       profileTokenString: profileTokenString,
-      // End of the Inline Token Hook code extension
+      // End of the Token Inline Hook addition to this function.
       attributes
     });
   });
