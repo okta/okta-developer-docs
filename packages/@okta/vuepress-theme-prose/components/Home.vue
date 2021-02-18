@@ -4,7 +4,7 @@
       <div
         class="col-xl-2 col-lg-2 d-none d-lg-block redesign-homepage--col-no-padding"
       >
-        <RedesignedSideBar />
+        <HomeSidebar />
       </div>
       <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
         <div class="row justify-content-center">
@@ -150,7 +150,7 @@ const SIDE_BY_SIDE_BREAKPOINT = 1200;
 export default {
   name: "Home",
   components: {
-    RedesignedSideBar: () => import("../components/RedesignedSidebar"),
+    HomeSidebar: () => import("../components/HomeSidebar"),
     SelectorTile: () => import("../components/SelectorTile"),
     AssuranceItem: () => import("../components/AssuranceItem"),
     FrontPageWidget: () => import("../components/FrontPageWidget"),

@@ -13,7 +13,7 @@
 
 <script>
   export default {
-    name: 'RedesignedSidebar',
+    name: 'HomeSidebar',
     data() {
       return {
        navigation: [
