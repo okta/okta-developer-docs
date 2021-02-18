@@ -1,20 +1,15 @@
 <template>
   <div>
     <div class="fixed-header">
-      <HeaderRedesign v-if="$page.redesign" />
-      <TopBar v-else />
+      <HeaderRedesign />
     </div>
     <div
       :class="{
         'page-body': true,
-        redesign: $page.redesign
+        redesign: true
       }"
     >
-      <Breadcrumb
-        v-if="
-          !$page.redesign || ($page.redesign && appContext.isInMobileViewport)
-        "
-      />
+      <Breadcrumb v-if="appContext.isInMobileViewport" />
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
@@ -53,9 +48,7 @@
         </div>
       </div>
     </div>
-
-    <FooterRedesign v-if="$page.redesign" />
-    <Footer v-else />
+    <FooterRedesign />
   </div>
 </template>
 
@@ -68,7 +61,6 @@ const TABLET_BREAKPOINT = 767;
 export const endingSlashRE = /\/$/;
 export default {
   components: {
-    TopBar: () => import("../components/TopBar.vue"),
     HeaderRedesign: () => import("../components/Header.redesign.vue"),
     Sidebar: () => import("../components/Sidebar.vue"),
     OnThisPage: () => import("../components/OnThisPage.vue"),
@@ -76,7 +68,6 @@ export default {
     PageTitle: () => import("../components/PageTitle.vue"),
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
     ContentPage: () => import("../components/ContentPage.vue"),
-    Footer: () => import("../components/Footer.vue"),
     FooterRedesign: () => import("../components/Footer.redesign.vue"),
     Documentation: () => import("../components/Documentation.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
