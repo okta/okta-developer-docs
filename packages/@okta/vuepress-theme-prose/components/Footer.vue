@@ -1,5 +1,5 @@
 <template>
-  <footer class="redesign">
+  <footer>
     <p>
       <span class="italic">Need support?</span> Contact
       <SmartLink
