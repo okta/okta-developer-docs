@@ -1,5 +1,7 @@
 'use strict';
 
+const { example } = require('joi');
+const { element, by } = require('protractor');
 const BasePage = require('./BasePage');
 
 const headerSelector = '.signup';
@@ -7,12 +9,14 @@ const emailFieldId = 'email';
 const firstNameFieldId = 'firstName';
 const lastNameFieldId = 'lastName';
 const countryFieldId = 'country';
+const signupWithGoogleButtonId = 'continue-google';
+const signupWithGithubButtonId = 'continue-github';
 const signUpByEmailButtonId = 'signup';
-const signUpWithGitHubButtonText = 'CONTINUE WITH GITHUB';
-const signUpWithGoogleButtonText = 'CONTINUE WITH GOOGLE';
 const signInLinkText = 'Sign in';
 const redirectUrl = '/signup';
 const captchaIFrameXpath = "//*[@for='recaptcha']/div/div/div/iframe";
+const dialogContainerClass = '.dialog-container';
+const dialogTermsConditionsHeader = `${dialogContainerClass} .dailog--header`
 const agreeCheckboxDivCss = ".consent--section-agree";
 const stateSelectionId = "state";
 
@@ -61,6 +65,10 @@ class SignUpPage extends BasePage {
     return this.getStateSelectionElement().isPresent();
   }
 
+  isDialogWindowPresent() {
+    return this.getDialogWindow().isPresent();
+  }
+
   navigate() {
     const pageLoadElement = SignUpPage.getPageLoadElement();
     this.load(redirectUrl, pageLoadElement);
@@ -71,12 +79,20 @@ class SignUpPage extends BasePage {
     return element(by.css(headerSelector));
   }
 
+  getDialogWindow() {
+    return element(by.css(dialogContainerClass));
+  }
+
+  getDialogWindowHeader() {
+    return element(by.css(dialogTermsConditionsHeader));
+  }
+
   getGithubSignUpButtonElement() {
-    return element(by.linkText(signUpWithGitHubButtonText));
+    return element(by.id(signupWithGithubButtonId));
   }
 
   getGoogleSignUpButtonElement() {
-    return element(by.linkText(signUpWithGoogleButtonText));
+    return element(by.id(signupWithGoogleButtonId));
   }
 
   getSignUpByEmailButtonElement() {

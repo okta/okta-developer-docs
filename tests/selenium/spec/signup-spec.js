@@ -70,16 +70,16 @@ describe('Sign up page check spec', () => {
 
   describe('verify button clicks', () => {
 
-    it('sign up with github button click takes user to github', util.itHelper(async () => {
+    it('sign up with github button click display dialog window for "Terms and Conditions"', util.itHelper(async () => {
       await signUpPage.getGithubSignUpButtonElement().click();
-      expect(await signUpPage.getCurrentURL())
-        .to.contain("github.com/login");
+      expect(await signUpPage.isDialogWindowPresent(), 'expects dialog window to be present').to.equal(true);
+      expect(await signUpPage.getDialogWindowHeader().getText(), 'expects dialog header to be "Terms and Conditions"').to.equal('Terms and Conditions');
     }));
 
-    it('sign up with google button click takes user to google', util.itHelper(async () => {
+    it('sign up with google button click display dialog window for "Terms and Conditions"', util.itHelper(async () => {
       await signUpPage.getGoogleSignUpButtonElement().click();
-      expect(await signUpPage.getCurrentURL())
-        .to.contain("accounts.google.com");
+      expect(await signUpPage.isDialogWindowPresent(), 'expects dialog window to be present').to.equal(true);
+      expect(await signUpPage.getDialogWindowHeader().getText(), 'expects dialog header to be "Terms and Conditions"').to.equal('Terms and Conditions');
     }));
 
     it('sign in link click takes user to login page', util.itHelper(async () => {
@@ -87,7 +87,6 @@ describe('Sign up page check spec', () => {
       expect(await signUpPage.getCurrentURL())
         .to.contain("login");
     }));
-
   });
 
   describe('verify button text', () => {
@@ -97,13 +96,13 @@ describe('Sign up page check spec', () => {
     }));
 
     it('github signup button text verification', util.itHelper(async () => {
-      await signUpPage.getGithubSignUpButtonElement().getText().then((text) => {
+      await signUpPage.getGithubSignUpButtonElement().getAttribute('value').then((text) => {
         expect(text, 'button text does not match').to.equal("CONTINUE WITH GITHUB");
       });
     }));
 
     it('google signup button text verification', util.itHelper(async () => {
-      await signUpPage.getGoogleSignUpButtonElement().getText().then((text) => {
+      await signUpPage.getGoogleSignUpButtonElement().getAttribute('value').then((text) => {
         expect(text, 'button text does not match').to.equal("CONTINUE WITH GOOGLE");
       });
     }));

@@ -217,7 +217,8 @@
         <div class="field-wrapper">
           <input
             type="button"
-            value="Continue With GitHub"
+            id="continue-github"
+            value="CONTINUE WITH GITHUB"
             class="btn social-btn"
             @click="
               socialUrl = uris.github;
@@ -233,8 +234,9 @@
         <div class="field-wrapper">
           <input
             type="button"
+            id="continue-google"
             class="btn social-btn"
-            value="Continue With Google"
+            value="CONTINUE WITH GOOGLE"
             @click="
               socialUrl = uris.google;
               isShowTermsConditionsDialog = true;
