@@ -21,7 +21,7 @@ Use the following steps to display the user consent dialog box as part of an Ope
 
 1. Click **Save**.
 
-1. To enable consent for the [scopes](/docs/reference/api/authorization-servers/#create-a-scope) that you want to require consent for, select **Security** and then **API**.  
+1. To enable consent for the [scopes](/docs/reference/api/authorization-servers/#create-a-scope) that you want to require consent for, select **Security** and then **API**.
 
 1. On the **Authorization Servers** tab, select **default** (Custom Authorization Server) in the table. In this example, we are enabling consent for default Custom Authorization Server scopes.
 
@@ -35,11 +35,15 @@ Use the following steps to display the user consent dialog box as part of an Ope
 
 The following section provides example requests for enabling the consent dialog box using the APIs. You must first set the `consent_method` property and then enable consent for the scope.
 
-> **Note:** See the [Settings table in the Apps API doc](/docs/reference/api/apps/#settings-8) for more information on this parameter.
+A consent dialog appears depending on the values of three elements:
+
+* `prompt`: a query parameter used in requests to `/oauth2/${authServerId}/v1/authorize`(custom authorization server) or `/oauth2/v1/authorize` (Org authorization server)
+* `consent_method`: a property listed in the [**Settings** table in the Apps API doc](/docs/reference/api/apps/#settings-10)
+* `consent`: a property listed in the [**Parameter details**](/docs/reference/api/oidc/#parameter-details) section for the `/authorize` endpoint.
 
 ## Update the App
 
-This example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` (which is the default) to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`. Check the tables in the [Add OAuth 2.0 Client Application](/docs/reference/api/apps/#add-oauth-2-0-client-application) section for information on these three properties. In most cases, `REQUIRED` is the correct value.
+This example shows the JSON body of a PUT request to an existing OpenID Connect app (`https://${yourOktaDomain}/api/v1/apps/${applicationId}`). The request updates the `consent_method` parameter from `TRUSTED` (which is the default) to `REQUIRED`. The value that you specify for `consent_method` depends on the values for `prompt` and `consent`. Check the Settings table in the [Add OAuth 2.0 Client Application](/docs/reference/api/apps/#settings-10) section for information on these three properties. In most cases, `REQUIRED` is the correct value.
 
 > **Note:** You need the `applicationId` of the app that you want to update. Do a [List Applications](/docs/reference/api/apps/#list-applications-with-defaults) to locate that ID.
 
