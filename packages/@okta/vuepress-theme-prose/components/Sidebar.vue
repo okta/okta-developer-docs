@@ -36,14 +36,11 @@ export default {
   },
   computed: {
     navigation() {
-      // Redesign FeatureFlag
-      return (this.$page.redesign
-        ? this.getNewNavigation()
-        : this.getNavigation() || []
-      ).map(nav => {
-        this.addStatesToLink(nav);
-        return nav;
-      });
+      return this.getNewNavigation()
+        .map(nav => {
+          this.addStatesToLink(nav);
+          return nav;
+        });
     }
   },
   data() {
