@@ -10,6 +10,9 @@ module.exports = (options, ctx) => {
         }
       }]
     ],
+    extendPageData ($page) {
+      $page.fullHeaders = resolveHeaders($page);
+    }
   }
 }
 
