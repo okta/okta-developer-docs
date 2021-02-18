@@ -10,11 +10,6 @@ module.exports = (options, ctx) => {
         }
       }]
     ],
-    extendPageData ($page) {
-      $page.fullHeaders = resolveHeaders($page);
-      // Sets `redesign` FF to true to render the updated website
-      $page.redesign = true;
-    }
   }
 }
 
