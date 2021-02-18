@@ -102,7 +102,7 @@ export default {
   },
   computed: {
     config() {
-      return this.$themeConfig.redesign;
+      return this.$themeConfig;
     },
   },
   data() {

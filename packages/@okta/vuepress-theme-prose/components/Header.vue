@@ -14,17 +14,17 @@
     <div :class="{ 'menu--slideout': true, opened: menuOpened }">
       <div class="header--links">
         <MenuItems
-          :items="$themeConfig.redesign.primary_left_nav"
+          :items="$themeConfig.primary_left_nav"
           :itemCss="'link link--small link--semi-bold'"
           :subItemCss="'link link--small link--semi-bold link--black'"
         />
         <MenuItems
-          :items="$themeConfig.redesign.primary_right_nav"
+          :items="$themeConfig.primary_right_nav"
           :itemCss="'link link--small link--semi-bold'"
           :subItemCss="'link link--small link--semi-bold link--black'"
         />
         <MenuItems
-          :items="$themeConfig.redesign.primary_doc_nav"
+          :items="$themeConfig.primary_doc_nav"
           :itemCss="'link link--small link--semi-bold'"
           :subItemCss="'link link--small link--semi-bold link--black'"
         />
