@@ -16,17 +16,11 @@
 import _ from "lodash";
 import { getGuidesInfo, guideFromPath } from "../util/guides";
 import {
-  concepts as conceptsRedesign,
-  guides as guidesRedesign,
-  languagesSdk as languagesSdkRedesign,
-  reference as referenceRedesign
-} from "../const/navbar/redesign/navbar.const";
-import {
   concepts,
   guides,
   languagesSdk,
-  reference
-} from "../const/navbar/navbar.const";
+  reference,
+} from "../const/navbar.const";
 
 export default {
   name: "Sidebar",
@@ -36,7 +30,7 @@ export default {
   },
   computed: {
     navigation() {
-      return this.getNewNavigation()
+      return this.getNavigation()
         .map(nav => {
           this.addStatesToLink(nav);
           return nav;
@@ -88,46 +82,20 @@ export default {
       }
       return link.imActive;
     },
-    getNewNavigation() {
+    getNavigation() {
       const homeLink = { title: "Home", path: "/" };
       return [
         homeLink,
-        ...this.getGuides(guidesRedesign),
-        ..._.cloneDeep(conceptsRedesign),
-        ..._.cloneDeep(referenceRedesign),
-        ..._.cloneDeep(languagesSdkRedesign)
+        ...this.getGuides(),
+        ..._.cloneDeep(concepts),
+        ..._.cloneDeep(reference),
+        ..._.cloneDeep(languagesSdk)
       ];
     },
-    getNavigation() {
-      if (this.$page.path.includes("/code/")) {
-        this.usingFile = true;
-        return _.cloneDeep(languagesSdk);
-      }
-      if (this.$page.path.includes("/docs/reference/")) {
-        this.usingFile = true;
-        return _.cloneDeep(reference);
-      }
-      if (this.$page.path.includes("/docs/concepts/")) {
-        this.usingFile = true;
-        return _.cloneDeep(concepts);
-      }
-      if (this.$page.path.includes("/docs/guides")) {
-        return this.getGuides();
-      }
-      if (this.$page.path.includes("/books/")) {
-        const booksRegex = /(\/books\/)[A-Za-z-]*\/$/;
-        return _.chain(this.$site.pages)
-          .filter(page => page.path.match(booksRegex))
-          .sortBy(page => page.title)
-          .sort()
-          .value();
-      }
-    },
-    getGuides(overrides) {
+    getGuides() {
       const pages = this.$site.pages;
       const guidesInfo = getGuidesInfo({ pages });
-      // Redesign FeatureFlag
-      let navs = _.cloneDeep(overrides || guides);
+      let navs = _.cloneDeep(guides);
       const framework = guideFromPath(this.$route.path).framework;
       navs.forEach(nav => {
         let queue = new Array();
