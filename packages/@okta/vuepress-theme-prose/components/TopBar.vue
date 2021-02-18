@@ -58,10 +58,10 @@
     },
     computed: {
       signUpUrl() {
-        return this.$page.redesign ? '/signup/' : 'https://developer.okta.com/developer/signup/'
+        return '/signup/';
       },
       loginUrl() {
-        return this.$page.redesign ? '/login/' : 'https://login.okta.com/'
+        return '/login/';
       }
     },
     watch: {
