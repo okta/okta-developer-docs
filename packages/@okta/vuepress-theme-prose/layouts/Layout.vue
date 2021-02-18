@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="fixed-header">
-      <HeaderRedesign />
+      <Header />
     </div>
     <div
       :class="{
@@ -48,7 +48,7 @@
         </div>
       </div>
     </div>
-    <FooterRedesign />
+    <Footer />
   </div>
 </template>
 
@@ -61,21 +61,21 @@ const TABLET_BREAKPOINT = 767;
 export const endingSlashRE = /\/$/;
 export default {
   components: {
-    HeaderRedesign: () => import("../components/Header.redesign.vue"),
+    Header: () => import("../components/Header.vue"),
     Sidebar: () => import("../components/Sidebar.vue"),
     OnThisPage: () => import("../components/OnThisPage.vue"),
     MobileOnThisPage: () => import("../components/MobileOnThisPage.vue"),
     PageTitle: () => import("../components/PageTitle.vue"),
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
     ContentPage: () => import("../components/ContentPage.vue"),
-    FooterRedesign: () => import("../components/Footer.redesign.vue"),
+    Footer: () => import("../components/Footer.vue"),
     Documentation: () => import("../components/Documentation.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),
     OktaIntegrationNetwork: () =>
       import("../components/OktaIntegrationNetwork.vue"),
     Search: () => import("../components/Search.redesign.vue"),
-    Home: () => import("../components/Home.redesign.vue"),
+    Home: () => import("../components/Home.vue"),
     Terms: () => import("../components/Terms.vue"),
     Errors: () => import("../components/Errors.vue"),
   },
