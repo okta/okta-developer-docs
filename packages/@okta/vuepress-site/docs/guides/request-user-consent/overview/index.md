@@ -1,5 +1,5 @@
 ---
-title: Request user consent during authentication
+title: Overview
 ---
 
 <ApiLifecycle access="ea" />
@@ -18,6 +18,12 @@ User consent represents a user's explicit permission to allow an application to 
 When an application needs to get a new access token from an authorization server, the user isn't prompted for consent if they have already consented to the specified scopes. Consent grants remain valid until the user or admin manually revokes them, or until the user, application, authorization server, or scope is deactivated or deleted.
 
 > **Note:** The user only has to grant consent once for an attribute per authorization server.
+
+When a consent dialog appears depends on the values of three elements:
+
+* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) used in requests to `/oauth2/${authServerId}/v1/authorize`(custom authorization server) or `/oauth2/v1/authorize` (Org authorization server)
+* `consent_method`: a property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc
+* `consent`: a property listed in the [**Parameter details**](/docs/reference/api/oidc/#parameter-details) section for the `/authorize` endpoint
 
 ## Support
 
