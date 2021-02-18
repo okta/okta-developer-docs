@@ -51,7 +51,7 @@ export default {
   components: {
     MenuItems: () => import("../components/MenuItems.vue"),
     MenuItem: () => import("../components/MenuItem.vue"),
-    SearchBar: () => import("../components/SearchBar.redesign.vue"),
+    SearchBar: () => import("../components/SearchBar.vue"),
     SmartLink: () => import("../components/SmartLink.vue"),
   },
   data() {

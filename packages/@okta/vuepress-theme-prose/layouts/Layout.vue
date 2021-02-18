@@ -74,7 +74,7 @@ export default {
     Pricing: () => import("../components/Pricing.vue"),
     OktaIntegrationNetwork: () =>
       import("../components/OktaIntegrationNetwork.vue"),
-    Search: () => import("../components/Search.redesign.vue"),
+    Search: () => import("../components/Search.vue"),
     Home: () => import("../components/Home.vue"),
     Terms: () => import("../components/Terms.vue"),
     Errors: () => import("../components/Errors.vue"),
