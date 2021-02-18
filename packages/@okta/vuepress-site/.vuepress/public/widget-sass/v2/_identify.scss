@@ -1,0 +1,70 @@
+.sign-in-with-device-option {
+  .okta-verify-container {
+    .okta-verify-authenticator {
+      margin: 0 0.83em 0 0;
+    }
+  }
+}
+
+.sign-in-with-idp,
+.custom-buttons {
+  .okta-verify-container {
+    .button {
+      text-align: center;
+    }
+  }
+}
+
+.sign-in-with-device-option,
+.sign-in-with-idp,
+.custom-buttons {
+  .okta-verify-container {
+    .signin-with-ov-description {
+      margin-bottom: 0.83em;
+    }
+    .button {
+      display: flex;
+      position: relative;
+      min-height: 50px;
+      height: auto;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      line-height: 1.4;
+      align-items: center;
+      .okta-verify-authenticator {
+        flex-shrink: 0;
+      }
+    }
+  }
+  .separation-line {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+
+    &:before {
+      font-size: 13px;
+      border-top: 1px solid $border-color-default;
+      content: "";
+      margin: 0 auto;
+      position: absolute;
+      top: 55%;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: -1;
+    }
+
+    span {
+      background: $white;
+      padding: 0 15px;
+      font-size: 13px;
+      color: $border-color-default;
+    }
+  }
+}

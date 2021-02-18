@@ -1,0 +1,481 @@
+@import './email-factor';
+$enroll-content-spacing: 15px;
+
+.enroll-choices {
+  .okta-form-subtitle > span {
+    b {
+      font-weight: bold;
+    }
+  }
+}
+
+.enroll-factor-list {
+  margin-bottom: 30px;
+
+  .list-subtitle {
+    float: right;
+  }
+
+  .list-title {
+    padding-bottom: 20px;
+  }
+
+}
+
+.enroll-required-factor-list {
+  .enroll-factor-row-min {
+    margin-bottom: 30px;
+
+    .enroll-factor-icon {
+      filter: grayscale(100%);
+      opacity: 0.5;
+    }
+  }
+}
+
+.enroll-factor-row {
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+
+  .enroll-factor-description {
+    overflow: hidden;
+  }
+
+  .enroll-factor-label {
+    display: flex;
+    justify-content: space-between;
+    min-width: 250px;
+  }
+
+  .enroll-factor-button {
+    padding-top: 10px;
+
+    @include device-mq(x-small) {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .button {
+      margin-top: 0;
+      height: 30px;
+      line-height: 28px;
+      padding: 0 10px;
+
+      @include device-mq(x-small) {
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+  }
+
+  .enroll-factor-icon-container {
+    align-self: flex-start;
+    margin-right: 20px;
+  }
+
+  .enroll-factor-icon {
+    width: 38px;
+    height: 38px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: 38px 38px;
+  }
+
+  .success-16-green,
+  .success-16-gray {
+    width: 20px;
+    height: 20px;
+    line-height: 24px;
+    flex-shrink: 0;
+  }
+
+  .success-16-green:before,
+  .success-16-gray:before {
+    font-size: 20px;
+  }
+
+  .factor-cardinality {
+    color: $light-text-color;
+  }
+
+}
+
+.enroll-factor-row-min {
+  margin-bottom: 10px;
+
+  p {
+    display: none;
+  }
+
+  .enroll-factor-button {
+    display: none;
+  }
+}
+
+// Yubikey Enrollment
+.enroll-yubikey {
+
+  .yubikey-demo {
+    background: url('../img/icons/mfa/yubikeyDemo.png') no-repeat center center;
+    background-size: contain;
+    width: 100%;
+    min-height: 102px;
+    margin-bottom: 20px;
+  }
+
+}
+
+.login-timeout-warning {
+  bottom: 10px;
+}
+
+// SMS Enrollment
+.enroll-sms {
+
+  .enroll-sms-phone {
+    width: 170px;
+    float: left;
+
+    @include device-mq(x-small) {
+      width: 165px;
+    }
+
+    @include max-width-mq($container-width) {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+
+  .sms-request-button {
+    float: right;
+    width: 140px;
+    margin-top: 0;
+    padding: 0;
+
+    // This css will break the text into two lines if it's too long.
+    white-space: normal;
+    overflow: visible;
+    line-height: 1;
+    padding-top: 12px;
+
+    @include max-width-mq($container-width) {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+
+}
+
+// Enroll Email
+.enroll-email {
+  .o-form-content.o-form-theme {
+    margin-bottom: $enroll-content-spacing;
+  }
+}
+
+// Enroll Activate Email
+.enroll-activate-email {
+  @include email-factor;
+
+  .enroll-activate-email-content {
+    margin-bottom: $enroll-content-spacing;
+  }
+}
+
+// CALL Enrollment
+.enroll-call {
+
+  .enroll-call-phone {
+    width: 196px;
+    float: left;
+
+    @include device-mq(x-small) {
+      width: 165px;
+    }
+
+    @include max-width-mq($container-width) {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+
+  .enroll-call-extension {
+    float: right;
+    width: 111px;
+    margin-top: 0;
+    padding: 0;
+
+    @include max-width-mq($container-width) {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+
+  .call-request-button {
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
+// U2F/Webauthn Enrollment
+.enroll-u2f,
+.enroll-webauthn {
+
+  .u2f-instructions ol {
+    list-style: decimal;
+    margin-left: 15px;
+  }
+
+  .u2f-instructions ol li {
+    margin-bottom: 15px;
+  }
+
+}
+
+// Windows Hello Enrollment
+.enroll-windows-hello,
+.verify-windows-hello {
+  .o-form-fieldset-container > .okta-form-subtitle {
+    margin-top: 15px;
+    margin-bottom: 20px;
+  }
+
+  .okta-infobox-error b {
+    font-weight: bold;
+  }
+
+  .okta-waiting-spinner {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+}
+
+// Webauthn Enrollment
+.enroll-webauthn {
+
+  .webauthn-edge-text p b {
+    font-weight: bold;
+  }
+
+}
+
+/* TOTP Factor Enrollment */
+.enroll-totp {
+  .okta-form-subtitle.o-form-explain {
+    text-align: left;
+  }
+}
+
+.app-logo {
+  display: inline-block;
+  width: 38px;
+  height: 38px;
+  background-repeat: no-repeat;
+  border-radius: 10px;
+  margin-right: 15px;
+  float: left;
+}
+
+.okta-verify-38 {
+  background-image: url('../img/icons/mfa/oktaVerify_38x38.png');
+}
+
+.google-auth-38 {
+  background-image: url('../img/icons/mfa/googleAuth_38x38.png');
+}
+
+.app-download-instructions {
+  margin-bottom: 15px;
+
+  .instructions-title {
+    text-align: center;
+    margin-bottom: 15px;
+  }
+}
+
+.barcode-scan .o-form-content {
+  margin-bottom: 15px;
+}
+
+.scan-instructions {
+
+  .scan-instructions-details-wrapper {
+    width: 100%;
+    margin-right: -150px;
+    float: left;
+  }
+
+  .scan-instructions-details {
+    padding-right: 150px;
+  }
+
+  .scan-instructions-qrcode-wrapper {
+    float: right;
+    text-align: center;
+  }
+
+  .qrcode-image {
+    width: 140px;
+    height: 140px;
+    border: 1px solid #ccc;
+    border-radius: $default-border-radius;
+  }
+
+  .qrcode-wrap {
+    position: relative;
+  }
+
+  .qrcode-success {
+    background: url('../img/ui/indicators/checkmark.png') no-repeat center;
+  }
+
+  .qrcode-error {
+    background: url('../img/ui/indicators/scanerror.png') no-repeat center;
+  }
+
+  .qrcode-success,
+  .qrcode-error {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=0)'; /* IE8, has to go first */
+    filter: alpha(opacity=0); /* IE7 */
+    opacity: 0;
+    transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    -webkit-transition: all 0.5s;
+    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.6);
+  }
+
+  .refresh-qrcode {
+    display: none;
+  }
+
+  &.qrcode-expired {
+
+    .qrcode-error {
+      -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=1)'; /* IE8, has to go first */
+      filter: alpha(opacity=1); /* IE7 */
+      opacity: 1;
+    }
+
+    .manual-setup {
+      display: none;
+    }
+
+    .refresh-qrcode {
+      display: inline-block;
+    }
+  }
+
+  &.qrcode-success {
+
+    .qrcode-success {
+      -ms-filter: 'progid:DXImageTransform.Microsoft.Alpha(Opacity=1)'; /* IE8, has to go first */
+      filter: alpha(opacity=1); /* IE7 */
+      opacity: 1;
+    }
+
+    .manual-setup {
+      display: none;
+    }
+
+    .refresh-qrcode {
+      display: none;
+    }
+  }
+}
+
+.enroll-manual-push {
+  .button-next {
+    margin: 15px 0 11px;
+  }
+}
+
+[name="sharedSecret"] {
+  text-align: center;
+  cursor: text;
+  opacity: 1;
+}
+
+.enroll-activation-link-sent {
+  p {
+    text-align: center;
+  }
+
+  .auth-footer {
+    margin-top: 15px;
+  }
+}
+
+.verify-webauthn-form {
+  .okta-waiting-spinner {
+    display: none;
+  }
+}
+
+.verify-u2f-form,
+.enroll-u2f-form,
+.verify-webauthn-form,
+.enroll-webauthn-form {
+
+  .o-form-fieldset-container p {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+
+  .o-form-content > .o-form-error-container {
+    margin-bottom: 20px;
+  }
+
+  .okta-waiting-spinner {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  .u2f-devices-images {
+    display: inline-block;
+
+    .u2f-usb {
+      background: url('../img/icons/mfa/u2f_usb.png') no-repeat center;
+      height: 109px;
+      width: 148px;
+      margin-right: 15px;
+      float: left;
+    }
+
+    .u2f-bluetooth {
+      background: url('../img/icons/mfa/u2f_bluetooth.png') no-repeat center;
+      height: 109px;
+      width: 148px;
+      float: left;
+    }
+  }
+}
+
+.okta-waiting-spinner {
+  background: url('../img/ui/indicators/sign-on-widget-spinner.gif') no-repeat center;
+  height: 18px;
+}
+
+// 2x override because factor OS icons do not support retina and have different background image sprites
+@media only screen and (-webkit-min-device-pixel-ratio: 2),
+  only screen and (min-device-pixel-ratio: 2),
+  only screen and (min-resolution: 2dppx) {
+
+  .device-type-input .custom-radio label {
+    background-size: auto;
+  }
+
+}

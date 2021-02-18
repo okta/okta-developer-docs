@@ -1,0 +1,20 @@
+// This hides the content of the div, but it's still
+// technically rendered and "visible" in the DOM.
+// Sometimes aria tags haven't worked out nicely for us
+// (for instance, for images that are loaded via
+// background-image CSS instead of <img> tags).
+.accessibility-text {
+  display: block;
+  height: 0;
+  overflow: hidden;
+}
+
+.focused-input,
+.link.help:focus {
+  box-shadow: 0 0 8px rgba(81, 203, 238, 1);
+}
+
+.o-form-button-bar.focused-input {
+  margin-bottom: 25px;
+  padding-bottom: 0;
+}

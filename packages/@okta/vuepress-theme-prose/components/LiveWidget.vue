@@ -25,7 +25,7 @@
         class="col-4"
       >  
         <LiveWidgetSCSSCodeMirror 
-        :initialConfig="testStr"
+        :initialConfig="configSCSS"
         v-on:cmCSSValueSet='onSCSSCodeChange' 
         />
       </div>
@@ -53,6 +53,9 @@
         sassCompiler: new sass()
       }
     },
+    mounted: function(){
+      this.loadSassFiles()
+    },
     computed: {
       jsValid: function(){
         return this.makeValidJSON(this.configJS)
@@ -68,6 +71,7 @@
         this.jsTabShown = !this.jsTabShown
       },
       makeValidJSON(dirtyJSON){
+        console.log(dirtyJSON)
         //get type of string and use result for envoking function from transformByStrType structure
         const defineStrType = (str) => {
 
@@ -106,7 +110,7 @@
           if (str === '{') return str
           return indexStr === 0 ? `${str}:` : `${str},`
         }
-        
+
         const resultNormalized = []
 
         //clean up initial string from comments, name of object and unneccary semicolon
@@ -154,8 +158,71 @@
       },
       onSCSSCodeChange(e){
         this.sassCompiler.compile(e, (res)=> {
+          console.log(res)
           this.computedSCSS = res.text
         })
+      },
+      loadSassFiles(){
+        // HTTP requests are made relative to worker
+              var base = '/widget-sass';
+
+              // the directory files should be made available in
+              var directory = '';
+
+              // the files to load (relative to both base and directory)
+              var files = [
+                '_base.scss',
+                '_container.scss',
+                '_fonts.scss',
+                '_helpers.scss',
+                '_ie.scss',
+                '_layout.scss',
+                '_variables.scss',
+                'common/admin/icons/_all.scss',
+                'common/admin/icons/_classes-social.scss',
+                'common/admin/icons/_classes.scss',
+                'common/admin/icons/_functions.scss',
+                'common/admin/icons/_variables-theme.scss',
+                'common/admin/icons/_variables-unicode-social.scss',
+                'common/admin/icons/_variables-unicode.scss',
+                'common/admin/modules/infobox/_infobox.scss',
+                'common/enduser/_helpers.scss',
+                'common/enduser/_reset.scss',
+                'common/enduser/_responsive-variables.scss',
+                'common/foo.scss',
+                'common/shared/helpers/_all.scss',
+                'common/shared/helpers/_mixins.scss',
+                'common/shared/helpers/_variables.scss',
+                'common/shared/o-forms/_o-form-variable.scss',
+                'common/shared/o-forms/_o-form.scss',
+                'modules/_accessibility.scss',
+                'modules/_app-login-banner.scss',
+                'modules/_beacon.scss',
+                'modules/_btns.scss',
+                'modules/_consent.scss',
+                'modules/_enroll.scss',
+                'modules/_factors-dropdown.scss',
+                'modules/_footer.scss',
+                'modules/_forgot-password.scss',
+                'modules/_forms.scss',
+                'modules/_header.scss',
+                'modules/_infobox.scss',
+                'modules/_mfa-challenge-forms.scss',
+                'modules/_okta-footer.scss',
+                'modules/_qtip.scss',
+                'modules/_registration.scss',
+                'modules/_social.scss',
+                'okta-sign-in.scss',
+                'okta-theme.scss',
+                'widgets/_chosen.scss',
+                'widgets/_jquery.qtip.scss',
+                'widgets/_mega-drop-down.scss',
+              ];
+
+              // register the files to be loaded when required
+              this.sassCompiler.preloadFiles(base, directory, files, function() {
+                // console.log('SAAS files loaded');
+              });
       }
     }
   }
