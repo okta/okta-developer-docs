@@ -42,7 +42,7 @@ After you define the scopes that you want to require consent for, prepare an aut
     &nonce=${myNonceValue}"
     ```
 
-    Example with the `prompt` parameter includedL:
+    Example with the `prompt` parameter included:
 
      ```bash
     curl -X GET
