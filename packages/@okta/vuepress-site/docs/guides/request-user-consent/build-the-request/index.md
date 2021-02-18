@@ -19,18 +19,18 @@ After you define the scopes that you want to require consent for, prepare an aut
 3. Add the following query parameters to the URL:
 
     * Your OpenID Connect application's `client_id` and `redirect_uri`
-    * The `openid` and `phone` scopes (you configured the `phone` scope in the <GuideLink link="../require-consent">previous section</GuideLink>)
+    * The `openid` scope and the scopes that you want to require consent for. In this example, we configured the `phone` scope in the <GuideLink link="../require-consent">previous section</GuideLink>.
     * The response type, which for an ID token is `id_token` and an access token is `token`
 
-    > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
+    > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow), which streamlines authentication by returning tokens without introducing additional steps. This makes it easier to test your configuration. For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can then exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
     * Values for `state` and `nonce`, which can be anything
 
-    * Optional. The `prompt` parameter. Standard behavior if you don't include `prompt` in the request is to prompt the user for consent if they haven't already given consent for the scope. Including `prompt=consent` in the request prompts the user for consent every time, even if they have already given consent for the scope. The `consent_method` must be set to `REQUIRED` and consent for the `phone` scope is set to `REQUIRED`. See the [**Parameter** details](/docs/reference/api/oidc/#parameter-details) section for the `/authorize` endpoint for more information on the value options for the `prompt` parameter.
+    * Optional. The `prompt` parameter. The standard behavior (if you don't include `prompt` in the request) is to prompt the user for consent if they haven't already given consent for the scope(s). When you include `prompt=consent` in the request, the user is prompted for consent every time, even if they have already given consent for the scope. The `consent_method` and the consent for the scope(s) must be set to `REQUIRED`. See the [**Parameter details**](/docs/reference/api/oidc/#parameter-details) section for the `/authorize` endpoint for more information on the supported values for the `prompt` parameter.
 
-    > **Note:** All of the values are fully documented in the [/authorize endpoint](/docs/reference/api/oidc/#authorize) section of the OpenID Connect & OAuth 2.0 API reference page.
+    > **Note:** All of the values are fully documented in the `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) section of the OpenID Connect & OAuth 2.0 API reference.
 
-    The resulting URL requesting an access token looks something like this:
+    The resulting URL to request an access token looks something like this:
 
     ```bash
     curl -X GET
