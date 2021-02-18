@@ -6,7 +6,6 @@
     <div
       :class="{
         'page-body': true,
-        redesign: true
       }"
     >
       <Breadcrumb v-if="appContext.isInMobileViewport" />
