@@ -41,11 +41,8 @@
       },
       crumbs() {
         let crumbs = [];
-        if (this.$page.redesign) {
-          crumbs.push({'title': 'Docs'});
-        } else {
-          crumbs.push({'link': '/docs/', 'title': 'Docs'});
-        }
+
+        crumbs.push({'title': 'Docs'});
 
         if(this.$page.path.startsWith('/code/')) {
           crumbs.push({'link': '/code/', 'title': 'Languages & SDKs'});
