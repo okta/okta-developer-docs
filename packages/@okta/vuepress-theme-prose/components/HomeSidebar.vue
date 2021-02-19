@@ -1,5 +1,5 @@
 <template>
-  <aside class="redesign-navigation">
+  <aside class="sidebar-navgation">
     <ul class="menu">
       <li v-for="link in navigation" :key="link.name">
         <router-link :to='link.link'>

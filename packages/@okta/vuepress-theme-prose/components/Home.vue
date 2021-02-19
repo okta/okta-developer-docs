@@ -1,18 +1,18 @@
 <template>
-  <div class="redesign-homepage container-fluid">
+  <div class="homepage container-fluid">
     <div class="row">
       <div
-        class="col-xl-2 col-lg-2 d-none d-lg-block redesign-homepage--col-no-padding"
+        class="col-xl-2 col-lg-2 d-none d-lg-block homepage--col-no-padding"
       >
         <HomeSidebar />
       </div>
       <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
         <div class="row justify-content-center">
-          <div class="col-11 redesign-homepage--elevated">
+          <div class="col-11 homepage--elevated">
             <div class="row">
               <div class="col-12">
                 <h1
-                  class="redesign-homepage--main-heading redesign-homepage--color-main"
+                  class="homepage--main-heading homepage--color-main"
                 >
                   Okta Developer Portal
                 </h1>
@@ -21,7 +21,7 @@
             <div class="row">
               <div class="col-12">
                 <h2
-                  class="redesign-homepage--sub-heading redesign-homepage--color-main"
+                  class="homepage--sub-heading homepage--color-main"
                 >
                   Let's get started
                 </h2>
@@ -30,13 +30,13 @@
             <div class="row">
               <div class="col-12">
                 <p
-                  class="redesign-homepage--sub-heading-disclaimer redesign-homepage--color-sub"
+                  class="homepage--sub-heading-disclaimer homepage--color-sub"
                 >
                   Authenticate up to 1,000 users per month for free forever
                 </p>
               </div>
             </div>
-            <div class="row redesign-homepage--selector-block-margin ">
+            <div class="row homepage--selector-block-margin ">
               <div
                 class="col-xl-3 col-lg-6 col-md-6"
                 v-for="(tile, index) in $page.frontmatter.tiles"
@@ -46,7 +46,7 @@
               </div>
             </div>
             <div
-              class="row justify-content-around align-items-center flex-lg-row-reverse flex-md-row-reverse redesign-homepage--assurance-block-margin"
+              class="row justify-content-around align-items-center flex-lg-row-reverse flex-md-row-reverse homepage--assurance-block-margin"
             >
               <div
                 class="col-xl-4 col-lg-6 col-md-6 col-sm-12"
@@ -57,11 +57,11 @@
               </div>
             </div>
             <div
-              class="row justify-content-around redesign-homepage--customize-your-app-margin "
+              class="row justify-content-around homepage--customize-your-app-margin "
             >
               <div class="col-12">
                 <h2
-                  class="redesign-homepage--sub-heading redesign-homepage--color-main redesign-homepage--centered-md"
+                  class="homepage--sub-heading homepage--color-main homepage--centered-md"
                 >
                   Customize your sign-in
                 </h2>
@@ -70,11 +70,11 @@
                 v-if="!pseudoAuthorizedCodeBlock"
                 class="col-xl-7 col-md-12 col-sm-12"
               >
-                <div class="redesign-homepage--code-example">
-                  <div class="redesign-homepage--code-example--header">
+                <div class="homepage--code-example">
+                  <div class="homepage--code-example--header">
                     JavaScript
                   </div>
-                  <div class="redesign-homepage--code-example--cm-wrapper">
+                  <div class="homepage--code-example--cm-wrapper">
                     <FrontPageCodeMirror />
                   </div>
                 </div>
@@ -83,7 +83,7 @@
                 v-if="!pseudoAuthorized"
                 class="col-xl-5 col-md-10 col-sm-12"
               >
-                <div class="redesign-homepage--live-widget">
+                <div class="homepage--live-widget">
                   <FrontPageWidget @authLeia="togglePseudoAuth" />
                 </div>
               </div>
@@ -91,32 +91,32 @@
                 v-if="pseudoAuthorized"
                 class="col-sm-12 col-xs-12 col-lg-10"
               >
-                <div class="redesign-homepage--welcome-leia">
+                <div class="homepage--welcome-leia">
                   <div
-                    class="redesign-homepage--welcome-leia--close"
+                    class="homepage--welcome-leia--close"
                     @click="togglePseudoAuth"
                   >
                     <span>X</span> close
                   </div>
-                  <div class="redesign-homepage--welcome-leia--header">
+                  <div class="homepage--welcome-leia--header">
                     Welcome, Leia
                   </div>
-                  <div class="redesign-homepage--welcome-leia--info">
+                  <div class="homepage--welcome-leia--info">
                     Okta makes authentication straightforward. Connect your
                     apps, choose an identity provider (or use ours), add users,
                     configure rules, customize your login page, and then gain
                     insights from our built in reports.
                   </div>
-                  <div class="redesign-homepage--welcome-leia--actions">
+                  <div class="homepage--welcome-leia--actions">
                     <SmartLink
                       :item="{ link: '/signup/' }"
-                      classes="redesign-homepage--welcome-leia--actions--cta act-btn"
+                      classes="homepage--welcome-leia--actions--cta act-btn"
                     >
                       Sign up for Okta
                     </SmartLink>
                     <SmartLink
                       :item="{ link: '/code/javascript/okta_sign-in_widget/' }"
-                      classes="redesign-homepage--welcome-leia--actions--docs act-btn"
+                      classes="homepage--welcome-leia--actions--docs act-btn"
                     >
                       View widget docs
                     </SmartLink>
@@ -125,17 +125,17 @@
               </div>
             </div>
 
-            <div class="redesign-homepage--partners-block-margin">
+            <div class="homepage--partners-block-margin">
               <CompanyLogos />
             </div>
           </div>
 
-          <div class="redesign-homepage--shapes">
+          <div class="homepage--shapes">
             <img
               src="/img/home-curves.svg"
-              class="redesign-homepage--shapes-curves"
+              class="homepage--shapes-curves"
             />
-            <div class="redesign-homepage--shapes-fill"></div>
+            <div class="homepage--shapes-fill"></div>
           </div>
         </div>
       </div>
