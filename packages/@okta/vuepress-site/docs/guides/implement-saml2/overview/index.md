@@ -10,13 +10,12 @@ To use a SAML 2.0 Assertion as an authorization grant, the client makes a reques
 
 At a high level, the SAML 2.0 Assertion flow has the following steps:
 
-- On behalf of a user, your web application attempts to access a resource that is hosted on a secure server.
-- The resource makes an authorization request to the SAML Identity Provider.
+- On behalf of a user, the Service Provider (your app) attempts to access a resource that is hosted on a secure server.
+- The resource makes an authorization request to the Service Provider and the Service Provider passes the request to the SAML Identity Provider.
 - The SAML Identity Provider responds with a SAML 2.0 assertion for the already-authorized user.
-- The Okta client application requests an access token from the authorization server using the base64-encoded SAML 2.0 assertion as proof of identity.
+- The Service Provider requests an access token from the authorization server using the base64-encoded SAML 2.0 assertion as proof of identity.
 - The authorization server verifies the assertion and responds with an access token.
-- Your application extracts the token(s) from the HTTP response body.
-- Your application can now use the token(s) to call the resource server (for example, an API) on behalf of the user.
+- The Service Provider extracts the token(s) from the HTTP response body, and then uses the token(s) to call the resource server (for example, an API) on behalf of the user.
 
 See our [OAuth 2.0 overview](/docs/concepts/oauth-openid/#saml-2-0-assertion-flow) for more information on the SAML 2.0 Assertion grant flow.
 
