@@ -9,3 +9,5 @@ Please provide the following information so that we can act on your feedback.
 **Describe the problem(s):**
 
 **If possible, describe a proposed fix:**
+
+We will do our best to respond to you within 2 working days. 
