@@ -8,15 +8,15 @@ This guide provides example code for an external service to respond to calls fro
 
 ### The Scenario
 
-In the following Token Inline Hook scenario, the external service code parses a request from Okta, evaluates the user name against a simple patient data store, and, if the user is a patient, responds to Okta with a command to add a patient ID claim to the token. If the user name is not part of the data store, no action is taken. The token is returned to the local application for authentication.
+In the following Token Inline Hook scenario, the external service code parses a request from Okta, evaluates the user name against a simple patient data store, and, if the user is a patient, responds to Okta with a command to add a patient ID claim to the token. If the user is not part of the data store, no action is taken. The token is returned to the local application for authentication.
 
 At a high-level, the following workflow occurs:
 
-- A user logs into an Okta-Hosted Login application.
+- A user logs into an Okta-Hosted Login sample application.
 - The Okta org authenticates the user and mints an authentication token.
 - The Okta Token Inline Hook triggers and sends a request to an external service.
 - The external service evaluates the request, and if the user is a patient, adds a patient ID claim to the token.
-- The authentication token is directed back to the Okta-Hosted Login application where then user is signed in.
+- The authentication token is directed back to the Okta-Hosted Login application where the user is signed in.
 
 To implement this example, you need to have a local application that uses an Okta org to authenticate user access. Download the following Express.js application, which provides a local application server and sample app for this purpose: [https://github.com/okta/samples-nodejs-express-4](https://github.com/okta/samples-nodejs-express-4). (See the [next section](/docs/guides/token-inline-hook/nodejs/setup-express/) for further details on this set up.)
 

@@ -21,6 +21,8 @@ For information on the API for registering external service endpoints with Okta,
 
 For steps to enable this Inline Hook, see below, [Enabling a Token Inline Hook](#enabling-a-token-inline-hook).
 
+For an example implementation of this Inline Hook, see [Token Inline Hook](/docs/guides/token-inline-hook)].
+
 ## About
 
 This type of Inline Hook is triggered when OAuth 2.0 and OpenID Connect (OIDC) tokens are minted by your Okta Custom Authorization Server. Before sending the token to the requester, Okta calls out to your external service, and your service can respond with commands to add custom claims to the token or to modify existing claims.
@@ -712,7 +714,7 @@ To activate the Inline Hook, you first need to register your external service en
 
 You then need to associate the registered Inline Hook with a Custom Authorization Server Policy Rule by completing the following steps:
 
-1. Go to **API > Authorization Servers**.
+1. Go to **Security > API > Authorization Servers**.
 
 1. Select a Custom Authorization Server from the list.
 

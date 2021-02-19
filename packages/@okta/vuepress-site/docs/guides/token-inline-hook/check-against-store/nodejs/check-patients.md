@@ -32,4 +32,4 @@ app.post("/tokenHook", (request, response) => {
   }
 )
 ```
-> **Note**: The method definition begun in this code snippet is incomplete and is completed by the [Send response](/docs/guides/token-inline-hook/send-response) section.
+> **Note**: The method definition started in this code snippet is incomplete and is completed by the [Send response](/docs/guides/token-inline-hook/send-response) section.

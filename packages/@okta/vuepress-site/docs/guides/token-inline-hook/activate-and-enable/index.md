@@ -5,7 +5,7 @@ title: Activate and enable
 The Token Inline Hook must be activated and enabled within your Okta Admin Console.
 
 - Activating the Token Inline Hook registers the hook with the Okta org and associates it with your external service.
-- Enabling the Token Inline Hook associates the hook with your Okta custom authorization server, which authenticates the Okta-Hosted-Login sample application.
+- Enabling the Token Inline Hook associates the hook with your Okta custom authorization server, which authenticates the Okta-Hosted Login sample application.
 
 ### Activate the Token Inline Hook
 
@@ -28,11 +28,11 @@ The Token Inline Hook is now set up with a status of active.
 
 ### Enable the Token Inline Hook
 
-1. Navigate to **API** > **Authorization Servers**.
+1. Navigate to **Security** > **API** > **Authorization Servers**.
 
 2. Select a Custom Authorization Server from the list (usually **default**).
 
-3. Select the **Access Policies** tab and edit the policy rule to use with the hook. In most cases, edit the Default Policy Rule.
+3. Select the **Access Policies** tab and edit the policy rule to use with the hook. In most cases, edit the **Default Policy Rule**.
 
 4. From the **Use this Inline Hook** drop-down menu, select the Token Inline Hook you activated ("Patient Token Hook").
 
