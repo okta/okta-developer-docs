@@ -214,6 +214,7 @@ export const guides = [
             title: "Implement the Resource Owner Password Flow",
             guideName: "implement-password"
           },
+          { title: "Implement the SAML 2.0 Assertion Flow", guideName: "implement-saml2"},
           {
             title: "Tokens",
             subLinks: [

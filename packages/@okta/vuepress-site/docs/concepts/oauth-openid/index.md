@@ -274,17 +274,13 @@ app -> client: Response
 
 For information on how to set up your application to use this flow, see [Implement the Client Credentials Flow](/docs/guides/implement-client-creds/).
 
-
 ### SAML 2.0 Assertion flow
 
-The SAML 2.0 Assertion flow is intended for server-side (AKA "confidential") client applications with no end user, which normally describes machine-to-machine communication. The application must be server-side because it must be trusted with the client secret, and since the credentials are hard-coded, it can't be used by an actual end user. It involves a request to the IdP for?
+The SAML 2.0 Assertion flow is intended for a client app that wants to use an existing trust relationship without a direct user approval step at the authorization server. It enables a client application to obtain an existing authorization in the form of a valid, signed SAML assertion from a SAML Identity Provider. The client app can then exchange it for an OAuth access token from the OAuth authorization server. For example, this flow is useful when you want to fetch data from APIs that only support delegated permissions without prompting the user for credentials.
 
+To use a SAML 2.0 Assertion as an authorization grant, the client makes a request for an access token with the `urn:ietf:params:oauth:grant-type:saml2-bearer` grant type and includes the `assertion` parameter. The value of the `assertion` parameter is a single SAML 2.0 assertion that is base64url encoded.
 
-single, authenticated request to the `/token` endpoint, which returns an access token.
-
-> **Note:** The Client Credentials Flow doesn't support refresh tokens.
-
-![Client Credentials Flow width:](/img/oauth_client_creds_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Client Credentials Flow")
+![SAML 2.0 Assertion Flow width:](/img/saml_assert_flow.png "Flowchart that displays the back and forth between the resource owner, identity provider, authorization server, and resource server for the SAML 2.0 Assertion Flow")
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
@@ -303,3 +299,5 @@ client -> app: Request with access token
 app -> client: Response
 
 -->
+
+For information on how to set up your application to use this flow, see [Implement the SAML 2.0 Assertion Flow](/docs/guides/implement-saml2/overview).
