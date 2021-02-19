@@ -1321,6 +1321,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 | policy_uri                                  | URL string of a web page providing the client's policy document                                                                                                                                                            | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | post_logout_redirect_uris                               | Array of redirection URI strings for relying party-initiated logouts                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | FALSE       |
 | redirect_uris                               | Array of redirection URI strings for use in redirect-based flows                                                                                                                                                           | Array                                                                                          | TRUE       | FALSE    | TRUE       |
+| wildcard_redirect <ApiLifecycle access="ea" /> | Indicates if the client is allowed to use wildcard matching of `redirect_uris`. See [Details](#details) for matching rules.                                                                                                  | String                                                                                         | TRUE       | FALSE    | `DISABLED`, `SUBDOMAIN`. Default value is `DISABLED`.       |
 | response_types                              | Array of OAuth 2.0 response type strings                                                                                                                                                                                   | Array of `code`, `token`, `id_token`                                                           | TRUE       | FALSE    | TRUE       |
 | tos_uri                                     | URL string of a web page providing the client's terms of service document                                                                                                                                                  | URL                                                                                            | TRUE       | FALSE    | FALSE      |
 | refresh_token <ApiLifecycle access="ea" />  | Refresh token configuration                                                                                                                                                                                                | [Refresh Token object](#refresh-token-object)                                                                                            | TRUE       | FALSE    | TRUE      |
@@ -1331,7 +1332,15 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * At least one redirect URI and response type is required for all client types, with exceptions: if the client uses the [Resource Owner Password](https://tools.ietf.org/html/rfc6749#section-4.3) flow (if `grant_types` contains the value `password`) or [Client Credentials](https://tools.ietf.org/html/rfc6749#section-4.4) flow (if `grant_types` contains the value `client_credentials`) then no redirect URI or response type is necessary. In these cases you can pass either null or an empty array for these attributes.
 
-* All redirect URIs must be absolute URIs and must not include a fragment component.
+* If `wildcard_redirect` is `DISABLED`, all redirect URIs must be absolute URIs and must not include a fragment component.
+
+* If `wildcard_redirect` is `SUBDOMAIN`, then configured redirect URIs may contain a single `*` character in the lowest-level domain to act as a wildcard. The wildcard subdomain must have at least one subdomain between it and the top level domain.
+
+* The wildcard can match any valid hostname characters and can't span more than one domain. As an example, if `https://redirect-*-domain.example.com/oidc/redirect` is configured as a redirect URI, then `https://redirect-1-domain.example.com/oidc/redirect` and `https://redirect-sub-domain.example.com/oidc/redirect` match, but `https://redirect-1.sub-domain.example.com/oidc/redirect` won't match.
+
+* Only the `https` URI scheme can use wildcard redirect URIs.
+
+> **Caution:** The use of wildcard subdomains is discouraged as an insecure practice, since it may allow malicious actors to have tokens or authorization codes sent to unexpected or attacker-controlled pages. Exercise great caution if you decide to include a wildcard redirect URI in your configuration.
 
 * When you create an app using the App Wizard in the UI, and you specify an app logo for the **Application logo** property, that value is stored as the `logo_uri` value and used as the logo on the application's tile for the dashboard as well as the client consent dialog box during the client consent flow. If you add or modify a `logo_uri` value later, that value is used only on the client consent dialog box during the client consent flow.
 
@@ -1370,336 +1379,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
   * The following properties can also be configured in the App Wizard and on the **General** tab in the Admin Console: `tos_uri`, `policy_uri`, and `logo_uri` and can be set using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
   * The `consent_method` property can be configured in the App Wizard and on the **General** tab in the Admin Console, but cannot be set using the Dynamic Client Registration API.
 
-### Idp-Initiated Login object
 
-The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated Login flows that an OAuth Client supports.
-
-| Property      | Description                                           | DataType                   | Nullable |
-| ------------- | ----------------------------------------------------- | -------------------------- | -------- | 
-| mode          | What mode to use for Idp-Initiated Login              | `DISABLED`, `SPEC`, `OKTA` | FALSE    |
-| default_scope | What scopes to use for the request when mode = `OKTA` | List of String             | TRUE     |
-
-* When `mode` is `DISABLED`, the client doesn't support Idp-Initiated Login
-* When `mode` is `SPEC`, the client is redirected to the Relying Party's `initiate_login_uri` as defined in the [OpenID Connect spec](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
-* When `mode` is `OKTA`, the tokens are directly sent to the Relying Party. This corresponds the **Okta Simplified** option in the Admin Console.
-* The client must have an `initiate_login_uri` registered to configure any `mode` besides `DISABLED`.
-
-##### Request example
-
-> **Note:** An [Application](#application-object)'s `signOnMode` must be set to `OPENID_CONNECT`, the `name` field must be `oidc_client`, and the `label` field must be defined.
-
-```bash
-curl -v -X POST \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
--d '{
-    "name": "oidc_client",
-    "label": "Sample Client",
-    "signOnMode": "OPENID_CONNECT",
-    "credentials": {
-      "oauthClient": {
-      	"autoKeyRotation": true,
-        "token_endpoint_auth_method": "client_secret_post"
-      }
-    },
-    "settings": {
-      "oauthClient": {
-        "client_uri": "http://localhost:8080",
-        "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
-        "redirect_uris": [
-          "https://example.com/oauth2/callback",
-          "myapp://callback"
-        ],
-        "post_logout_redirect_uris": [
-          "https://example.com/oauth2/postLogoutRedirectUri"
-        ],
-        "response_types": [
-          "token",
-          "id_token",
-          "code"
-        ],
-        "grant_types": [
-          "implicit",
-          "authorization_code"
-        ],
-        "application_type": "native",
-        "tos_uri":"https://example.com/client/tos",
-        "policy_uri":"https://example.com/client/policy",
-        "idp_initiated_login": {
-          "mode": "DISABLED"
-        }
-    }
-  }
-}' "https://${yourOktaDomain}/api/v1/apps"
-```
-
-##### Response example
-
-```json
-{
-    "id": "0oap6nz61rKdsoyOY0h7",
-    "name": "oidc_client",
-    "label": "Sample Client",
-    "status": "ACTIVE",
-    "lastUpdated": "2020-01-09T16:59:15.000Z",
-    "created": "2020-01-09T16:59:15.000Z",
-    "accessibility": {
-        "selfService": false,
-        "errorRedirectUrl": null,
-        "loginRedirectUrl": null
-    },
-    "visibility": {
-        "autoSubmitToolbar": false,
-        "hide": {
-            "iOS": true,
-            "web": true
-        },
-        "appLinks": {
-            "oidc_client_link": true
-        }
-    },
-    "features": [],
-    "signOnMode": "OPENID_CONNECT",
-    "credentials": {
-        "userNameTemplate": {
-            "template": "${source.login}",
-            "type": "BUILT_IN"
-        },
-        "signing": {
-            "kid": "5gbe0HpzAYj2rsWSLxx1fYHdh-SzWqyKqwmfJ6qDk5g"
-        },
-        "oauthClient": {
-            "autoKeyRotation": true,
-            "client_id": "0oap6nz61rKdsoyOY0h7",
-            "client_secret": "D0HxBn1FtTXeYC4cSBwWL_sPMztMT2t6Ei9n1QjO",
-            "token_endpoint_auth_method": "client_secret_post"
-        }
-    },
-    "settings": {
-        "app": {},
-        "notifications": {
-            "vpn": {
-                "network": {
-                    "connection": "DISABLED"
-                },
-                "message": null,
-                "helpUrl": null
-            }
-        },
-        "oauthClient": {
-            "client_uri": "http://localhost:8080",
-            "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
-            "redirect_uris": [
-                "https://example.com/oauth2/callback",
-                "myapp://callback"
-            ],
-            "post_logout_redirect_uris": [
-                "https://example.com/oauth2/postLogoutRedirectUri"
-            ],
-            "response_types": [
-                "token",
-                "id_token",
-                "code"
-            ],
-            "grant_types": [
-                "implicit",
-                "authorization_code"
-            ],
-            "application_type": "native",
-            "tos_uri": "https://example.com/client/tos",
-            "policy_uri": "https://example.com/client/policy",
-            "idp_initiated_login": {
-              "mode": "DISABLED"
-            },"
-            "consent_method": "TRUSTED",
-            "issuer_mode": "CUSTOM_URL"
-        }
-    },
-    "_links": {
-        "appLinks": [
-            {
-                "name": "oidc_client_link",
-                "href": "https://${yourOktaDomain}/home/oidc_client/0oap6nz61rKdsoyOY0h7/aln5z7uhkbM6y7bMy0g7",
-                "type": "text/html"
-            }
-        ],
-        "groups": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/groups"
-        },
-        "logo": [
-            {
-                "name": "medium",
-                "href": "https://example.com/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
-                "type": "image/png"
-            }
-        ],
-        "users": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/users"
-        },
-        "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/lifecycle/deactivate"
-        }
-    }
-}
-```
-
-##### Request example
-
-The following example shows how to create an OAuth 2.0 client application with `private_key_jwt` defined as the value for the `token_endpoint_auth_method` property.
-
-```bash
-curl -X POST \
-  -H "Accept: application/json" \
-  -H "Authorization: key" \
-  -H "Content-Type: application/json" \
-  -H "cache-control: no-cache" \
-  -d '{
-    "name": "oidc_client",
-    "label": "A Sample Client",
-    "signOnMode": "OPENID_CONNECT",
-    "credentials": {
-        "oauthClient": {
-            "token_endpoint_auth_method": "private_key_jwt"
-        }
-    },
-    "settings": {
-        "oauthClient": {
-            "redirect_uris": [
-                "https://example.com"
-            ],
-            "response_types": [
-                "code"
-            ],
-            "grant_types": [
-                "authorization_code"
-            ],
-            "application_type": "native",
-            "jwks": {
-                "keys": [
-                    {
-                        "kty": "RSA",
-                        "kid": "SIGNING_KEY",
-                        "e":"AQAB",
-                        "n":"MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAnFo/4e91na8x/BsPkNS5QkwankewxJ1uZU6p827W/gkRcNHtNi/cE644W5OVdB4UaXV6koT+TsC1prhUEhRR3g5ggE0B/lwYqBaLq/Ejy19Crc4XYU3Aah67Y6HiHWcHGZ+BbpebtTixJv/UYW/Gw+k8M+zj4O001mOeBPpwlEiZZLIo33m/Xkfn28jaCFqTQBJHr67IQh4zEUFs4e5D5D6UE8ee93yeSUJyhbifeIgYh3tS/+ZW4Uo1KLIc0rcLRrnEMsS3aOQbrv/SEKij+Syx4KXI0Gi2xMdXctnFOVT6NM6/EkLxFp2POEdv9SNBtTvXcxIGRwK51W4Jdgh/xZcCAwEAAQ=="
-                    }
-                ]
-            }
-        }
-    }
-}' "https://${yourOktaDomain}/api/v1/apps"
-```
-
-##### Response example
-
-```json
-{
-    "id": "0oaktvoa8bGDHDmby0h7",
-    "name": "oidc_client",
-    "label": "A Sample Client",
-    "status": "ACTIVE",
-    "lastUpdated": "2019-05-13T22:16:50.000Z",
-    "created": "2019-05-13T22:16:50.000Z",
-    "accessibility": {
-        "selfService": false,
-        "errorRedirectUrl": null,
-        "loginRedirectUrl": null
-    },
-    "visibility": {
-        "autoSubmitToolbar": false,
-        "hide": {
-            "iOS": true,
-            "web": true
-        },
-        "appLinks": {
-            "oidc_client_link": true
-        }
-    },
-    "features": [],
-    "signOnMode": "OPENID_CONNECT",
-    "credentials": {
-        "userNameTemplate": {
-            "template": "${source.login}",
-            "type": "BUILT_IN"
-        },
-        "signing": {
-            "kid": "5gbe0HpzAYj4rsWSLxx1fYHdh-SzWqyKqwmfJ6qDk5g"
-        },
-        "oauthClient": {
-            "autoKeyRotation": true,
-            "client_id": "0oaktvoa8bGDHEmby0h7",
-            "token_endpoint_auth_method": "private_key_jwt"
-        }
-    },
-    "settings": {
-        "app": {},
-        "notifications": {
-            "vpn": {
-                "network": {
-                    "connection": "DISABLED"
-                },
-                "message": null,
-                "helpUrl": null
-            }
-        },
-        "oauthClient": {
-            "jwks": {
-                "keys": [
-                    {
-                        "kty": "RSA",
-                        "kid": "SIGNING_KEY",
-                        "use": null,
-                        "e": "AQAB",
-                        "n": "MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAnFo/4e91na8x/BsPkNS5QkwankewxJ1uZU6p827W/gkRcNHtNi/cE644W5OVdB4UaXV6koT+TsC1prhUEhRR3g5ggE0B/lwYqBaLq/Ejy19Crc4XYU3Aah67Y6HiHWcHGZ+BbpebtTixJv/UYW/Gw+k8M+zj4O001mOeBPpwlEiZZLIo33m/Xkfn28jaCFqTQBJHr67IQh4zEUFs4e5D5D6UE8ee93yeSUJyhbifeIgYh3tS/+ZW4Uo1KLIc0rcLRrnEMsS3aOQbrv/SEKij+Syx4KXI0Gi2xMdXctnFOVT6NM6/EkLxFp2POEdv9SNBtTvXcxIGRwK51W4Jdgh/xZcCAwEAAQ=="
-                    }
-                ]
-            },
-            "client_uri": null,
-            "logo_uri": null,
-            "redirect_uris": [
-                "https://example.com"
-            ],
-            "response_types": [
-                "code"
-            ],
-            "grant_types": [
-                "authorization_code"
-            ],
-            "application_type": "native",
-            "consent_method": "TRUSTED",
-            "issuer_mode": "CUSTOM_URL",
-	    "idp_initiated_login": {
-              "mode": "DISABLED"
-            }
-        }
-    },
-    "_links": {
-        "appLinks": [
-            {
-                "name": "oidc_client_link",
-                "href": "https://${yourOktaDomain}/home/oidc_client/0oaktvoa8bGDHDmby0h7/aln5z7uhkbM6y7bMy0g7",
-                "type": "text/html"
-            }
-        ],
-        "groups": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/groups"
-        },
-        "logo": [
-            {
-                "name": "medium",
-                "href": "https://${yourOktaDomain}/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
-                "type": "image/png"
-            }
-        ],
-        "users": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/users"
-        },
-        "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/lifecycle/deactivate"
-        }
-    }
-}
-```
 
 ### Get application
 
@@ -3369,6 +3049,7 @@ curl -v -X PUT \
                 "https://example.com/oauth2/callback",
                 "myapp://callback"
             ],
+            "wildcard_redirect": "DISABLED",
             "post_logout_redirect_uris": [
                 "https://example.com/oauth2/postLogoutRedirectUri"
             ],
@@ -3449,6 +3130,7 @@ curl -v -X PUT \
                 "https://example.com/oauth2/callback",
                 "myapp://callback"
             ],
+            "wildcard_redirect": "DISABLED",
             "post_logout_redirect_uris": [
                 "https://example.com/oauth2/postLogoutRedirectUri"
             ],
@@ -5921,11 +5603,11 @@ Updates a Feature object for an application.
 | capabilities   | Capabilites of the feature                  | Body              | [Capabilites Object](#capabilties-object) | TRUE     |
 | name   | Name of the feature                      | URL              | String     | TRUE     |
 
-##### Reponse Parameters
+##### Reponse parameters
 
 Updated [Application Feature](#application-feature-object).
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X PUT \
@@ -6013,9 +5695,345 @@ curl -v -X PUT \
 
 ## Models
 
+* [Idp-Initiated Login object](#idp-initiated-login-object)
 * [Application object](#application-object)
 * [Application User object](#application-user-object)
 * [Appliction Group object](#application-group-object)
+
+### Idp-Initiated Login object
+
+The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated Login flows that an OAuth Client supports.
+
+| Property      | Description                                           | DataType                   | Nullable |
+| ------------- | ----------------------------------------------------- | -------------------------- | -------- | 
+| mode          | What mode to use for Idp-Initiated Login              | `DISABLED`, `SPEC`, `OKTA` | FALSE    |
+| default_scope | What scopes to use for the request when mode = `OKTA` | List of String             | TRUE     |
+
+* When `mode` is `DISABLED`, the client doesn't support Idp-Initiated Login
+* When `mode` is `SPEC`, the client is redirected to the Relying Party's `initiate_login_uri` as defined in the [OpenID Connect spec](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
+* When `mode` is `OKTA`, the tokens are directly sent to the Relying Party. This corresponds the **Okta Simplified** option in the Admin Console.
+* The client must have an `initiate_login_uri` registered to configure any `mode` besides `DISABLED`.
+
+#### Request example
+
+> **Note:** An [Application](#application-object)'s `signOnMode` must be set to `OPENID_CONNECT`, the `name` field must be `oidc_client`, and the `label` field must be defined.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "name": "oidc_client",
+    "label": "Sample Client",
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+      "oauthClient": {
+      	"autoKeyRotation": true,
+        "token_endpoint_auth_method": "client_secret_post"
+      }
+    },
+    "settings": {
+      "oauthClient": {
+        "client_uri": "http://localhost:8080",
+        "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
+        "redirect_uris": [
+          "https://example.com/oauth2/callback",
+          "myapp://callback"
+        ],
+        "wildcard_redirect": "DISABLED",
+        "post_logout_redirect_uris": [
+          "https://example.com/oauth2/postLogoutRedirectUri"
+        ],
+        "response_types": [
+          "token",
+          "id_token",
+          "code"
+        ],
+        "grant_types": [
+          "implicit",
+          "authorization_code"
+        ],
+        "application_type": "native",
+        "tos_uri":"https://example.com/client/tos",
+        "policy_uri":"https://example.com/client/policy",
+        "idp_initiated_login": {
+          "mode": "DISABLED"
+        }
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/apps"
+```
+
+#### Response example
+
+```json
+{
+    "id": "0oap6nz61rKdsoyOY0h7",
+    "name": "oidc_client",
+    "label": "Sample Client",
+    "status": "ACTIVE",
+    "lastUpdated": "2020-01-09T16:59:15.000Z",
+    "created": "2020-01-09T16:59:15.000Z",
+    "accessibility": {
+        "selfService": false,
+        "errorRedirectUrl": null,
+        "loginRedirectUrl": null
+    },
+    "visibility": {
+        "autoSubmitToolbar": false,
+        "hide": {
+            "iOS": true,
+            "web": true
+        },
+        "appLinks": {
+            "oidc_client_link": true
+        }
+    },
+    "features": [],
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+        "userNameTemplate": {
+            "template": "${source.login}",
+            "type": "BUILT_IN"
+        },
+        "signing": {
+            "kid": "5gbe0HpzAYj2rsWSLxx1fYHdh-SzWqyKqwmfJ6qDk5g"
+        },
+        "oauthClient": {
+            "autoKeyRotation": true,
+            "client_id": "0oap6nz61rKdsoyOY0h7",
+            "client_secret": "D0HxBn1FtTXeYC4cSBwWL_sPMztMT2t6Ei9n1QjO",
+            "token_endpoint_auth_method": "client_secret_post"
+        }
+    },
+    "settings": {
+        "app": {},
+        "notifications": {
+            "vpn": {
+                "network": {
+                    "connection": "DISABLED"
+                },
+                "message": null,
+                "helpUrl": null
+            }
+        },
+        "oauthClient": {
+            "client_uri": "http://localhost:8080",
+            "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
+            "redirect_uris": [
+                "https://example.com/oauth2/callback",
+                "myapp://callback"
+            ],
+            "wildcard_redirect": "DISABLED",	    
+            "post_logout_redirect_uris": [
+                "https://example.com/oauth2/postLogoutRedirectUri"
+            ],
+            "response_types": [
+                "token",
+                "id_token",
+                "code"
+            ],
+            "grant_types": [
+                "implicit",
+                "authorization_code"
+            ],
+            "application_type": "native",
+            "tos_uri": "https://example.com/client/tos",
+            "policy_uri": "https://example.com/client/policy",
+            "idp_initiated_login": {
+              "mode": "DISABLED"
+            },"
+            "consent_method": "TRUSTED",
+            "issuer_mode": "CUSTOM_URL"
+        }
+    },
+    "_links": {
+        "appLinks": [
+            {
+                "name": "oidc_client_link",
+                "href": "https://${yourOktaDomain}/home/oidc_client/0oap6nz61rKdsoyOY0h7/aln5z7uhkbM6y7bMy0g7",
+                "type": "text/html"
+            }
+        ],
+        "groups": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/groups"
+        },
+        "logo": [
+            {
+                "name": "medium",
+                "href": "https://example.com/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+                "type": "image/png"
+            }
+        ],
+        "users": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/users"
+        },
+        "deactivate": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/lifecycle/deactivate"
+        }
+    }
+}
+```
+
+#### Request example
+
+The following example shows how to create an OAuth 2.0 client application with `private_key_jwt` defined as the value for the `token_endpoint_auth_method` property.
+
+```bash
+curl -X POST \
+  -H "Accept: application/json" \
+  -H "Authorization: key" \
+  -H "Content-Type: application/json" \
+  -H "cache-control: no-cache" \
+  -d '{
+    "name": "oidc_client",
+    "label": "A Sample Client",
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+        "oauthClient": {
+            "token_endpoint_auth_method": "private_key_jwt"
+        }
+    },
+    "settings": {
+        "oauthClient": {
+            "redirect_uris": [
+                "https://example.com"
+            ],
+            "wildcard_redirect": "DISABLED",
+            "response_types": [
+                "code"
+            ],
+            "grant_types": [
+                "authorization_code"
+            ],
+            "application_type": "native",
+            "jwks": {
+                "keys": [
+                    {
+                        "kty": "RSA",
+                        "kid": "SIGNING_KEY",
+                        "e":"AQAB",
+                        "n":"MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAnFo/4e91na8x/BsPkNS5QkwankewxJ1uZU6p827W/gkRcNHtNi/cE644W5OVdB4UaXV6koT+TsC1prhUEhRR3g5ggE0B/lwYqBaLq/Ejy19Crc4XYU3Aah67Y6HiHWcHGZ+BbpebtTixJv/UYW/Gw+k8M+zj4O001mOeBPpwlEiZZLIo33m/Xkfn28jaCFqTQBJHr67IQh4zEUFs4e5D5D6UE8ee93yeSUJyhbifeIgYh3tS/+ZW4Uo1KLIc0rcLRrnEMsS3aOQbrv/SEKij+Syx4KXI0Gi2xMdXctnFOVT6NM6/EkLxFp2POEdv9SNBtTvXcxIGRwK51W4Jdgh/xZcCAwEAAQ=="
+                    }
+                ]
+            }
+        }
+    }
+}' "https://${yourOktaDomain}/api/v1/apps"
+```
+
+#### Response example
+
+```json
+{
+    "id": "0oaktvoa8bGDHDmby0h7",
+    "name": "oidc_client",
+    "label": "A Sample Client",
+    "status": "ACTIVE",
+    "lastUpdated": "2019-05-13T22:16:50.000Z",
+    "created": "2019-05-13T22:16:50.000Z",
+    "accessibility": {
+        "selfService": false,
+        "errorRedirectUrl": null,
+        "loginRedirectUrl": null
+    },
+    "visibility": {
+        "autoSubmitToolbar": false,
+        "hide": {
+            "iOS": true,
+            "web": true
+        },
+        "appLinks": {
+            "oidc_client_link": true
+        }
+    },
+    "features": [],
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+        "userNameTemplate": {
+            "template": "${source.login}",
+            "type": "BUILT_IN"
+        },
+        "signing": {
+            "kid": "5gbe0HpzAYj4rsWSLxx1fYHdh-SzWqyKqwmfJ6qDk5g"
+        },
+        "oauthClient": {
+            "autoKeyRotation": true,
+            "client_id": "0oaktvoa8bGDHEmby0h7",
+            "token_endpoint_auth_method": "private_key_jwt"
+        }
+    },
+    "settings": {
+        "app": {},
+        "notifications": {
+            "vpn": {
+                "network": {
+                    "connection": "DISABLED"
+                },
+                "message": null,
+                "helpUrl": null
+            }
+        },
+        "oauthClient": {
+            "jwks": {
+                "keys": [
+                    {
+                        "kty": "RSA",
+                        "kid": "SIGNING_KEY",
+                        "use": null,
+                        "e": "AQAB",
+                        "n": "MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAnFo/4e91na8x/BsPkNS5QkwankewxJ1uZU6p827W/gkRcNHtNi/cE644W5OVdB4UaXV6koT+TsC1prhUEhRR3g5ggE0B/lwYqBaLq/Ejy19Crc4XYU3Aah67Y6HiHWcHGZ+BbpebtTixJv/UYW/Gw+k8M+zj4O001mOeBPpwlEiZZLIo33m/Xkfn28jaCFqTQBJHr67IQh4zEUFs4e5D5D6UE8ee93yeSUJyhbifeIgYh3tS/+ZW4Uo1KLIc0rcLRrnEMsS3aOQbrv/SEKij+Syx4KXI0Gi2xMdXctnFOVT6NM6/EkLxFp2POEdv9SNBtTvXcxIGRwK51W4Jdgh/xZcCAwEAAQ=="
+                    }
+                ]
+            },
+            "client_uri": null,
+            "logo_uri": null,
+            "redirect_uris": [
+                "https://example.com"
+            ],
+            "wildcard_redirect": "DISABLED",
+            "response_types": [
+                "code"
+            ],
+            "grant_types": [
+                "authorization_code"
+            ],
+            "application_type": "native",
+            "consent_method": "TRUSTED",
+            "issuer_mode": "CUSTOM_URL",
+	    "idp_initiated_login": {
+              "mode": "DISABLED"
+            }
+        }
+    },
+    "_links": {
+        "appLinks": [
+            {
+                "name": "oidc_client_link",
+                "href": "https://${yourOktaDomain}/home/oidc_client/0oaktvoa8bGDHDmby0h7/aln5z7uhkbM6y7bMy0g7",
+                "type": "text/html"
+            }
+        ],
+        "groups": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/groups"
+        },
+        "logo": [
+            {
+                "name": "medium",
+                "href": "https://${yourOktaDomain}/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+                "type": "image/png"
+            }
+        ],
+        "users": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/users"
+        },
+        "deactivate": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/lifecycle/deactivate"
+        }
+    }
+}
+```
 
 ### Application object
 
@@ -6529,7 +6547,7 @@ Specifies (optional) attribute statements for a SAML application
 | name       | The reference name of the attribute statement                                                | String       | FALSE    |
 | namespace  | The name format of the attribute                                                             | String       | FALSE    |
 | type       | The type of attribute statements object                                                      | `EXPRESSION` | FALSE    |
-| values     | The value of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)    | String       | FALSE    |
+| values     | The values of the attribute; Supports [Okta EL](/docs/reference/okta-expression-language/)   | Array        | FALSE    |
 
 ### Single Logout object
 

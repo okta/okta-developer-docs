@@ -192,6 +192,19 @@ $magenta: #e22866;
 
       &.mobile {
         display: none;
+
+        .pricing-card-column:not(:first-child) {
+          flex: 0 0 auto;
+        }
+      }
+
+      &.desktop {
+        .additional-note {
+          margin-left: 5px;
+        }
+        .check-icon {
+          vertical-align: middle;
+        }        
       }
 
       @include media('<desktop') {
@@ -273,7 +286,8 @@ $magenta: #e22866;
     }
 
     img.pricing-card-check {
-      max-width: initial;
+      width: 16px;
+      height: 16px;
     }
 
     select {
@@ -431,25 +445,8 @@ $magenta: #e22866;
 
   .pricing--footer {
     background-color: $darkBlue;
-    text-align: center;
     flex-grow: 1;
     padding: 64px 0;
-
-    .pricing--footer--logos {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-
-      img {
-        padding: 0 40px 30px;
-      }
-    }
-
-    @include media('<desktop') {
-      .pricing--footer--logos {
-        flex-direction: column;
-      }
-    }
   }
 
   .pricing--background-curve {

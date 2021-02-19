@@ -113,7 +113,7 @@ header.redesign {
       background-image: url("/img/icons/external--white.svg");
       background-repeat: no-repeat;
       vertical-align: middle;
-      opacity: 0.3;
+      opacity: 0.5;
     }
   }
 
@@ -213,7 +213,7 @@ header.redesign {
               font-weight: normal;
               line-height: 2em;
 
-              &:not(.active) {
+              &:not(.router-link-exact-active) {
                 color: $redesign_white;
               }
 

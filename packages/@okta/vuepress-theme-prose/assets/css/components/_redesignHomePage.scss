@@ -88,7 +88,7 @@
 
   &--code-example {
     height: 500px;
-    background-color: #16262f;
+    background-color: cv('brand', 'dark');
     border: 1.5px solid #2a4c63;
     border-radius: 10px;
     width: 100%;
@@ -212,19 +212,6 @@
       color: #20313b !important;
       z-index: 1;
       cursor: pointer;
-    }
-  }
-
-  &--partner-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 90px;
-    position: relative;
-
-    > img {
-      width: auto !important;
-      max-height: 40px !important;
     }
   }
 

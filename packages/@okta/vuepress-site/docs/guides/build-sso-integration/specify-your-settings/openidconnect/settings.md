@@ -1,18 +1,20 @@
 ### Specify OIDC settings
 
-* On the **General** tab, in the **Application** area, you can rename your integration and select which [grant type options](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1#whats-a-response-type) are allowed.
+* On the **General** tab, in the **Application** area, you can rename your app integration and select which [grant type options](https://developer.okta.com/blog/2017/07/25/oidc-primer-part-1#whats-a-response-type) are allowed.
 
   An OAuth 2.0 grant is the authorization granted to the client by the user. Each type of grant has a corresponding [grant flow](/docs/concepts/oauth-openid/#choosing-an-oauth-2-0-flow).
 
-  The grant types permitted for OIN applications depend on the application type selected:
+  The grant types permitted for an OIN app integration depend on the platform selected:
 
   * Web:
-    * **Authorization code** &mdash; mandatory for Web application types
-    * Optional. **Refresh token**
+    * **Authorization code** &mdash; mandatory for web platform applications
+    * **Refresh token** &mdash; not supported for OIN app integrations
     * Optional. **Implicit (Hybrid)**
   * SPA:
-    * **Implicit (Hybrid)** &mdash; choose either **Allow ID Token with implicit grant type** or **Allow Access Token with implicit grant type**
-  >**Note:** The **Client acting on behalf of itself** grant type is not permitted in OIN app integrations.
+    * **Implicit (Hybrid)** &mdash; choose:
+      * **Allow ID Token with implicit grant type**
+      * **Allow Access Token with implicit grant type**
+  >**Note:** The **Client acting on behalf of itself** grant type is not supported in OIN app integrations.
 * If you only want to support direct SSO to your application (so the integration isn't launched from the Okta End-User Dashboard), then:
   1. Enter one or more **Login redirect URI** values where Okta sends the OAuth responses.
   1. Set the **Login initiated by** drop-down box to **App Only**.
@@ -23,14 +25,14 @@
   2. (Optional). Enter the **Logout redirect URIs** where Okta redirects the browser after receiving the sign out request from the relying-party and terminating its end-user session. See [Single Logout](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Single_Logout) or the [`/logout` API endpoint](/docs/reference/api/oidc/#logout).
   3. Change the **Login initiated by** field to **Either Okta or App** to give your integration an Okta tile.
       >**Note:** When you select this option, an **App Embed Link** section appears at the bottom of the page with the URL that can be used to sign in to the OIDC client from outside of Okta.
-  4. Check the box for **Display application icon to users**.
-  5. Select the **Login flow** option. For OIN application integrations, you must select **Redirect to app to initiate login (OIDC Compliant)**.
+  4. Select **Display application icon to users**.
+  5. Select the **Login flow** option. For OIN app integrations, you must select **Redirect to app to initiate login (OIDC Compliant)**.
   6. Enter or change the URI used to initiate the sign-in request.
   7. Click **Save** to commit your changes.
 
 * If required, you can generate a new client secret. In the **Client Credentials** section, click **Edit**, then **Generate New Client Secret**.
 
-* You can use the `.well-known/openid-configuration` API endpoint to configure Okta interactions programmatically. When a web integration has the  `implicit` value set for the `grant_types_supported` property, then admins can publish integrations with the **Login initiated by** feature.
+* You can use the `.well-known/openid-configuration` API endpoint to configure Okta interactions programmatically. When a web app integration has the  `implicit` value set for the `grant_types_supported` property, then admins can publish integrations with the **Login initiated by** feature.
 
   For more information, see the [OpenID Connect](/docs/reference/api/oidc/#well-known-openid-configuration) API reference.
 

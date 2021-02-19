@@ -2,7 +2,7 @@
 title: Activate
 ---
 
-The Password Import Inline Hook must be set up and activated within your Okta Developer Console.
+The Password Import Inline Hook must be set up and activated within your Okta Admin Console.
 
 To set up and activate the Password Import Inline Hook:
 

@@ -6,8 +6,8 @@ Scopes specify what access privileges are being requested as part of the authori
 
 If you need scopes in addition to the reserved scopes provided, you can create them. Custom scopes can have corresponding claims that tie them to some sort of user information.
 
-1. In the Developer Console, navigate to **API > Authorization Servers**.
-2. Select the name of the Authorization Server, and then select **Scopes**.
+1. In the Admin Console, navigate to **Security > API**.
+2. On the **Authorization Servers** tab, select the name of the Authorization Server, and then select **Scopes**.
 3. Select **Scopes**, and then **Add Scope**.
 4. Enter a **Name**, **Display phrase**, and **Description**.
 

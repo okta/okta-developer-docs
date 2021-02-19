@@ -6,9 +6,9 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 ## Create the policy container
 
-1. In the Developer Console, navigate to **API > Authorization Servers**.
+1. In the Admin Console, navigate to **Security > API**.
 
-2. Select the name of the authorization server that you want to apply the policy to.
+2. On the **Authorization Servers** tab, select the name of the authorization server that you want to apply the policy to.
 
 3. Select **Access Policies**, and then **Add Policy**.
 
@@ -38,14 +38,14 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 Let's test your access policy and get back an access token.
 
-1. You need the following values from your Okta OpenID client application, both of which can be found on the application's **General** tab in the Developer Console:
+1. You need the following values from your Okta OpenID client application, both of which can be found on the application's **General** tab in the Admin Console:
 
      * Client ID
      * Valid Redirect URI
 
 > **Note:** Make sure that you have a user assigned to the client application.
 
-2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration.
+2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration`.
 
      It looks like this: `https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
 

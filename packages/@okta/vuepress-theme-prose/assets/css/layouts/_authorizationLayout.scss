@@ -79,6 +79,26 @@
     border-radius: 3px;
   }
 
+  a.btn {
+    display: block;
+    background-color: cv("cerise", "base");
+    padding: 10px 20px 9px;
+    border: 2px solid cv("cerise", "base");
+    border-radius: 3px;
+    text-align: center;
+    color: $white;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  a.social-btn {
+    background-color: transparent;
+  }
+
   input[type="submit"],
   input[type="button"] {
     cursor: pointer;
@@ -106,21 +126,8 @@
     padding: 0 0 20px 0;
     justify-content: center;
     .logo-wrapper {
+      width: 100%;
       margin: 40px 0 0 0;
-      width: 338px;
-      @include media("<=phone") {
-        width: 250px;
-      }
-      h4 {
-        font-size: 16px;
-        margin: 0 0 18px 0;
-        color: $white;
-      }
-      .partners-logo {
-        width: 100%;
-        display: inline-flex;
-        align-items: flex-start;
-      }
     }
   }
 
@@ -130,16 +137,6 @@
     }
     flex-direction: column;
     display: flex;
-  }
-
-  input.social-btn {
-    background-color: transparent;
-    border: 2px solid cv("cerise", "base");
-    text-align: center;
-    color: $white;
-    font-size: 15px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
   }
 
   .error-color {

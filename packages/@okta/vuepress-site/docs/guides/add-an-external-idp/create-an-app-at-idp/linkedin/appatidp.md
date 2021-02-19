@@ -1,15 +1,15 @@
-1. Sign up for a [LinkedIn Developer](https://www.linkedin.com/developers/) account if you haven't already done so.  
+1. Sign up for a [LinkedIn Developer](https://www.linkedin.com/developers/) account if you haven't already done so.
 
 2. Create an app in the [LinkedIn Developer portal](https://www.linkedin.com/developers/apps/new).
 
-3. From your app, click on the **Auth** tab and make note of the **Client ID** and **Client Secret** values so that you can add them to the Okta configuration in the next section.
+3. From your app, click the **Auth** tab and make note of the **Client ID** and **Client Secret** values so that you can add them to the Okta configuration in the next section.
 
-4. From the **Auth** tab, under **OAuth 2.0 settings**, click the pencil next to **Authorized redirect URLs for your app**.  
-  You will need to enter a redirect URL in this field. The redirect URL:
+4. From the **Auth** tab, under **OAuth 2.0 settings**, click the pencil next to **Authorized redirect URLs for your app**.
+  You need to enter a redirect URL in this field. The redirect URL:
     * Is where the IdP returns the authentication response (the access token and the ID token)
     * Needs to be a secure domain that you own
     * Should match the redirect URI sent in the authorize request from the client
-    * Has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and the callback endpoint.  
+    * Has the same structure for most Identity Providers in Okta and is constructed using your Okta subdomain and the callback endpoint.
     For example, if your Okta subdomain is called `company`, then the URL would be: `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta Org, use that value to build your redirect URL, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 5. Paste the redirect URL into the box.
 

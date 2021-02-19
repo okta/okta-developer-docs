@@ -2,7 +2,7 @@
 title: Activate and enable
 ---
 
-The Registration Inline Hook must be set up and activated within your Okta Developer Console and enabled in the self-registration page.
+The Registration Inline Hook must be set up and activated within your Okta Admin Console and enabled on the self-registration page.
 
 To set up and activate the Registration Inline Hook:
 
@@ -32,4 +32,3 @@ The Registration Inline Hook is now enabled for self-service registration. For a
 You are now ready to preview and test the Registration Inline Hook.
 
 <NextSectionLink/>
-

@@ -449,6 +449,7 @@ export const reference = [
   {
     title: "Reference",
     subLinks: [
+      { title: "Reference Overview", path: "/docs/reference/" },
       { title: "API Overview", path: "/docs/reference/api-overview/" },
       {
         title: "Sign in Your Users",
@@ -461,7 +462,7 @@ export const reference = [
         ]
       },
       {
-        title: "Manage Okta Resources",
+        title: "Manage Okta Objects",
         subLinks: [
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
           { title: "Apps", path: "/docs/reference/api/apps/" },
@@ -480,12 +481,10 @@ export const reference = [
           { title: "Groups", path: "/docs/reference/api/groups/" },
           { title: "Identity Providers", path: "/docs/reference/api/idps/" },
           { title: "Inline Hooks", path: "/docs/reference/api/inline-hooks/" },
-          {
-            title: "Linked Objects",
-            path: "/docs/reference/api/linked-objects/"
-          },
+          { title: "Linked Objects", path: "/docs/reference/api/linked-objects/"},
           { title: "Mappings", path: "/docs/reference/api/mappings/" },
           { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
+          { title: "Org", path: "/docs/reference/api/org/" },
           { title: "Policy", path: "/docs/reference/api/policy/" },
           { title: "Schemas", path: "/docs/reference/api/schemas/" },
           { title: "Sessions", path: "/docs/reference/api/sessions/" },
