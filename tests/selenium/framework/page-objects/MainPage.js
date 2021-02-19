@@ -2,7 +2,7 @@
 
 const BasePage = require('./BasePage');
 
-const headerSelector = '.redesign';
+const headerSelector = 'header';
 const signUpButtonSelector = '.sign-up--button';
 const signInLinkXpath = "//*[text()='Sign in to Okta']";
 const oktaMainPageLinkXpath = "//*[text()='Okta.com']";
