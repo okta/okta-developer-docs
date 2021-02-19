@@ -2059,11 +2059,11 @@ A Mapping object links together an Application and a Policy.
 
 ## Updates to Password Policy
 
-This updated Password Policy API shows only the delta from the original [Password Policy API](/docs/reference/api/policy/#password-policy)
+This updated Password Policy API shows only the changes from the original [Password Policy API](/docs/reference/api/policy/#password-policy)
 
-Earlier, we supported setting recovery factors on the [policy](/docs/reference/api/policy/#policy-settings-example-2). While we will still continue to support it for backwards compatibility of older clients, the new password policy model does not contain recovery factors. This is now moved to the password policy rule model.
+Earlier, we supported setting Recovery Factors on the [Policy](/docs/reference/api/policy/#policy-settings-example-2). While we will still continue to support it for backwards compatibility of older clients, the new Password Policy model does not contain Recovery Factors. This is now moved to the Password Policy Rule model.
 
-### Password Policy Settings Example
+### Password Policy Settings example
 
 ```json
 "settings": {
@@ -2098,11 +2098,11 @@ Earlier, we supported setting recovery factors on the [policy](/docs/reference/a
 
 Recovery Factors have been moved from the Policy Settings object to the Password Policy Rule object, specifically inside the `selfServicePasswordReset` Action.
 
-Below are 3 examples of how recovery factors are configured on the rule based on admin requirements.
+Below are 3 examples of how Recovery Factors are configured in the Rule based on admin requirements.
 
-### Password Policy Rule Action Examples
+### Password Policy Rule Action examples
 
-In this example, the requirement is that end users verify with just one authenticator before they can recover their password. Email, SMS, Voice or Okta Verify Push can be used by end users to initiate recovery. We know that only one authenticator is required because there are no step up authenticators specified as can be seen by `stepUp` object containing the `required` attribute set as `false`.
+In this example, the requirement is that end users verify with just one Authenticator before they can recover their password. Email, SMS, Voice or Okta Verify Push can be used by end users to initiate recovery. We know that only one Authenticator is required because there are no step up Authenticators specified as can be seen by the `stepUp` object having the `required` attribute set as `false`.
 
 ```json
 "actions": {
@@ -2131,7 +2131,7 @@ In this example, the requirement is that end users verify with just one authenti
 }
 ```
 
-In this example, the requirement is that end users verify two authenticators before they can recover their password. Only email or Okta Verify Push can be used by end users to initiate recovery. A Security Question is required as a step up.
+In this example, the requirement is that end users verify two Authenticators before they can recover their password. Only email or Okta Verify Push can be used by end users to initiate recovery. A security question is required as a step up.
 
 ```json
 "actions": {
@@ -2161,7 +2161,7 @@ In this example, the requirement is that end users verify two authenticators bef
 }
 ```
 
-In the final example, admin requires end users to verify 2 authenticators before they can recover password. Only Okta Verify Push can be used by end users to initiate recovery. A step up verification is required, for which any enrolled authenticator that can be used for sign-on are available options. This is indicated by the `stepUp` object containing only the `required` attribute set as `true` but without the `methods` array attribute.
+In the final example, end users are required to verify two Authenticators before they can recover their password. Only Okta Verify Push can be used by end users to initiate recovery. A step up verification is required, for which they can use any enrolled Authenticator that can be used for sign-on. This is indicated by the `stepUp` object containing only the `required` attribute set as `true` but without the `methods` array attribute.
 
 ```json
 "actions": {
@@ -2192,7 +2192,7 @@ In the final example, admin requires end users to verify 2 authenticators before
 | Property                      | Type    | Description                                                                                 | Supported Values
 | ---                           | ---     | ---                                                                                         | ---
 | `access`                      | String  | Indicates if the action is permitted                                                         | `ALLOW`, `DENY`
-| `requirement`                 | Object  | JSON object containing authenticator methods required to be verified if `access` is `ALLOW` | N/A
+| `requirement`                 | Object  | JSON object containing Authenticator methods required to be verified if `access` is `ALLOW` | N/A
 | `requirement.primary.methods` | Array   | Authenticator methods that can be used by end user to initiate password recovery             | `EMAIL`, `SMS`, `VOICE`, `PUSH`
-| `requirement.stepUp.required` | Boolean | Indicates if any step up verificatio is required to recover password following primary methods verification | `true`, `false`
-| `requirement.stepUp.methods`  | Array   | If `requirement.stepUp.required` is true, JSON object containing authenticator methods required to be verified as a step up. If not specified, any enrolled authenticator methods allowed for sign-on can be used as step up. | `SECURITY_QUESTION`
+| `requirement.stepUp.required` | Boolean | Indicates if any step up verification is required to recover password following primary methods verification | `true`, `false`
+| `requirement.stepUp.methods`  | Array   | If `requirement.stepUp.required` is `true`, JSON object containing authenticator methods required to be verified as a step up. If not specified, any enrolled Authenticator methods allowed for sign-on can be used as step up. | `SECURITY_QUESTION`
