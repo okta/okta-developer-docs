@@ -43,7 +43,7 @@ Let's test your access policy and get back an access token.
 
      > **Note:** Make sure that you have a user assigned to the client application.
 
-2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration.
+2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration`.
 
      It looks like this: `https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
 
