@@ -35,7 +35,6 @@ This page provides the API rate limits for authentication and end-user activitie
 | `/login/sso_iwa_auth`                                                                                                  | 100              | 600              | 600     | 600        | 500                   |
 | `/api/{apiVersion}/radius`                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 | `/idp/idx`                                                                                                             | 100              | 600              | 600     | 600        | 500                   |
-| `/login/token/redirect`                                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 
 
 > **Note:** The following public metadata endpoints aren't subjected to rate limiting.
