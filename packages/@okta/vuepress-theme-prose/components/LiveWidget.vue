@@ -67,10 +67,11 @@
         configJS:  initialJSWidgetConf,
         configSCSS: initialWidgetSCSS,
         computedSCSS: '',
-        sassCompiler: new sass()
+        sassCompiler: {}
       }
     },
     mounted: function(){
+      this.sassCompiler = new sass()
       this.loadSassFiles()
     },
     computed: {
