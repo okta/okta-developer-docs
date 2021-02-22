@@ -14,7 +14,7 @@ At a high level, the SAML 2.0 Assertion flow has the following steps:
 - Identity Provider responds to the client app with a SAML 2.0 assertion
 - The client app sends the Base64-encoded SAML 2.0 assertion in a request to the Okta Authorization Server to exchange the assertion for a token(s)
 - The Okta Authorization Server verifies the assertion and responds with the access token (optionally ID token, refresh token)
-- The client app makes a request with the access token to the resource server.
+- The client app makes a request with the access token to the resource server
 
 See our [OAuth 2.0 overview](/docs/concepts/oauth-openid/#saml-2-0-assertion-flow) for more information on the SAML 2.0 Assertion grant flow.
 
