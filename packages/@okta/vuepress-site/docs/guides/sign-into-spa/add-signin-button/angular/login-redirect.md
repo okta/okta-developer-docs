@@ -26,9 +26,11 @@ export class AppComponent {
   }
 
   login() {
-    this.oktaAuth.loginRedirect('/profile');
+    this.oktaAuth.signInWithRedirect({
+      originalUri: '/profile'
+    });    
   }
 }
 ```
 
-The `loginRedirect()` method lets you specify the path you'd like the user to be navigated to after authenticating.
+The `signInWithRedirect()` method lets you specify the path you'd like the user to be navigated to after authenticating through the `originalUri` field.

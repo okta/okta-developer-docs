@@ -80,12 +80,11 @@ footer:not(.redesign) {
 
 $redesign_white: #FFFFFF;
 $redesign_pink: #DD2864;
-$redesign_footer_background: #16262F;
 $redesign_footer_border: #1F3B54;
 
 footer.redesign {
   position: relative;
-  background-color: $redesign_footer_background;
+  background-color: cv('brand', 'dark');
   border-top: 1px solid $redesign_footer_border;
   padding: 80px 96px 80px 126px;
 

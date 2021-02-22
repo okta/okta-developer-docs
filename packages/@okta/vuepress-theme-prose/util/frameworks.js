@@ -52,6 +52,7 @@ const COMMON_NAME_TO_ICON_NAME = {
   android: 'code-android-32',
   angular: 'code-angular-32',
   aspnet: 'code-dotnet-32',
+  dotnet: 'code-dotnet-32',
   aspnetcore: 'code-dotnet-32',
   aspnetcore3: 'code-dotnet-32',
   ios: 'code-ios-32',

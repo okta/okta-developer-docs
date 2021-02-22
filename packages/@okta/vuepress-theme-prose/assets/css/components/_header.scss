@@ -213,7 +213,7 @@ header.redesign {
               font-weight: normal;
               line-height: 2em;
 
-              &:not(.active) {
+              &:not(.router-link-exact-active) {
                 color: $redesign_white;
               }
 

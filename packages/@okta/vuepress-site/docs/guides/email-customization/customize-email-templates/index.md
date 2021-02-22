@@ -6,7 +6,7 @@ Use these steps to edit a template or to add a template in one of the Okta-suppo
 
 > **Note:** Free trial editions of Okta can't create or send customized email templates.
 
-1. In the Developer Console, go to **Customizations**, and then **Emails & SMS**. The **Email** tab is selected by default.
+1. In the Admin Console, go to **Settings** and then **Emails & SMS**. The **Email** tab is selected by default.
 2. From the left pane, select the email template that you want to edit or for which you want to add a new translation. A text version of the default message appears.
 3. Click **Edit** to open the message in HTML.
 4. Make your edits, and then click **Save**. The default language version of your edited message appears in the **Custom Email** table.

@@ -1,10 +1,6 @@
 <template>
   <div class="page-content">
-    <section
-      id="SearchPage"
-      class="CoveoSearchInterface"
-      data-search-page
-    >
+    <section id="SearchPage" class="CoveoSearchInterface" data-search-page>
       <div class="CoveoAnalytics"></div>
       <div class="CoveoFolding"></div>
       <div class="coveo-main-section">
@@ -39,7 +35,7 @@
               Visit our
               <a
                 class="is-external-link"
-                href="https://support.okta.com/"
+                href="https://support.okta.com/help/s/"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Help Center</a
@@ -125,7 +121,7 @@
               Visit our
               <a
                 class="is-external-link"
-                href="https://support.okta.com/"
+                href="https://support.okta.com/help/s/"
                 target="_blank"
                 rel="noopener noreferrer"
                 >Help Center</a
@@ -144,10 +140,8 @@
 export default {
   mounted() {
     import("../util/coveo/init").then(({ initSearchPage }) => {
-      window.addEventListener("load", function(event) {
-        initSearchPage();
-      });
+      initSearchPage();
     });
-  }
+  },
 };
 </script>

@@ -63,7 +63,7 @@
                 <h2
                   class="redesign-homepage--sub-heading redesign-homepage--color-main redesign-homepage--centered-md"
                 >
-                  Customize for your app, try it here
+                  Customize your sign-in
                 </h2>
               </div>
               <div
@@ -72,7 +72,7 @@
               >
                 <div class="redesign-homepage--code-example">
                   <div class="redesign-homepage--code-example--header">
-                    Javascript
+                    JavaScript
                   </div>
                   <div class="redesign-homepage--code-example--cm-wrapper">
                     <FrontPageCodeMirror />  
@@ -108,18 +108,18 @@
                     insights from our built in reports.
                   </div>
                   <div class="redesign-homepage--welcome-leia--actions">
-                    <a
-                      href="/signup/"
-                      class="redesign-homepage--welcome-leia--actions--cta act-btn"
+                    <SmartLink
+                      :item="{ link: '/signup/' }"
+                      classes="redesign-homepage--welcome-leia--actions--cta act-btn"
                     >
                       Sign up for Okta
-                    </a>
-                    <a
-                      href="/code/javascript/okta_sign-in_widget/"
-                      class="redesign-homepage--welcome-leia--actions--docs act-btn"
+                    </SmartLink>
+                    <SmartLink
+                      :item="{ link: '/code/javascript/okta_sign-in_widget/' }"
+                      classes="redesign-homepage--welcome-leia--actions--docs act-btn"
                     >
                       View widget docs
-                    </a>
+                    </SmartLink>
                   </div>
                 </div>
               </div>
@@ -155,13 +155,14 @@ export default {
     AssuranceItem: () => import("../components/AssuranceItem"),
     FrontPageWidget: () => import("../components/FrontPageWidget"),
     FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror"),
-    CompanyLogos: () => import("../components/CompanyLogos")
+    CompanyLogos: () => import("../components/CompanyLogos"),
+    SmartLink: () => import("../components/SmartLink"),
   },
 
   data() {
     return {
       pseudoAuthorized: false,
-      pseudoAuthorizedCodeBlock: false
+      pseudoAuthorizedCodeBlock: false,
     };
   },
   mounted() {
@@ -179,10 +180,10 @@ export default {
         this.pseudoAuthorized = !this.pseudoAuthorized;
         this.pseudoAuthorizedCodeBlock = !this.pseudoAuthorizedCodeBlock;
       }
-    }
+    },
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
-  }
+  },
 };
 </script>

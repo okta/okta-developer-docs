@@ -9,7 +9,7 @@ Your first step is to generate a code verifier and challenge:
 * Code verifier: Random URL-safe string with a minimum length of 43 characters.
 * Code challenge: Base64 URL-encoded SHA-256 hash of the code verifier.
 
-You need to add code in your native app to create the code verifier and code challenge. For examples of code that handles this, see [the examples on this page](#examples).
+You need to add code in your native app to create the code verifier and code challenge.
 
 The PKCE generator code creates output like this:
 

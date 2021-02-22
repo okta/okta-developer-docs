@@ -1991,9 +1991,11 @@ redirects:
     to: /docs/guides/style-the-widget/customization-examples/
   - from: /contact-sales-enterprise
     to: https://www.okta.com/contact-sales/
+  - from: /contact-sales-enterprise/
+    to: https://www.okta.com/contact-sales/
   - from: /contact-us
     to: https://www.okta.com/contact-sales/
+  - from: /contact-us/
+    to: https://www.okta.com/contact-sales/
   - from: /login-widget-gallery/
-    to: /
-  - from: /live-widget/
     to: /
