@@ -286,17 +286,17 @@ To use a SAML 2.0 Assertion as an authorization grant, the client makes a reques
 
 skinparam monochrome true
 
-participant "Client + Resource Owner" as client
-participant "External Identity Provider " as idp
-participant "Authorization Server (Okta) " as okta
-participant "Resource Server (Your App) " as app
+participant "Resource Server" as rs
+participant "OAuth Client App" as OClient
+participant "Identity Provider " as idp
+participant "Authorization Server (Okta)" as okta
 
-client -> idp: Authorize request to the IdP
-idp -> client: SAML 2.0 Assertion after authorization
-client -> okta: Send Base64-encoded SAML 2.0 Assertion to /token
-okta -> client: Verify assertion and send access token (optionally ID token, refresh token)
-client -> app: Request with access token
-app -> client: Response
+rs -> OClient: Resource server passes the request to the OAuth Client app. 
+OClient -> idp: Makes SAML request to the IdP
+idp -> OClient: Sends SAML 2.0 Assertion in response
+OClient -> okta: Sends Base64-encoded SAML 2.0 Assertion to /token
+okta -> OClient: Verifies assertion and sends access token (optionally ID token, refresh token)
+OClient -> rs: forwards the access token with the resource request to the resource server
 
 -->
 

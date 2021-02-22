@@ -15,7 +15,6 @@ curl --request POST \
   --header 'authorization: Basic MG9hDc....' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer' \
-  --data 'redirect_uri=https://example.com' \
   --data 'assertion=<base64-encoded assertion>' \
   --data 'scope=openid offline_access' \
 ```
@@ -25,7 +24,6 @@ curl --request POST \
 Note the parameters that are being passed:
 
 - `grant_type`: `urn:ietf:params:oauth:grant-type:saml2-bearer`
-- `redirect_uri`: The callback location where the user agent is directed to along with the `access_token`. This must match one of the **Login redirect URIs** that you specified when you created your Okta application in the <GuideLink link="../setup-app">app setup</GuideLink> step.
 - `assertion`: A single SAML 2.0 assertion that is [base64-encoded](https://www.base64decode.org/)
 - `scope`: `openid` and `offline_access`. The `openid` scope is required. Include `offline_access` if you want a refresh token included. You can request additional scopes. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
 
