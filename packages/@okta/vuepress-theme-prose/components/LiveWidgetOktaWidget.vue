@@ -22,9 +22,9 @@ export default {
    this.renderWidget()
   },
   watch: {
-    // configSCSS: function(){
-    //   this.$refs.styleContainer.innerHTML = this.configSCSS
-    // },
+    configSCSS: function(){
+      this.$refs.styleContainer.innerHTML = this.configSCSS
+    },
     configJS: function(){
       this.renderWidget()
     }
