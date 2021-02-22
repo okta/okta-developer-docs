@@ -7,9 +7,9 @@ To include custom claims in an ID token or an access token, add the claim to you
 
 To add a custom claim:
 
-1. In the Developer Console, navigate to **API**, and then **Authorization Servers**.
+1. In the Admin Console, navigate to **Security** and then **API**.
 
-2. Select the name of the authorization server and then click **Claims**. Okta provides a default subject claim. You can edit that mapping or create your own claims. For this example, we are creating a custom claim.
+2. On the **Authorization Servers** tab, select the name of the authorization server and then click **Claims**. Okta provides a default subject claim. You can edit that mapping or create your own claims. For this example, we are creating a custom claim.
 
 3. Click **Add Claim**, and then configure the claim settings:
 

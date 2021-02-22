@@ -12,7 +12,6 @@ With the app now configured, you're ready to try signing in as an end user and s
 
 4. If sign-in is successful, the example app confirms that.
 
-To see the Admin view of the process that just occurred, you can open Developer Console in another browser window, signing in with your original Admin account. The Dashboard displays the number of users signed-in, and the System Log records the sign-in event.
+To see the Admin view of the process that just occurred, you can open the Admin Console in another browser window and sign in with your original Admin account. The Dashboard displays the number of users that are signed-in, and the System Log records the sign-in event.
 
 <NextSectionLink/>
-

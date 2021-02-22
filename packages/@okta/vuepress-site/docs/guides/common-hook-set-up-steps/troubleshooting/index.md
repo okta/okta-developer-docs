@@ -15,9 +15,8 @@ Before enabling the hook, the preview tab can run a sample Okta request call, an
 
 An [Event Hook Preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/event-hooks-preview.htm) tab is also available for Event Hooks, and displays the JSON payload for the selected Event Type. The preview tab can confirm a successful delivery of the request.
 
-### Developer Console System Log ###
-
-Use the Developer Console System Log to review logs of the Event or Inline Hook triggers or errors encountered during testing from the Okta org. For further information on using the System Log, see [System Log](https://help.okta.com/en/prod/Content/Topics/Reports/Reports_SysLog.htm)
+### Admin Console System Log ###
+Use the Admin Console System Log to review logs of the Event, Inline Hook triggers, or errors encountered during testing from the Okta org. See [System Log](https://help.okta.com/en/prod/Content/Topics/Reports/Reports_SysLog.htm)
 
 ### Glitch logs ###
 

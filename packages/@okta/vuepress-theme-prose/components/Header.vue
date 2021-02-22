@@ -1,5 +1,5 @@
 <template>
-  <header class="redesign">
+  <header class="page-header">
     <SmartLink :item="{ link: '/' }" classes="header--logo">
       <img src="/img/icons/okta-developer.svg" alt="Okta Developer Logo" />
     </SmartLink>
@@ -14,17 +14,17 @@
     <div :class="{ 'menu--slideout': true, opened: menuOpened }">
       <div class="header--links">
         <MenuItems
-          :items="$themeConfig.redesign.primary_left_nav"
+          :items="$themeConfig.primary_left_nav"
           :itemCss="'link link--small link--semi-bold'"
           :subItemCss="'link link--small link--semi-bold link--black'"
         />
         <MenuItems
-          :items="$themeConfig.redesign.primary_right_nav"
+          :items="$themeConfig.primary_right_nav"
           :itemCss="'link link--small link--semi-bold'"
           :subItemCss="'link link--small link--semi-bold link--black'"
         />
         <MenuItems
-          :items="$themeConfig.redesign.primary_doc_nav"
+          :items="$themeConfig.primary_doc_nav"
           :itemCss="'link link--small link--semi-bold'"
           :subItemCss="'link link--small link--semi-bold link--black'"
         />
@@ -51,7 +51,7 @@ export default {
   components: {
     MenuItems: () => import("../components/MenuItems.vue"),
     MenuItem: () => import("../components/MenuItem.vue"),
-    SearchBar: () => import("../components/SearchBar.redesign.vue"),
+    SearchBar: () => import("../components/SearchBar.vue"),
     SmartLink: () => import("../components/SmartLink.vue"),
   },
   data() {

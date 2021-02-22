@@ -54,15 +54,7 @@ body {
   background-color: cv('brand');
 }
 
-.page-body:not(.redesign) {
-  padding-top: 6rem;
-
-  @media(max-width:1024px){
-    padding-top: 5rem;
-  }
-}
-
-.page-body.redesign {
+.page-body {
   padding-top: 4.3rem;
   background-color: white;
 }

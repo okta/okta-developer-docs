@@ -17416,7 +17416,7 @@
         "created" : "2020-09-17",
         "release" : "2020.09.4"
       },
-      "beta" : true,
+      "beta" : false,
       "tags" : [ "event-hook-eligible", "mfa" ],
       "mappings" : [ ],
       "schema" : {
@@ -17432,7 +17432,7 @@
         "created" : "2020-09-17",
         "release" : "2020.09.4"
       },
-      "beta" : true,
+      "beta" : false,
       "tags" : [ "event-hook-eligible", "mfa" ],
       "mappings" : [ ],
       "schema" : {
