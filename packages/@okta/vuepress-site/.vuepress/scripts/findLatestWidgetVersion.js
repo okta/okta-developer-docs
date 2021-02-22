@@ -12,7 +12,7 @@ const findLatestWidgetVersion = (majorVersion) => {
   }
 
   const publishedVersions = JSON.parse(execSync(`npm view --json @okta/okta-signin-widget@${cleanVersion} version`));
-  const latestWidgetVersion = Array.isArray(publishedVersions) ? publishedVersions.slice(-1)[0] : publishedVersions;
+  const latestWidgetVersion = Array.isArray(publishedVersions) ? publishedVersions.sort().slice(-1)[0] : publishedVersions;
 
   return latestWidgetVersion;
 };
