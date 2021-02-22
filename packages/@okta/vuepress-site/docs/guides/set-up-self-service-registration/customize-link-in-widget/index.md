@@ -1,7 +1,6 @@
 ---
 title: Customize the sign-up link in the Widget
 ---
-<RequireClassicUI/>
 
 If you left the <GuideLink link="../configure-self-service-registration-policy">**Add to Sign-In widget**</GuideLink> check box clear when configuring the registration policy, then you need to configure a link using JavaScript in the **Customize Sign-In Page** HTML editor.
 

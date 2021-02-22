@@ -2,7 +2,7 @@ Follow your base URI with `/signout/callback` (for example, `http://localhost:30
 
 In ASP.NET Core, you have two redirect options for your app after the user is signed out of Okta:
 
-* **Option 1:** Allow list the post sign-out URL in your Okta application settings in the Developer Console.
+* **Option 1:** Allow list the post sign-out URL in your Okta application settings in the Admin Console.
 
     * Follow your base URI with `/account/postsignout` (for example, `http://localhost:3000/account/postsignout`).
 

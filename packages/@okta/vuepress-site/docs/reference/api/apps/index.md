@@ -1379,340 +1379,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
   * The following properties can also be configured in the App Wizard and on the **General** tab in the Admin Console: `tos_uri`, `policy_uri`, and `logo_uri` and can be set using the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/).
   * The `consent_method` property can be configured in the App Wizard and on the **General** tab in the Admin Console, but cannot be set using the Dynamic Client Registration API.
 
-##### Idp-Initiated Login object
 
-The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated Login flows that an OAuth Client supports.
-
-| Property      | Description                                           | DataType                   | Nullable |
-| ------------- | ----------------------------------------------------- | -------------------------- | -------- | 
-| mode          | What mode to use for Idp-Initiated Login              | `DISABLED`, `SPEC`, `OKTA` | FALSE    |
-| default_scope | What scopes to use for the request when mode = `OKTA` | List of String             | TRUE     |
-
-* When `mode` is `DISABLED`, the client doesn't support Idp-Initiated Login
-* When `mode` is `SPEC`, the client is redirected to the Relying Party's `initiate_login_uri` as defined in the [OpenID Connect spec](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
-* When `mode` is `OKTA`, the tokens are directly sent to the Relying Party. This corresponds the **Okta Simplified** option in the Admin Console.
-* The client must have an `initiate_login_uri` registered to configure any `mode` besides `DISABLED`.
-
-##### Request example
-
-> **Note:** An [Application](#application-object)'s `signOnMode` must be set to `OPENID_CONNECT`, the `name` field must be `oidc_client`, and the `label` field must be defined.
-
-```bash
-curl -v -X POST \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
--d '{
-    "name": "oidc_client",
-    "label": "Sample Client",
-    "signOnMode": "OPENID_CONNECT",
-    "credentials": {
-      "oauthClient": {
-      	"autoKeyRotation": true,
-        "token_endpoint_auth_method": "client_secret_post"
-      }
-    },
-    "settings": {
-      "oauthClient": {
-        "client_uri": "http://localhost:8080",
-        "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
-        "redirect_uris": [
-          "https://example.com/oauth2/callback",
-          "myapp://callback"
-        ],
-        "wildcard_redirect": "DISABLED",
-        "post_logout_redirect_uris": [
-          "https://example.com/oauth2/postLogoutRedirectUri"
-        ],
-        "response_types": [
-          "token",
-          "id_token",
-          "code"
-        ],
-        "grant_types": [
-          "implicit",
-          "authorization_code"
-        ],
-        "application_type": "native",
-        "tos_uri":"https://example.com/client/tos",
-        "policy_uri":"https://example.com/client/policy",
-        "idp_initiated_login": {
-          "mode": "DISABLED"
-        }
-    }
-  }
-}' "https://${yourOktaDomain}/api/v1/apps"
-```
-
-##### Response example
-
-```json
-{
-    "id": "0oap6nz61rKdsoyOY0h7",
-    "name": "oidc_client",
-    "label": "Sample Client",
-    "status": "ACTIVE",
-    "lastUpdated": "2020-01-09T16:59:15.000Z",
-    "created": "2020-01-09T16:59:15.000Z",
-    "accessibility": {
-        "selfService": false,
-        "errorRedirectUrl": null,
-        "loginRedirectUrl": null
-    },
-    "visibility": {
-        "autoSubmitToolbar": false,
-        "hide": {
-            "iOS": true,
-            "web": true
-        },
-        "appLinks": {
-            "oidc_client_link": true
-        }
-    },
-    "features": [],
-    "signOnMode": "OPENID_CONNECT",
-    "credentials": {
-        "userNameTemplate": {
-            "template": "${source.login}",
-            "type": "BUILT_IN"
-        },
-        "signing": {
-            "kid": "5gbe0HpzAYj2rsWSLxx1fYHdh-SzWqyKqwmfJ6qDk5g"
-        },
-        "oauthClient": {
-            "autoKeyRotation": true,
-            "client_id": "0oap6nz61rKdsoyOY0h7",
-            "client_secret": "D0HxBn1FtTXeYC4cSBwWL_sPMztMT2t6Ei9n1QjO",
-            "token_endpoint_auth_method": "client_secret_post"
-        }
-    },
-    "settings": {
-        "app": {},
-        "notifications": {
-            "vpn": {
-                "network": {
-                    "connection": "DISABLED"
-                },
-                "message": null,
-                "helpUrl": null
-            }
-        },
-        "oauthClient": {
-            "client_uri": "http://localhost:8080",
-            "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
-            "redirect_uris": [
-                "https://example.com/oauth2/callback",
-                "myapp://callback"
-            ],
-            "wildcard_redirect": "DISABLED",	    
-            "post_logout_redirect_uris": [
-                "https://example.com/oauth2/postLogoutRedirectUri"
-            ],
-            "response_types": [
-                "token",
-                "id_token",
-                "code"
-            ],
-            "grant_types": [
-                "implicit",
-                "authorization_code"
-            ],
-            "application_type": "native",
-            "tos_uri": "https://example.com/client/tos",
-            "policy_uri": "https://example.com/client/policy",
-            "idp_initiated_login": {
-              "mode": "DISABLED"
-            },"
-            "consent_method": "TRUSTED",
-            "issuer_mode": "CUSTOM_URL"
-        }
-    },
-    "_links": {
-        "appLinks": [
-            {
-                "name": "oidc_client_link",
-                "href": "https://${yourOktaDomain}/home/oidc_client/0oap6nz61rKdsoyOY0h7/aln5z7uhkbM6y7bMy0g7",
-                "type": "text/html"
-            }
-        ],
-        "groups": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/groups"
-        },
-        "logo": [
-            {
-                "name": "medium",
-                "href": "https://example.com/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
-                "type": "image/png"
-            }
-        ],
-        "users": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/users"
-        },
-        "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/lifecycle/deactivate"
-        }
-    }
-}
-```
-
-##### Request example
-
-The following example shows how to create an OAuth 2.0 client application with `private_key_jwt` defined as the value for the `token_endpoint_auth_method` property.
-
-```bash
-curl -X POST \
-  -H "Accept: application/json" \
-  -H "Authorization: key" \
-  -H "Content-Type: application/json" \
-  -H "cache-control: no-cache" \
-  -d '{
-    "name": "oidc_client",
-    "label": "A Sample Client",
-    "signOnMode": "OPENID_CONNECT",
-    "credentials": {
-        "oauthClient": {
-            "token_endpoint_auth_method": "private_key_jwt"
-        }
-    },
-    "settings": {
-        "oauthClient": {
-            "redirect_uris": [
-                "https://example.com"
-            ],
-            "wildcard_redirect": "DISABLED",
-            "response_types": [
-                "code"
-            ],
-            "grant_types": [
-                "authorization_code"
-            ],
-            "application_type": "native",
-            "jwks": {
-                "keys": [
-                    {
-                        "kty": "RSA",
-                        "kid": "SIGNING_KEY",
-                        "e":"AQAB",
-                        "n":"MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAnFo/4e91na8x/BsPkNS5QkwankewxJ1uZU6p827W/gkRcNHtNi/cE644W5OVdB4UaXV6koT+TsC1prhUEhRR3g5ggE0B/lwYqBaLq/Ejy19Crc4XYU3Aah67Y6HiHWcHGZ+BbpebtTixJv/UYW/Gw+k8M+zj4O001mOeBPpwlEiZZLIo33m/Xkfn28jaCFqTQBJHr67IQh4zEUFs4e5D5D6UE8ee93yeSUJyhbifeIgYh3tS/+ZW4Uo1KLIc0rcLRrnEMsS3aOQbrv/SEKij+Syx4KXI0Gi2xMdXctnFOVT6NM6/EkLxFp2POEdv9SNBtTvXcxIGRwK51W4Jdgh/xZcCAwEAAQ=="
-                    }
-                ]
-            }
-        }
-    }
-}' "https://${yourOktaDomain}/api/v1/apps"
-```
-
-##### Response example
-
-```json
-{
-    "id": "0oaktvoa8bGDHDmby0h7",
-    "name": "oidc_client",
-    "label": "A Sample Client",
-    "status": "ACTIVE",
-    "lastUpdated": "2019-05-13T22:16:50.000Z",
-    "created": "2019-05-13T22:16:50.000Z",
-    "accessibility": {
-        "selfService": false,
-        "errorRedirectUrl": null,
-        "loginRedirectUrl": null
-    },
-    "visibility": {
-        "autoSubmitToolbar": false,
-        "hide": {
-            "iOS": true,
-            "web": true
-        },
-        "appLinks": {
-            "oidc_client_link": true
-        }
-    },
-    "features": [],
-    "signOnMode": "OPENID_CONNECT",
-    "credentials": {
-        "userNameTemplate": {
-            "template": "${source.login}",
-            "type": "BUILT_IN"
-        },
-        "signing": {
-            "kid": "5gbe0HpzAYj4rsWSLxx1fYHdh-SzWqyKqwmfJ6qDk5g"
-        },
-        "oauthClient": {
-            "autoKeyRotation": true,
-            "client_id": "0oaktvoa8bGDHEmby0h7",
-            "token_endpoint_auth_method": "private_key_jwt"
-        }
-    },
-    "settings": {
-        "app": {},
-        "notifications": {
-            "vpn": {
-                "network": {
-                    "connection": "DISABLED"
-                },
-                "message": null,
-                "helpUrl": null
-            }
-        },
-        "oauthClient": {
-            "jwks": {
-                "keys": [
-                    {
-                        "kty": "RSA",
-                        "kid": "SIGNING_KEY",
-                        "use": null,
-                        "e": "AQAB",
-                        "n": "MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAnFo/4e91na8x/BsPkNS5QkwankewxJ1uZU6p827W/gkRcNHtNi/cE644W5OVdB4UaXV6koT+TsC1prhUEhRR3g5ggE0B/lwYqBaLq/Ejy19Crc4XYU3Aah67Y6HiHWcHGZ+BbpebtTixJv/UYW/Gw+k8M+zj4O001mOeBPpwlEiZZLIo33m/Xkfn28jaCFqTQBJHr67IQh4zEUFs4e5D5D6UE8ee93yeSUJyhbifeIgYh3tS/+ZW4Uo1KLIc0rcLRrnEMsS3aOQbrv/SEKij+Syx4KXI0Gi2xMdXctnFOVT6NM6/EkLxFp2POEdv9SNBtTvXcxIGRwK51W4Jdgh/xZcCAwEAAQ=="
-                    }
-                ]
-            },
-            "client_uri": null,
-            "logo_uri": null,
-            "redirect_uris": [
-                "https://example.com"
-            ],
-            "wildcard_redirect": "DISABLED",
-            "response_types": [
-                "code"
-            ],
-            "grant_types": [
-                "authorization_code"
-            ],
-            "application_type": "native",
-            "consent_method": "TRUSTED",
-            "issuer_mode": "CUSTOM_URL",
-	    "idp_initiated_login": {
-              "mode": "DISABLED"
-            }
-        }
-    },
-    "_links": {
-        "appLinks": [
-            {
-                "name": "oidc_client_link",
-                "href": "https://${yourOktaDomain}/home/oidc_client/0oaktvoa8bGDHDmby0h7/aln5z7uhkbM6y7bMy0g7",
-                "type": "text/html"
-            }
-        ],
-        "groups": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/groups"
-        },
-        "logo": [
-            {
-                "name": "medium",
-                "href": "https://${yourOktaDomain}/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
-                "type": "image/png"
-            }
-        ],
-        "users": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/users"
-        },
-        "deactivate": {
-            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/lifecycle/deactivate"
-        }
-    }
-}
-```
 
 ### Get application
 
@@ -5936,11 +5603,11 @@ Updates a Feature object for an application.
 | capabilities   | Capabilites of the feature                  | Body              | [Capabilites Object](#capabilties-object) | TRUE     |
 | name   | Name of the feature                      | URL              | String     | TRUE     |
 
-##### Reponse Parameters
+##### Reponse parameters
 
 Updated [Application Feature](#application-feature-object).
 
-##### Request Example
+##### Request example
 
 ```bash
 curl -v -X PUT \
@@ -6028,9 +5695,345 @@ curl -v -X PUT \
 
 ## Models
 
+* [Idp-Initiated Login object](#idp-initiated-login-object)
 * [Application object](#application-object)
 * [Application User object](#application-user-object)
 * [Appliction Group object](#application-group-object)
+
+### Idp-Initiated Login object
+
+The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated Login flows that an OAuth Client supports.
+
+| Property      | Description                                           | DataType                   | Nullable |
+| ------------- | ----------------------------------------------------- | -------------------------- | -------- | 
+| mode          | What mode to use for Idp-Initiated Login              | `DISABLED`, `SPEC`, `OKTA` | FALSE    |
+| default_scope | What scopes to use for the request when mode = `OKTA` | List of String             | TRUE     |
+
+* When `mode` is `DISABLED`, the client doesn't support Idp-Initiated Login
+* When `mode` is `SPEC`, the client is redirected to the Relying Party's `initiate_login_uri` as defined in the [OpenID Connect spec](https://openid.net/specs/openid-connect-core-1_0.html#ThirdPartyInitiatedLogin).
+* When `mode` is `OKTA`, the tokens are directly sent to the Relying Party. This corresponds the **Okta Simplified** option in the Admin Console.
+* The client must have an `initiate_login_uri` registered to configure any `mode` besides `DISABLED`.
+
+#### Request example
+
+> **Note:** An [Application](#application-object)'s `signOnMode` must be set to `OPENID_CONNECT`, the `name` field must be `oidc_client`, and the `label` field must be defined.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+    "name": "oidc_client",
+    "label": "Sample Client",
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+      "oauthClient": {
+      	"autoKeyRotation": true,
+        "token_endpoint_auth_method": "client_secret_post"
+      }
+    },
+    "settings": {
+      "oauthClient": {
+        "client_uri": "http://localhost:8080",
+        "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
+        "redirect_uris": [
+          "https://example.com/oauth2/callback",
+          "myapp://callback"
+        ],
+        "wildcard_redirect": "DISABLED",
+        "post_logout_redirect_uris": [
+          "https://example.com/oauth2/postLogoutRedirectUri"
+        ],
+        "response_types": [
+          "token",
+          "id_token",
+          "code"
+        ],
+        "grant_types": [
+          "implicit",
+          "authorization_code"
+        ],
+        "application_type": "native",
+        "tos_uri":"https://example.com/client/tos",
+        "policy_uri":"https://example.com/client/policy",
+        "idp_initiated_login": {
+          "mode": "DISABLED"
+        }
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/apps"
+```
+
+#### Response example
+
+```json
+{
+    "id": "0oap6nz61rKdsoyOY0h7",
+    "name": "oidc_client",
+    "label": "Sample Client",
+    "status": "ACTIVE",
+    "lastUpdated": "2020-01-09T16:59:15.000Z",
+    "created": "2020-01-09T16:59:15.000Z",
+    "accessibility": {
+        "selfService": false,
+        "errorRedirectUrl": null,
+        "loginRedirectUrl": null
+    },
+    "visibility": {
+        "autoSubmitToolbar": false,
+        "hide": {
+            "iOS": true,
+            "web": true
+        },
+        "appLinks": {
+            "oidc_client_link": true
+        }
+    },
+    "features": [],
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+        "userNameTemplate": {
+            "template": "${source.login}",
+            "type": "BUILT_IN"
+        },
+        "signing": {
+            "kid": "5gbe0HpzAYj2rsWSLxx1fYHdh-SzWqyKqwmfJ6qDk5g"
+        },
+        "oauthClient": {
+            "autoKeyRotation": true,
+            "client_id": "0oap6nz61rKdsoyOY0h7",
+            "client_secret": "D0HxBn1FtTXeYC4cSBwWL_sPMztMT2t6Ei9n1QjO",
+            "token_endpoint_auth_method": "client_secret_post"
+        }
+    },
+    "settings": {
+        "app": {},
+        "notifications": {
+            "vpn": {
+                "network": {
+                    "connection": "DISABLED"
+                },
+                "message": null,
+                "helpUrl": null
+            }
+        },
+        "oauthClient": {
+            "client_uri": "http://localhost:8080",
+            "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
+            "redirect_uris": [
+                "https://example.com/oauth2/callback",
+                "myapp://callback"
+            ],
+            "wildcard_redirect": "DISABLED",	    
+            "post_logout_redirect_uris": [
+                "https://example.com/oauth2/postLogoutRedirectUri"
+            ],
+            "response_types": [
+                "token",
+                "id_token",
+                "code"
+            ],
+            "grant_types": [
+                "implicit",
+                "authorization_code"
+            ],
+            "application_type": "native",
+            "tos_uri": "https://example.com/client/tos",
+            "policy_uri": "https://example.com/client/policy",
+            "idp_initiated_login": {
+              "mode": "DISABLED"
+            },"
+            "consent_method": "TRUSTED",
+            "issuer_mode": "CUSTOM_URL"
+        }
+    },
+    "_links": {
+        "appLinks": [
+            {
+                "name": "oidc_client_link",
+                "href": "https://${yourOktaDomain}/home/oidc_client/0oap6nz61rKdsoyOY0h7/aln5z7uhkbM6y7bMy0g7",
+                "type": "text/html"
+            }
+        ],
+        "groups": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/groups"
+        },
+        "logo": [
+            {
+                "name": "medium",
+                "href": "https://example.com/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+                "type": "image/png"
+            }
+        ],
+        "users": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/users"
+        },
+        "deactivate": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oap6nz61rKdsoyOY0h7/lifecycle/deactivate"
+        }
+    }
+}
+```
+
+#### Request example
+
+The following example shows how to create an OAuth 2.0 client application with `private_key_jwt` defined as the value for the `token_endpoint_auth_method` property.
+
+```bash
+curl -X POST \
+  -H "Accept: application/json" \
+  -H "Authorization: key" \
+  -H "Content-Type: application/json" \
+  -H "cache-control: no-cache" \
+  -d '{
+    "name": "oidc_client",
+    "label": "A Sample Client",
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+        "oauthClient": {
+            "token_endpoint_auth_method": "private_key_jwt"
+        }
+    },
+    "settings": {
+        "oauthClient": {
+            "redirect_uris": [
+                "https://example.com"
+            ],
+            "wildcard_redirect": "DISABLED",
+            "response_types": [
+                "code"
+            ],
+            "grant_types": [
+                "authorization_code"
+            ],
+            "application_type": "native",
+            "jwks": {
+                "keys": [
+                    {
+                        "kty": "RSA",
+                        "kid": "SIGNING_KEY",
+                        "e":"AQAB",
+                        "n":"MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAnFo/4e91na8x/BsPkNS5QkwankewxJ1uZU6p827W/gkRcNHtNi/cE644W5OVdB4UaXV6koT+TsC1prhUEhRR3g5ggE0B/lwYqBaLq/Ejy19Crc4XYU3Aah67Y6HiHWcHGZ+BbpebtTixJv/UYW/Gw+k8M+zj4O001mOeBPpwlEiZZLIo33m/Xkfn28jaCFqTQBJHr67IQh4zEUFs4e5D5D6UE8ee93yeSUJyhbifeIgYh3tS/+ZW4Uo1KLIc0rcLRrnEMsS3aOQbrv/SEKij+Syx4KXI0Gi2xMdXctnFOVT6NM6/EkLxFp2POEdv9SNBtTvXcxIGRwK51W4Jdgh/xZcCAwEAAQ=="
+                    }
+                ]
+            }
+        }
+    }
+}' "https://${yourOktaDomain}/api/v1/apps"
+```
+
+#### Response example
+
+```json
+{
+    "id": "0oaktvoa8bGDHDmby0h7",
+    "name": "oidc_client",
+    "label": "A Sample Client",
+    "status": "ACTIVE",
+    "lastUpdated": "2019-05-13T22:16:50.000Z",
+    "created": "2019-05-13T22:16:50.000Z",
+    "accessibility": {
+        "selfService": false,
+        "errorRedirectUrl": null,
+        "loginRedirectUrl": null
+    },
+    "visibility": {
+        "autoSubmitToolbar": false,
+        "hide": {
+            "iOS": true,
+            "web": true
+        },
+        "appLinks": {
+            "oidc_client_link": true
+        }
+    },
+    "features": [],
+    "signOnMode": "OPENID_CONNECT",
+    "credentials": {
+        "userNameTemplate": {
+            "template": "${source.login}",
+            "type": "BUILT_IN"
+        },
+        "signing": {
+            "kid": "5gbe0HpzAYj4rsWSLxx1fYHdh-SzWqyKqwmfJ6qDk5g"
+        },
+        "oauthClient": {
+            "autoKeyRotation": true,
+            "client_id": "0oaktvoa8bGDHEmby0h7",
+            "token_endpoint_auth_method": "private_key_jwt"
+        }
+    },
+    "settings": {
+        "app": {},
+        "notifications": {
+            "vpn": {
+                "network": {
+                    "connection": "DISABLED"
+                },
+                "message": null,
+                "helpUrl": null
+            }
+        },
+        "oauthClient": {
+            "jwks": {
+                "keys": [
+                    {
+                        "kty": "RSA",
+                        "kid": "SIGNING_KEY",
+                        "use": null,
+                        "e": "AQAB",
+                        "n": "MIIBIzANBgkqhkiG9w0BAQEFAAOCARAAMIIBCwKCAQIAnFo/4e91na8x/BsPkNS5QkwankewxJ1uZU6p827W/gkRcNHtNi/cE644W5OVdB4UaXV6koT+TsC1prhUEhRR3g5ggE0B/lwYqBaLq/Ejy19Crc4XYU3Aah67Y6HiHWcHGZ+BbpebtTixJv/UYW/Gw+k8M+zj4O001mOeBPpwlEiZZLIo33m/Xkfn28jaCFqTQBJHr67IQh4zEUFs4e5D5D6UE8ee93yeSUJyhbifeIgYh3tS/+ZW4Uo1KLIc0rcLRrnEMsS3aOQbrv/SEKij+Syx4KXI0Gi2xMdXctnFOVT6NM6/EkLxFp2POEdv9SNBtTvXcxIGRwK51W4Jdgh/xZcCAwEAAQ=="
+                    }
+                ]
+            },
+            "client_uri": null,
+            "logo_uri": null,
+            "redirect_uris": [
+                "https://example.com"
+            ],
+            "wildcard_redirect": "DISABLED",
+            "response_types": [
+                "code"
+            ],
+            "grant_types": [
+                "authorization_code"
+            ],
+            "application_type": "native",
+            "consent_method": "TRUSTED",
+            "issuer_mode": "CUSTOM_URL",
+	    "idp_initiated_login": {
+              "mode": "DISABLED"
+            }
+        }
+    },
+    "_links": {
+        "appLinks": [
+            {
+                "name": "oidc_client_link",
+                "href": "https://${yourOktaDomain}/home/oidc_client/0oaktvoa8bGDHDmby0h7/aln5z7uhkbM6y7bMy0g7",
+                "type": "text/html"
+            }
+        ],
+        "groups": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/groups"
+        },
+        "logo": [
+            {
+                "name": "medium",
+                "href": "https://${yourOktaDomain}/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+                "type": "image/png"
+            }
+        ],
+        "users": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/users"
+        },
+        "deactivate": {
+            "href": "https://${yourOktaDomain}/api/v1/apps/0oaktvoa8bGDHDmby0h7/lifecycle/deactivate"
+        }
+    }
+}
+```
 
 ### Application object
 

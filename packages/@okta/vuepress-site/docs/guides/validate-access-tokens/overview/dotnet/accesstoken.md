@@ -1,32 +1,6 @@
----
-title: JWT Validation Guide
-language: .NET
-excerpt: 'How to manually validate Okta JWTs with .NET (C#).'
-icon: code-dotnet
----
+Although Okta doesn't provide a .Net library for JWT validation, the Microsoft OpenID Connect JWT libraries may be used for this purpose.
 
-When you use Okta to [get OAuth 2.0 or OpenID Connect tokens for a user](/docs/concepts/oauth-openid/#recommended-flow-by-application-type), the response contains a signed JWT (`id_token` and/or `access_token`).
-
-If you are writing low-level code that retrieves or uses these tokens, it's important to validate the tokens before you trust them. This guide will show you how to validate tokens manually.
-
-> **Note:** This guide is specific to .NET and C#.  If you need general information, read [Validate Access Tokens](/docs/guides/validate-access-tokens/) and [Validate ID Tokens](/docs/guides/validate-id-tokens/) instead.
-
-## Who should use this guide
-
-You _don't_ need to validate tokens manually if:
-
-* You are using <a href='/docs/guides/sign-into-web-app/aspnet/before-you-begin/' data-proofer-ignore>ASP.NET</a> or <a href='/docs/guides/sign-into-web-app/aspnetcore/before-you-begin/' data-proofer-ignore>ASP.NET Core</a> - follow our how to guide instead!
-* You send the tokens to Okta to be validated (this is called [token introspection](/docs/reference/api/oidc/#introspect))
-
-If you need to validate a token manually, and don't want to make a network call to Okta, this guide will help you validate tokens locally.
-
-### What you'll need
-
-* Your authorization server URL (see [Composing Your Base URL](/docs/reference/api/oidc/#composing-your-base-url))
-* A token (JWT string)
-* Libraries for retrieving the signing keys and validating the token
-
-This guide will use the official Microsoft OpenID Connect and JWT libraries, but you can adapt it to other key and token parsing libraries.
+For additional details about the code described here, see [.NET JWT Validation Guide](/code/dotnet/jwt-validation/).
 
 ### Get the signing keys
 
@@ -120,7 +94,7 @@ Depending on your application, you could change this method to return a boolean,
 
 ### Additional validation for access tokens
 
-If you are validating access tokens, you should verify that the `aud` (audience) claim equals the audience that is configured for your Authorization Server in the Okta Admin Console.
+If you are validating access tokens, you should verify that the `aud` (audience) claim equals the audience that is configured for your Authorization Server in the Okta Developer Console.
 
 For example, if your Authorization Server audience is set to `MyAwesomeApi`, add this to the validation parameters:
 
@@ -202,9 +176,3 @@ foreach (var claim in validatedToken.Claims)
     Console.WriteLine($"{claim.Type}\t{claim.Value}");
 }
 ```
-
-## Conclusion
-
-This guide provides the basic steps required to locally verify an access or ID token signed by Okta. It uses packages from Microsoft for key parsing and token validation, but the general principles should apply to any JWT validation library.
-
-Most applications don't need to follow this guide. If you are using our <a href='/docs/guides/sign-into-web-app/aspnet/before-you-begin/' data-proofer-ignore>ASP.NET how to guide</a> or <a href='/docs/guides/sign-into-web-app/aspnetcore/before-you-begin/' data-proofer-ignore>ASP.NET Core how to guide</a> to connect your application to Okta, all of these validation steps are done automatically for you.

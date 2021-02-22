@@ -73,13 +73,13 @@ ok -> ua: 302 to redirect_uri
 
 ## Account Linking and Just-in-Time Provisioning
 
-When you allow your users to sign in to your app using their choice of Identity Providers, you can use account linking to help create a unified view of your users within your org. Additionally, you can use Just-In-Time (JIT) provisioning to create a seamless experience for users that sign-in to your application for the first time using their credentials from another Identity Provider.
+When you allow your users to sign in to your app using their choice of Identity Providers, you can use account linking to help create a unified view of your users within your org. Additionally, you can use Just-in-Time (JIT) provisioning to create a seamless experience for users that sign-in to your application for the first time using their credentials from another Identity Provider.
 
 ### Account Linking
 
 Users can use multiple Identity Providers to sign in, and Okta can link all of those profiles to a single Okta user. This is called account linking. If, for example, a user signs in to your app using a different Identity Provider than they used for registration, account linking can establish that the user owns both identities, allowing the user to sign in from either account.
 
-Account linking is configured at the Identity Provider level. When you create an Identity Provider using the Developer Console, these values are set by default:
+Account linking is configured at the Identity Provider level. When you create an Identity Provider, these values are set by default:
 
 * **Account Link Policy** &mdash; Automatic
 * **Match Against** &mdash; Okta Username

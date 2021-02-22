@@ -1,7 +1,7 @@
 After the `AuthenticateClient` instance is created, make sure that the user is signed in:
 
 ```java
-if (sessionClient.isLoggedIn()) {
+if (sessionClient.isAuthenticated()) {
     //user already logged in. Skip login screen.
 }
 ```
@@ -9,7 +9,7 @@ if (sessionClient.isLoggedIn()) {
 If the user is signed in and you want to make sure that the `access_token` is still valid, you can check the validity of the token in two ways. The first way is to simply check the expiration time:
 
 ```java
-if (sessionClient.isLoggedIn()) {
+if (sessionClient.isAuthenticated()) {
     try {
         if (sessionClient.getTokens().isAccessTokenExpired()) {
             //access_token expired
