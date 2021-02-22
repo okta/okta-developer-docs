@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header class="page-header">
     <SmartLink :item="{ link: '/' }" classes="header--logo">
       <img src="/img/icons/okta-developer.svg" alt="Okta Developer Logo" />
     </SmartLink>
