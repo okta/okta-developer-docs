@@ -2,7 +2,7 @@
 title: Use the SAML 2.0 Assertion flow
 ---
 
-Before you can begin this flow, you must collect the SAML assertion from the Identity Provider and make sure that it is [base64-encoded](https://www.base64decode.org/). You can then use the assertion in the API call to the [Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint.
+Before you can begin this flow, you must collect the SAML assertion from the Identity Provider and make sure that it is [Base64-encoded](https://www.base64decode.org/). You can then use the assertion in the API call to the [Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint.
 
 ## Request example
 
@@ -15,7 +15,7 @@ curl --request POST \
   --header 'authorization: Basic MG9hDc....' \
   --header 'content-type: application/x-www-form-urlencoded' \
   --data 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer' \
-  --data 'assertion=<base64-encoded assertion>' \
+  --data 'assertion=<Base64-encoded assertion>' \
   --data 'scope=openid offline_access' \
 ```
 
@@ -24,8 +24,8 @@ curl --request POST \
 Note the parameters that are being passed:
 
 - `grant_type`: `urn:ietf:params:oauth:grant-type:saml2-bearer`
-- `assertion`: A single SAML 2.0 assertion that is [base64-encoded](https://www.base64decode.org/)
-- `scope`: `openid` and `offline_access`. The `openid` scope is required. Include `offline_access` if you want a refresh token included. You can request additional scopes. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
+- `assertion`: A single SAML 2.0 assertion that is [Base64-encoded](https://www.base64decode.org/)
+- `scope`: `openid` and `offline_access`. The `openid` scope is required. Include `offline_access` if you want a refresh token included. You can also request additional scopes. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
 
 ## Response example
 
@@ -41,7 +41,5 @@ Note the parameters that are being passed:
     "id_token": "eyJraWQ.....h7BYbgCzQ"
 }
 ```
-
-Your application must now extract the token(s) from the HTTP response body and use them to call the resource server on behalf of the user.
 
 <NextSectionLink>Next Steps</NextSectionLink>
