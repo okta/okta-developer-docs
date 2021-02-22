@@ -50,12 +50,6 @@ export default {
       },
     };
   },
-  watch: {
-    lintErrors: function(){
-      console.log('LINT ERRORS UPDATED')
-      console.log(this.lintErrors)
-    }
-  },
   beforeDestroy: function() {
     this.destroyCm();
   },

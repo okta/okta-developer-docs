@@ -1,35 +1,53 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-       <h1>Instantly customize your login page</h1>
-    </div>
-    <div class="row">
-      <div class="col-12">
-        <button :disabled="jsTabShown" v-on:click="toggleTabs" > JS </button>
-        <button :disabled="!jsTabShown" v-on:click="toggleTabs"> SCSS </button>
+  <div class="live-widget-wrapper"> 
+
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+          <h1 class="header">Instantly customize your login page</h1>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-4">
-        <LiveWidgetOktaWidget :configJS="jsValid" :configSCSS="computedSCSS"/>
+      
+      <div class="background-curve"></div>
+
+      <div class="background-darkblue">
+      <div class="container">
+        <div class="row">
+          <div class="col-8 offset-4">
+            <div class="button-holder">
+              <button class="toggle-button" :disabled="jsTabShown" v-on:click="toggleTabs" > JS </button>
+              <button class="toggle-button" :disabled="!jsTabShown" v-on:click="toggleTabs"> SCSS </button>
+            </div>
+          </div>
+        </div>
+        <div class="row widgets-wrapper">
+          <div class="col-4">
+            <LiveWidgetOktaWidget :configJS="jsValid" :configSCSS="computedSCSS"/>
+          </div>
+          <div 
+              v-bind:class="{'col-8': true, 'non-visible': !jsTabShown }" 
+            >
+            <div class="cm-wrapper">
+              <LiveWidgetJSCodeMirror 
+              :initialConfig="configJS" 
+              v-on:cmJSValueSet='onJSCodeChange' 
+              />
+            </div>
+          </div>
+          <div 
+            v-bind:class="{'col-8': true, 'non-visible': jsTabShown }"
+          >  
+            <div class="cm-wrapper">
+              <LiveWidgetSCSSCodeMirror 
+              :initialConfig="configSCSS"
+              v-on:cmCSSValueSet='onSCSSCodeChange' 
+              />
+            </div>
+          </div>
+        </div>
       </div>
-      <div 
-          class="col-4" 
-        >
-        <LiveWidgetJSCodeMirror 
-        :initialConfig="configJS" 
-        v-on:cmJSValueSet='onJSCodeChange' 
-        />
       </div>
-      <div 
-        class="col-4"
-      >  
-        <LiveWidgetSCSSCodeMirror 
-        :initialConfig="configSCSS"
-        v-on:cmCSSValueSet='onSCSSCodeChange' 
-        />
-      </div>
-    </div>
   </div>
 </template>
 
@@ -49,7 +67,6 @@
         configJS:  initialJSWidgetConf,
         configSCSS: initialWidgetSCSS,
         computedSCSS: '',
-        testStr: '$someVar: 123px; .some-selector { width: $someVar; }',
         sassCompiler: new sass()
       }
     },
@@ -61,17 +78,12 @@
         return this.makeValidJSON(this.configJS)
         },
     }, 
-    // watch: {
-    //   computedSCSS: function(){
-    //     console.log('Computed changed')
-    //   }
-    // },
+  
     methods: {
       toggleTabs(){
         this.jsTabShown = !this.jsTabShown
       },
       makeValidJSON(dirtyJSON){
-        console.log(dirtyJSON)
         //get type of string and use result for envoking function from transformByStrType structure
         const defineStrType = (str) => {
 
@@ -138,7 +150,6 @@
                `${element},`: element)
           }
         });
-        // console.log('RESULT NORMALIZED', resultNormalized)
         const resultCleared = resultNormalized.map(
           (element, index) => {
             if (
@@ -158,12 +169,11 @@
       },
       onSCSSCodeChange(e){
         this.sassCompiler.compile(e, (res)=> {
-          console.log(res)
           this.computedSCSS = res.text
         })
       },
       loadSassFiles(){
-        // HTTP requests are made relative to worker
+              // SASS files are needed to correctly compile scss requests are made relative to worker
               var base = '/widget-sass';
 
               // the directory files should be made available in

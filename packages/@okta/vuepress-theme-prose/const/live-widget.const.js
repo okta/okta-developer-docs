@@ -1,5 +1,7 @@
 export const initialJSWidgetConf = `signInWidgetConfig = {
-  // Enable or disable widget functionality with the following options. Some of these features require additional configuration in your Okta admin settings. Detailed information can be found here: https://github.com/okta/okta-signin-widget#okta-sign-in-widget
+  // Enable or disable widget functionality with the following options. 
+  // Some of these features require additional configuration in your Okta admin settings. 
+  // Detailed information can be found here: https://github.com/okta/okta-signin-widget#okta-sign-in-widget
   // Look and feel changes:
   logo: '//logo.clearbit.com/okta.com', // Try changing "okta.com" to other domains, like: "workday.com", "splunk.com", or "delmonte.com"
   language: 'en',                       // Try: [fr, de, es, ja, zh-CN] Full list: https://github.com/okta/okta-signin-widget#language-and-text
@@ -25,7 +27,7 @@ export const initialJSWidgetConf = `signInWidgetConfig = {
   baseUrl: 'https://live-widget.oktapreview.com',
   clientId: '0oaexo9c530ZUVuOj0h7',
   redirectUri: 'https://developer.okta.com/live-widget',
-  authParams: {
+  authParams: {  
     issuer: 'https://live-widget.oktapreview.com/oauth2/ausexqn31sz3HMxdf0h7',
     responseType: ['id_token', 'token'],
     scopes: ['openid', 'email', 'profile'],

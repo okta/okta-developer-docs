@@ -1,5 +1,5 @@
 <template>
-  <div class="main-page-widget-wrapper" >
+  <div class="okta-w-wrapper" >
 
     <style ref="styleContainer">
     </style>
@@ -43,7 +43,6 @@ export default {
   },
   methods:{
     renderWidget(){
-      console.log('RENDER WIDGET CALLED')
       this.widget ? this.widget.remove() : null;
       this.widget = new this.OktaSignIn(this.configJS);
 
