@@ -278,7 +278,7 @@ For information on how to set up your application to use this flow, see [Impleme
 
 The SAML 2.0 Assertion flow is intended for a client app that wants to use an existing trust relationship without a direct user approval step at the authorization server. It enables a client application to obtain an existing authorization in the form of a valid, signed SAML assertion from a SAML Identity Provider. The client app can then exchange it for an OAuth access token from the OAuth authorization server. For example, this flow is useful when you want to fetch data from APIs that only support delegated permissions without prompting the user for credentials.
 
-To use a SAML 2.0 Assertion as an authorization grant, the client makes a request for an access token with the `urn:ietf:params:oauth:grant-type:saml2-bearer` grant type and includes the `assertion` parameter. The value of the `assertion` parameter is a single SAML 2.0 assertion that is base64url encoded.
+To use a SAML 2.0 Assertion as an authorization grant, the client makes a SAML request to the Identity Provider and the Identity Provider sends the SAML 2.0 Assertion back in the response. The client then makes a request for an access token with the `urn:ietf:params:oauth:grant-type:saml2-bearer` grant type and includes the `assertion` parameter. The value of the `assertion` parameter is the SAML 2.0 assertion that is Base64 encoded. You can send only one SAML assertion in that request.
 
 ![SAML 2.0 Assertion Flow width:](/img/saml_assert_flow.png "Flowchart that displays the back and forth between the resource owner, identity provider, authorization server, and resource server for the SAML 2.0 Assertion Flow")
 
@@ -286,17 +286,16 @@ To use a SAML 2.0 Assertion as an authorization grant, the client makes a reques
 
 skinparam monochrome true
 
-participant "Resource Server" as rs
-participant "OAuth Client App" as OClient
+participant "Client" as OClient
 participant "Identity Provider " as idp
 participant "Authorization Server (Okta)" as okta
+participant "Resource Server" as rs
 
-rs -> OClient: Resource server passes the request to the OAuth Client app. 
 OClient -> idp: Makes SAML request to the IdP
 idp -> OClient: Sends SAML 2.0 Assertion in response
 OClient -> okta: Sends Base64-encoded SAML 2.0 Assertion to /token
 okta -> OClient: Verifies assertion and sends access token (optionally ID token, refresh token)
-OClient -> rs: forwards the access token with the resource request to the resource server
+OClient -> rs: Makes a resource request with the access token to the resource server
 
 -->
 
