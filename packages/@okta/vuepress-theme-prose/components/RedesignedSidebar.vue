@@ -3,7 +3,7 @@
     <ul class="menu">
       <li v-for="link in navigation" :key="link.name">
         <router-link :to='link.link'>
-          <i class="fa fa-chevron-right"></i> 
+          <i class="fa fa-chevron-right"></i>
           <span>{{link.name}}</span>
         </router-link>
       </li>
@@ -36,6 +36,10 @@
         {
           name: 'Languages & SDKs',
           link: '/code/',
+        },
+        {
+          name: 'Release notes',
+          link: '/docs/release-notes',
         },
         ]
       }
