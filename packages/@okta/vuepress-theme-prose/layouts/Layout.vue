@@ -1,20 +1,14 @@
 <template>
   <div>
     <div class="fixed-header">
-      <HeaderRedesign v-if="$page.redesign" />
-      <TopBar v-else />
+      <Header />
     </div>
     <div
       :class="{
         'page-body': true,
-        redesign: $page.redesign
       }"
     >
-      <Breadcrumb
-        v-if="
-          !$page.redesign || ($page.redesign && appContext.isInMobileViewport)
-        "
-      />
+      <Breadcrumb v-if="appContext.isInMobileViewport" />
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
@@ -53,9 +47,7 @@
         </div>
       </div>
     </div>
-
-    <FooterRedesign v-if="$page.redesign" />
-    <Footer v-else />
+    <Footer />
   </div>
 </template>
 
@@ -68,8 +60,7 @@ const TABLET_BREAKPOINT = 767;
 export const endingSlashRE = /\/$/;
 export default {
   components: {
-    TopBar: () => import("../components/TopBar.vue"),
-    HeaderRedesign: () => import("../components/Header.redesign.vue"),
+    Header: () => import("../components/Header.vue"),
     Sidebar: () => import("../components/Sidebar.vue"),
     OnThisPage: () => import("../components/OnThisPage.vue"),
     MobileOnThisPage: () => import("../components/MobileOnThisPage.vue"),
@@ -77,14 +68,13 @@ export default {
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
     ContentPage: () => import("../components/ContentPage.vue"),
     Footer: () => import("../components/Footer.vue"),
-    FooterRedesign: () => import("../components/Footer.redesign.vue"),
     Documentation: () => import("../components/Documentation.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),
     OktaIntegrationNetwork: () =>
       import("../components/OktaIntegrationNetwork.vue"),
-    Search: () => import("../components/Search.redesign.vue"),
-    Home: () => import("../components/Home.redesign.vue"),
+    Search: () => import("../components/Search.vue"),
+    Home: () => import("../components/Home.vue"),
     Terms: () => import("../components/Terms.vue"),
     LiveWidget: () => import('../components/LiveWidget.vue'),
     Errors: () => import("../components/Errors.vue"),
