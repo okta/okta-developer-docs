@@ -1,7 +1,7 @@
 <template>
   <div class="okta-w-wrapper" :style='configSCSS' >
-    <style ref="styleContainer"/>
-    <div 
+    <style ref="styleContainer" />
+        <div 
       id="widget-container"
     >
     </div>
@@ -23,7 +23,7 @@ export default {
   },
   watch: {
     configSCSS: function(){
-      this.$refs.styleContainer.innerHTML = this.configSCSS
+      this.$refs.styleContainesr.innerHTML = this.configSCSS
     },
     configJS: function(){
       this.renderWidget()
