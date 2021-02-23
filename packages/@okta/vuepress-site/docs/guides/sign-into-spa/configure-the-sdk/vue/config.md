@@ -1,23 +1,23 @@
-First, pass the configuration to the Auth handler from the `okta-vue` package.  Use the `router.beforeEach()` call to instruct Vue to check the authorization permissions before rendering a route.
+First, create an [OktaAuth](https://github.com/okta/okta-auth-js) object with your configuration and pass it to the `okta-vue` plugin. You need to use `okta-vue` plugin after `vue-router`.
 
 ```javascript
 // router/index.js
 
 import Vue from 'vue'
-import Auth from '@okta/okta-vue'
+import OktaVue from '@okta/okta-vue'
+import { OktaAuth } from '@okta/okta-auth-js'
 import Router from 'vue-router'
 
-const config = { 
+Vue.use(Router)
+
+const config = {
   // Configuration here
 }
-
-Vue.use(Auth, {...config})
+const oktaAuth = new OktaAuth(config)
 
 // router configuration from previous section here
 
-router.beforeEach(Vue.prototype.$auth.authRedirectGuard()) // Add this
-
-Vue.use(Router)
+Vue.use(OktaVue, { oktaAuth })
 
 export default router
 ```

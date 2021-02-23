@@ -39,7 +39,9 @@
       SmartLink: () => import("../components/SmartLink"),
     },
     created() {
-      this.eventTypes = eventTypes.versions[1].eventTypes.filter(eventType => !eventType.beta)
+      this.eventTypes = eventTypes.versions
+        .find(version => version.version == "V2").eventTypes
+        .filter(eventType => !eventType.beta && !eventType.internal)
       this.releases = _.chain(this.eventTypes)
         .map(eventType => eventType.info)
         .map(info => info.release)

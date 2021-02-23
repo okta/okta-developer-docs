@@ -11,7 +11,7 @@
     <div class="company-logos--icons">
       <img
         class="company-logos--icon"
-        v-for="(logo, index) in $themeConfig.redesign.company_logos"
+        v-for="(logo, index) in $themeConfig.company_logos"
         :key="index"
         :src="logo.icon"
         :alt="logo.name"
