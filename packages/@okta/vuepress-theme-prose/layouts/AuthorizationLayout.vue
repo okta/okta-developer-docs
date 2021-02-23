@@ -20,7 +20,7 @@
 <script>
 export default {
   components: {
-    Footer: () => import("../components/Footer.redesign"),
+    Footer: () => import("../components/Footer"),
     SmartLink: () => import("../components/SmartLink"),
   },
   mounted: function() {
