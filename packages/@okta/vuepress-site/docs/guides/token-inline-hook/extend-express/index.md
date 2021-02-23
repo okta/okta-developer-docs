@@ -12,7 +12,7 @@ To extend the local sample Node.js Express application, you need to update the `
 2. In an editor, open the `sample-web-server.js` page.
 3. Locate the routing function `app.get('/profile'` and add the code, below, after the `const` declarations and before the `res.render` function.
 
-This extension renders the ID Token, and if it contains the claim added by the Token Inline Hook, adds this claim to the attributes array. This array displays claims on the user's Profile page.
+This extension renders the [ID token](/docs/reference/api/oidc/#id-token), and if it contains the claim added by the Token Inline Hook, adds this claim to the attributes array. This array displays claims on the user's Profile page.
 
 <StackSelector snippet="extend-application"/>
 

@@ -10,13 +10,11 @@
     * the patient ID is added to the attributes array and displayed on the user's profile page.
     */
 
-    // Render the ID token from the request into an accessible JSON object
-    let tokenClaim = req.userContext.tokens.id_token;
-    let payload = tokenClaim.split(".");
-    let payloadBase64 = payload[1];
-    let bufferObj = Buffer.from(payloadBase64, "base64");
-    let decodedString = bufferObj.toString("utf8");
-    let decodedStringObj = JSON.parse(decodedString);
+    // Render the ID token payload from the request into an accessible JSON object
+    // For more information on the ID token, see:  https://developer.okta.com/docs/reference/api/oidc/#id-token
+    let payload = (req.userContext.tokens.id_token).split("."); //split payload segment from ID Token
+    let bufferObj = Buffer.from(payload[1], "base64"); //decode payload from base64
+    let decodedStringObj = JSON.parse(bufferObj.toString("utf8")); //return string to JSON object
 
     // If the additional claim is part of the payload, then add it to the attributes array
     if ('extPatientId' in decodedStringObj){
