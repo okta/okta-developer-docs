@@ -18,6 +18,7 @@
       >
         <i v-if="icon.icon" v-html="icon.icon"></i>
       </SmartLink>
+      
     </div>
 
     <ul v-if="item.children && item.children.length" class="submenu--items">
