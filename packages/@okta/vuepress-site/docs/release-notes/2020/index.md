@@ -470,7 +470,7 @@ OAuth for Okta is now enabled for the [Trusted Origins API](/docs/reference/api/
 
 #### Updated behavior for logging of invalid use by OAuth 2.0 Client
 
-The [previously announced logging behavior](/docs/release-notes/2017-23/#additional-logging-for-invalid-use-by-oauth-2-0-client) has been updated. Invalid `client_secret` warnings are now triggered by 5 invalid attempts (consecutive or not) within a 24 hour period. <!-- OKTA-288030 -->
+The [previously announced logging behavior](/docs/release-notes/2017/#additional-logging-for-invalid-use-by-oauth-2-0-client) has been updated. Invalid `client_secret` warnings are now triggered by 5 invalid attempts (consecutive or not) within a 24 hour period. <!-- OKTA-288030 -->
 
 #### Bugs fixed in 2020.05.0
 
