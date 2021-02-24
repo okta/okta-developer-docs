@@ -4,7 +4,7 @@
 
 * **Is SAML support available in the SP for all tenants by default or is it available only for specific SKUs?** &mdash; If you select **Certain SKUs**, provide details on which products provide SAML support.
 
-* **To configure SAML, can your customers do it by themselves from your app's UI, or do they need to contact your support team?** &mdash; If a customer needs support to configure your integration, you need to include support contact information in your configuration guide. We recommend that you build a UI that enables self-service configuration to reduce the set up time for your customers.
+* **To configure SAML, can your customers do it by themselves from your app's UI, or do they need to contact your support team?** &mdash; If a customer needs support to configure your app integration, you need to include support contact information in your configuration guide. We recommend that you build a UI that enables self-service configuration to reduce the set up time for your customers.
 
 * **Are tenants deployed on-premises?** &mdash; If tenant data for you application is hosted locally on your customer's systems, select **Yes**. If the tenant data for your application is hosted on your servers, select **No**.
 
@@ -49,6 +49,12 @@
 * **What type(s) of sign-in flows do you support?** &mdash; Choose from IdP or SP initiated, or both. If you support SP-initiated flows, you must specify the URL used to initiate the SP flow and include a description of how the SP flow is triggered by your integration.
 
 * **Force authentication?** &mdash; Select **Yes** if your application forces users to authenticate again, even if they have an existing session. If you select **Yes**, include how customers configure force authentication on your end? Provide the steps for Okta to test this forced authentication.
+
+* **Do you use encrypted assertions?** &mdash; Select **Yes** if you support an encryption method for authentication assertion.
+
+  * **Encryption Algorithm** &mdash; Select which standard algorithm is used in your encryption assertion.
+  * **Key Transport Algorithm** &mdash; Select the key transport algorithm used in your encryption.
+  * **Are you going to use the same encryption certificate for all tenants?** &mdash; If you support the same encryption certificate for all tenants, copy your certificate and paste it in the field provided.
 
 * **Do you support SP-initiated Single-Logout?** &mdash; If you select **Yes**, then **Are you going to use the same single-logout certificate for all tenants?**
 

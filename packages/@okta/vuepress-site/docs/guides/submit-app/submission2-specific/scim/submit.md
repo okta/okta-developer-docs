@@ -31,6 +31,8 @@
 
 * **Does your SCIM `userName` attribute value follow an email address format?** &mdash; Select **Yes** if your SCIM server uses a name@company.TLD format for the unique userName attribute.
 
+* **Did you delete all unused attributes?** &mdash; As outlined in the [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/attribute-mapping/) guide, you need to update the base attributes and mappings that correspond with the attributes supported by your application. Select **Yes** if you have completed the instructions in the **Remove the mapping** and **Delete attributes from your attribute list** sub-sections in the **Delete attributes** section of that guide.
+
 * **Optional: link to demo video** &mdash; If you have a video that explains how to configure access to your SCIM application, enter the URL for it here.
 
 * **Link to Runscope test results** &mdash; This should be a link to the Runscope site test results showing that your application has successfully passed the SPEC test suite. See [Test your SCIM API](/docs/guides/build-provisioning-integration/test-scim-api/).

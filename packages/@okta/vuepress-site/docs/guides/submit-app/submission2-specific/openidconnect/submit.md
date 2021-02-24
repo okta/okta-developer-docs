@@ -28,6 +28,8 @@
 
 * **Enter your Post Logout Redirect URI** &mdash; Provide the complete logout URI for your app integration, including the variable names if you're using a per tenant design.
 
-* **Optional: Link to configuration guide** &mdash; Your configuration guide (in either HTML or PDF format) should have step by step instructions on how to set up SSO between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
+* **To configure OIDC, can your customers do it by themselves from your app's UI, or do they need to contact your support team?** &mdash; If a customer needs support to configure your app integration, you need to include support contact information in your configuration guide. We recommend that you build a UI that enables self-service configuration to reduce the set up time for your customers.
+
+* **Link to configuration guide** &mdash; Your configuration guide (in either HTML or PDF format) should have step by step instructions on how to set up SSO between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
 
 * **What type of sign-in flows do you support?** &mdash; Choose either IdP or SP initiated, or both.
