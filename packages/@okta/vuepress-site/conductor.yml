@@ -1999,3 +1999,9 @@ redirects:
     to: https://www.okta.com/contact-sales/
   - from: /login-widget-gallery/
     to: /
+  - from: /product/authentication/
+    to: /
+  - from: /product/authorization/
+    to: /
+  - from: /product/overview/
+    to: /
