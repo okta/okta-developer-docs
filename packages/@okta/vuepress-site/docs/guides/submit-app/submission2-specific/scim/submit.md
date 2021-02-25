@@ -1,7 +1,7 @@
 
 * **What SCIM version should this integration use?** &mdash; Choose either **SCIM 2.0** (Okta preferred version), or **SCIM 1.1**.
 
-* **Link to configuration guide** &mdash; Your configuration guide (in either HTML or PDF format) should have step by step instructions on how to set up provisioning between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
+* **Link to configuration guide** &mdash; Your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to set up provisioning between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
 
 * **Select provisioning features to be supported in the integration** &mdash; These provisioning features should match what you have selected in the **Provisioning** tab in the settings for your SCIM integration. For details on each of these options, see [Configure application provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_prov_lcm_prov_app). To activate the Profile Sourcing feature, see [Submission process](/docs/guides/submit-app/scim/overview/#submission-process).
 

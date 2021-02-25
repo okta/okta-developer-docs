@@ -4,7 +4,7 @@
 
 * **Is SAML support available in the SP for all tenants by default or is it available only for specific SKUs?** &mdash; If you select **Certain SKUs**, provide details on which products provide SAML support.
 
-* **To configure SAML, can your customers do it by themselves from your app's UI, or do they need to contact your support team?** &mdash; If a customer needs support to configure your app integration, you need to include support contact information in your configuration guide. We recommend that you build a UI that enables self-service configuration to reduce the set up time for your customers.
+* **To configure SAML, can your customers do it by themselves from your app's UI, or do they need to contact your support team?** &mdash; If a customer needs support to configure your app integration, you need to include support contact information in your configuration guide. We recommend that you build a UI that enables self-service configuration to reduce the setup time for your customers.
 
 * **Are tenants deployed on-premises?** &mdash; If tenant data for you application is hosted locally on your customer's systems, select **Yes**. If the tenant data for your application is hosted on your servers, select **No**.
 
@@ -12,7 +12,7 @@
 
 * **What is the unique SAML identifier for authentication: the subject NameID or a specific SAML attribute?** &mdash; What identifier is used by the integration to perform authentication against your SAML application? If you are using an attribute different than the `NameID` attribute, what is the name of that attribute?
 
-* **Link to configuration guide** &mdash; Your configuration guide (in either HTML or PDF format) should have step by step instructions on how to set up SSO between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
+* **Link to configuration guide** &mdash; Your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to configure SSO between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
 
 #### Configure variables
 
