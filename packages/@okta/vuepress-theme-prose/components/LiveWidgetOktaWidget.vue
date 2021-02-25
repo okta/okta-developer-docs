@@ -39,7 +39,6 @@ export default {
     renderWidget(){
       this.widget ? this.widget.remove() : null;
       this.widget = new OktaSignIn(this.configJS);
-
       this.widget.on('afterRender', () => {
           if (this.rendered) {
             // Last focused element to return to
