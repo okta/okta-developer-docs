@@ -1,8 +1,6 @@
 redirects:
   - from: /use_cases/api_security
     to: /docs/concepts/api-access-management/
-  - from: /use_cases/api_security
-    to: /docs/concepts/api-access-management/
   - from: /3rd_party_notices/Okta_Rum_Tool
     to: /3rd_party_notices/Okta_Cloud_Provisioning_Connector_Tool/index.html
   - from: /docs/how-to/set-up-auth-server.html
