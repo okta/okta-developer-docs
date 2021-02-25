@@ -1,11 +1,7 @@
 <template>
-  <div class="okta-w-wrapper" :style='configSCSS' >
+  <div class="okta-w-wrapper" >
     <style ref="styleContainer" />
-        <div 
-      id="widget-container"
-    >
-    </div>
-
+    <div  id="widget-container" />
   </div>
 </template>
 
