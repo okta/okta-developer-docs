@@ -1,7 +1,6 @@
 <template>
-  <div class="okta-w-wrapper" >
-    <style ref="styleContainer" />
-    <div  id="widget-container" />
+  <div class="okta-w-wrapper" ref="mainWrapper" >
+    <div id="widget-container" />
   </div>
 </template>
 
@@ -18,11 +17,19 @@ export default {
    this.renderWidget()
   },
   watch: {
-    configSCSS: function(){
-      this.$refs.styleContainer.innerHTML = this.configSCSS
-    },
     configJS: function(){
       this.renderWidget()
+    },
+    configSCSS: function(){
+      //vue ignores empty style tags, so it's need to be done "old way"
+      if(this.configSCSS){
+        const styleTagToRemove = document.getElementById('styletag')
+        if (styleTagToRemove) { styleTagToRemove.remove()}
+        const style = document.createElement('style')
+        style.innerHTML = this.configSCSS
+        style.id = 'styletag'
+        this.$refs.mainWrapper.appendChild(style)
+      }
     }
   },
   destroyed () {
