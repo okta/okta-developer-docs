@@ -10,12 +10,10 @@
       </div>
       
       <div class="background-curve"></div>
-
-
       <div class="background-darkblue">
       <div class="container">
         <div class="row">
-          <div class="col-8 offset-4">
+          <div class="col-lg-6 offset-lg-6 col-xl-8 offset-xl-4">
             <div class="button-holder">
               <button class="toggle-button" :disabled="jsTabShown" v-on:click="toggleTabs" > JS </button>
               <button class="toggle-button" :disabled="!jsTabShown" v-on:click="toggleTabs"> SCSS </button>
@@ -23,24 +21,20 @@
           </div>
         </div>
         <div class="row widgets-wrapper">
-          <div class="col-4">
+          <div class="col-sm-12 col-md-12 col-lg-6 col-xl-4">
             <LiveWidgetOktaWidget :configJS="jsValid" :configSCSS="computedSCSS"/>
           </div>
-          <div 
-              v-bind:class="{'col-8': true, 'non-visible': !jsTabShown }" 
+          <div
+              class="col-sm-12 col-md-12 col-lg-6 col-xl-8"
             >
             <div class="cm-wrapper">
               <LiveWidgetJSCodeMirror 
-              :initialConfig="configJS" 
-              v-on:cmJSValueSet='onJSCodeChange' 
+                 v-if="jsTabShown"
+                :initialConfig="configJS" 
+                v-on:cmJSValueSet='onJSCodeChange' 
               />
-            </div>
-          </div>
-          <div 
-            v-bind:class="{'col-8': true, 'non-visible': jsTabShown }"
-          >  
-            <div class="cm-wrapper">
-              <LiveWidgetSCSSCodeMirror 
+            <LiveWidgetSCSSCodeMirror 
+               v-if="!jsTabShown"
               :initialConfig="configSCSS"
               v-on:cmCSSValueSet='onSCSSCodeChange' 
               />
@@ -74,7 +68,10 @@
     mounted: function(){
       this.sassCompiler = new sass()
       this.loadSassFiles()
-    },
+      this.sassCompiler.compile(this.configSCSS, (res)=> {
+          this.computedSCSS = res.text
+        })
+      },
     computed: {
       jsValid: function(){
         return this.makeValidJSON(this.configJS)
@@ -165,14 +162,16 @@
           }
         ).join('').slice(0, -1)
         return JSON.parse(resultCleared)
-      },
+      }, 
       onJSCodeChange(e){
         this.configJS = e
       },
       onSCSSCodeChange(e){
         this.sassCompiler.compile(e, (res)=> {
           this.computedSCSS = res.text
+          this.configSCSS = res.text
         })
+
       },
       loadSassFiles(){
               // SASS files are needed to correctly compile scss requests are made relative to worker

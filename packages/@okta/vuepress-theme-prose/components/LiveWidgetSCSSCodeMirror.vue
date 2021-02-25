@@ -4,6 +4,7 @@
 
 <script>
 import 'codemirror/lib/codemirror.css';
+import 'codemirror/addon/lint/lint.css'
 import 'codemirror/theme/neat.css';
 
 export default {
@@ -12,6 +13,7 @@ export default {
   mounted: async function() {
     // load side effects for code mirror
     await import('codemirror/mode/javascript/javascript.js');
+
     // load codemirror
     const module = await import('codemirror');
     const CodeMirror = module.default;
@@ -19,7 +21,6 @@ export default {
     this.codemirror.setValue(this.code);
     this.codemirror.setOption('mode',  'javascript');
     this.codemirror.on('change', this.emitCSS)
-    this.emitCSS()
   },
   data() {
     return {
@@ -29,7 +30,8 @@ export default {
         mode: 'sass',
         theme: 'neat',
         styleActiveLine: true,
-        smatchBrackets: true,
+        matchBrackets: true,
+        gutters: ["CodeMirror-lint-markers"],
         readOnly: false,
       },
     };
@@ -39,11 +41,6 @@ export default {
   },
   methods: {
     emitCSS(){
-      // //check for linting errors in codemirror val
-      // if (codeMirror.state.lint.marked.length !== 0) {
-      //   return
-      // }
-      //emit value if no errors
       this.$emit('cmCSSValueSet', this.codemirror.getValue())
     },
     destroyCm() {
