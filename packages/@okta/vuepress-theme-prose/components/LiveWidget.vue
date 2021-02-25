@@ -77,7 +77,6 @@
         return this.makeValidJSON(this.configJS)
         },
     }, 
-  
     methods: {
       toggleTabs(){
         this.jsTabShown = !this.jsTabShown
