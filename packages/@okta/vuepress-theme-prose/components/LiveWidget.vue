@@ -168,7 +168,7 @@
       onSCSSCodeChange(e){
         this.sassCompiler.compile(e, (res)=> {
           this.computedSCSS = res.text
-          this.configSCSS = res.text
+          this.configSCSS = e
         })
 
       },
