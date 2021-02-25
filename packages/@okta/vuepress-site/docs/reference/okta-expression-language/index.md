@@ -30,6 +30,9 @@ In addition to an Okta user profile, all users have a separate Application user 
 | `$appuser.$attribute` | `$appuser` explicit reference to specific app<br>`$attribute` the attribute variable name  | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
 | `appuser.$attribute`  | `appuser` implicit reference to in-context app<br>`$attribute` the attribute variable name | appuser.firstName                                                     |
 
+> **Note:** Explicit references to apps are not supported for custom OAuth/OIDC claims.
+>
+
 **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name).  (See [Application properties](/docs/reference/api/apps/#application-properties).)  If your organization has configured multiple instances of the same application, the names of the later instances are differentiated by a randomly assigned suffix, e.g. `zendesk_9ao1g13`.  The name of any specific App instance can be found in the Profile Editor, where it is shown in lighter text beneath the App's label.
 
 ### IdP User Profile
@@ -51,6 +54,9 @@ In addition to referencing user attributes, you can also reference App propertie
 | ------            | ----------                                                                                      | ------------                                           |
 | `$app.$attribute` | `$app` explicit reference to specific app instance<br>`$attribute` the attribute variable name  | office365_app.domain<br>zendesk_app.companySubDomain |
 | `app.$attribute`  | `app` implicit reference to in-context app instance<br>`$attribute` the attribute variable name | app.domain<br>app.companySubDomain                     |
+
+> **Note:** Explicit references to apps are not supported for custom OAuth/OIDC claims.
+>
 
 ### Organization Properties
 
