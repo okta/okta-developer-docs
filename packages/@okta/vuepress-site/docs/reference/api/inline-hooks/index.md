@@ -733,7 +733,7 @@ curl -v -X POST \
 | key      | The header name for the authorization header                                  | String     | TRUE       | FALSE    |
 | value    | The header value                                                              | String     | TRUE       | TRUE     |
 
-To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value` to the Base64-encoded string of "username:password".
+To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value` to the Base64-encoded string of "username:password". Make sure to also include the scheme as part of the `value` parameter. For example, `Basic YWRtaW46c3VwZXJzZWNyZXQ=`. See [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication) for further information.
 
 ### Supported Inline Hook types
 
