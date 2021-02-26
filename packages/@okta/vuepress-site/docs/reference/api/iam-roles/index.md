@@ -912,11 +912,64 @@ curl -v -X GET \
   }
 }
 ```
+### Get a member from a binding
+<ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}/members/${memberId}" />
 
-### Delete a members from a binding
+Get a member of a role in a resource set
+
+#### Request parameters
+
+| Parameter      | Description                                                           | Param Type   | DataType       | Required |
+| :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
+| resourceSetId  | id of the target resource set                                         | URL          | String         | TRUE     |
+| roleId         | the id of the role to identify the binding                            | URL          | String         | TRUE     |
+| memberId       | the id of the member within the binding                               | URL          | String         | TRUE     |
+
+
+`memberId` is the id obtained when [listing members within binding](#list-members-in-a-binding). For example, if the member object was:
+```json
+{
+  "id": "irb1qe6PGuMc7Oh8N0g4",
+  "_links": {
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00uuk41Hjga5qGfQ30g3"
+    }
+  }
+}
+```
+`irb1qe6PGuMc7Oh8N0g4` could be used as `memberId` to remove the user from list of members in the binding.
+
+#### Response parameters
+
+Response is the id representing the binding and a link to the actual member object which could be a User or a Group.
+
+#### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0WxyzJxGIr0ouum0g4/members/irb1qe6PGuMc7Oh8N0g4"
+```
+
+#### Response example
+
+```json
+{
+  "id": "irb1qe6PGuMc7Oh8N0g4",
+  "_links": {
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/users/00uuk41Hjga5qGfQ30g3"
+    }
+  }
+}
+```
+
+### Delete a member from a binding
 <ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}/members/${memberId}" />
 
-Get a paginated list of members assigned to a role in a resource set
+Delete a member of a role in a resource set
 
 #### Request parameters
 
@@ -1283,6 +1336,9 @@ curl -v -X GET \
             "resource-set": {
                 "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
             },
+            "member": {
+                "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
+            },
             "role": {
               "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
             },
@@ -1307,6 +1363,9 @@ curl -v -X GET \
           },
           "resource-set": {
             "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoakjsdQaJxGIr03int1o"
+          },
+          "member": {
+            "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
           },
           "role": {
             "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
@@ -2636,8 +2695,11 @@ Note the following are different comparing to [an individually assigned standard
             "resource-set": {
                 "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
             },
+            "member": {
+                "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
+            },
             "role": {
-              "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+                "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
             },
             "permissions": {
                 "href": "http://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
@@ -2672,6 +2734,9 @@ Note the following are different comparing to [a group assigned standard role](#
     },
     "resource-set": {
       "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoakjsdQaJxGIr03int1o"
+    },
+    "member": {
+      "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
     },
     "role": {
       "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
@@ -2708,6 +2773,7 @@ The following `_links` are returned:
 * `resource-set`: (only for custom roles) gets the resource-set targetted by this assignment
 * `permissions`: (only for custom roles) gets a list of permissions granted through this assignment
 * `role`: (only for custom roles) gets the role granted through this assignment
+* `member`: (only for custom roles) gets the member object from the binding that grants this role
 
 #### Role types
 
