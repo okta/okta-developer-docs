@@ -15,7 +15,9 @@ To add the `npm` packages:
 
 After including the packages, add the following code snippet in your project.
 
-As part of the hook configuration process, you add the authorization field and secret in your Okta org, which inputs this content into the Okta request header. The authorization and secret are authorized by your external service. Make sure to add the authorization scheme to the secret value. The following Inline Hook examples use the Basic HTTP authentication scheme, which encodes the the user and password pair in Base64. Add the scheme `Basic` to the Base64 value, for example: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`. See [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication) for further information.
+As part of the hook configuration process, you add the authorization field and secret in your Okta org, which inputs this content into the Okta request header. The authorization and secret are authorized by your external service.
+
+The following Inline Hook examples use the Basic HTTP authentication scheme, which encodes the user and password pair in Base64. Make sure to also add the scheme `Basic` to the Base64 secret value, for example: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`. See [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication) for further information.
 
 <StackSelector snippet="auth"/>
 
