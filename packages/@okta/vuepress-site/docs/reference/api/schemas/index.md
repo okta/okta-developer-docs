@@ -1427,7 +1427,7 @@ The following response is only a subset of properties for brevity.
 
 <ApiOperation method="post" url="/api/v1/meta/schemas/group/default" />
 
-Removes one or more [custom Group Profile properties](#group-profile-schema-property-object) from the group schema.
+Removes one or more [custom Group Profile properties](#group-profile-schema-property-object) from the group schema.  Currently Okta does not support removing [base Group Profile properties](#group-profile-base-subschema).
 
 ##### Request parameters
 
@@ -1969,7 +1969,7 @@ The App User Schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html
 | lastUpdated | timestamp when the Schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)            | FALSE    | FALSE  | TRUE     |             |
 | definitions | App User Profile subschemas                                                              | [App User Profile Subschemas](#app-user-profile-subschemas)       | FALSE    | FALSE  | FALSE    | JSON Schema |
 | type        | type of [root Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                             | FALSE    | FALSE  | TRUE     |             |
-| properties  | User object properties                                                                    | [App User object](/docs/reference/api/apps/#application-user-object) property set | FALSE    | FALSE  | TRUE     |             |
+| properties  | App User object properties                                                                | [App User object](/docs/reference/api/apps/#application-user-object) property set | FALSE    | FALSE  | TRUE     |             |
 
 ### App User Profile subschemas
 
@@ -2129,11 +2129,11 @@ Specific property types support a subset of [JSON Schema validations](https://to
 | `integer`     | [JSON Number](https://tools.ietf.org/html/rfc7159#section-6) with 32-bit signed two's complement integer constraint           | `minimum` and `maximum`     |
 | `array`       | [JSON Array](https://tools.ietf.org/html/rfc7159#section-5)                                                                         |                             |
 
-## Group User Schema object
+## Group Schema object
 
 The [Group object](/docs/reference/api/groups/#group-object) Schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
-> **Note:** The schema currently only defines the [Profile object](/docs/reference/api/groups/#group-profile-object).
+> **Note:** The schema currently only defines the [Profile object](/docs/reference/api/groups/#profile-object).
 
 ### Example Group Schema
 
@@ -2253,50 +2253,98 @@ The Group Schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/dr
 | id          | URI of Group Schema                                                                      | String                                                             | FALSE    | TRUE   | TRUE     |             |
 | $schema     | JSON Schema version identifier                                                           | String                                                             | FALSE    | FALSE  | TRUE     |             |
 | name        | Name for the Schema                                                                      | String                                                             | FALSE    | TRUE   | TRUE     |             |
-| description | Description for the Schema                                                               | String                                                             | FALSE    | FALSE  | FALSE    |             |
-| title       | User-defined display name for the Schema                                                 | String                                                             | FALSE    | FALSE  | FALSE    |             |
+| description | Description for the Schema                                                               | String                                                             | FALSE    | FALSE  | TRUE     |             |
+| title       | User-defined display name for the Schema                                                 | String                                                             | FALSE    | FALSE  | TRUE     |             |
 | created     | Timestamp when the Schema was created                                                    | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)             | FALSE    | FALSE  | TRUE     |             |
 | lastUpdated | Timestamp when the Schema was last updated                                               | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)             | FALSE    | FALSE  | TRUE     |             |
-| definitions | App User Profile subschemas                                                              | [App User Profile Subschemas](#app-user-profile-subschemas)        | FALSE    | FALSE  | FALSE    | JSON Schema |
+| definitions | Group Profile subschemas                                                                 | [Group Profile Subschemas](#group-profile-subschemas)           | FALSE    | FALSE  | FALSE    | JSON Schema |
 | type        | Type of [root Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4)  | String                                                             | FALSE    | FALSE  | TRUE     |             |
-| properties  | User object properties                                                                   | [App User object](/docs/reference/api/apps/#application-user-object) property set | FALSE    | FALSE  | TRUE     |             |
+| properties  | Group object properties                                                                  | [Group object](/docs/reference/api/apps/#group-object) property set | FALSE    | FALSE  | TRUE     |             |
 
 ### Group Profile subschemas
 
-The [Profile object](/docs/reference/api/apps/#application-user-profile-object) for a Group is defined by a composite schema of base and custom properties using a JSON path to reference subschemas. The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
+The [Profile object](/docs/reference/api/groups/#group-profile-object) for a Group is defined by a composite schema of base and custom properties using a JSON path to reference subschemas. The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
 
 - [Group Profile base subschema](#group-profile-base-subschema)
 - [Group Profile custom subschema](#group-profile-custom-subschema)
 
-Custom property names for the [Profile object](/docs/reference/api/groups/#group-profile-object) must be unique and can't conflict with a property name defined in the `#base` subschema.
+Custom property names for the [Profile object](/docs/reference/api/groups/#profile-object) must be unique and can't conflict with a property name defined in the `#base` subschema.
 
 ```json
 {
   "definitions": {
     "base": {
       "id": "#base",
-      "type": "object",
-      "properties": {},
-      "required": []
+      "properties": {
+        "description": {
+          "description": "Description",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "maxLength": 1024,
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "scope": "NONE",
+          "title": "Description",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "maxLength": 255,
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "required": true,
+          "scope": "NONE",
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
     },
     "custom": {
       "id": "#custom",
-      "type": "object",
-      "properties": {},
-      "required": []
-    }
-  },
-  "type": "object",
-  "properties": {
-    "profile": {
-      "allOf": [
-        {
-          "$ref": "#/definitions/base"
-        },
-        {
-          "$ref": "#/definitions/custom"
+      "properties": {
+        "exampleCustomProperty": {
+          "description": "exampleCustomProperty",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "maxLength": 20,
+          "minLength": 1,
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "required": true,
+          "scope": "NONE",
+          "title": "exampleCustomProperty",
+          "type": "string",
+          "unique": "UNIQUE_VALIDATED"
         }
-      ]
+      },
+      "required": [
+        "exampleCustomProperty"
+      ],
+      "type": "object"
     }
   }
 }
@@ -2381,29 +2429,20 @@ Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-z
 | Property      | Description                                     | DataType                                                                  | Nullable | Unique | Readonly |
 | :------------- | :----------------------------------------------- | :------------------------------------------------------------------------- | :--------- | :------ | :-------- |
 | required      | determines whether the property is required     | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
-| scope         | determines whether an appuser attribute can be set at the individual or group level | `SELF`, `NONE`                        | FALSE    | FALSE  | TRUE     |
+| scope         | determines whether a group attribute can be set at the individual or group level | `SELF`, `NONE`                           | FALSE    | FALSE  | TRUE     |
 
-> **Note:** A read-only [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) compliant `required` property is also available on [App User Profile subschemas](#app-user-profile-subschemas).
+> **Note:** A read-only [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) compliant `required` property is also available on [Group Profile subschemas](#group-profile-subschemas).
 
 ```json
 {
-  "definitions": {
-    "custom": {
-      "id": "#custom",
-      "type": "object",
-      "properties": {
-        "twitterUserName": {
-          "title": "Twitter username",
-          "description": "User's username for twitter.com",
-          "type": "string",
-          "required": false,
-          "scope": "NONE",
-          "minLength": 1,
-          "maxLength": 20
-        }
-      },
-      "required": []
-    }
+  "twitterUserName": {
+    "title": "Twitter username",
+    "description": "User's username for twitter.com",
+    "type": "string",
+    "required": false,
+    "scope": "NONE",
+    "minLength": 1,
+    "maxLength": 20
   }
 }
 ```
