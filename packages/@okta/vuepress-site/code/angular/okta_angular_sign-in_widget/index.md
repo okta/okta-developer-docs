@@ -20,7 +20,8 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 
 ## Add an OpenID Connect Client
 
-* Sign in to the Okta Developer Dashboard, and select **Create New App**
+* Sign in to the Okta Developer Dashboard, and select **Create New App**. <br/>
+You can sign in to the Okta Developer Dashboard through [https://login.okta.com](https://login.okta.com) and clicking `Admin` button on the Okta Dashboard.
 * Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with values similar to:
 
 | Setting              | Value                                               |
@@ -29,6 +30,7 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 | Login redirect URIs  | `http://localhost:4200/login/callback`              |
 | Logout redirect URIs | `http://localhost:4200/login`                       |
 | Allowed grant types  | Authorization Code                                  |
+`${clientId}` placeholders further in this tutorial should be replaced by `Client ID` of created application.
 
 > **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 
