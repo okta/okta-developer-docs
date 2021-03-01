@@ -292,6 +292,7 @@ module.exports = {
   },
 
   plugins: {
+    'code-copy': {},
     'sitemap': {
       hostname: 'https://developer.okta.com',
       outFile: 'docs-sitemap.xml',
