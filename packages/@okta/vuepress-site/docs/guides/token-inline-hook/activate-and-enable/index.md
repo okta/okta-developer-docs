@@ -32,9 +32,9 @@ The Token Inline Hook is now set up with a status of active.
 
 2. Select a Custom Authorization Server from the list (usually **default**).
 
-3. Select the **Access Policies** tab and edit the policy rule to use with the hook. In most cases, edit the **Default Policy Rule**.
+3. Select the **Access Policies** tab. Navigate to the Rule table and click the Edit icon next to the policy rule that will use the Inline hook. In most cases, edit the **Default Policy Rule** of the **Default Policy**.
 
-4. From the **Use this Inline Hook** drop-down menu, select the Token Inline Hook you activated ("Patient Token Hook").
+4. From the **Use this inline hook** drop-down menu, select the Token Inline Hook you activated ("Patient Token Hook").
 
 5. Click **Update Rule**.
 
