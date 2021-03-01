@@ -757,7 +757,7 @@ Specifies an authentication entry point
 
 | Parameter | Description                              | Data Type                             | Required | Default |
 | --------- | ---------------------------------------- | ------------------------------------- | -------- | ------- |
-| authType  | This tells how the user is authenticated | `ANY` or `RADIUS` or `LDAP_INTERFACE` | No       |  `ANY`  |
+| `authType`  | Specifies how the user is authenticated | `ANY` or `RADIUS` or `LDAP_INTERFACE` | No       |  `ANY`  |
 
 > **Note:** The `LDAP_INTERFACE` data type option is an <ApiLifecycle access="ea" /> feature.
 
