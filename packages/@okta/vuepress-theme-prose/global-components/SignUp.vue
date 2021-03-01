@@ -225,9 +225,6 @@
               isShowTermsConditionsDialog = true;
             "
           />
-          <!-- <a class="btn social-btn" :href="uris.github">
-            Continue With GitHub
-          </a> -->
         </div>
       </div>
       <div class="row">
@@ -242,9 +239,6 @@
               isShowTermsConditionsDialog = true;
             "
           />
-          <!-- <a class="btn social-btn" :href="uris.google">
-            Continue With Google
-          </a> -->
         </div>
       </div>
       <div class="row goto-signin">
@@ -266,22 +260,30 @@
       <div class="dialog-text">
         <p>
           By clicking continue, I agree to the
-        <SmartLink :item="{ link: '/terms/' }">Terms of Service</SmartLink> and
-        agree my data will be processed according to Okta’s
-        <SmartLink :item="{ link: '/privacy-policy/' }">Privacy Policy</SmartLink>.
+          <SmartLink :item="{ link: '/terms/' }">Terms of Service</SmartLink>
+          and agree my data will be processed according to Okta’s
+          <SmartLink :item="{ link: '/privacy-policy/' }"
+            >Privacy Policy</SmartLink
+          >.
         </p>
         <label for="okta-contact">
-          <input type="checkbox" name="" id="okta-contact">
-          In addtion, Okta may contact me with marketing communications (optional).
+          <input type="checkbox" name="" id="okta-contact" />
+          In addtion, Okta may contact me with marketing communications
+          (optional).
         </label>
       </div>
       <template v-slot:footer>
         <div class="terms-conditions-btns">
           <div class="btn-container">
-            <a class="btn red-button" :href="socialUrl">continue</a>
+            <input type="button" class="btn red-button" @click="setTacUrlAndRedirect()" value="continue" />
           </div>
           <div class="btn-container mr-15">
-            <input type="button" class="btn social-btn" value="cancel" @click="isShowTermsConditionsDialog = false" />
+            <input
+              type="button"
+              class="btn social-btn"
+              value="cancel"
+              @click="isShowTermsConditionsDialog = false"
+            />
           </div>
         </div>
       </template>
@@ -485,6 +487,12 @@ export default {
 
     toggleModel() {
       this.isShowModel = !this.isShowModel;
+    },
+    setTacUrlAndRedirect() {
+      const dataStamp = Date.now();
+      const acceptContactValue = document.getElementById("okta-contact").checked;
+      const oktaTaCUrl = this.socialUrl + `?okta_AcceptedToS=${acceptContactValue}&okta_ts_AcceptedToS=${dataStamp}`;
+      //window.location.href = oktaTaCUrl;
     }
   },
   beforeMount() {

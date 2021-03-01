@@ -2,7 +2,7 @@
   <portal to="dialog-wrapper">
     <div class="dialog-container">
       <div class="dialog">
-        <div class="dailog--header">{{ title }}</div>
+        <div class="dialog--header">{{ title }}</div>
         <div class="dialog--body"><slot></slot></div>
         <div class="dialog--footer">
           <slot name="footer"></slot>
@@ -34,6 +34,12 @@ export default {
     },
     handleClose() {
       this.$emit("close");
+    },
+    close() {
+      this.$destroy();
+    },
+    open() {
+      this.$mount();
     }
   }
 };
