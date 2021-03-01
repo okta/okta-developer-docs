@@ -16,7 +16,7 @@ const signInLinkText = 'Sign in';
 const redirectUrl = '/signup';
 const captchaIFrameXpath = "//*[@for='recaptcha']/div/div/div/iframe";
 const dialogContainerClass = '.dialog-container';
-const dialogTermsConditionsHeader = `${dialogContainerClass} .dailog--header`
+const dialogTermsConditionsHeader = `${dialogContainerClass} .dialog--header`
 const agreeCheckboxDivCss = ".consent--section-agree";
 const stateSelectionId = "state";
 
