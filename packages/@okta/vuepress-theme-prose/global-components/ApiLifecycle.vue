@@ -16,6 +16,15 @@
 </template>
 
 <script>
+const DEFAULT_LINK = "/docs/reference/releases-at-okta/";
+const IE_LINK = "";
+const labelType = {
+  ACCESS: "access",
+  ERLY_ACCESS: "ea",
+  DEPRECATED: "deprecated",
+  IDENTITY_ENGINE: "ie"
+}
+
 export default {
   name: "ApiLifecycle",
   components: {
@@ -27,23 +36,11 @@ export default {
       default: "beta"
     }
   },
-  data() {
-    return {
-      labelType: {
-        access: "access",
-        erlyAccess: "ea",
-        deprecated: "deprecated",
-        indentityEngine: "ie"
-      },
-      defaultLink: "/docs/reference/releases-at-okta/",
-      ieLink: "/docs"
-    };
-  },
   computed: {
     link() {
-      return this.access === this.labelType.indentityEngine
-        ? this.ieLink
-        : this.defaultLink;
+      return this.access === labelType.IDENTITY_ENGINE
+        ? IE_LINK
+        : DEFAULT_LINK;
     }
   }
 };
