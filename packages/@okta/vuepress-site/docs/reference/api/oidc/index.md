@@ -256,7 +256,7 @@ https://www.example.com/#error=invalid_scope&error_description=The+requested+sco
 
 ### /token
 
-<ApiOperation method="post" url="${baseUrl}/v1/token" />
+<ApiOperation method="post" url="${baseUrl}/v1/token" /> <SupportsCors />
 
 This endpoint returns access tokens, ID tokens, and refresh tokens, depending on the request parameters. For [password](/docs/guides/implement-password/), [client credentials](/docs/guides/implement-client-creds/), and [refresh token](/docs/guides/refresh-tokens/) flows, calling `/token` is the only step of the flow. For the [authorization code](/docs/guides/implement-auth-code/) flow, calling `/token` is the second step of the flow.
 
