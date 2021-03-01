@@ -38,7 +38,7 @@ module.exports = {
       window.dataLayer = window.dataLayer || [];
 
       var isProduction = window.location.hostname === 'developer.okta.com';
-      if (isProduction) {
+      if (true || isProduction) {
 
         // START Google Tag Manager - main container
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
