@@ -19,7 +19,7 @@ To verify the current release for an org, check the footer of the administrator 
 
 <div class="next-section">
   <RouterLink to='/docs/release-notes/2021'>
-    <button class="button is-button-cerise is-button-small" routerLink="/docs/release-notes/2021">
+    <button class="button is-button-cerise is-button-small">
       <span>Next: view 2021 release notes</span>
     </button>
   </RouterLink>
