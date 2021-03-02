@@ -39,6 +39,11 @@ export const concepts = [
         path: "/docs/concepts/how-okta-works/"
       },
       {
+        title: "Identity engine",
+        path: "/docs/concepts/ie-intro/",
+        hidden: true
+      },
+      {
         title: "Inline Hooks",
         path: "/docs/concepts/inline-hooks/"
       },
