@@ -20,7 +20,7 @@ The SAML 2.0 Assertion grant flow is now Self-Service EA in Preview. You can use
 
 #### The Okta Org API is now GA in Preview
 
-The Okta [Org API](/docs/reference/api/org/) is now GA in Preview.  This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. <!--OKTA-369570-->
+The Okta [Org API](/docs/reference/api/org/) is now GA in Preview. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. <!--OKTA-369570-->
 
 #### The /login/token/redirect endpoint now has a dedicated rate limit
 
