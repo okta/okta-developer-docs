@@ -336,7 +336,11 @@ export const guides = [
           {
             title: "Registration Inline Hook",
             guideName: "registration-inline-hook"
-          }
+          },
+          {
+            title: "Token Inline Hook",
+            guideName: "token-inline-hook"
+          },
         ]
       }
     ]
