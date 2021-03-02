@@ -608,3 +608,18 @@ export const reference = [
     ]
   }
 ];
+
+export const releaseNotes = [
+  {
+    title: "Release Notes",
+    subLinks: [
+      { title: "Overview", path: "/docs/release-notes/" },
+      { title: "2021", path: "/docs/release-notes/2021/" },
+      { title: "2020", path: "/docs/release-notes/2020/" },
+      { title: "2019", path: "/docs/release-notes/2019/" },
+      { title: "2018", path: "/docs/release-notes/2018/" },
+      { title: "2017", path: "/docs/release-notes/2017/" },
+      { title: "2016", path: "/docs/release-notes/2016/" }
+    ]
+  }
+]
