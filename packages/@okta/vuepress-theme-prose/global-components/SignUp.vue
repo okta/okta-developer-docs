@@ -222,7 +222,7 @@
             class="btn social-btn"
             @click="
               socialUrl = uris.github;
-              isShowTermsConditionsDialog = true;
+              openTermsConditionsDialog();
             "
           />
         </div>
@@ -236,7 +236,7 @@
             value="CONTINUE WITH GOOGLE"
             @click="
               socialUrl = uris.google;
-              isShowTermsConditionsDialog = true;
+              openTermsConditionsDialog();
             "
           />
         </div>
@@ -254,7 +254,7 @@
     </div>
     <DialogWindow
       v-if="isShowTermsConditionsDialog"
-      @close="isShowTermsConditionsDialog = false"
+      @close="closeTermsConditionsDialog()"
       title="Terms and Conditions"
     >
       <div class="dialog-text">
@@ -282,7 +282,7 @@
               type="button"
               class="btn social-btn"
               value="cancel"
-              @click="isShowTermsConditionsDialog = false"
+              @click="closeTermsConditionsDialog()"
             />
           </div>
         </div>
@@ -492,7 +492,13 @@ export default {
       const dataStamp = Date.now();
       const acceptContactValue = document.getElementById("okta-contact").checked;
       const oktaTaCUrl = this.socialUrl + `?okta_AcceptedToS=${acceptContactValue}&okta_ts_AcceptedToS=${dataStamp}`;
-      //window.location.href = oktaTaCUrl;
+      window.location.href = oktaTaCUrl;
+    },
+    closeTermsConditionsDialog() {
+      this.isShowTermsConditionsDialog = false;
+    },
+    openTermsConditionsDialog() {
+      this.isShowTermsConditionsDialog = true;
     }
   },
   beforeMount() {

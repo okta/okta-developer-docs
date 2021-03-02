@@ -13,6 +13,8 @@
 </template>
 
 <script>
+const ESC = 27;
+
 export default {
   props: {
     title: {
@@ -21,25 +23,19 @@ export default {
     }
   },
   created() {
-    document.addEventListener("keyup", this.onClose);
+    document.addEventListener("keyup", this.onKeyUpHandler);
   },
   destroyed() {
-    document.removeEventListener("keyup", this.onClose);
+    document.removeEventListener("keyup", this.onKeyUpHandler);
   },
   methods: {
-    onClose(e) {
-      if (e.keyCode === 27) {
+    onKeyUpHandler(e) {
+      if (e.keyCode === ESC) {
         this.handleClose();
       }
     },
     handleClose() {
       this.$emit("close");
-    },
-    close() {
-      this.$destroy();
-    },
-    open() {
-      this.$mount();
     }
   }
 };
