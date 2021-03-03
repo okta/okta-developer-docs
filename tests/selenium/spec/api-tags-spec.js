@@ -8,7 +8,7 @@ chai.use(chaiAsPromised);
 var expect = chai.expect;
 
 describe('API tags check spec', () => {
-  const docsPage = new DocsPage('/docs/');
+  const docsPage = new DocsPage('/');
 
   it('shows the Beta lifecycle tags', util.itHelper(async () => {
     await docsPage.navigate(util.fixUrl('/docs/reference/api/policy'));
