@@ -5,16 +5,23 @@
 </template>
 
 <script>
+// import OktaSignIn from '@okta/okta-signin-widget';
 export default {
   name: 'LiveWidgetOktaWidget',
   props: ['configJS', 'configSCSS'],
   data(){
     return {
-      rendered: true
+      rendered: true,
+      oktaSignIn: undefined,
     }
   },
   mounted: function() {
-   this.renderWidget()
+    import('@okta/okta-signin-widget').then(
+      (module) => {
+        this.oktaSignIn = module.default
+        this.renderWidget()
+      }
+    )
   },
   watch: {
     configJS: function(){
@@ -38,7 +45,7 @@ export default {
   methods:{
     renderWidget(){
       this.widget ? this.widget.remove() : null;
-      this.widget = new OktaSignIn(this.configJS);
+      this.widget = new this.oktaSignIn(this.configJS);
       this.widget.on('afterRender', () => {
           if (this.rendered) {
             // Last focused element to return to
@@ -49,7 +56,7 @@ export default {
                 activeElement.blur();
                 elementToFocus.focus();
               }
-            }, 100);
+            }, 200);
           }
         });
 
