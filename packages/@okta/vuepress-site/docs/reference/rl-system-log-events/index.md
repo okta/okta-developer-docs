@@ -5,7 +5,13 @@ category: rate limits
 
 # System Log events for rate limits
 
-Okta offers three standard System Log event types that you may encounter when Okta is enforcing [rate limits](/docs/reference/rate-limits/) on specific operations.
+## System Log event types
+
+Okta offers specific [standard System Log events](/docs/reference/rl-system-log-events/#standard-system-log-event-types), [org-based System Log events](/docs/reference/rl-system-log-events/#org-based-system-log-event-types) and [client-based System Log events](/docs/reference/rl-system-log-events/#client-based-system-log-event-types).
+
+### Standard System Log event types
+
+There are three standard System Log event types that you may encounter when Okta is enforcing [rate limits](/docs/reference/rate-limits/) on specific operations:
 
 * `system.operation.rate_limit.violation`<br>
 This event type is sent once per rate limiting period when a request is rejected for exceeding a rate limit. For example, if the rate limit that was exceeded has a reset period of one minute, then one event of this type is emitted during that period for the applicable scope.
@@ -16,7 +22,34 @@ This event type may be sent once per rate limiting period as a warning that some
 * `system.operation.rate_limit.notification`<br>
 This event type can provide additional information about rate limiting decisions. For example, this event might indicate that a violation event would have been emitted for a specific client rather than for a broader scope if you had chosen a different configuration.
 
-Additionally, there are specific [org-based System Log events](/docs/reference/api/system-log/#system-events) and [client-based System Log events](/docs/reference/rl-clientbased/#system-log-events). The org-based System Log events record system events related to your organization to provide an audit trail that you can use to understand platform activity and to diagnose problems. Client-based System Log events are fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. Which event fired depends on the client-based rate-limiting mode that is set.
+### Org-based System Log event types
+
+The following org-based System Log events record system events related to your organization to provide an audit trail that you can use to understand platform activity and to diagnose problems.
+
+* `system.org.rate_limit.warning`<br>
+This event is sent when an endpoint is nearing its rate limit.
+
+* `system.org.rate_limit.violation`<br>
+This event is sent when an endpoint is exceeding its rate limit.
+
+* `core.concurrency.org.limit.violation`<br>
+This event is sent when a request is exceeding the org's allotted concurrent limit.
+
+### Client-based System Log event types
+
+The following client-based System Log events are fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. Which event fired depends on the client-based rate-limiting mode that is set:
+
+* `system.client.rate_limit.violation`<br>
+This event is fired when the framework is in **Enforce and log per client** mode and a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
+
+* `system.client.concurrency_rate_limit.violation`<br>
+This event is fired when the framework is in **Enforce and log per client** mode and a specific client, IP address, or device identifier combination makes more than two concurrent requests. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
+
+* `system.client.rate_limit.notification `<br>
+This event is fired when the framework is in **Log per client** mode and a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the end user won't see a rate-limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
+
+* `system.client.concurrency_rate_limit.notification`<br>
+This event is fired when the framework is turned on in **Log per client** mode and a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user won't see a rate-limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
 
 ## DebugContext object
 

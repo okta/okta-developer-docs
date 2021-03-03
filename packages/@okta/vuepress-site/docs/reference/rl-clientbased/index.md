@@ -68,18 +68,6 @@ The client-based rate-limiting framework can exist in one of three modes:
 | **Log per client**                          | Rate limiting is based on the [org-wide Rate Limit](/docs/reference/rate-limits/) values, but client-specific rate limiting violation information is logged as System Log events. |
 | **No action**                                | Rate limits aren't enforced at the client-specific level. Rate limiting is based on the [org-wide Rate Limit](/docs/reference/rate-limits/) values. |
 
-### System Log events
-
-When an individual user violates their assigned per minute requests limit, then depending on which mode is set, a System Log event is fired:
-
-* `system.client.rate_limit.violation`: This event is fired when the framework is in **Enforce and log per client** mode and a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
-
-* `system.client.concurrency_rate_limit.violation`: This event is fired when the framework is in **Enforce and log per client** mode and a specific client, IP address, or device identifier combination makes more than two concurrent requests. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
-
-* `system.client.rate_limit.notification `: This event is fired when the framework is in **Log per client** mode and a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the end user won't see a rate-limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
-
-* `system.client.concurrency_rate_limit.notification`: This event is fired when the framework is turned on in **Log per client** mode and a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user won't see a rate-limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
-
 ### Check your rate limits with Okta Rate Limit headers
 
 The Rate Limit headers returned when client-based rate limiting is enabled are very similar to the headers returned through the [org-wide Rate Limits](/docs/reference/rl-best-practices/). The difference is that the header value is specific to a given client/IP/device combination rather than the org-wide Rate Limit values. Okta provides three headers in each response to report client-specific rate limits.
