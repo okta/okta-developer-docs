@@ -9,32 +9,32 @@ title: Okta API Products Release Notes
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
 | [The SAML 2.0 Assertion grant flow is now Self-Service Early Access (EA)](#the-saml-2-0-assertion-grant-flow-is-now-self-service-early-access-ea) | March 3, 2021 |
-| [The Okta Org API is now GA in Preview](#the-okta-org-api-is-now-ga-in-preview) | March 3, 2021         |
+| [The Okta Org API is now GA](#the-okta-org-api-is-now-ga) | March 3, 2021         |
 | [The /login/token/redirect endpoint now has a dedicated rate limit](#the-login-token-redirect-endpoint-now-has-a-dedicated-rate-limit) | March 3, 2021          |
-| [The new LDAP Interface authentication type is now GA in Preview](#the-new-ldap-interface-authentication-type-is-now-ga-in-preview) | March 3, 2021          |
+| [The new LDAP Interface authentication type is now GA](#the-new-ldap-interface-authentication-type-is-now-ga) | March 3, 2021          |
 | [Bugs fixed in 2021.03.0](#bugs-fixed-in-2021-03-0) | March 3, 2021         |
 
 #### The SAML 2.0 Assertion grant flow is now Self-Service Early Access (EA)
 
-The SAML 2.0 Assertion grant flow is now Self-Service EA in Preview. You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion Flow](/docs/guides/implement-saml2/overview/).<!--OKTA-373421-->
+The SAML 2.0 Assertion grant flow is now Self-Service EA. You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion Flow](/docs/guides/implement-saml2/overview/).<!--OKTA-373421-->
 
-#### The Okta Org API is now GA in Preview
+#### The Okta Org API is now GA
 
-The Okta [Org API](/docs/reference/api/org/) is now GA in Preview. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. <!--OKTA-369570-->
+The Okta [Org API](/docs/reference/api/org/) is now GA. This API allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences. <!--OKTA-369570-->
 
 #### The /login/token/redirect endpoint now has a dedicated rate limit
 
-The `/login/token/redirect` endpoint now has its own dedicated [rate limit](/docs/reference/rl-global-enduser/). Previously this endpoint shared a rate limit with other traffic that didn't have dedicated rate limits per endpoint. <!--OKTA-363694-->
+The `/login/token/redirect` endpoint now has its own dedicated [rate limit](/docs/reference/rl-global-enduser/). Previously this endpoint shared a rate limit with other traffic that didn't have dedicated rate limits for each endpoint. <!--OKTA-363694-->
 
-#### The new LDAP Interface authentication type is now GA in Preview
+#### The new LDAP Interface authentication type is now GA
 
-The new LDAP Interface `authType` is now GA in Preview. When you create a [Sign On Policy](/docs/reference/api/policy/#authcontext-condition-object), you can now create rules that apply only to LDAP Interface user authentications. With this change, you can apply a Sign On Policy to LDAP Interface authentications and exclude other authentication methods.
+The new LDAP Interface `authType` is now GA. When you create a [Sign On Policy](/docs/reference/api/policy/#authcontext-condition-object), you can now create rules that apply only to LDAP Interface user authentications. With this change, you can apply a Sign On Policy to LDAP Interface authentications and exclude other authentication methods.
 
 #### Bugs fixed in 2021.03.0
 
 * When a POST request was made using an OAuth access token (with the `okta.users.manage` scope) to the `/{userId}/factors/{factorId}/verify` endpoint, an "Invalid Session" error was returned. (OKTA-364443)
 
-* After a new password was set, the password changed notification was sent erroneously to new users that were created with no credentials through the API. (OKTA-362241)
+* After a new password was set, the password changed notification was sent in error to new users that were created with no credentials through the API. (OKTA-362241)
 
 ## February
 
