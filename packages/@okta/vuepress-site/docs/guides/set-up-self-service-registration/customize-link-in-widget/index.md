@@ -32,6 +32,6 @@ Before you can configure self-service registration in your embedded or self-host
          registration: true // REQUIRED
       }
 ```
-See the [Okta Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/) for more information on customizing the widget.
+See the [Okta Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/).
 
 <NextSectionLink>Next Steps</NextSectionLink>
