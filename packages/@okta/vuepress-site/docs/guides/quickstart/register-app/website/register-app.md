@@ -4,7 +4,7 @@ In the Admin Console, complete these steps:
 
 2. Click **Add Application**.
 
-3. Select **Web** as the type of application. Click **Next**.
+3. Select **SPA** or **Web** as the **Type of Application**. Select **SPA** if your application will be using the tokens in Angular, React, Vue, or other browser-side code. Pick **Web** if your application will be using the tokens solely in server-side code.
 
 4. Enter the **Name** of your app.
 
