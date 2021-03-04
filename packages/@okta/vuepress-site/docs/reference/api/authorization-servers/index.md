@@ -159,9 +159,9 @@ When you use these API endpoints to create or modify an Authorization Server res
 
 * If set to `ORG_URL`, then in responses, `issuer` is the Okta org's original domain URL: `https://${yourOktaDomain}`.
 
-* If set to `CUSTOM_URL_DOMAIN`, then in responses, `issuer` is the custom domain URL configured in the administration user interface.
+* If set to `CUSTOM_URL`, then in responses, `issuer` is the custom domain URL configured in the administration user interface.
 
-After you enable the Custom URL Domain feature, all new Custom Authorization Servers use `CUSTOM_URL_DOMAIN` by default. All existing Custom Authorization Servers continue to use `ORG_URL` until changed using the Admin Console or the API, so that existing integrations with client and resource server continue to work after the feature is enabled.
+After you enable the Custom URL Domain feature, all new Custom Authorization Servers use `CUSTOM_URL` by default. All existing Custom Authorization Servers continue to use `ORG_URL` until changed using the Admin Console or the API, so that existing integrations with client and resource server continue to work after the feature is enabled.
 
 #### Create Authorization Server
 
