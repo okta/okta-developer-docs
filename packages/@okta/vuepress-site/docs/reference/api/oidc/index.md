@@ -1096,6 +1096,20 @@ This section contains some general information about claims, as well as detailed
 * [ID Token](#id-token)
 * [Refresh Token](#refresh-token)
 
+### Token lifetime
+
+When you are using the [Okta Authorization Server](/docs/concepts/auth-servers/), the lifetime of the JWT tokens is hard-coded to the following values:
+
+**ID token:** 60 minutes
+**Access token:** 60 minutes
+**Refresh token:** 100 days
+
+When you are using a [Custom Authorization Server](/docs/concepts/auth-servers/), you can configure the lifetime of the JWT tokens:
+
+**ID token:** At least five minutes, no more than 24 hours (configurable using a [Token Inline Hook](/docs/reference/token-hook/#sample-response-to-modify-token-lifetime))
+**Access tokens:** At least five minutes, no more than 24 hours (configurable using [Token Inline Hooks](/docs/reference/token-hook/#sample-response-to-modify-token-lifetime) or an [Access Policy](https://help.okta.com/en/prod/Content/Topics/Security/API_Access.htm?cshid=create-access-policies#create-access-policies))
+**Refresh tokens:** At least 10 minutes, possibly unlimited (configurable using an [Access Policy](https://help.okta.com/en/prod/Content/Topics/Security/API_Access.htm?cshid=create-access-policies#create-access-policies))
+
 ### Claims
 
 Tokens issued by Okta contain claims that are statements about a subject (user). For example, the claim can be about a name, identity, key, group, or privilege. The claims in a security token are dependent upon the type of token, the type of credential used to authenticate the user, and the application configuration.

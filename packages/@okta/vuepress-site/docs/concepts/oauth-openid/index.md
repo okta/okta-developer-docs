@@ -40,6 +40,8 @@ Other important terms:
 * The "access token" is issued by the authorization server (Okta) in exchange for the grant.
 * The "refresh token" is an optional token that is exchanged for a new access token if the access token has expired.
 
+> **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
+
 The usual OAuth 2.0 grant flow looks like this:
 
 1. Client requests authorization from the resource owner (usually the user).
