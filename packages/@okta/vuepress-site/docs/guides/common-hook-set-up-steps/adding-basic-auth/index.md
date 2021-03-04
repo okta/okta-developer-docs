@@ -7,7 +7,7 @@ The Glitch project templates do not have any authorization or body parsing code.
 * Add the Body Parser and Basic Auth `npm` packages to your Glitch project
 * Add the code snippet below
 
-If you Remix a Glitch site, the packages and code are already included.
+If you Remix a Glitch Inline Hook project, the packages and code are already included.
 
 To add the `npm` packages:
 
