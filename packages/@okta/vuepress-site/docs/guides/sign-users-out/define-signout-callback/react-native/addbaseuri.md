@@ -1,4 +1,6 @@
-For browser sign-out flow define a callback route.
+If you'd like to use a custom sign-out flow, you can skip to the next step: <GuideLink link="../sign-out-of-okta">Sign users out of Okta</GuideLink>.
+
+If you'd like to use the browser sign-out flow, you will need to define a callback route.
 
 Make sure that the `endSessionRedirectUri` configured at `createConfig` is the same as the one defined in the **Logout redirect URI** section of the okta admin dashboard. For example if you are initializing your client via a config file:
 
@@ -15,5 +17,3 @@ Make sure that the `endSessionRedirectUri` configured at `createConfig` is the s
   };
 }
 ```
-
-For custom sign-out refer to <GuideLink link="../sign-out-of-okta">Sign users out of Okta</GuideLink>.
