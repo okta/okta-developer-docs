@@ -28,6 +28,7 @@ guides:
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-password
+ - implement-saml2
  - mfa
  - migrate-to-okta
  - oin-oidc-guide
