@@ -21,7 +21,7 @@ For information on the API for registering external service endpoints with Okta,
 
 For steps to enable this Inline Hook, see below, [Enabling a Token Inline Hook](#enabling-a-token-inline-hook).
 
-For an example implementation of this Inline Hook, see [Token Inline Hook](/docs/guides/token-inline-hook)].
+For an example implementation of this Inline Hook, see [Token Inline Hook](/docs/guides/token-inline-hook).
 
 ## About
 
