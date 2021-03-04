@@ -349,10 +349,10 @@ curl -v -X POST \
       "label": "SF-IT-People",
       "description": "People in the IT department of San Francisco",
       "resources": [
-        "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3", // a group
-        "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users", // users within a group
-        "https://${yourOktaDomain}/api/v1/users", // all users
-        "https://${yourOktaDomain}/api/v1/groups", // all groups
+        "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3",
+        "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users",
+        "https://${yourOktaDomain}/api/v1/users",
+        "https://${yourOktaDomain}/api/v1/groups",
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/resource-sets"
 ```
@@ -603,8 +603,8 @@ curl -v -X PATCH \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
       "additions": [
-        "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3", // a group
-        "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users", // users within a group
+        "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3",
+        "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users",
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
 ```
@@ -831,8 +831,8 @@ curl -v -X PATCH \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
       "additions": [
-        "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3", // a group
-        "https://${yourOktaDomain}/api/v1/users/00u67DU2qNCjNZYO0g3", // a user
+        "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3",
+        "https://${yourOktaDomain}/api/v1/users/00u67DU2qNCjNZYO0g3",
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0WxyzJxGIr0ouum0g4/members"
 ```
