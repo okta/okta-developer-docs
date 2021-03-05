@@ -1,7 +1,7 @@
 ---
 title: Enable and verify Event Hook
 ---
-The Event Hook must be set up and verified within your Okta Developer Console.
+The Event Hook must be set up and verified within your Okta Admin Console.
 
 ### Set up the Event Hook
 To set up the Event Hook:

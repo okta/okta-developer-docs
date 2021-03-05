@@ -917,16 +917,6 @@ redirects:
     to: /docs/guides/protect-your-api/aspnet/next-steps/
   - from: /guides/protect-your-api/aspnet/require-authentication/index.html
     to: /docs/guides/protect-your-api/aspnet/require-authentication/
-  - from: /guides/protect-your-api/aspnetcore/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/before-you-begin/
-  - from: /guides/protect-your-api/aspnetcore/configure-cors/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/configure-cors/
-  - from: /guides/protect-your-api/aspnetcore/configure-packages/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/configure-packages/
-  - from: /guides/protect-your-api/aspnetcore/next-steps/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/next-steps/
-  - from: /guides/protect-your-api/aspnetcore/require-authentication/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/require-authentication/
   - from: /guides/protect-your-api/springboot/before-you-begin/index.html
     to: /docs/guides/protect-your-api/springboot/before-you-begin/
   - from: /guides/protect-your-api/springboot/configure-cors/index.html
@@ -1127,22 +1117,6 @@ redirects:
     to: /docs/guides/sign-into-web-app/aspnet/redirect-to-sign-in/
   - from: /guides/sign-into-web-app/aspnet/require-authentication/index.html
     to: /docs/guides/sign-into-web-app/aspnet/require-authentication/
-  - from: /guides/sign-into-web-app/aspnetcore/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/before-you-begin/
-  - from: /guides/sign-into-web-app/aspnetcore/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/configure-packages/
-  - from: /guides/sign-into-web-app/aspnetcore/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/create-okta-application/
-  - from: /guides/sign-into-web-app/aspnetcore/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/define-callback/
-  - from: /guides/sign-into-web-app/aspnetcore/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/get-user-info/
-  - from: /guides/sign-into-web-app/aspnetcore/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/next-steps/
-  - from: /guides/sign-into-web-app/aspnetcore/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/redirect-to-sign-in/
-  - from: /guides/sign-into-web-app/aspnetcore/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/require-authentication/
   - from: /guides/sign-into-web-app/springboot/before-you-begin/index.html
     to: /docs/guides/sign-into-web-app/springboot/before-you-begin/
   - from: /guides/sign-into-web-app/springboot/configure-packages/index.html
@@ -1175,14 +1149,6 @@ redirects:
     to: /docs/guides/sign-users-out/aspnet/sign-out-of-okta/
   - from: /guides/sign-users-out/aspnet/sign-out-of-your-app/index.html
     to: /docs/guides/sign-users-out/aspnet/sign-out-of-your-app/
-  - from: /guides/sign-users-out/aspnetcore/before-you-begin/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/before-you-begin/
-  - from: /guides/sign-users-out/aspnetcore/next-steps/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/next-steps/
-  - from: /guides/sign-users-out/aspnetcore/sign-out-of-okta/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/sign-out-of-okta/
-  - from: /guides/sign-users-out/aspnetcore/sign-out-of-your-app/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/sign-out-of-your-app/
   - from: /guides/sign-users-out/springboot/before-you-begin/index.html
     to: /docs/guides/sign-users-out/springboot/before-you-begin/
   - from: /guides/sign-users-out/springboot/next-steps/index.html
@@ -1265,40 +1231,30 @@ redirects:
     to: /docs/guides/custom-hosted-signin/use-macros-and-request-context/
   - from: /guides/protect-your-api/aspnet/before-you-begin/index.html
     to: /docs/guides/protect-your-api/aspnet/before-you-begin/
-  - from: /guides/protect-your-api/aspnetcore/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/before-you-begin/
   - from: /guides/protect-your-api/springboot/before-you-begin/index.html
     to: /docs/guides/protect-your-api/springboot/before-you-begin/
   - from: /guides/protect-your-api/-/before-you-begin/index.html
     to: /docs/guides/protect-your-api/-/before-you-begin/
   - from: /guides/protect-your-api/aspnet/configure-cors/index.html
     to: /docs/guides/protect-your-api/aspnet/configure-cors/
-  - from: /guides/protect-your-api/aspnetcore/configure-cors/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/configure-cors/
   - from: /guides/protect-your-api/springboot/configure-cors/index.html
     to: /docs/guides/protect-your-api/springboot/configure-cors/
   - from: /guides/protect-your-api/-/configure-cors/index.html
     to: /docs/guides/protect-your-api/-/configure-cors/
   - from: /guides/protect-your-api/aspnet/configure-packages/index.html
     to: /docs/guides/protect-your-api/aspnet/configure-packages/
-  - from: /guides/protect-your-api/aspnetcore/configure-packages/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/configure-packages/
   - from: /guides/protect-your-api/springboot/configure-packages/index.html
     to: /docs/guides/protect-your-api/springboot/configure-packages/
   - from: /guides/protect-your-api/-/configure-packages/index.html
     to: /docs/guides/protect-your-api/-/configure-packages/
   - from: /guides/protect-your-api/aspnet/next-steps/index.html
     to: /docs/guides/protect-your-api/aspnet/next-steps/
-  - from: /guides/protect-your-api/aspnetcore/next-steps/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/next-steps/
   - from: /guides/protect-your-api/springboot/next-steps/index.html
     to: /docs/guides/protect-your-api/springboot/next-steps/
   - from: /guides/protect-your-api/-/next-steps/index.html
     to: /docs/guides/protect-your-api/-/next-steps/
   - from: /guides/protect-your-api/aspnet/require-authentication/index.html
     to: /docs/guides/protect-your-api/aspnet/require-authentication/
-  - from: /guides/protect-your-api/aspnetcore/require-authentication/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/require-authentication/
   - from: /guides/protect-your-api/springboot/require-authentication/index.html
     to: /docs/guides/protect-your-api/springboot/require-authentication/
   - from: /guides/protect-your-api/-/require-authentication/index.html
@@ -1423,22 +1379,6 @@ redirects:
     to: /docs/guides/sign-into-web-app/aspnet/redirect-to-sign-in/
   - from: /guides/sign-into-web-app/aspnet/require-authentication/index.html
     to: /docs/guides/sign-into-web-app/aspnet/require-authentication/
-  - from: /guides/sign-into-web-app/aspnetcore/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/before-you-begin/
-  - from: /guides/sign-into-web-app/aspnetcore/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/configure-packages/
-  - from: /guides/sign-into-web-app/aspnetcore/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/create-okta-application/
-  - from: /guides/sign-into-web-app/aspnetcore/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/define-callback/
-  - from: /guides/sign-into-web-app/aspnetcore/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/get-user-info/
-  - from: /guides/sign-into-web-app/aspnetcore/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/next-steps/
-  - from: /guides/sign-into-web-app/aspnetcore/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/redirect-to-sign-in/
-  - from: /guides/sign-into-web-app/aspnetcore/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/require-authentication/
   - from: /guides/sign-into-web-app/springboot/before-you-begin/index.html
     to: /docs/guides/sign-into-web-app/springboot/before-you-begin/
   - from: /guides/sign-into-web-app/springboot/configure-packages/index.html
@@ -1471,14 +1411,6 @@ redirects:
     to: /docs/guides/sign-users-out/aspnet/sign-out-of-okta/
   - from: /guides/sign-users-out/aspnet/sign-out-of-your-app/index.html
     to: /docs/guides/sign-users-out/aspnet/sign-out-of-your-app/
-  - from: /guides/sign-users-out/aspnetcore/before-you-begin/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/before-you-begin/
-  - from: /guides/sign-users-out/aspnetcore/next-steps/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/next-steps/
-  - from: /guides/sign-users-out/aspnetcore/sign-out-of-okta/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/sign-out-of-okta/
-  - from: /guides/sign-users-out/aspnetcore/sign-out-of-your-app/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/sign-out-of-your-app/
   - from: /guides/sign-users-out/springboot/before-you-begin/index.html
     to: /docs/guides/sign-users-out/springboot/before-you-begin/
   - from: /guides/sign-users-out/springboot/next-steps/index.html
@@ -1991,9 +1923,17 @@ redirects:
     to: /docs/guides/style-the-widget/customization-examples/
   - from: /contact-sales-enterprise
     to: https://www.okta.com/contact-sales/
+  - from: /contact-sales-enterprise/
+    to: https://www.okta.com/contact-sales/
   - from: /contact-us
+    to: https://www.okta.com/contact-sales/
+  - from: /contact-us/
     to: https://www.okta.com/contact-sales/
   - from: /login-widget-gallery/
     to: /
-  - from: /live-widget/
+  - from: /product/authentication/
+    to: /
+  - from: /product/authorization/
+    to: /
+  - from: /product/overview/
     to: /

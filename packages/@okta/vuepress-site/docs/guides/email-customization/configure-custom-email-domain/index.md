@@ -14,7 +14,7 @@ Okta sends your super admins a confirmation email after your custom domain is co
 
 To configure a custom email domain:
 
-1. In the Developer Console, go to **Customizations**, and then **Emails & SMS**.
+1. In the Admin Console, go to **Settings** and then **Emails & SMS**.
 
 2. Click the **Sender:** link (**Okta <noreply@okta.com>**) near the top of the page.
 

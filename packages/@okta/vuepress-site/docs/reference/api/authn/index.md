@@ -879,8 +879,9 @@ Content-Type: application/json
 
 Include the `X-Device-Fingerprint` header to supply a device fingerprint. The `X-Device-Fingerprint` header is used in the following ways:
 
-* If the new or unknown device email notification is enabled, an email is sent to the user if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation]https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_General.
+* If the new or unknown device email notification is enabled, an email is sent to the user if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_General).
 * If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. See [New Device Behavior Detection](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_proc_security_behavior_detection).
+> **Note:** The use of the `X-Device-Fingerprint` header for new device security behavior detection is deprecated. Starting April 12 2021, we are going to enable [improvements to the new device security behavior](https://help.okta.com/en/prod/Content/Topics/Security/improved-new-device-behavior-detection.htm) for all the existing tenants. Once the improvements are rolled out, new device security behavior will only rely on the `deviceToken` in the [Context Object](#context-object) and will not rely on the `X-Device-Fingerprint` header. The new or unknown device email notification feature will continue to rely on the `X-Device-Fingerprint` header.
 
 Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a highly privileged operation that is limited to trusted web applications and requires making authentication requests with a valid API token. You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
@@ -2746,7 +2747,7 @@ curl -v -X POST \
 
 #### Enroll Duo Factor
 
-The enrollment process starts with an enrollment request to Okta, then continues with the Duo widget that is embedded in the page. The page needs to create an iframe with the name `duo_iframe` (described in the [Duo documentation](https://duo.com/docs/duoweb#3.-show-the-iframe)) to host the widget. The script address is received in the response object in \_embedded.factor.\_embedded.\_links.script object. The information to initialize the Duo object is taken from \_embedded.factor.\_embedded.activation object as it is shown in the [full example](#full-page-example-for-duo-enrollment). To maintain the link between Duo and Okta, the stateToken must be passed back when Duo calls the callback. This is done by populating the hidden element in the "duo_form" as it is described [here](https://duo.com/docs/duoweb/#passing-additional-post-arguments-with-the-signed-response). After Duo enrollment and verification is done, the Duo script makes a call back to Okta. To complete the authentication process, make a call using [the poll link](#activation-poll-request-example) to get session token and verify successful state.
+The enrollment process starts with an enrollment request to Okta, then continues with the Duo widget that is embedded in the page. The page needs to create an iframe with the name `duo_iframe` (described in the [Duo documentation](https://duo.com/docs/duoweb#3.-show-the-iframe)) to host the widget. The script address is received in the response object in `\_embedded.factor.\_embedded.\_links.script` object. The information to initialize the Duo object is taken from `\_embedded.factor.\_embedded.activation` object as it is shown in the [full example](#full-page-example-for-duo-enrollment). To maintain the link between Duo and Okta, the stateToken must be passed back when Duo calls the callback. This is done by populating the hidden element in the "duo_form" as it is described [here](https://duo.com/docs/duoweb/#passing-additional-post-arguments-with-the-signed-response). After Duo enrollment and verification is done, the Duo script makes a call back to Okta. To complete the authentication process, make a call using [the poll link](#activation-poll-request-example) to get session token and verify successful state.
 
 ##### Request example for enroll Duo Factor
 
@@ -5668,6 +5669,8 @@ Starts a new password recovery transaction for a given user and issues a [recove
 | username    | User's non-qualified short-name (for example: dade.murphy) or unique fully-qualified sign-in name (for example: dade.murphy@example.com)      | Body       | String  | TRUE     |           |
 
 > **Note:** A valid `factorType` is required for requests without an API token with administrator privileges. For more information, see [Forgot Password with Trusted Application](#forgot-password-with-trusted-application).
+
+> **Note:** The optional parameter `relayState` can be included as part of the body in the Forgot Password request. `relayState` is a link to a site where the user will be redirected when the password recovery operation completes. The 'relayState' link must point to a trusted origin.
 
 The response is different, depending on whether the request is for a public application or a trusted application.
 

@@ -74,6 +74,6 @@ Now that you've created the service app and registered the public key with that 
   }' "https://${yourOktaDomain}/api/v1/apps/{serviceappclient_id}/grants"
 ```
 
-> **Note:** You can also use the Developer Console to grant allowed scopes to your service app on the **Okta API Scopes** tab. Click **Grant** for each of the scopes that you want to add to the application's grant collection.
+> **Note:** You can also use the Admin Console to grant allowed scopes to your service app on the **Okta API Scopes** tab. Click **Grant** for each of the scopes that you want to add to the application's grant collection.
 
 <NextSectionLink/>

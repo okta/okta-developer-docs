@@ -1,6 +1,6 @@
 {
-  "release" : "2021.01.1",
-  "build" : "2021.01.1-begin-115-g04e1a2262beb",
+  "release" : "2021.03.1",
+  "build" : "2021.03.1-begin-129-g552d1903a7d8",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -130,6 +130,9 @@
   }, {
     "id" : "up",
     "name" : "UP"
+  }, {
+    "id" : "wax-insights",
+    "name" : "WAX Insights"
   } ],
   "tags" : [ {
     "id" : "network-zone",
@@ -355,6 +358,10 @@
     "id" : "impersonation",
     "description" : "Impersonation.",
     "tags" : [ "admin" ]
+  }, {
+    "id" : "admin-role",
+    "description" : "",
+    "tags" : [ ]
   }, {
     "id" : "field-mapping-rule-modification",
     "description" : "",
@@ -704,6 +711,10 @@
     "description" : "",
     "tags" : [ ]
   }, {
+    "id" : "user-import",
+    "description" : "",
+    "tags" : [ ]
+  }, {
     "id" : "app-group-member-import",
     "description" : "",
     "tags" : [ ]
@@ -717,6 +728,10 @@
     "tags" : [ ]
   }, {
     "id" : "plugin",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "workflows",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -3295,6 +3310,12 @@
       "tags" : [ "app" ],
       "mappings" : [ "app.keys.clone" ]
     }, {
+      "id" : "app.keys.delete_legacy",
+      "category" : "federation",
+      "description" : "Deleted a signing key.",
+      "tags" : [ "app" ],
+      "mappings" : [ "app.keys.delete" ]
+    }, {
       "id" : "app.keys.generate_legacy",
       "category" : "federation",
       "description" : "Generated a signing key.",
@@ -3406,6 +3427,18 @@
       "id" : "app.ldap.login.unknown_failure",
       "category" : "directories",
       "description" : "LDAP authentication failed for unknown reasons:.",
+      "tags" : [ "ldap-app" ],
+      "mappings" : [ "user.authentication.auth_via_LDAP_agent" ]
+    }, {
+      "id" : "app.ldap.outbound.delauth.no_connected_agent",
+      "category" : "directories",
+      "description" : "Delegated authentication request for user in app was not processed. No agents are connected to Okta.",
+      "tags" : [ "ldap-app" ],
+      "mappings" : [ "user.authentication.auth_via_LDAP_agent" ]
+    }, {
+      "id" : "app.ldap.outbound.delauth.timeout",
+      "category" : "directories",
+      "description" : "Delegated authentication request for user in app timed out. Ensure that the agent for your directory is connected to Okta.",
       "tags" : [ "ldap-app" ],
       "mappings" : [ "user.authentication.auth_via_LDAP_agent" ]
     }, {
@@ -7477,6 +7510,12 @@
       "tags" : [ "roambi-app" ],
       "mappings" : [ "application.provision.user.reactivate" ]
     }, {
+      "id" : "security.attack.detect",
+      "category" : "adaptive",
+      "description" : "Fired when Threat Insight detects that an org is under attack. This can be used to monitor attacks against your organization. When this event is fired, Threat Insight will automatically become more aggressive in logging and/or blocking suspicious requests. This is fired from within an internal Okta context and therefore will not have any request level context information.",
+      "tags" : [ "threat-insight" ],
+      "mappings" : [ "security.attack.detect" ]
+    }, {
       "id" : "security.behavior.settings.create",
       "category" : "adaptive",
       "description" : "A behavior setting was created.",
@@ -8165,6 +8204,22 @@
       "beta" : false,
       "tags" : [ "app" ],
       "mappings" : [ "app.keys.clone_legacy" ],
+      "schema" : {
+        "debugData" : "AppInstanceKeyManagementDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "app.keys.delete",
+      "category" : "federation",
+      "description" : "Application signing key deleted. This can be used to confirm that a signing key has been successfully deleted from an app instance. When fired, this event contains details about kid and the app instance id.",
+      "info" : {
+        "created" : "2021-01-07",
+        "release" : "2021.02.0"
+      },
+      "beta" : true,
+      "tags" : [ "app" ],
+      "mappings" : [ "app.keys.delete_legacy" ],
       "schema" : {
         "debugData" : "AppInstanceKeyManagementDebugData",
         "actor" : null,
@@ -12435,7 +12490,7 @@
         "release" : "2019.11.0"
       },
       "beta" : false,
-      "tags" : [ "group" ],
+      "tags" : [ "event-hook-eligible", "group" ],
       "mappings" : [ "group.lifecycle.create" ],
       "schema" : {
         "debugData" : null,
@@ -12451,7 +12506,7 @@
         "release" : "2019.11.0"
       },
       "beta" : false,
-      "tags" : [ "group" ],
+      "tags" : [ "event-hook-eligible", "group" ],
       "mappings" : [ "group.lifecycle.delete" ],
       "schema" : {
         "debugData" : null,
@@ -12613,6 +12668,166 @@
       "beta" : false,
       "tags" : [ "group" ],
       "mappings" : [ "cvd.group_rule_triggered" ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.resourceset.bindings.add",
+      "category" : "dda",
+      "description" : "Fired when a new admin role assignment is created. This event can be used to track and audit when a new admin role assignment is created. When fired this event contains information about the new user or group admin assignments for roles associated with the resource set.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.resourceset.bindings.delete",
+      "category" : "dda",
+      "description" : "Fired when an admin assignment is deleted. This event can be used to track and audit when an admin role assignment is deleted. When fired this event contains information about the deleted user or group admin assignments for roles associated with the resource set.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.resourceset.create",
+      "category" : "dda",
+      "description" : "Fired when a new resource set is created. This event can be used to track and audit when a resource set is created. When fired this event contains information about the resources contained in the resource set that is created.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.resourceset.delete",
+      "category" : "dda",
+      "description" : "Fired when a resource set is deleted. This event can be used to track and audit when a resource set is deleted. When fired this event contains information about the resources contained in the resource set that is deleted.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.resourceset.resources.add",
+      "category" : "dda",
+      "description" : "Fired when resources are added to a resource set. This event can be used to audit the resources added to a resource set. When fired this event contains information about the resources added to the resource set.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.resourceset.resources.delete",
+      "category" : "dda",
+      "description" : "Fired when resources are deleted from a resource set. This event can be used to audit the resources deleted from a resource set. When fired this event contains information about the resources deleted from the resource set.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.role.create",
+      "category" : "dda",
+      "description" : "Fired when a new custom admin role is created. This event can be used to track and audit when a custom admin role is created. When fired this event contains information about the permissions contained in the role that is created.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.role.delete",
+      "category" : "dda",
+      "description" : "Fired when a custom admin role is deleted. This event can be used to track and audit when a custom admin role is deleted. When fired this event contains information about the permissions contained in the role that is deleted.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.role.permissions.add",
+      "category" : "dda",
+      "description" : "Fired when new permissions are added to a custom admin role. This event can be used to audit the permissions added to a custom admin role. When fired this event contains information about the permissions added to the role.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.role.permissions.delete",
+      "category" : "dda",
+      "description" : "Fired when permissions are deleted from a custom admin role. This event can be used to audit the permissions deleted from a custom admin role. When fired this event contains information about the permissions deleted from the role.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -13718,7 +13933,7 @@
       "tags" : [ "policy" ],
       "mappings" : [ "policy.scheduled.execute" ],
       "schema" : {
-        "debugData" : "SystemDebugData",
+        "debugData" : "AutomationsDebugData",
         "actor" : null,
         "targets" : [ "ExecutePolicyResourceDetails" ]
       }
@@ -13785,6 +14000,22 @@
         "debugData" : "ScheduledActionDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "security.attack.detect",
+      "category" : "adaptive",
+      "description" : "Fired when Threat Insight detects that an org is under attack. This can be used to monitor attacks against your organization. When this event is fired, Threat Insight will automatically become more aggressive in logging and/or blocking suspicious requests. This is fired from within an internal Okta context and therefore will not have any request level context information.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : true,
+      "tags" : [ "threat-insight" ],
+      "mappings" : [ "security.attack.detect" ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
       }
     }, {
       "id" : "security.authenticator.lifecycle.activate",
@@ -13945,6 +14176,22 @@
         "debugData" : null,
         "actor" : null,
         "targets" : null
+      }
+    }, {
+      "id" : "security.risk.signal.consume",
+      "category" : "adaptive",
+      "description" : "Fired when a 3rd party risk provider submits risk signals. The event can help Org Admins debug/monitor partner risk signal submissions. The event contains debug context data about the submitted risk signals and the configuration of the related risk provider.",
+      "info" : {
+        "created" : "2021-01-05",
+        "release" : "2021.01.2"
+      },
+      "beta" : true,
+      "tags" : [ ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "RiskSignalDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
       }
     }, {
       "id" : "security.session.detect_client_roaming",
@@ -14781,7 +15028,7 @@
     }, {
       "id" : "system.csv.import_user",
       "category" : "sync",
-      "description" : "Perform import user by CSV.",
+      "description" : "Import of user from CSV is skipped. Informs when import of a user from CSV has been skipped due to reasons such as missing required attributes or unknown unique identifier. This event is logged when import of a user is skipped during CSV directory import workflow for on-premises systems using Okta provisioning agent.",
       "info" : {
         "created" : "2018-07-05",
         "release" : "2018.28"
@@ -15379,7 +15626,7 @@
         "release" : "2016.14"
       },
       "beta" : false,
-      "tags" : [ "import", "system" ],
+      "tags" : [ "event-hook-eligible", "import", "system" ],
       "mappings" : [ "app.generic.import.details.add_group" ],
       "schema" : {
         "debugData" : "SystemImportDebugData",
@@ -15395,7 +15642,7 @@
         "release" : "2016.14"
       },
       "beta" : false,
-      "tags" : [ "import", "system" ],
+      "tags" : [ "event-hook-eligible", "import", "system" ],
       "mappings" : [ "app.generic.import.details.delete_group" ],
       "schema" : {
         "debugData" : "SystemImportDebugData",
@@ -15835,6 +16082,38 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.import.user_csv.complete",
+      "category" : "developer-platform",
+      "description" : "Bulk Import users from CSV is completed. Informs when bulk user import from CSV has been completed. This event is logged when bulk user import from CSV has completed with the outcome as success or failure. When fired, this event also contains debug context about the number of users added/updated/unchanged or with errors.",
+      "info" : {
+        "created" : "2021-01-04",
+        "release" : "2021.01.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin", "csv-upload", "user-import" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "CSVImportUsersDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.import.user_csv.start",
+      "category" : "developer-platform",
+      "description" : "Bulk Import of users from CSV is started. Informs when bulk import of users from CSV has been attempted to be uploaded. This event is logged when bulk user import from CSV has started and is a precursor to user.lifecycle.create; user.lifecycle.activate events.",
+      "info" : {
+        "created" : "2021-01-04",
+        "release" : "2021.01.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin", "csv-upload", "user-import" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "CSVImportUsersDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.import.user_matching.complete",
       "category" : "sync",
       "description" : "Fired upon completion of the user matching phase, when Okta attempts to match imported users to existing Okta users. This can be used to determine the progress of an import, as well as to monitor to trigger processes that should run concurrently with the import. Fired upon completion of the user matching phase, when Okta attempts to match imported users to existing Okta users.",
@@ -16155,6 +16434,22 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.operation.rate_limit.warning",
+      "category" : "performance",
+      "description" : "Operation rate limit warning. This can be used to track if an operation is approaching its rate limit. When fired, this event contains information about the operation such as actor, type, scope and threshold details. OperationRateLimitType in debugData will indicate the category to which the rate limit is being applied (e.g. authenticator_otp_verification), OperationRateLimitSubtype defines specific subtypes (e.g. Email, SMS or Voice call for authenticator_otp_verification type) and OperationRateLimitScope will indicate the scope of the rate limit (e.g. user or org level).",
+      "info" : {
+        "created" : "2021-01-06",
+        "release" : "2021.01.2"
+      },
+      "beta" : false,
+      "tags" : [ "system" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "OperationRateLimitDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.org.lifecycle.create",
       "category" : "ace",
       "description" : "Org creation.",
@@ -16195,7 +16490,7 @@
         "release" : "2017.02"
       },
       "beta" : false,
-      "tags" : [ "system" ],
+      "tags" : [ "event-hook-eligible", "system" ],
       "mappings" : [ "core.framework.ratelimit.exceeded" ],
       "schema" : {
         "debugData" : "OrgRateLimitDebugData",
@@ -16211,7 +16506,7 @@
         "release" : "2017.02"
       },
       "beta" : false,
-      "tags" : [ "system" ],
+      "tags" : [ "event-hook-eligible", "system" ],
       "mappings" : [ "core.framework.ratelimit.warning" ],
       "schema" : {
         "debugData" : "OrgRateLimitDebugData",
@@ -16547,7 +16842,7 @@
         "release" : "2016.02"
       },
       "beta" : false,
-      "tags" : [ "account", "user" ],
+      "tags" : [ "account", "event-hook-eligible", "user" ],
       "mappings" : [ "core.user_auth.account_locked" ],
       "schema" : {
         "debugData" : null,
@@ -16643,7 +16938,7 @@
         "release" : "2016.15"
       },
       "beta" : false,
-      "tags" : [ "account", "user" ],
+      "tags" : [ "account", "event-hook-eligible", "user" ],
       "mappings" : [ "core.user_auth.account_auto_unlocked", "core.user_auth.self_service.account_unlock", "core.user_auth.self_service.account_unlock.already_unlocked", "core.user_auth.self_service.account_unlock.invalid_recovery_token", "core.user_auth.self_service.account_unlock.invalid_security_answer", "core.user_auth.self_service.account_unlock.invalid_sms_code", "core.user_auth.self_service.account_unlock.shared_email", "core.user_auth.self_service.account_unlock.unknown_user" ],
       "schema" : {
         "debugData" : "UserAccessDebugData",
@@ -16852,7 +17147,7 @@
       },
       "beta" : false,
       "tags" : [ "directory", "user" ],
-      "mappings" : [ "app.ldap.login.bad_password", "app.ldap.login.disabled_account", "app.ldap.login.expired_password", "app.ldap.login.locked_account", "app.ldap.login.success", "app.ldap.login.unknown_failure" ],
+      "mappings" : [ "app.ldap.login.bad_password", "app.ldap.login.disabled_account", "app.ldap.login.expired_password", "app.ldap.login.locked_account", "app.ldap.login.success", "app.ldap.login.unknown_failure", "app.ldap.outbound.delauth.no_connected_agent", "app.ldap.outbound.delauth.timeout" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -17315,7 +17610,7 @@
         "release" : "2020.09.4"
       },
       "beta" : true,
-      "tags" : [ "mfa" ],
+      "tags" : [ "event-hook-eligible", "mfa" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -17331,7 +17626,7 @@
         "release" : "2020.09.4"
       },
       "beta" : true,
-      "tags" : [ "mfa" ],
+      "tags" : [ "event-hook-eligible", "mfa" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -17561,6 +17856,294 @@
         "debugData" : "UserAuthenticationDebugData",
         "actor" : "UserAuthenticationResourceDetails",
         "targets" : [ "UserAuthenticationResourceDetails" ]
+      }
+    }, {
+      "id" : "workflows.user.connection.create",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user creates a new connection in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user creates a new connection for any connector.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.connection.delete",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user deletes a connection in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user deletes an existing connection.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.connection.reauthorize",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user reauthorizes an existing connection in Workflows. Can be used to audit user activity in Workflows. Event is fired during connection reauthorization.  Performed through the UI.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.connection.revoke",
+      "category" : "wax-insights",
+      "description" : "Triggered when a the platform revokes a connection's access token in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user deletes a connection where the revoke metadata flow was implemented.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.activate",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user activates a flow in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user toggles a flow on.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.create",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user creates a new flow in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user creates and saves a new flow.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.deactivate",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user deactivates a flow in Workflows. Can be used to audit user activity in Workflows. This is triggered by deactivating a flow.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.delete",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user deletes a flow in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user toggles a flow off.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.export",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user exports a flow from Workflows. Can be used to audit user activity in Workflows. Event is fired when a user exports one or more flows as a flowpack.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.import",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user imports a flow into Workflows. Can be used to audit user activity in Workflows. Event is fired when a user imports one or more flows as a flowpack.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.save",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user saves a flow in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user saves a flow.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.view",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user views an existing flow in Workflows. Can be used to audit user activity in Workflows. Event is fired every time a flow is accessed by a user.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.table.create",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user creates a new table in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user adds a new table.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.table.delete",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user deletes a table in Workflows. Can be used to audit user activity in Workflows. This is triggered when a user deletes a table.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.table.export",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user exports a table from Workflows. Can be used to audit user activity in Workflows. This is triggered by exporting a table as part of a flowpack.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.table.import",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user imports a table into Workflows. Can be used to audit user activity in Workflows. This is triggered by importing a table included in a flowpack.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.table.update",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user updates a table's schema in Workflows. Can be used to audit user activity in Workflows. This is triggered when a user adds, removes, or renames columns.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.table.view",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user views a new table in Workflows. Can be used to audit user activity in Workflows. Event is fired every time a table is accessed by a user.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
       }
     }, {
       "id" : "zone.activate",
@@ -18937,6 +19520,520 @@
             "customer" : false,
             "format" : "integer",
             "examples" : [ "72", "100", "372" ]
+          }
+        }
+      },
+      "AutomationsDebugData" : {
+        "name" : "AutomationsDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "threat_suspected" : {
+            "type" : "boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "successful_deletions" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "5000", "10000", "100000" ]
+          },
+          "successful_suspensions" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "5000", "10000", "100000" ]
+          },
+          "successful_deactivations" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "5000", "10000", "100000" ]
+          }
+        }
+      },
+      "CSVImportUsersDebugData" : {
+        "name" : "CSVImportUsersDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "threat_suspected" : {
+            "type" : "boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "updated_objects" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0", "1", "2" ]
+          },
+          "unchanged_objects" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0", "1", "2" ]
+          },
+          "total_time" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "3 seconds", "1 minute and 10 seconds" ]
+          },
+          "roadblocked_instances" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{0oaakjrxe9sHPjEkb1t7={appUnassignmentPercent=58.3%, appAssignments=585, appUnassignments=341}}" ]
+          },
+          "total_org_app_assignments" : {
+            "type" : "Long",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "526", "1059", "190" ]
+          },
+          "total_objects" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0", "1", "2" ]
+          },
+          "threshold" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "percentage",
+            "examples" : [ "20%", "30%", "2%" ]
+          },
+          "reasonCode" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "no_previous_import", "agent_unable_to_perform_incremental_import", "ou_change_detected" ]
+          },
+          "message" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Cannot suspend a user that is not active" ]
+          },
+          "manualIntervention" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "job_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:importJobId",
+            "examples" : [ "ij1fkq0yb394T3Ay01t7", "ij1fn994ziZRNo8JQ1t7", "ij1fhj7zi3xMRh2sx1t7" ]
+          },
+          "import_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "Incremental", "Full" ]
+          },
+          "import_trigger" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "Schedule", "Manual action" ]
+          },
+          "import_last_token" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "null", "1047621092:FkbtfDbn4FYY1vxWgQBKwTJHSr8=", "2020-09-18T16:25:17.767Z" ]
+          },
+          "import_action" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "users removals", "group membership updates", "group removals" ]
+          },
+          "error_message" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : true,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ "jdoe |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  |  | John | Doe | jdoe@example.com | " ]
+          },
+          "detailedMessage" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Download object phase started.", "Download object phase completed.", "Object creation phase started." ]
+          },
+          "deleted_objects" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0", "1", "2" ]
+          },
+          "custom_object_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "Role", "OrganizationalUnit", "Office365Role", "SalesforcePublicGroup", "zendeskCustomRole" ]
+          },
+          "custom_object_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "id",
+            "examples" : [ "NO_ROLE", "UserPermissionsInteractionUser", "4D7sPjNWyUy2f1VZrU4AiQ==", "3d762c5a-1b6c-493f-843e-55a3b42923d4", "nswgov:SPE_E5:FOO", "arn:aws:iam::859278476317:role/ABACTestAdmin@@SAML@@" ]
+          },
+          "app_unassignments" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "116" ]
+          },
+          "app_unassignment_percent" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "percentage",
+            "examples" : [ "1.2%", "87.1%", "100.0%" ]
+          },
+          "AppName" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "office365", "snowflake", "code42", "mycompany_sfisimscim_1" ]
+          },
+          "added_objects" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "98", "342", "1422" ]
+          },
+          "users_with_errors" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "100", "1500" ]
+          },
+          "users_unchanged" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "100", "1500" ]
+          },
+          "users_updated" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "100", "1500" ]
+          },
+          "users_added" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "100", "1500" ]
           }
         }
       },
@@ -24323,6 +25420,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "rate_limit_scope_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "USER", "ORG" ]
+          },
           "warning_percent" : {
             "type" : "Integer",
             "sensitive" : false,
@@ -25352,6 +26457,179 @@
             "customer" : false,
             "format" : "enum",
             "examples" : [ "office365" ]
+          }
+        }
+      },
+      "RiskSignalDebugData" : {
+        "name" : "RiskSignalDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "threat_suspected" : {
+            "type" : "boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "risk_signal_list" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{ip=1.2.3.4, riskLevel=HIGH}, {ip=2.2.3.4, riskLevel=MEDIUM}]" ]
+          },
+          "risk_signal_size" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "20" ]
+          },
+          "risk_signal_provider_action" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "NONE", "LOG_ONLY", "ENFORCE_AND_LOG" ]
+          },
+          "risk_signal_provider_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Default Provider 1", "Default Provider 2" ]
+          },
+          "risk_signal_provider_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "rkpz02qYepUzxNKgi0g3" ]
           }
         }
       },

@@ -14,7 +14,7 @@ links:
 
 features:
   hiAvailability:
-    name: 99.9% availability
+    name: 99.99% availability
   serviceAssurance:
     name: Service level assurance
   capacity:
@@ -42,7 +42,8 @@ features:
     bullets:
       - Secure user store with customizable user attributes
       - User lifecycle states (e.g. activated, suspended, deactivated)
-      - Attribute mapping and
+      - Attribute mapping and transformation
+      - Registration as a service
   mfa:
     name: Basic multi-factor authentication
     bullets:

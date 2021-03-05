@@ -72,7 +72,7 @@ To access the application's client ID (which uniquely identifies the application
 
 Elsewhere in your file, using the method above, you can inspect the client ID and take action. For example, if you had a CSS file on your server that was for a particular client's CSS:
 
-> **Note:** To locate the `clientId` for an app, from the Dev Console select **Applications**, select the App that you need the `clientId` for, select the **General** tab, and then scroll down to the **Client Credentials** section of the page to copy the ID from the **Client ID** box.
+> **Note:** To locate the `clientId` for an app, from the Admin Console side navigation, select **Applications** and then **Applications**. Select the App that you need the `clientId` for, select the **General** tab, and then in the **Client Credentials** section, copy the ID from the **Client ID** box.
 
 ```html
 <script>

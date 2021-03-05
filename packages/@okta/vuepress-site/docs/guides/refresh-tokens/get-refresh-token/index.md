@@ -55,7 +55,7 @@ POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_
  &redirect_uri=http%3A%2F%2Flocalhost%3A8080
  &code=DPA9Utz2LkWlsronqehy
  &state=9606b31k-51d1-4dca-987c-346e3d8767n9
- &scope=openid%20offline_access
+ &scope=openid
 ```
 
 The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-auth-code-pkce/overview/). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.

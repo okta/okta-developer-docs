@@ -1,6 +1,6 @@
 {
-  "release" : "2021.01.1",
-  "build" : "2021.01.1-begin-115-g04e1a2262beb",
+  "release" : "2021.03.1",
+  "build" : "2021.03.1-begin-129-g552d1903a7d8",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -1176,6 +1176,38 @@
     "statusReasonPhrase" : "Gone",
     "errorCode" : "E0000153",
     "errorSummary" : "Invalid device id, it no longer exists.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid factor id exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 410,
+    "statusReasonPhrase" : "Gone",
+    "errorCode" : "E0000154",
+    "errorSummary" : "Invalid factor id, it is not currently active.",
+    "errorDescription" : null
+  }, {
+    "title" : "User not active exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 423,
+    "statusReasonPhrase" : "Locked",
+    "errorCode" : "E0000155",
+    "errorSummary" : "User is not currently active.",
+    "errorDescription" : null
+  }, {
+    "title" : "Invalid user id exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 410,
+    "statusReasonPhrase" : "Gone",
+    "errorCode" : "E0000156",
+    "errorSummary" : "Invalid user id; the user either does not exist or has been deleted.",
+    "errorDescription" : null
+  }, {
+    "title" : "Authenticator already exists exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000157",
+    "errorSummary" : "Another authenticator with key: {0} is already active.",
     "errorDescription" : null
   } ]
 }

@@ -5,7 +5,6 @@
   ],
   "scripts": {
     "dev": "yarn workspace @okta/vuepress-site dev",
-    "dev:redesign": "REDESIGN=true yarn run dev",
     "build": "yarn workspace @okta/vuepress-site build",
     "broken-link-checker:all": "node scripts/broken-link-checker all",
     "broken-link-checker:internal": "node scripts/broken-link-checker internal",
@@ -42,7 +41,7 @@
     "if-env": "^1.0.4",
     "jest": "^24.9.0",
     "mocha": "^5.2.0",
-    "protractor": "^5.4.2",
+    "protractor": "^7",
     "recursive-readdir": "^2.2.2",
     "remove": "^0.1.5",
     "wait-on": "^3.2.0",

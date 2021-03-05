@@ -1,6 +1,6 @@
 {
-  "release" : "2021.01.1",
-  "build" : "2021.01.1-begin-115-g04e1a2262beb",
+  "release" : "2021.03.1",
+  "build" : "2021.03.1-begin-129-g552d1903a7d8",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -520,6 +520,13 @@
     "errorCode" : "invalid_client",
     "errorDescription" : "The issuer of the authorize request object is invalid."
   }, {
+    "title" : "Authorize request URI mismatched client",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "authorize_request_uri_mismatched_client",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The 'client_id' parameter does not match the expected value for the provided request_uri."
+  }, {
     "title" : "Invalid client metadata",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -540,6 +547,13 @@
     "internalErrorCode" : "pkce_verification_failed",
     "errorCode" : "invalid_grant",
     "errorDescription" : "PKCE verification failed."
+  }, {
+    "title" : "PKCE verification failed with reason",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "pkce_verification_failed_with_reason",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "PKCE verification failed: {0}."
   }, {
     "title" : "Invalid authorization code",
     "statusCode" : 400,
@@ -632,19 +646,19 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "SAML Assertion credentials authentication denied by sign on policy."
   }, {
-    "title" : "Invalid interaction code",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "invalid_interaction_code",
-    "errorCode" : "invalid_grant",
-    "errorDescription" : "The interaction code is invalid or has expired."
-  }, {
     "title" : "Interaction code unsatisfiable",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
     "internalErrorCode" : "interaction_code_unsatisfiable",
     "errorCode" : "invalid_grant",
     "errorDescription" : "Additional user authentication is required but the assurance requirements cannot be met with the allowed authenticators. Check the authenticator and assurance configuration for the user and client."
+  }, {
+    "title" : "Invalid interaction code",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_interaction_code",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The interaction code is invalid or has expired."
   }, {
     "title" : "Invalid initiate login URI",
     "statusCode" : 400,
@@ -758,6 +772,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "The 'user_type' parameter must be user type name or id."
   }, {
+    "title" : "PKCE invalid challenge",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "pkce_invalid_challenge",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "PKCE code challenge contains illegal characters."
+  }, {
     "title" : "PKCE missing challenge",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -848,6 +869,13 @@
     "internalErrorCode" : "invalid_subject_token_type",
     "errorCode" : "invalid_request",
     "errorDescription" : "'subject_token_type' is invalid or not supported."
+  }, {
+    "title" : "PKCE challenge required",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "pkce_challenge_required",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "PKCE code challenge is required to use the interaction code flow."
   }, {
     "title" : "Illegal post logout redirect URI",
     "statusCode" : 400,
@@ -981,6 +1009,20 @@
     "internalErrorCode" : "authorize_request_object_invalid_secret_length",
     "errorCode" : "invalid_request_object",
     "errorDescription" : "The JWT signature secret length is too short."
+  }, {
+    "title" : "Invalid request URI",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_request_uri",
+    "errorCode" : "invalid_request_uri",
+    "errorDescription" : "The authorize request_uri is invalid."
+  }, {
+    "title" : "Authorize request URI mismatched authorization server",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "authorize_request_uri_mismatched_authorization_server",
+    "errorCode" : "invalid_request_uri",
+    "errorDescription" : "The request_uri was issued for another authorization server."
   }, {
     "title" : "Invalid authorization details request response type",
     "statusCode" : 400,

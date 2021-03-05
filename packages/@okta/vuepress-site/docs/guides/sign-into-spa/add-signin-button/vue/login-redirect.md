@@ -23,11 +23,11 @@ export default {
   name: 'home',
   methods: {
     login () {
-      this.$auth.loginRedirect(PATH_TO_PROTECTED_ROUTE)
+      this.$auth.signInWithRedirect({ originalUri: PATH_TO_PROTECTED_ROUTE })
     },
   }
 }
 </script>
 ```
 
-The `loginRedirect()` method lets you specify the path to send the user to after the authentication callback.
+The `signInWithRedirect()` method lets you specify the path to send the user to after the authentication callback.

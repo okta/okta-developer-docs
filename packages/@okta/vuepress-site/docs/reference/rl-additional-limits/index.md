@@ -119,6 +119,7 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/api/v1/sessions`
 * `/login/login.htm`
 * `/login/sso_iwa_auth`
+* `/login/sessionCookieRedirect`
 * `/api/{apiVersion}/radius`
 
 [Authorization](/docs/reference/rl-global-enduser/)

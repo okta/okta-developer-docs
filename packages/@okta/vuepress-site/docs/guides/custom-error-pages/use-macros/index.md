@@ -25,7 +25,7 @@ Example:
 
 #### <span v-pre>`{{bgImageUrl}}`</span>
 
-Inserts a URL to the background image configured for your application. You can change this image by selecting **Customization**, and then **Appearance** from the Developer Console, but this changes the background image in all instances where the macro is used, including your custom sign-in page.
+Inserts a URL to the background image configured for your application. You can change this image using the **Sign-in Configuration** option accessed by selecting **Settings**, and then **Appearance** from the Admin Console, but this changes the background image in all instances where the macro is used, including your custom sign-in page.
 
 If you want to just change the background image for your custom error pages, include the URL to the image instead of the macro:
 
@@ -37,7 +37,7 @@ Example:
 
 #### <span v-pre>`{{orgLogo}}`</span>
 
-Inserts the logo image that has been configured for your application. You can change this logo using the **Organization Logo** option accessed by selecting **Customization**, and then **Appearance** from the Developer Console, but this changes the org logo in all instances where the macro is used, including your custom sign-in page.
+Inserts the logo image that has been configured for your application. You can change this logo using the **Organization Logo** option accessed by selecting **Settings**, and then **Appearance** from the Admin Console, but this changes the org logo in all instances where the macro is used, including your custom sign-in page.
 
 If you want to just change the logo image for your custom error pages, include the URL to the image instead of the macro:
 

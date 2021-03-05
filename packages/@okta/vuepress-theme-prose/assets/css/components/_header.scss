@@ -4,7 +4,7 @@ $redesign_black: #000000;
 $redesign_header_background: #14222a;
 $redesign_slideout_background: #1b2f3b;
 
-header.redesign {
+header.page-header {
   position: relative;
   display: flex;
   align-items: center;
@@ -213,7 +213,7 @@ header.redesign {
               font-weight: normal;
               line-height: 2em;
 
-              &:not(.active) {
+              &:not(.router-link-exact-active) {
                 color: $redesign_white;
               }
 

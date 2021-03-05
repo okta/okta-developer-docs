@@ -6,22 +6,14 @@ After you have a SCIM implementation that passes all of the Runscope tests, you 
 
 Begin by signing up for an [Okta developer account](https://developer.okta.com/signup/).
 
-1. After you request the developer account and have received the initial email, open the link to your developer org.
-1. Navigate to the Admin Console in your Okta org by clicking **Admin**.
-  ![Admin Button](/img/oin/scim_end-user-ui.png "Admin Button")
-1. If you are in the Developer Console, click **Developer Console** and then **Classic UI** to switch over to the Admin Console in your Okta org.
-  ![Switch to Admin Console](/img/oin/scim_switch-ui.png "Switch to Admin UI")
-1. Click **Applications** > **Applications**.
-  ![Open Applications](/img/oin/scim_open-apps.png "Open Applications")
+1. After you request the developer account and have received the initial email, open the link to your developer org's Admin Console.
+1. Click **Applications** > **Applications** on the side navigation.
 1. Click **Add Application**.
-  ![Create New Application](/img/oin/scim_create-app.png "Create App button")
 1. Search for "SCIM 2.0" or "SCIM 1.1" (your choice depends on which version your SCIM server supports). You'll see three different SCIM template applications, one for each of the three authentication methods that you can use to connect to your SCIM implementation (Basic Auth, Header Auth, or OAuth Bearer Token).
-  ![SCIM 2.0 Templates](/img/oin/scim_app-templates.png "List of SCIM templates")
-  Click **Add** on the template you want to use.
+1. Click **Add** on the template that you want to use and complete the add steps.
 1. On the **General Settings** page, give your integration a descriptive name and specify whether you want it to be hidden from general and mobile users. Additionally, you can decide if you want to have your users automatically be logged in when they reach the landing page in their web browser. Click **Next**.
 1. On the **Sign-On Options** page, you specify how your users sign in to your integration. You can select either SAML or SWA. See the [Applications topic](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps) in the Okta product documentation if you need guidance on which single sign-on access method to choose. Click **Done** to create the integration.
 1. After the integration is created, click the **Provisioning** tab, and in the main panel, click **Configure API Integration**. Select the **Enable API Integration** check box.
-  ![SCIM Integration - Enable API](/img/oin/scim_app-enable-api.png "Enable the API integration for your integration")
   Enter the base URL for your SCIM server.
   The credential options vary depending on your choice of authentication method:
     - Basic Auth: To authenticate using Basic Auth mode, you need to provide the username and password for the account that handles the create, update, and deprovisioning actions on your SCIM implementation.
