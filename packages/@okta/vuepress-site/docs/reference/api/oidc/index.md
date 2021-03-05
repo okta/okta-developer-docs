@@ -1102,13 +1102,13 @@ When you are using the [Okta Authorization Server](/docs/concepts/auth-servers/#
 
 * **ID token:** 60 minutes
 * **Access token:** 60 minutes
-* **Refresh token:** 100 days
+* **Refresh token:** 90 days
 
 When you are using a [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), you can configure the lifetime of the JWT tokens:
 
-* **ID token:** At least five minutes, no more than 24 hours (configurable using a [Token Inline Hook](/docs/reference/token-hook/#sample-response-to-modify-token-lifetime))
-* **Access tokens:** At least five minutes, no more than 24 hours (configurable using [Token Inline Hooks](/docs/reference/token-hook/#sample-response-to-modify-token-lifetime) or an [Access Policy](https://help.okta.com/en/prod/Content/Topics/Security/API_Access.htm?cshid=create-access-policies#create-access-policies))
-* **Refresh tokens:** At least 10 minutes, possibly unlimited (configurable using an [Access Policy](https://help.okta.com/en/prod/Content/Topics/Security/API_Access.htm?cshid=create-access-policies#create-access-policies))
+* **ID token:** At least five minutes, no more than 60 minutes
+* **Access tokens:** At least five minutes, no more than 24 hours (configurable using an [Access Policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-create-access-policies)). See the [Authorization Servers API](/docs/reference/api/authorization-servers/#actions-object).
+* **Refresh tokens:** At least 10 minutes, maximum of five years (configurable using an [Access Policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-create-access-policies)). See the [Authorization Servers API](/docs/reference/api/authorization-servers/#actions-object).
 
 ### Claims
 
