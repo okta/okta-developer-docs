@@ -22,7 +22,7 @@ This revokes the access token to make it inactive. Resolves `true` if access tok
 await revokeIdToken();
 ```
 
-Revoke the identity token to make it inactive. Resolves true if id token has been successfully revoked.
+This revoke the ID token to make it inactive. Resolves `true` if ID token has been successfully revoked.
 
 ```javascript
 await revokeRefreshToken();
