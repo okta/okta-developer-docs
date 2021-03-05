@@ -1,5 +1,6 @@
 import queryString from "query-string";
 import moment from "moment-timezone";
+import { v4 as uuid } from "uuid";
 import { deleteCookie, getCookie, setCookie } from "./cookies";
 
 const acceptedParams = [
@@ -237,6 +238,9 @@ function getAnalyticsValues() {
       });
     }
   }
+
+  // Generate unique ID for Google Analytics User-ID
+  analytics.gaUserId = uuid();
 
   return analytics;
 }
