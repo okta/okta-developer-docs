@@ -8,7 +8,20 @@
 export default {
   name: 'FrontPageWidget',
   mounted: function() {
-    this.widget = new OktaSignIn({
+    import('@okta/okta-signin-widget').then(
+      (module) => {
+        this.oktaSignIn = module.default
+        this.renderWidget()
+      }
+    )
+      
+  },
+  destroyed () {
+    this.widget ? this.widget.remove() : null;
+  },
+  methods: {
+    renderWidget(){
+    this.widget = new this.oktaSignIn({
       baseUrl: 'https://{yourOktaDomain}',
       logo: '/img/homepage/alliance.png',
       username: 'leia@rebelalliance.io',
@@ -29,7 +42,6 @@ export default {
         },
       },
     });
-
     this.widget.on('afterRender', () => {
       if (this.rendered) {
         // Last focused element to return to
@@ -58,11 +70,8 @@ export default {
         }, 100);
       }
     });
-
     this.widget.renderEl({ el: '#okta-sign-in' });
-  },
-  destroyed () {
-    this.widget ? this.widget.remove() : null;
-  },
+    }
+  }
 };
 </script>

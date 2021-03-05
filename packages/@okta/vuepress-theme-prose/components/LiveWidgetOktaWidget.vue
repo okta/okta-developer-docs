@@ -5,7 +5,6 @@
 </template>
 
 <script>
-// import OktaSignIn from '@okta/okta-signin-widget';
 export default {
   name: 'LiveWidgetOktaWidget',
   props: ['configJS', 'configSCSS'],
