@@ -10,7 +10,7 @@ clearTokens()
 
 #### Revoke tokens (optional)
 
-Calling `clearTokens()` discards tokens from local device storage, but they are technically still active until they expire. An optional step is to revoke the tokens so they can't be used, even by accident. You can revoke tokens using following requests:
+Calling `clearTokens()` discards tokens from the local device storage, but they are technically still active until they expire. An optional step is to revoke the tokens so they can't be used, even by accident. You can revoke tokens using the following requests:
 
 ```javascript
 await revokeAccessToken();
