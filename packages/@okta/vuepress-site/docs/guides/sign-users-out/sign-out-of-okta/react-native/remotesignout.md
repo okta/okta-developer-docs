@@ -14,7 +14,7 @@ import { signOut } from '@okta/okta-react-native';
 signOut();
 ```
 
-custom-sign-in example:
+Custom sign-in example:
 
 ```javascript
 import { revokeAccessToken, revokeIdToken, clearTokens } from '@okta/okta-react-native';
