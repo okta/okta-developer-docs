@@ -2876,7 +2876,7 @@ A resource has an id a link to the resource. Supported resources are:
 * Groups
 * All users within a group
 * All users within the org
-* All groups with the org
+* All users and groups with the org
 The id of a resource is unique to the resource set whereas the link pointing to the resource is unique for the org. The same group if used in two resource sets will have distinct ids in each of resource sets but the same self link in both.
 
 #### Resource examples
@@ -2928,6 +2928,9 @@ The id of a resource is unique to the resource set whereas the link pointing to 
       }
     }
 ```
+
+> **Note:** Providing either of the [all groups](#all-groups-as-resource) and [all users](#all-users-as-resource) result in including all users and groups.
+
 ### Binding object
 A binding represents the assignment of a [custom role](#custom-role-object) to a list of admins. Bindings are specific to a [resource set](#resource-set-object). There will be at max one binding object per role in a resource set.
 

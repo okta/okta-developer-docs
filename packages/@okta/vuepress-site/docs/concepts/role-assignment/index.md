@@ -10,6 +10,7 @@ In this page, we discuss the concepts of role assignment through APIs. For more 
 
 ## Standard Role Assignment
 The following role types are provided and supported out of the box:
+
 | Role type                               | Label                               | Optional targets                      |
 | :-------------------------------------- | :---------------------------------- | :------------------------------------ |
 | `API_ACCESS_MANAGEMENT_ADMIN`           | API Access Management Administrator |                                       |
@@ -71,6 +72,8 @@ In order to specify a resource targeted by a resource set, you will simply use t
   ``` http
   https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users
   ```
+
+> **Note:** All users and groups could be represented using either of [All users](/docs/reference/api/users/#list-users) or [All groups](/docs/reference/api/groups/#list-groups) links. There is no functional difference between the two.
 
 > **Note:** If you use a Role with permissions that don't apply to the resources in the resource set, the admin role will have no effect. For example, the `okta.users.profile.manage` permission will give the admin no privileges if granted to a resource set that only included `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the users within the group the resource set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
 
