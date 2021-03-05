@@ -30,7 +30,7 @@ You can sign in to the Developer Console using [https://login.okta.com](https://
 | Login redirect URIs  | `http://localhost:4200/login/callback`              |
 | Logout redirect URIs | `http://localhost:4200/login`                       |
 | Allowed grant types  | Authorization Code                                  |
-`${clientId}` placeholders further in this tutorial should be replaced by `Client ID` of created application.
+`${clientId}` placeholders further in this tutorial should be replaced by the `Client ID` of the created application.
 
 > **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 
