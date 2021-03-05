@@ -2,7 +2,6 @@
 title: Use a refresh token
 ---
 
-
 To refresh your access token as well as an ID token, you send a token request with a `grant_type` of `refresh_token`. Be sure to include the `openid` scope when you want to refresh the ID token.
 
 ```bash
