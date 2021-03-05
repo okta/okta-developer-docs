@@ -2259,7 +2259,7 @@ The Group Schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/dr
 | lastUpdated | Timestamp when the Schema was last updated                                               | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)             | FALSE    | FALSE  | TRUE     |             |
 | definitions | Group Profile subschemas                                                                 | [Group Profile Subschemas](#group-profile-subschemas)           | FALSE    | FALSE  | FALSE    | JSON Schema |
 | type        | Type of [root Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4)  | String                                                             | FALSE    | FALSE  | TRUE     |             |
-| properties  | Group object properties                                                                  | [Group object](/docs/reference/api/apps/#group-object) property set | FALSE    | FALSE  | TRUE     |             |
+| properties  | Group object properties                                                                  | [Group object](/docs/reference/api/groups/#group-object) property set | FALSE    | FALSE  | TRUE     |             |
 
 ### Group Profile subschemas
 
