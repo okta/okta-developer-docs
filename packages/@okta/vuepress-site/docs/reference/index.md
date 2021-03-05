@@ -30,7 +30,7 @@ API endpoints to authenticate your users, challenge for factors, recover passwor
 
 [Learn about which APIs to use.](/docs/concepts/oauth-openid/#authentication-api-vs-oauth-20-vs-openid-connect)
 
-## Manage Resources
+## Manage Okta Objects
 REST endpoints to configure resources such as users, apps, sessions, and factors
 whenever you need.
 
