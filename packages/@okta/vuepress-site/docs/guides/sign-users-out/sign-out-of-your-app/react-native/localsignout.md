@@ -28,6 +28,6 @@ This revoke the ID token to make it inactive. Resolves `true` if ID token has be
 await revokeRefreshToken();
 ```
 
-Revoke the refresh token to make it inactive. Resolves true if refresh token has been successfully revoked.
+This revokes the refresh token to make it inactive. Resolves `true` if refresh token has been successfully revoked.
 
 Tokens need to be revoked in separate requests.
