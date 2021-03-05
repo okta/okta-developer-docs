@@ -37,7 +37,7 @@ This event is sent when a request is exceeding the org's allotted concurrent lim
 
 ### Client-based System Log event types
 
-The following client-based System Log events are fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. Which event fired depends on the client-based rate-limiting mode that is set:
+The following client-based System Log events are fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. The event that fires depends on the client-based rate-limiting mode that is set:
 
 * `system.client.rate_limit.violation`<br>
 This event is fired when the framework is in **Enforce and log per client** mode and a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
