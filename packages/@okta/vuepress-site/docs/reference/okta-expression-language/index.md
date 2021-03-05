@@ -55,7 +55,7 @@ In addition to referencing user attributes, you can also reference App propertie
 | `$app.$attribute` | `$app` explicit reference to specific app instance<br>`$attribute` the attribute variable name  | office365_app.domain<br>zendesk_app.companySubDomain |
 | `app.$attribute`  | `app` implicit reference to in-context app instance<br>`$attribute` the attribute variable name | app.domain<br>app.companySubDomain                     |
 
-> **Note:** Explicit references to apps are not supported for custom OAuth/OIDC claims.
+> **Note:** Explicit references to apps aren't supported for custom OAuth/OIDC claims.
 >
 
 ### Organization Properties
