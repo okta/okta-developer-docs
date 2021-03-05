@@ -6,7 +6,7 @@ Next you should clear the browser session and app session (stored tokens) in mem
 
 > Note: This method applies only to the browser sign-in scenario. Use a combination of `revokeToken` (optional) and `clearTokens` methods to sign out when using custom sign-in.
 
-browser-sign-in example:
+Browser-sign-in example:
 
 ```javascript
 import { signOut } from '@okta/okta-react-native';
