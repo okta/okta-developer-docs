@@ -60,7 +60,7 @@ We use the same terms as the [OpenID Connect](https://openid.net/specs/openid-co
 The two biggest security benefits of OAuth are using tokens instead of passing credentials and restricting the scope of tokens.
 Both of these measures go a long way toward mitigating the impact of a security compromise:
 
-* Sending usernames and passwords around is like putting all of your eggs in one basket. By using credentials to obtain a token,if someone gains access to the token, they may be able to use it for a short time, but they haven't compromised the user's identity.
+* Sending usernames and passwords around is like putting all of your eggs in one basket. By using credentials to obtain a token, if someone gains access to the token, they may be able to use it for a short time, but they haven't compromised the user's identity.
 * Controlling what a token is entitled to access further limits damage in case of compromise. For example, scoping a token for shoppers on a web site, and not allowing them access to change prices, provides significant mitigation.
 
 Okta helps you manage ID Tokens (OpenID Connect) and Access Tokens (OAuth 2.0).
