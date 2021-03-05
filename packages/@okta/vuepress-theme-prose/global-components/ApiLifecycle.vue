@@ -12,6 +12,9 @@
     <span class="api-label api-label-ie" v-if="access === labelType.IDENTITY_ENGINE">
       Identity Engine
     </span>
+    <span class="api-label api-label-limited-ga" v-if="access === labelType.LIMITED_GA">
+      Limited GA
+    </span>
   </SmartLink>
 </template>
 
@@ -41,7 +44,8 @@ export default {
       BETA: "beta",
       ERLY_ACCESS: "ea",
       DEPRECATED: "deprecated",
-      IDENTITY_ENGINE: "ie"
+      IDENTITY_ENGINE: "ie",
+      LIMITED_GA: "Limited GA"
     };
   }
 };
