@@ -3,7 +3,7 @@
     <span class="api-label api-label-beta" v-if="access === labelType.BETA">
       <i class="fa fa-warning"></i> Beta
     </span>
-    <span class="api-label api-label-ea" v-if="access === labelType.ERLY_ACCESS">
+    <span class="api-label api-label-ea" v-if="access === labelType.EARLY_ACCESS">
       <i class="fa fa-flag"></i> Early Access
     </span>
     <span class="api-label api-label-deprecated" v-if="access === labelType.DEPRECATED">
@@ -42,7 +42,7 @@ export default {
   created() {
     this.labelType = {
       BETA: "beta",
-      ERLY_ACCESS: "ea",
+      EARLY_ACCESS: "ea",
       DEPRECATED: "deprecated",
       IDENTITY_ENGINE: "ie",
       LIMITED_GA: "Limited GA"
