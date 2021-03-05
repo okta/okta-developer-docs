@@ -20,7 +20,7 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 
 ## Add an OpenID Connect Client
 
-* Sign in to the Okta Developer Dashboard, and select **Create New App**. <br/>
+* Sign in to the Developer Console, and select **Create New App**. <br/>
 You can sign in to the Okta Developer Dashboard through [https://login.okta.com](https://login.okta.com) and clicking `Admin` button on the Okta Dashboard.
 * Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with values similar to:
 
