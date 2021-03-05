@@ -63,20 +63,20 @@ Both of these measures go a long way toward mitigating the impact of a security 
 * Sending usernames and passwords around is like putting all of your eggs in one basket. By using credentials to obtain a token, if someone gains access to the token, they may be able to use it for a short time, but they haven't compromised the user's identity.
 * Controlling what a token is entitled to access further limits damage in case of compromise. For example, scoping a token for shoppers on a web site, and not allowing them access to change prices, provides significant mitigation.
 
-Okta helps you manage ID Tokens (OpenID Connect) and Access Tokens (OAuth 2.0).
+Okta helps you manage ID tokens (OpenID Connect) and access tokens (OAuth 2.0).
 
-An ID token is used to pass along user profile information, such as first name, last name, and email. OpenID Connect uses the concepts of Thin ID Token and Fat ID Token, where:
+An ID token is used to pass along user profile information, such as first name, last name, and email. OpenID Connect uses the concepts of thin ID token and fat ID token, where:
 
-* A returned ID Token and Access Token is considered a Thin ID Token that carries minimal profile information. If you want to retrieve the rest of the information, you'll need to call Okta's `/userinfo` endpoint using the Access Token you receive.
-* A returned ID Token is considered a Fat ID Token that carries all the profile information.
+* A returned ID token and access token is considered a thin ID token that carries minimal profile information. If you want to retrieve the rest of the information, you need to call Okta's `/userinfo` endpoint using the access token that you receive.
+* A returned ID token is considered a fat ID token that carries all the profile information.
 
-A Thin ID Token contains base claims (information embedded in a token) and some scope dependent claims. Profile attributes and groups aren't returned. Some examples of when both the ID Token and Access Token are returned are as follows:
+A thin ID token contains base claims (information embedded in a token) and some scope dependent claims. Profile attributes and groups aren't returned. Some examples of when both the ID token and access token are returned are:
 
 * Implicit flow, where `response_type=id_token+token`
-* Authorization code flow, where the `openid` scope is passed in the authorize request
-* Resource owner password flow, where the `openid` scope is passed in the token request
+* Authorization Code flow, where the `openid` scope is passed in the authorize request
+* Resource Owner Password flow, where the `openid` scope is passed in the token request
 
-A Fat ID Token returns all user claims, which are all the **profile attributes** and **groups**, if **profile scope** and **groups scope** are passed. When an ID Token is returned without the Access Token, for example, in an implicit flow where `response_type=id_token`, it is considered to be a Fat Token and should contain all the **profile attributes** and **groups**, if **profile scope** and **groups scope** are passed.
+A fat ID token returns all user claims, which are all the profile attributes and groups, if profile scope and groups scope are passed. When an ID token is returned without the access token, for example, in an implicit flow where `response_type=id_token`, it is considered to be a fat token and should contain all the profile attributes and groups, if profile scope and groups scope are passed.
 
 ### Custom claims
 
