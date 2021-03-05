@@ -1106,9 +1106,9 @@ When you are using the [Okta Authorization Server](/docs/concepts/auth-servers/#
 
 When you are using a [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), you can configure the lifetime of the JWT tokens:
 
-* **Access tokens:** At least five minutes, no more than 24 hours (configurable using an [Access Policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-create-access-policies)).
-* **Refresh tokens:** The minimum active token lifetime, which is five minutes. The idle time window is at least 10 minutes, with a maximum of five years (configurable using an [Access Policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-create-access-policies)).
-* **ID tokens:** Not configurable
+* **Access tokens:** Minimum is five minutes, maximum is 24 hours (configurable using an [Access Policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-create-access-policies)).
+* **Refresh tokens:** The minimum access token lifetime. The idle time window is at least 10 minutes, with a maximum of five years (configurable using an [Access Policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-create-access-policies)).
+* **ID tokens:** Not configurable. Token lifetime is 60 minutes.
 
 ### Claims
 
