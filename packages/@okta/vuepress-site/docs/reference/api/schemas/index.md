@@ -2263,7 +2263,7 @@ The Group Schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/dr
 
 ### Group Profile subschemas
 
-The [Profile object](/docs/reference/api/groups/#group-profile-object) for a Group is defined by a composite schema of base and custom properties using a JSON path to reference subschemas. The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
+The [Profile object](/docs/reference/api/groups/#profile-object) for a Group is defined by a composite schema of base and custom properties using a JSON path to reference subschemas. The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
 
 - [Group Profile base subschema](#group-profile-base-subschema)
 - [Group Profile custom subschema](#group-profile-custom-subschema)
