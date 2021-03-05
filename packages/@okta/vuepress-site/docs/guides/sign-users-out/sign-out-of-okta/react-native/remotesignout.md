@@ -1,6 +1,7 @@
 ### Clear the Okta session
 
-Clear the browser session and clear the app session (stored tokens) in memory. Fires an event once a user successfully logs out.
+
+Next you should clear the browser session and app session (stored tokens) in memory. An event will fire once a user successfully logs out.
 
 > Note: This method apply for browser-sign-in scenario only. Use a combination of revokeToken (optional) and clearTokens methods to signOut when use custom-sign-in.
 
