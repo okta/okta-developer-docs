@@ -65,7 +65,7 @@ Both of these measures go a long way toward mitigating the impact of a security 
 
 Okta helps you manage ID Tokens (OpenID Connect) and Access Tokens (OAuth 2.0).
 
-An ID token is used to pass along user profile information, such as first name, last name, and email. OpenID Connect uses the  concepts of Thin ID Token and Fat ID Token, where:
+An ID token is used to pass along user profile information, such as first name, last name, and email. OpenID Connect uses the concepts of Thin ID Token and Fat ID Token, where:
 
 * A returned ID Token and Access Token is considered a Thin ID Token that carries minimal profile information. If you want to retrieve the rest of the information, you'll need to call Okta's `/userinfo` endpoint using the Access Token you receive.
 * A returned ID Token is considered a Fat ID Token that carries all the profile information.
