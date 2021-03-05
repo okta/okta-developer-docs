@@ -16,7 +16,7 @@ Calling `clearTokens()` discards tokens from the local device storage, but they 
 await revokeAccessToken();
 ```
 
-Revoke the access token to make it inactive. Resolves true if access token has been successfully revoked.
+This revokes the access token to make it inactive. Resolves `true` if access token has been successfully revoked.
 
 ```javascript
 await revokeIdToken();
