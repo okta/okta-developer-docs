@@ -18,7 +18,7 @@ Create an OAuth service app and register the public key with the service app usi
 curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/clients' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
---header 'Authorization: SSWS 00UhNAF52k5xTltA1fZklrRkRMGCLD43WigN52V0HY' \
+--header 'Authorization: SSWS ${api_token}' \
 --data-raw ' {
     "client_name": "Service Client Name",
     "response_types": [
@@ -67,7 +67,7 @@ Now that you've created the service app and registered the public key with that 
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/{serviceappclient_id}/grants' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
---header 'Authorization: SSWS 00UhNAF52k5xTltA1fZklrRkRMGCLD43WigN52V0HY' \
+--header 'Authorization: SSWS 00...Y' \
 --header 'Cache-Control: no-cache' \
 --data-raw '{
     "scopeId": "okta.users.read",

@@ -17,7 +17,7 @@ Alternatively, you can add grants using the `/grants` API. The following is an e
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/client_id/grants' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
---header 'Authorization: SSWS 00UhNAF52k5xTltA1fZklrRkRMGCLD43WigN52V0HY' \
+--header 'Authorization: SSWS ${api_token}' \
 --data-raw '{
     "scopeId": "okta.users.read",
     "issuer": "https://${yourOktaDomain}"
