@@ -4,6 +4,18 @@ title: Okta API Products Release Notes
 
 ## March
 
+### Weekly Release 2021.03.1
+
+| Change                                                    | Expected in Preview Orgs |
+| --------------------------------------------------------- | ------------------------ |
+| [Bugs fixed in 2021.03.1](#bugs-fixed-in-2021-03-1)       | March 10, 2021           |
+
+#### Bugs fixed in 2021.03.1
+
+* When `AppUser` was updated after enabling `APPLICATION_ENTITLEMENT_POLICY`, some [user attributes](/docs/guides/build-provisioning-integration/-/attribute-mapping/), such as the Manager attribute, were prevented from being updated in an application. (OKTA-329758)
+
+* When using the [`/api/v1/users` endpoint](/docs/reference/api/users/) to generate the login for an Identity engine user through a mapping, if you created the same user by sending in more than one request at the same time, an incorrect 500 error message (internal server error) was sometimes returned instead of a 400 error message. (OKTA-318474)
+
 ### Monthly Release 2021.03.0
 
 | Change                                                                                              | Expected in Preview Orgs |
