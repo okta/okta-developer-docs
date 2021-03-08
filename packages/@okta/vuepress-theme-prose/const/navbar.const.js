@@ -577,7 +577,8 @@ export const reference = [
       },
       {
         title: "Okta Expression Language in Identity Engine",
-        path: "/docs/reference/okta-expression-language-in-identity-engine/"
+        path: "/docs/reference/okta-expression-language-in-identity-engine/",
+        hidden: true
       },
       { title: "Password Hook", path: "/docs/reference/password-hook/" },
       {

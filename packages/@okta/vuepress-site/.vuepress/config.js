@@ -340,7 +340,8 @@ module.exports = {
               '/docs/reference/api/iam-roles/',
               '/docs/concepts/role-assignment/',
               '/docs/guides/migrate-to-oie/',
-              '/docs/guides/ie-intro/'
+              '/docs/guides/ie-intro/',
+              '/docs/reference/okta-expression-language-in-identity-engine/'
           ]
         }
       ]
