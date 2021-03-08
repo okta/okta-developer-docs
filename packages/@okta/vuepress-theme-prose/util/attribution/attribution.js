@@ -240,7 +240,7 @@ function getAnalyticsValues() {
   }
 
   // Generate unique ID for Google Analytics User-ID
-  analytics.gaUserId = uuid();
+  analytics.gaUserIdC = uuid();
 
   return analytics;
 }
