@@ -1,1 +1,1 @@
-After completing the configuration in the previous steps, Sign on and Sign out callbacks will be handled automatically by `Microsoft.AspNetCore.Components.WebAssembly.Authentication` library.
+After configuration in the previous steps is complete, Sign on and Sign out callbacks are handled automatically by `Microsoft.AspNetCore.Components.WebAssembly.Authentication` library.
