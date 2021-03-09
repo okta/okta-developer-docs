@@ -28,3 +28,7 @@ router.beforeEach(Vue.prototype.$auth.authRedirectGuard())
 
 export default router
 ```
+
+Our examples use `login/callback` as a default route path, but you can change this. The route path is used in the next step.
+
+Your application is responsible for parsing the information Okta sends to this callback route. Our SDKs can do this for you (covered later in <GuideLink link="../handle-callback/">Handle the callback from Okta</GuideLink>). For now, just define the route itself.
