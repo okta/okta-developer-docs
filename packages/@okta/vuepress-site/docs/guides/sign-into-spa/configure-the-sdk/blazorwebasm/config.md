@@ -1,6 +1,6 @@
 Place `Okta:Authority` and `Okta:ClientId` properties into `wwwroot/appsettings.json` file. 
 
-`Okta:Authority` (issuer) should be set to this: `https://(yourOktaDomain)/oauth2/default`
+`Okta:Authority` (issuer) should be set to: `https://(yourOktaDomain)/oauth2/default`
 
 In `Program.Main` function add this configuration code:
 
