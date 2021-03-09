@@ -1,4 +1,4 @@
-Although you don't have to install any additional SDK, in order to add a support for authentication to your App, you need to perform the configuration steps mentioned in this page [Secure an ASP.NET Core Blazor WebAssembly standalone app with the Authentication library](https://docs.microsoft.com/en-us/aspnet/core/blazor/security/webassembly/standalone-with-authentication-library)
+Although you don't have to install any additional SDK in order to add support for authentication to your App, you need to perform the configuration steps described in this page [Secure an ASP.NET Core Blazor WebAssembly standalone app with the Authentication library](https://docs.microsoft.com/en-us/aspnet/core/blazor/security/webassembly/standalone-with-authentication-library)
 
 1. Add `Microsoft.AspNetCore.Components.WebAssembly.Authentication` NuGet package to the project. 
 
