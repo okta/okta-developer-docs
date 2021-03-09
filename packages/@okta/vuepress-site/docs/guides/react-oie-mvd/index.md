@@ -15,15 +15,32 @@ This document will walk you through setting-up Okta's React sample app in order 
 
 ### Initial set up
 
+Before we begin, you will need to create an Okta OAuth app to represent the React Sample, and install the React sample app.
+
 1. Sign in to your [Okta Admin Console](https://login.okta.com)
 2. On the left-hand navigation bar, select **Applications** > **Applications** and then click on **Add Application**
 3. From the "Add Application" page, click on **Create New App**
 4. In the dialog that pops up, select **SPA** as your Platform, then click **Create**
 5. Fill out the "Create OpenID Connect App Integration" as you like, but be sure to add `http://localhost:8080/login/callback` as one of the "Login redirect URIs".
 6. On the page for your new Application, click on the **Assignments** tab and ensure that the "Everyone" group is assigned to this Application. This assignment is not mandatory, but only for the purposes of this example.
-7. From the **General** tab, click **Download sample app**, then select **React** (**NOTE:** THIS WILL NOT WORK UNTIL THE 2021-03-12 CODE FREEZE) This file contains the [React Sample Applications] pre-configured with the settings of the Application that you just created. Your application settings are saved in the `testenv` file in root directory.
+7. Install the sample app in your location of choice: `git clone https://github.com/okta/samples-js-react.git`
+8. Create a `testenv` file in the new `samples-js-react` directory with the following contents:
+
+      ```
+      ISSUER=https://${yourOktaDomain}/oauth2/default
+      CLIENT_ID={yourAppClientId}
+      ```
+
+9. Now you can enter the `okta-hosted-login` directory and run `npm install`
+
+You now have your App created in Okta, and the Okta React Sample app installed.
+
+<!--
+Once sample download is working we can provide these instructions instead:
+7. From the General tab, click Download sample app, then select React (NOTE: THIS WILL NOT WORK UNTIL THE 2021-03-12 CODE FREEZE) This file contains the [React Sample Applications] pre-configured with the settings of the Application that you just created. Your application settings are saved in the `testenv` file in the root directory.
 8. You can extract the ZIP file and then open the `samples-js-react` directory in your command line
-9. Enter the `okta-hosted-login` subdirectory, and run `npm install`
+9. Enter the okta-hosted-login subdirectory, and run `npm install`
+-->
 
 ### Simple enrolment and authentication
 
@@ -139,8 +156,10 @@ Now we will create a Routing Rule that will automatically all authentication req
 
 1. From the "Identity Providers" page, select the **Routing Rules** tab.
 2. Click on **Add Routing Rule**
-3. Give your Rule a name, and under "THEN Use this identity provider" you should select the Facebook IdP you added earlier. Then click **Create Rule**.
-4. A dialog will appear asking if you'd like to activate the rule, select **Activate**
-5. Return to the React sample at `localhost:8080` and click **Login**. You will be redirected to the Facebook site, where you can sign in.
-6. After successful authentication you will be returned to the React sample's success page.
-7. If you go to your Okta org's Directory, under **Directory** > **People** you should see the Facebook user that you just authenticated with as a new user.
+3. Give your Rule a name, and whatever rules you like. For the purposes of this example we will set two rule conditions:
+4. Under "AND User is accessing" set it as **Any of the following applications** and the choose your Application. This will route any attempts to access the React sample to the Facebook IdP, but will still allow you to access your Admin Console normally.
+5. Under "THEN Use this identity provider" select the Facebook IdP you added earlier. Then click **Create Rule**.
+6. A dialog will appear asking if you'd like to activate the rule, select **Activate**
+7. Return to the React sample at `localhost:8080` and click **Login**. You will be redirected to the Facebook site, where you can sign in.
+8. After successful authentication you will be returned to the React sample's success page.
+9. If you go to your Okta org's Directory, under **Directory** > **People** you should see the Facebook user that you just authenticated with as a new user.
