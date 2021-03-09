@@ -58,7 +58,7 @@ This table lists the current (and historical) major versions of our open-source 
 | [Android OIDC][oidc-android]                                    | 1.0.1                                | **Stable**                           |
 | [Angular SDK][sdk-angular]                                      | 0.1.0<br>1.x<br>**2.x**              | Retired<br>Retiring on 2020-12-10<br>**Stable**                |
 | [ASP.NET SDK][sdk-aspnet]                                       | **1.x**                              | **Stable**                           |
-| [ASP.NET Core SDK][sdk-aspnet]                                  | 1.x<br>**3.x**                       | **Stable**<br>**Stable**             |
+| [ASP.NET Core SDK][sdk-aspnet]                                  | 1.x<br>**3.x**                       | Retiring<br>**Stable**             |
 | [JWT verifier for Go][go-jwt-verifier]                          | 0.x                                  | Beta                                 |
 | [OIDC iOS][oidc-ios] (<i>formerly **iOS AppAuth SDK**</i>)      | 1.x<br>2.x<br>**3.x**                | Retired<br>Retired<br>**Stable**     |
 | [iOS OktaJWT][ios-oktajwt]                                      | 0.1.0<br>**1.x**                     | Retired<br>**Stable**                |

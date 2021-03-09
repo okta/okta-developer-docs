@@ -1,16 +1,17 @@
 <template>
   <div class="error-codes">
-    <p class="error-codes-search-container">
-    <input type="text" id="error-code-search" name="filter" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search error codes for... (Titles, HTTP Status, or Error Code)" :value="search" @input="updateSearch"/>
-
-    <select id="error-codes-release" name="release" markdown="block" v-model="filterStatusCode">
-      <option :value="null">Status Codes</option>
-      <option v-for="statusCode in statusCodes" v-bind:key="statusCode.statusCode" v-bind:value="statusCode.statusCode">
-        {{ statusCode.statusCode }} - {{ statusCode.statusReasonPhrase}}
-      </option>
-    </select>
-    <span class="reset-search" @click="resetSearch" title="Reset Search"></span>
-    </p>
+    <div class="error-codes-search-container">
+      <input type="text" id="error-code-search" name="filter" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Search error codes for... (Titles, HTTP Status, or Error Code)" :value="search" @input="updateSearch"/>
+      <div class="status-wrapper">
+        <select id="error-codes-release" name="release" markdown="block" v-model="filterStatusCode">
+          <option :value="null">Status Codes</option>
+          <option v-for="statusCode in statusCodes" v-bind:key="statusCode.statusCode" v-bind:value="statusCode.statusCode">
+            {{ statusCode.statusCode }} - {{ statusCode.statusReasonPhrase}}
+          </option>
+        </select>
+        <span class="reset-search" @click="resetSearch" title="Reset Search"></span>
+      </div>
+    </div>
     <div id="error-code-count">Found <b>{{ resultCount }}</b> matches</div>
     <div class="error-code" v-for="oktaError in filteredErrorCodes" :key="oktaError.errorCode">
       <h4 :id="oktaError.errorCode">
@@ -149,6 +150,24 @@
     .error-codes-search-container {
       display: flex;
       align-items: center;
+      flex-direction: row;
+      margin-bottom: 20px;
+    }
+
+    @media screen and (max-width: 786px) {
+      .error-codes-search-container {
+        flex-direction: column;
+        input#error-code-search {
+          width: 100%;
+          margin: 0 0 10px 0;
+        }
+        .status-wrapper {
+          width: 100%;
+          select {
+            width: calc(100% - 25px);
+          }
+        }
+      }
     }
 
     .reset-search {

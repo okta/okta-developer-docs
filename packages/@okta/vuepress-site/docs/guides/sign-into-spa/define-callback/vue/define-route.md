@@ -24,8 +24,6 @@ const router = new Router({
 
 Vue.use(Router)
 
-router.beforeEach(Vue.prototype.$auth.authRedirectGuard())
-
 export default router
 ```
 

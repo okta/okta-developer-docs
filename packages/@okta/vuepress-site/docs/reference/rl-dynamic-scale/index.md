@@ -15,6 +15,7 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 * `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
 * `/api/v1/sessions`
 * `/login/login.htm`
+* `/login/sessionCookieRedirect`
 
 **OAuth2 endpoints:**
 

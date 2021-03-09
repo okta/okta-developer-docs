@@ -1,7 +1,7 @@
 
 * **What SCIM version should this integration use?** &mdash; Choose either **SCIM 2.0** (Okta preferred version), or **SCIM 1.1**.
 
-* **Link to configuration guide** &mdash; Your configuration guide (in either HTML or PDF format) should have step by step instructions on how to set up provisioning between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
+* **Link to configuration guide** &mdash; Your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to set up provisioning between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
 
 * **Select provisioning features to be supported in the integration** &mdash; These provisioning features should match what you have selected in the **Provisioning** tab in the settings for your SCIM integration. For details on each of these options, see [Configure application provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_prov_lcm_prov_app). To activate the Profile Sourcing feature, see [Submission process](/docs/guides/submit-app/scim/overview/#submission-process).
 
@@ -30,6 +30,8 @@
   * OAuth 2: Specify the token and authorization endpoint URLs for your SCIM server, along with the consumer key and secret.
 
 * **Does your SCIM `userName` attribute value follow an email address format?** &mdash; Select **Yes** if your SCIM server uses a name@company.TLD format for the unique userName attribute.
+
+* **Did you delete all unused attributes?** &mdash; As outlined in the [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/attribute-mapping/) guide, you need to update the base attributes and mappings that correspond with the attributes supported by your application. Select **Yes** if you have completed the instructions in the **Remove the mapping** and **Delete attributes from your attribute list** sub-sections in the **Delete attributes** section of that guide.
 
 * **Optional: link to demo video** &mdash; If you have a video that explains how to configure access to your SCIM application, enter the URL for it here.
 

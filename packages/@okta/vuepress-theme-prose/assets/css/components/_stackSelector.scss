@@ -119,8 +119,8 @@ $small-spacing: 0.75rem;
   }
 
   .stack-content {
+    overflow-x: auto;
     padding: $base-spacing;
-
     pre {
       margin: 0;
     }
