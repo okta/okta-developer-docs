@@ -76,7 +76,7 @@ If you refresh the Sign-In Widget, you should now see **Sign Up** just below the
 
 We can now modify the Application's Sign On Policy in order to require the user to have a second factor enabled for authentication. In this example, we will use the Phone Authenticator.
 
->> **Note:** Your Okta org will have different Authenticators enabled by default.
+> **Note:** Your Okta org will have different Authenticators enabled by default.
 
 #### Enable multi-factor authentication
 
