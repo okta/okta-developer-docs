@@ -7,7 +7,7 @@ excerpt: >-
   PySAML2.
 ---
 
-> **Note:** This guide works only with Python 2, a version of Python that is no longer supported. We strongly recommend that you use OpenID Connect instead. See [What's the difference between OAuth, OpenID Connect, and SAML](https://www.okta.com/identity-101/whats-the-difference-between-oauth-openid-connect-and-saml/) for more information.
+> **Note:** This guide works only with Python 2, a version of Python that is no longer supported. We strongly recommend that you use OpenID Connect rather than SAML. See [What's the difference between OAuth, OpenID Connect, and SAML](https://www.okta.com/identity-101/whats-the-difference-between-oauth-openid-connect-and-saml/) for more information.
 
 This guide describes how to use [PySAML2](https://github.com/rohe/pysaml2) to add support
 for Okta (via SAML) to applications written in Python. Please note that while the example in this guide uses
