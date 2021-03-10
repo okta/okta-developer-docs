@@ -492,22 +492,9 @@ The following sections outline the key event types that are captured by the syst
 * `policy.evaluate_sign_on` provides context on the values that are used and evaluated in the context of the Okta sign-in policy. For example, you can determine which network zones are matched for this event.
 * For `policy.lifecycle` and `policy.rule` events, the corresponding policy is listed in the target object.
 
-### System events
+### Rate limit events
 
-| Event                                | Description                                                                                                                  |
-| :-------------------                 | :----------------------------------                                                                                          |
-| `system.org.rate_limit.warning`        | An endpoint is near its [rate limit](/docs/reference/rate-limits/).                                                 |
-| `system.org.rate_limit.violation`      | An endpoint exceeds its [rate limit](/docs/reference/rate-limits/).                                            |
-| `core.concurrency.org.limit.violation` | A request exceeds the org's allotted [concurrency limit](/docs/reference/rate-limits/#concurrent-rate-limits). |
-| `system.operation.rate_limit.violation`        | A request exceeds a [rate limit](/docs/reference/rate-limits/).                                                 |
-| `system.operation.rate_limit.warning`        | An endpoint has reached a significant portion of its [rate limit](/docs/reference/rate-limits/) within a period.                                                 |
-| `system.operation.rate_limit.notification`        | Additional information is provided about the rate limiting decisions when an endpoint has exceeded its [rate limit](/docs/reference/rate-limits/).                                                 |
-| `system.client.rate_limit.violation`        | An individual client exceeds the assigned [client-based rate limit](/docs/reference/rl-clientbased/) when the framework is in **Enforce and log per client** mode.                                                 |
-| `system.client.concurrency_rate_limit.violation`        | An individual client exceeds its allotted [concurrency limit](/docs/reference/rate-limits/#concurrent-rate-limits) when the framework is in **Enforce and log per client** mode.                                                 |
-| `system.client.rate_limit.notification`        | An individual client has exceeded its [rate limit](/docs/reference/rate-limits/) when the framework is in **Log per client** mode.                                                 |
-| `system.client.concurrency_rate_limit.notification`        | Information is provided in the System Log when an individual client has exceeded its allotted [concurrency limit](/docs/reference/rate-limits/#concurrent-rate-limits).                                                 |
-
-See [System Log events for rate limits](/docs/reference/rl-system-log-events/) for more information on each System Log event type.
+See [System Log events for rate limits](/docs/reference/rl-system-log-events/) for information on rate limiting event types.
 
 Rate limit warnings are sent at different times, depending on the org type. For One App and Enterprise orgs, the warning is sent when the org is at 60% of its limit.
 

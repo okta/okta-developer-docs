@@ -64,9 +64,9 @@ The client-based rate-limiting framework can exist in one of three modes:
 
 | Mode                                     | Description                                                                                                          |
 | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
-| **Enforce and log per client (recommended)** | Rate limiting is based on client-based rate-limiting values. Client-specific rate limiting violation information is logged as [System Log](/docs/reference/rl-system-log-events/#client-based-system-log-event-types) events. |
-| **Log per client**                          | Rate limiting is based on the [org-wide Rate Limit](/docs/reference/rate-limits/) values, but client-specific rate limiting violation information is logged as System Log events. |
-| **No action**                                | Rate limits aren't enforced at the client-specific level. Rate limiting is based on the [org-wide Rate Limit](/docs/reference/rate-limits/) values. |
+| **Enforce and log per client (recommended)** | The rate limit is based on client-based rate-limiting values. Client-specific rate limiting violation information is logged as [System Log](/docs/reference/rl-system-log-events/#client-based-system-log-event-types) events. |
+| **Log per client**                          | The rate limit is based on the [org-wide Rate Limit](/docs/reference/rate-limits/) values, but client-specific rate limiting violation information is logged as System Log events. |
+| **No action**                                | Rate limits aren't enforced at the client-specific level. The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values. No new or additional System Log events are produced from this feature in this mode. |
 
 ### Check your rate limits with Okta Rate Limit headers
 
