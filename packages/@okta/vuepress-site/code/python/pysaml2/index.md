@@ -7,7 +7,7 @@ excerpt: >-
   PySAML2.
 ---
 
-> **Note:** We encourage the use of OpenID Connect for authentication rather than SAML. While [both SAML and OpenID Connect](https://www.okta.com/identity-101/whats-the-difference-between-oauth-openid-connect-and-saml/) are industry standards for federated authentication, they have different strengths and weaknesses. OpenID Connect is built on the [OAuth 2.0](/docs/concepts/oauth-openid/#oauth-2-0) protocol and uses an additional JSON Web Token (JWT), called an ID token, to standardize areas that OAuth 2.0 leaves up to choice, such as scopes and endpoint discovery. It is specifically focused on user authentication and is widely used to enable users to sign in to consumer websites and mobile apps. [SAML](/docs/concepts/saml/) is independent of OAuth. Rather than a JWT, SAML relies on an exchange of authentication and authorization data (in XML SAML format) between Identity Providers and Service Providers to verify the user's identity and permissions, then grants or denies their access to services. It is more commonly used to help enterprise users sign in to multiple applications using a single sign in.
+> **Note:** This guide works only with Python 2, a version of Python that is no longer supported. We strongly recommend that you use OpenID Connect instead. See [What's the difference between OAuth, OpenID Connect, and SAML](https://www.okta.com/identity-101/whats-the-difference-between-oauth-openid-connect-and-saml/) for more information.
 
 This guide describes how to use [PySAML2](https://github.com/rohe/pysaml2) to add support
 for Okta (via SAML) to applications written in Python. Please note that while the example in this guide uses
