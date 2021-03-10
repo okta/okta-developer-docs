@@ -8,11 +8,11 @@ layout: Guides
 
 This document will walk you through setting-up Okta's React sample app in order to demonstrate some features of the Identity engine. The React app will redirect to Okta's Sign-In Widget, or to Facebook, for authentication. The following scenarios are included in this guide:
 
-* [Simple enrolment and authentication](#)
-* [Adding MFA with a mandatory second factor](#)
-* [Authenticator recovery](#)
-* [Progressive Profiling](#)
-* [Identity Provider routing to Facebook](#)
+* [Simple enrolment and authentication](#simple-enrolment-and-authentication)
+* [Adding MFA with a mandatory second factor](#adding-mfa-with-a-mandatory-second-factor)
+* [Authenticator recovery](#authenticator-recovery)
+* [Progressive Profiling](#progressive-profiling)
+* [Identity Provider routing to Facebook](#identity-provider-routing-to-facebook)
 
 
 ### Initial set up
@@ -46,7 +46,7 @@ Once sample download is working we can provide these instructions instead:
 
 ### Simple enrolment and authentication
 
-### Open the Widget
+#### Open the Widget
 
 Now that we have the React Sample app configured and installed, we can try enrolling a new user.
 
@@ -62,6 +62,8 @@ Now that we have the React Sample app configured and installed, we can try enrol
 4. On the page for your policy, click **Manage Apps** and select the Application you created earlier.
 5. Now find the **Edit icon** in the Policy's "Enrollment Settings", which should be beside green text that says "Enabled".
 6. In the "Edit Rule" dialog that pops up, under "For new users", make sure that "Sign-up" is toggled to **Allowed** and then click **Save**.
+
+For more information see [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm)
 
 #### Try enrollment
 
