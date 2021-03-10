@@ -11,7 +11,9 @@ This document will walk you through setting-up Okta's React sample app in order 
 * [Simple enrolment and authentication](#)
 * [Adding MFA with a mandatory second factor](#)
 * [Authenticator recovery](#)
+* [Progressive Profiling](#)
 * [Identity Provider routing to Facebook](#)
+
 
 ### Initial set up
 
@@ -46,7 +48,7 @@ Once sample download is working we can provide these instructions instead:
 
 ### Open the Widget
 
-Now that we have the React Sample app configured and install, we can try enrolling a new user.
+Now that we have the React Sample app configured and installed, we can try enrolling a new user.
 
 1. On the command line inside the `okta-hosted-login` subdirectory, start the React app by running `npm start`
 2. Your default browser should automatically open `localhost:8080` and you will be presented with the Okta-React Sample landing page.
@@ -95,6 +97,21 @@ We can now modify the Application's Sign On Policy in order to require the user 
 ### Authenticator recovery
 
 You can try out the password recovery flow by selecting **Forgot password?** from the Sign-In Widget page. It will prompt you for your email or username and then email a OTP code to your email address. Once you enter this code and answer a security question, you will be prompted to enter in a new password. You will then be directed to the React Sample's success page.
+
+### Progressive Profiling
+
+Okta now gives you the ability to check for what data is required from a user before they can access an app. For example, you can change the required user profile information for the same app, or handle single sign-on between two apps with different profile requirements. In this example we will add a required profile attribute and the user we have already enrolled will be asked for this information when they next authenticate.
+
+When we enrolled our test user, they were only prompted for their first and last name, as well as their email and a password. We will now add an additional required property to the Profile Enrollment Policy.
+
+1. Go to **Security** > **Profile Enrollment**
+2. Find the Profile you created for self-service enrollment and click the **Edit icon** beside its name.
+3. Click the **Edit icon** in the Policy's "Enrollment Settings", which should be beside green text that says "Enabled".
+4. In the "Edit Rule" dialog, click **Add Another** then add a new property with the "Fields" value as `postalCode` and the "Form label" as `Postal Code`. Finally, check the **Required** box. Now click **Save**.
+
+> **Note:** You can check which User Attributes are required for your Directory by going to **Directory** > **Profile Editor** and clicking the **Information icon** beside each Attribute. By default, "First name" and "Last name" will be marked as required, in addition to what you specify in your Enrollment Policy.
+
+5. If you now try to authenticate using the same user as in the previous steps, you will prompted with a "Postal code" field and a **Register** button. If you try to register a new user, you will see the "Postal code" field added to the "Create Account" screen.
 
 ### Identity Provider routing to Facebook
 
@@ -157,7 +174,7 @@ Now we will create a Routing Rule that will automatically all authentication req
 1. From the "Identity Providers" page, select the **Routing Rules** tab.
 2. Click on **Add Routing Rule**
 3. Give your Rule a name, and whatever rules you like. For the purposes of this example we will set two rule conditions:
-4. Under "AND User is accessing" set it as **Any of the following applications** and the choose your Application. This will route any attempts to access the React sample to the Facebook IdP, but will still allow you to access your Admin Console normally.
+4. Under "AND User is accessing" set it as **Any of the following applications** and then choose your Application. This will route any attempts to access the React sample to the Facebook IdP, but will still allow you to access your Admin Console normally.
 5. Under "THEN Use this identity provider" select the Facebook IdP you added earlier. Then click **Create Rule**.
 6. A dialog will appear asking if you'd like to activate the rule, select **Activate**
 7. Return to the React sample at `localhost:8080` and click **Login**. You will be redirected to the Facebook site, where you can sign in.
