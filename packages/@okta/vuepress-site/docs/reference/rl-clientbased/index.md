@@ -14,7 +14,7 @@ Currently, the client-based rate limits apply to the OAuth `/authorize` endpoint
 
 Each valid request made by a user to this endpoint is counted as one request against the respective [authorization server](/docs/concepts/auth-servers/) rate limit bucket (`/oauth2/{authorizationServerId}/v1` (Custom Authorization Server) or `/oauth2/v1` (Okta Org Authorization Server)). The per minute rate limits on these endpoints apply across an Okta tenant.
 
-For example, example.com has 10 OAuth applications running in a production environment. Bob's team is launching a new marketing portal that is a single page OAuth application. Unaware of the rate limits on the `/authorize` endpoint, Bob's team begins running some batch testing scripts against the newly created application that makes hundreds of `/authorize` requests in a single minute. Without the client-based rate limit framework, the new marketing portal application could potentially consume all of the per minute request limits assigned to example.okta.com and thereby cause rate-limit violations for the rest of the users that access the other OAuth applications.
+For example, example.com has 10 OAuth applications running in a production environment. Bob's team is launching a new marketing portal that is a single page OAuth application. Unaware of the rate limits on the `/authorize` endpoint, Bob's team begins running some batch testing scripts against the newly created application that makes hundreds of `/authorize` requests in a single minute. Without the client-based rate limit framework, the new marketing portal application could potentially consume all of the per minute request limits assigned to example.okta.com and thereby cause rate limit violations for the rest of the users that access the other OAuth applications.
 
 A client-based rate limit can be helpful in the following scenarios:
 
@@ -97,19 +97,19 @@ When a specific client/IP/device identifier combination exceeds either the 60 re
 
 To configure the client-based rate limit for existing orgs:
 
-1. From the Admin Console select **Settings** > **Account**, and then scroll down to the **Client-based rate limit** section.
+1. From the Admin Console select **Settings** > **Account**, and then scroll down to the **Client-based rate limiting** section.
 
 2. Select the type of **Rate limit per client** that you want to implement:
 
     * Select **Enforce and log per client (recommended)** to enable client-based rate limit.
 
-    * Select **Log per client** to enable client-based rate limit in preview mode. In **Log per client** mode, rate limit is based on the org-wide rate limit values, but client-specific rate limit error information is logged as System Log events. By analyzing these System Log events, you can determine if client-based rate limit is effective for you.
+    * Select **Log per client** to enable the client-based rate limit in preview mode. In **Log per client** mode, the rate limit is based on the org-wide rate limit values, but client-specific rate limit error information is logged as System Log events. By analyzing these System Log events, you can determine if the client-based rate limit is effective for you.
 
-    * Select **No action** to disable client-based rate limit.
+    * Select **No action** to disable the client-based rate limit.
 
 ### Frequently asked questions
 
-**Q: Which endpoints are covered under client-based rate limit?**
+**Q: Which endpoints are covered under the client-based rate limit?**
 
 Currently, a client-based rate limit only applies to an authorization server's `/authorize` endpoint.
 
@@ -119,19 +119,19 @@ The client rate limit framework calculates the per client rate limit based on th
 
 **Q: What happens if my network contains a proxy server through which the requests are proxied?**
 
-Requests would appear to come from the same IP Address. When `/authorize` requests are made from behind a proxy IP address, make sure to [configure the respective IPs as proxies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network). This allows the client-based rate-limit framework to look for the IP address before the proxy to find the true client IP address.
+Requests would appear to come from the same IP Address. When `/authorize` requests are made from behind a proxy IP address, make sure to [configure the respective IPs as proxies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network). This allows the client-based rate limit framework to look for the IP address before the proxy to find the true client IP address.
 
 **Q: Can I update the per client rate limit today?**
 
 No. Today every client ID/IP/device identifier combination gets 60 total requests per minute and a maximum of two concurrent requests.
 
-**Q: Does the org-wide rate limit still apply when I enable client-based rate limit?**
+**Q: Does the org-wide rate limit still apply when I enable the client-based rate limit?**
 
 Yes. When the cumulative total request or maximum concurrent requests from every unique client exceeds the org-wide rate limits, your Okta org experiences org-wide rate limit errors.
 
 **Q: Would the rate limit headers returned by Okta on the `/authorize` endpoint reflect client-specific rate limits?**
 
-Yes. The header value is specific to a given client/IP/device combination rather than the org-wide rate-limit values.
+Yes. The header value is specific to a given client/IP/device combination rather than the org-wide rate limit values.
 
 **Q: How can I find out if the client-based rate limit would be effective for my Okta tenant?**
 
