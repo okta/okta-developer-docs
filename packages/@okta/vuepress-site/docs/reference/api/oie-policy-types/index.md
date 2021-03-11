@@ -13,7 +13,7 @@ The Identity Engine Early Adopter Program (EAP) contains many updates to Okta's 
 
 ## Limitations
 
-Okta limits the number of Policies of the new types to 5000 total for Policy type: `Okta:SignOn` and 500 total for Policy type: `Okta:ProfileEnrollment`. Each of those Policies can in turn have a maximum of 100 associated Rules.
+Okta limits the number of Policies of the new types to 5000 total the `Okta:SignOn` Policy type and 500 total for `Okta:ProfileEnrollment` Policy type. Each of those Policies can in turn have a maximum of 100 associated Rules.
 
 ## Policy Operations
 
