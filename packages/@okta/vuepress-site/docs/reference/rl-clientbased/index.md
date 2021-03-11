@@ -16,7 +16,7 @@ Each valid request made by a user to this endpoint is counted as one request aga
 
 For example, example.com has 10 OAuth applications running in a production environment. Bob's team is launching a new marketing portal that is a single page OAuth application. Unaware of the rate limits on the `/authorize` endpoint, Bob's team begins running some batch testing scripts against the newly created application that makes hundreds of `/authorize` requests in a single minute. Without the client-based rate limit framework, the new marketing portal application could potentially consume all of the per minute request limits assigned to example.okta.com and thereby cause rate-limit violations for the rest of the users that access the other OAuth applications.
 
-Client-based rate limit can be helpful in the following scenarios:
+Client-based rate limiting can be helpful in the following scenarios:
 
 * You have several OAuth applications that are split across multiple teams. You need to ensure that one OAuth application doesn't consume all of the assigned per minute request limits.
 * You want to isolate any rogue OAuth applications from other valid OAuth applications.
@@ -29,22 +29,22 @@ The best way to describe how client-based rate limit works is to provide some ex
 
 #### Client-based isolation for a unique IP address
 
-Bob and Alice are working from home and have distinct IP addresses. Both Bob and Alice try to sign in to their company's portal application (clientID: portal123) at the same time. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate-limit framework creates a unique per minute request quota for both Bob and Alice using their IP address and the OAuth client ID that they are trying to access.
+Bob and Alice are working from home and have distinct IP addresses. Both Bob and Alice try to sign in to their company's portal application (clientID: portal123) at the same time. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate limit framework creates a unique per minute request quota for both Bob and Alice using their IP address and the OAuth client ID that they are trying to access.
 
 * Bob: (IP1 + portal123) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
 * Alice: (IP2 + portal123) Gets a quota of 60 total requests per minute and a maximum of two concurrent requests
 
 Let's assume the org-wide quota for the `/authorize` endpoint is a total of 2,000 requests per minute on Custom Authorization Servers. Bob decides to run a batch job that triggers about 2,000 `/authorize` requests per minute.
 
-Without the client-based rate-limit framework, Bob consumes all of the total allowed requests per minute (2,000 requests per minute). This results in HTTP 429 errors for both Bob and Alice, which makes the application inaccessible for everyone.
+Without the client-based rate limit framework, Bob consumes all of the total allowed requests per minute (2,000 requests per minute). This results in HTTP 429 errors for both Bob and Alice, which makes the application inaccessible for everyone.
 
-With the client-based rate-limit framework enabled, after Bob exceeds his individual limit of 60 requests per minute, HTTP 429 errors are sent. Requests that originate from Bob's IP address, and the specific device from which the requests are made, start receiving the errors. Alice continues to access the application without any issues.
+With the client-based rate limit framework enabled, after Bob exceeds his individual limit of 60 requests per minute, HTTP 429 errors are sent. Requests that originate from Bob's IP address, and the specific device from which the requests are made, start receiving the errors. Alice continues to access the application without any issues.
 
 ![Client-based isolation for a unique IP address](/img/diagram1.png "Displays Bob as portal123 IP1 and Alice as portal123 IP2, both making authorize requests")
 
 #### Client-based isolation for users accessing `/authorize` from a NAT IP
 
-Alice, Bob, and Lisa all work from the same office. Since they access Okta through a Network Address Translation (NAT) IP from their office network, everyone shares the same IP address. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate-limit framework creates a unique per minute request quota from the combination of every user's IP address, OAuth client ID of the application, and the device identifier set by Okta in each user's browser.
+Alice, Bob, and Lisa all work from the same office. Since they access Okta through a Network Address Translation (NAT) IP from their office network, everyone shares the same IP address. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate limit framework creates a unique per minute request quota from the combination of every user's IP address, OAuth client ID of the application, and the device identifier set by Okta in each user's browser.
 
 ![Client-based isolation for users accessing the authorize endpoint from a NAT IP](/img/diagram2.png "Displays Alice as portal123 Device1, Bob as portal123 Device2, Lisa as portal123 Device3, all making authorize requests that are a combination of the shared IP address")
 
@@ -56,11 +56,11 @@ Alice, Bob, and Lisa all work from the same office. Since they access Okta throu
 
 #### Client-based isolation for users accessing `/authorize` through a proxy
 
-When `/authorize` requests are made from behind a proxy IP address, make sure to [configure the respective IPs as proxies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network). This allows the client-based rate-limit framework to look for the IP address before the proxy to find the true client IP address.
+When `/authorize` requests are made from behind a proxy IP address, make sure to [configure the respective IPs as proxies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network). This allows the client-based rate limit framework to look for the IP address before the proxy to find the true client IP address.
 
-### Client-based rate-limit modes
+### Client-based rate limit modes
 
-The client-based rate-limit framework can exist in one of three modes:
+The client-based rate limit framework can operate in one of three modes:
 
 | Mode                                     | Description                                                                                                          |
 | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
@@ -70,14 +70,14 @@ The client-based rate-limit framework can exist in one of three modes:
 
 ### Check your rate limits with Okta Rate Limit headers
 
-The Rate Limit headers returned when client-based rate limit is enabled are very similar to the headers returned through the [org-wide Rate Limits](/docs/reference/rl-best-practices/). The difference is that the header value is specific to a given client/IP/device combination rather than the org-wide Rate Limit values. Okta provides three headers in each response to report client-specific rate limits.
+The Rate Limit headers returned when client-based rate limit is enabled are very similar to the headers returned through the [org-wide rate limits](/docs/reference/rl-best-practices/). The difference is that the header value is specific to a given client/IP/device combination rather than the org-wide rate limit values. Okta provides three headers in each response to report client-specific rate limits.
 
 > **Note:** If client-based rate limit is in **Log per client** or **No action** mode, headers that are returned still reflect the org-wide rate limits.
 
 For client-specific rate limits, three headers show the limit that is being enforced, when it resets, and how close you are to hitting the limit:
 
 * `X-Rate-Limit-Limit` - The rate limit ceiling that is applicable for the current request to the specific client/IP/device identifier combination
-* `X-Rate-Limit-Remaining` - The number of requests left until the limit is hit for the specific client/IP/device identifier combination during the current rate-limit window
+* `X-Rate-Limit-Remaining` - The number of requests left until the limit is hit for the specific client/IP/device identifier combination during the current rate limit window
 * `X-Rate-Limit-Reset` - The time when the rate limit resets, specified in [UTC epoch time](https://www.epochconverter.com/) for the specific client/IP/device identifier combination
 
 For example:
@@ -97,13 +97,13 @@ When a specific client/IP/device identifier combination exceeds either the 60 re
 
 To configure the client-based rate limit for existing orgs:
 
-1. From the Admin Console select **Settings** > **Account**, and then scroll down to the **Client-based rate limiting** section.
+1. From the Admin Console select **Settings** > **Account**, and then scroll down to the **Client-based rate limit** section.
 
 2. Select the type of **Rate limit per client** that you want to implement:
 
     * Select **Enforce and log per client (recommended)** to enable client-based rate limit.
 
-    * Select **Log per client** to enable client-based rate limit in preview mode. In **Log per client** mode, rate limit is based on the org-wide rate-limit values, but client-specific rate limit error information is logged as System Log events. By analyzing these System Log events, you can determine if client-based rate limit is effective for you.
+    * Select **Log per client** to enable client-based rate limit in preview mode. In **Log per client** mode, rate limit is based on the org-wide rate limit values, but client-specific rate limit error information is logged as System Log events. By analyzing these System Log events, you can determine if client-based rate limit is effective for you.
 
     * Select **No action** to disable client-based rate limit.
 
@@ -115,7 +115,7 @@ Currently, client-based rate limit only applies to an authorization server's `/a
 
 **Q: How is the client-specific rate limit determined?**
 
-The client rate-limit framework calculates the per client rate limit based on the OAuth client ID, the user's IP address, and the Okta device identifier (the Okta device identifier that Okta sets in the browser).
+The client rate limit framework calculates the per client rate limit based on the OAuth client ID, the user's IP address, and the Okta device identifier (the Okta device identifier that Okta sets in the browser).
 
 **Q: What happens if my network contains a proxy server through which the requests are proxied?**
 
@@ -127,15 +127,15 @@ No. Today every client ID/IP/device identifier combination gets 60 total request
 
 **Q: Does the org-wide rate limit still apply when I enable client-based rate limit?**
 
-Yes. When the cumulative total request or maximum concurrent requests from every unique client exceeds the org-wide rate limits, your Okta org experiences org-wide rate-limit errors.
+Yes. When the cumulative total request or maximum concurrent requests from every unique client exceeds the org-wide rate limits, your Okta org experiences org-wide rate limit errors.
 
-**Q: Would the rate-limit headers returned by Okta on the `/authorize` endpoint reflect client-specific rate limits?**
+**Q: Would the rate limit headers returned by Okta on the `/authorize` endpoint reflect client-specific rate limits?**
 
 Yes. The header value is specific to a given client/IP/device combination rather than the org-wide rate-limit values.
 
 **Q: How can I find out if client-based rate limit would be effective for my Okta tenant?**
 
-You can set the client-based rate limit framework to **Log per client** mode. In **Log per client** mode, rate limit is based on the org-wide rate-limit values, but client-specific rate limit error information is logged as System Log events. By analyzing these System Log events, you can determine if client-based rate limit is effective for you.
+You can set the client-based rate limit framework to **Log per client** mode. In **Log per client** mode, rate limit is based on the org-wide rate limit values, but client-specific rate limit error information is logged as System Log events. By analyzing these System Log events, you can determine if client-based rate limit is effective for you.
 
 **Q: Where does Okta get the device identifier from?**
 

@@ -22,7 +22,7 @@ This event is sent when a request is exceeding the org's allotted concurrent lim
 
 ### Web request rate limit (client level)
 
-The following client-based System Log events are fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. The event that fires depends on the client-based rate-limiting mode that is set:
+The following client-based System Log events are fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. The event that fires depends on the client-based rate limit mode that is set:
 
 * [`system.client.rate_limit.violation`](/docs/reference/api/event-types/?q=system.client.rate_limit.violation)<br>
 This event is fired when the framework is in **Enforce and log per client** mode and a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
@@ -31,14 +31,14 @@ This event is fired when the framework is in **Enforce and log per client** mode
 This event is fired when the framework is in **Enforce and log per client** mode and a specific client, IP address, or device identifier combination makes more than two concurrent requests. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
 * [`system.client.rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.rate_limit.notification)<br>
-This event is fired when the framework is in **Log per client** mode and a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the end user won't see a rate-limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
+This event is fired when the framework is in **Log per client** mode and a specific client, IP address, or device identifier combination exceeds the total limit of 60 requests per minute. However, the end user won't see a rate limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, device identifier, and the actual user if the user already has a valid session.
 
 * [`system.client.concurrency_rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.concurrency_rate_limit.notification)<br>
-This event is fired when the framework is turned on in **Log per client** mode and a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user won't see a rate-limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
+This event is fired when the framework is turned on in **Log per client** mode and a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user won't see a rate limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
 
 ### Operation rate limits
 
-Some [rate limits](/docs/reference/rate-limits/) are enforced on specific actions within Okta, regardless of which API is called to invoke the action. For example, though there are multiple ways to initiate an SMS to a user, there may be a limit on how many are sent out, regardless of which API requests has been made to initiate the messages. The following event types may appear in these varying cases:
+Some rate limits are enforced on specific actions within Okta, regardless of which API is called to invoke the action. For example, though there are multiple ways to initiate an SMS to a user, there may be a limit on how many are sent out, regardless of which API requests has been made to initiate the messages. The following event types may appear in these varying cases:
 
 * [`system.operation.rate_limit.violation`](/docs/reference/api/event-types/?q=system.operation.rate_limit.violation)<br>
 This event type is sent once per rate limit period when a request or action is rejected for exceeding a rate limit. For example, if the rate limit that was exceeded has a reset period of one minute, then one event of this type is emitted during that period for the applicable scope.
@@ -62,7 +62,7 @@ The following table describes the rate limit information that is returned in the
 | Property                           | Type   | Description                                                                                                       |
 | ---------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------- |
 | `operationRateLimitScopeType`      | String | The type of rate limit scope affected. Example scopes: `org` or `user`                                            |
-| `operationRateLimitSecondsToReset` | String | The number of seconds that remain until the current rate limiting period ends                                     |
+| `operationRateLimitSecondsToReset` | String | The number of seconds that remain until the current rate limit period ends                                     |
 | `operationRateLimitSubtype`        | String | The [Subtype](#operation-rate-limit-subtypes) of the rate limit event affected. Example Subtypes: `Email`, `SMS`, `Voice call`|
 | `operationRateLimitThreshold`      | String | The relevant numerical limit that this event is associated with                                                   |
 | `operationRateLimitTimeSpan`       | String | The amount of time before the rate limit resets                                                                   |
