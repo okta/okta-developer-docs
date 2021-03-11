@@ -12,7 +12,7 @@ Before you can sign a user in, you need to create an Okta app integration that r
 1. Pick **Single-Page App (SPA)** as the platform and click **Create**.
     > **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 1. Enter a name for your app integration (or leave the default value).
-1. Enter values for the **Login redirect URI**. This is the callback from <GuideLink link="../define-callback/">Define a callback route</GuideLink>. Add values for local development (for example, `http://localhost:8080/login/callback`) and production (for example, `https://app.example.com/login/callback`).
+1. Enter values for the **Login redirect URI**. This is the callback from <GuideLink link="../define-callback/">Define a callback route</GuideLink>. Add values for local development (for example, `http://localhost:8080/login/callback` or `http://localhost:8080/authentication/login-callback` for Blazor) and production (for example, `https://app.example.com/login/callback`).
 
 <!-- removed the Base URI step (was step #6 here) until the new UI is updated to include it -->
 <!-- 1. Add the **Base URI** of your application during local development, such as `http://localhost:8080`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`.
