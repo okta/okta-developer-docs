@@ -23,7 +23,7 @@ Before we begin, you will need to create an Okta OAuth app to represent the Reac
 2. On the left-hand navigation bar, select **Applications** > **Applications** and then click on **Add Application**
 3. From the "Add Application" page, click on **Create New App**
 4. In the dialog that pops up, select **SPA** as your Platform, then click **Create**
-5. Fill out the "Create OpenID Connect App Integration" as you like, but be sure to add `http://localhost:8080/login/callback` as one of the "Login redirect URIs".
+5. Fill out the "Create OpenID Connect App Integration" as you like, but be sure to add `http://localhost:8080/login/callback` as one of the "Login redirect URIs" and `http://localhost:8080/` as one of the "Logout redirect URIs".
 6. On the page for your new Application, click on the **Assignments** tab and ensure that the "Everyone" group is assigned to this Application. This assignment is not mandatory, but only for the purposes of this example. The app must be assigned either to the "Everyone" Group or a custom Group that you create, in order for profile enrollment to function correctly.
 7. Install the sample app in your location of choice: `git clone https://github.com/okta/samples-js-react.git`
 8. Create a `testenv` file in the new `samples-js-react` directory with the following contents:
