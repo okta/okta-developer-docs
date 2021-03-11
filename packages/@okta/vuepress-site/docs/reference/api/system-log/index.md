@@ -494,7 +494,7 @@ The following sections outline the key event types that are captured by the syst
 
 ### Rate limit events
 
-See [System Log events for rate limits](/docs/reference/rl-system-log-events/) for information on rate limiting event types.
+See [System Log events for rate limits](/docs/reference/rl-system-log-events/) for information on rate limit event types.
 
 Rate limit warnings are sent at different times, depending on the org type. For One App and Enterprise orgs, the warning is sent when the org is at 60% of its limit.
 
