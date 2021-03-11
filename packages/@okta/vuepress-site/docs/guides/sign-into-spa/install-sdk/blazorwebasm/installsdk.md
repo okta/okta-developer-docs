@@ -67,7 +67,7 @@ Although you don't have to install any additional SDK in order to add support fo
 
 6. Add the `LoginDisplay` component 
 
-```razor
+```html
 @using Microsoft.AspNetCore.Components.Authorization
 @using Microsoft.AspNetCore.Components.WebAssembly.Authentication
 @inject NavigationManager Navigation
