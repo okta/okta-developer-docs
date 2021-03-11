@@ -46,13 +46,16 @@ Once sample download is working we can provide these instructions instead:
 
 ### Simple enrolment and authentication
 
-#### Open the Widget
+#### Open and test the Sign-In Widget
 
-Now that we have the React Sample app configured and installed, we can try enrolling a new user.
+Now that we have the React Sample app configured and installed, we can try authenticating.
 
 1. On the command line inside the `okta-hosted-login` subdirectory, start the React app by running `npm start`
 2. Your default browser should automatically open `localhost:8080` and you will be presented with the Okta-React Sample landing page.
-3. Click **Login** and you will be redirected to the Okta Sign-In Widget. As you can see, there is no "Sign Up" option. We can now enable self-service enrollment for the Sign-In Widget.
+3. Click **Login** and you will be redirected to the Okta Sign-In Widget. As you can see, there is no "Sign Up" option.
+4. Enter the Username and Password for your admin user. You should be redirected to the React Sample's success page.
+
+We can now enable self-service enrollment for the Sign-In Widget.
 
 #### Enable self-service enrollment
 
@@ -136,7 +139,7 @@ When we enrolled our test user, they were only prompted for their first and last
 
 > **Note:** You can check which User Attributes are required for your Directory by clicking the **Information icon** beside each Attribute. By default, "First name" and "Last name" will be marked as required, in addition to what you specify in your Enrollment Policy.
 
-8. If you now try to authenticate using one of the same users as in the previous steps, you will prompted with a "Region" field and a **Register** button. Once you add a value, you can confirm that it has been saved by going to **Directory** > **People** and finding the correct user, and clicking on their **Profile** tab. If you try to register a new user, you will see the "Region" field added to the "Create Account" screen.
+8. If you now try to authenticate using one of the same users as in the previous steps, you will be prompted with a "Region" field and a **Register** button. Once you add a value, you can confirm that it has been saved by going to **Directory** > **People** and finding the correct user, and clicking on their **Profile** tab. If you try to register a new user, you will see the "Region" field added to the "Create Account" screen.
 
 ### Identity Provider routing to Facebook
 
@@ -194,7 +197,7 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 #### Create the Routing Rule
 
-Now we will create a Routing Rule that will automatically all authentication requests to Facebook.
+Now we will create a Routing Rule that will automatically route all authentication requests to Facebook.
 
 1. From the "Identity Providers" page, select the **Routing Rules** tab.
 2. Click on **Add Routing Rule**
