@@ -65,38 +65,7 @@ Although you don't have to install any additional SDK in order to add support fo
 }
 ```
 
-6. Add the `LoginDisplay` component 
-
-```html
-@using Microsoft.AspNetCore.Components.Authorization
-@using Microsoft.AspNetCore.Components.WebAssembly.Authentication
-@inject NavigationManager Navigation
-@inject SignOutSessionStateManager SignOutManager
-
-<AuthorizeView>
-    <Authorized>
-        <a href="authentication/profile">Hello, @context.User.Identity.Name!</a>
-        <button class="nav-link btn btn-link" @onclick="BeginSignOut">
-            Log out
-        </button>
-    </Authorized>
-    <NotAuthorized>
-        <a href="authentication/register">Register</a>
-        <a href="authentication/login">Log in</a>
-    </NotAuthorized>
-</AuthorizeView>
-
-@code {
-    private async Task BeginSignOut(MouseEventArgs args)
-    {
-        await SignOutManager.SetSignOutState();
-        Navigation.NavigateTo("authentication/logout");
-    }
-}
-```
-
-
-7. Add the `Authentication` component in `Pages/Authentication.razor` file:
+6. Add the `Authentication` component in `Pages/Authentication.razor` file:
 
 ```html
 @page "/authentication/{action}"
