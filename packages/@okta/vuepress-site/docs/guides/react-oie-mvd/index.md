@@ -1,7 +1,7 @@
 ---
 title: Federated Authentication with React and Identity Engine
 meta:
-  - name: React & Identiy engine
+  - name: React & Identity engine
     content: This guide will show you how to test out some of the features of the Identity engine with our React sample app
 layout: Guides
 ---
@@ -24,7 +24,7 @@ Before we begin, you will need to create an Okta OAuth app to represent the Reac
 3. From the "Add Application" page, click on **Create New App**
 4. In the dialog that pops up, select **SPA** as your Platform, then click **Create**
 5. Fill out the "Create OpenID Connect App Integration" as you like, but be sure to add `http://localhost:8080/login/callback` as one of the "Login redirect URIs".
-6. On the page for your new Application, click on the **Assignments** tab and ensure that the "Everyone" group is assigned to this Application. This assignment is not mandatory, but only for the purposes of this example.
+6. On the page for your new Application, click on the **Assignments** tab and ensure that the "Everyone" group is assigned to this Application. This assignment is not mandatory, but only for the purposes of this example. The app must be assigned either to the "Everyone" Group or a custom Group that you create, in order for profile enrollment to function correctly.
 7. Install the sample app in your location of choice: `git clone https://github.com/okta/samples-js-react.git`
 8. Create a `testenv` file in the new `samples-js-react` directory with the following contents:
 
@@ -98,7 +98,26 @@ We can now modify the Application's Sign On Policy in order to require the user 
 
 ### Authenticator recovery
 
-You can try out the password recovery flow by selecting **Forgot password?** from the Sign-In Widget page. It will prompt you for your email or username and then email a OTP code to your email address. Once you enter this code and answer a security question, you will be prompted to enter in a new password. You will then be directed to the React Sample's success page.
+By default, your org should have Password reset configured to be initiated with an email. You can try out the email password recovery flow by selecting **Forgot password?** from the Sign-In Widget page. It will prompt you for your email or username and then email a OTP code to your email address. Once you enter this code and answer a security question, you will be prompted to enter in a new password. You will then be directed to the React Sample's success page.
+
+#### Recovery with Okta Verify
+
+In addition to recovering your password with an email, you can also add Okta Verify as a recovery option.
+
+1. Go to **Security** > **Authenticators**
+2. Click **Actions** beside the Password Authenticator, then click **Edit**
+3. In the Rule section at the bottom, click the **Edit icon** beside the Default Rule
+4. Under "Password reset", there is a section "AND Users can initiate reset with", select **Okta Verify (Push)**
+5. Enroll a new user, ensuring that this time you also enroll Okta Verify.
+6. Sign in with your new user to confirm that you added it correctly, then click **Logout**.
+7. Back on the welcome page of the React Sample, click **Login**
+8. After you are redirected to the Sign-In Widget, click **Forgot password?**.
+9. Enter the email address of the user you just created with Okta Verify as a factor then click **Next**.
+10. On the next page, click **Select** beside "Get a push notification"
+11. You should receive a push notification in the Okta Verify. Respond appropriately.
+12. You will now be prompted for the answer to your Security Question, and then you will be asked to reset your password.
+13. When you are complete, you should arrive on the React Sample's success page.
+
 
 ### Progressive Profiling
 
@@ -109,11 +128,15 @@ When we enrolled our test user, they were only prompted for their first and last
 1. Go to **Security** > **Profile Enrollment**
 2. Find the Profile you created for self-service enrollment and click the **Edit icon** beside its name.
 3. Click the **Edit icon** in the Policy's "Enrollment Settings", which should be beside green text that says "Enabled".
-4. In the "Edit Rule" dialog, click **Add Another** then add a new property with the "Fields" value as `postalCode` and the "Form label" as `Postal Code`. Finally, check the **Required** box. Now click **Save**.
+4. In the "Edit Rule" dialog, click **Add Another** then add a new property with the "Fields" value as `region` and the "Form label" as `Region`. Finally, check the **Required** box. Now click **Save**.
+5. Now go to **Directory** > **Profile Editor** and under filters click **Okta** then click the **Edit icon** beside the "User (default)" Profile
+6. Under "Attributes" click **Add Attribute** and fill out the dialogue that pops up. The values are the same as in our earlier step: it is a String with the "Display name" `Region` and the "Variable name" `region`. The other fields are optional and can be left blank. When you are done click **Save**.
+7. Find the "Region" attribute you just created and click the **Edit icon** beside it. In the dialog that pops up, set **User permission** as **Read-Write** and then click **Save Attribute**.
 
-> **Note:** You can check which User Attributes are required for your Directory by going to **Directory** > **Profile Editor** and clicking the **Information icon** beside each Attribute. By default, "First name" and "Last name" will be marked as required, in addition to what you specify in your Enrollment Policy.
 
-5. If you now try to authenticate using the same user as in the previous steps, you will prompted with a "Postal code" field and a **Register** button. If you try to register a new user, you will see the "Postal code" field added to the "Create Account" screen.
+> **Note:** You can check which User Attributes are required for your Directory by clicking the **Information icon** beside each Attribute. By default, "First name" and "Last name" will be marked as required, in addition to what you specify in your Enrollment Policy.
+
+8. If you now try to authenticate using one of the same users as in the previous steps, you will prompted with a "Region" field and a **Register** button. Once you add a value, you can confirm that it has been saved by going to **Directory** > **People** and finding the correct user, and clicking on their **Profile** tab. If you try to register a new user, you will see the "Region" field added to the "Create Account" screen.
 
 ### Identity Provider routing to Facebook
 
