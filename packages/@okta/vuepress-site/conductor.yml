@@ -1931,11 +1931,11 @@ redirects:
     to: https://www.okta.com/contact-sales/
   - from: /login-widget-gallery/
     to: /
-  - from: /docs/
+  - from: /docs/index.html
     to: /
-  - from: /product/authentication/
+  - from: /product/authentication/index.html
     to: /
-  - from: /product/authorization/
+  - from: /product/authorization/index.html
     to: /
-  - from: /product/overview/
+  - from: /product/overview/index.html
     to: /
