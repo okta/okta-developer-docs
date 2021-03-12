@@ -252,42 +252,11 @@
         <CompanyLogos withHeading small v-bind:centered="false" />
       </div>
     </div>
-    <DialogWindow
+    <TermsAndConditionsDialog
       v-if="isShowTermsConditionsDialog"
+      :socialUrl="socialUrl"
       @close="closeTermsConditionsDialog()"
-      title="Terms and Conditions"
-    >
-      <div class="dialog-text">
-        <p>
-          By clicking continue, I agree to the
-          <SmartLink :item="{ link: '/terms/' }">Terms of Service</SmartLink>
-          and agree my data will be processed according to Okta’s
-          <SmartLink :item="{ link: '/privacy-policy/' }"
-            >Privacy Policy</SmartLink
-          >.
-        </p>
-        <label for="okta-contact">
-          <input type="checkbox" name="" id="okta-contact" />
-          In addtion, Okta may contact me with marketing communications
-          (optional).
-        </label>
-      </div>
-      <template v-slot:footer>
-        <div class="terms-conditions-btns">
-          <div class="btn-container">
-            <input type="button" class="btn red-button" @click="setTacUrlAndRedirect()" value="continue" />
-          </div>
-          <div class="btn-container mr-15">
-            <input
-              type="button"
-              class="btn social-btn"
-              value="cancel"
-              @click="closeTermsConditionsDialog()"
-            />
-          </div>
-        </div>
-      </template>
-    </DialogWindow>
+    ></TermsAndConditionsDialog>
   </div>
 </template>
 
@@ -315,7 +284,8 @@ export default {
     VueRecaptcha,
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
-    DialogWindow: () => import("../components/DialogWindow")
+    TermsAndConditionsDialog: () =>
+      import("../components/TermsAndConditionsDialog")
   },
   data() {
     return {
@@ -483,16 +453,6 @@ export default {
         value: ""
       });
       this.validationService.checkFormInput("captcha");
-    },
-
-    toggleModel() {
-      this.isShowModel = !this.isShowModel;
-    },
-    setTacUrlAndRedirect() {
-      const dataStamp = Date.now();
-      const acceptContactValue = document.getElementById("okta-contact").checked;
-      const oktaTaCUrl = this.socialUrl + `?okta_AcceptedToS=${acceptContactValue}&okta_ts_AcceptedToS=${dataStamp}`;
-      window.location.href = oktaTaCUrl;
     },
     closeTermsConditionsDialog() {
       this.isShowTermsConditionsDialog = false;

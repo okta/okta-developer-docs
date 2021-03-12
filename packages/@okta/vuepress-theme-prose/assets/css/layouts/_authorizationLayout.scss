@@ -56,7 +56,8 @@
       border: 1px solid cv("cerise", "base");
     }
   }
-  input[type="submit"]:disabled {
+  input[type=submit]:disabled,
+  input[type=button]:disabled {
     cursor: not-allowed;
     opacity: 0.6;
   }
