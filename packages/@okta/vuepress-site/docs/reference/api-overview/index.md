@@ -6,7 +6,7 @@ meta:
 ---
 ## Supported APIs
 
-The APIs documented on this site are officially supported by Okta, unless they are marked as deprecated. Any endpoints not documented on this site are subject to change at any time and aren't supported. Okta's officially supported (documented) APIs follow the version guidelines discussed in the next section. Don't consume any Okta API unless the API is documented on this site. You should consider all undocumented endpoints private, subject to change without notice, and not covered by any agreements.
+The APIs documented on this site are officially supported by Okta, unless they are marked as deprecated. Okta's officially supported (documented) APIs follow the version guidelines discussed in the next section. Don't consume any Okta API unless the API is documented on this site. You should consider all undocumented endpoints private, subject to change without notice, and not covered by any agreements.
 
 ## Version guidelines
 
@@ -200,7 +200,7 @@ When you first make an API call and get a cursor-paged list of objects, the end 
 
 2. [System Log API](/docs/reference/api/system-log/): The `next` link always exists in polling queries in the [System Log API](/docs/reference/api/system-log/). A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter. Like in the [Events API](/docs/reference/api/events/), the polling query is a stream of data.
 
-## Filtering
+## Filter
 
 Filtering allows a requestor to specify a subset of objects to return and is often needed for large collection objects such as `Users`. While filtering semantics are standardized in the Okta API, not all objects in the Okta API support filtering. When filtering is supported for an object, the `filter` URL query parameter contains a filter expression.
 
@@ -212,7 +212,7 @@ The attribute names are case-sensitive while attribute operators are case-insens
 
     filter=firstName eq "john"
 
-The filter and search parameters must contain at least one valid Boolean expression. Each expression must contain an attribute name followed by an attribute operator and optional value. Multiple expressions may be combined using the two logical operators. Furthermore expressions can be grouped together using `()`.
+The filter and search parameters must contain at least one valid Boolean expression. Each expression must contain an attribute name followed by an attribute operator and optional value. Multiple expressions may be combined using the two logical operators. Furthermore, you can group expressions together using `()`.
 
 > **Note:** Each object in the Okta API defines what attributes and operators are supported for expression. Refer to object-specific documentation for details.
 
@@ -227,14 +227,14 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 | `gt`       | greater than          | If the attribute value is greater than operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.                 |
 | `le`       | less than or equal    | If the attribute value is less than or equal to the operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.    |
 | `lt`       | less than             | If the attribute value is less than operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.                    |
-| `pr`       | present (has value)   | If the attribute has a non-empty value, or if it contains a non-empty node for complex attributes there is a match.                                                                                                                                                           |
+| `pr`       | present (has value)   | If the attribute has a non-empty value, or if it contains a non-empty node for complex attributes, there is a match.                                                                                                                                                           |
 | `sw`       | starts with           | The entire operator value must be a substring of the attribute value, starting at the beginning of the attribute value. This criterion is satisfied if the two strings are identical.                                                                                         |
 
 > **Note:** Some objects don't support all the listed operators.
 
-> **Note:** The `ne` (not equal) attribute isn't supported, but the same result can be obtained by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
+> **Note:** The `ne` (not equal) attribute isn't supported, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
 
-> **Note:** All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`
+> **Note:** All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`.
 
 ### Attribute operators
 
@@ -247,17 +247,17 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 
 | Operator | Description         | Behavior                                |
 | -------- | -----------         | --------                                                                                   |
-| `()`       | Precedence grouping | Boolean expressions may be grouped using parentheses to change the standard order of operations; i.e., evaluate OR logical operators before logical AND operators. |
+| `()`       | Precedence grouping | Boolean expressions may be grouped using parentheses to change the standard order of operations: for example, evaluate OR logical operators before logical AND operators. |
 
-Filters must be evaluated using standard order of operations. Attribute operators have the highest precedence, followed by the grouping operator (i.e, parentheses), followed by the logical `AND` operator, followed by the logical `OR` operator.
+Filters must be evaluated using standard order of operations. Attribute operators have the highest precedence, followed by the grouping operator (for example, parentheses), followed by the logical `AND` operator, followed by the logical `OR` operator.
 
 ## Hypermedia
 
-Objects in the Okta API use hypermedia for discoverability. Hypermedia enables API clients to navigate objects by following links like a web browser instead of hard-coding URLs in your application. Links are identified by link relations which are named keys. Link relations describe what objects are available and how they can be interacted with. Each object may publish a set of link relationships based on the state of the object. For example, the status of a user in the [User API](/docs/reference/api/users/#links-object) will govern which lifecycle operations are permitted. Only the permitted operations will be published as lifecycle operations.
+Objects in the Okta API use hypermedia for discoverability. Hypermedia enables API clients to navigate objects by following links like a web browser instead of hard-coding URLs in your application. Links are identified by link relations that are named keys. Link relations describe what objects are available and how API clients can interact with them. Each object may publish a set of link relationships based on the state of the object. For example, the status of a user in the [User API](/docs/reference/api/users/#links-object)  governs which lifecycle operations are permitted. Only the permitted operations are published as lifecycle operations.
 
-The Okta API had incorporated [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) or HAL format as the foundation for hypermedia discoverability. HAL provides a set of conventions for expressing hyperlinks in JSON responses representing two simple concepts: Resources and Links.
+The Okta API incorporates [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) or HAL format as the foundation for hypermedia discoverability. HAL provides a set of conventions for expressing hyperlinks in JSON responses that represent two simple concepts: Resources and Links.
 
-> **Note:** The HAL-specific media type `application/hal+json` is currently not supported as a formal media type for content negotiation. Use the standard `application/json` media type. As we get more experience with the media format we may add support for the media type.
+> **Note:** The HAL-specific media type `application/hal+json` isn't currently supported as a formal media type for content negotiation. Use the standard `application/json` media type. As we get more experience with the media format, we may add support for the media type.
 
 ## Links
 
@@ -265,10 +265,10 @@ Object whose property names are link relation types (as defined by [RFC5988](htt
 
 - A target URI
 - The name of the link relation (`rel`)
-- Other optional properties to help with deprecation, object state or lifecycle management, content negotiation, etc.
-- Links are implicitly of media type `application/json`. Other media types are only returned in cases where the link is not an API endpoint.
+- Other optional properties to help with deprecation, object state or lifecycle management, content negotiation, and so on.
+- Links are implicitly of media type `application/json`. Other media types are only returned in cases where the link isn't an API endpoint.
 
-> **Note:** An object may have multiple links that share the same link relation, as shown below for the `"logo"` link.
+> **Note:** An object may have multiple links that share the same link relation as shown below for the `"logo"` link.
 
 ``` json
 {
@@ -293,13 +293,13 @@ Object whose property names are link relation types (as defined by [RFC5988](htt
 
 ## Links in collections
 
-Note that HAL links returned in a collection of resources may not reflect the total set of operations that are possible on that resource. For example, in a user collection links indicating that a given user can be unlocked may not be returned and, if returned, may not reflect the correct user state.
+HAL links returned in a collection of resources may not reflect the total set of operations that are possible on that resource. For example, in a user collection, links indicating that a given user can be unlocked may not be returned and, if returned, may not reflect the correct user state.
 
-Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by `id` using the `self` link provided for that resource in the collection. This will provide the full set of lifecycle links for that resource based on its most up-to-date state.
+Search and list operations are intended to find matching resources and their identifiers. If you intend to search for a resource and then modify its state or make a lifecycle change, the correct pattern is to first retrieve the resource by `id` using the `self` link provided for that resource in the collection. This provides the full set of lifecycle links for that resource based on its most up-to-date state.
 
 ## Request debugging
 
-The request ID will always be present in every API response and can be used for debugging. This value can be used to correlate events from the [System Log](/docs/reference/api/system-log/) events as well as the [Events API](/docs/reference/api/events/).
+The request ID is always present in every API response and can be used for debugging. You can use this value to correlate events from the [System Log](/docs/reference/api/system-log/) events as well as the [Events API](/docs/reference/api/events/).
 
 The following header is set in each response:
 
@@ -313,9 +313,9 @@ X-Okta-Request-Id: reqVy8wsvmBQN27h4soUE3ZEnA
 
 ## Cross-Origin Resource Sharing (CORS)
 
-[Cross-Origin Resource Sharing (CORS)](http://en.wikipedia.org/wiki/Cross-Origin_Resource_Sharing) is a mechanism that allows a web page to make an AJAX call using [XMLHttpRequest (XHR)](http://en.wikipedia.org/wiki/XMLHttpRequest) to a domain that is  different from the one from where the script was loaded. Such cross-domain requests would otherwise be forbidden by web browsers, per the [same origin security policy](http://en.wikipedia.org/wiki/Same_origin_policy). CORS defines a [standardized](http://www.w3.org/TR/cors/) way in which the browser and the server can interact to determine whether or not to allow the cross-origin request.
+[Cross-Origin Resource Sharing (CORS)](http://en.wikipedia.org/wiki/Cross-Origin_Resource_Sharing) is a mechanism that allows a web page to make an AJAX call using [XMLHttpRequest (XHR)](http://en.wikipedia.org/wiki/XMLHttpRequest) to a domain that is different from the one from where the script was loaded. Such cross-domain requests would otherwise be forbidden by web browsers, per the [same origin security policy](http://en.wikipedia.org/wiki/Same_origin_policy). CORS defines a [standardized](http://www.w3.org/TR/cors/) way in which the browser and the server can interact to determine whether to allow the cross-origin request.
 
-In Okta, CORS allows JavaScript hosted on your websites to make an XHR to the Okta API with the Okta session cookie. Every website origin must be explicitly permitted via the administrator UI for CORS. See [Enabling CORS](/docs/guides/enable-cors/) for details on how to allow your website to make cross-origin requests.
+In Okta, CORS allows JavaScript hosted on your websites to make an XHR to the Okta API with the Okta session cookie. Every website origin must be explicitly permitted through the Admin Console for CORS. See [Enabling CORS](/docs/guides/enable-cors/) for details on how to allow your website to make cross-origin requests.
 
 > **Caution:** Only grant access to specific origins (websites) that you control and trust to access the Okta API.
 
