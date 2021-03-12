@@ -94,7 +94,7 @@ export default {
       this.sublinksExpanded = !this.sublinksExpanded
     },
     setData: function() {
-      this.sublinksExpanded = this.link.iHaveChildrenActive || false;
+      this.sublinksExpanded = Boolean(this.link.iHaveChildrenActive);
     }
   }
 };
