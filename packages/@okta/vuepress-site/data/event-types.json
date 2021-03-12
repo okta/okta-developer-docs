@@ -1,6 +1,6 @@
 {
-  "release" : "2021.02.1",
-  "build" : "2021.02.1-begin-92-g9c38991a385d",
+  "release" : "2021.03.1",
+  "build" : "2021.03.1-begin-129-g552d1903a7d8",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -130,6 +130,9 @@
   }, {
     "id" : "up",
     "name" : "UP"
+  }, {
+    "id" : "wax-insights",
+    "name" : "WAX Insights"
   } ],
   "tags" : [ {
     "id" : "network-zone",
@@ -355,6 +358,10 @@
     "id" : "impersonation",
     "description" : "Impersonation.",
     "tags" : [ "admin" ]
+  }, {
+    "id" : "admin-role",
+    "description" : "",
+    "tags" : [ ]
   }, {
     "id" : "field-mapping-rule-modification",
     "description" : "",
@@ -721,6 +728,10 @@
     "tags" : [ ]
   }, {
     "id" : "plugin",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "workflows",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -7499,6 +7510,12 @@
       "tags" : [ "roambi-app" ],
       "mappings" : [ "application.provision.user.reactivate" ]
     }, {
+      "id" : "security.attack.detect",
+      "category" : "adaptive",
+      "description" : "Fired when Threat Insight detects that an org is under attack. This can be used to monitor attacks against your organization. When this event is fired, Threat Insight will automatically become more aggressive in logging and/or blocking suspicious requests. This is fired from within an internal Okta context and therefore will not have any request level context information.",
+      "tags" : [ "threat-insight" ],
+      "mappings" : [ "security.attack.detect" ]
+    }, {
       "id" : "security.behavior.settings.create",
       "category" : "adaptive",
       "description" : "A behavior setting was created.",
@@ -12657,6 +12674,166 @@
         "targets" : null
       }
     }, {
+      "id" : "iam.resourceset.bindings.add",
+      "category" : "dda",
+      "description" : "Fired when a new admin role assignment is created. This event can be used to track and audit when a new admin role assignment is created. When fired this event contains information about the new user or group admin assignments for roles associated with the resource set.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.resourceset.bindings.delete",
+      "category" : "dda",
+      "description" : "Fired when an admin assignment is deleted. This event can be used to track and audit when an admin role assignment is deleted. When fired this event contains information about the deleted user or group admin assignments for roles associated with the resource set.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.resourceset.create",
+      "category" : "dda",
+      "description" : "Fired when a new resource set is created. This event can be used to track and audit when a resource set is created. When fired this event contains information about the resources contained in the resource set that is created.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.resourceset.delete",
+      "category" : "dda",
+      "description" : "Fired when a resource set is deleted. This event can be used to track and audit when a resource set is deleted. When fired this event contains information about the resources contained in the resource set that is deleted.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.resourceset.resources.add",
+      "category" : "dda",
+      "description" : "Fired when resources are added to a resource set. This event can be used to audit the resources added to a resource set. When fired this event contains information about the resources added to the resource set.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.resourceset.resources.delete",
+      "category" : "dda",
+      "description" : "Fired when resources are deleted from a resource set. This event can be used to audit the resources deleted from a resource set. When fired this event contains information about the resources deleted from the resource set.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.role.create",
+      "category" : "dda",
+      "description" : "Fired when a new custom admin role is created. This event can be used to track and audit when a custom admin role is created. When fired this event contains information about the permissions contained in the role that is created.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.role.delete",
+      "category" : "dda",
+      "description" : "Fired when a custom admin role is deleted. This event can be used to track and audit when a custom admin role is deleted. When fired this event contains information about the permissions contained in the role that is deleted.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.role.permissions.add",
+      "category" : "dda",
+      "description" : "Fired when new permissions are added to a custom admin role. This event can be used to audit the permissions added to a custom admin role. When fired this event contains information about the permissions added to the role.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "iam.role.permissions.delete",
+      "category" : "dda",
+      "description" : "Fired when permissions are deleted from a custom admin role. This event can be used to audit the permissions deleted from a custom admin role. When fired this event contains information about the permissions deleted from the role.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : false,
+      "tags" : [ "admin-role" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "inline_hook.activated",
       "category" : "extensibility",
       "description" : "Triggered when an inline hook in activated. Used to identify when an inline hook lifecycle status was changed to activated. When triggered, this events contains information about the activated inline hook.",
@@ -13823,6 +14000,22 @@
         "debugData" : "ScheduledActionDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "security.attack.detect",
+      "category" : "adaptive",
+      "description" : "Fired when Threat Insight detects that an org is under attack. This can be used to monitor attacks against your organization. When this event is fired, Threat Insight will automatically become more aggressive in logging and/or blocking suspicious requests. This is fired from within an internal Okta context and therefore will not have any request level context information.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : true,
+      "tags" : [ "threat-insight" ],
+      "mappings" : [ "security.attack.detect" ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
       }
     }, {
       "id" : "security.authenticator.lifecycle.activate",
@@ -17416,7 +17609,7 @@
         "created" : "2020-09-17",
         "release" : "2020.09.4"
       },
-      "beta" : false,
+      "beta" : true,
       "tags" : [ "event-hook-eligible", "mfa" ],
       "mappings" : [ ],
       "schema" : {
@@ -17432,7 +17625,7 @@
         "created" : "2020-09-17",
         "release" : "2020.09.4"
       },
-      "beta" : false,
+      "beta" : true,
       "tags" : [ "event-hook-eligible", "mfa" ],
       "mappings" : [ ],
       "schema" : {
@@ -17663,6 +17856,294 @@
         "debugData" : "UserAuthenticationDebugData",
         "actor" : "UserAuthenticationResourceDetails",
         "targets" : [ "UserAuthenticationResourceDetails" ]
+      }
+    }, {
+      "id" : "workflows.user.connection.create",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user creates a new connection in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user creates a new connection for any connector.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.connection.delete",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user deletes a connection in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user deletes an existing connection.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.connection.reauthorize",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user reauthorizes an existing connection in Workflows. Can be used to audit user activity in Workflows. Event is fired during connection reauthorization.  Performed through the UI.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.connection.revoke",
+      "category" : "wax-insights",
+      "description" : "Triggered when a the platform revokes a connection's access token in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user deletes a connection where the revoke metadata flow was implemented.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.activate",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user activates a flow in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user toggles a flow on.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.create",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user creates a new flow in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user creates and saves a new flow.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.deactivate",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user deactivates a flow in Workflows. Can be used to audit user activity in Workflows. This is triggered by deactivating a flow.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.delete",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user deletes a flow in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user toggles a flow off.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.export",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user exports a flow from Workflows. Can be used to audit user activity in Workflows. Event is fired when a user exports one or more flows as a flowpack.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.import",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user imports a flow into Workflows. Can be used to audit user activity in Workflows. Event is fired when a user imports one or more flows as a flowpack.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.save",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user saves a flow in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user saves a flow.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.flow.view",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user views an existing flow in Workflows. Can be used to audit user activity in Workflows. Event is fired every time a flow is accessed by a user.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.table.create",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user creates a new table in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user adds a new table.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.table.delete",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user deletes a table in Workflows. Can be used to audit user activity in Workflows. This is triggered when a user deletes a table.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.table.export",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user exports a table from Workflows. Can be used to audit user activity in Workflows. This is triggered by exporting a table as part of a flowpack.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.table.import",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user imports a table into Workflows. Can be used to audit user activity in Workflows. This is triggered by importing a table included in a flowpack.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.table.update",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user updates a table's schema in Workflows. Can be used to audit user activity in Workflows. This is triggered when a user adds, removes, or renames columns.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : false,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "workflows.user.table.view",
+      "category" : "wax-insights",
+      "description" : "Triggered when a user views a new table in Workflows. Can be used to audit user activity in Workflows. Event is fired every time a table is accessed by a user.",
+      "info" : {
+        "created" : "2021-01-28",
+        "release" : "2021.02.1"
+      },
+      "beta" : true,
+      "tags" : [ "workflows" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
       }
     }, {
       "id" : "zone.activate",

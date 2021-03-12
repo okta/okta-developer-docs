@@ -755,9 +755,11 @@ Specifies a set of Groups whose Users are to be included or excluded
 
 Specifies an authentication entry point
 
-| Parameter | Description | Data Type         | Required | Default |
-| --------- | ----------- | ----------------- | -------- | ------- |
-| authType  |             | `ANY` or `RADIUS` | No       |         |
+| Parameter | Description                              | Data Type                             | Required | Default |
+| --------- | ---------------------------------------- | ------------------------------------- | -------- | ------- |
+| `authType`  | Specifies how the user is authenticated | `ANY` or `RADIUS` or `LDAP_INTERFACE` | No       |  `ANY`  |
+
+> **Note:** The `LDAP_INTERFACE` data type option is an <ApiLifecycle access="ea" /> feature.
 
 #### Network Condition object
 

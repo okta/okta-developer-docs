@@ -1,0 +1,1 @@
+Default callback route for Blazor App is pre-configured to be  `/authentication/login-callback`. Take a look at the guide [Customizing app routes](https://docs.microsoft.com/en-us/aspnet/core/blazor/security/webassembly/additional-scenarios?#customize-app-routes) if you need to change it.

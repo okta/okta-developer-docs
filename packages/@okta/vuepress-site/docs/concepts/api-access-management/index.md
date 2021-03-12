@@ -58,14 +58,25 @@ We use the same terms as the [OpenID Connect](https://openid.net/specs/openid-co
 ### Tokens and scopes
 
 The two biggest security benefits of OAuth are using tokens instead of passing credentials and restricting the scope of tokens.
-Both of these measures go a long way toward mitigating the impact of a security compromise.
+Both of these measures go a long way toward mitigating the impact of a security compromise:
 
-* Sending usernames and passwords around is like putting all of your eggs in one basket. By using credentials to obtain a token,
-    if someone gains access to the token, they may be able to use it for a short time, but they haven't compromised the user's identity.
-* Controlling what a token is entitled to access further limits damage in case of compromise. For example, scoping a token for shoppers
-    on a web site, and not allowing them access to change prices, provides significant mitigation.
+* Sending usernames and passwords around is like putting all of your eggs in one basket. By using credentials to obtain a token, if someone gains access to the token, they may be able to use it for a short time, but they haven't compromised the user's identity.
+* Controlling what a token is entitled to access further limits damage in case of compromise. For example, scoping a token for shoppers on a web site, and not allowing them access to change prices, provides significant mitigation.
 
-Okta helps you manage ID Tokens (OpenID Connect) and Access Tokens (OAuth 2.0).
+Okta helps you manage ID tokens (OpenID Connect) and access tokens (OAuth 2.0).
+
+An ID token is used to pass along user profile information, such as first name, last name, and email. OpenID Connect uses the concepts of thin ID token and fat ID token, where:
+
+* A returned ID token and access token is considered a thin ID token that carries minimal profile information. If you want to retrieve the rest of the information, you need to call Okta's `/userinfo` endpoint using the access token that you receive.
+* A returned ID token is considered a fat ID token that carries all the profile information.
+
+A thin ID token contains base claims (information embedded in a token) and some scope dependent claims. Profile attributes and groups aren't returned. Some examples of when both the ID token and access token are returned are:
+
+* Implicit flow, where `response_type=id_token+token`
+* Authorization Code flow, where the `openid` scope is passed in the authorize request
+* Resource Owner Password flow, where the `openid` scope is passed in the token request
+
+A fat ID token returns all user claims, which are all the profile attributes and groups, if profile scope and groups scope are passed. When an ID token is returned without the access token, for example, in an implicit flow where `response_type=id_token`, it is considered to be a fat token and should contain all the profile attributes and groups, if profile scope and groups scope are passed.
 
 ### Custom claims
 

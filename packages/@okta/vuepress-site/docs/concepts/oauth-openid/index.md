@@ -40,6 +40,8 @@ Other important terms:
 * The "access token" is issued by the authorization server (Okta) in exchange for the grant.
 * The "refresh token" is an optional token that is exchanged for a new access token if the access token has expired.
 
+> **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
+
 The usual OAuth 2.0 grant flow looks like this:
 
 1. Client requests authorization from the resource owner (usually the user).
@@ -90,13 +92,14 @@ The table shows you which OAuth 2.0 flow to use for the type of application that
 
 Any OAuth flow can give you an access token, but not all support ID tokens.
 
-|                                  | Access Token     | ID Token     |
+| Grant Type                       | Access Token     | ID Token     |
 | -------------------------------- | :--------------: | :----------: |
 | **Authorization Code**           | &#9989;          | &#9989;      |
 | **Authorization Code with PKCE** | &#9989;          | &#9989;      |
 | **Implicit**                     | &#9989;          | &#9989;      |
 | **Resource Owner Password**      | &#9989;          | &#9989;      |
 | **Client Credentials**           | &#9989;          | &#10060;     |
+| **SAML 2.0 Assertion**           | &#9989;          | &#9989;      |
 
 ### What kind of client are you building?
 
@@ -248,7 +251,7 @@ app -> client: Response
 
 For information on how to set up your application to use this flow, see [Implement the Resource Owner Password Flow](/docs/guides/implement-password/).
 
-### Client Credentials Flow
+### Client Credentials flow
 
 The Client Credentials flow is intended for server-side (AKA "confidential") client applications with no end user, which normally describes machine-to-machine communication. The application must be server-side because it must be trusted with the client secret, and since the credentials are hard-coded, it can't be used by an actual end user. It involves a single, authenticated request to the `/token` endpoint, which returns an access token.
 
@@ -272,3 +275,32 @@ app -> client: Response
 -->
 
 For information on how to set up your application to use this flow, see [Implement the Client Credentials Flow](/docs/guides/implement-client-creds/).
+
+### SAML 2.0 Assertion flow
+
+> **Note:** This is an <ApiLifecycle access="ea" /> feature.
+
+The SAML 2.0 Assertion flow is intended for a client app that wants to use an existing trust relationship without a direct user approval step at the authorization server. It enables a client application to obtain an authorization from a valid, signed SAML assertion from the SAML Identity Provider. The client app can then exchange it for an OAuth access token from the OAuth authorization server. For example, this flow is useful when you want to fetch data from APIs that only support delegated permissions without prompting the user for credentials.
+
+To use a SAML 2.0 Assertion as an authorization grant, the client makes a SAML request to the Identity Provider and the Identity Provider sends the SAML 2.0 Assertion back in the response. The client then makes a request for an access token with the `urn:ietf:params:oauth:grant-type:saml2-bearer` grant type and includes the `assertion` parameter. The value of the `assertion` parameter is the SAML 2.0 assertion that is Base64 encoded. You can send only one SAML assertion in that request.
+
+![SAML 2.0 Assertion Flow width:](/img/saml_assert_flow.png "Flowchart that displays the back and forth between the resource owner, identity provider, authorization server, and resource server for the SAML 2.0 Assertion Flow")
+
+<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
+
+skinparam monochrome true
+
+participant "Client" as OClient
+participant "Identity Provider " as idp
+participant "Authorization Server (Okta)" as okta
+participant "Resource Server" as rs
+
+OClient -> idp: Makes SAML request to the IdP
+idp -> OClient: Sends SAML 2.0 Assertion in response
+OClient -> okta: Sends Base64-encoded SAML 2.0 Assertion to /token
+okta -> OClient: Verifies assertion and sends access token (optionally ID token, refresh token)
+OClient -> rs: Makes a resource request with the access token to the resource server
+
+-->
+
+For information on how to set up your application to use this flow, see [Implement the SAML 2.0 Assertion Flow](/docs/guides/implement-saml2/overview).
