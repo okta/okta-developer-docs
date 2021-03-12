@@ -9,14 +9,13 @@ Before you can begin this flow, you must collect the SAML assertion from the Ide
 If you are using the default Custom Authorization Server, then your request would look something like this:
 
 ```bash
-curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/default/v1/token \
-  --header 'accept: application/json' \
-  --header 'authorization: Basic MG9hDc....' \
-  --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer' \
-  --data 'assertion=<Base64-encoded assertion>' \
-  --data 'scope=openid offline_access' \
+curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/x-www-form-urlencoded' \
+--header 'Authorization: Basic MG9hb....' \
+--data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:saml2-bearer' \
+--data-urlencode 'scope=openid offline_access' \
+--data-urlencode 'assertion=<Base64-encoded assertion>'
 ```
 
 > **Note:** The call to your authorization server's `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and secret. You made note of these during <GuideLink link="../setup-app">app setup</GuideLink>. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
