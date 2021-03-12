@@ -24,7 +24,7 @@
   "homepage": "https://github.com/okta/okta-developer-docs",
   "dependencies": {
     "@okta/odyssey": "^0.0.1",
-    "axios": "^0.21.0",
+    "axios": "^0.21.1",
     "cookies.js": "^2.1.15",
     "include-media": "^1.4.9",
     "jwt-decode": "^3.1.2",
