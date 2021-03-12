@@ -4,41 +4,42 @@ meta:
   - name: description
     content: Learn how the Okta API works and learn about the compatibility rules and design principles.
 ---
+## Supported APIs
 
-## Versioning
+The APIs documented on this site are officially supported by Okta, unless they are marked as deprecated. Any endpoints not documented on this site are subject to change at any time and aren't supported. Okta's officially supported (documented) APIs follow the version guidelines discussed in the next section. Don't consume any Okta API unless the API is documented on this site. You should consider all undocumented endpoints private, subject to change without notice, and not covered by any agreements.
 
-The Okta API is a versioned API. Okta reserves the right to add new parameters, properties, or objects to the API without advance notice. These updates are considered non-breaking and the compatibility rules below should be followed to ensure your application does not break. Breaking changes such as removing or renaming a property will be released as a new version of the API. Okta will provide a migration path for new versions of APIs and will communicate timelines for end-of-life when deprecating APIs.
+## Version guidelines
 
-Do not consume any Okta API unless it is documented on this site. All undocumented endpoints should be considered private, subject to change without notice, and not covered by any agreements.
+The Okta API is a versioned API. Okta reserves the right to add new parameters, properties, or objects to the API without advance notice. These updates are considered non-breaking, and you should follow the compatibility rules below to ensure that your application doesn't break. Breaking changes such as removing or renaming a property is released as a new version of the API. Okta provides a migration path for new versions of APIs and communicates timelines for end-of-life when deprecating APIs.
 
 ## Compatibility rules for input parameters
 
 - Requests are compatible irrespective of the order in which the query parameters appear.
 - Requests are compatible irrespective of the order in which the properties of the JSON parameters appear.
 - New query parameters may be added to future versions of requests.
-- Existing query parameters cannot be removed from future versions of requests.
-- Existing properties cannot be removed from the JSON parameters in future versions of requests.
+- Existing query parameters can't be removed from future versions of requests.
+- Existing properties can't be removed from the JSON parameters in future versions of requests.
 
 ## Compatibility rules for JSON responses
 
 - Responses are compatible irrespective of the order in which the properties appear.
 - New properties may be added to future versions of the response.
-- Existing properties cannot be removed from future versions of the response.
+- Existing properties can't be removed from future versions of the response.
 - Properties with null values may be omitted by responses.
 
 ## URL Namespace
 
-All URLs listed in the documentation should be preceded with your organization's subdomain (tenant) `https://{yourOktaDomain}.com/api/{apiversion}` and API version.
+Precede all URLs listed in the documentation with your organization's subdomain (tenant) `https://{yourOktaDomain}.com/api/{apiversion}` and API version.
 
 The `apiversion` is currently v1.
 
-> **Note:** All API requests must use HTTPS scheme
+> **Note:** All API requests must use the HTTPS scheme.
 
 ## Media types
 
 > **Note:** JSON responses, including errors, may contain user input. To help prevent potential cross-site scripting attacks, make sure to properly escape all values before use in a browser or any HTML context.
 
-The API currently only supports JSON as an exchange format. Be sure to set both the `Content-Type` and `Accept` headers for every request as `application/json`.
+The API currently supports only JSON as an exchange format. Be sure to set both the `Content-Type` and `Accept` headers for every request as `application/json`.
 
 All Date objects are returned in [ISO 8601 format](https://tools.ietf.org/html/rfc3339):
 
@@ -46,7 +47,7 @@ All Date objects are returned in [ISO 8601 format](https://tools.ietf.org/html/r
 
 ## Character sets
 
-Okta supports a subset of the `UTF-8` specification. Specifically, any character that can be encoded in three bytes or less is supported. BMP characters and supplementary characters that must be encoded using four bytes are not supported at this time.
+Okta supports a subset of the `UTF-8` specification. Specifically, any character that can be encoded in three bytes or less is supported. BMP characters and supplementary characters that must be encoded using four bytes aren't supported at this time.
 
 ## HTTP verbs
 
@@ -58,22 +59,22 @@ Used for retrieving objects
 
 ### POST
 
-Used for creating objects, or performing custom actions (such as
-user lifecycle operations). For POST requests with no `body` param, be sure to set the `Content-Length` header to zero.
+Used for creating objects or performing custom actions (such as
+user lifecycle operations). For POST requests with no `body` param, set the `Content-Length` header to zero.
 
 ### PUT
 
-Used for replacing objects or collections. For PUT requests with no `body` param, be sure to set the `Content-Length` header to zero.
+Used for replacing objects or collections. For PUT requests with no `body` param, set the `Content-Length` header to zero.
 
 ### DELETE
 
 Used for deleting objects
 
-> **Note:** Any PUT or POST request with no `Content-Length` header nor a body will return a 411 error. To get around this, include a `Content-Length: 0` header.
+> **Note:** Any PUT or POST request with no `Content-Length` header nor a body returns a 411 error. To get around this, include a `Content-Length: 0` header.
 
 ## Client request context
 
-Okta will derive client request context directly from the HTTP request headers and client TCP socket. Request context is used to evaluate policies such as Okta Sign-On Policy and provide client information for [troubleshooting and auditing](/docs/reference/api/events/#client-objecttype) purposes.
+Okta derives client request context directly from the HTTP request headers and client TCP socket. Request context is used to evaluate policies such as Okta Sign-On Policy and provide client information for [troubleshooting and auditing](/docs/reference/api/events/#client-objecttype) purposes.
 
 ## User Agent
 
@@ -109,9 +110,9 @@ Add browser information such as `chrome` or `safari` to the `User-Agent` string.
 
 ## IP address
 
-The public IP address of your application will be automatically used as the client IP address for your request. Okta supports the standard `X-Forwarded-For` HTTP header to forward the originating client's IP address if your application is behind a proxy server or acting as a login portal or gateway.
+The public IP address of your application is automatically used as the client IP address for your request. Okta supports the standard `X-Forwarded-For` HTTP header to forward the originating client's IP address if your application is behind a proxy server or acting as a sign-in portal or gateway.
 
-> **Note:** The public IP address of your trusted web application must be allow listed in your [org's network security settings](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network) as a trusted proxy in order to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+> **Note:** The public IP address of your trusted web application must be part of the allow list in your [org's network security settings](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network) as a trusted proxy to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
 
 ## Accept Language
 
@@ -125,14 +126,14 @@ The `X-Device-Fingerprint` HTTP header supplies the device fingerprint used in a
 
 > **Note:** JSON responses, including errors, may contain user input. To help prevent potential cross-site scripting attacks, make sure to properly escape all values before use in a browser or any HTML context.
 
-All requests on success will return a 200 status if there is content to return or a 204 status if there is no content to return.
+All requests on success return a 200 status if there is content to return or a 204 status if there is no content to return.
 
-All requests that result in an error will return the appropriate 4xx or 5xx error code with a custom JSON error object:
+All requests that result in an error return the appropriate 4xx or 5xx error code with a custom JSON error object:
 
 - `errorCode`: A code that is associated with this error type
 - `errorLink`: A link to documentation with a more detailed explanation of the error (Note: this has yet to be implemented and for the time being is the same value as the `errorCode`)
 - `errorSummary`: A natural language explanation of the error
-- `errorId`: An id that identifies this request. These ids are mapped to the internal error on the server side in order to assist in troubleshooting.
+- `errorId`: An ID that identifies this request. These IDs are mapped to the internal error on the server side to assist in troubleshooting.
 
 ``` json
 {
@@ -160,7 +161,7 @@ The Okta API currently requires the custom HTTP authentication scheme `SSWS` for
 
 > **Note:** See [Obtaining a token](/docs/guides/create-an-api-token/) for instructions on how to get an API key for your organization.
 
-The API key (API token) isn't interchangeable with an Okta [session token](/docs/reference/api/authn/#session-token), access tokens or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/reference/api/oidc/).
+The API key (API token) isn't interchangeable with an Okta [session token](/docs/reference/api/authn/#session-token), access tokens, or ID tokens used with [OAuth 2.0 and OpenID Connect](/docs/reference/api/oidc/).
 
 You can now interact with Okta APIs using scoped OAuth 2.0 access tokens for a number of Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. For more information, see [OAuth 2.0 for Okta APIs](/docs/guides/implement-oauth-for-okta/).
 
@@ -178,7 +179,7 @@ Note that for technical reasons not all APIs respect pagination or the `before` 
 
 ## Link header
 
-Pagination links are included in the [Link header](http://tools.ietf.org/html/rfc5988) of responses. It is important to follow these Link header values instead of constructing your own URLs as query parameters or  cursor formats may change without notice.
+Pagination links are included in the [Link header](http://tools.ietf.org/html/rfc5988) of responses. It is important to follow these Link header values instead of constructing your own URLs as query parameters or cursor formats may change without notice.
 
 ``` http
 HTTP/1.1 200 OK
@@ -188,22 +189,22 @@ Link: <https://${yourOktaDomain}/api/v1/users?after=00ubfjQEMYBLRUWIEDKK>; rel="
 
 The possible `rel` values are:
 
-| Link Relation Type | Description                                              |
+| Link relation type | Description                                              |
 | ------------------ | ------------                                             |
 | `next`             | Specifies the URL of the immediate next page of results |
 | `self`             | Specifies the URL of the current page of results         |
 
-When you first make an API call and get a cursor-paged list of objects, the end of the list will be the point at which you do not receive another `next` link value with the response. This holds true for all but two cases:
+When you first make an API call and get a cursor-paged list of objects, the end of the list is the point at which you don't receive another `next` link value with the response. This holds true for all but two cases:
 
 1. [Events API](/docs/reference/api/events): The `next` link always exists, since the [Events API](/docs/reference/api/events/) is like a stream of data with a cursor.
 
-2. [System Log API](/docs/reference/api/system-log/): The `next` link will always exist in polling queries in the [System Log API](/docs/reference/api/system-log/). A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter. Like in the [Events API](/docs/reference/api/events/), the polling query is a stream of data.
+2. [System Log API](/docs/reference/api/system-log/): The `next` link always exists in polling queries in the [System Log API](/docs/reference/api/system-log/). A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter. Like in the [Events API](/docs/reference/api/events/), the polling query is a stream of data.
 
 ## Filtering
 
 Filtering allows a requestor to specify a subset of objects to return and is often needed for large collection objects such as `Users`. While filtering semantics are standardized in the Okta API, not all objects in the Okta API support filtering. When filtering is supported for an object, the `filter` URL query parameter contains a filter expression.
 
-The expression language that is used in the filter and search parameters supports references to JSON attributes and literals. The literal values can be strings enclosed in double quotes, numbers, date times enclosed in double quotes, and Boolean values; i.e., true or false. String literals must be valid JSON strings.
+The expression language that is used in the filter and search parameters supports references to JSON attributes and literals. The literal values can be strings enclosed in double quotes, numbers, date times enclosed in double quotes, and Boolean values: for example, true or false. String literals must be valid JSON strings.
 
 The attribute names are case-sensitive while attribute operators are case-insensitive. For example, the following two expressions evaluate to the same logical value:
 
@@ -213,7 +214,7 @@ The attribute names are case-sensitive while attribute operators are case-insens
 
 The filter and search parameters must contain at least one valid Boolean expression. Each expression must contain an attribute name followed by an attribute operator and optional value. Multiple expressions may be combined using the two logical operators. Furthermore expressions can be grouped together using `()`.
 
-> **Note:** Each object in the Okta API defines what attributes and operators are supported for expression. Please refer to object-specific documentation for details.
+> **Note:** Each object in the Okta API defines what attributes and operators are supported for expression. Refer to object-specific documentation for details.
 
 ## Operators
 
@@ -231,7 +232,7 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 
 > **Note:** Some objects don't support all the listed operators.
 
-> **Note:** The `ne` (not equal) attribute is not supported, but the same result can be obtained by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
+> **Note:** The `ne` (not equal) attribute isn't supported, but the same result can be obtained by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
 
 > **Note:** All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`
 
