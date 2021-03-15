@@ -43,7 +43,7 @@ Identity engine introduces new concepts and terminology.
 
 * Authenticators
 
-  Authenticators are credentials owned or controlled by an end user which can be verified by an application or service. Passwords, answers to security questions, phones (SMS or voice), and authentication apps like Okta Verify are examples of authenticators.
+  Authenticators are credentials owned or controlled by an end user that can be verified by an application or service. Passwords, answers to security questions, phones (SMS or voice), and authentication apps like Okta Verify are examples of authenticators.
 
 * Factor Types
 
