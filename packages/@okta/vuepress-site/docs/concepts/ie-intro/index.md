@@ -17,7 +17,7 @@ Using the Admin Console, you can direct the user experience based on user type, 
 
 ## Why use Identity engine?
 
-Identity engine has been built around three major tenets:
+Identity engine is built around three major tenets:
 
 * Passwordless authentication
 
