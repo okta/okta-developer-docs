@@ -34,7 +34,7 @@ After the Identity engine feature is enabled for your org, it should become acti
 
 ### Okta-hosted sign-in page (default)
 
-For most authentication flows that involve redirecting to Okta, there should be no other changes needed. Once the feature is enabled, Identity engine will be used automatically, by default.
+For most authentication flows that involve redirecting to Okta, there should be no other changes needed. After the feature is enabled, Identity engine will be used automatically, by default.
 
 ### Customized sign-in page / custom domain
 
