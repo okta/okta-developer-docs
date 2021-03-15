@@ -8,7 +8,7 @@ Role assignment to principals makes them administrators of your org. Principals 
 Roles could be one of the [standard Roles](#standard-role-assignment), which are provided by default. Alternatively, you can create your own Custom Roles by choosing from the collection of available [permissions](#permission-types).
 In this page, we discuss the concepts of Role assignment through APIs. See [Custom Admin Roles Help](#https://help.okta.com/en/programs/Content/Topics/betas/closed/custom-admin-role/custom-admin-roles.htm) for more information.
 
-## Standard role assignment
+## Standard Role assignment
 The following Role types are provided and supported out of the box:
 
 | Role type                               | Label                               | Optional targets                      |
@@ -33,7 +33,7 @@ Note that the entities involved in standard Role assignment are:
 * A principal: Either a Group or a User
 * (Optional) A resource: When using [target operations](/docs/reference/api/roles/#role-target-operations) this could be either an App or a Group
 
-## Custom role assignment
+## Custom Role assignment
 Custom Roles can be built by piecing [Permissions](/docs/reference/api/roles/#permission-types) together. After a Custom Role is built, you can use its `id` or `label` to assign to admins. The process is:
 1. Build a Custom Role.
 2. Build a set of resources.

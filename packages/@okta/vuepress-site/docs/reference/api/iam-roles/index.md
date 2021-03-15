@@ -33,11 +33,11 @@ The following sections are added or update:
 
 Explore the Administrator Roles API:  [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/4f1233beeef282acbcfb)
 
-## Custom role operations
+## Custom Role operations
 <ApiLifecycle access="beta" />
 These operations allow the creation and manipulation of custom Roles as custom collections of [permissions](#permission-types).
 
-### Create role
+### Create Role
 <ApiLifecycle access="beta" />
 <ApiOperation method="post" url="/api/v1/iam/roles" />
 
@@ -90,12 +90,12 @@ curl -v -X POST \
 }
 ```
 
-### Get role
+### Get Role
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
-Get a custom Role by its id or label
+Gets a custom Role by its ID or label
 
 #### Request parameters
 
@@ -137,7 +137,7 @@ curl -v -X GET \
 <ApiLifecycle access="beta" />
 <ApiOperation method="get" url="/api/v1/iam/roles" />
 
-Get a paginated list of custom Roles
+Gets a paginated list of custom Roles
 
 #### Response parameters
 
@@ -182,7 +182,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions" />
 
-Get the list of permissions included in a custom Role identified by its `id` or `label`
+Gets the list of permissions included in a custom Role identified by its `id` or `label`
 
 #### Request parameters
 
@@ -192,7 +192,7 @@ Get the list of permissions included in a custom Role identified by its `id` or 
 
 #### Response parameters
 
-An array of [Permission types](#permission-types) which make the Role identified by `${roleIdOrLabel}` and a link to that Role
+An array of [Permission types](#permission-types), which make the Role identified by `${roleIdOrLabel}` and a link to that Role
 
 #### Request example
 
@@ -227,7 +227,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions/${permissionType}" />
 
-Add a new permission to an existing Role
+Adds a new permission to an existing Role
 
 #### Request parameters
 
@@ -294,12 +294,12 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-### Delete role
+### Delete Role
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="delete" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
-Deletes a Custom Role
+Deletes a custom Role
 
 #### Request parameters
 
@@ -331,9 +331,9 @@ HTTP/1.1 204 No Content
 
 ## Resource set operations
 <ApiLifecycle access="beta" />
-These operations allow the creation and manipulation of Resource Sets as custom collections of resources. Resource Sets are used to assign [custom Roles](#custom-role-operations) to administrators, scoped to the designated resources..
+These operations allow the creation and manipulation of Resource Sets as custom collections of resources. Resource Sets are used to assign [custom Roles](#custom-role-operations) to administrators scoped to the designated resources.
 
-### Create resource set
+### Create Resource Set
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="post" url="/api/v1/iam/resource-sets" />
@@ -344,9 +344,9 @@ Creates a new Resource Set with a custom set of resources
 
 | Parameter   | Description                                                                    | Param Type   | DataType     | Required |
 | :---------- | :----------------------------------------------------------------------------- | :----------- | :----------- | :------- |
-| label       | Unique name given to new Resource Set                                          | Body         | String       | TRUE     |
-| description | description of the new Resource Set                                            | Body         | String       | TRUE     |
-| resources   | the endpoints referencing the resources to be included in the new Resource Set | Body         | Array of URL | FALSE    |
+| label       | Unique name given to the new Resource Set                                      | Body         | String       | TRUE     |
+| description | A description of the new Resource Set                                          | Body         | String       | TRUE     |
+| resources   | The endpoints referencing the resources to be included in the new Resource Set | Body         | Array of URL | FALSE    |
 
 #### Response parameters
 
@@ -392,18 +392,18 @@ curl -v -X POST \
 }
 ```
 
-### Get resource set
+### Get Resource Set
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}" />
 
-Get a Resource Set by its id
+Gets a Resource Set by its ID
 
 #### Request parameters
 
 | Parameter     | Description                          | Param Type   | DataType                    | Required |
 | :------------ | :----------------------------------- | :----------- | :----------------------------------------------- | :------- |
-| resourceSetId | Unique id of the Resource Set        | URL          | String                                           | TRUE     |
+| resourceSetId | Unique ID of the Resource Set        | URL          | String                                           | TRUE     |
 
 #### Response parameters
 
@@ -445,7 +445,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets}" />
 
-Get a paginated list of Resource Sets
+Gets a paginated list of Resource Sets
 
 #### Response parameters
 
