@@ -29,8 +29,8 @@ Creating a third-party risk provider integration follows the general configurati
 ### See also
 
 - [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/overview/)
-- [Risk Provider API](/docs/reference/apis/risk-providers)
-- [Risk Events API](/docs/reference/apis/risk-events)
+- [Risk Provider API](/docs/reference/api/risk-providers/)
+- [Risk Events API](/docs/reference/api/risk-events/)
 - [Risk Scoring and Risk Based Authentication](https://help.okta.com/en/prod/Content/Topics/Security/Security_Risk_Scoring.htm)
 
 <!-- ## Support

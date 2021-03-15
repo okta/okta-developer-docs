@@ -214,6 +214,7 @@ export const guides = [
             title: "Implement the Resource Owner Password Flow",
             guideName: "implement-password"
           },
+          { title: "Implement the SAML 2.0 Assertion Flow", guideName: "implement-saml2"},
           {
             title: "Tokens",
             subLinks: [
@@ -336,7 +337,11 @@ export const guides = [
           {
             title: "Registration Inline Hook",
             guideName: "registration-inline-hook"
-          }
+          },
+          {
+            title: "Token Inline Hook",
+            guideName: "token-inline-hook"
+          },
         ]
       }
     ]

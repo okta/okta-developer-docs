@@ -6,8 +6,7 @@ To get an authorization code, your app redirects the user to your [Authorization
 
 ```
 https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabucvy
-c38HLL1ef0h7&response_type=code&scope=openid&redirect_uri=http%3A%2F%2Flocal
-host%3A8080&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601'
+c38HLL1ef0h7&response_type=code&scope=openid&redirect_uri=&redirect_uri=https%3A%2F%2Fexample.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601'
 ```
 
 Note the parameters that are being passed:
@@ -23,8 +22,7 @@ See [the OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more 
 If the user doesn't have an existing session, making this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, they arrive at the specified `redirect_uri` along with a `code`:
 
 ```
-http://localhost:8080/?code=P5I7mdxxdv13_JfXrCSq&state=state-296bc9a0-a2a2-4a57
--be1a-d0e2fd9bb601
+http://localhost:8080/?code=P5I7mdxxdv13_JfXrCSq&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
 ```
 
 This code remains valid for 60 seconds, during which it can be exchanged for tokens.
