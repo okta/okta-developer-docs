@@ -73,13 +73,13 @@ describe('Sign up page check spec', () => {
     it('sign up with github button click display dialog window for "Terms and Conditions"', util.itHelper(async () => {
       await signUpPage.getGithubSignUpButtonElement().click();
       expect(await signUpPage.isDialogWindowPresent(), 'expects dialog window to be present').to.equal(true);
-      expect(await signUpPage.getDialogWindowHeader().getText(), 'expects dialog header to be "Terms and Conditions"').to.equal('Help us improve your experience');
+      expect(await signUpPage.getDialogWindowHeader().getText(), 'expects dialog header to be "Tell us more about yourself"').to.equal('Tell us more about yourself');
     }));
 
     it('sign up with google button click display dialog window for "Terms and Conditions"', util.itHelper(async () => {
       await signUpPage.getGoogleSignUpButtonElement().click();
       expect(await signUpPage.isDialogWindowPresent(), 'expects dialog window to be present').to.equal(true);
-      expect(await signUpPage.getDialogWindowHeader().getText(), 'expects dialog header to be "Terms and Conditions"').to.equal('Help us improve your experience');
+      expect(await signUpPage.getDialogWindowHeader().getText(), 'expects dialog header to be "Tell us more about yourself"').to.equal('Tell us more about yourself');
     }));
 
     it('sign in link click takes user to login page', util.itHelper(async () => {

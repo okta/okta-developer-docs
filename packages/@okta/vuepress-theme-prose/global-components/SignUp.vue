@@ -220,10 +220,7 @@
             id="continue-github"
             value="CONTINUE WITH GITHUB"
             class="btn social-btn"
-            @click="
-              socialUrl = uris.github;
-              openTermsConditionsDialog();
-            "
+            @click="openTermsConditionsDialog(uris.github)"
           />
         </div>
       </div>
@@ -234,10 +231,7 @@
             id="continue-google"
             class="btn social-btn"
             value="CONTINUE WITH GOOGLE"
-            @click="
-              socialUrl = uris.google;
-              openTermsConditionsDialog();
-            "
+            @click="openTermsConditionsDialog(uris.google)"
           />
         </div>
       </div>
@@ -457,7 +451,8 @@ export default {
     closeTermsConditionsDialog() {
       this.isShowTermsConditionsDialog = false;
     },
-    openTermsConditionsDialog() {
+    openTermsConditionsDialog(url) {
+      this.socialUrl = url;
       this.isShowTermsConditionsDialog = true;
     }
   },

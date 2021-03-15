@@ -1,9 +1,13 @@
 <template>
   <DialogWindow
     @close="closeTermsConditionsDialog()"
-    title="Help us improve your experience"
+    title="Tell us more about yourself"
   >
     <div class="dialog-text">
+      <p>
+        The information you provide will only be used to help us improve your
+        experience. Your personal data is safe and secure with us.
+      </p>
       <label for="tac-country">
         Country
         <select
@@ -13,8 +17,8 @@
           ref="countryEl"
           v-model="selectedCountry"
           @change="
-            states = $event.target.value;
-            refreshFields();
+            region = $event.target.value;
+            resetFields();
           "
         >
           <option disabled selected></option>
@@ -26,15 +30,21 @@
           >
         </select>
       </label>
-      <label for="tac-state" v-show="states.list.length">
-        {{ states.label }}
-        <select name="Satate" id="tac-state" class="tac-row" ref="stateEl" v-model="selectedSatate">
+      <label for="tac-regionData" v-show="region.list.length">
+        {{ region.type }}
+        <select
+          name="Satate"
+          id="tac-regionData"
+          class="tac-row"
+          ref="regionDataEl"
+          v-model="selectedRegion"
+        >
           <option disabled selected></option>
           <option
-            v-for="state in states.list"
-            v-bind:key="state.name"
-            :value="state.value"
-            >{{ state.name }}</option
+            v-for="regionData in region.list"
+            v-bind:key="regionData.name"
+            :value="regionData.value"
+            >{{ regionData.name }}</option
           >
         </select>
       </label>
@@ -75,7 +85,7 @@
             type="button"
             class="btn red-button"
             @click="setTaCUrlAndRedirect()"
-            :class="{'btn-disabled': isDisabledSocialAuth}"
+            :class="{ 'btn-disabled': isDisabledSocialAuth }"
             value="continue"
             :disabled="isDisabledSocialAuth"
           />
@@ -119,8 +129,8 @@ export default {
   data() {
     return {
       selectedCountry: "",
-      selectedSatate: "",
-      state: { label: "", list: [] }
+      selectedRegion: "",
+      regionData: { type: "", list: [] }
     };
   },
   computed: {
@@ -128,28 +138,28 @@ export default {
       // If country not selected, disable "continue" button.
       if (!this.selectedCountry) {
         return true;
-      };
+      }
       // If country Canada or USA but satate not selected, disable "continue" button.
       if (this.selectedCountry === USA || this.selectedCountry === CANADA) {
-        if (!this.selectedSatate) {
+        if (!this.selectedRegion) {
           return true;
         }
       }
     },
-    states: {
+    region: {
       get() {
-        return this.state;
+        return this.regionData;
       },
       set(country) {
         if (country === USA) {
-          this.state.list = americanStates;
-          this.state.label = "State";
+          this.regionData.list = americanStates;
+          this.regionData.type = "State";
         } else if (country === CANADA) {
-          this.state.list = canadaProvinces;
-          this.state.label = "Province";
+          this.regionData.list = canadaProvinces;
+          this.regionData.type = "Province";
         } else {
-          this.state.list = [];
-          this.state.label = "";
+          this.regionData.list = [];
+          this.regionData.type = "";
         }
       }
     },
@@ -164,26 +174,46 @@ export default {
   },
   methods: {
     setTaCUrlAndRedirect() {
-      const dataStamp = Date.now();
       const acceptContactValue = this.$refs.gdprBoxEl.checked;
-      const country = encodeURI(this.selectedCountry);
-      const state = encodeURI(this.selectedSatate);
-      const oktaTaCUrl = `${this.socialUrl}?okta_AcceptedToS=${acceptContactValue}&signUpCountry=${country}&signUpState=${state}&okta_ts_AcceptedToS=${dataStamp}`;
+      const countryName = this.selectedCountry;
+      const regionType = this.region.type.toLowerCase();
+      const regionName = this.selectedRegion;
+      const dataStamp = Date.now();
+      let redirectUrlParameters = [];
 
-      window.location.href = oktaTaCUrl;
+      redirectUrlParameters = [
+        { name: "okta_AcceptedToS", value: acceptContactValue },
+        { name: "okta_ts_AcceptedToS", value: dataStamp },
+        { name: "country", value: encodeURI(countryName) },
+        { name: regionType, value: encodeURI(regionName) },
+      ];
+
+      window.location.href = this._getSocialRedirectUrl(redirectUrlParameters);
     },
     closeTermsConditionsDialog() {
       this.$emit("close");
     },
-    refreshFields() {
+    resetFields() {
       if (this.$refs.gdprBoxEl) {
         this.$refs.gdprBoxEl.checked = false;
       }
 
-      if (this.$refs.stateEl) {
-        this.selectedSatate = "";
-        this.$refs.stateEl.value = "";
+      if (this.$refs.regionDataEl) {
+        this.selectedRegion = "";
+        this.$refs.regionDataEl.value = "";
       }
+    },
+    _getSocialRedirectUrl(parameters = []) {
+      let separator;
+      let redirectUrl = `${this.socialUrl}`;
+
+      parameters.forEach((parameter, index) => {
+        if (parameter.name) {
+          separator = index === 0 ? "?" : "&";
+          redirectUrl += `${separator}${parameter.name}=${parameter.value}`;
+        }
+      });
+      return redirectUrl;
     }
   }
 };
@@ -191,6 +221,10 @@ export default {
 
 <style lang="scss">
 .dialog-text {
+  font-size: 14px;
+  label {
+    font-size: 16px;
+  }
   .marketing-c {
     display: flex;
     flex-direction: column;
