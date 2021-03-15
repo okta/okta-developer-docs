@@ -29,7 +29,7 @@ Identity engine is built around three major tenets:
 
 * App-level policies
 
-  App sign-on policies define the full requirements for an app. Admins can configure Okta Sign-on policies to use App-level policies instead &mdash; making it easier to manage your apps. For more information, see [App sign-on policies](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/about-app-sign-on-policies.htm).
+  App sign-on policies define the full requirements for an app. Admins can configure Okta Sign-On Policies to use App-level policies instead &mdash; making it easier to manage your apps. See [App sign-on policies](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/about-app-sign-on-policies.htm).
 
 ## New concepts and terminology
 
