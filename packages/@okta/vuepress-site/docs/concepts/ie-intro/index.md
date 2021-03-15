@@ -25,7 +25,7 @@ Identity engine is built around three major tenets:
 
 * Progressive Profiling
 
-  Update an existing user's profile by prompting them for additional sign-in information when they advance to designated points. For more information, see [Create a Profile Enrollment policy for progressive profiling](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-pp.htm).
+  Update an existing user's profile by prompting them for additional sign-in information when they advance to designated points. See [Create a Profile Enrollment policy for progressive profiling](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-pp.htm).
 
 * App-level policies
 
