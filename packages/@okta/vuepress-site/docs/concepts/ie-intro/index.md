@@ -65,6 +65,6 @@ Identity engine introduces new concepts and terminology.
 
 To upgrade to Identity engine, reach out to your account manager. If you don't have an account manager, reach out to oie@okta.com for more information.
 
-* The v1 API will continue to work as before until you're ready to use new Identity engine functionality.
+* The v1 API continues to work as before until you're ready to use new Identity engine functionality.
 * The existing Okta-hosted widget will continue to work after upgrading your org.
 * Upgrade your SDK as you would normally do with other SDK updates.
