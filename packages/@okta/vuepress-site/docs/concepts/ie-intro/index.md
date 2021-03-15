@@ -51,7 +51,7 @@ Identity engine introduces new concepts and terminology.
 
   * Factors are different categories that define how authentication takes place and the means in which they are controlled by end users.
   * Authenticators are used to verify one or more multiple factors such as Knowledge (for example, passwords and security questions), Possession (for example, Email, SMS, Okta Verify, and hardware tokens), and Inherence/Biometrics (for example, fingerprints and facial recognition).
-  * A sign-on policy with two-factor authentication requires two distinct factors. Two authenticators of the same factor (Knowledge, Possession, or Inherence) will not be accepted.
+  * A sign-on policy with two-factor authentication requires two distinct factors. Two authenticators of the same factor (Knowledge, Possession, or Inherence) isn't accepted.
 
 * Okta sign-on policies
 
