@@ -1,13 +1,16 @@
 .dialog-container {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
+  background-color: rgba(29, 29, 33, 0.75);
   color: #fff;
 }
 
 .dialog {
   max-width: 645px;
+  height: auto;
+  overflow-y: auto;
   position: absolute;
   margin: auto;
   top: 197px;
@@ -42,5 +45,8 @@
   }
   @include media("<tablet") {
       top: 0;
+  }
+  @include media("<bootstrap-sm") {
+    height: 100%;
   }
 }
