@@ -17,7 +17,7 @@ Using the Admin Console, you can direct the user experience based on user type, 
 
 ## Why use Identity engine?
 
-Identity engine is built around three major tenets:
+Identity engine provides:
 
 * Passwordless authentication
 
@@ -30,6 +30,10 @@ Identity engine is built around three major tenets:
 * App-level policies
 
   App sign-on policies define the full requirements for an app. Admins can configure Okta Sign-On Policies to use App-level policies instead &mdash; making it easier to manage your apps. See [App sign-on policies](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/about-app-sign-on-policies.htm).
+
+* MFA enrollment policies
+
+  With MFA enrollment policies, you can create and enforce policies and rules for specific MFA factors and assign groups accordingly. Sign-on policies determine the types of authentication challenges end users experience when they sign into their account. MFA enrollment policies are based on a variety of factors, such as location, group definitions, and authentication type. See [Create an MFA enrollment policy]([ddd](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-mfa-policy.htm)).
 
 ## New concepts and terminology
 
