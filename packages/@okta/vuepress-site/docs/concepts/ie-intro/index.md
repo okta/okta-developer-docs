@@ -23,7 +23,7 @@ Identity engine is built around three major tenets:
 
   Admins can enable the email authenticator now with the addition of a magic link in the email notification sent to end users. When policies are configured to include non-password authenticators, end users may sign in to their account using factors that don't require the use of a password. See [Configure passwordless authentication with email magic link](https://help.okta.com/en/oie/Content/Topics/identity-engine/procedures/configure-passwordless-auth.htm).
 
-* Progressive Profiling
+* Progressive profiling
 
   Update an existing user's profile by prompting them for additional sign-in information when they advance to designated points. See [Create a Profile Enrollment policy for progressive profiling](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-pp.htm).
 
