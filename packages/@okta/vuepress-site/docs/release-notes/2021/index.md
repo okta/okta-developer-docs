@@ -4,6 +4,16 @@ title: Okta API Products Release Notes
 
 ## March
 
+### Weekly Release 2021.03.2
+
+| Change                                                    | Expected in Preview Orgs |
+| --------------------------------------------------------- | ------------------------ |
+| [Bug fixed in 2021.03.2](#bug-fixed-in-2021-03-2)       | March 17, 2021           |
+
+#### Bug fixed in 2021.03.2
+
+* After updating a group name using the [Groups API](/docs/reference/api/groups/#update-group), the change wasn't reflected in the target application with [**Group Push**](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Using_Group_Push) enabled. (OKTA-375190)
+
 ### Weekly Release 2021.03.1
 
 | Change                                                    | Expected in Preview Orgs |
@@ -104,7 +114,7 @@ When performing a GET on the [`/oauth2/v1/clients` endpoint](/docs/reference/api
 
 * Active Directory (AD) bulk imports and RealTimeSync (RTS) failed when the Microsoft AD user profile contained `tokenGroups`, `tokenGroupsGlobalAndUniversal`, or `tokenGroupsNoGCAcceptable` attributes. (OKTA-354900)
 
-* In the SmartSheet provisioning profile, admins were unable to change the **Group Priority** setting to **Combine values across groups** for the `smartsheet.userPermissions` variable. The error message “Not allowed to modify property userPermissions from the base schema” was returned. (OKTA-325187)
+* In the SmartSheet provisioning profile, admins were unable to change the **Group Priority** setting to **Combine values across groups** for the `smartsheet.userPermissions` variable. The error message "Not allowed to modify property userPermissions from the base schema" was returned. (OKTA-325187)
 
 
 ### Monthly Release 2021.01.0
