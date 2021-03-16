@@ -14,7 +14,7 @@ This document contains the operations supported for [managing administrators usi
 
 Role listing APIs provide a union of both standard and custom Roles assigned to a User or Group. We are, therefore, providing both groups of APIs and their intersections in this single doc, which will eventually replace the contents of the existing docs.
 
-The following sections are added or update:
+The following sections are added or updated:
 * [Custom Role operations](#custom-role-operations)
 * [Resource Set operations](#resource-set-operations)
 * [Custom Role assignment operations](#custom-role-assignment-operations)
@@ -45,11 +45,11 @@ Creates a new Role with a custom set of permissions
 
 #### Request parameters
 
-| Parameter   | Description                          | Param Type   | DataType                    | Required |
-| :---------- | :----------------------------------- | :----------- | :----------------------------------------------- | :------- |
-| label       | name given to new Role               | Body         | String                                           | TRUE     |
-| description | description of the new Role          | Body         | String                                           | TRUE     |
-| permissions | the permissions the new Role grants  | Body         | Array of [Permission types](#permission-types)   | TRUE     |
+| Parameter   | Description                               | Param Type   | DataType                    | Required |
+| :---------- | :---------------------------------------- | :----------- | :----------------------------------------------- | :------- |
+| label       | The name given to new Role                | Body         | String                                           | TRUE     |
+| description | A description of the new Role             | Body         | String                                           | TRUE     |
+| permissions | The permissions that the new Role grants  | Body         | Array of [Permission types](#permission-types)   | TRUE     |
 
 #### Response parameters
 

@@ -75,7 +75,7 @@ To specify a resource targeted by a Resource Set, you can simply use the REST UR
 
 > **Note:** All Users and Groups can be represented using either [All Users](/docs/reference/api/users/#list-users) or [All Groups](/docs/reference/api/groups/#list-groups) links. There is no functional difference between the two.
 
-> **Note:** If you use a Role with permissions that don't apply to the resources in the Resource Set, the admin Role will have no effect. For example, the `okta.users.profile.manage` permission gives the admin no privileges if it is granted to a Resource Set that only included `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the Users within the group the Resource Set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
+> **Note:** If you use a Role with permissions that don't apply to the resources in the Resource Set, the admin Role will have no effect. For example, the `okta.users.profile.manage` permission gives the admin no privileges if it is granted to a Resource Set that only includes `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the Users within the group, the Resource Set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
 
 #### Binding member identifiers
 To specify Binding Members, use the REST URL of the corresponding Okta API:
@@ -88,7 +88,7 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
   https://${yourOktaDomain}/api/v1/groups/${memberGroupId}
   ```
 
-## Custom vs. Standard
+## Custom vs. standard
 1. An admin can have both standard Role assignments and Custom Role Bindings. Note that privileges granted to an admin are an aggregate of:
     * Standard Roles directly assigned
     * Standard Roles granted through group membership
