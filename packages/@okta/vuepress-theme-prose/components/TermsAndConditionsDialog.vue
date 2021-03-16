@@ -33,7 +33,7 @@
       <label for="tac-regionData" v-show="region.list.length">
         {{ region.type }}
         <select
-          name="Satate"
+          name="Region"
           id="tac-regionData"
           class="tac-row"
           ref="regionDataEl"
@@ -84,7 +84,7 @@
           <input
             type="button"
             class="btn red-button"
-            @click="setTaCUrlAndRedirect()"
+            @click="!isDisabledSocialAuth && setTaCUrlAndRedirect()"
             :class="{ 'btn-disabled': isDisabledSocialAuth }"
             value="continue"
             :disabled="isDisabledSocialAuth"
@@ -139,7 +139,7 @@ export default {
       if (!this.selectedCountry) {
         return true;
       }
-      // If country Canada or USA but satate not selected, disable "continue" button.
+      // If country Canada or USA but region not selected, disable "continue" button.
       if (this.selectedCountry === USA || this.selectedCountry === CANADA) {
         if (!this.selectedRegion) {
           return true;
