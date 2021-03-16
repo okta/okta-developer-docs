@@ -123,7 +123,7 @@ The following sub-objects are included:
  - `data.context.session`: Details of the user session.
  - `data.context.user`: Identifies the Okta user that the assertion was generated to authenticate, and provides details of their Okta user profile.
 
- ## Sample listing of JSON payload of request
+## Sample listing of JSON payload of request
 
 ```json
 {
@@ -451,9 +451,9 @@ You then need to associate the registered Inline Hook with a SAML app by complet
 
 1. In the SAML Settings section, click **Edit**.
 
-1. Click **Show Advanced Settings**.
+1. Click **Next** to get to **SAML Settings** section.
 
-1. Click **Next** to get to the **Configure SAML** section.
+1. Click **Show Advanced Settings**.
 
 1. In the **Assertion Inline Hook** field, select your registered Inline Hook.
 
