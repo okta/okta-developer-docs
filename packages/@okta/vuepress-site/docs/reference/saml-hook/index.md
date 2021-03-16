@@ -39,7 +39,7 @@ Because SAML is XML-based, but the call from Okta to your service uses a JSON pa
 
 Provides a JSON representation of the `<saml:Subject>` element of the SAML assertion. The following is an example of how the SAML XML is represented in JSON:
 
-```json
+```JSON
 {
    "subject":{
       "nameId":"administrator1@example.net",
@@ -84,7 +84,7 @@ Provides a JSON representation of the `<saml:AttributeStatement>` element contai
 
 The following is an example of how an XML `<saml:AttributeStatement>` element is represented in JSON in this object:
 
-```json
+```JSON
 {
   "claims": {
     "extPatientId": {
@@ -127,7 +127,7 @@ The following sub-objects are included:
 
 ## Sample listing of JSON payload of request
 
-```json
+```JSON
 {
   "source": "https://${yourOktaDomain}/app/saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml",
   "eventId": "XMFoHCM1S4Wi_SGWzL8T9A",
@@ -343,7 +343,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
 
 ## Sample listing of JSON payload of response
 
-```json
+```JSON
 {
    "commands": [
     {
@@ -398,7 +398,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
 
 This example displays `replace` and `add` operations with the URI formatted claim encoded.
 
-```json
+```JSON
 {
   "commands": [
     {
