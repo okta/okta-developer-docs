@@ -66,6 +66,7 @@ Provides a JSON representation of the `<saml:AuthnStatement>` element of the SAM
         }
       },
 ```
+
 ### data.assertion.conditions
 
 Provides a JSON representation of the `<saml:Conditions>` element of the SAML assertion.
@@ -76,6 +77,7 @@ Provides a JSON representation of the `<saml:Conditions>` element of the SAML as
           "urn:example:sp"
         ]
 ```
+
 ### data.assertion.claims
 
 Provides a JSON representation of the `<saml:AttributeStatement>` element contained in the generated SAML assertion, which will contain any optional SAML attribute statements that you have defined for the app using the Okta Admin Console's **SAML Settings**.
@@ -118,10 +120,10 @@ This object contains a number of sub-objects, each of which provides some type o
 
 The following sub-objects are included:
 
- - `data.context.request`: Details of the SAML request that triggered the generation of the SAML assertion.
- - `data.context.protocol`: Details of the assertion protocol being used.
- - `data.context.session`: Details of the user session.
- - `data.context.user`: Identifies the Okta user that the assertion was generated to authenticate, and provides details of their Okta user profile.
+- `data.context.request`: Details of the SAML request that triggered the generation of the SAML assertion.
+- `data.context.protocol`: Details of the assertion protocol being used.
+- `data.context.session`: Details of the user session.
+- `data.context.user`: Identifies the Okta user that the assertion was generated to authenticate, and provides details of their Okta user profile.
 
 ## Sample listing of JSON payload of request
 
