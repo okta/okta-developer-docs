@@ -33,7 +33,7 @@ Identity engine provides:
 
 * MFA enrollment policies
 
-  With MFA enrollment policies, you can create and enforce policies and rules for specific MFA factors and assign groups accordingly. Sign-on policies determine the types of authentication challenges end users experience when they sign in to their account. MFA enrollment policies are based on a variety of factors, such as location, group definitions, and authentication type. See [Create an MFA enrollment policy]([ddd](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-mfa-policy.htm)).
+  With MFA enrollment policies, you can create and enforce policies and rules for specific MFA factors and assign groups accordingly. Sign-on policies determine the types of authentication challenges end users experience when they sign in to their account. MFA enrollment policies are based on a variety of factors, such as location, group definitions, and authentication type. See [Create an MFA enrollment policy](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-mfa-policy.htm).
 
 ## New concepts and terminology
 
