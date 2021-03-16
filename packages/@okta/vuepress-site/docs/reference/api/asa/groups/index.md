@@ -13,7 +13,7 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 An Advanced Server Access (ASA) Group is a collection of ASA Users that share permissions and access.
 
-Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
+Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
 
 ## Groups API operations
 

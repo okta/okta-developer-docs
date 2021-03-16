@@ -9,7 +9,7 @@ The Okta Application API provides operations to manage applications and/or assig
 
 ## Get started
 
-Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/377eaf77fdbeaedced17)
+Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/be7367401f4926a945f8))
 
 ## Application operations
 
@@ -5705,7 +5705,7 @@ curl -v -X PUT \
 The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated Login flows that an OAuth Client supports.
 
 | Property      | Description                                           | DataType                   | Nullable |
-| ------------- | ----------------------------------------------------- | -------------------------- | -------- | 
+| ------------- | ----------------------------------------------------- | -------------------------- | -------- |
 | mode          | What mode to use for Idp-Initiated Login              | `DISABLED`, `SPEC`, `OKTA` | FALSE    |
 | default_scope | What scopes to use for the request when mode = `OKTA` | List of String             | TRUE     |
 
@@ -5825,7 +5825,7 @@ curl -v -X POST \
                 "https://example.com/oauth2/callback",
                 "myapp://callback"
             ],
-            "wildcard_redirect": "DISABLED",	    
+            "wildcard_redirect": "DISABLED",
             "post_logout_redirect_uris": [
                 "https://example.com/oauth2/postLogoutRedirectUri"
             ],
@@ -6553,10 +6553,10 @@ Specifies (optional) attribute statements for a SAML application
 
 Specifies the Single Logout (SLO) behavior for a Custom SAML application
 
-| Property  | Description                                                                  | Datatype | Nullable | 
-| --------- | ---------------------------------------------------------------------------- | -------- | -------- | 
-| enabled   | Whether the application supports SLO                                         | Boolean  | FALSE    | 
-| issuer    | The issuer of the Service Provider that generates the Single Logout request  | String   | TRUE     | 
+| Property  | Description                                                                  | Datatype | Nullable |
+| --------- | ---------------------------------------------------------------------------- | -------- | -------- |
+| enabled   | Whether the application supports SLO                                         | Boolean  | FALSE    |
+| issuer    | The issuer of the Service Provider that generates the Single Logout request  | String   | TRUE     |
 | logoutUrl | The location where the logout response is sent                               | String   | TRUE     |
 
 ```json
