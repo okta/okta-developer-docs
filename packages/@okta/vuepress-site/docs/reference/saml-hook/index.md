@@ -64,7 +64,7 @@ Provides a JSON representation of the `<saml:AuthnStatement>` element of the SAM
         "authnContext": {
           "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
         }
-      },
+}
 ```
 
 ### data.assertion.conditions
@@ -76,6 +76,7 @@ Provides a JSON representation of the `<saml:Conditions>` element of the SAML as
         "audienceRestriction": [
           "urn:example:sp"
         ]
+}
 ```
 
 ### data.assertion.claims
@@ -111,7 +112,7 @@ Specifies the expiration time, in seconds, of the SAML assertion.
 ```JSON
 "lifetime": {
     "expiration": 300
- }
+}
 ```
 
 ### data.context
