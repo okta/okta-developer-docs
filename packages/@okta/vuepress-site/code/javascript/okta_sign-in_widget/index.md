@@ -53,7 +53,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
 
-> If you are using the Widget to sign users in to your own application, then you can skip this step. When you create an Application in Okta, you will need to specify a `redirectURI`, and the Okta Developer Console will automatically add it as a CORS URL.
+> If you are using the Widget to sign users in to your own application, then you can skip this step. When you create an Application in Okta, you need to specify a `redirectURI`, and the Okta Admin Console automatically adds it as a CORS URL.
 
 ## Usage
 
@@ -67,7 +67,7 @@ The code that initializes the Widget looks like this:
 <div id="widget-container"></div>
 
 <script>
-  var signIn = new OktaSignIn({baseUrl: 'https://${yourOktaDomain}'});
+  const signIn = new OktaSignIn({baseUrl: 'https://${yourOktaDomain}'});
   signIn.renderEl({
     el: '#widget-container'
   }, function success(res) {
@@ -110,7 +110,7 @@ Sign in to your Okta developer dashboard and navigate to **Applications** > **Ad
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>Simple Web Page</title>
     <style>
       h1 {
@@ -132,7 +132,7 @@ Sign in to your Okta developer dashboard and navigate to **Applications** > **Ad
       <button id="logout" class="button" onclick="logout()" style="display: none">Logout</button>
     </div>
     <script type="text/javascript">
-      var oktaSignIn = new OktaSignIn({
+      const oktaSignIn = new OktaSignIn({
         baseUrl: "https://${yourOktaDomain}",
         clientId: "${yourClientId}",
         authParams: {
@@ -147,10 +147,10 @@ Sign in to your Okta developer dashboard and navigate to **Applications** > **Ad
         oktaSignIn.showSignInToGetTokens({
           el: '#okta-login-container'
         }).then(function(tokens) {
-          oktaSignIn.authClient.setTokens(tokens);
+          oktaSignIn.authClient.tokenManager.setTokens(tokens);
           oktaSignIn.remove();
 
-          var idToken = tokens.idToken;
+          const idToken = tokens.idToken;
           document.getElementById("messageBox").innerHTML = "Hello, " + idToken.claims.email + "! You just logged in! :)";
           document.getElementById("logout").style.display = 'block';
 
@@ -212,7 +212,7 @@ If you'd like to use the Widget to sign in to your own application instead of Ok
 
 ```javascript
 
-var signIn = new OktaSignIn({
+const signIn = new OktaSignIn({
   baseUrl: 'https://${yourOktaDomain}',
   el: '#widget-container',
   clientId: '${clientId}',
@@ -235,7 +235,7 @@ signIn.showSignInAndRedirect();
 
 ```javascript
 
-var signIn = new OktaSignIn({
+const signIn = new OktaSignIn({
   baseUrl: 'https://${yourOktaDomain}',
   el: '#widget-container',
   clientId: '${clientId}',
@@ -257,7 +257,7 @@ Here is an example of some front-end code that could use this token:
 
 ```javascript
 function callMessagesApi() {
-  var accessToken = signIn.authClient.getAccessToken();
+  const accessToken = signIn.authClient.getAccessToken();
 
   if (!accessToken) {
     // This means that the user is not logged in
@@ -298,7 +298,7 @@ Here is an example of an error handler that adds an error message to the top of 
 
 ```javascript
 function error(err) {
-  var errorEl = document.createElement('div');
+  const errorEl = document.createElement('div');
   errorEl.textContent = 'Error! ' + err.message;
   document.body.insertBefore(
     errorEl,

@@ -244,7 +244,7 @@ curl -v -X POST \
 ```json
 {
   "id": "00ub0oNGTSWTBKOLGLNR",
-  "status": "STAGED",
+  "status": "ACTIVE",
   "created": "2013-07-02T21:36:25.344Z",
   "activated": null,
   "statusChanged": null,
@@ -927,7 +927,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users/isaac.brock@example.com"
+"https://${yourOktaDomain}/api/v1/users/isaac.brock%40example.com"
 ```
 
 ##### Response Example
@@ -2141,7 +2141,7 @@ For example, you can't unlock a user that is `ACTIVE`.
 
 Activates a user
 
-This operation can only be performed on users with a `STAGED` status.  Activation of a user is an asynchronous operation.
+This operation can only be performed on users with a `STAGED` or `DEPROVISIONED` status.  Activation of a user is an asynchronous operation.
 
 * The user's `transitioningToStatus` property has a value of `ACTIVE` during activation to indicate that the user hasn't completed the asynchronous operation.
 * The user's status is `ACTIVE` when the activation process is complete.

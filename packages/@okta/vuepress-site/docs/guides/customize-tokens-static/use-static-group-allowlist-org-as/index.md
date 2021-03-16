@@ -4,8 +4,6 @@ title: Use a static group allow list with the Org Authorization Server
 
 For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. For the steps to configure a Groups claim for use with an access token, see the <GuideLink link="../use-static-group-allowlist-custom-as">Use a static group allow list with a Custom Authorization Server</GuideLink> section.
 
-<RequireClassicUI/>
-
 1. In the Admin Console, from the **Applications** menu, select **Applications**, and then select the OpenID Connect client application that you want to configure.
 2. Navigate to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
 3. In the **Groups claim type** section, select **Expression**.
@@ -28,6 +26,16 @@ curl -X GET \
 &redirect_uri=https%3A%2F%2Fexample.com
 &state=myState
 &nonce=yourNonceValue"
+```
+
+```bash
+curl --location --request GET 'https://${yourOktaDomain}/oauth2/v1/authorize?client_id=0oaiw2v8m6unWCvXM0h7
+&response_type=id_token
+&scope=openid%20groups
+&redirect_uri=https%3A%2F%2Fexample.com
+&state=myState
+&nonce=yourNonceValue' \
+--header 'Accept: application/json'
 ```
 
 The decoded JWT looks something like this:

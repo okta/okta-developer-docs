@@ -28,6 +28,7 @@ guides:
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
  - implement-password
+ - implement-saml2
  - mfa
  - migrate-to-okta
  - oin-oidc-guide
@@ -55,6 +56,8 @@ guides:
  - sign-users-out
  - sign-your-own-saml-csr
  - style-the-widget
+ - token-inline-hook
+ - third-party-risk-integration
  - unlock-mobile-app-with-biometrics
  - updating-saml-cert
  - validate-access-tokens

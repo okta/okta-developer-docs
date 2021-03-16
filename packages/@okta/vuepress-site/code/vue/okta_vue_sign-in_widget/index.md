@@ -15,6 +15,9 @@ This guide will walk you through integrating authentication into a Vue app with 
 6. [Connect the Routes](#connect-the-routes)
 7. [Start Your App](#start-your-app)
 
+
+> This guide is for `@okta/okta-signin-widget` v5.2.0, `@okta/okta-vue` v3.0.0 and `okta-auth-js` v4.5.0.
+
 ## Prerequisites
 
 If you do not already have a **Developer Edition Account**, you can create one at <https://developer.okta.com/signup/>.
@@ -30,6 +33,8 @@ If you do not already have a **Developer Edition Account**, you can create one a
 | Login redirect URIs  | `http://localhost:8080/login/callback`              |
 | Logout redirect URIs | `http://localhost:8080`                             |
 | Allowed grant types  | Authorization Code                                  |
+
+> **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
 
@@ -94,17 +99,8 @@ export default {
           scopes: ['openid', 'profile', 'email']
         }
       })
-      this.widget.renderEl(
-        { el: '#okta-signin-container' },
-        () => {
-          /**
-           * In this flow, the success handler will not be called because
-           * there's a redirect to the Okta org for the authentication workflow.
-           */
-        },
-        (err) => {
-          throw err
-        }
+      this.widget.showSignInAndRedirect(
+        { el: '#okta-signin-container' }
       )
     })
   },
@@ -160,7 +156,10 @@ export default {
   data: function () {
     return { authenticated: false }
   },
-  created () { this.isAuthenticated() },
+  created () {
+    this.isAuthenticated()
+    this.$auth.authStateManager.subscribe(this.isAuthenticated)
+  },
   watch: {
     // Everytime the route changes, check for auth status
     '$route': 'isAuthenticated'
@@ -170,7 +169,7 @@ export default {
       this.authenticated = await this.$auth.isAuthenticated()
     },
     async logout () {
-      await this.$auth.logout()
+      await this.$auth.signOut()
       await this.isAuthenticated()
     }
   }
@@ -216,7 +215,8 @@ export default {
   created () { this.setup() },
   methods: {
     async setup () {
-      this.claims = await this.$auth.getUser()
+      if (this.$parent.authenticated)
+        this.claims = await this.$auth.getUser()
     }
   }
 }
@@ -286,17 +286,20 @@ This example is using Vue Router. Replace the code in `src/router/index.js` with
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Auth from '@okta/okta-vue'
+import { OktaAuth } from '@okta/okta-auth-js'
 import HomeComponent from '@/components/Home'
 import LoginComponent from '@/components/Login'
 import ProfileComponent from '@/components/Profile'
 
 Vue.use(VueRouter)
-Vue.use(Auth, {
+
+const oktaAuth = new OktaAuth({
   issuer: 'https://{yourOktaDomain}/oauth2/default',
   clientId: '{clientId}',
   redirectUri: window.location.origin + '/login/callback',
   scopes: ['openid', 'profile', 'email']
 })
+Vue.use(Auth, { oktaAuth })
 
 const router = new VueRouter({
   mode: 'history',

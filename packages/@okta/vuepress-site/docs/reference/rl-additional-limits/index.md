@@ -1,8 +1,7 @@
 ---
 title: Additional rate limits
 excerpt: >-
-  Understand what other rate limit options there are at Okta and learn how to design for efficient use of
-  resources
+  Understand what other rate limit options there are at Okta and learn how to design for efficient use of resources
 ---
 
 # Additional rate limits
@@ -12,9 +11,10 @@ This page provides Okta's additional limits on:
 * [Concurrent requests](#concurrent-rate-limits)
 * [End-user rate limit](#end-user-rate-limits)
 * [Home page endpoints](#home-page-endpoints-and-per-minute-limits)
-* [Per-user limits](#per-user-limits)
 * [Okta-generated email messages](#okta-generated-email-message-rate-limits)
-
+* [Per-user limits](#per-user-limits)
+* [SMS and Call rate limits](#sms-and-call-rate-limits)
+* [Workforce license rate limit multiplier](#workforce-license-rate-limit-multiplier)
 
 These limits are part of the Okta [Rate limit](/docs/reference/rate-limits) policy.
 
@@ -57,7 +57,7 @@ If a user exceeds this limit, they receive an HTTP 429 error response without af
 
 The following endpoints are used by the Okta home page for authentication and user sign in and have org-wide rate limits:
 
-| Okta Home Page Endpoints                                                | Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce Identity |
+| Okta home page endpoints                                                | Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce Identity |
 | ----------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ------------------:|
 | `/app/{app}/{key}/sso/saml`                                             | 100               | 300               | *300     | *600        | 750                |
 | `/app/office365/{key}/sso/wsfed/active`                                 | N/A               | N/A               | N/A      | 2000        | 1000               |
@@ -75,15 +75,65 @@ These rate limits apply to all new Okta organizations. For orgs created before 2
 
 The limits for these endpoints can be increased by purchasing the [High-capacity add-on](/docs/reference/rl-previous/#high-capacity-rate-limits).
 
+### Okta-generated email message rate limits
+
+Limits are applied on a per-recipient basis and vary by email type. The limit for some email types is no more than 30 emails per-recipient, per-minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
+
 ### Per-user limits
 
 API endpoints that take username and password credentials, including the [Authentication API](/docs/reference/api/authn/) and the [OAuth 2.0 resource owner password flow](/docs/guides/implement-password/), have a per-username rate limit to prevent brute force attacks with the user's password:
 
-| Action and Okta API Endpoint                                      | Per User Limits (All Orgs) |
+| Action and Okta API endpoint                                      | Per User limits (all orgs) |
 | ----------------------------------------------------------------- | -------------------------: |
 | **Authenticate the same user:**<br>`/api/v1/authn`                | 4 per second               |
 | **Generate or refresh an OAuth 2.0 token:**<br>`/oauth2/v1/token` | 4 per second               |
 
-### Okta-generated email message rate limits
+### SMS and Call rate limits
 
-Limits are applied on a per-recipient basis and vary by email type. The limit for some email types is no more than 30 emails per-recipient, per-minute, while other email types are configured with higher limits. These limits protect your org against denial-of-service attacks and help ensure that adequate resources are available for all customers.
+* **Per user/per phone number rate limit:** The 30 second verification rate limit applies to a user's attempt to send an SMS or Call enrollment or verification message to the same phone number. The rate limit is one SMS or Call challenge per phone number every 30 seconds.
+
+> **Note:** Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
+
+* **Enrollment rate limit:** This rate limit applies to a user's attempt to enroll an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies to only the enrollment operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples) for examples of System Log rate limit events where too many enrollment attempts for the SMS or Call factors were made.
+
+  **Endpoints**
+  * `/api/v1/authn/factors`
+  * `/api/v1/users/{userId}/factors`
+
+### Workforce license rate limit multiplier
+
+Workforce orgs that are created after January 7, 2021 have increased default rate limits. This increase is for [specific endpoints](#list-of-endpoints) and depends on a Workforce org's license count (Universal Directory or Single-Sign On).
+
+| Workforce licenses | Rate limit multiplier      |
+| ------------------ | -------------------------: |
+| < 10K              | 1x the default rate limit  |
+| 10K - 100K         | 5x the default rate limit  |
+| > 100K             | 10x the default rate limit |
+
+#### List of endpoints
+
+[Authentication](/docs/reference/rl-global-enduser/)
+
+* `/api/v1/authn`
+* `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
+* `/api/v1/sessions`
+* `/login/login.htm`
+* `/login/sso_iwa_auth`
+* `/login/sessionCookieRedirect`
+* `/api/{apiVersion}/radius`
+
+[Authorization](/docs/reference/rl-global-enduser/)
+
+* `/oauth2/{authorizationServerId}/v1`
+* `/oauth2/v1`
+* `/app/{app}/{key}/sso/saml`
+* `/app/office365{appType}/{key}/sso/wsfed/active`
+* `/app/office365{appType}/{key}/sso/wsfed/passive`
+* `/app/template_saml_2_0/{key}/sso/saml`
+
+[Single User/Group/App operations (GET, UPDATE, and DELETE)](/docs/reference/rl-dynamic-scale/)
+
+* `/api/v1/apps/{id}`
+* `/api/v1/groups/{id}`
+* `/api/v1/users/{id}`
+* `/api/v1/users/{idOrLogin}`

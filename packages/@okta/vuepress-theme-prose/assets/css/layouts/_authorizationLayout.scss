@@ -1,6 +1,6 @@
 .authorization-layout {
   display: flex;
-  background: cv('brand','base');
+  background: cv("brand", "base");
   width: 100%;
   min-height: 100vh;
   flex-direction: column;
@@ -13,6 +13,7 @@
       margin: 0 0 24px 0;
     }
     .field-wrapper {
+      position: relative;
       padding: 0 24px 0 0;
       flex: 1;
       @include media("<tablet") {
@@ -21,7 +22,9 @@
     }
   }
 
-  input,
+  input[type="text"],
+  input[type="submit"],
+  input[type="button"],
   select {
     width: 100%;
     color: cv("brand", "base");
@@ -45,13 +48,17 @@
     &:focus {
       outline: none;
     }
+    &.error {
+      border: 1px solid cv("cerise", "base");
+    }
   }
-  input[type="submit"]:disabled  {
+  input[type="submit"]:disabled {
     cursor: not-allowed;
     opacity: 0.6;
   }
   select {
     padding: 10px 20px;
+    cursor: pointer;
     background-image: url("data:image/svg+xml,%3csvg width='9' height='5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M.4 0h8.2L4.5 5' fill='%235c6971'/%3e%3c/svg%3e");
     background-position: calc(100% - 12px) center;
     background-repeat: no-repeat;
@@ -72,7 +79,28 @@
     border-radius: 3px;
   }
 
-  input[type="submit"], input[type="button"] {
+  a.btn {
+    display: block;
+    background-color: cv("cerise", "base");
+    padding: 10px 20px 9px;
+    border: 2px solid cv("cerise", "base");
+    border-radius: 3px;
+    text-align: center;
+    color: $white;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  a.social-btn {
+    background-color: transparent;
+  }
+
+  input[type="submit"],
+  input[type="button"] {
     cursor: pointer;
   }
 
@@ -98,21 +126,8 @@
     padding: 0 0 20px 0;
     justify-content: center;
     .logo-wrapper {
+      width: 100%;
       margin: 40px 0 0 0;
-      width: 338px;
-      @include media("<=phone") {
-        width: 250px;
-      }
-      h4 {
-        font-size: 16px;
-        margin: 0 0 18px 0;
-        color: $white;
-      }
-      .partners-logo {
-        width: 100%;
-        display: inline-flex;
-        align-items: flex-start;
-      }
     }
   }
 
@@ -124,21 +139,7 @@
     display: flex;
   }
 
-  .social-btn {
-    background-color: transparent;
-    border: 2px solid cv("cerise", "base");
-    text-align: center;
-    color: $white;
-    font-size: 15px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-  }
-
-  .error {
-    border: 1px solid cv('cerise', 'base');
-  }
-
   .error-color {
-    color: cv('cerise', 'base');
+    color: cv("cerise", "base");
   }
 }

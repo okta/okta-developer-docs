@@ -10,7 +10,7 @@ Your free Okta Developer Edition will enable you to embed authentication with:
   - Unlimited authentications
   - Up to 5 apps
   - Multi-factor authentication
-  - 99.99 availability
+  - 99.99% availability
 
 :::
 

@@ -25,10 +25,8 @@ var options = {
     "/docs/api/postman",
     "/favicon",
     "/blog/",
-    "/pricing/",
     "/product/",
     "/product/*",
-    "/okta-integration-network/",
     "github.com/okta/okta-developer-docs/edit",
   ]
 };

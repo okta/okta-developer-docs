@@ -2,9 +2,9 @@ import { bannedEmailProviders } from "../const/signup.const";
 export class SignUpValidation {
   errorDictionary = {
     email: "Invalid email.",
-    firstName: "invalid first name.",
-    lastName: "invalid last name.",
-    emptyField: "Whoops, looks like some information is missing."
+    firstName: "Invalid first name.",
+    lastName: "Invalid last name.",
+    emptyField: "This field is required."
   };
 
   constructor(form) {
@@ -22,6 +22,15 @@ export class SignUpValidation {
 
       if (this._isUrlValue(this.form[key].value)) {
         this._setInputError(key);
+      }
+    }
+  }
+
+  checkFormCheckboxInput(key) {
+    if (!this.form[key].hidden) {
+      this.resetFormField(key);
+      if (!this.form[key].value) {
+        this._setInputError(key, this.errorDictionary.emptyField);
       }
     }
   }
@@ -56,8 +65,8 @@ export class SignUpValidation {
     return validForm;
   }
 
-  resetFormField(key, resetValue) {
-    if (resetValue) this.form[key].value = "";
+  resetFormField(key, resetValue = { reset: false, value: "" }) {
+    if (resetValue.reset) this.form[key].value = resetValue.value;
 
     this.form[key].isValid = true;
     this.form[key].errorList = [];

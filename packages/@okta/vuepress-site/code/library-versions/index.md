@@ -58,15 +58,15 @@ This table lists the current (and historical) major versions of our open-source 
 | [Android OIDC][oidc-android]                                    | 1.0.1                                | **Stable**                           |
 | [Angular SDK][sdk-angular]                                      | 0.1.0<br>1.x<br>**2.x**              | Retired<br>Retiring on 2020-12-10<br>**Stable**                |
 | [ASP.NET SDK][sdk-aspnet]                                       | **1.x**                              | **Stable**                           |
-| [ASP.NET Core SDK][sdk-aspnet]                                  | 1.x<br>**3.x**                       | **Stable**<br>**Stable**             |
+| [ASP.NET Core SDK][sdk-aspnet]                                  | 1.x<br>**3.x**                       | Retiring<br>**Stable**             |
 | [JWT verifier for Go][go-jwt-verifier]                          | 0.x                                  | Beta                                 |
 | [OIDC iOS][oidc-ios] (<i>formerly **iOS AppAuth SDK**</i>)      | 1.x<br>2.x<br>**3.x**                | Retired<br>Retired<br>**Stable**     |
 | [iOS OktaJWT][ios-oktajwt]                                      | 0.1.0<br>**1.x**                     | Retired<br>**Stable**                |
 | [iOS authentication SDK][authsdk-ios]                           | 0.1.0                                | Beta                                 |
-| [Java management SDK][sdk-java]                                 | 0.0.x<br>**1.x**                     | Retired<br>**Stable**                |
-| [Java authentication SDK][authsdk-java]                         | **1.x**                              | **Stable**                           |
+| [Java management SDK][sdk-java]                                 | 0.0.x<br>1.x<br>2.x.x<br>**3.x.x**   | Retired<br>Retiring on 2021-04-07<br>Retiring on 2021-09-03<br>**Stable**                |
+| [Java authentication SDK][authsdk-java]                         | 1.x<br>**2.x**                       | Retiring on 2021-04-28<br>**Stable**                           |
 | [JWT verifier for Java][java-jwt-verifier]                      | **0.x**                              | **Stable**                           |
-| [Spring Boot Starter][spring-boot-starter]                      | **0.x**                              | **Stable**                           |
+| [Spring Boot Starter][spring-boot-starter]                      | 0.x.x<br>1.x.0<br>**2.x**            | Retired<br>Retiring on 2021-09-28<br>**Stable**                           |
 | [.NET management SDK][sdk-dotnet]                               |[0.3.3][sdk-dotnet-033]<br>1.x<br>2.x<br>**3.x**                            | Retired<br>Retiring on 2020-12-27<br> Retiring on 2021-04-10<br>**Stable**  |
 | [.NET authentication SDK][sdk-auth-dotnet]                      | 1.x<br>**2.x**                             | Retiring on 2021-03-29<br>**Stable**                           |
 | [Node.js management SDK][sdk-nodejs]                            | 1.2.0<br>2.x<br>3.x<br>**4.x**       | Retired<br>Retiring on 2020-12-04<br>Retiring on 2021-04-08<br>**Stable**  |

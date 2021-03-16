@@ -1,7 +1,8 @@
 ---
-title: Customize the sign-up link in the Widget
+title: Configure registration in the widget
 ---
-<RequireClassicUI/>
+
+### Configure registration in a custom sign-in page in the Okta-hosted widget
 
 If you left the <GuideLink link="../configure-self-service-registration-policy">**Add to Sign-In widget**</GuideLink> check box clear when configuring the registration policy, then you need to configure a link using JavaScript in the **Customize Sign-In Page** HTML editor.
 
@@ -17,5 +18,19 @@ config['authScheme'] = 'SESSION';
 ```
 
 4. Click **Save and Publish**.
+
+### Configure self-service registration in an embedded or self-hosted widget
+
+Before you can configure self-service registration in your embedded or self-hosted widget, make sure that you first enable [self-service registration](/docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/). You can then set `feature.registration` in the widget to `true`.
+
+```json
+      },
+      features: {
+        // Used to enable registration feature on the widget.
+        // https://github.com/okta/okta-signin-widget#feature-flags
+         registration: true // REQUIRED
+      }
+```
+See the [Okta Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/).
 
 <NextSectionLink>Next Steps</NextSectionLink>

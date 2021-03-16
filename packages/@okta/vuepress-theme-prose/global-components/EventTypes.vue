@@ -24,7 +24,7 @@
         <code class="event-type-tag" v-for="tag in eventType.tags" :key="tag">{{ tag }}</code>
       </div>
       <div class="event-type-release">
-        Since: <a href="/docs/release-notes/">{{ eventType.info.release }}</a>
+        Since: <SmartLink :item="{link: '/docs/release-notes/', text: eventType.info.release}" />
       </div>
     </div>
   </div>
@@ -35,8 +35,13 @@
   import _ from 'lodash'
 
   export default {
+    components: {
+      SmartLink: () => import("../components/SmartLink"),
+    },
     created() {
-      this.eventTypes = eventTypes.versions[1].eventTypes.filter(eventType => !eventType.beta)
+      this.eventTypes = eventTypes.versions
+        .find(version => version.version == "V2").eventTypes
+        .filter(eventType => !eventType.beta && !eventType.internal)
       this.releases = _.chain(this.eventTypes)
         .map(eventType => eventType.info)
         .map(info => info.release)
@@ -60,7 +65,7 @@
 
         return this.eventTypes.filter((eventType) => {
           const value = this.search.toLowerCase();
-          return (!this.release || eventType.info.release == this.release) && (  
+          return (!this.release || eventType.info.release == this.release) && (
              eventType.id.toLowerCase().indexOf(value)>=0
           || eventType.description.toLowerCase().includes(value)
           || eventType.info.release.includes(this.search)
@@ -96,7 +101,7 @@
       },
       release() {
         this.addHistory()
-      }      
+      }
     },
     methods: {
       updateSearch: _.debounce(function(e) {
@@ -168,6 +173,7 @@
       .event-type-mappings {
         margin: -1em 0;
         padding: 10px 15px;
+        word-break: break-all;
         color: #888888;
         font-size: 0.9em;
       }

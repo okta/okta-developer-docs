@@ -20,7 +20,8 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 
 ## Add an OpenID Connect Client
 
-* Sign in to the Okta Developer Dashboard, and select **Create New App**
+* Sign in to the Admin Console, and select **Create New App**. <br/>
+You can sign in to the Admin Console using <https://login.okta.com>, and then click **Admin**.
 * Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with values similar to:
 
 | Setting              | Value                                               |
@@ -29,6 +30,9 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 | Login redirect URIs  | `http://localhost:4200/login/callback`              |
 | Logout redirect URIs | `http://localhost:4200/login`                       |
 | Allowed grant types  | Authorization Code                                  |
+`${clientId}` placeholders further in this tutorial should be replaced by the `Client ID` of the created application.
+
+> **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 
 ## Create an Angular App
 
@@ -119,12 +123,14 @@ export class AppComponent implements OnInit {
   }
 
   login() {
-    this.oktaAuth.loginRedirect('/profile');
+    this.oktaAuth.signInWithRedirect({
+      originalUri: '/profile'
+    });
   }
 
   async logout() {
     // Terminates the session with Okta and removes current tokens.
-    await this.oktaAuth.logout();
+    await this.oktaAuth.signOut();
     this.router.navigateByUrl('/');
   }
 }
@@ -180,16 +186,19 @@ import * as OktaSignIn from '@okta/okta-signin-widget';
   `
 })
 export class LoginComponent implements OnInit {
-  signIn;
+  authService;
   widget = new OktaSignIn({
+    el: '#okta-signin-container',
     baseUrl: 'https://${yourOktaDomain}',
     authParams: {
       pkce: true
-    }
+    },
+         clientId: '${clientId}',
+         redirectUri: 'http://localhost:4200/login/callback'
   });
 
   constructor(oktaAuth: OktaAuthService, router: Router) {
-    this.signIn = oktaAuth;
+    this.authService = oktaAuth;
 
     // Show the widget when prompted, otherwise remove it from the DOM.
     router.events.forEach(event => {
@@ -208,19 +217,9 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.widget.renderEl({
-      el: '#okta-signin-container'},
-      (res) => {
-        if (res.status === 'SUCCESS') {
-          this.signIn.loginRedirect('/', { sessionToken: res.session.token });
-          // Hide the widget
-          this.widget.hide();
-        }
-      },
-      (err) => {
-        throw err;
-      }
-    );
+    this.widget.showSignInAndRedirect().catch(err => {
+      throw(err);
+    });
   }
 }
 ```

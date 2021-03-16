@@ -1,42 +1,56 @@
 <template>
   <aside class="landing-navigation">
     <ul class="landing">
-      <SidebarItem v-for="link in navigation" :key="link.title" :link="link" />
+      <ul class="sections">
+        <SidebarItem
+          v-for="link in navigation"
+          :key="link.title"
+          :link="link"
+        />
+      </ul>
     </ul>
   </aside>
 </template>
 
 <script>
 import _ from "lodash";
-import { getGuidesInfo, guideFromPath } from "../util/guides";  
+import { getGuidesInfo, guideFromPath } from "../util/guides";
+import {
+  concepts,
+  guides,
+  languagesSdk,
+  reference,
+  releaseNotes
+} from "../const/navbar.const";
 
 export default {
   name: "Sidebar",
-  inject: ['appContext'],
+  inject: ["appContext"],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },
+  computed: {
+    navigation() {
+      return this.getNavigation()
+        .map(nav => {
+          this.addStatesToLink(nav);
+          return nav;
+        });
+    }
+  },
   data() {
     return {
-      usingFile: false
+      usingFile: false,
     };
   },
   mounted() {
-    if(!this.appContext.isInMobileViewport) {
+    if (!this.appContext.isInMobileViewport) {
       this.handleScroll();
       window.addEventListener("scroll", this.handleScroll);
     }
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
-  },
-  computed: {
-    navigation() {
-      return (this.getNavigation() || []).map(nav => {
-        this.addStatesToLink(nav);
-        return nav;
-      });
-    },
   },
   methods: {
     toggleSubNav: function(event) {
@@ -70,51 +84,41 @@ export default {
       return link.imActive;
     },
     getNavigation() {
-      if (this.$page.path.includes("/code/")) {
-        this.usingFile = true;
-        return _.cloneDeep(this.$site.themeConfig.sidebars.codePages);
-      }
-      if (this.$page.path.includes("/docs/reference/")) {
-        this.usingFile = true;
-        return _.cloneDeep(this.$site.themeConfig.sidebars.reference);
-      }
-      if (this.$page.path.includes("/docs/concepts/")){
-        this.usingFile = true;
-        return _.cloneDeep(this.$site.themeConfig.sidebars.concepts);
-      }
-      if (this.$page.path.includes("/docs/guides")) {
-        return this.getGuides();
-      }
-      if (this.$page.path.includes("/books/")) {
-        const booksRegex = /(\/books\/)[A-Za-z-]*\/$/;
-        return _.chain(this.$site.pages)
-          .filter(page => page.path.match(booksRegex))
-          .sortBy(page => page.title)
-          .sort()
-          .value();
-      }
+      const homeLink = { title: "Home", path: "/" };
+      return [
+        homeLink,
+        ...this.getGuides(),
+        ..._.cloneDeep(concepts),
+        ..._.cloneDeep(reference),
+        ..._.cloneDeep(languagesSdk),
+        ..._.cloneDeep(releaseNotes),
+      ];
     },
     getGuides() {
       const pages = this.$site.pages;
-      const guides = getGuidesInfo({ pages });
-      let navs = _.cloneDeep(this.$site.themeConfig.sidebars.guides);
+      const guidesInfo = getGuidesInfo({ pages });
+      let navs = _.cloneDeep(guides);
       const framework = guideFromPath(this.$route.path).framework;
       navs.forEach(nav => {
         let queue = new Array();
         queue.push(nav);
         let current = queue.pop();
-        while(current){
-          if( current && current.subLinks ){
-            queue.push(...current.subLinks)
-          } else if( current && current.guideName ) {
+        while (current) {
+          if (current && current.subLinks) {
+            queue.push(...current.subLinks);
+          } else if (current && current.guideName) {
             // add sections
             current.subLinks = [];
-            const guide = guides.byName[current.guideName];
+            const guide = guidesInfo.byName[current.guideName];
             if (guide && guide.sections) {
               guide.sections.forEach(section => {
                 current.subLinks.push({
                   title: section.title,
-                  path: section.makeLink(guide.frameworks.includes(framework) ? framework : guide.mainFramework)
+                  path: section.makeLink(
+                    guide.frameworks.includes(framework)
+                      ? framework
+                      : guide.mainFramework
+                  )
                 });
               });
             }

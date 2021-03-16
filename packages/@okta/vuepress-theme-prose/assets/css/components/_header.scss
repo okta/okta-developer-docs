@@ -4,7 +4,7 @@ $redesign_black: #000000;
 $redesign_header_background: #14222a;
 $redesign_slideout_background: #1b2f3b;
 
-header.redesign {
+header.page-header {
   position: relative;
   display: flex;
   align-items: center;
@@ -113,7 +113,7 @@ header.redesign {
       background-image: url("/img/icons/external--white.svg");
       background-repeat: no-repeat;
       vertical-align: middle;
-      opacity: 0.3;
+      opacity: 0.5;
     }
   }
 
@@ -213,7 +213,7 @@ header.redesign {
               font-weight: normal;
               line-height: 2em;
 
-              &:not(.active) {
+              &:not(.router-link-exact-active) {
                 color: $redesign_white;
               }
 
@@ -223,7 +223,9 @@ header.redesign {
             }
           }
 
-          > li.expanded {
+          > li.expandable {
+            cursor: pointer;
+
             &:before {
               display: none;
             }
@@ -231,10 +233,12 @@ header.redesign {
             > ul.submenu--items {
               background: transparent;
               box-shadow: none;
-              max-height: initial;
+              max-height: 0;
+              overflow: hidden;
               padding: 0 16px;
               position: initial;
               transform: none;
+              transition: max-height 300ms ease-in-out;
 
               &:before {
                 display: none;
@@ -247,6 +251,21 @@ header.redesign {
               .menu--divider,
               .menu--icons {
                 display: none;
+              }
+            }
+
+            span.link:after {
+              transform: rotate(-90deg);
+              transition: transform 300ms ease-in-out;
+            }
+
+            &.open {
+              > ul.submenu--items {
+                max-height: 100%;
+              }
+              
+              > span.link:after {
+                transform: rotate(0deg);
               }
             }
           }

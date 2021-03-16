@@ -2,7 +2,7 @@
 title: Sign users in without redirection
 ---
 
-This guide shows you how to use Okta as the user store for your web application and sign users in using the interact code grant type.
+This guide shows you how to use Okta as the user store for your web application and sign users in using the interaction code grant type.
 
 > **Note:** This functionality requires the usage of the Okta Identity Engine. This functionality is in general availability but is being gradually rolled out to customers. If you want to request to gain access to the Okta Identity Engine, please reach out to your account manager. If you do not have an account manager, please reach out to <oie@okta.com> for more information.
 
@@ -16,7 +16,7 @@ The Interaction Code grant is intended for developers who want a step-by-step re
 
 The Interaction Code flow starts when the client makes a request to the Okta authorization server. The authorization server then responds with an Interaction Handle, which the client passes on to the Okta Identity Engine. The Identity Engine responds with one or more remediation requirements that the client should act on and return the result to the Okta Identity Engine. Once the remediation requirements have been fulfilled, the Identity Engine returns a short-lived, one-time Interaction Code, which the client passes to the authorization server. The authorization server then responds with the requested tokens.
 
-![Interact Code Flow](/img/oauth_interact_code_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code Flow with PKCE")
+![Interaction Code Flow](/img/oauth_interaction_code_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code Flow with PKCE")
 
 <!--
 @startuml

@@ -14,6 +14,8 @@ This guide will walk you through integrating authentication into a Vue app with 
 6. [Connect the Routes](#connect-the-routes)
 7. [Start Your App](#start-your-app)
 
+> This guide is for `@okta/okta-auth-js` >= v4.1.0 and < 5.0.0.
+
 ## Prerequisites
 If you do not already have a **Developer Edition Account**, you can create one at <https://developer.okta.com/signup/>.
 
@@ -27,6 +29,8 @@ If you do not already have a **Developer Edition Account**, you can create one a
 | Login redirect URIs  | `http://localhost:8080/login/callback`              |
 | Logout redirect URIs | `http://localhost:8080/`                            |
 | Allowed grant types  | Authorization Code                                  |
+
+> **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 
 > **Note:** CORS is automatically enabled for the granted login redirect URIs.
 
@@ -86,7 +90,7 @@ export default {
       this.onChange(true)
       return
     }
-    return authClient.signIn({
+    return authClient.signInWithCredentials({
       username: email,
       password: pass
     }).then(transaction => {

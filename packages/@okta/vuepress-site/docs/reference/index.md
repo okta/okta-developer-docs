@@ -1,31 +1,22 @@
 ---
-component: Reference
-title: API Reference
-top_links:
-  - name: API Concepts
-    path: /docs/reference/api-overview/
-    icon: icons/icon--docs-apiconcepts.svg
-  - name: Error Codes
-    path: /docs/reference/error-codes/
-    icon: icons/icon--docs-errorcodes.svg
-  - name: Okta Expression Language
-    path: /docs/reference/okta-expression-language/
-    icon: icons/icon--docs-expressionlang.svg
-  - name: Postman Collections
-    path: /docs/reference/postman-collections/
-    icon: icons/icon--docs-postman.svg
+title: Reference overview
 ---
 
-::: slot left
-## Sign in Your Users
-API endpoints to authenticate your users, challenge for factors, recover passwords, and more. [Learn about which APIs to use.](/docs/concepts/oauth-openid/#authentication-api-vs-oauth-20-vs-openid-connect)
+# Reference overview
 
-<CategoryLinks category="authentication" class="list--with-descriptions" />
-:::
+Details on parameters, requests, and responses for Okta's API endpoints.
 
-::: slot right
-## Manage Okta Resources
-REST endpoints to configure resources such as users, apps, sessions, and factors whenever you need.
+Okta APIs generally fall into one of two categories: signing in your users or managing
+resources in your Okta org.
 
-<CategoryLinks category="management" where_exp="deprecated" :showExcerpt="false" class="list--multicolumn" sort="title" />
-:::
+## Sign in your Users
+API endpoints to authenticate your users, challenge for factors, recover passwords, and more.
+  - The [Authentication Api](/docs/reference/api/authn) controls user accesss to Okta.
+  - The [OpenID Connect & OAuth 2.0 API](/docs/concepts/oauth-openid) controls users access to your applications.
+
+[Learn about which APIs to use.](/docs/concepts/oauth-openid/#authentication-api-vs-oauth-20-vs-openid-connect)
+
+## Manage Okta objects
+REST endpoints configure resources such as users, apps, sessions, and factors when needed.
+
+For example, see the [Users API](/docs/reference/api/users) for CRUD operations on users.

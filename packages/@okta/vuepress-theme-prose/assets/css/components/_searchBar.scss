@@ -1,0 +1,116 @@
+.SearchBox .CoveoOmnibox {
+  border-color: #b7bcc0;
+  height: 45px;
+  width: 85%;
+  max-width: 710px;
+}
+
+.SearchBar {
+  top: 0px;
+  left: 0;
+  @include media(">desktop") {
+    top: 95px;
+  }
+
+  @include media(">859px") {
+    top: 75px;
+  }
+
+  .Wrap {
+    width: 100%;
+  }
+}
+
+$redesign_placeholder_color: #616161;
+
+.search--wrapper {
+  position: relative;
+  width: 100%;
+  height: 38px;
+  border-radius: 4px;
+  background-color: white;
+
+  .input--icon {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    top: 11px;
+    left: 12px;
+  }
+
+  .SearchBox {
+    &.CoveoSearchInterface {
+      min-width: initial;
+      max-width: initial;
+    }
+
+    .CoveoOmnibox.magic-box {
+      width: 100%;
+      height: 38px;
+      border: none;
+
+      .magic-box-input {
+        height: 38px;
+        border-radius: 4px;
+
+        .magic-box-clear {
+          &:before {
+            border-left: none;
+          }
+  
+          .magic-box-icon:before {
+            display: none;
+          }
+        }
+
+        .magic-box-underlay {
+          height: 38px;
+          padding-left: 40px;
+          padding-right: 12px;
+        }
+
+        input {
+          height: 38px;
+          padding-left: 40px;
+          padding-right: 12px;
+          font-size: 14px;
+          font-family: inherit;
+
+          &::placeholder {
+            color: $redesign_placeholder_color;
+          }
+
+          @media (max-width: 1080px) {
+            &::placeholder {
+              color: transparent;
+            }
+          }
+
+          @include media("<tablet") {
+            font-size: 16px;
+
+            &::placeholder {
+              color: $redesign_placeholder_color;
+            }
+          }
+        }
+      }
+
+      &.magic-box-notEmpty .magic-box-clear {
+        height: 38px;
+        width: 48px;
+        position: relative;
+        background-image: url("/img/icons/icon--close.svg");
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 30%;
+      }
+
+      &.has-suggestions-hidden {
+        .magic-box-suggestions {
+          display: none !important;
+        }
+      }
+    }
+  }
+}
