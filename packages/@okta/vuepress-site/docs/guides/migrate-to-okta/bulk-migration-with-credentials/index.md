@@ -206,7 +206,7 @@ The user status in the response when you create a User is set to `STAGED`, which
 
 Remember that [rate limits](https://developer.okta.com/docs/reference/rate-limits/) apply to API requests when doing bulk/batch user migration, and the rate limits differ depending on the level of service you have purchased from Okta. [You can check your rate limits](https://developer.okta.com/docs/reference/rate-limits/#check-your-rate-limits-with-okta-s-rate-limit-headers) in your code using Okta’s Rate Limit Headers.
 
-###Next steps
+### Next steps
 
 At this point, you should understand how to use the Okta API to migrate legacy users and groups to Okta.
 
