@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b34bd32b-0fb8-494e-a9a4-98a32fad73a9",
+		"_postman_id": "8f0e383a-2edb-4e40-befa-affc5316980d",
 		"name": "Custom Templates (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -303,15 +303,13 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "9f9f933a-77a9-4069-946e-23d4d5621cfc",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -321,13 +319,11 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "a1dfc664-f6ee-42dd-82e0-54a5b00d8c8f",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
