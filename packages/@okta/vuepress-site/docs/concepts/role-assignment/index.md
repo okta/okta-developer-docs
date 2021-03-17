@@ -24,7 +24,7 @@ The following Role types are provided and supported:
 | `SUPER_ADMIN`                           | Super Administrator                 |                                       |
 | `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/reference/api/groups/) |
 
-Perform standard role assignment in these two steps:
+Perform standard role assignment in two steps:
 1. Assign a Role to a User or Group. At this point, the admin has the supported privileges of the Role over all resources across organization.
 2. (Optional) If the Role supports targets, use one of the [target operations](/docs/reference/api/roles/#role-target-operations) to indicate which specific resource the admin can manage.
 
