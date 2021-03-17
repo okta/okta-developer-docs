@@ -78,7 +78,7 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 4. On your Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
 5. Locate the app that you created earlier, click **Apply**, and then **Close**.
 6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon ![Actions menu](/img/ActionsIcon.png "Three vertical dot Actions menu icon") beside the **ENABLED** flag and select **Edit**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
 8. In the Edit Rule dialog box, select **Allowed** in the **For new users** section, and then click **Save**.
 
 > **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) for more information on profile enrollment policies.
@@ -104,7 +104,7 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 1. Ensure that your org has the Phone Authenticator enabled by going to **Security** > **Authenticators** and checking that **Phone** is listed. If it isn't, add it using the **Add Authenticator** button.
 2. From the side navigation, select **Applications** > **Applications** and then select the Application that you created.
 3. Select the **Sign On** tab.
-4. Scroll down to the **Sign On Policy** section, click the **Actions** menu icon ![Actions menu](/img/ActionsIcon.png "Three vertical dot Actions menu icon") beside the **ENABLED** flag and select **Edit**.
+4. Scroll down to the **Sign On Policy** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
 5. In the Edit Rule dialog box, scroll down to the **THEN** section and locate **AND User must authenticate with**.
 6. Select **Password + Another factor** and click **Save**.
 
@@ -146,7 +146,7 @@ When we enrolled our test user, the user was only prompted for first and last na
 
 1. In the Admin Console side navigation, select **Security** > **Profile Enrollment**.
 2. Find the profile that you created for self-service enrollment and click the pencil icon in the **Actions** column.
-3. In the **Enrollment Settings** section, click the **Actions** menu icon ![Actions menu](/img/ActionsIcon.png "Three vertical dot Actions menu icon") beside the **ENABLED** flag and select **Edit**.
+3. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
 4. In the Edit Rule dialog box, click **Add Another** and enter the following:
 
     * **Fields** &mdash; `region`
