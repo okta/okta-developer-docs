@@ -325,6 +325,8 @@ module.exports = {
               '/docs/reference/api/risk-events/',
               '/docs/reference/api/iam-roles/',
               '/docs/concepts/role-assignment/',
+              '/docs/guides/migrate-to-oie/',
+              '/docs/guides/ie-intro/'
           ]
         }
       ]
