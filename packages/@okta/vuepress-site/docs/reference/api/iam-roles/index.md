@@ -47,13 +47,13 @@ Creates a new Role with a custom set of permissions
 
 | Parameter   | Description                               | Param Type   | DataType                    | Required |
 | :---------- | :---------------------------------------- | :----------- | :----------------------------------------------- | :------- |
-| label       | The name given to new Role                | Body         | String                                           | TRUE     |
-| description | A description of the new Role             | Body         | String                                           | TRUE     |
-| permissions | The permissions that the new Role grants  | Body         | Array of [Permission types](#permission-types)   | TRUE     |
+| `label`       | The name given to the new Role                | Body         | String                                           | TRUE     |
+| `description` | A description of the new Role             | Body         | String                                           | TRUE     |
+| `permissions` | The permissions that the new Role grants  | Body         | Array of [Permission types](#permission-types)   | TRUE     |
 
 #### Response parameters
 
-Created custom [Role](#custom-role-object)
+A created Custom [Role](#custom-role-object)
 
 #### Request example
 
@@ -95,17 +95,17 @@ curl -v -X POST \
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
-Gets a custom Role by its ID or label
+Gets a Custom Role by its ID or label
 
 #### Request parameters
 
 | Parameter     | Description                          | Param Type   | DataType                    | Required |
 | :------------ | :----------------------------------- | :----------- | :----------------------------------------------- | :------- |
-| roleIdOrLabel | `id` or `label` of the Role          | URL          | String                                           | TRUE     |
+| `roleIdOrLabel` | `id` or `label` of the Role          | URL          | String                                           | TRUE     |
 
 #### Response parameters
 
-Requested custom [Role](#custom-role-object)
+The requested custom [Role](#custom-role-object)
 
 #### Request example
 
@@ -137,7 +137,7 @@ curl -v -X GET \
 <ApiLifecycle access="beta" />
 <ApiOperation method="get" url="/api/v1/iam/roles" />
 
-Gets a paginated list of custom Roles
+Gets a paginated list of Custom Roles
 
 #### Response parameters
 
@@ -182,17 +182,17 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/iam/roles/${roleIdOrLabel}/permissions" />
 
-Gets the list of permissions included in a custom Role identified by its `id` or `label`
+Gets the list of permissions included in a Custom Role identified by its `id` or `label`
 
 #### Request parameters
 
 | Parameter     | Description                          | Param Type   | DataType                                         | Required |
 | :------------ | :----------------------------------- | :----------- | :----------------------------------------------- | :------- |
-| roleIdOrLabel | `id` or `label` of the Role          | URL          | String                                           | TRUE     |
+| `roleIdOrLabel` | `id` or `label` of the Role          | URL          | String                                           | TRUE     |
 
 #### Response parameters
 
-An array of [Permission types](#permission-types), which make the Role identified by `${roleIdOrLabel}` and a link to that Role
+An array of [Permission types](#permission-types), which makes the Role identified by `${roleIdOrLabel}` and a link to that Role
 
 #### Request example
 
@@ -233,8 +233,8 @@ Adds a new permission to an existing Role
 
 | Parameter      | Description                          | Param Type   | DataType                              | Required |
 | :------------- | :----------------------------------- | :----------- | :------------------------------------ | :------- |
-| roleIdOrLabel  | `id` or `label` of the Role          | URL          | String                                | TRUE     |
-| permissionType | Permission to add to the Role        | URL          | [Permission type](#permission-types)) | TRUE     |
+| `roleIdOrLabel`  | `id` or `label` of the Role          | URL          | String                                | TRUE     |
+| `permissionType` | Permission to add to the Role        | URL          | [Permission type](#permission-types)) | TRUE     |
 
 #### Response parameters
 
@@ -269,8 +269,8 @@ Deletes a permission from an existing Role
 
 | Parameter      | Description                          | Param Type   | DataType                              | Required |
 | :------------- | :----------------------------------- | :----------- | :------------------------------------ | :------- |
-| roleIdOrLabel  | `id` or `label` of the Role          | URL          | String                                | TRUE     |
-| permissionType | Permission to remove from the Role   | URL          | [Permission type](#permission-types)) | TRUE     |
+| `roleIdOrLabel`  | `id` or `label` of the Role          | URL          | String                                | TRUE     |
+| `permissionType` | Permission to remove from the Role   | URL          | [Permission type](#permission-types)) | TRUE     |
 
 #### Response parameters
 
@@ -299,13 +299,13 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="delete" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
-Deletes a custom Role
+Deletes a Custom Role
 
 #### Request parameters
 
 | Parameter       | Description                          | Param Type   | DataType                              | Required |
 | :-------------- | :----------------------------------- | :----------- | :------------------------------------ | :------- |
-| roleIdOrLabel   | `id` or `label` of the Role          | URL          | String                                | TRUE     |
+| `roleIdOrLabel`   | `id` or `label` of the Role          | URL          | String                                | TRUE     |
 
 #### Response parameters
 
@@ -331,7 +331,7 @@ HTTP/1.1 204 No Content
 
 ## Resource set operations
 <ApiLifecycle access="beta" />
-These operations allow the creation and manipulation of Resource Sets as custom collections of resources. Resource Sets are used to assign [custom Roles](#custom-role-operations) to administrators scoped to the designated resources.
+These operations allow the creation and manipulation of Resource Sets as custom collections of resources. You can use Resource Sets to assign [Custom Roles](#custom-role-operations) to administrators who are scoped to the designated resources.
 
 ### Create Resource Set
 <ApiLifecycle access="beta" />
@@ -344,13 +344,13 @@ Creates a new Resource Set with a custom set of resources
 
 | Parameter   | Description                                                                    | Param Type   | DataType     | Required |
 | :---------- | :----------------------------------------------------------------------------- | :----------- | :----------- | :------- |
-| label       | Unique name given to the new Resource Set                                      | Body         | String       | TRUE     |
-| description | A description of the new Resource Set                                          | Body         | String       | TRUE     |
-| resources   | The endpoints referencing the resources to be included in the new Resource Set | Body         | Array of URL | FALSE    |
+| `label`       | Unique name given to the new Resource Set                                      | Body         | String       | TRUE     |
+| `description` | A description of the new Resource Set                                          | Body         | String       | TRUE     |
+| `resources`   | The endpoints that reference the resources to be included in the new Resource Set | Body         | Array of URL | FALSE    |
 
 #### Response parameters
 
-Created [Resource Set](#resource-set-object)
+The created [Resource Set](#resource-set-object)
 
 #### Request example
 
@@ -403,11 +403,11 @@ Gets a Resource Set by its ID
 
 | Parameter     | Description                          | Param Type   | DataType                    | Required |
 | :------------ | :----------------------------------- | :----------- | :----------------------------------------------- | :------- |
-| resourceSetId | Unique ID of the Resource Set        | URL          | String                                           | TRUE     |
+| `resourceSetId` | Unique ID of the Resource Set        | URL          | String                                           | TRUE     |
 
 #### Response parameters
 
-Requested [Resource Set](#resource-set-object)
+The requested [Resource Set](#resource-set-object)
 
 #### Request example
 
@@ -449,7 +449,7 @@ Gets a paginated list of Resource Sets
 
 #### Response parameters
 
-Paginated list of [Resource Sets](#resource-set-object)
+A paginated list of [Resource Sets](#resource-set-object)
 
 #### Request example
 
@@ -518,13 +518,13 @@ Update label and description of a Resource Set
 
 | Parameter     | Description                               | Param Type   | DataType     | Required |
 | :------------ | :---------------------------------------- | :----------- | :----------- | :------- |
-| resourceSetId | Unique id of the Resource Set             | URL          | String       | TRUE     |
-| label         | New unique name given to the Resource Set | Body         | String       | TRUE     |
-| description   | New description of the the Resource Set   | Body         | String       | TRUE     |
+| `resourceSetId` | Unique ID of the Resource Set             | URL          | String       | TRUE     |
+| `label`         | New unique name given to the Resource Set | Body         | String       | TRUE     |
+| `description`   | New description of the the Resource Set   | Body         | String       | TRUE     |
 
 #### Response parameters
 
-Updated [Resource Set](#resource-set-object)
+An updated [Resource Set](#resource-set-object)
 
 #### Request example
 
@@ -571,7 +571,7 @@ Deletes a Resource Set and all its associated Bindings.
 
 | Parameter      | Description                          | Param Type   | DataType                              | Required |
 | :------------- | :----------------------------------- | :----------- | :------------------------------------ | :------- |
-| resourceSetId  | `id` of the Resource Set             | URL          | String                                | TRUE     |
+| `resourceSetId`  | ID of the Resource Set             | URL          | String                                | TRUE     |
 
 #### Response parameters
 
@@ -596,27 +596,27 @@ HTTP/1.1 204 No Content
 ```
 
 ### Resource operations
-These help adding, removing and listing of resources within a Resource Set
+These operations add, remove, and list the resources within a Resource Set.
 
 #### Add more resources
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetId}/resources" />
 
-Add more resources to a Resource Set
+Adds more resources to a Resource Set
 
 ##### Request parameters
 
 | Parameter      | Description                                                                       | Param Type   | DataType     | Required |
 | :------------- | :----------------------------------------------------------------------------- | :----------- | :----------- | :------- |
-| resourceSetId  | `id` of the Resource Set                                                       | URL          | String       | TRUE     |
-| additions      | the endpoints referencing the resources to be included in the new Resource Set | Body         | Array of URL | TRUE     |
+| `resourceSetId`  | ID of the Resource Set                                                       | URL          | String       | TRUE     |
+| `additions`      | The endpoints that reference the resources to be included in the new Resource Set | Body         | Array of URL | TRUE     |
 
 ##### Response parameters
 
 The following `_links` are returned:
-* `resources` gets a paginable list of resources included in the set
-* `resource-set` gets the updated Resource Set
+* `resources` gets a paginable list of resources included in the set.
+* `resource-set` gets the updated Resource Set.
 
 ##### Request example
 
@@ -653,13 +653,13 @@ curl -v -X PATCH \
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/resources" />
 
-List resources that make up a Resource Set
+Lists the resources that make up a Resource Set
 
 ##### Request parameters
 
 | Parameter   | Description                                                                       | Param Type   | DataType     | Required |
 | :------------- | :------------------------ | :----------- | :----------- | :------- |
-| resourceSetId  | `id` of the Resource Set  | URL          | String       | TRUE     |
+| `resourceSetId`  | ID of the Resource Set  | URL          | String       | TRUE     |
 
 ##### Response parameters
 
@@ -729,16 +729,16 @@ curl -v -X GET \
 
 <ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/resources/${resourceId}" />
 
-Remove a resource from a Resource Set
+Removes a resource from a Resource Set
 
 ##### Request parameters
 
 | Parameter      | Description                             | Param Type   | DataType     | Required |
 | :------------- | :-------------------------------------- | :----------- | :----------- | :------- |
-| resourceSetId  | id of the Resource Set                  | URL          | String       | TRUE     |
-| resourceId     | id of the resource within Resource Set  | URL          | String       | TRUE     |
+| `resourceSetId`  | ID of the Resource Set                  | URL          | String       | TRUE     |
+| `resourceId`     | ID of the resource within the Resource Set  | URL          | String       | TRUE     |
 
-`resourceId` is the id obtained when [listing resources within Resource Set](#list-resources). For example, if the resource object was:
+`resourceId` is the ID obtained when [resources are listed within the Resource Set](#list-resources). For example, if the resource object is:
 ```json
     {
       "id": "ire106sQKoHoXXsAe0g4",
@@ -749,7 +749,7 @@ Remove a resource from a Resource Set
       }
     }
 ```
-`ire106sQKoHoXXsAe0g4` could be used as `resourceId` to remove the Groups from list of resources in the set.
+`ire106sQKoHoXXsAe0g4` could be used as `resourceId` to remove the Groups from the list of resources in the set.
 
 ##### Response parameters
 
@@ -773,31 +773,31 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-## Custom role assignment operations
+## Custom Role assignment operations
 <ApiLifecycle access="beta" />
 These operations allow the assignment and unassignment of Custom Roles. This is done by creating a Binding.
-A Binding is represents an association of a principal, Role and Resource Set uniquely identified by the `bindingId`.
+A Binding represents an association of a principal, Role and Resource Set uniquely identified by the `bindingId`.
 
-### Create a new binding
+### Create a new Binding
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="post" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings" />
 
-Assign a custom Role by creating a Binding between the Role and the admin targetting an existing Resource Set.
+Assigns a Custom Role by creating a Binding between the Role and the admin that targets an existing Resource Set
 
 #### Request parameters
 
 | Parameter      | Description                                                   | Param Type    | DataType       | Required |
 | :------------- | :------------------------------------------------------------ | :------------ | :------------- | :------- |
-| role           | `id` of the Role                                              | Body          | String         | TRUE     |
-| members        | hrefs pointing to User(s) and/or Group(s) receiving the Role  | Body          | Array of hrefs | TRUE     |
+| `role`           | ID of the Role                                              | Body          | String         | TRUE     |
+| `members`        | The hrefs that point to User(s) and/or Group(s) that receive the Role  | Body          | Array of hrefs | TRUE     |
 
 #### Response parameters
 
 The following `_links` are returned:
-* `self` gets this Role's Binding within the Resource Set
-* `bindings` get a paginable list of Role Bindings in the Resource Set
-* `resource-set` gets Resource Set
+* `self` gets this Role's Binding within the Resource Set.
+* `bindings` get a paginable list of Role Bindings in the Resource Set.
+* `resource-set` gets the Resource Set.
 
 #### Request example
 
@@ -832,27 +832,27 @@ curl -v -X POST \
 }
 ```
 
-### Add more members to a binding
+### Add more Members to a Binding
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}/members" />
 
-Add more Members to a Role Binding already created in a Resource Set.
+Adds more Members to a Role Binding already created in a Resource Set
 
 #### Request parameters
 
 | Parameter      | Description                                                           | Param Type   | DataType       | Required |
 | :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
-| resourceSetId  | `id` of the target Resource Set                                       | URL          | String         | TRUE     |
-| roleId         | the `id` of the Role to grant                                         | URL          | String         | TRUE     |
-| additions      | Array of hrefs pointing to User(s) and/or Group(s) receiving the Role | Body         | Array of hrefs | TRUE     |
+| `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
+| `roleId`         | ID of the Role to grant                                         | URL          | String         | TRUE     |
+| `additions`      | Array of hrefs that point to the User(s) and/or Group(s) that receive the Role | Body         | Array of hrefs | TRUE     |
 
 #### Response parameters
 
 The following `_links` are returned:
-* `self` gets this Role's Binding within the Resource Set
-* `bindings` get a paginable list of Role Bindings in the Resource Set
-* `resource-set` gets Resource Set
+* `self` gets this Role's Binding within the Resource Set.
+* `bindings` get a paginable list of Role Bindings in the Resource Set.
+* `resource-set` gets the Resource Set.
 
 #### Request example
 
@@ -887,23 +887,23 @@ curl -v -X PATCH \
 }
 ```
 
-### List members in a binding
+### List Members in a Binding
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}/members" />
 
-Get a paginated list of Members assigned to a Role in a Resource Set
+Gets a paginated list of Members that are assigned to a Role in a Resource Set
 
 #### Request parameters
 
 | Parameter      | Description                                                           | Param Type   | DataType       | Required |
 | :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
-| resourceSetId  | `id` of the target Resource Set                                       | URL          | String         | TRUE     |
-| roleId         | the `id` of the Role to identify the Binding                          | URL          | String         | TRUE     |
+| `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
+| `roleId`         | ID of the Role to identify the Binding                          | URL          | String         | TRUE     |
 
 #### Response parameters
 
-A paginated list of [Members](#member-object).
+A paginated list of [Members](#member-object)
 
 #### Request example
 
@@ -946,23 +946,23 @@ curl -v -X GET \
   }
 }
 ```
-### Get a member from a binding
+### Get a Member from a Binding
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}/members/${memberId}" />
 
-Get a Member of a Role in a Resource Set
+Gets a Member of a Role in a Resource Set
 
 #### Request parameters
 
 | Parameter      | Description                                                           | Param Type   | DataType       | Required |
 | :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
-| resourceSetId  | `id` of the target Resource Set                                       | URL          | String         | TRUE     |
-| roleId         | `id` of the Role to identify the Binding                              | URL          | String         | TRUE     |
-| memberId       | `id` of the Member within the Binding                                 | URL          | String         | TRUE     |
+| `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
+| `roleId`         | ID of the Role to identify the Binding                              | URL          | String         | TRUE     |
+| `memberId`       | ID of the Member within the Binding                                 | URL          | String         | TRUE     |
 
 
-`memberId` is the id obtained when [listing Members within Binding](#list-members-in-a-binding). For example, if the Member object was:
+`memberId` is the ID obtained when [Members are listed in a Binding](#list-members-in-a-binding). For example, if the Member object was:
 ```json
 {
   "id": "irb1qe6PGuMc7Oh8N0g4",
@@ -973,11 +973,11 @@ Get a Member of a Role in a Resource Set
   }
 }
 ```
-`irb1qe6PGuMc7Oh8N0g4` could be used as `memberId` to remove the User from list of Members in the Binding.
+`irb1qe6PGuMc7Oh8N0g4` could be used as `memberId` to remove the User from the list of Members in the Binding.
 
 #### Response parameters
 
-Response is the id representing the Binding and a link to the actual Member object which could be a User or a Group.
+The ID that represents the Binding and a link to the actual Member object, which could be a User or a Group
 
 #### Request example
 
@@ -1002,23 +1002,23 @@ curl -v -X GET \
 }
 ```
 
-### Delete a member from a binding
+### Delete a Member from a Binding
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}/members/${memberId}" />
 
-Delete a Member of a Role in a Resource Set
+Deletes a Member of a Role in a Resource Set
 
 #### Request parameters
 
 | Parameter      | Description                                                           | Param Type   | DataType       | Required |
 | :------------- | :-------------------------------------------------------------------- | :----------- | :------------- | :------- |
-| resourceSetId  | `id` of the target Resource Set                                       | URL          | String         | TRUE     |
-| roleId         | `id` of the Role to identify the Binding                              | URL          | String         | TRUE     |
-| memberId       | `id` of the Member within the Binding                                 | URL          | String         | TRUE     |
+| `resourceSetId`  | ID of the target Resource Set                                       | URL          | String         | TRUE     |
+| `roleId`         | ID of the Role to identify the Binding                              | URL          | String         | TRUE     |
+| `memberId`       | ID of the Member in the Binding                                 | URL          | String         | TRUE     |
 
 
-`memberId` is the id obtained when [listing Members within Binding](#list-members-in-a-binding). For example, if the Member object was:
+`memberId` is the ID obtained when [Members are listed in a Binding](#list-members-in-a-binding). For example, if the Member object was:
 ```json
 {
   "id": "irb1qe6PGuMc7Oh8N0g4",
@@ -1029,7 +1029,7 @@ Delete a Member of a Role in a Resource Set
   }
 }
 ```
-`irb1qe6PGuMc7Oh8N0g4` could be used as `memberId` to remove the User from list of Members in the Binding.
+`irb1qe6PGuMc7Oh8N0g4` could be used as `memberId` to remove the User from the list of Members in the Binding.
 
 #### Response parameters
 
@@ -1053,29 +1053,29 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-### Retrieve bindings
+### Retrieve Bindings
 <ApiLifecycle access="beta" />
 
-#### Get a binding by role id
+#### Get a Binding by Role ID
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}" />
 
-Get a Binding from a Resource Set by its Role id
+Gets a Binding from a Resource Set by its Role ID
 
 ##### Request parameters
 
 | Parameter      | Description              | Param Type   | DataType     | Required |
 | :------------- | :----------------------- | :----------- | :----------- | :------- |
-| resourceSetId  | `id` of the Resource Set | URL          | String       | TRUE     |
-| roleId         | `id` of the Role         | URL          | String       | TRUE     |
+| `resourceSetId`  | ID of the Resource Set | URL          | String       | TRUE     |
+| `roleId`         | ID of the Role         | URL          | String       | TRUE     |
 
 ##### Response parameters
 
 The `id` of the Role as well as the following `_links`:
-* `self` gets this Role's Binding within the Resource Set
-* `bindings` get a paginable list of Role Bindings in the Resource Set
-* `resource-set` gets Resource Set
+* `self` gets this Role's Binding within the Resource Set.
+* `bindings` get a paginable list of Role Bindings in the Resource Set.
+* `resource-set` gets the Resource Set.
 
 ##### Request example
 
@@ -1106,22 +1106,22 @@ curl -v -X GET \
 }
 ```
 
-#### Get all bindings in a resource set
+#### Get all Bindings in a Resource Set
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="get" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings" />
 
-Get all Binding from a Resource Set
+Gets all the Bindings from a Resource Set
 
 ##### Request parameters
 
 | Parameter      | Description               | Param Type   | DataType     | Required |
 | :------------- | :------------------------ | :----------- | :----------- | :------- |
-| resourceSetId  | `id` of the Resource Set  | URL          | String       | TRUE     |
+| `resourceSetId`  | ID of the Resource Set  | URL          | String       | TRUE     |
 
 ##### Response parameters
 
-A paginated list of [Bindings](#binding-object).
+A paginated list of [Bindings](#binding-object)
 
 ##### Request example
 
@@ -1164,19 +1164,19 @@ curl -v -X GET \
 }
 ```
 
-### Delete a binding
+### Delete a Binding
 <ApiLifecycle access="beta" />
 
 <ApiOperation method="delete" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}" />
 
-Delete a Binding of a Role from a Resource Set
+Deletes a Binding of a Role from a Resource Set
 
 #### Request parameters
 
 | Parameter      | Description               | Param Type   | DataType     | Required |
 | :------------- | :------------------------ | :----------- | :----------- | :------- |
-| resourceSetId  | `id` of the Resource Set  | URL          | String       | TRUE     |
-| roleId         | `id` of the Role          | URL          | String       | TRUE     |
+| `resourceSetId`  | ID of the Resource Set  | URL          | String       | TRUE     |
+| `roleId`         | ID of the Role          | URL          | String       | TRUE     |
 
 #### Response parameters
 
@@ -1205,9 +1205,9 @@ HTTP/1.1 204 No Content
 ### Grant third-party admin status
 <ApiOperation method="post" url="/api/v1/users/${userId}/roles?disableNotifications=true" />
 
-You can grant third-party admin status when you are adding a new admin using the API. You can do this by using an optional query parameter on the Administrator Roles API called `disableNotifications`.
+You can grant third-party admin status when you add a new admin using the API. You can do this by using an optional query parameter on the Administrator Roles API called `disableNotifications`.
 
-When this setting is enabled, the admins will not receive any of the default Okta administrator emails. These admins will also not have access to contact Okta Support and open support cases on behalf of your org.
+When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
 
 ### List Roles
 
@@ -1216,19 +1216,19 @@ When this setting is enabled, the admins will not receive any of the default Okt
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/roles" />
 
-Lists all Roles assigned to a User
+Lists all the Roles assigned to a User
 
 ##### Request parameters
 
 
 | Parameter     | Description                                          | Param Type  | DataType  | Required  |
 | :------------ | :--------------------------------------------------- | :---------- | :-------- | :-------- |
-| userId        | `id` of a User                                       | URL         | String    | TRUE      |
+| `userId`        | ID of a User                                       | URL         | String    | TRUE      |
 
 ##### Response parameters
 
 
-Array of [Role](#role-object)
+Array of [Roles](#role-object)
 
 ##### Request example
 
@@ -1303,7 +1303,7 @@ curl -v -X GET \
     }
 ]
 ```
-##### Response example with custom roles
+##### Response example with Custom Roles
 <ApiLifecycle access="beta" />
 
 ```json
@@ -1422,7 +1422,7 @@ curl -v -X GET \
     }
 ]
 ```
-#### List roles assigned to a group
+#### List Roles assigned to a Group
 
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/roles" />
@@ -1434,12 +1434,12 @@ Lists all Roles assigned to a Group
 
 | Parameter         | Description                                             | Param Type  | DataType  | Required  |
 | :---------------- | :------------------------------------------------------ | :---------- | :-------- | :-------- |
-| groupId           | `id` of a Group                                         | URL         | String    | TRUE      |
+| `groupId`           | ID of a Group                                         | URL         | String    | TRUE      |
 
 ##### Response parameters
 
 
-Array of [Role](#role-object)
+Array of [Roles](#role-object)
 
 ##### Request example
 
@@ -1474,9 +1474,9 @@ curl -v -X GET \
 ]
 ```
 
-### Assign a role
+### Assign a Role
 
-#### Assign a role to a user
+#### Assign a Role to a User
 
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/roles" />
@@ -1488,13 +1488,13 @@ Assigns a Role to a User
 
 | Parameter   | Description              | Param Type   | DataType                    | Required |
 | :---------- | :----------------------- | :----------- | :-------------------------- | :------- |
-| type        | type of Role to assign   | Body         | [Role Type](#role-types)    | TRUE     |
-| userId      | `id` of a User           | URL          | String                      | TRUE     |
+| `type`        | Type of Role to assign   | Body         | [Role Type](#role-types)    | TRUE     |
+| `userId`      | ID of a User           | URL          | String                      | TRUE     |
 
 ##### Response parameters
 
 
-Assigned [Role](#role-object)
+The assigned [Role](#role-object)
 
 ##### Request example
 
@@ -1535,13 +1535,13 @@ Assigns a Role to a Group
 
 | Parameter       | Description                 | Param Type   | DataType                    | Required |
 | :-------------- | :-------------------------- | :----------- | :-------------------------- | :------- |
-| groupId         | `id` of a Group             | URL          | String                      | TRUE     |
-| type            | type of Role to assign      | Body         | [Role Type](#role-types)    | TRUE     |
+| `groupId`         | ID of a Group             | URL          | String                      | TRUE     |
+| `type`            | Type of Role to assign      | Body         | [Role Type](#role-types)    | TRUE     |
 
 ##### Response parameters
 
 
-Assigned [Role](#role-object)
+The assigned [Role](#role-object)
 
 ##### Request example
 
@@ -1576,26 +1576,26 @@ curl -v -X POST \
 }
 ```
 
-#### Assign a custom role to a user or group
+#### Assign a Custom Role to a User or Group
 <ApiLifecycle access="beta" />
 
-The recommended way to assign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, it is also possible to use the following to assign them too:
+The recommended way to assign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also assign a Custom Role using the following method:
 <ApiOperation method="post" url="/api/v1/groups/${userId}/roles" />
 or to assign to a Group:
 <ApiOperation method="post" url="/api/v1/groups/${groupId}/roles" />
-as long as the request body contains a custom `role` id and a `resource-set` id. Also, `type` must be `CUSTOM`
+as long as the request body contains a Custom `role` ID and a `resource-set` ID. Also, `type` must be `CUSTOM`.
 
 ##### Request parameters
 
 | Parameter       | Description                 | Param Type   | DataType                    | Required |
 | :-------------- | :-------------------------- | :----------- | :-------------------------- | :------- |
-| type            | type of Role to assign      | Body         | String literal: `CUSTOM`    | TRUE     |
-| role            | `id` of the custom Role     | Body         | String                      | TRUE     |
-| resource-set    | `id` of the Resource Set    | Body         | String                      | TRUE     |
+| `type`            | Type of Role to assign      | Body         | String literal: `CUSTOM`    | TRUE     |
+| `role`            | ID of the Custom Role     | Body         | String                      | TRUE     |
+| `resource-set`    | ID of the Resource Set    | Body         | String                      | TRUE     |
 
 ##### Response parameters
 
-Assigned [Role](#role-object)
+The assigned [Role](#role-object)
 
 ##### Request example
 
@@ -1641,9 +1641,9 @@ curl -v -X POST \
 }
 ```
 
-### Unassign a role
+### Unassign a Role
 
-#### Unassign a role from a user
+#### Unassign a Role from a User
 
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/roles/${roleId}" />
@@ -1655,8 +1655,8 @@ Unassigns a Role from a User
 
 | Parameter   | Description    | Param Type   | DataType   | Required |
 | :---------- | :------------- | :----------- | :--------- | :------- |
-| roleId      | `id` of a Role | URL          | String     | TRUE     |
-| userId      | `id` of a User | URL          | String     | TRUE     |
+| `roleId`      | ID of a Role | URL          | String     | TRUE     |
+| `userId`      | ID of a User | URL          | String     | TRUE     |
 
 ##### Response parameters
 
@@ -1683,7 +1683,7 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-#### Unassign a role from a group
+#### Unassign a Role from a Group
 
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/roles/${roleId}" />
@@ -1695,8 +1695,8 @@ Unassigns a Role from a Group
 
 | Parameter       | Description       | Param Type   | DataType   | Required |
 | :-------------- | :---------------- | :----------- | :--------- | :------- |
-| groupId         | `id` of a Group   | URL          | String     | TRUE     |
-| roleId          | `id` of a Role    | URL          | String     | TRUE     |
+| `groupId`         | ID of a Group   | URL          | String     | TRUE     |
+| `roleId`          | ID of a Role    | URL          | String     | TRUE     |
 
 ##### Response parameters
 
@@ -1723,14 +1723,14 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-#### Unassign a custom role from a user or group
+#### Unassign a Custom Role from a User or Group
 <ApiLifecycle access="beta" />
 
-The recommended way to assign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, it is also possible to use the following to unassign them too:
+The recommended way to assign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also unassign a Custom Role by using the following method:
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/roles/${bindingId}" />
 or to assign to a Group:
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/roles/${bindingId}" />
-but note that instead of `${roleId}` a `${bindingId}` must be provided.
+but note that instead of `${roleId}`, a `${bindingId}` must be provided.
 
 ##### Request example
 
@@ -1755,8 +1755,8 @@ HTTP/1.1 204 No Content
 Role targets are a way of defining permissions for admin roles into a smaller subset of Groups or Apps within your org. Targets limit an admin's permissions to a targeted area of the org. You can define admin roles to target Groups, Applications, and Application Instances.
 
 * **Group targets:** Grant an admin permission to manage only a specified Group. For example, an admin role may be assigned to manage only the IT Group.
-* **App targets:** Grant an admin permission to manage all instances of specified Apps. Target Apps are Okta catalog Apps. For example, there can be multiple configurations of an Okta catalog App, such as Salesforce or Facebook. When you add a Salesforce or Facebook App as a target, that grants the admin permission to manage all instances of those Apps and create new instances of them.
-* **App Instance targets:** Grant an admin permission to manage an instance of one App or instances of multiple Apps. App Instances are specific Apps that admins have created in their org. For example, there may be a Salesforce App configured differently for each sales region of a company. When you create an App Instance target, an admin may be assigned to manage only two instances of the configured Salesforce Apps and perhaps assigned to manage an instance of another configured App, such as Workday.
+* **App targets:** Grant an admin permission to manage all the instances of specified Apps. Target Apps are Okta catalog Apps. For example, there can be multiple configurations of an Okta catalog App, such as Salesforce or Facebook. When you add a Salesforce or Facebook App as a target, that grants the admin permission to manage all the instances of those Apps and create new instances of them.
+* **App Instance targets:** Grant an admin permission to manage an instance of one App or instances of multiple Apps. App Instances are specific Apps that admins have created in their org. For example, there may be a Salesforce App configured differently for each sales region of a company. When you create an App Instance target, an admin may be assigned to manage only two instances of the configured Salesforce Apps and may be assigned to manage an instance of another configured App such as Workday.
 
 > **Note:**<ApiLifecycle access="beta" /> Don't use these operations with a Custom Role id. Custom Role assignments always require a target Resource Set. Use [Custom Role assignment operations](#custom-role-assignment-operations) or the backward-compatible [Role assignment](#assign-a-custom-role-to-a-user-or-group) or [unassignment](#unassign-a-custom-role-from-a-user-or-group) operations.
 
@@ -1764,9 +1764,9 @@ Role targets are a way of defining permissions for admin roles into a smaller su
 
 Assigns a Group admin role to a specific Group that grants the admin permission to manage only that Group. For example, an admin role may be assigned to manage only the IT group. The permissions for specifically what an admin can do within that Group depends on the admin role that they are assigned to. See [Administrators](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Administrators).
 
-#### List group targets for the group administrator role
+#### List Group targets for the group administrator role
 
-##### List group targets for the group administrator role given to a user
+##### List Group targets for the group administrator role given to a user
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/roles/${roleId}/targets/groups" />
 
@@ -1777,10 +1777,10 @@ Lists all Group targets for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to
 
 | Parameter   | Description                                                    | Param Type   | DataType   | Required |
 | :---------- | :------------------------------------------------------------- | :----------- | :--------- | :------- |
-| after       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
-| limit       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
-| roleId      | `id` of a Role                                                 | URL          | String     | TRUE     |
-| userId      | `id` of a User                                                 | URL          | String     | TRUE     |
+| `after`       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
+| `limit`       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
+| `roleId`      | ID of a Role                                                 | URL          | String     | TRUE     |
+| `userId`      | ID of a User                                                 | URL          | String     | TRUE     |
 
 Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
 
@@ -1839,7 +1839,7 @@ curl -v -X GET \
 ]
 ```
 
-##### List group targets for a group administrator role given to a group
+##### List Group targets for a group administrator role given to a group
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/roles/${roleId}/targets/groups" />
 
@@ -1850,12 +1850,12 @@ Lists all Group targets for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to
 
 | Parameter       | Description                                                    | Param Type   | DataType   | Required |
 | :-------------- | :------------------------------------------------------------- | :----------- | :--------- | :------- |
-| after           | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
-| groupId         | `id` of a Group                                                | URL          | String     | TRUE     |
-| limit           | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
-| roleId          | `id` of a Role                                                 | URL          | String     | TRUE     |
+| `after`           | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
+| `groupId`         | ID of a Group                                                | URL          | String     | TRUE     |
+| `limit`           | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
+| `roleId`          | ID of a Role                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
 
 ###### Response parameters
 
@@ -1917,25 +1917,25 @@ curl -v -X GET \
 ]
 ```
 
-#### Add a group target to a group administrator role
+#### Add a Group target to a group administrator role
 
-##### Add a group target to a group administrator role given to a user
+##### Add a Group target to a group administrator role given to a user
 
 
 <ApiOperation method="put" url="/api/v1/users/${userId}/roles/${roleId}/targets/groups/${groupId}" />
 
 Adds a Group target for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a User
 
-When you add the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets, but applies only to the specified target.
+When you add the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets but applies only to the specified target.
 
 ###### Request parameters
 
 
 | Parameter   | Description                                     | Param Type   | DataType   | Required |
 | :---------- | :---------------------------------------------- | :----------- | :--------- | :------- |
-| groupId     | `id` of Group target to scope role assignment   | URL          | String     | TRUE     |
-| roleId      | `id` of a Role                                  | URL          | String     | TRUE     |
-| userId      | `id` of a User                                  | URL          | String     | TRUE     |
+| `groupId`     | ID of the Group target to scope role assignment   | URL          | String     | TRUE     |
+| `roleId`      | ID of a Role                                  | URL          | String     | TRUE     |
+| `userId`      | ID of a User                                  | URL          | String     | TRUE     |
 
 ###### Response parameters
 
@@ -1968,16 +1968,16 @@ HTTP/1.1 204 No Content
 
 Adds a Group target for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a Group
 
-When you add the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets, but applies only to the specified target.
+When you add the first Group target, you reduce the scope of the role assignment. The Role no longer applies to all targets but applies only to the specified target.
 
 ###### Request parameters
 
 
 | Parameter            | Description                                     | Param Type   | DataType   | Required |
 | :------------------- | :---------------------------------------------- | :----------- | :--------- | :------- |
-| groupId              | `id` of an admin Group                          | URL          | String     | TRUE     |
-| roleId               | `id` of a Role                                  | URL          | String     | TRUE     |
-| targetGroupId        | `id` of Group target to scope role assignment   | URL          | String     | TRUE     |
+| `groupId`              | ID of an admin Group                          | URL          | String     | TRUE     |
+| `roleId`               | ID of a Role                                  | URL          | String     | TRUE     |
+| `targetGroupId`        | ID of the Group target to scope role assignment   | URL          | String     | TRUE     |
 
 ###### Response parameters
 
@@ -2004,25 +2004,25 @@ curl -v -X PUT \
 HTTP/1.1 204 No Content
 ```
 
-#### Remove a group target from a group administrator role
+#### Remove a Group target from a group administrator role
 
-##### Remove a group target from a group administrator role given to a user
+##### Remove a Group target from a group administrator role given to a user
 
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/roles/${roleId}/targets/groups/${groupId}" />
 
 Removes a Group target from a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a User
 
-> **Note:** Don't remove the last Group target from a role assignment, as this causes an exception. If you need a role assignment that applies to all Groups, the API consumer should delete the `USER_ADMIN` role assignment and recreate it.
+> **Note:** Don't remove the last Group target from a role assignment, as it causes an exception. If you need a role assignment that applies to all Groups, the API consumer should delete the `USER_ADMIN` role assignment and recreate it.
 
 ###### Request parameters
 
 
 | Parameter   | Description                                | Param Type   | DataType   | Required |
 | :---------- | :----------------------------------------- | :----------- | :--------- | :------- |
-| groupId     | `id` of Group target for role assignment   | URL          | String     | TRUE     |
-| roleId      | `id` of a Role                             | URL          | String     | TRUE     |
-| userId      | `id` of a User                             | URL          | String     | TRUE     |
+| `groupId`     | ID of the Group target for role assignment   | URL          | String     | TRUE     |
+| `roleId`      | ID of a Role                             | URL          | String     | TRUE     |
+| `userId`      | ID of a User                             | URL          | String     | TRUE     |
 
 ###### Response parameters
 
@@ -2049,22 +2049,22 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-##### Remove a group target from a group administrator role given to a group
+##### Remove a Group target from a group administrator role given to a group
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/roles/${roleId}/targets/groups/${targetGroupId}" />
 
 Removes a Group target from a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to a Group
 
-> **Note:** Don't remove the last Group target from a role assignment, as this causes an exception. If you need a role assignment that applies to all Groups, the API consumer should delete the `USER_ADMIN` role assignment and recreate it.
+> **Note:** Don't remove the last Group target from a role assignment, as it causes an exception. If you need a role assignment that applies to all Groups, the API consumer should delete the `USER_ADMIN` role assignment and recreate it.
 
 ###### Request parameters
 
 
 | Parameter       | Description                                | Param Type   | DataType   | Required |
 | :-------------- | :----------------------------------------- | :----------- | :--------- | :------- |
-| groupId         | `id` of an admin Group                     | URL          | String     | TRUE     |
-| roleId          | `id` of a Role                             | URL          | String     | TRUE     |
-| targetGroupId   | `id` of Group target for role assignment   | URL          | String     | TRUE     |
+| `groupId`         | ID of an admin Group                     | URL          | String     | TRUE     |
+| `roleId`          | ID of a Role                             | URL          | String     | TRUE     |
+| `targetGroupId`   | ID of the Group target for role assignment   | URL          | String     | TRUE     |
 
 ###### Response parameters
 
@@ -2091,9 +2091,9 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-### App administrator role App targets
+### App administrator role for App targets
 
-Assign an admin role to a subset of Apps to grant the admin permission to manage all instances of those Apps. Targeted Apps are Okta catalog Apps, and you can assign App targets for these Apps to an admin role regardless of whether a specific instance of the App has been created. For example, there can be multiple configurations of one Okta catalog App, such as Salesforce or Facebook. When you add a Salesforce or Facebook App as a target, that grants the admin permission to manage all instances of Salesforce or Facebook Apps and create new instances of them.
+Assign an admin role to a subset of Apps to grant the admin permission to manage all the instances of those Apps. Targeted Apps are Okta catalog Apps, and you can assign App targets for these Apps to an admin role regardless of whether a specific instance of the App has been created. For example, there can be multiple configurations of one Okta catalog App, such as Salesforce or Facebook. When you add a Salesforce or Facebook App as a target, that grants the admin permission to manage all the instances of Salesforce or Facebook Apps and create new instances of them.
 
 #### List App targets for an App administrator role
 
@@ -2101,19 +2101,19 @@ Assign an admin role to a subset of Apps to grant the admin permission to manage
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/roles/${roleId}/targets/catalog/apps" />
 
-Lists all App targets for an `APP_ADMIN` Role assigned to a User
+Lists all the App targets for an `APP_ADMIN` Role assigned to a User
 
 ###### Request parameters
 
 
 | Parameter   | Description                                                    | Param Type   | DataType   | Required |
 | :---------- | :------------------------------------------------------------- | :----------- | :--------- | :------- |
-| after       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
-| limit       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
-| roleId      | `id` of a Role                                                 | URL          | String     | TRUE     |
-| userId      | `id` of a User                                                 | URL          | String     | TRUE     |
+| `after`       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
+| `limit`       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
+| `roleId`      | ID of a Role                                                 | URL          | String     | TRUE     |
+| `userId`      | ID of a User                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
 
 ###### Response parameters
 
@@ -2134,7 +2134,7 @@ curl -v -X GET \
 
 ###### Response example
 
-The example shows two applications and two instances. Note the response for instances has an `id` field.
+The example shows two applications and two instances. Note that the response for instances has an `id` field.
 
 ```json
 [
@@ -2230,24 +2230,24 @@ The example shows two applications and two instances. Note the response for inst
 ]
 ```
 
-##### List App targets for App Administrator Role given to a Group
+##### List App targets for App administrator role given to a Group
 
 
 <ApiOperation method="get" url="/api/v1/groups/${groupId}/roles/${roleId}/targets/catalog/apps" />
 
-Lists all App targets for an `APP_ADMIN` Role assigned to a Group
+Lists all the App targets for an `APP_ADMIN` Role assigned to a Group
 
 ###### Request Parameters
 
 
 | Parameter   | Description                                                    | Param Type   | DataType   | Required |
 | :---------- | :------------------------------------------------------------- | :----------- | :--------- | :------- |
-| after       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
-| groupId     | `id` of a Group                                                | URL          | String     | TRUE     |
-| limit       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
-| roleId      | `id` of a Role                                                 | URL          | String     | TRUE     |
+| `after`       | Specifies the pagination cursor for the next page of targets   | Query        | String     | FALSE    |
+| `groupId`     | ID of a Group                                                | URL          | String     | TRUE     |
+| `limit`       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
+| `roleId`      | ID of a Role                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
 
 ###### Response parameters
 
@@ -2268,7 +2268,7 @@ curl -v -X GET \
 
 ###### Response example
 
-The example shows one application and one instance. Note the response for instances has an `id` field.
+The example shows one application and one instance. Note that the response for instances has an `id` field.
 
 ```json
 [
@@ -2318,7 +2318,7 @@ The example shows one application and one instance. Note the response for instan
 
 Adds an App target for an `APP_ADMIN` Role assigned to a User
 
-When you add the first App target, you reduce the scope of the role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
+When you add the first App target, you reduce the scope of the Role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
 
 Adding an App target overrides any existing App Instance targets of the App. For example, if someone was assigned to administer a specific Facebook instance, calling this endpoint with `facebook` for `appName`, would make them administrator for all Facebook instances.
 
@@ -2327,9 +2327,9 @@ Adding an App target overrides any existing App Instance targets of the App. For
 
 | Parameter   | Description                                                  | Param Type   | DataType   | Required |
 | :---------- | :----------------------------------------------------------- | :----------- | :--------- | :------- |
-| appName     | `name` of App target from catalog to scope role assignment   | URL          | String     | TRUE     |
-| roleId      | `id` of a Role                                               | URL          | String     | TRUE     |
-| userId      | `id` of a User                                               | URL          | String     | TRUE     |
+| `appName`     | Name of the App target from the catalog to scope Role assignment   | URL          | String     | TRUE     |
+| `roleId`      | ID of a Role                                               | URL          | String     | TRUE     |
+| `userId`      | ID of a User                                               | URL          | String     | TRUE     |
 
 ###### Response parameters
 
@@ -2361,18 +2361,18 @@ HTTP/1.1 204 No Content
 
 Adds an App target for an `APP_ADMIN` Role assigned to a Group
 
-When you add the first App target, you reduce the scope of the role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
+When you add the first App target, you reduce the scope of the role assignment. The Role no longer applies to all App targets but applies only to the specified target.
 
-Adding an App target overrides any existing instance targets of the app. For example, if someone was assigned to administer a specific Facebook instance, calling this endpoint with `facebook` for `appName`, would make them administrator for all Facebook instances.
+An App target that is added overrides any existing instance targets of the app. For example, if someone is assigned to administer a specific Facebook instance, a call to this endpoint with `facebook` for `appName` would make that person the administrator for all Facebook instances.
 
 ###### Request parameters
 
 
 | Parameter   | Description                                                  | Param Type   | DataType   | Required |
 | :---------- | :----------------------------------------------------------- | :----------- | :--------- | :------- |
-| groupId     | `id` of a Group                                              | URL          | String     | TRUE     |
-| roleId      | `id` of a Role                                               | URL          | String     | TRUE     |
-| appName     | `name` of App target from catalog to scope role assignment   | URL          | String     | TRUE     |
+| `groupId`     | ID of a Group                                              | URL          | String     | TRUE     |
+| `roleId`      | ID of a Role                                               | URL          | String     | TRUE     |
+| `appName`     | Name of the App target from the catalog to scope role assignment   | URL          | String     | TRUE     |
 
 ###### Response parameters
 
@@ -2401,9 +2401,9 @@ HTTP/1.1 204 No Content
 
 #### Add an App Instance target to an App administrator role
 
-Assign an admin role to a specific App Instance to grant the admin permission to manage an instance of one App or instances of multiple Apps. App Instances are specific Apps that admins have created in their org. For example, there may be a Salesforce App configured differently for each sales region of a company. When you create an App Instance target, an admin may be assigned to manage only two instances of the configured Salesforce Apps and perhaps assigned to manage an instance of another configured App, such as Workday.
+Assign an admin role to a specific App Instance to grant the admin permission to manage an instance of one App or instances of multiple Apps. App Instances are specific Apps that admins have created in their org. For example, there may be a Salesforce App configured differently for each sales region of a company. When you create an App Instance target, an admin may be assigned to manage only two instances of the configured Salesforce Apps and may be assigned to manage an instance of another configured App such as Workday.
 
-> **Note:** You can target a mixture of both App and App Instance targets, but can't assign permissions to manage all instances of an App and then a subset of that same App. For example, you can't specify that an admin has access to manage all instances of a Salesforce app and then also specific configurations of the Salesforce app.
+> **Note:** You can target a mixture of both App and App Instance targets, but can't assign permissions to manage all the instances of an App and then a subset of that same App. For example, you can't specify that an admin has access to manage all the instances of a Salesforce app and then also specific configurations of the Salesforce app.
 
 ##### Add an App Instance target to an App administrator role given to a User
 
@@ -2413,17 +2413,17 @@ Adds an App Instance target for an `APP_ADMIN` Role assigned to a User
 
 When you add the first App or App Instance target, you reduce the scope of the role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
 
-> **Note:** You can target a mixture of both App and App Instance targets, but can't assign permissions to manage all instances of an App and then a subset of that same App. For example, you can't specify that an admin has access to manage all instances of a Salesforce app and then also specific configurations of the Salesforce app.
+> **Note:** You can target a mixture of both App and App Instance targets, but can't assign permissions to manage all the instances of an App and then a subset of that same App. For example, you can't specify that an admin has access to manage all the instances of a Salesforce app and then also specific configurations of the Salesforce app.
 
 ###### Request parameters
 
 
 | Parameter     | Description                                                  | Param Type   | DataType   | Required |
 | :----------   | :----------------------------------------------------------- | :----------- | :--------- | :------- |
-| userId        | `id` of a User                                               | URL          | String     | TRUE     |
-| roleId        | `id` of a Role                                               | URL          | String     | TRUE     |
-| appName       | `name` of App target from catalog to scope role assignment   | URL          | String     | TRUE     |
-| appInstanceId | `id` of the App Instance target to scope role assignment     | URL          | String     | TRUE     |
+| `userId`        | ID of a User                                               | URL          | String     | TRUE     |
+| `roleId`        | ID of a Role                                               | URL          | String     | TRUE     |
+| `appName`       | Name of the App target from the catalog to scope role assignment   | URL          | String     | TRUE     |
+| `appInstanceId` | ID of the App Instance target to scope role assignment     | URL          | String     | TRUE     |
 
 ###### Response parameters
 
@@ -2459,17 +2459,17 @@ Adds an App Instance target for an `APP_ADMIN` Role assigned to a Group
 
 When you add the first App or App Instance target, you reduce the scope of the role assignment. The Role no longer applies to all App targets, but applies only to the specified target.
 
-> **Note:** You can target a mixture of both App and App Instance targets, but can't assign permissions to manage all instances of an App and then a subset of that same App. For example, you can't specify that an admin has access to manage all instances of a Salesforce app and then also specific configurations of the Salesforce app.
+> **Note:** You can target a mixture of both App and App Instance targets, but can't assign permissions to manage all the instances of an App and then a subset of that same App. For example, you can't specify that an admin has access to manage all the instances of a Salesforce app and then also specific configurations of the Salesforce app.
 
 ###### Request parameters
 
 
 | Parameter         | Description                                                  | Param Type   | DataType   | Required |
 | :---------------- | :----------------------------------------------------------- | :----------- | :--------- | :------- |
-| appInstanceId     | `id` of the App Instance target to scope role assignment     | URL          | String     | TRUE     |
-| appName           | `name` of App target from catalog to scope role assignment   | URL          | String     | TRUE     |
-| groupId           | `id` of a Group                                              | URL          | String     | TRUE     |
-| roleId            | `id` of a Role                                               | URL          | String     | TRUE     |
+| `appInstanceId`     | ID of the App Instance target to scope role assignment     | URL          | String     | TRUE     |
+| `appName`           | Name of the App target from the catalog to scope role assignment   | URL          | String     | TRUE     |
+| `groupId`           | ID of a Group                                              | URL          | String     | TRUE     |
+| `roleId`            | ID of a Role                                               | URL          | String     | TRUE     |
 
 ###### Response parameters
 
@@ -2504,16 +2504,16 @@ HTTP/1.1 204 No Content
 
 Removes an App target from an `APP_ADMIN` Role assigned to a User
 
-> **Note:** Don't remove the last App target from a role assignment, as this causes an exception. If you need a role assignment that applies to all Apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
+> **Note:** Don't remove the last App target from a role assignment, as it causes an exception. If you need a role assignment that applies to all the Apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
 
 ###### Request parameters
 
 
 | Parameter   | Description                                | Param Type   | DataType   | Required |
 | :---------- | :----------------------------------------- | :----------- | :--------- | :------- |
-| appName     | `name` of App target for role assignment   | URL          | String     | TRUE     |
-| roleId      | `id` of a Role                             | URL          | String     | TRUE     |
-| userId      | `id` of a User                             | URL          | String     | TRUE     |
+| `appName`     | Name of the App target for role assignment   | URL          | String     | TRUE     |
+| `roleId`      | ID of a Role                             | URL          | String     | TRUE     |
+| `userId`      | ID of a User                             | URL          | String     | TRUE     |
 
 ###### Response parameters
 
@@ -2546,16 +2546,16 @@ HTTP/1.1 204 No Content
 
 Removes an App target from an `APP_ADMIN` Role assigned to a Group
 
-> **Note:** Don't remove the last App target from a role assignment, as this causes an exception.  If you need a role assignment that applies to all Apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
+> **Note:** Don't remove the last App target from a role assignment, as it causes an exception. If you need a role assignment that applies to all the Apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
 
 ###### Request parameters
 
 
 | Parameter   | Description                                | Param Type   | DataType   | Required |
 | :---------- | :----------------------------------------- | :----------- | :--------- | :------- |
-| appName     | `name` of App target for role assignment   | URL          | String     | TRUE     |
-| groupId     | `id` of a Group                            | URL          | String     | TRUE     |
-| roleId      | `id` of a Role                             | URL          | String     | TRUE     |
+| `appName`     | Name of the App target for role assignment   | URL          | String     | TRUE     |
+| `groupId`     | ID of a Group                            | URL          | String     | TRUE     |
+| `roleId`      | ID of a Role                             | URL          | String     | TRUE     |
 
 ###### Response parameters
 
@@ -2582,26 +2582,26 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-#### Remove an App Instance target from an App administrator role
+#### Remove an App instance target from an App administrator role
 
-##### Remove an App Instance target from an App administrator role given to a User
+##### Remove an App instance target from an App administrator role given to a User
 
 
 <ApiOperation method="delete" url="/api/v1/users/${userId}/roles/${roleId}/targets/catalog/apps/${appName}/${appInstanceId}" />
 
 Removes an App instance target from an `APP_ADMIN` Role assigned to a User
 
-> **Note:** Don't remove the last App target from a role assignment, as this causes an exception. If you need a role assignment that applies to all Apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
+> **Note:** Don't remove the last App target from a role assignment, as it causes an exception. If you need a role assignment that applies to all the Apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
 
 ###### Request parameters
 
 
 | Parameter     | Description                                         | Param Type   | DataType   | Required |
 | :----------   | :-----------------------------------------          | :----------- | :--------- | :------- |
-| appInstanceId | `id` of the App Instance target for role assignment | URL          | String     | TRUE     |
-| appName       | `name` of App target for role assignment            | URL          | String     | TRUE     |
-| roleId        | `id` of a Role                                      | URL          | String     | TRUE     |
-| userId        | `id` of a User                                      | URL          | String     | TRUE     |
+| `appInstanceId` | ID of the App Instance target for role assignment | URL          | String     | TRUE     |
+| `appName`       | Name of App target for role assignment            | URL          | String     | TRUE     |
+| `roleId`        | ID of a Role                                      | URL          | String     | TRUE     |
+| `userId`        | ID of a User                                      | URL          | String     | TRUE     |
 
 ###### Response parameters
 
@@ -2628,23 +2628,23 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-##### Remove an App Instance target from an App administrator role given to a Group
+##### Remove an App instance target from an App administrator role given to a Group
 
 <ApiOperation method="delete" url="/api/v1/groups/${groupId}/roles/${roleId}/targets/catalog/apps/${appName}/${appInstanceId}" />
 
 Removes an App Instance target from an `APP_ADMIN` Role assigned to a Group
 
-> **Note:** Don't remove the last App target from a role assignment, as this causes an exception. If you need a role assignment that applies to all Apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
+> **Note:** Don't remove the last App target from a role assignment, as it causes an exception. If you need a role assignment that applies to all the Apps, the API consumer should delete the `APP_ADMIN` role assignment and recreate it.
 
 ###### Request parameters
 
 
 | Parameter         | Description                                           | Param Type   | DataType   | Required |
 | :---------------- | :---------------------------------------------------- | :----------- | :--------- | :------- |
-| appInstanceId     | `id` of the App Instance target for role assignment   | URL          | String     | TRUE     |
-| appName           | `name` of App target for role assignment              | URL          | String     | TRUE     |
-| groupId           | `id` of a Group                                       | URL          | String     | TRUE     |
-| roleId            | `id` of a Role                                        | URL          | String     | TRUE     |
+| `appInstanceId`     | ID of the App Instance target for role assignment   | URL          | String     | TRUE     |
+| `appName`           | Name of the App target for role assignment              | URL          | String     | TRUE     |
+| `groupId`           | ID of a Group                                       | URL          | String     | TRUE     |
+| `roleId`            | ID of a Role                                        | URL          | String     | TRUE     |
 
 ###### Response parameters
 
@@ -2694,7 +2694,7 @@ HTTP/1.1 204 No Content
 }
 ```
 
-#### Sample role assigned to the user through a group membership
+#### Sample Role assigned to the User through a Group membership
 
 ```json
 {
@@ -2714,14 +2714,14 @@ HTTP/1.1 204 No Content
 ```
 
 #### Sample Custom Role assigned to the User directly
-Note the following are different comparing to [an individually assigned standard Role](#sample-role-assigned-to-the-user-directly)
-* The `id` field is present similarly with a different format but it has the same application
-* The `type` field for Custom Roles always has the value `CUSTOM`
-* The new `resource-set` field gives the id of the Resource Set to which this assignment applies
+Note that the following fields are different compared to those for [an individually assigned standard Role](#sample-role-assigned-to-the-user-directly)
+* The `id` field has a different format, but it has the same application.
+* The `type` field for Custom Roles always has the value `CUSTOM`.
+* The new `resource-set` field gives the ID of the Resource Set to which this assignment applies.
 * The `_links` field has three new fields:
-  * `resource-set` is the `GET` link to the Resource Set to which this assignment is granted
-  * `role` is the `GET` link to the Role this assignment grants
-  * `permissions` is the `GET` link to the Permissions this assignment grants
+  * `resource-set` is the `GET` link to the Resource Set to which this assignment is granted.
+  * `role` is the `GET` link to the Role to which this assignment is granted.
+  * `permissions` is the `GET` link to the Permissions to which this assignment is granted.
 ```json
     {
         "id": "irb1q92TFAHzySt3x0g4",
@@ -2753,15 +2753,15 @@ Note the following are different comparing to [an individually assigned standard
     }
 ```
 
-#### Sample custom role assigned to the user through a group membership
-Note the following are different comparing to [a Group assigned standard Role](#sample-role-assigned-to-the-user-through-a-group-membership)
-* The `id` field is present similarly with a different format but it has the same application
-* The `type` field for Custom Roles always has the value `CUSTOM`
-* The new `resource-set` field gives the id of the Resource Set to which this assignment applies
+#### Sample Custom Role assigned to the User through a Group membership
+Note that the following fields are different compared to those for [a Group assigned standard Role](#sample-role-assigned-to-the-user-through-a-group-membership)
+* The `id` field has a different format, but it has the same application.
+* The `type` field for Custom Roles always has the value `CUSTOM`.
+* The new `resource-set` field gives the ID of the Resource Set to which this assignment applies.
 * The `_links` field has three new fields:
-  * `resource-set` is the `GET` link to the Resource Set to which this assignment is granted
-  * `role` is the `GET` link to the Role this assignment grants
-  * `permissions` is the `GET` link to the permissions this assignment grants
+  * `resource-set` is the `GET` link to the Resource Set to which this assignment is granted.
+  * `role` is the `GET` link to the Role to which this assignment is granted.
+  * `permissions` is the `GET` link to the permissions to which this assignment is granted.
 ```json
 {
   "id": "irb5e92YgBazyyQ3x1q5",
@@ -2799,32 +2799,32 @@ The Role object defines several **read-only** properties:
 
 | Property         | Description                                             | DataType                                                                                                                                   | Nullable   | Unique   | Read Only |
 | :--------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------                              | :--------- | :------- | :-------- |
-| _embedded        | Embedded resources related to the Role assignment       | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                                             | TRUE       | FALSE    | TRUE      |
-| _links           | Discoverable resources related to the Role assignment   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                                             | TRUE       | FALSE    | TRUE      |
-| assignmentType   | The type of assignment                                  | `USER`, `GROUP`                                                                                                                            | FALSE      | FALSE    | TRUE      |
-| created          | Timestamp when Role was assigned                        | Date                                                                                                                                       | FALSE      | FALSE    | TRUE      |
-| id               | Unique key for the Role assignment                      | String                                                                                                                                     | FALSE      | TRUE     | TRUE      |
-| label            | Display name of Role                                    | String                                                                                                                                     | FALSE      | FALSE    | TRUE      |
-| lastUpdated      | Timestamp when Role was last updated                    | Date                                                                                                                                       | FALSE      | FALSE    | TRUE      |
-| status           | Status of Role assignment                               | `ACTIVE`                                                                                                                                   | FALSE      | FALSE    | TRUE      |
-| type             | Type of Role                                            | See the [Role types](#role-types) table for a complete list. | FALSE      | FALSE    | TRUE      |
-| resource-set <ApiLifecycle access="beta" />    | The Resource Set id in which the Role is granted (only present for Custom Roles)        | String                                                                                                                                     | TRUE      | TRUE     | TRUE      |
+| `_embedded`        | Embedded resources related to the Role assignment       | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                                             | TRUE       | FALSE    | TRUE      |
+| `_links`           | Discoverable resources related to the Role assignment   | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                                             | TRUE       | FALSE    | TRUE      |
+| `assignmentType`   | The type of assignment                                  | `USER`, `GROUP`                                                                                                                            | FALSE      | FALSE    | TRUE      |
+| `created`          | Timestamp when the Role was assigned                        | Date                                                                                                                                       | FALSE      | FALSE    | TRUE      |
+| `id`               | Unique key for the Role assignment                      | String                                                                                                                                     | FALSE      | TRUE     | TRUE      |
+| `label`            | Display name of the Role                                    | String                                                                                                                                     | FALSE      | FALSE    | TRUE      |
+| `lastUpdated`      | Timestamp when the Role was last updated                    | Date                                                                                                                                       | FALSE      | FALSE    | TRUE      |
+| `status`           | Status of the Role assignment                               | `ACTIVE`                                                                                                                                   | FALSE      | FALSE    | TRUE      |
+| `type`             | Type of Role                                            | See the [Role types](#role-types) table for a complete list. | FALSE      | FALSE    | TRUE      |
+| `resource-set` <ApiLifecycle access="beta" />    | The Resource Set ID in which the Role is granted (only present for Custom Roles)        | String                                                                                                                                     | TRUE      | TRUE     | TRUE      |
 
 #### Role links
 <ApiLifecycle access="beta" />
 
 The following `_links` are returned:
-* `assignee`: gets the User or Group through which this Role is assigned
-* `resource-set`: (only for Custom Roles) gets the Resource Set targetted by this assignment
-* `permissions`: (only for Custom Roles) gets a list of Permissions granted through this assignment
-* `role`: (only for Custom Roles) gets the Role granted through this assignment
-* `member`: (only for Custom Roles) gets the Member object from the Binding that grants this Role
+* `assignee`: Gets the User or Group through which this Role is assigned
+* `resource-set`: (Only for Custom Roles) Gets the Resource Set that is targeted by this assignment
+* `permissions`: (Only for Custom Roles) Gets a list of Permissions that is granted through this assignment
+* `role`: (Only for Custom Roles) gets the Role that is granted through this assignment
+* `member`: (Only for Custom Roles) gets the Member object from the Binding that grants this Role
 
 #### Role types
 
 Some Roles support optional targets that constrain the Role to a specific set of Groups or Apps. If an optional target isn't specified, then the Role assignment is unbounded (for example, applies to all Groups or Apps).
 
-Refer to the [product documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Administrators) for a complete definition of permissions granted to each Role.
+See the [product documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Administrators) for a complete definition of permissions granted to each Role.
 
 | Role type                               | Label                               | Optional targets                      |
 | :-------------------------------------- | :---------------------------------- | :------------------------------------ |
@@ -2838,9 +2838,9 @@ Refer to the [product documentation](https://help.okta.com/en/prod/okta_help_CSH
 | `REPORT_ADMIN`                          | Report Administrator                |                                       |
 | `SUPER_ADMIN`                           | Super Administrator                 |                                       |
 | `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/reference/api/groups/) |
-| `CUSTOM` <ApiLifecycle access="beta" /> | Custom Label specified by client    | [Groups](/docs/reference/api/groups/) |
+| `CUSTOM` <ApiLifecycle access="beta" /> | Custom Label specified by the client    | [Groups](/docs/reference/api/groups/) |
 
-`API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature is enabled. For a description of what the Role can do, see [API Access Management Best Practices](/docs/concepts/api-access-management/#recommended-practices-for-api-access-management).
+`API_ACCESS MANAGEMENT_ADMIN` is available if the API Access Management feature is enabled. See [API Access Management Best Practices](/docs/concepts/api-access-management/#recommended-practices-for-api-access-management) for a description of what the Role can do.
 
 #### Assignment types
 
@@ -2848,19 +2848,19 @@ A Role could either be assigned to the User directly or be assigned to a Group o
 
 | Assignment type     | Description                                                        |
 | :------------------ | :----------------------------------------------------------------- |
-| `GROUP`             | Role was assigned to an admin Group of which the User is a Member  |
-| `USER`              | Role was assigned to the User directly                             |
+| `GROUP`             | Role is assigned to an admin Group of which the User is a Member  |
+| `USER`              | Role is assigned to the User directly                             |
 
-## Custom role object
+## Custom Role object
 <ApiLifecycle access="beta" />
-A Custom Role is a custom set of [Permissions](#permission-types). A Custom Role is uniquely identified within your org by its id or label.
+A Custom Role is a custom set of [Permissions](#permission-types). A Custom Role is uniquely identified within your org by its ID or label.
 
 ### Custom role properties
 | Property         | Description                         | DataType                                       | Nullable   | Unique   | Read Only |
 | :--------------- | :---------------------------------- | :--------------------------------------------- | :--------- | :------- | :-------- |
-| id               | Unique key for the R             | String                                         | FALSE      | TRUE     | TRUE      |
-| label            | Display name of Role                | String                                         | FALSE      | TRUE     | FALSE     |
-| permissions      | the permissions the new Role grants | Array of [Permission types](#permission-types) | FALSE      | FALSE    | FALSE     |
+| `id`               | Unique key for the Role             | String                                         | FALSE      | TRUE     | TRUE      |
+| `label`            | Display name of Role                | String                                         | FALSE      | TRUE     | FALSE     |
+| `permissions`      | The permissions that the new Role grants | Array of [Permission types](#permission-types) | FALSE      | FALSE    | FALSE     |
 
 #### Example
 
@@ -2882,7 +2882,7 @@ A Custom Role is a custom set of [Permissions](#permission-types). A Custom Role
 
 Permissions can be used to build Custom Roles. Permissions to manage a resource also grant the viewing privileges for the the same resource so you won't need to assign them separately.
 
-User permissions are all only effective with respect to the Rroup(s) to which the admin is granted Role via the Resource Set assignments.
+User permissions are only effective with respect to the Group(s) to which the admin is granted a Role through Resource Set assignments.
 
 | Permission type                     | Description                                                                                                                         | Applicable resource types                    |
 | :---------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- |
@@ -2890,7 +2890,7 @@ User permissions are all only effective with respect to the Rroup(s) to which th
 | `okta.users.create`                 | Allows the admin to create Users. If admin also scoped to manage a Group, can add the User to the group on creation and then manage | All Groups, a specific Group                 |
 | `okta.users.read`                   | Allows the admin to read any User's profile and credential information                                                              | All Users, all Users within a specific Group |
 | `okta.users.credentials.manage`     | Allows the admin to manage only credential lifecycle operations for a user                                                          | All Users, all Users within a specific Group |
-| `okta.users.userprofile.manage`     | Allows the admin to only do operations on the User Object, including hidden and sensitive attributes                                | All Users, all Users within a specific Group |
+| `okta.users.userprofile.manage`     | Allows the admin to only perform operations on the User Object, including hidden and sensitive attributes                                | All Users, all Users within a specific Group |
 | `okta.users.lifecycle.manage`       | Allows the admin to only take any User lifecycle operations                                                                         | All Users, all Users within a specific Group |
 | `okta.users.groupMembership.manage` | Allows the admin to manage a User's group membership (also need `okta.groups.members.manage` to assign to a specific Group)         | All Users, all Users within a specific Group |
 | `okta.groups.manage`                | Allows the admin to fully manage Groups in your Okta organization                                                                   | All Groups, a specific Group                 |
@@ -2898,31 +2898,31 @@ User permissions are all only effective with respect to the Rroup(s) to which th
 | `okta.groups.members.manage`        | Allows the admin to only take member operations in a Group in your Okta org                                                         | All Groups, a specific Group                 |
 | `okta.groups.read`                  | Allows the admin to only read information about Groups and their members in your Okta organization                                  | All Groups, a specific Group                 |
 
-## Resource set object
+## Resource Set object
 <ApiLifecycle access="beta" />
 
-A Resource Set is a collection of resources. Because there could be too many resources in a set, the object itself doesn't list the resources but provides a paginable link to fetch resources.
+A Resource Set is a collection of resources. As there can be too many resources in a set, the object itself doesn't list the resources but provides a paginable link to fetch resources.
 
 | Property         | Description                                             | DataType                                                                                                      | Nullable   | Unique   | Read Only |
 | :--------------- | :------------------------------------------------------ | :------------------------------------------------------------------------------------------------------------ | :--------- | :------- | :-------- |
-| id               | Unique key for the Resource Set                         | String                                                                                                        | FALSE      | TRUE     | TRUE      |
-| label            | Display name of the Resource Set                        | String                                                                                                        | FALSE      | TRUE     | FALSE     |
-| description      | A description of the Resource Set                       | String                                                                                                        | FALSE      | FALSE    | FALSE     |
-| _links           | Discoverable resources related to the Resource Set      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                | TRUE       | FALSE    | FALSE     |
+| `id`               | Unique key for the Resource Set                         | String                                                                                                        | FALSE      | TRUE     | TRUE      |
+| `label`            | Display name of the Resource Set                        | String                                                                                                        | FALSE      | TRUE     | FALSE     |
+| `description`      | A description of the Resource Set                       | String                                                                                                        | FALSE      | FALSE    | FALSE     |
+| `_links`           | Discoverable resources related to the Resource Set      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                | TRUE       | FALSE    | FALSE     |
 
 The following `_links` are returned:
-* `self` gets this Resource Set
-* `resources` gets a paginable list of resources included in this set
-* `bindings` gets a paginable list of admin Role Bindings assigned to this set
+* `self` gets this Resource Set.
+* `resources` gets a paginable list of resources included in this set.
+* `bindings` gets a paginable list of admin Role Bindings assigned to this set.
 
 ### Resource object
 
-A resource has an id a link to the resource. Supported resources are:
+A resource has an ID and a link that points to the resource. Supported resources are:
 * Groups
 * All Users within a Group
 * All Users within the org
 * All Users and Groups with the org
-The id of a resource is unique to the Resource Set whereas the link pointing to the resource is unique for the org. The same Group if used in two Resource Sets will have distinct ids in each of Resource Sets but the same self link in both.
+The ID of a resource is unique to the Resource Set, whereas the link that points to the resource is unique for the org. A Group, if used in two Resource Sets, has distinct IDs in each Resource Set but has the same self link in both.
 
 #### Resource examples
 
@@ -2974,19 +2974,19 @@ The id of a resource is unique to the Resource Set whereas the link pointing to 
     }
 ```
 
-> **Note:** Providing either of the [all Groups](#all-groups-as-resource) and [all Users](#all-users-as-resource) result in including all Users and Groups.
+> **Note:** When you provide either [all Groups](#all-groups-as-resource) and [all Users](#all-users-as-resource), it results in including all Users and Groups.
 
 ### Binding object
-A Binding represents the assignment of a [Custom Role](#custom-role-object) to a list of admins. Bindings are specific to a [Resource Set](#resource-set-object). There will be at max one Binding object per Role in a Resource Set.
+A Binding represents the assignment of a [Custom Role](#custom-role-object) to a list of admins. Bindings are specific to a [Resource Set](#resource-set-object). There is a maximum of one Binding object per Role in a Resource Set.
 
-The admin list assigned to a Role is made of [resource objects](#resource-object) representing either of the following types of admin assignments:
+The admin list assigned to a Role is made of [resource objects](#resource-object) that represent either of the following types of admin assignments:
 * Directly assigned to the User
 * Assigned to a Group
 
 | Property         | Description                                                     | DataType       | Nullable   | Unique   | Read Only |
 | :--------------- | :-------------------------------------------------------------- | :------------- | :--------- | :------- | :-------- |
-| id               | `id` of the Role granted in this Binding                        | String         | FALSE      | FALSE    | FALSE     |
-| _links           | Discoverable resources related to the Resource Set              | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                | TRUE       | FALSE    | FALSE     |
+| `id`               | ID of the Role granted in this Binding                        | String         | FALSE      | FALSE    | FALSE     |
+| `_links`           | Discoverable resources related to the Resource Set              | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                | TRUE       | FALSE    | FALSE     |
 
 The following `_links` are returned:
 * `self` gets this Binding
@@ -2994,11 +2994,11 @@ The following `_links` are returned:
 
 #### Member object
 
-A Member has an id and a link to the resource representing the Role grantee. Supported resources are:
+A Member has an ID and a link to the resource that represents the Role grantee. Supported resources are:
 * Groups
 * Users
 
-The id of a Member is unique to the Binding whereas the link pointing to the resource is unique for the org. The same Group if used in two Bindings will have distinct ids in each but the same self link in both.
+The ID of a Member is unique to the Binding, whereas the link that points to the resource is unique for the org. The Group, if used in two Bindings, has distinct IDs in each but the same self link in both.
 
 ##### Member examples
 
