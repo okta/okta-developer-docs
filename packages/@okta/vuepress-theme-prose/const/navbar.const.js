@@ -35,6 +35,11 @@ export const concepts = [
         path: "/docs/concepts/feature-lifecycle-management/"
       },
       {
+        title: "Role Assignment",
+        path: "/docs/concepts/role-assignment/",
+        hidden: true
+      },
+      {
         title: "How Okta works",
         path: "/docs/concepts/how-okta-works/"
       },
@@ -470,6 +475,7 @@ export const reference = [
         title: "Manage Okta Objects",
         subLinks: [
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
+          { title: "Administrator Roles", path: "/docs/reference/api/iam-roles/", hidden: true },
           { title: "Apps", path: "/docs/reference/api/apps/" },
           {
             title: "Authorization Servers",
