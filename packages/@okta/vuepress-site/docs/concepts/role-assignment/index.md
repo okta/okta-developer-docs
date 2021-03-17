@@ -9,7 +9,7 @@ Roles can be one of the [standard Roles](#standard-role-assignment), which are p
 On this page, we discuss the concepts of Role assignment through APIs. See [Custom Admin Roles Help](#https://help.okta.com/en/programs/Content/Topics/betas/closed/custom-admin-role/custom-admin-roles.htm) for more information.
 
 ## Standard Role assignment
-The following Role types are provided and supported out of the box:
+The following Role types are provided and supported:
 
 | Role type                               | Label                               | Optional targets                      |
 | :-------------------------------------- | :---------------------------------- | :------------------------------------ |
