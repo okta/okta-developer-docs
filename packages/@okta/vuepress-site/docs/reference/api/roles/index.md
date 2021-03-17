@@ -17,8 +17,6 @@ Explore the Administrator Roles API:  [![Run in Postman](https://run.pstmn.io/bu
 ## Role assignment operations
 
 ### Grant third-party admin status
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="post" url="/api/v1/users/${userId}/roles?disableNotifications=true" />
 
 You can grant third-party admin status when you are adding a new admin using the API. You can do this by using an optional query parameter on the Administrator Roles API called `disableNotifications`.
@@ -1345,7 +1343,7 @@ Refer to the [product documentation](https://help.okta.com/en/prod/okta_help_CSH
 | :---------------------------- | :---------------------------------- | :------------------------------------ |
 | `API_ACCESS_MANAGEMENT_ADMIN` | API Access Management Administrator |                                       |
 | `APP_ADMIN`                   | Application Administrator           | Apps                                  |
-| `GROUP_MEMBERSHIP_ADMIN` <ApiLifecycle access="ea" /> | Group Membership Administrator | [Groups](/docs/reference/api/groups/)|
+| `GROUP_MEMBERSHIP_ADMIN`      | Group Membership Administrator      | [Groups](/docs/reference/api/groups/)|
 | `HELP_DESK_ADMIN`             | Help Desk Administrator             | [Groups](/docs/reference/api/groups/) |
 | `MOBILE_ADMIN`                | Mobile Administrator                |                                       |
 | `ORG_ADMIN`                   | Organizational Administrator        |                                       |
