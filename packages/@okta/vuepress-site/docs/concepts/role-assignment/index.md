@@ -39,7 +39,7 @@ Custom Roles can be built by piecing [Permissions](/docs/reference/api/roles/#pe
 2. Build a set of resources.
 3. Bind the admin with the Role from step 1 that targets the Resource Set from step 2.
 
-An assignment of a Role to an admin is called a [Binding](/docs/reference/api/roles/#binding-object). Conceptually, a Binding is identified by a unique ID, and represents a single unique combination of principal, Resource Set, and Custom Role. A given Resource Set can have multiple Bindings, that allows for different combinations of principals and Roles as necessary to grant Permission to the encompassing resource.
+An assignment of a Role to an admin is called a [Binding](/docs/reference/api/roles/#binding-object). Conceptually, a Binding is identified by a unique ID, and represents a single unique combination of principal, Resource Set, and Custom Role. A given Resource Set can have multiple Bindings that allow for different combinations of principals and Roles as necessary to grant permission to the encompassing resource.
 
 Therefore, when dealing with Custom Roles, these three entities always exist:
 * A Role: Identified by its `label` or `id`
