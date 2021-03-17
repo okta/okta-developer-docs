@@ -31,7 +31,7 @@ Perform standard role assignment in two steps:
 Note that the entities involved in standard Role assignment are:
 * A Role: Identified either by type or ID returned from the [listing API](/docs/reference/api/roles/#list-roles)
 * A principal: Either a Group or a User
-* (Optional) A resource: When using [target operations](/docs/reference/api/roles/#role-target-operations) this could be either an App or a Group
+* (Optional) A resource: When using [target operations](/docs/reference/api/roles/#role-target-operations) this can be either an App or a Group
 
 ## Custom Role assignment
 Custom Roles can be built by piecing [Permissions](/docs/reference/api/roles/#permission-types) together. After a Custom Role is built, you can use its `id` or `label` to assign to admins. The process is:
