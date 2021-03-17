@@ -6,7 +6,7 @@ title: Role Assignment
 # Role assignment
 Role assignment to principals makes them administrators of your org. Principals can be Users or Groups of Users. When a Role is assigned to a Group, all members of the Group automatically have the privileges granted by the Role.
 Roles can be one of the [standard Roles](#standard-role-assignment), which are provided by default. Alternatively, you can create your own Custom Roles by choosing from the collection of available [permissions](#permission-types).
-In this page, we discuss the concepts of Role assignment through APIs. See [Custom Admin Roles Help](#https://help.okta.com/en/programs/Content/Topics/betas/closed/custom-admin-role/custom-admin-roles.htm) for more information.
+On this page, we discuss the concepts of Role assignment through APIs. See [Custom Admin Roles Help](#https://help.okta.com/en/programs/Content/Topics/betas/closed/custom-admin-role/custom-admin-roles.htm) for more information.
 
 ## Standard Role assignment
 The following Role types are provided and supported out of the box:
