@@ -57,7 +57,7 @@ Once sample download is working we can provide these instructions instead:
 
 ## Simple enrollment and authentication
 
-This section walks your through enrolling a user and authenticating that user.
+This section walks you through enrolling a user and authenticating that user.
 
 ### Open and test the Sign-In Widget
 
@@ -66,32 +66,32 @@ This section walks your through enrolling a user and authenticating that user.
 3. Your default browser automatically opens to `localhost:8080` in the incognito window, and the Okta-React Sample landing page appears.
 4. Click **Login** and you are redirected to the Okta Sign-In Widget. Note that there currently is no **Sign Up** option.
 5. Enter the **Username** and **Password** for your admin user. You are redirected to the React Sample's success page.
-6. Sign out of the app with the **Logout** button at the top of the page.
+6. Sign out of the app using the **Logout** button at the top of the page.
 
 ## Enable self-service enrollment
 
-This section walks your through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
 
 1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
 2. Give your Policy a **Name** and then click **Save**.
 3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
 4. On your Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
 5. Locate the app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**
-7. In the **Enrollment Settings** section, click the **Actions** menu ![Actions menu](/img/ActionsIcon.png "Three vertical dot Actions menu icon") beside the **ENABLED** flag and select **Edit**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon ![Actions menu](/img/ActionsIcon.png "Three vertical dot Actions menu icon") beside the **ENABLED** flag and select **Edit**.
 8. In the Edit Rule dialog box, select **Allowed** in the **For new users** section, and then click **Save**.
 
 > **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) for more information on profile enrollment policies.
 
 ### Try enrollment
 
-Walk through the self-service enrollment steps for a new user.
+This section walks you through the self-service enrollment steps for a new user.
 
 1. Click **Login** on the Okta-React Sample landing page. You should now see **Sign Up** just below the **Forgot password?** link.
 2. Click **Sign Up**, enter the requested information, and click **Register**.
 3. You now need to set up Email, Password, and Security Question factors. Don't set up any other factors.
 4. After you complete set up, click **Finish**. You are redirected to the React Sample's success page.
-5. Sign out of the app with the **Logout** button at the top of the page.
+5. Sign out of the app using the **Logout** button at the top of the page.
 
 ## Add MFA with a mandatory second factor
 
@@ -104,7 +104,7 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 1. Ensure that your org has the Phone Authenticator enabled by going to **Security** > **Authenticators** and checking that **Phone** is listed. If it isn't, add it using the **Add Authenticator** button.
 2. From the side navigation, select **Applications** > **Applications** and then select the Application that you created.
 3. Select the **Sign On** tab.
-4. Scroll down to the **Sign On Policy** section, click the **Actions** menu ![Actions menu](/img/ActionsIcon.png "Three vertical dot Actions menu icon") beside the **ENABLED** flag and select **Edit**.
+4. Scroll down to the **Sign On Policy** section, click the **Actions** menu icon ![Actions menu](/img/ActionsIcon.png "Three vertical dot Actions menu icon") beside the **ENABLED** flag and select **Edit**.
 5. In the Edit Rule dialog box, scroll down to the **THEN** section and locate **AND User must authenticate with**.
 6. Select **Password + Another factor** and click **Save**.
 
@@ -146,7 +146,7 @@ When we enrolled our test user, the user was only prompted for first and last na
 
 1. In the Admin Console side navigation, select **Security** > **Profile Enrollment**.
 2. Find the profile that you created for self-service enrollment and click the pencil icon in the **Actions** column.
-3. In the **Enrollment Settings** section, click the **Actions** menu ![Actions menu](/img/ActionsIcon.png "Three vertical dot Actions menu icon") beside the **ENABLED** flag and select **Edit**.
+3. In the **Enrollment Settings** section, click the **Actions** menu icon ![Actions menu](/img/ActionsIcon.png "Three vertical dot Actions menu icon") beside the **ENABLED** flag and select **Edit**.
 4. In the Edit Rule dialog box, click **Add Another** and enter the following:
 
     * **Fields** &mdash; `region`
@@ -165,9 +165,9 @@ When we enrolled our test user, the user was only prompted for first and last na
 10. Find the **Region** attribute that you just created and click the pencil icon beside it.
 11. In the **Region** dialog box that appears, set **User permission** to **Read-Write**, and then click **Save Attribute**.
 
-> **Note:** You can check which User Attributes are required for your Directory by clicking the **Information icon** beside each Attribute. By default, **First name** and **Last name** are marked as required, in addition to what you specify in your Enrollment Policy.
+> **Note:** You can check which User Attributes are required for your Directory by clicking the Information icon beside each Attribute. By default, **First name** and **Last name** are marked as required, in addition to what you specify in your Enrollment Policy.
 
-12. Now try to authenticate using one of the same users as in the previous steps. You are prompted with a **Region** field and a **Register** button. After you add a value, you can confirm that it has been saved by accessing **Directory** > **People** in the Admin Console, locating the correct user, and clicking their **Profile** tab. If you try to register a new user, you see the **Region** field added to the **Create Account** page.
+12. Now try to authenticate using one of the same users as in the previous steps. You are prompted with a **Region** field and a **Register** button. After you add a value, you can confirm that it has been saved by accessing **Directory** > **People** in the Admin Console, locating the correct user, and selecting their **Profile** tab. If you try to register a new user, you see the **Region** field added to the **Create Account** page.
 
 ## Identity Provider routing to Facebook
 
@@ -186,7 +186,7 @@ Instead of signing in to Okta, it is possible to route users to an external Iden
 6. In the **Site URL** box, enter the Okta redirect URI. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the IdP. This is the URL where the IdP returns the authentication response (the access token and the ID token). In this example, this is `http://localhost:8080/login/callback`.
 7. Click **Save**, click **Continue**, and then click **Next** until you exit the Quickstart wizard.
 
- > **Note:** Normally, under the "Facebook Login" **Settings** section, you would enter the **Valid OAuth Redirect URIs**, but Facebook automatically adds `localhost` redirects so this isn't required for this example.
+    > **Note:** Normally, under the "Facebook Login" **Settings** section, you would enter the **Valid OAuth Redirect URIs**, but Facebook automatically adds `localhost` redirects so this isn't required for this example.
 
 8. On the App's Dashboard page, expand **Settings** on the left side of the page, and then click **Basic**.
 9. Save the **App ID** and the **App Secret** values so that you can add them to the Okta configuration in the next section.
@@ -197,7 +197,7 @@ Instead of signing in to Okta, it is possible to route users to an external Iden
 
 To connect your org to the IdP, add and configure that IdP in Okta.
 
-1. From the Admin Console side navigation, select **Security** and then **Identity Providers**.
+1. From the Admin Console side navigation, select **Security** > **Identity Providers**.
 2. Select **Add Identity Provider** and then select **Add Facebook**.
 3. In the **Add an Identity Provider** dialog box, define the following:
 
@@ -210,10 +210,10 @@ To connect your org to the IdP, add and configure that IdP in Okta.
 
     > **Note:** For more information about these settings as well as the **Advanced Settings**, see [Social Identity Provider Settings](/docs/reference/social-settings/).
 
-4. Click **Add Identity Provider**. The Identit Provider page appears.
+4. Click **Add Identity Provider**. The Identity Provider page appears.
 5. Locate the IdP that you just added and click the arrow next to the IdP name to expand.
 6. Copy the **Redirect URI** (ending in `/callback`).
-7. On the page for your Facebook App, under **Facebook Login**, select **Settings** and add the Redirect URI that you just copied to the **Valid OAuth Redirect URIs**.
+7. On the page for your Facebook App, under **Facebook Login**, select **Settings** and add the redirect URI that you just copied to the **Valid OAuth Redirect URIs**.
 8. Click **Save Changes**.
 
 ### Create the Routing Rule
