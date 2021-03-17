@@ -5,11 +5,11 @@ title: Role Assignment
 
 # Role assignment
 Role assignment to principals makes them administrators of your org. Principals can be Users or Groups of Users. When a Role is assigned to a Group, all members of the Group automatically have the privileges granted by the Role.
-Roles could be one of the [standard Roles](#standard-role-assignment), which are provided by default. Alternatively, you can create your own Custom Roles by choosing from the collection of available [permissions](#permission-types).
-In this page, we discuss the concepts of Role assignment through APIs. See [Custom Admin Roles Help](#https://help.okta.com/en/programs/Content/Topics/betas/closed/custom-admin-role/custom-admin-roles.htm) for more information.
+Roles can be one of the [standard Roles](#standard-role-assignment), which are provided by default. Alternatively, you can create your own Custom Roles by choosing from the collection of available [permissions](#permission-types).
+On this page, we discuss the concepts of Role assignment through APIs. See [Custom Admin Roles Help](#https://help.okta.com/en/programs/Content/Topics/betas/closed/custom-admin-role/custom-admin-roles.htm) for more information.
 
 ## Standard Role assignment
-The following Role types are provided and supported out of the box:
+The following Role types are provided and supported:
 
 | Role type                               | Label                               | Optional targets                      |
 | :-------------------------------------- | :---------------------------------- | :------------------------------------ |
@@ -24,14 +24,14 @@ The following Role types are provided and supported out of the box:
 | `SUPER_ADMIN`                           | Super Administrator                 |                                       |
 | `USER_ADMIN`                            | Group Administrator                 | [Groups](/docs/reference/api/groups/) |
 
-Perform standard role assignment in these two steps:
+Perform standard role assignment in two steps:
 1. Assign a Role to a User or Group. At this point, the admin has the supported privileges of the Role over all resources across organization.
 2. (Optional) If the Role supports targets, use one of the [target operations](/docs/reference/api/roles/#role-target-operations) to indicate which specific resource the admin can manage.
 
 Note that the entities involved in standard Role assignment are:
-* A Role: Identified either by type or id returned from [listing API](/docs/reference/api/roles/#list-roles)
+* A Role: Identified either by type or ID returned from the [listing API](/docs/reference/api/roles/#list-roles)
 * A principal: Either a Group or a User
-* (Optional) A resource: When using [target operations](/docs/reference/api/roles/#role-target-operations) this could be either an App or a Group
+* (Optional) A resource: When using [target operations](/docs/reference/api/roles/#role-target-operations) this can be either an App or a Group
 
 ## Custom Role assignment
 Custom Roles can be built by piecing [Permissions](/docs/reference/api/roles/#permission-types) together. After a Custom Role is built, you can use its `id` or `label` to assign to admins. The process is:
@@ -39,7 +39,7 @@ Custom Roles can be built by piecing [Permissions](/docs/reference/api/roles/#pe
 2. Build a set of resources.
 3. Bind the admin with the Role from step 1 that targets the Resource Set from step 2.
 
-An assignment of a Role to an admin is called a [Binding](/docs/reference/api/roles/#binding-object). Conceptually, a Binding is identified by a unique ID, and represents a single unique combination of principal, Resource Set, and Custom Role. A given Resource Set can have multiple Bindings, that allows for different combinations of principals and Roles as necessary to grant Permission to the encompassing resource.
+An assignment of a Role to an admin is called a [Binding](/docs/reference/api/roles/#binding-object). Conceptually, a Binding is identified by a unique ID, and represents a single unique combination of principal, Resource Set, and Custom Role. A given Resource Set can have multiple Bindings that allow for different combinations of principals and Roles as necessary to grant permission to the encompassing resource.
 
 Therefore, when dealing with Custom Roles, these three entities always exist:
 * A Role: Identified by its `label` or `id`
@@ -73,9 +73,9 @@ To specify a resource targeted by a Resource Set, you can simply use the REST UR
   https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users
   ```
 
-> **Note:** All Users and Groups can be represented using either [All Users](/docs/reference/api/users/#list-users) or [All Groups](/docs/reference/api/groups/#list-groups) links. There is no functional difference between the two.
+> **Note:** All Users and Groups are represented by using either [All Users](/docs/reference/api/users/#list-users) or [All Groups](/docs/reference/api/groups/#list-groups) links. There is no functional difference between the two.
 
-> **Note:** If you use a Role with permissions that don't apply to the resources in the Resource Set, the admin Role will have no effect. For example, the `okta.users.profile.manage` permission gives the admin no privileges if it is granted to a Resource Set that only includes `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the Users within the group, the Resource Set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
+> **Note:** If you use a Role with permissions that don't apply to the resources in the Resource Set, it doesn't affect the admin Role. For example, the `okta.users.profile.manage` permission gives the admin no privileges if it is granted to a Resource Set that only includes `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the Users within the group, the Resource Set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
 
 #### Binding member identifiers
 To specify Binding Members, use the REST URL of the corresponding Okta API:
@@ -95,21 +95,21 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
     * Custom Roles directly assigned
     * Custom Roles granted through group membership
 
-    As a result, if an admin was granted a standard Role that is limited to a single Group and at the same time received group management privileges on all Groups in the org through a Custom Role, the ultimate outcome is group management on all Groups.
-2. During BETA, Custom Roles, Permissions and resources are limited to User and Group related items. We'll be introducing additional Resources and Permissions over time and appreciate your feedback.
-3. A Custom Role cannot be assigned without a Resource Set, hence always being applicable only to a subset of resources. Standard Roles on the other hand, are always initially granted at the entire org. They are only scoped to specific resources by subsequent invoking of the [target operations](/docs/reference/api/roles/#role-target-operations).
+    As a result, if an admin was granted a standard Role that is limited to a single Group, and at the same time received group management privileges on all Groups in the org through a Custom Role, the ultimate outcome is group management on all Groups.
+2. During BETA, Custom Roles, Permissions and resources are limited to User and Group related items. We plan to introduce additional Resources and Permissions over time and appreciate your feedback.
+3. You can't assign a Custom Role without a Resource Set, hence always being applicable only to a subset of resources. Standard Roles on the other hand, are always initially granted to the entire org. They are only scoped to specific resources by subsequent invoking of the [target operations](/docs/reference/api/roles/#role-target-operations).
 
 ### Permission types
 | Permission type                     | Description                                                                                                                         | Applicable resource types                    |
 | :---------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------- |
 | `okta.users.manage`                 | Allows the admin to create and manage Users and read all profile and credential information for Users                               | All Users, all Users within a specific Group |
-| `okta.users.create`                 | Allows the admin to create Users. If admin also scoped to manage a Group, can add the User to the Group on creation and then manage | All Groups, a specific Group                 |
+| `okta.users.create`                 | Allows the admin to create Users. If the admin is also scoped to manage a Group, that admin can add the User to the Group on creation and then manage | All Groups, a specific Group                 |
 | `okta.users.read`                   | Allows the admin to read any User's profile and credential information                                                              | All Users, all Users within a specific Group |
 | `okta.users.credentials.manage`     | Allows the admin to manage only credential lifecycle operations for a User                                                          | All Users, all Users within a specific Group |
 | `okta.users.userprofile.manage`     | Allows the admin to only do operations on the User Object, including hidden and sensitive attributes                                | All Users, all Users within a specific Group |
-| `okta.users.lifecycle.manage`       | Allows the admin to only take any User lifecycle operations                                                                         | All Users, all Users within a specific Group |
+| `okta.users.lifecycle.manage`       | Allows the admin to perform any User lifecycle operations                                                                         | All Users, all Users within a specific Group |
 | `okta.users.groupMembership.manage` | Allows the admin to manage a User's group membership (also need `okta.groups.members.manage` to assign to a specific Group)         | All Users, all Users within a specific Group |
 | `okta.groups.manage`                | Allows the admin to fully manage Groups in your Okta organization                                                                   | All Groups, a specific Group                 |
 | `okta.groups.create`                | Allows the admin to create Groups                                                                                                   | All Groups                                   |
-| `okta.groups.members.manage`        | Allows the admin to only take member operations in a Group in your Okta org                                                         | All Groups, a specific Group                 |
+| `okta.groups.members.manage`        | Allows the admin to only manage member operations in a Group in your Okta org                                                         | All Groups, a specific Group                 |
 | `okta.groups.read`                  | Allows the admin to only read information about Groups and their members in your Okta organization                                  | All Groups, a specific Group                 |
