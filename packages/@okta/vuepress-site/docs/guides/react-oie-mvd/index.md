@@ -22,30 +22,29 @@ Before we begin, you need to create an Okta OAuth app to represent the React sam
 2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
 3. From the Add Application page, click **Create New App**.
 4. In the dialog box that appears, select **Single Page App (SPA)** as your Platform, then click **Create**.
-5. Fill out the Create OpenID Connect App Integration fields that you need, but be sure to add the following:
+5. Fill out the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
 
     * **Login redirect URIs** &mdash; `http://localhost:8080/login/callback`
     * **Logout redirect URIs** &mdash; `http://localhost:8080/`
 
-6. Click **Save**.
-7. On the page for your new Application, select the **Assignments** tab.
-8. Select **Assign**, and then **Assign to Groups**.
-9. In the dialog box that appears, select **Assign** for the **Everyone** group, and then click **Done**. This assignment isn't mandatory, but necessary for the purposes of this example. The app must be assigned either to the **Everyone** Group or a custom Group that you create, so that the profile enrollment functions correctly.
-10. On the **General** tab, copy the **Client ID** from the **Client Credentials** section. You need to add this ID to the `testenv` file in a few steps.
-11. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
-12. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
-13. Select the **CORS** check box and click **Save**.
-14. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-js-react.git`.
-15. Create a `testenv` file in the new `samples-js-react` directory with the following contents:
+6. On the page for your new Application, select the **Assignments** tab.
+7. Click **Assign**, and then select **Assign to Groups**.
+8. In the dialog box that appears, select **Assign** for the **Everyone** group, and then click **Done**. This assignment isn't mandatory, but necessary for the purposes of this example. The app must be assigned either to the **Everyone** Group or a custom Group that you create, so that the profile enrollment functions correctly.
+9. On the **General** tab, copy the **Client ID** from the **Client Credentials** section. You need to add this ID to the `testenv` file in a few steps.
+10. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
+11. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
+12. Select the **CORS** check box and click **Save**.
+13. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-js-react.git`.
+14. Create a `testenv` file in the new `samples-js-react` directory with the following contents:
 
       ```ini
       ISSUER=https://${yourOktaDomain}/oauth2/default
       CLIENT_ID={yourAppClientId}
       ```
 
-    Be sure to replace {yourAppClientId} with the Client ID that you copied in step 10.
+    Be sure to replace {yourAppClientId} with the Client ID that you copied in step 9.
 
-16. From the command line, enter the `okta-hosted-login` directory and run `npm install`.
+15. From the command line, enter the `okta-hosted-login` directory and run `npm install`.
 
 You now have your App created in Okta, and the Okta React Sample app installed.
 
@@ -104,7 +103,7 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 
 1. Ensure that your org has the Phone Authenticator enabled by going to **Security** > **Authenticators** and checking that **Phone** is listed. If it isn't, add it using the **Add Authenticator** button.
 2. From the side navigation, select **Applications** > **Applications** and then select the Application that you created.
-3. Click the **Sign On** tab.
+3. Select the **Sign On** tab.
 4. Scroll down to the **Sign On Policy** section, click the **Actions** menu ![Actions menu](/img/ActionsIcon.png "Three vertical dot Actions menu icon") beside the **ENABLED** flag and select **Edit**.
 5. In the Edit Rule dialog box, scroll down to the **THEN** section and locate **AND User must authenticate with**.
 6. Select **Password + Another factor** and click **Save**.
@@ -114,12 +113,12 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 1. Return to the React Sample page and click **Login**. You are once again redirected to the Widget.
 2. Sign in with the credentials of the user that you enrolled earlier.
 3. The Set up Authentications page appears, which prompts you to set up either the Okta Verify or the Phone Authenticator. Under Phone, click **Set up**.
-4. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish** (if necessary). You are redirected to the React Sample's success page.
-5. Sign out of the app with the **Logout** button at the top of the page.
+4. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the React Sample's success page.
+5. Sign out of the app using the **Logout** button at the top of the page.
 
 ## Authenticator recovery
 
-By default, your org should have Password reset configured to be initiated with an email. You can try out the email password recovery flow by selecting **Forgot password?** from the Sign-In Widget. You are prompted for your email or username, and then an OTP code is sent to your email address. After you enter this code and answer a security question, you are prompted to enter in a new password. You are then directed to the React Sample's success page.
+By default, your org should have Password reset configured to be initiated with an email. You can try out the email password recovery flow by selecting **Forgot password?** from the Sign-In Widget. You are prompted for your email or username, and then an OTP code is sent to your email address. After you enter this code and answer a security question, you are prompted to enter in a new password. You are then directed to the React Sample's success page. Sign out of the app using the **Logout** button at the top of the page.
 
 ### Recovery with Okta Verify
 
