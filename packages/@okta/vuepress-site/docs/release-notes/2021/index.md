@@ -8,11 +8,13 @@ title: Okta API Products Release Notes
 
 | Change                                                    | Expected in Preview Orgs |
 | --------------------------------------------------------- | ------------------------ |
-| [Bug fixed in 2021.03.2](#bug-fixed-in-2021-03-2)       | March 17, 2021           |
+| [Bugs fixed in 2021.03.2](#bugs-fixed-in-2021-03-2)       | March 17, 2021           |
 
-#### Bug fixed in 2021.03.2
+#### Bugs fixed in 2021.03.2
 
 * After updating a group name using the [Groups API](/docs/reference/api/groups/#update-group), the change wasn't reflected in the target application with [**Group Push**](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Using_Group_Push) enabled. (OKTA-375190)
+
+* When creating a user with a recovery question using an OAuth access token rather than an API token, an invalid session error was returned. (OKTA-361888)
 
 ### Weekly Release 2021.03.1
 
