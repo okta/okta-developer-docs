@@ -29,7 +29,7 @@ Perform standard role assignment in two steps:
 2. (Optional) If the Role supports targets, use one of the [target operations](/docs/reference/api/roles/#role-target-operations) to indicate which specific resource the admin can manage.
 
 Note that the entities involved in standard Role assignment are:
-* A Role: Identified either by type or id returned from [listing API](/docs/reference/api/roles/#list-roles)
+* A Role: Identified either by type or ID returned from the [listing API](/docs/reference/api/roles/#list-roles)
 * A principal: Either a Group or a User
 * (Optional) A resource: When using [target operations](/docs/reference/api/roles/#role-target-operations) this could be either an App or a Group
 
