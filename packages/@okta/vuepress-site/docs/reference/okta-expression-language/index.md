@@ -267,7 +267,7 @@ The format for conditional expressions is
 
 * Expressions must have valid syntax.
 * Expressions must evaluate to Boolean.
-* Expressions cannot contain an assignment operator, such as =.
+* Expressions cannot contain an assignment operator, such as `=`.
 * User attributes used in expressions can contain only available User or AppUser attributes.
 
 <br>The following functions are supported in conditions.
@@ -277,6 +277,7 @@ The format for conditional expressions is
 * The `OR` operator
 * The `!` operator to designate NOT
 * Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>.
+* The `matches` operator to evaluate a string against a regular expression.
 
 **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
