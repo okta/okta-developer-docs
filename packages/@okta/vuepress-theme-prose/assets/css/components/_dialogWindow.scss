@@ -1,21 +1,28 @@
-.dialog-container {
+.dialog-backdrop {
   position: fixed;
   width: 100%;
   height: 100%;
   top: 0;
+  bottom: 0;
   background-color: rgba(29, 29, 33, 0.75);
   color: #fff;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.dialog-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
 }
 
 .dialog {
   max-width: 645px;
+  max-height: calc(100% - 64px);
   height: auto;
   overflow-y: auto;
-  position: absolute;
-  margin: auto;
-  top: 197px;
-  left: 0;
-  right: 0;
   padding: 37px 0 31px 0;
   background-color: cv('blue','whale');
   box-shadow: 0px 6px 25px cv('blue','whale');
@@ -42,11 +49,5 @@
   }
   .dialog--footer {
     padding: 0 32px 0 32px;
-  }
-  @include media("<tablet") {
-      top: 0;
-  }
-  @include media("<bootstrap-sm") {
-    height: 100%;
   }
 }

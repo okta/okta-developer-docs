@@ -218,7 +218,7 @@
           <input
             type="button"
             id="continue-github"
-            value="CONTINUE WITH GITHUB"
+            value="continue with github"
             class="btn social-btn"
             @click="openTermsConditionsDialog(uris.github)"
           />
@@ -230,7 +230,7 @@
             type="button"
             id="continue-google"
             class="btn social-btn"
-            value="CONTINUE WITH GOOGLE"
+            value="continue with google"
             @click="openTermsConditionsDialog(uris.google)"
           />
         </div>
@@ -261,7 +261,7 @@ import { Api } from "../util/api.service";
 import {
   countriesList,
   americanStates,
-  canadaProvinces,
+  canadianProvinces,
   GDPR_COUNTRIES
 } from "../const/signup.const";
 import setHiddenUtmValues from "../util/attribution/attribution";
@@ -319,7 +319,7 @@ export default {
           this.state.list = americanStates;
           this.state.label = "State";
         } else if (country === CANADA) {
-          this.state.list = canadaProvinces;
+          this.state.list = canadianProvinces;
           this.state.label = "Province";
         } else {
           this.state.list = [];

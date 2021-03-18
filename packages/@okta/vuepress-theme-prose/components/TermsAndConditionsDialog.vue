@@ -23,7 +23,7 @@
         >
           <option disabled selected></option>
           <option
-            v-for="country in countrieList"
+            v-for="country in countriesList"
             v-bind:key="country.value"
             :value="country.value"
             >{{ country.name }}</option
@@ -83,19 +83,19 @@
         <div class="btn-container">
           <input
             type="button"
+            class="btn social-btn"
+            value="cancel"
+            @click="closeTermsConditionsDialog()"
+          />
+        </div>
+        <div class="btn-container">
+          <input
+            type="button"
             class="btn red-button"
             @click="!isDisabledSocialAuth && setTaCUrlAndRedirect()"
             :class="{ 'btn-disabled': isDisabledSocialAuth }"
             value="continue"
             :disabled="isDisabledSocialAuth"
-          />
-        </div>
-        <div class="btn-container mr-15">
-          <input
-            type="button"
-            class="btn social-btn"
-            value="cancel"
-            @click="closeTermsConditionsDialog()"
           />
         </div>
       </div>
@@ -104,15 +104,17 @@
 </template>
 
 <script>
+import buildUrl from "build-url";
 import {
   countriesList,
   americanStates,
-  canadaProvinces,
+  canadianProvinces,
   GDPR_COUNTRIES
 } from "../const/signup.const";
 
 const CANADA = "Canada";
 const USA = "United States";
+const EMPTY_STRING = "";
 
 export default {
   name: "TermsAndConditionsDialog",
@@ -123,14 +125,14 @@ export default {
   props: {
     socialUrl: {
       required: true,
-      type: String
+      type: EMPTY_STRING
     }
   },
   data() {
     return {
-      selectedCountry: "",
-      selectedRegion: "",
-      regionData: { type: "", list: [] }
+      selectedCountry: EMPTY_STRING,
+      selectedRegion: EMPTY_STRING,
+      regionData: { type: EMPTY_STRING, list: [] }
     };
   },
   computed: {
@@ -155,15 +157,15 @@ export default {
           this.regionData.list = americanStates;
           this.regionData.type = "State";
         } else if (country === CANADA) {
-          this.regionData.list = canadaProvinces;
+          this.regionData.list = canadianProvinces;
           this.regionData.type = "Province";
         } else {
           this.regionData.list = [];
-          this.regionData.type = "";
+          this.regionData.type = EMPTY_STRING;
         }
       }
     },
-    countrieList() {
+    countriesList() {
       return countriesList;
     },
     isGDPRCountry() {
@@ -174,24 +176,29 @@ export default {
   },
   methods: {
     setTaCUrlAndRedirect() {
-      const acceptContactValue = this.$refs.gdprBoxEl.checked;
-      const countryName = this.selectedCountry;
-      const regionType = this.region.type.toLowerCase();
+      const okta_AcceptedToS = this.$refs.gdprBoxEl.checked;
+      const okta_ts_AcceptedToS = Date.now();
+      const country = this.selectedCountry;
+      const regionType = this.region.type.toLowerCase(); // could be "state" or "province".
       const regionName = this.selectedRegion;
-      const dataStamp = Date.now();
-      let redirectUrlParameters = [];
-
-      redirectUrlParameters = [
-        { name: "okta_AcceptedToS", value: acceptContactValue },
-        { name: "okta_ts_AcceptedToS", value: dataStamp },
-        { name: "country", value: encodeURI(countryName) },
-        { name: regionType, value: encodeURI(regionName) },
-      ];
-
-      window.location.href = this._getSocialRedirectUrl(redirectUrlParameters);
+      const queryParams = this.removeEmptyFields({
+        okta_AcceptedToS,
+        okta_ts_AcceptedToS,
+        country,
+        [regionType]: regionName
+      });
+      
+      window.location.href = buildUrl(this.socialUrl, { queryParams });
     },
     closeTermsConditionsDialog() {
       this.$emit("close");
+    },
+
+    // Remove object fields with empty "key" value.
+    removeEmptyFields(obj) {
+      return Object.entries(obj)
+        .filter(([k, v]) => k !== EMPTY_STRING )
+        .reduce((acc, [k, v]) => ({ ...acc, [k]: v }), {});
     },
     resetFields() {
       if (this.$refs.gdprBoxEl) {
@@ -199,69 +206,10 @@ export default {
       }
 
       if (this.$refs.regionDataEl) {
-        this.selectedRegion = "";
-        this.$refs.regionDataEl.value = "";
+        this.selectedRegion = EMPTY_STRING;
+        this.$refs.regionDataEl.value = EMPTY_STRING;
       }
-    },
-    _getSocialRedirectUrl(parameters = []) {
-      let separator;
-      let redirectUrl = `${this.socialUrl}`;
-
-      parameters.forEach((parameter, index) => {
-        if (parameter.name) {
-          separator = index === 0 ? "?" : "&";
-          redirectUrl += `${separator}${parameter.name}=${parameter.value}`;
-        }
-      });
-      return redirectUrl;
     }
   }
 };
 </script>
-
-<style lang="scss">
-.dialog-text {
-  font-size: 14px;
-  label {
-    font-size: 16px;
-  }
-  .marketing-c {
-    display: flex;
-    flex-direction: column;
-    .title {
-      font-size: 16px;
-      margin: 0 0 8px 0;
-      font-weight: 500;
-      span {
-        color: #bbbbbb;
-      }
-    }
-    .gdpr-condition {
-      display: flex;
-      margin: 0 0 24px 0;
-      font-size: 14px;
-      background-color: #162836;
-      align-items: center;
-      padding: 12px 16px;
-      input[type="checkbox"] {
-        margin: 0 16px 0 0;
-      }
-    }
-  }
-  .tac-row {
-    margin: 8px 0 24px 0;
-  }
-  label {
-    cursor: pointer;
-  }
-}
-.agree-policy {
-  .splitter {
-    border: 2px solid #20313b;
-    margin: 0 0 24px 0;
-  }
-}
-.terms-conditions-btns {
-  margin: 40px 0 0 0;
-}
-</style>
