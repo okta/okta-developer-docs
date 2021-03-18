@@ -277,7 +277,7 @@ The format for conditional expressions is
 * The `OR` operator
 * The `!` operator to designate NOT
 * Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>.
-* The `matches` operator to evaluate a string against a regular expression.
+* The `matches` operator to evaluate a String against a regular expression.
 
 **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
