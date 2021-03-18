@@ -20,7 +20,7 @@
 
 <script>
 const DEFAULT_LINK = "/docs/reference/releases-at-okta/";
-const IE_LINK = ""; // Waiting for OKTA-358659.
+const IE_LINK = "/docs/concepts/ie-intro/";
 let labelType;
 
 export default {
