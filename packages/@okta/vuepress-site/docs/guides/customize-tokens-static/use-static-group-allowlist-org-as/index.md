@@ -28,6 +28,16 @@ curl -X GET \
 &nonce=yourNonceValue"
 ```
 
+```bash
+curl --location --request GET 'https://${yourOktaDomain}/oauth2/v1/authorize?client_id=0oaiw2v8m6unWCvXM0h7
+&response_type=id_token
+&scope=openid%20groups
+&redirect_uri=https%3A%2F%2Fexample.com
+&state=myState
+&nonce=yourNonceValue' \
+--header 'Accept: application/json'
+```
+
 The decoded JWT looks something like this:
 
 ```json

@@ -17,13 +17,13 @@ Include the following parameters:
 The following is an example request for an access token (the JWT is truncated for brevity).
 
 ```bash
-    curl -X POST "https://{yourOktaDomain}/oauth2/v1/token"
-    -H "Accept: application/json"
-    -H "Content-Type: application/x-www-form-urlencoded"
-    -d "grant_type=client_credentials \
-    &scope=okta.users.read \
-    &client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer \
-    &client_assertion=eyJhbGciOiJSUzI1…..feCJfSqsJeEKGjJqp1accnXpPbCSi1-2UQ"
+    curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
+    --header 'Accept: application/json' \
+    --header 'Content-Type: application/x-www-form-urlencoded' \
+    --data-urlencode 'grant_type=client_credentials' \
+    --data-urlencode 'scope=okta.users.read' \
+    --data-urlencode 'client_assertion_type=urn:ietf:params:oauth:client-assertion-type:jwt-bearer' \
+    --data-urlencode 'client_assertion=eyJhbGciOiJSU....tHQ6ggOnrG-ZFRSkZc8Pw'
 ```
 
 The response should look something like this (the token is truncated for brevity):

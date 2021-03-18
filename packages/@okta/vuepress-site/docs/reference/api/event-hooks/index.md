@@ -618,9 +618,9 @@ curl -v -X DELETE \
 |----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------|----------|----------|
 | key      | The header name for the authorization header                                                                                                                                               | String   | TRUE     | FALSE    |
 | type     | The authentication scheme type. Currently the only supported type is `HEADER`.                                                                                                              | String   | TRUE     | FALSE    |
-| value    | The header value. This is the secret value that you want Okta to pass to your external service endpoint (so that your external service can check for its presence as a security measure). | String   | TRUE     | TRUE     |
+| value    | The header value. This secret value is passed to your external service endpoint. Your external service can check for it as a security measure. | String   | TRUE     | TRUE     |
 
-To use Basic Auth, you would set `type` to `HEADER`, `key` to `Authorization`, and `value` to the Base64-encoded string of "username:password".
+To use Basic Auth, set `type` to `HEADER`, `key` to `Authorization`, and `value` to the Base64-encoded string of "username:password". Ensure that you include the scheme (including the space) as part of the `value` parameter. For example, `Basic YWRtaW46c3VwZXJzZWNyZXQ=`. See [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication).
 
 ### Events object
 

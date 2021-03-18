@@ -5,8 +5,6 @@ category: management
 
 # Org API
 
-<ApiLifecycle access="ea" />
-
 The Okta Org API provides operations to manage your org account settings such as contact information, granting Okta Support access, and more.
 
 ## Org operations

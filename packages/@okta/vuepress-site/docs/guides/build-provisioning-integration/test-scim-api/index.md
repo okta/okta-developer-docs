@@ -50,17 +50,17 @@ After importing the Okta SCIM test suite into Runscope, you need to configure th
 1. In a new browser window, open the [Initial Script Spec](/standards/SCIM/SCIMFiles/Initial_Script_Spec.txt) text file and copy all the text to your clipboard.
 1. Back in the Runscope **Environment** panel, select the **Initial Script** tab, and then paste the text into the script console on this tab.
   ![Initial Script tab](/img/oin/scim-test_init-script.png "Showing the location of the Initial Script tab")
-  
+
     This script sets up a number of randomly generated "dummy" variables that are used during the testing process:
 
     | Variable Name | Example Value | Notes |
     |:-|:-|:-|
-    | InvalidUserEmail | `abcdefgh@atko.com` | A specific email address considered invalid by the test. |
-    | randomEmail | `Runscope300Hfluaklab151@atko.com` | A valid email address. |
+    | InvalidUserEmail | `abcdefgh@example.com` | A specific email address considered invalid by the test. |
+    | randomEmail | `Runscope300Hfluaklab151@example.com` | A valid email address. |
     | randomFamilyName | `Hfluaklab151` | A valid last name. |
     | randomGivenName | `Runscope300` | A valid first name. |
-    | randomUsername | `Runscope300Hfluaklab151@atko.com` | A valid user name. |
-    | randomUsernameCaps |  `RUNSCOPE300HFLUAKLAB151@ATKO.COM` | The random user name in all caps to test case sensitivity. |
+    | randomUsername | `Runscope300Hfluaklab151@example.com` | A valid user name. |
+    | randomUsernameCaps |  `RUNSCOPE300HFLUAKLAB151@example.com` | The random user name in all caps to test case sensitivity. |
     | UserIdThatDoesNotExist | `010101001010101011001010101011` | A specific UUID considered invalid by the test. |
 
     A "Script ON" label appears on your Test Settings page to indicate that the script is accepted and will be run before the first request in the test.
@@ -82,7 +82,7 @@ After you have customized your SCIM test in Runscope with the details of your SC
     |:-|:-|:-|
     | ISVUserid | `29cb3ed0-b0da-498a-ba0c-f146f15a65d5` | The first UUID returned from a GET request to your `/Users` endpoint. |
     | idUserOne | `323da8f8-21b8-4b25-8322-90673d9e1bc7` | A UUID of a test user created on your SCIM server. |
-    | randomUserEmail | `Runscope300Hfluaklab151@atko.com` | An email address returned from your SCIM server. |
+    | randomUserEmail | `Runscope300Hfluaklab151@example.com` | An email address returned from your SCIM server. |
 
 1. To see the details of tests, click the name of each particular test case to expand the section. The details have information on the **Request**, **Response**, and **Connection** for each HTTP request involved in the test. Each test sends a composed GET or POST request to your SCIM server, and the HTTP status received in response determines the success or failure of each test.
 1. After the test is complete, the main panel displays the results of your test.

@@ -292,6 +292,7 @@ module.exports = {
   },
 
   plugins: {
+    'code-copy': {},
     'sitemap': {
       hostname: 'https://developer.okta.com',
       outFile: 'docs-sitemap.xml',
@@ -321,7 +322,11 @@ module.exports = {
               '/docs/guides/third-party-risk-integration/update-default-provider/',
               '/docs/guides/third-party-risk-integration/test-integration/',
               '/docs/reference/api/risk-providers/',
-              '/docs/reference/api/risk-events/'
+              '/docs/reference/api/risk-events/',
+              '/docs/reference/api/iam-roles/',
+              '/docs/concepts/role-assignment/',
+              '/docs/guides/migrate-to-oie/',
+              '/docs/guides/ie-intro/'
           ]
         }
       ]
