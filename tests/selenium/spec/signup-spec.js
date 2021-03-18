@@ -97,13 +97,13 @@ describe('Sign up page check spec', () => {
 
     it('github signup button text verification', util.itHelper(async () => {
       await signUpPage.getGithubSignUpButtonElement().getAttribute('value').then((text) => {
-        expect(text, 'button text does not match').to.equal("CONTINUE WITH GITHUB");
+        expect(text, 'button text does not match').to.equal("continue with github");
       });
     }));
 
     it('google signup button text verification', util.itHelper(async () => {
       await signUpPage.getGoogleSignUpButtonElement().getAttribute('value').then((text) => {
-        expect(text, 'button text does not match').to.equal("CONTINUE WITH GOOGLE");
+        expect(text, 'button text does not match').to.equal("continue with google");
       });
     }));
   });
