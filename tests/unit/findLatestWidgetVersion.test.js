@@ -4,9 +4,9 @@ const findLatestWidgetVersion = require('@okta/vuepress-site/.vuepress/scripts/f
 jest.mock('child_process');
 childProcess.execSync.mockImplementation( () => JSON.stringify(['1.12.0','1.13.0']) );
 
-describe('findLatestWidgetVersion', () => {   
-  
-  it('finds the latest for a given major version', () => { 
+describe('findLatestWidgetVersion', () => {
+
+  it('finds the latest for a given major version', () => {
     expect(findLatestWidgetVersion(1)).toBe('1.13.0'); // dead version, shouldn't change
   });
 
@@ -26,5 +26,11 @@ describe('findLatestWidgetVersion', () => {
   it('handles single available published version', () => {
     childProcess.execSync.mockImplementation(() => JSON.stringify('1.13.0'));
     expect(findLatestWidgetVersion('1')).toBe('1.13.0'); // dead version, shouldn't change
-  })
+  });
+
+  it('handles when published versions are not in order', () => {
+    childProcess.execSync.mockImplementation( () => JSON.stringify(['1.13.0', '1.12.0','1.12.1']) );
+
+    expect(findLatestWidgetVersion('1')).toBe('1.13.0'); // dead version, shouldn't change
+  });
 });

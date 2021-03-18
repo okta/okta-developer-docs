@@ -30,7 +30,7 @@ The following is an example request to the `/authorize` endpoint for an [authori
 GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
  &response_type=code
  &scope=openid%20offline_access
- &redirect_uri=http%3A%2F%2Flocalhost%3A8080
+ &redirect_uri=ourApp%3A%2Fcallback
  &state=237c671a-29d7-11eb-adc1-0242ac120002
 ```
 
@@ -52,17 +52,17 @@ The following is an example request to the `/token` endpoint to obtain an access
 
 ```bash
 POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code
- &redirect_uri=http%3A%2F%2Flocalhost%3A8080
- &code=DPA9Utz2LkWlsronqehy
- &state=9606b31k-51d1-4dca-987c-346e3d8767n9
- &scope=openid%20offline_access
+&redirect_uri=yourApp%3A%2Fcallback
+&code=DPA9Utz2LkWlsronqehy
+&state=9606b31k-51d1-4dca-987c-346e3d8767n9
+&scope=openid%20offline_access
 ```
 
 The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-auth-code-pkce/overview/). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
 
 ```bash
 POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code
- &redirect_uri=http%3A%2F%2Flocalhost%3A8080
+ &redirect_uri=yourApp%3A%2Fcallback
  &code=CKA9Utz2GkWlsrmnqehz
  &state=419946f0-29d7-11eb-adc1-0242ac120002
  &scope=openid%20offline_access
@@ -96,7 +96,7 @@ With the `password` grant type, you can include an `openid` scope alongside the 
 
 ```bash
 POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=password
- &redirect_uri=http%3A%2F%2Flocalhost%3A8080
+ &redirect_uri=yourApp%3A%2Fcallback
  &username=example%40mailinator.com
  &password=a.gReAt.pasSword
  &scope=openid%20offline_access

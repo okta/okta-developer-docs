@@ -20,8 +20,8 @@ Any request that is sent with a different scope won't match any rules and conseq
 
 To create a rule for a policy:
 
-1. In the Developer Console, navigate to **API > Authorization Servers**.
-2. Select the name of an Authorization Server, and then select **Access Policies**.
+1. In the Admin Console, navigate to **Security > API**.
+2. On the **Authorization Servers** tab, select the name of an Authorization Server, and then select **Access Policies**.
 3. Select the name of an access policy, and then select **Add Rule**.
 4. Enter a **Name** for the rule, and then use the following fields to define the rule logic:
     * **IF Grant type is:** Select one or more OAuth 2.0 grant types. See [Choosing an OAuth 2.0 flow](/docs/concepts/oauth-openid/#choosing-an-oauth-2-0-flow) for more information on understanding the type of OAuth flow (grant type) that you should use.

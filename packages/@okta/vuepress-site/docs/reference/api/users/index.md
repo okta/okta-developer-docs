@@ -927,7 +927,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users/isaac.brock@example.com"
+"https://${yourOktaDomain}/api/v1/users/isaac.brock%40example.com"
 ```
 
 ##### Response Example

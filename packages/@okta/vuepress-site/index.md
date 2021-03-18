@@ -39,6 +39,9 @@ tiles:
       - name: Vue.js
         link: /docs/guides/sign-into-spa/vue/before-you-begin/
         image: /img/homepage/stackselectors/vue.png
+      - name: Blazor WebAssembly
+        link: /docs/guides/sign-into-spa/blazorwebasm/before-you-begin/
+        image: /img/homepage/stackselectors/dotnet.png
   - name: Native App
     link: /docs/guides/sign-into-mobile-app/
     items:

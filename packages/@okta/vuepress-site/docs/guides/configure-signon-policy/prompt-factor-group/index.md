@@ -2,8 +2,6 @@
 title: Prompt for an MFA factor for a certain group
 ---
 
-<RequireClassicUI/>
-
 The following are step-by-step instructions to configure an Okta Sign-On Policy to prompt a user for a factor (multifactor authentication (MFA)) when the user is a member of a certain group.
 
 ### Create the policy container

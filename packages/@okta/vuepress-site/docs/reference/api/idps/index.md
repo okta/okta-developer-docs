@@ -4667,7 +4667,7 @@ All Identity Providers have the following properties:
 | _links      | [Discoverable resources](#links-object) related to the IdP | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
 | created     | Timestamp when the IdP was created                             | Date                                                           | FALSE | FALSE | TRUE  |   |     |
 | id            | Unique key for the IdP                                       | String                                                         | FALSE    | TRUE   | TRUE     |           |           |
-| issuerMode <ApiLifecycle access="ea" />  | Indicates whether Okta uses the original Okta org domain URL or a custom domain URL in the request to the social IdP  | `ORG_URL` or `CUSTOM_URL_DOMAIN` | FALSE | FALSE | FALSE |   |
+| issuerMode <ApiLifecycle access="ea" />  | Indicates whether Okta uses the original Okta org domain URL or a custom domain URL in the request to the social IdP  | `ORG_URL` or `CUSTOM_URL` | FALSE | FALSE | FALSE |   |
 | lastUpdated | Timestamp when the IdP was last updated                        | Date                                                           | FALSE | FALSE | TRUE  |   |     |
 | name        | Unique name for the IdP                                    | String                                                         | FALSE | TRUE  | FALSE | 1 | 100 |
 | policy      | Policy settings for IdP `type`                             | [Policy object](#policy-object)                       | FALSE | FALSE | FALSE |   |     |
@@ -4683,9 +4683,9 @@ All Identity Providers have the following properties:
 
     * If set to `ORG_URL`, then in the authorize request to the social IdP, Okta uses the Okta org's original domain URL (`https://${yourOktaDomain}`) as the domain in the `redirect_uri`. This is the default value for social IdPs created before the Custom URL Domain feature is enabled.
 
-    * If set to `CUSTOM_URL_DOMAIN`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri`. This is the default value for social IdPs created after the Custom URL Domain feature is enabled.
+    * If set to `CUSTOM_URL`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri`. This is the default value for social IdPs created after the Custom URL Domain feature is enabled.
 
-  After you enable the Custom URL Domain feature, all new social IdPs use the `CUSTOM_URL_DOMAIN` by default. All existing social IdPs continue to use the `ORG_URL` so that existing integrations with the social IdP continue to work after the feature is enabled. You can change this value in any social IdP through the API or Admin Console.
+  After you enable the Custom URL Domain feature, all new social IdPs use the `CUSTOM_URL` by default. All existing social IdPs continue to use the `ORG_URL` so that existing integrations with the social IdP continue to work after the feature is enabled. You can change this value in any social IdP through the API or Admin Console.
 
 ### Identity Provider type
 
