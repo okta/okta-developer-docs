@@ -296,7 +296,7 @@ For the SAML Assertion Inline Hook, the objects that you can return in the JSON 
 
 The `commands` object is where you can tell Okta to add additional claims to the assertion or to modify the existing assertion statements.
 
-`commands` is an array, allowing you to send multiple commands. In each array element, there needs to be a `type` property and `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply an operand for that command.
+`commands` is an array, allowing you to send multiple commands. In each array element, you include a `type` property and a `value` property. The `type` property is where you specify which of the supported commands you want to execute, and `value` is where you supply an operand for that command.
 
 In the case of the SAML Assertion Inline Hook, the `value` property is itself a nested object, in which you specify a particular operation, a path to act on, and a value.
 
