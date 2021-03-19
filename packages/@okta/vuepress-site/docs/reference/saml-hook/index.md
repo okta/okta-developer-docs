@@ -328,7 +328,7 @@ The `value` object is where you specify the specific operation to perform. It is
 | Op      | Description                             |
 |---------|-----------------------------------------|
 | add     | Add a new claim to the assertion.       |
-| replace | Modify any element of the assertion.    |
+| replace | Modify any element of the assertion   |
 
 ### Specifying location within the assertion
 
