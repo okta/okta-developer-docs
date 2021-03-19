@@ -330,7 +330,7 @@ The `value` object is where you specify the specific operation to perform. It is
 | add     | Add a new claim to the assertion.       |
 | replace | Modify any element of the assertion   |
 
-### Specifying location within the assertion
+### Specify location within the assertion
 
 You specify the location within the assertion at which to apply your operation using a slash-delimited path, which follows JSON Patch conventions.
 
