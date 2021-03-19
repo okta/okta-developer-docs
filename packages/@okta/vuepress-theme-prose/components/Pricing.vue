@@ -62,7 +62,7 @@
             <div class="pricing-section">
               <div class="pricing-card pricing-card-table">
                  <div class="okta-workshop-banner">
-                    Join us at Okta21 for our Developer Talks and workshops April 6-8!
+                    Join us at Oktane21 for our Developer Talks from April 6-8, and Developer Labs on April 9!
                     <SmartLink classes="agenda-link" :item="{ link: 'https://www.okta.com/oktane21/agenda?filters=developer' }">
                       Check out the developer agenda
                     </SmartLink>
