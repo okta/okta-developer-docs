@@ -334,7 +334,7 @@ The `value` object is where you specify the specific operation to perform. It is
 
 Specify the location within the assertion where you want to apply your operation using a slash-delimited path, which follows JSON Patch conventions.
 
-When performing an `add` op to add a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding.
+When you perform an `add` op to add a new attribute statement, always begin with `/claims/` and follow that with the name of the new attribute that you are adding.
 
 When modifying an existing assertions statement, the path begins with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, for example, `/claims/array/attributeValues/1/value`. (The `/1/` in the path indicates the index of the array.)
 
