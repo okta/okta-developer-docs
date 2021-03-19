@@ -30,6 +30,27 @@ In a simplified detail, the following diagram illustrates the federated authenti
 
 The interactions and communication with the Identity Server are provided below:
 
+<!--
+See http://www.plantuml.com/plantuml/uml/
+
+Source code for fed-auth-seq-flow.png:
+
+@startuml
+skinparam monochrome true
+
+participant "User" as us
+participant "Federated Client" as cl
+participant "Identity Server" as is
+
+us -> cl: Resource Owner (User)
+cl -> is: Redirect to IdP with Authentication Request
+is -> cl: Return HTML forms to challenge user for authentication, enrollment, and so on
+cl <-> us: User interacts
+cl -> is: Complete Authentication Request
+is -> cl: Return Assertion to Client
+@enduml
+
+ -->
 ![Federated Authentication](/img/fed-auth-seq-flow.png "Federated Authentication sequence flow")
 
 Deploy the federated authentication model in the following use-cases:
@@ -51,6 +72,29 @@ In simplified details, the following diagram illustrates the direct authenticati
 
 The detailed interactions at the client level between a client’s authorization server and resource owner are provided below:
 
+<!--
+See http://www.plantuml.com/plantuml/uml/
+
+Source code for direct-auth-seq-flow.png:
+
+@startuml
+skinparam monochrome true
+
+participant "Resource Owner (User)" as rs
+participant "IDX Application Client" as cl
+participant "Identity Server" as as
+
+rs -> cl: Resource Owner
+cl -> as: Resource Owner Password Credentials
+as -> cl: Interaction required
+rs <-> cl: User interacts
+cl <-> as: User interacts
+as -> cl: Interaction Code
+cl -> as: Interaction Code
+as -> cl: Tokens
+@enduml
+
+ -->
 ![Direct Authentication](/img/direct-auth-seq-flow.png "Direct Authentication sequence flow diagram")
 
 ## Comparison between deployment models
