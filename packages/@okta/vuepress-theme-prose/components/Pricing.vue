@@ -61,6 +61,12 @@
           <div class="pricing--editions">
             <div class="pricing-section">
               <div class="pricing-card pricing-card-table">
+                 <div class="okta-workshop-banner">
+                    Join us at Oktane21 for our Developer Talks April 6 through 8 and Developer Labs on April 9!
+                    <SmartLink classes="agenda-link" :item="{ link: 'https://www.okta.com/oktane21/agenda?filters=developer' }">
+                      Check out the developer agenda
+                    </SmartLink>
+                  </div>
                 <div class="pricing-card-row pricing-card-header">
                   <div class="pricing-card-column desktop">
                     <h3 class="pricing-card-table-name">Editions</h3>

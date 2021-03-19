@@ -175,6 +175,27 @@ $magenta: #e22866;
 
     .pricing-card-table {
       display: block;
+      .okta-workshop-banner {
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        padding: 15px 30px;
+        min-height: 55px;
+        color: #fff;
+        background-color: #135d8c;
+        .agenda-link {
+          margin: 0 0 0 30px;
+          color: #fff;
+          text-decoration: underline;
+        }
+        @include media('<tablet') {
+          flex-direction: column;
+          align-items: flex-start;
+          .agenda-link {
+            margin: 0;
+          }
+        }
+      }
 
       @include media('<desktop') {
         display: flex;
@@ -204,7 +225,7 @@ $magenta: #e22866;
         }
         .check-icon {
           vertical-align: middle;
-        }        
+        }
       }
 
       @include media('<desktop') {
