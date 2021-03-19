@@ -122,7 +122,7 @@ This object contains a number of sub-objects, each of which provides some type o
 The following sub-objects are included:
 
 - `data.context.request`: Details of the SAML request that triggered the generation of the SAML assertion
-- `data.context.protocol`: Details of the assertion protocol being used.
+- `data.context.protocol`: Details of the assertion protocol being used
 - `data.context.session`: Details of the user session.
 - `data.context.user`: Identifies the Okta user that the assertion was generated to authenticate, and provides details of their Okta user profile.
 
