@@ -10,7 +10,7 @@
       <i class="fa fa-fire-extinguisher"></i> Deprecated
     </span>
     <span class="api-label api-label-ie" v-if="access === labelType.IDENTITY_ENGINE">
-      Identity Engine
+      Identity engine
     </span>
     <span class="api-label api-label-limited-ga" v-if="access === labelType.LIMITED_GA">
       Limited GA
