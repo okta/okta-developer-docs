@@ -32,7 +32,7 @@
   "repository": "git@github.com:okta/okta.github.io",
   "author": "Brian Retterer <brian.retterer@okta.com>",
   "license": "Apache-2.0",
-  "devDependencies": { 
+  "devDependencies": {
     "axios": "^0.19.0",
     "chai": "^4.2.0",
     "chai-as-promised": "*",

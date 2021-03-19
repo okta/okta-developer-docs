@@ -29,14 +29,14 @@
             >
             <div class="cm-wrapper">
               <LiveWidgetJSCodeMirror 
-                 v-if="jsTabShown"
+                v-if="jsTabShown"
                 :initialConfig="configJS" 
                 v-on:cmJSValueSet='onJSCodeChange' 
               />
             <LiveWidgetSCSSCodeMirror 
-               v-if="!jsTabShown"
-              :initialConfig="configSCSS"
-              v-on:cmCSSValueSet='onSCSSCodeChange' 
+                v-else
+                :initialConfig="configSCSS"
+                v-on:cmCSSValueSet='onSCSSCodeChange' 
               />
             </div>
           </div>
@@ -48,7 +48,7 @@
 
 <script>
   import {initialJSWidgetConf, initialWidgetSCSS} from '../const/live-widget.const'
-  import sass from '../util/sass/sass'
+  import Sass from '../util/sass/sass'
   export default {
     name: 'LiveWidget',
     components: {
@@ -66,7 +66,7 @@
       }
     },
     mounted: function(){
-      this.sassCompiler = new sass()
+      this.sassCompiler = new Sass()
       this.loadSassFiles()
       this.sassCompiler.compile(this.configSCSS, (res)=> {
           this.computedSCSS = res.text
@@ -162,25 +162,24 @@
         ).join('').slice(0, -1)
         return JSON.parse(resultCleared)
       }, 
-      onJSCodeChange(e){
-        this.configJS = e
+      onJSCodeChange(cmJSConfigEmitted){
+        this.configJS = cmJSConfigEmitted
       },
-      onSCSSCodeChange(e){
-        this.sassCompiler.compile(e, (res)=> {
+      onSCSSCodeChange(cmSCSSEmitted){
+        this.sassCompiler.compile(cmSCSSEmitted, (res)=> {
           this.computedSCSS = res.text
-          this.configSCSS = e
+          this.configSCSS = cmSCSSEmitted
         })
-
       },
       loadSassFiles(){
-              // SASS files are needed to correctly compile scss requests are made relative to worker
-              var base = '/widget-sass';
+        // SASS files are needed to correctly compile scss requests are made relative to worker
+        const base = '/widget-sass';
 
-              // the directory files should be made available in
-              var directory = '';
+        // the directory files should be made available in
+        const directory = '';
 
-              // the files to load (relative to both base and directory)
-              var files = [
+        // the files to load (relative to both base and directory)
+        const files = [
                 '_base.scss',
                 '_container.scss',
                 '_fonts.scss',
@@ -228,11 +227,8 @@
                 'widgets/_jquery.qtip.scss',
                 'widgets/_mega-drop-down.scss',
               ];
-
-              // register the files to be loaded when required
-              this.sassCompiler.preloadFiles(base, directory, files, function() {
-                // console.log('SAAS files loaded');
-              });
+        // register the files to be loaded when required
+        this.sassCompiler.preloadFiles(base, directory, files);
       }
     }
   }

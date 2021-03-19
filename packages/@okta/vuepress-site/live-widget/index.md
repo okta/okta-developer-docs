@@ -1,5 +1,5 @@
 ---
-# This file controls the links and content shown on the home (/) page.
+# This file controls OktaSignInWidget and CodeMirror widgets on the (/live-widget) page.
 
 component: LiveWidget
 title: LiveWidget

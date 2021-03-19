@@ -68,7 +68,7 @@
               </div>
               <div
                 v-if="!pseudoAuthorizedCodeBlock"
-                 class="col-xl-7 col-md-12 col-sm-12"
+                class="col-xl-7 col-md-12 col-sm-12"
               >
                 <div class="homepage--code-example">
                   <div class="homepage--code-example--header">

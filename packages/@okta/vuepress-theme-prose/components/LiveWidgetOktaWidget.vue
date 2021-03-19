@@ -5,12 +5,13 @@
 </template>
 
 <script>
+import {LIVE_WIDGET_DYNAMIC_STYLE_ID} from  '../const/live-widget.const'
 export default {
   name: 'LiveWidgetOktaWidget',
   props: ['configJS', 'configSCSS'],
   data(){
     return {
-      rendered: true,
+      rendered: false,
       oktaSignIn: undefined,
     }
   },
@@ -19,6 +20,7 @@ export default {
       (module) => {
         this.oktaSignIn = module.default
         this.renderWidget()
+        this.rendered = true
       }
     )
   },
@@ -29,17 +31,19 @@ export default {
     configSCSS: function(){
       //vue ignores empty style tags, so it's need to be done "old way"
       if(this.configSCSS){
-        const styleTagToRemove = document.getElementById('styletag')
+        const styleTagToRemove = document.getElementById(LIVE_WIDGET_DYNAMIC_STYLE_ID)
         if (styleTagToRemove) { styleTagToRemove.remove()}
         const style = document.createElement('style')
         style.innerHTML = this.configSCSS
-        style.id = 'styletag'
+        style.id = LIVE_WIDGET_DYNAMIC_STYLE_ID
         this.$refs.mainWrapper.appendChild(style)
       }
     }
   },
   destroyed () {
-    this.widget ? this.widget.remove() : null;
+    if (this.widget) {
+      this.widget.remove();
+    }
   },
   methods:{
     renderWidget(){
@@ -58,7 +62,6 @@ export default {
             }, 200);
           }
         });
-
       this.widget.renderEl({ el: '#widget-container' });
     }
   }

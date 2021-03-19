@@ -965,4 +965,6 @@ $modal-bg-color: #f9f9f9;
     /* color: #f3f3f3; */
   }
 }
-      `
+`
+
+export const LIVE_WIDGET_DYNAMIC_STYLE_ID='LiveOktaWidgetStyleContainer'
