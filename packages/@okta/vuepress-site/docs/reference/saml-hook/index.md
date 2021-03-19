@@ -302,7 +302,7 @@ In the case of the SAML Assertion Inline Hook, the `value` property is itself a 
 
 | Property | Description                                                              | Data Type       |
 |----------|--------------------------------------------------------------------------|-----------------|
-| type     | One of the [supported commands](#supported-commands).                    | String          |
+| type     | One of the [supported commands](#supported-commands)                    | String          |
 | value    | Operand to pass to the command. It specifies a particular op to perform. | [value](#value) |
 
 #### Supported commands
