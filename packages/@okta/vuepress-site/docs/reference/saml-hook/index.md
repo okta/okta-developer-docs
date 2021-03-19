@@ -332,7 +332,7 @@ The `value` object is where you specify the specific operation to perform. It is
 
 ### Specify location within the assertion
 
-You specify the location within the assertion at which to apply your operation using a slash-delimited path, which follows JSON Patch conventions.
+Specify the location within the assertion where you want to apply your operation using a slash-delimited path, which follows JSON Patch conventions.
 
 When performing an `add` op to add a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding.
 
