@@ -121,7 +121,7 @@ curl -v -X POST \
 }
 ```
 
-#### Get Session
+### Get Session
 
 <ApiOperation method="get" url="/api/v1/sessions/${sessionId}" />
 

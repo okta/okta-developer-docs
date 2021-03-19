@@ -10,10 +10,12 @@ After you have the following, you can get an access token and make a request to 
 
 Request an access token by making a request to your Okta [Org Authorization Server](/docs/concepts/auth-servers/) `/authorize` endpoint. Only the Org Authorization Server can mint access tokens that contain Okta API scopes.
 
+> **Note:** See [Token lifetime](/docs/reference/api/oidc/#token-lifetime) for more information on hard-coded and configurable token lifetimes.
+
 This page helps you build a request in Postman. You can also manually build the request URL and paste it into a private browser window. After you authenticate, the browser returns the access token in the address bar. Your request URL should look something like this:
 
 ```
-    https://{yourOktadomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.read&redirect_ur{yourConfiguredRedirectUri}&nonce=UBGW&state=1234
+https://{yourOktadomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.read&redirect_ur{yourConfiguredRedirectUri}&nonce=UBGW&state=1234
 ```
 
 We recommend that you always use the Authorization Code grant flow. See [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/) for details on this grant type.

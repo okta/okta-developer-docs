@@ -35,8 +35,18 @@ export const concepts = [
         path: "/docs/concepts/feature-lifecycle-management/"
       },
       {
+        title: "Role Assignment",
+        path: "/docs/concepts/role-assignment/",
+        hidden: true
+      },
+      {
         title: "How Okta works",
         path: "/docs/concepts/how-okta-works/"
+      },
+      {
+        title: "Identity engine",
+        path: "/docs/concepts/ie-intro/",
+        hidden: true
       },
       {
         title: "Inline Hooks",
@@ -214,6 +224,7 @@ export const guides = [
             title: "Implement the Resource Owner Password Flow",
             guideName: "implement-password"
           },
+          { title: "Implement the SAML 2.0 Assertion Flow", guideName: "implement-saml2"},
           {
             title: "Tokens",
             subLinks: [
@@ -336,7 +347,11 @@ export const guides = [
           {
             title: "Registration Inline Hook",
             guideName: "registration-inline-hook"
-          }
+          },
+          {
+            title: "Token Inline Hook",
+            guideName: "token-inline-hook"
+          },
         ]
       }
     ]
@@ -465,6 +480,7 @@ export const reference = [
         title: "Manage Okta Objects",
         subLinks: [
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
+          { title: "Administrator Roles", path: "/docs/reference/api/iam-roles/", hidden: true },
           { title: "Apps", path: "/docs/reference/api/apps/" },
           {
             title: "Authorization Servers",
@@ -608,3 +624,18 @@ export const reference = [
     ]
   }
 ];
+
+export const releaseNotes = [
+  {
+    title: "Release Notes",
+    subLinks: [
+      { title: "Overview", path: "/docs/release-notes/" },
+      { title: "2021", path: "/docs/release-notes/2021/" },
+      { title: "2020", path: "/docs/release-notes/2020/" },
+      { title: "2019", path: "/docs/release-notes/2019/" },
+      { title: "2018", path: "/docs/release-notes/2018/" },
+      { title: "2017", path: "/docs/release-notes/2017/" },
+      { title: "2016", path: "/docs/release-notes/2016/" }
+    ]
+  }
+]

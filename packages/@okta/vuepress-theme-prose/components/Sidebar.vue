@@ -20,6 +20,7 @@ import {
   guides,
   languagesSdk,
   reference,
+  releaseNotes
 } from "../const/navbar.const";
 
 export default {
@@ -72,15 +73,15 @@ export default {
     addStatesToLink(link) {
       if (link.path) {
         // Add state to leaf link
-        link.imActive = link.path === this.$page.regularPath;
+        link.iHaveChildrenActive = link.path === this.$page.regularPath;
       }
       if (link.subLinks) {
         for (const subLink of link.subLinks) {
           // Compute state to section link
-          link.imActive = link.imActive || this.addStatesToLink(subLink);
+          link.iHaveChildrenActive = link.iHaveChildrenActive || this.addStatesToLink(subLink);
         }
       }
-      return link.imActive;
+      return link.iHaveChildrenActive;
     },
     getNavigation() {
       const homeLink = { title: "Home", path: "/" };
@@ -89,7 +90,8 @@ export default {
         ...this.getGuides(),
         ..._.cloneDeep(concepts),
         ..._.cloneDeep(reference),
-        ..._.cloneDeep(languagesSdk)
+        ..._.cloneDeep(languagesSdk),
+        ..._.cloneDeep(releaseNotes),
       ];
     },
     getGuides() {

@@ -28,13 +28,13 @@ To obtain an access token with the configured Groups claim, send a request to th
 The resulting URL looks something like this:
 
 ```bash
-curl -X GET
-"https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize?client_id=xamplefa39J4jXdcCwWA
+curl --location --request GET 'https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize?client_id=0oaiw2v8m6unWCvXM0h7
 &response_type=token
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2Fexample.com
-&nonce=yourNonceValue
-&state=myState"
+&state=myState
+&nonce=yourNonceValue' \
+--header 'Accept: application/json'
 ```
 
 > **Note:** The claim was configured to work with all scopes. If you specify only certain scopes to return the claim, you need to specify one of them in the request.

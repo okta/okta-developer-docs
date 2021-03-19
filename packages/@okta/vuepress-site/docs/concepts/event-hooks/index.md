@@ -45,7 +45,7 @@ After registering an Event Hook, but before you can use it, you need to have Okt
 
 This one-time verification request is the only GET request Okta will send to your external service, while the ongoing requests to notify your service of event occurrences will be HTTPS POST requests. Your web service can use the GET versus POST distinction to implement logic to handle this special one-time request.
 
-The way your service needs to handle this one-time verification is as follows: The request from Okta will contain an HTTP header named `X-Okta-Verification-Challenge`. Your service needs to read the value of that header and return it in the response body, in a JSON object named `verification`, that is: `{ "verification" : "value_from_header" }`. Note that the value comes to you in an HTTP header, but you need to send it back in a JSON object.
+The way your service needs to handle this one-time verification is as follows: The request from Okta will contain an HTTP header named `x-okta-verification-challenge`. Your service needs to read the value of that header and return it in the response body, in a JSON object named `verification`, that is: `{ "verification" : "value_from_header" }`. Note that the value comes to you in an HTTP header, but you need to send it back in a JSON object.
 
 See [Event Hooks](/docs/guides/event-hook-implementation) for a working example of an Event Hook setup, including code that completes the one-time verification step.
 
