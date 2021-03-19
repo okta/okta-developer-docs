@@ -311,7 +311,7 @@ The following command is currently supported for the SAML Assertion Inline Hook 
 
 | Command                  | Description              |
 |--------------------------|--------------------------|
-| com.okta.assertion.patch | Modify a SAML assertion. |
+| com.okta.assertion.patch | Modify a SAML assertion |
 
 #### value
 
