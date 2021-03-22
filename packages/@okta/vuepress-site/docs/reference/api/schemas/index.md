@@ -12,7 +12,7 @@ Okta's [Universal Directory](https://help.okta.com/en/prod/okta_help_CSH.htm#ext
 
 ## Getting started
 
-Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/443242e60287fb4b8d6d)
+Explore the Schemas API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d2aae54268dd28451713)
 
 ## User Schema operations
 

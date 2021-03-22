@@ -60,7 +60,7 @@ If you created multiple User Types (see [User Types](/docs/reference/api/user-ty
 
 ## Getting started
 
-Explore the Linked Objects API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/09416941ad62f022cabb)
+Explore the Linked Objects API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3ab2cf3f197337119d34)
 
 ## Link definition operations
 

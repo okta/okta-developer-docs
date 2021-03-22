@@ -30,7 +30,7 @@ The System Log API has one endpoint:
 
 <ApiOperation method="get" url="/api/v1/logs" />
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/54def5ab52f04b7e4011)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3295add9e852d8728ef2)
 
 This collection resource is backed by a [LogEvent object](#logevent-object) and associated [event types](#event-types).
 
