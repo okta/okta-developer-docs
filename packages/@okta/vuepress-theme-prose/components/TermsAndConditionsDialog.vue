@@ -114,7 +114,6 @@ import {
 
 const CANADA = "Canada";
 const USA = "United States";
-const EMPTY_STRING = "";
 
 export default {
   name: "TermsAndConditionsDialog",
@@ -125,14 +124,14 @@ export default {
   props: {
     socialUrl: {
       required: true,
-      type: EMPTY_STRING
+      type: ""
     }
   },
   data() {
     return {
-      selectedCountry: EMPTY_STRING,
-      selectedRegion: EMPTY_STRING,
-      regionData: { type: EMPTY_STRING, list: [] }
+      selectedCountry: "",
+      selectedRegion: "",
+      regionData: { type: "", list: [] }
     };
   },
   computed: {
@@ -161,7 +160,7 @@ export default {
           this.regionData.type = "Province";
         } else {
           this.regionData.list = [];
-          this.regionData.type = EMPTY_STRING;
+          this.regionData.type = "";
         }
       }
     },
@@ -181,24 +180,20 @@ export default {
       const country = this.selectedCountry;
       const regionType = this.region.type.toLowerCase(); // could be "state" or "province".
       const regionName = this.selectedRegion;
-      const queryParams = this.removeEmptyFields({
+      const queryParams = {
         okta_AcceptedToS,
         okta_ts_AcceptedToS,
         country,
-        [regionType]: regionName
-      });
+      };
+
+      if (regionType !== "") {
+        queryParams[regionType] = regionName;
+      }
       
       window.location.href = buildUrl(this.socialUrl, { queryParams });
     },
     closeTermsConditionsDialog() {
       this.$emit("close");
-    },
-
-    // Remove object fields with empty "key" value.
-    removeEmptyFields(obj) {
-      return Object.entries(obj)
-        .filter(([k, v]) => k !== EMPTY_STRING )
-        .reduce((acc, [k, v]) => ({ ...acc, [k]: v }), {});
     },
     resetFields() {
       if (this.$refs.gdprBoxEl) {
@@ -206,8 +201,8 @@ export default {
       }
 
       if (this.$refs.regionDataEl) {
-        this.selectedRegion = EMPTY_STRING;
-        this.$refs.regionDataEl.value = EMPTY_STRING;
+        this.selectedRegion = "";
+        this.$refs.regionDataEl.value = "";
       }
     }
   }

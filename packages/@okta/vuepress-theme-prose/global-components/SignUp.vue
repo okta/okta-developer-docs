@@ -284,7 +284,7 @@ export default {
   data() {
     return {
       isShowTermsConditionsDialog: false,
-      socialUrl: String,
+      socialUrl: "",
       state: { label: "", list: [] },
       displayConsent: false,
       displayAgree: false,
