@@ -41,13 +41,11 @@ export default {
     }
   },
   destroyed () {
-    if (this.widget) {
-      this.widget.remove();
-    }
+    this.destroyWidget()
   },
   methods:{
     renderWidget(){
-      this.widget ? this.widget.remove() : null;
+      this.destroyWidget()
       this.widget = new this.oktaSignIn(this.configJS);
       this.widget.on('afterRender', () => {
           if (this.rendered) {
@@ -63,7 +61,13 @@ export default {
           }
         });
       this.widget.renderEl({ el: '#widget-container' });
+    },
+    destroyWidget(){
+       if (this.widget) {
+      this.widget.remove();
     }
   }
+  },
+
 };
 </script>
