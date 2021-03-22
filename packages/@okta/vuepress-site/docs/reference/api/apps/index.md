@@ -9,7 +9,7 @@ The Okta Application API provides operations to manage applications and/or assig
 
 ## Get started
 
-Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/be7367401f4926a945f8))
+Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/be7367401f4926a945f8)
 
 ## Application operations
 
