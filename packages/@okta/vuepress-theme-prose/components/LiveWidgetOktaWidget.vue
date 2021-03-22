@@ -63,10 +63,10 @@ export default {
       this.widget.renderEl({ el: '#widget-container' });
     },
     destroyWidget(){
-       if (this.widget) {
-      this.widget.remove();
+      if (this.widget) {
+        this.widget.remove();
+      }
     }
-  }
   },
 
 };
