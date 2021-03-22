@@ -91,7 +91,7 @@
                 validationService.checkFormInput('country');
                 validationService.resetFormField('state', {
                   reset: true,
-                  value: '',
+                  value: ''
                 });
                 showConsentSection(form.country.value);
                 states = form.country.value;
@@ -215,16 +215,24 @@
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <a class="btn social-btn" :href="uris.github">
-            Continue With GitHub
-          </a>
+          <input
+            type="button"
+            id="continue-github"
+            value="continue with github"
+            class="btn social-btn"
+            @click="openTermsConditionsDialog(uris.github)"
+          />
         </div>
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <a class="btn social-btn" :href="uris.google">
-            Continue With Google
-          </a>
+          <input
+            type="button"
+            id="continue-google"
+            class="btn social-btn"
+            value="continue with google"
+            @click="openTermsConditionsDialog(uris.google)"
+          />
         </div>
       </div>
       <div class="row goto-signin">
@@ -238,6 +246,11 @@
         <CompanyLogos withHeading small v-bind:centered="false" />
       </div>
     </div>
+    <TermsAndConditionsDialog
+      v-if="isShowTermsConditionsDialog"
+      :socialUrl="socialUrl"
+      @close="closeTermsConditionsDialog()"
+    ></TermsAndConditionsDialog>
   </div>
 </template>
 
@@ -248,8 +261,8 @@ import { Api } from "../util/api.service";
 import {
   countriesList,
   americanStates,
-  canadaProvinces,
-  GDPR_COUNTRIES,
+  canadianProvinces,
+  GDPR_COUNTRIES
 } from "../const/signup.const";
 import setHiddenUtmValues from "../util/attribution/attribution";
 import { getIdpUri } from "../util/uris";
@@ -265,9 +278,13 @@ export default {
     VueRecaptcha,
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
+    TermsAndConditionsDialog: () =>
+      import("../components/TermsAndConditionsDialog")
   },
   data() {
     return {
+      isShowTermsConditionsDialog: false,
+      socialUrl: "",
       state: { label: "", list: [] },
       displayConsent: false,
       displayAgree: false,
@@ -281,13 +298,13 @@ export default {
           value: false,
           isValid: true,
           errorList: [],
-          hidden: true,
+          hidden: true
         },
-        captcha: { value: "", isValid: true, errorList: [] },
+        captcha: { value: "", isValid: true, errorList: [] }
       },
       isPending: false,
       error: null,
-      captchaSitekey: null,
+      captchaSitekey: null
     };
   },
   computed: {
@@ -302,14 +319,14 @@ export default {
           this.state.list = americanStates;
           this.state.label = "State";
         } else if (country === CANADA) {
-          this.state.list = canadaProvinces;
+          this.state.list = canadianProvinces;
           this.state.label = "Province";
         } else {
           this.state.list = [];
           this.state.label = "";
           this.form.state.hidden = true;
         }
-      },
+      }
     },
     getCountries() {
       return countriesList;
@@ -325,9 +342,9 @@ export default {
 
       return {
         github: getIdpUri(uris, "github"),
-        google: getIdpUri(uris, "google"),
+        google: getIdpUri(uris, "google")
       };
-    },
+    }
   },
   methods: {
     submitForm(e) {
@@ -352,8 +369,8 @@ export default {
             country: this.form.country.value,
             state: this.form.state.value,
             emailOptInC: this.form.consentAgree.value,
-            captchaResponse: this.form.captcha.value,
-          },
+            captchaResponse: this.form.captcha.value
+          }
         };
 
         this.isPending = true;
@@ -408,7 +425,7 @@ export default {
       this.form.consentAgree.hidden = true;
       this.validationService.resetFormField("consentAgree", {
         reset: true,
-        value: false,
+        value: false
       });
 
       if (GDPR_COUNTRIES.indexOf(country) !== -1) {
@@ -420,17 +437,24 @@ export default {
     onCaptchaVerified(response) {
       this.validationService.resetFormField("captcha", {
         reset: true,
-        value: response,
+        value: response
       });
     },
     onCaptchaExpired() {
       this.$refs.recaptcha.reset();
       this.validationService.resetFormField("captcha", {
         reset: true,
-        value: "",
+        value: ""
       });
       this.validationService.checkFormInput("captcha");
     },
+    closeTermsConditionsDialog() {
+      this.isShowTermsConditionsDialog = false;
+    },
+    openTermsConditionsDialog(url) {
+      this.socialUrl = url;
+      this.isShowTermsConditionsDialog = true;
+    }
   },
   beforeMount() {
     const { captcha } = this.$site.themeConfig;
@@ -444,6 +468,6 @@ export default {
   mounted() {
     const formElement = document.querySelector("#signupForm");
     setHiddenUtmValues(formElement);
-  },
+  }
 };
 </script>
