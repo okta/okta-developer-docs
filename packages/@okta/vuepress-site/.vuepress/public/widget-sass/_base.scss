@@ -1,0 +1,35 @@
+a {
+  color: $medium-text-color;
+
+  &:link,
+  &:visited,
+  &:active {
+    text-decoration: none;
+    color: $medium-text-color;
+  }
+
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    color: $medium-text-color;
+  }
+}
+
+h1 {
+  color: $header-text-color;
+}
+
+h2,
+h3 {
+  font-size: $font-size;
+  line-height: 1.5;
+  font-weight: $font-weight-header;
+}
+
+h3 {
+  margin-bottom: 2px;
+}
+
+.text-align-c {
+  text-align: center;
+}
