@@ -33,7 +33,7 @@ See the [Security Assertion Markup Language (SAML) V2.0 Technical Overview](http
 
 SAML is mostly used as a web-based authentication mechanism as it relies on using the browser agent to broker the authentication flow. At a high-level, the authentication flow of SAML looks like this:
 
-![SAML Flow](/img/saml_guidance_saml_flow.png "SAML Flow")
+![SAML flow](/img/saml_guidance_saml_flow.png "SAML flow")
 
 We are now ready to introduce some common SAML terms. We will go into the technical details of these later, but it is important to understand the high-level concept during the planning stage.
 

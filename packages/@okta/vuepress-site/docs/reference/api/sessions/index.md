@@ -9,7 +9,7 @@ Okta uses a cookie-based authentication mechanism to maintain a user's authentic
 
 >**Note:** Some browsers block third-party cookies by default, which disrupts Okta functionality in certain flows. See [FAQ: How Blocked Third Party Cookies Can Potentially Impact Your Okta Environment](https://support.okta.com/help/s/article/FAQ-How-Blocking-Third-Party-Cookies-Can-Potentially-Impact-Your-Okta-Environment).
 
->**Note:** The Sessions API doesn't support direct authentication. Direct authentication is supported through the [Authentication API](/docs/reference/api/authn/#authentication-operations) or through OIDC using the [Resource Owner Password Flow](/docs/guides/implement-password/overview/).
+>**Note:** The Sessions API doesn't support direct authentication. Direct authentication is supported through the [Authentication API](/docs/reference/api/authn/#authentication-operations) or through OIDC using the [Resource Owner Password flow](/docs/guides/implement-password/overview/).
 
 ### Session cookie
 

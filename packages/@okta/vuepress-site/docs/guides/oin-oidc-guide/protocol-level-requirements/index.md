@@ -41,7 +41,7 @@ Note that your application needs to verify user identity through a user store, o
 
 To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server. You can only use the [Org Authorization Server](https://developer.okta.com/docs/concepts/auth-servers/#available-authorization-server-types).
 
-Another general outline of the authorization code flow can be found in our Okta developer guide: [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/overview/)
+Another general outline of the authorization code flow can be found in our Okta developer guide: [Implement the Authorization Code flow](/docs/guides/implement-auth-code/overview/)
 
 Also, if you’ve used SAML for SSO in the past, it’s important to realize that the OIDC flow is different. The OIDC protocol doesn't just provide an assertion that is exchanged between Okta and your SaaS back-end, but uses a long-term token that can be used for callback into Okta at any point as long as the token is valid.
 

@@ -16,7 +16,7 @@ The Interaction Code grant is intended for developers who want a step-by-step re
 
 The Interaction Code flow starts when the client makes a request to the Okta authorization server. The authorization server then responds with an Interaction Handle, which the client passes on to the Okta Identity Engine. The Identity Engine responds with one or more remediation requirements that the client should act on and return the result to the Okta Identity Engine. Once the remediation requirements have been fulfilled, the Identity Engine returns a short-lived, one-time Interaction Code, which the client passes to the authorization server. The authorization server then responds with the requested tokens.
 
-![Interaction Code Flow](/img/oauth_interaction_code_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code Flow with PKCE")
+![Interaction Code flow](/img/oauth_interaction_code_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Authorization Code flow with PKCE")
 
 <!--
 @startuml
