@@ -11,10 +11,11 @@
     * **Refresh token** &mdash; not supported for OIN app integrations
     * Optional. **Implicit (Hybrid)**
   * SPA:
+    * **Authorization code**
     * **Implicit (Hybrid)** &mdash; choose:
       * **Allow ID Token with implicit grant type**
       * **Allow Access Token with implicit grant type**
-  >**Note:** The **Client acting on behalf of itself** grant type is not supported in OIN app integrations.
+  >**Note:** For SPA app integrations, the **Authorization code** grant type always uses PKCE to verify the client. Also, the **Client acting on behalf of itself** grant type is not supported in OIN app integrations.
 * If you only want to support direct SSO to your application (so the integration isn't launched from the Okta End-User Dashboard), then:
   1. Enter one or more **Login redirect URI** values where Okta sends the OAuth responses.
   1. Set the **Login initiated by** drop-down box to **App Only**.
