@@ -4,6 +4,16 @@ title: Okta API Products Release Notes
 
 ## March
 
+### Weekly Release 2021.03.3
+
+| Change                                                    | Expected in Preview Orgs |
+| --------------------------------------------------------- | ------------------------ |
+| [Bugs fixed in 2021.03.3](#bugs-fixed-in-2021-03-3)       | March 24, 2021           |
+
+#### Bugs fixed in 2021.03.3
+
+* When a validation request was made against an OAuth2 endpoint using an access token instead of an ID token, the error message wasn't clear that validation is performed only against ID tokens.
+
 ### Weekly Release 2021.03.2
 
 | Change                                                    | Expected in Preview Orgs |
