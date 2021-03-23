@@ -4,7 +4,7 @@ title: Protocol-level requirements
 
 ### Code flow
 
-For OIDC applications destined for the OIN, you are building a "web" application with a dedicated server-side back end that is capable of securely storing a Client Secret and exchanging information with an authorization server through trusted back-channel connections.
+For OIDC applications destined for the OIN, Okta recommends building a "web" application with a dedicated server-side back end capable of securely storing a Client Secret and exchanging information with an authorization server through trusted back-channel connections.
 
 The exchange of the short-lived authorization code for a token requires a Client Secret. This is a value that only your client application and the authorization server know, and it must be protected from malicious parties.
 
@@ -17,7 +17,7 @@ The authorization code flow looks like this for an OIN app:
 * Your end user (also known as the Resource Owner) opens their web browser (the User Agent) in order to access and work with your application (the Client), which in turn needs information held by various pieces of backend infrastructure (the Resource Server), usually an API or service. By clicking on a sign-in link or an icon on their Okta dashboard, the end user grants authorization to your application and initiates the authorization code flow
 * Your Client prepares an authentication request to authenticate the end user (or determine if the end user is already authenticated). This request is composed of specific required parameters and is sent to the Okta `/authorize` endpoint:
   * `client_id` &mdash; this value is the Okta client ID created for you when you made your Okta app integration and is available in your Okta app integration settings
-  * `nonce` &mdash; A value that is returned in the ID token to mitigate against replay attacks
+  * `nonce` &mdash; A value returned in the ID token to mitigate against replay attacks
   * `redirect_uri` &mdash; this is the location where the response will be sent. This value, which must start with `https://`, is set in your Okta app integrations settings
   * `response_type=code` &mdash; this informs Okta (as the authorization server) that you want to get back an access token and an ID token in exchange for the authorization code
   * `scope` &mdash; must contain `openid` to indicate that this is an OIDC request and you want to get back an ID token. Optional scopes can be added to the request to limit the user information returned
@@ -43,7 +43,7 @@ To support the potentially large numbers of Okta orgs accessing it through the O
 
 Another general outline of the authorization code flow can be found in our Okta developer guide: [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/overview/)
 
-Also, if you’ve used SAML for SSO in the past, it’s important to realize that the OIDC flow is different. The OIDC protocol doesn't just provide an assertion that is exchanged between Okta and your SaaS back-end, but uses a long-term token that can be used for callback into Okta at any point as long as the token is valid.
+Also, if you’ve used SAML for SSO in the past, it’s important to realize that the OIDC flow is different. The OIDC protocol doesn't just provide an assertion to exchange between Okta and your SaaS back-end, but uses a long-term token that can be used for callback into Okta at any point as long as the token is valid.
 
 ### Scopes
 
