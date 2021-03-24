@@ -40,7 +40,7 @@ export default {
     }
   },
   destroyed () {
-    this.destroyWidget()
+    this.destroyWidget();
   },
   methods:{
     renderWidget(){
