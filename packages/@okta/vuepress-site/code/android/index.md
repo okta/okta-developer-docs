@@ -56,7 +56,7 @@ The [Okta OIDC Android SDK](https://github.com/okta/okta-oidc-android#requiremen
 ## Recommended Guides
 
 
-- [Implementing the Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/)
+- [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)

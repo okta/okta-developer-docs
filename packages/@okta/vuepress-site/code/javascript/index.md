@@ -52,8 +52,8 @@ Auth.js is a library wrapper for the Okta Authentication API. Use it when you ne
 
 - [Okta Auth SDK Guide](/code/javascript/okta_auth_sdk/)
 - [Okta Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/)
-- [Implementing the Implicit Flow](/docs/guides/implement-implicit/)
-- [Implementing the PKCE Flow](/docs/guides/implement-auth-code-pkce/)
+- [Implementing the Implicit flow](/docs/guides/implement-implicit/)
+- [Implementing the PKCE flow](/docs/guides/implement-auth-code-pkce/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
