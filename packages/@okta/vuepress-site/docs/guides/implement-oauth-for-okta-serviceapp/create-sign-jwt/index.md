@@ -24,6 +24,7 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
     * `aud` &mdash; `https://{yourOktaDomain}.com/oauth2/v1/token`
     * `iss` &mdash; `client_id`
     * `sub` &mdash; `client_id`
+    * `exp` &mdash; `1614664267`
 
     **Payload example**
 
@@ -31,7 +32,8 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
     {
     "aud": "https://{yourOktaDomain}/oauth2/v1/token",
     "iss": "0oar95zt9zIpYuz6A0h7",
-    "sub": "0oar95zt9zIpYuz6A0h7"
+    "sub": "0oar95zt9zIpYuz6A0h7",
+    "exp": "1614664267"
     }
 ```
 
