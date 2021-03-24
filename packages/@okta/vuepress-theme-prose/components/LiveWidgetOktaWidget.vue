@@ -20,7 +20,6 @@ export default {
       (module) => {
         this.oktaSignIn = module.default
         this.renderWidget()
-        this.rendered = true
       }
     )
   },
@@ -41,13 +40,11 @@ export default {
     }
   },
   destroyed () {
-    if (this.widget) {
-      this.widget.remove();
-    }
+    this.destroyWidget();
   },
   methods:{
     renderWidget(){
-      this.widget ? this.widget.remove() : null;
+      this.destroyWidget()
       this.widget = new this.oktaSignIn(this.configJS);
       this.widget.on('afterRender', () => {
           if (this.rendered) {
@@ -55,7 +52,7 @@ export default {
             const elementToFocus = (document.activeElement);
             setTimeout(() => {
               const activeElement = (document.activeElement);
-              if (activeElement.id === 'okta-signin-password') {
+              if (activeElement.id === 'okta-signin-username') {
                 activeElement.blur();
                 elementToFocus.focus();
               }
@@ -63,7 +60,14 @@ export default {
           }
         });
       this.widget.renderEl({ el: '#widget-container' });
+      this.rendered = true;
+    },
+    destroyWidget(){
+      if (this.widget) {
+        this.widget.remove();
+      }
     }
-  }
+  },
+
 };
 </script>
