@@ -6,9 +6,9 @@
 
 * **To configure SAML, can your customers do it by themselves from your app's UI, or do they need to contact your support team?** &mdash; If a customer needs support to configure your app integration, you need to include support contact information in your configuration guide. We recommend that you build a UI that enables self-service configuration to reduce the setup time for your customers.
 
-* **Are tenants deployed on-premises?** &mdash; If tenant data for you application is hosted locally on your customer's systems, select **Yes**. If the tenant data for your application is hosted on your servers, select **No**.
+* **Are tenants deployed on-premises?** &mdash; If tenant data for your application is hosted locally on your customer's systems, select **Yes**. If the tenant data for your application is hosted on your servers, select **No**.
 
-* **Is your app capable of requesting other SSO URLs?** &mdash; Select this option to configure support for multiple ACS URLs where the SAML Response can be sent. Specify an index or URL to uniquely identify each ACS URL endpoint. If an **AuthnRequest** message does not specify an index or URL, the SAML Response is sent to the default ACS URL specified above. Enter the SSO URLs and an index value for any other nodes.
+* **Is your app capable of requesting other SSO URLs?** &mdash; Select this option to configure support for multiple ACS URLs where the SAML Response can be sent. Specify an index or URL to uniquely identify each ACS URL endpoint. If an **AuthnRequest** message does not specify an index or URL, the SAML Response is sent to the default ACS URL specified above. If **Yes**, enter the SSO URLs and an index value for any other nodes. You can specify variables in the SSO URL field to construct non-static URLs. For example, https://`${app.variableName}`.okta.com`.
 
 * **What is the unique SAML identifier for authentication: the subject NameID or a specific SAML attribute?** &mdash; What identifier is used by the integration to perform authentication against your SAML application? If you are using an attribute different than the `NameID` attribute, what is the name of that attribute?
 
