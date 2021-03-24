@@ -17,7 +17,7 @@ The private key that you use to sign the JWT must have the corresponding public 
 
 2. The JSON Web Key Generator tool extracts the public key from the key pair automatically. For testing purposes, copy the Public Key that is provided.
 
-> **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, after you have generated the key pair, copy the public/private key pair into a [JWK to PEM Convertor tool](https://8gwifi.org/jwkconvertfunctions.jsp) and copy the private key to use when signing the JWT.
+> **Note:** Some Okta SDKs require that keys be in Privacy Enhanced Mail (PEM) format. If you are working with an Okta SDK that requires that the key be in PEM format, after you have generated the key pair, use a [JWK to PEM Convertor tool](https://www.npmjs.com/package/pem-jwk) to convert the JWK to PEM and then use the private key when signing the JWT.
 
 The JWKS should look something like this:
 
