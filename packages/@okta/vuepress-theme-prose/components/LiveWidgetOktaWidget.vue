@@ -20,7 +20,6 @@ export default {
       (module) => {
         this.oktaSignIn = module.default
         this.renderWidget()
-        this.rendered = true
       }
     )
   },
@@ -53,7 +52,7 @@ export default {
             const elementToFocus = (document.activeElement);
             setTimeout(() => {
               const activeElement = (document.activeElement);
-              if (activeElement.id === 'okta-signin-password') {
+              if (activeElement.id === 'okta-signin-username') {
                 activeElement.blur();
                 elementToFocus.focus();
               }
@@ -61,6 +60,7 @@ export default {
           }
         });
       this.widget.renderEl({ el: '#widget-container' });
+      this.rendered = true;
     },
     destroyWidget(){
       if (this.widget) {
