@@ -1,22 +1,23 @@
 $blue: #163648;
 $darkBlue: #153b56;
 $darkerBlue: #142430;
-$gray: #d3d2d6;
+$backgroundBlue: #182933;
+$gray: #bbb;
 $darkGray: #20313b;
 $magenta: #e22866;
 
 .pricing {
-  background-color: $darkGray;
+  background-color: $backgroundBlue;
 
   .pricing--container {
-    max-width: 1280px;
+    max-width: 1003px;
   }
 
   h1 {
     color: white;
-    font-size: 40px;
-    font-weight: 400;
-    line-height: 50px;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 42px;
   }
 
   h2 {
@@ -56,24 +57,24 @@ $magenta: #e22866;
   }
 
   .pricing--leader {
-    margin: 0 auto;
-    text-align: center;
-    padding: 128px 0;
+    margin: 0;
+    text-align: left;
+    padding: 64px 0;
   }
 
   h1.pricing--title {
-    letter-spacing: 4px;
-    font-size: 44px;
-    font-weight: 700;
-    margin: 0 0 64px;
-    line-height: 64px;
+    font-size: 32px;
+    font-weight: normal;
+    line-height: 42px;
+    margin: 0 0 16px;
   }
 
   p.pricing--subtitle {
     color: $gray;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 30px;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 31px;
+    max-width: initial;
   }
 
   ul.pricing--icon-list {
@@ -85,75 +86,94 @@ $magenta: #e22866;
     }
   }
 
-  .pricing-alt-bg {
-    background-color: $darkBlue;
-  }
-
   .pricing--costs {
     flex-grow: 1;
-    color: $gray;
+    color: white;
 
     .pricing-section {
       padding: 40px 0 88px;
+      display: flex;
     }
 
     .pricing-card {
-      background-color: $darkerBlue;
-      display: flex;
+      margin: 0 32px 0 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
 
-    .pricing-card-column {
-      padding: 30px;
+    .pricing-card-top {
+      padding: 20px;
+      background-color: #1F3B54;
+      border-radius: inherit;
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+      display: flex;
+      flex-direction: column;
+
+      h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .pricing-card-amount {
+        font-size: 32px;
+        margin: 0 0 10px 0;
+      }
+
+      .pricing-card-subtitle {
+        color: $gray;
+        font-size: 16px;
+      }
+
+      .Button--red {
+        text-align: center;
+      }
     }
 
-    .pricing-card-lists {
-      display: flex;
+    .pricing-card-bottom {
+      color: $gray;
+      padding: 20px;
+      border-radius: inherit;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      font-size: 14px;
+
       ul {
         flex-grow: 1;
+        list-style: none;
+        padding: 0;
+
+        li {
+          background: url('/img/icons/icon--union.svg') no-repeat left center;
+          padding: 0 5px 8px 25px;
+          line-height: 1.5em;
+          margin: 0;
+        }
       }
+
       @include media('<tablet') {
         flex-direction: column;
       }
     }
 
-    .pricing-card-price {
-      display: flex;
-      align-items: flex-end;
-      margin-bottom: 30px;
-
-      .pricing-card-amount {
-        font-size: 40px;
-        font-weight: 400;
-        color: #007dc1;
-        margin: 0 10px 0 0;
-        line-height: 1em;
-      }
-    }
 
     .pricing-card-intro {
       .pricing-card {
-        display: flex;
-      }
-
-      .pricing-card-column {
         flex-grow: 1;
         flex-basis: 0;
-
-        &:first-child {
-          border-right: 2px solid $blue;
-        }
+        border: 1px solid #2b4d63;
+        border-radius: 15px;
+        box-shadow: 0px 5px 25px rgba(11, 18, 22, 0.64);
       }
 
       @include media('<desktop') {
-        .pricing-card {
+        .pricing-section {
           flex-direction: column;
         }
 
-        .pricing-card-column {
-          &:first-child {
-            border-right: 0;
-            border-bottom: 2px solid $blue;
-          }
+        .pricing-card {
         }
       }
     }
@@ -329,48 +349,6 @@ $magenta: #e22866;
       font-size: 32px;
       font-weight: 600;
       line-height: 48px;
-    }
-  }
-
-  .pricing--addons {
-    text-align: center;
-    margin: 0 auto 64px;
-    color: $gray;
-
-    .pricing-addons-header {
-      margin: 64px 0;
-    }
-
-    .pricing-addons-tiles {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-between;
-      margin: 0 -15px;
-    }
-
-    .pricing-addons-tile {
-      flex: 1 1 330px;
-      display: block;
-      background-color: $darkerBlue;
-      box-shadow: 0 6px 25px 0 rgba(5,5,5,.3);
-      text-align: left;
-      padding: 20px;
-      margin: 15px;
-      border-top-left-radius: 3px;
-      border-top-right-radius: 3px;
-      transition: .4s;
-      &:hover {
-        box-shadow: 0 6px 25px 0 rgba(5,5,5,.5);
-      }
-      img {
-        margin-bottom: 7px;
-        width: 30px;
-        height: 30px;
-      }
-      p {
-        color: white;
-        font-size: 20px;
-      }
     }
   }
 
