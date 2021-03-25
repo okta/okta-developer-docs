@@ -4,6 +4,16 @@ title: Okta API Products Release Notes
 
 ## March
 
+### Weekly Release 2021.03.3
+
+| Change                                                    | Expected in Preview Orgs |
+| --------------------------------------------------------- | ------------------------ |
+| [Bug fixed in 2021.03.3](#bug-fixed-in-2021-03-3)         | March 25, 2021           |
+
+#### Bug fixed in 2021.03.3
+
+When an OAuth2 request was made with an access token instead of a required ID token, the error message didn't clarify that the request was made with the wrong token.
+
 ### Weekly Release 2021.03.2
 
 | Change                                                    | Expected in Preview Orgs |
@@ -102,7 +112,6 @@ To be compliant with the [RFC for JSON data interchange format](https://tools.ie
 #### Bug fixed in 2021.02.0
 
 When performing a GET on the [`/oauth2/v1/clients` endpoint](/docs/reference/api/oauth-clients/#list-client-applications) on an org that has a deactivated OIN client, a "404 resource not found" error occurred. (OKTA-365031)
-
 
 ## January
 
