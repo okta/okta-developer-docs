@@ -282,6 +282,10 @@ module.exports = {
         })
       });
 
+    /*
+     * Copy *.scss from Sign-In Widget for use in /live-widget.
+     * See /components/LiveWidget.vue for usage
+     */
     config.plugin('copy-sass')
       .use(CopyWebpackPlugin, [
         [{
