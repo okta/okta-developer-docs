@@ -291,7 +291,7 @@ module.exports = {
         // It seems like there is a bug in documentation - we can not pass "patterns" property
 
 
-        .use(CopyWebpackPlugin,  
+        .use(CopyWebpackPlugin,
           [[
             // copy plugin docs - https://webpack.js.org/plugins/copy-webpack-plugin/
             // so as docs says this code should copy everything from source folder to EXISTING new folder
@@ -301,10 +301,15 @@ module.exports = {
             // how to handle it correctly
 
            {
-             from: Path.join(rootFolderFrom, 'node_modules/@okta/dist/sass/'), 
+             from: Path.join(rootFolderFrom, 'node_modules/@okta/okta-signin-widget/dist/sass/'), 
+             //from: 'node_modules/@okta/dist/sass/',
              // wid-sass-test was created to test ability to copy files in EXISTING folder
-             to: Path.join(currentFolderTo, 'public/wid-sass-test/')
-            },
+             to: Path.join(currentFolderTo, 'public/wid-sass-test/'),
+             transform(content, path) {
+               console.log('!!PATH: ', path);
+               return content;
+             },
+           },
 
             // this code is responsible for copying files to NEW folder, as documentation says
             // and this approach does not work at all

@@ -27,7 +27,6 @@
     "@okta/okta-signin-widget": "^5.4.0",
     "axios": "^0.21.0",
     "cookies.js": "^2.1.15",
-    "copy-webpack-plugin": "^8.1.0",
     "css-to-json": "^2.1.0",
     "include-media": "^1.4.9",
     "jshint": "^2.12.0",
