@@ -5,6 +5,8 @@ category: management
 
 # Domains API
 
+<ApiLifecycle access="ea" />
+
 The Okta Domains API provides operations to manage custom domains for your organization.
 
 ## Getting Started
