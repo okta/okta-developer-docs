@@ -283,14 +283,34 @@ module.exports = {
         })
       });
     config.plugin("copy-sass")
-        .use(CopyWebpackPlugin, 
-              [[
-               {
-                 from: Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass'), 
-                 to: Path.join(currentFolderTo, 'public/widget-sass-test')
-                }
-              ]]
-          )
+        // .use(CopyWebpackPlugin, 
+        //       [[{patterns: [
+        //        {
+        //          from: Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass/'), 
+        //          to: Path.join(currentFolderTo, 'public/wid-sass-test/')
+        //         },
+        //         // {
+        //         //   to({context, absoluteFilename}){
+        //         //     return `${currentFolderTo}/public/widget-sass-test/${Path.relative(context, absoluteFilename)}`
+        //         //   },
+        //         //   from: Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass'), 
+        //         // }
+        //       ]}]]
+        //   )
+        .use(CopyWebpackPlugin,  
+          [[
+           {
+             from: Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass/'), 
+             to: Path.join(currentFolderTo, 'public/wid-sass-test/')
+            },
+            // {
+            //   from: Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass'), 
+            //   to: ({context, absoluteFilename}) => {
+            //     return `${currentFolderTo}/public/widget-sass-test/${Path.relative(context, absoluteFilename)}`
+            //   },
+            // }
+          ]]
+      )
   },
 
   evergreen: false,
