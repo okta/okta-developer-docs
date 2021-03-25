@@ -8,7 +8,7 @@ The following instructions show you how to register a server-side web app to hav
 
 #### Start from a sample app
 
-You can review and build Otka's sample applications from GitHub to learn how the various languages or frameworks can be used for Okta authentication.
+You can review and build Okta's sample applications from GitHub to learn how the various languages or frameworks can be used for Okta authentication.
 
 Find the sample applications that matches your app's language or framework:
 
