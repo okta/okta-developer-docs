@@ -240,7 +240,7 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 | Operator | Description | Behavior                                                         |
 | -------- | ----------- | --------                                                         |
 | `and`      | Logical AND | The filter is only a match if both expressions evaluate to true. |
-| `not` | Logical NOT | The filter is only a match if no expression evaluates to true. | 
+| `not` | Logical NOT | The filter is a match if the expression evaluates to false. | 
 | `or`       | Logical OR  | The filter is a match if either expression evaluates to true.    |
 
 ### Logical operators
