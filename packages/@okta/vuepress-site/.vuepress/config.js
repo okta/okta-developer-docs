@@ -266,7 +266,12 @@ module.exports = {
     const currentFolderTo = Path.resolve(__dirname)
     console.log('CONSOLE LOG FROM CHAINED WEBPACK !!!!!!!!!!!!!!!!!!!!!!!!!!!!')
     console.log('PATH FROM', Path.join(rootFolderFrom, 'node_modules/@okta/dist/sass'))
-    console.log('PATH TO', Path.join(currentFolderTo, 'public/widget-sass-test'))
+    console.log('PATH TO', Path.join(currentFolderTo, 'public/widget-sass'))
+    /*
+CONSOLE LOG FROM CHAINED WEBPACK !!!!!!!!!!!!!!!!!!!!!!!!!!!!
+PATH FROM /Users/shawyu/okta/okta-developer-docs/node_modules/@okta/dist/sass
+PATH TO /Users/shawyu/okta/okta-developer-docs/packages/@okta/vuepress-site/.vuepress/public/widget-sass-test
+*/
     config.module
       .rule('string-replacement')
       .test(/(\.md|\.vue)$/)
@@ -283,47 +288,14 @@ module.exports = {
         })
       });
 
-    //create named plugin, as said in https://github.com/neutrinojs/webpack-chain#getting-started documentation (last example)
     config.plugin("copy-sass")
-
-        // USE should get plugin + options array, copyWebpackPlugin takes array of options too, this why 
-        // there is a double array of arrays. 
-        // It seems like there is a bug in documentation - we can not pass "patterns" property
-
-
-        .use(CopyWebpackPlugin,
-          [[
-            // copy plugin docs - https://webpack.js.org/plugins/copy-webpack-plugin/
-            // so as docs says this code should copy everything from source folder to EXISTING new folder
-            // to track new folder I've added trick-file 'for_git_trackage_file' just for testign purposes 
-            // As I run "yarn dev" there is no errors but after everything is compiled there is a bug in console
-            // "Can't resolve /....some_path.../ " - it blinks to fast to see actual log  and I do not undertand 
-            // how to handle it correctly
-
-           {
-             from: Path.join(rootFolderFrom, 'node_modules/@okta/okta-signin-widget/dist/sass/'), 
-             //from: 'node_modules/@okta/dist/sass/',
-             // wid-sass-test was created to test ability to copy files in EXISTING folder
-             to: Path.join(currentFolderTo, 'public/wid-sass-test/'),
-             transform(content, path) {
-               console.log('!!PATH: ', path);
-               return content;
-             },
-           },
-
-            // this code is responsible for copying files to NEW folder, as documentation says
-            // and this approach does not work at all
-            // link to docs - https://webpack.js.org/plugins/copy-webpack-plugin/#copy-in-new-directory
-
-
-            // {
-            //   from: Path.join(rootFolderFrom, 'node_modules/@okta/dist/sass'), 
-            //   to({context, absoluteFilename}) {
-            //     return `${currentFolderTo}/public/widget-sass-test/${Path.relative(context, absoluteFilename)}`
-            //   },
-            // }
-          ]]
-      )
+      .use(CopyWebpackPlugin, [
+        [{
+           from: Path.join(rootFolderFrom, 'node_modules/@okta/okta-signin-widget/dist/sass/'), 
+           to: Path.join(currentFolderTo, 'public/widget-sass/'),
+         },
+        ]
+      ]);
   },
 
   evergreen: false,
