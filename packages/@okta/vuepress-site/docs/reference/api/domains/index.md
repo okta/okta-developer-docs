@@ -631,8 +631,8 @@ The DNSRecords object defines following properties:
 
 | Property                | Type                                   | Description                           |
 |-------------------------|----------------------------------------|---------------------------------------|
-| `fqdn`                  | String                                 | TXT record name                       |
-| `values`                | Array                    | TXT verification value                |
+| `fqdn`                  | String                                 | DNS record name                       |
+| `values`                | Array                    | DNS verification value                |
 | `recordType`            | `TXT`, `CNAME`                         | Record type can be `TXT` or `CNAME`   |
 
 
