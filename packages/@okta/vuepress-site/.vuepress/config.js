@@ -265,7 +265,7 @@ module.exports = {
     const rootFolderFrom = Path.resolve(__dirname, '../../../../')
     const currentFolderTo = Path.resolve(__dirname)
     console.log('CONSOLE LOG FROM CHAINED WEBPACK !!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-    console.log('PATH FROM', Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass'))
+    console.log('PATH FROM', Path.join(rootFolderFrom, 'node_modules/@okta/dist/sass'))
     console.log('PATH TO', Path.join(currentFolderTo, 'public/widget-sass-test'))
     config.module
       .rule('string-replacement')
@@ -301,7 +301,7 @@ module.exports = {
             // how to handle it correctly
 
            {
-             from: Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass/'), 
+             from: Path.join(rootFolderFrom, 'node_modules/@okta/dist/sass/'), 
              // wid-sass-test was created to test ability to copy files in EXISTING folder
              to: Path.join(currentFolderTo, 'public/wid-sass-test/')
             },
@@ -312,7 +312,7 @@ module.exports = {
 
 
             // {
-            //   from: Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass'), 
+            //   from: Path.join(rootFolderFrom, 'node_modules/@okta/dist/sass'), 
             //   to({context, absoluteFilename}) {
             //     return `${currentFolderTo}/public/widget-sass-test/${Path.relative(context, absoluteFilename)}`
             //   },
