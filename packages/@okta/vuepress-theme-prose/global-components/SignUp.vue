@@ -183,7 +183,7 @@
             during my use of the Free Trial Service and Okta’s
             <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }"
               >Privacy Policy</SmartLink
-            >. I further agree that Okta may contact me with marketing
+            >.<br /> I further agree that Okta may contact me with marketing
             communications (details on how to unsubscribe are located in the
             Privacy Policy link).
           </p>
@@ -193,18 +193,10 @@
                 type="checkbox"
                 name=""
                 id="agree-checkbox"
-                @change="
-                  validationService.checkFormCheckboxInput('consentAgree')
-                "
                 v-model="form.consentAgree.value"
               />
               I agree
             </label>
-            <span
-              class="error-color error-msg"
-              v-if="form.consentAgree.errorList.length"
-              >{{ validationService.errorDictionary.emptyField }}</span
-            >
           </div>
         </div>
       </form>
@@ -337,7 +329,6 @@ export default {
       this.validationService.checkFormInput("country");
       this.validationService.checkEmailInput("email");
       this.validationService.checkFormInput("state");
-      this.validationService.checkFormCheckboxInput("consentAgree");
       this.validationService.checkFormInput("captcha");
 
       if (this.validationService.isValidForm()) {
