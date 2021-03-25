@@ -4,6 +4,10 @@ title: Overview
 
 This guide provides example code for an external service to respond to calls from a Registration Inline Hook.
 
+You must enable [self-service registration (SSR)](/docs/guides/set-up-self-service-registration/before-you-begin/) to implement a registration inline hook.
+
+> **Note:** Self-service registration and Registration Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 2.9 or later.
+
 In the following example, the external service code parses requests from Okta and responds with commands that indicate whether the end user's email domain is valid and allowed to register.
 
 At a high-level, the following workflow occurs:
