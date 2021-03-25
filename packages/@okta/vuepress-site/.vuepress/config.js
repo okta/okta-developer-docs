@@ -282,30 +282,38 @@ module.exports = {
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
       });
+
+    //create named plugin, as said in https://github.com/neutrinojs/webpack-chain#getting-started documentation (last example)
     config.plugin("copy-sass")
-        // .use(CopyWebpackPlugin, 
-        //       [[{patterns: [
-        //        {
-        //          from: Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass/'), 
-        //          to: Path.join(currentFolderTo, 'public/wid-sass-test/')
-        //         },
-        //         // {
-        //         //   to({context, absoluteFilename}){
-        //         //     return `${currentFolderTo}/public/widget-sass-test/${Path.relative(context, absoluteFilename)}`
-        //         //   },
-        //         //   from: Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass'), 
-        //         // }
-        //       ]}]]
-        //   )
+
+        // USE should get plugin + options array, copyWebpackPlugin takes array of options too, this why 
+        // there is a double array of arrays. 
+        // It seems like there is a bug in documentation - we can not pass "patterns" property
+
+
         .use(CopyWebpackPlugin,  
           [[
+            // copy plugin docs - https://webpack.js.org/plugins/copy-webpack-plugin/
+            // so as docs says this code should copy everything from source folder to EXISTING new folder
+            // to track new folder I've added trick-file 'for_git_trackage_file' just for testign purposes 
+            // As I run "yarn dev" there is no errors but after everything is compiled there is a bug in console
+            // "Can't resolve /....some_path.../ " - it blinks to fast to see actual log  and I do not undertand 
+            // how to handle it correctly
+
            {
              from: Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass/'), 
+             // wid-sass-test was created to test ability to copy files in EXISTING folder
              to: Path.join(currentFolderTo, 'public/wid-sass-test/')
             },
+
+            // this code is responsible for copying files to NEW folder, as documentation says
+            // and this approach does not work at all
+            // link to docs - https://webpack.js.org/plugins/copy-webpack-plugin/#copy-in-new-directory
+
+
             // {
             //   from: Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass'), 
-            //   to: ({context, absoluteFilename}) => {
+            //   to({context, absoluteFilename}) {
             //     return `${currentFolderTo}/public/widget-sass-test/${Path.relative(context, absoluteFilename)}`
             //   },
             // }
