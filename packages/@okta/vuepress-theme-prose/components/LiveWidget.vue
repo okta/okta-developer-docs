@@ -173,7 +173,7 @@
       },
       loadSassFiles(){
         // SASS files are needed to correctly compile scss requests are made relative to worker
-        const base = '/widget-sass';
+        const base = '/assets/widget-sass';
 
         // the directory files should be made available in
         const directory = '';

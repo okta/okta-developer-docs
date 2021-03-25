@@ -5,6 +5,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Path = require('path')
 const signInWidgetMajorVersion = 5;
 
+const projectRootDir = Path.resolve(__dirname, '../../../../');
+const outputDir = Path.resolve(__dirname, '../dist/');
+
+
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
 module.exports = {
@@ -262,16 +266,6 @@ module.exports = {
   },
 
   chainWebpack(config) {
-    const rootFolderFrom = Path.resolve(__dirname, '../../../../');
-    const currentFolderTo = Path.resolve(__dirname, '../');
-    console.log('CONSOLE LOG FROM CHAINED WEBPACK !!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-    console.log('PATH FROM', Path.join(rootFolderFrom, 'node_modules/@okta/dist/sass'))
-    console.log('PATH TO', Path.join(currentFolderTo, 'dist/widget-sass/'))
-    /*
-CONSOLE LOG FROM CHAINED WEBPACK !!!!!!!!!!!!!!!!!!!!!!!!!!!!
-PATH FROM /Users/shawyu/okta/okta-developer-docs/node_modules/@okta/dist/sass
-PATH TO /Users/shawyu/okta/okta-developer-docs/packages/@okta/vuepress-site/.vuepress/public/widget-sass-test
-*/
     config.module
       .rule('string-replacement')
       .test(/(\.md|\.vue)$/)
@@ -288,11 +282,11 @@ PATH TO /Users/shawyu/okta/okta-developer-docs/packages/@okta/vuepress-site/.vue
         })
       });
 
-    config.plugin("copy-sass")
+    config.plugin('copy-sass')
       .use(CopyWebpackPlugin, [
         [{
-           from: Path.join(rootFolderFrom, 'node_modules/@okta/okta-signin-widget/dist/sass/'), 
-           to: Path.join(currentFolderTo, 'dist/widget-sass/'),
+           from: Path.join(projectRootDir, 'node_modules/@okta/okta-signin-widget/dist/sass/'),
+           to: Path.join(outputDir, 'assets/widget-sass/'),
          },
         ]
       ]);
