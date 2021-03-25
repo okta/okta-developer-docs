@@ -144,7 +144,10 @@
 </template>
 
 <script>
+import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
+
 import CompanyLogos from "./CompanyLogos.vue";
+
 const SIDE_BY_SIDE_BREAKPOINT = 1200;
 
 export default {

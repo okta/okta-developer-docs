@@ -5,20 +5,22 @@
 </template>
 
 <script>
+import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 import {LIVE_WIDGET_DYNAMIC_STYLE_ID} from  '../const/live-widget.const'
+
 export default {
   name: 'LiveWidgetOktaWidget',
   props: ['configJS', 'configSCSS'],
   data(){
     return {
       rendered: false,
-      oktaSignIn: undefined,
+      OktaSignIn: undefined,
     }
   },
   mounted: function() {
     import('@okta/okta-signin-widget').then(
       (module) => {
-        this.oktaSignIn = module.default
+        this.OktaSignIn = module.default
         this.renderWidget()
         this.rendered = true
       }
@@ -48,7 +50,7 @@ export default {
   methods:{
     renderWidget(){
       this.widget ? this.widget.remove() : null;
-      this.widget = new this.oktaSignIn(this.configJS);
+      this.widget = new this.OktaSignIn(this.configJS);
       this.widget.on('afterRender', () => {
           if (this.rendered) {
             // Last focused element to return to
