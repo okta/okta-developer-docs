@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
+
 export default {
   name: 'FrontPageWidget',
   mounted: function() {
