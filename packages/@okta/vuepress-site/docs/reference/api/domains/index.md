@@ -111,7 +111,7 @@ Verifies the domain.
 
 #### Request path parameters
 
-Fetches domain by `id`.
+Verifies the domain with given `id`.
 
  Parameter  | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
@@ -163,37 +163,25 @@ curl -v -X POST \
             "recordType": "CNAME"
         }
     ],
-    "publicCertificate": {
-        "subject": "CN=login.example.com",
-        "fingerprint": "73:68:82:7B:83:2E:48:29:A5:5E:E8:40:41:80:B3:AA:03:C4:42:43:05:73:45:BC:AA:47:00:23:A3:70:E5:C4",
-        "expiration": "2021-05-11T05:13:05.000Z"
-    },
-    "_links": {
-        "certificate": {
-            "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/certificate",
-            "hints": {
-                "allow": [
-                    "PUT"
-                ]
-            }
-        },
-        "self": {
-            "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
-            "hints": {
-                "allow": [
-                    "DELETE"
-                ]
-            }
-        },
-        "verify": {
-            "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/verify",
-            "hints": {
-                "allow": [
-                    "POST"
-                ]
-            }
-        }
-    }
+   "_links": {
+           "certificate": {
+               "href": "http://rain.okta1.com:1802/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/certificate",
+               "hints": {
+                   "allow": [
+                       "PUT"
+                   ]
+               }
+           },
+           "self": {
+               "href": "http://rain.okta1.com:1802/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
+               "hints": {
+                   "allow": [
+                       "GET",
+                       "DELETE"
+                   ]
+               }
+           }
+   }
 }
 ```
 ### Create certificate
@@ -204,7 +192,7 @@ Create certificate for the domain.
 
 #### Request path parameters
 
-Fetches domain by `id`.
+Creates certificate for the domain with given `id`.
 
  Parameter  | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
@@ -669,6 +657,7 @@ The Certificate object defines following properties:
 | `type`                | `PEM`                                                         | Certificate type. Accepted values: `PEM`        | TRUE |
 | `privateKey`           | String                                                         | Certificate privateKey                     | TRUE |
 | `certificate`           | String                                                     | Certificate content                               | TRUE |
+| `certificateChain`      | String                                                     | Certificate chain                   | FALSE |
 
 #### Certificate example
 ```json
