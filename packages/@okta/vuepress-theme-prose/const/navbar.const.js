@@ -585,22 +585,22 @@ export const reference = [
         path: "/docs/reference/releases-at-okta/"
       },
       { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-      {
+      { 
         title: "SCIM Protocol",
         subLinks: [
-          {
+          { 
             title: "SCIM overview",
             path: "/docs/reference/scim/"
           },
           {
-            title: "SCIM V2.0",
+            title: "SCIM V2.0", 
             path: "/docs/reference/scim/scim-20/"
           },
           {
             title: "SCIM V1.1",
             path: "/docs/reference/scim/scim-11/"
           }
-        ]
+        ] 
       },
       {
         title: "Social IdP Settings",
