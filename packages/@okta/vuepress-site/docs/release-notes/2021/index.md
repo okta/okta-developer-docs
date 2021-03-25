@@ -12,7 +12,7 @@ title: Okta API Products Release Notes
 
 #### Bugs fixed in 2021.03.3
 
-* When a validation request was made against an OAuth2 endpoint using an access token instead of an ID token, the error message wasn't clear that validation is performed only against ID tokens.
+* When an OAuth2 request was made with an access token instead of a required ID token, the error message didn't clarify that the request was made with the wrong token.
 
 ### Weekly Release 2021.03.2
 
