@@ -1,6 +1,8 @@
 const guidesInfo = require('./scripts/build-guides-info');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Path = require('path')
 const signInWidgetMajorVersion = 5;
 
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
@@ -260,6 +262,11 @@ module.exports = {
   },
 
   chainWebpack(config) {
+    const rootFolderFrom = Path.resolve(__dirname, '../../../../')
+    const currentFolderTo = Path.resolve(__dirname)
+    console.log('CONSOLE LOG FROM CHAINED WEBPACK !!!!!!!!!!!!!!!!!!!!!!!!!!!!')
+    console.log('PATH FROM', Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass'))
+    console.log('PATH TO', Path.join(currentFolderTo, 'public/widget-sass-test'))
     config.module
       .rule('string-replacement')
       .test(/(\.md|\.vue)$/)
@@ -275,6 +282,15 @@ module.exports = {
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
       });
+    config.plugin("copy-sass")
+        .use(CopyWebpackPlugin, 
+              [[
+               {
+                 from: Path.join(rootFolderFrom, 'node-modules/@okta/dist/sass'), 
+                 to: Path.join(currentFolderTo, 'public/widget-sass-test')
+                }
+              ]]
+          )
   },
 
   evergreen: false,
