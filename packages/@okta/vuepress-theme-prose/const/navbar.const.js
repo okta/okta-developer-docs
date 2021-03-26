@@ -57,6 +57,10 @@ export const concepts = [
         path: "/docs/concepts/key-rotation/"
       },
       {
+        title: "Multi-tenant solutions",
+        path: "/docs/concepts/multi-tenancy/"
+      },
+      {
         title: "OAuth 2.0 and Open ID Connect Overview",
         path: "/docs/concepts/oauth-openid/"
       },

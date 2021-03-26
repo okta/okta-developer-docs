@@ -1,0 +1,152 @@
+$blue: #163648;
+$darkBlue: #153b56;
+$darkerBlue: #142430;
+$gray: #d3d2d6;
+$darkGray: #20313b;
+$magenta: #e22866;
+
+.multi-tenancy {
+    //SECTION: Intro
+    .title-subtext {
+        font-size: 24px;
+        font-weight: 500;
+        margin-top: -20px;
+        margin-bottom: 30px;
+        margin-left: auto;
+        color: #757575;
+    }
+
+    //#SECTION: Acme Bank
+    //Layout
+    .acme-bank-container {
+        grid-area: acme-bank-container;
+        display: grid;
+        grid-template-columns: 80% 20%;
+        grid-template-areas:
+        "acme-bank-text acme-bank-image";
+    }
+
+    .acme-bank-text {
+        grid-area: acme-bank-text;
+        padding-right:20px;
+    }
+    .acme-bank-image {
+        grid-area: acme-bank-image;
+        justify-self: center;
+        max-width: 80%;
+    }
+
+    //GLOBAL
+    //Add line
+    .padded-line {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    //Images
+    .image-at-90 {
+        text-align: center;
+
+        img {
+            max-width: 90%;
+        }
+    }
+    .image-at-80 {
+        text-align: center;
+
+        img {
+            max-width: 80%;
+        }
+    }
+    .image-at-70 {
+        text-align: center;
+
+        img {
+            max-width: 70%;
+        }
+    }
+    .image-at-100 {
+        text-align: center;
+
+        img {
+            max-width: 100%;
+        }
+    }
+    .image-at-60 {
+        text-align: center;
+
+        img {
+            max-width: 60%;
+        }
+    }
+    .image-at-50 {
+        text-align: center;
+
+        img {
+            max-width: 50%;
+        }
+    }
+    //Lists
+    .modern-numbered-list {
+        counter-reset: listcount;
+        ul {
+            list-style: none;
+            padding-bottom: 28px;
+            li {
+                position: relative;
+                padding-left: 32px;
+            }
+            li:after {
+                counter-increment: listcount;
+                content: counter(listcount);
+                background: #e5e9ef;
+                color: #697386;
+                font-size: 12px;
+                font-weight: 500;
+                line-height: 1px;
+                text-align: center;
+                padding: 10px 0;
+                height: 10px;
+                width: 20px;
+                border-radius: 10px;
+                position: absolute;
+                left: 0;
+                top: 3px;
+            }
+
+        }
+    }
+
+    .modern-list {
+        ul {
+            list-style: none;
+            padding-bottom: 10px;
+            li {
+                position: relative;
+                padding-left: 32px;
+            }
+            li:before {
+                content: "";
+                position: absolute;
+                width: 6px;
+                height: 6px;
+                left: 8px;
+                top: 10px;
+                border-radius: 50%;
+                background: #AAAAB4;
+            }
+
+        }
+
+    }
+
+    .heading-2-subtext {
+        font-size: 22px;
+        font-weight: 500;
+        margin-top: -20px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        color: #757575;
+    }
+
+}
