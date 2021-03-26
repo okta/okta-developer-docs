@@ -4,7 +4,7 @@ title: Register your app
 
 You can use either the Okta CLI or the Admin Console to register your app to your Okta org for user authentication. After your app is registered, your Okta org generates the issuer ID, client ID, and client secret for you to integrate into your app build.
 
-The following instructions show you how to register a server-side web app to have an Okta-hosted sign-in page. For Admin Console instructions on how to register all the supported app types and sign-in methods, see [Create a new Okta app integration](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard.htm).
+The following instructions show you how to register a server-side web app to have an Okta-hosted sign-in page. For Admin Console instructions on how to register other supported app types and sign-in methods, see [Create a new Okta app integration](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard.htm).
 
 #### Start from a sample app
 
