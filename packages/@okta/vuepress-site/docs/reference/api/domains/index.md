@@ -20,7 +20,7 @@ The Domains API has the following CRUD operations:
 * [Verify Domain](#verify-domain)
 * [Create Certificate](#create-certificate)
 * [Get Domain](#get-domain)
-* [Get All Domains](#get-all-domains)
+* [Get all Domains](#get-all-domains)
 * [Delete Domain](#delete-domain)
 
 
@@ -46,7 +46,7 @@ The [DomainResponse](#domainresponse-object)
 
 #### Usage examples
 
-The following request creates a domain with given name.
+The following request creates a domain with a given name.
 
 ##### Request
 
@@ -109,15 +109,15 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/domains/{id}/verify" />
 
-Verifies the domain.
+Verifies the Domain.
 
 #### Request path parameters
 
-Verifies the domain with given `id`.
+Verifies the Domain by the given `id`
 
- Parameter  | Description  | Param Type | DataType | Required |
-| --------- | ------------ | ---------- | -------- | -------- |
-| id        | `id`         | URL        | String   | TRUE     |
+|Parameter  | Type | Description |
+| --------- | ------------ | ---------- |
+| `id `       | URL        | Required. ID of the Domain. String. |
 
 
 #### Request query parameters
@@ -131,7 +131,7 @@ N/A
 The [DomainResponse](#domainresponse-object)
 
 
-#### Usage examples
+#### Use examples
 
 ##### Request
 
@@ -186,19 +186,19 @@ curl -v -X POST \
    }
 }
 ```
-### Create certificate
+### Create Certificate
 
 <ApiOperation method="put" url="/api/v1/domains/{id}/certificate" />
 
-Create certificate for the domain.
+Creates the Certificate for the Domain
 
 #### Request path parameters
 
-Creates certificate for the domain with given `id`.
+Creates the Certificate for the Domain by ID
 
- Parameter  | Description  | Param Type | DataType | Required |
-| --------- | ------------ | ---------- | -------- | -------- |
-| id        | `id`         | URL        | String   | TRUE     |
+| Parameter  | Type | Description |
+| --------- | ------------ | ---------- |
+| `id `       | URL        | Required. ID of the Certificate. String. |
 
 
 #### Request query parameters
@@ -213,10 +213,10 @@ The [Certificate](#certificate-object)
 HTTP/1.1 204 No Content
 ```
 
-* Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000163`.
-* Passing a non verified domain returns a `403 Forbidden` status code with error code `E0000165`. Domain has to be verified before creating the certificate.
+* Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000163`
+* Passing a non-verified Domain returns a `403 Forbidden` status code with error code `E0000165`. You must verify the Domain before creating the Certificate.
 
-#### Usage examples
+#### Use examples
 
 ##### Request
 
@@ -260,15 +260,15 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/domains/{id}" />
 
-Fetches your domain.
+Fetches your Domain
 
 #### Request path parameters
 
-Fetches domain by `id`.
+Fetches the Domain by ID
 
- Parameter  | Description  | Param Type | DataType | Required |
-| --------- | ------------ | ---------- | -------- | -------- |
-| id        | `id`         | URL        | String   | TRUE     |
+| Parameter  | Type | Description |
+| --------- | ------------ | ---------- |
+| `id`        | URL        | Required. ID of the Domain. String.  |
 
 
 #### Request query parameters
@@ -280,9 +280,9 @@ N/A
 #### Response body
 
 * The [DomainResponse](#domainresponse-object).
-* Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000163`.
+* Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000163`
 
-#### Usage examples
+#### Use examples
 
 ##### Request
 
@@ -350,7 +350,7 @@ curl -v -X GET \
 }
 ```
 
-##### Response Example (Domain not found)
+##### Response example (Domain not found)
 
 ```http
 HTTP/1.1 404 Not Found
@@ -369,11 +369,11 @@ Content-Type: application/json
 }
 ```
 
-### Get All Domains
+### Get all Domains
 
 <ApiOperation method="get" url="/api/v1/domains" />
 
-List all verified custom domains for the org.
+List all verified custom Domains for the org
 
 #### Request path parameters
 N/A
@@ -388,7 +388,7 @@ N/A
 
 The [DomainListResponse](#domainlistresponse-object)
 
-#### Usage examples
+#### Use examples
 
 ##### Request
 
@@ -427,15 +427,15 @@ curl -v -X GET \
 
 <ApiOperation method="delete" url="/api/v1/domains/{id}" />
 
-Deletes your domain.
+Deletes your Domain
 
 #### Request path parameters
 
-Delete domain by `id`.
+Deletes a Domain by ID
 
- Parameter  | Description  | Param Type | DataType | Required |
-| --------- | ------------ | ---------- | -------- | -------- |
-| id        | `id`         | URL        | String   | TRUE     |
+| Parameter  | Type | Description |
+| --------- | ------------ | ---------- |
+| `id`        | URL        | Required. ID of the Domain. String.   |
 
 
 #### Request query parameters
@@ -450,15 +450,15 @@ N/A
 HTTP/1.1 204 No Content
 ```
 
-* Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000163`.
+* Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000163`
 
-#### Usage examples
+#### Use examples
 
 ```http
 HTTP/1.1 204 No Content
 ```
 
-##### Response Example (Domain not found)
+##### Response example (Domain not found)
 
 ```http
 HTTP/1.1 404 Not Found
@@ -483,13 +483,14 @@ Content-Type: application/json
 
 #### Domain properties
 
-The Domain object defines following properties:
+The Domain object defines the following properties:
 
 
-| Property                | Type                                                           | Description                                                       |Required |
-| ----------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- | ------- |
-| `domain`                | String              | Custom domain name                                                                                         | TRUE    |
-| `certificateSourcetype` | `MANUAL`              | Certificate source type that indicates whether certificate will be provided by the user. Accepted values: `MANUAL`| TRUE    |
+| Property                | Type          | Description |
+| ----------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `certificateSourcetype` | `MANUAL`             | Required. Certificate source type that indicates whether the Certificate is provided by the user. Accepted value: `MANUAL`|
+| `domain`                | String              | Required. Custom Domain name                                                                                      |
+
 
 
 
@@ -505,17 +506,18 @@ The Domain object defines following properties:
 
 #### DomainResponse properties
 
-The DomainResponse object defines following properties:
+The DomainResponse object defines the following properties:
 
 
-| Property                  | Type                                                           | Description                                                                               | Nullable |
-| ------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------|
-| `id`                      | String                                                         | Domain ID                                                                                 | FALSE    |
-| `domain`                  | String                                                         | Domain name                                                                               | FALSE    |
-| `validationStatus`        | String                                                         | Status of the domain. Values can be `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED` | FALSE    |
-| `dnsRecords`              | [DNSRecords](#dnsrecords-object)                               | TXT and CNAME records to be registered for the domain                                     | FALSE    |
-| `publicCertificate`       | [CertificateMetadata](#certificatemetadata-object)             | Certificate metadata for the domain.                                                               | TRUE     |
-| `_links`                  | [Links](#links-object)                                         | Link relations for this object                                                            | TRUE     |
+| Property                  | Type                                                           | Description                                                                               |
+| ------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `dnsRecords`              | [DNSRecords](#dnsrecords-object)                               | TXT and CNAME records to be registered for the Domain                                     |
+| `domain`                  | String                                                         | Domain name                                                                               |
+| `id`                      | String                                                         | Domain ID                                                                                 |
+| `_links`                  | [Links](#links-object)                                         | Link relations for this object                                                            |
+| `publicCertificate`       | [CertificateMetadata](#certificatemetadata-object)             | (Optional) Certificate metadata for the Domain                                           |
+| `validationStatus`        | String                                                         | Status of the domain. Accepted values: `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED` |
+
 
 #### DomainResponse example
 
@@ -581,12 +583,13 @@ The DomainResponse object defines following properties:
 The DomainListResponse object defines several properties:
 
 
-| Property                  | Type                                                           | Description                                                                               | Nullable |
-| ------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ---------|
-| `id`                      | String                                                         | Domain ID                                                                                 | FALSE    |
-| `domain`                  | String                                                         | Domain name                                                                               | FALSE    |
-| `validationStatus`        | String                                                         | Status of the domain. Values can be `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED` | FALSE    |
-| `_links`                  | [Links](#links-object)                                         | Link relations for this object                                                            | TRUE     |
+| Property                  | Type                                                           | Description                                                                               |
+| ------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `domain`                  | String                                                         | Domain name                                                                               |
+| `id`                      | String                                                         | Domain ID                                                                                 |
+| `_links`                  | [Links](#links-object)                                         | Link relations for this object                                                            |
+| `validationStatus`        | String                                                         | Status of the Domain. Accepted values: `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED` |
+
 
 #### DomainListResponse example
 ```json
@@ -614,52 +617,52 @@ The DomainListResponse object defines several properties:
 
 ### Links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.  The Links object is **read-only**.
+Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only.
 
-| Link Relation Type | Description                                                                                     |
+| Type | Description                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------- |
-| verify             | [Verify Domain](#verify-domain) to verify the domain and transition the domain status to `VERIFIED`    |
-| certificate        | [Create certificate](#create-certificate) to create certificate                       |
-| self               | The actual domain                                                                               |
-
+| certificate        | [Creates a Certificate](#create-certificate)                           |
+| self               | The actual Domain                                                                               |
+| verify             | [Verifies the Domain](#verify-domain) and transitions the Domain status to `VERIFIED`    |
 
 ### DNSRecords object
 
-The DNSRecords object defines following properties:
+The DNSRecords object defines the following properties:
 
 #### DNSRecords properties
 
 | Property                | Type                                   | Description                           |
 |-------------------------|----------------------------------------|---------------------------------------|
 | `fqdn`                  | String                                 | DNS record name                       |
-| `values`                | Array                    | DNS verification value                |
 | `recordType`            | `TXT`, `CNAME`                         | Record type can be `TXT` or `CNAME`   |
-
+| `values`                | Array                    | DNS verification value                |
 
 ### CertificateMetadata object
 
-The CertificateMetadata defines following properties:
+The CertificateMetadata object defines the following properties:
 
 #### CertificateMetadata properties
 
 | Property                | Type                                                           | Description                                 |
 |-------------------------|----------------------------------------------------------------|---------------------------------------------|
-| `subject`               | String                                                         | Certificate subject                         |
-| `fingerprint`           | String                                                         | Certificate fingerprint                     |
 | `expiration`            | String                                               | Certificate expiration                      |
+| `fingerprint`           | String                                                         | Certificate fingerprint                     |
+| `subject`               | String                                                         | Certificate subject                         |
+
+
 
 ### Certificate object
 
-The Certificate object defines following properties:
+The Certificate object defines the following properties:
 
 #### Certificate properties
 
-| Property                | Type                                                           | Description                                 |Required |
-| ----------------------- | -------------------------------------------------------------- | ------------------------------------------ |----------|
-| `type`                | `PEM`                                                         | Certificate type. Accepted values: `PEM`        | TRUE |
-| `privateKey`           | String                                                         | Certificate privateKey                     | TRUE |
-| `certificate`           | String                                                     | Certificate content                               | TRUE |
-| `certificateChain`      | String                                                     | Certificate chain                   | FALSE |
+| Property                | Type                                                           | Description                                 |
+| ----------------------- | -------------------------------------------------------------- | ------------------------------------------ |
+| `certificate`           | String                                                     | Required. Certificate content                  |
+| `certificateChain`      | String                                                     | Optional. Certificate chain                   |
+| `privateKey`           | String                                                         | Required. Certificate private key           |
+| `type`                | `PEM`                                                         | Required. Certificate type. Accepted value: `PEM` |
 
 #### Certificate example
 ```json
