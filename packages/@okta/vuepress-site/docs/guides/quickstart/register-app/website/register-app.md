@@ -1,4 +1,4 @@
-In the Admin Console, complete these steps:
+In the Admin Console, complete these steps to create a web app with OpenID Connect (OIDC) sign-in:
 
 1. Select **Applications > Applications** in the side navigation.
 
@@ -6,9 +6,8 @@ In the Admin Console, complete these steps:
 
 3. From the **Add Application** page, click **Create New App**.
 
-4. Select a **Platform**:
-    - **Single Page App(SPA)**&mdash;for applications using tokens in Angular, React, Vue, or other browser-side code
-    - **Web**&mdash;for applications using tokens solely in server-side code
+4. Select **Web** for the **Platform**.
+> **Note:** **Web** is typically used for applications using tokens in server-side code. For applications using tokens in Angular, React, Vue, or other browser-side code, choose **Single Page App (SPA)**.
 
 5. Select **OpenID Connect** for the **Sign on method**.
 
