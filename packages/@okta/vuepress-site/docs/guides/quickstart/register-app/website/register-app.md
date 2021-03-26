@@ -15,9 +15,9 @@ In the Admin Console, complete these steps to create a web app with OpenID Conne
 
 7. From the **Create OpenID Connect App Integration** page, specify your **Application name**.
 
-8. Next to **Login redirect URIs**, click **+ Add URI** to specify each login redirect URI for your app. Okta sends OAuth authorization responses to the specified URIs, which are also known as callback endpoints. For the Okta sample apps, you can specify `http://localhost:8080/authorization-code/callback` as a login redirect URI.
+8. Next to **Login redirect URIs**, click **+ Add URI** to specify each login redirect URI for your app. Okta sends OAuth authorization responses to the specified URIs, which are also known as callback endpoints. For the Okta sample **Web** apps, specify `http://localhost:8080/authorization-code/callback` as a login redirect URI. For **SPA** samples, use `http://localhost:8080/login/callback`.
 
-9. Next to **Logout redirect URIs**, click **+ Add URI** to specify the logout redirect URI. This setting lets you specify a URI to redirect the user’s browser to when they sign out. For the Okta sample apps, you don't need to specify a logout redirect URI.
+9. Next to **Logout redirect URIs**, click **+ Add URI** to specify the logout redirect URI. This setting lets you specify a URI to redirect the user’s browser to when they sign out. For the Okta sample **Web** apps, you don't need to specify a logout redirect URI. For **SPA** apps, use the base URI, e.g., `http://localhost:8080`.
 
 10. Click **Save**.
 
@@ -29,3 +29,5 @@ From the **General** tab, save the following client credentials for your app bui
 
 Remaining in the Admin Console, navigate to **Security > API**. From the **Authorization Servers** tab, save the following value from your **default** authorization server:
 - **Issuer URI**&mdash;the authorization server URI that will perform authentication
+
+If you created a **SPA** app, you'll also need to register its trusted origin to enable CORS (Cross-Origin Resource Sharing). Navigate to **Security > API > Trusted Origins** and add `http://localhost:8080` (selecting both CORS and redirect).
