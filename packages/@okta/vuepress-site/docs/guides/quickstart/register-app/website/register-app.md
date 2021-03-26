@@ -30,4 +30,4 @@ From the **General** tab, save the following client credentials for your app bui
 Remaining in the Admin Console, navigate to **Security > API**. From the **Authorization Servers** tab, save the following value from your **default** authorization server:
 - **Issuer URI**&mdash;the authorization server URI that will perform authentication
 
-If you created a **SPA** app, you'll also need to register its trusted origin to enable CORS (Cross-Origin Resource Sharing). Navigate to **Security > API > Trusted Origins** and add `http://localhost:8080` (selecting both CORS and redirect).
+If you create a **SPA** app, make sure to register its trusted origin to enable CORS (Cross-Origin Resource Sharing). Navigate to **Security > API > Trusted Origins** and add `http://localhost:8080` (select both CORS and redirect).
