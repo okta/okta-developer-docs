@@ -121,26 +121,6 @@ editions:
     addons: True
     threatInsight: True
 
-addons:
-  - title: B2B Integration
-    link: https://www.okta.com/pricing/?&_ga=2.233629918.1380425866.1607359849-1244033381.1605546128#api-b2b-integration
-    icon: /img/icons/icon--checkmark.svg
-  - title: API Access Management
-    link: https://www.okta.com/pricing/?&_ga=2.267241422.1380425866.1607359849-1244033381.1605546128#api-access-management
-    icon: /img/icons/icon--tool.svg
-  - title: Complete MFA
-    link: https://www.okta.com/pricing/?&_ga=2.263728972.1380425866.1607359849-1244033381.1605546128#api-multi-factor-authentication
-    icon: /img/icons/icon--multikey.svg
-  - title: Single Sign-On Integrations
-    link: https://www.okta.com/pricing/?&_ga=2.263728972.1380425866.1607359849-1244033381.1605546128#api-sso-oin-apps
-    icon: /img/icons/icon--lock.svg
-  - title: Lifecycle Management
-    link: https://www.okta.com/pricing/?&_ga=2.263728972.1380425866.1607359849-1244033381.1605546128#api-lifecycle-management
-    icon: /img/icons/icon--user-profiles.svg
-  - title: DynamicScale
-    link: https://www.okta.com/pricing?&_ga=2.263728972.1380425866.1607359849-1244033381.1605546128#api-dynamicscale
-    icon: /img/icons/icon--highcapacity.svg
-
 faqs:
   - title: Why should I trust Okta with my users and data?
     content: "Security is our utmost priority. We understand that identity is mission critical. Thousands of our customers depend on Okta to manage and protect access to applications and data. That trust requires our service to be highly available and secure. You can read more about what Okta does to meet your application's security and availability requirements here: <strong><a href='https://www.okta.com/security/'>https://www.okta.com/security/</a></strong>"
