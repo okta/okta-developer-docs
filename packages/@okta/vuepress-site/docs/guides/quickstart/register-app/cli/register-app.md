@@ -19,7 +19,7 @@ When the Okta CLI finishes adding your app, the issuer ID, client ID, and client
 Configuring a new OIDC Application, almost done:
 Created OIDC application, client-id: <client-ID>
 
-Okta application configuration has been written to: <home-dir>/.okta.env
+Okta application configuration has been written to: <app-dir>/.okta.env
 ```
 
 The Okta CLI sends the following variables to your app-specific configuration file:
