@@ -30,7 +30,7 @@ export default {
       this.renderWidget()
     },
     configSCSS: function(){
-      //vue ignores empty style tags, so it's need to be done "old way"
+      // vue ignores empty style tags, so it's need to be done "old way"
       if(this.configSCSS){
         const styleTagToRemove = document.getElementById(LIVE_WIDGET_DYNAMIC_STYLE_ID)
         if (styleTagToRemove) { styleTagToRemove.remove()}
