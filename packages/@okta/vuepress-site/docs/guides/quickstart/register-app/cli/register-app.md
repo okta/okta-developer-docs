@@ -12,10 +12,11 @@ From the Okta CLI, complete the following steps to create a web app with OpenID 
 
 > **Note:** When you choose **Other**, the Okta CLI writes your credentials to the `.okta.env` file after app registration. For all the other web options (Spring Boot, JHipster, etc.), the Okta CLI sends the credentials directly to the application-specific file. For example, credentials are sent to the `src/main/resources/application.properties` file for Spring Boot applications.
 
-4. Enter the **Redirect URI(s)**. If you are using one of the sample apps, you can enter `http://localhost:8080/login/callback`.
+5. Accept the default **Redirect URIs**. If you are using one of the **SPA** sample apps, enter `http://localhost:8080/login/callback`. For **Web** samples, use `http://localhost:8080/authorization-code/callback`.
 
 When the Okta CLI finishes adding your app, the issuer ID, client ID, and client secret credentials are written to your app-specific configuration file.
-```
+
+```shell
 Configuring a new OIDC Application, almost done:
 Created OIDC application, client-id: <client-ID>
 
@@ -26,5 +27,6 @@ The Okta CLI sends the following variables to your app-specific configuration fi
 - `OKTA_OAUTH2_ISSUER`&mdash;the authorization server URI that will perform authentication
 - `OKTA_OAUTH2_CLIENT_ID`&mdash;the public identifier for the client that is required for all OAuth flows
 - `OKTA_OAUTH2_CLIENT_SECRET`&mdash;the secret key used by the client to exchange an authorization code for a token
+- `OKTA_REVERSE_DOMAIN`&mdash;the reverse domain name used in native apps
 
 > **Note:** If you chose **Single Page App** as the application type, the Okta CLI displays the issuer ID and client ID in the terminal after registration; credentials are not sent to a configuration file.
