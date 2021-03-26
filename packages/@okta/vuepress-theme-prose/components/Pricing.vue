@@ -236,17 +236,17 @@
           <h2>FAQ</h2>
           <template v-for="(item, index) in $page.frontmatter.faqs">
             <div
-              class="pricing-faq-item"
-              v-bind:class="{ 'is-active': faqShownStates[index] }"
+              class="pricing-collapsible-item"
+              v-bind:class="{ 'is-active': collapsibleShownStates['faq' + index] }"
               v-bind:key="index"
             >
               <button
-                class="pricing-faq-item-title"
-                v-on:click="toggleFaqShown(index)"
+                class="pricing-collapsible-item-title"
+                v-on:click="toggleCollapsibleShown('faq' + index)"
               >
                 {{ item.title }}
               </button>
-              <div class="pricing-faq-item-content" v-html="item.content"></div>
+              <div class="pricing-collapsible-item-content" v-html="item.content"></div>
             </div>
           </template>
         </div>
@@ -283,12 +283,17 @@ export default {
     SmartLink: () => import("../components/SmartLink"),
   },
   data: () => ({
-    faqShownStates: [false, false, false],
+    collapsibleShownStates: {
+      compareTable: false,
+      faq0: false,
+      faq1: false,
+      faq2: false,
+    },
     mauPrice: "$0",
   }),
   methods: {
-    toggleFaqShown(faqIndex) {
-      this.$set(this.faqShownStates, faqIndex, !this.faqShownStates[faqIndex]);
+    toggleCollapsibleShown(itemName) {
+      this.$set(this.collapsibleShownStates, itemName, !this.collapsibleShownStates[itemName]);
     },
   },
 };

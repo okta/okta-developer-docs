@@ -337,12 +337,12 @@ $magenta: #e22866;
     margin: 0 auto 128px;
     flex-grow: 1;
 
-    .pricing-faq-item {
+    .pricing-collapsible-item {
       text-align: left;
       color: $gray;
       margin: 0 auto 15px;
 
-      .pricing-faq-item-title {
+      .pricing-collapsible-item-title {
         width: 100%;
         padding: 18px 50px 16px 24px;
         position: relative;
@@ -373,7 +373,7 @@ $magenta: #e22866;
         }
       }
 
-      .pricing-faq-item-content {
+      .pricing-collapsible-item-content {
         background-color: #16262f;
         padding: 20px 24px;
         font-size: 16px;
@@ -385,7 +385,7 @@ $magenta: #e22866;
       }
 
       &.is-active {
-        .pricing-faq-item-title {
+        .pricing-collapsible-item-title {
           border-bottom-left-radius: 0;
           border-bottom-right-radius: 0;
           &:hover {
@@ -395,7 +395,7 @@ $magenta: #e22866;
             transform: rotate(45deg);
           }
         }
-        .pricing-faq-item-content {
+        .pricing-collapsible-item-content {
           display: block;
         }
       }
