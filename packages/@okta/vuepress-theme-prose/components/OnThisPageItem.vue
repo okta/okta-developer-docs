@@ -4,7 +4,7 @@
       <span >{{link.title}}</span>
     </a>
     <ul v-show="link.children && (iHaveChildrenActive || imActive)">
-      <OnThisPageItem v-for="(childLink, index) in link.children" :key="index" :link="childLink" :activeAnchor=activeAnchor />
+      <OnThisPageItem v-for="(childLink, index) in filteredLink" :key="index" :link="childLink" :activeAnchor=activeAnchor />
     </ul>
   </li>
 </template>
@@ -24,6 +24,11 @@ export default {
   },
   components: {
     OnThisPageItem: () => import('../components/OnThisPageItem.vue'),
+  },
+  computed: {
+    filteredLink() {
+      return this.link.children ? this.link.children.filter(item => item.level <= 3) : []
+    }
   },
   mounted() {
     this.setActiveData();

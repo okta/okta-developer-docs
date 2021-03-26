@@ -480,7 +480,7 @@ export const reference = [
         title: "Manage Okta Objects",
         subLinks: [
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
-          { title: "Administrator Roles", path: "/docs/reference/api/iam-roles/", hidden: true },
+          { title: "Administrator Roles New", path: "/docs/reference/api/iam-roles/", hidden: true },
           { title: "Apps", path: "/docs/reference/api/apps/" },
           {
             title: "Authorization Servers",

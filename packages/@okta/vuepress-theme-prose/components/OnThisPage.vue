@@ -36,8 +36,8 @@
     },
     computed: {
       showOnthisPage: function(){
-         return this.items || 
-                (this.$page.fullHeaders[0].children && this.$page.fullHeaders[0].children.length > 0) 
+         return this.items ||
+                (this.$page.fullHeaders[0].children && this.$page.fullHeaders[0].children.length > 0)
                 ? true : false;
       }
     },
@@ -48,7 +48,6 @@
         this.handleScroll();
         this.setActiveHash();
       });
-
       window.addEventListener('scroll', this.handleScroll);
       window.addEventListener('scroll', this.setActiveHash);
     },
@@ -92,7 +91,7 @@
         if (activeAnchor) {
           this.activeAnchor = activeAnchor.hash;
           this.historyReplaceAnchor(activeAnchor.hash)
-          
+
         }
       }, 200, {leading: true})
     }
