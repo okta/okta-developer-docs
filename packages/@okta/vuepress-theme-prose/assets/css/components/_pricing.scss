@@ -78,12 +78,66 @@ $magenta: #e22866;
     max-width: initial;
   }
 
-  ul.pricing--icon-list {
-    list-style: none;
+  .pricing-collapsible-item {
+    text-align: left;
+    color: $gray;
+    margin: 0 auto 15px;
 
-    li {
-      background: url('/img/icons/icon--check.svg') no-repeat left 13px;
-      padding: 10px 10px 10px 30px;
+    .pricing-collapsible-item-title {
+      width: 100%;
+      padding: 18px 50px 16px 24px;
+      position: relative;
+      color: white;
+      background-color: #192d3a;
+      border: 1.5px solid #2A4C63;
+      border-radius: 6px;
+      outline: none;
+      font-size: 18px;
+      font-weight: 400;
+      text-align: left;
+      line-height: 1em;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #007dc1;
+      }
+      &:before {
+        content: '';
+        background-image: url('/img/icons/icon--plus.svg');
+        height: 14px;
+        width: 14px;
+        position: absolute;
+        top: 19px;
+        right: 18px;
+        margin: auto;
+        transform: rotate(0deg);
+      }
+    }
+
+    .pricing-collapsible-item-content {
+      background-color: #16262f;
+      font-size: 16px;
+      border: 1.5px solid #2A4C63;
+      border-top: 0;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      display: none;
+    }
+
+    &.is-active {
+      .pricing-collapsible-item-title {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        &:hover {
+          background-color: #115d8b;
+        }
+        &:before {
+          transform: rotate(45deg);
+        }
+      }
+      .pricing-collapsible-item-content {
+        display: block;
+      }
     }
   }
 
@@ -182,50 +236,26 @@ $magenta: #e22866;
 
   .pricing--editions {
     flex-grow: 1;
-    color: $gray;
-
-    .Button--red, .Button--whiteOutline {
-      font-size: 12px;
-      margin-top: auto;
-      max-width: 150px;
-      padding: 0;
-      height: 41px;
-      line-height: 37px;
-      text-align: center;
-    }
 
     .pricing-card-table {
-      display: block;
-
-      @include media('<desktop') {
-        display: flex;
-        flex-direction: column;
-      }
+      color: $gray;
+      font-size: 16px;
     }
 
     .pricing-card-row {
       display: flex;
-      border-bottom: 2px solid $blue;
+      border-top: 1px solid #2b4d63;
+      margin: 0 24px;
 
-      &:last-child {
-        border-bottom: 0;
+      &:first-child {
+        border: 0;
       }
 
       &.mobile {
         display: none;
-
-        .pricing-card-column:not(:first-child) {
-          flex: 0 0 auto;
-        }
       }
 
       &.desktop {
-        .additional-note {
-          margin-left: 5px;
-        }
-        .check-icon {
-          vertical-align: middle;
-        }
       }
 
       @include media('<desktop') {
@@ -239,16 +269,17 @@ $magenta: #e22866;
     }
 
     .pricing-card-column {
-      background-color: $darkerBlue;
-      padding: 10px 30px;
+      background-color: #16262f;
+      padding: 20px 15px;
       display: flex;
       flex-basis: 22%;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
+      align-items: center;
 
-      li {
-        margin-bottom: initial;
+      small {
+        font-size: 12px;
+        color: #999999;
       }
 
       @include media('<desktop') {
@@ -256,54 +287,33 @@ $magenta: #e22866;
           display: none;
         }
       }
+
+      &.alt {
+        background-color: #122027;
+      }
+
       &:first-child {
         flex-grow: 1;
       }
+
+      &.pricing-card-row-header {
+        padding-left: 0;
+        align-items: flex-start;
+      }
     }
 
-    .pricing-card-header {
-      .pricing-card-column {
-        padding: 30px;
-        justify-content: flex-start;
-        align-items: stretch;
-        display: flex;
-        flex-direction: column;
+    .pricing-card-section-header {
+      border: 0;
+    }
 
-        @include media('<desktop') {
-          &.desktop {
-            display: none;
-          }
-        }
-      }
+    .pricing-card-column-header {
+      padding-top: 40px;
+    }
 
-      .pricing-card-column-header {
-        flex-grow: 1;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: stretch;
-      }
-
-
-      @include media('<desktop') {
-        display: flex;
-        flex-direction: column;
-        border-bottom: 0;
-
-        .pricing-card-column-header {
-          padding: 30px;
-          border-bottom: 2px solid $blue;
-        }
-
-        .pricing-card-row {
-          display: flex;
-        }
-
-        > .pricing-card-column {
-          margin-bottom: 64px;
-          padding: 0;
-        }
-      }
+    .pricing-card-section-header,
+    .pricing-card-column-header {
+      font-size: 18px;
+      color: white;
     }
 
     img.pricing-card-check {
@@ -311,24 +321,8 @@ $magenta: #e22866;
       height: 16px;
     }
 
-    select {
-      background-color: #20313b;
-      border-color: #20313b;
-      border-radius: 3px;
-      color: white;
-      font-size: 16px;
-      padding: 7px 4px;
-      margin: 0 0 20px;
-    }
     p {
       margin: 10px 0;
-    }
-    .pricing-card-price {
-      margin: 0;
-      color: #007dc1;
-      font-size: 32px;
-      font-weight: 600;
-      line-height: 48px;
     }
   }
 
@@ -337,69 +331,6 @@ $magenta: #e22866;
     margin: 0 auto 128px;
     flex-grow: 1;
 
-    .pricing-collapsible-item {
-      text-align: left;
-      color: $gray;
-      margin: 0 auto 15px;
-
-      .pricing-collapsible-item-title {
-        width: 100%;
-        padding: 18px 50px 16px 24px;
-        position: relative;
-        color: white;
-        background-color: #192d3a;
-        border: 1.5px solid #2A4C63;
-        border-radius: 6px;
-        outline: none;
-        font-size: 18px;
-        font-weight: 400;
-        text-align: left;
-        line-height: 1em;
-        cursor: pointer;
-
-        &:hover {
-          background-color: #007dc1;
-        }
-        &:before {
-          content: '';
-          background-image: url('/img/icons/icon--plus.svg');
-          height: 14px;
-          width: 14px;
-          position: absolute;
-          top: 19px;
-          right: 18px;
-          margin: auto;
-          transform: rotate(0deg);
-        }
-      }
-
-      .pricing-collapsible-item-content {
-        background-color: #16262f;
-        padding: 20px 24px;
-        font-size: 16px;
-        border: 1.5px solid #2A4C63;
-        border-top: 0;
-        border-bottom-left-radius: 6px;
-        border-bottom-right-radius: 6px;
-        display: none;
-      }
-
-      &.is-active {
-        .pricing-collapsible-item-title {
-          border-bottom-left-radius: 0;
-          border-bottom-right-radius: 0;
-          &:hover {
-            background-color: #115d8b;
-          }
-          &:before {
-            transform: rotate(45deg);
-          }
-        }
-        .pricing-collapsible-item-content {
-          display: block;
-        }
-      }
-    }
     strong a {
       font-weight: 700;
     }
@@ -408,6 +339,10 @@ $magenta: #e22866;
       &:hover {
         text-decoration: underline;
       }
+    }
+
+    .pricing-faq-content {
+      padding: 20px 24px;
     }
   }
 

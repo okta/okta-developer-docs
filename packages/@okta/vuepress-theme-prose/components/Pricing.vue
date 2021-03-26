@@ -94,7 +94,109 @@
       <div class="pricing--container">
         <div class="pricing--editions">
           <div class="pricing-section">
-            <div class="pricing-card pricing-card-table">
+            <div
+              class="pricing-collapsible-item"
+              v-bind:class="{ 'is-active': collapsibleShownStates.compareTable }"
+            >
+              <button
+                class="pricing-collapsible-item-title"
+                v-on:click="toggleCollapsibleShown('compareTable')"
+              >
+                Compare plans
+              </button>
+              <div class="pricing-collapsible-item-content pricing-card-table">
+                <div class="pricing-card-row">
+                  <div class="pricing-card-column">
+                  </div>
+                  <div class="pricing-card-column pricing-card-column-header alt">
+                    Starter
+                  </div>
+                  <div class="pricing-card-column pricing-card-column-header">
+                    Advanced
+                  </div>
+                  <div class="pricing-card-column pricing-card-column-header">
+                    Enterprise
+                  </div>
+                </div>
+                <div class="pricing-card-row">
+                  <div class="pricing-card-column pricing-card-row-header">
+                    Price
+                  </div>
+                  <div class="pricing-card-column alt">
+                    $0
+                  </div>
+                  <div class="pricing-card-column">
+                    $400/mo or $1000/mo
+                  </div>
+                  <div class="pricing-card-column">
+                    Custom
+                  </div>
+                </div>
+                <div class="pricing-card-row pricing-card-section-header">
+                  <div class="pricing-card-column pricing-card-row-header">
+                    Usage
+                  </div>
+                  <div class="pricing-card-column alt">
+                  </div>
+                  <div class="pricing-card-column">
+                  </div>
+                  <div class="pricing-card-column">
+                  </div>
+                </div>
+                <div class="pricing-card-row">
+                  <div class="pricing-card-column pricing-card-row-header">
+                    OIN Integrations
+                    <small>SSO/LCM</small>
+                  </div>
+                  <div class="pricing-card-column alt">
+                    15k
+                  </div>
+                  <div class="pricing-card-column">
+                    20k or 50k
+                  </div>
+                  <div class="pricing-card-column">
+                    Unlimited
+                  </div>
+                </div>
+                <div class="pricing-card-row pricing-card-section-header">
+                  <div class="pricing-card-column pricing-card-row-header">
+                    Feature
+                  </div>
+                  <div class="pricing-card-column alt">
+                  </div>
+                  <div class="pricing-card-column">
+                  </div>
+                  <div class="pricing-card-column">
+                  </div>
+                </div>
+                <div class="pricing-card-row">
+                  <div class="pricing-card-column pricing-card-row-header">
+                    Authentication
+                  </div>
+                  <div class="pricing-card-column alt">
+                    <img
+                      src="/img/icons/icon--check.svg"
+                      class="pricing-card-check"
+                    />
+                  </div>
+                  <div class="pricing-card-column">
+                    <img
+                      src="/img/icons/icon--check.svg"
+                      class="pricing-card-check"
+                    />
+                  </div>
+                  <div class="pricing-card-column">
+                    <img
+                      src="/img/icons/icon--check.svg"
+                      class="pricing-card-check"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- todo: delete //-->
+            <div class="pricing-card pricing-card-table" style="display:none">
               <div class="pricing-card-row pricing-card-header">
                 <div class="pricing-card-column desktop">
                   <h3 class="pricing-card-table-name">Editions</h3>
@@ -105,28 +207,6 @@
                   <div class="pricing-card-column" v-bind:key="edition.name">
                     <div class="pricing-card-column-header">
                       <h4>{{ edition.name }}</h4>
-                      <template v-if="index === 0">
-                        <p>Priced at</p>
-                        <p class="pricing-card-price">{{ mauPrice }}</p>
-                        <p>per month for up to</p>
-                        <select v-model="mauPrice">
-                          <option
-                            v-for="(price, index) in $page.frontmatter
-                              .pricing"
-                            :value="price.price"
-                            :key="index"
-                          >
-                            {{ price.maus }}
-                          </option>
-                        </select>
-                        <SmartLink
-                          :item="{ link: $page.frontmatter.links.signup }"
-                          classes="Button--red"
-                        >
-                          Start Free
-                        </SmartLink>
-                      </template>
-                      <template v-else>
                         <p>{{ edition.subheading }}</p>
                         <SmartLink
                           :item="{
@@ -136,7 +216,6 @@
                         >
                           Contact Us
                         </SmartLink>
-                      </template>
                     </div>
                     <template
                       v-for="(details, feature) in $page.frontmatter.features"
@@ -246,7 +325,9 @@
               >
                 {{ item.title }}
               </button>
-              <div class="pricing-collapsible-item-content" v-html="item.content"></div>
+              <div class="pricing-collapsible-item-content">
+                <div class="pricing-faq-content" v-html="item.content"></div>
+              </div>
             </div>
           </template>
         </div>
