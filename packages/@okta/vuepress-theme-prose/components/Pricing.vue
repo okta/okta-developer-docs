@@ -239,7 +239,7 @@
       </div>
       <div class="pricing--container">
         <div class="pricing--faq">
-          <h1>Frequently asked questions</h1>
+          <h1>FAQ</h1>
           <template v-for="(item, index) in $page.frontmatter.faqs">
             <div
               class="pricing-faq-item"

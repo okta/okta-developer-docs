@@ -353,7 +353,7 @@ $magenta: #e22866;
   }
 
   .pricing--faq {
-    text-align: center;
+    text-align: left;
     margin: 0 auto 128px;
     flex-grow: 1;
 
@@ -365,21 +365,20 @@ $magenta: #e22866;
       text-align: left;
       color: $gray;
       margin: 0 auto 15px;
-      max-width: 850px;
 
       .pricing-faq-item-title {
         width: 100%;
-        padding: 10px 10px 10px 50px;
+        padding: 18px 50px 16px 24px;
         position: relative;
-        background-color: #115d8b;
         color: white;
-        border: 0;
-        border-radius: 3px;
+        background-color: #192d3a;
+        border: 1.5px solid #2A4C63;
+        border-radius: 6px;
         outline: none;
-        font-size: 20px;
+        font-size: 18px;
         font-weight: 400;
         text-align: left;
-        line-height: 30px;
+        line-height: 1em;
         cursor: pointer;
 
         &:hover {
@@ -387,21 +386,25 @@ $magenta: #e22866;
         }
         &:before {
           content: '';
-          background-image: url('/img/icons/icon--circle-with-chevron.svg');
-          height: 30px;
-          width: 30px;
+          background-image: url('/img/icons/icon--plus.svg');
+          height: 14px;
+          width: 14px;
           position: absolute;
-          top: 10px;
-          left: 10px;
+          top: 19px;
+          right: 18px;
           margin: auto;
           transform: rotate(0deg);
         }
       }
 
       .pricing-faq-item-content {
-        background-color: #115d8b;
-        padding: 30px 30px 30px 50px;
+        background-color: #16262f;
+        padding: 20px 24px;
         font-size: 16px;
+        border: 1.5px solid #2A4C63;
+        border-top: 0;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
         display: none;
       }
 
@@ -413,7 +416,7 @@ $magenta: #e22866;
             background-color: #115d8b;
           }
           &:before {
-            transform: rotate(180deg);
+            transform: rotate(45deg);
           }
         }
         .pricing-faq-item-content {
