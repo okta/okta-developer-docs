@@ -50,7 +50,7 @@ The sign-in process starts at the `/authorize` endpoint, and then goes out to th
 6. Okta processes the sign-in request and adds the user to your Okta organization's Universal Directory.
 7. Okta redirects the browser back to your application, just like any other sign-in request.
 
-![Social Login Flow](/img/social_login_flow.png "Social Login Flow")
+![Social Login flow](/img/social_login_flow.png "Social Login flow")
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
