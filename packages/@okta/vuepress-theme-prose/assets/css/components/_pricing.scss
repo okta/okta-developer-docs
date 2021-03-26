@@ -22,9 +22,10 @@ $magenta: #e22866;
 
   h2 {
     color: white;
-    font-size: 32px;
+    font-size: 22px;
     font-weight: 500;
-    line-height: 48px;
+    line-height: 28px;
+    margin: 16px 0;
   }
 
   h3 {
@@ -357,10 +358,6 @@ $magenta: #e22866;
     margin: 0 auto 128px;
     flex-grow: 1;
 
-    h1 {
-      margin: 64px 0;
-    }
-
     .pricing-faq-item {
       text-align: left;
       color: $gray;
@@ -436,12 +433,13 @@ $magenta: #e22866;
   }
 
   .pricing--questions {
-    text-align: center;
-    margin: 0 auto 64px;
+    margin: 0 0 18px 0;
     color: white;
+
     p {
+      font-size: 18px;
       color: $gray;
-      max-width: 40em;
+      max-width: initial;
     }
   }
 
