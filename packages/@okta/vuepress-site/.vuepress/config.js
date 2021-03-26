@@ -5,6 +5,10 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const Path = require('path')
 const signInWidgetMajorVersion = 5;
 
+const projectRootDir = Path.resolve(__dirname, '../../../../');
+const outputDir = Path.resolve(__dirname, '../dist/');
+
+
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
 module.exports = {
@@ -26,12 +30,6 @@ module.exports = {
     ['meta', { name: 'msapplication-config',  content: '/favicon/browserconfig.xml' }],
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0'}],
-
-    /*
-     * Okta sign-in widget
-     */
-    ['link', { href: `https://global.oktacdn.com/okta-signin-widget/${WIDGET_VERSION}/css/okta-sign-in.min.css`, type: 'text/css', rel: 'stylesheet'}],
-    ['script', { src: `https://global.oktacdn.com/okta-signin-widget/${WIDGET_VERSION}/js/okta-sign-in.min.js`, type: 'text/javascript'}],
 
     /**
      * Header scripts for typekit, GA, GTM (WIP)
@@ -262,11 +260,6 @@ module.exports = {
   },
 
   chainWebpack(config) {
-    const rootFolderFrom = Path.resolve(__dirname, '../../../../')
-    const currentFolderTo = Path.resolve(__dirname)
-    console.log('CONSOLE LOG FROM CHAINED WEBPACK !!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-    console.log('PATH FROM', Path.join(rootFolderFrom, 'node_modules/@okta/dist/sass'))
-    console.log('PATH TO', Path.join(currentFolderTo, 'public/widget-sass-test'))
     config.module
       .rule('string-replacement')
       .test(/(\.md|\.vue)$/)
@@ -283,42 +276,18 @@ module.exports = {
         })
       });
 
-    //create named plugin, as said in https://github.com/neutrinojs/webpack-chain#getting-started documentation (last example)
-    config.plugin("copy-sass")
-
-        // USE should get plugin + options array, copyWebpackPlugin takes array of options too, this why 
-        // there is a double array of arrays. 
-        // It seems like there is a bug in documentation - we can not pass "patterns" property
-
-
-        .use(CopyWebpackPlugin,  
-          [[
-            // copy plugin docs - https://webpack.js.org/plugins/copy-webpack-plugin/
-            // so as docs says this code should copy everything from source folder to EXISTING new folder
-            // to track new folder I've added trick-file 'for_git_trackage_file' just for testign purposes 
-            // As I run "yarn dev" there is no errors but after everything is compiled there is a bug in console
-            // "Can't resolve /....some_path.../ " - it blinks to fast to see actual log  and I do not undertand 
-            // how to handle it correctly
-
-           {
-             from: Path.join(rootFolderFrom, 'node_modules/@okta/dist/sass/'), 
-             // wid-sass-test was created to test ability to copy files in EXISTING folder
-             to: Path.join(currentFolderTo, 'public/wid-sass-test/')
-            },
-
-            // this code is responsible for copying files to NEW folder, as documentation says
-            // and this approach does not work at all
-            // link to docs - https://webpack.js.org/plugins/copy-webpack-plugin/#copy-in-new-directory
-
-
-            // {
-            //   from: Path.join(rootFolderFrom, 'node_modules/@okta/dist/sass'), 
-            //   to({context, absoluteFilename}) {
-            //     return `${currentFolderTo}/public/widget-sass-test/${Path.relative(context, absoluteFilename)}`
-            //   },
-            // }
-          ]]
-      )
+    /*
+     * Copy *.scss from Sign-In Widget for use in /live-widget.
+     * See /components/LiveWidget.vue for usage
+     */
+    config.plugin('copy-sass')
+      .use(CopyWebpackPlugin, [
+        [{
+           from: Path.join(projectRootDir, 'node_modules/@okta/okta-signin-widget/dist/sass/'),
+           to: Path.join(outputDir, 'assets/widget-sass/'),
+         },
+        ]
+      ]);
   },
 
   evergreen: false,
