@@ -91,7 +91,7 @@
                 validationService.checkFormInput('country');
                 validationService.resetFormField('state', {
                   reset: true,
-                  value: '',
+                  value: ''
                 });
                 showConsentSection(form.country.value);
                 states = form.country.value;
@@ -175,18 +175,24 @@
         </div>
 
         <div class="consent--section" v-show="displayConsent">
-          <p class="consent--section-text">
-            By clicking “SIGN UP” I agree to the applicable Free Trial terms in
-            <SmartLink :item="{ link: '/terms/', target: '_blank' }"
-              >Okta’s Terms of Service</SmartLink
-            >
-            during my use of the Free Trial Service and Okta’s
-            <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }"
-              >Privacy Policy</SmartLink
-            >.<br /> I further agree that Okta may contact me with marketing
-            communications (details on how to unsubscribe are located in the
-            Privacy Policy link).
-          </p>
+          <div class="consent--section-text">
+            <p>
+              By clicking “SIGN UP” I agree to the applicable Free Trial terms
+              in
+              <SmartLink :item="{ link: '/terms/', target: '_blank' }"
+                >Okta’s Terms of Service</SmartLink
+              >
+              during my use of the Free Trial Service and Okta’s
+              <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }"
+                >Privacy Policy</SmartLink
+              >.
+            </p>
+            <p>
+              I further agree that Okta may contact me with marketing
+              communications (details on how to unsubscribe are located in the
+              Privacy Policy link).
+            </p>
+          </div>
           <div class="consent--section-agree" v-show="displayAgree">
             <label for="agree-checkbox">
               <input
@@ -241,7 +247,7 @@ import {
   countriesList,
   americanStates,
   canadaProvinces,
-  GDPR_COUNTRIES,
+  GDPR_COUNTRIES
 } from "../const/signup.const";
 import setHiddenUtmValues from "../util/attribution/attribution";
 import { getIdpUri } from "../util/uris";
@@ -256,7 +262,7 @@ export default {
   components: {
     VueRecaptcha,
     CompanyLogos: () => import("../components/CompanyLogos"),
-    SmartLink: () => import("../components/SmartLink"),
+    SmartLink: () => import("../components/SmartLink")
   },
   data() {
     return {
@@ -273,13 +279,13 @@ export default {
           value: false,
           isValid: true,
           errorList: [],
-          hidden: true,
+          hidden: true
         },
-        captcha: { value: "", isValid: true, errorList: [] },
+        captcha: { value: "", isValid: true, errorList: [] }
       },
       isPending: false,
       error: null,
-      captchaSitekey: null,
+      captchaSitekey: null
     };
   },
   computed: {
@@ -301,7 +307,7 @@ export default {
           this.state.label = "";
           this.form.state.hidden = true;
         }
-      },
+      }
     },
     getCountries() {
       return countriesList;
@@ -317,9 +323,9 @@ export default {
 
       return {
         github: getIdpUri(uris, "github"),
-        google: getIdpUri(uris, "google"),
+        google: getIdpUri(uris, "google")
       };
-    },
+    }
   },
   methods: {
     submitForm(e) {
@@ -343,8 +349,8 @@ export default {
             country: this.form.country.value,
             state: this.form.state.value,
             emailOptInC: this.form.consentAgree.value,
-            captchaResponse: this.form.captcha.value,
-          },
+            captchaResponse: this.form.captcha.value
+          }
         };
 
         this.isPending = true;
@@ -399,7 +405,7 @@ export default {
       this.form.consentAgree.hidden = true;
       this.validationService.resetFormField("consentAgree", {
         reset: true,
-        value: false,
+        value: false
       });
 
       if (GDPR_COUNTRIES.indexOf(country) !== -1) {
@@ -411,17 +417,17 @@ export default {
     onCaptchaVerified(response) {
       this.validationService.resetFormField("captcha", {
         reset: true,
-        value: response,
+        value: response
       });
     },
     onCaptchaExpired() {
       this.$refs.recaptcha.reset();
       this.validationService.resetFormField("captcha", {
         reset: true,
-        value: "",
+        value: ""
       });
       this.validationService.checkFormInput("captcha");
-    },
+    }
   },
   beforeMount() {
     const { captcha } = this.$site.themeConfig;
@@ -435,6 +441,6 @@ export default {
   mounted() {
     const formElement = document.querySelector("#signupForm");
     setHiddenUtmValues(formElement);
-  },
+  }
 };
 </script>
