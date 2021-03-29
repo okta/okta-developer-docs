@@ -118,55 +118,47 @@
                     Enterprise
                   </div>
                 </div>
-                  <div class="pricing-card-row">
-                    <div class="pricing-card-column pricing-card-row-header">
-                      Price
-                    </div>
-                    <div class="pricing-card-column alt">
-                      $0
-                    </div>
-                    <div class="pricing-card-column">
-                      $400/mo or $1000/mo
-                    </div>
-                    <div class="pricing-card-column">
-                      Custom
-                    </div>
-                  </div>
 
-                <div class="pricing-card-row pricing-card-section-header">
-                  <div class="pricing-card-column pricing-card-row-header">
-                    Usage
-                  </div>
-                  <div class="pricing-card-column alt">
-                  </div>
-                  <div class="pricing-card-column">
-                  </div>
-                  <div class="pricing-card-column">
-                  </div>
-                </div>
-                <template v-for="(heading, key) in $page.frontmatter.planHeadings.usage.headings">
-                  <div class="pricing-card-row">
+                <template v-for="(section, sectionKey) in $page.frontmatter.planHeadings">
+                  <div class="pricing-card-row pricing-card-section-header">
                     <div class="pricing-card-column pricing-card-row-header">
-                      {{ heading.name }}
-                      <small v-if="heading.subName">
-                        {{ heading.subName }}
-                      </small>
-                    </div>
-                    <div
-                      v-for="(plan, planKey) in $page.frontmatter.plans"
-                      class="pricing-card-column"
-                      :class="{ alt: planKey === 'starter' }"
-                    >
-                      <img
-                        src="/img/icons/icon--check.svg"
-                        class="pricing-card-check"
-                        v-if="typeof plan.usage[key] === 'boolean'"
-                      />
-                      <span v-else>
-                        {{ plan.usage[key] }}
+                      <span v-if="section.name">
+                        {{ section.name }}
                       </span>
                     </div>
+                    <div class="pricing-card-column alt">
+                    </div>
+                    <div class="pricing-card-column">
+                    </div>
+                    <div class="pricing-card-column">
+                    </div>
                   </div>
+                  <template v-for="(heading, headingKey) in section.headings">
+                    <div class="pricing-card-row">
+                      <div class="pricing-card-column pricing-card-row-header">
+                        {{ heading.name }}
+                        <small v-if="heading.subName">
+                          {{ heading.subName }}
+                        </small>
+                      </div>
+                      <div
+                        v-for="(plan, planKey) in $page.frontmatter.tableData"
+                        class="pricing-card-column"
+                        :class="{ alt: planKey === 'starter' }"
+                      >
+                        <span v-if="typeof plan[sectionKey][headingKey] === 'boolean'">
+                          <img
+                            src="/img/icons/icon--check.svg"
+                            class="pricing-card-check"
+                            v-if="plan[sectionKey][headingKey]"
+                          />
+                        </span>
+                        <span v-else>
+                          {{ plan[sectionKey][headingKey] }}
+                        </span>
+                      </div>
+                    </div>
+                  </template>
                 </template>
               </div>
             </div>

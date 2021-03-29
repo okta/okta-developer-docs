@@ -13,8 +13,7 @@ links:
   emailSupport: mailto:developers@okta.com
 
 planHeadings:
-  price:
-    name: Price
+  pricing:
     headings:
       price:
         name: Price
@@ -39,10 +38,72 @@ planHeadings:
       inboundFederation:
         name: Inbound Federation
         subName: SAML/OIDC
+  features:
+    name: Feature
+    headings:
+      authn:
+        name: Authentication
+      socialAuthn:
+        name: Social Authentication
+        subName: Facebook/Google/Apple
+      mfa:
+        name: MFA Factors
+        subName: "Email, Okta OTP, WebAuthn, Yubikey, etc."
+      smsVoiceMfa:
+        name: SMS/Voice MFA
+      adaptiveMfa:
+        name: Adaptive MFA Policies
+      userMgmt:
+        name: User Management
+      customDomain:
+        name: Custom Domain
+      customEmail:
+        name: Custom Email
+      customWidget:
+        name: Custom Widget
+      threatInsight:
+        name: Threat Insight
+      apiMgmt:
+        name: API Access Management
+      o2oIntegration:
+        name: Org to Org Integration
+      dirIntegration:
+        name: Directory Integration
+        subName: AD/LDAP
+      lcmEngine:
+        name: Lifecycle Management (LCM) Engine
+      uptime:
+        name: 99.99% Uptime
+  addons:
+    name: Add ons
+    headings:
+      orgCreateApi:
+        name: Org Creation API
+      oag:
+        name: Okta Access Gateway (OAG)
+      custIdentWorkflows:
+        name: Workflows for Customer Identity
+      oktaAsa:
+        name: Okta Advanced Server Access
+      oktaWorkforceIdent:
+        name: Okta Workforce Identity Products
+      dynamicScale:
+        name: DynamicScale
+      volumeDiscounts:
+        name: Volume Discounts
+      sandbox:
+        name: Sandbox
+      regulatoryCellHipaaFedRamp:
+        name: Regulatory Cell (HIPAA/FEDRAMP)
+      regulatoryCellGovCloud:
+        name: Regulatory Cell (GovCloud)
+      apacEmeaCell:
+        name: APAC/EMEA Cell
+      csPackages:
+        name: Customer Success Packages
 
-plans:
+tableData:
   starter:
-    name: Starter
     pricing:
       price: $0
     usage:
@@ -54,8 +115,36 @@ plans:
       m2mTokens: Up to 1k/month
       oinIntegrations: Up to 3
       inboundFederation: Up to 3
+    features:
+      authn: True
+      socialAuthn: True
+      mfa: True
+      smsVoiceMfa: False
+      adaptiveMfa: True
+      userMgmt: True
+      customDomain: True
+      customEmail: False
+      customWidget: True
+      threatInsight: True
+      apiMgmt: True
+      o2oIntegration: False
+      dirIntegration: True
+      lcmEngine: True
+      uptime: True
+    addons:
+      orgCreateApi: False
+      oag: False
+      custIdentWorkflows: False
+      oktaAsa: False
+      oktaWorkforceIdent: False
+      dynamicScale: False
+      volumeDiscounts: False
+      sandbox: False
+      regulatoryCellHipaaFedRamp: False
+      regulatoryCellGovCloud: False
+      apacEmeaCell: False
+      csPackages: False
   advanced:
-    name: Advanced
     pricing:
       price: $400/mo or $1000/mo
     usage:
@@ -67,8 +156,36 @@ plans:
       m2mTokens: Up to 5k/month
       oinIntegrations: Up to 5
       inboundFederation: Up to 5
+    features:
+      authn: True
+      socialAuthn: True
+      mfa: True
+      smsVoiceMfa: False
+      adaptiveMfa: True
+      userMgmt: True
+      customDomain: True
+      customEmail: True
+      customWidget: True
+      threatInsight: True
+      apiMgmt: True
+      o2oIntegration: False
+      dirIntegration: True
+      lcmEngine: True
+      uptime: True
+    addons:
+      orgCreateApi: False
+      oag: False
+      custIdentWorkflows: False
+      oktaAsa: False
+      oktaWorkforceIdent: False
+      dynamicScale: False
+      volumeDiscounts: False
+      sandbox: False
+      regulatoryCellHipaaFedRamp: False
+      regulatoryCellGovCloud: False
+      apacEmeaCell: False
+      csPackages: False
   enterprise:
-    name: Enterprise
     pricing:
       price: Custom
     usage:
@@ -80,6 +197,35 @@ plans:
       m2mTokens: Custom
       oinIntegrations: Custom
       inboundFederation: Custom
+    features:
+      authn: True
+      socialAuthn: True
+      mfa: True
+      smsVoiceMfa: True
+      adaptiveMfa: True
+      userMgmt: True
+      customDomain: True
+      customEmail: True
+      customWidget: True
+      threatInsight: True
+      apiMgmt: True
+      o2oIntegration: True
+      dirIntegration: True
+      lcmEngine: True
+      uptime: True
+    addons:
+      orgCreateApi: True
+      oag: True
+      custIdentWorkflows: True
+      oktaAsa: True
+      oktaWorkforceIdent: True
+      dynamicScale: True
+      volumeDiscounts: True
+      sandbox: True
+      regulatoryCellHipaaFedRamp: True
+      regulatoryCellGovCloud: True
+      apacEmeaCell: True
+      csPackages: True
 
 faqs:
   - title: Why should I trust Okta with my users and data?
