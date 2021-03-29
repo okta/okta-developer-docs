@@ -165,11 +165,48 @@ $magenta: #e22866;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
       display: flex;
+      position: relative;
       flex-direction: column;
 
       h3 {
         font-size: 18px;
         margin-bottom: 10px;
+      }
+
+      .pricing-card-mau-lozenge {
+        display: flex;
+        position: absolute;
+        top: 14px;
+        right: 14px;
+        font-size: 14px;
+        border-radius: 40px;
+
+        .lozenge {
+          color: #8bc5eb;
+          background-color: transparent;
+          border: 0;
+          outline: 0;
+        }
+
+        &.single {
+          padding: 6px 12px;
+          background-color: #20394a;
+        }
+        &.multiple {
+          padding: 4px;
+          background-color: #16262f;
+
+          .lozenge {
+            padding: 2px 8px;
+            border-radius: 40px;
+            cursor: pointer;
+
+            &.active {
+              background-color: #1f3b54;
+              cursor: initial;
+            }
+          }
+        }
       }
 
       .pricing-card-amount {

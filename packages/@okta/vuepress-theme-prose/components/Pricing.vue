@@ -16,6 +16,11 @@
             <div class="pricing-card">
               <div class="pricing-card-top">
                 <h3>Starter</h3>
+                <div class="pricing-card-mau-lozenge single">
+                  <button class="lozenge active">
+                    15k MAU
+                  </button>
+                </div>
                 <p class="pricing-card-amount">
                   $0
                 </p>
@@ -45,8 +50,29 @@
             <div class="pricing-card">
               <div class="pricing-card-top">
                 <h3>Advanced</h3>
+                <div class="pricing-card-mau-lozenge multiple">
+                  <button
+                    class="lozenge"
+                    :class="{ active: selectedLozengeIndex === 0 }"
+                    @click="selectLozenge(0)"
+                  >
+                    20k MAU
+                  </button>
+                  <button
+                    class="lozenge"
+                    :class="{ active: selectedLozengeIndex === 1 }"
+                    @click="selectLozenge(1)"
+                  >
+                    50k MAU
+                  </button>
+                </div>
                 <p class="pricing-card-amount">
-                  $1000 /mo
+                  <template v-if="selectedLozengeIndex === 0">
+                    $400 /mo
+                  </template>
+                  <template v-else>
+                    $1000 /mo
+                  </template>
                 </p>
                 <p class="pricing-card-subtitle">
                   Flexible plan that grows with you. More monthly active users, better support and higher rate limits
@@ -59,16 +85,30 @@
                 </SmartLink>
               </div>
               <div class="pricing-card-bottom">
-                <p>
-                  All starter plan, plus
-                </p>
-                <ul>
-                  <li>Up to 50,000 monthly active users</li>
-                  <li>Higher rate limits</li>
-                  <li>Unlimited OIDC applications</li>
-                  <li>Up to 5 SAML applications</li>
-                  <li>Email support</li>
-                </ul>
+                <template v-if="selectedLozengeIndex === 0">
+                  <p>
+                    All starter plan, plus
+                  </p>
+                  <ul>
+                    <li>Up to 20,000 monthly active users</li>
+                    <li>Higher rate limits</li>
+                    <li>Unlimited OIDC applications</li>
+                    <li>Up to 5 SAML applications</li>
+                    <li>Email support</li>
+                  </ul>
+                </template>
+                <template v-else>
+                  <p>
+                    All starter plan, plus
+                  </p>
+                  <ul>
+                    <li>Up to 50,000 monthly active users</li>
+                    <li>Higher rate limits</li>
+                    <li>Unlimited OIDC applications</li>
+                    <li>Up to 5 SAML applications</li>
+                    <li>Email support</li>
+                  </ul>
+                </template>
               </div>
             </div>
             <div class="pricing-card">
@@ -231,15 +271,18 @@ export default {
     SmartLink: () => import("../components/SmartLink"),
   },
   data: () => ({
+    selectedLozengeIndex: 1,
     collapsibleShownStates: {
       compareTable: false,
       faq0: false,
       faq1: false,
       faq2: false,
     },
-    mauPrice: "$0",
   }),
   methods: {
+    selectLozenge(index) {
+      this.selectedLozengeIndex = index;
+    },
     toggleCollapsibleShown(itemName) {
       this.$set(this.collapsibleShownStates, itemName, !this.collapsibleShownStates[itemName]);
     },
