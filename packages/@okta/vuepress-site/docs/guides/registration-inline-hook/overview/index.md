@@ -4,7 +4,7 @@ title: Overview
 
 This guide provides example code for an external service to respond to calls from a Registration Inline Hook.
 
-You must enable [self-service registration (SSR)](/docs/guides/set-up-self-service-registration/before-you-begin/) to implement a registration inline hook.
+You must enable [self-service registration (SSR)](/docs/guides/set-up-self-service-registration/before-you-begin/) to implement a Registration Inline Hook.
 
 > **Note:** Self-service registration and Registration Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 2.9 or later.
 
