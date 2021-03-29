@@ -33,6 +33,12 @@
                 <ul>
                   <li>Up to 15,000 monthly active users</li>
                   <li>Authentication, authorization, user management</li>
+                  <li>Customizable sign-in widget and domain</li>
+                  <li>Adaptive MFA</li>
+                  <li>Threat detection with ThreatInsight</li>
+                  <li>B2B integration </li>
+                  <li>99.99% availability</li>
+                  <li>Community support</li>
                 </ul>
               </div>
             </div>
@@ -57,8 +63,11 @@
                   All starter plan, plus
                 </p>
                 <ul>
-                  <li>Up to 15,000 monthly active users</li>
-                  <li>Authentication, authorization, user management</li>
+                  <li>Up to 50,000 monthly active users</li>
+                  <li>Higher rate limits</li>
+                  <li>Unlimited OIDC applications</li>
+                  <li>Up to 5 SAML applications</li>
+                  <li>Email support</li>
                 </ul>
               </div>
             </div>
@@ -83,8 +92,12 @@
                   All advanced plan, plus
                 </p>
                 <ul>
-                  <li>Up to 15,000 monthly active users</li>
-                  <li>Authentication, authorization, user management</li>
+                  <li>Unlimited monthly active users</li>
+                  <li>Unlimited custom apps</li>
+                  <li>Service level assurance credits</li>
+                  <li>24/7 support</li>
+                  <li>Customer success options</li>
+                  <li>Enterprise plan only add ons</li>
                 </ul>
               </div>
             </div>
