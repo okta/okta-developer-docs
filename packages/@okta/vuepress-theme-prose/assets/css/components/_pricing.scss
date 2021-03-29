@@ -98,9 +98,6 @@ $magenta: #e22866;
       line-height: 1em;
       cursor: pointer;
 
-      &:hover {
-        background-color: #007dc1;
-      }
       &:before {
         content: '';
         background-image: url('/img/icons/icon--plus.svg');
@@ -128,9 +125,6 @@ $magenta: #e22866;
       .pricing-collapsible-item-title {
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
-        &:hover {
-          background-color: #115d8b;
-        }
         &:before {
           transform: rotate(45deg);
         }
