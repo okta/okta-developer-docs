@@ -118,20 +118,21 @@
                     Enterprise
                   </div>
                 </div>
-                <div class="pricing-card-row">
-                  <div class="pricing-card-column pricing-card-row-header">
-                    Price
+                  <div class="pricing-card-row">
+                    <div class="pricing-card-column pricing-card-row-header">
+                      Price
+                    </div>
+                    <div class="pricing-card-column alt">
+                      $0
+                    </div>
+                    <div class="pricing-card-column">
+                      $400/mo or $1000/mo
+                    </div>
+                    <div class="pricing-card-column">
+                      Custom
+                    </div>
                   </div>
-                  <div class="pricing-card-column alt">
-                    $0
-                  </div>
-                  <div class="pricing-card-column">
-                    $400/mo or $1000/mo
-                  </div>
-                  <div class="pricing-card-column">
-                    Custom
-                  </div>
-                </div>
+
                 <div class="pricing-card-row pricing-card-section-header">
                   <div class="pricing-card-column pricing-card-row-header">
                     Usage
@@ -143,170 +144,33 @@
                   <div class="pricing-card-column">
                   </div>
                 </div>
-                <div class="pricing-card-row">
-                  <div class="pricing-card-column pricing-card-row-header">
-                    OIN Integrations
-                    <small>SSO/LCM</small>
-                  </div>
-                  <div class="pricing-card-column alt">
-                    15k
-                  </div>
-                  <div class="pricing-card-column">
-                    20k or 50k
-                  </div>
-                  <div class="pricing-card-column">
-                    Unlimited
-                  </div>
-                </div>
-                <div class="pricing-card-row pricing-card-section-header">
-                  <div class="pricing-card-column pricing-card-row-header">
-                    Feature
-                  </div>
-                  <div class="pricing-card-column alt">
-                  </div>
-                  <div class="pricing-card-column">
-                  </div>
-                  <div class="pricing-card-column">
-                  </div>
-                </div>
-                <div class="pricing-card-row">
-                  <div class="pricing-card-column pricing-card-row-header">
-                    Authentication
-                  </div>
-                  <div class="pricing-card-column alt">
-                    <img
-                      src="/img/icons/icon--check.svg"
-                      class="pricing-card-check"
-                    />
-                  </div>
-                  <div class="pricing-card-column">
-                    <img
-                      src="/img/icons/icon--check.svg"
-                      class="pricing-card-check"
-                    />
-                  </div>
-                  <div class="pricing-card-column">
-                    <img
-                      src="/img/icons/icon--check.svg"
-                      class="pricing-card-check"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- todo: delete //-->
-            <div class="pricing-card pricing-card-table" style="display:none">
-              <div class="pricing-card-row pricing-card-header">
-                <div class="pricing-card-column desktop">
-                  <h3 class="pricing-card-table-name">Editions</h3>
-                </div>
-                <template
-                  v-for="(edition, index) in $page.frontmatter.editions"
-                >
-                  <div class="pricing-card-column" v-bind:key="edition.name">
-                    <div class="pricing-card-column-header">
-                      <h4>{{ edition.name }}</h4>
-                        <p>{{ edition.subheading }}</p>
-                        <SmartLink
-                          :item="{
-                            link: $page.frontmatter.links.contactSales,
-                          }"
-                          classes="Button--whiteOutline"
-                        >
-                          Contact Us
-                        </SmartLink>
-                    </div>
-                    <template
-                      v-for="(details, feature) in $page.frontmatter.features"
-                    >
-                      <div
-                        class="pricing-card-row mobile"
-                        v-bind:key="details.name"
-                      >
-                        <div class="pricing-card-column">
-                          {{ details.name }}
-                          {{ edition[feature].additionalNote }}
-                          <ul v-if="details.bullets">
-                            <li
-                              v-for="(bullet, bulletIndex) in details.bullets"
-                              v-bind:key="bulletIndex"
-                            >
-                              {{ bullet }}
-                            </li>
-                          </ul>
-                        </div>
-                        <div
-                          class="pricing-card-column"
-                          v-if="typeof edition[feature] === 'object'"
-                        >
-                          <img
-                            src="/img/icons/icon--check.svg"
-                            v-if="edition[feature].enabled"
-                            class="pricing-card-check"
-                          />
-                        </div>
-                        <div class="pricing-card-column" v-else>
-                          <img
-                            src="/img/icons/icon--check.svg"
-                            v-if="edition[feature]"
-                            class="pricing-card-check"
-                          />
-                        </div>
-                      </div>
-                    </template>
-                  </div>
-                </template>
-              </div>
-              <template
-                v-for="(details, feature) in $page.frontmatter.features"
-              >
-                <div
-                  class="pricing-card-row desktop"
-                  v-bind:key="details.name"
-                >
-                  <div class="pricing-card-column">
-                    {{ details.name }}
-                    <ul v-if="details.bullets">
-                      <li
-                        v-for="(bullet, bulletIndex) in details.bullets"
-                        v-bind:key="bulletIndex"
-                      >
-                        {{ bullet }}
-                      </li>
-                    </ul>
-                  </div>
-                  <template v-for="edition in $page.frontmatter.editions">
-                    <div
-                      class="pricing-card-column"
-                      v-if="typeof edition[feature] === 'object'"
-                      v-bind:key="edition.name"
-                    >
-                      <div>
-                        <img
-                          class="check-icon"
-                          src="/img/icons/icon--check.svg"
-                          v-if="edition[feature].enabled"
-                        />
-                        <span class="additional-note">{{
-                          edition[feature].additionalNote
-                        }}</span>
-                      </div>
+                <template v-for="(heading, key) in $page.frontmatter.planHeadings.usage.headings">
+                  <div class="pricing-card-row">
+                    <div class="pricing-card-column pricing-card-row-header">
+                      {{ heading.name }}
+                      <small v-if="heading.subName">
+                        {{ heading.subName }}
+                      </small>
                     </div>
                     <div
+                      v-for="(plan, planKey) in $page.frontmatter.plans"
                       class="pricing-card-column"
-                      v-else
-                      v-bind:key="edition.name"
+                      :class="{ alt: planKey === 'starter' }"
                     >
                       <img
                         src="/img/icons/icon--check.svg"
-                        v-if="edition[feature]"
+                        class="pricing-card-check"
+                        v-if="typeof plan.usage[key] === 'boolean'"
                       />
+                      <span v-else>
+                        {{ plan.usage[key] }}
+                      </span>
                     </div>
-                  </template>
-                </div>
-              </template>
+                  </div>
+                </template>
+              </div>
             </div>
+
           </div>
         </div>
       </div>
