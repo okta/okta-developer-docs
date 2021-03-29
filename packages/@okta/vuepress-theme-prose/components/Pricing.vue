@@ -119,7 +119,7 @@
                   </div>
                 </div>
 
-                <template v-for="(section, sectionKey) in $page.frontmatter.planHeadings">
+                <template v-for="(section, sectionKey) in $page.frontmatter.tableHeadings">
                   <div class="pricing-card-row pricing-card-section-header" v-if="section.name">
                     <div class="pricing-card-column pricing-card-row-header">
                       {{ section.name }}

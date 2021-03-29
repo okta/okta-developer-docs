@@ -12,7 +12,7 @@ links:
   pricing: https://www.okta.com/pricing
   emailSupport: mailto:developers@okta.com
 
-planHeadings:
+tableHeadings:
   pricing:
     headings:
       price:
