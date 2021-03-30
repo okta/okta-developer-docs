@@ -6,7 +6,7 @@ title: Create and sign the JWT
 
 Create and sign the JWT with your private key for use as a JWT assertion in the request for a scoped access token. You can create this `client_credentials` JWT in several ways.
 
-For testing purposes, use [this tool](https://token.dev/) to generate and sign a JWT. This tool supports both JWT and PEM formats. For a production use case, see [Build a JWT with a private key](/docs/guides/build-self-signed-jwt/java/jwt-with-private-key/) for both a Java and a JavaScript example of signing the JWT.
+For testing purposes, use [this tool](https://www.jsonwebtoken.dev) to generate and sign a JWT. This tool supports both JWT and PEM formats. For a production use case, see [Build a JWT with a private key](/docs/guides/build-self-signed-jwt/java/jwt-with-private-key/) for both a Java and a JavaScript example of signing the JWT.
 
 > **Note:** After the service app has Okta-scoped grants, only an admin with Super Admin role permissions can rotate the keys.
 
@@ -24,6 +24,7 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
     * `aud` &mdash; `https://{yourOktaDomain}.com/oauth2/v1/token`
     * `iss` &mdash; `client_id`
     * `sub` &mdash; `client_id`
+    * `exp` &mdash; `1614664267`
 
     **Payload example**
 
@@ -31,7 +32,8 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
     {
     "aud": "https://{yourOktaDomain}/oauth2/v1/token",
     "iss": "0oar95zt9zIpYuz6A0h7",
-    "sub": "0oar95zt9zIpYuz6A0h7"
+    "sub": "0oar95zt9zIpYuz6A0h7",
+    "exp": "1614664267"
     }
 ```
 

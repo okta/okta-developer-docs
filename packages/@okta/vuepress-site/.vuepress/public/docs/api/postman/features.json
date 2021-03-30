@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0b514b0e-c024-4624-90c5-8045899996a2",
+		"_postman_id": "dd719736-5aad-46ee-b878-cd71fc835ffa",
 		"name": "Features (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -43,8 +43,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Update Feature",
@@ -216,8 +215,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Get Dependencies",
@@ -259,8 +257,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Get Dependents",
@@ -302,15 +299,13 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"event": [
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "2252c917-12ce-4dea-8b48-66dff2c05293",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -320,13 +315,11 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "54af1deb-24ae-476a-9849-ec35127a0635",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

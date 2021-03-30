@@ -85,7 +85,7 @@ The Okta Authentication SDK for .NET is useful if you cannot use OIDC and need y
 </ul>
 </br>
 
-The Okta SDK for Xamarin follows current best practice for native apps using ODIC, the Authorization Code Flow + PKCE.
+The Okta SDK for Xamarin follows current best practice for native apps using ODIC, the Authorization Code flow + PKCE.
 
 <ul class="language-libraries">
 	<li>

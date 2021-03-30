@@ -55,19 +55,19 @@ OAuth uses two channels: a front channel and a back channel. The front channel i
 
 To address the differences between web apps, mobile clients, IoT devices, and even other APIs, there are numerous OAuth grant types or flows. The first four are defined in the core specification while the other three come from extensions.
 
-1. **Implicit Flow** - everything happens in the browser, on the front channel. Common in single page applications (SPAs).
+1. **Implicit flow** - everything happens in the browser, on the front channel. Common in single page applications (SPAs).
 
-2. **Authorization Code Flow** - the front channel is used to get an authorization code. The back channel is used by the client application to exchange the authorization code for an access token (and optionally a refresh token). This is the gold standard of OAuth flows.
+2. **Authorization Code flow** - the front channel is used to get an authorization code. The back channel is used by the client application to exchange the authorization code for an access token (and optionally a refresh token). This is the gold standard of OAuth flows.
 
-3. **Client Credentials Flow** - often used for server-to-server and service account scenarios. It's a back channel only flow to obtain an access token using the client's credentials. It differs from most of the other flows in that there is no user involved.
+3. **Client Credentials flow** - often used for server-to-server and service account scenarios. It's a back channel only flow to obtain an access token using the client's credentials. It differs from most of the other flows in that there is no user involved.
 
-4. **Resource Owner Password Flow** - a legacy flow that allows you to pass a username and password to the authorization server. Only recommended when you have old-school clients to accommodate.
+4. **Resource Owner Password flow** - a legacy flow that allows you to pass a username and password to the authorization server. Only recommended when you have old-school clients to accommodate.
 
-5. **Assertion Flow** - similar to the Client Credentials flow. This was added to open up the idea of federation. This flow allows an Authorization Server to trust authorization grants from third parties such as SAML IdP. The Authorization Server trusts the Identity Provider. This is described further in [RFC 7521](https://tools.ietf.org/html/rfc7521).
+5. **Assertion flow** - similar to the Client Credentials flow. This was added to open up the idea of federation. This flow allows an Authorization Server to trust authorization grants from third parties such as SAML IdP. The Authorization Server trusts the Identity Provider. This is described further in [RFC 7521](https://tools.ietf.org/html/rfc7521).
 
-6. **Device Flow** - often used with TVs, command line interfaces, and other devices without a web browser or with limited input options. The device first obtains a short "user code" from the authorization server, and the device prompts the user to enter that code on a separate device such as their mobile phone or computer. The client polls the authorization server via a back channel an access token, and optionally a refresh token is returned after the user authorizes the request. This is described further in the [OAuth Device Flow draft spec](https://oauth.net/2/device-flow/).
+6. **Device flow** - often used with TVs, command line interfaces, and other devices without a web browser or with limited input options. The device first obtains a short "user code" from the authorization server, and the device prompts the user to enter that code on a separate device such as their mobile phone or computer. The client polls the authorization server via a back channel an access token, and optionally a refresh token is returned after the user authorizes the request. This is described further in the [OAuth Device flow draft spec](https://oauth.net/2/device-flow/).
 
-7. **Authorization Code Flow + PKCE** - the recommended flow for native apps on mobile devices. In this flow, the native app sends a PKCE code challenge along with the authentication request. This is described further in what's commonly known as the "[AppAuth spec](https://oauth.net/2/native-apps/)".
+7. **Authorization Code flow + PKCE** - the recommended flow for native apps on mobile devices. In this flow, the native app sends a PKCE code challenge along with the authentication request. This is described further in what's commonly known as the "[AppAuth spec](https://oauth.net/2/native-apps/)".
 
 ![Authorization Framework: Return of complexity through extensions](/img/books/api-security/authn/images/framework.png "Authorization Framework: Return of complexity through extensions")
 
@@ -105,8 +105,8 @@ Generally, an OpenID Connect flow involves the following steps:
 
 In terms of implementation, an ID token is a JSON Web Token (JWT) which adheres to the specification and is small enough to pass between devices
 
-![OpenID Connect Flow](/img/books/api-security/authn/images/openid-connect.png "OpenID Connect Flow")
+![OpenID Connect flow](/img/books/api-security/authn/images/openid-connect.png "OpenID Connect flow")
 
-The Authorization Code Flow can also be used with Native apps. In this scenario, the native app sends a PKCE code challenge along with the authentication request. PKCE (pronounced "pixy") stands for Proof Key for Code Exchange and is defined by [RFC 7636](https://oauth.net/2/pkce/).
+The Authorization Code flow can also be used with Native apps. In this scenario, the native app sends a PKCE code challenge along with the authentication request. PKCE (pronounced "pixy") stands for Proof Key for Code Exchange and is defined by [RFC 7636](https://oauth.net/2/pkce/).
 
 OIDC is an excellent addition to and special case of OAuth because it allows you to get a user's information and learn more about them.

@@ -69,7 +69,7 @@ Create a `src/config.js` file. Make sure to replace the `{...}` placeholders wit
 
 ```js
 const oktaAuthConfig = {
-  // Note: If your app is configured to use the Implicit Flow
+  // Note: If your app is configured to use the Implicit flow
   // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
   // you will need to add `pkce: false`
   issuer: 'https://{yourOktaDomain}/oauth2/default',
@@ -82,7 +82,7 @@ const oktaSignInConfig = {
   clientId: '{clientId}',
   redirectUri: window.location.origin + '/login/callback',
   authParams: {
-    // If your app is configured to use the Implicit Flow
+    // If your app is configured to use the Implicit flow
     // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
     // you will need to uncomment the below line
     // pkce: false

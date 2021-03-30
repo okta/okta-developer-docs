@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "14df3036-359a-4599-9600-249cefafb336",
+		"_postman_id": "f4f9e943-ce34-4c20-b9ed-75bc538fdfe6",
 		"name": "Factors (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -477,8 +477,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Factor Verification Operations",
@@ -761,8 +760,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Get Factor",
@@ -942,6 +940,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

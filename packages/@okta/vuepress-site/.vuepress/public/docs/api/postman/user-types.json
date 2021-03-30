@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d5328771-7be5-4204-8e29-e794ea3f4208",
+		"_postman_id": "e8b0b4b7-605f-4658-aa83-1c7b4116c0d0",
 		"name": "User Types (Okta API)",
 		"description": "Operations on User Types.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -27,11 +27,19 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+				"url": {
+					"raw": "{{url}}/api/v1/meta/types/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"types",
+						"user"
+					]
 				},
-				"url": "{{url}}/api/v1/meta/types/user",
 				"description": "Fetches all User Types in your org."
 			},
 			"response": []
@@ -57,11 +65,20 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+				"url": {
+					"raw": "{{url}}/api/v1/meta/types/user/default",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"types",
+						"user",
+						"default"
+					]
 				},
-				"url": "{{url}}/api/v1/meta/types/user/default",
 				"description": "Fetches the default User Type."
 			},
 			"response": []
@@ -87,11 +104,20 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+				"url": {
+					"raw": "{{url}}/api/v1/meta/types/user/{{typeId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"types",
+						"user",
+						"{{typeId}}"
+					]
 				},
-				"url": "{{url}}/api/v1/meta/types/user/{{typeId}}",
 				"description": "Fetches the User Type with the specified type ID."
 			},
 			"response": []
@@ -121,7 +147,19 @@
 					"mode": "raw",
 					"raw": "{\n  \"description\": \"Any description that means something useful to you\",\n  \"displayName\": \"Display Name for UI\",\n  \"name\": \"aNewType\"\n}\n"
 				},
-				"url": "{{url}}/api/v1/meta/types/user",
+				"url": {
+					"raw": "{{url}}/api/v1/meta/types/user",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"types",
+						"user"
+					]
+				},
 				"description": "Creates a new User Type."
 			},
 			"response": []
@@ -151,7 +189,20 @@
 					"mode": "raw",
 					"raw": "{\n  \"description\": \"New description; note that display name is not changed\",\n  \"name\": \"modifiedName\"\n}\n"
 				},
-				"url": "{{url}}/api/v1/meta/types/user/{{typeId}}",
+				"url": {
+					"raw": "{{url}}/api/v1/meta/types/user/{{typeId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"types",
+						"user",
+						"{{typeId}}"
+					]
+				},
 				"description": "Updates the name, display name, and/or description of a User Type.  Omitted elements are not changed.  Does not affect the associated Schema."
 			},
 			"response": []
@@ -181,7 +232,20 @@
 					"mode": "raw",
 					"raw": "{\n  \"description\": \"New description; note that display name is not changed\",\n  \"name\": \"modifiedName\"\n}\n"
 				},
-				"url": "{{url}}/api/v1/meta/types/user/{{typeId}}",
+				"url": {
+					"raw": "{{url}}/api/v1/meta/types/user/{{typeId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"types",
+						"user",
+						"{{typeId}}"
+					]
+				},
 				"description": "Updates the name, display name, and/or description of a User Type.  Omitted elements are set to null.  (Name cannot be null.)  Does not affect the associated Schema."
 			},
 			"response": []
@@ -207,11 +271,20 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
+				"url": {
+					"raw": "{{url}}/api/v1/meta/types/user/{{typeId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"types",
+						"user",
+						"{{typeId}}"
+					]
 				},
-				"url": "{{url}}/api/v1/meta/types/user/{{typeId}}",
 				"description": "Deletes the User Type with the specified type ID."
 			},
 			"response": []

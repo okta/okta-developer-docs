@@ -1,0 +1,112 @@
+@import './email-factor';
+
+// inline totp form //
+.mfa-verify-totp-inline {
+  .inline-input {
+    width: 212px;
+    float: left;
+
+    @include device-mq(x-small) {
+      width: 180px;
+    }
+
+    @include max-width-mq($container-width) {
+      width: 100%;
+    }
+  }
+
+  .inline-totp-verify {
+    @include max-width-mq($container-width) {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+
+  a.button {
+    float: right;
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  a.link-button {
+    display: block;
+    text-align: center;
+  }
+}
+
+// sms and call forms
+.mfa-verify-passcode {
+  .link-button {
+    float: right;
+    margin-top: 30px;
+  }
+
+  .auth-passcode {
+    float: left;
+    width: 170px;
+    @include max-width-mq($container-width) {
+      width: 100%;
+    }
+  }
+}
+
+// Duo
+.duo-form iframe {
+  height: 400px;
+  width: 100%;
+}
+
+//email magic link form
+.factor-verify-magiclink {
+  .o-form-button-bar {
+    display: none;
+  }
+  .email-request-button {
+    width: 100%;
+  }
+}
+
+//email
+.mfa-verify-email {
+  @include email-factor;
+
+  .mfa-email-sent-content {
+    margin-bottom: 15px;
+  }
+}
+
+// number challenge Okta-verify push
+.number-challenge-view {
+  display: none;
+  text-align: center;
+  .phone {
+    margin: 20px 0;
+    .phone--body {
+      display: inline-block;
+      border-radius: 6px;
+      padding: 14px 3px 0;
+      margin: 0 auto;
+      background: #666;
+    }
+    .phone--screen {
+      min-width: 50px;
+      padding: 20px 0;
+      background: #e5edfb;
+    }
+    .phone--number {
+      padding: 10px;
+      font-size: 25px;
+      color: #1662dd;
+    }
+    .phone--home-button {
+      border-radius: 50%;
+      width: 10px;
+      height: 10px;
+      margin: 3px auto;
+      background: $white;
+    }
+  }
+  .challenge-number {
+    font-weight: bold;
+  }
+}

@@ -11,7 +11,7 @@ The Okta Features API provides operations to manage self-service Early Access (E
 
 ## Get started
 
-Explore the Features API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c8436aac9c9f4966dc8d)
+Explore the Features API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e5d2bf83976120cb4546)
 
 ## Feature operations
 

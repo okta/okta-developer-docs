@@ -9,7 +9,7 @@ The Okta Factors API provides operations to enroll, manage, and verify factors f
 
 ## Get started with the Factors API
 
-Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2e52a7def4973635840e)
+Explore the Factors API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/283a99e4b49ce7f5f54d)
 
 ## Factor operations
 
@@ -622,7 +622,7 @@ Enrolls a User with a supported [Factor](#list-factors-to-enroll)
 - [Enroll Google Authenticator Factor](#enroll-google-authenticator-factor)
 - [Enroll RSA SecurID Factor](#enroll-rsa-securid-factor)
 - [Enroll Symantec VIP Factor](#enroll-symantec-vip-factor)
-- [Upload YubiKey Seed](#upload-yubikey-seed)
+- [Upload YubiKey Seed](#upload-yubikey-otp-seed)
 - [Enroll YubiKey Factor](#enroll-yubikey-factor)
 - [Enroll Okta Email Factor](#enroll-okta-email-factor)
 - [Enroll U2F Factor](#enroll-u2f-factor)

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "b0d47b7b-b67b-4c05-a7c9-847000e2142d",
+		"_postman_id": "2a0b311e-23da-4fab-9cdc-f55fc0fcc15b",
 		"name": "Dynamic Client Registration (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -113,8 +113,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Get Logo",
@@ -358,7 +357,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "78bffbce-b069-4f47-88a8-979094822a00",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -368,13 +366,11 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "e240ff6e-48c1-4fa5-89ff-8e8f5345c650",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

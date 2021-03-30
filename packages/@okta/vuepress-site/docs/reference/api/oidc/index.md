@@ -17,7 +17,7 @@ This page contains detailed information about the OAuth 2.0 and OpenID Connect e
 
 ## Get started
 
-Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fd92d7c1ab0fbfdecab2)
+Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9e7ad28ca1c26870a4b0)
 
 ## Endpoints
 
