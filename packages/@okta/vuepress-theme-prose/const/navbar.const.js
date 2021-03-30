@@ -487,6 +487,10 @@ export const reference = [
             path: "/docs/reference/api/authorization-servers/"
           },
           {
+            title: "Domains",
+            path: "/docs/reference/api/domains/"
+          },
+          {
             title: "Dynamic Client Registration",
             path: "/docs/reference/api/oauth-clients/"
           },
