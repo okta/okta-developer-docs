@@ -292,6 +292,10 @@ $magenta: #e22866;
     .pricing-card-table {
       color: #a8bac7;
       font-size: 16px;
+
+      @include media('<tablet') {
+        font-size: 14px;
+      }
     }
 
     .selector-lozenge {
@@ -317,9 +321,10 @@ $magenta: #e22866;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
 
       @include media('<tablet') {
-        flex-basis: 40%;
+        flex-basis: 50%;
       }
 
       small {
@@ -335,6 +340,7 @@ $magenta: #e22866;
         background-color: transparent;
         padding-left: 0;
         align-items: flex-start;
+        text-align: left;
       }
     }
 
@@ -363,6 +369,10 @@ $magenta: #e22866;
     .pricing-card-column-header {
       font-size: 18px;
       color: white;
+
+      @include media('<tablet') {
+        font-size: 16px;
+      }
     }
 
     img.pricing-card-check {
