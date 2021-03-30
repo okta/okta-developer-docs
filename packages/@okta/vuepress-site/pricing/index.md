@@ -62,7 +62,8 @@ tableHeadings:
       customWidget:
         name: Custom Widget
       threatInsight:
-        name: Threat Insight
+        name: ThreatInsight
+        subName: "*Contact support@okta.com to turn on malicious IP logging"
       apiMgmt:
         name: API Access Management
       o2oIntegration:
