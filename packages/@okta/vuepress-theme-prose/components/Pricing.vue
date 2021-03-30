@@ -145,7 +145,7 @@
         </div>
       </div>
       <div class="pricing--container">
-        <div class="pricing--editions">
+        <div class="pricing--plans">
 
           <div
             class="pricing-collapsible-item"
