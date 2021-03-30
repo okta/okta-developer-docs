@@ -187,7 +187,7 @@
               <div class="pricing-card-row hideInMobile no-border">
                 <div class="pricing-card-column">
                 </div>
-                <div class="pricing-card-column pricing-card-column-header alt">
+                <div class="pricing-card-column pricing-card-column-header">
                   Starter
                 </div>
                 <div class="pricing-card-column pricing-card-column-header">
@@ -204,7 +204,7 @@
                     {{ section.name }}
                   </div>
                   <div
-                    class="pricing-card-column alt"
+                    class="pricing-card-column"
                     :class="{ hideInMobile: selectedPlan !== 'starter' }"
                   >
                   </div>
@@ -228,7 +228,7 @@
                     <div
                       v-for="(plan, planKey) in $page.frontmatter.tableData"
                       class="pricing-card-column"
-                      :class="{ alt: planKey === 'starter', hideInMobile: selectedPlan !== planKey }"
+                      :class="{ hideInMobile: selectedPlan !== planKey }"
                     >
                       <span v-if="typeof plan[sectionKey][headingKey] === 'boolean'">
                         <img

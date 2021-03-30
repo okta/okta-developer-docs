@@ -302,7 +302,7 @@ $magenta: #e22866;
     }
 
     .pricing-card-column {
-      background-color: #16262f;
+      background-color: #122027;
       padding: 20px 15px;
       display: flex;
       flex-basis: 22%;
@@ -319,15 +319,12 @@ $magenta: #e22866;
         color: #86919a;
       }
 
-      &.alt {
-        background-color: #122027;
-      }
-
       &:first-child {
         flex-grow: 1;
       }
 
       &.pricing-card-row-header {
+        background-color: transparent;
         padding-left: 0;
         align-items: flex-start;
       }
