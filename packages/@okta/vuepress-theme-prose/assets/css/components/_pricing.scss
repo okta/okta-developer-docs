@@ -11,6 +11,10 @@ $magenta: #e22866;
 
   .pricing--container {
     max-width: 1003px;
+
+    @include media('<tablet') {
+      padding: 0 10px;
+    }
   }
 
   h1 {
@@ -110,10 +114,10 @@ $magenta: #e22866;
       }
 
       &.large {
-        padding: 12px;
+        padding: 8px;
 
         .lozenge {
-          padding: 8px 30px;
+          padding: 6px 8px;
         }
       }
     }
