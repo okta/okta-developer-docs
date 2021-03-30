@@ -15,12 +15,12 @@
           <div class="pricing-section">
             <div class="pricing-card">
               <div class="pricing-card-top">
-                <h3>Starter</h3>
                 <div class="selector-lozenge single">
                   <button class="lozenge active">
                     15k MAU
                   </button>
                 </div>
+                <h3>Starter</h3>
                 <p class="pricing-card-amount">
                   $0
                 </p>
@@ -49,7 +49,6 @@
             </div>
             <div class="pricing-card">
               <div class="pricing-card-top">
-                <h3>Advanced</h3>
                 <div class="selector-lozenge multiple">
                   <button
                     class="lozenge"
@@ -66,6 +65,7 @@
                     50k MAU
                   </button>
                 </div>
+                <h3>Advanced</h3>
                 <p class="pricing-card-amount">
                   <template v-if="selectedLozengeIndex === 0">
                     $400 /mo
@@ -113,6 +113,11 @@
             </div>
             <div class="pricing-card">
               <div class="pricing-card-top">
+                <div class="selector-lozenge single">
+                  <button class="lozenge active">
+                    Custom MAU
+                  </button>
+                </div>
                 <h3>Enterprise</h3>
                 <p class="pricing-card-amount">
                   Custom
