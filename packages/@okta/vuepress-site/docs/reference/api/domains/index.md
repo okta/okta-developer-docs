@@ -167,7 +167,7 @@ curl -v -X POST \
     ],
    "_links": {
            "certificate": {
-               "href": "http://rain.okta1.com:1802/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/certificate",
+               "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3/certificate",
                "hints": {
                    "allow": [
                        "PUT"
@@ -175,7 +175,7 @@ curl -v -X POST \
                }
            },
            "self": {
-               "href": "http://rain.okta1.com:1802/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
+               "href": "https://${yourOktaDomain}/api/v1/domains/OcDz6iRyjkaCTXkdo0g3",
                "hints": {
                    "allow": [
                        "GET",
