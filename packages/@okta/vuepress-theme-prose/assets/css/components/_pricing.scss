@@ -71,7 +71,7 @@ $magenta: #e22866;
   }
 
   p.pricing--subtitle {
-    color: $gray;
+    color: #a8bac7;
     font-size: 18px;
     font-weight: normal;
     line-height: 31px;
@@ -150,6 +150,7 @@ $magenta: #e22866;
 
     .pricing-card {
       margin: 0 32px 0 0;
+      background-color: #142329;
 
       &:last-child {
         margin-right: 0;
@@ -166,7 +167,7 @@ $magenta: #e22866;
 
     .pricing-card-top {
       padding: 20px;
-      background-color: #1F3B54;
+      background-color: #1a3041;
       border-radius: inherit;
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
@@ -184,11 +185,12 @@ $magenta: #e22866;
         position: absolute;
         top: 14px;
         right: 14px;
+        background-color: #111d24;
         font-size: 14px;
         border-radius: 40px;
 
         .lozenge {
-          color: #8bc5eb;
+          color: #8dcffa;
           background-color: transparent;
           border: 0;
           outline: 0;
@@ -196,11 +198,9 @@ $magenta: #e22866;
 
         &.single {
           padding: 6px 12px;
-          background-color: #264256;
         }
         &.multiple {
           padding: 4px;
-          background-color: #16262f;
 
           .lozenge {
             padding: 2px 8px;
@@ -208,7 +208,7 @@ $magenta: #e22866;
             cursor: pointer;
 
             &.active {
-              background-color: #1f3b54;
+              background-color: #1a3041;
               cursor: initial;
             }
           }
@@ -221,7 +221,6 @@ $magenta: #e22866;
       }
 
       .pricing-card-subtitle {
-        color: $gray;
         font-size: 16px;
         line-height: 1.5em;
         height: 4.5em;
@@ -233,7 +232,6 @@ $magenta: #e22866;
     }
 
     .pricing-card-bottom {
-      color: $gray;
       padding: 20px;
       border-radius: inherit;
       border-top-left-radius: 0;
@@ -283,7 +281,7 @@ $magenta: #e22866;
     flex-grow: 1;
 
     .pricing-card-table {
-      color: $gray;
+      color: #a8bac7;
       font-size: 16px;
     }
 
@@ -388,6 +386,7 @@ $magenta: #e22866;
 
     .pricing-faq-content {
       padding: 20px 24px;
+      color: #a8bac7;
     }
   }
 
@@ -397,7 +396,7 @@ $magenta: #e22866;
 
     p {
       font-size: 18px;
-      color: $gray;
+      color: #a8bac7;
       max-width: initial;
     }
   }
