@@ -180,17 +180,21 @@ export default {
       const country = this.selectedCountry;
       const regionType = this.region.type.toLowerCase(); // could be "state" or "province".
       const regionName = this.selectedRegion;
-      const queryParams = {
+      const stateObject = {
         okta_AcceptedToS,
         okta_ts_AcceptedToS,
         country,
       };
 
       if (regionType !== "") {
-        queryParams[regionType] = regionName;
+        stateObject[regionType] = regionName;
       }
-      
-      window.location.href = buildUrl(this.socialUrl, { queryParams });
+
+      window.location.href = buildUrl(this.socialUrl, {
+        queryParams: {
+          state: JSON.stringify(stateObject)
+        }
+      });
     },
     closeTermsConditionsDialog() {
       this.$emit("close");
