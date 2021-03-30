@@ -97,6 +97,9 @@ $magenta: #e22866;
 
     &.single {
       padding: 6px 12px;
+      .lozenge {
+        flex-grow: 1;
+      }
     }
     &.multiple {
       padding: 5px;
@@ -214,9 +217,10 @@ $magenta: #e22866;
         margin-right: 0;
       }
 
-      @include media('<desktop') {
-        margin-right: 10px;
-      }
+        @include media('<desktop') {
+          margin-right: 20px;
+        }
+
       @include media('<tablet') {
         margin-right: 0;
         margin-bottom: 32px;
@@ -237,6 +241,15 @@ $magenta: #e22866;
         position: absolute;
         top: 14px;
         right: 14px;
+
+        @include media('<desktop') {
+          position: initial;
+          margin-bottom: 20px;
+        }
+        @include media('<tablet') {
+          position: absolute;
+          margin-bottom: 0;
+        }
       }
 
       h3 {
@@ -253,6 +266,13 @@ $magenta: #e22866;
         font-size: 16px;
         line-height: 1.5em;
         height: 4.5em;
+
+        @include media('<desktop') {
+          height: 6.5em;
+        }
+        @include media('<tablet') {
+          height: auto;
+        }
       }
 
       .Button--red {
