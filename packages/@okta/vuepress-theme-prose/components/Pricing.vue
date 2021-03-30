@@ -288,9 +288,6 @@
           </SmartLink>
         </div>
       </div>
-      <div class="pricing--background-curve">
-        <!-- new image / svg to come //-->
-      </div>
       <div class="pricing--footer">
         <CompanyLogos withHeading />
       </div>
