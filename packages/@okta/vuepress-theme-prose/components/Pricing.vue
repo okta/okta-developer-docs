@@ -12,7 +12,7 @@
       </div>
       <div class="pricing--container">
         <div class="pricing--costs">
-          <div class="pricing-section pricing-card-intro">
+          <div class="pricing-section">
             <div class="pricing-card">
               <div class="pricing-card-top">
                 <h3>Starter</h3>
@@ -146,75 +146,74 @@
       </div>
       <div class="pricing--container">
         <div class="pricing--editions">
-          <div class="pricing-section">
-            <div
-              class="pricing-collapsible-item"
-              v-bind:class="{ 'is-active': collapsibleShownStates.compareTable }"
+
+          <div
+            class="pricing-collapsible-item"
+            v-bind:class="{ 'is-active': collapsibleShownStates.compareTable }"
+          >
+            <button
+              class="pricing-collapsible-item-title"
+              v-on:click="toggleCollapsibleShown('compareTable')"
             >
-              <button
-                class="pricing-collapsible-item-title"
-                v-on:click="toggleCollapsibleShown('compareTable')"
-              >
-                Compare plans
-              </button>
-              <div class="pricing-collapsible-item-content pricing-card-table">
-                <div class="pricing-card-row">
+              Compare plans
+            </button>
+            <div class="pricing-collapsible-item-content pricing-card-table">
+              <div class="pricing-card-row">
+                <div class="pricing-card-column">
+                </div>
+                <div class="pricing-card-column pricing-card-column-header alt">
+                  Starter
+                </div>
+                <div class="pricing-card-column pricing-card-column-header">
+                  Advanced
+                </div>
+                <div class="pricing-card-column pricing-card-column-header">
+                  Enterprise
+                </div>
+              </div>
+
+              <template v-for="(section, sectionKey) in $page.frontmatter.tableHeadings">
+                <div class="pricing-card-row pricing-card-section-header" v-if="section.name">
+                  <div class="pricing-card-column pricing-card-row-header">
+                    {{ section.name }}
+                  </div>
+                  <div class="pricing-card-column alt">
+                  </div>
                   <div class="pricing-card-column">
                   </div>
-                  <div class="pricing-card-column pricing-card-column-header alt">
-                    Starter
-                  </div>
-                  <div class="pricing-card-column pricing-card-column-header">
-                    Advanced
-                  </div>
-                  <div class="pricing-card-column pricing-card-column-header">
-                    Enterprise
+                  <div class="pricing-card-column">
                   </div>
                 </div>
-
-                <template v-for="(section, sectionKey) in $page.frontmatter.tableHeadings">
-                  <div class="pricing-card-row pricing-card-section-header" v-if="section.name">
+                <template v-for="(heading, headingKey) in section.headings">
+                  <div class="pricing-card-row">
                     <div class="pricing-card-column pricing-card-row-header">
-                      {{ section.name }}
+                      {{ heading.name }}
+                      <small v-if="heading.subName">
+                        {{ heading.subName }}
+                      </small>
                     </div>
-                    <div class="pricing-card-column alt">
-                    </div>
-                    <div class="pricing-card-column">
-                    </div>
-                    <div class="pricing-card-column">
+                    <div
+                      v-for="(plan, planKey) in $page.frontmatter.tableData"
+                      class="pricing-card-column"
+                      :class="{ alt: planKey === 'starter' }"
+                    >
+                      <span v-if="typeof plan[sectionKey][headingKey] === 'boolean'">
+                        <img
+                          src="/img/icons/icon--check.svg"
+                          class="pricing-card-check"
+                          v-if="plan[sectionKey][headingKey]"
+                        />
+                      </span>
+                      <span v-else>
+                        {{ plan[sectionKey][headingKey] }}
+                      </span>
                     </div>
                   </div>
-                  <template v-for="(heading, headingKey) in section.headings">
-                    <div class="pricing-card-row">
-                      <div class="pricing-card-column pricing-card-row-header">
-                        {{ heading.name }}
-                        <small v-if="heading.subName">
-                          {{ heading.subName }}
-                        </small>
-                      </div>
-                      <div
-                        v-for="(plan, planKey) in $page.frontmatter.tableData"
-                        class="pricing-card-column"
-                        :class="{ alt: planKey === 'starter' }"
-                      >
-                        <span v-if="typeof plan[sectionKey][headingKey] === 'boolean'">
-                          <img
-                            src="/img/icons/icon--check.svg"
-                            class="pricing-card-check"
-                            v-if="plan[sectionKey][headingKey]"
-                          />
-                        </span>
-                        <span v-else>
-                          {{ plan[sectionKey][headingKey] }}
-                        </span>
-                      </div>
-                    </div>
-                  </template>
                 </template>
-              </div>
+              </template>
             </div>
-
           </div>
+
         </div>
       </div>
       <div class="pricing--container">
