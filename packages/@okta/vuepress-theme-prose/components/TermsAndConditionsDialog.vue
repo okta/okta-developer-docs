@@ -183,14 +183,18 @@ export default {
       const queryParams = {
         okta_AcceptedToS,
         okta_ts_AcceptedToS,
-        country,
+        country
       };
 
       if (regionType !== "") {
         queryParams[regionType] = regionName;
       }
-      
-      window.location.href = buildUrl(this.socialUrl, { queryParams });
+
+      window.location.href = buildUrl(this.socialUrl, {
+        queryParams: {
+          state: JSON.stringify(queryParams)
+        }
+      });
     },
     closeTermsConditionsDialog() {
       this.$emit("close");
