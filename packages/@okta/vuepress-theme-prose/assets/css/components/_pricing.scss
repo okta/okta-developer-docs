@@ -147,6 +147,10 @@ $magenta: #e22866;
       line-height: 1em;
       cursor: pointer;
 
+      &:hover {
+        background-color: #1e384d;
+      }
+
       &:before {
         content: '';
         background-image: url('/img/icons/icon--plus.svg');
