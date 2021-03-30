@@ -185,7 +185,7 @@
 
               </div>
               <div class="pricing-card-row hideInMobile no-border">
-                <div class="pricing-card-column">
+                <div class="pricing-card-column pricing-card-row-header">
                 </div>
                 <div class="pricing-card-column pricing-card-column-header">
                   Starter
