@@ -142,6 +142,10 @@ $magenta: #e22866;
     .pricing-section {
       padding: 40px 0 88px;
       display: flex;
+
+      @include media('<tablet') {
+        flex-direction: column;
+      }
     }
 
     .pricing-card {
@@ -149,6 +153,14 @@ $magenta: #e22866;
 
       &:last-child {
         margin-right: 0;
+      }
+
+      @include media('<desktop') {
+        margin-right: 10px;
+      }
+      @include media('<tablet') {
+        margin-right: 0;
+        margin-bottom: 32px;
       }
     }
 
