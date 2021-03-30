@@ -7,6 +7,9 @@ meta:
 
 # Identity engine
 
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" />
+
 ## About Identity engine
 
 Identity engine allows organizations to customize their Okta cloud components to satisfy an unlimited number of identity use cases. Instead of a reliance on pre-defined behavior for authentication, authorization, and enrollment, Identity engine offers customizable building blocks that can support dynamic, app-based user journeys.

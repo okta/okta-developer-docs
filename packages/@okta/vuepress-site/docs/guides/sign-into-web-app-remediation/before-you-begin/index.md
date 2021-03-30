@@ -2,6 +2,9 @@
 title: Sign users in without redirection
 ---
 
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" />
+
 This guide shows you how to use Okta as the user store for your web application and sign users in using the interaction code grant type.
 
 > **Note:** This functionality requires the usage of the Okta Identity Engine. This functionality is in general availability but is being gradually rolled out to customers. If you want to request to gain access to the Okta Identity Engine, please reach out to your account manager. If you do not have an account manager, please reach out to <oie@okta.com> for more information.
