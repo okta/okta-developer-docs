@@ -34,10 +34,10 @@ tableHeadings:
         name: M2M Tokens
       oinIntegrations:
         name: OIN Integrations
-        subName: SSO/LCM
+        subName: SSO/<wbr>LCM
       inboundFederation:
         name: Inbound Federation
-        subName: SAML/OIDC
+        subName: SAML/<wbr>OIDC
   features:
     name: Feature
     headings:
@@ -45,12 +45,12 @@ tableHeadings:
         name: Authentication
       socialAuthn:
         name: Social Authentication
-        subName: Facebook/Google/Apple
+        subName: "Facebook/<wbr>Google/<wbr>Apple"
       mfa:
         name: MFA Factors
         subName: "Email, Okta OTP, WebAuthn, Yubikey, etc."
       smsVoiceMfa:
-        name: SMS/Voice MFA
+        name: SMS/<wbr>Voice MFA
       adaptiveMfa:
         name: Adaptive MFA Policies
       userMgmt:
@@ -69,7 +69,7 @@ tableHeadings:
         name: Org to Org Integration
       dirIntegration:
         name: Directory Integration
-        subName: AD/LDAP
+        subName: AD/<wbr>LDAP
       lcmEngine:
         name: Lifecycle Management (LCM) Engine
       uptime:
@@ -94,11 +94,11 @@ tableHeadings:
       sandbox:
         name: Sandbox
       regulatoryCellHipaaFedRamp:
-        name: Regulatory Cell (HIPAA/FEDRAMP)
+        name: Regulatory Cell (HIPAA/<wbr>FEDRAMP)
       regulatoryCellGovCloud:
         name: Regulatory Cell (GovCloud)
       apacEmeaCell:
-        name: APAC/EMEA Cell
+        name: APAC/<wbr>EMEA Cell
       csPackages:
         name: Customer Success Packages
 

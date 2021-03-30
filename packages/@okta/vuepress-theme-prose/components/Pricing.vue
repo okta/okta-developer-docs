@@ -222,10 +222,8 @@
                 <template v-for="(heading, headingKey) in section.headings">
                   <div class="pricing-card-row">
                     <div class="pricing-card-column pricing-card-row-header">
-                      {{ heading.name }}
-                      <small v-if="heading.subName">
-                        {{ heading.subName }}
-                      </small>
+                      <span v-html="heading.name"></span>
+                      <small v-if="heading.subName" v-html="heading.subName"></small>
                     </div>
                     <div
                       v-for="(plan, planKey) in $page.frontmatter.tableData"
