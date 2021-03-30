@@ -16,7 +16,7 @@
             <div class="pricing-card">
               <div class="pricing-card-top">
                 <h3>Starter</h3>
-                <div class="pricing-card-mau-lozenge single">
+                <div class="selector-lozenge single">
                   <button class="lozenge active">
                     15k MAU
                   </button>
@@ -50,7 +50,7 @@
             <div class="pricing-card">
               <div class="pricing-card-top">
                 <h3>Advanced</h3>
-                <div class="pricing-card-mau-lozenge multiple">
+                <div class="selector-lozenge multiple">
                   <button
                     class="lozenge"
                     :class="{ active: selectedLozengeIndex === 0 }"
@@ -158,7 +158,33 @@
               Compare plans
             </button>
             <div class="pricing-collapsible-item-content pricing-card-table">
-              <div class="pricing-card-row">
+              <div class="pricing-card-row showInMobile no-border">
+                <div class="selector-lozenge large multiple">
+                  <button
+                    class="lozenge"
+                    :class="{ active: selectedPlan === 'starter' }"
+                    @click="selectPlan('starter')"
+                  >
+                    Starter
+                  </button>
+                  <button
+                    class="lozenge"
+                    :class="{ active: selectedPlan === 'advanced' }"
+                    @click="selectPlan('advanced')"
+                  >
+                    Advanced
+                  </button>
+                  <button
+                    class="lozenge"
+                    :class="{ active: selectedPlan === 'enterprise' }"
+                    @click="selectPlan('enterprise')"
+                  >
+                    Enterprise
+                  </button>
+                </div>
+
+              </div>
+              <div class="pricing-card-row hideInMobile no-border">
                 <div class="pricing-card-column">
                 </div>
                 <div class="pricing-card-column pricing-card-column-header alt">
@@ -177,11 +203,20 @@
                   <div class="pricing-card-column pricing-card-row-header">
                     {{ section.name }}
                   </div>
-                  <div class="pricing-card-column alt">
+                  <div
+                    class="pricing-card-column alt"
+                    :class="{ hideInMobile: selectedPlan !== 'starter' }"
+                  >
                   </div>
-                  <div class="pricing-card-column">
+                  <div
+                    class="pricing-card-column"
+                    :class="{ hideInMobile: selectedPlan !== 'advanced' }"
+                  >
                   </div>
-                  <div class="pricing-card-column">
+                  <div
+                    class="pricing-card-column"
+                    :class="{ hideInMobile: selectedPlan !== 'enterprise' }"
+                  >
                   </div>
                 </div>
                 <template v-for="(heading, headingKey) in section.headings">
@@ -195,7 +230,7 @@
                     <div
                       v-for="(plan, planKey) in $page.frontmatter.tableData"
                       class="pricing-card-column"
-                      :class="{ alt: planKey === 'starter' }"
+                      :class="{ alt: planKey === 'starter', hideInMobile: selectedPlan !== planKey }"
                     >
                       <span v-if="typeof plan[sectionKey][headingKey] === 'boolean'">
                         <img
@@ -271,6 +306,7 @@ export default {
   },
   data: () => ({
     selectedLozengeIndex: 1,
+    selectedPlan: 'starter',
     collapsibleShownStates: {
       compareTable: false,
       faq0: false,
@@ -281,6 +317,9 @@ export default {
   methods: {
     selectLozenge(index) {
       this.selectedLozengeIndex = index;
+    },
+    selectPlan(name) {
+      this.selectedPlan = name;
     },
     toggleCollapsibleShown(itemName) {
       this.$set(this.collapsibleShownStates, itemName, !this.collapsibleShownStates[itemName]);

@@ -78,6 +78,47 @@ $magenta: #e22866;
     max-width: initial;
   }
 
+  .selector-lozenge {
+    display: flex;
+    background-color: #111d24;
+    font-size: 14px;
+    border-radius: 40px;
+
+    .lozenge {
+      color: #8dcffa;
+      background-color: transparent;
+      border: 0;
+      outline: 0;
+    }
+
+    &.single {
+      padding: 6px 12px;
+    }
+    &.multiple {
+      padding: 4px;
+
+      .lozenge {
+        padding: 2px 8px;
+        flex-grow: 1;
+        border-radius: 40px;
+        cursor: pointer;
+
+        &.active {
+          background-color: #1a3041;
+          cursor: initial;
+        }
+      }
+
+      &.large {
+        padding: 12px;
+
+        .lozenge {
+          padding: 8px 30px;
+        }
+      }
+    }
+  }
+
   .pricing-collapsible-item {
     text-align: left;
     color: $gray;
@@ -180,44 +221,15 @@ $magenta: #e22866;
       position: relative;
       flex-direction: column;
 
-      h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
-      }
-
-      .pricing-card-mau-lozenge {
-        display: flex;
+      .selector-lozenge {
         position: absolute;
         top: 14px;
         right: 14px;
-        background-color: #111d24;
-        font-size: 14px;
-        border-radius: 40px;
+      }
 
-        .lozenge {
-          color: #8dcffa;
-          background-color: transparent;
-          border: 0;
-          outline: 0;
-        }
-
-        &.single {
-          padding: 6px 12px;
-        }
-        &.multiple {
-          padding: 4px;
-
-          .lozenge {
-            padding: 2px 8px;
-            border-radius: 40px;
-            cursor: pointer;
-
-            &.active {
-              background-color: #1a3041;
-              cursor: initial;
-            }
-          }
-        }
+      h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
       }
 
       .pricing-card-amount {
@@ -270,29 +282,18 @@ $magenta: #e22866;
       font-size: 16px;
     }
 
+    .selector-lozenge {
+      flex-grow: 1;
+      margin: 24px 0;
+    }
+
     .pricing-card-row {
       display: flex;
       border-top: 1px solid #2b4d63;
       margin: 0 24px;
 
-      &:first-child {
+      &.no-border {
         border: 0;
-      }
-
-      &.mobile {
-        display: none;
-      }
-
-      &.desktop {
-      }
-
-      @include media('<desktop') {
-        &.desktop {
-          display: none;
-        }
-        &.mobile {
-          display: block;
-        }
       }
     }
 
@@ -305,15 +306,13 @@ $magenta: #e22866;
       justify-content: center;
       align-items: center;
 
+      @include media('<tablet') {
+        flex-basis: 40%;
+      }
+
       small {
         font-size: 12px;
         color: #86919a;
-      }
-
-      @include media('<desktop') {
-        &.desktop {
-          display: none;
-        }
       }
 
       &.alt {
@@ -327,6 +326,19 @@ $magenta: #e22866;
       &.pricing-card-row-header {
         padding-left: 0;
         align-items: flex-start;
+      }
+    }
+
+    .showInMobile {
+      display: none;
+    }
+
+    @include media('<tablet') {
+      .showInMobile {
+        display: flex;
+      }
+      .hideInMobile {
+        display: none;
       }
     }
 
