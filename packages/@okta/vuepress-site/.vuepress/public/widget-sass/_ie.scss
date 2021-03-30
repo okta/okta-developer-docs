@@ -1,0 +1,50 @@
+.lt-ie8 {
+  .beacon-container {
+    left: 50%;
+    margin-left: -42px;
+  }
+}
+
+.lt-ie9 {
+  .input-fix {
+    input[name="phoneNumber"] {
+      border: 1px solid $input-border-color;
+    }
+  }
+
+  .auth {
+    max-height: 500px;
+    overflow: auto;
+  }
+
+  .footer {
+    position: fixed;
+    bottom: 0;
+  }
+
+  .auth-beacon-border {
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    top: -2px;
+  }
+
+  // The copyright includes a link to www.okta.com
+  // Our home page does not render in IE8 and below.
+  // So we remove the link for older browsers.
+  /* stylelint-disable selector-max-id */
+  #copyright a {
+    text-decoration: none;
+
+    &:hover {
+      cursor: pointer;
+      color: #f00;
+    }
+  }
+  /* stylelint-enable selector-max-id */
+
+  .beacon-blank {
+    display: none;
+  }
+
+}

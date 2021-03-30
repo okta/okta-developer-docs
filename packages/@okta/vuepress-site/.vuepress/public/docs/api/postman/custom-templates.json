@@ -1,0 +1,329 @@
+{
+	"info": {
+		"_postman_id": "8f0e383a-2edb-4e40-befa-affc5316980d",
+		"name": "Custom Templates (Okta API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "SMS",
+			"item": [
+				{
+					"name": "Get List of SMS templates",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/sms",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"sms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get List of SMS templates with parameter",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/sms?templateType=SMS_VERIFY_CODE",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"sms"
+							],
+							"query": [
+								{
+									"key": "templateType",
+									"value": "SMS_VERIFY_CODE"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add new SMS template",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Custom\",\n  \"type\": \"SMS_VERIFY_CODE\",\n  \"template\": \"${org.name}: your verification code is ${code}\",\n  \"translations\": \n  {\n     \"es\" : \"${org.name}: el código de verificación es ${code}\",\n     \"fr\" : \"${org.name}: votre code de vérification est ${code}\",\n     \"it\" : \"${org.name}: il codice di verifica è ${code}\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/sms",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"sms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update SMS template",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Custom\",\n  \"type\": \"SMS_VERIFY_CODE\",\n  \"template\": \"Your ${org.name} code is: ${code}\",\n  \"translations\": \n  {\n     \"es\" : \"Tu c\\u00f3digo de ${org.name} es: ${code}.\",\n     \"fr\" : \"Votre code ${org.name}: ${code}.\",\n     \"it\" : \"Il codice ${org.name} \\u00e8: ${code}.\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/sms/{{templateId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"sms",
+								"{{templateId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Partial Update SMS template - add new translation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"translations\": \n  {\n     \"de\" : \"${org.name}: ihre bestätigungscode ist ${code}.\"\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/sms/{{templateId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"sms",
+								"{{templateId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Partial Update SMS template - change template attribute",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Custom Enrollment\"\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/sms/{{templateId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"sms",
+								"{{templateId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get SMS template",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/templates/sms/{{templateId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"sms",
+								"{{templateId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete SMS template ",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/templates/sms/{{templateId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"templates",
+								"sms",
+								"{{templateId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

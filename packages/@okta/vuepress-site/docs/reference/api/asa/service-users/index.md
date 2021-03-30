@@ -13,7 +13,7 @@ The [Advanced Server Access (ASA) API](/docs/reference/api/asa/introduction/) is
 
 Advanced Server Access (ASA) Service Users are used to access the ASA API. ASA Service Users are provided tokens for authentication and authorization against the service.
 
-Explore the Service Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/run-collection/fba803e43a4ae53667d4).
+Explore the Service Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3).
 
 
 ## Service Users API operations

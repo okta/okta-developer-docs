@@ -2,8 +2,6 @@
 title: Overview
 ---
 
-<ApiLifecycle access="ea" />
-
 If you want users to acknowledge and accept that they are giving an app access to their data, you can configure an Okta-hosted user consent dialog box for OAuth 2.0 or OpenID Connect authentication flows. With the correct configuration, Okta displays a consent dialog box that shows which app is asking for access. The dialog box displays the app logo that you specify and also provides details about what data is shared if the user consents.
 
 This guide assumes that you:

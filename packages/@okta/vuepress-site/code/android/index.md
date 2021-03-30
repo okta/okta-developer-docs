@@ -30,7 +30,7 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 The Okta OpenID Connect (OIDC) Android SDK is for communicating with OAuth 2.0 and OIDC providers.
 
-The [Okta OIDC Android SDK](https://github.com/okta/okta-oidc-android#requirements) supports Android 5.0 (lolipop) and above (minSdkVersion >= 21).
+The [Okta OIDC Android SDK](https://github.com/okta/okta-oidc-android#requirements) supports Android 5.0 (Lollipop) and above (minSdkVersion >= 21).
 
 <a href='https://github.com/okta/okta-oidc-android'>
 	<span class='fa fa-github'></span> <span>Android SDK Source</span>
@@ -56,7 +56,7 @@ The [Okta OIDC Android SDK](https://github.com/okta/okta-oidc-android#requiremen
 ## Recommended Guides
 
 
-- [Implementing the Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/)
+- [Implementing the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/)
 - [Social Login](/docs/concepts/social-login/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)

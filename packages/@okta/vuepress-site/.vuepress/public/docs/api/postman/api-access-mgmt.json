@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "0504d24d-68a2-4a80-bc5b-685e693cefd4",
+		"_postman_id": "00416907-51ba-46d7-89e1-495c07a25927",
 		"name": "API Access Management (OAuth 2.0)  (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -119,8 +119,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "OAuth2 Claim Operations",
@@ -310,8 +309,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "OAuth2 Scope Operations",
@@ -501,8 +499,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Resource Access Policy Operations",
@@ -774,8 +771,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Resource Access Policy Rule Operations",
@@ -1061,8 +1057,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Get OpenID Provider Metadata",
@@ -2761,6 +2756,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

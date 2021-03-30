@@ -4,6 +4,28 @@ title: Okta API Products Release Notes
 
 ## March
 
+### Weekly Release 2021.03.3
+
+| Change                                                    | Expected in Preview Orgs |
+| --------------------------------------------------------- | ------------------------ |
+| [Bug fixed in 2021.03.3](#bug-fixed-in-2021-03-3)         | March 25, 2021           |
+
+#### Bug fixed in 2021.03.3
+
+When an OAuth2 request was made with an access token instead of a required ID token, the error message didn't clarify that the request was made with the wrong token.
+
+### Weekly Release 2021.03.2
+
+| Change                                                    | Expected in Preview Orgs |
+| --------------------------------------------------------- | ------------------------ |
+| [Bugs fixed in 2021.03.2](#bugs-fixed-in-2021-03-2)       | March 17, 2021           |
+
+#### Bugs fixed in 2021.03.2
+
+* After updating a Group `name` using the [Groups API](/docs/reference/api/groups/#update-group), the change wasn't reflected in the target application with [**Group Push**](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Using_Group_Push) enabled. (OKTA-375190)
+
+* When creating a User with a recovery question using an OAuth access token rather than an API token, an invalid session error was returned. (OKTA-361888)
+
 ### Weekly Release 2021.03.1
 
 | Change                                                    | Expected in Preview Orgs |
@@ -28,7 +50,7 @@ title: Okta API Products Release Notes
 
 #### The SAML 2.0 Assertion grant flow is now Self-Service Early Access (EA)
 
-The SAML 2.0 Assertion grant flow is now Self-Service EA. You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion Flow](/docs/guides/implement-saml2/overview/).<!--OKTA-373421-->
+The SAML 2.0 Assertion grant flow is now Self-Service EA. You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-saml2/overview/).<!--OKTA-373421-->
 
 #### The Okta Org API is now GA
 
@@ -91,7 +113,6 @@ To be compliant with the [RFC for JSON data interchange format](https://tools.ie
 
 When performing a GET on the [`/oauth2/v1/clients` endpoint](/docs/reference/api/oauth-clients/#list-client-applications) on an org that has a deactivated OIN client, a "404 resource not found" error occurred. (OKTA-365031)
 
-
 ## January
 
 ### Weekly Release 2021.01.1
@@ -104,7 +125,7 @@ When performing a GET on the [`/oauth2/v1/clients` endpoint](/docs/reference/api
 
 * Active Directory (AD) bulk imports and RealTimeSync (RTS) failed when the Microsoft AD user profile contained `tokenGroups`, `tokenGroupsGlobalAndUniversal`, or `tokenGroupsNoGCAcceptable` attributes. (OKTA-354900)
 
-* In the SmartSheet provisioning profile, admins were unable to change the **Group Priority** setting to **Combine values across groups** for the `smartsheet.userPermissions` variable. The error message “Not allowed to modify property userPermissions from the base schema” was returned. (OKTA-325187)
+* In the SmartSheet provisioning profile, admins were unable to change the **Group Priority** setting to **Combine values across groups** for the `smartsheet.userPermissions` variable. The error message "Not allowed to modify property userPermissions from the base schema" was returned. (OKTA-325187)
 
 
 ### Monthly Release 2021.01.0

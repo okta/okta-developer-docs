@@ -317,12 +317,17 @@ module.exports = {
               '/docs/guides/sign-into-web-app-remediation/get-tokens/',
               '/docs/guides/sign-into-web-app-remediation/next-steps/',
               '/docs/reference/api/authenticators-admin/',
-              '/docs/guides/third-party-risk-integration/overview/', //Beta release of Risk APIs and Guide
+              '/docs/guides/third-party-risk-integration/', //Beta release of Risk APIs and Guide
+              '/docs/guides/third-party-risk-integration/overview/',
               '/docs/guides/third-party-risk-integration/create-service-app/',
               '/docs/guides/third-party-risk-integration/update-default-provider/',
               '/docs/guides/third-party-risk-integration/test-integration/',
               '/docs/reference/api/risk-providers/',
-              '/docs/reference/api/risk-events/'
+              '/docs/reference/api/risk-events/',
+              '/docs/reference/api/iam-roles/',
+              '/docs/concepts/role-assignment/',
+              '/docs/guides/migrate-to-oie/',
+              '/docs/guides/ie-intro/'
           ]
         }
       ]
