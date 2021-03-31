@@ -55,10 +55,11 @@ $magenta: #e22866;
     font: inherit;
   }
 
-  .Button--red, .Button--whiteOutline {
+  .Button--red {
     text-transform: uppercase;
     letter-spacing: 2px;
     white-space: nowrap;
+    text-align: center;
   }
 
   .pricing--leader {
@@ -273,10 +274,6 @@ $magenta: #e22866;
         @include media('<tablet') {
           height: auto;
         }
-      }
-
-      .Button--red {
-        text-align: center;
       }
     }
 
