@@ -167,22 +167,22 @@
                 <div class="selector-lozenge large multiple">
                   <button
                     class="lozenge"
-                    :class="{ active: selectedPlan === 'starter' }"
-                    @click="selectPlan('starter')"
+                    :class="{ active: selectedPlan === PLANS.STARTER }"
+                    @click="selectPlan(PLANS.STARTER)"
                   >
                     Starter
                   </button>
                   <button
                     class="lozenge"
-                    :class="{ active: selectedPlan === 'advanced' }"
-                    @click="selectPlan('advanced')"
+                    :class="{ active: selectedPlan === PLANS.ADVANCED }"
+                    @click="selectPlan(PLANS.ADVANCED)"
                   >
                     Advanced
                   </button>
                   <button
                     class="lozenge"
-                    :class="{ active: selectedPlan === 'enterprise' }"
-                    @click="selectPlan('enterprise')"
+                    :class="{ active: selectedPlan === PLANS.ENTERPRISE }"
+                    @click="selectPlan(PLANS.ENTERPRISE)"
                   >
                     Enterprise
                   </button>
@@ -210,17 +210,17 @@
                   </div>
                   <div
                     class="pricing-card-column"
-                    :class="{ hideInMobile: selectedPlan !== 'starter' }"
+                    :class="{ hideInMobile: selectedPlan !== PLANS.STARTER }"
                   >
                   </div>
                   <div
                     class="pricing-card-column"
-                    :class="{ hideInMobile: selectedPlan !== 'advanced' }"
+                    :class="{ hideInMobile: selectedPlan !== PLANS.ADVANCED }"
                   >
                   </div>
                   <div
                     class="pricing-card-column"
-                    :class="{ hideInMobile: selectedPlan !== 'enterprise' }"
+                    :class="{ hideInMobile: selectedPlan !== PLANS.ENTERPRISE }"
                   >
                   </div>
                 </div>
@@ -299,6 +299,12 @@
 </template>
 
 <script>
+const PLANS = {
+  STARTER: 'starter',
+  ADVANCED: 'advanced',
+  ENTERPRISE: 'enterprise',
+};
+
 export default {
   components: {
     CompanyLogos: () => import("../components/CompanyLogos"),
@@ -306,7 +312,7 @@ export default {
   },
   data: () => ({
     selectedLozengeIndex: 1,
-    selectedPlan: 'starter',
+    selectedPlan: PLANS.STARTER,
     collapsibleShownStates: {
       compareTable: false,
       faq0: false,
@@ -324,6 +330,9 @@ export default {
     toggleCollapsibleShown(itemName) {
       this.$set(this.collapsibleShownStates, itemName, !this.collapsibleShownStates[itemName]);
     },
+  },
+  created() {
+    this.PLANS = PLANS;
   },
 };
 </script>
