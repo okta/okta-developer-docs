@@ -55,6 +55,9 @@
         text-align: justify;
         max-width: inherit;
         margin: 24px 0 10px 0;
+        p {
+          max-width: 100%;
+        }
       }
 
       .consent--section-agree {

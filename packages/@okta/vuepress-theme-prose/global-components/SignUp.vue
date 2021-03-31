@@ -175,36 +175,33 @@
         </div>
 
         <div class="consent--section" v-show="displayConsent">
-          <p class="consent--section-text">
-            By clicking “SIGN UP” I agree to the applicable Free Trial terms in
-            <SmartLink :item="{ link: '/terms/', target: '_blank' }"
-              >Okta’s Terms of Service</SmartLink
-            >
-            during my use of the Free Trial Service and Okta’s
-            <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }"
-              >Privacy Policy</SmartLink
-            >. I further agree that Okta may contact me with marketing
-            communications (details on how to unsubscribe are located in the
-            Privacy Policy link).
-          </p>
+          <div class="consent--section-text">
+            <p>
+              By clicking “SIGN UP” I agree to the applicable Free Trial terms
+              in
+              <SmartLink :item="{ link: '/terms/', target: '_blank' }"
+                >Okta’s Terms of Service</SmartLink
+              >
+              during my use of the Free Trial Service and Okta’s
+              <SmartLink :item="{ link: 'https://www.okta.com/privacy-policy' }"
+                >Privacy Policy</SmartLink
+              >.
+            </p>
+            <p>
+              I agree that Okta may contact me with marketing communications.
+              See Privacy Policy for details on how to unsubscribe.
+            </p>
+          </div>
           <div class="consent--section-agree" v-show="displayAgree">
             <label for="agree-checkbox">
               <input
                 type="checkbox"
                 name=""
                 id="agree-checkbox"
-                @change="
-                  validationService.checkFormCheckboxInput('consentAgree')
-                "
                 v-model="form.consentAgree.value"
               />
-              I agree
+              I agree (Optional)
             </label>
-            <span
-              class="error-color error-msg"
-              v-if="form.consentAgree.errorList.length"
-              >{{ validationService.errorDictionary.emptyField }}</span
-            >
           </div>
         </div>
       </form>
@@ -354,7 +351,6 @@ export default {
       this.validationService.checkFormInput("country");
       this.validationService.checkEmailInput("email");
       this.validationService.checkFormInput("state");
-      this.validationService.checkFormCheckboxInput("consentAgree");
       this.validationService.checkFormInput("captcha");
 
       if (this.validationService.isValidForm()) {
