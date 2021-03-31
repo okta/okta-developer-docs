@@ -5,9 +5,7 @@
       <SmartLink
         :item="{ link: 'mailto:developers@okta.com' }"
         classes="link link--underline"
-      >
-        developers@okta.com
-      </SmartLink>
+      >developers@okta.com</SmartLink>
       or ask on the
       <SmartLink
         :item="{ link: config.forum_url, target: '_self' }"
