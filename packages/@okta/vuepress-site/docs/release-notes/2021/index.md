@@ -8,9 +8,9 @@ title: Okta API Products Release Notes
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
-| [Okta Sign-In Widget, version 5.5.0](#okta-sign-in-widget-version-550) | March 31, 2021 |
-| [Custom Domain API now in EA in Preview](#custom-domain-api-is-now-in-ea-in-preview) | March 31, 2021 |
-| [Groups API extended search now GA in Production](#groups-api-extended-search-is-now-ga-in-production) | March 31, 2021 |
+| [Okta Sign-In Widget, version 5.5.0](#okta-sign-in-widget-version-550) | April 1, 2021 |
+| [Custom Domain API now in EA in Preview](#custom-domain-api-is-now-in-ea-in-preview) | April 1, 2021 |
+| [Groups API extended search now GA in Production](#groups-api-extended-search-is-now-ga-in-production) | April 1, 2021 |
 
 #### Okta Sign-In Widget, version 5.5.0
 
