@@ -212,16 +212,24 @@
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <a class="btn social-btn" :href="uris.github">
-            Continue With GitHub
-          </a>
+          <input
+            type="button"
+            id="continue-github"
+            value="continue with github"
+            class="btn social-btn"
+            @click="openTermsConditionsDialog(uris.github)"
+          />
         </div>
       </div>
       <div class="row">
         <div class="field-wrapper">
-          <a class="btn social-btn" :href="uris.google">
-            Continue With Google
-          </a>
+          <input
+            type="button"
+            id="continue-google"
+            class="btn social-btn"
+            value="continue with google"
+            @click="openTermsConditionsDialog(uris.google)"
+          />
         </div>
       </div>
       <div class="row goto-signin">
@@ -235,6 +243,11 @@
         <CompanyLogos withHeading small v-bind:centered="false" />
       </div>
     </div>
+    <TermsAndConditionsDialog
+      v-if="isShowTermsConditionsDialog"
+      :socialUrl="socialUrl"
+      @close="closeTermsConditionsDialog()"
+    ></TermsAndConditionsDialog>
   </div>
 </template>
 
@@ -245,7 +258,7 @@ import { Api } from "../util/api.service";
 import {
   countriesList,
   americanStates,
-  canadaProvinces,
+  canadianProvinces,
   GDPR_COUNTRIES
 } from "../const/signup.const";
 import setHiddenUtmValues from "../util/attribution/attribution";
@@ -261,10 +274,14 @@ export default {
   components: {
     VueRecaptcha,
     CompanyLogos: () => import("../components/CompanyLogos"),
-    SmartLink: () => import("../components/SmartLink")
+    SmartLink: () => import("../components/SmartLink"),
+    TermsAndConditionsDialog: () =>
+      import("../components/TermsAndConditionsDialog")
   },
   data() {
     return {
+      isShowTermsConditionsDialog: false,
+      socialUrl: "",
       state: { label: "", list: [] },
       displayConsent: false,
       displayAgree: false,
@@ -299,7 +316,7 @@ export default {
           this.state.list = americanStates;
           this.state.label = "State";
         } else if (country === CANADA) {
-          this.state.list = canadaProvinces;
+          this.state.list = canadianProvinces;
           this.state.label = "Province";
         } else {
           this.state.list = [];
@@ -426,6 +443,13 @@ export default {
         value: ""
       });
       this.validationService.checkFormInput("captcha");
+    },
+    closeTermsConditionsDialog() {
+      this.isShowTermsConditionsDialog = false;
+    },
+    openTermsConditionsDialog(url) {
+      this.socialUrl = url;
+      this.isShowTermsConditionsDialog = true;
     }
   },
   beforeMount() {
