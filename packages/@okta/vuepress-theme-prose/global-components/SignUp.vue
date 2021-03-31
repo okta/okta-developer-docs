@@ -188,9 +188,8 @@
               >.
             </p>
             <p>
-              I further agree that Okta may contact me with marketing
-              communications (details on how to unsubscribe are located in the
-              Privacy Policy link).
+              I agree that Okta may contact me with marketing communications.
+              See Privacy Policy for details on how to unsubscribe.
             </p>
           </div>
           <div class="consent--section-agree" v-show="displayAgree">
@@ -201,7 +200,7 @@
                 id="agree-checkbox"
                 v-model="form.consentAgree.value"
               />
-              I agree
+              I agree (Optional)
             </label>
           </div>
         </div>
