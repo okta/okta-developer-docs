@@ -79,7 +79,7 @@
                 </p>
                 <SmartLink
                   :item="{ link: $page.frontmatter.links.signup }"
-                  classes="Button--red"
+                  classes="Button--redOutline"
                 >
                   Try For Free
                 </SmartLink>
@@ -127,7 +127,7 @@
                 </p>
                 <SmartLink
                   :item="{ link: $page.frontmatter.links.signup }"
-                  classes="Button--red"
+                  classes="Button--redOutline"
                 >
                   Contact Us
                 </SmartLink>

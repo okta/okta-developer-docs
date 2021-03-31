@@ -284,6 +284,22 @@
 	}
 }
 
+.Button--redOutline {
+	@extend %Button;
+
+	&,
+	&:active,
+	&:hover {
+		background-color: transparent;
+		border-color: cv('cerise');
+		color: cv('gray', '000');
+	}
+
+	&:visited {
+		color: cv('gray', '000');
+	}
+}
+
 .Button--blue,
 .Button--red {
 	&[target='_blank']:not([href^='mailto:'])::after {
