@@ -84,12 +84,12 @@ tableHeadings:
         name: Okta Access Gateway (OAG)
       custIdentWorkflows:
         name: Workflows for Customer Identity
+      dynamicScale:
+        name: DynamicScale
       oktaAsa:
         name: Okta Advanced Server Access
       oktaWorkforceIdent:
         name: Okta Workforce Identity Products
-      dynamicScale:
-        name: DynamicScale
       volumeDiscounts:
         name: Volume Discounts
       sandbox:
@@ -108,7 +108,7 @@ tableData:
     pricing:
       price: $0
     usage:
-      mauLimit: 15k
+      mauLimit: 15,000
       cumulRateLimit: 1,600
       support: Community
       oidcApps: Up to 5
@@ -136,9 +136,9 @@ tableData:
       orgCreateApi: False
       oag: False
       custIdentWorkflows: False
+      dynamicScale: False
       oktaAsa: False
       oktaWorkforceIdent: False
-      dynamicScale: False
       volumeDiscounts: False
       sandbox: False
       regulatoryCellHipaaFedRamp: False
@@ -149,7 +149,7 @@ tableData:
     pricing:
       price: $400/mo or $1000/mo
     usage:
-      mauLimit: 20k or 50k
+      mauLimit: 20,000 or 50,000
       cumulRateLimit: 8,400
       support: Community + Email
       oidcApps: Unlimited
@@ -177,9 +177,9 @@ tableData:
       orgCreateApi: False
       oag: False
       custIdentWorkflows: False
+      dynamicScale: False
       oktaAsa: False
       oktaWorkforceIdent: False
-      dynamicScale: False
       volumeDiscounts: False
       sandbox: False
       regulatoryCellHipaaFedRamp: False
@@ -218,9 +218,9 @@ tableData:
       orgCreateApi: True
       oag: True
       custIdentWorkflows: True
+      dynamicScale: True
       oktaAsa: True
       oktaWorkforceIdent: True
-      dynamicScale: True
       volumeDiscounts: True
       sandbox: True
       regulatoryCellHipaaFedRamp: True

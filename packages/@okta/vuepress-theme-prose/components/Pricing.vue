@@ -41,7 +41,7 @@
                   <li>Customizable sign-in widget and domain</li>
                   <li>Adaptive MFA</li>
                   <li>Threat detection with ThreatInsight</li>
-                  <li>B2B integration </li>
+                  <li>B2B Integration</li>
                   <li>99.99% availability</li>
                   <li>Community support</li>
                 </ul>
