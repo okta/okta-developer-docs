@@ -16,7 +16,7 @@ This guide will walk you through integrating authentication into a React app wit
 7. [Connect the Routes](#connect-the-routes)
 8. [Start Your App](#start-your-app)
 
-> This guide is for `@okta/okta-signin-widget` v5.2.0, `@okta/okta-react` v4.1.0 and `okta-auth-js` v4.5.0.
+> This guide is for `@okta/okta-signin-widget` v5.5.0, `@okta/okta-react` v5.0.0 and `okta-auth-js` v4.8.0.
 
 ## Prerequisites
 
@@ -87,6 +87,7 @@ const oktaSignInConfig = {
     // you will need to uncomment the below line
     // pkce: false
   }
+  // Additional documentation on config options can be found at https://github.com/okta/okta-signin-widget#basic-config-options
 };
 
 export { oktaAuthConfig, oktaSignInConfig };
@@ -259,11 +260,16 @@ const AppWithRouterAccess = () => {
   const customAuthHandler = () => {
     history.push('/login');
   };
+  
+  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
+    history.replace(toRelativeUrl(originalUri, window.location.origin));
+  };
 
   return (
     <Security
       oktaAuth={oktaAuth}
       onAuthRequired={customAuthHandler}
+      restoreOriginalUri={restoreOriginalUri}
     >
       <Switch>
         <Route path='/' exact={true} component={Home} />
