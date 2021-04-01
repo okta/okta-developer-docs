@@ -70,8 +70,10 @@
   input.red-button {
     background: cv("cerise", "base");
     color: $white;
+    font-family: inherit;
     font-size: 15px;
-    line-height: 17px;
+    font-weight: 600;
+    line-height: 16px;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-align: center;
@@ -80,6 +82,8 @@
   }
 
   a.btn {
+    font-family: inherit;
+    font-weight: 600;
     display: block;
     background-color: cv("cerise", "base");
     padding: 10px 20px 9px;
