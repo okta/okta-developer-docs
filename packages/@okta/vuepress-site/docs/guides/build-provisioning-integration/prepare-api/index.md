@@ -90,7 +90,7 @@ If your integration supports user attributes beyond those four base attributes, 
 
 In addition to the basic user schema attributes, your SCIM API must also specify a unique identifier for each user resource.
 
-[Section 3.1](https://tools.ietf.org/html/rfc7643#section-3.1) of the SCIM specification asserts that the `id` attribute is used to uniquely identify resources. This unique identifier:
+[Section 3.1](https://tools.ietf.org/html/rfc7643#section-3.1) of the SCIM specification asserts that the `id` attribute is used to identify resources. This unique identifier:
 
 - Is assigned a value by the service provider (your application) for each SCIM resource
 - Is always issued by the service provider (your application) and not specified by the client (Okta)
