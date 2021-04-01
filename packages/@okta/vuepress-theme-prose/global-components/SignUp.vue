@@ -369,6 +369,10 @@ export default {
           },
         };
 
+        if (this.isOie) {
+          body.userProfile.okta_oie = true;
+        }
+
         this.isPending = true;
 
         this.apiService
