@@ -40,9 +40,9 @@ export default {
     return {
       activeAnchor: null,
       anchors: [],
-      sidebarAnchors: [],
       anchorOffsetPairs: [],
-      sidebarAnchorsOffsetPairs: [],
+      onThisPageAnchors: [],
+      onThisPageAnchorsOffsetPairs: [],
       paddedHeaderHeight: 0
     };
   },
@@ -91,20 +91,20 @@ export default {
     }, 200),
 
     captureAnchors: function() {
-      const sidebarLinks = [].slice.call(
+      const onThisPageLinks = [].slice.call(
         document.querySelectorAll(".on-this-page-link")
       );
       this.anchors = [].slice.call(document.querySelectorAll(".header-anchor"));
-      this.sidebarAnchors = this.anchors.filter(anchor =>
-        sidebarLinks.some(sidebarLink => sidebarLink.hash === anchor.hash)
+      this.onThisPageAnchors = this.anchors.filter(anchor =>
+        onThisPageLinks.some(sidebarLink => sidebarLink.hash === anchor.hash)
       );
       const anchorOffsets = this.anchors.map(
         anchor => anchor.parentElement.offsetTop
       );
-      const sidebarAnchorOffsets = this.sidebarAnchors.map(
+      const sidebarAnchorOffsets = this.onThisPageAnchors.map(
         anchor => anchor.parentElement.offsetTop
       );
-      this.sidebarAnchorsOffsetPairs = sidebarAnchorOffsets.map(
+      this.onThisPageAnchorsOffsetPairs = sidebarAnchorOffsets.map(
         (anchorOffset, index, anchorOffsets) => [
           anchorOffset,
           anchorOffsets[index + 1]
@@ -132,7 +132,7 @@ export default {
             (!pair[1] || scrollTop < pair[1] - this.paddedHeaderHeight),
           this
         );
-        const sidebarMatchingPair = this.sidebarAnchorsOffsetPairs.find(
+        const onThisPageMatchingPair = this.onThisPageAnchorsOffsetPairs.find(
           pair =>
             scrollTop >= pair[0] - this.paddedHeaderHeight &&
             (!pair[1] || scrollTop < pair[1] - this.paddedHeaderHeight),
@@ -141,15 +141,19 @@ export default {
 
         const activeAnchor = matchingPair
           ? this.anchors[this.anchorOffsetPairs.indexOf(matchingPair)]
-          : this.anchors[0];
-        const sidebarActiveAnchor = matchingPair
-          ? this.sidebarAnchors[this.sidebarAnchorsOffsetPairs.indexOf(sidebarMatchingPair)]
-          : this.sidebarAnchors[0];
+          : null
+        const onThisPageActiveAnchor = matchingPair
+          ? this.onThisPageAnchors[this.onThisPageAnchorsOffsetPairs.indexOf(onThisPageMatchingPair)]
+          : null;
         if (activeAnchor) {
           this.historyReplaceAnchor(activeAnchor.hash);
+        } else {
+          this.historyReplaceAnchor("");
         }
-        if (sidebarActiveAnchor) {
-          this.activeAnchor = sidebarActiveAnchor.hash;
+        if (onThisPageActiveAnchor) {
+          this.activeAnchor = onThisPageActiveAnchor.hash;
+        } else {
+          this.activeAnchor = "";
         }
       },
       200,
