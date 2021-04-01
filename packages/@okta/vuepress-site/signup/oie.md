@@ -9,9 +9,9 @@ Create a Developer Edition org with Identity engine enabled.
 
 Identity engine is still in development and not yet generally available. Orgs created here are not intended for production use.
 
-Learn more about Identity engine
+<a href="#TODO-REPLACE">Learn more about Identity engine</a>
 
-Create a regular Developer Edition org instead
+<a href="/signup/">Create a regular Developer Edition org instead</a>
 
 :::
 
