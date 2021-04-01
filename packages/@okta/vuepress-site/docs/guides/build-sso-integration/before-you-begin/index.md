@@ -8,7 +8,7 @@ After you have decided which protocol is right for your needs, you need to gathe
 
 ## Support
 
-If you have questions at any point during the creation of your integration, send an email to <developers@okta.com> or research your questions on a relevant developer site:
+If you have questions at any point during the creation of your integration, research your questions on a relevant developer site:
 
 OIDC
 

@@ -281,4 +281,4 @@ SAML implementation, Okta's in-depth
 is a great place to learn more.
 
 Finally, if you got this far in this guide and still have questions,
-please reach out to us at: <developers@okta.com>
+post your questions on the [Okta developer forum](https://devforum.okta.com/).
