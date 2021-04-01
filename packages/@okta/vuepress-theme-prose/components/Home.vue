@@ -145,6 +145,7 @@
 
 <script>
 import CompanyLogos from "./CompanyLogos.vue";
+
 const SIDE_BY_SIDE_BREAKPOINT = 1200;
 
 export default {
