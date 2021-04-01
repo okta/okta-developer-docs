@@ -2,21 +2,30 @@
 title: Reference overview
 ---
 
-# Reference overview
+# Reference 
 
 Details on parameters, requests, and responses for Okta's API endpoints.
 
-Okta APIs generally fall into one of two categories: signing in your users or managing
-resources in your Okta org.
 
-## Sign in your Users
-API endpoints to authenticate your users, challenge for factors, recover passwords, and more.
-  - The [Authentication Api](/docs/reference/api/authn) controls user accesss to Okta.
-  - The [OpenID Connect & OAuth 2.0 API](/docs/concepts/oauth-openid) controls users access to your applications.
 
-[Learn about which APIs to use.](/docs/concepts/oauth-openid/#authentication-api-vs-oauth-20-vs-openid-connect)
+## Core Okta APIs
+Core Okta API is the primary way that apps and services interact with Okta. You can use it to sign in your users and manage Okta objects.
 
-## Manage Okta objects
-REST endpoints configure resources such as users, apps, sessions, and factors when needed.
+[Explore core Okta API](/docs/reference/core-okta-api/)
 
-For example, see the [Users API](/docs/reference/api/users) for CRUD operations on users.
+<Cards><Card href="/docs/concepts/authentication/" :showHeaderIcon=false cardTitle="Postman Collections" :showFooter=true>Import any Okta API collection for Postman.</Card><Card href="/docs/concepts/oauth-openid/" :showHeaderIcon=false cardTitle="Advanced Service Access API" :showFooter=true>Scale your controls of servers via automation.</Card></Cards>
+
+<HorizontalDivider/>
+
+## Inline Hooks 
+
+Inline hooks allow you to integrate custom functionality into specifc Okta process flows. 
+For example, you can migrate users from another data store and keep user’s current password with [Password Inline Hook](/docs/reference/password-hook/).
+
+
+<HorizontalDivider/>
+
+## Okta Expression Language
+Expressions allow you to reference, transform, and combine attributes before you store or parse them.
+
+[Learn more](/docs/reference/okta-expression-language/)

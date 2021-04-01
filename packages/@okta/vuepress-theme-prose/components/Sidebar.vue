@@ -20,6 +20,7 @@ import {
   guides,
   languagesSdk,
   reference,
+  referenceRefactor,
   releaseNotes
 } from "../const/navbar.const";
 
@@ -89,7 +90,7 @@ export default {
         homeLink,
         ...this.getGuides(),
         ..._.cloneDeep(concepts),
-        ..._.cloneDeep(reference),
+        ..._.cloneDeep(referenceRefactor),
         ..._.cloneDeep(languagesSdk),
         ..._.cloneDeep(releaseNotes),
       ];
