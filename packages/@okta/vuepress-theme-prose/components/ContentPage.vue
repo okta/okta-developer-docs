@@ -37,6 +37,7 @@ export default {
   methods: {
     onURLAnchorChange() {
       let anchor = window.location.href.split("#")[1];
+      
       if (anchor) {
         this.scrollToAnchor(`#${anchor}`);
       } else {

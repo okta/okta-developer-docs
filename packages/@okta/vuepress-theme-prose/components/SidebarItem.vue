@@ -75,7 +75,6 @@ export default {
       this.setData();
     },
     iHaveChildrenActive(isActivated, _) {
-      console.log(this.link);
       if (isActivated) {
         // element.scrollIntoViewIfNeeded is not supported by Firefox
         if (this.$el.scrollIntoViewIfNeeded) {

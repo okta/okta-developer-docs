@@ -59,10 +59,12 @@ export default {
     this.paddedHeaderHeight =
       document.querySelector(".fixed-header").clientHeight +
       LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
-    this.$nextTick(() => {
-      this.captureAnchors();
-      this.handleScroll();
-      this.setActiveHash();
+    window.addEventListener("load", () => {
+      this.$nextTick(() => {
+        this.captureAnchors();
+        this.handleScroll();
+        this.setActiveHash();
+      });
     });
     window.addEventListener("scroll", this.handleScroll);
     window.addEventListener("scroll", this.setActiveHash);
@@ -141,9 +143,11 @@ export default {
 
         const activeAnchor = matchingPair
           ? this.anchors[this.anchorOffsetPairs.indexOf(matchingPair)]
-          : null
+          : null;
         const onThisPageActiveAnchor = matchingPair
-          ? this.onThisPageAnchors[this.onThisPageAnchorsOffsetPairs.indexOf(onThisPageMatchingPair)]
+          ? this.onThisPageAnchors[
+              this.onThisPageAnchorsOffsetPairs.indexOf(onThisPageMatchingPair)
+            ]
           : null;
         if (activeAnchor) {
           this.historyReplaceAnchor(activeAnchor.hash);
