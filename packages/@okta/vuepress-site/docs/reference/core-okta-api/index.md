@@ -15,7 +15,7 @@ API endpoints to authenticate your users, challenge for factors, recover passwor
 
 ## Manage Okta Objects
 REST endpoints to configure objects whenever you need. For example:
-- Use [Apps API](docs/reference/api/apps/) to manage applications and/or assignments to users or groups.
+- Use [Apps API](/docs/reference/api/apps/) to manage applications and/or assignments to users or groups.
 - See the [Users API](/docs/reference/api/users) for CRUD operations on users.
 - Use the [Sessions API](/docs/reference/api/sessions/) to create and manage user's authentication sessions. 
 - Use the [Policy API](/docs/reference/api/policy/) to create and manage settings such as user session lifetime. 
