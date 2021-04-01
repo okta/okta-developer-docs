@@ -12,7 +12,7 @@ Use these steps to create a Groups claim for an OpenID Connect client applicatio
 
 ### Request an ID token that contains the Groups claim
 
-To test the full authentication flow that returns an ID token, build your request URL. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the claim</GuideLink>.
+To test the full authentication flow that returns an ID token, build your request URL. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the custom claim</GuideLink>.
 
 > **Note:** The scopes that you need to include as query parameters are `openid` and `groups`.
 

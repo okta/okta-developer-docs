@@ -1,5 +1,5 @@
 ---
-title: Request a token that contains a custom claim
+title: Request a token that contains the custom claim
 ---
 There are sections in this guide that include information on building a URL to request a claim. These sections refer you to this page for the specific steps to build the URL to request a claim and decode the JWT to verify that the claim was included in the token. Specific request and payload examples remain in the appropriate sections. Move on to the section for the claim that you want to create if you don't currently need these steps.
 
