@@ -246,7 +246,7 @@ Create `src/AppWithRouterAccess.js` and include your project components and rout
 import React from 'react';
 import { Route, useHistory, Switch } from 'react-router-dom';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
-import { OktaAuth } from '@okta/okta-auth-js';
+import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import Home from './Home';
 import Login from './Login';
 import Protected from './Protected';
