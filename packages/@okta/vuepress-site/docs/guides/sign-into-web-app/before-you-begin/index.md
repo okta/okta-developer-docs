@@ -24,6 +24,6 @@ See the [OAuth 2.0 for Browser-Based Apps specification](https://tools.ietf.org/
 
 ## Support
 
-If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+If you need help or have an issue, post a question on the [Okta Developer Forums](https://devforum.okta.com).
 
 <NextSectionLink/>

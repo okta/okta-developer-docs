@@ -46,7 +46,7 @@ If the Okta OIN team identifies any issues in the initial review and QA testing 
 
 Getting your app integration in the OIN catalog involves two phases: creating a functional integration and submitting it through the OIN publication process. For each phase in the process, Okta has an associated support stream to assist you.
 
-When you are constructing your Okta integration, you can post a question on the [Okta developer forum](https://devforum.okta.com/).
+When you are constructing your Okta integration, you can post a question on the [Okta Developer Forums](https://devforum.okta.com/).
 
 When you are troubleshooting a submission or need to know the current publication status, sign in to the [OIN Manager](https://oinmanager.okta.com) using your dev credentials. You can make any necessary changes to your submission there. If you have questions or need additional support to publish your app integration, you can reach out to the Okta OIN team directly at <oin@okta.com>.
 
