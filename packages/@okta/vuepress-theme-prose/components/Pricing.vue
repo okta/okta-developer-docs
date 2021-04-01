@@ -10,246 +10,268 @@
           </p>
         </div>
       </div>
-      <div class="pricing--background-curve">
-        <img src="/img/curve-doubleLeft.png" />
-      </div>
-      <div class="pricing-alt-bg">
-        <div class="pricing--container">
-          <div class="pricing--costs">
-            <div class="pricing-section pricing-card-intro">
-              <div class="pricing-card">
-                <div class="pricing-card-column">
-                  <h3>Add Auth in minutes (with no credit card)</h3>
-                  <div class="pricing-card-price">
-                    <p class="pricing-card-amount">
-                      $0
-                    </p>
-                    <p class="pricing-card-detail">
-                      per month
-                    </p>
-                  </div>
-                  <p class="pricing-card-subtitle">
-                    Up to 1,000 monthly active users
-                  </p>
-                  <SmartLink
-                    :item="{ link: $page.frontmatter.links.signup }"
-                    classes="Button--red"
-                  >
-                    Get Started Free
-                  </SmartLink>
+      <div class="pricing--container">
+        <div class="pricing--costs">
+          <div class="pricing-section">
+            <div class="pricing-card">
+              <div class="pricing-card-top">
+                <div class="selector-lozenge single">
+                  <button class="lozenge active">
+                    15k MAU
+                  </button>
                 </div>
-                <div class="pricing-card-column">
-                  <h4>Identity and access control for your app</h4>
-                  <div class="pricing-card-lists">
-                    <ul class="pricing--icon-list">
-                      <li>Authentication</li>
-                      <li>Authorization</li>
-                      <li>Basic multi-factor authentication</li>
-                    </ul>
-                    <ul class="pricing--icon-list">
-                      <li>User management</li>
-                      <li>Email support</li>
-                      <li>Customizable sign-in and registration</li>
-                    </ul>
-                  </div>
-                </div>
+                <h3>Starter</h3>
+                <p class="pricing-card-amount">
+                  $0
+                </p>
+                <p class="pricing-card-subtitle">
+                  Get up and running fast, no credit card required
+                </p>
+                <SmartLink
+                  :item="{ link: $page.frontmatter.links.signup }"
+                  classes="Button--red"
+                >
+                  Sign Up Free
+                </SmartLink>
+              </div>
+              <div class="pricing-card-bottom">
+                <ul>
+                  <li>Up to 15,000 monthly active users</li>
+                  <li>Authentication, authorization, user management</li>
+                  <li>Customizable sign-in widget and domain</li>
+                  <li>Adaptive MFA</li>
+                  <li>Threat detection with ThreatInsight</li>
+                  <li>B2B Integration</li>
+                  <li>99.99% availability</li>
+                  <li>Community support</li>
+                </ul>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="pricing--container">
-          <div class="pricing--editions">
-            <div class="pricing-section">
-              <div class="pricing-card pricing-card-table">
-                 <div class="okta-workshop-banner">
-                    Join us at Oktane21 for our Developer Talks April 6 through 8 and Developer Labs on April 9!
-                    <SmartLink classes="agenda-link" :item="{ link: 'https://www.okta.com/oktane21/agenda?filters=developer' }">
-                      Check out the developer agenda
-                    </SmartLink>
-                  </div>
-                <div class="pricing-card-row pricing-card-header">
-                  <div class="pricing-card-column desktop">
-                    <h3 class="pricing-card-table-name">Editions</h3>
-                  </div>
-                  <template
-                    v-for="(edition, index) in $page.frontmatter.editions"
+            <div class="pricing-card">
+              <div class="pricing-card-top">
+                <div class="selector-lozenge multiple">
+                  <button
+                    class="lozenge"
+                    :class="{ active: selectedLozengeIndex === 0 }"
+                    @click="selectLozenge(0)"
                   >
-                    <div class="pricing-card-column" v-bind:key="edition.name">
-                      <div class="pricing-card-column-header">
-                        <h4>{{ edition.name }}</h4>
-                        <template v-if="index === 0">
-                          <p>Priced at</p>
-                          <p class="pricing-card-price">{{ mauPrice }}</p>
-                          <p>per month for up to</p>
-                          <select v-model="mauPrice">
-                            <option
-                              v-for="(price, index) in $page.frontmatter
-                                .pricing"
-                              :value="price.price"
-                              :key="index"
-                            >
-                              {{ price.maus }}
-                            </option>
-                          </select>
-                          <SmartLink
-                            :item="{ link: $page.frontmatter.links.signup }"
-                            classes="Button--red"
-                          >
-                            Start Free
-                          </SmartLink>
-                        </template>
-                        <template v-else>
-                          <p>{{ edition.subheading }}</p>
-                          <SmartLink
-                            :item="{
-                              link: $page.frontmatter.links.contactSales,
-                            }"
-                            classes="Button--whiteOutline"
-                          >
-                            Contact Us
-                          </SmartLink>
-                        </template>
-                      </div>
-                      <template
-                        v-for="(details, feature) in $page.frontmatter.features"
-                      >
-                        <div
-                          class="pricing-card-row mobile"
-                          v-bind:key="details.name"
-                        >
-                          <div class="pricing-card-column">
-                            {{ details.name }}
-                            {{ edition[feature].additionalNote }}
-                            <ul v-if="details.bullets">
-                              <li
-                                v-for="(bullet, bulletIndex) in details.bullets"
-                                v-bind:key="bulletIndex"
-                              >
-                                {{ bullet }}
-                              </li>
-                            </ul>
-                          </div>
-                          <div
-                            class="pricing-card-column"
-                            v-if="typeof edition[feature] === 'object'"
-                          >
-                            <img
-                              src="/img/icons/icon--check.svg"
-                              v-if="edition[feature].enabled"
-                              class="pricing-card-check"
-                            />
-                          </div>
-                          <div class="pricing-card-column" v-else>
-                            <img
-                              src="/img/icons/icon--check.svg"
-                              v-if="edition[feature]"
-                              class="pricing-card-check"
-                            />
-                          </div>
-                        </div>
-                      </template>
-                    </div>
-                  </template>
+                    20k MAU
+                  </button>
+                  <button
+                    class="lozenge"
+                    :class="{ active: selectedLozengeIndex === 1 }"
+                    @click="selectLozenge(1)"
+                  >
+                    50k MAU
+                  </button>
                 </div>
-                <template
-                  v-for="(details, feature) in $page.frontmatter.features"
+                <h3>Advanced</h3>
+                <p class="pricing-card-amount">
+                  <template v-if="selectedLozengeIndex === 0">
+                    $400 /mo
+                  </template>
+                  <template v-else>
+                    $1000 /mo
+                  </template>
+                </p>
+                <p class="pricing-card-subtitle">
+                  Flexible plan that grows with you. More monthly active users, better support and higher rate limits
+                </p>
+                <SmartLink
+                  :item="{ link: $page.frontmatter.links.signup }"
+                  classes="Button--redOutline"
                 >
-                  <div
-                    class="pricing-card-row desktop"
-                    v-bind:key="details.name"
-                  >
-                    <div class="pricing-card-column">
-                      {{ details.name }}
-                      <ul v-if="details.bullets">
-                        <li
-                          v-for="(bullet, bulletIndex) in details.bullets"
-                          v-bind:key="bulletIndex"
-                        >
-                          {{ bullet }}
-                        </li>
-                      </ul>
-                    </div>
-                    <template v-for="edition in $page.frontmatter.editions">
-                      <div
-                        class="pricing-card-column"
-                        v-if="typeof edition[feature] === 'object'"
-                        v-bind:key="edition.name"
-                      >
-                        <div>
-                          <img
-                            class="check-icon"
-                            src="/img/icons/icon--check.svg"
-                            v-if="edition[feature].enabled"
-                          />
-                          <span class="additional-note">{{
-                            edition[feature].additionalNote
-                          }}</span>
-                        </div>
-                      </div>
-                      <div
-                        class="pricing-card-column"
-                        v-else
-                        v-bind:key="edition.name"
-                      >
-                        <img
-                          src="/img/icons/icon--check.svg"
-                          v-if="edition[feature]"
-                        />
-                      </div>
-                    </template>
-                  </div>
+                  Try For Free
+                </SmartLink>
+              </div>
+              <div class="pricing-card-bottom">
+                <template v-if="selectedLozengeIndex === 0">
+                  <p>
+                    All starter plan, plus
+                  </p>
+                  <ul>
+                    <li>Up to 20,000 monthly active users</li>
+                    <li>Higher rate limits</li>
+                    <li>Unlimited OIDC applications</li>
+                    <li>Up to 5 SAML applications</li>
+                    <li>Email support</li>
+                  </ul>
+                </template>
+                <template v-else>
+                  <p>
+                    All starter plan, plus
+                  </p>
+                  <ul>
+                    <li>Up to 50,000 monthly active users</li>
+                    <li>Higher rate limits</li>
+                    <li>Unlimited OIDC applications</li>
+                    <li>Up to 5 SAML applications</li>
+                    <li>Email support</li>
+                  </ul>
                 </template>
               </div>
             </div>
+            <div class="pricing-card">
+              <div class="pricing-card-top">
+                <div class="selector-lozenge single">
+                  <button class="lozenge active">
+                    Custom MAU
+                  </button>
+                </div>
+                <h3>Enterprise</h3>
+                <p class="pricing-card-amount">
+                  Custom
+                </p>
+                <p class="pricing-card-subtitle">
+                  Okta's most advanced offering for production deployments
+                </p>
+                <SmartLink
+                  :item="{ link: $page.frontmatter.links.signup }"
+                  classes="Button--redOutline"
+                >
+                  Contact Us
+                </SmartLink>
+              </div>
+              <div class="pricing-card-bottom">
+                <p>
+                  All advanced plan, plus
+                </p>
+                <ul>
+                  <li>Unlimited monthly active users</li>
+                  <li>Unlimited custom apps</li>
+                  <li>Service level assurance credits</li>
+                  <li>24/7 support</li>
+                  <li>Customer success options</li>
+                  <li>Enterprise plan only add ons</li>
+                </ul>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="pricing--container">
-          <div class="pricing--addons">
-            <div class="pricing-addons-header">
-              <h1>Add-Ons</h1>
-              <h4>
-                Learn more about add-on products at
-                <SmartLink :item="{ link: $page.frontmatter.links.pricing }">
-                  okta.com/pricing
-                </SmartLink>
-              </h4>
-            </div>
-            <div class="pricing-addons-tiles">
-              <template v-for="(addon, index) in $page.frontmatter.addons">
-                <SmartLink
-                  v-bind:key="index"
-                  :item="{
-                    link: addon.link,
-                  }"
-                  classes="pricing-addons-tile"
-                >
-                  <img :src="addon.icon" />
-                  <p>{{ addon.title }}</p>
-                </SmartLink>
+      </div>
+      <div class="pricing--container">
+        <div class="pricing--plans">
+
+          <div
+            class="pricing-collapsible-item"
+            v-bind:class="{ 'is-active': collapsibleShownStates.compareTable }"
+          >
+            <button
+              class="pricing-collapsible-item-title"
+              v-on:click="toggleCollapsibleShown('compareTable')"
+            >
+              Compare plans
+            </button>
+            <div class="pricing-collapsible-item-content pricing-card-table">
+              <div class="pricing-card-row showInMobile no-border">
+                <div class="selector-lozenge large multiple">
+                  <button
+                    class="lozenge"
+                    :class="{ active: selectedPlan === PLANS.STARTER }"
+                    @click="selectPlan(PLANS.STARTER)"
+                  >
+                    Starter
+                  </button>
+                  <button
+                    class="lozenge"
+                    :class="{ active: selectedPlan === PLANS.ADVANCED }"
+                    @click="selectPlan(PLANS.ADVANCED)"
+                  >
+                    Advanced
+                  </button>
+                  <button
+                    class="lozenge"
+                    :class="{ active: selectedPlan === PLANS.ENTERPRISE }"
+                    @click="selectPlan(PLANS.ENTERPRISE)"
+                  >
+                    Enterprise
+                  </button>
+                </div>
+
+              </div>
+              <div class="pricing-card-row hideInMobile no-border">
+                <div class="pricing-card-column pricing-card-row-header">
+                </div>
+                <div class="pricing-card-column pricing-card-column-header">
+                  Starter
+                </div>
+                <div class="pricing-card-column pricing-card-column-header">
+                  Advanced
+                </div>
+                <div class="pricing-card-column pricing-card-column-header">
+                  Enterprise
+                </div>
+              </div>
+
+              <template v-for="(section, sectionKey) in $page.frontmatter.tableHeadings">
+                <div class="pricing-card-row pricing-card-section-header" v-if="section.name">
+                  <div class="pricing-card-column pricing-card-row-header">
+                    {{ section.name }}
+                  </div>
+                  <div
+                    class="pricing-card-column"
+                    :class="{ hideInMobile: selectedPlan !== PLANS.STARTER }"
+                  >
+                  </div>
+                  <div
+                    class="pricing-card-column"
+                    :class="{ hideInMobile: selectedPlan !== PLANS.ADVANCED }"
+                  >
+                  </div>
+                  <div
+                    class="pricing-card-column"
+                    :class="{ hideInMobile: selectedPlan !== PLANS.ENTERPRISE }"
+                  >
+                  </div>
+                </div>
+                <template v-for="(heading, headingKey) in section.headings">
+                  <div class="pricing-card-row">
+                    <div class="pricing-card-column pricing-card-row-header">
+                      <span v-html="heading.name"></span>
+                      <small v-if="heading.subName" v-html="heading.subName"></small>
+                    </div>
+                    <div
+                      v-for="(plan, planKey) in $page.frontmatter.tableData"
+                      class="pricing-card-column"
+                      :class="{ hideInMobile: selectedPlan !== planKey }"
+                    >
+                      <span v-if="typeof plan[sectionKey][headingKey] === 'boolean'">
+                        <img
+                          src="/img/icons/icon--check.svg"
+                          class="pricing-card-check"
+                          v-if="plan[sectionKey][headingKey]"
+                        />
+                      </span>
+                      <span v-else>
+                        {{ plan[sectionKey][headingKey] }}
+                      </span>
+                    </div>
+                  </div>
+                </template>
               </template>
             </div>
           </div>
+
         </div>
-      </div>
-      <div class="pricing--background-curve">
-        <img src="/img/curve-singleRightLight.png" />
       </div>
       <div class="pricing--container">
         <div class="pricing--faq">
-          <h1>Frequently asked questions</h1>
+          <h2>FAQ</h2>
           <template v-for="(item, index) in $page.frontmatter.faqs">
             <div
-              class="pricing-faq-item"
-              v-bind:class="{ 'is-active': faqShownStates[index] }"
+              class="pricing-collapsible-item"
+              v-bind:class="{ 'is-active': collapsibleShownStates['faq' + index] }"
               v-bind:key="index"
             >
               <button
-                class="pricing-faq-item-title"
-                v-on:click="toggleFaqShown(index)"
+                class="pricing-collapsible-item-title"
+                v-on:click="toggleCollapsibleShown('faq' + index)"
               >
                 {{ item.title }}
               </button>
-              <div class="pricing-faq-item-content" v-html="item.content"></div>
+              <div class="pricing-collapsible-item-content">
+                <div class="pricing-faq-content" v-html="item.content"></div>
+              </div>
             </div>
           </template>
         </div>
@@ -269,9 +291,6 @@
           </SmartLink>
         </div>
       </div>
-      <div class="pricing--background-curve">
-        <img src="/img/curve-doubleLeft.png" />
-      </div>
       <div class="pricing--footer">
         <CompanyLogos withHeading />
       </div>
@@ -280,19 +299,40 @@
 </template>
 
 <script>
+const PLANS = {
+  STARTER: 'starter',
+  ADVANCED: 'advanced',
+  ENTERPRISE: 'enterprise',
+};
+
 export default {
   components: {
     CompanyLogos: () => import("../components/CompanyLogos"),
     SmartLink: () => import("../components/SmartLink"),
   },
   data: () => ({
-    faqShownStates: [false, false, false],
-    mauPrice: "$0",
+    selectedLozengeIndex: 1,
+    selectedPlan: PLANS.STARTER,
+    collapsibleShownStates: {
+      compareTable: false,
+      faq0: false,
+      faq1: false,
+      faq2: false,
+    },
   }),
   methods: {
-    toggleFaqShown(faqIndex) {
-      this.$set(this.faqShownStates, faqIndex, !this.faqShownStates[faqIndex]);
+    selectLozenge(index) {
+      this.selectedLozengeIndex = index;
     },
+    selectPlan(name) {
+      this.selectedPlan = name;
+    },
+    toggleCollapsibleShown(itemName) {
+      this.$set(this.collapsibleShownStates, itemName, !this.collapsibleShownStates[itemName]);
+    },
+  },
+  created() {
+    this.PLANS = PLANS;
   },
 };
 </script>
