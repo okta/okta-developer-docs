@@ -15,5 +15,5 @@ Create a regular Developer Edition org instead
 
 :::
 
-<SignUp />
+<SignUp isOie />
 
