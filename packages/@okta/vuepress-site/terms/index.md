@@ -33,7 +33,7 @@ terms:
 
   - heading: 3. Service Levels; Support.
     paragraphs:
-      - "Okta shall use commercially reasonable efforts to provide support for the Developer Edition Service to Customer’s Development Users during the Term, and provide Customer with continued availability of the Developer Edition Service. For both “Free Developer Edition” and “Paid Developer Edition” services, Okta shall provide support via both email and its online forums, and any other mechanism made available by Okta during the term. Okta shall have no obligation to provide support to Customer’s End Users."
+      - "Okta shall use commercially reasonable efforts to provide support for the Developer Edition Service to Customer’s Development Users during the Term, and provide Customer with continued availability of the Developer Edition Service. For both “Starter Developer” and “Advanced Developer” services, Okta shall provide support via both email and its online forums, and any other mechanism made available by Okta during the term. Okta shall have no obligation to provide support to Customer’s End Users."
 
   - heading: 4. Confidentiality.
     paragraphs:
