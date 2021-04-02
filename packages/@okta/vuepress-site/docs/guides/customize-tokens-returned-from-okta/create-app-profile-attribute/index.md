@@ -54,7 +54,7 @@ To add a custom claim:
 
 1. In the Admin Console, navigate to **Security**, and then **API**.
 
-2. On the **Authorization Servers** tab, select the name of the Custom Authorization Server where you want to add the claim, and then click **Claims**.
+2. On the **Authorization Servers** tab, select the name of the Custom Authorization Server where you want to add the claim (or select **default** when you use the `default` Custom Authorization Server), and then click **Claims**.
 
 3. Click **Add Claim**, and then configure the claim settings:
 
@@ -76,7 +76,7 @@ To add a custom claim:
 
 4. Click **Create**.
 
-5. (Optional) Confirm that your custom claim was successfully added by retrieving a list of all claims from your authorization server, including the custom claims, using the `/claims` endpoint. See <GuideLink link="../add-custom-claim/#verify-the-custom-claim">Verify the custom claim</GuideLink>.
+5. (Optional) Confirm that your custom claim was successfully added by retrieving a list of all claims from your Custom Authorization Server, including the custom claims, using the `/claims` endpoint. See <GuideLink link="../add-custom-claim/#verify-the-custom-claim">Verify the custom claim</GuideLink>.
 
 ## Request a token that contains the custom claim
 

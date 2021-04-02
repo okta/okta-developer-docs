@@ -1,7 +1,7 @@
 ---
 title: Request a token that contains the custom claim
 ---
-There are sections in this guide that include information on building a URL to request a claim. These sections refer you to this page for the specific steps to build the URL to request a claim and decode the JWT to verify that the claim was included in the token. Specific request and payload examples remain in the appropriate sections. Move on to the section for the claim that you want to create if you don't currently need these steps.
+There are sections in this guide that include information on building a URL to request a token that contains a custom claim. These sections refer you to this page for the specific steps to build the URL to request a claim and decode the JWT to verify that the claim was included in the token. Specific request and payload examples remain in the appropriate sections. Move on to the section for the claim that you want to create if you don't currently need these steps.
 
 To test the full authentication flow that returns an ID token or an access token, build your request URL:
 
@@ -34,11 +34,11 @@ To test the full authentication flow that returns an ID token or an access token
 
 3. Add the following query parameters to the URL:
 
-    * Your OpenID Connect application's `client_id`.
+    * Your OpenID Connect application's `client_id`
     * The response type, which for an ID token is `id_token` and an access token is `token`
     > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
     * A scope, which for the purposes of the examples is `openid`. When you are adding a Groups claims, both the `openid` and the `groups` scopes are included.
-    * Your OpenID Connect application's `redirect_uri`.
+    * Your OpenID Connect application's `redirect_uri`
     * Values for `state` and `nonce`, which can be anything
 
     > **Note:** All of the values are fully documented on the [Obtain an Authorization Grant from a user](/docs/reference/api/oidc/#authorize) page.

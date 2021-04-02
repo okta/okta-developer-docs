@@ -4,8 +4,6 @@ title: Add a Groups claim for a Custom Authorization Server
 
 Use these steps to add a Groups claim to ID tokens and access tokens to perform authentication an authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
 
-> **Note:** These steps assume that the user signing in to your app is assigned to a group called **Midwest Sales**.
-
 1. In the Admin Console, from the **Security** menu, select **API**, and then select the Custom Authorization Server that you want to configure.
 2. Navigate to the **Claims** tab and click **Add Claim**.
 3. Enter a name for the claim. For this example, name it **GroupsClaim**.
@@ -19,9 +17,9 @@ Use these steps to add a Groups claim to ID tokens and access tokens to perform 
 
 ### Request an access token that contains the Groups claim
 
-To test the full authentication flow that returns an access token, build your request URL. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the custom claim</GuideLink>.
+To test the full authentication flow that returns an access token, build your request URL. Make sure that you include the `openid` scope in the request. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the custom claim</GuideLink>.
 
-> **Note:** Make sure that you include the `openid` scope in the request.
+> **Note:** In this example, the user signing in to your app is assigned to a group called **Midwest Sales**.
 
 The resulting URL looks something like this:
 
