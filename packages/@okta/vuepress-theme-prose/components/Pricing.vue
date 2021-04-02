@@ -3,7 +3,7 @@
     <section class="pricing">
       <div class="pricing--container">
         <div class="pricing--leader">
-          <h1 class="pricing--title">Developer Friendly Pricing</h1>
+          <h1 class="pricing--title">Options That Scale With Your Business</h1>
           <p class="pricing--subtitle">
             Whether you're building a new application or scaling to millions of
             users, our plans have you covered.
@@ -15,11 +15,6 @@
           <div class="pricing-section">
             <div class="pricing-card">
               <div class="pricing-card-top">
-                <div class="selector-lozenge single">
-                  <button class="lozenge active">
-                    15k MAU
-                  </button>
-                </div>
                 <h3>Starter</h3>
                 <p class="pricing-card-amount">
                   $0
@@ -41,41 +36,20 @@
                   <li>Customizable sign-in widget and domain</li>
                   <li>Adaptive MFA</li>
                   <li>Threat detection with ThreatInsight</li>
-                  <li>B2B Integration</li>
                   <li>99.99% availability</li>
                   <li>Community support</li>
+                  <li>B2B Integration</li>
                 </ul>
               </div>
             </div>
             <div class="pricing-card">
               <div class="pricing-card-top">
-                <div class="selector-lozenge multiple">
-                  <button
-                    class="lozenge"
-                    :class="{ active: selectedLozengeIndex === 0 }"
-                    @click="selectLozenge(0)"
-                  >
-                    20k MAU
-                  </button>
-                  <button
-                    class="lozenge"
-                    :class="{ active: selectedLozengeIndex === 1 }"
-                    @click="selectLozenge(1)"
-                  >
-                    50k MAU
-                  </button>
-                </div>
                 <h3>Advanced</h3>
                 <p class="pricing-card-amount">
-                  <template v-if="selectedLozengeIndex === 0">
-                    $400 /mo
-                  </template>
-                  <template v-else>
-                    $1000 /mo
-                  </template>
+                  $4000 /mo
                 </p>
                 <p class="pricing-card-subtitle">
-                  Flexible plan that grows with you. More monthly active users, better support and higher rate limits
+                  A complete set of customer indentity features for every use case
                 </p>
                 <SmartLink
                   :item="{ link: $page.frontmatter.links.signup }"
@@ -85,39 +59,18 @@
                 </SmartLink>
               </div>
               <div class="pricing-card-bottom">
-                <template v-if="selectedLozengeIndex === 0">
-                  <p>
-                    All starter plan, plus
-                  </p>
-                  <ul>
-                    <li>Up to 20,000 monthly active users</li>
-                    <li>Higher rate limits</li>
-                    <li>Unlimited OIDC applications</li>
-                    <li>Up to 5 SAML applications</li>
-                    <li>Email support</li>
-                  </ul>
-                </template>
-                <template v-else>
-                  <p>
-                    All starter plan, plus
-                  </p>
-                  <ul>
-                    <li>Up to 50,000 monthly active users</li>
-                    <li>Higher rate limits</li>
-                    <li>Unlimited OIDC applications</li>
-                    <li>Up to 5 SAML applications</li>
-                    <li>Email support</li>
-                  </ul>
-                </template>
+                <p>
+                  All starter plan, plus
+                </p>
+                <ul>
+                  <li>Higher rate limits</li>
+                  <li>Email support</li>
+                  <li>Custom email templates</li>
+                </ul>
               </div>
             </div>
             <div class="pricing-card">
               <div class="pricing-card-top">
-                <div class="selector-lozenge single">
-                  <button class="lozenge active">
-                    Custom MAU
-                  </button>
-                </div>
                 <h3>Enterprise</h3>
                 <p class="pricing-card-amount">
                   Custom
@@ -311,7 +264,6 @@ export default {
     SmartLink: () => import("../components/SmartLink"),
   },
   data: () => ({
-    selectedLozengeIndex: 1,
     selectedPlan: PLANS.STARTER,
     collapsibleShownStates: {
       compareTable: false,
@@ -321,9 +273,6 @@ export default {
     },
   }),
   methods: {
-    selectLozenge(index) {
-      this.selectedLozengeIndex = index;
-    },
     selectPlan(name) {
       this.selectedPlan = name;
     },
