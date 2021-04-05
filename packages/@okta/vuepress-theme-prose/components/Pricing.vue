@@ -35,10 +35,9 @@
                   <li>Authentication, authorization, user management</li>
                   <li>Customizable sign-in widget and domain</li>
                   <li>Adaptive MFA</li>
-                  <li>Threat detection with ThreatInsight</li>
+                  <li>B2B Integration</li>
                   <li>99.99% availability</li>
                   <li>Community support</li>
-                  <li>B2B Integration</li>
                 </ul>
               </div>
             </div>
@@ -49,7 +48,7 @@
                   $4000 /mo
                 </p>
                 <p class="pricing-card-subtitle">
-                  A complete set of customer identity features for every use case
+                  A complete set of customer identity features with more support
                 </p>
                 <SmartLink
                   :item="{ link: $page.frontmatter.links.signup }"
