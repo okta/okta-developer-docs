@@ -280,7 +280,7 @@ export const countriesList = [
   { name: "Zimbabwe", value: "Zimbabwe" }
 ];
 
-export const canadaProvinces = [
+export const canadianProvinces = [
   { name: "British Columbia", value: "British Columbia" },
   { name: "Alberta", value: "Alberta" },
   { name: "Saskatchewan", value: "Saskatchewan" },

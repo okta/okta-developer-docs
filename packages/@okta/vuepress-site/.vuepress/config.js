@@ -1,7 +1,13 @@
 const guidesInfo = require('./scripts/build-guides-info');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Path = require('path')
 const signInWidgetMajorVersion = 5;
+
+const projectRootDir = Path.resolve(__dirname, '../../../../');
+const outputDir = Path.resolve(__dirname, '../dist/');
+
 
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
@@ -24,12 +30,6 @@ module.exports = {
     ['meta', { name: 'msapplication-config',  content: '/favicon/browserconfig.xml' }],
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0'}],
-
-    /*
-     * Okta sign-in widget
-     */
-    ['link', { href: `https://global.oktacdn.com/okta-signin-widget/${WIDGET_VERSION}/css/okta-sign-in.min.css`, type: 'text/css', rel: 'stylesheet'}],
-    ['script', { src: `https://global.oktacdn.com/okta-signin-widget/${WIDGET_VERSION}/js/okta-sign-in.min.js`, type: 'text/javascript'}],
 
     /**
      * Header scripts for typekit, GA, GTM (WIP)
@@ -275,6 +275,19 @@ module.exports = {
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
       });
+
+    /*
+     * Copy *.scss from Sign-In Widget for use in /live-widget.
+     * See /components/LiveWidget.vue for usage
+     */
+    config.plugin('copy-sass')
+      .use(CopyWebpackPlugin, [
+        [{
+           from: Path.join(projectRootDir, 'node_modules/@okta/okta-signin-widget/dist/sass/'),
+           to: Path.join(outputDir, 'assets/widget-sass/'),
+         },
+        ]
+      ]);
   },
 
   evergreen: false,

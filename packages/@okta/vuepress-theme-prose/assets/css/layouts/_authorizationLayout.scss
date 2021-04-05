@@ -6,6 +6,10 @@
   flex-direction: column;
   justify-content: space-between;
 
+  .mr-15 {
+    margin-right: 15px;
+  }
+
   .row {
     display: flex;
     margin: 0 -24px 24px 0;
@@ -52,7 +56,8 @@
       border: 1px solid cv("cerise", "base");
     }
   }
-  input[type="submit"]:disabled {
+  input[type=submit]:disabled,
+  input[type=button]:disabled {
     cursor: not-allowed;
     opacity: 0.6;
   }
@@ -81,7 +86,8 @@
     border-radius: 3px;
   }
 
-  a.btn {
+  a.btn,
+  input.btn {
     font-family: inherit;
     font-weight: 600;
     display: block;
@@ -99,7 +105,8 @@
     }
   }
 
-  a.social-btn {
+  a.social-btn,
+  input.social-btn {
     background-color: transparent;
   }
 

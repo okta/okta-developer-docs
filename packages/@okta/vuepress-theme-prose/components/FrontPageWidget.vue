@@ -3,25 +3,24 @@
 </template>
 
 <script>
-// globals: OktaSignIn
-// OktaSignIn loaded from CDN script in <head>
+import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
+
 export default {
   name: 'FrontPageWidget',
   mounted: function() {
     import('@okta/okta-signin-widget').then(
       (module) => {
-        this.oktaSignIn = module.default
+        this.OktaSignIn = module.default
         this.renderWidget()
       }
     )
-      
   },
   destroyed () {
     this.widget ? this.widget.remove() : null;
   },
   methods: {
     renderWidget(){
-    this.widget = new this.oktaSignIn({
+    this.widget = new this.OktaSignIn({
       baseUrl: 'https://{yourOktaDomain}',
       logo: '/img/homepage/alliance.png',
       username: 'leia@rebelalliance.io',

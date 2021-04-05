@@ -25,8 +25,6 @@ public class LoginActivity extends AppCompatActivity {
                 Tokens tokens = sessionClient.getTokens();
             } else if (status == AuthorizationStatus.SIGNED_OUT) {
                 //this only clears the browser session.
-            } else if (status == AuthorizationStatus.IN_PROGRESS) {
-                //authorization is in progress.
             }
         }
 
