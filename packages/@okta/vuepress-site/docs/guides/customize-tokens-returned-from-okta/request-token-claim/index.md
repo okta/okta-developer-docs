@@ -18,13 +18,13 @@ To test the full authentication flow that returns an ID token or an access token
 
         `https://${yourOktaDomain}/oauth2/v1/authorize`
 
-    * A custom authorization endpoint looks like this:
+    * A Custom Authorization Server endpoint looks like this:
 
         `https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
 
-    > **Note:** If you add the claim to the default authorization server, the `${authServerId}` is `default`.
+    > **Note:** If you add the claim to the default Custom Authorization Server, the `${authServerId}` is `default`.
 
-    You can retrieve a custom authorization server's authorization endpoint using the server's metadata URI:
+    You can retrieve a Ccustom Authorization Server's authorization endpoint using the server's metadata URI:
 
     **ID token**
     `https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration`
@@ -37,7 +37,7 @@ To test the full authentication flow that returns an ID token or an access token
     * Your OpenID Connect application's `client_id`
     * The response type, which for an ID token is `id_token` and an access token is `token`
     > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow). For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
-    * A scope, which for the purposes of the examples is `openid`. When you are adding a Groups claims, both the `openid` and the `groups` scopes are included.
+    * A scope, which for the purposes of the examples is `openid`
     * Your OpenID Connect application's `redirect_uri`
     * Values for `state` and `nonce`, which can be anything
 

@@ -25,8 +25,6 @@ Now, when you mint a token, Groups in the `groupallowlist` that also have the us
 
 To obtain an access token with the configured Groups claim, send a request to the authorization endpoint for an access token that includes the Groups claim as a scope. The scopes that you need to include as query parameters are `openid` and `groups`. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the claim</GuideLink>.
 
-> **Note:** In this example, the user signing in to your app is assigned to a group called **IT**.
-
 The resulting URL looks something like this:
 
 ```bash

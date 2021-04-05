@@ -34,7 +34,7 @@ To confirm that your custom claim was successfully added, you can [retrieve a li
 
 `https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}/claims`
 
-> **Note:** If you added the claim to the `default` Custom Authorization Server, the `${authServerId}` is `default`.
+> **Note:** If you added the claim to the default Custom Authorization Server, the `${authServerId}` is `default`.
 
 ### Request a token that contains the custom claim
 

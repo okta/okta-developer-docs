@@ -6,7 +6,7 @@ You can create a dynamic or [static allow list](/docs/guides/customize-tokens-st
 
 Additionally, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim) to ID tokens for any combination of App Groups and User Groups to perform single sign-on (SSO) using the Okta Org Authorization Server. You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as/) to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server.
 
-> **Note:** See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/overview/) when you want to define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
+See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/overview/) when you want to define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
 
 This guide assumes that you:
 
