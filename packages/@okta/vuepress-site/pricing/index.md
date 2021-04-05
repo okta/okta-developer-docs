@@ -21,7 +21,7 @@ tableHeadings:
     name: Usage
     headings:
       mauLimit:
-        name: Montly Active User Limit
+        name: Monthly Active User Limit
       cumulRateLimit:
         name: Cumulative Rate Limit Per Minute
       support:
@@ -76,7 +76,7 @@ tableHeadings:
       uptime:
         name: 99.99% Uptime
   addons:
-    name: Add ons
+    name: Add-ons
     headings:
       orgCreateApi:
         name: Org Creation API
@@ -147,16 +147,16 @@ tableData:
       csPackages: False
   advanced:
     pricing:
-      price: $400/mo or $1000/mo
+      price: $4000/mo
     usage:
-      mauLimit: 20,000 or 50,000
+      mauLimit: 15,000
       cumulRateLimit: 8,400
       support: Community + Email
-      oidcApps: Unlimited
-      samlApps: Up to 5
-      m2mTokens: Up to 5k/month
-      oinIntegrations: Up to 5
-      inboundFederation: Up to 5
+      oidcApps: Up to 5
+      samlApps: Up to 3
+      m2mTokens: Up to 1k/month
+      oinIntegrations: Up to 3
+      inboundFederation: Up to 3
     features:
       authn: True
       socialAuthn: True
