@@ -49,7 +49,7 @@
                   $4000 /mo
                 </p>
                 <p class="pricing-card-subtitle">
-                  A complete set of customer indentity features for every use case
+                  A complete set of customer identity features for every use case
                 </p>
                 <SmartLink
                   :item="{ link: $page.frontmatter.links.signup }"
@@ -79,7 +79,7 @@
                   Okta's most advanced offering for production deployments
                 </p>
                 <SmartLink
-                  :item="{ link: $page.frontmatter.links.signup }"
+                  :item="{ link: $page.frontmatter.links.emailSupport }"
                   classes="Button--redOutline"
                 >
                   Contact Us
@@ -95,7 +95,7 @@
                   <li>Service level assurance credits</li>
                   <li>24/7 support</li>
                   <li>Customer success options</li>
-                  <li>Enterprise plan only add ons</li>
+                  <li>Enterprise plan only add-ons</li>
                 </ul>
               </div>
             </div>

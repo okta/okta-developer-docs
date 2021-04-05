@@ -21,7 +21,7 @@ tableHeadings:
     name: Usage
     headings:
       mauLimit:
-        name: Montly Active User Limit
+        name: Monthly Active User Limit
       cumulRateLimit:
         name: Cumulative Rate Limit Per Minute
       support:
@@ -76,7 +76,7 @@ tableHeadings:
       uptime:
         name: 99.99% Uptime
   addons:
-    name: Add ons
+    name: Add-ons
     headings:
       orgCreateApi:
         name: Org Creation API
