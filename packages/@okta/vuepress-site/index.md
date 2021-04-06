@@ -75,7 +75,7 @@ tiles:
 
 assurances:
   - title: Compliant Out of the Box
-    description: with HIPAA, FedRamp, SOC and more, we have you covered
+    description: with HIPAA, FedRamp, and SOC environments available, we have you covered
     image: /img/homepage/compliance-out-of-box.png
   - title: 99.99% Uptime
     description: so your apps are working even when you’re not
