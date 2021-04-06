@@ -117,7 +117,7 @@ module.exports = {
       { text: 'Blog', link: '/blog/' },
       { text: 'Support', link: 'https://www.okta.com/contact/',
         children: [
-          { text: 'Okta Developer Forums', link: 'https://devforum.okta.com/' },
+          { text: 'Okta Developer Forum', link: 'https://devforum.okta.com/' },
           { text: 'developers@okta.com', link: 'mailto:developers@okta.com' },
         ]
       }

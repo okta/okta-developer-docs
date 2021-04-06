@@ -23,6 +23,6 @@ Okta's self-service registration lets you configure a custom app or the Okta Hom
 
 ## Support
 
-If you need help or have an issue, post a question on the [Okta Developer Forums](https://devforum.okta.com).
+If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>

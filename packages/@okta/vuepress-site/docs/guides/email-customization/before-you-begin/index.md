@@ -20,6 +20,6 @@ Email notifications are based on templates that are generated automatically and 
 
 ## Support
 
-If you need help or have an issue, post a question on the [Okta Developer Forums](https://devforum.okta.com).
+If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>

@@ -12,13 +12,13 @@ If you have questions at any point during the creation of your integration, rese
 
 OIDC
 
-* [Okta Developer Forums - OIDC](https://devforum.okta.com/search?q=oidc)
+* [Okta Developer Forum - OIDC](https://devforum.okta.com/search?q=oidc)
 * [Stack Overflow - Okta OIDC](https://stackoverflow.com/search?q=oidc+okta)
 
 SAML
 
 * [Okta SAML FAQs](/docs/concepts/saml/faqs/)
-* [Okta Developer Forums - SAML](https://devforum.okta.com/search?q=saml)
+* [Okta Developer Forum - SAML](https://devforum.okta.com/search?q=saml)
 * [Stack Overflow - Okta SAML](https://stackoverflow.com/search?q=saml+okta)
 
 <NextSectionLink/>

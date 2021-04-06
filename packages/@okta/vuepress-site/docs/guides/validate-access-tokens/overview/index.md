@@ -56,4 +56,4 @@ This incurs a network request which is slower to do verification, but can be use
 
 ## Support
 
-Don't see the language you're working in? Need help or have an issue? Post a question on the [Okta Developer Forums](https://devforum.okta.com).
+Don't see the language you're working in? Need help or have an issue? Post a question on the [Okta Developer Forum](https://devforum.okta.com).
