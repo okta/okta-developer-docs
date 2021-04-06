@@ -20,6 +20,6 @@ If you only need one Authorization Server, but you'd like to know more about cus
 
 ## Support
 
-If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>
