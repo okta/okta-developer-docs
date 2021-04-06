@@ -23,12 +23,16 @@ For information on the API for registering external service endpoints with Okta,
 
 For steps to enable this Inline Hook, see below, [Enabling a Registration Inline Hook](#enabling-a-registration-inline-hook-for-self-service-registration).
 
+For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook).
+
 ## About
 
 The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Self-Service Registration](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Self_Service_Registration) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
 
 - Set or override the values that will be populated in attributes of the user's Okta profile
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted
+
+> **Note:** Self-service registration and Registration Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 2.9 or later.
 
 ## Objects in the Request from Okta
 
@@ -61,7 +65,6 @@ Using the `com.okta.action.update` [command](#supported-commands) in your respon
 ## Objects in Response You Send
 
 The objects that you can return in the JSON payload of your response are an array of one or more `commands`, to be executed by Okta, or an `error` object, to indicate problems with the registration request. These objects are defined as follows:
-
 
 ### commands
 
@@ -209,8 +212,7 @@ If you do not return any value for that `errorCauses` object, but deny the user'
       }
    ]
 }
-```
-```json
+
 {
    "error":{
       "errorSummary":"Errors were found in the user profile",
