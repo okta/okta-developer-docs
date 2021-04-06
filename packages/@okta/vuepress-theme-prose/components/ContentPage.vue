@@ -9,26 +9,40 @@ export default {
   mixins: [AnchorHistory],
   data() {
     return {
-      anchors: [],
-      headingAnchorsMap: {},
+      activeAnchor: null,
+      headingAnchorsMap: {}
     };
+  },
+  computed: {
+    anchors() {
+      return Array.from(
+        document.querySelectorAll(".header-anchor.header-link")
+      );
+    }
   },
   mounted() {
     if (document.readyState === "complete") {
-        this.onURLAnchorChange();
+      this.onURLAnchorChange();
+      this.onScrollCaptureAnchors(this.anchors);
     } else {
       window.addEventListener("load", () => {
         this.onURLAnchorChange();
+        this.onScrollCaptureAnchors(this.anchors);
       });
-      window.addEventListener("popstate", (e) => {
+      window.addEventListener("popstate", e => {
         this.scrollToAnchor(e.target.location.hash);
       });
     }
+    window.addEventListener("scroll", this.setActiveHash.bind(this,[this.anchors]));
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.setActiveHash);
   },
   watch: {
     $page(to, from) {
       this.$nextTick(function() {
         if (from.title !== to.title) {
+          this.onScrollCaptureAnchors(this.anchors);
           this.onURLAnchorChange();
         }
       });
@@ -36,33 +50,26 @@ export default {
   },
   methods: {
     onURLAnchorChange() {
-      let anchor = window.location.href.split("#")[1];
-      
+      const anchor = window.location.href.split("#")[1];
+
       if (anchor) {
         this.scrollToAnchor(`#${anchor}`);
       } else {
         // navigating via back button to no-anchor URL
         window.scrollTo(0, 0);
       }
-      this.captureAnchors();
+      this.onClickCaptureAnchors();
     },
-    captureAnchors() {
+    onClickCaptureAnchors() {
       this.anchors.forEach(
         link => link.removeEventListener("click", this.onAnchorClick),
         this
       );
 
-      this.headingAnchorsMap = Array.from(
-        document.querySelectorAll(".header-anchor.header-link")
-      ).reduce(function(anchorsByHash, anchor) {
+      this.headingAnchorsMap = this.anchors.reduce((anchorsByHash, anchor) => {
         anchorsByHash[anchor.hash] = anchor;
         return anchorsByHash;
       }, {});
-      this.anchors = Array.from(
-        document.querySelectorAll(
-          'a[href^="#"]:not(.on-this-page-link):not(.tree-nav-link)'
-        )
-      );
 
       this.anchors.forEach(
         link => link.addEventListener("click", this.onAnchorClick),
@@ -85,7 +92,7 @@ export default {
           return false;
         }
       }
-    },
+    }
   }
 };
 </script>

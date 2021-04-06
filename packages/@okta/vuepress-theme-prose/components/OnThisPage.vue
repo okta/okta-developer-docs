@@ -39,9 +39,7 @@ export default {
   data() {
     return {
       activeAnchor: null,
-      anchors: [],
       anchorOffsetPairs: [],
-      onThisPageAnchors: [],
       onThisPageAnchorsOffsetPairs: [],
       paddedHeaderHeight: 0
     };
@@ -53,6 +51,17 @@ export default {
           this.$page.fullHeaders[0].children.length > 0)
         ? true
         : false;
+    },
+    onThisPageAnchors() {
+       const onThisPageLinks = [].slice.call(
+        document.querySelectorAll(".on-this-page-link")
+      );
+      const anchors = Array.from(
+        document.querySelectorAll(".header-anchor.header-link")
+      );
+      return anchors.filter(anchor =>
+        onThisPageLinks.some(sidebarLink => sidebarLink.hash === anchor.hash)
+      );
     }
   },
   mounted() {
@@ -63,11 +72,11 @@ export default {
       this.$nextTick(() => {
         this.captureAnchors();
         this.handleScroll();
-        this.setActiveHash();
+        this.setActiveHashh();
       });
     });
     window.addEventListener("scroll", this.handleScroll);
-    window.addEventListener("scroll", this.setActiveHash);
+    window.addEventListener("scroll", this.setActiveHashh);
   },
   updated() {
     if (!this.appContext.isInMobileViewport) {
@@ -76,7 +85,7 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
-    window.removeEventListener("scroll", this.setActiveHash);
+    window.removeEventListener("scroll", this.setActiveHashh);
   },
   methods: {
     handleScroll: _.debounce(function(event) {
@@ -93,16 +102,6 @@ export default {
     }, 200),
 
     captureAnchors: function() {
-      const onThisPageLinks = [].slice.call(
-        document.querySelectorAll(".on-this-page-link")
-      );
-      this.anchors = [].slice.call(document.querySelectorAll(".header-anchor"));
-      this.onThisPageAnchors = this.anchors.filter(anchor =>
-        onThisPageLinks.some(sidebarLink => sidebarLink.hash === anchor.hash)
-      );
-      const anchorOffsets = this.anchors.map(
-        anchor => anchor.parentElement.offsetTop
-      );
       const sidebarAnchorOffsets = this.onThisPageAnchors.map(
         anchor => anchor.parentElement.offsetTop
       );
@@ -112,27 +111,14 @@ export default {
           anchorOffsets[index + 1]
         ]
       );
-      this.anchorOffsetPairs = anchorOffsets.map(
-        (anchorOffset, index, anchorOffsets) => [
-          anchorOffset,
-          anchorOffsets[index + 1]
-        ]
-      );
     },
 
-    setActiveHash: _.debounce(
+    setActiveHashh: _.debounce(
       function(event) {
         const scrollTop = Math.max(
           window.pageYOffset,
           document.documentElement.scrollTop,
           document.body.scrollTop
-        );
-
-        const matchingPair = this.anchorOffsetPairs.find(
-          pair =>
-            scrollTop >= pair[0] - this.paddedHeaderHeight &&
-            (!pair[1] || scrollTop < pair[1] - this.paddedHeaderHeight),
-          this
         );
         const onThisPageMatchingPair = this.onThisPageAnchorsOffsetPairs.find(
           pair =>
@@ -140,20 +126,17 @@ export default {
             (!pair[1] || scrollTop < pair[1] - this.paddedHeaderHeight),
           this
         );
-
-        const activeAnchor = matchingPair
-          ? this.anchors[this.anchorOffsetPairs.indexOf(matchingPair)]
-          : null;
+         const matchingPair = this.onThisPageAnchorsOffsetPairs.find(
+            pair =>
+              scrollTop >= pair[0] - this.paddedHeaderHeight &&
+              (!pair[1] || scrollTop < pair[1] - this.paddedHeaderHeight),
+            this
+          );
         const onThisPageActiveAnchor = matchingPair
           ? this.onThisPageAnchors[
               this.onThisPageAnchorsOffsetPairs.indexOf(onThisPageMatchingPair)
             ]
           : null;
-        if (activeAnchor) {
-          this.historyReplaceAnchor(activeAnchor.hash);
-        } else {
-          this.historyReplaceAnchor("");
-        }
         if (onThisPageActiveAnchor) {
           this.activeAnchor = onThisPageActiveAnchor.hash;
         } else {
