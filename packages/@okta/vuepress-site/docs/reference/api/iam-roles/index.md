@@ -153,7 +153,7 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/iam/roles/${roleIdOrLabel}" />
 
-Update a custom Role's label or description by its ID or label
+Updates a custom Role's label or description by its ID or label
 
 #### Request parameters
 
