@@ -4,14 +4,12 @@ title: Add a Groups claim for a Custom Authorization Server
 
 Use these steps to add a Groups claim to ID tokens and access tokens to perform authentication an authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
 
-> **Note:** In this example, the user signing in to your app is assigned to a group called **Midwest Sales**. 
-
 1. In the Admin Console, from the **Security** menu, select **API**, and then select the Custom Authorization Server that you want to configure.
 2. Navigate to the **Claims** tab and click **Add Claim**.
-3. Enter a name for the claim. For this example, name it **GroupsClaim**.
+3. Enter a name for the claim. For this example, name it **Groups**.
 4. In the **Include in token type** section, leave **Access Token** selected. We are adding the Groups claim to an access token in this example.
-5. Leave **Expression** as the **Value type**.
-6. Enter the following expression as the **Value**: `Groups.startsWith("OKTA", "Midwest", 10)`
+5. Select **Groups** as the **Value type**.
+6. In the **Filter** drop-down box, select **Matches regex** and then enter the following expression as the **Value**: `.*`
 
     > **Note:** For more fine-grained filtering information, see the steps for adding a groups claim with a [dynamic](/docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/) allow list.
 
@@ -52,7 +50,8 @@ The decoded JWT looks something like this:
   ],
   "sub": "joe.user@example.com",
   "GroupsClaim": [
-    "Midwest Sales"
+    "Midwest Sales",
+    "Everyone"
   ]
 }
 ```
