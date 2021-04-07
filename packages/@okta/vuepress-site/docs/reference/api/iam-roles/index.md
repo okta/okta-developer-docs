@@ -3209,7 +3209,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
     }
 ```
 
-> **Note:** When you provide either [all Groups](#all-groups-as-resource) or [all Users](#all-users-as-resource) when adding a resource to a [Resource Set](#resource-set-object), it results in including a single resource which encompasses all Users and Groups.
+> **Note:** When you provide either [all Groups](#all-groups-as-resource) or [all Users](#all-users-as-resource) when adding a resource to a [Resource Set](#resource-set-object), a single resource that encompasses all Users and Groups is included.
 
 ### Binding object
 
