@@ -411,7 +411,7 @@ Gets a permission from an existing Role
 
 #### Response parameters
 
-The requested permission object.
+The requested permission object
 
 #### Request example
 
