@@ -48,8 +48,6 @@ You will have to decode the access token, which is in JWT format.  This involves
 Okta provides libraries to perform these steps for you:
 <StackSelector snippet="accesstoken"/>
 
-Don't see the language you're working in? Get in touch: <developers@okta.com>
-
 ## Validating A Token Remotely With Okta
 
 Alternatively, you can also validate an access or refresh Token using the Token Introspection endpoint: [Introspection Request](/docs/reference/api/oidc/#introspect). This endpoint takes your token as a URL query parameter and returns back a simple JSON response with a boolean `active` property.
@@ -58,4 +56,4 @@ This incurs a network request which is slower to do verification, but can be use
 
 ## Support
 
-If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+Don't see the language you're working in? Need help or have an issue? Post a question on the [Okta Developer Forum](https://devforum.okta.com).

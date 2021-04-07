@@ -230,4 +230,4 @@ This is a collection of reference links that we covered in this guide, as well a
 * [Profile mastering](https://help.okta.com/en/prod/okta_help_CSH.htm#csh-profile-masters)
 * [Users, Groups, and Profiles](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_User_Lifecycle_Overview)
 
-Lastly, if you get stuck, don’t hesitate to post a question in our [Developer Forums](https://devforum.okta.com).
+Lastly, if you get stuck, don’t hesitate to post a question on the [Okta Developer Forum](https://devforum.okta.com).

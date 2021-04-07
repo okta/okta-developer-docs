@@ -1,14 +1,7 @@
 <template>
-  <footer class="app-footer">
-    <p class="app-footer--need-support"> 
-      <span class="italic">Need support?</span> Contact
-      <SmartLink
-        :item="{ link: 'mailto:developers@okta.com' }"
-        classes="link link--underline"
-      >
-        developers@okta.com
-      </SmartLink>
-      or ask on the
+  <footer>
+    <p>
+      <span class="italic">Need support?</span> Ask on the
       <SmartLink
         :item="{ link: config.forum_url, target: '_self' }"
         classes="link link--red"
@@ -88,7 +81,7 @@
       </div>
     </div>
     <img
-      v-if="isHomePage"
+      v-if="showMagentaCircle"
       src="/img/home-magenta-circle.svg"
       class="home--magenta-circle"
     />
@@ -107,19 +100,19 @@ export default {
   },
   data() {
     return {
-      isHomePage: false,
+      showMagentaCircle: false,
     };
   },
   watch: {
-    $route: "setIsHomepage",
+    $route: "setShowMagentaCircle",
   },
   methods: {
-    setIsHomepage() {
-      this.isHomePage = window.location.pathname === "/";
+    setShowMagentaCircle() {
+      this.showMagentaCircle = ["/", "/pricing/"].indexOf(window.location.pathname) >= 0;
     },
   },
   mounted() {
-    this.setIsHomepage();
+    this.setShowMagentaCircle();
   },
 };
 </script>
