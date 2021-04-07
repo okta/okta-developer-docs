@@ -21,9 +21,11 @@ describe('tree nav panel(left section)', () => {
 
     it('scrolls to selected item on URL navigation', util.itHelper(async () => {
       docsPage.navigate('/docs/reference/api/user-types');
+      
       const selectedItemTitle = 'User Types';
       try {
         const webElement = await (await docsPage.getTreeNavLink(selectedItemTitle)).getWebElement();
+        expect(false).to.equal(true);
         expect(await util.isInViewport(webElement)).to.equal(true);
         expect(await webElement.getAttribute('class')).to.contain(activeLinkClass);
       } catch(err) {
