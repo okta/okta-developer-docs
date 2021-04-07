@@ -3089,12 +3089,12 @@ Permissions can be added to, or removed from, custom Roles.  Permissions to mana
 
 User permissions are only effective with respect to the Group(s) to which the admin is granted a Role through Resource Set assignments.
 
-### Permission properties
+#### Permission properties
 | Property         | Description                         | DataType                                       | Nullable   | Unique   | Read Only |
 | :--------------- | :---------------------------------- | :--------------------------------------------- | :--------- | :------- | :-------- |
 | `label`            | Type of permissions                | String                                         | FALSE      | FALSE     | TRUE     |
-| `created`      | The date and time the Role was created | Timestamp | FALSE      | FALSE    | TRUE     |
-| `lastUpdated`      | The date and time the Role's label or description were last updated | Timestamp | FALSE      | FALSE    | TRUE     |
+| `created`      | The date and time the Permission was added to the role | Timestamp | FALSE      | FALSE    | TRUE     |
+| `lastUpdated`      | The date and time the permission's association with the role was last updated | Timestamp | FALSE      | FALSE    | TRUE     |
 | `_links`           | Discoverable resources related to the Permission      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                | TRUE       | FALSE    | TRUE     |
 
 
@@ -3112,7 +3112,7 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | `okta.groups.members.manage`        | Allows the admin to only take member operations in a Group in your Okta org                                                         | All Groups, a specific Group                 |
 | `okta.groups.read`                  | Allows the admin to only read information about Groups and their members in your Okta organization                                  | All Groups, a specific Group                 |
 
-### Example
+#### Example
 
 ```json
 { 
