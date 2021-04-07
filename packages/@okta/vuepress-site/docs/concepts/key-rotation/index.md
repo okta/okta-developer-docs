@@ -5,7 +5,7 @@ title: Key Rotation
 
 Key rotation is when a signing key is retired and replaced by generating a new cryptographic key. Rotating keys on a regular basis is an industry standard and follows cryptographic best practices.
 
-> **Note:** The current Okta key rotation schedule is four times a year, but can change without notice.
+> **Note:** The current Okta key rotation schedule is four times a year, but can change without notice. New keys are normally generated a few weeks before the rotation occurs to ensure that downstream customer caching mechanisms are updated before the rotation occurs.
 
 If you are using a Custom Authorization Server, configure and perform key rollover/rotation at the [Authorization Server level](/docs/reference/api/authorization-servers/#credentials-object).
 
