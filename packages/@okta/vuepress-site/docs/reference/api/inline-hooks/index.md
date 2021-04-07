@@ -12,7 +12,7 @@ For general information on Inline Hooks and how to create and use them, see [Inl
 
 ## Get started
 
-Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/8be0f0b6e03d02c3bb45)
+Explore the Inline Hooks Management API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9aa336618148825976bc)
 
 ## Inline Hook operations
 
@@ -242,7 +242,7 @@ curl -v -X GET \
 | id         | The ID of the Inline Hook that you want to update                                   | Path         | String                                      | TRUE     |
 | inlineHook | An `inlineHook` object that represents the updated properties that you want to apply   | Body         | [Inline Hook object](#inline-hook-object)   | TRUE     |
 
-The submitted Inline Hook properties replace the existing properties after passing validation. 
+The submitted Inline Hook properties replace the existing properties after passing validation.
 
 > **Note:** Some properties are immutable and can't be updated. Refer to the description of each property in the [Inline Hook object](#inline-hook-object) table for information.
 

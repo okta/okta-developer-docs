@@ -1,7 +1,13 @@
 const guidesInfo = require('./scripts/build-guides-info');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Path = require('path')
 const signInWidgetMajorVersion = 5;
+
+const projectRootDir = Path.resolve(__dirname, '../../../../');
+const outputDir = Path.resolve(__dirname, '../dist/');
+
 
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
@@ -24,12 +30,6 @@ module.exports = {
     ['meta', { name: 'msapplication-config',  content: '/favicon/browserconfig.xml' }],
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0'}],
-
-    /*
-     * Okta sign-in widget
-     */
-    ['link', { href: `https://global.oktacdn.com/okta-signin-widget/${WIDGET_VERSION}/css/okta-sign-in.min.css`, type: 'text/css', rel: 'stylesheet'}],
-    ['script', { src: `https://global.oktacdn.com/okta-signin-widget/${WIDGET_VERSION}/js/okta-sign-in.min.js`, type: 'text/javascript'}],
 
     /**
      * Header scripts for typekit, GA, GTM (WIP)
@@ -126,7 +126,7 @@ module.exports = {
       { text: 'Blog', link: '/blog/' },
       { text: 'Support', link: 'https://www.okta.com/contact/',
         children: [
-          { text: 'Okta Developer Forums', link: 'https://devforum.okta.com/' },
+          { text: 'Okta Developer Forum', link: 'https://devforum.okta.com/' },
           { text: 'developers@okta.com', link: 'mailto:developers@okta.com' },
         ]
       }
@@ -284,6 +284,19 @@ module.exports = {
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
       });
+
+    /*
+     * Copy *.scss from Sign-In Widget for use in /live-widget.
+     * See /components/LiveWidget.vue for usage
+     */
+    config.plugin('copy-sass')
+      .use(CopyWebpackPlugin, [
+        [{
+           from: Path.join(projectRootDir, 'node_modules/@okta/okta-signin-widget/dist/sass/'),
+           to: Path.join(outputDir, 'assets/widget-sass/'),
+         },
+        ]
+      ]);
   },
 
   evergreen: false,
@@ -301,6 +314,7 @@ module.exports = {
   },
 
   plugins: {
+    'code-copy': {},
     'sitemap': {
       hostname: 'https://developer.okta.com',
       outFile: 'docs-sitemap.xml',
@@ -325,12 +339,17 @@ module.exports = {
               '/docs/guides/sign-into-web-app-remediation/get-tokens/',
               '/docs/guides/sign-into-web-app-remediation/next-steps/',
               '/docs/reference/api/authenticators-admin/',
-              '/docs/guides/third-party-risk-integration/overview/', //Beta release of Risk APIs and Guide
+              '/docs/guides/third-party-risk-integration/', //Beta release of Risk APIs and Guide
+              '/docs/guides/third-party-risk-integration/overview/',
               '/docs/guides/third-party-risk-integration/create-service-app/',
               '/docs/guides/third-party-risk-integration/update-default-provider/',
               '/docs/guides/third-party-risk-integration/test-integration/',
               '/docs/reference/api/risk-providers/',
-              '/docs/reference/api/risk-events/'
+              '/docs/reference/api/risk-events/',
+              '/docs/reference/api/iam-roles/',
+              '/docs/concepts/role-assignment/',
+              '/docs/guides/migrate-to-oie/',
+              '/docs/guides/ie-intro/'
           ]
         }
       ]

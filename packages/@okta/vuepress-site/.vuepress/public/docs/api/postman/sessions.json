@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "27a8c71c-6b7e-4d48-9c0a-240c1cdae6d1",
+		"_postman_id": "4900b560-17a3-4b92-9216-e9db5e91fee5",
 		"name": "Sessions (Okta API)",
 		"description": "The [Okta Session API](/docs/api/rest/sessions.html) provides operations to create and manage authentication sessions with your Okta organization.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -286,6 +286,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

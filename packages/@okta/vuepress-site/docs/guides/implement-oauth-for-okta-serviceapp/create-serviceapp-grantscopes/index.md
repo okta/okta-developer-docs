@@ -15,33 +15,33 @@ Create an OAuth service app and register the public key with the service app usi
     * `jwks` &mdash; Add the JSON Web Key Set (JWKS) that you created in the <GuideLink link="../create-publicprivate-keypair">last step</GuideLink>.
 
 ```bash
-    curl -X POST \
-    -H 'Accept: application/json' \
-    -H "Authorization: SSWS ${api_token}" \
-    -H 'Content-Type: application/json' \
-    -d ' {
-        "client_name": "Service Client Name",
-        "response_types": [
-          "token"
-        ],
-        "grant_types": [
-          "client_credentials"
-       ],
-        "token_endpoint_auth_method": "private_key_jwt",
-        "application_type": "service",
-        "jwks": {
-              "keys": [
-                     {
-                       "kty": "RSA",
-                       "e": "AQAB",
-                       "use": "sig",
-                       "kid": "O4O",
-                       "alg": "RS256",
-                       "n": "u0VYW2-76A_lYg5NQihhcPJYYU9-NHbNaO6LFERWnOUbU7l3MJdmCailwSzjO76O-2GdLE-Hn2kx04jWCCPofnQ8xNmFScNo8UQ1dKVq0UkFK-sl-Z0Uu19GiZa2fxSWwg_1g2t-ZpNtKCI279xGBi_hTnupqciUonWe6CIvTv0FfX0LiMqQqjARxPS-6fdBZq8WN9qLGDwpjHK81CoYuzASOezVFYDDyXYzV0X3X_kFVt2sqL5DVN684bEbTsWl91vV-bGmswrlQ0UVUq6t78VdgMrj0RZBD-lFNJcY7CwyugpgLbnm4HEJmCOWJOdjVLj3hFxVVblNJQQ1Z15UXw"
-                       }
-                     ]
-           }
-    }' "https://${yourOktaDomain}/oauth2/v1/clients"
+curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/clients' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: SSWS ${api_token}' \
+--data-raw ' {
+    "client_name": "Service Client Name",
+    "response_types": [
+      "token"
+    ],
+    "grant_types": [
+      "client_credentials"
+    ],
+    "token_endpoint_auth_method": "private_key_jwt",
+    "application_type": "service",
+    "jwks": {
+                "keys": [
+                    {
+                      "kty": "RSA",
+                      "e": "AQAB",
+                      "use": "sig",
+                      "kid": "O4O",
+                      "alg": "RS256",
+                      "n": "l-iy7THGCtFVMK6izukV_0K858jhoxg9-d99b6t6cn3Ydy6jNrHl5_OrisCpdJvzTVskQ8XrJulKkPa91JVTPIhCWvVHIKyi43qlLEJE4t0qF1hkUL1Qyhl3cM-oXtyKu9MHBqSSBoMokLSlaOAa_Lx6yDGsCy-ZWSwGdxH5zuygOX1k3tpotbZ7773uFMPEK-6Ol7v0_E9PY-lPUK8M6nH_DNp3TIqn6h2W0r_L2N-M5HBGbfUf0xWtoV5yyRpde6tsA8XnsSjBfR-N_e2xItrQ3uJ5Fk5MdWoZBw5hLNtcUkOt9qbwv6WlLl0UEBEl9dzwJKWEYmoJg3Gai6Z5-w"
+                      }
+                  ]
+              }
+ }'
 ```
 
 2. Make note of the `client_id` that is returned in the response. You need that to grant scopes to your service app and when you create and sign the JWT.
@@ -64,14 +64,15 @@ Now that you've created the service app and registered the public key with that 
     * `issuer` &mdash; `https://{yourOktaDomain}`<br>
 
 ```bash
-  curl -X POST \
-  -H 'Accept: application/json' \
-  -H "Authorization: SSWS ${api_token}" \
-  -H 'Content-Type: application/json' \
-  -d '{
-      "scopeId": "okta.users.read",
-      "issuer": "https://{yourOktaDomain}"
-  }' "https://${yourOktaDomain}/api/v1/apps/{serviceappclient_id}/grants"
+curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/{serviceappclient_id}/grants' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: SSWS 00...Y' \
+--header 'Cache-Control: no-cache' \
+--data-raw '{
+    "scopeId": "okta.users.read",
+    "issuer": "https://${yourOktaDomain}"
+}'
 ```
 
 > **Note:** You can also use the Admin Console to grant allowed scopes to your service app on the **Okta API Scopes** tab. Click **Grant** for each of the scopes that you want to add to the application's grant collection.

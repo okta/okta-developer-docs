@@ -30,7 +30,10 @@ In addition to an Okta user profile, all users have a separate Application user 
 | `$appuser.$attribute` | `$appuser` explicit reference to specific app<br>`$attribute` the attribute variable name  | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
 | `appuser.$attribute`  | `appuser` implicit reference to in-context app<br>`$attribute` the attribute variable name | appuser.firstName                                                     |
 
-**Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name).  (See [Application properties](/docs/reference/api/apps/#application-properties).)  If your organization has configured multiple instances of the same application, the names of the later instances are differentiated by a randomly assigned suffix, e.g. `zendesk_9ao1g13`.  The name of any specific App instance can be found in the Profile Editor, where it is shown in lighter text beneath the App's label.
+> **Note:** Explicit references to apps aren't supported for custom OAuth/OIDC claims.
+>
+
+> **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name).  (See [Application properties](/docs/reference/api/apps/#application-properties).)  If your organization has configured multiple instances of the same application, the names of the later instances are differentiated by a randomly assigned suffix, for example: `zendesk_9ao1g13`.  You can find the name of any specific App instance in the Profile Editor, where it is shown in lighter text beneath the App's label.
 
 ### IdP User Profile
 In addition to an Okta user profile, some users have separate IdP user profiles for their external Identity Provider. These IdP user profiles are used to store identity provider specific information about a user. This data can be used in an EL expression to transform an external user's username into the equivalent Okta username. To reference an IdP user profile attribute, specify the identity provider variable and the corresponding attribute variable for that identity provider's IdP user profile. This profile is only available when specifying the username transform used to generate an Okta username for the IdP user.
@@ -51,6 +54,9 @@ In addition to referencing user attributes, you can also reference App propertie
 | ------            | ----------                                                                                      | ------------                                           |
 | `$app.$attribute` | `$app` explicit reference to specific app instance<br>`$attribute` the attribute variable name  | office365_app.domain<br>zendesk_app.companySubDomain |
 | `app.$attribute`  | `app` implicit reference to in-context app instance<br>`$attribute` the attribute variable name | app.domain<br>app.companySubDomain                     |
+
+> **Note:** Explicit references to apps aren't supported for custom OAuth/OIDC claims.
+>
 
 ### Organization Properties
 
@@ -261,7 +267,7 @@ The format for conditional expressions is
 
 * Expressions must have valid syntax.
 * Expressions must evaluate to Boolean.
-* Expressions cannot contain an assignment operator, such as =.
+* Expressions cannot contain an assignment operator, such as `=`.
 * User attributes used in expressions can contain only available User or AppUser attributes.
 
 <br>The following functions are supported in conditions.
@@ -271,6 +277,7 @@ The format for conditional expressions is
 * The `OR` operator
 * The `!` operator to designate NOT
 * Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>.
+* The `matches` operator to evaluate a String against a regular expression.
 
 **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 

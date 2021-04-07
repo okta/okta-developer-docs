@@ -23,6 +23,6 @@ This example also works if the apps are two instances of the same app or two dif
 
 ## Support
 
-If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>

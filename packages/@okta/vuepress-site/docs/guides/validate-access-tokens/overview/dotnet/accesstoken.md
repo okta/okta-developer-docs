@@ -52,6 +52,7 @@ private static async Task<JwtSecurityToken> ValidateToken(
         // (a lower value is better; we recommend two minutes or less)
         ClockSkew = TimeSpan.FromMinutes(2),
         // See additional validation for aud below
+        ValidateAudience = false,
     };
 
     try

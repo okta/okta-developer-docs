@@ -333,4 +333,4 @@ Want to learn how to use the user's `access_token`? Check out our <a href='/docs
 
 ## Support
 
-Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "96f074c0-2538-43b2-8350-3e361e81fad3",
+		"_postman_id": "7ef0b0ce-87ba-4dcb-931d-a9269744f8e5",
 		"name": "Groups (Okta API)",
 		"description": "The [Okta Groups API](/docs/reference/api/groups/) provides operations to manage your organization groups and their user members.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -374,8 +374,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": []
+			]
 		},
 		{
 			"name": "Group Member Operations",
@@ -492,8 +491,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": []
+			]
 		},
 		{
 			"name": "Related Resources",
@@ -532,8 +530,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": []
+			]
 		},
 		{
 			"name": "Group Rule Operations",
@@ -1012,9 +1009,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": []
+			]
 		}
-	],
-	"protocolProfileBehavior": []
+	]
 }

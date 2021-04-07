@@ -6,6 +6,10 @@
   flex-direction: column;
   justify-content: space-between;
 
+  .mr-15 {
+    margin-right: 15px;
+  }
+
   .row {
     display: flex;
     margin: 0 -24px 24px 0;
@@ -52,7 +56,8 @@
       border: 1px solid cv("cerise", "base");
     }
   }
-  input[type="submit"]:disabled {
+  input[type=submit]:disabled,
+  input[type=button]:disabled {
     cursor: not-allowed;
     opacity: 0.6;
   }
@@ -70,8 +75,10 @@
   input.red-button {
     background: cv("cerise", "base");
     color: $white;
+    font-family: inherit;
     font-size: 15px;
-    line-height: 17px;
+    font-weight: 600;
+    line-height: 16px;
     letter-spacing: 2px;
     text-transform: uppercase;
     text-align: center;
@@ -79,7 +86,10 @@
     border-radius: 3px;
   }
 
-  a.btn {
+  a.btn,
+  input.btn {
+    font-family: inherit;
+    font-weight: 600;
     display: block;
     background-color: cv("cerise", "base");
     padding: 10px 20px 9px;
@@ -95,7 +105,8 @@
     }
   }
 
-  a.social-btn {
+  a.social-btn,
+  input.social-btn {
     background-color: transparent;
   }
 

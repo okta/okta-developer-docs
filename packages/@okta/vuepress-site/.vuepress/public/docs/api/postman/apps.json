@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "67983c32-de20-4b47-86f4-d8a60c20f2c0",
+		"_postman_id": "7108fc7d-75ab-4199-ac15-8d2f3d6762dd",
 		"name": "Apps (Okta API)",
 		"description": "The [Okta Application API](/docs/api/rest/apps.html) provides operations to manage applications and/or assignments to users or groups for your organization.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -375,8 +375,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Certificate Operations",
@@ -855,8 +854,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Credential Operations",
@@ -1046,8 +1044,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Lifecycle Operations",
@@ -1130,8 +1127,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Logo Operations",
@@ -1177,8 +1173,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Provisioning Connection Operations",
@@ -1353,7 +1348,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "a77fb141-38be-4bc2-b481-2314b001e0b4",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1363,15 +1357,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "24585604-a33f-4337-a2f4-5e423cc80c3e",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Feature Operations",
@@ -1489,7 +1481,6 @@
 				{
 					"listen": "prerequest",
 					"script": {
-						"id": "99a59eae-2f2a-47e2-b010-fd530bc6df5e",
 						"type": "text/javascript",
 						"exec": [
 							""
@@ -1499,15 +1490,13 @@
 				{
 					"listen": "test",
 					"script": {
-						"id": "ab0ed878-67d2-4ed9-9a3b-654d3eb2d646",
 						"type": "text/javascript",
 						"exec": [
 							""
 						]
 					}
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "List Apps",
@@ -2175,6 +2164,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

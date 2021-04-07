@@ -41,3 +41,13 @@
   background: cv('gray', '300');
   margin-bottom: $base-spacing;
 }
+
+.api-label-ie {
+  background: cv('blue', '900');
+  margin-bottom: $base-spacing;
+}
+
+.api-label-limited-ga {
+  background: #2d8c9e; // TODO: replace with Odyssey color when it will include it.
+  margin-bottom: $base-spacing;
+}

@@ -1,0 +1,176 @@
+{
+	"info": {
+		"_postman_id": "99b63216-6c97-4be2-ac78-78470d3350ec",
+		"name": "System Log (Okta API)",
+		"description": "The Okta System Log API (https://developer.okta.com/docs/api/resources/system_log) provides read access to your organization's system log. The API is intended to export event data as a batch job from your organization to another system for reporting or analysis.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get logs",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/logs",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"logs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get logs containing the specified keyword(s)",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/logs?q=logout",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"logs"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "logout"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get logs of the specified event type",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/logs?filter=eventType eq \"user.session.end\"",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"logs"
+					],
+					"query": [
+						{
+							"key": "filter",
+							"value": "eventType eq \"user.session.end\""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get logs that occurred since the specified date",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/api/v1/logs?since=2017-10-01T00:00:00.000Z",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"logs"
+					],
+					"query": [
+						{
+							"key": "since",
+							"value": "2017-10-01T00:00:00.000Z"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

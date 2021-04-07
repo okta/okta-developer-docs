@@ -39,6 +39,7 @@
     "uuid": "^8.3.2",
     "vue": "^2.0.0",
     "vue-select": "^3.4.0",
+    "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-plugin-robots": "^1.0.1",
     "vuepress-plugin-sitemap": "^2.1.2",
     "webpack": "^3.0.0",

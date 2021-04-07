@@ -1,114 +1,166 @@
 {
-	"id": "176211be-9a13-6b0b-2b1d-91e973fa5990",
-	"name": "Schemas (Okta API)",
-	"description": "",
-	"order": [],
-	"folders": [
+	"info": {
+		"_postman_id": "bf297346-7e18-4b66-a665-4c9c5ea69e1f",
+		"name": "Schemas (Okta API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "fb1a0eec-367d-9bd1-28cb-3418fd897532",
 			"name": "User",
-			"description": "",
-			"write": true,
-			"order": [
-				"8ca71e28-0be2-ef68-51f4-30b5825278a2",
-				"fbc8f893-466e-9ba7-9f22-d76ed10b0ffe",
-				"67b67e4c-2930-f55f-7426-8fd52b7a31fe",
-				"45763de4-0314-db9f-d92a-087768e19902"
-			],
-			"collection": "e20722ad-7285-9cb0-9321-69495bd8a3c7",
-			"owner": "64678",
-			"collection_name": "Schemas (Okta API)",
-			"collection_owner": "64678",
-			"collection_id": "176211be-9a13-6b0b-2b1d-91e973fa5990",
-			"collectionId": "e20722ad-7285-9cb0-9321-69495bd8a3c7"
-		}
-	],
-	"timestamp": 1441200542611,
-	"owner": "64678",
-	"remoteLink": "",
-	"public": false,
-	"requests": [
-		{
-			"id": "45763de4-0314-db9f-d92a-087768e19902",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/meta/schemas/user/default",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1441496651441,
-			"name": "Remove Property from User Profile Schema",
-			"description": "",
-			"collectionId": "176211be-9a13-6b0b-2b1d-91e973fa5990",
-			"responses": [],
-			"rawModeData": "{\n    \"definitions\": {\n        \"custom\": {\n            \"id\": \"#custom\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"twitterUserName\": null\n            }\n        }\n    }\n}"
-		},
-		{
-			"id": "67b67e4c-2930-f55f-7426-8fd52b7a31fe",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/meta/schemas/user/default",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": "{}",
-			"time": 1441556134191,
-			"name": "Update User Profile Schema Property",
-			"description": "",
-			"collectionId": "176211be-9a13-6b0b-2b1d-91e973fa5990",
-			"responses": [],
-			"descriptionFormat": "html",
-			"folder": "fb1a0eec-367d-9bd1-28cb-3418fd897532",
-			"rawModeData": "{\n  \"definitions\": {\n    \"custom\": {\n      \"id\": \"#custom\",\n      \"type\": \"object\",\n      \"properties\": {\n        \"twitterUserName\": {\n          \"title\": \"Twitter username\",\n          \"description\": \"User's username for twitter.com\",\n          \"type\": \"string\",\n          \"required\": false,\n          \"minLength\": 1,\n          \"maxLength\": 10,\n          \"permissions\": [\n            {\n              \"principal\": \"SELF\",\n              \"action\": \"READ_ONLY\"\n            }\n          ]\n        }\n      },\n      \"required\": []\n    }\n  }\n}"
-		},
-		{
-			"id": "8ca71e28-0be2-ef68-51f4-30b5825278a2",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/meta/schemas/user/default",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "GET",
-			"collectionId": "176211be-9a13-6b0b-2b1d-91e973fa5990",
-			"data": [],
-			"dataMode": "params",
-			"name": "Get User Schema",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1441200623255,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"folder": "fb1a0eec-367d-9bd1-28cb-3418fd897532"
-		},
-		{
-			"id": "fbc8f893-466e-9ba7-9f22-d76ed10b0ffe",
-			"headers": "Accept: application/json\nContent-Type: application/json\nAuthorization: SSWS {{apikey}}\n",
-			"url": "{{url}}/api/v1/meta/schemas/user/default",
-			"preRequestScript": "",
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1441490523324,
-			"name": "Add Property to User Profile Schema",
-			"description": "",
-			"collectionId": "176211be-9a13-6b0b-2b1d-91e973fa5990",
-			"rawModeData": "{\n  \"definitions\": {\n    \"custom\": {\n      \"id\": \"#custom\",\n      \"type\": \"object\",\n      \"properties\": {\n        \"twitterUserName\": {\n          \"title\": \"Twitter username\",\n          \"description\": \"User's username for twitter.com\",\n          \"type\": \"string\",\n          \"required\": false,\n          \"minLength\": 1,\n          \"maxLength\": 20,\n          \"permissions\": [\n            {\n              \"principal\": \"SELF\",\n              \"action\": \"READ_WRITE\"\n            }\n          ]\n        }\n      },\n      \"required\": []\n    }\n  }\n}"
+			"item": [
+				{
+					"name": "Get User Schema",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/meta/schemas/user/default",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meta",
+								"schemas",
+								"user",
+								"default"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Property to User Profile Schema",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"definitions\": {\n    \"custom\": {\n      \"id\": \"#custom\",\n      \"type\": \"object\",\n      \"properties\": {\n        \"twitterUserName\": {\n          \"title\": \"Twitter username\",\n          \"description\": \"User's username for twitter.com\",\n          \"type\": \"string\",\n          \"required\": false,\n          \"minLength\": 1,\n          \"maxLength\": 20,\n          \"permissions\": [\n            {\n              \"principal\": \"SELF\",\n              \"action\": \"READ_WRITE\"\n            }\n          ]\n        }\n      },\n      \"required\": []\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/meta/schemas/user/default",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meta",
+								"schemas",
+								"user",
+								"default"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User Profile Schema Property",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"definitions\": {\n    \"custom\": {\n      \"id\": \"#custom\",\n      \"type\": \"object\",\n      \"properties\": {\n        \"twitterUserName\": {\n          \"title\": \"Twitter username\",\n          \"description\": \"User's username for twitter.com\",\n          \"type\": \"string\",\n          \"required\": false,\n          \"minLength\": 1,\n          \"maxLength\": 10,\n          \"permissions\": [\n            {\n              \"principal\": \"SELF\",\n              \"action\": \"READ_ONLY\"\n            }\n          ]\n        }\n      },\n      \"required\": []\n    }\n  }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/meta/schemas/user/default",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meta",
+								"schemas",
+								"user",
+								"default"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Remove Property from User Profile Schema",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"definitions\": {\n        \"custom\": {\n            \"id\": \"#custom\",\n            \"type\": \"object\",\n            \"properties\": {\n                \"twitterUserName\": null\n            }\n        }\n    }\n}"
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/meta/schemas/user/default",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"meta",
+								"schemas",
+								"user",
+								"default"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }

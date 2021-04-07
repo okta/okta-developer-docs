@@ -17,7 +17,7 @@ This page contains detailed information about the OAuth 2.0 and OpenID Connect e
 
 ## Get started
 
-Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fd92d7c1ab0fbfdecab2)
+Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9e7ad28ca1c26870a4b0)
 
 ## Endpoints
 
@@ -590,6 +590,8 @@ Okta also recommends caching or persisting these keys to improve performance. If
 
 JWKS properties can be found [here](/docs/reference/api/authorization-servers/#key-properties).
 
+> **Note:** Okta returns [standard HTTP Cache-Control headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) for applicable JWKS endpoints. Ensure that you respect the cache header directives, as they are updated based on the time of the request.
+
 #### Response example
 
 ```http
@@ -1095,6 +1097,20 @@ This section contains some general information about claims, as well as detailed
 * [Access Token](#access-token)
 * [ID Token](#id-token)
 * [Refresh Token](#refresh-token)
+
+### Token lifetime
+
+When you are using the [Okta Authorization Server](/docs/concepts/auth-servers/#org-authorization-server), the lifetime of the JWT tokens is hard-coded to the following values:
+
+* **ID token:** 60 minutes
+* **Access token:** 60 minutes
+* **Refresh token:** 90 days
+
+When you are using a [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), you can configure the lifetime of the JWT tokens:
+
+* **Access tokens:** The minimum is five minutes, and the maximum is 24 hours (configurable using an [Access Policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-create-access-policies)).
+* **Refresh tokens:** The minimum access token lifetime. The idle time window is at least 10 minutes, with a maximum of five years (configurable using an [Access Policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-create-access-policies)).
+* **ID tokens:** Not configurable. Token lifetime is 60 minutes.
 
 ### Claims
 

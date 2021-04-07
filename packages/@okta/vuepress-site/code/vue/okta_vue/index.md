@@ -6,13 +6,15 @@ excerpt: Integrate Okta with a Vue app using Auth JS.
 ---
 
 This guide will walk you through integrating authentication into a Vue app with Okta by performing these steps:
-1. [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
-2. [Create a Vue App](#create-a-vue-app)
-3. [Install Dependencies](#install-dependencies)
-4. [Create a Custom Sign-In Form](#create-a-custom-sign-in-form)
-5. [Create Routes](#create-routes)
-6. [Connect the Routes](#connect-the-routes)
-7. [Start Your App](#start-your-app)
+- [Prerequisites](#prerequisites)
+- [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
+- [Create a Vue App](#create-a-vue-app)
+- [Install Dependencies](#install-dependencies)
+- [Create a Custom Sign-In Form](#create-a-custom-sign-in-form)
+- [Create Routes](#create-routes)
+- [Start your app](#start-your-app)
+- [Conclusion](#conclusion)
+- [Support](#support)
 
 > This guide is for `@okta/okta-auth-js` >= v4.1.0 and < 5.0.0.
 
@@ -340,4 +342,4 @@ You have now successfully authenticated with Okta! Now what? With a user's `id_t
 Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/vue/before-you-begin/' data-proofer-ignore>Vue How To Guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 
 ## Support
-Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).
