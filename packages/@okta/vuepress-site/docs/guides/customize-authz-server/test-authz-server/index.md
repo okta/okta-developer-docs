@@ -72,7 +72,7 @@ If you paste this into your browser, you are redirected to the sign-in page for 
 
 `https://${yourOktaDomain}/login/login.htm?fromURI=%2Foauth2%2Fv1%2Fauthorize%2Fredirect%3Fokta_key%aKeyValueWillBeHere`
 
-Enter the credentials for a user who is mapped to your Open ID Connect application, and you are directed to the `redirect_uri` that you specified. An ID Token and any state that you defined are also included:
+Enter the credentials for a user who is mapped to your OpenID Connect application, and you are directed to the `redirect_uri` that you specified. An ID Token and any state that you defined are also included:
 
 `https://yourRedirectUriHere.com/#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6ImluZUdjZVQ4SzB1SnZyWGVUX082WnZLQlB2RFowO[...]z7UvPoMEIjuBTH-zNkTS5T8mGbY8y7532VeWKA&state=WM6D`
 

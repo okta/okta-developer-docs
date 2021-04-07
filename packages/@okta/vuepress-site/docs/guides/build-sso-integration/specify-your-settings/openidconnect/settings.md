@@ -78,7 +78,7 @@
 
 >**Note:** OIDC consent is an Early Access feature. To enable it, contact [Okta Support](https://support.okta.com/help/s/).
 
-* If you have enabled User Consent for OAuth 2.0 Flows in API Access Management, then the following section appears in the **General Settings** tab for an OIDC integration.
+* If you have enabled User Consent for OAuth 2.0 flows in API Access Management, then the following section appears in the **General Settings** tab for an OIDC integration.
 
     ![Consent](/img/oin/sso_user-consent.png "User Consent Panel")
 

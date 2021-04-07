@@ -16,6 +16,6 @@ After you have prepared and tested your SCIM integration, and you want to make i
 
 ## Support
 
-If you need additional assistance, read through our [SCIM FAQ](/docs/concepts/scim/faqs/) page, post your question on the [Okta Developer Forums](https://devforum.okta.com/), or email us at <developers@okta.com>.
+If you need additional assistance, read through our [SCIM FAQ](/docs/concepts/scim/faqs/) page or post your question on the [Okta Developer Forum](https://devforum.okta.com/).
 
 <NextSectionLink/>

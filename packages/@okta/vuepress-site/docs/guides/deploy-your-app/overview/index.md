@@ -13,6 +13,6 @@ If you're developing a server-side application, for example in Java, .NET, or No
 
 ## Support
 
-If you need help or have an issue, post a question in our [Developer Forums](https://devforum.okta.com).
+If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>

@@ -22,6 +22,6 @@ Be sure to specify `refresh_token` as a `data_type` value for the `grant_type` p
 
 ## Support
 
-If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>

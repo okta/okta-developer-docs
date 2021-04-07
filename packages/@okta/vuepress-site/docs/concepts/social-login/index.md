@@ -39,7 +39,7 @@ The social login process starts at the [authentication endpoint](/docs/reference
 2. The user authenticates and is asked by the provider to accept the permissions required by your app.
 3. After the user accepts the permissions, Okta handles the authentication and redirects the user back to your specified redirect URI.
 
-![Social Login Flow width:](/img/social_login_flow.png "Social Login Flow width:")
+![Social Login flow width:](/img/social_login_flow.png "Social Login flow")
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 

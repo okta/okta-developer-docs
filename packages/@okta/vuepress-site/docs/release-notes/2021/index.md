@@ -2,7 +2,39 @@
 title: Okta API Products Release Notes
 ---
 
+## April
+
+### Monthly Release 2021.04.0
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.5.0](#okta-sign-in-widget-version-5-5-0) | April 1, 2021 |
+| [Custom Domain API now in EA in Preview](#custom-domain-api-is-now-in-ea-in-preview) | April 1, 2021 |
+| [Groups API extended search now GA in Production](#groups-api-extended-search-is-now-ga-in-production) | April 1, 2021 |
+
+#### Okta Sign-In Widget, version 5.5.0
+
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/).
+
+#### Custom Domain API is now in EA in Preview
+
+The [Custom Domain API](/docs/reference/api/domains/) is now in Early Access (EA) in Preview.
+
+#### Groups API extended search is now GA in Production
+
+The Groups API support for [extended search](/docs/reference/api/groups/#list-groups-with-search) is now Generally Available (GA) in Production.
+
 ## March
+
+### Weekly Release 2021.03.3
+
+| Change                                                    | Expected in Preview Orgs |
+| --------------------------------------------------------- | ------------------------ |
+| [Bug fixed in 2021.03.3](#bug-fixed-in-2021-03-3)         | March 25, 2021           |
+
+#### Bug fixed in 2021.03.3
+
+When an OAuth2 request was made with an access token instead of a required ID token, the error message didn't clarify that the request was made with the wrong token.
 
 ### Weekly Release 2021.03.2
 
@@ -40,7 +72,7 @@ title: Okta API Products Release Notes
 
 #### The SAML 2.0 Assertion grant flow is now Self-Service Early Access (EA)
 
-The SAML 2.0 Assertion grant flow is now Self-Service EA. You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion Flow](/docs/guides/implement-saml2/overview/).<!--OKTA-373421-->
+The SAML 2.0 Assertion grant flow is now Self-Service EA. You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-saml2/overview/).<!--OKTA-373421-->
 
 #### The Okta Org API is now GA
 
@@ -102,7 +134,6 @@ To be compliant with the [RFC for JSON data interchange format](https://tools.ie
 #### Bug fixed in 2021.02.0
 
 When performing a GET on the [`/oauth2/v1/clients` endpoint](/docs/reference/api/oauth-clients/#list-client-applications) on an org that has a deactivated OIN client, a "404 resource not found" error occurred. (OKTA-365031)
-
 
 ## January
 

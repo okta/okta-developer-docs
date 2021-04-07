@@ -6,6 +6,9 @@ meta:
 layout: Guides
 ---
 
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" />
+
 ## Enable Identity engine for your organization
 
 To upgrade to Identity engine, contact your account manager. If you do not have an account manager, email <oie@okta.com> for more information.

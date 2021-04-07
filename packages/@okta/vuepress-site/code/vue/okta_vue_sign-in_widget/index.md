@@ -7,13 +7,20 @@ excerpt: Integrate Okta with a Vue app using the Sign-In Widget.
 
 This guide will walk you through integrating authentication into a Vue app with Okta by performing these steps:
 
-1. [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
-2. [Create a Vue App](#create-a-vue-app)
-3. [Install Dependencies](#install-dependencies)
-4. [Create a Widget Wrapper](#create-a-widget-wrapper)
-5. [Create Routes](#create-routes)
-6. [Connect the Routes](#connect-the-routes)
-7. [Start Your App](#start-your-app)
+- [Prerequisites](#prerequisites)
+- [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
+- [Create a Vue App](#create-a-vue-app)
+- [Install Dependencies](#install-dependencies)
+- [Create a Widget Wrapper](#create-a-widget-wrapper)
+- [Create Routes](#create-routes)
+  - [`/`](#)
+  - [`/profile`](#profile)
+  - [`/login`](#login)
+  - [`/login/callback`](#logincallback)
+  - [Connect the Routes](#connect-the-routes)
+- [Start your app](#start-your-app)
+- [Conclusion](#conclusion)
+- [Support](#support)
 
 
 > This guide is for `@okta/okta-signin-widget` v5.2.0, `@okta/okta-vue` v3.0.0 and `okta-auth-js` v4.5.0.
@@ -358,4 +365,4 @@ Want to learn how to use the user's `access_token`? Check out our <a href='/docs
 
 ## Support
 
-Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).

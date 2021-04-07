@@ -32,7 +32,7 @@
                 <p
                   class="homepage--sub-heading-disclaimer homepage--color-sub"
                 >
-                  Authenticate up to 1,000 users per month for free forever
+                  Authenticate up to 15,000 users per month for free
                 </p>
               </div>
             </div>
@@ -145,6 +145,7 @@
 
 <script>
 import CompanyLogos from "./CompanyLogos.vue";
+
 const SIDE_BY_SIDE_BREAKPOINT = 1200;
 
 export default {

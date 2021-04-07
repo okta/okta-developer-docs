@@ -7,12 +7,18 @@ icon: code-angular
 
 This guide will walk you through integrating authentication into an Angular application with Okta by performing these steps:
 
-1. [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client)
-2. [Create an Angular App](#create-an-angular-app)
-3. [Install Dependencies](#install-dependencies)
-4. [Create Routes](#create-routes)
-5. [Connect the Routes](#connect-the-routes)
-6. [Start your App](#start-your-app)
+- [Prerequisites](#prerequisites)
+- [Add an OpenID Connect Client](#add-an-openid-connect-client)
+- [Create an Angular App](#create-an-angular-app)
+- [Install Dependencies](#install-dependencies)
+- [Create Routes](#create-routes)
+  - [`/`](#)
+  - [`/protected`](#protected)
+  - [`/login`](#login)
+  - [Connect the Routes](#connect-the-routes)
+- [Start your App](#start-your-app)
+- [Conclusion](#conclusion)
+- [Support](#support)
 
 ## Prerequisites
 
@@ -315,4 +321,4 @@ Want to learn how to use the user's `access_token`? Check out our <a href='/docs
 
 ## Support
 
-Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).
