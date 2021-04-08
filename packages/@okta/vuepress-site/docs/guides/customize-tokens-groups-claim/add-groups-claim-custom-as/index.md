@@ -2,7 +2,7 @@
 title: Add a Groups claim for a Custom Authorization Server
 ---
 
-Use these steps to add a Groups claim to ID tokens and access tokens to perform authentication an authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+Use these steps to add a Groups claim to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
 
 1. In the Admin Console, from the **Security** menu, select **API**, and then select the Custom Authorization Server that you want to configure.
 2. Navigate to the **Claims** tab and click **Add Claim**.
