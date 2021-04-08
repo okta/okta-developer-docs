@@ -133,7 +133,7 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 
 [Single User/Group/App operations (GET, UPDATE, and DELETE)](/docs/reference/rl-dynamic-scale/)
 
-* `/api/v1/apps/{id}`
-* `/api/v1/groups/{id}`
-* `/api/v1/users/{id}`
-* `/api/v1/users/{idOrLogin}`
+* `/api/v1/apps/{id}` &#160;
+* `/api/v1/groups/{id}` &#160;
+* `/api/v1/users/{id}` &#160;
+* `/api/v1/users/{idOrLogin}` &#160;
