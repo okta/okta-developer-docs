@@ -71,7 +71,7 @@ if [[ $BRANCH == "master" ]]; then
     exit ${BUILD_FAILURE}
   fi
   # update target registry to release for production deploy
-  $REGISTRY_REPO="npm-release"
+  REGISTRY_REPO="npm-release"
 fi
 
 # tell conductor to deploy
