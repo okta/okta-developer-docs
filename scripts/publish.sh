@@ -6,10 +6,6 @@ DEPLOY_ENVIRONMENT=""
 export REGISTRY_REPO="npm-topic"
 export REGISTRY="${ARTIFACTORY_URL}/api/npm/${REGISTRY_REPO}"
 
-# Install required dependencies
-yarn global add @okta/ci-append-sha
-yarn global add @okta/ci-pkginfo
-
 declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
 branch_environment_map[staging]=vuepress-site-preprod
