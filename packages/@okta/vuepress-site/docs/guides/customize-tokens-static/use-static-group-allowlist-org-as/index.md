@@ -61,7 +61,7 @@ The decoded JWT looks something like this:
 }
 ```
 
-The ID token contains the group **IT**, so the audience (`aud`) has access to the group information about the user.
+The ID token contains the group "IT", so the audience (`aud`) has access to the group information about the user.
 
 > **Note:** For flows other than implicit, post to the token endpoint `https://${yourOktaDomain}/oauth2/v1/token` with the user or client that you want. Make sure that the user is assigned to the app and to one of the Groups from your allow list.
 

@@ -4,7 +4,7 @@ title: Use a dynamic group allow list with a Custom Authorization Server
 
 To use the Group Functions to create an ID token or an access token using a dynamic group allow list, create a Groups claim and a Groups scope in the Custom Authorization Server. For this example, we are adding a claim for use with an access token.
 
-> **Note:** In this example, the user signing in to your app is assigned to a group called **IT**.
+> **Note:** In this example, the user signing in to your app is assigned to a group called "IT".
 
 1. In the Admin Console, from the **Security** menu, select **API**, and then select the Custom Authorization Server that you want to configure.
 2. Navigate to the **Claims** tab and click **Add Claim**.

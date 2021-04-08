@@ -4,7 +4,7 @@ title: Use a dynamic group allow list with the Org Authorization Server
 
 To use the Group Functions to create a token using a dynamic group allow list, create a Groups claim on an app. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim.
 
-> **Note:** In this example, the user signing in to your app is assigned to a group called **IT**.
+> **Note:** In this example, the user signing in to your app is assigned to a group called "IT".
 
 1. In the Admin Console, from the **Applications** menu, select **Applications**, and then select the client application that you want to configure.
 2. Navigate to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
