@@ -5,6 +5,7 @@ cd ${OKTA_HOME}/${REPO}/packages/@okta/vuepress-site
 DEPLOY_ENVIRONMENT=""
 export REGISTRY_REPO="npm-topic"
 export REGISTRY="${ARTIFACTORY_URL}/api/npm/${REGISTRY_REPO}"
+PUBLISH_TAG="latest"
 
 declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
@@ -43,8 +44,12 @@ if ! ci-append-sha; then
   exit $FAILED_SETUP
 fi
 
+if [[ $BRANCH != "master" ]]; then
+  PUBLISH_TAG="staging"
+fi
+
 npm config set @okta:registry ${REGISTRY}
-if ! npm publish --registry ${REGISTRY}; then
+if ! npm publish --tag ${PUBLISH_TAG} --registry ${REGISTRY}; then
   echo "npm publish failed! Exiting..."
   exit ${BUILD_FAILURE}
 fi
