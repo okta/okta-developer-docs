@@ -5,7 +5,6 @@ cd ${OKTA_HOME}/${REPO}/packages/@okta/vuepress-site
 DEPLOY_ENVIRONMENT=""
 export REGISTRY_REPO="npm-topic"
 export REGISTRY="${ARTIFACTORY_URL}/api/npm/${REGISTRY_REPO}"
-PUBLISH_TAG="latest"
 
 # Install required dependencies
 yarn global add @okta/ci-append-sha
@@ -15,7 +14,7 @@ declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
 branch_environment_map[staging]=vuepress-site-preprod
 
-if ! ci-append-sha; then
+if ! ci-append-sha --include-count; then
   echo "ci-append-sha failed! Exiting..."
   exit $FAILED_SETUP
 fi
@@ -48,19 +47,8 @@ else
   TARGET_BRANCH=$BRANCH
 fi
 
-if ! ci-append-sha; then
-  echo "ci-append-sha failed! Exiting..."
-  exit $FAILED_SETUP
-fi
-
-if [[ $BRANCH != "master" ]]; then
-  PUBLISH_TAG="staging"
-  # set staging prerelease version
-  npm version prerelease --preid="staging"
-fi
-
 npm config set @okta:registry ${REGISTRY}
-if ! npm publish --tag ${PUBLISH_TAG} --registry ${REGISTRY}; then
+if ! npm publish --registry ${REGISTRY}; then
   echo "npm publish failed! Exiting..."
   exit ${BUILD_FAILURE}
 fi
@@ -72,7 +60,7 @@ echo "ARTIFACT_FILE: ${ARTIFACT_FILE}"
 echo "DEPLOY_VERSION: ${DEPLOY_VERSION}"
 echo "ARTIFACT_PATH: ${ARTIFACT_PATH}"
 
-# Only auto-promote to npm-release on main branche
+# Only auto-promote to npm-release on main branch
 if [[ $BRANCH == "master" ]]; then
   if ! trigger_and_wait_release_promotion_task 60; then
     echo "Automatic promotion failed..."
