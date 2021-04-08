@@ -52,6 +52,9 @@ fi
 ARTIFACT_FILE="$(ci-pkginfo -t pkgname)-$(ci-pkginfo -t pkgsemver).tgz"
 DEPLOY_VERSION="$([[ ${ARTIFACT_FILE} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH[1]})"
 ARTIFACT_PATH="@okta/vuepress-site/-/${ARTIFACT_FILE}"
+echo "ARTIFACT_FILE: ${ARTIFACT_FILE}"
+echo "DEPLOY_VERSION: ${DEPLOY_VERSION}"
+echo "ARTIFACT_PATH: ${ARTIFACT_PATH}"
 
 # Only auto-promote to npm-release on main branche
 if [[ $BRANCH == "master" ]]; then
