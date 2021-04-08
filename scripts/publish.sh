@@ -46,6 +46,7 @@ fi
 
 if [[ $BRANCH != "master" ]]; then
   PUBLISH_TAG="staging"
+  echo "PUBLISH_TAG: ${PUBLISH_TAG}"
 fi
 
 npm config set @okta:registry ${REGISTRY}
