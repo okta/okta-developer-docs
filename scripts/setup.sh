@@ -43,7 +43,7 @@ function interject() {
 function send_promotion_message() {
     curl -H "Authorization: Bearer ${TESTSERVICE_SLAVE_JWT}" \
       -H "Content-Type: application/json" \
-      -X POST -d "[{\"artifactId\":\"$1\",\"repository\":\"npm-release\",\"artifact\":\"$2\",\"version\":\"$3\",\"promotionType\":\"ARTIFACT\"}]" \
+      -X POST -d "[{\"artifactId\":\"$1\",\"repository\":\"npm-topic\",\"artifact\":\"$2\",\"version\":\"$3\",\"promotionType\":\"ARTIFACT\"}]" \
       -k "${APERTURE_BASE_URL}/v1/artifact-promotion/createPromotionEvent"
 }
 
