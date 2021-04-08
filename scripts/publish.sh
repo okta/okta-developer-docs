@@ -53,20 +53,28 @@ ARTIFACT_FILE="$(ci-pkginfo -t pkgname)-$(ci-pkginfo -t pkgsemver).tgz"
 DEPLOY_VERSION="$([[ ${ARTIFACT_FILE} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH[1]})"
 ARTIFACT_PATH="@okta/vuepress-site/-/${ARTIFACT_FILE}"
 
-#if ! trigger_and_wait_release_promotion_task 60; then
-#  echo "Automatic promotion failed..."
-#  exit ${BUILD_FAILURE}
-#fi
+# Only auto-promote to npm-release on main branche
+if [[ $BRANCH == "master" ]]; then
+  if ! trigger_and_wait_release_promotion_task 60; then
+    echo "Automatic promotion failed..."
+    exit ${BUILD_FAILURE}
+  fi
+  # update target registry to release for production deploy
+  $REGISTRY_REPO="npm-release"
+fi
 
-if ! send_promotion_message "${DEPLOY_ENVIRONMENT}" "${ARTIFACT_PATH}" "${DEPLOY_VERSION}"; then
+# tell conductor to deploy
+if ! send_promotion_message "${DEPLOY_ENVIRONMENT}" "${REGISTRY_REPO}" "${ARTIFACT_PATH}" "${DEPLOY_VERSION}"; then
   echo "Error sending promotion event to aperture"
   exit ${BUILD_FAILURE}
 fi
 
-# Get the Runscope trigger ID
-get_secret prod/tokens/vuepress_runscope_trigger_id RUNSCOPE_TRIGGER_ID
+if [[ $BRANCH == "master" ]]; then
+  # Get the Runscope trigger ID
+  get_secret prod/tokens/vuepress_runscope_trigger_id RUNSCOPE_TRIGGER_ID
 
-# Trigger the runscope tests
-curl -I -X GET "https://api.runscope.com/radar/bucket/${RUNSCOPE_TRIGGER_ID}/trigger?base_url=https://developer.okta.com"
+  # Trigger the runscope tests
+  curl -I -X GET "https://api.runscope.com/radar/bucket/${RUNSCOPE_TRIGGER_ID}/trigger?base_url=https://developer.okta.com"
+fi;
 
 exit ${SUCCESS}
