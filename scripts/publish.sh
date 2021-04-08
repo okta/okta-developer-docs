@@ -7,9 +7,18 @@ export REGISTRY_REPO="npm-topic"
 export REGISTRY="${ARTIFACTORY_URL}/api/npm/${REGISTRY_REPO}"
 PUBLISH_TAG="latest"
 
+# Install required dependencies
+yarn global add @okta/ci-append-sha
+yarn global add @okta/ci-pkginfo
+
 declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
 branch_environment_map[staging]=vuepress-site-preprod
+
+if ! ci-append-sha; then
+  echo "ci-append-sha failed! Exiting..."
+  exit $FAILED_SETUP
+fi
 
 if ! yarn build; then
     echo "Error building site"
