@@ -14,11 +14,6 @@ declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
 branch_environment_map[staging]=vuepress-site-preprod
 
-if ! ci-append-sha --include-count; then
-  echo "ci-append-sha failed! Exiting..."
-  exit $FAILED_SETUP
-fi
-
 if ! yarn build; then
     echo "Error building site"
     exit ${BUILD_FAILURE}
@@ -30,6 +25,18 @@ if [[ -z "${branch_environment_map[$BRANCH]+unset}" ]]; then
     exit ${SUCCESS}
 else
     DEPLOY_ENVIRONMENT=${branch_environment_map[$BRANCH]}
+fi
+
+if [[ $BRANCH == "master" ]]; then
+  if ! ci-append-sha --include-count; then
+    echo "ci-append-sha failed! Exiting..."
+    exit $FAILED_SETUP
+  fi
+else
+  if ! ci-append-sha --include-count --tag ${BRANCH}; then
+    echo "ci-append-sha failed! Exiting..."
+    exit $FAILED_SETUP
+  fi
 fi
 
 interject "Generating conductor file in $(pwd)"
