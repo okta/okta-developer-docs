@@ -6,5 +6,6 @@ sections:
  - overview
  - request-token-claim
  - add-groups-claim-org-as
+ - add-groups-claim-custom-as
  - next-steps
 ---
