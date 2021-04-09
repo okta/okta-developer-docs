@@ -38,9 +38,8 @@ export default {
   props: ["items"],
   data() {
     return {
+      onThisPageAnchors: [],
       activeAnchor: null,
-      anchorOffsetPairs: [],
-      onThisPageAnchorsOffsetPairs: [],
       paddedHeaderHeight: 0
     };
   },
@@ -52,17 +51,6 @@ export default {
         ? true
         : false;
     },
-    onThisPageAnchors() {
-       const onThisPageLinks = [].slice.call(
-        document.querySelectorAll(".on-this-page-link")
-      );
-      const anchors = Array.from(
-        document.querySelectorAll(".header-anchor.header-link")
-      );
-      return anchors.filter(anchor =>
-        onThisPageLinks.some(sidebarLink => sidebarLink.hash === anchor.hash)
-      );
-    }
   },
   mounted() {
     this.paddedHeaderHeight =
@@ -70,25 +58,34 @@ export default {
       LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
     window.addEventListener("load", () => {
       this.$nextTick(() => {
-        this.captureAnchors();
-        this.handleScroll();
-        this.setActiveHashh();
+        this.onThisPageAnchors = this.getOnThisPageAnchors();
+        this.setActiveAnchor();
+        this.setAlwaysOnViewPosition();
       });
     });
-    window.addEventListener("scroll", this.handleScroll);
-    window.addEventListener("scroll", this.setActiveHashh);
+    window.addEventListener("scroll", this.setAlwaysOnViewPosition);
+    window.addEventListener("scroll", this.setActiveAnchor);
   },
   updated() {
     if (!this.appContext.isInMobileViewport) {
-      this.captureAnchors();
     }
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.handleScroll);
-    window.removeEventListener("scroll", this.setActiveHashh);
+    window.removeEventListener("scroll", this.setAlwaysOnViewPosition);
+    window.removeEventListener("scroll", this.setActiveAnchor);
+  },
+  watch: {
+    $page(to, from) {
+      if (from.title !== to.title) {
+        this.$nextTick(function() {
+          this.onThisPageAnchors = this.getOnThisPageAnchors();
+          this.getActiveHash(this.onThisPageAnchors, true);
+        });
+      }
+    }
   },
   methods: {
-    handleScroll: _.debounce(function(event) {
+    setAlwaysOnViewPosition: _.debounce(function(event) {
       let maxHeight =
         document.querySelector(".on-this-page").clientHeight - window.scrollY;
       if (maxHeight > window.innerHeight) {
@@ -101,51 +98,22 @@ export default {
         maxHeight + "px";
     }, 200),
 
-    captureAnchors: function() {
-      const sidebarAnchorOffsets = this.onThisPageAnchors.map(
-        anchor => anchor.parentElement.offsetTop
-      );
-      this.onThisPageAnchorsOffsetPairs = sidebarAnchorOffsets.map(
-        (anchorOffset, index, anchorOffsets) => [
-          anchorOffset,
-          anchorOffsets[index + 1]
-        ]
-      );
-    },
+    setActiveAnchor: _.debounce(function() {
+      const onThisPageActiveAnchor = this.getActiveHash(this.onThisPageAnchors);
+      this.activeAnchor = onThisPageActiveAnchor
+        ? onThisPageActiveAnchor.hash
+        : "";
+    }, 200),
 
-    setActiveHashh: _.debounce(
-      function(event) {
-        const scrollTop = Math.max(
-          window.pageYOffset,
-          document.documentElement.scrollTop,
-          document.body.scrollTop
-        );
-        const onThisPageMatchingPair = this.onThisPageAnchorsOffsetPairs.find(
-          pair =>
-            scrollTop >= pair[0] - this.paddedHeaderHeight &&
-            (!pair[1] || scrollTop < pair[1] - this.paddedHeaderHeight),
-          this
-        );
-         const matchingPair = this.onThisPageAnchorsOffsetPairs.find(
-            pair =>
-              scrollTop >= pair[0] - this.paddedHeaderHeight &&
-              (!pair[1] || scrollTop < pair[1] - this.paddedHeaderHeight),
-            this
-          );
-        const onThisPageActiveAnchor = matchingPair
-          ? this.onThisPageAnchors[
-              this.onThisPageAnchorsOffsetPairs.indexOf(onThisPageMatchingPair)
-            ]
-          : null;
-        if (onThisPageActiveAnchor) {
-          this.activeAnchor = onThisPageActiveAnchor.hash;
-        } else {
-          this.activeAnchor = "";
-        }
-      },
-      200,
-      { leading: true }
-    )
+    getOnThisPageAnchors() {
+      const onThisPageLinks = [].slice.call(
+        document.querySelectorAll(".on-this-page-link")
+      );
+      const anchors = Array.from(document.querySelectorAll(".header-anchor"));
+      return anchors.filter(anchor =>
+        onThisPageLinks.some(sidebarLink => sidebarLink.hash === anchor.hash)
+      );
+    }
   }
 };
 </script>

@@ -20,7 +20,7 @@ describe('content section', () => {
     page.refresh();
     const id = '#first-section';
     try {
-      const inPageLink = await page.getInPageLink(id).getWebElement();
+      const inPageLink = await page.getInPageLink(`/test_page/${id}`).getWebElement();
       let heading = page.getHeading(`h2${id}`).getWebElement();
       expect(await util.isInViewport(heading), 'heading is not expected to be visible before in-page link click').to.equal(false);
       inPageLink.click();
@@ -40,7 +40,7 @@ describe('content section', () => {
       await docsPage.waitForPresence(await docsPage.getHeading(`h2${id}`), 2000)
       let heading = await docsPage.getHeading(`h2${id}`).getWebElement();
       expect(await util.isInViewport(heading), 'heading is not expected to be visible before in-page link click').to.equal(false);
-      const inPageLink = await docsPage.getInPageLink(id).getWebElement();
+      const inPageLink = await docsPage.getInPageLink(`/docs/reference/api/factors/${id}`).getWebElement();
       inPageLink.click();
       heading = await docsPage.getHeading(`h2${id}`).getWebElement();
       expect(await util.isInViewport(heading), 'heading is not visible').to.equal(true);
@@ -53,7 +53,7 @@ describe('content section', () => {
     page.navigate('/test_page/');
     page.refresh();
     try {
-      await (page.getInPageLink('#third-section').getWebElement()).click();
+      await (page.getInPageLink('/test_page/#third-section').getWebElement()).click();
       browser.navigate().back();
       const heading = await page.getHeading('#second-section').getWebElement();
       expect(await util.isInViewport(heading), 'heading is not visible').to.equal(true);

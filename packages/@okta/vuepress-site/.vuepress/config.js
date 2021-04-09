@@ -289,7 +289,6 @@ module.exports = {
       permalinkClass: 'header-anchor header-link',
       level: 2
     },
-    extractHeaders: [ 'h2', 'h3', 'h4', 'h5' ],
   },
 
   plugins: {

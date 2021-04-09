@@ -10,7 +10,6 @@
 </template>
 
 <script>
-import { LAYOUT_CONSTANTS } from '../layouts/Layout.vue';
 import AnchorHistory from '../mixins/AnchorHistory.vue';
 export default {
   name: 'OnThisPageItem',
@@ -46,16 +45,9 @@ export default {
       let anchor = this.activeAnchor.replace(/^#/, '');
       return (node.path && node.path == node.basePath + '#' + anchor) || (node.slug && node.slug == anchor);
     },
-    hasActiveChildren(node) {
-      let hasActiveChildren = false;
-      if (node.children) {
-        hasActiveChildren |= node.children.some(this.hasActiveChildren)
-      }
-      return hasActiveChildren || this.isActive(node);
-    },
     setActiveData: function() {
       this.imActive = this.isActive(this.link);
-      this.iHaveChildrenActive = this.hasActiveChildren(this.link);
+      this.iHaveChildrenActive =  (this.link.children || [] ).some( child => this.isActive(child) );;
     },
     clickLink: function(e) {
       let hash = "";

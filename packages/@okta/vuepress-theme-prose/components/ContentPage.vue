@@ -9,43 +9,40 @@ export default {
   mixins: [AnchorHistory],
   data() {
     return {
+      anchors: [],
       activeAnchor: null,
       headingAnchorsMap: {}
     };
   },
-  computed: {
-    anchors() {
-      return Array.from(
-        document.querySelectorAll(".header-anchor.header-link")
-      );
-    }
-  },
+  computed: {},
   mounted() {
+    this.anchors = this.getAnchors();
+
     if (document.readyState === "complete") {
       this.onURLAnchorChange();
-      this.onScrollCaptureAnchors(this.anchors);
     } else {
       window.addEventListener("load", () => {
         this.onURLAnchorChange();
-        this.onScrollCaptureAnchors(this.anchors);
       });
       window.addEventListener("popstate", e => {
-        this.scrollToAnchor(e.target.location.hash);
+        e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
       });
     }
-    window.addEventListener("scroll", this.setActiveHash.bind(this,[this.anchors]));
+
+    window.addEventListener("scroll", this.onScrollHandleActiveHashListner);
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.setActiveHash);
+    window.removeEventListener("scroll", this.onScrollHandleActiveHashListner);
   },
   watch: {
     $page(to, from) {
-      this.$nextTick(function() {
-        if (from.title !== to.title) {
-          this.onScrollCaptureAnchors(this.anchors);
+      if (from.title !== to.title) {
+        this.$nextTick(function() {
+          this.anchors = this.getAnchors();
+          this.getActiveHash(this.anchors, true);
           this.onURLAnchorChange();
-        }
-      });
+        });
+      }
     }
   },
   methods: {
@@ -92,6 +89,16 @@ export default {
           return false;
         }
       }
+    },
+    onScrollHandleActiveHashListner: _.debounce(function() {
+      const activeAnchor = this.getActiveHash(this.anchors);
+
+      activeAnchor
+        ? this.historyReplaceAnchor(activeAnchor.hash)
+        : this.historyReplaceAnchor("");
+    }, 200),
+    getAnchors() {
+      return Array.from(document.querySelectorAll(".header-anchor"));
     }
   }
 };

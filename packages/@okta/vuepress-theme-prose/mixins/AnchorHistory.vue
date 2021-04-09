@@ -1,12 +1,11 @@
 <script>
 import { LAYOUT_CONSTANTS } from "../layouts/Layout";
-import _ from "lodash";
+
 export default {
   data() {
     return {
       paddedHeaderHeight: 0,
-      anchorOffsetPairs: [],
-      onThisPageAnchorsOffsetPairs: [],
+      anchorOffsetPairs: null
     };
   },
   mounted() {
@@ -16,7 +15,7 @@ export default {
   },
   methods: {
     scrollToAnchor: function(anchorId) {
-      let target = document.querySelector(anchorId);
+      const target = document.querySelector(anchorId);
       if (target) {
         const scrollToPosition = target.offsetTop - this.paddedHeaderHeight;
         window.scrollTo(0, scrollToPosition);
@@ -52,47 +51,40 @@ export default {
       }
     },
 
-    onScrollCaptureAnchors: function(anchors) {
+    _getAnchorsOffsetPairs(anchors) {
       const anchorOffsets = anchors.map(
         anchor => anchor.parentElement.offsetTop
       );
 
-      this.anchorOffsetPairs = anchorOffsets.map(
-        (anchorOffset, index, anchorOffsets) => [
-          anchorOffset,
-          anchorOffsets[index + 1]
-        ]
-      );
+      return anchorOffsets.map((anchorOffset, index, anchorOffsets) => ({
+        start: anchorOffset,
+        end: anchorOffsets[index + 1]
+      }));
     },
 
-    setActiveHash:
-      _.debounce(
-        function(anchors) {
-          const scrollTop = Math.max(
-            window.pageYOffset,
-            document.documentElement.scrollTop,
-            document.body.scrollTop
-          );
-          const matchingPair = this.anchorOffsetPairs.find(
-            pair =>
-              scrollTop >= pair[0] - this.paddedHeaderHeight &&
-              (!pair[1] || scrollTop < pair[1] - this.paddedHeaderHeight),
-            this
-          );
-          const activeAnchor = matchingPair
-            ? anchors[0][this.anchorOffsetPairs.indexOf(matchingPair)]
-            : null;
+    getActiveHash: function(anchors, updateOffsetPairs = false) {
+      const scrollTop = Math.max(
+        window.pageYOffset,
+        document.documentElement.scrollTop,
+        document.body.scrollTop
+      );
 
-          if (activeAnchor) {
-            this.historyReplaceAnchor(activeAnchor.hash);
-          } else {
-            this.historyReplaceAnchor("");
-          }
-        },
-        200,
-        { leading: true }
-      )
+      if (!this.anchorOffsetPairs || updateOffsetPairs) {
+        this.anchorOffsetPairs = this._getAnchorsOffsetPairs(anchors);
+      }
 
+      const matchingPair = this.anchorOffsetPairs.find(
+        pair =>
+          scrollTop >= pair.start - this.paddedHeaderHeight &&
+          (!pair.end || scrollTop < pair.end - this.paddedHeaderHeight),
+        this
+      );
+      const activeAnchor = matchingPair
+        ? anchors[this.anchorOffsetPairs.indexOf(matchingPair)]
+        : null;
+
+      return activeAnchor;
+    }
   }
 };
 </script>
