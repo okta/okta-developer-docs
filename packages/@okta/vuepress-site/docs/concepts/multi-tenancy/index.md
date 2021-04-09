@@ -111,8 +111,7 @@ configurations for multi-tenancy. They are:
 
 ## Configuration 1
 
-<div class="heading-2-subtext">Host tenants in a single org using Universal
-Directory (UD)</div>
+Host tenants in a single org using Universal Directory (UD)
 
 ### Summary
 
@@ -294,8 +293,7 @@ See [okta-dac](https://docs.idp.rocks/) for more information.
 
 ## Configuration 2
 
-<div class="heading-2-subtext">Host tenants in separate orgs (for example,
-Hub and Spoke)</div>
+Host tenants in separate orgs (for example, Hub and Spoke)
 
 ### Summary
 
@@ -375,7 +373,7 @@ To discover more about the hub and spoke architecture visit the following links:
 
 ## Configuration 3
 
-<div class="heading-2-subtext">Hybrid - host tenants in both single and separate orgs</div>
+Hybrid - host tenants in both single and separate orgs
 
 ### Summary
 
@@ -403,7 +401,7 @@ customers.
 
 ## Configuration 4
 
-<div class="heading-2-subtext">Host tenants in a single org not using UD</div>
+Host tenants in a single org not using Universal Directory
 
 ### Summary
 
