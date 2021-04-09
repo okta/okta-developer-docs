@@ -14,7 +14,6 @@ export default {
       headingAnchorsMap: {}
     };
   },
-  computed: {},
   mounted() {
     this.anchors = this.getAnchors();
 
@@ -39,7 +38,7 @@ export default {
       if (from.title !== to.title) {
         this.$nextTick(function() {
           this.anchors = this.getAnchors();
-          this.getActiveHash(this.anchors, true);
+          this.getActiveAnchor(this.anchors, true);
           this.onURLAnchorChange();
         });
       }
@@ -91,7 +90,7 @@ export default {
       }
     },
     onScrollHandleActiveHashListner: _.debounce(function() {
-      const activeAnchor = this.getActiveHash(this.anchors);
+      const activeAnchor = this.getActiveAnchor(this.anchors);
 
       activeAnchor
         ? this.historyReplaceAnchor(activeAnchor.hash)

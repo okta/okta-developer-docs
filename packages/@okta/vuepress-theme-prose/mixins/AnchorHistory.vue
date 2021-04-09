@@ -62,7 +62,7 @@ export default {
       }));
     },
 
-    getActiveHash: function(anchors, updateOffsetPairs = false) {
+    getActiveAnchor: function(anchors, updateOffsetPairs = false) {
       const scrollTop = Math.max(
         window.pageYOffset,
         document.documentElement.scrollTop,

@@ -79,7 +79,7 @@ export default {
       if (from.title !== to.title) {
         this.$nextTick(function() {
           this.onThisPageAnchors = this.getOnThisPageAnchors();
-          this.getActiveHash(this.onThisPageAnchors, true);
+          this.getActiveAnchor(this.onThisPageAnchors, true);
         });
       }
     }
@@ -99,7 +99,7 @@ export default {
     }, 200),
 
     setActiveAnchor: _.debounce(function() {
-      const onThisPageActiveAnchor = this.getActiveHash(this.onThisPageAnchors);
+      const onThisPageActiveAnchor = this.getActiveAnchor(this.onThisPageAnchors);
       this.activeAnchor = onThisPageActiveAnchor
         ? onThisPageActiveAnchor.hash
         : "";
