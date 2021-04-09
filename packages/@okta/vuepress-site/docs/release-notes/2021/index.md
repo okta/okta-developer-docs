@@ -11,6 +11,7 @@ title: Okta API Products Release Notes
 | [Okta Sign-In Widget, version 5.5.0](#okta-sign-in-widget-version-5-5-0) | April 1, 2021 |
 | [Custom Domain API now in EA in Preview](#custom-domain-api-is-now-in-ea-in-preview) | April 1, 2021 |
 | [Groups API extended search now GA in Production](#groups-api-extended-search-is-now-ga-in-production) | April 1, 2021 |
+| [Bug fixed in 2021.04.0](#bug-fixed-in-2021-04-0)         | April 1, 2021           |
 
 #### Okta Sign-In Widget, version 5.5.0
 
@@ -23,6 +24,10 @@ The [Custom Domain API](/docs/reference/api/domains/) is now in Early Access (EA
 #### Groups API extended search is now GA in Production
 
 The Groups API support for [extended search](/docs/reference/api/groups/#list-groups-with-search) is now Generally Available (GA) in Production.
+
+#### Bug fixed in 2021.04.0
+
+* Sometimes the public OAuth metadata API responses did not include a `Vary: Origin` header, resulting in some browsers incorrectly caching the response across Origins. (OKTA-373689)
 
 ## March
 
