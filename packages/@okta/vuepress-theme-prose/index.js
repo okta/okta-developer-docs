@@ -20,7 +20,7 @@ module.exports = (options, ctx) => {
 };
 
 function resolveHeaders(page) {
-  const headers = groupHeaders(page.headers || [], 5);
+  const headers = groupHeaders(page.headers || []);
   return [
     {
       type: "group",
@@ -39,26 +39,15 @@ function resolveHeaders(page) {
 }
 
 function groupHeaders(headers, headerLevel) {
-  if (headerLevel === 2) {
-    return headers;
-  }
-
-  let headersCopy = headers.map(h => Object.assign({}, h));
-  let lastHeaderOfContainingLevel;
-
-  headersCopy.forEach(h => {
-    if (h.level === headerLevel - 1) {
-      lastHeaderOfContainingLevel = h;
-    } else if (lastHeaderOfContainingLevel && h.level === headerLevel) {
-      (
-        lastHeaderOfContainingLevel.children ||
-        (lastHeaderOfContainingLevel.children = [])
-      ).push(h);
+  // group h3s under h2
+  headers = headers.map(h => Object.assign({}, h));
+  let lastH2;
+  headers.forEach(h => {
+    if (h.level === 2) {
+      lastH2 = h;
+    } else if (lastH2) {
+      (lastH2.children || (lastH2.children = [])).push(h);
     }
   });
-
-  return groupHeaders(
-    headersCopy.filter(h => h.level !== headerLevel),
-    headerLevel - 1
-  );
+  return headers.filter(h => h.level === 2);
 }

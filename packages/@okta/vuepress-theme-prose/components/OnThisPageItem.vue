@@ -47,6 +47,7 @@ export default {
     },
     setActiveData: function() {
       this.imActive = this.isActive(this.link);
+
       this.iHaveChildrenActive =  (this.link.children || [] ).some( child => this.isActive(child) );;
     },
     clickLink: function(e) {
