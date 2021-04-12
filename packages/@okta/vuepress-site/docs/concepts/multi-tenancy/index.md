@@ -21,17 +21,18 @@ they built their solution with a multi-tenant configuration.
 
 ## What is a tenant?
 A tenant is a single instance of software and supporting infrastructure that
-supports a group of users. These groups can represent any entity that
+supports a group of users. Tenant's can represent any entity that
 interfaces with the organization such as its employees, customers, or partners.
-This entity can be an individual user (B2C) or another company (B2B) with its
-own set of users.
+A tenant supports both a business-to-customer (B2C) and business-to-business
+(B2B) model where users can be either be direct customers or another
+organization's customers.
 
 ### A tenant within Identity Access Management
 A tenant can also be considered as an isolated island of data that is separate
 and private from other tenants. In the context of identity management, each
 tenant has its own security policies, user registration settings, user groups,
 roles, and rules that determine application access. An illustration of these
-different types of data are shown below:
+different types of data is shown below:
 
 <div class="image-at-70">
 
@@ -86,7 +87,7 @@ Acme Bank defined their tenants as:
 
 ### Before we begin
 
-This doc assumes a basic knowledge of the Okta entity model and uses Okta
+This doc assumes a basic knowledge of the Okta data model and uses Okta
 terminology such as "org" and "Universal Directory" when describing key
 concepts and configurations. For more information on these entities and how
 they relate to each another, see the following resources:
@@ -105,7 +106,7 @@ platform is ultimately decided by the customer. Okta offers four main
 configurations for multi-tenancy. They are:
 
 * [Configuration 1: Host tenants in a single org using Universal Directory (UD)](#configuration-1)
-* [Configuration 2: Host tenants in separate orgs (for example, Hub and Spoke](#configuration-2)
+* [Configuration 2: Host tenants in separate orgs (for example, hub-and-spoke](#configuration-2)
 * [Configuration 3: Mixed. Host tenants in both single and separate orgs](#configuration-3)
 * [Configuration 4: Host tenants in a single org not using UD](#configuration-4)
 
@@ -136,8 +137,8 @@ Okta customers should choose this configuration when:
 * All branding communications and onboarding experiences are the same for all
   users.
 * It's acceptable to support unique usernames for each tenant by storing them
-  in the Okta platform with custom naming conventions (for example, app-1-johndoe,
-  app-2-johndoe).
+  in the Okta platform with custom naming conventions (for example, `app-1-johndoe`,
+  `app-2-johndoe`).
 
 ### How tenants are built
 
@@ -233,7 +234,7 @@ used to manage the Okta org’s data.
 #### Delegated Admin Console
 
 A tool (DAC) that is used to manage users of a tenant. The tool is split
-into two UIs that include:
+into two UI's that include:
 
 * **Super Admin UI:** Used to create new tenants and their first admin user.
 Used by Super Admins.
@@ -265,7 +266,7 @@ The diagram below illustrates how these components work together:
 
 The DAC, Okta End-User Dashboard, and Admin Console are default UI’s provided
 by Okta. Since these tools use Tenant and Okta APIs to manage the Okta org,
-Okta customers can plug in their own custom UIs.
+Okta customers can plug in their own custom UI's.
 
 #### From logical to physical
 
@@ -293,12 +294,12 @@ See [okta-dac](https://docs.idp.rocks/) for more information.
 
 ## Configuration 2
 
-Host tenants in separate orgs (for example, Hub and Spoke)
+Host tenants in separate orgs (for example, hub-and-spoke)
 
 ### Summary
 
 This configuration separates tenants into separate containers (orgs).
-The most popular architecture for this configuration is known as Hub and Spoke.
+The most popular architecture for this configuration is known as hub-and-spoke.
 
 ### When to use this configuration
 
@@ -330,11 +331,11 @@ supports this functionality.
 ### Implementations
 
 The Okta supported design for a multi-org, multi-tenant configuration is
-the Hub and Spoke setup.
+the hub-and-spoke setup.
 
-### Hub and spoke physical layout
+### Hub-and-spoke physical layout
 
-The two main components of the hub and spoke layout are:
+The two main components of the hub-and-spoke layout are:
 
 * **Spoke:** Org that contains users, user groups, and applications specific to
  that tenant. Spokes are responsible for lifecycle management and
@@ -354,18 +355,18 @@ applications and services through the hub.
 
 #### Diagram
 
-A diagram illustrating the hub and spoke configuration is shown below:
+A diagram illustrating the hub-and-spoke configuration is shown below:
 
 <div class="image-at-90">
 
 ![Multi-org layout](/img/multi-tenancy/multi-org-configuration-layout.png
- "Diagram showing how the layout of the hub and spoke model")
+ "Diagram showing how the layout of the hub-and-spoke model")
 
 </div>
 
 #### More information
 
-To discover more about the hub and spoke architecture visit the following links:
+To discover more about the hub-and-spoke architecture visit the following links:
 
 * [Different Ways To Architect Multitenancy in Okta](https://www.okta-from-the-field.com/post/different-ways-to-architect-multitenancy-in-okta)
 * [Okta for Global, Distributed Organizations](https://www.okta.com/resources/whitepaper/okta-for-global-distributed-organizations/)
@@ -380,7 +381,7 @@ Hybrid - host tenants in both single and separate orgs
 Okta supports a hybrid configuration that mixes the setups described in both the
 first and second configurations. How this configuration is set up varies from
 customer to customer. One example of this hybrid configuration lays out orgs
-in a hub and spoke pattern like configuration 2. A spoke on this configuration
+in a hub-and-spoke pattern like configuration 2. A spoke on this configuration
 can be composed of single or multiple tenants. See the diagram below for an
 illustrated example of this setup:
 
@@ -422,7 +423,7 @@ configuration.
 
 ### Additional resources
 
-Additional multi-tenant resources are below:
+Additional multi-tenancy resources are below:
 
 * [The Secret Features of Okta Access Gateway: Part 1: Multi-data Center and Multi-Tenancy](https://www.okta.com/blog/2020/02/the-secret-features-of-okta-access-gateway-part-1-multi-data-center-and-multi-tenancy-1/)
 
