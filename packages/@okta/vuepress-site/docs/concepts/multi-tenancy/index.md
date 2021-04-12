@@ -234,7 +234,7 @@ used to manage the Okta org’s data.
 #### Delegated Admin Console
 
 A tool (DAC) that is used to manage users of a tenant. The tool is split
-into two UI's that include:
+into two UIs that include:
 
 * **Super Admin UI:** Used to create new tenants and their first admin user.
 Used by Super Admins.
@@ -264,9 +264,9 @@ The diagram below illustrates how these components work together:
 
 #### Customizations
 
-The DAC, Okta End-User Dashboard, and Admin Console are default UI’s provided
+The DAC, Okta End-User Dashboard, and Admin Console are default UIs provided
 by Okta. Since these tools use Tenant and Okta APIs to manage the Okta org,
-Okta customers can plug in their own custom UI's.
+Okta customers can plug in their own custom UIs.
 
 #### From logical to physical
 
