@@ -97,6 +97,7 @@ export default {
     setData: function() {
       this.sublinksExpanded = Boolean(this.link.iHaveChildrenActive);
     }
+    
   }
 };
 </script>
