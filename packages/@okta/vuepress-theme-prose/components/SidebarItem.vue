@@ -62,7 +62,6 @@ export default {
   },
   data() {
     return {
-      iHaveChildrenActive: false,
       sublinksExpanded: false,
       hidden: !!this.link.hidden
     };
@@ -74,7 +73,7 @@ export default {
     link() {
       this.setData();
     },
-    iHaveChildrenActive(isActivated, _) {
+    sublinksExpanded(isActivated, _) {
       if (isActivated) {
         // element.scrollIntoViewIfNeeded is not supported by Firefox
         if (this.$el.scrollIntoViewIfNeeded) {
@@ -96,7 +95,6 @@ export default {
     },
     setData: function() {
       this.sublinksExpanded = Boolean(this.link.iHaveChildrenActive);
-      this.iHaveChildrenActive = Boolean(this.link.iHaveChildrenActive);
     }
   }
 };
