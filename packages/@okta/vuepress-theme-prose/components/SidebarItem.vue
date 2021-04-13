@@ -85,7 +85,7 @@ export default {
       }
     },
     "appContext.isTreeNavMobileOpen"(isOpen, _) {
-      if (isOpen && this.link.imActive && this.link.path) {
+      if (isOpen && this.link.iHaveChildrenActive && this.link.path) {
         this.$el.scrollIntoView({ block: "center" });
       }
     }
