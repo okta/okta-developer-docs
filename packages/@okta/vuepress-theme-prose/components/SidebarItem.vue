@@ -69,11 +69,12 @@ export default {
   mounted() {
     this.setData();
   },
+  
   watch: {
     link() {
       this.setData();
     },
-    iHaveChildrenActive(isActivated, _) {
+    sublinksExpanded(isActivated, _) {
       if (isActivated) {
         // element.scrollIntoViewIfNeeded is not supported by Firefox
         if (this.$el.scrollIntoViewIfNeeded) {
@@ -84,7 +85,7 @@ export default {
       }
     },
     "appContext.isTreeNavMobileOpen"(isOpen, _) {
-      if (isOpen && this.link.imActive && this.link.path) {
+      if (isOpen && this.link.iHaveChildrenActive && this.link.path) {
         this.$el.scrollIntoView({ block: "center" });
       }
     }
