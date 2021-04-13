@@ -68,7 +68,6 @@ export default {
         document.documentElement.scrollTop,
         document.body.scrollTop
       );
-
       if (!this.anchorOffsetPairs || updateOffsetPairs) {
         this.anchorOffsetPairs = this._getAnchorsOffsetPairs(anchors);
       }

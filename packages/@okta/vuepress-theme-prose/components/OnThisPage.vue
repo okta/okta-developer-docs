@@ -68,6 +68,7 @@ export default {
   },
   updated() {
     if (!this.appContext.isInMobileViewport) {
+
     }
   },
   beforeDestroy() {
@@ -85,7 +86,7 @@ export default {
     }
   },
   methods: {
-    setAlwaysOnViewPosition: _.debounce(function(event) {
+    setAlwaysOnViewPosition: _.debounce(function() {
       let maxHeight =
         document.querySelector(".on-this-page").clientHeight - window.scrollY;
       if (maxHeight > window.innerHeight) {

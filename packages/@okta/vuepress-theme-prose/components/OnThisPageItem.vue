@@ -33,7 +33,7 @@ export default {
     this.setActiveData();
   },
   watch: {
-    activeAnchor: function (val) {
+    activeAnchor: function () {
       this.setActiveData();
     }
   },
@@ -48,7 +48,7 @@ export default {
     setActiveData: function() {
       this.imActive = this.isActive(this.link);
 
-      this.iHaveChildrenActive =  (this.link.children || [] ).some( child => this.isActive(child) );;
+      this.iHaveChildrenActive =  (this.link.children || [] ).some( child => this.isActive(child) );
     },
     clickLink: function(e) {
       let hash = "";

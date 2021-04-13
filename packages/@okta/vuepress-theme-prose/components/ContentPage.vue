@@ -3,6 +3,7 @@
 </template>
 
 <script>
+import _ from "lodash";
 import AnchorHistory from "../mixins/AnchorHistory.vue";
 export default {
   name: "ContentPage",
@@ -10,28 +11,27 @@ export default {
   data() {
     return {
       anchors: [],
-      activeAnchor: null,
       headingAnchorsMap: {}
     };
   },
   mounted() {
     this.anchors = this.getAnchors();
-
     if (document.readyState === "complete") {
-      this.onURLAnchorChange();
+      this.onPageChange();
     } else {
       window.addEventListener("load", () => {
-        this.onURLAnchorChange();
+        this.onPageChange();
       });
       window.addEventListener("popstate", e => {
         e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
       });
     }
 
-    window.addEventListener("scroll", this.onScrollHandleActiveHashListner);
+    window.addEventListener("scroll", this.setHeadingAnchorToURL);
   },
   beforeDestroy() {
-    window.removeEventListener("scroll", this.onScrollHandleActiveHashListner);
+    window.removeEventListener("scroll", this.setHeadingAnchorToURL);
+    window.removeEventListener("scroll", this.scrollToAnchor);
   },
   watch: {
     $page(to, from) {
@@ -39,13 +39,13 @@ export default {
         this.$nextTick(function() {
           this.anchors = this.getAnchors();
           this.getActiveAnchor(this.anchors, true);
-          this.onURLAnchorChange();
+          this.onPageChange();
         });
       }
     }
   },
   methods: {
-    onURLAnchorChange() {
+    onPageChange() {
       const anchor = window.location.href.split("#")[1];
 
       if (anchor) {
@@ -57,7 +57,16 @@ export default {
       this.onClickCaptureAnchors();
     },
     onClickCaptureAnchors() {
+      const noneHeadingAnchors = Array.from(
+        document.querySelectorAll(
+          'a[href^="#"]:not(.on-this-page-link):not(.tree-nav-link)'
+        )
+      );
       this.anchors.forEach(
+        link => link.removeEventListener("click", this.onAnchorClick),
+        this
+      );
+      noneHeadingAnchors.forEach(
         link => link.removeEventListener("click", this.onAnchorClick),
         this
       );
@@ -67,6 +76,10 @@ export default {
         return anchorsByHash;
       }, {});
 
+      noneHeadingAnchors.forEach(
+        link => link.addEventListener("click", this.onAnchorClick),
+        this
+      );
       this.anchors.forEach(
         link => link.addEventListener("click", this.onAnchorClick),
         this
@@ -89,9 +102,8 @@ export default {
         }
       }
     },
-    onScrollHandleActiveHashListner: _.debounce(function() {
+    setHeadingAnchorToURL: _.debounce(function() {
       const activeAnchor = this.getActiveAnchor(this.anchors);
-
       activeAnchor
         ? this.historyReplaceAnchor(activeAnchor.hash)
         : this.historyReplaceAnchor("");
