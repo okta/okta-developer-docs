@@ -89,6 +89,7 @@ export default {
     this.setData();
   },
   watch: {
+    
     link() {
       this.setData();
     },
