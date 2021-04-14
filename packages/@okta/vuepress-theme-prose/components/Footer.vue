@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer class="app-footer">
     <p>
       <span class="italic">Need support?</span> Ask on the
       <SmartLink

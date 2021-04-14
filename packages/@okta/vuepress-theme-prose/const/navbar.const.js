@@ -460,7 +460,7 @@ export const languagesSdk = [
   }
 ];
 
-export const referenceRefactor = [
+export const reference = [
     {
     title: "Reference",
     subLinks: [
@@ -620,7 +620,7 @@ export const referenceRefactor = [
   }
 ]
 
-export const reference = [
+export const referenceOld = [
   {
     title: "Reference",
     subLinks: [
