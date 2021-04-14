@@ -2,14 +2,18 @@
   <li :class="{ subnav: link.subLinks, hidden: hidden }">
     <div class="link-wrap">
       <div v-if="link.path">
-        <router-link :to="link.path" v-slot="{ route, href, navigate }">
+        <router-link
+          :to="link.path"
+          v-slot="{ route, href, navigate }"
+          class="tree-nav-link"
+        >
           <a
             :href="href"
             @click="navigate"
             :class="route.path === $route.path ? 'router-link-active' : ''"
             :aria-current="route.path === $route.path && 'page'"
-            ><slot>{{ link.title }}</slot
-          ></a>
+            ><slot>{{ link.title }}</slot></a
+          >
         </router-link>
       </div>
 
@@ -65,7 +69,7 @@ export default {
   mounted() {
     this.setData();
   },
-  
+
   watch: {
     link() {
       this.setData();

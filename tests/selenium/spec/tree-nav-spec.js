@@ -11,8 +11,8 @@ var expect = chai.expect;
 
 describe('tree nav panel(left section)', () => {
     const docsPage = new DocsPage('/docs');
-    const activeLinkClass = 'router-link-exact-active';
-  
+    const activeLinkClass = 'router-link-active';
+
     beforeEach(util.itHelper(async () => {
       docsPage.navigate('/docs')
       docsPage.resizeXLarge();
