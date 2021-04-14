@@ -4,6 +4,30 @@ title: Okta API Products Release Notes
 
 ## April
 
+### Weekly Release 2021.04.1
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.5.2](#okta-sign-in-widget-version-5-5-2) | April 14, 2021 |
+| [Increased authorization code lifetime](#increased-authorization-code-lifetime) | April 14, 2021 |
+| [Bugs fixed in 2021.04.1](#bugs-fixed-in-2021-04-1)         | April 14, 2021           |
+
+#### Okta Sign-In Widget, version 5.5.2
+
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/).<!--OKTA-385739-->
+
+#### Increased authorization code lifetime
+
+The OAuth authorization code lifetime has increased from one minute to five minutes.<!--OKTA-379556-->
+
+#### Bugs fixed in 2021.04.1
+
+* A sign-in hint wasn’t passed to a SAML identity provider in an Org2Org configuration if the request contained a `login_hint` and an `idp` parameter. (OKTA-379879)
+
+* When a call was made to the [User API](/docs/reference/api/users/) without permission to update a user profile’s property that was marked as [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm), two error messages were returned. One of the error messages contained information about the sensitive property. (OKTA-380344)
+
+* When the [Create User API](/docs/reference/api/users/#create-user) request included a profile property marked as [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm), an error message wasn't returned and the user was incorrectly created without the sensitive property value. (OKTA-381601)
+
 ### Monthly Release 2021.04.0
 
 | Change                                                                                              | Expected in Preview Orgs |
