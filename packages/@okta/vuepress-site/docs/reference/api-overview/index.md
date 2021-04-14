@@ -227,11 +227,13 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 | `gt`       | greater than          | If the attribute value is greater than operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.                 |
 | `le`       | less than or equal    | If the attribute value is less than or equal to the operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.    |
 | `lt`       | less than             | If the attribute value is less than operator value, there is a match. The actual comparison is dependent on the attribute type. For `String` attribute types, this is a lexicographical comparison and for `Date` types, it is a chronological comparison.                    |
-| `ne` | not equal | If the attribute value does not match the operator value, there is a match. |
+| `ne`       | not equal             | If the attribute value does not match the operator value, there is a match. |
 | `pr`       | present (has value)   | If the attribute has a non-empty value, or if it contains a non-empty node for complex attributes, there is a match.                                                                                                                                                           |
 | `sw`       | starts with           | The entire operator value must be a substring of the attribute value, starting at the beginning of the attribute value. This criterion is satisfied if the two strings are identical.                                                                                         |
 
 > **Note:** Some objects don't support all the listed operators.
+
+> **Note:** The `ne` (not equal) attribute isn't supported for some objects, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
 
 > **Note:** All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`.
 
