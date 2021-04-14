@@ -18,7 +18,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### Increased authorization code lifetime
 
-The OAuth authorization code lifetime has increased from one minute to five minutes.<!--OKTA-379556-->
+The OAuth 2.0 authorization code lifetime has increased from one minute to five minutes. <!--OKTA-379556-->
 
 #### Bugs fixed in 2021.04.1
 
