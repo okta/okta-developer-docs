@@ -10,7 +10,7 @@ title: Okta API Products Release Notes
 |-----------------------------------------------------------------------------------------------------|--------------------------|
 | [Okta Sign-In Widget, version 5.5.2](#okta-sign-in-widget-version-5-5-2) | April 14, 2021 |
 | [Increased authorization code lifetime](#increased-authorization-code-lifetime) | April 14, 2021 |
-| [Bugs fixed in 2021.04.1](#bugs-fixed-in-2021-04-0)         | April 14, 2021           |
+| [Bugs fixed in 2021.04.1](#bugs-fixed-in-2021-04-1)         | April 14, 2021           |
 
 #### Okta Sign-In Widget, version 5.5.2
 
@@ -18,15 +18,15 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### Increased authorization code lifetime
 
-The OAuth authorization code lifetime is increased from 1 to 5 minutes.<!--OKTA-379556-->
+The OAuth authorization code lifetime has increased from one minute to five minutes.<!--OKTA-379556-->
 
 #### Bugs fixed in 2021.04.1
 
-* If a  SAML Identity Provider (Idp) in an Org2Org configuration is passed a `login_hint` and an `idp` request parameter, the Idp did not provide the login hint.(OKTA-379879)
+* A sign-in hint wasn’t passed to a SAML identity provider in an Org2Org configuration if the request contained a `login_hint` and an `idp` parameter. (OKTA-379879)
 
-* When a call is made to the [User API](/docs/reference/api/users/), without permission, updating a user profile’s property marked as [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm), two error messages were returned, one of which contained information about the sensitive property. (OKTA-380344)
+* When a call was made to the [User API](/docs/reference/api/users/) without permission to update a user profile’s property that was marked as [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm), two error messages were returned. One of the error messages contained information about the sensitive property. (OKTA-380344)
 
-* The [Create User API](/docs/reference/api/users/#create-user) did not return an error message when the request included a [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm) property on the Profile object, and incorrectly created the user, discarding the value for the property. (OKTA-381601)
+* When the [Create User API](/docs/reference/api/users/#create-user) request included a profile property marked as [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes, an error message wasn't returned and the user was incorrectly created ignoring the sensitive property value. (OKTA-381601)
 
 ### Monthly Release 2021.04.0
 
