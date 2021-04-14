@@ -14,7 +14,7 @@ title: Okta API Products Release Notes
 
 #### Okta Sign-In Widget, version 5.5.2
 
-For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.2). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/).<!--OKTA-385739-->
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/).<!--OKTA-385739-->
 
 #### Increased authorization code lifetime
 
