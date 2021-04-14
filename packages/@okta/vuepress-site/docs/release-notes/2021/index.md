@@ -26,7 +26,7 @@ The OAuth authorization code lifetime has increased from one minute to five minu
 
 * When a call was made to the [User API](/docs/reference/api/users/) without permission to update a user profile’s property that was marked as [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm), two error messages were returned. One of the error messages contained information about the sensitive property. (OKTA-380344)
 
-* When the [Create User API](/docs/reference/api/users/#create-user) request included a profile property marked as [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes, an error message wasn't returned and the user was incorrectly created ignoring the sensitive property value. (OKTA-381601)
+* When the [Create User API](/docs/reference/api/users/#create-user) request included a profile property marked as [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm), an error message wasn't returned and the user was incorrectly created without the sensitive property value. (OKTA-381601)
 
 ### Monthly Release 2021.04.0
 
