@@ -7,7 +7,6 @@ const util = require('../framework/shared/util');
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
 const { browser } = require('protractor');
-const { DriverProvider } = require('protractor/built/driverProviders');
 
 chai.use(chaiAsPromised);
 var expect = chai.expect;
@@ -16,7 +15,7 @@ describe('content section', () => {
   const page = new TextPage('/test_page/');
   const docsPage = new DocsPage('/docs');
 
-  xit('displays heading corresponding to URL hash', util.itHelper(async () => {
+  it('displays heading corresponding to URL hash', util.itHelper(async () => {
     page.navigate('/test_page/#last-section');
     page.refresh();
     const id = '#first-section';
@@ -37,16 +36,9 @@ describe('content section', () => {
     const id = "#factor-lifecycle-operations";
     try {
       const treeNavLink = await (await docsPage.getTreeNavLink('Factors')).getWebElement();
-      console.log('Navigated to factors')
-      await console.log('Treenavlink', treeNavLink)
-      await browser.sleep(10000)
-      await treeNavLink.click();
-      console.log('Clicked on tree nav')
-
+      treeNavLink.click();
       await docsPage.waitForPresence(await docsPage.getHeading(`h2${id}`), 2000)
-      console.log('Awaited element by id')
       let heading = await docsPage.getHeading(`h2${id}`).getWebElement();
-      console.log('Heading recieved')
       expect(await util.isInViewport(heading), 'heading is not expected to be visible before in-page link click').to.equal(false);
       const inPageLink = await docsPage.getInPageLink(id).getWebElement();
       inPageLink.click();
@@ -57,7 +49,7 @@ describe('content section', () => {
     }
   }));
 
-  xit('navigates to previous anchor via back button', util.itHelper(async () => {
+  it('navigates to previous anchor via back button', util.itHelper(async () => {
     page.navigate('/test_page/#last-section');
     page.refresh();
     try {

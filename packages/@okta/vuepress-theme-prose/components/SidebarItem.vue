@@ -1,7 +1,8 @@
 <template>
   <li :class="{ subnav: link.subLinks, hidden: hidden }">
     <div class="link-wrap">
-      <div v-if="link.path">
+
+      <div v-if="isALink">
         <router-link
           :to="link.path"
           exact
@@ -11,7 +12,13 @@
         </router-link>
       </div>
 
-      <div v-else>
+      <div v-if="isABlankDivider">
+        <div class="blank-divider">
+          {{link.title}}
+        </div>
+      </div>
+
+      <div v-if="isAParent">
         <div
           :class="{
             'is-link': true,
@@ -67,10 +74,20 @@ export default {
       hidden: !!this.link.hidden
     };
   },
+  computed:{
+    isALink: function(){
+      return this.link.hasOwnProperty('path') && this.link.path !== null
+    },
+    isAParent: function(){
+      return !this.link.hasOwnProperty('path') && this.link.hasOwnProperty('subLinks')
+    },
+    isABlankDivider: function(){
+      return this.link.hasOwnProperty('path') && this.link.path === null
+    }
+  },
   mounted() {
     this.setData();
   },
-  
   watch: {
     link() {
       this.setData();
