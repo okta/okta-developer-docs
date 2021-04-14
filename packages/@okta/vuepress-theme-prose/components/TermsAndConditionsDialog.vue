@@ -9,7 +9,7 @@
         experience. Your personal data is safe and secure with us.
       </p>
       <label for="tac-country">
-        Country/Region: 
+        Country/Region
         <select
           name="Country"
           id="tac-country"
