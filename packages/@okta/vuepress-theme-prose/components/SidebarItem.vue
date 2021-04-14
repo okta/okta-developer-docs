@@ -2,7 +2,7 @@
   <li :class="{ subnav: link.subLinks, hidden: hidden }">
     <div class="link-wrap">
 
-      <div v-if="isALink">
+      <div v-if="isLink">
         <router-link
           :to="link.path"
           exact
@@ -12,13 +12,13 @@
         </router-link>
       </div>
 
-      <div v-if="isABlankDivider">
+      <div v-if="isBlankDivider">
         <div class="blank-divider">
           {{link.title}}
         </div>
       </div>
 
-      <div v-if="isAParent">
+      <div v-if="isParent">
         <div
           :class="{
             'is-link': true,
@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <ul v-if="link.subLinks" class="sections" v-show="sublinksExpanded">
+    <ul v-if="isParent" class="sections" v-show="sublinksExpanded">
       <SidebarItem
         v-for="sublink in link.subLinks"
         :key="sublink.title"
@@ -75,13 +75,13 @@ export default {
     };
   },
   computed:{
-    isALink: function(){
+    isLink: function(){
       return this.link.hasOwnProperty('path') && this.link.path !== null
     },
-    isAParent: function(){
+    isParent: function(){
       return !this.link.hasOwnProperty('path') && this.link.hasOwnProperty('subLinks')
     },
-    isABlankDivider: function(){
+    isBlankDivider: function(){
       return this.link.hasOwnProperty('path') && this.link.path === null
     }
   },
