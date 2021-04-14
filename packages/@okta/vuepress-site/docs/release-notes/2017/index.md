@@ -808,7 +808,7 @@ Version 1.11 of the [Okta Sign-In Widget](https://github.com/okta/okta-signin-wi
 
 ### Platform Bugs Fixed
 
-* If any sign-in policy using MFA existed for an application, the Open ID Connect reauthentication flow redirected to multi-factor authentication (MFA) by default.  (OKTA-129094)
+* If any sign-in policy using MFA existed for an application, the OpenID Connect reauthentication flow redirected to multi-factor authentication (MFA) by default.  (OKTA-129094)
 * Clients with `token_endpoint_auth_method` set to `client_secret_post` did not have a selected radio button on the Client Credentials UI (**Applications > _application name_ > General**).  (OKTA-130764)
 * If you created a SAML 2.0 Identity Provider but omitted some fields, Okta reported an error.  (OKTA-131294)
 * Okta Sign-In Widget failed to run when installed with `npm`.  (OKTA-131608)

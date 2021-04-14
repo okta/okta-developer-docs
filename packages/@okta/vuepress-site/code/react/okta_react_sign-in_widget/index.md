@@ -7,14 +7,21 @@ excerpt: Integrate Okta with a React app using the Sign-In Widget.
 
 This guide will walk you through integrating authentication into a React app with Okta by performing these steps:
 
-1. [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
-2. [Create a React App](#create-a-react-app)
-3. [Install Dependencies](#install-dependencies)
-4. [Config](#config)
-5. [Create a Widget Wrapper](#create-a-widget-wrapper)
-6. [Create Routes](#create-routes)
-7. [Connect the Routes](#connect-the-routes)
-8. [Start Your App](#start-your-app)
+- [Prerequisites](#prerequisites)
+- [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
+- [Create a React App](#create-a-react-app)
+- [Install Dependencies](#install-dependencies)
+- [Config](#config)
+- [Create a Widget Wrapper](#create-a-widget-wrapper)
+- [Create Routes](#create-routes)
+  - [`/`](#)
+  - [`/protected`](#protected)
+  - [`/login`](#login)
+  - [`/login/callback`](#logincallback)
+  - [Connect the Routes](#connect-the-routes)
+- [Start your app](#start-your-app)
+- [Conclusion](#conclusion)
+- [Support](#support)
 
 > This guide is for `@okta/okta-signin-widget` v5.2.0, `@okta/okta-react` v4.1.0 and `okta-auth-js` v4.5.0.
 
@@ -69,7 +76,7 @@ Create a `src/config.js` file. Make sure to replace the `{...}` placeholders wit
 
 ```js
 const oktaAuthConfig = {
-  // Note: If your app is configured to use the Implicit Flow
+  // Note: If your app is configured to use the Implicit flow
   // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
   // you will need to add `pkce: false`
   issuer: 'https://{yourOktaDomain}/oauth2/default',
@@ -82,7 +89,7 @@ const oktaSignInConfig = {
   clientId: '{clientId}',
   redirectUri: window.location.origin + '/login/callback',
   authParams: {
-    // If your app is configured to use the Implicit Flow
+    // If your app is configured to use the Implicit flow
     // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
     // you will need to uncomment the below line
     // pkce: false
@@ -294,4 +301,4 @@ Want to learn how to use the user's `access_token`? Check out our <a href='/docs
 
 ## Support
 
-Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).

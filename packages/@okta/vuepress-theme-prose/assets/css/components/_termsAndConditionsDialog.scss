@@ -1,0 +1,60 @@
+.dialog-text {
+  font-size: 14px;
+  label {
+    font-size: 16px;
+  }
+  .marketing-c {
+    display: flex;
+    flex-direction: column;
+    .title {
+      font-size: 16px;
+      margin: 0 0 8px 0;
+      font-weight: 500;
+      span {
+        color: #bbbbbb;
+      }
+    }
+    .gdpr-condition {
+      display: flex;
+      margin: 0 0 24px 0;
+      font-size: 14px;
+      background-color: #162836;
+      align-items: center;
+      padding: 12px 16px;
+      input[type="checkbox"] {
+        margin: 0 16px 0 0;
+      }
+    }
+  }
+  .tac-row {
+    margin: 8px 0 24px 0;
+  }
+  label {
+    cursor: pointer;
+  }
+}
+.agree-policy {
+  .splitter {
+    border: 2px solid cv("brand", "base");
+    margin: 0 0 24px 0;
+  }
+}
+.terms-conditions-btns {
+  display: flex;
+  justify-content: flex-end;
+  margin: 40px 0 0 0;
+  .btn-container {
+    width: auto;
+    &:nth-child(1) {
+      margin-right: 15px;
+    }
+    .btn {
+      display: table-cell;
+      vertical-align: middle;
+      height: 32px;
+      padding: 0 15px;
+      border: 1px solid cv("cerise", "base");
+      font-size: 14px;
+    }
+  }
+}

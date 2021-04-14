@@ -18,7 +18,7 @@ This page helps you build a request in Postman. You can also manually build the 
 https://{yourOktadomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.read&redirect_ur{yourConfiguredRedirectUri}&nonce=UBGW&state=1234
 ```
 
-We recommend that you always use the Authorization Code grant flow. See [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/) for details on this grant type.
+We recommend that you always use the Authorization Code grant flow. See [Implement the Authorization Code flow](/docs/guides/implement-auth-code/) for details on this grant type.
 
 > **Note:** If this is your first time working with the Okta APIs, read [Get Started with the Okta REST APIs](https://developer.okta.com/code/rest/) first.
 

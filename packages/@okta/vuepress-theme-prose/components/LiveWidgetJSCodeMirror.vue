@@ -19,6 +19,7 @@ export default {
     await import('codemirror/addon/lint/javascript-lint')
     await import('codemirror/addon/edit/matchbrackets')
     window.JSHINT = JSHINT
+    
     // load codemirror
     const module = await import('codemirror');
     const CodeMirror = module.default;

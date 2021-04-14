@@ -7,11 +7,11 @@ import { useOktaAuth } from '@okta/okta-react';
 
 // Basic component with logout button
 const Logout = () => { 
-  const { authService } = useOktaAuth();
+  const { oktaAuth } = useOktaAuth();
 
   const logout = async () => {
     // Will redirect to Okta to end the session then redirect back to the configured `postLogoutRedirectUri`
-    await authService.signOut();
+    await oktaAuth.signOut();
   };
 
   return (
@@ -36,7 +36,7 @@ class Logout extends Component {
 
   async logout() {
     // Will redirect to Okta to end the session then redirect back to the configured `postLogoutRedirectUri`
-    await this.props.authService.signOut();
+    await this.props.oktaAuth.signOut();
   }
 
   render() {
@@ -47,7 +47,7 @@ class Logout extends Component {
 });
 
 // withOktaAuth() makes the Okta 
-// - "authService" object available as "this.props.authService"
+// - "oktaAuth" object available as "this.props.oktaAuth"
 Logout = withOktaAuth(Logout);
 export default Logout;
 ```

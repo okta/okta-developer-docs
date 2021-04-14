@@ -1,12 +1,4 @@
 .signup {
-  width: 100%;
-  max-width: 1272px;
-  display: inline-flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  font-size: 16px;
-  color: $white;
-
   a {
     color: cv("cerise", "base");
 
@@ -23,111 +15,134 @@
     padding: 10px;
   }
 
-  .signup--form {
+  .signup--banner-oie {
     width: 100%;
-    max-width: 588px;
-    margin: 0 80px 0 0;
-    padding: 40px;
-    background-color: cv("blue", "whale");
-    box-shadow: 0px 6px 25px cv("blue", "whale");
+    padding: 10px 26px;
+    background-color: #1662dd;
+    color: white;
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
 
-    .user-name {
-      display: flex;
+  .signup--content {
+  width: 100%;
+  max-width: 1272px;
+  display: inline-flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  font-size: 16px;
+  color: $white;
 
-      .row:nth-child(1) {
-        margin-right: 10px;
-      }
+    .signup--form {
+      width: 100%;
+      max-width: 588px;
+      margin: 0 80px 0 0;
+      padding: 40px;
+      background-color: cv("blue", "whale");
+      box-shadow: 0px 6px 25px cv("blue", "whale");
 
-      @include media("<tablet") {
-        flex-direction: column;
+      .user-name {
+        display: flex;
 
         .row:nth-child(1) {
-          margin-right: 0;
+          margin-right: 10px;
         }
-      }
-    }
 
-    .consent--section {
-      .consent--section-text {
-        font-size: 12px;
-        line-height: 20px;
-        width: 100%;
-        text-align: justify;
-        max-width: inherit;
-        margin: 24px 0 10px 0;
-      }
+        @include media("<tablet") {
+          flex-direction: column;
 
-      .consent--section-agree {
-        position: relative;
-        display: flex;
-        flex-direction: column;
-
-        label {
-          display: flex;
-          align-items: center;
-          cursor: pointer;
-
-          input {
-            width: 16px;
-            height: 16px;
-            margin: 0 8px 0 0;
+          .row:nth-child(1) {
+            margin-right: 0;
           }
         }
       }
-    }
 
-    .error-msg {
-      position: absolute;
-      bottom: -24px;
-      left: 0;
-    }
+      .consent--section {
+        .consent--section-text {
+          font-size: 12px;
+          line-height: 20px;
+          width: 100%;
+          text-align: justify;
+          max-width: inherit;
+          margin: 24px 0 10px 0;
 
-    a.pending {
-      cursor: wait;
-      img {
-        vertical-align: middle;
-        width: 15px;
-        height: 15px;
+          p {
+            max-width: 100%;
+          }
+        }
+
+        .consent--section-agree {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+
+          label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+
+            input {
+              width: 16px;
+              height: 16px;
+              margin: 0 8px 0 0;
+            }
+          }
+        }
       }
-    }
 
-    @include media("<desktop") {
-      margin: 0;
-    }
-
-    @include media("<475px") {
-      padding: 10px;
-    }
-
-    @include media("<=phone") {
-      padding: 0;
-    }
-
-    .splitter {
-      display: flex;
-      height: 27px;
-      margin: 19.5px 0;
-      justify-content: space-between;
-      align-items: center;
-
-      span:nth-child(2) {
-        margin: 0 16px;
+      .error-msg {
+        position: absolute;
+        bottom: -24px;
+        left: 0;
       }
-      span:nth-child(1),
-      span:nth-child(3) {
-        height: 0;
-        flex-grow: 1;
-        border: 2px solid cv("brand", "base");
+
+      a.pending {
+        cursor: wait;
+        img {
+          vertical-align: middle;
+          width: 15px;
+          height: 15px;
+        }
       }
-    }
 
-    .goto-signin {
-      justify-content: center;
-      margin: 0;
+      @include media("<desktop") {
+        margin: 0;
+      }
 
-      a {
-        font-size: 17px;
-        text-indent: 5px;
+      @include media("<475px") {
+        padding: 10px;
+      }
+
+      @include media("<=phone") {
+        padding: 0;
+      }
+
+      .splitter {
+        display: flex;
+        height: 27px;
+        margin: 19.5px 0;
+        justify-content: space-between;
+        align-items: center;
+
+        span:nth-child(2) {
+          margin: 0 16px;
+        }
+        span:nth-child(1),
+        span:nth-child(3) {
+          height: 0;
+          flex-grow: 1;
+          border: 2px solid cv("brand", "base");
+        }
+      }
+
+      .goto-signin {
+        justify-content: center;
+        margin: 0;
+
+        a {
+          font-size: 16px;
+          text-indent: 5px;
+        }
       }
     }
   }
@@ -140,6 +155,16 @@
     h1 {
       font-size: 40px;
       color: $white;
+    }
+
+    a {
+      &,
+      &:visited,
+      &:focus,
+      &:hover, {
+        color: white;
+        text-decoration: underline;
+      }
     }
   }
 }

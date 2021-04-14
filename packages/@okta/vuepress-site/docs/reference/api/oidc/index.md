@@ -590,6 +590,8 @@ Okta also recommends caching or persisting these keys to improve performance. If
 
 JWKS properties can be found [here](/docs/reference/api/authorization-servers/#key-properties).
 
+> **Note:** Okta returns [standard HTTP Cache-Control headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) for applicable JWKS endpoints. Ensure that you respect the cache header directives, as they are updated based on the time of the request.
+
 #### Response example
 
 ```http

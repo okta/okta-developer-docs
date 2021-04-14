@@ -65,6 +65,7 @@ export default {
   mounted() {
     this.setData();
   },
+  
   watch: {
     link() {
       this.setData();

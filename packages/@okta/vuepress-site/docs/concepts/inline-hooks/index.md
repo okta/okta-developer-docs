@@ -31,13 +31,13 @@ Okta defines several different types of Inline Hooks. Each type of Inline Hook m
 | [Registration Inline Hook](/docs/reference/registration-hook/) | Customizes handling of user registration requests in Self-Service Registration |
 | [Password Import Inline Hook](/docs/reference/password-hook/)  | Verifies a user-supplied password to support migration of users to Okta        |
 
-## Inline Hook Process Flow
+## Inline Hook Process flow
 
 ### Extension Points
 
 The points in Okta process flows where Inline Hooks can be triggered are called extension points, because they are where you can extend Okta functionality. Each type of Inline Hook is triggered at a particular extension point in a particular Okta process flow. At an extension point, if you have configured an Inline Hook, Okta calls your external service, and waits for a response. When the response is received, Okta resumes the process flow.
 
-### Inline Hook Call within an Okta Process Flow
+### Inline Hook Call within an Okta Process flow
 
 The graphic below illustrates the sequence of steps:
 

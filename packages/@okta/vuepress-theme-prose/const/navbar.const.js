@@ -57,7 +57,7 @@ export const concepts = [
         path: "/docs/concepts/key-rotation/"
       },
       {
-        title: "OAuth 2.0 and Open ID Connect Overview",
+        title: "OAuth 2.0 and OpenID Connect Overview",
         path: "/docs/concepts/oauth-openid/"
       },
       {
@@ -200,11 +200,11 @@ export const guides = [
         title: "Authorization",
         subLinks: [
           {
-            title: "Implement the Authorization Code Flow",
+            title: "Implement the Authorization Code flow",
             guideName: "implement-auth-code"
           },
           {
-            title: "Implement the Authorization Code Flow with PKCE",
+            title: "Implement the Authorization Code flow with PKCE",
             guideName: "implement-auth-code-pkce"
           },
           {
@@ -212,19 +212,19 @@ export const guides = [
             guideName: "customize-authz-server"
           },
           {
-            title: "Implement the Client Credentials Flow",
+            title: "Implement the Client Credentials flow",
             guideName: "implement-client-creds"
           },
           {
-            title: "Implement the Implicit Flow",
+            title: "Implement the Implicit flow",
             guideName: "implement-implicit"
           },
           { title: "Request user consent", guideName: "request-user-consent" },
           {
-            title: "Implement the Resource Owner Password Flow",
+            title: "Implement the Resource Owner Password flow",
             guideName: "implement-password"
           },
-          { title: "Implement the SAML 2.0 Assertion Flow", guideName: "implement-saml2"},
+          { title: "Implement the SAML 2.0 Assertion flow", guideName: "implement-saml2"},
           {
             title: "Tokens",
             subLinks: [
@@ -487,6 +487,10 @@ export const reference = [
             path: "/docs/reference/api/authorization-servers/"
           },
           {
+            title: "Domains",
+            path: "/docs/reference/api/domains/"
+          },
+          {
             title: "Dynamic Client Registration",
             path: "/docs/reference/api/oauth-clients/"
           },
@@ -581,7 +585,23 @@ export const reference = [
         path: "/docs/reference/releases-at-okta/"
       },
       { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-      { title: "SCIM Protocol", path: "/docs/reference/scim/" },
+      { 
+        title: "SCIM Protocol",
+        subLinks: [
+          { 
+            title: "SCIM overview",
+            path: "/docs/reference/scim/"
+          },
+          {
+            title: "SCIM V2.0", 
+            path: "/docs/reference/scim/scim-20/"
+          },
+          {
+            title: "SCIM V1.1",
+            path: "/docs/reference/scim/scim-11/"
+          }
+        ] 
+      },
       {
         title: "Social IdP Settings",
         path: "/docs/reference/social-settings/"

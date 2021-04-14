@@ -568,7 +568,6 @@ To ensure a successful password recovery lookup if an email address is associate
 * The format of the issuer (`iss`) in the Access Token has changed: it was the client ID. It now takes the form: `https://${yourOktaDomain}.okta.com/as/{authorization-server-ID}. (OKTA-93628)
 
 
-
 ## 2016.26
 
 ### New Feature: API for Custom SMS Template
