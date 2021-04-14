@@ -30,7 +30,6 @@ describe('content section', () => {
       throw err;
     }
   }));
-
   it('preserves correct scroll-to-heading behavior on page change', util.itHelper(async () => {
     docsPage.navigate('/docs/reference/api/groups');
     const id = "#factor-lifecycle-operations";
