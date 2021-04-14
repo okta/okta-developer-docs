@@ -4,9 +4,20 @@ import { LAYOUT_CONSTANTS } from "../layouts/Layout";
 export default {
   data() {
     return {
-      paddedHeaderHeight: 0,
-      anchorOffsetPairs: null
+      paddedHeaderHeight: 0
     };
+  },
+  computed: {
+    anchorsOffset() {
+      const anchorOffsets = this.anchors.map(
+        anchor => anchor.parentElement.offsetTop
+      );
+
+      return anchorOffsets.map((anchorOffset, index, anchorOffsets) => ({
+        start: anchorOffset,
+        end: anchorOffsets[index + 1]
+      }));
+    }
   },
   mounted() {
     this.paddedHeaderHeight =
@@ -51,35 +62,21 @@ export default {
       }
     },
 
-    _getAnchorsOffsetPairs(anchors) {
-      const anchorOffsets = anchors.map(
-        anchor => anchor.parentElement.offsetTop
-      );
-
-      return anchorOffsets.map((anchorOffset, index, anchorOffsets) => ({
-        start: anchorOffset,
-        end: anchorOffsets[index + 1]
-      }));
-    },
-
-    getActiveAnchor: function(anchors, updateOffsetPairs = false) {
+    getActiveAnchor: function(anchors) {
       const scrollTop = Math.max(
         window.pageYOffset,
         document.documentElement.scrollTop,
         document.body.scrollTop
       );
-      if (!this.anchorOffsetPairs || updateOffsetPairs) {
-        this.anchorOffsetPairs = this._getAnchorsOffsetPairs(anchors);
-      }
 
-      const matchingPair = this.anchorOffsetPairs.find(
+      const matchingPair = this.anchorsOffset.find(
         pair =>
           scrollTop >= pair.start - this.paddedHeaderHeight &&
           (!pair.end || scrollTop < pair.end - this.paddedHeaderHeight),
         this
       );
       const activeAnchor = matchingPair
-        ? anchors[this.anchorOffsetPairs.indexOf(matchingPair)]
+        ? anchors[this.anchorsOffset.indexOf(matchingPair)]
         : null;
 
       return activeAnchor;

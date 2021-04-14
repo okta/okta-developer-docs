@@ -38,7 +38,7 @@ export default {
   props: ["items"],
   data() {
     return {
-      onThisPageAnchors: [],
+      anchors: [],
       activeAnchor: null,
       paddedHeaderHeight: 0
     };
@@ -58,18 +58,13 @@ export default {
       LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
     window.addEventListener("load", () => {
       this.$nextTick(() => {
-        this.onThisPageAnchors = this.getOnThisPageAnchors();
+        this.anchors = this.getOnThisPageAnchors();
         this.setActiveAnchor();
         this.setAlwaysOnViewPosition();
       });
     });
     window.addEventListener("scroll", this.setAlwaysOnViewPosition);
     window.addEventListener("scroll", this.setActiveAnchor);
-  },
-  updated() {
-    if (!this.appContext.isInMobileViewport) {
-
-    }
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.setAlwaysOnViewPosition);
@@ -79,8 +74,8 @@ export default {
     $page(to, from) {
       if (from.title !== to.title) {
         this.$nextTick(function() {
-          this.onThisPageAnchors = this.getOnThisPageAnchors();
-          this.getActiveAnchor(this.onThisPageAnchors, true);
+          this.anchors = this.getOnThisPageAnchors();
+          this.getActiveAnchor(this.anchors);
         });
       }
     }
@@ -100,7 +95,7 @@ export default {
     }, 200),
 
     setActiveAnchor: _.debounce(function() {
-      const onThisPageActiveAnchor = this.getActiveAnchor(this.onThisPageAnchors);
+      const onThisPageActiveAnchor = this.getActiveAnchor(this.anchors);
       this.activeAnchor = onThisPageActiveAnchor
         ? onThisPageActiveAnchor.hash
         : "";

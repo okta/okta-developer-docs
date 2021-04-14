@@ -38,7 +38,7 @@ export default {
       if (from.title !== to.title) {
         this.$nextTick(function() {
           this.anchors = this.getAnchors();
-          this.getActiveAnchor(this.anchors, true);
+          this.getActiveAnchor(this.anchors);
           this.onPageChange();
         });
       }
@@ -62,10 +62,6 @@ export default {
           'a[href^="#"]:not(.on-this-page-link):not(.tree-nav-link)'
         )
       );
-      this.anchors.forEach(
-        link => link.removeEventListener("click", this.onAnchorClick),
-        this
-      );
       noneHeadingAnchors.forEach(
         link => link.removeEventListener("click", this.onAnchorClick),
         this
@@ -77,10 +73,6 @@ export default {
       }, {});
 
       noneHeadingAnchors.forEach(
-        link => link.addEventListener("click", this.onAnchorClick),
-        this
-      );
-      this.anchors.forEach(
         link => link.addEventListener("click", this.onAnchorClick),
         this
       );
