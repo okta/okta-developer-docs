@@ -62,7 +62,7 @@ export default {
       }
     },
 
-    getActiveAnchor: function(anchors) {
+    getActiveAnchor: function() {
       const scrollTop = Math.max(
         window.pageYOffset,
         document.documentElement.scrollTop,
@@ -76,7 +76,7 @@ export default {
         this
       );
       const activeAnchor = matchingPair
-        ? anchors[this.anchorsOffset.indexOf(matchingPair)]
+        ? this.anchors[this.anchorsOffset.indexOf(matchingPair)]
         : null;
 
       return activeAnchor;

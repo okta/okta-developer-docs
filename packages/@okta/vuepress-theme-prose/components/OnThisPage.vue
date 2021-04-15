@@ -75,7 +75,6 @@ export default {
       if (from.title !== to.title) {
         this.$nextTick(function() {
           this.anchors = this.getOnThisPageAnchors();
-          this.getActiveAnchor(this.anchors);
         });
       }
     }
@@ -95,7 +94,7 @@ export default {
     }, 200),
 
     setActiveAnchor: _.debounce(function() {
-      const onThisPageActiveAnchor = this.getActiveAnchor(this.anchors);
+      const onThisPageActiveAnchor = this.getActiveAnchor();
       this.activeAnchor = onThisPageActiveAnchor
         ? onThisPageActiveAnchor.hash
         : "";

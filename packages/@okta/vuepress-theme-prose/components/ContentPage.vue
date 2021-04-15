@@ -15,18 +15,15 @@ export default {
     };
   },
   mounted() {
-    this.anchors = this.getAnchors();
-    if (document.readyState === "complete") {
-      this.onPageChange();
-    } else {
-      window.addEventListener("load", () => {
+    this.anchors = this.getAnchors(``);
+    document.onreadystatechange = () => {
+      if (document.readyState === "complete") {
         this.onPageChange();
-      });
-      window.addEventListener("popstate", e => {
-        e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
-      });
-    }
-
+      }
+    };
+    window.addEventListener("popstate", e => {
+      e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
+    });
     window.addEventListener("scroll", this.setHeadingAnchorToURL);
   },
   beforeDestroy() {
@@ -38,7 +35,6 @@ export default {
       if (from.title !== to.title) {
         this.$nextTick(function() {
           this.anchors = this.getAnchors();
-          this.getActiveAnchor(this.anchors);
           this.onPageChange();
         });
       }
@@ -95,7 +91,7 @@ export default {
       }
     },
     setHeadingAnchorToURL: _.debounce(function() {
-      const activeAnchor = this.getActiveAnchor(this.anchors);
+      const activeAnchor = this.getActiveAnchor();
       activeAnchor
         ? this.historyReplaceAnchor(activeAnchor.hash)
         : this.historyReplaceAnchor("");
