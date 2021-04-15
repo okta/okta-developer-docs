@@ -9,18 +9,18 @@ Details on parameters, requests, and responses for Okta's API endpoints.
 
 
 ## Core Okta APIs
-Core Okta API is the primary way that apps and services interact with Okta. You can use it to sign in your users and manage Okta objects.
+The Core Okta API is the primary way that apps and services interact with Okta. You can use it to implement basic auth functions such as signing in your users and programmatically managing your Okta objects. 
 
 [Explore core Okta API](/docs/reference/core-okta-api/)
 
-<Cards><Card href="/docs/concepts/authentication/" :showHeaderIcon=false cardTitle="Postman Collections" :showFooter=true>Import any Okta API collection for Postman.</Card><Card href="/docs/concepts/oauth-openid/" :showHeaderIcon=false cardTitle="Advanced Service Access API" :showFooter=true>Scale your controls of servers via automation.</Card></Cards>
+<Cards><Card href="/docs/concepts/authentication/" :showHeaderIcon=false cardTitle="Postman Collections" :showFooter=true>Import any Okta API collection for Postman.</Card><Card href="/docs/concepts/oauth-openid/" :showHeaderIcon=false cardTitle="Advanced Service Access API" :showFooter=true>Scale your control of servers with automation.</Card></Cards>
 
 <HorizontalDivider/>
 
 ## Inline Hooks 
 
-Inline hooks allow you to integrate custom functionality into specifc Okta process flows. 
-For example, you can migrate users from another data store and keep user’s current password with [Password Inline Hook](/docs/reference/password-hook/).
+Inline Hooks allow you to integrate custom functionality into specific Okta process flows. 
+For example, you can migrate users from another data store and keep the user’s current password with a [Password Inline Hook](/docs/reference/password-hook/).
 
 
 <HorizontalDivider/>
