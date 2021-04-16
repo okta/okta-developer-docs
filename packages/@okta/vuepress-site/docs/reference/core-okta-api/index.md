@@ -6,20 +6,20 @@ meta:
 ---
 # Core Okta API
 
-Core Okta API is the primary way that apps and services interact with Okta. You can use it to implement basic auth functions such as sign in your users and programmatically manage your Okta objects. 
+The Core Okta API is the primary way that apps and services interact with Okta. You can use it to implement basic auth functions such as signing in your users and programmatically managing your Okta objects. 
 
 ## Sign in Your Users 
 API endpoints to authenticate your users, challenge for factors, recover passwords, and more. For example:
-  - The [Authentication Api](/docs/reference/api/authn) controls user accesss to Okta.
+  - The [Authentication API](/docs/reference/api/authn) controls user access to Okta.
   - The [OpenID Connect & OAuth 2.0 API](/docs/concepts/oauth-openid) controls users access to your applications.
 
 ## Manage Okta Objects
 REST endpoints to configure objects whenever you need. For example:
-- Use [Apps API](/docs/reference/api/apps/) to manage applications and/or assignments to users or groups.
-- See the [Users API](/docs/reference/api/users) for CRUD operations on users.
-- Use the [Sessions API](/docs/reference/api/sessions/) to create and manage user's authentication sessions. 
-- Use the [Policy API](/docs/reference/api/policy/) to create and manage settings such as user session lifetime. 
-- Use the [Factor API](/docs/reference/api/factors/) to enroll, manage, and verify factors for multifactor authentication (MFA). 
+- The [Apps API](/docs/reference/api/apps/) is used to manage Apps and their association with Users and Groups.
+- The [Users API](/docs/reference/api/users) is used for CRUD operations on Users.
+- The [Sessions API](/docs/reference/api/sessions/) creates and manages user's authentication sessions. 
+- The [Policy API](/docs/reference/api/policy/) creates and manages settings such as a user's session lifetime. 
+- The [Factors API](/docs/reference/api/factors/) is used to enroll, manage, and verify factors for multi-factor authentication (MFA). 
 
 <HorizontalDivider/>
 
@@ -42,8 +42,8 @@ Do not consume any Okta API unless it is documented on this site. All undocument
 - Properties with null values may be omitted by responses.
 
 ## URL Namespace
-All URLs listed in the documentation should be preceded with your organization's subdomain (tenant) https://{yourOktaDomain}.com/api/{apiversion} and API version.
-The api version is currently v1.
+All URLs listed in the documentation should be preceded with your organization's subdomain (tenant) and API version: `https://{yourOktaDomain}.com/api/{apiversion}`
+The API version is currently `v1`.
 
 
 > **Note:** All API requests must use the HTTPS scheme.
