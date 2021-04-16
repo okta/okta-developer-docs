@@ -466,7 +466,7 @@ export const reference = [
     subLinks: [
       { title: "Overview", path: "/docs/reference/" },
       {
-        title: "Core Okta Api", 
+        title: "Core Okta API", 
         subLinks: [
           { title: "Overview", path: "/docs/reference/core-okta-api/" },
           {
@@ -545,7 +545,7 @@ export const reference = [
         ]
       },
       {
-        title: 'Advanced Server Access Api',
+        title: 'Advanced Server Access API',
         subLinks: [
            {
             title: "Introduction to the Advanced Server Access API",
@@ -578,10 +578,10 @@ export const reference = [
         ]
       },
       {
-        title: 'SCIM Protocol API',
+        title: 'SCIM Protocol',
         subLinks: [
           { 
-            title: "SCIM overview",
+            title: "Overview",
             path: "/docs/reference/scim/"
           },
           {
