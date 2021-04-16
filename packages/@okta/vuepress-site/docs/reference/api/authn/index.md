@@ -7276,7 +7276,7 @@ The following table shows the possible values for this property:
 
 ### Links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current [transaction state](#transaction-state) using the [JSON](https://tools.ietf.org/html/rfc7159) specification. These links are used to transition the [state machine](#transaction-state) of the authentication or recovery transaction.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current [transaction state](#transaction-state) using the [JSON](https://tools.ietf.org/html/rfc7159) specification. These links are used to transition the [state machine](#transaction-state) of the authentication or recovery transaction.
 
 The Links object is read-only.
 
@@ -7550,7 +7550,7 @@ TOTP factors, when activated, have an embedded verification object that describe
 
 ###### TOTP activation links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the TOTP activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the TOTP activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
 
 | Link Relation Type | Description                                                              |
 | ------------------ | ------------------------------------------------------------------------ |

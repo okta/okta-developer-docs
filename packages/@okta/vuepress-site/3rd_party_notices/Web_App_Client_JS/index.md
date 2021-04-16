@@ -380,7 +380,7 @@ _link-headers_
 
 | VERSION (IF ANY):  |                                                              |
 | ---                | ---                                                          |
-| BRIEF DESCRIPTION: | JavaScript parsing of link headers as described by RFC 8288. |
+| BRIEF DESCRIPTION: | JavaScript parsing of link headers as described by [RFC 8288](http://tools.ietf.org/html/rfc8288). |
 | LICENSE:           | MIT                                                          |
 
 Copyright (c) Rowan Crawford (wombleton@gmail.com).

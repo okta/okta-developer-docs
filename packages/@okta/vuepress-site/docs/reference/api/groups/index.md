@@ -1933,7 +1933,7 @@ Profile for a Group that is imported from Active Directory
 
 ### Links object
 
-Specifies link relations. See [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the Group using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.
+Specifies link relations. See [Web Linking](http://tools.ietf.org/html/rfc8288) available for the Group using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.
 
 | Link Relation Type | Description                                                                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |
