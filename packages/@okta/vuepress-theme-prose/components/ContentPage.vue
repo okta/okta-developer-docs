@@ -18,7 +18,9 @@ export default {
     this.anchors = this.getAnchors(``);
     document.onreadystatechange = () => {
       if (document.readyState === "complete") {
-        this.onPageChange();
+        this.$nextTick(function() {
+          this.onPageChange();
+        });
       }
     };
     window.addEventListener("popstate", e => {
@@ -28,7 +30,7 @@ export default {
   },
   beforeDestroy() {
     window.removeEventListener("scroll", this.setHeadingAnchorToURL);
-    window.removeEventListener("scroll", this.scrollToAnchor);
+    window.removeEventListener("popstate", this.scrollToAnchor);
   },
   watch: {
     $page(to, from) {
@@ -78,11 +80,11 @@ export default {
         ? event.target
         : event.target.closest("a");
       if (
-        location.pathname.replace(/^\//, "") ==
+        location.pathname.replace(/^\//, "") ===
           element.pathname.replace(/^\//, "") &&
         location.hostname == element.hostname
       ) {
-        let scrollToAnchor = this.headingAnchorsMap[element.hash];
+        const scrollToAnchor = this.headingAnchorsMap[element.hash];
         if (scrollToAnchor) {
           event.preventDefault();
           this.historyPushAndScrollToAnchor(scrollToAnchor.hash);
