@@ -22,7 +22,7 @@ Note that if you will be doing a login redirect flow, the [callback](/docs/guide
 
 ```javascript
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
 
 const App = () => { 
