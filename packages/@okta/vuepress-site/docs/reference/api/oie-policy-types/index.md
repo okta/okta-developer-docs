@@ -1543,7 +1543,7 @@ The Policy object has several properties:
 | `_links.mappings`   | String (URL) | Link to retrieve the Mapping objects for the given Policy                                                                                                |
 | `_links.rules`      | String (URL) | Link to retrieve the Rules objects for the given Policy                                                                                                  |
 | `_links.self`       | String (URL) | Link to the current Policy object                                                                                                                         |
-| `_links`            | Object       | Specifies read-only [link relations](http://tools.ietf.org/html/rfc5988) available for the current Policy. Used for dynamic discovery of related resources. |
+| `_links`            | Object       | Specifies read-only [link relations](http://tools.ietf.org/html/rfc8288) available for the current Policy. Used for dynamic discovery of related resources. |
 | `default`           | Boolean      | Indicates whether this Policy is set as default                                                                                                           |
 | `id`                | String       | Identifier of this Policy                                                                                                                                |
 | `name`              | String       | Name of the Policy                                                                                                                                       |
@@ -1636,7 +1636,7 @@ Each Policy may contain one or more Rules. Rules contain conditions which must b
 | `_links.mappings`   | String (URL) | Link to retrieve the Mapping objects for the given Policy                                                                                                |
 | `_links.rules`      | String (URL) | Link to retrieve the Rule objects for the given Policy                                                                                                  |
 | `_links.self`       | String (URL) | Link to the current Policy object                                                                                                                         |
-| `_links`            | Object       | Specifies read-only [link relations](http://tools.ietf.org/html/rfc5988) available for the current Rule. Used for dynamic discovery of related resources. |
+| `_links`            | Object       | Specifies read-only [link relations](http://tools.ietf.org/html/rfc8288) available for the current Rule. Used for dynamic discovery of related resources. |
 | `action`            | String       | Top-level action for Rule: `ALLOW` or `DENY`                                                                                                                |
 | `conditions`        | Object       | The [Conditions object](#conditions-object) for this Rule                                                                                                                         |
 | `default`           | Boolean      | Indicates whether this is a default Rule                                                                                                                    |
@@ -2015,7 +2015,7 @@ A Mapping object links together an Application and a Policy.
 | `_links.application` | String (URL) | A link to the Application for this Mapping                                                                                                                   |
 | `_links.policy`      | String (URL) | A link to the Policy for this Mapping                                                                                                                      |
 | `_links.self`        | String (URL) | A link to this Mapping                                                                                                                                       |
-| `_links`             | Object       | Specifies read-only [link relations](http://tools.ietf.org/html/rfc5988) available for the current Mapping. Used for dynamic discovery of related resources. |
+| `_links`             | Object       | Specifies read-only [link relations](http://tools.ietf.org/html/rfc8288) available for the current Mapping. Used for dynamic discovery of related resources. |
 | `id`                 | String       | The identifier for this Mapping                                                                                                                              |
 
 

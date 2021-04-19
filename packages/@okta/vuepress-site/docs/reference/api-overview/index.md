@@ -179,7 +179,7 @@ Note that for technical reasons not all APIs respect pagination or the `before` 
 
 ## Link header
 
-Pagination links are included in the [Link header](http://tools.ietf.org/html/rfc5988) of responses. It is important to follow these Link header values instead of constructing your own URLs as query parameters or cursor formats may change without notice.
+Pagination links are included in the [Link header](http://tools.ietf.org/html/rfc8288) of responses. It is important to follow these Link header values instead of constructing your own URLs as query parameters or cursor formats may change without notice.
 
 ``` http
 HTTP/1.1 200 OK
@@ -263,7 +263,7 @@ The Okta API incorporates [JSON Hypertext Application Language](http://tools.iet
 
 ## Links
 
-Object whose property names are link relation types (as defined by [RFC5988](http://tools.ietf.org/html/rfc5988)) and values are either a Link object or an array of Link objects.
+Object whose property names are link relation types (as defined by [RFC8288](http://tools.ietf.org/html/rfc8288)) and values are either a Link object or an array of Link objects.
 
 - A target URI
 - The name of the link relation (`rel`)
