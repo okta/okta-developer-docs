@@ -44,10 +44,10 @@ export default {
   },
   methods: {
     onPageChange() {
-      const anchor = window.location.href.split("#")[1];
+      const anchor = window.location.hash;
 
       if (anchor) {
-        this.scrollToAnchor(`#${anchor}`);
+        this.scrollToAnchor(`${anchor}`);
       } else {
         // navigating via back button to no-anchor URL
         window.scrollTo(0, 0);
@@ -82,7 +82,7 @@ export default {
       if (
         location.pathname.replace(/^\//, "") ===
           element.pathname.replace(/^\//, "") &&
-        location.hostname == element.hostname
+        location.hostname === element.hostname
       ) {
         const scrollToAnchor = this.headingAnchorsMap[element.hash];
         if (scrollToAnchor) {

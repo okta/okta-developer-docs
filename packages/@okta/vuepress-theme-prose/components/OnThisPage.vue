@@ -45,12 +45,12 @@ export default {
   },
   computed: {
     showOnthisPage: function() {
-      return this.items ||
+      return (
+        this.items ||
         (this.$page.fullHeaders[0].children &&
           this.$page.fullHeaders[0].children.length > 0)
-        ? true
-        : false;
-    },
+      );
+    }
   },
   mounted() {
     this.paddedHeaderHeight =

@@ -38,7 +38,7 @@ function resolveHeaders(page) {
   ];
 }
 
-function groupHeaders(headers, headerLevel) {
+function groupHeaders(headers) {
   // group h3s under h2
   headers = headers.map(h => Object.assign({}, h));
   let lastH2;

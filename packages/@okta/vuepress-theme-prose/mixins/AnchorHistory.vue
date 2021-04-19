@@ -40,14 +40,20 @@ export default {
     },
 
     historyPushAndScrollToAnchor: function(anchor) {
-      if (decodeURIComponent(this.$route.hash) !== decodeURIComponent(anchor)) {
-        this.$vuepress.$set("disableScrollBehavior", true);
-        this.$router.push(anchor, () => {
-          this.$nextTick(() => {
-            this.scrollToAnchor(anchor);
-            this.$vuepress.$set("disableScrollBehavior", false);
+      const node = document.querySelector(anchor);
+      if (
+        node &&
+        decodeURIComponent(this.$route.hash) !== decodeURIComponent(anchor)
+      ) {
+        {
+          this.$vuepress.$set("disableScrollBehavior", true);
+          this.$router.push(anchor, () => {
+            this.$nextTick(() => {
+              this.scrollToAnchor(anchor);
+              this.$vuepress.$set("disableScrollBehavior", false);
+            });
           });
-        });
+        }
       }
     },
 
