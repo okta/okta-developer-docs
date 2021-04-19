@@ -2,7 +2,7 @@ Use the React SDK's `SecureRoute` component instead of `Route` for the routes th
 
 ```javascript
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Security, SecureRoute } from '@okta/okta-react';
 
 const App = () => { 
