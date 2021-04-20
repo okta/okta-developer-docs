@@ -10,7 +10,7 @@ Event Hooks and Inline Hooks are outbound calls from Okta to an external client 
 
 The following sections review best practices to implement and secure Okta Event Hooks or Inline Hooks.
 
-## Securing your Hook endpoint
+## Secure your Hook endpoint
 
 To prevent a malicious actor from making requests to the endpoint where your Okta Hooks are sent, use the following best practices:
 
@@ -23,13 +23,13 @@ To prevent a malicious actor from making requests to the endpoint where your Okt
 
 >**Note:** This is a large list of IP Addresses and the list is subject to change. Unless required by your organization, securing your Hook by Authentication header is recommended.
 
-## Protecting your Hook content from external viewers
+## Protect your Hook content from external viewers
 
 To prevent unauthorized parties from reading the contents of an Okta Hook, we recommend the following:
 
 * Okta uses HTTPS to encrypt communications to your Hook endpoint. When using HTTPS, ensure you keep your SSL certificate updated and the Domain Name System (DNS) secured, so that someone can’t re-point your endpoint to another location.
 
-## Avoiding delays in Inline Hook responses
+## Avoid delays in Inline Hook responses
 
 When Okta uses an Inline Hook to communicate with your endpoint, the user experience is paused until your code responds. To prevent unnecessary delays or timeouts, we recommend the following:
 
@@ -43,19 +43,19 @@ See Inline Hook [Timeout and Retry](/docs/concepts/inline-hooks/#timeout-and-ret
 
 * Do we have any guidelines on the number of Event Types we can add to a hook? Our current documentation suggests we can configure "multiple event types". Would it be better to have multiple endpoints for multiple event types, from a load perspective? Or does it matter?
 
-## Managing scale of Okta Hook calls (?)
+## Manage scale of Okta Hook calls (?)
 
 * Any advice necessary on this subject, which I've seen on other webhhook pages. E.g. "If you’re on the other side running a system that is consuming webhooks, you can scale your webhook ingestion the same way you’d horizontally scale for regular web traffic — by using a load balancer or reverse-proxy in front of your web servers. "
 
-## Ordering and Duplicates of Hooks (?)
+## Order and duplicates of Hook calls (?)
 
 * Not sure if there is anything to discuss here?
 
-## Creating error messages (?)
+## Create error messages (?)
 
 * Any guidance for creating error messages? I can link [Inline Hooks concepts - error](/docs/concepts/inline-hooks/#error)
 
-## Troubleshooting your Hook implementations
+## Troubleshoot your Hook implementations
 
 Developers and administrators can preview sample Okta calls and responses from your external service for certain Inline Hooks and Event Hooks, as well as review the Admin Console System Log to troubleshoot your implementations, in addition to your external service's logging features. See [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/troubleshooting/) for further information.
 
