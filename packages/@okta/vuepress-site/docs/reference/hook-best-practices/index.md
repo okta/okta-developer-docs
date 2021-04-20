@@ -10,7 +10,7 @@ Event Hooks and Inline Hooks are outbound calls from Okta to an external client 
 
 The following sections review best practices to implement and secure and Okta Event Hooks or Inline Hooks.
 
-## Securing your hook endpoint
+## Securing your Hook endpoint
 
 To prevent a malicious actor from making requests to the endpoint where your Okta Hooks are sent, use the following best practices:
 
@@ -27,7 +27,7 @@ To prevent a malicious actor from making requests to the endpoint where your Okt
 
 To prevent unauthorized parties from reading the contents of an Okta Hook, we recommend the following:
 
-* Use HTTPS to encrypt communications to your Hook endpoint. <!-- The Hook concept docs seem to imply we can only use HTTPS, meaning this is not really a best practice, more of a note. BD>
+* Okta uses HTTPS to encrypt communications to your Hook endpoint. <!-- The Hook concept docs seem to imply we can only use HTTPS, meaning this is not really a best practice, more of an only practice. BD>
 When using HTTPS, make sure you keep your SSL certificate updated, and that the DNS is secured so that someone can’t re-point your endpoint to another location. <!--Fr om Joel's comment in slack>
 
 ## Avoiding delays in Inline Hook responses
@@ -35,3 +35,34 @@ When using HTTPS, make sure you keep your SSL certificate updated, and that the 
 When Okta uses an Inline Hooks to communicate with your endpoint, the user experience is paused until your code responds. To prevent unnecessary delays or timeouts, we recommend the following:
 
 * Treat Okta Hooks as you would any other HTTP request, namely: Make sure you respond to the HTTP request in under 400 milliseconds with a 200 (Success) or 204 (Success no content).
+
+>**Note:** The Okta request times out after 3 seconds with no response for Inline Hooks and Event Hooks.
+
+See Inline Hook [Timeout and Retry](/docs/concepts/inline-hooks/#timeout-and-retry) for further information on Inline Hook timeout and retry behavior; see Event Hook [Time and Retry](https://developer.okta.com/docs/concepts/event-hooks/) for the same.
+
+## Working with Event Types (?)
+
+* Do we have any guidelines on the number of Event Types we can add to a hook? Our current documentation suggests we can configure "multiple event types". Would it be better to have multiple endpoints for multiple event types, from a load perspective? Or does it matter?
+
+## Managing scale of Okta Hook calls (?)
+
+* Any advice necessary on this subject, which I've seen on other webhhook pages. E.g. "If you’re on the other side running a system that is consuming webhooks, you can scale your webhook ingestion the same way you’d horizontally scale for regular web traffic — by using a load balancer or reverse-proxy in front of your web servers. "
+
+## Ordering and Duplicates of Hooks (?)
+
+* Not sure if there is anything to discuss here?
+
+## Creating error messages (?)
+
+* Any guidance for creating error messages? I can link [Inline Hooks concepts - error](/docs/concepts/inline-hooks/#error)
+
+## Troubleshooting your Hook implementations
+
+Developers and administrators can preview sample Okta calls and responses from your external service for certain Inline Hooks and Event Hooks, as well as review the Admin Console System Log to troubleshoot your implementations, in addition to your external service's logging features. See [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/troubleshooting/) for further information.
+
+See also the following guides for sample Okta Hook implementations:
+
+* [Event Hook](/docs/guides/event-hook-implementation/nodejs/overview/)
+* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/nodejs/overview/)
+* [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/overview/)
+* [Token Inline Hook](/docs/guides/token-inline-hook/nodejs/overview/)
