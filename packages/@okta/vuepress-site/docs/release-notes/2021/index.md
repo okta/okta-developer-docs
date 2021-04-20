@@ -4,6 +4,24 @@ title: Okta API Products Release Notes
 
 ## April
 
+### Weekly Release 2021.04.2
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.5.3](#okta-sign-in-widget-version-5-5-3) | April 28, 2021 |
+| [Bugs fixed in 2021.04.2](#bugs-fixed-in-2021-04-2)         | April 28, 2021           |
+
+#### Okta Sign-In Widget, version 5.5.3
+
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.3). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-387717-->
+
+
+#### Bugs fixed in 2021.04.2
+
+* When using the [List Users](/docs/reference/api/users/#list-users) or [Get User](/docs/reference/api/users/#get-user) API, credential fetching, performed as part of the user lookup, could degrade performance. (OKTA-371358)
+
+* When the [User API](/docs/reference/api/users) is used to create a user with an address containing a 4-byte UTF-8 encoded character, a 500 system error is returned instead of a 400 invalid API error. (OKTA-382882)
+
 ### Weekly Release 2021.04.1
 
 | Change                                                                                              | Expected in Preview Orgs |
