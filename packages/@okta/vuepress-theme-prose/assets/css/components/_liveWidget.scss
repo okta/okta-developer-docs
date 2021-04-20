@@ -1,0 +1,61 @@
+.live-widget-wrapper{
+  background-color: #20313b;
+  .header{
+    color: #fff;
+    text-align: center;
+    letter-spacing: 4px;
+    margin-top: 80px;
+    margin-bottom: 80px;
+  }
+
+  .background-curve{
+    height: 100px;
+    background: url('/img/live-widget/curve-doubleLeft.png') no-repeat;
+    background-size: 100% 100%;
+    overflow: hidden;
+  }
+
+  .background-darkblue{
+    background-color: #153b56;
+    padding-bottom: 80px;
+  }
+  .widgets-wrapper{
+    @include media("<=bootstrap-lg") {
+      flex-direction: column-reverse;
+      .cm-wrapper{
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .okta-w-wrapper{
+    #okta-sign-in{
+      margin-top: 0;
+    }
+  }
+  .cm-wrapper{
+      .CodeMirror{
+        height: 611px;
+        width: 100%;
+      }
+  }
+  .toggle-button{
+    font-size: 18px;
+    cursor: pointer;
+    margin: 0 10px 0 0;
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    width: 100px;
+    height: 45px;
+    transition: all .5s ease;
+    background-color: #fff;
+    color: #e22866;
+    &:disabled{
+      background-color: #e22866;
+      color: #fff;
+    }
+  }
+}

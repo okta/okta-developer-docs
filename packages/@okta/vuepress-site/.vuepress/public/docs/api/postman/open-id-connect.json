@@ -1,901 +1,1288 @@
 {
-	"id": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-	"name": "OpenID Connect (Okta API)",
-	"description": "",
-	"order": [
-		"c5f8ca24-764d-8fb7-e886-b8caa0c3f23a",
-		"aee46ba4-30aa-e69d-911e-0d152b048c61",
-		"0a7a93ac-2736-e0c8-1767-71e5424ea6b4",
-		"0d56d239-6c43-a59f-0ea3-bbf10cd54d8d",
-		"f01b2fa9-91db-4013-3f0f-ad68cb427d77",
-		"2c3fed1d-dfa4-60cb-5f2c-3bfed8129614",
-		"9fb953a5-a8e5-b63e-bf00-a343299af2d2",
-		"11d48074-4674-9afc-115b-f8c15160008b",
-		"3be88f18-9b3b-4b9c-4cf7-7649257789b9",
-		"fe61544c-dea1-04a1-4cf3-507595a1374b",
-		"8e8b189b-4d13-1d99-9219-93576983060a",
-		"8f4d5cad-8693-90ab-4b1e-b94be872b137",
-		"95461471-7491-f161-089c-d3ca6ffde8f6",
-		"f3e3482e-6de7-9883-45de-c90347f8d018",
-		"d78050a8-ecdc-96e0-2714-5f505ce24135",
-		"df5a9db6-d9c7-7a02-b3d5-1e8fefd185aa",
-		"2a2aca84-cedb-19c0-ab7a-0a65693743a9",
-		"439c90ac-3e0f-1c99-90d8-0c9ab5e671b1",
-		"8451e895-add2-3f7d-d9d5-f175d9f32885",
-		"f0928322-66ae-846e-b572-23d98c7f6aa3",
-		"7986ea1e-0708-b1ef-15bc-ac5ca3e7da6c",
-		"d9974443-a235-9e1a-69fe-3ef16f318c19",
-		"68ebba21-3b2f-0a09-1355-f8f167bdff50"
-	],
-	"folders": [],
-	"timestamp": 0,
-	"owner": "20756",
-	"public": false,
-	"requests": [
+	"info": {
+		"_postman_id": "85c589c4-9556-48aa-89b5-9263610aea3d",
+		"name": "OpenID Connect (Okta API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "0a7a93ac-2736-e0c8-1767-71e5424ea6b4",
-			"headers": "Accept: application/json\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "{{url}}/oauth2/v1/introspect",
-			"queryParams": [],
-			"preRequestScript": "",
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "token",
-					"value": "{{accessToken}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "token_type_hint",
-					"value": "access_token",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "client_assertion_type",
-					"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "client_assertion",
-					"value": "{{clientSecretJwt}}",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498506429229,
-			"name": "Introspect Token with Client Secret JWT",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "0d56d239-6c43-a59f-0ea3-bbf10cd54d8d",
-			"name": "Revoke Token",
-			"dataMode": "urlencoded",
-			"data": [
-				{
-					"key": "token",
-					"value": "{{accessToken}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "token_type_hint",
-					"value": "access_token",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"rawModeData": null,
-			"descriptionFormat": "html",
-			"description": "",
-			"headers": "Accept: application/json\nAuthorization: Basic\n",
-			"method": "POST",
-			"pathVariables": [],
-			"url": "{{url}}/oauth2/v1/revoke",
-			"preRequestScript": "",
-			"tests": null,
-			"currentHelper": "basicAuth",
-			"helperAttributes": {
-				"id": "basic",
-				"username": "{{clientId}}",
-				"password": "{{clientSecret}}",
-				"saveToRequest": true
-			},
-			"responses": [],
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a"
-		},
-		{
-			"id": "11d48074-4674-9afc-115b-f8c15160008b",
-			"headers": "",
-			"url": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=id_token token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
-			"preRequestScript": "",
-			"pathVariables": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"time": 1496192295009,
-			"name": "Get ID Token + Access Token (Requires Inteceptor)",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "2a2aca84-cedb-19c0-ab7a-0a65693743a9",
-			"name": "Get ID Token with Code",
-			"dataMode": "urlencoded",
-			"data": [
-				{
-					"key": "grant_type",
-					"value": "authorization_code",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "redirect_uri",
-					"value": "{{redirectUri}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "code",
-					"value": "{{authorizationCode}}",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"rawModeData": null,
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\nAuthorization: Basic\n",
-			"method": "POST",
-			"pathVariables": [],
-			"url": "{{url}}/oauth2/v1/token",
-			"preRequestScript": null,
-			"tests": null,
-			"currentHelper": "basicAuth",
-			"helperAttributes": {
-				"id": "basic",
-				"username": "{{clientId}}",
-				"password": "{{clientSecret}}",
-				"saveToRequest": true
-			},
-			"responses": [],
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a"
-		},
-		{
-			"id": "2c3fed1d-dfa4-60cb-5f2c-3bfed8129614",
-			"headers": "Accept: application/json\nAuthorization: Bearer {{accessToken}}\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "Authorization",
-					"value": "Bearer {{accessToken}}",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "{{url}}/oauth2/v1/userinfo",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": [],
-			"pathVariableData": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "raw",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"time": 1496856538890,
-			"name": "Get UserInfo",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": [],
-			"rawModeData": ""
-		},
-		{
-			"id": "3be88f18-9b3b-4b9c-4cf7-7649257789b9",
-			"headers": "",
-			"url": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code&response_mode=query&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
-			"preRequestScript": "",
-			"pathVariables": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"time": 1496192394483,
-			"name": "Get Authorization Code (Requires Inteceptor)",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "439c90ac-3e0f-1c99-90d8-0c9ab5e671b1",
-			"headers": "Accept: application/json\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "{{url}}/oauth2/v1/token",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "grant_type",
-					"value": "authorization_code",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "redirect_uri",
-					"value": "{{redirectUri}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "code",
-					"value": "{{authorizationCode}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "client_assertion_type",
-					"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "client_assertion",
-					"value": "{{clientSecretJwt}}",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498506303999,
-			"name": "Get ID Token with Code and Client Secret JWT",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "68ebba21-3b2f-0a09-1355-f8f167bdff50",
-			"headers": "Accept: application/json\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "{{url}}/oauth2/v1/token",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "grant_type",
-					"value": "password",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "redirect_uri",
-					"value": "{{redirectUri}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "username",
-					"value": "{{username}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "password",
-					"value": "{{password}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "scope",
-					"value": "{{scopes}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "client_assertion_type",
-					"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "client_assertion",
-					"value": "{{clientSecretJwt}}",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498507325145,
-			"name": "Get Access Token with Resource Owner Password Credentials and Client Secret JWT",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "7986ea1e-0708-b1ef-15bc-ac5ca3e7da6c",
-			"headers": "Accept: application/json\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
-				}
-			],
-			"url": "{{url}}/oauth2/v1/token",
-			"queryParams": [],
-			"preRequestScript": null,
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "grant_type",
-					"value": "refresh_token",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "redirect_uri",
-					"value": "{{redirectUri}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "scope",
-					"value": "{{scopes}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "refresh_token",
-					"value": "{{refreshToken}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "client_assertion_type",
-					"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "client_assertion",
-					"value": "{{clientSecretJwt}}",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498507274174,
-			"name": "Get Access Token with Refresh Token and Client Secret JWT",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "8451e895-add2-3f7d-d9d5-f175d9f32885",
-			"name": "Get ID Token with Code and PKCE",
-			"dataMode": "urlencoded",
-			"data": [
-				{
-					"key": "grant_type",
-					"value": "authorization_code",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "client_id",
-					"value": "{{clientId}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "redirect_uri",
-					"value": "{{redirectUri}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "code",
-					"value": "{{authorizationCode}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "code_verifier",
-					"value": "{{codeVerifier}}",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"rawModeData": null,
-			"descriptionFormat": null,
-			"description": "",
-			"headers": "Accept: application/json\n",
-			"method": "POST",
-			"pathVariables": [],
-			"url": "{{url}}/oauth2/v1/token",
-			"preRequestScript": null,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"responses": [],
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a"
-		},
-		{
-			"id": "8e8b189b-4d13-1d99-9219-93576983060a",
-			"headers": "",
-			"url": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
-			"preRequestScript": "",
-			"pathVariables": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"time": 1496192500091,
-			"name": "Get Authorization Code + Access Token (Requires Inteceptor)",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "8f4d5cad-8693-90ab-4b1e-b94be872b137",
-			"headers": "",
-			"url": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}&code_challenge_method=S256&code_challenge={{codeChallenge}}",
-			"preRequestScript": "",
-			"pathVariables": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"time": 1496192512537,
-			"name": "Get Authorization Code + Access Token with PKCE (Requires Inteceptor)",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "95461471-7491-f161-089c-d3ca6ffde8f6",
-			"headers": "",
-			"url": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
-			"preRequestScript": "",
-			"pathVariables": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"time": 1496192520140,
-			"name": "Get Authorization Code + ID Token (Requires Inteceptor)",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "9fb953a5-a8e5-b63e-bf00-a343299af2d2",
-			"headers": "",
-			"headerData": [],
-			"url": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
-			"queryParams": [
-				{
-					"key": "client_id",
-					"value": "{{clientId}}",
-					"equals": true,
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "response_type",
-					"value": "id_token",
-					"equals": true,
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "response_mode",
-					"value": "fragment",
-					"equals": true,
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "scope",
-					"value": "{{scopes}}",
-					"equals": true,
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "redirect_uri",
-					"value": "{{redirectUri}}",
-					"equals": true,
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "state",
-					"value": "{{state}}",
-					"equals": true,
-					"description": "",
-					"enabled": true
-				},
-				{
-					"key": "nonce",
-					"value": "{{$guid}}",
-					"equals": true,
-					"description": "",
-					"enabled": true
-				}
-			],
-			"preRequestScript": "",
-			"pathVariables": [],
-			"pathVariableData": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"time": 1496856566917,
-			"name": "Get ID Token (Requires Inteceptor)",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "aee46ba4-30aa-e69d-911e-0d152b048c61",
-			"headers": "Accept: application/json\nAuthorization: Basic\n",
-			"url": "{{url}}/oauth2/v1/introspect",
-			"preRequestScript": "",
-			"pathVariables": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "token",
-					"value": "{{accessToken}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "token_type_hint",
-					"value": "access_token",
-					"type": "text",
-					"enabled": true
-				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "basicAuth",
-			"helperAttributes": {
-				"id": "basic",
-				"username": "{{clientId}}",
-				"password": "{{clientSecret}}",
-				"saveToRequest": true
-			},
-			"time": 1496192153321,
-			"name": "Introspect Token",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "c5f8ca24-764d-8fb7-e886-b8caa0c3f23a",
-			"headers": "Accept: application/json\n",
-			"url": "{{url}}/.well-known/openid-configuration?client_id={{clientId}}",
-			"preRequestScript": "",
-			"pathVariables": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"time": 1496192141429,
 			"name": "Get OpenID Provider Metadata",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "d78050a8-ecdc-96e0-2714-5f505ce24135",
-			"headers": "",
-			"url": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code token id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
-			"preRequestScript": "",
-			"pathVariables": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"time": 1496192537953,
-			"name": "Get Authorization Code + ID Token + Access Token (Requires Inteceptor)",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "d9974443-a235-9e1a-69fe-3ef16f318c19",
-			"headers": "Accept: application/json\nAuthorization: Basic\n",
-			"url": "{{url}}/oauth2/v1/token",
-			"preRequestScript": null,
-			"pathVariables": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "grant_type",
-					"value": "password",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "redirect_uri",
-					"value": "{{redirectUri}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "username",
-					"value": "{{username}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "password",
-					"value": "{{password}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "scope",
-					"value": "{{scopes}}",
-					"type": "text",
-					"enabled": true
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/.well-known/openid-configuration?client_id={{clientId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						".well-known",
+						"openid-configuration"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{clientId}}"
+						}
+					]
 				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "basicAuth",
-			"helperAttributes": {
-				"id": "basic",
-				"username": "{{clientId}}",
-				"password": "{{clientSecret}}",
-				"saveToRequest": true
 			},
-			"time": 1496192792288,
-			"name": "Get Access Token with Resource Owner Password Credentials",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
+			"response": []
 		},
 		{
-			"id": "df5a9db6-d9c7-7a02-b3d5-1e8fefd185aa",
-			"headers": "",
-			"url": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code token id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}&code_challenge_method=S256&code_challenge={{codeChallenge}}",
-			"preRequestScript": "",
-			"pathVariables": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"time": 1496192546367,
-			"name": "Get Authorization Code + ID Token + Access Token with PKCE (Requires Inteceptor)",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
+			"name": "Introspect Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{clientId}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{clientSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "text"
+						},
+						{
+							"key": "token_type_hint",
+							"value": "access_token",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/introspect",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"introspect"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "f01b2fa9-91db-4013-3f0f-ad68cb427d77",
-			"headers": "Accept: application/json\n",
-			"headerData": [
-				{
-					"key": "Accept",
-					"value": "application/json",
-					"description": "",
-					"enabled": true
+			"name": "Introspect Token with Client Secret JWT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "text"
+						},
+						{
+							"key": "token_type_hint",
+							"value": "access_token",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion_type",
+							"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{clientSecretJwt}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/introspect",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"introspect"
+					]
 				}
-			],
-			"url": "{{url}}/oauth2/v1/revoke",
-			"queryParams": [],
-			"preRequestScript": "",
-			"pathVariables": {},
-			"pathVariableData": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "token",
-					"value": "{{accessToken}}",
-					"type": "text",
-					"enabled": true
+			},
+			"response": []
+		},
+		{
+			"name": "Revoke Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{clientId}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{clientSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
 				},
-				{
-					"key": "token_type_hint",
-					"value": "access_token",
-					"type": "text",
-					"enabled": true
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "text"
+						},
+						{
+							"key": "token_type_hint",
+							"value": "access_token",
+							"type": "text"
+						}
+					]
 				},
-				{
-					"key": "client_assertion_type",
-					"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
-					"description": "",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "client_assertion",
-					"value": "{{clientSecretJwt}}",
-					"description": "",
-					"type": "text",
-					"enabled": true
+				"url": {
+					"raw": "{{url}}/oauth2/v1/revoke",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"revoke"
+					]
 				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1498506501992,
+			},
+			"response": []
+		},
+		{
 			"name": "Revoke Token with Client Secret JWT",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
-		},
-		{
-			"id": "f0928322-66ae-846e-b572-23d98c7f6aa3",
-			"headers": "Accept: application/json\nAuthorization: Basic\n",
-			"url": "{{url}}/oauth2/v1/token",
-			"preRequestScript": null,
-			"pathVariables": [],
-			"method": "POST",
-			"data": [
-				{
-					"key": "grant_type",
-					"value": "refresh_token",
-					"type": "text",
-					"enabled": true
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "token",
+							"value": "{{accessToken}}",
+							"type": "text"
+						},
+						{
+							"key": "token_type_hint",
+							"value": "access_token",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion_type",
+							"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{clientSecretJwt}}",
+							"type": "text"
+						}
+					]
 				},
-				{
-					"key": "redirect_uri",
-					"value": "{{redirectUri}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "scope",
-					"value": "{{scopes}}",
-					"type": "text",
-					"enabled": true
-				},
-				{
-					"key": "refresh_token",
-					"value": "{{refreshToken}}",
-					"type": "text",
-					"enabled": true
+				"url": {
+					"raw": "{{url}}/oauth2/v1/revoke",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"revoke"
+					]
 				}
-			],
-			"dataMode": "urlencoded",
-			"tests": null,
-			"currentHelper": "basicAuth",
-			"helperAttributes": {
-				"id": "basic",
-				"username": "{{clientId}}",
-				"password": "{{clientSecret}}",
-				"saveToRequest": true
 			},
-			"time": 1496192689158,
-			"name": "Get Access Token with Refresh Token",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
+			"response": []
 		},
 		{
-			"id": "f3e3482e-6de7-9883-45de-c90347f8d018",
-			"headers": "",
-			"url": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}&code_challenge_method=S256&code_challenge={{codeChallenge}}",
-			"preRequestScript": "",
-			"pathVariables": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"time": 1496192528963,
-			"name": "Get Authorization Code + ID Token with PKCE (Requires Inteceptor)",
-			"description": "",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
+			"name": "Get UserInfo",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}"
+					}
+				],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/userinfo",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"userinfo"
+					]
+				}
+			},
+			"response": []
 		},
 		{
-			"id": "fe61544c-dea1-04a1-4cf3-507595a1374b",
-			"headers": "",
-			"url": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code&response_mode=query&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}&code_challenge_method=S256&code_challenge={{codeChallenge}}",
-			"preRequestScript": "",
-			"pathVariables": [],
-			"method": "GET",
-			"data": [],
-			"dataMode": "params",
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": [],
-			"time": 1496192449790,
+			"name": "Get ID Token (Requires Inteceptor)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{clientId}}"
+						},
+						{
+							"key": "response_type",
+							"value": "id_token"
+						},
+						{
+							"key": "response_mode",
+							"value": "fragment"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}"
+						},
+						{
+							"key": "state",
+							"value": "{{state}}"
+						},
+						{
+							"key": "nonce",
+							"value": "{{$guid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ID Token + Access Token (Requires Inteceptor)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=id_token token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{clientId}}"
+						},
+						{
+							"key": "response_type",
+							"value": "id_token token"
+						},
+						{
+							"key": "response_mode",
+							"value": "fragment"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}"
+						},
+						{
+							"key": "state",
+							"value": "{{state}}"
+						},
+						{
+							"key": "nonce",
+							"value": "{{$guid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Authorization Code (Requires Inteceptor)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code&response_mode=query&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{clientId}}"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "response_mode",
+							"value": "query"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}"
+						},
+						{
+							"key": "state",
+							"value": "{{state}}"
+						},
+						{
+							"key": "nonce",
+							"value": "{{$guid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Get Authorization Code with PKCE  (Requires Inteceptor)",
-			"description": "```js\nconst base64url = require('base64url');\nvar crypto = require('crypto');\ncrypto.createHash('sha256').update('at83hsVcajT5nfc2FVnKSxI6bsuU2Tq2aoVhEFhEO1A').digest();\nvar buffer = crypto.createHash('sha256').update('at83hsVcajT5nfc2FVnKSxI6bsuU2Tq2aoVhEFhEO1A').digest();\nbase64url.encode(buffer)\n```",
-			"collectionId": "37e43c34-f03a-769d-ee28-ab54b95c733a",
-			"responses": []
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code&response_mode=query&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}&code_challenge_method=S256&code_challenge={{codeChallenge}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{clientId}}"
+						},
+						{
+							"key": "response_type",
+							"value": "code"
+						},
+						{
+							"key": "response_mode",
+							"value": "query"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}"
+						},
+						{
+							"key": "state",
+							"value": "{{state}}"
+						},
+						{
+							"key": "nonce",
+							"value": "{{$guid}}"
+						},
+						{
+							"key": "code_challenge_method",
+							"value": "S256"
+						},
+						{
+							"key": "code_challenge",
+							"value": "{{codeChallenge}}"
+						}
+					]
+				},
+				"description": "```js\nconst base64url = require('base64url');\nvar crypto = require('crypto');\ncrypto.createHash('sha256').update('at83hsVcajT5nfc2FVnKSxI6bsuU2Tq2aoVhEFhEO1A').digest();\nvar buffer = crypto.createHash('sha256').update('at83hsVcajT5nfc2FVnKSxI6bsuU2Tq2aoVhEFhEO1A').digest();\nbase64url.encode(buffer)\n```"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Authorization Code + Access Token (Requires Inteceptor)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{clientId}}"
+						},
+						{
+							"key": "response_type",
+							"value": "code token"
+						},
+						{
+							"key": "response_mode",
+							"value": "fragment"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}"
+						},
+						{
+							"key": "state",
+							"value": "{{state}}"
+						},
+						{
+							"key": "nonce",
+							"value": "{{$guid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Authorization Code + Access Token with PKCE (Requires Inteceptor)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}&code_challenge_method=S256&code_challenge={{codeChallenge}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{clientId}}"
+						},
+						{
+							"key": "response_type",
+							"value": "code token"
+						},
+						{
+							"key": "response_mode",
+							"value": "fragment"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}"
+						},
+						{
+							"key": "state",
+							"value": "{{state}}"
+						},
+						{
+							"key": "nonce",
+							"value": "{{$guid}}"
+						},
+						{
+							"key": "code_challenge_method",
+							"value": "S256"
+						},
+						{
+							"key": "code_challenge",
+							"value": "{{codeChallenge}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Authorization Code + ID Token (Requires Inteceptor)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{clientId}}"
+						},
+						{
+							"key": "response_type",
+							"value": "code id_token"
+						},
+						{
+							"key": "response_mode",
+							"value": "fragment"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}"
+						},
+						{
+							"key": "state",
+							"value": "{{state}}"
+						},
+						{
+							"key": "nonce",
+							"value": "{{$guid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Authorization Code + ID Token with PKCE (Requires Inteceptor)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}&code_challenge_method=S256&code_challenge={{codeChallenge}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{clientId}}"
+						},
+						{
+							"key": "response_type",
+							"value": "code id_token"
+						},
+						{
+							"key": "response_mode",
+							"value": "fragment"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}"
+						},
+						{
+							"key": "state",
+							"value": "{{state}}"
+						},
+						{
+							"key": "nonce",
+							"value": "{{$guid}}"
+						},
+						{
+							"key": "code_challenge_method",
+							"value": "S256"
+						},
+						{
+							"key": "code_challenge",
+							"value": "{{codeChallenge}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Authorization Code + ID Token + Access Token (Requires Inteceptor)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code token id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{clientId}}"
+						},
+						{
+							"key": "response_type",
+							"value": "code token id_token"
+						},
+						{
+							"key": "response_mode",
+							"value": "fragment"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}"
+						},
+						{
+							"key": "state",
+							"value": "{{state}}"
+						},
+						{
+							"key": "nonce",
+							"value": "{{$guid}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Authorization Code + ID Token + Access Token with PKCE (Requires Inteceptor)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/oauth2/v1/authorize?client_id={{clientId}}&response_type=code token id_token&response_mode=fragment&scope={{scopes}}&redirect_uri={{redirectUri}}&state={{state}}&nonce={{$guid}}&code_challenge_method=S256&code_challenge={{codeChallenge}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"authorize"
+					],
+					"query": [
+						{
+							"key": "client_id",
+							"value": "{{clientId}}"
+						},
+						{
+							"key": "response_type",
+							"value": "code token id_token"
+						},
+						{
+							"key": "response_mode",
+							"value": "fragment"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}"
+						},
+						{
+							"key": "state",
+							"value": "{{state}}"
+						},
+						{
+							"key": "nonce",
+							"value": "{{$guid}}"
+						},
+						{
+							"key": "code_challenge_method",
+							"value": "S256"
+						},
+						{
+							"key": "code_challenge",
+							"value": "{{codeChallenge}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ID Token with Code",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{clientId}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{clientSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "{{authorizationCode}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ID Token with Code and Client Secret JWT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "{{authorizationCode}}",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion_type",
+							"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{clientSecretJwt}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ID Token with Code and PKCE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "authorization_code",
+							"type": "text"
+						},
+						{
+							"key": "client_id",
+							"value": "{{clientId}}",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "{{authorizationCode}}",
+							"type": "text"
+						},
+						{
+							"key": "code_verifier",
+							"value": "{{codeVerifier}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token with Refresh Token",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{clientId}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{clientSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "{{refreshToken}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token with Refresh Token and Client Secret JWT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "refresh_token",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}",
+							"type": "text"
+						},
+						{
+							"key": "refresh_token",
+							"value": "{{refreshToken}}",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion_type",
+							"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{clientSecretJwt}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token with Resource Owner Password Credentials",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "{{clientId}}",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "{{clientSecret}}",
+							"type": "string"
+						},
+						{
+							"key": "saveHelperData",
+							"value": true,
+							"type": "boolean"
+						},
+						{
+							"key": "showPassword",
+							"value": false,
+							"type": "boolean"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "Basic"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Access Token with Resource Owner Password Credentials and Client Secret JWT",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "redirect_uri",
+							"value": "{{redirectUri}}",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "{{username}}",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "{{password}}",
+							"type": "text"
+						},
+						{
+							"key": "scope",
+							"value": "{{scopes}}",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion_type",
+							"value": "urn:ietf:params:oauth:client-assertion-type:jwt-bearer",
+							"type": "text"
+						},
+						{
+							"key": "client_assertion",
+							"value": "{{clientSecretJwt}}",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{url}}/oauth2/v1/token",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"oauth2",
+						"v1",
+						"token"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }

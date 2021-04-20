@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "c2bd4453-4f12-444e-835e-21adbef9a686",
+		"_postman_id": "c44b7ea5-7b08-40b4-857e-11178a66b992",
 		"name": "Authentication (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -520,8 +520,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Forgot Password",
@@ -770,8 +769,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Self-Service Unlock",
@@ -986,8 +984,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "State Management",
@@ -1123,8 +1120,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Verify",
@@ -1410,8 +1406,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Primary Authentication ",
@@ -1557,6 +1552,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

@@ -17,11 +17,10 @@ Send a request to `https://${yourOktaDomain}/api/v1/groups` and collect the IDs 
 ### Request example
 
 ```bash
-curl -X GET \
--H 'accept: application/json' \
--H 'authorization: SSWS ${api_token}' \
--H 'content-type: application/json' \
-"https://${yourOktaDomain}/api/v1/groups"
+curl --location --request GET 'https://${yourOktaDomain}/api/v1/groups' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: SSWS ${api_token}'
 ```
 
 ### Response example

@@ -4,14 +4,13 @@ title: Use the Resource Owner Password flow
 
 Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint. If you are using the default Custom Authorization Server, then your request would look something like this:
 
-```
+```bash
 curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/token \
   --header 'accept: application/json' \
   --header 'authorization: Basic MG9hYn...' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'grant_type=password&username=testuser1%40example.com&password=%7CmCov
-  rlnU9oZU4qWGrhQSM%3Dyd&scope=openid'
+  --data 'grant_type=password&username=testuser1%40example.com&password=%7CmCovrlnU9oZU4qWGrhQSM%3Dyd&scope=openid'
 ```
 
 > **Important:** The call to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and secret. You can find the Client ID and secret on your application's **General** tab. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).

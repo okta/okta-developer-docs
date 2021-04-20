@@ -7,12 +7,18 @@ icon: code-angular
 
 This guide will walk you through integrating authentication into an Angular application with Okta by performing these steps:
 
-1. [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client)
-2. [Create an Angular App](#create-an-angular-app)
-3. [Install Dependencies](#install-dependencies)
-4. [Create Routes](#create-routes)
-5. [Connect the Routes](#connect-the-routes)
-6. [Start your App](#start-your-app)
+- [Prerequisites](#prerequisites)
+- [Add an OpenID Connect Client](#add-an-openid-connect-client)
+- [Create an Angular App](#create-an-angular-app)
+- [Install Dependencies](#install-dependencies)
+- [Create Routes](#create-routes)
+  - [`/`](#)
+  - [`/protected`](#protected)
+  - [`/login`](#login)
+  - [Connect the Routes](#connect-the-routes)
+- [Start your App](#start-your-app)
+- [Conclusion](#conclusion)
+- [Support](#support)
 
 ## Prerequisites
 
@@ -20,7 +26,8 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 
 ## Add an OpenID Connect Client
 
-* Sign in to the Okta Developer Dashboard, and select **Create New App**
+* Sign in to the Admin Console, and select **Create New App**. <br/>
+You can sign in to the Admin Console using <https://login.okta.com>, and then click **Admin**.
 * Choose **Single Page App (SPA)** as the platform, then populate your new OpenID Connect application with values similar to:
 
 | Setting              | Value                                               |
@@ -29,6 +36,7 @@ If you do not already have a  **Developer Edition Account**, you can create one 
 | Login redirect URIs  | `http://localhost:4200/login/callback`              |
 | Logout redirect URIs | `http://localhost:4200/login`                       |
 | Allowed grant types  | Authorization Code                                  |
+`${clientId}` placeholders further in this tutorial should be replaced by the `Client ID` of the created application.
 
 > **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 
@@ -313,4 +321,4 @@ Want to learn how to use the user's `access_token`? Check out our <a href='/docs
 
 ## Support
 
-Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).

@@ -7,13 +7,14 @@ category: other
 
 <!-- AS OF 2020-08-19 THIS SHOULD BE A PART OF THE POLICY API. THIS MAY CHANGE -->
 
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" />
 
 The Identity Engine Early Adopter Program (EAP) contains many updates to Okta's existing Policy API. Specifically, it introduces two new Policy types: `Okta:SignOn` and `Okta:ProfileEnrollment` as well as new kinds of Rules and Conditions. This documentation will discuss only the differences between the [existing Policy API](/docs/reference/api/policy/) and the Identity Engine EAP additions.
 
 ## Limitations
 
-Okta limits the number of Policies of the new types to 500 total. Each of those Policies can in turn have a maximum of 100 associated Rules.
+Okta limits the number of Policies of the new types to 5000 total the `Okta:SignOn` Policy type and 500 total for `Okta:ProfileEnrollment` Policy type. Each of those Policies can in turn have a maximum of 100 associated Rules.
 
 ## Policy Operations
 

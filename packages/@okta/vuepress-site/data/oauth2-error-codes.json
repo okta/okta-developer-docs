@@ -1,6 +1,6 @@
 {
-  "release" : "2021.03.1",
-  "build" : "2021.03.1-begin-129-g552d1903a7d8",
+  "release" : "2021.04.1",
+  "build" : "2021.04.1-begin-113-g3e6ba50a4932",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -274,6 +274,13 @@
     "internalErrorCode" : "consent_required_ropf",
     "errorCode" : "consent_required",
     "errorDescription" : "The following scopes require user consent: [{0}]. To access protected scopes using the resource owner password grant type, please uncheck 'Require consent' in the app settings or set the 'consent_method' to 'TRUSTED' through the apps API."
+  }, {
+    "title" : "Consent required token exchange",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "consent_required_token_exchange",
+    "errorCode" : "consent_required",
+    "errorDescription" : "The following scopes require user consent: [{0}]. To access protected scopes using the token_exchange password grant type, please uncheck 'Require consent' in the app settings or set the apps 'consent_method' to 'TRUSTED'."
   }, {
     "title" : "No org scopes granted",
     "statusCode" : 400,
@@ -870,6 +877,34 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "'subject_token_type' is invalid or not supported."
   }, {
+    "title" : "Invalid actor token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_actor_token",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'actor_token' is invalid."
+  }, {
+    "title" : "Invalid actor token type",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_actor_token_type",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "'actor_token_type' is invalid or not supported."
+  }, {
+    "title" : "Invalid subject actor token match",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_subject_actor_token_match",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "When 'actor_token_type' is '{0}', 'subject_token_type' must be '{1}'."
+  }, {
+    "title" : "Invalid client type native sso",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_client_type_native_sso",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "A service client may not use the native sso flow."
+  }, {
     "title" : "PKCE challenge required",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1100,6 +1135,20 @@
     "internalErrorCode" : "invalid_social_token",
     "errorCode" : "invalid_social_token",
     "errorDescription" : "Could not acquire access token from authorization code."
+  }, {
+    "title" : "Invalid target",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_target",
+    "errorCode" : "invalid_target",
+    "errorDescription" : "The token request contains an invalid target."
+  }, {
+    "title" : "Token exchange invalid audience",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "token_exchange_invalid_audience",
+    "errorCode" : "invalid_target",
+    "errorDescription" : "Token Exchange requests must include a valid audience of the authorization server."
   }, {
     "title" : "Invalid token",
     "statusCode" : 401,

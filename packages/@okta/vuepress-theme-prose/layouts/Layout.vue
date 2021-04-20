@@ -76,6 +76,7 @@ export default {
     Search: () => import("../components/Search.vue"),
     Home: () => import("../components/Home.vue"),
     Terms: () => import("../components/Terms.vue"),
+    LiveWidget: () => import('../components/LiveWidget.vue'),
     Errors: () => import("../components/Errors.vue"),
   },
   data() {

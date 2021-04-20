@@ -14,7 +14,7 @@ For a step-by-step guide on implementing an example Event Hook, see the [Event H
 
 ## Get started
 
-Explore the Event Hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ee24ad1d7e7e17df1783)
+Explore the Event Hooks API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2fdf75c2fb3319ef5e73)
 
 ## Event Hook operations
 

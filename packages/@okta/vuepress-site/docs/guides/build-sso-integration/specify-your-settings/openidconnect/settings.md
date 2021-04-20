@@ -7,14 +7,15 @@
   The grant types permitted for an OIN app integration depend on the platform selected:
 
   * Web:
-    * **Authorization code** &mdash; mandatory for web platform applications
+    * **Authorization Code** &mdash; mandatory for web platform applications
     * **Refresh token** &mdash; not supported for OIN app integrations
     * Optional. **Implicit (Hybrid)**
   * SPA:
+    * **Authorization Code**
     * **Implicit (Hybrid)** &mdash; choose:
       * **Allow ID Token with implicit grant type**
       * **Allow Access Token with implicit grant type**
-  >**Note:** The **Client acting on behalf of itself** grant type is not supported in OIN app integrations.
+  >**Note:** For SPA app integrations, the **Authorization Code** grant type always uses PKCE to verify the client. Also, the **Client acting on behalf of itself** grant type is not supported in OIN app integrations.
 * If you only want to support direct SSO to your application (so the integration isn't launched from the Okta End-User Dashboard), then:
   1. Enter one or more **Login redirect URI** values where Okta sends the OAuth responses.
   1. Set the **Login initiated by** drop-down box to **App Only**.
@@ -77,7 +78,7 @@
 
 >**Note:** OIDC consent is an Early Access feature. To enable it, contact [Okta Support](https://support.okta.com/help/s/).
 
-* If you have enabled User Consent for OAuth 2.0 Flows in API Access Management, then the following section appears in the **General Settings** tab for an OIDC integration.
+* If you have enabled User Consent for OAuth 2.0 flows in API Access Management, then the following section appears in the **General Settings** tab for an OIDC integration.
 
     ![Consent](/img/oin/sso_user-consent.png "User Consent Panel")
 
