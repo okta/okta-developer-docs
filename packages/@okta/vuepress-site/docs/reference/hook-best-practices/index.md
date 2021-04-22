@@ -20,7 +20,7 @@ To prevent a malicious actor from making requests to the endpoint where your Okt
 
     >**Note:** You must include the authentication scheme as part of the **Authentication secret**. For Basic Authentication, your secret must appear similar to: `Basic Base64(user:password)`. See the following partial Hook header as an example:
 
-    ```api
+    ```cURL
     'content-type',
     'application/json',
     'authorization',
@@ -50,17 +50,11 @@ When Okta uses an Inline Hook to communicate with your endpoint, the user experi
 
 See Inline Hook [Timeout and Retry](/docs/concepts/inline-hooks/#timeout-and-retry) for further information on Inline Hook timeout and retry behavior; see Event Hook [Timeout and Retry](https://developer.okta.com/docs/concepts/event-hooks/) for the same.
 
-## Working with Event Types (?)
-
-* Do we have any guidelines on the number of Event Types we can add to a hook? Our current documentation suggests we can configure "multiple event types". Would it be better to have multiple endpoints for multiple event types, from a load perspective? Or does it matter?
-
-## Manage scale of Okta Hook calls (?)
-
-* Any advice necessary on this subject, which I've seen on other webhhook pages. E.g. "If you’re on the other side running a system that is consuming webhooks, you can scale your webhook ingestion the same way you’d horizontally scale for regular web traffic — by using a load balancer or reverse-proxy in front of your web servers. " Maybe add to content in next section.
-
 ## Limits, duplicates, and order of Hook calls
 
-The number of Hook calls and the limits per org are available in the following table. Keep in mind these numbers and limits when designing your Hook solution. The order of Hook calls is not guaranteed, and to avoid duplicate requests, use the `eventId` property to ensure processing the same request.
+The number of Hook calls and the limits per org are available in the following table. Keep in mind these numbers and limits when designing your Hook solution.
+
+The order of Event or Inline Hook calls is not guaranteed. Your external service processing of the Hook requests must consider this for your solution. Also, to avoid processing duplicate requests, use the `eventId` property to identify unique requests.
 
 | Hook Type | Limit Type | Limit | Description |
 | --------- | -----------| ----- | ----------- |
@@ -69,13 +63,16 @@ The number of Hook calls and the limits per org are available in the following t
 | Inline Hook | Timeout | 3 seconds | Okta Inline Hooks have a completion timeout of three seconds with a single retry.However, a request is not retried if your endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful, and the request is not retried. If the external service endpoint responds with a redirect, it is not followed. |
 |             | Maximum number of Inline Hooks per org | 50 | The maximum number of Inline Hooks that can be configured per org is 50, which is a combined total for any combination of Inline Hook types. |
 
-## Create error messages (?)
-
-* Any guidance for creating error messages? I can link [Inline Hooks concepts - error](/docs/concepts/inline-hooks/#error)
-
 ## Troubleshoot your Hook implementations
 
-Developers and administrators can preview sample Okta calls and responses from your external service for all Event Hooks and certain Inline Hooks (SAML and Registration), as well as review the Admin Console System Log to troubleshoot your implementations, in addition to your external service's logging features. See [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/troubleshooting/) for further information.
+Developers and administrators can preview sample Okta calls and responses from your external service for all Event Hooks ([Event Hook preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/event-hooks-preview.htm)) and for SAML and Registration Inline Hooks ([Inline Hook preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/preview-inline-hooks.htm)). The preview pages provide sample request and response code prior to enabling the Hooks to assist in your set up and external service development.
+
+Review the Admin Console System Log to troubleshoot your implementations, in addition to your external service's logging features. See the following sections to assist in troubleshooting your implementations:
+
+* [Troubleshooting Inline Hooks](/docs/concepts/inline-hooks/#troubleshooting)
+* [Troubleshooting Event Hooks](/docs/concepts/event-hooks/#debugging)
+
+Inline Hooks also provide an `error` object that can be returned as part of the Hook response. For further details, see [Inline Hooks error object](/docs/concepts/inline-hooks/#error).
 
 See also the following guides for sample Okta Hook implementations:
 
