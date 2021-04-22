@@ -334,13 +334,17 @@ The `value` object is where you specify the specific operation to perform. It is
 
 Specify the location within the assertion where you want to apply your operation using a slash-delimited path, which follows JSON Patch conventions.
 
-When you perform an `add` op to add a new attribute statement, always begin with `/claims/` and follow that with the name of the new attribute that you are adding.
+When you perform an `add` op to add a new attribute statement, begin with `/claims/` and follow that with the name of the new attribute that you are adding.
 
 When you modify an existing assertions statement, begin the path with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, for example, `/claims/array/attributeValues/1/value`. (The `/1/` in the path indicates the index of the array.)
 
 ### URI claims
 
 Okta supports URI claims with SAML assertion hooks. When you need to replace or add a URI claim, you must encode the claim name within the command per the [JavaScript Object Notation (JSON) Pointer](https://tools.ietf.org/html/rfc6901) specification. Specifically, this replaces `~` with `~0` and  `/` with `~1`.
+
+### SessionNotOnOrAfter support
+
+If you want to add `SessionNotOnOrAfter` attribute to the `<saml:AuthnStatement>` in SAML assertion, use `add` op with the path `/authentication/sessionLifetime` and session lifetime in seconds. Refer to example [here](/docs/reference/saml-hook/#sample-listing-of-json-payload-of-response). Okta will calculate `SessionNotOnOrAfter` by adding `/authentication/sessionLifetime` value to `issueInstant` and return it in SAML assertion.
 
 ## Sample listing of JSON payload of response
 
@@ -378,6 +382,11 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
               }
             ]
           }
+        },
+        {
+          "op": "add",
+          "path": "/authentication/sessionLifetime",
+          "value": 300
         }
       ]
     },
