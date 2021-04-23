@@ -730,6 +730,29 @@ Fetches a user from your Okta organization
 - [Get User with Login](#get-user-with-login)
 - [Get User with Login Shortname](#get-user-with-login-shortname)
 
+##### Content-Type Parameters
+
+All variants of this API support a performance optimization.  Complex DelAuth configurations may degrade performance when fetching specific parts of the response.  Passing an optional Content-Type parameter can omit these parts, bypassing the bottleneck.
+
+| Parameter     | Description                                                                                                                           |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| okta-response | A comma-separated list of omit options (optionally surrounded in quotes) each specifying a specific part of the resonse to be omitted |
+
+| Omit Option | Description                                                                                                                     |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| omitCredentials | Omits the credentials subobject from the response.  |
+| omitCredentialsLinks | Response omits the following HAL links:  Change Password, Change Recovery Question, Forgot Password, Reset Password, Reset Factors, Unlock |
+| omitTransitioningToStatus | Omits the transitioningToStatus field from the response. |
+
+The performance optimization will only be applied when all three parameters are passed.  Unrecognized parameters are ignored.
+
+###### Example Content-Type Header
+
+| Content-Type Header Example | Effect |
+| ------- | ------ |
+| Content-Type: application/json; okta-response=omitCredentials,omitCredentialsLinks | Omits the credentials and credentials links from the response.  Does not apply the performance optimization. |
+| Content-Type: application/json; okta-response="omitCredentials,omitCredentialsLinks, omitTransitioningToStatus" | Omits the credentials, credentials links, and transitioningToStatus sections of the response.  Applies the performance optimization. |
+
 ##### Request Parameters
 
 
@@ -1069,6 +1092,31 @@ curl -v -X GET \
 Lists users in your organization with pagination in most cases
 
 A subset of users can be returned that match a supported filter expression or search criteria.
+
+
+##### Content-Type Parameters
+
+This API supports a performance optimization.  Complex DelAuth configurations may degrade performance when fetching specific parts of the response.  Passing an optional Content-Type parameter can omit these parts, bypassing the bottleneck.
+
+| Parameter     | Description                                                                                                                           |
+| ------------- | ------------------------------------------------------------------------------------------------------------------------------------- |
+| okta-response | A comma-separated list of omit options (optionally surrounded in quotes) each specifying a specific part of the resonse to be omitted |
+
+| Omit Option | Description                                                                                                                     |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| omitCredentials | Omits the credentials subobject from the response.  |
+| omitCredentialsLinks | Response omits the following HAL links:  Change Password, Change Recovery Question, Forgot Password, Reset Password, Reset Factors, Unlock |
+| omitTransitioningToStatus | Omits the transitioningToStatus field from the response. |
+
+The performance optimization will only be applied when all three parameters are passed.  Unrecognized parameters are ignored.
+
+###### Example Content-Type Header
+
+| Content-Type Header Example | Effect |
+| ------- | ------ |
+| Content-Type: application/json; okta-response=omitCredentials,omitCredentialsLinks | Omits the credentials and credentials links from the response.  Does not apply the performance optimization. |
+| Content-Type: application/json; okta-response="omitCredentials,omitCredentialsLinks, omitTransitioningToStatus" | Omits the credentials, credentials links, and transitioningToStatus sections of the response.  Applies the performance optimization. |
+
 
 ##### Request Parameters
 
