@@ -110,6 +110,8 @@ If you have more than one Identity Provider configured in your org (which can me
 
 The Okta Sign-In Widget (version 2.5.0 or above) interacts with the IdP Discovery policy to redirect end users as needed to the IdP determined by the policy.
 
+> **Note:** v1 API supports IdP Discovery in Okta-hosted Widget setup only.
+
 If you don't use the Okta Sign-In Widget, instead interacting directly with the [Okta Authentication API](/docs/reference/api/authn/) to implement sign-in yourself, you can integrate IdP Discovery into your flow by including a call to Okta's [WebFinger](/docs/reference/api/webfinger/) endpoint. That endpoint returns the name of the IdP that should be used for a given end user, as determined by the org's defined IdP Discovery Policy.
 
 ## See also
