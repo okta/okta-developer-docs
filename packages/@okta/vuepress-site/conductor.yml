@@ -1937,5 +1937,5 @@ redirects:
     to: /
   - from: /product/overview/
     to: /
-  - from: /integrate-with-okta
+  - from: /integrate-with-okta/index.html
     to: /okta-integration-network
