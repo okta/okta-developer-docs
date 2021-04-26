@@ -1938,4 +1938,4 @@ redirects:
   - from: /product/overview/
     to: /
   - from: /integrate-with-okta/index.html
-    to: /okta-integration-network
+    to: /okta-integration-network/
