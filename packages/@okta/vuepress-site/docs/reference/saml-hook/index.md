@@ -344,7 +344,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
 
 ### SessionNotOnOrAfter support
 
-If you want to add `SessionNotOnOrAfter` attribute to the `<saml:AuthnStatement>` in SAML assertion, use `add` op with the path `/authentication/sessionLifetime` and session lifetime in seconds. Refer to example [here](/docs/reference/saml-hook/#sample-listing-of-json-payload-of-response). Okta will calculate `SessionNotOnOrAfter` by adding `/authentication/sessionLifetime` value to `issueInstant` and return it in SAML assertion.
+In some scenarios, your service provider may require the `SessionNotOnOrAfter` attribute for the `<saml:AuthnStatement>` in the SAML assertion, which sets the provider session time correctly. Use `add` op with the path `/authentication/sessionLifetime` and a value for session lifetime in seconds to add this attribute. See the [Sample listing of JSON payload response](/docs/reference/saml-hook/#sample-listing-of-json-payload-of-response) for an example. Okta calculates `SessionNotOnOrAfter` by adding `/authentication/sessionLifetime` value to the `issueInstant` attribute and returns it in the SAML assertion.
 
 ## Sample listing of JSON payload of response
 
