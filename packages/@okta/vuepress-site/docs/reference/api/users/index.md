@@ -750,7 +750,7 @@ The performance optimization will only be applied when all three parameters are 
 
 
 **Header:** `Content-Type: application/json; okta-response="omitCredentials,omitCredentialsLinks, omitTransitioningToStatus"`
-**Result:** Omits the credentials, credentials links, and `transitioningToStatus` sections of the response.  Applies the performance optimization.
+**Result:** Omits the credentials, credentials links, and `transitioningToStatus` field from the response.  Applies the performance optimization.
 ##### Request Parameters
 
 
@@ -1111,7 +1111,7 @@ The performance optimization will only be applied when all three parameters are 
 
 
 **Header:** `Content-Type: application/json; okta-response="omitCredentials,omitCredentialsLinks, omitTransitioningToStatus"`
-**Result:** Omits the credentials, credentials links, and `transitioningToStatus` sections of the response.  Applies the performance optimization.
+**Result:** Omits the credentials, credentials links, and `transitioningToStatus` field from the response.  Applies the performance optimization.
 
 
 ##### Request Parameters
