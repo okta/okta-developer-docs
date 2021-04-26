@@ -63,7 +63,7 @@ describe("content section", () => {
   }));
 
   it(
-    "scrolls to h5 header but displays it parent h3 as active item in onthispage sidebar",
+    "should scroll to h5 header but displays it parent h3 as active item in onthispage sidebar",
     util.itHelper(async () => {
       const hash = "#post-operation";
       const ulId = "#submenu_third-section";
@@ -86,7 +86,7 @@ describe("content section", () => {
           ),
           2000
         );
-        
+
         const postOperationWebEl = await (
           await page.getOnThisPageItem(hash)
         ).getWebElement();
