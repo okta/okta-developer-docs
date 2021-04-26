@@ -8,7 +8,10 @@
     >
       <span>{{ link.title }}</span>
     </a>
-    <ul v-show="link.children && (iHaveChildrenActive || imActive)">
+    <ul
+      :id="ulId"
+      v-show="link.children && (iHaveChildrenActive || imActive)"
+    >
       <OnThisPageItem
         v-for="(childLink, index) in filteredLink"
         :key="index"
@@ -27,6 +30,7 @@ export default {
   mixins: [AnchorHistory],
   data() {
     return {
+      id: "",
       imActive: false,
       iHaveChildrenActive: false
     };
@@ -39,6 +43,15 @@ export default {
       return this.link.children
         ? this.link.children.filter(item => item.level <= 3)
         : [];
+    },
+    ulId() {
+      const identifier = 'submenu_'
+      if (this.link.path) {
+        const hash = this.link.path.split('#')[1];
+        return `${identifier}${hash}`
+      }
+
+      return `${identifier}${this.link.slug}`;
     }
   },
   mounted() {
