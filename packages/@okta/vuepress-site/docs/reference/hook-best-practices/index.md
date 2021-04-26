@@ -46,7 +46,7 @@ When Okta uses an Inline Hook to communicate with your endpoint, the user experi
 * Treat Okta Hooks as you would any other HTTP request, namely: Ensure you respond to the HTTP request in under 400 milliseconds with a 200 (Success) or 204 (Success no content) code.
 * Process the Hook request data after the response is sent to avoid delays or timeouts.
 
->**Note:** The Okta request times out after 3 seconds with no response for Inline Hooks and Event Hooks.
+A timeout of three seconds is enforced on all outbound requests for Event and Inline Hooks, with one retry in the event of a timeout or an error response from the external service. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
 
 See Inline Hook [Timeout and Retry](/docs/concepts/inline-hooks/#timeout-and-retry) for further information on Inline Hook timeout and retry behavior; see Event Hook [Timeout and Retry](https://developer.okta.com/docs/concepts/event-hooks/) for the same.
 
@@ -58,7 +58,7 @@ The order of Event or Inline Hook calls is not guaranteed. Your external service
 
 | Hook Type | Limit Type | Limit | Description |
 | --------- | -----------| ----- | ----------- |
-| Event Hook | Number of daily Event Hooks | 100K | A maximum of 100 thousand Event Hooks can be fired, per org, per day. Event Hooks are not recorded or replayed after this point. Outside of hitting the daily limit, Event Hooks are retried up to a certain time limit (three seconds). **(Retries part of count? I believe so)** |
+| Event Hook | Number of daily Event Hooks | 100K | A maximum of 100 thousand Event Hooks can be fired, per org, per day. Event Hooks are not recorded or replayed after this point. If a request times out after three seconds, Event Hooks are retried one time afterward. Retries do not count toward the org limit.
 |            | Maximum number of Event Hooks per org | 10 | A maximum of 10 active Event Hooks can be configured per org. Each Event Hook can be configured to deliver multiple event types. |
 | Inline Hook | Timeout | 3 seconds | Okta Inline Hooks have a completion timeout of three seconds with a single retry.However, a request is not retried if your endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful, and the request is not retried. If the external service endpoint responds with a redirect, it is not followed. |
 |             | Maximum number of Inline Hooks per org | 50 | The maximum number of Inline Hooks that can be configured per org is 50, which is a combined total for any combination of Inline Hook types. |
