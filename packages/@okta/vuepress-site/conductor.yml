@@ -1939,63 +1939,63 @@ redirects:
     to: /
   - from: /docs/examples/session_cookie/
     to: /docs/guides/session-cookie/overview
-- from: /docs/rest/
+  - from: /docs/rest/
     to: /code/rest/
-- from: /docs/code/python/pysaml2.html
+  - from: /docs/code/python/pysaml2.html
     to: /code/python/pysaml2/
-- from: /docs/code/python/pysaml2.html
+  - from: /docs/code/python/pysaml2.html
     to: /code/python/pysaml2/index.html
-- from: /integrate-with-okta
+  - from: /integrate-with-okta
     to: /okta-integration-network
-- from: /docs/guides/set-up-event-hook/overview/
+  - from: /docs/guides/set-up-event-hook/overview/
     to: /docs/guides/event-hook-implementation/-/overview/
-- from: /docs/guides/set-up-event-hook/-/overview/
+  - from: /docs/guides/set-up-event-hook/-/overview/
     to: /docs/guides/event-hook-implementation/-/overview/
-- from: /docs/guides/set-up-event-hook/implement-your-service/
+  - from: /docs/guides/set-up-event-hook/implement-your-service/
     to: /docs/guides/event-hook-implementation/-/overview/
-- from: /docs/guides/set-up-event-hook/-/implement-your-service/
+  - from: /docs/guides/set-up-event-hook/-/implement-your-service/
     to: /docs/guides/event-hook-implementation/-/overview/
-- from: /docs/guides/set-up-event-hook/register-your-endpoint/
+  - from: /docs/guides/set-up-event-hook/register-your-endpoint/
     to: /docs/guides/event-hook-implementation/-/overview/
-- from: /docs/guides/set-up-event-hook/-/register-your-endpoint/
+  - from: /docs/guides/set-up-event-hook/-/register-your-endpoint/
     to: /docs/guides/event-hook-implementation/-/overview/
-- from: /docs/guides/set-up-event-hook/verify-your-endpoint/
+  - from: /docs/guides/set-up-event-hook/verify-your-endpoint/
     to: /docs/guides/event-hook-implementation/-/overview/
-- from: /docs/guides/set-up-event-hook/-/verify-your-endpoint/
+  - from: /docs/guides/set-up-event-hook/-/verify-your-endpoint/
     to: /docs/guides/event-hook-implementation/-/overview/
-- from: /docs/guides/set-up-event-hook/ongoing-delivery-of-events/
+  - from: /docs/guides/set-up-event-hook/ongoing-delivery-of-events/
     to: /docs/guides/event-hook-implementation/-/overview/
-- from: /docs/guides/set-up-event-hook/-/ongoing-delivery-of-events/
+  - from: /docs/guides/set-up-event-hook/-/ongoing-delivery-of-events/
     to: /docs/guides/event-hook-implementation/-/overview/
-- from: /docs/guides/password-import-hook/overview/
+  - from: /docs/guides/password-import-hook/overview/
     to: /docs/guides/password-import-inline-hook/-/overview/
-- from: /docs/guides/password-import-hook/-/overview/
+  - from: /docs/guides/password-import-hook/-/overview/
     to: /docs/guides/password-import-inline-hook/-/overview/
-- from: /docs/guides/password-import-hook/dependencies/
+  - from: /docs/guides/password-import-hook/dependencies/
     to: /docs/guides/password-import-inline-hook/-/overview/
-- from: /docs/guides/password-import-hook/-/dependencies/
+  - from: /docs/guides/password-import-hook/-/dependencies/
     to: /docs/guides/password-import-inline-hook/-/overview/
-- from: /docs/guides/password-import-hook/web-server/
+  - from: /docs/guides/password-import-hook/web-server/
     to: /docs/guides/password-import-inline-hook/-/overview/
-- from: /docs/guides/password-import-hook/-/web-server/
+  - from: /docs/guides/password-import-hook/-/web-server/
     to: /docs/guides/password-import-inline-hook/-/overview/
-- from: /docs/guides/password-import-hook/check-authorization-header/
+  - from: /docs/guides/password-import-hook/check-authorization-header/
     to: /docs/guides/password-import-inline-hook/-/overview/
-- from: /docs/guides/password-import-hook/-/check-authorization-header/
+  - from: /docs/guides/password-import-hook/-/check-authorization-header/
     to: /docs/guides/password-import-inline-hook/-/overview/
-- from: /docs/guides/password-import-hook/get-submitted-credentials/
+  - from: /docs/guides/password-import-hook/get-submitted-credentials/
     to: /docs/guides/password-import-inline-hook/-/get-submitted-credentials/
-- from: /docs/guides/password-import-hook/-/get-submitted-credentials/
+  - from: /docs/guides/password-import-hook/-/get-submitted-credentials/
     to: /docs/guides/password-import-inline-hook/-/get-submitted-credentials/
-- from: /docs/guides/password-import-hook/check-against-user-store/
+  - from: /docs/guides/password-import-hook/check-against-user-store/
     to: /docs/guides/password-import-inline-hook/-/check-credentials-against-data-store/
-- from: /docs/guides/password-import-hook/-/check-against-user-store/
+  - from: /docs/guides/password-import-hook/-/check-against-user-store/
     to: /docs/guides/password-import-inline-hook/-/check-credentials-against-data-store/
-- from: /docs/guides/password-import-hook/send-response/
+  - from: /docs/guides/password-import-hook/send-response/
     to: /docs/guides/password-import-inline-hook/-/send-response/
-- from: /docs/guides/password-import-hook/-/send-response/
+  - from: /docs/guides/password-import-hook/-/send-response/
     to: /docs/guides/password-import-inline-hook/-/send-response/
-- from: /docs/guides/password-import-hook/next-steps/
+  - from: /docs/guides/password-import-hook/next-steps/
     to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
-- from: /docs/guides/password-import-hook/-/next-steps/
+  - from: /docs/guides/password-import-hook/-/next-steps/
     to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
