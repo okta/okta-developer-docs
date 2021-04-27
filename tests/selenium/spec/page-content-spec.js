@@ -6,7 +6,7 @@ const util = require("../framework/shared/util");
 
 var chai = require("chai");
 var chaiAsPromised = require("chai-as-promised");
-const { browser, until } = require("protractor");
+const { browser } = require("protractor");
 
 chai.use(chaiAsPromised);
 var expect = chai.expect;
@@ -61,43 +61,4 @@ describe("content section", () => {
       throw err;
     }
   }));
-
-  it(
-    "should scroll to h5 header but displays it parent h3 as active item in onthispage sidebar",
-    util.itHelper(async () => {
-      const hash = "#post-operation";
-      const ulId = "#submenu_third-section";
-      const routerLinkActiveClass = "router-link-active";
-      page.navigate("/test_page");
-
-      try {
-        const aliquetMetusCoords = await element(
-          by.css(`#aliquet-metus`)
-        ).getLocation();
-
-        await browser.driver.executeScript(
-          `window.scrollTo(0, ${aliquetMetusCoords.y - 60})`
-        );
-        await browser.wait(
-          until.elementIsVisible(
-            element(
-              by.css(`.on-this-page-navigation ul${ulId}`)
-            ).getWebElement()
-          ),
-          2000
-        );
-
-        const postOperationWebEl = await (
-          await page.getOnThisPageItem(hash)
-        ).getWebElement();
-
-        expect(
-          await postOperationWebEl.getAttribute("class"),
-          "proper onthispage item not active"
-        ).to.contain(routerLinkActiveClass);
-      } catch (err) {
-        throw err;
-      }
-    })
-  );
 });
