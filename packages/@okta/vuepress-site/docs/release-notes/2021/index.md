@@ -17,7 +17,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### Bugs fixed in 2021.04.2
 
-* System performance was degraded when the [List Users](/docs/reference/api/users/#list-users) or [Get User](/docs/reference/api/users/#get-user) API was used to fetch credentials with complex delegated authentication. You can avoid this performance issue by omitting the credential fetching operation. See omit credential response options in the List Users or Get User [Content-Type Header Fields](/docs/reference/api/users/#context-type-header-fields). (OKTA-371358)
+* System performance was degraded when the [List Users](/docs/reference/api/users/#list-users) or [Get User](/docs/reference/api/users/#get-user) API was used to fetch credentials with complex delegated authentication. You can avoid this performance issue by omitting the credential fetching operation. See omit credential response options in [List Users - Content-Type header fields](/docs/reference/api/users/#content-type-header-fields-2) or [Get User - Content-Type header fields](/docs/reference/api/users/#content-type-header-fields). (OKTA-371358)
 
 * When the [User API](/docs/reference/api/users) was used to create a user with an address containing a 4-byte UTF-8 encoded character, a 500 system error was returned. (OKTA-382882)
 
