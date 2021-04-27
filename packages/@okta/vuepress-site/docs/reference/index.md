@@ -8,7 +8,7 @@ Details on parameters, requests, and responses for Okta's API endpoints.
 
 
 
-## Core Okta APIs
+## Core Okta API
 The Core Okta API is the primary way that apps and services interact with Okta. You can use it to implement basic auth functions such as signing in your users and programmatically managing your Okta objects. 
 
 [Explore core Okta API](/docs/reference/core-okta-api/)
