@@ -13,7 +13,7 @@ Client-based limiting uses either of these two endpoints:
 
 Client-based rate limiting for the `/authorize` endpoint uses a combination of the Client ID, user's IP address, and Okta device identifier to provide granular isolation for requests made to the `/authorize` endpoint. This framework isolates rogue OAuth 2.0 clients and bad actors, thereby ensuring valid users and applications don't run into rate limit violations.
 
-Client-based rate limiting for the `/login/login.htm endpoint uses a combination of the user's IP address and Okta device identifier to provide even more granular, more targeted rate limits to a user, app, script, or server.
+Client-based rate limiting for the `/login/login.htm` endpoint uses a combination of the user's IP address and Okta device identifier to provide even more granular, more targeted rate limits to a user, app, script, or server.
 
 The `/authorize` [endpoint](/docs/reference/api/oidc/#authorize) is the starting point for OpenID Connect flows such as the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow) or the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow). A request to this endpoint authenticates the user and either returns an authorization code or tokens to the client application as part of the callback response. The `/login/login.htm` [endpoint](/docs/reference/api/oidc/#authorize) launches the Okta-hosted sign-in widget, where users can enter their username and password to authenticate.
 
@@ -99,7 +99,7 @@ The client-based rate limit framework can operate in one of three modes:
 
 The Rate Limit headers that are returned when the client-based rate limit is enabled are very similar to the headers that are returned through the [org-wide rate limits](/docs/reference/rl-best-practices/). The difference is that the header value is specific to a given client/IP/device identifier combination (for the `/authorize` endpoint) or IP/device identifier combination (for the `/login/login.htm` endpoint) rather than the org-wide rate limit values. Okta provides three headers in each response to report client-specific rate limits.
 
-> **Note:** If a client-based rate limit is in **Log per client** or **No action** mode, headers that are returned still reflect the org-wide rate limits.
+> **Note:** If a client-based rate limit is in **Log per client** or **Do nothing** mode, headers that are returned still reflect the org-wide rate limits.
 
 For client-specific rate limits, the three headers show the limit that is being enforced, when it resets, and how close you are to hitting the limit:
 
