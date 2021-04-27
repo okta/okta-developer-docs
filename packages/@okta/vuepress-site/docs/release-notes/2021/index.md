@@ -8,19 +8,18 @@ title: Okta API Products Release Notes
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
-| [Okta Sign-In Widget, version 5.5.3](#okta-sign-in-widget-version-5-5-3) | April 28, 2021 |
+| [Okta Sign-In Widget, version 5.5.4](#okta-sign-in-widget-version-5-5-4) | April 28, 2021 |
 | [Bugs fixed in 2021.04.2](#bugs-fixed-in-2021-04-2)         | April 28, 2021           |
 
-#### Okta Sign-In Widget, version 5.5.3
+#### Okta Sign-In Widget, version 5.5.4
 
-For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.3). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-387717-->
-
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-387717,OKTA-389358-->
 
 #### Bugs fixed in 2021.04.2
 
-* When using the [List Users](/docs/reference/api/users/#list-users) or [Get User](/docs/reference/api/users/#get-user) API, credential fetching, performed as part of the user lookup, could degrade performance. (OKTA-371358)
+* System performance was degraded when the [List Users](/docs/reference/api/users/#list-users) or [Get User](/docs/reference/api/users/#get-user) API was used to fetch credentials with complex delegated authentication. You can avoid this performance issue by omitting the credential fetching operation. See omit credential response options in the List Users or Get User [Content-Type Header Fields](/docs/reference/api/users/#context-type-header-fields). (OKTA-371358)
 
-* When the [User API](/docs/reference/api/users) is used to create a user with an address containing a 4-byte UTF-8 encoded character, a 500 system error is returned instead of a 400 invalid API error. (OKTA-382882)
+* When the [User API](/docs/reference/api/users) was used to create a user with an address containing a 4-byte UTF-8 encoded character, a 500 system error was returned. (OKTA-382882)
 
 ### Weekly Release 2021.04.1
 
