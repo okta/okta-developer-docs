@@ -1995,9 +1995,7 @@ redirects:
     to: /docs/guides/password-import-inline-hook/-/send-response/
   - from: /docs/guides/password-import-hook/-/send-response/
     to: /docs/guides/password-import-inline-hook/-/send-response/
-  - from: /docs/guides/password-import-hook/next-steps/
-    to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
   - from: /docs/guides/password-import-hook/next-steps/index.html
     to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
-  - from: /docs/guides/password-import-hook/-/next-steps/
+  - from: /docs/guides/password-import-hook/-/next-steps/index.html
     to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
