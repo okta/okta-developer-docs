@@ -85,6 +85,10 @@ export const concepts = [
         path: "/docs/concepts/policies/"
       },
       {
+        title: "Session Management",
+        path: "/docs/concepts/session/"
+      },
+      {
         title: "Social Login Overview",
         path: "/docs/concepts/social-login/"
       },
