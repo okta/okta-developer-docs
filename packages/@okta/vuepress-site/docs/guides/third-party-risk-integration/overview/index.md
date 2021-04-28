@@ -8,7 +8,7 @@ The Okta Risk Engine evaluates authentication attempts by reviewing the risk sco
 
 This guide provides an example third-party risk provider implementation with your Okta org.
 
->**Note:** Third-party risk events are received from non-Okta Applications. You are not required to receive or utilize third-party risk events within Okta Risk Engine, but if you configure Okta Risk Engine to utilize third-party risk events, then you are consenting to Okta receiving and sharing data with the non-Okta Application as necessary to provide this functionality. You may only utilize these third-party risk events if you are a customer of both Okta and the non-Okta Application. Okta cannot guarantee continued partnerships or functionality with any Non-Okta Applications.
+>**Note:** Third-party risk events are received from Non-Okta Applications. You are not required to receive or utilize third-party risk events within Okta Risk Engine, but if you configure Okta Risk Engine to utilize third-party risk events, then you are consenting to Okta receiving and sharing data with the Non-Okta Application as necessary to provide this functionality. You may only utilize these third-party risk events if you are a customer of both Okta and the Non-Okta Application. Okta cannot guarantee continued partnerships or functionality with any Non-Okta Applications.
 
 ### Prerequisites
 To use this guide, you need the following:
