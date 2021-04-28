@@ -731,7 +731,7 @@ Fetches a user from your Okta organization
 - [Get User with Login Shortname](#get-user-with-login-shortname)
 ##### Content-Type Header Fields
 
-This endpoint supports an optional `okta-response` value for the `Content-Type` header which can be used for performance optimization. Complex DelAuth configurations may degrade performance when fetching specific parts of the response, and passing this parameter can omit these parts, bypassing the bottleneck.
+This endpoint supports an optional `okta-response` value for the `Content-Type` header, which can be used for performance optimization. Complex DelAuth configurations may degrade performance when fetching specific parts of the response, and passing this parameter can omit these parts, bypassing the bottleneck.
 
 The `okta-response` header value takes a comma-separated list of omit options (optionally surrounded in quotes) each specifying a part of the response to omit.
 
