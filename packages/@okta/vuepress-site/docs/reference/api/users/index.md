@@ -1092,7 +1092,7 @@ Lists users in your organization with pagination in most cases
 A subset of users can be returned that match a supported filter expression or search criteria.
 ##### Content-Type Header Fields
 
-This endpoint supports an optional `okta-response` value for the `Content-Type` header which can be used for performance optimization. Complex DelAuth configurations may degrade performance when fetching specific parts of the response, and passing this parameter can omit these parts, bypassing the bottleneck.
+This endpoint supports an optional `okta-response` value for the `Content-Type` header, which can be used for performance optimization. Complex DelAuth configurations may degrade performance when fetching specific parts of the response, and passing this parameter can omit these parts, bypassing the bottleneck.
 
 The `okta-response` header value takes a comma-separated list of omit options (optionally surrounded in quotes) each specifying a part of the response to omit.
 
