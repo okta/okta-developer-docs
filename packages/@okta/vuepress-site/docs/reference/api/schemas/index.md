@@ -1039,6 +1039,8 @@ curl -v -X POST \
 
 ## Group Schema operations
 
+> **Note:** This is an <ApiLifecycle access="ea" /> feature.
+
 The [User Types](/docs/reference/api/user-types) feature doesn't extend to groups. All groups use the same [Group Schema](#group-schema-object). Thus, unlike the User Schema operations, the Group Schema operations all specify `default` and don't accept a Schema ID.
 
 ### Get Group Schema
@@ -2130,6 +2132,8 @@ Specific property types support a subset of [JSON Schema validations](https://to
 | `array`       | [JSON Array](https://tools.ietf.org/html/rfc7159#section-5)                                                                         |                             |
 
 ## Group Schema object
+
+> **Note:** This is an <ApiLifecycle access="ea" /> feature.
 
 The [Group object](/docs/reference/api/groups/#group-object) Schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
