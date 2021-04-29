@@ -9,7 +9,7 @@
         experience. Your personal data is safe and secure with us.
       </p>
       <label for="tac-country">
-        Country
+        Country/Region
         <select
           name="Country"
           id="tac-country"
@@ -21,6 +21,7 @@
             resetFields();
           "
         >
+        
           <option disabled selected></option>
           <option
             v-for="country in countriesList"

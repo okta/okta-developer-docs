@@ -86,7 +86,7 @@
 
           <div class="row">
             <label class="field-wrapper" for="country">
-              Country
+              Country/Region
               <select
                 name=""
                 v-model="form.country.value"

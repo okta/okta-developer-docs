@@ -25,6 +25,6 @@ If the user doesn't have an existing session, making this request opens the Okta
 http://localhost:8080/?code=P5I7mdxxdv13_JfXrCSq&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
 ```
 
-This code remains valid for 60 seconds, during which it can be exchanged for tokens.
+This code remains valid for 300 seconds, during which it can be exchanged for tokens.
 
 <NextSectionLink/>

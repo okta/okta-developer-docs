@@ -57,6 +57,10 @@ export const concepts = [
         path: "/docs/concepts/key-rotation/"
       },
       {
+        title: "Multi-tenant solutions",
+        path: "/docs/concepts/multi-tenancy/"
+      },
+      {
         title: "OAuth 2.0 and OpenID Connect Overview",
         path: "/docs/concepts/oauth-openid/"
       },
@@ -745,22 +749,22 @@ export const referenceOld = [
         path: "/docs/reference/releases-at-okta/"
       },
       { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-      { 
+      {
         title: "SCIM Protocol",
         subLinks: [
-          { 
+          {
             title: "SCIM overview",
             path: "/docs/reference/scim/"
           },
           {
-            title: "SCIM V2.0", 
+            title: "SCIM V2.0",
             path: "/docs/reference/scim/scim-20/"
           },
           {
             title: "SCIM V1.1",
             path: "/docs/reference/scim/scim-11/"
           }
-        ] 
+        ]
       },
       {
         title: "Social IdP Settings",
