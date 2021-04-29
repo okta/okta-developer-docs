@@ -1336,7 +1336,7 @@ Examples use cURL-style escaping instead of URL encoding to make them easier to 
 
 > Hint: If filtering by `email`, `lastName`, or `firstName`, it may be easier to use `q` instead of `filter`.
 
-See [Filtering](/docs/reference/api-overview/#filtering) for more information about the expressions used in filtering.
+See [Filtering](/docs/reference/api-overview/#filter) for more information about the expressions used in filtering.
 
 ##### Filter Examples
 
