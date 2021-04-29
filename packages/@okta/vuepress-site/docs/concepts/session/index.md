@@ -1,13 +1,13 @@
 ---
-title: Session Management
+title: Session management
 meta:
   - name: description
     content: An overview of session management in Okta. Learn about sessions in Okta and what kind of session logout to implement.
 ---
 
-## Session Management with Okta
+## Session management with Okta
 
-An Identity Provider (IdP) is a service that stores and manages digital identities. Okta is an IdP service that stores and verifies user identity, and is able to provide a user with a single set of sign-in credentials, allowing the user to access multiple applications. A session is a group of user interactions with a resource for a given amount of time. Using Okta as your IdP, there are two types of sessions that you need to consider for managing the user experience: the IdP session and the application session.
+An Identity Provider (IdP) is a service that stores and manages digital identities. Okta is an IdP service that stores and verifies user identity, and is able to provide a user with a single set of sign-in credentials, allowing the user to access multiple applications. A session is a group of user interactions with a resource, such as a IdP service, a application, for a given amount of time. Using Okta as your IdP, there are two types of sessions that you need to consider for managing the user experience: the IdP session and the application session.
 
 ### IdP session
 
@@ -15,7 +15,9 @@ The IdP session is created by Okta after the user is authenticated using their c
 
 ### Application session
 
-The application session (also known as a local session) is created by the application after the user is authenticated. This session uses cookies to store user application-specific information to track and facilitate interactions between the user and the application. The application session time frame depends on the nature of the application: for privileged access, such as an e-commerce site where you are making a payment, a shorter and restrictive session is required; for non-privileged access, such as browsing a catalog, the session can live longer and remain active even when the user navigates away from the application or closes the mobile app or browser tabs.
+The application session (also known as a local session) is created by the application after the user is authenticated. This session uses cookies to store user application-specific information to track and facilitate interactions between the user and the application. The application session time frame depends on the nature of the application:
+* for privileged access, such as an e-commerce site where you are making a payment, a shorter and restrictive session is required
+* for non-privileged access, such as browsing a catalog, the session can live longer and remain active even when the user navigates away from the application or closes the mobile app or browser tabs
 
 Identity management administrators and application developers need to collaborate on how to manage the IdP session with the application sessions to produce an optimal user experience with security, device, and application privileged access in mind. This implies balancing terminating sessions and redirecting the user to re-authenticate for security purposes, in concert with extending the session or silently re-authenticating with a new session for a frictionless user experience.
 
