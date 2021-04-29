@@ -85,7 +85,7 @@ export const concepts = [
         path: "/docs/concepts/policies/"
       },
       {
-        title: "Session Management",
+        title: "Session management",
         path: "/docs/concepts/session/"
       },
       {
