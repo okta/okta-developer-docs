@@ -93,6 +93,7 @@ export default {
     link() {
       this.setData();
     },
+    
     sublinksExpanded(isActivated, _) {
       if (isActivated) {
         // element.scrollIntoViewIfNeeded is not supported by Firefox
