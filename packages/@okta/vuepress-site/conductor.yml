@@ -1947,13 +1947,11 @@ redirects:
     to: /code/rest/
   - from: /docs/code/python/pysaml2.html
     to: /code/python/pysaml2/
-  - from: /docs/code/python/pysaml2.html
-    to: /code/python/pysaml2/index.html
   - from: /integrate-with-okta
     to: /okta-integration-network
   - from: /integrate-with-okta/index.html
     to: /okta-integration-network
-  - from: /docs/guides/set-up-event-hook/overview/index.html
+  - from: /docs/guides/set-up-event-hook/overview
     to: /docs/guides/event-hook-implementation/-/overview/
   - from: /docs/guides/set-up-event-hook/overview/index.html
     to: /docs/guides/event-hook-implementation/-/overview/
