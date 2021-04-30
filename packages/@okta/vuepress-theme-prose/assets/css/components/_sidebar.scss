@@ -1,17 +1,12 @@
 .landing-navigation {
-  padding-left: 1.5rem;
-  padding-right: 2rem;
   flex: 0 0 auto;
-  border-right: 1px solid cv('gray', '100');
-  color: cv('action');
-  position: sticky;
+  color: cv("action");
   overflow-y: auto;
-  top: 155px;
+  margin-bottom: 10px;
 
-
-  @include media('>=tablet') {
-    top: 150px;
-  }
+  // @include media(">=tablet") {
+  //   top: 150px;
+  // }
 
   .children-active {
     font-weight: bold;
@@ -19,11 +14,11 @@
 
   .router-link-active {
     font-weight: bold;
-    border-left: 0.2rem solid cv('gray', '900');
+    border-left: 3px solid #dd2864;
     margin-left: -1.2rem;
-    padding-left: 1.0rem;
+    padding-left: 1rem;
     padding-right: 0.65rem;
-    color: cv('gray', '900');
+    color: #dd2864;
   }
 
   .subnav > .link-wrap > .router-link-exact-active {
@@ -40,9 +35,8 @@
     font-weight: bold;
   }
 
-
-
-  ul, li {
+  ul,
+  li {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -81,19 +75,18 @@
   }
 
   a {
-    color: cv('action');
+    color: cv("action");
     font-size: 1em;
     text-decoration: none;
     display: block;
     padding-right: 1.3rem;
   }
 
-
   .sections {
     margin-left: 1.5rem;
 
     .section {
-      color: cv('gray', '600');
+      color: cv("gray", "600");
       font-size: 0.85rem;
     }
 

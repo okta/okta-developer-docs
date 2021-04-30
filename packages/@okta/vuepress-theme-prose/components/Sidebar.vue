@@ -64,10 +64,9 @@ export default {
     handleScroll: function(event) {
       let maxHeight =
         window.innerHeight -
-        document.querySelector(".fixed-header").clientHeight -
-        60;
+        document.querySelector(".fixed-header").clientHeight ;
 
-      document.querySelector(".landing-navigation").style.height =
+      document.querySelector(".tree-nav").style.height =
         maxHeight + "px";
     },
     addStatesToLink(link) {
