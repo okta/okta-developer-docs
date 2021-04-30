@@ -1,9 +1,10 @@
 <template>
   <div class="homepage container-fluid">
     <div class="row">
-      <div
-        class="col-xl-2 col-lg-2 d-none d-lg-block homepage--col-no-padding"
-      >
+      <div class="col-xl-12">
+        <img width="100%" src="/img/code_tycoon.png" alt="code tycoon">
+      </div>
+      <div class="col-xl-2 col-lg-2 d-none d-lg-block homepage--col-no-padding">
         <HomeSidebar />
       </div>
       <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
@@ -11,27 +12,21 @@
           <div class="col-11 homepage--elevated">
             <div class="row">
               <div class="col-12">
-                <h1
-                  class="homepage--main-heading homepage--color-main"
-                >
+                <h1 class="homepage--main-heading homepage--color-main">
                   Okta Developer Portal
                 </h1>
               </div>
             </div>
             <div class="row">
               <div class="col-12">
-                <h2
-                  class="homepage--sub-heading homepage--color-main"
-                >
+                <h2 class="homepage--sub-heading homepage--color-main">
                   Let's get started
                 </h2>
               </div>
             </div>
             <div class="row">
               <div class="col-12">
-                <p
-                  class="homepage--sub-heading-disclaimer homepage--color-sub"
-                >
+                <p class="homepage--sub-heading-disclaimer homepage--color-sub">
                   Authenticate up to 15,000 users per month for free
                 </p>
               </div>
@@ -125,16 +120,37 @@
               </div>
             </div>
 
+            <div class="homepage--okta-game">
+              <div class="homepage--okta-game-description">
+                <h3>Code Tycoon - A Game from Okta</h3>
+                <p>
+                  As the junior developer at a small company, it’s up to you to
+                  transform a small business into a global powerhouse while
+                  grappling with endless meetings, bumbling co-workers, denial
+                  of service attacks, and aggressive competitors.
+                </p>
+                <SmartLink :item="{ link: 'https://codetycoongame.com/' }" classes="play-now-btn">
+                  play now
+                </SmartLink>
+              </div>
+              <div class="homepage--okta-game-video">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/aO5QTNjUQ6o"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+
             <div class="homepage--partners-block-margin">
               <CompanyLogos />
             </div>
           </div>
 
           <div class="homepage--shapes">
-            <img
-              src="/img/home-curves.svg"
-              class="homepage--shapes-curves"
-            />
+            <img src="/img/home-curves.svg" class="homepage--shapes-curves" />
             <div class="homepage--shapes-fill"></div>
           </div>
         </div>
@@ -157,13 +173,13 @@ export default {
     FrontPageWidget: () => import("../components/FrontPageWidget"),
     FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror"),
     CompanyLogos: () => import("../components/CompanyLogos"),
-    SmartLink: () => import("../components/SmartLink"),
+    SmartLink: () => import("../components/SmartLink")
   },
 
   data() {
     return {
       pseudoAuthorized: false,
-      pseudoAuthorizedCodeBlock: false,
+      pseudoAuthorizedCodeBlock: false
     };
   },
   mounted() {
@@ -181,10 +197,10 @@ export default {
         this.pseudoAuthorized = !this.pseudoAuthorized;
         this.pseudoAuthorizedCodeBlock = !this.pseudoAuthorizedCodeBlock;
       }
-    },
+    }
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
-  },
+  }
 };
 </script>
