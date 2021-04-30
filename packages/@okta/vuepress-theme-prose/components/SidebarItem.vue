@@ -79,6 +79,7 @@ export default {
       }
     };
   },
+  
   computed:{
     entityType: function(){
       if(this.link.hasOwnProperty('path') && this.link.path !== null ){
