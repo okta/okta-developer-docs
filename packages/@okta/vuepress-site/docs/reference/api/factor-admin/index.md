@@ -59,7 +59,7 @@ The following providers are supported:
 
 ### Links object
 
-Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current status of a factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.
 
 | Link Relation Type | Description                        |
 | ------------------ | -----------                        |

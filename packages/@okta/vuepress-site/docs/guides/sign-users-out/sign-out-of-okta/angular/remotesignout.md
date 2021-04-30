@@ -7,9 +7,9 @@ import { OktaAuthService } from '@okta/okta-angular';
 @Component()
 export class LogoutComponent {
   constructor(public oktaAuth: OktaAuthService) {
-
   }
-  logout() {
+  
+  async logout() {
     // Will redirect to Okta to end the session then redirect back to the configured `postLogoutRedirectUri`
     await this.oktaAuth.signOut();
   }

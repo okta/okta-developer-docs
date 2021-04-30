@@ -23,7 +23,7 @@ This guide will walk you through integrating authentication into a React app wit
 - [Conclusion](#conclusion)
 - [Support](#support)
 
-> This guide is for `@okta/okta-signin-widget` v5.2.0, `@okta/okta-react` v4.1.0 and `okta-auth-js` v4.5.0.
+> This guide is for `@okta/okta-signin-widget` v5.5.0, `@okta/okta-react` v5.0.0 and `okta-auth-js` v4.8.0.
 
 ## Prerequisites
 
@@ -94,6 +94,7 @@ const oktaSignInConfig = {
     // you will need to uncomment the below line
     // pkce: false
   }
+  // Additional documentation on config options can be found at https://github.com/okta/okta-signin-widget#basic-config-options
 };
 
 export { oktaAuthConfig, oktaSignInConfig };
@@ -252,7 +253,7 @@ Create `src/AppWithRouterAccess.js` and include your project components and rout
 import React from 'react';
 import { Route, useHistory, Switch } from 'react-router-dom';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
-import { OktaAuth } from '@okta/okta-auth-js';
+import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import Home from './Home';
 import Login from './Login';
 import Protected from './Protected';
@@ -266,11 +267,16 @@ const AppWithRouterAccess = () => {
   const customAuthHandler = () => {
     history.push('/login');
   };
+  
+  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
+    history.replace(toRelativeUrl(originalUri, window.location.origin));
+  };
 
   return (
     <Security
       oktaAuth={oktaAuth}
       onAuthRequired={customAuthHandler}
+      restoreOriginalUri={restoreOriginalUri}
     >
       <Switch>
         <Route path='/' exact={true} component={Home} />

@@ -150,6 +150,11 @@ class BasePage {
     return element(by.css(`a[href='${hash}']:not(.header-anchor)`));
   }
 
+  getOnThisPageItem(hash) {
+    const onThisPageSidebarSelector = '.on-this-page-navigation';
+    return element(by.css(`${onThisPageSidebarSelector} a[href="${hash}"]`));
+  }
+
   getHeading(selector) {
     return element(by.css(selector));
   }

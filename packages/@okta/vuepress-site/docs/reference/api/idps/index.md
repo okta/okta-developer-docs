@@ -5982,7 +5982,7 @@ Webhook authorization settings for an IdP provisioning or account link Transacti
 
 ### Links object
 
-Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc5988) available for the IdP using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
+Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc8288) available for the IdP using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
 
 | Link Relation Type | Description                                                                                                                       |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
@@ -6103,7 +6103,7 @@ Additional Context that describes the HTTP client for the Transaction:
 
 ### Links object
 
-Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc5988) available for the IdP Transaction using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
+Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc8288) available for the IdP Transaction using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
 
 | Link Relation Type       | Description                                                                                                                                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------                                                          |
@@ -6264,7 +6264,7 @@ Identity Provider User profiles are IdP-specific but may be customized by the Pr
 
 ### Links object
 
-Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc5988) available for the IdP User using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
+Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc8288) available for the IdP User using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
 
 | Link Relation Type | Description                                       |
 | ------------------ | ----------------------------------                |

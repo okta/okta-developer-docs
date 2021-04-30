@@ -10,7 +10,7 @@ links:
   signup: /signup/
   contactSales: https://www.okta.com/contact-sales/
   pricing: https://www.okta.com/pricing
-  emailSupport: mailto:developers@okta.com
+  emailSupport: mailto:dev-inquiries@okta.com
 
 tableHeadings:
   pricing:

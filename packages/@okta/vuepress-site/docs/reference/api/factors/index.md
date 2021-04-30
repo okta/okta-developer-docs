@@ -4055,7 +4055,7 @@ Specifies additional verification data for `token` or `token:hardware` Factors
 
 ### Links object
 
-Specifies link relations (See [Web linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a Factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current status of a Factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.
 
 | Link Relation Type | Description                                                                      |
 | ------------------ | -------------------------------------------------------------------------------- |
@@ -4141,7 +4141,7 @@ Push Factors must complete activation on the device by scanning the QR code or v
 
 #### Push Factor Activation Links object
 
-Specifies link relations (See [Web linking](http://tools.ietf.org/html/rfc5988)) available for the Push Factor Activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the Push Factor Activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
 
 | Link Relation Type | Description                                                                        |
 | ------------------ | ---------------------------------------------------------------------------------- |
