@@ -1,9 +1,6 @@
 <template>
   <div class="homepage container-fluid">
     <div class="row">
-      <div class="col-xl-12">
-        <img width="100%" src="/img/code_tycoon.png" alt="code tycoon">
-      </div>
       <div class="col-xl-2 col-lg-2 d-none d-lg-block homepage--col-no-padding">
         <HomeSidebar />
       </div>
