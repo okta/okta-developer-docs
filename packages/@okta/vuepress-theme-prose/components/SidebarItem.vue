@@ -2,7 +2,7 @@
   <li :class="{ subnav: link.subLinks, hidden: hidden }">
     <div class="link-wrap">
 
-      <div v-if="isLink">
+      <div v-if="entityType === types.link">
         <router-link
           :to="link.path"
           v-slot="{ route, href, navigate }"
@@ -18,13 +18,13 @@
         </router-link>
       </div>
 
-      <div v-if="isBlankDivider">
+      <div v-if="entityType === types.blankDivider">
         <div class="blank-divider">
           {{link.title}}
         </div>
       </div>
 
-      <div v-if="isParent">
+      <div v-if="entityType === types.parent">
         <div
           :class="{
             'is-link': true,
@@ -49,7 +49,7 @@
       </div>
     </div>
 
-    <ul v-if="isParent" class="sections" v-show="sublinksExpanded">
+    <ul v-if="entityType === types.parent" class="sections" v-show="sublinksExpanded">
       <SidebarItem
         v-for="sublink in link.subLinks"
         :key="sublink.title"
@@ -71,19 +71,26 @@ export default {
   data() {
     return {
       sublinksExpanded: false,
-      hidden: !!this.link.hidden
+      hidden: !!this.link.hidden,
+      types: {
+        link: 'link',
+        blankDivider: 'blankDivider',
+        parent: 'parent'
+      }
     };
   },
   computed:{
-    isLink: function(){
-      return this.link.hasOwnProperty('path') && this.link.path !== null
+    entityType: function(){
+      if(this.link.hasOwnProperty('path') && this.link.path !== null ){
+        return this.types.link
+      }
+      if(!this.link.hasOwnProperty('path') && this.link.hasOwnProperty('subLinks')){
+        return this.types.parent
+      }
+      if(this.link.hasOwnProperty('path') && this.link.path === null){
+        return this.types.blankDivider
+      }
     },
-    isParent: function(){
-      return !this.link.hasOwnProperty('path') && this.link.hasOwnProperty('subLinks')
-    },
-    isBlankDivider: function(){
-      return this.link.hasOwnProperty('path') && this.link.path === null
-    }
   },
   mounted() {
     this.setData();
@@ -93,7 +100,7 @@ export default {
     link() {
       this.setData();
     },
-    
+
     sublinksExpanded(isActivated, _) {
       if (isActivated) {
         // element.scrollIntoViewIfNeeded is not supported by Firefox
