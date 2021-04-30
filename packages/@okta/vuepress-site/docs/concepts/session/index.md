@@ -7,7 +7,7 @@ meta:
 
 ## Session management with Okta
 
-An Identity Provider (IdP) is a service that stores and manages digital identities. Okta is an IdP service that stores and verifies user identities, and is able to provide a user with a single set of sign-in credentials, allowing the user to access multiple applications. A session is a group of user interactions with a resource, such as a IdP service or an application (app), for a given amount of time. Using Okta as your IdP, there are two types of sessions that you need to consider for managing the user experience: the IdP session and the application session.
+An Identity Provider (IdP) is a service that stores and manages digital identities. Okta is an IdP service that stores and verifies user identities, and is able to provide a user with a single set of sign-in credentials, allowing the user to access multiple applications. A session is a group of user interactions with a resource, such as a IdP service or an application (app), for a given amount of time. Using Okta as your IdP, there are two types of sessions that you need to consider for managing the user experience&mdash;the IdP session and the application session.
 
 ### IdP session
 
