@@ -71,11 +71,39 @@
 
   &--auth0-banner {
     display: flex;
+    align-items: center;
     margin-bottom: 50px;
 
     &-text {
+      flex-grow: 1;
+
+      h2 {
+        font-size: 32px;
+        font-weight: normal;
+        margin-top: 0;
+        margin-bottom: 20px;
+        @include media("<=tablet") {
+          font-size: 28px;
+        }
+      }
+
+      @include media("<=tablet") {
+        text-align: center;
+      }
     }
     &-logos {
+      flex-grow: 0;
+      max-width: 500px;
+      img {
+        padding-left: 20px;
+      }
+      @include media("<=tablet") {
+        max-width: 300px;
+      }
+    }
+
+    @include media("<=tablet") {
+      flex-direction: column-reverse;
     }
 
     a {
@@ -87,12 +115,6 @@
         text-decoration: none;
       }
     }
-  }
-  &--auth0-heading {
-    font-size: 32px;
-    font-weight: normal;
-    margin-top: 0;
-    margin-bottom: 20px;
   }
 
   &--centered-md {

@@ -21,7 +21,7 @@
             <div class="row">
               <div class="col-12 homepage--auth0-banner">
                 <div class="homepage--auth0-banner-text">
-                  <h2 class="homepage--auth0-heading homepage--color-main">
+                  <h2 class="homepage--color-main">
                     It’s official! Okta completes acquisition of Auth0
                   </h2>
                   <SmartLink
