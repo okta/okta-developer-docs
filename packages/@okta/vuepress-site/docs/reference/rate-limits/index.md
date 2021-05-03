@@ -33,7 +33,7 @@ If an org-wide rate limit is exceeded, an HTTP 429 status code is returned. You 
 >
 ## Other applicable rate limit content
 
-* [Rate limit dashboard](/docs/reference/rl-dashboard/): The rate limit dashboard helps you understand the rate limit and current utilization of an endpoint. The dashboard provides the ability to track the endpoint's utilization and notify you with alerts when you are about to hit or have hit the rate limit. You can also use the multiple views of data utilization on the dashboard to investigate high usage or rate limit violations.
+* [Rate limit dashboard](/docs/reference/rl-dashboard/): The rate limit dashboard helps you understand the rate limit and current use of an endpoint. The dashboard provides the ability to track the endpoint's use and notify you with alerts when you are about to hit or have hit the rate limit. You can also use the multiple views of data use on the dashboard to investigate high usage or rate limit violations.
 
 * [Concurrent rate limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits): To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from the org-wide, per-minute API rate limits, which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.
 

@@ -6,9 +6,9 @@ excerpt: >-
 
 # Rate limit dashboard
 
-The rate limit dashboard is a tool to help you to understand and investigate the rate limit and the current utilization of each endpoint. The dashboard provides:
+The rate limit dashboard is a tool to help you to understand and investigate the rate limit and the current use of each endpoint. The dashboard provides:
 
-* The ability to track the endpoint's utilization
+* The ability to track the endpoint's use
 * Alerts when you are about to hit or have hit the rate limit
 * The ability for you to investigate the issue when an endpoint has reached the rate limit
 
@@ -24,19 +24,19 @@ You can find out more about the rate limit dashboard in these sections:
 
 ## About the rate limit dashboard
 
-The dashboard enables you to view an endpoint, the current rate limit for each endpoint, and utilization of the  endpoint over a period of time in the Admin Console. You can select the endpoint of interest and get additional details such as the endpoint's average utilization and the top 10 IPs that are consuming the most traffic for the endpoint. A warning would display if the threshold for the rate limit has been reached. For instance, if you have CIAM, a warning alert displays if you reach 90% of the rate limit. If you have Workforce, a warning alert displays if you reach 60% of the rate limit.
+The dashboard enables you to view an endpoint, the current rate limit for each endpoint, and use of the endpoint over a period of time in the Admin Console. You can select the endpoint of interest and get additional details such as the endpoint's average use and the top 10 IPs that are consuming the most traffic for the endpoint. A warning appears if the threshold for the rate limit is reached. For instance, if you have CIAM, a warning alert appears if you reach 90% of the rate limit. If you have Workforce, a warning alert appears if you reach 60% of the rate limit.
 
-You can investigate high usage of a rate limit or a rate limit violation. Once you know the issue, you can take the appropriate corrective action. For example, if the issue is high traffic, you may want to increase the rate limits. In cases where the issue is a rogue app or bad script, you can disable the app, or block that traffic. Whatever the issue is, you can remediate the issue through self-service. In cases where a higher rate limit is required, you can create a support case, by sending a request to the correct team for a rate limit increase.
+You can investigate high usage of a rate limit or a rate limit violation. After you know the issue, you can take the appropriate corrective action. For example, if the issue is high traffic, you may want to increase the rate limits. In cases where the issue is a rogue app or bad script, you can disable the app, or block that traffic. Whatever the issue is, you can remediate the issue through self-service. In cases where a higher rate limit is required, you can create a support case, by sending a request to the correct team for a rate limit increase.
 
 ## Access the dashboard
 
-When a rate limit violation occurs, you're notified in the following ways and can access the Rate Limits dashboard from the link in the notification:
+When a rate limit violation occurs, you're notified in the following ways and can access the rate limits dashboard from the link in the notification:
 
 * You receive a rate limit email that informs you that you've hit a rate limit for an endpoint. Click **View utilization history** in the email to navigate to the Rate Limits Dashboard and System Log for that particular endpoint.
 
 ![Access the dashboard by email notification](/img/RLDashboard1.png "Displays the email notification of a rate limit violation with the link to the endpoint's rate limit dashboard")
 
-* You've hit a rate limit when you're in the rate limits dashboard or the Admin console, and a banner displays to inform you. Click **utilization history** in the banner to open the Rate Limits Dashboard for that particular endpoint or **syslog** to open the System Log.
+* You've hit a rate limit when you're in the rate limits dashboard or the Admin Console, and a banner appears to inform you. Click **utilization history** in the banner to open the Rate Limits Dashboard for that particular endpoint or **syslog** to open the System Log.
 
 ![Access the dashboard by link in the banner](/img/RLDashboard2.png "Displays the banner in the dashboard that notifies you of a rate limit violation with the link to the endpoint's rate limit dashboard")
 
@@ -46,23 +46,23 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 ## Key components of the dashboard
 
-The rate limits dashboard provides utilization for the endpoint based on a set of statistics and shows multiple views of the data utilization.
+The rate limits dashboard provides use for the endpoint based on a set of statistics and shows multiple views of the data use.
 
 ![Summary of the key components of the dashboard](/img/RLDashboard4.png "Displays the endpoint's utilization and the multiple views of the data utilization")
 
-The dashboard helps you to investigate the rate limit or violation issue and to prevent subsequent rate limit issues from occurring. To view the most recent data, refresh your screen. There may be a slight delay of two to four minutes in obtaining new data, so you should wait a moment before you refresh your screen.
+The dashboard helps you to investigate the rate limit or violation issue and to prevent subsequent rate limit issues from occurring. To view the most recent data, refresh your screen. There may be a slight delay of two to four minutes in obtaining new data.
 
 ### Overview pane
 
-The Overview pane provides a summary of the utilization data for the specified endpoint.
+The Overview pane provides a summary of the data use for the specified endpoint.
 
 ![Summary of the utilization data for an endpoint](/img/RLDashboard5.png "Displays the utilization data for an endpoint with a rate limit violation or warning")
 
 The following utilization data is displayed:
 
-* Latest Utilization: The latest utilization for the bucket, which includes the endpoint and its sub-endpoints, as of the specified time.
-* Average Utilization: The average utilization of the bucket within the last 24 hours and the last hour
-* Downtime: The amount of time that the org has been affected by a rate limit violation on this endpoint
+* Latest Utilization: The latest use for the bucket, which includes the endpoint and its sub-endpoints, as of the specified time
+* Average Utilization: The average use of the bucket within the last 24 hours and the last hour
+* Downtime: The amount of time that the org is affected by a rate limit violation on this endpoint
 * Rate Limit: The rate limit for this bucket per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation.
 
 ### Rate limit utilization over time pane
@@ -77,7 +77,7 @@ The line graph shows the total number of requests over the past hour for the buc
 
 #### Timeline graph
 
-The timeline graph shows utilization over the last 28 hours. When a rate violation occurs, as indicated by a spike at the point on the timeline graph, you can compare the same point in time from the past day.
+The timeline graph shows use over the last 28 hours. When a rate violation occurs, as indicated by a spike at the point on the timeline graph, you can compare the same point in time from the past day.
 
 #### Bar graph
 
@@ -99,7 +99,7 @@ The timeline graph gives you an overview of the usage from the last 28 hours so 
 
 ### Bar graph view
 
-The bar graph compares a rogue IP or App with other IPs or Apps. For example, the bar graph can show a single rogue IP that is responsible for a spike in traffic that is displayed in the line graph. It can also show many users that are signing in at the same time, perhaps to attend a company-wide meeting or to check out a special offer that was just delivered in a mass email to a company's clients.
+The bar graph compares a rogue IP or App with other IPs or Apps. For example, the bar graph can show a single rogue IP that is responsible for a spike in traffic that appears in the line graph. It can also show many users that are signing in at the same time, perhaps to attend a company-wide meeting or to check out a special offer that was just delivered in a mass email to a company's clients.
 
 ## Potential next steps
 
