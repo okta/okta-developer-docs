@@ -1439,11 +1439,12 @@ The following conditions may be applied to IdP Discovery Policy:
 | ---       | ---                                                                  | ---       | ---      |
 | providers | List of configured identity providers that a given Rule can route to | array     | Yes      |
 
-> **Note:** Currently, this `providers` list only supports one value. IdP types `OKTA`, `AgentlessDSSO`, and `IWA` don't require an `id`.
+> **Note:** Ability to define multiple providers is a part of Okta Identity Engine.
+> Please [contact support](mailto:dev-inquiries@okta.com) for further information
+
+> **Note:** IdP types `OKTA`, `AgentlessDSSO`, and `IWA` don't require an `id`.
 
 #### Policy Action Example
-
-> **Note:** The `providers` parameter supports only one value.
 
 ```json
   "actions": {
@@ -1452,6 +1453,55 @@ The following conditions may be applied to IdP Discovery Policy:
         {
           "type": "SAML2",
           "id": "0oaoz0zUsohjfrWZ80g3"
+        }
+      ]
+    }
+  }
+```
+
+#### Policy Action with multiple IdP instances
+<ApiLifecycle access="ie" />
+
+> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+
+Multiple IdP instances can be defined in a single Policy Action. It allows User to choose a Provider to sign in with.
+
+##### Provider object
+
+> **Note:** IdP types `OKTA`, `AgentlessDSSO`, and `IWA` don't require an `id`.
+
+| Property                           | Description             | Data Type | Required |
+| ---                                | ---                     | ---       | ---      |
+| id                                 | Provider `id` in Okta   | String    | Yes      |
+| type                               | Provider type           | `OKTA`, `AgentlessDSSO`, `IWA`, `X509`, `SAML2`, `OIDC`, `APPLE`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT` | Yes |
+| name <ApiLifecycle access="ie" />  | Provider `name` in Okta | String    | No       |
+
+##### Limitations
+
+* Up to 10 providers can be added to a single `idp` Policy Action
+
+* Only one `provider` can be defined for the following IdP types: `AgentlessDSSO`, `IWA`, `X509`
+
+* If a [User Identifier Condition](#user-identifier-condition-object) is defined together with an `OKTA` provider, sign in requests will be handled by Okta exclusively
+
+##### Example
+
+```json
+  "actions": {
+    "idp": {
+      "providers": [
+        {
+          "type": "OKTA"
+        },
+        {
+          "type": "SAML2",
+          "id": "0oaoz0zUsohjfrWZ80g3",
+          "name": "Other IdP"
+        },
+        {
+          "type": "OIDC",
+          "id": "0oaFz3WUgotjUKank5z8",
+          "name": "External Identity Provider"
         }
       ]
     }
