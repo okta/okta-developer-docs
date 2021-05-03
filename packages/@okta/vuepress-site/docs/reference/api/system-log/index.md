@@ -639,6 +639,8 @@ The following example expressions are supported for events with the `filter` que
 | `actor.id eq ":id"`                          | Events that are published with a specific actor ID                                      |
 
 > **Note:** SCIM filter expressions can't use the `published` attribute since it may conflict with the logic of the `since`, `after`, and `until` query params.
+> Furthermore, using the `co` (contains) operator with the `debugContext.debugData.url` and `debugContext.debugData.requestUri` attributes is not supported and will
+> result in a 400 API response.
 
 See [Filtering](/docs/reference/api-overview/#filtering) for more information on expressions.
 
@@ -757,7 +759,7 @@ An invalid SCIM filter returns the HTTP 400 error with a description of the issu
 ```json
 {
   "errorCode": "E0000053",
-  "errorSummary": "Invalid filter 'display_message eqq \"Create okta user\"': Unrecognized attribute operator 'eqq' at position 16. Expected: eq,co,sw,pr,gt,ge,lt,le",
+  "errorSummary": "Invalid filter 'display_message eq \"Create okta user\"': Unrecognized attribute operator 'eqq' at position 16. Expected: eq,co,sw,pr,gt,ge,lt,le",
   "errorId": "eb83dfe1-6d76-458c-8c0c-f8df8fb7a24b"
 }
 ```
@@ -777,6 +779,15 @@ The following is another example, where the parameters are invalid:
   "errorCode": "E0000053",
   "errorSummary": "Invalid parameter: The since parameter is over 180 days prior to the current day.",
   "errorId": "55166534-b7d8-45a5-a4f6-3b38a5507046"
+}
+```
+
+An invalid SCIM field / operator combination contained in a `filter` request parameter (e.g. `debugContext.debugData.url co "/oauth/"`) returns an HTTP 400 error with a message that indicates the unsupported combination, for example:
+```json
+{
+  "errorCode": "E0000031",
+  "errorSummary": "The supplied combination of operator and field is not currently supported. Operator: co, Field: debugContext.debugData.url",
+  "errorId": "ec93dhe2-6d76-458c-8c0c-f8df8fb7a24b"
 }
 ```
 
