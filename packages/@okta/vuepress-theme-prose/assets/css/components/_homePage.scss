@@ -69,6 +69,32 @@
     }
   }
 
+  &--auth0-banner {
+    display: flex;
+    margin-bottom: 50px;
+
+    &-text {
+    }
+    &-logos {
+    }
+
+    a {
+      &:link, &:visited, &:hover, &:active {
+        color: white;
+        text-decoration: underline;
+      }
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+  &--auth0-heading {
+    font-size: 32px;
+    font-weight: normal;
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+
   &--centered-md {
     @include media("<=bootstrap-lg") {
       text-align: center;

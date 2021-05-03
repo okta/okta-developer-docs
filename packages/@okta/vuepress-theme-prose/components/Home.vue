@@ -19,6 +19,24 @@
               </div>
             </div>
             <div class="row">
+              <div class="col-12 homepage--auth0-banner">
+                <div class="homepage--auth0-banner-text">
+                  <h2 class="homepage--auth0-heading homepage--color-main">
+                    It’s official! Okta completes acquisition of Auth0
+                  </h2>
+                  <SmartLink
+                    :item="{ link: 'https://auth0.com/blog/developers-explore-okta-auth0', target: '_blank' }"
+                    classes="homepage--color-main"
+                  >
+                    Read more on the Auth0 blog
+                  </SmartLink>
+                </div>
+                <div class="homepage--auth0-banner-logos">
+                  <img src="/img/okta-auth0-logo-pair.svg" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
               <div class="col-12">
                 <h2
                   class="homepage--sub-heading homepage--color-main"
