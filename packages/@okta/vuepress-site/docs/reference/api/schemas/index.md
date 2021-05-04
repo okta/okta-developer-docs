@@ -1039,7 +1039,7 @@ curl -v -X POST \
 
 ## Group Schema operations
 
-> **Note:** This is an <ApiLifecycle access="ea" /> feature.
+<ApiLifecycle access="ea" />
 
 The [User Types](/docs/reference/api/user-types) feature doesn't extend to groups. All groups use the same [Group Schema](#group-schema-object). Thus, unlike the User Schema operations, the Group Schema operations all specify `default` and don't accept a Schema ID.
 
@@ -2133,7 +2133,7 @@ Specific property types support a subset of [JSON Schema validations](https://to
 
 ## Group Schema object
 
-> **Note:** This is an <ApiLifecycle access="ea" /> feature.
+<ApiLifecycle access="ea" />
 
 The [Group object](/docs/reference/api/groups/#group-object) Schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
@@ -2358,7 +2358,7 @@ Custom property names for the [Profile object](/docs/reference/api/groups/#profi
 
 All Okta-defined Profile properties are defined in a Profile subschema with the resolution scope `#base`. These properties can't be removed or edited.  Attempting to do so anyway will have no effect.
 
-The base Group Profile varies is as follows:
+The base Group Profile properties are as follows:
 
 | Property          | Description                                                                                                                  | DataType | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- |

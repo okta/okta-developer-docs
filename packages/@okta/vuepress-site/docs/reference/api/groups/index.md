@@ -1870,7 +1870,7 @@ Profile for any Group that is not imported from Active Directory.  Specifies [st
 ```
 ##### Custom Profile Properties
 
-> **Note:** This is an <ApiLifecycle access="ea" /> feature.
+<ApiLifecycle access="ea" />
 
 Group profiles may be extended with custom properties but the property must first be added to the group profile schema before it can be referenced.  You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/reference/api/schemas/) to manage schema extensions.
 
