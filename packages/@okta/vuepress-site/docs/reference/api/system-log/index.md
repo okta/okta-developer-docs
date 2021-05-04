@@ -640,7 +640,7 @@ The following example expressions are supported for events with the `filter` que
 
 > **Note:** SCIM filter expressions can't use the `published` attribute since it may conflict with the logic of the `since`, `after`, and `until` query params.
 > In addition, a SCIM filter expression that uses the `co` (contains) operator with the `debugContext.debugData.url` or the `debugContext.debugData.requestUri` attribute is not supported.
-> result in a 400 API response.
+> A request with an invalid SCIM filter expression returns an HTTP 400 API response.
 
 See [Filtering](/docs/reference/api-overview/#filtering) for more information on expressions.
 
