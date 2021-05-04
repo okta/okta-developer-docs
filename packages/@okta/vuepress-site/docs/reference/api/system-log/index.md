@@ -759,7 +759,7 @@ An invalid SCIM filter returns the HTTP 400 error with a description of the issu
 ```json
 {
   "errorCode": "E0000053",
-  "errorSummary": "Invalid filter 'display_message eq \"Create okta user\"': Unrecognized attribute operator 'eqq' at position 16. Expected: eq,co,sw,pr,gt,ge,lt,le",
+  "errorSummary": "Invalid filter 'display_message eqq \"Create okta user\"': Unrecognized attribute operator 'eqq' at position 16. Expected: eq,co,sw,pr,gt,ge,lt,le",
   "errorId": "eb83dfe1-6d76-458c-8c0c-f8df8fb7a24b"
 }
 ```
