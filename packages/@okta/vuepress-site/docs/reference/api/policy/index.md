@@ -1464,7 +1464,7 @@ The following conditions may be applied to IdP Discovery Policy:
 
 > **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
-Multiple IdP instances can be defined in a single Policy Action. It allows User to choose a Provider to sign in with.
+Multiple IdP instances can be defined in a single Policy Action. This allows users to choose a Provider when they sign in.
 
 ##### Provider object
 
@@ -1473,7 +1473,7 @@ Multiple IdP instances can be defined in a single Policy Action. It allows User 
 | Property                           | Description             | Data Type | Required |
 | ---                                | ---                     | ---       | ---      |
 | id                                 | Provider `id` in Okta   | String    | Yes      |
-| type                               | Provider type           | `OKTA`, `AgentlessDSSO`, `IWA`, `X509`, `SAML2`, `OIDC`, `APPLE`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT` | Yes |
+| type                               | Provider type. Possible values: `OKTA`, `AgentlessDSSO`, `IWA`, `X509`, `SAML2`, `OIDC`, `APPLE`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`           | String | Yes |
 | name <ApiLifecycle access="ie" />  | Provider `name` in Okta | String    | No       |
 
 ##### Limitations
