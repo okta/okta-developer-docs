@@ -33,7 +33,7 @@ The [Groups API](/docs/reference/api/groups/) can now manage [custom group profi
 
 #### Domains API is now GA in Preview
 
-The [Domains API](/docs/reference/api/domains/) is now GA in Preview. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users will see the same base URL for your application. <!--OKTA-386752-->
+The [Domains API](/docs/reference/api/domains/) is now GA in Preview. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users see the same base URL for your application. <!--OKTA-386752-->
 
 #### Domains API supports OAuth 2.0
 
