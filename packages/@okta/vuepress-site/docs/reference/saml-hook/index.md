@@ -334,13 +334,17 @@ The `value` object is where you specify the specific operation to perform. It is
 
 Specify the location within the assertion where you want to apply your operation using a slash-delimited path, which follows JSON Patch conventions.
 
-When you perform an `add` op to add a new attribute statement, always begin with `/claims/` and follow that with the name of the new attribute that you are adding.
+When you perform an `add` op to add a new attribute statement, begin with `/claims/` and follow that with the name of the new attribute that you are adding.
 
 When you modify an existing assertions statement, begin the path with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, for example, `/claims/array/attributeValues/1/value`. (The `/1/` in the path indicates the index of the array.)
 
 ### URI claims
 
 Okta supports URI claims with SAML assertion hooks. When you need to replace or add a URI claim, you must encode the claim name within the command per the [JavaScript Object Notation (JSON) Pointer](https://tools.ietf.org/html/rfc6901) specification. Specifically, this replaces `~` with `~0` and  `/` with `~1`.
+
+### SessionNotOnOrAfter support
+
+In some scenarios, your service provider may require the `SessionNotOnOrAfter` attribute for the `<saml:AuthnStatement>` in the SAML assertion, which sets the provider session time correctly. Use `add` op with the path `/authentication/sessionLifetime` and a value for session lifetime in seconds to add this attribute. See the [Sample listing of JSON payload response](/docs/reference/saml-hook/#sample-listing-of-json-payload-of-response) for an example. Okta calculates `SessionNotOnOrAfter` by adding `/authentication/sessionLifetime` value to the `issueInstant` attribute and returns it in the SAML assertion.
 
 ## Sample listing of JSON payload of response
 
@@ -378,6 +382,11 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
               }
             ]
           }
+        },
+        {
+          "op": "add",
+          "path": "/authentication/sessionLifetime",
+          "value": 300
         }
       ]
     },
