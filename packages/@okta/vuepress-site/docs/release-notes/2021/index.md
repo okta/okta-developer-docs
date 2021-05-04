@@ -21,7 +21,7 @@ title: Okta API Products Release Notes 2021
 
 #### Access-Control-Expose-Headers now available in CORS response
 
-The `Access-Control-Expose-Headers` header is now included in the response to an Okta CORS endpoint call. This header can be accessed by the cross-origin user agent and includes the following possible header names:  `link`, `x-okta-request-id`, `x-rate-limit-limit`, `x-rate-limit-remaining`, and `x-rate-limit-reset`. <!--OKTA-357710-->
+The `Access-Control-Expose-Headers` header is now included in the response to an Okta CORS endpoint call. This header can be accessed by the cross-origin user agent and includes the following possible header names:  `Date`, `Link`, `X-Okta-Edge-Log`, `X-Okta-Request-Id`, `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Reset`. <!--OKTA-357710-->
 
 #### Administrator Roles API third-party admin status update
 
