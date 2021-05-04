@@ -782,7 +782,7 @@ The following is another example, where the parameters are invalid:
 }
 ```
 
-An invalid SCIM field / operator combination contained in a `filter` request parameter (e.g. `debugContext.debugData.url co "/oauth/"`) returns an HTTP 400 error with a message that indicates the unsupported combination, for example:
+An invalid SCIM field and operator combination within a `filter` request parameter (e.g. `debugContext.debugData.url co "/oauth/"`) returns an HTTP 400 error with a message that indicates the unsupported combination, for example:
 ```json
 {
   "errorCode": "E0000031",
