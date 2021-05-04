@@ -50,7 +50,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### SAML parameter SessionNotOnOrAfter now available
 
-The SAML parameter `SessionNotOnOrAfter` is now GA for SAML assertions, and is available for use with Okta’s [SAML Inline Hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the service provider. Most SAML applications manage their own sessions; however, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
+The SAML parameter `SessionNotOnOrAfter` is now GA for SAML assertions and is available for use with Okta’s [SAML Inline Hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
 
 #### System Log API SCIM filter expression update
 
