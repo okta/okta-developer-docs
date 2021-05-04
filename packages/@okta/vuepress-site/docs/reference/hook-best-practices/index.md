@@ -14,7 +14,7 @@ The following sections review best practices to implement and secure Okta Event 
 
 To prevent a malicious actor from making requests to the endpoint where your Okta Hooks are sent, use the following best practices:
 
-* Configure Okta to send an Authentication header in the Hook and validate it in every request by:
+* Configure Okta to send an authentication header in the Hook and validate it in every request by:
 
   * Using [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication). When activating and enabling your Hooks on the Okta org, set the **Authorization field** as `authorization` and the **Authentication secret** in the Base64 `user:password` format.
 
@@ -31,7 +31,7 @@ To prevent a malicious actor from making requests to the endpoint where your Okt
 
 * Create an allowlist of IP addresses to check on incoming Okta calls. See the following Okta Knowledge Base article for a listing of Okta IP addresses: [What IP addresses/ranges should we allow for inbound traffic?](https://support.okta.com/help/s/article/What-IP-addresses-ranges-should-we-whitelist-for-inbound-traffic-i-e-REST-API-calls-from-Okta-to-on-prem-JIRA-server?language=en_US).
 
->**Note:** This is a large list of IP Addresses and the list is subject to change. Unless required by your organization, securing your Hook by Authentication header is recommended.
+>**Note:** This is a large list of IP Addresses and the list is subject to change. Unless required by your organization, securing your Hook by authentication header is recommended.
 
 ## Protect your Hook content from external viewers
 
@@ -48,7 +48,7 @@ When Okta uses an Inline Hook to communicate with your endpoint, the user experi
 
 A timeout of three seconds is enforced on all outbound requests for Event and Inline Hooks, with one retry in the event of a timeout or an error response from the external service. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
 
-See Inline Hook [Timeout and Retry](/docs/concepts/inline-hooks/#timeout-and-retry) for further information on Inline Hook timeout and retry behavior; see Event Hook [Timeout and Retry](https://developer.okta.com/docs/concepts/event-hooks/) for the same.
+See Inline Hook [Timeout and Retry](/docs/concepts/inline-hooks/#timeout-and-retry) for further information on Inline Hook timeout and retry behavior; see Event Hook [Timeout and Retry](https://developer.okta.com/docs/concepts/event-hooks/#timeout-and-retry) for the same.
 
 ## Limits, duplicates, and order of Hook calls
 
@@ -60,7 +60,7 @@ The order of Event or Inline Hook calls is not guaranteed. Your external service
 | --------- | -----------| ----- | ----------- |
 | Event Hook | Number of daily Event Hooks | 100K | A maximum of 100 thousand Event Hooks can be fired, per org, per day. Event Hooks are not recorded or replayed after this point. If a request times out after three seconds, Event Hooks are retried one time afterward. Retries do not count toward the org limit.
 |            | Maximum number of Event Hooks per org | 10 | A maximum of 10 active Event Hooks can be configured per org. Each Event Hook can be configured to deliver multiple event types. |
-| Inline Hook | Timeout | 3 seconds | Okta Inline Hooks have a completion timeout of three seconds with a single retry.However, a request is not retried if your endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful, and the request is not retried. If the external service endpoint responds with a redirect, it is not followed. |
+| Inline Hook | Timeout | 3 seconds | Okta Inline Hooks have a completion timeout of three seconds with a single retry. However, a request is not retried if your endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful, and the request is not retried. If the external service endpoint responds with a redirect, it is not followed. |
 |             | Maximum number of Inline Hooks per org | 50 | The maximum number of Inline Hooks that can be configured per org is 50, which is a combined total for any combination of Inline Hook types. |
 
 ## Troubleshoot your Hook implementations
