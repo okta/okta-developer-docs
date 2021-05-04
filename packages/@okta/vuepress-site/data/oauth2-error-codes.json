@@ -1,6 +1,6 @@
 {
-  "release" : "2021.04.1",
-  "build" : "2021.04.1-begin-113-g3e6ba50a4932",
+  "release" : "2021.05.1",
+  "build" : "2021.05.1-begin-78-g803f4ad1e272",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -520,12 +520,26 @@
     "errorCode" : "invalid_client",
     "errorDescription" : "The client secret is too short to verify a JWT HMAC."
   }, {
+    "title" : "Client assertion jwks not configured",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "client_assertion_jwks_not_configured",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client does not have a JWKSet configured, but the client_assertion requires one."
+  }, {
     "title" : "Authorize request object invalid issuer",
     "statusCode" : 401,
     "statusReasonPhrase" : "Unauthorized",
     "internalErrorCode" : "authorize_request_object_invalid_issuer",
     "errorCode" : "invalid_client",
     "errorDescription" : "The issuer of the authorize request object is invalid."
+  }, {
+    "title" : "Authorize request object jwks not configured",
+    "statusCode" : 401,
+    "statusReasonPhrase" : "Unauthorized",
+    "internalErrorCode" : "authorize_request_object_jwks_not_configured",
+    "errorCode" : "invalid_client",
+    "errorDescription" : "The client does not have a JWKSet configured, but the request object requires one."
   }, {
     "title" : "Authorize request URI mismatched client",
     "statusCode" : 401,
@@ -653,6 +667,13 @@
     "errorCode" : "invalid_grant",
     "errorDescription" : "SAML Assertion credentials authentication denied by sign on policy."
   }, {
+    "title" : "Client requires MFA native sso",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "client_requires_mfa_native_sso",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The client's assurance requirements are not met."
+  }, {
     "title" : "Interaction code unsatisfiable",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -708,6 +729,20 @@
     "internalErrorCode" : "duplicate_oauth_params",
     "errorCode" : "invalid_request",
     "errorDescription" : "The request contained multiple parameters with the same name."
+  }, {
+    "title" : "Unsupported response type with scope",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "unsupported_response_type_with_scope",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The response type {0} is not supported when requesting scope {1}. Allowed response types: [{2}]."
+  }, {
+    "title" : "Required response type with scope",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "required_response_type_with_scope",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The response type {0} is required when requesting scope {1}."
   }, {
     "title" : "Illegal origin browser request",
     "statusCode" : 400,
@@ -827,6 +862,13 @@
     "internalErrorCode" : "request_missing_token",
     "errorCode" : "invalid_request",
     "errorDescription" : "The 'token' parameter is required."
+  }, {
+    "title" : "Illegal duplicated parameters",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "illegal_duplicated_parameters",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "Duplicate parameter provided in request. Duplicated parameters: [{0}]."
   }, {
     "title" : "Invalid authorization server",
     "statusCode" : 400,
@@ -953,6 +995,13 @@
     "internalErrorCode" : "authorize_request_object_and_request_uri_provided",
     "errorCode" : "invalid_request",
     "errorDescription" : "The authorize request must not contain both a request object and a request uri."
+  }, {
+    "title" : "Pushed authorization request URI present",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "pushed_authorization_request_uri_present",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The 'request_uri' parameter must not be present in the request."
   }, {
     "title" : "Invalid request object",
     "statusCode" : 400,
