@@ -2,6 +2,23 @@
 title: Okta API Products Release Notes 2021
 ---
 
+## May
+
+### Monthly Release 2021.05.0
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.6.0](#okta-sign-in-widget-version-5-6-0) | May 5, 2021 |
+| [Domains API now in GA in Preview](#domains-api-is-now-in-ga-in-preview) | May 5, 2021 |
+| [Groups API extended search now GA in Production](#groups-api-extended-search-is-now-ga-in-production) | May 5, 2021 |
+| [Bug fixed in 2021.05.0](#bug-fixed-in-2021-05-0)         | May 5, 2021 |
+
+#### Okta Sign-In Widget, version 5.6.0
+
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-xxxx->
+
+#### Bugs fixed in 2021.05.0
+
 ## April
 
 ### Weekly Release 2021.04.2
