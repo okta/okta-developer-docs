@@ -2,6 +2,7 @@
 const TableOfContentsPage = require('../framework/page-objects/TableOfContentsPage');
 const SideBarPage = require('../framework/page-objects/SideBarPage');
 const util = require('../framework/shared/util');
+const { browser, until } = require("protractor");
 
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
@@ -71,4 +72,43 @@ describe('table of contents navigation spec', () => {
       });
     });
   }));
+
+  it(
+    "should scroll to h5 header but displays it parent h3 as active item in onthispage sidebar",
+    util.itHelper(async () => {
+      const hash = "#post-operation";
+      const ulId = "#submenu_third-section";
+      const routerLinkActiveClass = "router-link-active";
+      tocPage.navigate("/test_page");
+
+      try {
+        const h5 = await element(
+          by.css(`#aliquet-metus`)
+        ).getLocation();
+
+        await browser.driver.executeScript(
+          `window.scrollTo(0, ${h5.y - 60})`
+        );
+        await browser.wait(
+          until.elementIsVisible(
+            element(
+              by.css(`.on-this-page-navigation ul${ulId}`)
+            ).getWebElement()
+          ),
+          2000
+        );
+
+        const postOperationWebEl = await (
+          await tocPage.getOnThisPageItem(hash)
+        ).getWebElement();
+
+        expect(
+          await postOperationWebEl.getAttribute("class"),
+          "proper onthispage item not active"
+        ).to.contain(routerLinkActiveClass);
+      } catch (err) {
+        throw err;
+      }
+    })
+  );
 });
