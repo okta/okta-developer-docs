@@ -16,15 +16,14 @@ To prevent a malicious actor from making requests to the endpoint where your Okt
 
 * Configure Okta to send an authentication header in the Hook and validate it in every request by one of two ways:
 
-  * Using [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication). When activating and enabling your Hooks on the Okta org, set the **Authorization field** as `authorization` and the **Authentication secret** in the Base64 `user:password` format.
+  * Using [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication). When activating and enabling your Hooks on the Okta org, set the **Authorization field** as `Authorization` and the **Authentication secret** in the Base64 `user:password` format.
 
     >**Note:** You must include the authentication scheme as part of the **Authentication secret**. For Basic Authentication, your secret must appear similar to: `Basic Base64(user:password)`. See the following partial Hook header as an example:
 
-    ```cURL
-    'content-type',
-    'application/json',
-    'authorization',
-    'Basic YWRtaW46c3VwZXJzZWNyZXQ='
+    ```http
+    Accept: application/json
+    content-type: application/json
+    Authorization: Basic YWRtaW46c3VwZXJzZWNyZXQ=
     ```
 
   * Using a separate Secret Key, which can be configured on the Hook as a custom header field.
@@ -41,10 +40,12 @@ Okta requires HTTPS to encrypt communications to your Hook endpoint to prevent u
 
 ## Avoid delays in Hook responses
 
-When Okta uses an Inline Hook to communicate with your endpoint, the user experience is paused until your code responds. Okta Event Hooks, although acting asynchronously, also require a response. To prevent unnecessary delays or timeouts, we recommend the following:
+When Okta uses an Inline Hook to communicate with your endpoint, the user experience is paused until your code responds.
 
-* Treat Okta Hooks as you would any other HTTP request. For example, ensure you respond to the HTTP request in under 400 milliseconds with either a 200 (Success) or 204 (Success no content) return code.
-* To avoid delays or timeouts, process the Hook request data after sending the response.
+Okta Event Hooks also require a response. To prevent unnecessary delays or timeouts, Okta recommends the following for Event Hooks:
+
+* Treat Event Hooks as you would any other HTTP request. For example, ensure you respond to the HTTP request in under 400 milliseconds with either a 200 (Success) or 204 (Success no content) return code.
+* To avoid delays or timeouts, process the Event Hook request data after sending the response.
 
 A timeout of three seconds is enforced on all outbound requests for Event and Inline Hooks, with one retry in the event of a timeout or an error response from the external service. If a successful response has not been received after that, a 400 error is returned with more information about what failed.
 
