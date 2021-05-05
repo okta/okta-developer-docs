@@ -10,47 +10,56 @@ title: Okta API Products Release Notes 2021
 |-----------------------------------------------------------------------------------------------------|--------------------------|
 | [Access-Control-Expose-Headers now available in CORS response](#access-control-expose-headers-now-available-in-cors-response) | May 5, 2021 |
 | [Administrator Roles API third-party admin status update](#administrator-roles-api-third-party-admin-status-update) | May 5, 2021 |
-| [Custom Group Profile Properties now in Early Access](#custom-group-profile-properties-now-in-early-access) | May 5, 2021 |
-| [Domains API is now GA in Preview](#domains-api-is-now-ga-in-preview) | May 5, 2021 |
+| [Custom Group Profile Properties is Self-Service EA in Preview](#custom-group-profile-properties-is-self-service-ea-in-preview) | May 5, 2021 |
+| [Domains API is GA in Preview](#domains-api-is-ga-in-preview) | May 5, 2021 |
 | [Domains API supports OAuth 2.0](#domains-api-supports-oauth-2-0) | May 5, 2021 |
 | [Okta Sign-In Widget, version 5.6.0](#okta-sign-in-widget-version-5-6-0) | May 5, 2021 |
-| [Refresh Token Rotation is now GA in Preview](#refresh-token-rotation-is-now-ga-in-preview) | May 5, 2021 |
-| [SAML parameter SessionNotOnOrAfter now available](#saml-parameter-sessionnotonorafter-now-available) | May 5, 2021 |
+| [Refresh Token Rotation is GA in Preview](#refresh-token-rotation-is-ga-in-preview) | May 5, 2021 |
+| [SAML parameter SessionNotOnOrAfter is GA in Preview](#saml-parameter-sessionnotonorafter-is-ga-in-preview) | May 5, 2021 |
 | [System Log API SCIM filter expression update](#system-log-api-scim-filter-expression-update) | May 5, 2021 |
 | [Bug fixed in 2021.05.0](#bug-fixed-in-2021-05-0)         | May 5, 2021 |
 
 #### Access-Control-Expose-Headers now available in CORS response
 
-The `Access-Control-Expose-Headers` header is now included in the response to an Okta CORS endpoint call. This header can be accessed by the cross-origin user agent and includes the following possible header names:  `Date`, `Link`, `X-Okta-Edge-Log`, `X-Okta-Request-Id`, `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Reset`. <!--OKTA-357710-->
+The `Access-Control-Expose-Headers` header is now included in the response to an Okta CORS endpoint call. This header can be accessed by the cross-origin user agent and includes the following possible header names:
+
+* `Date`
+* `Link`
+* `X-Okta-Edge-Log`
+* `X-Okta-Request-Id`
+* `X-Rate-Limit-Limit`
+* `X-Rate-Limit-Remaining`
+* `X-Rate-Limit-Reset`
+<!--OKTA-357710-->
 
 #### Administrator Roles API third-party admin status update
 
 The [Administrator Roles API](/docs/reference/api/roles/) has been updated to support third-party admin status for a user or a group without requiring a role assignment. See [Role assignment operations](/docs/reference/api/roles/#role-assignment-operations). <!--OKTA-381780-->
 
-#### Custom Group Profile Properties now in Early Access
+#### Custom Group Profile Properties is Self-Service EA in Preview
 
-The [Groups API](/docs/reference/api/groups/) can now manage [custom Group Profile properties](/docs/reference/api/groups/#custom-profile-properties) after these properties are added to the Group Profile schema. The [Schemas API](/docs/reference/api/schemas) includes a new [Groups Schema object](/docs/reference/api/schemas/#group-schema-object) and [operations](/docs/reference/api/schemas/#group-schema-operations) that support custom Group properties. You can use the Schemas API or the Profile Editor in the Admin Console to manage schema extensions. Custom Group Profile properties provide flexibility to manage the default profile for Okta groups in the Okta Admin Console Profile Editor or through the Schemas API. This new functionality simplifies group management and lets you quickly add, edit, or remove custom profile attributes to groups. <!--OKTA-389897-->
+[Custom Group Profile properties](/docs/reference/api/groups/#custom-profile-properties) has been released in Preview as Self-Service Early Access. The [Groups API](/docs/reference/api/groups/) can now manage [custom Group Profile properties](/docs/reference/api/groups/#custom-profile-properties) after these properties are added to the Group Profile schema. The [Schemas API](/docs/reference/api/schemas) includes a new [Groups Schema object](/docs/reference/api/schemas/#group-schema-object) and [operations](/docs/reference/api/schemas/#group-schema-operations) that support custom Group properties. You can use the Schemas API or the Profile Editor in the Admin Console to manage schema extensions. Custom Group Profile properties provide flexibility to manage the default profile for Okta groups in the Okta Admin Console Profile Editor or through the Schemas API. This new functionality simplifies group management and lets you quickly add, edit, or remove custom profile attributes to groups. <!--OKTA-389897-->
 
-#### Domains API is now GA in Preview
+#### Domains API is GA in Preview
 
-The [Domains API](/docs/reference/api/domains/) is now GA in Preview. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users see the same base URL for your application. <!--OKTA-386752-->
+The [Domains API](/docs/reference/api/domains/) is now Generally Available in Preview. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users can see the same base URL for your application. <!--OKTA-386752-->
 
 #### Domains API supports OAuth 2.0
 
-The [Domains API](/docs/reference/api/domains/) has been updated to support OAuth 2.0. You can grant access to the Domains API using the `okta.domains.manage` and the `okta.domains.read` scopes instead of using SSWS tokens. <!--OKTA-381286-->
+The [Domains API](/docs/reference/api/domains/) has been updated to support OAuth 2.0. You can grant access to the Domains API using the `okta.domains.manage` and the `okta.domains.read` scopes instead of using SSWS tokens. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/). <!--OKTA-381286-->
 
 #### Okta Sign-In Widget, version 5.6.0
 
 For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
 
-#### Refresh Token Rotation is now GA in Preview
+#### Refresh Token Rotation is GA in Preview
 
-[Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/) is now GA in Preview. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. When refresh token rotation behavior is enabled in Okta, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token.
+[Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/) is now Generally Available in Preview. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. When refresh token rotation behavior is enabled in Okta, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token.
 <!--OKTA-390933-->
 
-#### SAML parameter SessionNotOnOrAfter now available
+#### SAML parameter SessionNotOnOrAfter is GA in Preview
 
-The SAML parameter `SessionNotOnOrAfter` is now GA for SAML assertions and is available for use with Okta’s [SAML Inline Hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
+The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview for SAML assertions and is available for use with Okta’s [SAML Inline Hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
 
 #### System Log API SCIM filter expression update
 
@@ -116,7 +125,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### Domains API is now in EA in Preview
 
-The [Domains API](/docs/reference/api/domains/) is now in Early Access (EA) in Preview.
+The [Domains API](/docs/reference/api/domains/) is now in Early Access in Preview.
 
 #### Groups API extended search is now GA in Production
 

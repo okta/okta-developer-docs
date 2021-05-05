@@ -1041,7 +1041,7 @@ curl -v -X POST \
 
 <ApiLifecycle access="ea" />
 
-The [User Types](/docs/reference/api/user-types) feature doesn't extend to groups. All groups use the same [Group Schema](#group-schema-object). Thus, unlike the User Schema operations, the Group Schema operations all specify `default` and don't accept a Schema ID.
+The [User Types](/docs/reference/api/user-types) feature doesn't extend to groups. All groups use the same [Group Schema](#group-schema-object). Unlike User Schema operations, Group Schema operations all specify `default` and don't accept a Schema ID.
 
 ### Get Group Schema
 
@@ -1184,7 +1184,7 @@ curl -v -X GET \
 
 <ApiOperation method="post" url="/api/v1/meta/schemas/group/default" />
 
-Adds one or more [custom Group Profile properties](#group-profile-schema-property-object) to the group schema.
+Adds one or more [custom Group Profile Schema properties](#group-profile-schema-property-object) to the group schema.
 
 ##### Request parameters
 
@@ -1429,7 +1429,7 @@ The following response is only a subset of properties for brevity.
 
 <ApiOperation method="post" url="/api/v1/meta/schemas/group/default" />
 
-Removes one or more [custom Group Profile properties](#group-profile-schema-property-object) from the group schema.  Currently Okta does not support removing [base Group Profile properties](#group-profile-base-subschema).
+Removes one or more [custom Group Profile Schema properties](#group-profile-schema-property-object) from the group schema. Currently, Okta doesn't support removing [base Group Profile properties](#group-profile-base-subschema).
 
 ##### Request parameters
 
@@ -1438,7 +1438,7 @@ Removes one or more [custom Group Profile properties](#group-profile-schema-prop
 |:------------|:---------------------------------------------------------------|:-----------|:------------------------------------------------------------------|:---------|
 | definitions | Subschema with one or more custom Profile properties to remove | Body       | [Group Profile custom subschema](#group-profile-custom-subschema) | TRUE     |
 
-> **Note:** You must set properties explicitly to `null` to remove them from the Schema, as `POST` is interpreted as a partial update.
+> **Note:** Since `POST` is interpreted as a partial update, you must set properties explicitly to `null` to remove them from the Schema.
 
 ##### Response parameters
 
@@ -2135,7 +2135,7 @@ Specific property types support a subset of [JSON Schema validations](https://to
 
 <ApiLifecycle access="ea" />
 
-The [Group object](/docs/reference/api/groups/#group-object) Schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+The [Group object](/docs/reference/api/groups/#group-object) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
 
 > **Note:** The schema currently only defines the [Profile object](/docs/reference/api/groups/#profile-object).
 
@@ -2356,14 +2356,14 @@ Custom property names for the [Profile object](/docs/reference/api/groups/#profi
 
 #### Group Profile base subschema
 
-All Okta-defined Profile properties are defined in a Profile subschema with the resolution scope `#base`. These properties can't be removed or edited.  Attempting to do so anyway will have no effect.
+All Okta-defined Profile properties are defined in a Profile subschema with the resolution scope `#base`. These properties can't be removed or edited, regardless of any attempt to do so.
 
 The base Group Profile properties are as follows:
 
 | Property          | Description                                                                                                                  | DataType | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- |
-| name              | unique identifier for the Group                                                                                              | String   | FALSE    | TRUE   | FALSE    |           | 1024      |
-| description       | human readable description of the Group                                                                                      | String   | TRUE     | FALSE  | FALSE    |           | 1024      |
+| name              | Unique identifier for the Group                                                                                              | String   | FALSE    | TRUE   | FALSE    |           | 1024      |
+| description       | Human readable description of the Group                                                                                      | String   | TRUE     | FALSE  | FALSE    |           | 1024      |
 
 #### Group Profile custom subschema
 
@@ -2394,15 +2394,15 @@ Group Profile schema properties have the following standard [JSON Schema Draft 6
 
 | Property                       | Description                                | DataType                                          | Nullable | Unique | Readonly |
 |:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
-| title                          | user-defined display name for the property | String                                            | FALSE    | FALSE  | FALSE    |
-| description                    | description of the property                | String                                            | TRUE     | FALSE  | FALSE    |
-| type                           | type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | FALSE  | FALSE    |
-| enum                           | enumerated value of the property           | array                                             | TRUE     | TRUE   | FALSE    |
-| oneOf                          | non-empty array of valid JSON schemas      | array                                             | TRUE     | TRUE   | FALSE    |
+| title                          | User-defined display name for the property | String                                            | FALSE    | FALSE  | FALSE    |
+| description                    | Description of the property                | String                                            | TRUE     | FALSE  | FALSE    |
+| type                           | Type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | FALSE  | FALSE    |
+| enum                           | Enumerated value of the property           | Array                                             | TRUE     | TRUE   | FALSE    |
+| oneOf                          | Non-empty array of valid JSON schemas      | Array                                             | TRUE     | TRUE   | FALSE    |
 
 ##### Description Details
 
-* `enum`: The value of the property is limited to one of the values specified in the `enum` definition.  The list of values for `enum` has to be made up of unique elements.
+* `enum`: The value of the property is limited to one of the values specified in the `enum` definition. The list of values for `enum` must contain unique elements.
 
 * `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
 
@@ -2432,8 +2432,8 @@ Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-z
 
 | Property      | Description                                     | DataType                                                                  | Nullable | Unique | Readonly |
 | :------------- | :----------------------------------------------- | :------------------------------------------------------------------------- | :--------- | :------ | :-------- |
-| required      | determines whether the property is required     | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
-| scope         | determines whether a group attribute can be set at the individual or group level | `SELF`, `NONE`                           | FALSE    | FALSE  | TRUE     |
+| required      | Determines whether the property is required     | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
+| scope         | Determines whether a group attribute can be set at the individual or group level | `SELF`, `NONE`                           | FALSE    | FALSE  | TRUE     |
 
 > **Note:** A read-only [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) compliant `required` property is also available on [Group Profile subschemas](#group-profile-subschemas).
 
