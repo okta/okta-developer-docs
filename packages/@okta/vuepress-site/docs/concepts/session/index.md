@@ -38,13 +38,13 @@ For non-privileged access apps, such as a loyalty program catalog, sessions can 
 
 Local logout is the act of signing the user out of the app and terminating the application session. The user IdP session is still active and other application sessions aren't affected by terminating a specific local application session. Local logout is managed by the app. If the user wants to access the app again, they are automatically authenticated through the active IdP session into the app and the app creates a new session for the user.
 
-See [Sign users out of your app](/docs/guides/sign-users-out/-/sign-out-of-your-app/) for an example of a Local logout implementation with Okta.
+See [Sign users out of your app](/docs/guides/sign-users-out/-/sign-out-of-your-app/) for an example of a local logout implementation with Okta.
 
 #### Single logout
 
 Single logout is the act of signing the user out of the Okta IdP and ending the IdP session. Typically, the user is redirected to re-authenticate into Okta to start a new IdP session. Active application sessions for the user can still persist depending on the restrictive nature of the app. For non-privileged access apps, the user can still access the app within the scope of the application session. For example, a user can still browse through a catalog of vacation experiences and add to their cart. When this user is ready to check out and make a payment, the app can enforce a privileged access workflow and redirect the user to re-authenticate with the IdP to secure an IdP session as well as an application session.
 
-Apps within the Okta org can trigger a Single logout. See [Single Logout in applications](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Single_Logout.htm).
+Apps within the Okta org can trigger a single logout. See [Single Logout in applications](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Single_Logout.htm).
 
 <!--Refer to [https://docs.google.com/document/d/1BzWqBlR5s-n9Y5ieoBzuOBybqI7fecnxkXxO_Qp5k-c/edit#heading=h.9uxt38ijqwh] for logout implementations with the Okta Identity Engine.-->
 
