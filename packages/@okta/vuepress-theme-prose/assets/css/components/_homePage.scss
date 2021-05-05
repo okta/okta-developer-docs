@@ -90,7 +90,7 @@ $oktaGameSectionMainColor: #122a34;
 
   &--code-example {
     height: 500px;
-    background-color: cv('brand', 'dark');
+    background-color: cv("brand", "dark");
     border: 1.5px solid #2a4c63;
     border-radius: 10px;
     width: 100%;
@@ -232,7 +232,7 @@ $oktaGameSectionMainColor: #122a34;
 
     &-fill {
       flex: 1;
-      background-color: #1F3B54;
+      background-color: #1f3b54;
     }
 
     @include media("<tablet") {
@@ -256,14 +256,15 @@ $oktaGameSectionMainColor: #122a34;
       font-weight: normal;
     }
     p {
-      font-size: 1.5em;
-      line-height: 1.1em;
+      font-size: 1.3em;
+      line-height: 1.3em;
       max-width: 100%;
     }
     .play-now-btn {
       align-items: center;
       float: right;
       height: 44px;
+      line-height: 25px;
       padding: 10px 20px;
       border-radius: 3px;
       font-weight: 600;
