@@ -1,6 +1,5 @@
 <template>
-  <li :class="{ subnav: link.subLinks, hidden: hidden }">
-    <div class="link-wrap">
+  <li :class="{'link-wrap': true, 'subnav-active': link.iHaveChildrenActive, hidden: hidden }">
         <router-link
           v-if="link.path"
           :to="link.path"
@@ -12,15 +11,19 @@
             @click="navigate"
             :class="route.path === $route.path ? 'router-link-active' : ''"
             :aria-current="route.path === $route.path && 'page'"
-            ><slot>{{ link.title }}</slot></a
-          >
+            >
+            <slot>
+              <span class="text-holder">
+                {{ link.title }}
+              </span>
+            </slot>
+          </a>
         </router-link>
 
         <div
           v-else
           :class="{
-            'is-link': true,
-            'item-collapsable': true,
+            'tree-nav-link': true,
             'children-active': link.iHaveChildrenActive
           }"
           @click="toggleExpanded"
@@ -30,9 +33,10 @@
             'fa-chevron-right': link.subLinks && !sublinksExpanded,
             'fa-chevron-down': link.subLinks && sublinksExpanded,
              }"></i>
-          {{ link.title }}
+          <span class="text-holder">
+            {{ link.title }}
+          </span>
         </div>
-      </div>
 
     <ul v-if="link.subLinks" class="sections" v-show="sublinksExpanded">
       <SidebarItem

@@ -1,108 +1,44 @@
 .landing-navigation {
-  flex: 0 0 auto;
-  color: cv("action");
-  overflow-y: auto;
-  margin-bottom: 10px;
-
-  // @include media(">=tablet") {
-  //   top: 150px;
-  // }
-
-  .children-active {
-    font-weight: bold;
-  }
-
-  .router-link-active {
-    font-weight: bold;
-    border-left: 3px solid #dd2864;
-    margin-left: -1.2rem;
-    padding-left: 1rem;
-    padding-right: 0.65rem;
-    color: #dd2864;
-  }
-
-  .subnav > .link-wrap > .router-link-exact-active {
-    border-left: none;
-    padding-left: 1.2rem;
-    color: inherit;
-  }
-
-  .overview > .router-link-active {
-    font-weight: normal;
-  }
-
-  .overview > .router-link-exact-active {
-    font-weight: bold;
-  }
-
-  ul,
-  li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  li {
-    margin-bottom: 0.5rem;
-
-    &.subnav.open > .link-wrap > a {
-      padding-bottom: 0.4rem;
-    }
-
-    .link-wrap {
-      display: flex;
-
-      .item-collapsable {
-        display: flex;
+  .landing {
+    .sections {
+      margin-left: 1.5rem;
+      .link-wrap {
+        margin-bottom: 0.5rem;
+      }
+      .subnav-active {
+        .tree-nav-link {
+          color: #ffffff;
+        }
+      }
+      .tree-nav-link {
+        position: relative;
+        display: inline-flex;
         align-items: center;
-
-        svg {
-          flex-shrink: 0;
-          margin-right: 0.5em;
-          fill: currentColor;
-          height: 1em;
-          margin-left: -1.2rem;
-          &.open {
-            margin-top: -0.5rem;
-          }
+        justify-content: flex-start;
+        font-size: 1em;
+        text-decoration: none;
+        color: #b7bcc0;
+        cursor: pointer;
+        &:hover {
+          color: #dd2864;
+        }
+        &.children-active {
+          font-weight: bold;
+        }
+        &.router-link-active {
+          font-weight: bold;
+          color: #dd2864;
+        }
+        > span.text-holder {
+          margin-left: 20px;
+        }
+        > i.fa {
+          position: absolute;
+          left: 0;
         }
       }
     }
-
-    .open > a {
-      font-weight: bold;
-    }
   }
-
-  a {
-    color: cv("action");
-    font-size: 1em;
-    text-decoration: none;
-    display: block;
-    padding-right: 1.3rem;
-  }
-
-  .sections {
-    margin-left: 1.5rem;
-
-    .section {
-      color: cv("gray", "600");
-      font-size: 0.85rem;
-    }
-
-    .active {
-      font-weight: bold;
-
-      .highlight {
-        $indent: 20px;
-        border-bottom: 2px solid black;
-        background-color: #e5edfb;
-        margin-left: -0.5em;
-        padding-left: 0.5em;
-      }
-    }
-  }
-
   .hidden {
     display: none;
   }
