@@ -1,11 +1,11 @@
 <template>
   <div class="homepage container-fluid">
     <div class="row">
-      <div
+       <div
         class="col-xl-2 col-lg-2 d-none d-lg-block homepage--col-no-padding"
       >
-        <HomeSidebar />
-      </div>
+        <Sidebar/>
+      </div> 
       <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
         <div class="row justify-content-center">
           <div class="col-11 homepage--elevated">
@@ -144,20 +144,19 @@
 </template>
 
 <script>
-import CompanyLogos from "./CompanyLogos.vue";
-
 const SIDE_BY_SIDE_BREAKPOINT = 1200;
 
 export default {
   name: "Home",
   components: {
+    Sidebar: () => import("../components/Sidebar"),
     HomeSidebar: () => import("../components/HomeSidebar"),
     SelectorTile: () => import("../components/SelectorTile"),
     AssuranceItem: () => import("../components/AssuranceItem"),
     FrontPageWidget: () => import("../components/FrontPageWidget"),
     FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror"),
     CompanyLogos: () => import("../components/CompanyLogos"),
-    SmartLink: () => import("../components/SmartLink"),
+    SmartLink: () => import("../components/SmartLink")
   },
 
   data() {

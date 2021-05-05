@@ -63,10 +63,7 @@
   }
 
   .tree-nav {
-    background: #16272f;
     width: 22%;
-    padding: 3rem 0;
-    border-right: 1px solid #1f3746;
     overflow: scroll;
     position: sticky;
     top: 70px;
@@ -79,7 +76,6 @@
     @include media("<tablet") {
       flex-basis: 0;
       width: 40rem;
-
       .landing-navigation {
         display: none;
       }
