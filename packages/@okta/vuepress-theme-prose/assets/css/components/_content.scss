@@ -61,10 +61,10 @@
   .video-tutorial {
     max-width: 650px;
   }
-  
+
   .tree-nav {
     background: #16272f;
-    width: 25%;
+    width: 22%;
     padding: 3rem 0;
     border-right: 1px solid #1f3746;
     overflow: scroll;
@@ -74,10 +74,6 @@
     @include media(">=desktop") {
       flex-grow: 0;
       flex-shrink: 0;
-    }
-
-    @include media(">=tablet") {
-      width: 18rem;
     }
 
     @include media("<tablet") {

@@ -38,15 +38,10 @@ body {
 }
 
 [class$="--container"] {
-  // max-width: $container-width;
   margin: 0 auto;
   padding: 0em 1.5em;
   display: flex;
   justify-content: space-between;
-
-  @include media(">=desktop-xx-large") {
-    max-width: $container-width-desktop-large;
-  }
 }
 
 .fixed-header {
