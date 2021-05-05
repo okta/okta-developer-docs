@@ -26,8 +26,6 @@ REST endpoints to configure objects whenever you need. For example:
 - The [Policy API](/docs/reference/api/policy/) creates and manages settings such as a user's session lifetime.
 - The [Factors API](/docs/reference/api/factors/) is used to enroll, manage, and verify factors for multi-factor authentication (MFA).
 
-<hr>
-
 ## Versioning
 
 The Okta API is a versioned API. Okta reserves the right to add new parameters, properties, or objects to the API without advance notice. These updates are considered non-breaking and the compatibility rules below should be followed to ensure your application does not break. Breaking changes such as removing or renaming a property will be released as a new version of the API. Okta will provide a migration path for new versions of APIs and will communicate timelines for end-of-life when deprecating APIs.
