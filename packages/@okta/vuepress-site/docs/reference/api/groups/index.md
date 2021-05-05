@@ -1853,7 +1853,7 @@ Specifies required and optional properties for a Group. The `objectClass` of a G
 
 #### ObjectClass: okta:user_group
 
-Profile for any Group that is not imported from Active Directory.  Specifies [standard](#default-profile-properties) and [custom](#custom-profile-properties) profile properties for a group.
+Profile for any Group that is not imported from Active Directory.  Specifies [standard](#default-profile-properties) and [custom](#custom-profile-properties) profile properties for a Group.
 
 ##### Default Profile Properties
 
