@@ -30,3 +30,4 @@ Expressions allow you to reference, transform, and combine attributes before you
 SCIM is an industry-standard protocol for automating the exchange of user identity information and is part of the Okta Lifecycle Management feature. For example, as your company onboards employees, new user accounts are created in your application so they can connect immediately. Okta supports SCIM versions 1.1 and 2.0.
 
 [Learn more](/docs/reference/scim/)
+ 
