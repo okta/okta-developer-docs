@@ -1,8 +1,14 @@
 :not(pre)>code[class*=language-], pre[class*=language-] {
-  padding: 0.5rem;
+  padding: 0.5rem 0.5rem 2rem 0.5rem;
   background: #f4f4f4;
   margin-top: $base-spacing;
   margin-bottom: $base-spacing;
+
+  .code-copy {
+    height: 0px;
+    overflow: hidden;
+    user-select: none;
+  }
 }
 
 :not([class*=language-])>code {

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "9af1521a-4244-477f-898c-7bf6dcf0a3c0",
+		"_postman_id": "2a79df03-4a42-4505-bc4d-7f043fed1512",
 		"name": "Authorization Servers (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -258,6 +258,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

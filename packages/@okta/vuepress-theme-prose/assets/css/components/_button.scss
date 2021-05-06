@@ -71,7 +71,7 @@
 	cursor: pointer;
 	display: inline-block;
 	height: 45px;
-	line-height: 45px;
+	line-height: 43px;
 	padding: 0 20px;
 	text-decoration: none;
 
@@ -275,6 +275,22 @@
 	&:active,
 	&:hover {
 		background-color: cv('cerise');
+		border-color: cv('cerise');
+		color: cv('gray', '000');
+	}
+
+	&:visited {
+		color: cv('gray', '000');
+	}
+}
+
+.Button--redOutline {
+	@extend %Button;
+
+	&,
+	&:active,
+	&:hover {
+		background-color: transparent;
 		border-color: cv('cerise');
 		color: cv('gray', '000');
 	}

@@ -12,9 +12,7 @@ For an Okta Org Authorization Server, you can only create an ID token with a Gro
 
 ### Request an ID token that contains the Groups claim
 
-To obtain a token with the configured Groups claim, send a request for an ID token that includes the Groups claim as a scope to the authorization endpoint. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the claim</GuideLink>.
-
-> **Note:** The scopes that you need to include as query parameters are `openid` and `groups`.
+To obtain a token with the configured Groups claim, send a request for an ID token that includes the Groups claim as a scope to the authorization endpoint. The scopes that you need to include as query parameters are `openid` and `groups`. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the claim</GuideLink>.
 
 The resulting URL looks something like this:
 
@@ -26,6 +24,16 @@ curl -X GET \
 &redirect_uri=https%3A%2F%2Fexample.com
 &state=myState
 &nonce=yourNonceValue"
+```
+
+```bash
+curl --location --request GET 'https://${yourOktaDomain}/oauth2/v1/authorize?client_id=0oaiw2v8m6unWCvXM0h7
+&response_type=id_token
+&scope=openid%20groups
+&redirect_uri=https%3A%2F%2Fexample.com
+&state=myState
+&nonce=yourNonceValue' \
+--header 'Accept: application/json'
 ```
 
 The decoded JWT looks something like this:
@@ -53,7 +61,7 @@ The decoded JWT looks something like this:
 }
 ```
 
-The ID token contains the group **IT**, so the audience (`aud`) has access to the group information about the user.
+The ID token contains the group "IT", so the audience (`aud`) has access to the group information about the user.
 
 > **Note:** For flows other than implicit, post to the token endpoint `https://${yourOktaDomain}/oauth2/v1/token` with the user or client that you want. Make sure that the user is assigned to the app and to one of the Groups from your allow list.
 

@@ -39,6 +39,9 @@ tiles:
       - name: Vue.js
         link: /docs/guides/sign-into-spa/vue/before-you-begin/
         image: /img/homepage/stackselectors/vue.png
+      - name: Blazor WebAssembly
+        link: /docs/guides/sign-into-spa/blazorwebasm/before-you-begin/
+        image: /img/homepage/stackselectors/dotnet.png
   - name: Native App
     link: /docs/guides/sign-into-mobile-app/
     items:
@@ -72,7 +75,7 @@ tiles:
 
 assurances:
   - title: Compliant Out of the Box
-    description: with HIPAA, FedRamp, SOC and more, we have you covered
+    description: with HIPAA, FedRamp, and SOC environments available, we have you covered
     image: /img/homepage/compliance-out-of-box.png
   - title: 99.99% Uptime
     description: so your apps are working even when you’re not

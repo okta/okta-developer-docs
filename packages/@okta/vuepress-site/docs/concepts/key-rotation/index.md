@@ -5,7 +5,7 @@ title: Key Rotation
 
 Key rotation is when a signing key is retired and replaced by generating a new cryptographic key. Rotating keys on a regular basis is an industry standard and follows cryptographic best practices.
 
-> **Note:** The current Okta key rotation schedule is four times a year, but can change without notice.
+> **Note:** The current Okta key rotation schedule is four times a year, but can change without notice. New keys are normally generated a few weeks before the rotation occurs to ensure that downstream customer caching mechanisms are updated before the rotation occurs.
 
 If you are using a Custom Authorization Server, configure and perform key rollover/rotation at the [Authorization Server level](/docs/reference/api/authorization-servers/#credentials-object).
 
@@ -19,7 +19,7 @@ If you are using the Org Authorization Server, configure and perform key rollove
 
 * Okta always publishes keys to the `jwks_uri`.
 
-* To save the network round trip, your app should cache the `jwks_uri` response locally. The [standard HTTP caching headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) are used and should be respected.
+* To save the network round trip, cache the `jwks_uri` response locally with respect to the directives in the [standard HTTP Cache-Control headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control). The cache-control directives are relative to the time of the request. If you make a request as the safe cache period ends, Okta returns the `no-cache` directive to ensure that you don't cache keys that will soon expire.
 
 * You can switch the Authorization Server key rotation mode by updating the Authorization Server's `rotationMode` property. For more information see the API Reference: [Authorization Server Credentials Signing Object](/docs/reference/api/authorization-servers/#credentials-object).
 

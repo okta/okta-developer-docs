@@ -11,7 +11,7 @@ The Okta Features API provides operations to manage self-service Early Access (E
 
 ## Get started
 
-Explore the Features API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c8436aac9c9f4966dc8d)
+Explore the Features API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e5d2bf83976120cb4546)
 
 ## Feature operations
 
@@ -636,7 +636,7 @@ If a Feature's stage `value` is `EA`, the `state` is `null` and not returned. If
 
 ### Links object
 
-Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a Feature. The Links object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only and returned within a Feature object.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current status of a Feature. The Links object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only and returned within a Feature object.
 
 #### Link properties
 

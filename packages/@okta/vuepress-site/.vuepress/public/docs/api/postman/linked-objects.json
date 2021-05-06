@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "85c3e09a-8457-424d-41e5-441404d0fff1",
+		"_postman_id": "4f91c6e2-e55b-4f7a-a3e5-df25010ba079",
 		"name": "Linked Objects (Okta API)",
 		"description": "Operations involving Linked Object properties.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -28,7 +28,20 @@
 					"mode": "raw",
 					"raw": "{\n  \"primary\": {\n        \"name\": \"{{primary}}\",\n        \"title\": \"Manager\",\n        \"description\": \"Unique manager of a user\",\n        \"type\": \"USER\"\n    },\n    \"associated\": {\n        \"name\": \"{{associated}}\",\n        \"title\": \"Subordinate\",\n        \"description\": \"One of possibly many subordinates of a user\",\n        \"type\": \"USER\"\n    }\n}"
 				},
-				"url": "{{url}}/api/v1/meta/schemas/user/linkedObjects"
+				"url": {
+					"raw": "{{url}}/api/v1/meta/schemas/user/linkedObjects",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"schemas",
+						"user",
+						"linkedObjects"
+					]
+				}
 			},
 			"response": []
 		},
@@ -50,11 +63,21 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": "{{url}}/api/v1/meta/schemas/user/linkedObjects/{{primary}}"
+				"url": {
+					"raw": "{{url}}/api/v1/meta/schemas/user/linkedObjects/{{primary}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"schemas",
+						"user",
+						"linkedObjects",
+						"{{primary}}"
+					]
+				}
 			},
 			"response": []
 		},
@@ -76,11 +99,21 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": "{{url}}/api/v1/meta/schemas/user/linkedObjects/{{associated}}"
+				"url": {
+					"raw": "{{url}}/api/v1/meta/schemas/user/linkedObjects/{{associated}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"schemas",
+						"user",
+						"linkedObjects",
+						"{{associated}}"
+					]
+				}
 			},
 			"response": []
 		},
@@ -102,11 +135,20 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": "{{url}}/api/v1/meta/schemas/user/linkedObjects"
+				"url": {
+					"raw": "{{url}}/api/v1/meta/schemas/user/linkedObjects",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"schemas",
+						"user",
+						"linkedObjects"
+					]
+				}
 			},
 			"response": []
 		},
@@ -132,7 +174,21 @@
 					"mode": "raw",
 					"raw": "{\n  \"reverse\": \"children\"\n}"
 				},
-				"url": "{{url}}/api/v1/meta/schemas/user/linkedObjects/{{primary}}"
+				"url": {
+					"raw": "{{url}}/api/v1/meta/schemas/user/linkedObjects/{{primary}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"schemas",
+						"user",
+						"linkedObjects",
+						"{{primary}}"
+					]
+				}
 			},
 			"response": []
 		},
@@ -158,7 +214,21 @@
 					"mode": "raw",
 					"raw": "{\n  \"reverse\": \"children\"\n}"
 				},
-				"url": "{{url}}/api/v1/meta/schemas/user/linkedObjects/{{associated}}"
+				"url": {
+					"raw": "{{url}}/api/v1/meta/schemas/user/linkedObjects/{{associated}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"meta",
+						"schemas",
+						"user",
+						"linkedObjects",
+						"{{associated}}"
+					]
+				}
 			},
 			"response": []
 		},
@@ -184,7 +254,21 @@
 					"mode": "raw",
 					"raw": ""
 				},
-				"url": "{{url}}/api/v1/users/{{userId}}/linkedObjects/{{primary}}/{{targetId}}"
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/linkedObjects/{{primary}}/{{targetId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"linkedObjects",
+						"{{primary}}",
+						"{{targetId}}"
+					]
+				}
 			},
 			"response": []
 		},
@@ -206,11 +290,20 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": "{{url}}/api/v1/users/{{userId}}/linkedObjects/{{primary}}"
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/linkedObjects/{{primary}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"linkedObjects",
+						"{{primary}}"
+					]
+				}
 			},
 			"response": []
 		},
@@ -232,11 +325,20 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": "{{url}}/api/v1/users/{{targetId}}/linkedObjects/{{associated}}"
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{targetId}}/linkedObjects/{{associated}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{targetId}}",
+						"linkedObjects",
+						"{{associated}}"
+					]
+				}
 			},
 			"response": []
 		},
@@ -262,7 +364,20 @@
 					"mode": "raw",
 					"raw": ""
 				},
-				"url": "{{url}}/api/v1/users/{{userId}}/linkedObjects/{{primary}}"
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/linkedObjects/{{primary}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"linkedObjects",
+						"{{primary}}"
+					]
+				}
 			},
 			"response": []
 		}

@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "45d68b5a-3879-4b8a-b766-64720240ec64",
+		"_postman_id": "72792a40-e8df-4658-aa90-cfafb4c5c940",
 		"name": "Users (Okta API)",
 		"description": "The [Okta User API](/docs/api/rest/users.html) provides operations to manage users in your organization.",
-		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
@@ -457,7 +457,18 @@
 							"mode": "raw",
 							"raw": "{\n  \"credentials\": {\n    \"password\" : { \"value\": \"{{password}}\" }\n  }\n}"
 						},
-						"url": "{{url}}/api/v1/users/{{userId}}"
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -483,7 +494,20 @@
 							"mode": "raw",
 							"raw": "{\n  \"oldPassword\": { \"value\": \"{{password}}\" },\n  \"newPassword\": { \"value\": \"uTVM,TPw55\" }\n}"
 						},
-						"url": "{{url}}/api/v1/users/{{userId}}/credentials/change_password"
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/credentials/change_password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"credentials",
+								"change_password"
+							]
+						}
 					},
 					"response": []
 				},
@@ -509,7 +533,18 @@
 							"mode": "raw",
 							"raw": "{\n  \"credentials\": {\n    \"recovery_question\": {\n      \"question\": \"Who's a major player in the cowboy scene?\",\n      \"answer\": \"Annie Oakley\"\n    }\n  }\n}"
 						},
-						"url": "{{url}}/api/v1/users/{{userId}}"
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}"
+							]
+						}
 					},
 					"response": []
 				},
@@ -535,7 +570,20 @@
 							"mode": "raw",
 							"raw": "{\n  \"password\": { \"value\": \"{{password}}\" }, \n    \"recovery_question\": {\n      \"question\" : \"What happens when I update my question\",\n      \"answer\": \"My recovery credentials are updated\" \n    } \n}"
 						},
-						"url": "{{url}}/api/v1/users/{{userId}}/credentials/change_recovery_question"
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/credentials/change_recovery_question",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"credentials",
+								"change_recovery_question"
+							]
+						}
 					},
 					"response": []
 				},
@@ -701,7 +749,20 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/api/v1/users/{{userId}}/lifecycle/deactivate"
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/lifecycle/deactivate",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"lifecycle",
+								"deactivate"
+							]
+						}
 					},
 					"response": []
 				},
@@ -727,7 +788,20 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/api/v1/users/{{userId}}/lifecycle/unlock"
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/lifecycle/unlock",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"lifecycle",
+								"unlock"
+							]
+						}
 					},
 					"response": []
 				},
@@ -753,7 +827,20 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/api/v1/users/{{userId}}/lifecycle/expire_password"
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/lifecycle/expire_password",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"lifecycle",
+								"expire_password"
+							]
+						}
 					},
 					"response": []
 				},
@@ -869,7 +956,20 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/api/v1/users/{{userId}}/lifecycle/suspend"
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/lifecycle/suspend",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"lifecycle",
+								"suspend"
+							]
+						}
 					},
 					"response": []
 				},
@@ -895,7 +995,20 @@
 							"mode": "raw",
 							"raw": ""
 						},
-						"url": "{{url}}/api/v1/users/{{userId}}/lifecycle/unsuspend"
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}/lifecycle/unsuspend",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}",
+								"lifecycle",
+								"unsuspend"
+							]
+						}
 					},
 					"response": []
 				},
@@ -920,11 +1033,18 @@
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": "{{url}}/api/v1/users/{{userId}}"
+						"url": {
+							"raw": "{{url}}/api/v1/users/{{userId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"{{userId}}"
+							]
+						}
 					},
 					"response": []
 				}
@@ -951,10 +1071,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/users?limit=25",
 							"host": [
@@ -993,10 +1109,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/users?search=profile.department eq \"Engineering\" ",
 							"host": [
@@ -1035,10 +1147,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/users?filter=status eq \"ACTIVE\" and lastUpdated gt \"2014-02-01T00:00:00.000Z\"&limit=25",
 							"host": [
@@ -1081,10 +1189,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/users?filter=status eq \"ACTIVE\"&limit=25",
 							"host": [
@@ -1127,10 +1231,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/users?filter=status eq \"PROVISIONED\"&limit=25",
 							"host": [
@@ -1173,10 +1273,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/users?filter=status eq \"STAGED\"&limit=25",
 							"host": [
@@ -1219,10 +1315,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/users?filter=status eq \"RECOVERY\"&limit=25",
 							"host": [
@@ -1265,10 +1357,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/users?filter=status eq \"DEPROVISIONED\"&limit=25",
 							"host": [
@@ -1311,10 +1399,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/users?filter=status eq \"PASSWORD_EXPIRED\"&limit=25",
 							"host": [
@@ -1357,10 +1441,6 @@
 								"value": "SSWS {{apikey}}"
 							}
 						],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
 						"url": {
 							"raw": "{{url}}/api/v1/users?filter=status eq \"LOCKED_OUT\"&limit=25",
 							"host": [
@@ -1405,8 +1485,24 @@
 						"value": "SSWS{{apikey}}"
 					}
 				],
-				"body": {},
-				"url": "{{url}}/api/v1/users/{{userId}}/lifecycle/reset_factors"
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/lifecycle/reset_factors",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"lifecycle",
+						"reset_factors"
+					]
+				}
 			},
 			"response": []
 		},
@@ -1428,11 +1524,18 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": "{{url}}/api/v1/users/{{userId}}"
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}"
+					]
+				}
 			},
 			"response": []
 		},
@@ -1454,11 +1557,18 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": "{{url}}/api/v1/users/me"
+				"url": {
+					"raw": "{{url}}/api/v1/users/me",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"me"
+					]
+				}
 			},
 			"response": []
 		},
@@ -1480,11 +1590,19 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": "{{url}}/api/v1/users/{{userId}}/appLinks"
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/appLinks",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"appLinks"
+					]
+				}
 			},
 			"response": []
 		},
@@ -1506,11 +1624,19 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": "{{url}}/api/v1/users/{{userId}}/groups"
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/groups",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"groups"
+					]
+				}
 			},
 			"response": []
 		},
@@ -1532,10 +1658,6 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "{{url}}/api/v1/users?q=susan&limit=1",
 					"host": [
@@ -1589,8 +1711,23 @@
 						"value": "SSWS {{apikey}}"
 					}
 				],
-				"body": {},
-				"url": "{{url}}/api/v1/users/{{userId}}/sessions"
+				"body": {
+					"mode": "formdata",
+					"formdata": []
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/users/{{userId}}/sessions",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"users",
+						"{{userId}}",
+						"sessions"
+					]
+				}
 			},
 			"response": []
 		}

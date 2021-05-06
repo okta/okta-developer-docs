@@ -1,5 +1,5 @@
 ---
-title: Okta-hosted Flows
+title: Okta-hosted flows
 ---
 
 # Okta-hosted flows

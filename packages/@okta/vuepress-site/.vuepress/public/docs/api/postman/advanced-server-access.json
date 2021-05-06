@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bea08412-201e-4ffa-a54f-b808105a8db7",
+		"_postman_id": "8d3e2dbb-9a2a-4388-ac92-1b8a83581dd3",
 		"name": "Advanced Server Access API",
 		"description": "The Advanced Server Access API is a control plane API for operations in Okta Advanced Server Access (formerly ScaleFT)\n\nContact Support:\n Name: Okta Support\n Email: support@okta.com",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -118,8 +118,7 @@
 						}
 					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "article:clients",
@@ -495,8 +494,7 @@
 						}
 					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "article:entitlements",
@@ -932,8 +930,7 @@
 						}
 					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "article:groups",
@@ -1857,8 +1854,7 @@
 						}
 					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "article:attributes",
@@ -2493,8 +2489,7 @@
 						}
 					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "article:projects",
@@ -5136,8 +5131,7 @@
 						}
 					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "article:teams",
@@ -5519,8 +5513,7 @@
 						}
 					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "article:service-users",
@@ -6228,8 +6221,7 @@
 						}
 					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "article:users",
@@ -6657,8 +6649,7 @@
 						}
 					]
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		}
 	],
 	"auth": {
@@ -6666,11 +6657,9 @@
 	},
 	"variable": [
 		{
-			"id": "baseUrl",
 			"key": "baseUrl",
 			"value": "https://app.scaleft.com",
 			"type": "string"
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

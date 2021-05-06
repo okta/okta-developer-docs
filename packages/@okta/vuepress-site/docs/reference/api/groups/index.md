@@ -9,7 +9,7 @@ The Okta Groups API provides operations to manage Okta Groups and their user mem
 
 ## Get started with the Groups API
 
-Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5dbb338ac908fb32035c)
+Explore the Groups API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e2c0074faecec203e487)
 
 ## Group operations
 
@@ -1933,7 +1933,7 @@ Profile for a Group that is imported from Active Directory
 
 ### Links object
 
-Specifies link relations. See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the Group using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.
+Specifies link relations. See [Web Linking](http://tools.ietf.org/html/rfc8288) available for the Group using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.
 
 | Link Relation Type | Description                                                                                                                                     |
 | ------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------- |

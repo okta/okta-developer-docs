@@ -19,22 +19,22 @@ Add a Groups custom claim for an ID token or access token in a Custom Authorizat
 
 Now, when you mint a token, Groups in the `groupallowlist` that also have the user as a member are included in the Groups claim.
 
+> **Note:** You can validate that your expression returns the results expected using the **Token Preview** tab.
+
 ### Request an access token that contains the Groups claim
 
-To obtain an access token with the configured Groups claim, send a request to the authorization endpoint for an access token that includes the Groups claim as a scope. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the claim</GuideLink>.
-
-> **Note:** The scopes that you need to include as query parameters are `openid` and `groups`.
+To obtain an access token with the configured Groups claim, send a request to the authorization endpoint for an access token that includes the Groups claim as a scope. The scopes that you need to include as query parameters are `openid` and `groups`. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the claim</GuideLink>.
 
 The resulting URL looks something like this:
 
 ```bash
-curl -X GET
-"https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize?client_id=xamplefa39J4jXdcCwWA
+curl --location --request GET 'https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize?client_id=0oaiw2v8m6unWCvXM0h7
 &response_type=token
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2Fexample.com
-&nonce=yourNonceValue
-&state=myState"
+&state=myState
+&nonce=yourNonceValue' \
+--header 'Accept: application/json'
 ```
 
 > **Note:** The claim was configured to work with all scopes. If you specify only certain scopes to return the claim, you need to specify one of them in the request.

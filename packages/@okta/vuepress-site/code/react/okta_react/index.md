@@ -6,13 +6,20 @@ excerpt: Integrate Okta with a React app using Auth JS.
 ---
 
 This guide will walk you through integrating authentication into a React app with Okta by performing these steps:
-1. [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
-2. [Create a React App](#create-a-react-app)
-3. [Install Dependencies](#install-dependencies)
-4. [Create a Custom Sign-In Form](#create-a-custom-sign-in-form)
-5. [Create Routes](#create-routes)
-6. [Connect the Routes](#connect-the-routes)
-7. [Start Your App](#start-your-app)
+- [Prerequisites](#prerequisites)
+- [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
+- [Create a React App](#create-a-react-app)
+- [Install Dependencies](#install-dependencies)
+- [Create a Custom Sign-In Form](#create-a-custom-sign-in-form)
+- [Create Routes](#create-routes)
+  - [`/`](#)
+  - [`/protected`](#protected)
+  - [`/login`](#login)
+  - [`/login/callback`](#logincallback)
+  - [Connect the Routes](#connect-the-routes)
+- [Start your app](#start-your-app)
+- [Conclusion](#conclusion)
+- [Support](#support)
 
 > This guide is for `@okta/okta-auth-js` v4.5.2 and `@okta/okta-react` v4.1.0.
 
@@ -462,4 +469,4 @@ You have now successfully authenticated with Okta! Now what? With a user's `id_t
 Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/react/before-you-begin/' data-proofer-ignore>React How To Guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 
 ## Support
-Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).
