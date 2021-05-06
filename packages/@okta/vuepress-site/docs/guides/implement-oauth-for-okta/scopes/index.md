@@ -17,8 +17,8 @@ The following table shows the scopes that are currently available:
 | `okta.clients.manage`    | Allows the app to manage all OAuth/OIDC clients and to create new clients| [Dynamic Client Registration API](/docs/reference/api/oauth-clients/)|
 | `okta.clients.read`      | Allows the app to read information for all OAuth/OIDC clients           | [Dynamic Client Registration API](/docs/reference/api/oauth-clients/)|
 | `okta.clients.register`  | Allows the app to register (create) new OAuth/OIDC clients (but not read information about existing clients)| [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#register-new-client) |
-| `okta.domain.manage`  | Allows the app to create and manage Domains in your Okta organization| [Domains API](/docs/reference/api/domains/) |
-| `okta.domain.read`  | Allows the app to read information about Domains in your Okta organization| [Domains API](/docs/reference/api/domains/) |
+| `okta.domains.manage`  | Allows the app to create and manage Domains in your Okta organization| [Domains API](/docs/reference/api/domains/) |
+| `okta.domains.read`  | Allows the app to read information about Domains in your Okta organization| [Domains API](/docs/reference/api/domains/) |
 | `okta.eventHooks.manage` | Allows the app to create and manage Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
 | `okta.eventHooks.read`   | Allows the app to read information about Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
 | `okta.factors.manage`    | Allows the app to manage all admin operations for org factors (for example, activate, deactive, read)| [Factors Administration Operations](/docs/reference/api/factor-admin/#factors-administration-operations)|
