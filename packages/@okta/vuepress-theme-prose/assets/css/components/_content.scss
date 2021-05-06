@@ -216,6 +216,7 @@
     }
 
     div[class^='language-'] {
+      position: relative;
       @include media('>=tablet') {
         td img {
           width:100%;

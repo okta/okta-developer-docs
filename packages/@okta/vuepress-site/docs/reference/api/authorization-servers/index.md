@@ -15,7 +15,7 @@ Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including ac
 
 ## Get Started
 
-Explore the Authorization Servers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6e58e52a03637c290665)
+Explore the Authorization Servers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3db644315e549633361a)
 
 This page also has information about the [OAuth 2.0 Objects](#oauth-20-objects) related to these operations.
 

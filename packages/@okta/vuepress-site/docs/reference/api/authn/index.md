@@ -37,7 +37,7 @@ Trusted applications are backend applications that act as authentication broker 
 2. For more advanced use cases, learn [the Okta API basics](/code/rest/).
 3. Explore the Authentication API:
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6f4f9ca4145db4d80270)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/41c71ad6815e708b504a))
 
 ## Authentication operations
 
@@ -617,6 +617,7 @@ Authenticates a user via a [trusted application](#trusted-application) or proxy 
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` is ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The ```Authorization: SSWS ${api_token}``` header is optional, in case of a SPA (Single Page app) this header can be omitted. 
 
 ##### Request example for activation token
 
@@ -7276,7 +7277,7 @@ The following table shows the possible values for this property:
 
 ### Links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current [transaction state](#transaction-state) using the [JSON](https://tools.ietf.org/html/rfc7159) specification. These links are used to transition the [state machine](#transaction-state) of the authentication or recovery transaction.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current [transaction state](#transaction-state) using the [JSON](https://tools.ietf.org/html/rfc7159) specification. These links are used to transition the [state machine](#transaction-state) of the authentication or recovery transaction.
 
 The Links object is read-only.
 
@@ -7550,7 +7551,7 @@ TOTP factors, when activated, have an embedded verification object that describe
 
 ###### TOTP activation links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the TOTP activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the TOTP activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
 
 | Link Relation Type | Description                                                              |
 | ------------------ | ------------------------------------------------------------------------ |
@@ -7627,7 +7628,7 @@ Push factors must complete activation on the device by scanning the QR code or v
 
 ###### Push Factor activation links object
 
-Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the push Factor activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the push Factor activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
 
 | Link Relation Type | Description                                                                              |
 | ------------------ | ---------------------------------------------------------------------------------------- |
@@ -7636,7 +7637,7 @@ Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 ##### Factor links object
 
-Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the Factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the Factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
 
 The Factor Links object is read-only.
 

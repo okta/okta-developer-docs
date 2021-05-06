@@ -1,5 +1,5 @@
 ---
-title: Okta API Products Release Notes
+title: Okta API Products Release Notes 2018
 ---
 
 ## December
@@ -800,7 +800,7 @@ The following features have already been released as Early Access. To enable the
 
 #### ID Tokens Can Be Refreshed
 
-OpenID Connect ID tokens can now be retrieved using a refresh token. For more information, see our [Open ID Connect Reference](/docs/reference/api/oidc/).
+OpenID Connect ID tokens can now be retrieved using a refresh token. For more information, see our [OpenID Connect Reference](/docs/reference/api/oidc/).
 
 #### Custom URL Domains are in Early Access
 

@@ -1,6 +1,6 @@
 {
   "name": "@okta/vuepress-site",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0",
   "description": "NPM dependencies for testing and building developer.okta.com",
   "files": [
     "dist"
@@ -32,12 +32,13 @@
     "esm": "^3.0.0",
     "js-yaml": "^3.13.1",
     "markdown-it": "^7.0.1",
-    "markdown-it-attrs": "2.3.2",
+    "markdown-it-attrs": "4.0.0",
     "node-sass": "^4.9.4",
     "sass-loader": "^7.1.0",
     "string-replace-loader": "^2.2.0",
     "vue": "^2.0.0",
     "vue-select": "^3.4.0",
+    "vuepress-plugin-code-copy": "^1.0.6",
     "vuepress-plugin-robots": "^1.0.1",
     "vuepress-plugin-sitemap": "^2.1.2",
     "webpack": "^3.0.0",

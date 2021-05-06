@@ -9,7 +9,7 @@ The Okta Application API provides operations to manage applications and/or assig
 
 ## Get started
 
-Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/377eaf77fdbeaedced17)
+Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/be7367401f4926a945f8)
 
 ## Application operations
 
@@ -1538,7 +1538,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 | expand    | Traverses the `users` link relationship and optionally embeds the [Application User](#application-user-object) resource   | Query      | String   | FALSE    |         |
 | filter    | Filters apps by `status`, `user.id`, `group.id` or `credentials.signing.kid` expression                          | Query      | String   | FALSE    |         |
 | limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
-| q         | Searches the `name` or `label` property of applications                                                          | Query      | String   | FALSE    |         |
+| q         | Searches the `name` or `label` property of applications using `startsWith` that matches what the string starts with to the query                              | Query      | String   | FALSE    |         |
 
 The results are [paginated](/docs/reference/api-overview/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
@@ -5705,7 +5705,7 @@ curl -v -X PUT \
 The Idp-Initiated Login object is used to configure what, if any, Idp-Initiated Login flows that an OAuth Client supports.
 
 | Property      | Description                                           | DataType                   | Nullable |
-| ------------- | ----------------------------------------------------- | -------------------------- | -------- | 
+| ------------- | ----------------------------------------------------- | -------------------------- | -------- |
 | mode          | What mode to use for Idp-Initiated Login              | `DISABLED`, `SPEC`, `OKTA` | FALSE    |
 | default_scope | What scopes to use for the request when mode = `OKTA` | List of String             | TRUE     |
 
@@ -5825,7 +5825,7 @@ curl -v -X POST \
                 "https://example.com/oauth2/callback",
                 "myapp://callback"
             ],
-            "wildcard_redirect": "DISABLED",	    
+            "wildcard_redirect": "DISABLED",
             "post_logout_redirect_uris": [
                 "https://example.com/oauth2/postLogoutRedirectUri"
             ],
@@ -6481,7 +6481,7 @@ Specifies a password for a user. A password value is a **write-only** property. 
 
 ### Application Links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.  The Links object is **read-only**.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations.  The Links object is **read-only**.
 
 | Link Relation Type | Description                                                                                |
 | ------------------ | ------------------------------------------------------------------------------------------ |
@@ -6553,10 +6553,10 @@ Specifies (optional) attribute statements for a SAML application
 
 Specifies the Single Logout (SLO) behavior for a Custom SAML application
 
-| Property  | Description                                                                  | Datatype | Nullable | 
-| --------- | ---------------------------------------------------------------------------- | -------- | -------- | 
-| enabled   | Whether the application supports SLO                                         | Boolean  | FALSE    | 
-| issuer    | The issuer of the Service Provider that generates the Single Logout request  | String   | TRUE     | 
+| Property  | Description                                                                  | Datatype | Nullable |
+| --------- | ---------------------------------------------------------------------------- | -------- | -------- |
+| enabled   | Whether the application supports SLO                                         | Boolean  | FALSE    |
+| issuer    | The issuer of the Service Provider that generates the Single Logout request  | String   | TRUE     |
 | logoutUrl | The location where the logout response is sent                               | String   | TRUE     |
 
 ```json

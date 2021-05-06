@@ -23,7 +23,7 @@ The Policy API supports the following **Rule operations**:
 
 ## Getting started
 
-Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7c7660f56191450a27aa)
+Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5413fd90e946001c74e8)
 
 ## Policy API operations
 
@@ -583,7 +583,7 @@ The Conditions object specifies the conditions that must be met during Policy ev
 
 ### Links object
 
-Specifies Link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current Policy. The Links object is used for dynamic discovery of related resources. The Links object is **read-only**.
+Specifies Link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current Policy. The Links object is used for dynamic discovery of related resources. The Links object is **read-only**.
 
 | Parameter  | Description                                                                     | Data Type | Required |
 | ---        | ---                                                                             | ---       | ---      |
@@ -697,7 +697,7 @@ The Conditions object specifies the conditions that must be met during Policy ev
 
 ### Links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current Rule. The Links object is used for dynamic discovery of related resources. The Links object is **read-only**.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current Rule. The Links object is used for dynamic discovery of related resources. The Links object is **read-only**.
 
 | Parameter  | Description                                                              | Data Type | Required |
 | ---        | ---                                                                      | ---       | ---      |

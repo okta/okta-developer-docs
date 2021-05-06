@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "bba52d37-aafc-42d0-a5dd-d03e72e4def2",
+		"_postman_id": "8bd8be89-dbd1-4af4-b775-c64a0bded98e",
 		"name": "Event Hooks (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -265,7 +265,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "cbfb7212-0484-416f-9637-577ef06b7418",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -275,13 +274,11 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "3f9af714-d6ee-4699-8462-c8136192353f",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

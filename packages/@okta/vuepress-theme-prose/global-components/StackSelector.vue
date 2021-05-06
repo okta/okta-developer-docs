@@ -1,6 +1,6 @@
 <template>
-  <div class="stack-selector" v-if="options.length">
-    <div class="selector-control">
+  <div :class="{ 'stack-selector': !noSelector, 'no-selector': noSelector, 'display-inline': inline }" v-if="options.length">
+    <div class="selector-control" v-if="!noSelector">
       <span class="instructions-label">
         Instructions for
       </span>
@@ -33,7 +33,20 @@
   import { getGuidesInfo, guideFromPath } from '../util/guides';
   export default {
     name: 'StackSelector',
-    props: [ 'snippet' ],
+    props: {
+      snippet: {
+        type: String,
+        required: true,
+      },
+      noSelector: {
+        type: Boolean,
+        default: false,
+      },
+      inline: {
+        type: Boolean,
+        default: false,
+      },
+    },
     data() { 
       return { 
         offsetFromViewport: null,
@@ -115,5 +128,16 @@
   .no-stack-content { 
     border: 1px solid #d66;
     padding: 10px;
+  }
+  .display-inline {
+    display: inline;
+
+    .stack-content {
+      display: inline;
+
+      & > div, & /deep/ p {
+        display: inline;
+      }
+    }
   }
 </style>
