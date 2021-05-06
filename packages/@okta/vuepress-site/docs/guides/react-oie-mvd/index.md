@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This document walks you through setting up Okta's [React sample app](https://github.com/okta/samples-js-react) to demonstrate some Identity engine features. The React app redirects to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
+This document walks you through setting up Okta's [React sample app](https://github.com/okta/samples-js-react) to demonstrate some Identity Engine features. The React app redirects to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
 
 * [Simple enrollment and authentication](#simple-enrollment-and-authentication)
 * [Add MFA with a mandatory second factor](#add-mfa-with-a-mandatory-second-factor)
@@ -22,31 +22,27 @@ Before we begin, you need to create an Okta OAuth app to represent the React sam
 2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
 3. From the Add Application page, click **Create New App**.
 4. In the dialog box that appears, select **Single Page App (SPA)** as your Platform, then click **Create**.
-5. Fill out the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
+5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
 
     * **Login redirect URIs** &mdash; `http://localhost:8080/login/callback`
     * **Logout redirect URIs** &mdash; `http://localhost:8080/`
 
-6. On the page for your new Application, select the **Assignments** tab.
-7. Click **Assign**, and then select **Assign to Groups**.
-8. In the dialog box that appears, select **Assign** for the **Everyone** group, and then click **Done**. This assignment isn't mandatory, but necessary for the purposes of this example. The app must be assigned either to the **Everyone** Group or a custom Group that you create, so that the profile enrollment functions correctly.
-9. On the **General** tab, copy the **Client ID** from the **Client Credentials** section. You need to add this ID to the `testenv` file in a few steps.
-10. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
-11. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
-12. Select the **CORS** check box and click **Save**.
-13. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-js-react.git`.
-14. Create a `testenv` file in the new `samples-js-react` directory with the following contents:
+6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
+7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
+8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**. Store this temporarly for use when you add it to the `testenv` file in a few steps.
+9. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
+10. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
+11. Select the **CORS** check box and click **Save**.
+12. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default`. For example: `https://example-1234.oktapreview.com/oauth2/default`
+13. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-js-react.git`
+14. From the command line, enter the `okta-hosted-login` directory and run `npm install` to install the dependencies.
+15. Create a `testenv` file in the `samples-js-react` directory and add the information that you copied in previous steps:
 
       ```ini
       ISSUER=https://${yourOktaDomain}/oauth2/default
-      CLIENT_ID={yourAppClientId}
+      CLIENT_ID={ClientID}
       ```
-
-    Be sure to replace {yourAppClientId} with the Client ID that you copied in step 9.
-
-15. From the command line, enter the `okta-hosted-login` directory and run `npm install`.
-
-You now have your App created in Okta, and the Okta React Sample app installed.
+You have now created your App created in Okta and installed the Okta React Sample app.
 
 <!--
 Once sample download is working we can provide these instructions instead:
@@ -61,12 +57,11 @@ This section walks you through enrolling a user and authenticating that user.
 
 ### Open and test the Sign-In Widget
 
-1. Open an incognito browser window in your default browser.
-2. On the command line inside the `okta-hosted-login` subdirectory, start the React app by running `npm start`.
-3. Your default browser automatically opens to `localhost:8080` in the incognito window, and the Okta-React Sample landing page appears.
-4. Click **Login** and you are redirected to the Okta Sign-In Widget. Note that there currently is no **Sign Up** option.
-5. Enter the **Username** and **Password** for your admin user. You are redirected to the React Sample's success page.
-6. Sign out of the app using the **Logout** button at the top of the page.
+1. On the command line inside the `okta-hosted-login` subdirectory, start the React app by running `npm start`.
+2. Enter `localhost:8080` in an incognito/private window, and the Okta-React Sample landing page appears.
+3. Click **Login**. You are redirected to the Okta Sign-In Widget. Note that there currently is no **Sign Up** option.
+4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
+5. Click **Logout** to sign out of the app.
 
 ## Enable self-service enrollment
 
@@ -173,6 +168,8 @@ When we enrolled our test user, the user was only prompted for first and last na
 
 Instead of signing in to Okta, it is possible to route users to an external Identity Provider (IdP) instead, using Okta's IdP Routing rules.
 
+> **Note:** For B2B scenarios, you may want to add a SAML 2.0 Identity Provider rather than a social Identity Provider. See [Add a SAML 2.0 IdP](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-idp-inbound-saml).
+
 ### Create a Facebook App
 
 1. Go to [Facebook for Developers](https://developers.facebook.com) and register for a developer account if you haven't already done so.
@@ -181,7 +178,7 @@ Instead of signing in to Okta, it is possible to route users to an external Iden
 
     > **Note:** When you are creating the app, select **Build Connected Experiences** as the app type.
 
-4. After you create the app, on the **Add a Product** page, click **Set Up** on the **Facebook Login** tile.
+4. After you create the app, on the Add a Product page, click **Set Up** on the **Facebook Login** tile.
 5. On the first page of the Quickstart, select **Web**.
 6. In the **Site URL** box, enter the Okta redirect URI. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the IdP. This is the URL where the IdP returns the authentication response (the access token and the ID token). In this example, this is `http://localhost:8080/login/callback`.
 7. Click **Save**, click **Continue**, and then click **Next** until you exit the Quickstart wizard.
@@ -199,7 +196,7 @@ To connect your org to the IdP, add and configure that IdP in Okta.
 
 1. From the Admin Console side navigation, select **Security** > **Identity Providers**.
 2. Select **Add Identity Provider** and then select **Add Facebook**.
-3. In the **Add an Identity Provider** dialog box, define the following:
+3. In the Add an Identity Provider dialog box, define the following:
 
     * **Name** &mdash; Enter a name for the IdP configuration.
     * **Client Id** &mdash; Paste the app ID that you obtained from the IdP in the previous section.
