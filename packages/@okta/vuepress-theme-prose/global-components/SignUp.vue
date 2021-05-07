@@ -390,9 +390,8 @@ export default {
 
         this.isPending = true;
 
-        //this.apiService
-          //.post(registrationPath, { body })
-        Promise.resolve()
+        this.apiService
+          .post(registrationPath, { body })
           .then(() => {
             // Reset error in case of transient failure that succeeds later
             this.error = null;
