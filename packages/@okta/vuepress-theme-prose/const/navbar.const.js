@@ -584,12 +584,12 @@ export const reference = [
       {
         title: 'SCIM Protocol',
         subLinks: [
-          { 
+          {
             title: "Overview",
             path: "/docs/reference/scim/"
           },
           {
-            title: "SCIM V2.0", 
+            title: "SCIM V2.0",
             path: "/docs/reference/scim/scim-20/"
           },
           {
@@ -603,13 +603,21 @@ export const reference = [
         path: "/docs/reference/postman-collections/"
       },
       {
-        title: 'Inline Hooks',
+        title: 'Hooks',
         subLinks: [
-          { title: "Import Hook", path: "/docs/reference/import-hook/"},
-          { title: "Password Hook", path: "/docs/reference/password-hook/" },
-          { title: "Registration Hook", path: "/docs/reference/registration-hook/" },
-          { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-          { title: "Token Hook", path: "/docs/reference/token-hook/" },
+          { title: "Event Hooks", path: "/docs/reference/api/event-hooks/" },
+          { title: "Inline Hooks", path: "/docs/reference/api/inline-hooks/" },
+          {
+            title: 'Inline Hook Types',
+            subLinks: [
+              { title: "Token Hook", path: "/docs/reference/token-hook/" },
+              { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
+              { title: "Password Import Hook", path: "/docs/reference/password-hook/" },
+              { title: "User Import Hook", path: "/docs/reference/import-hook/"},
+              { title: "Registration Hook", path: "/docs/reference/registration-hook/" },
+
+            ]
+          }
         ]
       },
       {
