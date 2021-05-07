@@ -735,6 +735,11 @@ export const referenceOld = [
         title: "Okta Expression Language",
         path: "/docs/reference/okta-expression-language/"
       },
+      {
+        title: "Okta Expression Language in Identity Engine",
+        path: "/docs/reference/okta-expression-language-in-identity-engine/",
+        hidden: true
+      },
       { title: "Password Hook", path: "/docs/reference/password-hook/" },
       {
         title: "Postman Collections",
