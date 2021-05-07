@@ -1,8 +1,6 @@
 ---
-title: Federated Authentication with React and Identity Engine
-meta:
-  - name: React & Identity engine
-    content: This guide shows you how to test some of the features of the Identity engine with our React sample app
+title: Federated Authentication with the Sample Apps and Identity Engine
+excerpt: Learn how to test some of the features of the Identity engine with our sample apps
 layout: Guides
 ---
 
@@ -21,7 +19,7 @@ Before we begin, you need to create an Okta OAuth app to represent the React sam
 1. Sign in to your [Okta Admin Console](https://login.okta.com).
 2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
 3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **<StackSelector snippet="appType" noSelector inline />** as your Platform, then click **Create**.
+4. In the dialog box that appears, select <StackSelector snippet="appType" noSelector inline /> as your Platform, then click **Create**.
 5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
 
     * **Login redirect URIs** &mdash; <StackSelector snippet="loginRedirectUri" noSelector inline />
