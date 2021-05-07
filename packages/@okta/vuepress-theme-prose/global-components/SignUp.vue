@@ -398,8 +398,6 @@ export default {
             this.error = null;
 
             if (window.dataLayer) {
-              // Google Analytics User-ID
-              window.dataLayer.push({ userId: this.analyticsValues.gaUserId });
               // Google Analytics email signup success event
               window.dataLayer.push({ event: "07_CIAMTrial" });
             }

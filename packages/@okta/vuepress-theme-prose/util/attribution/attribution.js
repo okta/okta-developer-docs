@@ -24,7 +24,6 @@ const allParams = [
 const gaTrackingFieldsMap = {
   trackingId: "gaTrackId",
   clientId: "gaClientId",
-  userId: "gaUserId",
 };
 
 let isAttached = false;
@@ -238,9 +237,6 @@ function getAnalyticsValues() {
       });
     }
   }
-
-  // Generate unique ID for Google Analytics User-ID
-  analytics.gaUserIdC = uuid();
 
   return analytics;
 }
