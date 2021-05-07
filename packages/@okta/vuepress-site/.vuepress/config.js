@@ -38,7 +38,7 @@ module.exports = {
       window.dataLayer = window.dataLayer || [];
 
       var isProduction = window.location.hostname === 'developer.okta.com';
-      if (true || isProduction) {
+      if (isProduction) {
 
         // START Google Tag Manager - main container
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -73,13 +73,20 @@ module.exports = {
      * URI config
      */
     uris: {
-      //baseUri: 'https://okta-devok12.okta.com',
+      baseUri: 'https://okta-devok12.okta.com',
+      registrationPolicyId: 'reg405abrRAkn0TRf5d6',
+      idps: {
+        github: '0oayfl0lW6xetjKjD5d5',
+        google: '0oay75bnynuF2YStd5d5',
+      },
+      /* Trex values:
       baseUri: 'https://okta-dev-parent.trexcloud.com',
       registrationPolicyId: 'reg3kwstakmbOrIly0g7',
       idps: {
         github: '0oa3jobx2bBlylNft0g7',
         google: '0oa3jaktbqkiwCthn0g7',
       },
+      */
     },
 
     /**
