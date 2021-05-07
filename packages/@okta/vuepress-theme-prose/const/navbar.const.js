@@ -470,7 +470,7 @@ export const reference = [
     subLinks: [
       { title: "Overview", path: "/docs/reference/" },
       {
-        title: "Core Okta API", 
+        title: "Core Okta API",
         subLinks: [
           { title: "Overview", path: "/docs/reference/core-okta-api/" },
           {
@@ -526,12 +526,10 @@ export const reference = [
           { title: "Apps", path: "/docs/reference/api/apps/" },
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
           { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/"},
-          { title: "Event Hooks", path: "/docs/reference/api/event-hooks/" },
           { title: "Event Types", path: "/docs/reference/api/event-types/" },
           { title: "Factors", path: "/docs/reference/api/factors/" },
           { title: "Features", path: "/docs/reference/api/features/" },
           { title: "Groups", path: "/docs/reference/api/groups/" },
-          { title: "Inline Hooks", path: "/docs/reference/api/inline-hooks/" },
           { title: "Linked Objects", path: "/docs/reference/api/linked-objects/"},
           { title: "Mappings", path: "/docs/reference/api/mappings/" },
           { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
