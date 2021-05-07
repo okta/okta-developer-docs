@@ -11,27 +11,39 @@
           <div class="col-11 homepage--elevated">
             <div class="row">
               <div class="col-12">
-                <h1
-                  class="homepage--main-heading homepage--color-main"
-                >
+                <h1 class="homepage--main-heading homepage--color-main">
                   Okta Developer Portal
                 </h1>
               </div>
             </div>
             <div class="row">
+              <div class="col-12 homepage--auth0-banner">
+                <div class="homepage--auth0-banner-text">
+                  <h2 class="homepage--color-main">
+                    It’s official! Okta completes acquisition of Auth0
+                  </h2>
+                  <SmartLink
+                    :item="{ link: 'https://auth0.com/blog/developers-explore-okta-auth0', target: '_blank' }"
+                    classes="homepage--color-main"
+                  >
+                    Read more on the Auth0 blog
+                  </SmartLink>
+                </div>
+                <div class="homepage--auth0-banner-logos">
+                  <img src="/img/okta-auth0-logo-pair.svg" />
+                </div>
+              </div>
+            </div>
+            <div class="row">
               <div class="col-12">
-                <h2
-                  class="homepage--sub-heading homepage--color-main"
-                >
+                <h2 class="homepage--sub-heading homepage--color-main">
                   Let's get started
                 </h2>
               </div>
             </div>
             <div class="row">
               <div class="col-12">
-                <p
-                  class="homepage--sub-heading-disclaimer homepage--color-sub"
-                >
+                <p class="homepage--sub-heading-disclaimer homepage--color-sub">
                   Authenticate up to 15,000 users per month for free
                 </p>
               </div>
@@ -125,16 +137,37 @@
               </div>
             </div>
 
+            <div class="homepage--okta-game">
+              <div class="homepage--okta-game-description">
+                <h3>Code Tycoon - A Game from Okta</h3>
+                <p>
+                  As the junior developer at a small company, it’s up to you to
+                  transform a small business into a global powerhouse while
+                  grappling with endless meetings, bumbling co-workers, denial
+                  of service attacks, and aggressive competitors.
+                </p>
+                <SmartLink :item="{ link: 'https://codetycoongame.com/' }" classes="play-now-btn">
+                  play now
+                </SmartLink>
+              </div>
+              <div class="homepage--okta-game-video">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/aO5QTNjUQ6o"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
+
             <div class="homepage--partners-block-margin">
               <CompanyLogos />
             </div>
           </div>
 
           <div class="homepage--shapes">
-            <img
-              src="/img/home-curves.svg"
-              class="homepage--shapes-curves"
-            />
+            <img src="/img/home-curves.svg" class="homepage--shapes-curves" />
             <div class="homepage--shapes-fill"></div>
           </div>
         </div>
@@ -162,7 +195,7 @@ export default {
   data() {
     return {
       pseudoAuthorized: false,
-      pseudoAuthorizedCodeBlock: false,
+      pseudoAuthorizedCodeBlock: false
     };
   },
   mounted() {
@@ -180,10 +213,10 @@ export default {
         this.pseudoAuthorized = !this.pseudoAuthorized;
         this.pseudoAuthorizedCodeBlock = !this.pseudoAuthorizedCodeBlock;
       }
-    },
+    }
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
-  },
+  }
 };
 </script>

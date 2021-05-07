@@ -6,17 +6,28 @@ title: Reference overview
 
 Details on parameters, requests, and responses for Okta's API endpoints.
 
-Okta APIs generally fall into one of two categories: signing in your users or managing
-resources in your Okta org.
+## Core Okta API
 
-## Sign in your Users
-API endpoints to authenticate your users, challenge for factors, recover passwords, and more.
-  - The [Authentication Api](/docs/reference/api/authn) controls user accesss to Okta.
-  - The [OpenID Connect & OAuth 2.0 API](/docs/concepts/oauth-openid) controls users access to your applications.
+The Core Okta API is the primary way that apps and services interact with Okta. You can use it to implement basic auth functions such as signing in your users and programmatically managing your Okta objects.
 
-[Learn about which APIs to use.](/docs/concepts/oauth-openid/#authentication-api-vs-oauth-20-vs-openid-connect)
+[Explore core Okta API](/docs/reference/core-okta-api/)
 
-## Manage Okta objects
-REST endpoints configure resources such as users, apps, sessions, and factors when needed.
+<Cards><Card href="/docs/concepts/authentication/" :showHeaderIcon=false cardTitle="Postman Collections" :showFooter=true>Import any Okta API collection for Postman.</Card><Card href="/docs/concepts/oauth-openid/" :showHeaderIcon=false cardTitle="Advanced Service Access API" :showFooter=true>Scale your control of servers with automation.</Card></Cards>
 
-For example, see the [Users API](/docs/reference/api/users) for CRUD operations on users.
+## Inline Hooks
+
+Inline Hooks allow you to integrate custom functionality into specific Okta process flows.
+For example, you can migrate users from another data store and keep the user’s current password with a [Password Inline Hook](/docs/reference/password-hook/).
+
+## Okta Expression Language
+
+Expressions allow you to reference, transform, and combine attributes before you store or parse them.
+
+[Learn more](/docs/reference/okta-expression-language/)
+
+## System for Cross-domain Identity Management
+
+SCIM is an industry-standard protocol for automating the exchange of user identity information and is part of the Okta Lifecycle Management feature. For example, as your company onboards employees, new user accounts are created in your application so they can connect immediately. Okta supports SCIM versions 1.1 and 2.0.
+
+[Learn more](/docs/reference/scim/)
+ 

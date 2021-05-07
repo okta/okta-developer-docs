@@ -1440,11 +1440,17 @@ HTTP/1.1 204 No Content
 
 ## Role assignment operations
 
-### Grant third-party admin status
+#### Grant third-party admin status to a User
 
 <ApiOperation method="post" url="/api/v1/users/${userId}/roles?disableNotifications=true" />
 
-You can grant third-party admin status when you add a new admin using the API. You can do this by using an optional query parameter with the Administrator Roles API called `disableNotifications`.
+#### Grant third-party admin status to a Group
+
+<ApiOperation method="post" url="/api/v1/groups/${groupId}/roles?disableNotifications=true" />
+
+You can grant third-party admin status by using an optional query parameter on the Administrator Roles API called `disableNotifications`.
+
+You're able to grant third-party admin status when you assign a new role, or you can update an existing role assignment status by passing just the query parameter.
 
 When this setting is enabled, the admins won't receive any of the default Okta administrator emails. These admins also won't have access to contact Okta Support and open support cases on behalf of your org.
 

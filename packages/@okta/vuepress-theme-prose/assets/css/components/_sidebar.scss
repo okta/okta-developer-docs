@@ -7,6 +7,11 @@
       margin-left: 1.5rem;
       .link-wrap {
         margin-top: 1rem;
+        .blank-divider {
+          color: #6e6f78;
+          cursor: default;
+          margin-top: 12px;
+        }
       }
       .subnav-active {
         .tree-nav-link {

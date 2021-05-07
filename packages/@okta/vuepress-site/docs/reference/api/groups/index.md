@@ -1853,7 +1853,9 @@ Specifies required and optional properties for a Group. The `objectClass` of a G
 
 #### ObjectClass: okta:user_group
 
-Profile for any Group that is not imported from Active Directory
+Profile for any Group that is not imported from Active Directory. Specifies the [standard](#default-profile-properties) and [custom](#custom-profile-properties) profile properties for a Group.
+
+##### Default Profile Properties
 
 | Property    | Description              | DataType | Nullable | Readonly | MinLength | MaxLength | Validation |
 | ----------- | ------------------------ | -------- | -------- | -------- | --------- | --------- | ---------- |
@@ -1866,6 +1868,13 @@ Profile for any Group that is not imported from Active Directory
   "description": "All Users West of The Rockies"
 }
 ```
+##### Custom Profile Properties
+
+<ApiLifecycle access="ea" />
+
+You can extend Group Profiles with custom properties, but you must first add the properties to the Group Profile schema before they can be referenced. You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/reference/api/schemas/) to manage schema extensions.
+
+Custom properties may contain HTML tags. It is the client's responsibility to escape or encode this data before displaying it. Use [best-practices](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) to prevent cross-site scripting.
 
 ## Rule object
 
