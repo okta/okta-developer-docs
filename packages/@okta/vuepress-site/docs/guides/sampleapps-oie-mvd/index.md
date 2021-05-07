@@ -269,7 +269,7 @@ Before we begin, you need to create an Okta OpenID Connect app to represent the 
     * **Logout redirect URIs** &mdash; `http://localhost:8080/`
 6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
 7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID** and the **Client secret**. Store this temporarily for use when you add it to the `.env` file in a few steps.
+8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID** and the **Client secret**. Store this temporarily for use when you add it to the `env` file in a few steps.
 9. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
 10. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
 11. Select the **CORS** check box and click **Save**.

@@ -4,7 +4,7 @@ excerpt: Learn how to test some of the features of the Identity engine with our 
 layout: Guides
 ---
 
-This document walks you through setting up Okta's <StackSelector snippet="stackName" noSelector inline /> to demonstrate some Identity Engine features. The React app redirects to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
+This document walks you through setting up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
 
 * [Simple enrollment and authentication](#simple-enrollment-and-authentication)
 * [Add MFA with a mandatory second factor](#add-mfa-with-a-mandatory-second-factor)
@@ -12,35 +12,34 @@ This document walks you through setting up Okta's <StackSelector snippet="stackN
 * [Progressive Profiling](#progressive-profiling)
 * [Identity Provider routing to Facebook](#identity-provider-routing-to-facebook)
 
+Select the sample app language to get started.
+
+<StackSelector snippet="sampleapplang" />
+
 ## Initial set up
 
-Before we begin, you need to create an Okta OAuth app to represent the React sample app and install the React sample app.
+To get started, you need to create an Okta OAuth app to represent the <StackSelector snippet="applang" noSelector inline /> app and then install the <StackSelector snippet="applang" noSelector inline /> app.
 
 1. Sign in to your [Okta Admin Console](https://login.okta.com).
 2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
 3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select <StackSelector snippet="appType" noSelector inline /> as your Platform, then click **Create**.
+4. In the dialog box that appears, select <StackSelector snippet="apptype" noSelector inline /> as your Platform, then click **Create**.
 5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
 
-    * **Login redirect URIs** &mdash; <StackSelector snippet="loginRedirectUri" noSelector inline />
-    * **Logout redirect URIs** &mdash; <StackSelector snippet="logoutRedirectUri" noSelector inline />
+    * **Login redirect URIs** &mdash; <StackSelector snippet="loginredirecturi" noSelector inline />
+    * **Logout redirect URIs** &mdash; <StackSelector snippet="logoutredirecturi" noSelector inline />
 
 6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
 7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**. Store this temporarly for use when you add it to the `testenv` file in a few steps.
-9. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
-10. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
-11. Select the **CORS** check box and click **Save**.
-12. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default`. For example: `https://example-1234.oktapreview.com/oauth2/default`
-13. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-js-react.git`
-14. From the command line, enter the `okta-hosted-login` directory and run `npm install` to install the dependencies.
-15. Create a `testenv` file in the `samples-js-react` directory and add the information that you copied in previous steps:
+8. Select the **General** tab and click the "Copy to clipboard" icon to copy the <StackSelector snippet="clientidsd" noSelector inline />. Store this info temporarly for use when you add it to the <StackSelector snippet="configfile" noSelector inline /> file in a few steps.
 
-      ```ini
-      ISSUER=https://${yourOktaDomain}/oauth2/default
-      CLIENT_ID={ClientID}
-      ```
-You have now created your App created in Okta and installed the Okta React Sample app.
+<StackSelector snippet="cors" noSelector />
+
+<StackSelector snippet="issuer" noSelector />
+
+### Install the sample app
+
+<StackSelector snippet="installsampleapp" noSelector />
 
 <!--
 Once sample download is working we can provide these instructions instead:
@@ -55,11 +54,7 @@ This section walks you through enrolling a user and authenticating that user.
 
 ### Open and test the Sign-In Widget
 
-1. On the command line inside the `okta-hosted-login` subdirectory, start the React app by running `npm start`.
-2. Enter `localhost:8080` in an incognito/private window, and the Okta-React Sample landing page appears.
-3. Click **Login**. You are redirected to the Okta Sign-In Widget. Note that there currently is no **Sign Up** option.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-5. Click **Logout** to sign out of the app.
+<StackSelector snippet="simpleenrollauth" noSelector />
 
 ## Enable self-service enrollment
 
