@@ -5,18 +5,20 @@ meta:
     content: Learn more about the features and syntax of the Okta Expression Language in Identity Engine.
 ---
 
+# Okta Expression Language In Identity Engine
+
+<ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
-# Overview
+## Overview
 
-Expressions allow you to reference, transform, and combine attributes before you store them on a user profile or before passing them to an application for authentication or provisioning. For example, you might use a custom expression to create a username by stripping @company.com from an email address. Or, you might combine firstName and lastName attributes into a single displayName attribute.
+Expressions allow you to reference, transform, and combine properties before you store them on a user profile or before passing them to an application for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine `firstName` and lastName properties into a single `displayName` property.
 
-This document details the features and syntax of the Okta Expression Language used in the Identity Engine. Expressions being used outside of the Identity Engine should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document will be updated over time as new capabilities
-are added to the language. Okta expression language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
+This document details the features and syntax of the Okta Expression Language used in the Identity Engine. Expressions being used outside of the Identity Engine should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document will be updated over time as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
 
 ## Unsupported Features
 
-The following operators and functionality offered by SpEL are not supported in Okta expression language:
+The following operators and functionality offered by SpEL are not supported in Okta Expression Language:
 
 - [Decrement operator](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/OpDec.html)
 - [Increment operator](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/OpInc.html)
@@ -34,18 +36,19 @@ The following operators and functionality offered by SpEL are not supported in O
 ## Referencing Attributes
 
 ### Okta User Profile
-When you create an Okta expression, you can reference any attribute that lives in an Okta user profile, in addition to some top-level user attributes.
+
+When you create an Okta expression, you can reference any property that exists in an Okta User Profile, in addition to some top-level User properties.
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
-| `user.$attribute`                  | `user` reference to the Okta user<br>`attribute` the top-level attribute variable name<br>`id`, `status`, `created`, `lastUpdated`, `passwordChanged`, `lastLogin`   | user.id<br>user.status<br>user.created   |
-| `user.profile.$profile_attribute`  | `profile_attribute` reference to user profile property, including custom-defined properties  | user.profile.firstName<br>user.profile.email<br>           |
+| `user.$property`                  | `user` reference to the Okta user<br>`property` the top-level property variable name<br>`id`, `status`, `created`, `lastUpdated`, `passwordChanged`, `lastLogin`   | `user.id`<br>`user.status`<br>`user.created`   |
+| `user.profile.$profile_property`  | `profile_property` reference to user profile property, including custom-defined properties  | `user.profile.firstName`<br>`user.profile.email`<br>           |
 
 ## Functions
 
-Okta offers a variety of functions to manipulate attributes or properties to generate a desired output. You can combine and nest functions inside a single expression.
+Okta offers a variety of functions to manipulate properties to generate a desired output. You can combine and nest functions inside a single expression.
 
-> **Note:** For the following expression examples, assume the following attributes exist in Okta and the *user* has the associated values.
+> **Note:** For the following expression examples, assume the following properties exist in Okta and the User has the associated values.
 
 | Attribute       | Type          | Data                       |
 | ---------       | ----          | --------                   |
@@ -114,7 +117,7 @@ Okta offers a variety of functions to manipulate attributes or properties to gen
 |                                  |             | `-1.6.toInteger()`                               | -2                               |
 |                                  |             | `2147483647.7.toInteger()`                       | -2147483648 (Integer overflow)   |
 
-**Note:**  The `toInteger` functions round the passed numeric value (or the String representation of the numeric value) either up or down to the nearest integer.
+> **Note:**  The `toInteger` functions round the passed numeric value (or the String representation of the numeric value) either up or down to the nearest integer.
 Be sure to consider integer type range limitations when converting to an integer with these functions.
 
 ##### Country Code Conversion Functions
@@ -132,15 +135,14 @@ These functions convert between ISO 3166-1 2-character country codes (Alpha 2), 
 | `$country_code_object.toNumeric`         | String      | `'United States'.parseCountryCode().toNumeric()`                    | "840"                     |
 | `$country_code_object.toName`            | String      | `'US'.parseCountryCode().toName()`                                  | "United States"           |
 
-**Note:**  The `parseCountryCode` function can be called on the String representations of ISO 3166-1 2-character country codes (Alpha 2), 3-character country codes (Alpha 3), numeric country codes, and country names.
-The other four functions can be called on country code objects, and return the output in the format specified by the function names.
+> **Note:**  The `parseCountryCode` function can be called on the String representations of ISO 3166-1 2-character country codes (Alpha 2), 3-character country codes (Alpha 3), numeric country codes, and country names. The other four functions can be called on country code objects, and return the output in the format specified by the function names.
 
 For more information on these codes, see the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/).
 
 
 ### Group Functions
 
-> **Note:** For the following expression examples, assume that *user* is a member of the following groups.
+> **Note:** For the following expression examples, assume that the User is a member of the following Groups.
 
 | Group ID                 | Group Name               | Group Type            |
 | --------                 | -----------              | -----------           |
@@ -150,21 +152,21 @@ For more information on these codes, see the [ISO 3166-1 online lookup tool](htt
 | 00gjitX9HqABSoqTB0g3     | Engineering Users        | APP_GROUP             |
 
 Group functions take in a list of search criteria as input. Each search criteria is a key-value pair:<br>
-Key: Specifies the matching attribute. Currently supported keys are `group.id`, `group.type`, and `group.profile.name`.<br>
+Key: Specifies the matching property. Currently supported keys are `group.id`, `group.type`, and `group.profile.name`.<br>
 Value: Specifies a list of matching values which can be exact values or a regex pattern (only supporting the [.*] wildcard to match `starts with`)
 
 | Function                 | Return Type | Example                                                                                                         | Output                                                                          |
 | ---------------          | ----------- | -------                                                                                                         | -----                                                                           |
 | `user.getGroups`         | Array       | `user.getGroups({'group.id': {'00gjitX9HqABSoqTB0g3'}}, {'group.profile.name': 'West Coast.*'})`                | {}                                                                              |
-|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP'}}, {'group.profile.name': {'Everyone', 'West Coast Admins'}})`     | A list of user groups that contains the groups with IDs `00garwpuyxHaWOkdV0g4`  |
+|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP'}}, {'group.profile.name': {'Everyone', 'West Coast Admins'}})`     | A list of User Groups that contains the Groups with ID `00garwpuyxHaWOkdV0g4`  |
 |                          |             | `user.getGroups({'group.profile.name': 'East Coast.*'})`                                                        | {}                                                                              |
-|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP', 'APP_GROUP'}})`                                                   | A list of user groups that contains the groups with IDs `00g1emaKYZTWRYYRRTSK`, `00garwpuyxHaWOkdV0g4`, and `00gjitX9HqABSoqTB0g3`  |
+|                          |             | `user.getGroups({'group.type': {'OKTA_GROUP', 'APP_GROUP'}})`                                                   | A list of User Groups that contains the Groups with IDs `00g1emaKYZTWRYYRRTSK`, `00garwpuyxHaWOkdV0g4`, and `00gjitX9HqABSoqTB0g3`  |
 | `user.isMemberOf`        | Boolean     | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'APP_GROUP'})`  | True                                                                            |
 |                          |             | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'BUILT_IN'})`   | False
 
 ### Linked Object Function
 
-Use this function to retrieve the user identified with the specified `primary` relationship. You can then access properties of that user.
+Use this function to retrieve the User identified with the specified `primary` relationship. You can then access properties of that User.
 
 * Function: `user.getLinkedObject($primaryName)`
     * Parameter: (String primaryName)
@@ -201,7 +203,7 @@ Use this function to retrieve the user identified with the specified `primary` r
 | `$zoned_date_time_object.withinMinutes`  | (int minutes)                        | Boolean         | `user.created.withinMinutes(2)`                                       | False                                                                       |
 | `$zoned_date_time_object.withinSeconds`  | (int seconds)                        | Boolean         | `user.created.withinSeconds(100)`                                     | False                                                                       |
 
->Note: Okta supports the use of the time zone IDs and aliases listed in [the Time Zone Codes table](/docs/reference/okta-expression-language/#appendix-time-zone-codes).
+> **Note:** Okta supports the use of the time zone IDs and aliases listed in [the Time Zone Codes table](/docs/reference/okta-expression-language/#appendix-time-zone-codes).
 
 ## Constants and Operators
 
@@ -215,12 +217,12 @@ Use this function to retrieve the user identified with the specified `primary` r
 
 ## Conditional Expressions
 
-<br>The following rules apply to conditional expressions.
+The following rules apply to conditional expressions.
 
 * Expressions must have valid syntax.
 * Expressions must evaluate to Boolean.
-* Expressions cannot contain an assignment operator, such as =.
-* User attributes referenced in an expression must exist.
+* Expressions cannot contain an assignment operator, such as `=`.
+* User properties referenced in an expression must exist.
 
 <br>The following functions are supported in conditions.
 
@@ -228,7 +230,7 @@ Use this function to retrieve the user identified with the specified `primary` r
 * The `&&` operator to designate AND
 * The `||` operator to designate OR
 * The `!` operator to designate NOT
-* Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>.
+* Standard relational operators including `&lt;`, `&gt;`, `&lt;=`, and `&gt;=`.
 
 **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
@@ -240,10 +242,9 @@ Examples:
 | `user.profile.intArray.contains(0)`                                        | False                                  |
 | `user.profile.isContractor &#124;&#124; user.created.withinSeconds(0)`     | False                                  |
 
-You can use the ternary operator for performing IF...THEN...ELSE conditional logic inside the expression.
+You can use the ternary operator for performing IF, THEN, ELSE conditional logic inside the expression.
 
-The format for a ternary conditional expression is
-<p><code>[Condition] ? [Value if TRUE] : [Value if FALSE]</code></p>
+The format for a ternary conditional expression is `[Condition] ? [Value if TRUE] : [Value if FALSE]`
 
 Examples:
 
