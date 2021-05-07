@@ -20,7 +20,6 @@ const allParams = [
   "utm_term"
 ];
 
-
 let isAttached = false;
 
 function filterParams(params) {
