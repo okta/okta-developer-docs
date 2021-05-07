@@ -1,6 +1,5 @@
 import queryString from "query-string";
 import moment from "moment-timezone";
-import { v4 as uuid } from "uuid";
 import { deleteCookie, getCookie, setCookie } from "./cookies";
 
 const acceptedParams = [
