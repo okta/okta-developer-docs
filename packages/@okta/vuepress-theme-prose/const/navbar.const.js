@@ -491,6 +491,10 @@ export const reference = [
             path: "/docs/reference/api/authorization-servers/"
           },
           {
+            title: "CAPTCHAs",
+            path: "/docs/reference/api/captchas/"
+          },
+          {
             title: "Domains",
             path: "/docs/reference/api/domains/"
           },
