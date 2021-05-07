@@ -1285,6 +1285,9 @@ Specifies how lookups for weak passwords are done. Designed to be extensible wit
 
 #### Recovery object
 
+The Password Policy object contains the factors used for password recovery and account unlock.
+However, if you are using Okta Identity Engine, it is recommended to set recovery factors in the Password Policy Rule as shown in the examples under [Password Rules Action Data](#password-actions-example).
+
 | Property | Description                                            | Data Type                                           | Required |
 | ---      | ---                                                    | ---                                                 | ---      |
 | factors  | Settings for the Factors that may be used for recovery | [Recovery Factors object](#recovery-factors-object) | No       |
@@ -1321,7 +1324,7 @@ Specifies how lookups for weak passwords are done. Designed to be extensible wit
 | Property   | Description                                                     | Data Type                                                         | Required |
 | ---        | ---                                                             | ---                                                               | ---      |
 | status     | Indicates if the Factor is enabled. This property is read-only | `ACTIVE`                                                          | Yes      |
-| properties | Configuration settings for the Okta Email Factor                    | [Email Factor Properties object](#email-factor-properties-object) | No       |
+| properties | Configuration settings for the Okta Email Factor                   | [Email Factor Properties object](#email-factor-properties-object) | No       |
 
 ###### Email Factor Properties object
 
@@ -1379,6 +1382,101 @@ The following conditions may be applied to Password Policy:
   },
 ```
 
+<ApiLifecycle access="ie" /><br>
+
+With Identity Engine, Recovery Factors can be specified inside the Password Policy Rule object instead of in the Policy Settings object. Recovery factors for the rule are defined inside the `selfServicePasswordReset` Action.
+
+Below are 3 examples of how Recovery Factors are configured in the Rule based on admin requirements.
+
+In this example, the requirement is that end users verify with just one Authenticator before they can recover their password. Email, SMS, Voice or Okta Verify Push can be used by end users to initiate recovery. We know that only one Authenticator is required because there are no step up Authenticators specified as can be seen by the `stepUp` object having the `required` attribute set as `false`.
+
+```json
+"actions": {
+      "passwordChange": {
+        "access": "ALLOW"
+      },
+      "selfServicePasswordReset": {
+        "access": "ALLOW",
+        "requirement": {
+          "primary": {
+            "methods": [
+              "EMAIL",
+              "SMS",
+              "VOICE",
+              "PUSH"
+            ]
+          },
+          "stepUp": {
+            "required": false
+          }
+        }
+      },
+      "selfServiceUnlock": {
+        "access": "ALLOW"
+      }
+}
+```
+
+
+In this example, the requirement is that end users verify two Authenticators before they can recover their password. Only email or Okta Verify Push can be used by end users to initiate recovery. A security question is required as a step up.
+
+
+```json
+"actions": {
+      "passwordChange": {
+        "access": "ALLOW"
+      },
+      "selfServicePasswordReset": {
+        "access": "ALLOW",
+        "requirement": {
+          "primary": {
+            "methods": [
+              "EMAIL",
+              "PUSH"
+            ]
+          },
+          "stepUp": {
+            "required": true,
+            "methods": [
+              "SECURITY_QUESTION"
+            ]
+          }
+        }
+      },
+      "selfServiceUnlock": {
+        "access": "ALLOW"
+      }
+}
+```
+
+
+In the final example, end users are required to verify two Authenticators before they can recover their password. Only Okta Verify Push can be used by end users to initiate recovery. A step up verification is required, for which they can use any enrolled Authenticator that can be used for sign-on. This is indicated by the `stepUp` object containing only the `required` attribute set as `true` but without the `methods` array attribute.
+
+
+```json
+"actions": {
+      "passwordChange": {
+        "access": "ALLOW"
+      },
+      "selfServicePasswordReset": {
+        "access": "ALLOW",
+        "requirement": {
+          "primary": {
+            "methods": [
+              "PUSH"
+            ]
+          },
+          "stepUp": {
+            "required": true
+          }
+        }
+      },
+      "selfServiceUnlock": {
+        "access": "ALLOW"
+      }
+}
+```
+
 #### Password Action object
 
 | Property                 | Description                                                                      | Data Type                                                                        | Required |
@@ -1395,9 +1493,16 @@ The following conditions may be applied to Password Policy:
 
 ##### Self Service Password Reset Action object
 
-| Property | Description                          | Data Type       | Required | Default |
-| ---      | ---                                  | ---             | ---      | ---     |
-| access   | Indicates if the action is permitted | `ALLOW`, `DENY` | No       | `DENY`  |
+> **Note:** The indicated objects and properties below are only available as a part of the Okta Identity Engine. Please contact support for further information.
+
+| Property                                                       | Data Type   | Description                                                                                 | Supported Values                | Required | Default 
+| ---                                                            | ---         | ---                                                                                         | ---                             | ---      | ---
+| `access`                                                       | String      | Indicates if the action is permitted                                                        | `ALLOW`, `DENY`                 | No       | `DENY`
+| `requirement` <ApiLifecycle access="ie" />                     | Object      | JSON object containing Authenticator methods required to be verified if `access` is `ALLOW`. If access is `ALLOW` and `requirement` is not specified, `recovery.factors` from parent policy object is used to determine recovery factors.                             | No       |
+| `requirement.primary.methods` <ApiLifecycle access="ie" />     | Array       | Authenticator methods that can be used by end user to initiate password recovery            | `EMAIL`, `SMS`, `VOICE`, `PUSH` | Yes | 
+| `requirement.stepUp.required` <ApiLifecycle access="ie" />     | Boolean     | Indicates if any step up verification is required to recover password following primary methods verification | `true`, `false` | Yes | 
+| `requirement.stepUp.methods`  <ApiLifecycle access="ie" />     | Array       | If `requirement.stepUp.required` is `true`, JSON object containing authenticator methods required to be verified as a step up. If not specified, any enrolled Authenticator methods allowed for sign-on can be used as step up. | `null` or an array containing`SECURITY_QUESTION` | No
+
 
 ##### Self Service Unlock Action object
 
