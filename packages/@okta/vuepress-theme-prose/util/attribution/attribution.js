@@ -20,10 +20,6 @@ const allParams = [
   "utm_term"
 ];
 
-const gaTrackingFieldsMap = {
-  trackingId: "gaTrackId",
-  clientId: "gaClientId",
-};
 
 let isAttached = false;
 
@@ -220,21 +216,6 @@ function getAnalyticsValues() {
     }
 
     setFieldAttribution(analytics, "utm_page", paramValues);
-  }
-
-  // Add google analytics tracking data if GA is loaded
-  if (window.ga && typeof window.ga.getAll === "function") {
-    const tracker = window.ga.getAll()[0];
-
-    if (tracker && typeof tracker.get === "function") {
-      Object.entries(gaTrackingFieldsMap).forEach(([key, field]) => {
-        const values = {
-          page: tracker.get(key) || "",
-        };
-
-        setFieldAttribution(analytics, field, values);
-      });
-    }
   }
 
   return analytics;
