@@ -46,7 +46,7 @@ At a high level, the API integration process includes:
    * Okta API service account username and credentials (not required for all integrated tools)
 
 These configuration properties allow the external tool to request system logs from the Okta [System Log API](/docs/reference/api/system-log/).
-See [Exporting Okta Log](https://support.okta.com/help/s/article/Exporting-Okta-Log-Data) for details.
+See [Exporting Okta Log Data](https://support.okta.com/help/s/article/Exporting-Okta-Log-Data) for details.
 
 For external integration examples, refer to:
 
