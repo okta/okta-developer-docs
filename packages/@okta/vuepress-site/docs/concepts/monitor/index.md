@@ -40,7 +40,7 @@ At a high level, the API integration process includes:
 
 1. Obtaining an API token from your Okta org
 2. Creating an Okta API service account for external integration (not required for all tools)
-3. In the external monitoring tool, configure your integration properties to Okta, along with the following information:
+3. In the external monitoring tool, configuring your integration properties to Okta, along with the following information:
    * Okta org domain
    * Okta API token
    * Okta API service account username and credentials (not required for all integrated tools)
