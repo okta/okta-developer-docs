@@ -11,7 +11,7 @@ Okta offers monitoring and alerting capabilities through Okta's APIs, SDKs, and 
 
 * determine connectivity status from global internet locations to your Okta org
 * identify trends related to Users, Apps, Policies, and other Okta entities
-* detect tasks that require action, such as unlocking a user or restarting an agent
+* detect tasks that require action, such as unlocking a User or restarting an agent
 * detect suspicious activities
 * review user-reported suspicious activities
 * detect and augment certain events
