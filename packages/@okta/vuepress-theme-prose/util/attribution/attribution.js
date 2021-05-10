@@ -116,102 +116,59 @@ function getAttribution() {
   };
 }
 
-function setFieldAttribution($form, key, value = {}) {
-  let $fields, fieldExistsInForm;
+/**
+ * Very simple form of a function that converts pascal_case strings to camelCase
+ *
+ * @access public
+ * @return String
+ */
 
+function pascalToCamelCase(input = "") {
+  const [first, ...rest] = input.split("_");
+  const cased = rest.map(rest => rest.charAt(0).toUpperCase() + rest.slice(1));
+  return [first, ...cased].join("");
+}
+
+function setFieldAttribution(analytics, key, value = {}) {
   if ("page" in value) {
-    $fields = [].concat(
-      [].slice.call(document.querySelectorAll(`[name=${key}]`)),
-      [].slice.call(document.querySelectorAll(`[name=${key}__c]`))
-    );
+    const casedKey = pascalToCamelCase(`${key}_C`);
 
-    fieldExistsInForm =
-      $form &&
-      (!!$form.querySelectorAll(`[name=${key}]`).length ||
-        !!$form.querySelectorAll(`[name=${key}__c]`).length);
-
-    $fields.forEach(($el) => {
-      $el.value = value.page;
-    })
-
-    if (!fieldExistsInForm) {
-      let $el = document.createElement("input");
-      $el.type = "hidden";
-      $el.name = `${key}__c`;
-      $el.value = value.page;
-      $form.appendChild($el);
-    }
+    analytics[casedKey] = value.page;
   }
 
   if ("original" in value) {
-    $fields = [].concat(
-      [].slice.call(document.querySelectorAll(`[name=original_${key}]`)),
-      [].slice.call(document.querySelectorAll(`[name=original_${key}__c]`))
-    );
+    const casedKey = pascalToCamelCase(`original_${key}_C`);
 
-    fieldExistsInForm =
-      $form &&
-      (!!$form.querySelectorAll(`[name=original_${key}]`).length ||
-        !!$form.querySelectorAll(`[name=original_${key}__c]`).length);
-
-    $fields.forEach(($el) => {
-      $el.value = value.original;
-    })
-
-    if (!fieldExistsInForm) {
-      let $el = document.createElement("input");
-      $el.type = "hidden";
-      $el.name = `original_${key}__c`;
-      $el.value = value.original;
-      $form.appendChild($el);
-    }
+    analytics[casedKey] = value.original;
   }
 
   if ("session" in value) {
-    $fields = [].concat(
-      [].slice.call(document.querySelectorAll(`[name=session_${key}]`)),
-      [].slice.call(document.querySelectorAll(`[name=session_${key}__c]`))
-    );
+    const casedKey = pascalToCamelCase(`session_${key}_C`);
 
-    fieldExistsInForm =
-      $form &&
-      (!!$form.querySelectorAll(`[name=session_${key}]`).length ||
-        !!$form.querySelectorAll(`[name=session_${key}__c]`).length);
-
-    $fields.forEach(($el) => {
-      $el.value = value.session;
-    })
-
-    if (!fieldExistsInForm) {
-      let $el = document.createElement("input");
-      $el.type = "hidden";
-      $el.name = `session_${key}__c`;
-      $el.value = value.session;
-      $form.appendChild($el);
-    }
+    analytics[casedKey] = value.session;
   }
 }
 
 /**
- * setHiddenUtmValues function.
+ * getAnalyticsValues function.
  *
  * @access public
  * @return void
  */
 
-function setHiddenUtmValues(form) {
+function getAnalyticsValues() {
   onAttach();
 
   const attribution = getAttribution();
+  let paramValues = {};
+  let analytics = {};
 
   if (attribution) {
-    let paramValues;
-
     acceptedParams.forEach((param) => {
       paramValues = {
         page: "",
         original: "",
-        session: ""
+        session: "",
       };
 
       if (param in attribution.page) {
@@ -226,23 +183,23 @@ function setHiddenUtmValues(form) {
         paramValues.session = attribution.session[param];
       }
 
-      setFieldAttribution(form, param, paramValues);
+      setFieldAttribution(analytics, param, paramValues);
     })
 
     paramValues = {
-      original: ""
+      original: "",
     };
 
     if ("utm_date" in attribution.original) {
       paramValues.original = attribution.original["utm_date"];
     }
 
-    setFieldAttribution(form, "utm_date", paramValues);
+    setFieldAttribution(analytics, "utm_date", paramValues);
 
     paramValues = {
       page: "",
       original: "",
-      session: ""
+      session: "",
     };
 
     if ("utm_page" in attribution.page) {
@@ -257,8 +214,10 @@ function setHiddenUtmValues(form) {
       paramValues.session = attribution.session["utm_page"];
     }
 
-    setFieldAttribution(form, "utm_page", paramValues);
+    setFieldAttribution(analytics, "utm_page", paramValues);
   }
+
+  return analytics;
 }
 
-export default setHiddenUtmValues;
+export default getAnalyticsValues;
