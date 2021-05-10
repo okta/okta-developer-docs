@@ -17,7 +17,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### Bugs fixed in 2021.05.1
 
-* Duplicate parameter names were passed in requests to the following OAuth endpoints, and no error was sent. (OKTA-132318)
+* Duplicate parameter names were passed in requests to the following OAuth endpoints, and no error message was sent. (OKTA-132318)
 
     * `/token`
     * `/authorize`
