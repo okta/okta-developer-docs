@@ -84,7 +84,7 @@ You can use the Admin Console to manually download CSV files of system log query
 
 The [Okta ThreatInsight](https://help.okta.com/en/prod/Content/Topics/Security/threat-insight/ti-index.htm)  feature aggregates data across Okta customers to detect malicious IP addresses that attempt credential-based attacks. You can enable ThreatInsight through the [Okta ThreatInsight Settings](https://help.okta.com/en/prod/Content/Topics/Security/threat-insight/configure-threatinsight.htm) in the Admin Console, or through the [ThreatInsight configuration API](/docs/reference/api/threat-insight/).
 
-After ThreadInsight is enabled, Okta captures access attempts from malicious IPs in the system logs. You can also configure to block access from the malicious IPs to your Okta org.
+After ThreadInsight is enabled, Okta captures access attempts from malicious IPs in the system logs. You can also configure it to block access from the malicious IPs to your Okta org.
 
 ## Monitor rate limit warnings and violations
 
