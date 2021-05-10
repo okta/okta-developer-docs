@@ -7,7 +7,7 @@ meta:
 
 # Monitor Okta
 
-Okta offers monitoring and alerting capabilities through Okta's APIs, SDKs, and Admin Console. All [supported eventful](/docs/reference/api/event-types/) activities within your Okta organization (org) are captured and available through system logs and allows you to:
+Okta offers monitoring and alerting capabilities through Okta's APIs, SDKs, and Admin Console. All [supported eventful](/docs/reference/api/event-types/) activities within your Okta organization (org) are captured and available through system logs and allow you to:
 
 * determine connectivity status from global internet locations to your Okta org
 * identify trends related to users, applications, policies, and other Okta entities
