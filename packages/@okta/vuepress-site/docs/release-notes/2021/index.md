@@ -4,6 +4,30 @@ title: Okta API Products Release Notes 2021
 
 ## May
 
+### Weekly Release 2021.05.1
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.6.1](#okta-sign-in-widget-version-5-6-1) | May 12, 2021 |
+| [Bugs fixed in 2021.05.1](#bugs-fixed-in-2021-05-1)         | May 12, 2021           |
+
+#### Okta Sign-In Widget, version 5.6.1
+
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.1). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-393866-->
+
+#### Bugs fixed in 2021.05.1
+
+* Duplicate parameter names were passed in requests to the following OAuth endpoints, and no error was sent. (OKTA-132318)
+
+    * `/token`
+    * `/authorize`
+    * `/revoke`
+    * `/introspect`
+
+* When an OpenID Connect [app was created](/docs/reference/api/apps/#add-application) using a deactivated app's name, a "Duplicate Client Name" error appeared. (OKTA-215049)
+
+* When using the [call Factor](/docs/reference/api/factors/#call-profile) to authenticate, users that entered the phone format incorrectly received incorrect Factor Service error messages. (OKTA-385106)
+
 ### Monthly Release 2021.05.0
 
 | Change                                                                                              | Expected in Preview Orgs |
