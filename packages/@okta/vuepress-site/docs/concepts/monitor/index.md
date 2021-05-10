@@ -67,7 +67,7 @@ For a working example of an end-to-end Event Hook setup, see the [Event Hooks gu
 You can build custom applications to monitor and analyze events in Okta using Okta SDKs and APIs.
 
 * For a [REST API](https://developer.okta.com/code/rest/) implementation, use the [System Log API](/docs/reference/api/system-log/) to retrieve any of the system logs in your Okta org for the last 90 days
-* For an [okta-sdk-nodejs](https://github.com/okta/okta-sdk-nodejs) implementation, use the [getLog()](https://github.com/okta/okta-sdk-nodejs#get-logs) method to retrieve any of the system logs in your Okta org for the last 90 days
+* For a [Node.js](https://github.com/okta/okta-sdk-nodejs) implementation, use the [getLog()](https://github.com/okta/okta-sdk-nodejs#get-logs) method to retrieve any of the system logs in your Okta org for the last 90 days
 * For an [okta-sdk-java](https://github.com/okta/okta-sdk-java) implementation, use the [getLogs()](https://github.com/okta/okta-sdk-java#list-system-logs) method to retrieve any of the system logs in your Okta org for the last 90 days
 
 Refer to the supported [Event Types catalog](/docs/reference/api/event-types/#catalog) for the list of events you can use to filter for the system logs you are interested in.
