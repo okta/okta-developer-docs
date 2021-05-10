@@ -57,6 +57,10 @@ export const concepts = [
         path: "/docs/concepts/key-rotation/"
       },
       {
+        title: "Monitor Okta",
+        path: "/docs/concepts/monitor/"
+      },
+      {
         title: "Multi-tenant solutions",
         path: "/docs/concepts/multi-tenancy/"
       },
