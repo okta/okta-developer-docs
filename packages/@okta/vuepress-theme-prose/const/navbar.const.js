@@ -609,6 +609,7 @@ export const reference = [
         subLinks: [
           { title: "Event Hooks", path: "/docs/reference/api/event-hooks/" },
           { title: "Inline Hooks", path: "/docs/reference/api/inline-hooks/" },
+          { title: "Hooks Best Practices", path: "/docs/reference/api/hooks-best-practices"},
           {
             title: 'Inline Hook Types',
             subLinks: [
