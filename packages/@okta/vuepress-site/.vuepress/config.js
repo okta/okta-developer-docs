@@ -40,7 +40,7 @@ module.exports = {
       var isProduction = window.location.hostname === 'developer.okta.com';
       if (isProduction) {
 
-        // START Google Tag Manager
+        // START Google Tag Manager - main container
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -79,6 +79,14 @@ module.exports = {
         github: '0oayfl0lW6xetjKjD5d5',
         google: '0oay75bnynuF2YStd5d5',
       },
+      /* Trex values:
+      baseUri: 'https://okta-dev-parent.trexcloud.com',
+      registrationPolicyId: 'reg3kwstakmbOrIly0g7',
+      idps: {
+        github: '0oa3jobx2bBlylNft0g7',
+        google: '0oa3jaktbqkiwCthn0g7',
+      },
+      */
     },
 
     /**
