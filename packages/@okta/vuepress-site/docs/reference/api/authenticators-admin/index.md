@@ -89,6 +89,7 @@ curl -v -X GET \
     "lastUpdated": "2020-07-28T21:45:52.000Z",
     "settings": {
             "allowedFor": "any"
+            "tokenLifetimeInMinutes": 5
      },
     "_links": {
       "self": {
@@ -551,6 +552,7 @@ The Authenticator object defines the following properties:
   "lastUpdated": "2020-07-28T21:45:52.000Z",
   "settings": {
             "allowedFor": "recovery"
+            "tokenLifetimeInMinutes": 5
    },
   "_links": {
     "self": {
