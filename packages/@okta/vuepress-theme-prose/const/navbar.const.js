@@ -741,7 +741,7 @@ export const referenceOld = [
         ]
       },
       { title: "Error Codes", path: "/docs/reference/error-codes/" },
-      { title: "Hooks best practices", path: "/docs/reference/hooks-best-practices/" },
+
       { title: "Import Hook", path: "/docs/reference/import-hook/" },
       {
         title: "Okta Expression Language",
