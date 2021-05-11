@@ -1,6 +1,9 @@
 .content--container {
   display: flex;
   padding: 0;
+  @include media("<=tablet") {
+    padding: 0.5rem 1.5rem;
+  }
 
   a[href*="app.getpostman.com"] {
     display: block;
@@ -82,16 +85,17 @@
     }
   }
 
-  &.navigation-only .tree-nav {
-    @include media("<tablet") {
-      flex-basis: auto;
-      margin: 0 1.5rem;
-
-      .landing-navigation {
-        display: block;
-        position: static;
-        border-right: none;
-        padding-top: 3rem;
+  &.navigation-only {
+    @include media("<=tablet") {
+      padding: 0;
+      .tree-nav {
+        flex-basis: auto;
+        .landing-navigation {
+          display: block;
+          position: static;
+          border-right: none;
+          padding-top: 3rem;
+        }
       }
     }
   }
