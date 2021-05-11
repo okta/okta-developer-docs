@@ -26,7 +26,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 * When an OpenID Connect [application was created](/docs/reference/api/apps/#add-application) using a deactivated application's name, a "Duplicate Client Name" error appeared. (OKTA-215049)
 
-* When using the [Factor lifecycle operation endpoints](/docs/reference/api/factors/#enroll-factor) to enroll a phone number, users who entered an incorrect phone format received the wrong Factor Service error messages. (OKTA-385106)
+* When using the [Factor lifecycle operations endpoints](/docs/reference/api/factors/#factor-lifecycle-operations) to enroll a phone number, users who entered an incorrect phone format received the wrong Factor Service error messages. (OKTA-385106)
 
 ### Monthly Release 2021.05.0
 
