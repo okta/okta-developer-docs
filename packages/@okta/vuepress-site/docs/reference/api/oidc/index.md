@@ -659,7 +659,7 @@ Under almost all circumstances, the above would be sufficient except in cases wh
 
 Why not just use the second approach? There's potential for the caching of stale data since there is no guarantee that the `/keys` endpoint is up-to-date. For example, the keys are rotated but the `/keys` endpoint hasn't yet been updated, which results in a period of time where failures occur.
 
-Given that possibility, we recommend the blended approach of regular scheduled caching and just-in-time checking to ensure that all possible scenarios are covered.
+Given that possibility, we recommend the blended approach of regularly scheduled caching and just-in-time checking to ensure that all possible scenarios are covered.
 
 ### /userinfo
 
