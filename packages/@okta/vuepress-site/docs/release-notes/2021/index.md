@@ -17,16 +17,16 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### Bugs fixed in 2021.05.1
 
-* Duplicate parameter names were passed in requests to the following OAuth endpoints, and no error message was sent. (OKTA-132318)
+* Duplicate parameter names were passed in requests to the following [OAuth endpoints](/docs/reference/api/oidc/#possible-errors), and no error message was sent. (OKTA-132318)
 
-    * `/token`
-    * `/authorize`
-    * `/revoke`
-    * `/introspect`
+  * `/token`
+  * `/authorize`
+  * `/revoke`
+  * `/introspect`
 
-* When an OpenID Connect [app was created](/docs/reference/api/apps/#add-application) using a deactivated app's name, a "Duplicate Client Name" error appeared. (OKTA-215049)
+* When an OpenID Connect [application was created](/docs/reference/api/apps/#add-application) using a deactivated application's name, a "Duplicate Client Name" error appeared. (OKTA-215049)
 
-* When using the [call Factor](/docs/reference/api/factors/#call-profile) to authenticate, users that entered the phone format incorrectly received incorrect Factor Service error messages. (OKTA-385106)
+* When using the [Factor lifecycle operation endpoints](/docs/reference/api/factors/#enroll-factor) to enroll a phone number, users who entered an incorrect phone format received the wrong Factor Service error messages. (OKTA-385106)
 
 ### Monthly Release 2021.05.0
 
