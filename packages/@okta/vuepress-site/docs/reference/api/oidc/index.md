@@ -653,7 +653,7 @@ You can use an [introspection request](#introspect) for validation.
 
 Okta strongly recommends retrieving keys dynamically with the JWKS published in the discovery document. Okta also recommends caching or persisting these keys to improve performance. If you cache signing keys and automatic key rotation is enabled, be aware that verification fails when Okta rotates the keys automatically. Clients that cache keys should periodically check the JWKS for updated signing keys.
 
-Okta recommends a background process that regularly caches the keys endpoint. This can be once a day, or even as infrequent as once per week. This ensures you always have an up-to-date set of keys for validation even when we generate the next key or rotate automatically at the 45/90 day mark respectively. 
+Okta recommends a background process that regularly caches the `/keys` endpoint. This can be once a day or more infrequently, like once per week. This ensures that you always have an up-to-date set of keys for validation even when we generate the next key or rotate automatically at the 45/90 day mark respectively. 
 
 Under almost all circumstances the above would be sufficient except in cases where keys were rotated/generated outside the usual timespans. An example of this would be if Okta or a customer had a need to perform this operation for security reasons. As such, the above approach should be augmented with a failsafe in circumstances where keys are quickly regenerated and rotated.
 
