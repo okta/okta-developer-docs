@@ -657,7 +657,7 @@ Okta recommends a background process that regularly caches the `/keys` endpoint.
 
 Under almost all circumstances, the above would be sufficient except in cases where keys were rotated/generated outside the usual timespans. An example of this would be if Okta or a customer had a need to perform this operation for security reasons. You should augment the above approach with a failsafe for circumstances where keys are quickly regenerated and rotated.
 
-So, why not just use the second approach? There's potential for caching of stale data since the keys endpoint is not guaranteed to be up-to-date, so we can imagine a scenario where keys have rotated but the keys endpoint hasn't yet been updated, resulting in some period of time where failures occur.
+Why not just use the second approach? There's potential for the caching of stale data since there is no guarantee that the `/keys` endpoint is up-to-date. For example, the keys are rotated but the `/keys` endpoint hasn't yet been updated, which results in a period of time where failures occur.
 
 Given that possibility, we recommend the blended approach of regular scheduled caching and just-in-time checking to ensure that all possible scenarios are covered.
 
