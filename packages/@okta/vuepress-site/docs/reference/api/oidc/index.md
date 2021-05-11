@@ -655,7 +655,7 @@ Okta strongly recommends retrieving keys dynamically with the JWKS published in 
 
 Okta recommends a background process that regularly caches the `/keys` endpoint. This can be once a day or more infrequently, like once per week. This ensures that you always have an up-to-date set of keys for validation even when we generate the next key or rotate automatically at the 45/90 day mark respectively. 
 
-Under almost all circumstances the above would be sufficient except in cases where keys were rotated/generated outside the usual timespans. An example of this would be if Okta or a customer had a need to perform this operation for security reasons. As such, the above approach should be augmented with a failsafe in circumstances where keys are quickly regenerated and rotated.
+Under almost all circumstances, the above would be sufficient except in cases where keys were rotated/generated outside the usual timespans. An example of this would be if Okta or a customer had a need to perform this operation for security reasons. You should augment the above approach with a failsafe for circumstances where keys are quickly regenerated and rotated.
 
 So, why not just use the second approach? There's potential for caching of stale data since the keys endpoint is not guaranteed to be up-to-date, so we can imagine a scenario where keys have rotated but the keys endpoint hasn't yet been updated, resulting in some period of time where failures occur.
 
