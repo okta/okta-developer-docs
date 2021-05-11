@@ -129,6 +129,11 @@
     border: 1px solid #d66;
     padding: 10px;
   }
+  .no-selector {
+    & /deep/ ol[start] {
+      margin-top: -0.75rem;
+    }
+  }
   .display-inline {
     display: inline;
 
