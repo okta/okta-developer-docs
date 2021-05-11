@@ -609,6 +609,7 @@ export const reference = [
         subLinks: [
           { title: "Event Hooks", path: "/docs/reference/api/event-hooks/" },
           { title: "Inline Hooks", path: "/docs/reference/api/inline-hooks/" },
+          { title: "Hooks best practices", path: "/docs/reference/hooks-best-practices/"},
           {
             title: 'Inline Hook Types',
             subLinks: [
@@ -740,6 +741,7 @@ export const referenceOld = [
         ]
       },
       { title: "Error Codes", path: "/docs/reference/error-codes/" },
+
       { title: "Import Hook", path: "/docs/reference/import-hook/" },
       {
         title: "Okta Expression Language",
