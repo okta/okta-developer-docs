@@ -5,6 +5,31 @@
         <HomeSidebar />
       </div>
       <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+        <div class="okta-game-banner row">
+          <div class="okta-game-banner--logo">
+            <img src="/img/okta-game/okta-game-logo.svg" />
+          </div>
+          <div class="okta-game-banner--image">
+            <img src="/img/okta-game/okta-game-image.svg" />
+          </div>
+          <div class="okta-game-banner--details">
+            <p>Can you turn this small business into a global powerhouse?</p>
+            <div class="okta-game-banner--details-buttons">
+              <SmartLink
+                :item="{ link: 'https://codetycoongame.com/' }"
+                classes="play-now-btn"
+              >
+                Play Now
+              </SmartLink>
+              <SmartLink
+                :item="{ link: '' }"
+                classes="learn-more"
+              >
+                Lern More
+              </SmartLink>
+            </div>
+          </div>
+        </div>
         <div class="row justify-content-center">
           <div class="col-11 homepage--elevated">
             <div class="row">
@@ -21,7 +46,11 @@
                     It’s official! Okta completes acquisition of Auth0
                   </h2>
                   <SmartLink
-                    :item="{ link: 'https://auth0.com/blog/developers-explore-okta-auth0', target: '_blank' }"
+                    :item="{
+                      link:
+                        'https://auth0.com/blog/developers-explore-okta-auth0',
+                      target: '_blank'
+                    }"
                     classes="homepage--color-main"
                   >
                     Read more on the Auth0 blog
@@ -144,7 +173,10 @@
                   grappling with endless meetings, bumbling co-workers, denial
                   of service attacks, and aggressive competitors.
                 </p>
-                <SmartLink :item="{ link: 'https://codetycoongame.com/' }" classes="play-now-btn">
+                <SmartLink
+                  :item="{ link: 'https://codetycoongame.com/' }"
+                  classes="play-now-btn"
+                >
                   play now
                 </SmartLink>
               </div>
