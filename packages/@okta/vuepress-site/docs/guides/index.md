@@ -40,7 +40,7 @@ guides:
  - deploy-your-app
  - protect-your-api
  - quickstart
- - sampleapp-oie-mvd
+ - sampleapp-oie-fedauth
  - refresh-tokens
  - registration-inline-hook
  - request-user-consent

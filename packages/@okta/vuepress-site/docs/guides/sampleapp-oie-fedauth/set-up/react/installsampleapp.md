@@ -2,7 +2,7 @@
 
 2. From the command line, enter the `okta-hosted-login` directory and run `npm install` to install the dependencies.
 
-3. Create a `testenv` file in the `samples-js-react` directory and add the information that you copied in previous steps:
+3. Create a <StackSelector snippet="configfile" noSelector inline /> file in the `samples-js-react` directory and add the information that you copied in previous steps:
 
     ```ini
       ISSUER=https://${yourOktaDomain}/oauth2/default

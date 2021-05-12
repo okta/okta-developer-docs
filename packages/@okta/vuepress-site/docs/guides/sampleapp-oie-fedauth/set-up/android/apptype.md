@@ -1,1 +1,1 @@
-**Native app**
+**Native Application**

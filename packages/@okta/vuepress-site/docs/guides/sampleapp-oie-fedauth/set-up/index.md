@@ -18,19 +18,21 @@ Select the sample app language to get started.
 
 ## Initial set up
 
-To get started, you need to create an Okta OAuth app to represent the <StackSelector snippet="applang" noSelector inline /> app and then install the <StackSelector snippet="applang" noSelector inline /> app.
+To get started, you need to create an Okta OAuth app to represent the <StackSelector snippet="applang" noSelector inline /> app and then install the <StackSelector snippet="applang" noSelector inline /> sample app.
+
+<StackSelector snippet="toolnote" noSelector />
 
 1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Create Add Integration**.
+2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
 3. In the dialog box that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSelector snippet="apptype" noSelector inline /> as the **Application type**, and then click **Next**.
 4. Fill in the New Web App Integration fields that you need. Be sure to add the following, and then click **Save**:
 
     * **Sign-in redirect URIs** &mdash; <StackSelector snippet="signinredirecturi" noSelector inline />
     * **Sign-out redirect URIs** &mdash; <StackSelector snippet="signoutredirecturi" noSelector inline />
 
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the <StackSelector snippet="clientidsd" noSelector inline />. Store this info temporarly for use when you add it to the <StackSelector snippet="configfile" noSelector inline /> file in a few steps.
+5. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
+6. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
+7. Select the **General** tab and click the "Copy to clipboard" icon to copy the <StackSelector snippet="clientidsd" noSelector inline />. Store this info temporarly for use when you add it to the <StackSelector snippet="configfile" noSelector inline /> file in a few steps.
 
 <StackSelector snippet="corsissuer" noSelector />
 

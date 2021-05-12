@@ -1,1 +1,1 @@
-**Single Page App (SPA)**
+**Single-Page Application**

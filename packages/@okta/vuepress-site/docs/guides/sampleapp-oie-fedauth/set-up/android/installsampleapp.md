@@ -1,12 +1,12 @@
 1. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-android.git`
-2. Open the `browser-sign-in` directory and navigate to the `okta_oidc_config.json` file in the app's `res/raw/` directory.
+2. Open the `browser-sign-in` directory and navigate to the <StackSelector snippet="configfile" noSelector inline /> file in the app's `res/raw/` directory.
 3. Add the information that you copied in the previous steps:
 
     ```JSON
     {
     "client_id": "{clientId}",
-    "redirect_uri": "{LoginredirectUri}",
-    "end_session_redirect_uri": "{LogoutredirectUri}",
+    "redirect_uri": "{SigninredirectUri}",
+    "end_session_redirect_uri": "{SignoutredirectUri}",
     "scopes": [
         "openid",
         "profile"

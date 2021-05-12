@@ -65,6 +65,7 @@ This section walks you through enrolling a user and authenticating that user.
 3. Enter the **Username** and **Password** for an admin user in your Okta org, and click **Next**. You are redirected to the success page.
 4. Click **SIGN OUT** to sign out of the app.
 
+These sections added
 
 -------
 samples-aspnet
@@ -112,6 +113,7 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Log out** in the upper-right corner of the page to sign out of the app.
 
+These sections added
 
 -----
 samples-aspnet-webforms
@@ -126,7 +128,7 @@ Before we begin, you need to create an Okta Web OpenID Connect app to represent 
 2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
 3. From the Add Application page, click **Create New App**.
 4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click ?**Save**:
+5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
     * **Login redirect URIs** &mdash; `https://localhost:44314/authorization-code/callback`
     * **Logout redirect URIs** &mdash; `https://localhost:44314`
     > **Note:** Copy these values and store them temporarily. You need them in a few steps.
@@ -158,6 +160,8 @@ This section walks you through enrolling a user and authenticating that user.
 3. Click **Login** in the upper-right corner of the page. You are redirected to the Okta Sign-In Widget.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Logout** in the upper-right corner of the page to sign out of the app.
+
+These sections added
 
 -------
 samples-aspnetcore
