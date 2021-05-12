@@ -316,19 +316,19 @@ $oktaGameButtonColor: #ffdd53;
     .okta-game-banner--details-buttons {
       display: flex;
       align-items: center;
+      font-weight: 600;
+      font-size: 16px;
       .play-now-btn {
         display: flex;
         float: left;
         align-items: center;
         justify-content: center;
-        font-weight: 600;
         width: 104px;
         cursor: pointer;
         height: 38px;
         line-height: 25px;
         padding: 8px 16px 8px 16px;
         border-radius: 3px;
-        font-size: 16px;
         text-align: center;
         background-color: $oktaGameButtonColor;
         margin: 0 24px 0 0;
@@ -336,7 +336,6 @@ $oktaGameButtonColor: #ffdd53;
       }
       .learn-more {
         cursor: pointer;
-        font-size: 16px;
         color: $oktaGameSectionMainColor;
         text-decoration: underline;
       }
