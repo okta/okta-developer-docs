@@ -11,4 +11,4 @@
     }
     ```
 
-You have now created your app in Okta and installed the Okta <StackSelector snippet="applang" noSelector inline /> sample app.
+You have now created your App in Okta and installed the Okta <StackSelector snippet="applang" noSelector inline /> sample app.

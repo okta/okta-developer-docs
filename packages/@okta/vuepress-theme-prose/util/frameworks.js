@@ -50,6 +50,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   blazorwebassembly: 'Blazor WebAssembly',
   aspnetwebforms: 'ASP.NET Web Forms',
   blazor: 'Blazor',
+  micronaut: 'Micronaut',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
