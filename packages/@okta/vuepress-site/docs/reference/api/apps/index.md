@@ -1536,7 +1536,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 | --------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
 | after     | Specifies the pagination cursor for the next page of apps                                                        | Query      | String   | FALSE    |         |
 | expand    | Traverses the `users` link relationship and optionally embeds the [Application User](#application-user-object) resource   | Query      | String   | FALSE    |         |
-| filter    | Filters apps by `status`, `user.id`, `group.id` or `credentials.signing.kid` expression                          | Query      | String   | FALSE    |         |
+| filter    | Filters apps by `status`, `user.id`, `group.id`, `credentials.signing.kid` or `name` expression                  | Query      | String   | FALSE    |         |
 | limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
 | q         | Searches the `name` or `label` property of applications using `startsWith` that matches what the string starts with to the query                              | Query      | String   | FALSE    |         |
 
@@ -1554,6 +1554,7 @@ The following filters are supported with the filter query parameter:
 | `status eq "ACTIVE"`                | Apps that have a `status` of `ACTIVE`                                             |
 | `status eq "INACTIVE"`              | Apps that have a `status` of `INACTIVE`                                           |
 | `user.id eq ":uid"`                 | Apps assigned to a specific user such as `00ucw2RPGIUNTDQOYPOF`                   |
+| `name eq ":name"`                   | Instances of an app such as `template_swa`                                        |
 
 > **Note:** Only a single expression is supported as this time. The only supported filter type is `eq`.
 
@@ -2206,6 +2207,87 @@ curl -v -X GET \
       "metadata": {
         "href": "http://testorgone.okta.com:/api/v1/apps/0oa1gjh63g214q0Hq0g4/sso/saml/metadata",
         "type": "application/xml"
+      }
+    }
+  }
+]
+```
+
+#### List applications by the application name
+
+Enumerates all applications by the application name
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+\"template_swa\""
+```
+
+##### Response example
+
+```json
+[
+  {
+    "id": "0oabkvBLDEKCNXBGYUAS",
+    "name": "template_swa",
+    "label": "Sample Plugin App",
+    "status": "ACTIVE",
+    "lastUpdated": "2013-09-11T17:58:54.000Z",
+    "created": "2013-09-11T17:46:08.000Z",
+    "accessibility": {
+      "selfService": false,
+      "errorRedirectUrl": null
+    },
+    "visibility": {
+      "autoSubmitToolbar": false,
+      "hide": {
+        "iOS": false,
+        "web": false
+      },
+      "appLinks": {
+        "login": true
+      }
+    },
+    "features": [],
+    "signOnMode": "BROWSER_PLUGIN",
+    "credentials": {
+      "scheme": "EDIT_USERNAME_AND_PASSWORD",
+      "userNameTemplate": {
+        "template": "${source.login}",
+        "type": "BUILT_IN"
+      }
+    },
+    "settings": {
+      "app": {
+        "buttonField": "btn-login",
+        "passwordField": "txtbox-password",
+        "usernameField": "txtbox-username",
+        "url": "https://example.com/login.html"
+      }
+    },
+    "_links": {
+      "logo": [
+        {
+          "href": "https:/example.okta.com/img/logos/logo_1.png",
+          "name": "medium",
+          "type": "image/png"
+        }
+      ],
+      "users": {
+        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
+      },
+      "groups": {
+        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
+      },
+      "self": {
+        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+      },
+      "deactivate": {
+        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
       }
     }
   }
