@@ -48,6 +48,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
   cli: 'CLI',
   website: 'Website',
   blazorwebassembly: 'Blazor WebAssembly',
+  aspnetwebforms: 'ASP.NET Web Forms',
+  blazor: 'Blazor',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
@@ -71,6 +73,8 @@ const COMMON_NAME_TO_ICON_NAME = {
   java: 'code-java-32',
   php: 'code-php-32',
   blazorwebassembly: 'code-dotnet-32',
+  aspnetwebforms: 'code-dotnet-32',
+  blazor: 'code-dotnet-32',
 };
 
 const IDP_COMMON_NAME_TO_ICON_NAME = {

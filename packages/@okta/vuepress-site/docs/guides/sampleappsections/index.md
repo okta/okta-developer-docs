@@ -209,6 +209,8 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the Welcome page.
 5. Click **Sign Out** in the upper-right corner of the page to sign out of the app.
 
+These sections added
+
 ------
 samples-blazor
 
@@ -216,7 +218,7 @@ samples-blazor
 
 Before we begin, you need to create an Okta Web OpenID Connect app to represent the Blazor sample app and then install the sample app.
 
-> **Note:** These steps assume that you are using Visual Studio 2019 and higher to work with the sample app.
+> **Note:** These steps assume that you are using Visual Studio 2019 and higher to configure the sample app.
 
 1. Sign in to your [Okta Admin Console](https://login.okta.com).
 2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
@@ -256,6 +258,7 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Sign out** at the top of the page to sign out of the app.
 
+These sections added
 
 -----
 samples-golang
