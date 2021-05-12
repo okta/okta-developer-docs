@@ -46,42 +46,38 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 ## Key components of the dashboard
 
-The rate limits dashboard provides use for the endpoint based on a set of statistics and shows multiple views of the data use.
-
-![Summary of the key components of the dashboard](/img/RLDashboard4.png "Displays the endpoint's utilization and the multiple views of the data utilization")
-
-The dashboard helps you to investigate the rate limit or violation issue and to prevent subsequent rate limit issues from occurring. To view the most recent data, refresh your screen. There may be a slight delay of two to four minutes in obtaining new data.
+The rate limits dashboard provides use for the endpoint based on a set of statistics and shows multiple views of the data use. The dashboard helps you to investigate the rate limit or violation issue and to prevent subsequent rate limit issues from occurring. To view the most recent data, refresh your screen. There may be a slight delay of two to four minutes in obtaining new data.
 
 ### Overview pane
 
-The Overview pane provides a summary of the data use for the specified endpoint.
+The Overview pane provides a summary of the data use for the specified endpoint. The following utilization data is displayed:
 
-![Summary of the utilization data for an endpoint](/img/RLDashboard5.png "Displays the utilization data for an endpoint with a rate limit violation or warning")
-
-The following utilization data is displayed:
-
+* Rate Limit: The rate limit for this bucket per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation.
 * Latest Utilization: The latest use for the bucket, which includes the endpoint and its sub-endpoints, as of the specified time
 * Average Utilization: The average use of the bucket within the last 24 hours and the last hour
 * Downtime: The amount of time that the org is affected by a rate limit violation on this endpoint
-* Rate Limit: The rate limit for this bucket per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation.
 
 ### Rate limit utilization over time pane
 
 The Rate limit utilization over time pane comprises the line graph, bar graph, and timeline graph.
 
-![Summary of the rate limit utilization over time pane](/img/RLDashboard6.png "Displays the line graph, bar graph, and timeline graph")
+![Summary of the rate limit utilization over time pane](/img/RLDashboard4.png "Displays the line graph, bar graph, and timeline graph")
 
 #### Line graph
 
-The line graph shows the total number of requests over the past hour for the bucket. Each data point represents how many times the endpoint was called within that one-minute window. If there's a spike in the rate limit usage, you can hover over the line graph and view the number of requests and the number of unique IPs in the past hour.
+The line graph shows the total number of requests and the number of unique IPs over the past hour for the bucket if the **Total Requests** and **# of Unique IPs** toggle buttons are enabled. If an IP address is selected in the bar graph, the line graph also shows the traffic from that IP address.
+
+Each data point represents how many times the endpoint was called within that one-minute window. You can select a point in the line graph to see which IPs were making requests at that time. If there's a spike in the rate limit usage, you can hover over the line graph and view the number of requests and the number of unique IPs in the past hour.
 
 #### Timeline graph
 
-The timeline graph shows use over the last 28 hours. When a rate violation occurs, as indicated by a spike at the point on the timeline graph, you can compare the same point in time from the past day.
+The timeline graph shows use over the last week. When a rate violation occurs, you can select a day from the past week in the drop-down menu on the timeline graph and compare the same point in time with a day from the past week.
 
 #### Bar graph
 
-The Top Requests by IP bar graph shows the top 10 IP addresses that are consuming the most traffic for the endpoint. This view enables you to check if there is a single IP or multiple IPs that are creating the spike in traffic.
+The **Top Requests by IP** bar graph shows the top 10 IP addresses that are consuming the most traffic for the endpoint. This view enables you to check if there is a single IP or multiple IPs that are creating the spike in traffic.
+
+Click once on an IP address bar to view the traffic for that IP address on the line graph. Double-click on any IP address bar to view the traffic for all the IP addresses on the line graph.
 
 ## Investigate the rate limit violation
 
