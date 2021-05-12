@@ -305,6 +305,7 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
+These sections added
 
 -----
 samples-ios
@@ -363,6 +364,8 @@ This section walks you through enrolling a user and authenticating that user.
 2. In the simulator, click **Sign In**. You are redirected to the Okta Sign-In Widget.
 3. Enter the **Username** and **Password** for an admin user in your Okta org, and then click **Next**. You are redirected to the success page.
 4. Click **Sign Out** to sign out of the app.
+
+These sections added
 
 ------
 samples-java-micronaut
