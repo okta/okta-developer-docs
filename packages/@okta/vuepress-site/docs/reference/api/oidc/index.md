@@ -297,9 +297,9 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 
 | Error Id                 | Details                                                                                                                                                                                                    |
 | :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| invalid_client           | The specified `client_id` wasn't found.                                                                                                                                                                      |
+| invalid_client           | The specified `client_id` isn't found.                                                                                                                                                                      |
 | invalid_grant            | The `code`, `refresh_token`, or `username` and `password` combination is invalid, or the `redirect_uri` doesn't match the one used in the authorization request.                                          |
-| invalid_request          | The request structure was invalid. For example: the basic authentication header is malformed, both header and form parameters were used for authentication, no authentication information was provided, or the request contains duplicate parameters. |
+| invalid_request          | The request structure is invalid. For example, the basic authentication header is malformed, both header and form parameters are used for authentication, no authentication information is provided, or the request contains duplicate parameters. |
 | invalid_scope            | The scopes list contains an invalid or unsupported value.                                                                                                                                                  |
 | unsupported_grant_type   | The `grant_type` isn't `authorization_code`, `refresh_token`, or `password`.                                                                                                                               |
 
@@ -400,8 +400,8 @@ Based on the type of token and whether it is active, the returned JSON contains 
 
 | Error Id          | Details                                                                                                  |
 | :---------------- | :------------------------------------------------------------------------------------------------------- |
-| invalid_client    | The specified `client_id` wasn't found.                                                                  |
-| invalid_request   | The request structure was invalid. For example, the basic authentication header was malformed, both header and form parameters were used for authentication, no authentication information was provided, or the request contains duplicate parameters. |
+| invalid_client    | The specified `client_id` isn't found.                                                                  |
+| invalid_request   | The request structure is invalid. For example, the basic authentication header is malformed, both header and form parameters are used for authentication, no authentication information is provided, or the request contains duplicate parameters. |
 
 #### Response example (success, access token)
 
@@ -484,7 +484,7 @@ A successful revocation is denoted by an HTTP 200 OK response. Note that revokin
 | Error Id          | Details                                                                                                                                                       |
 | :---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | invalid_client    | The specified `client_id` wasn't found.                                                                                                                       |
-| invalid_request   | The request structure was invalid. For example, the basic authentication header was malformed, both header and form parameters were used for authentication, no authentication information was provided, or the request contains duplicate parameters. |
+| invalid_request   | The request structure is invalid. For example, the basic authentication header is malformed, both header and form parameters are used for authentication, no authentication information is provided, or the request contains duplicate parameters. |
 
 #### Response example (success)
 
