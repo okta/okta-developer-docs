@@ -5,6 +5,8 @@ meta:
     content: A high-level, developer-focused overview of user profiles and the Okta Universal Directory.
 ---
 
+# User Profiles
+
 A user profile in Okta is the data record where information about your user is stored. A typical user profile holds information, or attributes, like a user’s first name, last name, username, and email address. Users can be employees, customers, partners, or end-users of applications.
 
 The default Okta user profile has [31 user attributes](/docs/reference/api/users/#default-profile-properties), which can be customized based on client requirements. Additional custom attributes can be added to the user profile to support most client user needs. Custom profile attribute types further provide the ability to customize the user experience based on your org and application needs.
