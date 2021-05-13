@@ -195,6 +195,7 @@ module.exports = {
           { text: 'Forum', link: 'https://devforum.okta.com' },
           { text: 'Blog', link: 'https://developer.okta.com/blog/' },
           { text: 'Toolkit', link: 'https://toolkit.okta.com/' },
+          { text: 'Developer Day', link: 'https://www.okta.com/developerday/' },
           { type: 'divider' },
           { type: 'icons',
             icons: [
