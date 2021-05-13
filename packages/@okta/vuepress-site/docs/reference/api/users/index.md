@@ -2250,7 +2250,7 @@ Users that don't have a password must complete the flow by completing [Reset Pas
 
 | Parameter | Description                                                                | Param Type | DataType | Required |
 | --------- | -------------------------------------------------------------------------- | ---------- | -------- | -------- |
-| id        | `id` of user                                                               | URL        | String   | TRUE     |
+| id        | `id`, `login`, or *login shortname* (as long as it is unambiguous) of user                                                               | URL        | String   | TRUE     |
 | sendEmail | Sends an activation email to the user if `true`. Default value is `false`. | Query      | Boolean  | FALSE    |
 
 ##### Response Parameters
