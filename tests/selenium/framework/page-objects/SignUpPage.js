@@ -11,9 +11,11 @@ const lastNameFieldId = 'lastName';
 const countryFieldId = 'country';
 const signupWithGoogleButtonId = 'continue-google';
 const signupWithGithubButtonId = 'continue-github';
-const signUpByEmailButtonId = 'signup';
+const signUpByEmailButtonId = 'submitbutton';
 const signInLinkText = 'Sign in';
+const oieLinkText = 'Learn more about Identity engine';
 const redirectUrl = '/signup';
+const oieRedirectUrl = '/signup/oie.html';
 const captchaIFrameXpath = "//*[@for='recaptcha']/div/div/div/iframe";
 const dialogContainerClass = '.dialog-container';
 const dialogTermsConditionsHeader = `${dialogContainerClass} .dialog--header`
@@ -57,6 +59,10 @@ class SignUpPage extends BasePage {
     return this.getSignInLinkElement().isPresent();
   }
 
+  isOieLinkPresent() {
+    return this.getOieLinkElement().isPresent();
+  }
+
   isCaptchaPresent() {
     return this.getCaptchaIframeElement().isPresent();
   }
@@ -72,6 +78,12 @@ class SignUpPage extends BasePage {
   navigate() {
     const pageLoadElement = SignUpPage.getPageLoadElement();
     this.load(redirectUrl, pageLoadElement);
+    this.waitForPresence(pageLoadElement);
+  }
+
+  navigateToOie() {
+    const pageLoadElement = SignUpPage.getPageLoadElement();
+    this.load(oieRedirectUrl, pageLoadElement);
     this.waitForPresence(pageLoadElement);
   }
 
@@ -117,6 +129,10 @@ class SignUpPage extends BasePage {
 
   getSignInLinkElement() {
     return element(by.linkText(signInLinkText));
+  }
+
+  getOieLinkElement() {
+    return element(by.linkText(oieLinkText));
   }
 }
 
