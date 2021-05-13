@@ -51,6 +51,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
   aspnetwebforms: 'ASP.NET Web Forms',
   blazor: 'Blazor',
   micronaut: 'Micronaut',
+  reactnativeios: 'React Native (iOS)',
+  reactnativedroid: 'React Native (Android)',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
@@ -76,6 +78,8 @@ const COMMON_NAME_TO_ICON_NAME = {
   blazorwebassembly: 'code-dotnet-32',
   aspnetwebforms: 'code-dotnet-32',
   blazor: 'code-dotnet-32',
+  reactnativeios: 'code-react-32',
+  reactnativedroid: 'code-react-32',
 };
 
 const IDP_COMMON_NAME_TO_ICON_NAME = {

@@ -25,7 +25,9 @@ To get started, you need to create an Okta OAuth app to represent the <StackSele
 1. Sign in to your [Okta Admin Console](https://login.okta.com).
 2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
 3. In the dialog box that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSelector snippet="apptype" noSelector inline /> as the **Application type**, and then click **Next**.
-4. Fill in the New <StackSelector snippet="apptypepage" noSelector inline /> Integration fields that you need. Be sure to add the following, and then click **Save**:
+4. Fill in the New <StackSelector snippet="apptypepage" noSelector inline /> Integration fields that you need.
+
+   Be sure to add the following values (or leave the defaults if they match), and then click **Save**:
 
     * **Sign-in redirect URIs** &mdash; <StackSelector snippet="signinredirecturi" noSelector inline />
     * **Sign-out redirect URIs** &mdash; <StackSelector snippet="signoutredirecturi" noSelector inline />

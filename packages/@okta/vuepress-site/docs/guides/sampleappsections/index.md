@@ -412,11 +412,13 @@ This section walks you through enrolling a user and authenticating that user.
 5. Click **Logout** to sign out of the app.
 
 -----
+
+DO LAST
 samples-java-servlet
 
 ## Initial set up and authentication
 
-This example shows you how to use the Okta Java Authentication SDK to sign a user in to a servlet-based application. This sample application is meant to show you how to integrate the Okta Java Authentication SDK into existing frameworks or applications. It is a convenient HTTP client wrapper for Okta’s Authentication API.
+This example shows you how to use the Okta Java Authentication SDK to sign a user in to a servlet-based application. This sample application is meant to show you how to integrate the Okta Java Authentication SDK into existing frameworks or applications. It is a convenient HTTP client wrapper for Okta's Authentication API.
 
 1. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-java-servlet.git`
 
@@ -425,7 +427,7 @@ This example shows you how to use the Okta Java Authentication SDK to sign a use
 2. Obtain your Org URL (found in the global header located in the upper-right corner of the Admin Console), for example, `https://example-1234.oktapreview.com`.
 3. From the command line, enter the `authn-servlet` directory.
 4. Include your Org URL in the following `mvn` command to start the application: `mvn -Dokta.client.orgUrl=https://{yourOktaDomain}`
-5. Open `http://localhost:8080` in an incognito/private browser window. The Okta Authentication SDK + Servlet page appears. 
+5. Open `http://localhost:8080` in an incognito/private browser window. The Okta Authentication SDK + Servlet page appears.
 6. Click **Login**. You are redirected to a sign-in page.
 7. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 8. Click **Logout** in the upper-right corner of the page to sign out of the app.
@@ -433,6 +435,7 @@ This example shows you how to use the Okta Java Authentication SDK to sign a use
 You now have the Okta Java servlet sample app installed and working.
 
 -----
+
 samples-java-spring
 
 ## Initial set up and authentication
