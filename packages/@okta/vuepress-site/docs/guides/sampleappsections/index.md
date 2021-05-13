@@ -411,6 +411,8 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Logout** to sign out of the app.
 
+These sections added
+
 -----
 
 DO LAST
@@ -446,12 +448,12 @@ Before we begin, you need to create an Okta OpenID Connect app to represent the 
 2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
 3. From the Add Application page, click **Create New App**.
 4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click ?**Save**:
+5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
     * **Login redirect URIs** &mdash; `http://localhost:8080/authorization-code/callback`
     * **Logout redirect URIs** &mdash; `http://localhost:8080/`
 6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
 7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID** and the **Client secret**. Store these temporarily for use when starting the sample app in a few steps.
+8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID** and the **Client secret**. Store these temporarily for use when you start the sample app in a few steps.
 9. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
 10. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
 11. Select the **CORS** check box and click **Save**.
@@ -471,6 +473,8 @@ Before we begin, you need to create an Okta OpenID Connect app to represent the 
 18. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
 You have now created your App in Okta, and the Okta Spring sample app is installed and working.
+
+These sections added
 
 -----
 samples-js-angular
@@ -517,11 +521,12 @@ This section walks you through enrolling a user and authenticating that user.
 5. Click **Logout** at the top of the page to sign out of the app.
 
 -----
+
 samples-js-react-native (iOS)
 
 ## Initial set up
 
-Before we begin, you need to create an Okta Native App to represent the React Native sample app and then install the sample app. In this example, we are setting up an iOS React Native application.
+Before we begin, you need to create an Okta Native App to represent the React Native for iOS sample app and then install the sample app.
 
 > **Note:** These steps assume that you are using XCode and the provided XCode project in the sample app.
 
@@ -562,20 +567,20 @@ You have now created your React Native app in Okta and installed the Okta React 
 
 ## Simple enrollment and authentication
 
-1. This section walks you through enrolling a user and authenticating that user.
-2. Open and test the Sign-In Widget
-3. On the command line inside the `ios` subdirectory, start the React Native app by running `npm start`.
-4. In XCode, run the `browserSignIn` project.
-5. In the simulator, click **Login**. You are redirected to the Okta Sign-In Widget.
-6. Enter the **Username** and **Password** for an admin user in your Okta org, and click **Next**. You are redirected to the success page.
-7. Click **Logout** to sign out of the app.
+1. On the command line inside the `ios` subdirectory, start the React Native app by running `npm start`.
+2. In XCode, run the `browserSignIn` project.
+3. In the simulator, click **Login**. You are redirected to the Okta Sign-In Widget.
+4. Enter the **Username** and **Password** for an admin user in your Okta org, and click **Next**. You are redirected to the success page.
+5. Click **Logout** to sign out of the app.
+
+These sections added
 
 -------
 samples-js-react-native (Android)
 
 ## Initial set up
 
-Before we begin, you need to create an Okta Native App to represent the React Native sample app and then install the sample app. In this example, we are setting up an Android React Native application.
+Before we begin, you need to create an Okta Native App to represent the React Native for Android sample app and then install the sample app.
 
 > **Note:** These steps assume that you are using Android Studio to run the sample app.
 
@@ -633,6 +638,8 @@ This section walks you through enrolling a user and authenticating that user.
 3. In the emulator, click **LOGIN**. You are redirected to the Okta Sign-In Widget.
 4. Enter the **Username** and Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **LOGOUT** in the emulator to sign out of the app.
+
+These sections added
 
 ------
 samples-js-vue

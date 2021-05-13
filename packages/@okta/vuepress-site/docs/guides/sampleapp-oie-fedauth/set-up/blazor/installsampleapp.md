@@ -1,6 +1,6 @@
 1. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-blazor.git`
 2. In Visual Studio, open the `okta-blazor-server-side-example` solution file in the `okta-hosted-login` directory.
-3. Open the <StackSelector snippet="configfile" noSelector inline /> file and, in the `Okta` section, add the information that you copied in previous steps:
+3. Open the `appsettings.json` file and, in the `Okta` section, add the information that you copied in previous steps:
 
     ```json
     "Okta": {

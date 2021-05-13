@@ -1,5 +1,5 @@
 1. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-ios.git`
-2. Navigate to the `OktaBrowserSignIn` directory and edit the <StackSelector snippet="configfile" noSelector inline /> file with the information that you copied in previous steps:
+2. Navigate to the `OktaBrowserSignIn` directory and edit the `Okta.plist` file with the information that you copied in previous steps:
 
 ```
     <?xml version="1.0" encoding="UTF-8"?>
