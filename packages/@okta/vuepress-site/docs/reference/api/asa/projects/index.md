@@ -50,6 +50,7 @@ The Projects API has the following operations:
 * [Add an Unmanaged Server to a Project](#add-an-unmanaged-server-to-a-project)
 * [Fetch the details of a Server in a Project](#fetch-the-details-of-a-server-in-a-project)
 * [Remove a Server from a Project](#remove-a-server-from-a-project)
+* [Update a Server on a Project](#update-a-server-on-a-project)
 
 
 ### List Projects for a Team
@@ -1739,6 +1740,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `hostname`   | string | The hostname of the Server |
 | `id`   | string | The UUID corresponding to the Server |
 | `instance_details`   | object | Information that the cloud provider provides about the Server, if one exists |
+| `labels`   | object | (Optional) The labels for this server. Only available with the PolicySync feature, which is currently in EA. |
 | `last_seen`   | string | The last time that the Server made a request to the ASA platform |
 | `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA knows that it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server, such as CentOS 6 or Debian 9.13 |
@@ -1858,6 +1860,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `hostname`   | string | The hostname of the Server |
 | `id`   | string | The UUID corresponding to the Server |
 | `instance_details`   | object | Information that the cloud provider provides about the Server, if one exists |
+| `labels`   | object | (Optional) The labels for this server. Only available with the PolicySync feature, which is currently in EA |
 | `last_seen`   | string | The last time that the Server made a request to the ASA platform |
 | `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA knows that it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server, such as CentOS 6 or Debian 9.13 |
@@ -1951,6 +1954,7 @@ This endpoint returns an object with the following fields and a `200` code on a 
 | `hostname`   | string | The hostname of the Server |
 | `id`   | string | The UUID corresponding to the Server |
 | `instance_details`   | object | Information that the cloud provider provides about the Server, if one exists |
+| `labels`   | object | (Optional) The labels for this server. Only available with the PolicySync feature, which is currently in EA |
 | `last_seen`   | string | The last time that the Server made a request to the ASA platform |
 | `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA knows that it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server, such as CentOS 6 or Debian 9.13 |
@@ -2036,6 +2040,58 @@ This endpoint returns a `204 No Content` response on a successful call.
 ```bash
 curl -v -X DELETE \
 -H "Authorization: Bearer ${jwt}" \
+https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/${server_id}
+```
+
+##### Response
+
+```json
+HTTP 204 No Content
+```
+### Update a Server on a Project
+
+<ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/${server_id}" />
+Update a Server on a Project. This endpoint is only available with the PolicySync feature, which is currently in EA
+
+This endpoint requires one of the following roles: `access_admin`, or `server_admin`.
+
+#### Request path parameters
+
+| Parameter | Type        | Description   |
+| --------- | ----------- | ------------- |
+| `project_name`   | string | The Project name |
+| `server_id`   | string | The UUID of the Server |
+| `team_name`   | string | The name of your Team |
+
+
+#### Request query parameters
+
+This endpoint has no query parameters.
+
+#### Request body
+
+
+This endpoint requires an object with the following fields.
+| Properties | Type        | Description          |
+|----------|-------------|----------------------|
+| `labels`   | object | (Optional) A map of key value pairs. These labels will overwrite all labels previously supplied via the API for this server. Labels from any other source can only be updated using that source. The prefix 'api.' will be automatically prepended if not supplied. |
+
+#### Response body
+This endpoint returns a `204 No Content` response on a successful call.
+
+
+#### Usage example
+
+##### Request
+
+```bash
+curl -v -X PUT \
+-H "Authorization: Bearer ${jwt}" \
+--data '{
+	"labels": {
+		"foo": "bar"
+	}
+}' \
 https://app.scaleft.com/v1/teams/${team_name}/projects/${project_name}/servers/${server_id}
 ```
 
