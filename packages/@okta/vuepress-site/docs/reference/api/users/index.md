@@ -2044,7 +2044,7 @@ Fetches appLinks for all direct or indirect (via group membership) assigned appl
 
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
-| id        | `id` of user | URL        | String   | TRUE     |
+| id        | `id`, `login`, or *login shortname* (as long as it is unambiguous) of user | URL        | String   | TRUE     |
 
 ##### Response Parameters
 
@@ -2130,7 +2130,7 @@ Fetches the groups of which the user is a member
 
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
-| id        | `id` of user | URL        | String   | TRUE     |
+| id        | `id`, `login`, or *login shortname* (as long as it is unambiguous) of user | URL        | String   | TRUE     |
 
 ##### Response Parameters
 
