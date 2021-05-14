@@ -9,13 +9,13 @@ export CHROME_HEADLESS=true
 fold yarn_install yarn install
 
 # Lint the markdown
-#fold yarn_markdown_check yarn markdown-lint
+# fold yarn_markdown_check yarn markdown-lint
 
 # Check the links
-# fold yarn_check_links yarn check-links
+fold yarn_check_links yarn check-links
 
 # Build site and Run tests
-# fold yarn_test yarn test
+fold yarn_test yarn test
 
 
 # Will run the netlify deploy if:
