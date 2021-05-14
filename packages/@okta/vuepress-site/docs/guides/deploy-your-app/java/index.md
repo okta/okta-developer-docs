@@ -4,7 +4,7 @@ title: Java
 
 Java applications typically build into a WAR or a JAR for production.
 
-If you deploy your application as a WAR, it's possible you have a context path. If you do, make sure that you add this to your Login redirect URI and your Logout redirect URI for your Okta app.
+If you deploy your application as a WAR, it's possible you have a context path. If you do, make sure that you add this to your Sign-in redirect URI and your Sign-out redirect URI for your Okta app.
 
 <!--
 // todo: show how to do this with the Okta CLI
@@ -44,7 +44,7 @@ git push --set-upstream heroku <branch-name>
 
 **Tip:** If you want to use a different version of Java, create a `system.properties` and add `java.runtime.version=11` (or another version) to it.
 
-You won't be able to sign in to your application until you add your Heroku app's URLs to your Login redirect URIs and Logout redirect URIs on Okta.
+You won't be able to sign in to your application until you add your Heroku app's URLs to your Sign-in redirect URIs and Sign-out redirect URIs on Okta.
 
 For more information, see [Deploy a Secure Spring Boot App to Heroku](https://developer.okta.com/blog/2020/08/31/spring-boot-heroku).
 

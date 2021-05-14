@@ -52,7 +52,7 @@ Create an app with the Profile object using the [Apps API](/docs/reference/api/a
 
 To add a custom claim:
 
-1. In the Admin Console, navigate to **Security**, and then **API**.
+1. In the Admin Console, go to **Security** > **API**.
 
 2. On the **Authorization Servers** tab, select the name of the Custom Authorization Server that you want to add the claim to (or select **default** when you use the default Custom Authorization Server), and then click **Claims**.
 

@@ -7,16 +7,15 @@ Before you can sign a user in, you need to create an Okta app integration that r
 
     <a href="https://developer.okta.com/login" target="_blank" class="Button--blue">Go to Admin Console</a>
 
-1. From the Admin Console side navigation, click **Applications** > **Applications**.
-1. Click **Add Application** and then **Create New App**.
-1. Pick **Single-Page App (SPA)** as the platform and click **Create**.
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. Click **Create App Integration**.
+1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
+1. Select **Single-Page Application** as the **Application type** and click **Next**.
     > **Note:** It is important to choose the appropriate application type for apps which are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, hence breaking the sign-in or sign-out flow.
 1. Enter a name for your app integration (or leave the default value).
-1. Enter values for the **Login redirect URI**. This is the callback from <GuideLink link="../define-callback/">Define a callback route</GuideLink>. Add values for local development (for example, `http://localhost:8080/login/callback` or `http://localhost:8080/authentication/login-callback` for Blazor) and production (for example, `https://app.example.com/login/callback`).
+1. Enter values for the **Sign-in redirect URIs**. This is the callback from <GuideLink link="../define-callback/">Define a callback route</GuideLink>. Add values for local development (for example, `http://localhost:8080/login/callback` or `http://localhost:8080/authentication/login-callback` for Blazor) and production (for example, `https://app.example.com/login/callback`).
 1. Include a URI in the **Initiate login URI** box to have Okta initiate the sign-in flow. When Okta redirects to this endpoint (for example, `https://example:0000.com/login`), the client is triggered to send an authorize request. This URI is also used when users reset their passwords while signing in to the app. Okta redirects the user back to this URI after the password is reset so that the user can continue to sign in.
-<!-- removed the Base URI step (was step #6 here) until the new UI is updated to include it -->
-<!-- 1. Add the **Base URI** of your application during local development, such as `http://localhost:8080`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`.
--->
+1. Add the **Base URI** of your application during local development, such as `http://localhost:8080`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`.
 1. Click **Save** to finish creating the Okta app integration.
 1. On the **General** tab, scroll to **General Settings** and click **Edit**.
 1. In the **Allowed grant types**, make sure that **Authorization Code** and **Refresh Token** are selected.

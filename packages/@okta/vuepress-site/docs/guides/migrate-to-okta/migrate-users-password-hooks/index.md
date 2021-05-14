@@ -110,7 +110,7 @@ In order for Okta to use your application, you must register the external servic
 
 > **NOTE:** The external endpoint must be SSL protected and have a URL that starts with `https://`. Okta will NOT make calls to endpoints that are not SSL protected.
 
-From the Admin Console, Navigate to **Workflow > Inline Hooks**  and click **Add Inline Hook**.
+In the Admin Console, go to **Workflow** > **Inline Hooks**. Click **Add Inline Hook**.
 
 You can also accomplish this using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
@@ -123,7 +123,7 @@ During that time, a large percentage of your active users will migrate over to O
 At the end of the migration program time, you'd do the following to migrate the "stragglers":
 
 1. Use the [Management API](/docs/reference/api/users/#reset-password) to force a password reset for those users still with `credentials.provider.type` set to `IMPORT`.
-2. Those users would receive an email to set their password with a link to follor
-3. Most of that subset of users that are active would set a new password in Okta, thereby completing their migration
+2. Those users would receive an email to set their password with a link to follow.
+3. Most of that subset of users that are active would set a new password in Okta, thereby completing their migration.
 
 Once in this phase of the migration, you could retire the legacy system from service.

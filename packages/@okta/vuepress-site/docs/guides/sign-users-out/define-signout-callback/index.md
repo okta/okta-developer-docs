@@ -8,10 +8,10 @@ Signing out of Okta requires the app to open a browser and navigate to the [end 
 
     <a href="https://developer.okta.com/login" target="_blank" class="Button--blue">Go to Admin Console</a>
 
-1. From the Admin Console side navigation, click **Applications** > **Applications**.
-1. Click your application.
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. Click on your app integration.
 1. On the **General** tab, click **Edit** in the **General Settings** section.
-1. In the **Logout redirect URIs** section, add the base URI of your application.
+1. In the **Sign-out redirect URIs** section, add the base URI of your application.
 
     <StackSelector snippet="addbaseuri"/>
 1. Click **Save** to confirm your changes.

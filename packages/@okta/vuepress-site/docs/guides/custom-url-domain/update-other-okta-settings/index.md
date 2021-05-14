@@ -9,14 +9,14 @@ After you customize your Okta domain URL, existing [Custom Authorization Servers
 
 You need to update existing Custom Authorization Servers to return the custom domain as the `issuer` value:
 
-1. From the Admin Console side navigation, select **Security** and then **API**.
-1. From the **Authorization Servers** tab, select the Custom Authorization Server that you want to update.
+1. In the Admin Console, go to **Security** > **API**.
+1. On the **Authorization Servers** tab, select the Custom Authorization Server that you want to update.
 1. Click **Edit** on the Custom Authorization Server that you selected.
 1. From the **Issuer** drop-down box, select the custom URL and click **Save**.
 
 Additionally, you might want to change the issuer for your OpenID Connect applications that are using the Org authorization server.
 
-1. From the Admin Console side navigation, select **Applications** and then **Applications**.
+1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click the OpenID Connect application that you want to update.
 1. Select the **Sign On** tab, scroll to the **OpenID Connect ID Token** section, and then click **Edit**.
 1. From the **Issuer** drop-down box, select the custom URL and click **Save**.

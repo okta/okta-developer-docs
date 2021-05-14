@@ -15,7 +15,7 @@
 
   After the variable is created, you can click the pencil icon to make changes to the details, the clipboard icon to copy the **Variable Name** to your local clipboard, or the "X" icon to remove the variable entirely.
 
-  * **Construct your dynamic Base URL by copying the variables above and pasting them where applicable** &mdash; Provide the base URL that your integration uses when sending an outbound call to your SCIM server.
+  * **Construct your dynamic Base URL by copying the variables above and pasting them where applicable** &mdash; Provide the Base URL that your integration uses when sending an outbound call to your SCIM server.
 
     If you're using a per tenant design, include the variable names that you created. For example:
 
@@ -29,7 +29,7 @@
   * Header authentication: Specify what format the token is sent to the server.
   * OAuth 2: Specify the token and authorization endpoint URLs for your SCIM server, along with the consumer key and secret.
 
-* **Does your SCIM `userName` attribute value follow an email address format?** &mdash; Select **Yes** if your SCIM server uses a name@company.TLD format for the unique userName attribute.
+* **Does your SCIM `userName` attribute value follow an email address format?** &mdash; Select **Yes** if your SCIM server uses a `name@company.TLD` format for the unique userName attribute.
 
 * **Did you delete all unused attributes?** &mdash; As outlined in the [Build a SCIM provisioning integration](/docs/guides/build-provisioning-integration/attribute-mapping/) guide, you need to update the base attributes and mappings that correspond with the attributes supported by your application. Select **Yes** if you have completed the instructions in the **Remove the mapping** and **Delete attributes from your attribute list** sub-sections in the **Delete attributes** section of that guide.
 

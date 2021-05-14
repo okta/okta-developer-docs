@@ -71,7 +71,7 @@ If your branch isn't named `master`, run:
 git push --set-upstream heroku <branch-name>
 ```
 
-You won't be able to sign in to your application until you add your Heroku app's URLs to your Login redirect URIs, Logout redirect URIs, and Trusted Origins on Okta.
+You won't be able to sign in to your application until you add your Heroku app's URLs to your **Sign-in redirect URIs**, **Sign-out redirect URIs**, and **Trusted Origins** on Okta.
 
 For more information, see [Angular Deployment with a Side of Spring Boot](https://developer.okta.com/blog/2020/05/29/angular-deployment). This blog post includes instructions for deploying to Heroku, Firebase, Netlify, and AWS S3.
 

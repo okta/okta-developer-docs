@@ -12,11 +12,11 @@ For each protocol, click on the appropriate tab name and change the protocol sup
 
 For each protocol, enter the **Okta instance URL** for your integration in the first field.
 
-To get your Okta instance URL:
+To get your Okta instance URL in your development org:
 
-1. Open the Okta Admin Console in your development org.
-1. Click **Applications > Applications** to see all the integrations in your org.
-1. Click on the name of the integration you are going to submit. The browser opens the settings page. Confirm that the settings match what you want as the global defaults for all customers.
+1. In the Okta Admin Console, go to **Applications** > **Applications** to see all the integrations in your org.
+1. Click on the name of the app integration you are going to submit.
+1. On the settings page, confirm that the settings match what you want as the global defaults for all customers.
 1. In your browser, click on the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
 1. Back in the OIN Manager, paste that URL into your submission.
 

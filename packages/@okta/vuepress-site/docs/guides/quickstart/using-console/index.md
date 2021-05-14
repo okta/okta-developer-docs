@@ -20,7 +20,7 @@ A search bar at the top of the Dashboard lets you quickly bring up information o
 
 #### System Log
 
-Some of the statistics on the Dashboard are derived from the org's system logs. You can access the System Log page either by clicking the  **View all** link in the **Org Changes** widget or the suspicious activity **View** link in the **Security Monitoring** widget. You can also access the System Log by selecting **Reports > System Log** from the side navigation. The System Log records actions taken by you and any other admins, as well as ongoing events that occur for each user, like user creation and authentication attempts. You can click each event to expand it and get full details.
+Some of the statistics on the Dashboard are derived from the org's system logs. You can access the System Log page either by clicking the  **View all** link in the **Org Changes** widget or the suspicious activity **View** link in the **Security Monitoring** widget. You can also access the System Log by going to **Reports** > **System Log**. The System Log records actions taken by you and any other admins, as well as ongoing events that occur for each user, like user creation and authentication attempts. You can click each event to expand it and get full details.
 
 In the global header in the upper-right corner of the page, you can view the Okta domain of the org that you’re in. This can be handy if you manage multiple orgs.
 

@@ -7,7 +7,7 @@ When a request is sent to the Okta Org Authorization Server's `/authorize` endpo
 > **Note:** Only the Super Admin role has permissions to grant scopes to an app.
 
 1. Sign in to your Okta organization with your administrator account.
-1. From the Admin Console side navigation, click **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect (OIDC) or OAuth 2.0 app that needs grants added.
 1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the application's grant collection.
 

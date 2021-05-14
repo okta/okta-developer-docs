@@ -9,7 +9,7 @@ In your Okta org, you can preview the request and response JSON right from the A
 
 To preview the Registration Inline Hook:
 
-1. Navigate to Inline Hooks (**Workflow** > **Inline Hooks**) in your Admin Console.
+1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 2. Click on the Registration Inline Hook name (in this example, "Guide Registration Hook Code").
 3. Click the **Preview** tab.
 4. Select a user from your org in the first block titled "Configure Inline Hook request"; that is, a value for the  `data.userProfile` value.

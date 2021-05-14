@@ -10,11 +10,7 @@ If you don't have an Okta developer account, begin by signing up for one at <htt
 
 1. After you request the developer account and have received the initialization email, click the link in the email to go to your developer org. Sign in as a user with administrative privileges.
 1. In the Admin Console, go to  **Applications** > **Applications**.
-<!--  ![Open Applications](/img/oin/scim_open-apps.png "Open Applications") -->
-1. Click **Add Application**.
-<!--  ![Create Application](/img/oin/scim_create-app.png "Add Application button") -->
-1. Click **Create New App** to start the Application Integration Wizard.
-<!--   ![Create New Application](/img/oin/scim_create-app-new.png "Create Application button") -->
+1. Click **Create App Integration**.
 
 <StackSelector snippet="create" />
 

@@ -29,4 +29,4 @@ The Okta CLI sends the following variables to your app-specific configuration fi
 - `OKTA_OAUTH2_CLIENT_SECRET`&mdash;the secret key used by the client to exchange an authorization code for a token
 - `OKTA_REVERSE_DOMAIN`&mdash;the reverse domain name used in native apps
 
-> **Note:** If you chose **Single Page App** as the application type, the Okta CLI displays the issuer ID and client ID in the terminal after registration; credentials are not sent to a configuration file.
+> **Note:** If you chose **Single Page Application** as the **Application type**, the Okta CLI displays the issuer ID and client ID in the terminal after registration; credentials are not sent to a configuration file.
