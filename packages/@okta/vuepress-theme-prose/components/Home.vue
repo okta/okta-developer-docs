@@ -1,8 +1,8 @@
 <template>
-  <div class="homepage container-fluid">
-    <div class="row">
+  <div class="homepage content">
+    <div class="content--container">
        <div
-        class="col-xl-2 col-lg-2 d-none d-lg-block homepage--col-no-padding"
+        class="tree-nav сol-xl-2 col-lg-2 homepage--col-no-padding" 
       >
         <Sidebar/>
       </div> 
@@ -183,7 +183,6 @@ export default {
   name: "Home",
   components: {
     Sidebar: () => import("../components/Sidebar"),
-    HomeSidebar: () => import("../components/HomeSidebar"),
     SelectorTile: () => import("../components/SelectorTile"),
     AssuranceItem: () => import("../components/AssuranceItem"),
     FrontPageWidget: () => import("../components/FrontPageWidget"),

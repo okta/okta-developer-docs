@@ -5,7 +5,6 @@ $oktaGameSectionMainColor: #122a34;
   font-family: $font-family;
   min-height: 100vh;
   color: white;
-  overflow: hidden;
   &--col-no-padding.col-lg-2,
   &--col-no-padding.col-xl-2 {
     padding: 0px 0px;
@@ -109,7 +108,10 @@ $oktaGameSectionMainColor: #122a34;
     }
 
     a {
-      &:link, &:visited, &:hover, &:active {
+      &:link,
+      &:visited,
+      &:hover,
+      &:active {
         color: white;
         text-decoration: underline;
       }
