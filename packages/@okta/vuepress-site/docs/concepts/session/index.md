@@ -38,12 +38,12 @@ For non-privileged access apps, such as a loyalty program catalog, sessions can 
 
 Local logout is the act of signing the user out of the app and terminating the application session. The user IdP session is still active and other application sessions aren't affected by terminating a specific local application session. Local logout is managed by the app. If the user wants to access the app again, they are automatically authenticated through the active IdP session into the app and the app creates a new session for the user.
 
-See [Sign users out of your app](/docs/guides/sign-users-out/-/sign-out-of-your-app/) for an example of a local logout implementation with Okta.
+See [Sign users out of your app](/docs/guides/sign-users-out/-/sign-out-of-your-app/) for a guide to implement local logout with Okta.
 
 #### Single logout
 
 Single logout in Okta is the act of signing the user out of the app and the Okta IdP, ending both the application session and the IdP session. Currently, Okta supports app-initiated single logout and not IdP-initiated single logout. The result is that other active application sessions for the user can still persist depending on the restrictive nature of the other apps. For non-privileged access apps, the user can still access the app within the scope of the application session. For example, a user can still browse through a catalog of vacation experiences and add to their cart. When this user is ready to check out and make a payment, the app can enforce a privileged access workflow and redirect the user to re-authenticate with Okta to secure an IdP session as well as an application session. For privileged access apps, the user is typically redirected to re-authenticate with Okta to start a new IdP session and an application session.
 
-See [Single Logout in applications](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Single_Logout.htm) for configuring app-initiated single logout in Okta.
+See [Sign users out of Okta](/docs/guides/sign-users-out/-/sign-out-of-okta/) for a guide to implement Okta sign out. For Okta Admin console app-initiated single logout configuration, see [Single Logout in applications](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Single_Logout.htm).
 
-Explore [Okta sample apps](/docs/guides/quickstart/cli/register-app/#start-from-a-sample-app) for non-privileged access implementations of sign out.
+Explore [Okta sample apps](/docs/guides/quickstart/cli/register-app/#start-from-a-sample-app) for sample code with non-privileged access implementations.
