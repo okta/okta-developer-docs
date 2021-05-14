@@ -295,7 +295,7 @@ $oktaGameButtonColor: #ffdd53;
   }
 }
 
-@include media("<=tablet") {
+@include media("<desktop") {
   .okta-game-banner {
     align-items: center;
     flex-direction: column;
