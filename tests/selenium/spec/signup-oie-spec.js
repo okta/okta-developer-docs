@@ -85,24 +85,6 @@ describe('Sign up page check spec', () => {
         .to.contain("login");
     }));
 
-    it('email signup button text verification', util.itHelper(async () => {
-        expect(await signUpPage.getSignUpByEmailButtonElement().getAttribute('value'), 
-         'button text does not match')
-            .to.equal("sign up");
-      }));
-
-    it('identity engine intro page link verification', util.itHelper(async () => {
-        await signUpPage.getOieLinkElement().click();
-        expect(await signUpPage.getCurrentURL())
-          .to.contain("ie-intro");
-     }));
-
-     it('redirect to dev org link verification', util.itHelper(async () => {
-        await signUpPage.getSignInLinkElement().click();
-        expect(await signUpPage.getCurrentURL())
-          .to.not.contain("oie");
-     }));
-
   });
 
 });
