@@ -4,7 +4,7 @@ To create a web app integration with an OpenID Connect (OIDC) sign-in:
 1. Click **Create App Integration**.
 1. Select **OpenID Connect** for the **Sign-in method**.
 1. Select **Web Application** for the **Application type**.
-    > **Note:** **Web Application** is typically used for applications using tokens in server-side code. For applications using tokens in Angular, React, Vue, or other browser-side code, choose **Single-Page Application**.
+    > **Note:** **Web Application** is typically used for applications that use tokens in server-side code. For applications that use tokens in Angular, React, Vue, or other browser-side code, choose **Single-Page Application**.
 1. Click **Next**.
 1. From the **New Web App Integration** page, specify your **App integration name**.
 1. Next to **Sign-in redirect URIs**, click **+ Add URI** to specify each sign-in redirect URI for your app. Okta sends OAuth authorization responses to the specified URIs, which are also known as callback endpoints. For the Okta sample **Web Application** apps, specify `http://localhost:8080/authorization-code/callback` as a sign-in redirect URI. For **Single-Page Application** samples, use `http://localhost:8080/login/callback`.
