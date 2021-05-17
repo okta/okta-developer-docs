@@ -244,7 +244,7 @@ module.exports = {
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Change log', link: '/docs/release-notes/' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
-          { text: 'Auth0 platform', link: 'https://auth0.com/developers/' },
+          { text: 'Auth0 platform', link: 'https://auth0.com/developers' },
         ]
       },
       websites: {
