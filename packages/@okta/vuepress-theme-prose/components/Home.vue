@@ -22,7 +22,7 @@
                 Play Now
               </SmartLink>
               <SmartLink
-                :item="{ link: '' }"
+                :item="{ link: 'https://youtu.be/aO5QTNjUQ6o' }"
                 classes="learn-more"
               >
                 Learn More
