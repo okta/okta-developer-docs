@@ -114,7 +114,7 @@ Okta utilizes access policies to decide whether the scopes can be granted. If an
 
 There are three URIs that you need to consider when creating an OIDC app for the OIN:
 
-1. **Sign-in redirect URIs** &mdash; after being successfully authorized by Okta, this is the callback location where the user is directed to along with the authorization code. This URI must exactly match the Redirect URI value pre-registered in the Okta app integration settings.
+1. **Sign-in redirect URIs** &mdash; after the user is successfully authorized by Okta, this is the callback location is where the user is directed to along with the authorization code. This URI must exactly match at least one of the redirect URI values pre-registered in the Okta app integration settings.
 2. Optional. **Initiate login URI** &mdash; this URI is used if the application is launched from the Okta dashboard (known as an IdP-initiated flow) and you want your Okta integration to handle redirecting your users to your application to start the sign-in request. When end users click your app in their Okta dashboard, they are redirected to the `initiate_login_uri` of the client application, which constructs the authentication request and redirects the end user back to the authorization server. This URI must exactly match the Initiate URI value pre-registered in the Okta app integration settings.
 3. Optional. **Sign-out redirect URIs** &mdash; a location to send the user after a sign off operation is performed and their session is terminated. Otherwise, the user is redirected back to the sign-in page.
 

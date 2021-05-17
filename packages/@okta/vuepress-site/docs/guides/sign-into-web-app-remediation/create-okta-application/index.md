@@ -11,7 +11,7 @@ Before you can sign a user in, you need to create an Okta app integration that r
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Web Application** as the **Application type** and click **Next**.
-    > **Note:** It is important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients aren't designed to have, hence breaking the sign-in or sign-out flow.
+    > **Note:** It is important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients aren't designed to have, and would break the sign-in or sign-out flow.
 1. Enter a name for your app integration (or leave the default value).
 1. Enter values for the **Sign-in redirect URIs**. Add values for local development (such as `http://localhost:8080/authorization-code/callback`) and production (such as `https://app.example.com/authorization-code/callback`). Your users aren't redirected, but this URL is required by the API to validate the request.
 1. Add the **Base URIs** of your application during local development, such as `http://localhost:3000`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`.

@@ -4,7 +4,7 @@ title: Java
 
 Java applications typically build into a WAR or a JAR for production.
 
-If you deploy your application as a WAR, it's possible you have a context path. If you do, make sure that you add this to your Sign-in redirect URI and your Sign-out redirect URI for your Okta app.
+If you deploy your application as a WAR, it's possible you have a context path. If you do, add this path to your Sign-in redirect URI and your Sign-out redirect URI for your Okta app.
 
 <!--
 // todo: show how to do this with the Okta CLI

@@ -10,7 +10,7 @@ To use the Group Functions to create a token using a dynamic group allow list, c
 1. Select the client application that you want to configure.
 1. Go to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
 1. In the **Groups claim type** section, select **Expression**.
-1. In the **Groups claims filter** section, leave the default name `groups` (or add it if the box is empty) and add one of the three functions with the criteria for your dynamic group allow list. For this example: `Groups.startsWith("OKTA", "IT", 10)`
+1. In the **Groups claims filter** section, leave the default name `groups` (or add it if the box is empty) and add one of the three functions with the criteria for your dynamic group allow list. For this example, use `Groups.startsWith("OKTA", "IT", 10)`.
 1. Click **Save**.
 
 ### Request an ID token that contains the Groups claim

@@ -124,6 +124,6 @@ At the end of the migration program time, you'd do the following to migrate the 
 
 1. Use the [Management API](/docs/reference/api/users/#reset-password) to force a password reset for those users still with `credentials.provider.type` set to `IMPORT`.
 2. Those users would receive an email to set their password with a link to follow.
-3. Most of that subset of users that are active would set a new password in Okta, thereby completing their migration.
+3. Most active users would set a new password in Okta, which would complete their migration.
 
-Once in this phase of the migration, you could retire the legacy system from service.
+When you are in this phase of the migration, you can retire the legacy system from service.

@@ -6,13 +6,13 @@ To request an access token using the Client Credentials grant flow, your app mak
 
 Include the following parameters:
 
-* `scope` &mdash; Include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the <GuideLink link="../create-serviceapp-grantscopes/#grant-allowed-scopes">application's grants collection</GuideLink>. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/).
+* `scope` &mdash; include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already be in the <GuideLink link="../create-serviceapp-grantscopes/#grant-allowed-scopes">application's grants collection</GuideLink>. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/).
 
     In this example, we only request access for one scope. When you request an access token for multiple scopes, the format for the scope value looks like this: `scope=okta.users.read okta.apps.read`
 
-* `client_assertion_type` &mdash; Specifies the type of assertion, in this case a JWT token:  `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
+* `client_assertion_type` &mdash; specifies the type of assertion, in this case a JWT token:  `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`
 
-* `client_assertion` &mdash; The signed JWT. Paste the JWT that you signed in the <GuideLink link="../create-sign-jwt">Create and sign the JWT</GuideLink> section.
+* `client_assertion` &mdash; the signed JWT. Paste the JWT that you signed in the <GuideLink link="../create-sign-jwt">Create and sign the JWT</GuideLink> section.
 
 The following is an example request for an access token (the JWT is truncated for brevity).
 

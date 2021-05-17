@@ -8,7 +8,7 @@ For an Okta Org Authorization Server, you can only create an ID token with a Gro
 1. Select the OpenID Connect client application that you want to configure.
 1. Go to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
 1. In the **Groups claim type** section, select **Expression**.
-1. In **Group claims expression**, leave the default name `groups` (or add it if the box is empty) and then add this expression in the second box: `getFilteredGroups(app.profile.groupallowlist, "group.name", 40)`
+1. In **Group claims expression**, leave the default name `groups` (or add it if the box is empty). Add this expression in the second box: `getFilteredGroups(app.profile.groupallowlist, "group.name", 40)`.
 1. Click **Save**.
 
 ### Request an ID token that contains the Groups claim

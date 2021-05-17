@@ -10,13 +10,13 @@ To create a new user:
 
 1. In the Admin Console, go to **Directory** > **People**.
 1. Click **Add Person**.
-1. Fill in first name, last name, username (must be an email address), and primary email. For example:
+1. Fill in the first name, last name, username (must be an email address), and primary emails, for example:
     - **First name:** Joe
     - **Last name:** Smith
     - **Username:** joe.smith@example.com
     - **Primary email:** joe.smith@example.com
 
-    > **Note:** To try out end user flows, you'll need to have access to the email address you set for the end user.
+    > **Note:** To try out end-user flows, you'll need to have access to the email address that you set for the end user.
 
 1. For password, select **Set by user**.
 1. Click **Save**.

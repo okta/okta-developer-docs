@@ -39,12 +39,12 @@ Select the type of integration you want to create, choosing either **SWA** or **
 1. Specify the base URL for your SCIM connector and the field name of the unique identifier for your users on your SCIM server.
 1. Under **Supported provisioning actions**, choose the provisioning actions supported by your SCIM server.
 
-    - Import New Users and Profile Updates: This option populates the **Settings** > **To Okta** page. You can specify the details of how Okta imports new users and user profile updates.
-    - Push New Users: This option populates the **Settings** > **To App** page, and contains settings for all the user information that flows from Okta into an application.
-    - Push Profile Updates: This option populates the **Settings** > **To App** page, and contains settings for all profile information that flows from Okta into an application.
-    - Push Groups: This option populates the Settings** > **To App page, and contains settings for all group information that flows from Okta into an application.
+    - Import New Users and Profile Updates &mdash; this option populates the **Settings** > **To Okta** page. You can specify the details of how Okta imports new users and user profile updates.
+    - Push New Users &mdash; this option populates the **Settings** > **To App** page. This page contains settings for all the user information that flows from Okta into an application.
+    - Push Profile Updates &mdash; this option populates the **Settings** > **To App** page. This page contains settings for all profile information that flows from Okta into an application.
+    - Push Groups &mdash; this option populates the **Settings** > **To App** page. This page contains settings for all group information that flows from Okta into an application.
 
-1. In the Authentication Mode section, you can choose which mode you want to use for Okta to connect to your SCIM application.
+1. In the **Authentication Mode** section, you can choose which mode you want to use for Okta to connect to your SCIM application.
 
     - Basic Auth: To authenticate using Basic Auth mode, you need to provide the username and password for the account that handles the create, update, and deprovisioning actions on your SCIM server.
     - HTTP Header: To authenticate using the HTTP Header, enter a bearer token to provide authorization against your SCIM application. See [Create an API token](/docs/guides/create-an-api-token/) for instructions on how to generate a token.

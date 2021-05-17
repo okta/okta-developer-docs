@@ -22,7 +22,7 @@ If you need to create a new OIDC app integration:
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose the appropriate **Application type** to match your external application environment. Click **Next**.
 1. Enter a name for your new app integration.
-1. Add one or more **Sign-in redirect URIs**. This is where the user is directed after they authenticate with the Identity Provider.
+1. Add one or more **Sign-in redirect URIs**. This is where the user is sent to after they authenticate with the Identity Provider.
 1. Click **Save**.
 1. Click **Edit** to change the **General Settings** pane. In the **Allowed grant types** section, enable **Implicit**. Using the [Implicit](/docs/guides/implement-implicit/overview/) flow streamlines authentication by returning tokens without introducing additional steps. It allows you to get an ID token quickly, which makes it easy to test your configuration. Click **Save** to confirm your changes.
     > **Note:** The Authorization Code grant flow is also supported.

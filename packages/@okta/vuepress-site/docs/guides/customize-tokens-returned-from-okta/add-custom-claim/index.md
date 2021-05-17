@@ -14,15 +14,15 @@ To add a custom claim:
 3. Click **Add Claim**, and then configure the claim settings:
 
     * Enter a **Name** for the claim. In this example, we use **IDTClaim** for the ID token and **ATClaim** for the access token.
-    * **Include in token type** &mdash; If you are creating a claim for an ID token, select **ID Token** (for OpenID Connect). You can then define whether you want the claim included only when requested or always included. For this example, select **Always**.
+    * **Include in token type** &mdash; if you are creating a claim for an ID token, select **ID Token** (for OpenID Connect). You can then define whether you want the claim included only when requested or always included. For this example, select **Always**.
     If you are creating a claim for an access token, leave **Access Token** (for OAuth 2.0) selected.
-    * **Value type** &mdash; Select whether you want to define the claim by a **Groups** filter or by an **Expression** written in Okta Expression Language. For this example, select **Expression**.
-    * **Value** &mdash; This option appears if you chose **Expression**. Use [Okta Expression Language](/docs/reference/okta-expression-language/) syntax to generate values derived from attributes in Universal Directory and app profiles. For the ID token example, we use `user.preferredLanguage` and for the access token example, we use `user.secondEmail`. These are referencing an Okta user profile attribute.
+    * **Value type** &mdash; select whether you want to define the claim by a **Groups** filter or by an **Expression** written in Okta Expression Language. For this example, select **Expression**.
+    * **Value** &mdash; this option appears if you chose **Expression**. Use [Okta Expression Language](/docs/reference/okta-expression-language/) syntax to generate values derived from attributes in Universal Directory and app profiles. For the ID token example, we use `user.preferredLanguage` and for the access token example, we use `user.secondEmail`. These are referencing an Okta user profile attribute.
 
     > **Note:** In this example, the user has a preferred language and a second email defined in their profile.
 
-    * **Disable claim** &mdash; Select if you want to temporarily disable the claim for testing or debugging. Leave this clear for this example.
-    * **Include in** &mdash; Specify whether the claim is valid for any scope or select the scopes for which the claim is valid. Leave **Any scope** selected for this example.
+    * **Disable claim** &mdash; select if you want to temporarily disable the claim for testing or debugging. Leave this clear for this example.
+    * **Include in** &mdash; specify whether the claim is valid for any scope or select the scopes for which the claim is valid. Leave **Any scope** selected for this example.
 
 4. Click **Create**.
 

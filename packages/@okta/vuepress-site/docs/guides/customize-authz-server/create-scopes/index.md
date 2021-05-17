@@ -8,7 +8,7 @@ If you need scopes in addition to the reserved scopes provided, you can create t
 
 1. In the Admin Console, go to **Security** > **API**.
 1. On the **Authorization Servers** tab, select the name of the Authorization Server, and then select **Scopes**.
-1. Select **Scopes**, and then **Add Scope**.
+1. Select **Scopes** and then **Add Scope**.
 1. Enter a **Name**, **Display phrase**, and **Description**.
 
     > **Note:** The **Display phrase** is what the user sees in the **Consent** dialog box.
@@ -17,7 +17,7 @@ If you need scopes in addition to the reserved scopes provided, you can create t
 
     > **Note:** You can configure individual clients to ignore this setting and skip consent.
 
-1. Select **Set as a default scope** if you want to allow Okta to grant authorization requests to apps that don't specify scopes on an authorization request. If the client omits the scope parameter in an authorization request, Okta returns all default scopes in the access token that are permitted by the access policy rule.
+1. Select **Set as a default scope** if you want Okta to grant authorization requests to apps that don't specify scopes on an authorization request. If the client omits the scope parameter in an authorization request, Okta returns all of the default scopes that are permitted in the access token by the access policy rule.
 1. Select **Include in public metadata** if you want the scope to be [publicly discoverable](/docs/reference/api/oidc/#well-known-oauth-authorization-server).
 1. Click **Create**.
 
