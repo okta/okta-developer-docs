@@ -892,7 +892,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 
 | Property                                 | Description                                                                                             | Type      | Default        | Required for create or update              |
 | :-------------------------------------   | :------------------------------------------------------------------------------------------------------ | :-------- | :------------- | :----------------------------              |
-| consent                                  | Indicates whether a consent dialog is needed for the Scope. Valid values: `REQUIRED`, `IMPLICIT`       | Enum      | `IMPLICIT`     | True for update                        |
+| consent                                  | Indicates whether a consent dialog is needed for the Scope. Valid values: `REQUIRED`, `IMPLICIT`, `FLEXIBLE`       | Enum      | `IMPLICIT`     | True for update                        |
 | default                                  | Whether the Scope is a default Scope                                                               | Boolean   |                | False                                      |
 | description                              | Description of the Scope                                                                                | String    |                | False                                      |
 | displayName                              | Name of the end user displayed in a consent dialog box                                                      | String    |                | False                                      |
@@ -906,20 +906,24 @@ When you use these API endpoints to create or modify a Scope resource, the respo
     * `consent_method` - a property on [apps](/docs/reference/api/apps/#settings-7)
     * `consent` - a property on Scopes as listed in the table above
 
-| `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
-| :------------------ | :--------------------------------- | :---------------------------- | :----------- |
-| `CONSENT`           | `TRUSTED` or `REQUIRED`            | `REQUIRED`                    | Prompted     |
-| `CONSENT`           | `TRUSTED`                          | `IMPLICIT`                    | Not prompted |
-| `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
-| `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
+| `prompt` Value   | `consent_method`        | `consent`                            | Result       |
+| :--------------- | :---------------------- | :----------------------------------- | :----------- |
+| `CONSENT`        | `TRUSTED` or `REQUIRED` | `REQUIRED`                           | Prompted     |
+| `CONSENT`        | `TRUSTED` or `REQUIRED` | `FLEXIBLE`                           | Prompted     |
+| `CONSENT`        | `TRUSTED`               | `IMPLICIT`                           | Not prompted |
+| `NONE`           | `TRUSTED`               | `FLEXIBLE`, `IMPLICIT`, or `REQUIRED`| Not prompted |
+| `NONE`           | `REQUIRED`              | `FLEXIBLE` or `REQUIRED`             | Prompted     |
+| `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
+
+> **Note:** If `CONSENT` is set to `FLEXIBLE`, and the scope is requested when using the Client Credentials grant flow, the scope is granted in the access token with no consent prompt. This is because there is no user involved in a 2-legged OAuth [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow.
 <!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
 
 **Notes:**
 
-  * Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
-  * If you request a Scope that requires consent while using the `client_credentials` flow, an error is returned. Because there is no user, no consent can be given.
-  * If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
-  * The Scope name must only contain printable ASCII except for spaces, double quotes, and backslashes. It also must not start with `okta.` or `okta:` and must not be only `okta` or `*`.
+* Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
+* If you request a Scope that requires consent while using the `client_credentials` flow, an error is returned. Because there is no user, no consent can be given.
+* If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
+* The Scope name must only contain printable ASCII except for spaces, double quotes, and backslashes. It also must not start with `okta.` or `okta:` and must not be only `okta` or `*`.
 
 #### Get all Scopes
 

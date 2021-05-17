@@ -1075,12 +1075,16 @@ A consent dialog appears depending on the values of three elements:
 * `consent_method`: a property on [apps](/docs/reference/api/apps/#settings-7)
 * `consent`: a property on scopes as listed in the table above
 
-| `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
-| :------------------ | :--------------------------------- | :---------------------------- | :----------- |
-| `CONSENT`           | `TRUSTED` or `REQUIRED`            | `REQUIRED`                    | Prompted     |
-| `CONSENT`           | `TRUSTED`                          | `IMPLICIT`                    | Not prompted |
-| `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
-| `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
+| `prompt` Value   | `consent_method`        | `consent`                            | Result       |
+| :--------------- | :---------------------- | :----------------------------------- | :----------- |
+| `CONSENT`        | `TRUSTED` or `REQUIRED` | `REQUIRED`                           | Prompted     |
+| `CONSENT`        | `TRUSTED` or `REQUIRED` | `FLEXIBLE`                           | Prompted     |
+| `CONSENT`        | `TRUSTED`               | `IMPLICIT`                           | Not prompted |
+| `NONE`           | `TRUSTED`               | `FLEXIBLE`, `IMPLICIT`, or `REQUIRED`| Not prompted |
+| `NONE`           | `REQUIRED`              | `FLEXIBLE` or `REQUIRED`             | Prompted     |
+| `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
+
+> **Note:** If `CONSENT` is set to `FLEXIBLE`, and the scope is requested when using the Client Credentials grant flow, the scope is granted in the access token with no consent prompt. This is because there is no user involved in a 2-legged OAuth [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow.
 <!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) as well. Add 'LOGIN' to the first three rows when supported --> |
 
 **Notes:**
