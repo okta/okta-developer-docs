@@ -4,6 +4,20 @@ title: Okta API Products Release Notes 2021
 
 ## May
 
+### Weekly Release 2021.05.2
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2021.05.2](#bugs-fixed-in-2021-05-2)         | May 19, 2021           |
+
+#### Bugs fixed in 2021.05.2
+
+* When a user is enrolled with SMS or Call factors, if an additional or retry [API call](/docs/reference/api/factors) is made within 30 seconds of enrollment, the response included multiple rate limit headers. (OKTA-379654)
+
+* When [OIDC clients](/docs/reference/api/oauth-clients/#register-new-client) clients were created concurrently, some clients were created in a deactivated state. (OKTA-384407)
+
+* The [Client Credentials Flow](/docs/guides/customize-authz-server/overview/) could not implement a custom claim named `scope`. (OKTA-389874)
+
 ### Weekly Release 2021.05.1
 
 | Change                                                                                              | Expected in Preview Orgs |
