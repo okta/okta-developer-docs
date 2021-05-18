@@ -364,6 +364,7 @@ The following is an example System Log rate limit event where too many profile r
                 "operationRateLimitTimeSpan": "5",
                 "requestUri": "/idp/idx/identify",
                 "operationRateLimitType": "profile_reload",
+                "operationRateLimitSubtype": "AD agent",
                 "url": "/idp/idx/identify?"
             }
         },
