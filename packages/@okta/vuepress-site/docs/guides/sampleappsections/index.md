@@ -65,7 +65,7 @@ This section walks you through enrolling a user and authenticating that user.
 3. Enter the **Username** and **Password** for an admin user in your Okta org, and click **Next**. You are redirected to the success page.
 4. Click **SIGN OUT** to sign out of the app.
 
-These sections added
+The sections above are added
 
 -------
 samples-aspnet
@@ -113,7 +113,7 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Log out** in the upper-right corner of the page to sign out of the app.
 
-These sections added
+The sections above are added
 
 -----
 samples-aspnet-webforms
@@ -161,7 +161,7 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
-These sections added
+The sections above are added
 
 -------
 samples-aspnetcore
@@ -209,7 +209,7 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the Welcome page.
 5. Click **Sign Out** in the upper-right corner of the page to sign out of the app.
 
-These sections added
+The sections above are added
 
 ------
 samples-blazor
@@ -258,7 +258,7 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Sign out** at the top of the page to sign out of the app.
 
-These sections added
+The sections above are added
 
 -----
 samples-golang
@@ -305,7 +305,7 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
-These sections added
+The sections above are added
 
 -----
 samples-ios
@@ -365,7 +365,7 @@ This section walks you through enrolling a user and authenticating that user.
 3. Enter the **Username** and **Password** for an admin user in your Okta org, and then click **Next**. You are redirected to the success page.
 4. Click **Sign Out** to sign out of the app.
 
-These sections added
+The sections above are added
 
 ------
 samples-java-micronaut
@@ -411,7 +411,7 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Logout** to sign out of the app.
 
-These sections added
+The sections above are added
 
 -----
 
@@ -474,7 +474,7 @@ Before we begin, you need to create an Okta OpenID Connect app to represent the 
 
 You have now created your App in Okta, and the Okta Spring sample app is installed and working.
 
-These sections added
+The sections above are added
 
 -----
 samples-js-angular
@@ -520,7 +520,7 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Logout** at the top of the page to sign out of the app.
 
-These sections added
+The sections above are added
 
 -----
 
@@ -575,7 +575,7 @@ You have now created your React Native app in Okta and installed the Okta React 
 4. Enter the **Username** and **Password** for an admin user in your Okta org, and click **Next**. You are redirected to the success page.
 5. Click **Logout** to sign out of the app.
 
-These sections added
+The sections above are added
 
 -------
 samples-js-react-native (Android)
@@ -641,7 +641,7 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **LOGOUT** in the emulator to sign out of the app.
 
-These sections added
+The sections above are added
 
 ------
 samples-js-vue
@@ -688,7 +688,7 @@ This section walks you through enrolling a user and authenticating that user.
     > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 5. Click **Logout** at the top of the page to sign out of the app.
 
-These sections added
+The sections above are added
 
 ----
 samples-nodejs-express
@@ -735,6 +735,8 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
     > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 5. Click **Logout** from the left side of the page to sign out of the app.
+
+The sections above are added
 
 -----
 samples-php
@@ -784,6 +786,8 @@ This section walks you through enrolling a user and authenticating that user.
     > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 5. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
+The sections above are added
+
 ------
 samples-python-flask
 
@@ -797,7 +801,7 @@ Before we begin, you need to create an Okta OpenID Connect app to represent the 
 2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
 3. From the Add Application page, click **Create New App**.
 4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click ?**Save**:
+5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
     * **Login redirect URIs** &mdash; `http://localhost:8080/authorization-code/callback`
     * **Logout redirect URIs** &mdash; `http://localhost:8080/`
     > **Note:** Copy the Login redirect URIs value and store it temporarily. You need it in a few steps.
@@ -845,12 +849,14 @@ This section walks you through enrolling a user and authenticating that user.
     > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 5. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
+The sections above are added
+
 -----
 okta-idx-swift
 
 ## Initial set up
 
-Before we begin, you need to create an Okta Native OpenID Connect app to represent the Okta-IDX-Swift iOS sample app and then install the sample app.
+Before we begin, you need to create an Okta Native OpenID Connect app to represent the Okta IDX Swift sample app and then install the sample app.
 
 > **Note:** These steps assume that you are using XCode and the provided XCode workspace in the sample app.
 
@@ -883,6 +889,8 @@ This section walks you through enrolling a user and authenticating that user.
 1. From the `okta-idx-swift` directory, open `okta-idx.xcworkspace` in XCode.
 2. In the XCode title bar, set the active scheme by selecting OktaIdxExample, and then run the example.
 3. In the simulator, enter the **Issuer URL**, **Client ID**, and **Redirect URL** that you copied in previous steps.
-4. Click L**og In**, and you are redirected to the Okta Sign-In Widget.
+4. Click **Log In**, and you are redirected to the Okta Sign-In Widget.
 5. Enter the **Username** and **Password** for an admin user in your Okta org, and then click **Next**. The simulator displays the access token.
     > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
+
+The sections above are added

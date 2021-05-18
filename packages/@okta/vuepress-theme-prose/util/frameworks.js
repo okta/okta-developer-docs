@@ -53,6 +53,8 @@ const COMMON_NAME_TO_FANCY_NAME = {
   micronaut: 'Micronaut',
   reactnativedroid: 'React Native (Android)',
   reactnativeios: 'React Native (iOS)',
+  flask: 'Flask',
+  swift: 'Swift',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {

@@ -34,7 +34,7 @@ To get started, you need to create an Okta OAuth app to represent the <StackSele
 
 5. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
 6. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-7. Select the **General** tab and click the "Copy to clipboard" icon to copy the <StackSelector snippet="clientidsd" noSelector inline />. Store this information temporarly for use when you <StackSelector snippet="configfile" noSelector inline /> in a few steps.
+7. Select the **General** tab and click the "Copy to clipboard" icon to copy the <StackSelector snippet="clientidsd" noSelector inline />. Store this information temporarly for use when you <StackSelector snippet="configfile" noSelector inline /> in the next section.
 
 <StackSelector snippet="corsissuer" noSelector />
 
