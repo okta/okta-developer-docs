@@ -1464,3 +1464,265 @@ The following conditions may be applied to IdP Discovery Policy:
     }
   }
 ```
+
+## App Sign On Policy
+
+Application sign-on Policy, which determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked, and are always associated with an application via a Mapping. The Okta Identity Engine always evaluates both Okta Sign On Policy and the Sign On Policy for the application. The resulting user experience will be the union of both policies. App Sign On Policies have the type ACCESS_POLICY.
+
+> **Note:** App Sign On policies has max limit of 5000 for each organization.
+> There is a max limit of 100 rules allowed per policy.
+> A default policy rule will be created while creating a App Sign On policy with lowest priority of 99.
+> The highest priority of a App Sign On policy rule could be set as 0.
+
+#### App Sign On Policy example
+
+```json
+    {
+        "type": "ACCESS_POLICY",
+        "name": "Web Cart App Sign On Policy",
+        "description": "Standard policy for Web Cart application"
+    }
+```
+
+### Policy conditions
+
+Policy conditions are not supported, conditions are applied at the rule level for this type of policies.
+
+### Policy Rules conditions
+
+The following conditions may be applied to the Rules associated with App Sign On Policy:
+
+* [People Condition](#people-condition-object)
+
+* [Network Condition](#network-condition-object)
+
+* [Device Condition](#device-condition-object)
+
+* [Platform Condition](#platform-condition-object)
+
+* [Expression Language Condition](#el-condition-object)
+
+* [Office365Client Condition](#office365Client-condition-object)
+
+* [Risk Condition](#riskscore-condition-object)
+
+* [User Type Condition](#usertype-condition-object)
+
+#### App Sign On Action default example
+
+```json
+  "actions": {
+        "appSignOn": {
+            "access": "DENY",
+            "verificationMethod": {
+                "factorMode": "1FA",
+                "type": "ASSURANCE",
+                "reauthenticateIn": "PT43800H"
+            },
+            "oktaSignOnSettings": null
+        }
+    }
+```
+
+#### App Sign On Action object
+
+| Property                | Description                                                                                                                                                               | Data Type                                       | Required                      | Default |
+| ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
+| `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
+| `verificationMethod`      | A Verification Method describes the means by which the user must be verified. The only supported type is ASSURANCE.                                                       | Object                                          | Yes                           | [Default](#app-sign-on-action-default-example)        |
+| `oktaSignOnSettings`      | TODO                                                                                                                                                                       | TODO                                            | Yes                           | null    |
+
+
+### Verification Method Object
+
+A Verification Method describes the means by which the user must be verified. The only supported type is `ASSURANCE`.
+
+Assurance is the degree of confidence that the end-user logging into an application or service is the same end-user who previously enrolled or logged in to the application or service.
+
+Authenticators can be broadly classified into factors. A factor represents the mechanism by which an end-user owns or controls the authenticator. The three classifications are:
+
+* Knowledge: something you know, such as a password
+* Possession: something you have, such as a phone
+* Inherence: something you are, such as a fingerprint or other biometric scan
+
+Multi-factor authentication (MFA) is the use of more than one factor. MFA is the most common way to increase assurance. Authenticators also have other characteristics that may raise or lower assurance. For example, possession factors may be implemented in software or hardware, with hardware being able to provide greater protection when storing shared secrets or private keys, and thus providing higher assurance.
+
+| Parameter            | Type              | Description                                                                                                             | Supported Values                                                                                  |
+| -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `factorMode`         | String            | The number of factors required to satisfy this assurance level.                                                         | `1FA`, `2FA`                                                                                      |
+| `constraints`        | Object            | A JSON array containing nested authenticator constraint objects which are organized by Authenticator Class.                                                                           | `POSSESSION`, `KNOWLEDGE`                                                                         |
+| `types`              | Array             | The Authenticator Types which are allowable.                                                                            | `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`                          |
+| `methods`            | Array             | The Authenticator Methods which are allowable.                                                                          | `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2` |
+| `hardwareProtection` | String            | Indicates whether any secrets or private keys used during authentication must be hardware protected and not exportable. | `REQUIRED`, `OPTIONAL`                                                                            |
+| `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user should be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
+| `inactivityPeriod`   | String (ISO 8601) | The period of inactivity after which the user should be reauthenticated.                                                | N/A                                                                                               |
+
+##### Constraints
+
+Each nested constraint object is treated as a list, all of which must be satisfied. The top-level array is treated as a set, one of which must be satisfied.
+
+This can be read logically as: `( (1A && 1B) || (2A && 2B) )`
+
+The number of authenticator class constraints in each constraint object be less than or equal to the value of `factorMode`. If the value is less, there are no constraints on any additional factors.
+
+#### Verification Method JSON Examples
+
+##### Any single Factor
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "1FA",
+  "constraints": [],
+  "reauthenticateIn": "PT4H"
+}
+```
+
+##### Password + any Factor
+
+```json
+{
+    "type": "ASSURANCE",
+    "factorMode": "2FA",
+    "constraints": [
+      {
+         "knowledge": {
+             "types": [ "PASSWORD" ]
+          }
+      }
+   ],
+   "reauthenticateIn": "PT4H"
+}
+```
+
+##### Password + SMS
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "2FA",
+  "constraints": [
+    {
+      "knowledge": {
+        "types": [
+          "PASSWORD"
+        ]
+      },
+      "possession": {
+        "types": [
+          "SMS"
+        ]
+      }
+    }
+  ],
+  "reauthenticateIn": "PT4H"
+}
+```
+
+##### Any hardware-protected key-based authenticator
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "1FA",
+  "constraints": [
+    {
+      "possession": {
+        "methods": [
+          "FIDO2"
+        ],
+        "hardwareProtection": "REQUIRED"
+      }
+    }
+  ],
+  "reauthenticateIn": "PT4H"
+}
+```
+
+##### Any 2 Factors with 1 being a hardware-protected key-based authenticator
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "2FA",
+  "constraints": [
+    {
+      "possession": {
+        "methods": [
+          "FIDO2"
+        ],
+        "hardwareProtection": "REQUIRED"
+      }
+    }
+  ],
+  "reauthenticateIn": "PT4H"
+}
+```
+
+## Profile Enrollment Policy
+
+Profile Enrollemnt policies specify what profile attributes are required for creating new Users via self-service registration, and also can be used for progressive profiling. The type is specified as PROFILE_ENROLLMENT.
+
+> **Note:** Profile enrollment policies has max limit of 500 for each organization 
+> **Note:** Profile Enrollemnt policies will have only one rule associated with it. Adding more rules are not allowed.
+
+
+#### Profile Enrollment Policy example
+
+```json
+    {
+        "type": "PROFILE_ENROLLMENT",
+        "name": "User Profile Policy",
+        "description": "Standard policy for profile enrollment"
+    }
+```
+
+### Policy conditions
+
+Policy conditions are not supported for this policy.
+
+### Policy Rules conditions
+
+Policy Rule conditions are not supported for this policy.
+
+#### Profile Enrollment Action default example
+
+```json
+        "actions": {
+            "profileEnrollment": {
+                "access": "ALLOW",
+                "preRegistrationInlineHooks": null,
+                "profileAttributes": [
+                    {
+                        "name": "email",
+                        "label": "Email",
+                        "required": true
+                    },
+                    {
+                        "name": "fax",
+                        "label": "Fax",
+                        "required": true
+                    }
+                ],
+                "targetGroupIds": null,
+                "unknownUserAction": "DENY",
+                "activationRequirements": {
+                    "emailVerification": true
+                }
+            }
+        }
+```
+
+#### Profile Enrollment Action object
+
+| Property                | Description                                                                                                                                                               | Data Type                                       | Required                      | Default |
+| ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
+| `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
+| `activationRequirements`  | Contains a single Boolean property that Indicates whether `emailVerification` should occur (`true`) or not (`false`, default).       | Object | Yes |        `false`                                                                                                                                                                                                              |
+| `preRegistrationInlineHooks` | (Optional) The `id` of at most one Registration Inline Hook                                                                       | Array   | No | N/A                                                                                                                                                                                                                        |
+| `profileAttributes.label`    | A display-friendly label for this property.                                                                                       | String  |  Required | N/A                                                                                                                                                                                                                      |
+| `profileAttributes.name`     | The name of a User Profile property. Can be an existing User Profile property.                                                   | String  |  Required | N/A                                                                                                                                                                                                                          |
+| `profileAttributes.required` | (Optional, default `FALSE`) Indicates if this property is required for enrollment                                                 | Boolean | Required | `FALSE`                                                                                                                                                                                                                        |
+| `profileAttributes` | A list of attributes for which to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes will be persisted in the user's profile. Non-schema attributes may also be added, which will not be persisted to the user's Profile, but will be included in requests to the Registration Inline Hook. `Only 10 or less profile attributes are supported.`                                                         | Array | Required | N/A                                                                                                                                                                                                                        |
+| `targetGroupIds`             | (Optional, max 1 entry) The `id` of a Group that this user should be added to                                                     | Array   | No | N/A                                                                                                                                                                                                                         |
+| `unknownUserAction`          | Which action should be taken if this User is new (Valid values: `DENY`, `REGISTER`)                                               | String  | YES | N/A                                                                                                                                                                                                                        |
