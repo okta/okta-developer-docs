@@ -59,6 +59,8 @@ The following table describes the rate limit information that is returned in the
 
 > **Important:** The information contained in `debugContext.debugData` is intended to add context when troubleshooting customer platform issues. The key names and values in the following table are standard properties for rate limit events. However, other properties may be included in the DebugContext object, for example: `countryCallingCode`. These types of event-specific properties may change from release to release and aren't guaranteed to be stable. Therefore, they shouldn't be viewed as a data contract but as a debugging aid instead.
 
+> **Note:** The `profile_reload` type is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+
 | Property                           | Type   | Description                                                                                                       |
 | ---------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------- |
 | `operationRateLimitScopeType`      | String | The type of rate limit scope affected. Example scopes: `org` or `user`                                            |
@@ -67,7 +69,7 @@ The following table describes the rate limit information that is returned in the
 | `operationRateLimitThreshold`      | String | The relevant numerical limit that this event is associated with                                                   |
 | `operationRateLimitTimeSpan`       | String | The amount of time before the rate limit resets                                                                   |
 | `operationRateLimitTimeUnit`       | String | Indicates the reset interval for `operationRateLmitTimeSpan` in minutes or seconds                                |
-| `operationRateLimitType`           | String | The type of rate limit event affected. Example types: `web_request`, `authenticator_otp_verification`, `sms_factor_enroll`, `event_hook_delivery`, `elastic_rate_limit_activated`, `phone_enrollment`, and so on|
+| `operationRateLimitType`           | String | The type of rate limit event affected. Example types: `web_request`, `authenticator_otp_verification`, `sms_factor_enroll`, `event_hook_delivery`, `elastic_rate_limit_activated`, `phone_enrollment`, `profile_reload`, and so on|
 
 > **Note:** Additional information for some events may be included in the DebugContext object, such as for the Notification or Warning event types. For example:<br>
 > **For Notification event types**<br>
@@ -293,12 +295,118 @@ The following is an example System Log rate limit event where too many OTP verif
 }
 ```
 
+The following is an example System Log rate limit event where too many profile reload attempts were made for the Active Directory or LDAP agent.
+
+> **Note:** This event is valid with Identity Experience flows only.
+
+```json
+{
+        "actor": {
+            "id": "00u1ngpFSRLFie7vT0g4",
+            "type": "User",
+            "alternateId": "john.smith@example.com",
+            "displayName": "John Smith",            
+            "detailEntry": null
+        },
+        "client": {
+            "userAgent": {
+                "rawUserAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.51",
+                "os": "Mac OS X",
+                "browser": "CHROMIUM_EDGE"
+            },
+            "zone": "null",
+            "device": "Computer",
+            "id": null,
+            "ipAddress": "127.0.0.1",
+            "geographicalContext": {
+                "city": null,
+                "state": null,
+                "country": null,
+                "postalCode": null,
+                "geolocation": {
+                    "lat": 36.62,
+                    "lon": -113.17
+                }
+            }
+        },
+        "authenticationContext": {
+            "authenticationProvider": null,
+            "credentialProvider": null,
+            "credentialType": null,
+            "issuer": null,
+            "interface": null,
+            "authenticationStep": 0,
+            "externalSessionId": "idx3GDqJrIfQhCRJTEuNC-l9A"
+        },
+        "displayMessage": "Operation rate limit violation",
+        "eventType": "system.operation.rate_limit.violation",
+        "outcome": {
+            "result": "DENY",
+            "reason": "Profile reload for john.smith@example.com skipped due to rate limiting"
+        },
+        "published": "2021-05-14T20:42:21.480Z",
+        "securityContext": {
+            "asNumber": null,
+            "asOrg": null,
+            "isp": null,
+            "domain": null,
+            "isProxy": null
+        },
+        "severity": "WARN",
+        "debugContext": {
+            "debugData": {
+                "operationRateLimitTimeUnit": "MINUTES",
+                "operationRateLimitScopeType": "user",
+                "deviceFingerprint": "3857b18395b101c0703feec226def544",
+                "operationRateLimitSecondsToReset": "96",
+                "requestId": "reqmXZkOgXpQdms4-3a8eD9mg",
+                "operationRateLimitThreshold": "1",
+                "operationRateLimitTimeSpan": "5",
+                "requestUri": "/idp/idx/identify",
+                "operationRateLimitType": "profile_reload",
+                "url": "/idp/idx/identify?"
+            }
+        },
+        "legacyEventType": null,
+        "transaction": {
+            "type": "WEB",
+            "id": "reqmXZkOgXpQdms4-3a8eD9mg",
+            "detail": {}
+        },
+        "uuid": "e19832a2-b4f4-11eb-9f1e-bba1874b8f01",
+        "version": "0",
+        "request": {
+            "ipChain": [
+                {
+                    "ip": "127.0.0.1",
+                    "geographicalContext": null,
+                    "version": "V4",
+                    "source": null
+                }
+            ]
+        },
+        "target": [
+            {
+                "id": "00u1ngpFSRLFie7vT0g4",
+                "type": "User",
+                "alternateId": "john.smith@example.com",
+                "displayName": "John Smith",
+                "detailEntry": null
+            }
+        ]
+    }
+```
+
 #### Operation rate limit subtypes
 
 The following table includes the available `Subtypes` for operation rate limits.
+
+> **Note:** The `AD agent` and `LDAP agent` are only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
 | Subtype           | Description                                                         |
 | ----------------- | ------------------------------------------------------------------- |
 | `Email`           | The user exceeded their limit for sending email messages            |
 | `SMS`             | The user exceeded their limit for sending SMS                       |
 | `Voice call`      | The user exceeded their limit for sending voice-call messages       |
+| `AD agent`        | The user exceeded their limit for profile reload via AD agent       |
+| `LDAP agent`      | The user exceeded their limit for profile reload via LDAP agent     |
