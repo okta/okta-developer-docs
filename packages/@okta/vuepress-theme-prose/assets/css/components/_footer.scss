@@ -2,7 +2,7 @@ $redesign_white: #FFFFFF;
 $redesign_pink: #DD2864;
 $redesign_footer_border: #1F3B54;
 
-footer {
+.app-footer {
   position: relative;
   background-color: cv('brand', 'dark');
   border-top: 1px solid $redesign_footer_border;
@@ -12,7 +12,7 @@ footer {
     padding: 46px;
   }
 
-  p {
+  &--need-support {
     font-size: 20px;
     line-height: 1.7em;
     letter-spacing: 0.01em;

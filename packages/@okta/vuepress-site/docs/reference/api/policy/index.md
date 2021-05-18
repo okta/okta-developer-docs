@@ -1299,6 +1299,7 @@ However, if you are using Okta Identity Engine, it is recommended to set recover
 | recovery_question | Settings for Security Question Factor | [Recovery Question Factor object](#recovery-question-factor-object) | No       |
 | okta_email        | Settings for Email Factor             | [Email Factor object](#email-factor-object)                         | No       |
 | okta_sms          | Settings for SMS Factor               | [SMS Factor object](#sms-factor-object)                             | No       |
+| okta_call         | Settings for Call Factor              | [Call Factor object](#call-factor-object)                           | No       |
 
 ###### Recovery Question Factor object
 
@@ -1339,6 +1340,12 @@ However, if you are using Okta Identity Engine, it is recommended to set recover
 | tokenLifetimeMinutes | Lifetime (in minutes) of the recovery token | Integer   | No       | 10080   |
 
 ###### SMS Factor object
+
+| Property | Description                         | Data Type            | Required | Default    |
+| ---      | ---                                 | ---                  | ---      | ---        |
+| status   | Indicates if the Factor is enabled. | `ACTIVE`, `INACTIVE` | No       | 'INACTIVE' |
+
+###### Call Factor object
 
 | Property | Description                         | Data Type            | Required | Default    |
 | ---      | ---                                 | ---                  | ---      | ---        |

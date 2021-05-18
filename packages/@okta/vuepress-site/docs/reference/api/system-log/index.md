@@ -639,6 +639,8 @@ The following example expressions are supported for events with the `filter` que
 | `actor.id eq ":id"`                          | Events that are published with a specific actor ID                                      |
 
 > **Note:** SCIM filter expressions can't use the `published` attribute since it may conflict with the logic of the `since`, `after`, and `until` query params.
+> In addition, a SCIM filter expression that uses the `co` (contains) operator with the `debugContext.debugData.url` or the `debugContext.debugData.requestUri` attribute is not supported.
+> A request with an invalid SCIM filter expression returns an HTTP 400 API response.
 
 See [Filtering](/docs/reference/api-overview/#filtering) for more information on expressions.
 
@@ -777,6 +779,15 @@ The following is another example, where the parameters are invalid:
   "errorCode": "E0000053",
   "errorSummary": "Invalid parameter: The since parameter is over 180 days prior to the current day.",
   "errorId": "55166534-b7d8-45a5-a4f6-3b38a5507046"
+}
+```
+
+An invalid SCIM field and operator combination within a `filter` request parameter (for example, `debugContext.debugData.url co "/oauth/"`) returns an HTTP 400 error with a message that indicates the unsupported combination, for example:
+```json
+{
+  "errorCode": "E0000031",
+  "errorSummary": "The supplied combination of operator and field is not currently supported. Operator: co, Field: debugContext.debugData.url",
+  "errorId": "ec93dhe2-6d76-458c-8c0c-f8df8fb7a24b"
 }
 ```
 

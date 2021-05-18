@@ -1,7 +1,8 @@
 <template>
   <li :class="{ subnav: link.subLinks, hidden: hidden }">
     <div class="link-wrap">
-      <div v-if="link.path">
+
+      <div v-if="entityType === types.link">
         <router-link
           :to="link.path"
           v-slot="{ route, href, navigate }"
@@ -17,7 +18,13 @@
         </router-link>
       </div>
 
-      <div v-else>
+      <div v-if="entityType === types.blankDivider">
+        <div class="blank-divider">
+          {{link.title}}
+        </div>
+      </div>
+
+      <div v-if="entityType === types.parent">
         <div
           :class="{
             'is-link': true,
@@ -42,7 +49,7 @@
       </div>
     </div>
 
-    <ul v-if="link.subLinks" class="sections" v-show="sublinksExpanded">
+    <ul v-if="entityType === types.parent" class="sections" v-show="sublinksExpanded">
       <SidebarItem
         v-for="sublink in link.subLinks"
         :key="sublink.title"
@@ -50,6 +57,7 @@
       />
     </ul>
   </li>
+  
 </template>
 
 <script>
@@ -63,17 +71,37 @@ export default {
   data() {
     return {
       sublinksExpanded: false,
-      hidden: !!this.link.hidden
+      hidden: !!this.link.hidden,
+      types: {
+        link: 'link',
+        blankDivider: 'blankDivider',
+        parent: 'parent'
+      }
     };
+  },
+  
+  computed:{
+    entityType: function(){
+      if(this.link.hasOwnProperty('path') && this.link.path !== null ){
+        return this.types.link
+      }
+      if(!this.link.hasOwnProperty('path') && this.link.hasOwnProperty('subLinks')){
+        return this.types.parent
+      }
+      if(this.link.hasOwnProperty('path') && this.link.path === null){
+        return this.types.blankDivider
+      }
+    },
   },
   mounted() {
     this.setData();
   },
-
   watch: {
+    
     link() {
       this.setData();
     },
+
     sublinksExpanded(isActivated, _) {
       if (isActivated) {
         // element.scrollIntoViewIfNeeded is not supported by Firefox
@@ -98,6 +126,7 @@ export default {
     setData: function() {
       this.sublinksExpanded = Boolean(this.link.iHaveChildrenActive);
     }
+    
   }
 };
 </script>

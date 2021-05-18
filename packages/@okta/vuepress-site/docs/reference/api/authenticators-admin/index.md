@@ -88,7 +88,8 @@ curl -v -X GET \
     "created": "2020-07-26T21:05:23.000Z",
     "lastUpdated": "2020-07-28T21:45:52.000Z",
     "settings": {
-            "allowedFor": "any"
+            "allowedFor": "any",
+            "tokenLifetimeInMinutes": 5
      },
     "_links": {
       "self": {
@@ -535,7 +536,8 @@ The Authenticator object defines the following properties:
 | `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified.                             |
 | `name`        | String                                                          | Display name of this Authenticator.                                             |
 | `type`        | String (Enum)                                                   | The type of Authenticator. Values include `password`, `security_question`, `phone`, `email` and `security_key`                            |
-| `allowedFor`        | String (Enum)                                                   | The allowed types of usages for the Authenticator. Values include `recovery`, `sso`, `any` and `none`                            |
+| `settings.allowedFor`        | String (Enum)                                    | The allowed types of usages for the Authenticator. Values include `recovery`, `sso`, `any` and `none`                            |
+| `settings.tokenLifetimeInMinutes` | Number                                      | Specify lifetime of an `email` token. Only apply to `email` authenticator type. Default value is `5` minutes.                            |
 
 
 #### Example of Email Authenticator
@@ -550,7 +552,8 @@ The Authenticator object defines the following properties:
   "created": "2020-07-26T21:05:23.000Z",
   "lastUpdated": "2020-07-28T21:45:52.000Z",
   "settings": {
-            "allowedFor": "recovery"
+            "allowedFor": "recovery",
+            "tokenLifetimeInMinutes": 5
    },
   "_links": {
     "self": {
