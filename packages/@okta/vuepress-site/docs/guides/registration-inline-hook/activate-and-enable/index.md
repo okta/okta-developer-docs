@@ -6,7 +6,7 @@ The Registration Inline Hook must be set up and activated within your Okta Admin
 
 To set up and activate the Registration Inline Hook:
 
-1. Navigate to the **Workflow** > **Inline Hooks** page.
+1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
 2. Click **Add Inline Hook** and select **Registration** from the drop-down menu.
 3. Add a name for the hook (in this example, "Guide Registration Hook Code").
 4. Add your external service URL, including the endpoint. For example, use your Glitch project name with the endpoint:  `https://your-glitch-projectname.glitch.me/registrationHook`.
@@ -22,7 +22,7 @@ The Registration Inline Hook is now set up with a status of active.
 
 To enable the Registration Inline Hook on the self-service registration page:
 
-1. Navigate to **Directory** > **Self-Service Registration**.
+1. In the Admin Console, go to **Directory** > **Self-Service Registration**.
 2. Click **Edit**.
 3. From the **Extension** field drop-down menu, select the hook you set up and activated previously ("Guide Registration Hook Code") .
 4. Click **Save**.

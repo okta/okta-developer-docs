@@ -4,9 +4,10 @@ title: Enable and verify Event Hook
 The Event Hook must be set up and verified within your Okta Admin Console.
 
 ### Set up the Event Hook
+
 To set up the Event Hook:
 
-1. Navigate to the **Workflow** > **Event Hooks** page.
+1. In the Admin Console, go to **Workflow** > **Event Hooks**.
 
 2. Click **Create Event Hook**.
 
@@ -37,7 +38,7 @@ To complete the one-time verification of the Event Hook:
 
 or
 
-- After making sure that your external service is ready for the external verification call, navigate to the Event Hooks table, click the **Actions** drop-down menu of any **UNVERIFIED** Event Hook, and select **Verify**.
+- After making sure that your external service is ready for the external verification call, go to the Event Hooks table, click the **Actions** drop-down menu of any **UNVERIFIED** Event Hook, and select **Verify**.
 
 The Event Hook is now set up with a status of **VERIFIED** and is ready to send Event Hook calls to your external service.
 
