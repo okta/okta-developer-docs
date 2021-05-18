@@ -1554,7 +1554,7 @@ The following filters are supported with the filter query parameter:
 | `status eq "ACTIVE"`                | Apps that have a `status` of `ACTIVE`                                             |
 | `status eq "INACTIVE"`              | Apps that have a `status` of `INACTIVE`                                           |
 | `user.id eq ":uid"`                 | Apps assigned to a specific user such as `00ucw2RPGIUNTDQOYPOF`                   |
-| `name eq ":name"`                   | Instances of an app such as `template_swa`                                        |
+| `name eq ":name"`                   | Apps that have the same `name` such as `workday`                                  |
 
 > **Note:** Only a single expression is supported as this time. The only supported filter type is `eq`.
 
@@ -2213,18 +2213,18 @@ curl -v -X GET \
 ]
 ```
 
-#### List applications by the application name
+#### List apps by name
 
-Enumerates all applications by the application name
+Enumerates all apps by the app name
 
-##### Request example
+##### Request example: List apps with `name` eq `workday`
 
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+\"template_swa\""
+"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+\"workday\""
 ```
 
 ##### Response example
@@ -2232,15 +2232,16 @@ curl -v -X GET \
 ```json
 [
   {
-    "id": "0oabkvBLDEKCNXBGYUAS",
-    "name": "template_swa",
-    "label": "Sample Plugin App",
+    "id": "0oa7vicdkRNrz59R80w6",
+    "name": "workday",
+    "label": "hrportal2",
     "status": "ACTIVE",
-    "lastUpdated": "2013-09-11T17:58:54.000Z",
-    "created": "2013-09-11T17:46:08.000Z",
+    "lastUpdated": "2021-05-17T23:10:50.000Z",
+    "created": "2021-05-17T23:10:49.000Z",
     "accessibility": {
       "selfService": false,
-      "errorRedirectUrl": null
+      "errorRedirectUrl": null,
+      "loginRedirectUrl": null
     },
     "visibility": {
       "autoSubmitToolbar": false,
@@ -2253,41 +2254,355 @@ curl -v -X GET \
       }
     },
     "features": [],
-    "signOnMode": "BROWSER_PLUGIN",
+    "signOnMode": "SAML_2_0",
     "credentials": {
-      "scheme": "EDIT_USERNAME_AND_PASSWORD",
       "userNameTemplate": {
         "template": "${source.login}",
         "type": "BUILT_IN"
+      },
+      "signing": {
+        "kid": "wRejFXWxFlK9nnLozx5qKWQa3fg-JRXw7dvdlTjs5Pg"
       }
     },
     "settings": {
       "app": {
-        "buttonField": "btn-login",
-        "passwordField": "txtbox-password",
-        "usernameField": "txtbox-username",
-        "url": "https://example.com/login.html"
+        "siteURL": "https://acme.workday.com"
+      },
+      "notifications": {
+        "vpn": {
+          "network": {
+            "connection": "DISABLED"
+          },
+          "message": null,
+          "helpUrl": null
+        }
+      },
+      "signOn": {
+        "defaultRelayState": null,
+        "ssoAcsUrlOverride": null,
+        "audienceOverride": null,
+        "recipientOverride": null,
+        "destinationOverride": null,
+        "attributeStatements": []
       }
     },
     "_links": {
+      "help": {
+        "href": "https://testorgone-admin.okta.com/app/workday/0oa7vicdkRNrz59R80w6/setup/help/SAML_2_0/external-doc",
+        "type": "text/html"
+      },
+      "metadata": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicdkRNrz59R80w6/sso/saml/metadata",
+        "type": "application/xml"
+      },
+      "appLinks": [
+        {
+          "name": "login",
+          "href": "https://testorgone.okta.com/home/workday/0oa7vicdkRNrz59R80w6/30",
+          "type": "text/html"
+        }
+      ],
+      "groups": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicdkRNrz59R80w6/groups"
+      },
       "logo": [
         {
-          "href": "https:/example.okta.com/img/logos/logo_1.png",
           "name": "medium",
+          "href": "https://tc2static.oktacdn.com/fs/bcg/4/gfs1wwhrwJR4LpB5X0w6",
           "type": "image/png"
         }
       ],
       "users": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/users"
-      },
-      "groups": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/groups"
-      },
-      "self": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicdkRNrz59R80w6/users"
       },
       "deactivate": {
-        "href": "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS/lifecycle/deactivate"
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicdkRNrz59R80w6/lifecycle/deactivate"
+      }
+    }
+  },
+  {
+    "id": "0oa7vicvor8YSr9Hc0w6",
+    "name": "workday",
+    "label": "hrportal1",
+    "status": "ACTIVE",
+    "lastUpdated": "2021-05-17T23:10:22.000Z",
+    "created": "2021-05-17T23:10:22.000Z",
+    "accessibility": {
+      "selfService": false,
+      "errorRedirectUrl": null,
+      "loginRedirectUrl": null
+    },
+    "visibility": {
+      "autoSubmitToolbar": false,
+      "hide": {
+        "iOS": false,
+        "web": false
+      },
+      "appLinks": {
+        "login": true
+      }
+    },
+    "features": [],
+    "signOnMode": "SAML_2_0",
+    "credentials": {
+      "userNameTemplate": {
+        "template": "${source.login}",
+        "type": "BUILT_IN"
+      },
+      "signing": {
+        "kid": "wRejFXWxFlK9nnLozx5qKWQa3fg-JRXw7dvdlTjs5Pg"
+      }
+    },
+    "settings": {
+      "app": {
+        "siteURL": "https://acme.workday.com"
+      },
+      "notifications": {
+        "vpn": {
+          "network": {
+            "connection": "DISABLED"
+          },
+          "message": null,
+          "helpUrl": null
+        }
+      },
+      "signOn": {
+        "defaultRelayState": null,
+        "ssoAcsUrlOverride": null,
+        "audienceOverride": null,
+        "recipientOverride": null,
+        "destinationOverride": null,
+        "attributeStatements": []
+      }
+    },
+    "_links": {
+      "help": {
+        "href": "https://testorgone-admin.okta.com/app/workday/0oa7vicvor8YSr9Hc0w6/setup/help/SAML_2_0/external-doc",
+        "type": "text/html"
+      },
+      "metadata": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicvor8YSr9Hc0w6/sso/saml/metadata",
+        "type": "application/xml"
+      },
+      "appLinks": [
+        {
+          "name": "login",
+          "href": "https://testorgone.okta.com/home/workday/0oa7vicvor8YSr9Hc0w6/30",
+          "type": "text/html"
+        }
+      ],
+      "groups": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicvor8YSr9Hc0w6/groups"
+      },
+      "logo": [
+        {
+          "name": "medium",
+          "href": "https://tc2static.oktacdn.com/fs/bcg/4/gfs1wwhrwJR4LpB5X0w6",
+          "type": "image/png"
+        }
+      ],
+      "users": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicvor8YSr9Hc0w6/users"
+      },
+      "deactivate": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicvor8YSr9Hc0w6/lifecycle/deactivate"
+      }
+    }
+  }
+]
+```
+
+##### Request example: List apps with `name` eq `cornerstone`
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+\"cornerstone\""
+```
+
+##### Response example
+
+```json
+[
+  {
+    "id": "0oa7viecx0NFSqv1d0w6",
+    "name": "cornerstone",
+    "label": "trainings1",
+    "status": "ACTIVE",
+    "lastUpdated": "2021-05-17T23:07:42.000Z",
+    "created": "2021-05-17T23:07:41.000Z",
+    "accessibility": {
+      "selfService": false,
+      "errorRedirectUrl": null,
+      "loginRedirectUrl": null
+    },
+    "visibility": {
+      "autoSubmitToolbar": false,
+      "hide": {
+        "iOS": false,
+        "web": false
+      },
+      "appLinks": {
+        "login": true
+      }
+    },
+    "features": [],
+    "signOnMode": "SAML_2_0",
+    "credentials": {
+      "userNameTemplate": {
+        "template": "${source.login}",
+        "type": "BUILT_IN"
+      },
+      "signing": {
+        "kid": "wRejFXWxFlK9nnLozx5qKWQa3fg-JRXw7dvdlTjs5Pg"
+      }
+    },
+    "settings": {
+      "app": {
+        "acsURL": null,
+        "orgName": "Acme1"
+      },
+      "notifications": {
+        "vpn": {
+          "network": {
+            "connection": "DISABLED"
+          },
+          "message": null,
+          "helpUrl": null
+        }
+      },
+      "signOn": {
+        "defaultRelayState": null,
+        "ssoAcsUrlOverride": null,
+        "audienceOverride": null,
+        "recipientOverride": null,
+        "destinationOverride": null,
+        "attributeStatements": []
+      }
+    },
+    "_links": {
+      "help": {
+        "href": "https://testorgone-admin.okta.com/app/cornerstone/0oa7viecx0NFSqv1d0w6/setup/help/SAML_2_0/external-doc",
+        "type": "text/html"
+      },
+      "metadata": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7viecx0NFSqv1d0w6/sso/saml/metadata",
+        "type": "application/xml"
+      },
+      "appLinks": [
+        {
+          "name": "login",
+          "href": "https://testorgone.okta.com/home/cornerstone/0oa7viecx0NFSqv1d0w6/327",
+          "type": "text/html"
+        }
+      ],
+      "groups": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7viecx0NFSqv1d0w6/groups"
+      },
+      "logo": [
+        {
+          "name": "medium",
+          "href": "https://tc2static.oktacdn.com/assets/img/logos/cornerstone.a63cddeecf3acc5aae6d4592dcfe8125.png",
+          "type": "image/png"
+        }
+      ],
+      "users": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7viecx0NFSqv1d0w6/users"
+      },
+      "deactivate": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7viecx0NFSqv1d0w6/lifecycle/deactivate"
+      }
+    }
+  },
+  {
+    "id": "0oa7vihkd5P5F8S4r0w6",
+    "name": "cornerstone",
+    "label": "trainings2",
+    "status": "ACTIVE",
+    "lastUpdated": "2021-05-17T23:08:40.000Z",
+    "created": "2021-05-17T23:08:40.000Z",
+    "accessibility": {
+      "selfService": false,
+      "errorRedirectUrl": null,
+      "loginRedirectUrl": null
+    },
+    "visibility": {
+      "autoSubmitToolbar": false,
+      "hide": {
+        "iOS": false,
+        "web": false
+      },
+      "appLinks": {
+        "login": true
+      }
+    },
+    "features": [],
+    "signOnMode": "SAML_2_0",
+    "credentials": {
+      "userNameTemplate": {
+        "template": "${source.login}",
+        "type": "BUILT_IN"
+      },
+      "signing": {
+        "kid": "wRejFXWxFlK9nnLozx5qKWQa3fg-JRXw7dvdlTjs5Pg"
+      }
+    },
+    "settings": {
+      "app": {
+        "acsURL": null,
+        "orgName": "acme2"
+      },
+      "notifications": {
+        "vpn": {
+          "network": {
+            "connection": "DISABLED"
+          },
+          "message": null,
+          "helpUrl": null
+        }
+      },
+      "signOn": {
+        "defaultRelayState": null,
+        "ssoAcsUrlOverride": null,
+        "audienceOverride": null,
+        "recipientOverride": null,
+        "destinationOverride": null,
+        "attributeStatements": []
+      }
+    },
+    "_links": {
+      "help": {
+        "href": "https://testorgone-admin.okta.com/app/cornerstone/0oa7vihkd5P5F8S4r0w6/setup/help/SAML_2_0/external-doc",
+        "type": "text/html"
+      },
+      "metadata": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vihkd5P5F8S4r0w6/sso/saml/metadata",
+        "type": "application/xml"
+      },
+      "appLinks": [
+        {
+          "name": "login",
+          "href": "https://testorgone.okta.com/home/cornerstone/0oa7vihkd5P5F8S4r0w6/327",
+          "type": "text/html"
+        }
+      ],
+      "groups": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vihkd5P5F8S4r0w6/groups"
+      },
+      "logo": [
+        {
+          "name": "medium",
+          "href": "https://tc2static.oktacdn.com/assets/img/logos/cornerstone.a63cddeecf3acc5aae6d4592dcfe8125.png",
+          "type": "image/png"
+        }
+      ],
+      "users": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vihkd5P5F8S4r0w6/users"
+      },
+      "deactivate": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vihkd5P5F8S4r0w6/lifecycle/deactivate"
       }
     }
   }
