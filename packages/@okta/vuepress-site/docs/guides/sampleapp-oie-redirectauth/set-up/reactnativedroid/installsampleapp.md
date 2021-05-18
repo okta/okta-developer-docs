@@ -19,11 +19,11 @@
 
 4. To redirect back to your application, you must specify a unique URI to your app. To do this, define a gradle manifest placeholder in the `build.gradle` file located in the `browser-sign-in` > `android` > `app` directory.
 
-```bash
-android.defaultConfig.manifestPlaceholders = [
-    "appAuthRedirectScheme": "com.okta.example"
-]
-```
+    ```bash
+    android.defaultConfig.manifestPlaceholders = [
+        "appAuthRedirectScheme": "com.okta.example"
+        ]
+    ```
 
 > **Note:** Make sure that this value is consistent with the redirect URI that you added to the `samples.config.js` file. For example, if your redirect URI is `com.okta.example:/callback`, then the `appAuthRedirectScheme` should be `com.okta.example`.
 

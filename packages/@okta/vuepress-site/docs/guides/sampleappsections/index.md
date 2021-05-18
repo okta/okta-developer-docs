@@ -520,6 +520,8 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Logout** at the top of the page to sign out of the app.
 
+These sections added
+
 -----
 
 samples-js-react-native (iOS)
@@ -683,8 +685,10 @@ This section walks you through enrolling a user and authenticating that user.
 2. Open `localhost:8080` in an incognito/private window, and the PKCE Flow w/Okta Hosted Login Page appears for the Okta Vue sample project.
 3. Click **Login**. You are redirected to the Okta Sign-In Widget.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
+    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 5. Click **Logout** at the top of the page to sign out of the app.
 
+These sections added
 
 ----
 samples-nodejs-express
@@ -729,6 +733,7 @@ This section walks you through enrolling a user and authenticating that user.
 2. Open `localhost:8080` in an incognito/private window, and the Okta Hosted Login + Express JS Example page appears.
 3. Click **Log In**. You are redirected to the Okta Sign-In Widget.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
+    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 5. Click **Logout** from the left side of the page to sign out of the app.
 
 -----
@@ -776,6 +781,7 @@ This section walks you through enrolling a user and authenticating that user.
 2. Open `localhost:8080` in an incognito/private window, and the Okta Hosted Login + PHP Example page appears.
 3. Click **Login**. You are redirected to the Okta Sign-In Widget.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
+    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 5. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
 ------
@@ -836,6 +842,7 @@ This section walks you through enrolling a user and authenticating that user.
 2. Open `localhost:8080` in an incognito/private window, and the Okta Hosted Login + Flask Example page appears.
 3. Click **Login**. You are redirected to the Okta Sign-In Widget.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
+    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 5. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
 -----
@@ -878,3 +885,4 @@ This section walks you through enrolling a user and authenticating that user.
 3. In the simulator, enter the **Issuer URL**, **Client ID**, and **Redirect URL** that you copied in previous steps.
 4. Click L**og In**, and you are redirected to the Okta Sign-In Widget.
 5. Enter the **Username** and **Password** for an admin user in your Okta org, and then click **Next**. The simulator displays the access token.
+    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
