@@ -61,23 +61,25 @@ This section walks you through enrolling a user and authenticating that user.
 
 This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
 
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
 1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
 2. Give your Policy a **Name** and then click **Save**.
 3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On your Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the app that you created earlier, click **Apply**, and then **Close**.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the <StackSelector snippet="applang" noSelector inline /> app that you created earlier, click **Apply**, and then **Close**.
 6. Click **Back to Profile Enrollment Policy**.
 7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the Edit Rule dialog box, select **Allowed** in the **For new users** section, and then click **Save**.
+8. In the **For new users** section of the Edit Rule dialog box, select **Allowed** for **Sign-up**, and then click **Save**.
 
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) for more information on profile enrollment policies.
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
 
 ### Try enrollment
 
 This section walks you through the self-service enrollment steps for a new user.
 
 1. Click **Login** on the Okta-React Sample landing page. You should now see **Sign Up** just below the **Forgot password?** link.
-2. Click **Sign Up**, enter the requested information, and click **Register**.
+2. Click **Sign Up**, enter the requested information, and click **Sign Up**.
 3. You now need to set up Email, Password, and Security Question factors. Don't set up any other factors.
 4. After you complete set up, click **Finish**. You are redirected to the React Sample's success page.
 5. Sign out of the app using the **Logout** button at the top of the page.
