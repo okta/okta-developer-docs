@@ -1,1 +1,1 @@
-**SIGN OUT**
+the **SIGN OUT** button

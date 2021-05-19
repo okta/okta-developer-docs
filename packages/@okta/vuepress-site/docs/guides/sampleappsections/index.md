@@ -86,11 +86,12 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 
 This section walks you through the self-service enrollment steps for a new user.
 
-1. Click **SIGN IN** on the Android sample app landing page.
-2. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-3. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-4. After you complete set up, click **Finish**. You are redirected to the Android Welcome page.
-5. Sign out of the app using the **SIGN OUT** button at the top of the page.
+1. From Android Studio, run the app.
+2. In the emulator, click **SIGN IN**.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the Android Welcome page.
+5. Sign out of the app using the **SIGN OUT** button.
 
 -------
 samples-aspnet
@@ -341,7 +342,7 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 2. Give your Policy a **Name** and then click **Save**.
 3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
 4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the Android app that you created earlier, click **Apply**, and then **Close**.
+5. Locate the Go app that you created earlier, click **Apply**, and then **Close**.
 6. Click **Back to Profile Enrollment Policy**.
 7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
 8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
@@ -352,12 +353,12 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 
 This section walks you through the self-service enrollment steps for a new user.
 
-1. Click **SIGN IN** on the Android sample app landing page.
-2. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-3. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-4. After you complete set up, click **Finish**. You are redirected to the Android Welcome page.
-5. Sign out of the app using the **SIGN OUT** button at the top of the page.
-
+1. On the command line inside the `okta-hosted-login` subdirectory, start the <StackSelector snippet="applang" noSelector inline /> app by running `go run main.go`.
+2. Enter `localhost:8080` in an incognito/private window, and click **Login** on the <StackSelector snippet="applang" noSelector inline /> landing page.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the Android Welcome page.
+6. Click the **Logout** button in the upper-right corner of the page to sign out of the app.
 
 -----
 samples-ios

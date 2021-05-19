@@ -2,7 +2,7 @@
 
 2. From the command line, enter the  `okta-hosted-login` directory and run `go get` to install the dependencies.
 
-3. Create an `env` file in the `okta-hosted-login` directory and add the information that you copied in previous steps:
+3. Create an `.env` file in the `okta-hosted-login` directory and add the information that you copied in previous steps:
 
     ```ini
     CLIENT_ID={ClientID}
