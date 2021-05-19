@@ -78,11 +78,11 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 
 This section walks you through the self-service enrollment steps for a new user.
 
-1. Click **Login** on the <StackSelector snippet="applang" noSelector inline /> sample app landing page. You should now see **Sign Up** just below the **Forgot password?** link.
-2. Click **Sign Up**, enter the requested information, and click **Sign Up**.
-3. You now need to set up Email, Password, and Security Question factors. Don't set up any other factors.
-4. After you complete set up, click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> success page.
-5. Sign out of the app using the **Logout** button at the top of the page.
+1. Click <StackSelector snippet="tryenrollin" noSelector inline /> on the <StackSelector snippet="applang" noSelector inline /> sample app landing page.
+2. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+3. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+4. After you complete set up, click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> Welcome page.
+5. Sign out of the app using the <StackSelector snippet="tryenrollout" noSelector inline /> button at the top of the page.
 
 ## Add MFA with a mandatory second factor
 
