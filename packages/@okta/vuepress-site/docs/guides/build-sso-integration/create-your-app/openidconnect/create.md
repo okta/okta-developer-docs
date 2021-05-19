@@ -1,6 +1,6 @@
 ### Create an OIDC integration
 
-6. On the Create a new app integration page, select **OpenID Connect** in the **Sign-in method** section.
+4. On the Create a new app integration page, select **OpenID Connect** in the **Sign-in method** section.
 1. Choose either **Web Application** or **Single-Page Application** as the **Application type** for your integration. The OIN only publishes cloud-based SaaS apps, either traditional Web applications with a back-end or a modern browser-based SPA.
 1. Click **Next**.
 1. On the **General Settings** tab, enter a name for your integration and (optionally) upload a logo.
