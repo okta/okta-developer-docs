@@ -59,7 +59,7 @@ The following table describes the rate limit information that is returned in the
 
 > **Important:** The information contained in `debugContext.debugData` is intended to add context when troubleshooting customer platform issues. The key names and values in the following table are standard properties for rate limit events. However, other properties may be included in the DebugContext object, for example: `countryCallingCode`. These types of event-specific properties may change from release to release and aren't guaranteed to be stable. Therefore, they shouldn't be viewed as a data contract but as a debugging aid instead.
 
-> **Note:** The `profile_reload` type is only available with Okta Identity Engine.
+> **Note:** The `profile_reload` type is only available for Okta Identity Engine.
 
 | Property                           | Type   | Description                                                                                                       |
 | ---------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------- |
