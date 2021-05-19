@@ -34,7 +34,7 @@ This procedure creates a signed JSON Web Token (JWT), which is used as the clien
     ```
 
 4. Click **Generate JWT**.
-5. Copy the resulting JWT value to your Postman's `clientAssertion` environment variable.
+5. Copy the resulting JWT value to your Postman's `clientAssertion` environment variable. Save the environment.
 
 For further background information on this process, see [Create and sign the JWT](/docs/guides/implement-oauth-for-okta-serviceapp/create-sign-jwt/).
 
@@ -43,7 +43,7 @@ For further background information on this process, see [Create and sign the JWT
 This procedure creates an access token using the `clientAssertion` value required for authentication into the risk provider service application.
 
 1. Call the following POST API from the Risk Integration Postman collection: **Partner: API to get the access token** (`{{url}}/oauth2/v1/token`).
-2. Review the response from the call, and copy the `access_token` value to your Postman's `accessToken` environment variable. A sample response follows:
+2. Review the response from the call, and copy the `access_token` value to your Postman's `accessToken` environment variable. Don't include the leading and trailing double qoutes around the access_token below while saving the `accessToken` variable. A sample response follows:
 
     ```JSON
     {
@@ -79,7 +79,7 @@ This procedure sends a sample risk event payload to the Okta org.
             "message": "Detected Attack tooling and suspicious activity"
           }
         ]
-    }
+     }
     ]
     ```
 
@@ -97,3 +97,8 @@ This procedure reviews the Admin Console's System Log to identify the risk event
 2. In the Admin Console, go to **Reports** > **System Log**.
 3. Review the log file or search for the event `security.risk.signal.consume`, which is logged when a risk provider sends a risk event to Okta.
 4. With a risk action of `enforce_and_log`, and a risk-based policy setup, the third-party risk provider event is used when calculating the authentication risk. This information is logged in the `user.session.start` event.
+
+### General Troubleshooting Tips
+1. Save the Postman environment after every change to the environment. Confirm that you are using the correct Postman environment.
+2. Postman environment variables are case sensitive. Make sure there are no typos, no leading/trailing spaces, no leading/trailing double qoutes in the environment variables.
+3. The URL should not be the admin URL (ex: use https://demo-org.oktapreview.com vs https://demo-org-admin.oktapreview.com) and you don't need a trailing `/` at the end of the URL.

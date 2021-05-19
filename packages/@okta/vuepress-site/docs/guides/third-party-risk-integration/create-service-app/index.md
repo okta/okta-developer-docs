@@ -23,6 +23,7 @@ Prior to creating the service application for the third-party risk provider, you
     - **Key Use**: Signature
     - **Algorithm**: RS256
     - **Key ID**: SHA-256
+    - **Show X.509**: NO
 
 3. Click **Generate**. A sample **Public Key** value follows:
 
@@ -45,7 +46,7 @@ For background information on this process, see [Create a public/private key pai
 
 Create the service application that integrates with the third-party risk provider using the previously generated public key for authentication.
 
-1. Copy the name of your third-party risk provider to your Postman environment's `providerName` variable. In this example, use `Risk Provider Example`.
+1. Copy the name of your third-party risk provider to your Postman environment's `providerName` variable. In this example, use `Risk Provider Example`. Save the environment.
 
 2. Call the following POST API from the Risk Integration Postman collection: **Admin: API to create OAuth service client (for the provider)** (`{{url}}/oauth2/v1/clients`).
 
@@ -84,7 +85,7 @@ Create the service application that integrates with the third-party risk provide
     }
     ```
 
-4. From the response, copy the `client_id` value, in this example `0oaaaboyxsbrWdsk81d6`, to your Postman environment's `clientId` variable.
+4. From the response, copy the `client_id` value, in this example `0oaaaboyxsbrWdsk81d6`, to your Postman environment's `clientId` variable. Save the environment.
 
 5. Verify the application is available by calling the following GET API from the Risk Integration Postman collection: **Admin: API to get all OAuth service clients** (`{{url}}/oauth2/v1/clients`).
 
@@ -111,5 +112,7 @@ You must now define the allowed Risk scope for use with the third-party risk pro
     ```
 
 For background information on granting scopes, see [Grant allowed scopes](/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/#grant-allowed-scopes).
+
+Note: If you get a "Resource Not Found" exception in this step, it is possible that your clientId or the url are not valid.
 
 <NextSectionLink/>
