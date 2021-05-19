@@ -1701,7 +1701,7 @@ The following conditions may be applied to the rules associated with an app sign
 
 A Verification Method describes the means by which the user must be verified. The only supported type is `ASSURANCE`.
 
-Assurance is the degree of confidence that the end-user logging into an application or service is the same end-user who previously enrolled or logged in to the application or service.
+Assurance is the degree of confidence that the end-user signing into an application or service is the same end-user who previously enrolled or signed in to the application or service.
 
 Authenticators can be broadly classified into factors. A factor represents the mechanism by which an end-user owns or controls the authenticator. The three classifications are:
 
