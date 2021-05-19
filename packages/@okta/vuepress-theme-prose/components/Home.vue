@@ -6,7 +6,7 @@
       </div>
       <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
         <div class="okta-game-banner row">
-          <div class="okta-game-banner-wrapper">
+          <div class="col-11 okta-game-banner-wrapper">
             <div class="okta-game-banner--logo">
               <img src="/img/okta-game/okta-game-logo.svg" />
             </div>

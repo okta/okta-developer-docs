@@ -244,14 +244,12 @@ $oktaGameButtonColor: #ffdd53;
 
 .okta-game-banner {
   min-height: 130.5px;
-  padding: 0 10px 0 100px;
   background: #1DBFFF;
+  justify-content: center;
   .okta-game-banner-wrapper {
     display: flex;
     align-items: stretch;
-    justify-content: center;
-    width: 100%;
-    max-width: 1300px;
+    justify-content: flex-start;
   }
   .okta-game-banner--logo,
   .okta-game-banner--image,
@@ -311,7 +309,6 @@ $oktaGameButtonColor: #ffdd53;
 
 @include media("<bootstrap-xl") {
   .okta-game-banner {
-    padding-left: 10px;
   }
 }
 
