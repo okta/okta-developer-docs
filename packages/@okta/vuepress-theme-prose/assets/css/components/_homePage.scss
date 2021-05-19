@@ -249,7 +249,7 @@ $oktaGameButtonColor: #ffdd53;
   .okta-game-banner-wrapper {
     display: flex;
     align-items: stretch;
-    justify-content: space-evenly;
+    justify-content: center;
     width: 100%;
     max-width: 1300px;
   }
@@ -260,6 +260,7 @@ $oktaGameButtonColor: #ffdd53;
   }
   .okta-game-banner--logo {
     align-items: center;
+    margin-right: 30px;
     img {
       max-height: 74.67px;
     }
@@ -274,6 +275,7 @@ $oktaGameButtonColor: #ffdd53;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 10px;
+    margin-left: 75px;
     p {
       margin: 10px 0 10px 0;
       width: 100%;
@@ -285,16 +287,13 @@ $oktaGameButtonColor: #ffdd53;
       display: flex;
       align-items: center;
       font-weight: 600;
-      font-size: 9px;
+      font-size: 14px;
       .play-now-btn {
         display: flex;
-        float: left;
         align-items: center;
         justify-content: center;
-        width: 60px;
         cursor: pointer;
-        height: 22px;
-        padding: 3px 0;
+        padding: 6px 14px;
         border-radius: 3px;
         text-align: center;
         background-color: $oktaGameButtonColor;
@@ -320,6 +319,10 @@ $oktaGameButtonColor: #ffdd53;
   .okta-game-banner {
     .okta-game-banner--details {
       max-width: 300px;
+      margin-left: 10px;
+    }
+    .okta-game-banner--logo {
+      margin-right: 10px;
     }
   }
 }
