@@ -1630,7 +1630,7 @@ Multiple IdP instances can be defined in a single Policy Action. This allows use
 
 > **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
-Application sign-on Policy, which determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked, and are always associated with an application via a Mapping. The Okta Identity Engine always evaluates both Okta Sign On Policy and the Sign On Policy for the application. The resulting user experience will be the union of both policies. App Sign On Policies have the type ACCESS_POLICY.
+The app sign-on policy determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked. It is always associated with an app via a Mapping. The Okta Identity Engine always evaluates both Okta sign-on policy and the sign-on policy for the app. The resulting user experience will be the union of both policies. App sign on policies have the type `ACCESS_POLICY`.
 
 > **Note:** App Sign On policies have a max limit of 5000 for each organization.
 > There is a max limit of 100 rules allowed per policy.
