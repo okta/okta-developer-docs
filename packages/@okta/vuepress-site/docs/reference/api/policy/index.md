@@ -1634,7 +1634,7 @@ The app sign-on policy determines the extra levels of authentication (if any) th
 
 > **Note:** You can have a maximum of 5000 app sign-on policies in an org.
 > There is a max limit of 100 rules allowed per policy.
-> A default policy rule will be created while creating an App Sign On policy with lowest priority of 99.
+> When you create an app sign-on policy, you will automatically also create a default policy rule with the lowest priority of `99`.
 > The highest priority of an App Sign On policy rule could be set as 0.
 
 
