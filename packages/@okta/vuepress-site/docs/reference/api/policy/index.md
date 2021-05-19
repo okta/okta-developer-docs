@@ -1830,7 +1830,7 @@ The number of authenticator class constraints in each constraint object be less 
 Profile Enrollemnt policies specify what profile attributes are required for creating new Users via self-service registration, and also can be used for progressive profiling. The type is specified as PROFILE_ENROLLMENT.
 
 > **Note:** Profile enrollment policies has max limit of 500 for each organization 
-> **Note:** Profile Enrollemnt policies will have only one rule associated with it. Adding more rules are not allowed.
+> A profile enrollment policy can only have one rule associated with it. Adding more rules is not allowed.
 
 
 #### Profile Enrollment Policy example
