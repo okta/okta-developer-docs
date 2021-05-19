@@ -480,7 +480,6 @@ Different Policy types control settings for different operations. All Policy typ
 [App Sign On Policy](#app-sign-on-policy) <ApiLifecycle access="ie" /><br>
 
 [Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
 ### Policy priority and defaults
 
