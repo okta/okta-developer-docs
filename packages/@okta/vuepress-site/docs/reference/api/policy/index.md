@@ -1823,7 +1823,9 @@ The number of authenticator class constraints in each constraint object be less 
 }
 ```
 
-## Profile Enrollment Policy <ApiLifecycle access="ie" /><br>
+## Profile Enrollment Policy 
+
+<ApiLifecycle access="ie" /><br>
 
 > **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
