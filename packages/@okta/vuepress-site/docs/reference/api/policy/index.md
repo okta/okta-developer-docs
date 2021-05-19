@@ -477,7 +477,7 @@ Different Policy types control settings for different operations. All Policy typ
 
 [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
 
-[App Sign On Policy](#app-sign-on-policy) <ApiLifecycle access="ie" /><br>
+[App Sign-On Policy](#app-sign-on-policy) <ApiLifecycle access="ie" /><br>
 
 [Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
 
