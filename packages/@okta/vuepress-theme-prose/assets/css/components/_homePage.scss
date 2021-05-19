@@ -307,11 +307,6 @@ $oktaGameButtonColor: #ffdd53;
   }
 }
 
-@include media("<bootstrap-xl") {
-  .okta-game-banner {
-  }
-}
-
 @include media("<bootstrap-lg") {
   .okta-game-banner {
     .okta-game-banner--details {
