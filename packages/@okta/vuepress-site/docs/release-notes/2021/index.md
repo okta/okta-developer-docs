@@ -16,7 +16,7 @@ title: Okta API Products Release Notes 2021
 
 * When [OIDC apps](/docs/reference/api/oauth-clients/#register-new-client) were created concurrently, some apps were created in a deactivated state. (OKTA-384407)
 
-* The [Client Credentials Flow](/docs/guides/customize-authz-server/overview/) could not implement a custom claim named `scope`. (OKTA-389874)
+* The [Client Credentials Flow](/docs/guides/implement-client-creds/overview/) could not implement a custom claim named `scope`. (OKTA-389874)
 
 ### Weekly Release 2021.05.1
 
