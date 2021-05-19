@@ -478,7 +478,6 @@ Different Policy types control settings for different operations. All Policy typ
 [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
 
 [App Sign On Policy](#app-sign-on-policy) <ApiLifecycle access="ie" /><br>
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
 [Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
 > **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
@@ -1892,4 +1891,3 @@ Policy Rule conditions are not supported for this policy.
 | `profileAttributes` | A list of attributes for which to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes will be persisted in the user's profile. Non-schema attributes may also be added, which will not be persisted to the user's Profile, but will be included in requests to the Registration Inline Hook. `Only 10 or less profile attributes are supported.`                                                         | Array | Required | N/A                                                                                                                                                                                                                        |
 | `targetGroupIds`             | (Optional, max 1 entry) The `id` of a Group that this user should be added to                                                     | Array   | No | N/A                                                                                                                                                                                                                         |
 | `unknownUserAction`          | Which action should be taken if this User is new (Valid values: `DENY`, `REGISTER`)                                               | String  | YES | N/A                                                                                                                                                                                                                        |
-
