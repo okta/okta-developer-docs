@@ -32,6 +32,6 @@
 
 * **Link to configuration guide** &mdash; your configuration guide (in either HTML or PDF format) should have step-by-step instructions on how to configure SSO between Okta and your systems. See [Prepare a customer-facing configuration guide](/docs/guides/submit-app/create-guide).
 
-* **What type of sign-in flows do you support?** &mdash; choose either IdP or SP initiated, or both.
+* **What type of sign-in flows do you support?** &mdash; choose either **IdP initiated** or **SP initiated**, or both.
 
-* **What OIDC mode(s) does your application support?** &mdash; choose either SPA (for Single-Page Application) or Web, or both.
+* **What OIDC mode(s) does your application support?** &mdash; choose either **SPA** (for Single-Page Application) or **Web**, or both.
