@@ -61,11 +61,38 @@ This section walks you through enrolling a user and authenticating that user.
 ### Open and test the Sign-In Widget
 
 1. From Android Studio, run the app.
-2. In the emulator, click **Login**, and you are redirected to the Okta Sign-In Widget.
+2. In the emulator, click **SIGN IN**, and you are redirected to the Okta Sign-In Widget.
 3. Enter the **Username** and **Password** for an admin user in your Okta org, and click **Next**. You are redirected to the success page.
 4. Click **SIGN OUT** to sign out of the app.
 
 The sections above are added
+
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the <StackSelector snippet="applang" noSelector inline /> app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. Click <StackSelector snippet="tryenrollin" noSelector inline /> on the <StackSelector snippet="applang" noSelector inline /> sample app landing page.
+2. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+3. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+4. After you complete set up, click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> Welcome page.
+5. Sign out of the app using the <StackSelector snippet="tryenrollout" noSelector inline /> button at the top of the page.
 
 -------
 samples-aspnet

@@ -70,7 +70,7 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 5. Locate the <StackSelector snippet="applang" noSelector inline /> app that you created earlier, click **Apply**, and then **Close**.
 6. Click **Back to Profile Enrollment Policy**.
 7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the Edit Rule dialog box, select **Allowed** for **Sign-up**, and then click **Save**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
 
 > **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
 
@@ -78,10 +78,10 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 
 This section walks you through the self-service enrollment steps for a new user.
 
-1. Click **Login** on the Okta-React Sample landing page. You should now see **Sign Up** just below the **Forgot password?** link.
+1. Click **Login** on the <StackSelector snippet="applang" noSelector inline /> sample app landing page. You should now see **Sign Up** just below the **Forgot password?** link.
 2. Click **Sign Up**, enter the requested information, and click **Sign Up**.
 3. You now need to set up Email, Password, and Security Question factors. Don't set up any other factors.
-4. After you complete set up, click **Finish**. You are redirected to the React Sample's success page.
+4. After you complete set up, click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> success page.
 5. Sign out of the app using the **Logout** button at the top of the page.
 
 ## Add MFA with a mandatory second factor
