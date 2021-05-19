@@ -15,5 +15,5 @@ Identity engine is still in development and not yet generally available. Orgs cr
 
 :::
 
-<SignUp isOie />
+<SignUp type="OIE" />
 

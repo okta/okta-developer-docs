@@ -1,6 +1,6 @@
 <template>
   <div class="signup">
-    <div class="signup--banner-oie" v-if="isOie">
+    <div class="signup--banner-oie" v-if="type === FORM_TYPE.OIE || type === FORM_TYPE.OIE_PREVIEW">
       Identity engine preview
     </div>
     <div class="signup--content">
@@ -209,7 +209,7 @@
             </div>
           </div>
         </form>
-        <template v-if="!isOie">
+        <template v-if="type === FORM_TYPE.DEFAULT">
           <div class="splitter">
             <span></span>
             <span>or</span>
@@ -250,7 +250,7 @@
       </div>
       <div class="signup--description">
         <Content slot-key="signup-description" />
-        <div class="logo-wrapper" v-if="!isOie">
+        <div class="logo-wrapper" v-if="type === FORM_TYPE.DEFAULT">
           <CompanyLogos withHeading small v-bind:centered="false" />
         </div>
       </div>
@@ -271,6 +271,12 @@ import {
 import getAnalyticsValues from "../util/attribution/attribution";
 import { getIdpUri } from "../util/uris";
 
+const FORM_TYPE = {
+  DEFAULT: "DEFAULT",
+  OIE: "OIE",
+  OIE_PREVIEW: "OIE_PREVIEW",
+};
+
 const CANADA = "Canada";
 const USA = "United States";
 
@@ -279,9 +285,9 @@ const GENERIC_ERROR_MSG =
 
 export default {
   props: {
-    isOie: {
-      type: Boolean,
-      default: false,
+    type: {
+      type: String,
+      default: FORM_TYPE.DEFAULT,
     },
   },
   components: {
@@ -314,7 +320,8 @@ export default {
       },
       isPending: false,
       error: null,
-      captchaSitekey: null
+      captchaSitekey: null,
+      FORM_TYPE,
     };
   },
   computed: {
@@ -384,7 +391,7 @@ export default {
           },
         };
 
-        if (this.isOie) {
+        if (this.type === FORM_TYPE.OIE) {
           body.userProfile.okta_oie = true;
         }
 
