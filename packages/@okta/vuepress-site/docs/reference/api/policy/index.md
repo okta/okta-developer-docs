@@ -1703,7 +1703,7 @@ A Verification Method describes the means by which the user must be verified. Th
 
 Assurance is the degree of confidence that the end-user signing into an application or service is the same end-user who previously enrolled or signed in to the application or service.
 
-Authenticators can be broadly classified into factors. A factor represents the mechanism by which an end-user owns or controls the authenticator. The three classifications are:
+Authenticators can be broadly classified into three kinds of factors. A factor represents the mechanism by which an end-user owns or controls the authenticator. The three classifications are:
 
 * Knowledge: something you know, such as a password
 * Possession: something you have, such as a phone
