@@ -715,7 +715,33 @@ You have now created your React Native app in Okta and installed the Okta React 
 4. Enter the **Username** and **Password** for an admin user in your Okta org, and click **Next**. You are redirected to the success page.
 5. Click **Logout** to sign out of the app.
 
-The sections above are added
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the React Native app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. From the command line, enter the React Native sample app's `ios` subdirectory and start the <StackSelector snippet="applang" noSelector inline /> app by running `npm start`.
+2. In XCode, run the `browserSignIn` project, and in the simulator click **Login** on the <StackSelector snippet="applang" noSelector inline /> landing page.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **Logout** to sign out of the app.
 
 -------
 samples-js-react-native (Android)
@@ -778,10 +804,36 @@ This section walks you through enrolling a user and authenticating that user.
 1. On the command line inside the `browser-sign-in` subdirectory, start the React Native app by running `npm start`.
 2. From Android Studio, run the app.
 3. In the emulator, click **LOGIN**. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and Password** for an admin user in your Okta org. You are redirected to the success page.
+4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **LOGOUT** in the emulator to sign out of the app.
 
-The sections above are added
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the React Native app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. From the command line, enter the React Native sample app's `browser-sign-in` subdirectory and start the <StackSelector snippet="applang" noSelector inline /> app by running `npm start`.
+2. From Android Studio, run the app, and in the emulator click **LOGIN** on the <StackSelector snippet="applang" noSelector inline /> landing page.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **LOGOUT** to sign out of the app.
 
 ------
 samples-js-vue
@@ -828,7 +880,33 @@ This section walks you through enrolling a user and authenticating that user.
     > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 5. Click **Logout** at the top of the page to sign out of the app.
 
-The sections above are added
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the Vue app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. From the command line, enter the Vue sample app's `okta-hosted-login` subdirectory and start the <StackSelector snippet="applang" noSelector inline /> app by running `npm start`.
+2. Open `localhost:8080` in an incognito/private window, and click **Login** on the landing page.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **Logout** at the top of the page to sign out of the app.
 
 ----
 samples-nodejs-express
@@ -876,7 +954,33 @@ This section walks you through enrolling a user and authenticating that user.
     > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 5. Click **Logout** from the left side of the page to sign out of the app.
 
-The sections above are added
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the Node Express app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. From the command line, enter the Node Express sample app's `samples-nodejs-express-4` directory and start the <StackSelector snippet="applang" noSelector inline /> app by running `npm run okta-hosted-login-server`.
+2. Open `localhost:8080` in an incognito/private window, and click **Log In** on the landing page.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **Logout** from the left side of the page to sign out of the app.
 
 -----
 samples-php
