@@ -1654,7 +1654,7 @@ Policy conditions are not supported, conditions are applied at the rule level fo
 
 ### Policy Rules conditions
 
-The following conditions may be applied to the Rules associated with App Sign On Policy:
+The following conditions may be applied to the rules associated with an app sign on policy:
 
 * [People Condition](#people-condition-object)
 
