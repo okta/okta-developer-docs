@@ -297,7 +297,7 @@ The following is an example System Log rate limit event where too many OTP verif
 
 The following is an example of a System Log rate limit event for too many profile reload attempts through Active Directory or LDAP agent.
 
-> **Note:** This event is valid with Okta Identity Engine only.
+> **Note:** This event is valid for Okta Identity Engine only.
 
 ```json
 {
