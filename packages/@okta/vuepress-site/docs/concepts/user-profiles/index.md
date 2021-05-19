@@ -25,11 +25,11 @@ The Universal Directory has a single Okta user profile for every user and an app
 
 You can manage the User profiles in the Universal Directory from the Admin Console or using the [User API](/docs/reference/api/users).
 
-You can manage the Apps user profiles in the Universal Directory form the Admin Console or using the [Apps API](/docs/reference/api/apps).
+You can manage the Apps user profiles in the Universal Directory from the Admin Console or using the [Apps API](/docs/reference/api/apps).
 
 ### User mappings
 
-The Universal Directory, in addition to storing user profiles and app user profiles, maps data from one profile to another, which keeps data synchronized between all of your applications. A common example of this action is storing a user’s first and last name in the user profile and mapping that data to an app user profile. In this way, a single change to a field in an Okta User Profile is reflected in all the applications that that field is mapped to.
+The Universal Directory, in addition to storing user profiles and app user profiles, maps data from one profile to another, which keeps data synchronized between all of your applications. A common example of this action is storing a user’s first and last name in the user profile and mapping that data to an app user profile. In this way, a single change to a field in a User Profile is reflected in all the applications that map to that field.
 
 See also [About attribute mappings](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-about-attribute-mappings.htm)
 
@@ -43,7 +43,7 @@ See also [About profile types](https://help.okta.com/en/prod/Content/Topics/user
 
 ### Okta user profile type
 
-The Okta user profile type defines the default user record used in the Universal Directory. The default user profile contains 31 attributes in accordance with [RFC System for Cross-Domain Identity Management: Core Schema](https://datatracker.ietf.org/doc/html/rfc7643#section-4.1) and can also be extended with custom attributes. To manage the default user profile, use the [Users API](/docs/api/users) and review the users [Profile object](/docs/reference/api/users/#profile-object) and the [User object](https://developer.okta.com/docs/reference/api/users/#user-object) for further information.
+The Okta user profile type defines the default user record used in the Universal Directory. The default user profile contains 31 attributes in accordance with [RFC System for Cross-Domain Identity Management: Core Schema](https://datatracker.ietf.org/doc/html/rfc7643#section-4.1) and can also be extended with custom attributes. To manage the default user profile, use the [Users API](/docs/reference/api/users) and review the [Profile object](/docs/reference/api/users/#profile-object) and the [User object](https://developer.okta.com/docs/reference/api/users/#user-object) for further information.
 
 #### Group profile type
 
