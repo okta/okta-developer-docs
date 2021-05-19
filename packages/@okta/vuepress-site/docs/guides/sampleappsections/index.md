@@ -418,7 +418,33 @@ This section walks you through enrolling a user and authenticating that user.
 3. Enter the **Username** and **Password** for an admin user in your Okta org, and then click **Next**. You are redirected to the success page.
 4. Click **Sign Out** to sign out of the app.
 
-The sections above are added
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the Go app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. In XCode, run the OktaBrowserSignIn project.
+2. In the simulator, click **Sign In**.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **Sign Out** to sign out of the app.
 
 ------
 samples-java-micronaut
@@ -464,9 +490,33 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Logout** to sign out of the app.
 
-The sections above are added
+## Enable self-service enrollment
 
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
 
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the Micronaut app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. On the command line inside the `okta-hosted-login` subdirectory, start the <StackSelector snippet="applang" noSelector inline /> sample app by running `mvn mn:run`.
+2. Open `localhost:8080` in an incognito/private window, and click **Login** on the <StackSelector snippet="applang" noSelector inline /> landing page.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **Logout** to sign out of the app.
 
 -----
 
@@ -506,7 +556,39 @@ Before we begin, you need to create an Okta OpenID Connect app to represent the 
 
 You have now created your App in Okta, and the Okta Spring sample app is installed and working.
 
-The sections above are added
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the Spring app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. From the command line, enter the Spring app's `okta-hosted-login` directory and run the following `mvn` commands to start the application using the information that you copied in previous steps:
+
+    `mvn -Dokta.oauth2.issuer=https://{yourOktaDomain}/oauth2/default` \
+    `-Dokta.oauth2.clientId={clientId}` \
+    `-Dokta.oauth2.clientSecret={clientSecret}` \
+    `-Dokta.oauth2.postLogoutRedirectUri={absoluteLogoutRedirectUri}`
+
+2. Open `localhost:8080` in an incognito/private window, and click **Login** on the <StackSelector snippet="applang" noSelector inline /> landing page.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
 -----
 samples-js-angular
@@ -552,7 +634,33 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Logout** at the top of the page to sign out of the app.
 
-The sections above are added
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the Angular app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. From the command line, enter the Angular app's `okta-hosted-login` subdirectory and start the <StackSelector snippet="applang" noSelector inline /> app by running `npm start`.
+2. Open `localhost:8080` in an incognito/private window, and click **Login** on the <StackSelector snippet="applang" noSelector inline /> landing page.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **Logout** at the top of the page to sign out of the app.
 
 -----
 

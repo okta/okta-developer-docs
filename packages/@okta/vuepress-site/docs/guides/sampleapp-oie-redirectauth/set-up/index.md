@@ -82,7 +82,7 @@ This section walks you through the self-service enrollment steps for a new user.
 
 3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
 4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> Welcome page.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
 6. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the app.
 
 ## Add MFA with a mandatory second factor
