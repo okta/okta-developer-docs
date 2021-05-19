@@ -1624,7 +1624,9 @@ Multiple IdP instances can be defined in a single Policy Action. This allows use
   }
 ```
 
-## App Sign On Policy <ApiLifecycle access="ie" /><br>
+## App Sign On Policy 
+
+<ApiLifecycle access="ie" /><br>
 
 > **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
