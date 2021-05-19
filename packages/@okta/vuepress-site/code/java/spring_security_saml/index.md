@@ -109,13 +109,13 @@ Here is how to configure Okta:
 
 **1.** Sign in to your Okta organization as a user with administrative privileges. If you don't have an Okta organization, you can [create a free Okta Developer Edition organization](https://developer.okta.com/signup/).
 
-**2.** Click **Admin**, and then **Add Applications**. 
+**2.** Click **Admin** to open the Admin Console. Go to **Applications** > **Applications**.
 
-**3.** Click **Create New App**.
+**3.** Click **Create App Integration**.
 
-**4.** In the dialog box that appears, select **SAML 2.0**, and then click **Create**. ![Create a New Application Integration](/img/okta-admin-ui-create-new-application-integration.png "Create a New Application Integration")
+**4.** In the dialog box that appears, select **SAML 2.0**, and then click **Next**. ![Create a New Application Integration](/img/okta-admin-ui-create-new-application-integration.png "Create a New Application Integration")
 
-**5.** In the **General Settings** section, enter **Spring Security SAML** in the **Appname** box, and then click **Next**. ![General Settings](/img/spring-security-saml-okta-general-settings.png "General Settings")
+**5.** In the **General Settings** section, enter **Spring Security SAML** in the **App name** box, and then click **Next**. ![General Settings](/img/spring-security-saml-okta-general-settings.png "General Settings")
 
 **6.** In the **Configure SAML** section, paste the following URL into the **Single sign on URL** box:
 
