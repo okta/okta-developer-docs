@@ -6,27 +6,29 @@
       </div>
       <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
         <div class="okta-game-banner row">
-          <div class="okta-game-banner--logo">
-            <img src="/img/okta-game/okta-game-logo.svg" />
-          </div>
-          <div class="okta-game-banner--image">
-            <img src="/img/okta-game/okta-game-image.svg" />
-          </div>
-          <div class="okta-game-banner--details">
-            <p>Can you turn this small business into a global powerhouse?</p>
-            <div class="okta-game-banner--details-buttons">
-              <SmartLink
-                :item="{ link: 'https://codetycoongame.com/' }"
-                classes="play-now-btn"
-              >
-                Play Now
-              </SmartLink>
-              <SmartLink
-                :item="{ link: 'https://youtu.be/aO5QTNjUQ6o' }"
-                classes="learn-more"
-              >
-                Learn More
-              </SmartLink>
+          <div class="okta-game-banner-wrapper">
+            <div class="okta-game-banner--logo">
+              <img src="/img/okta-game/okta-game-logo.svg" />
+            </div>
+            <div class="okta-game-banner--image">
+              <img src="/img/okta-game/okta-game-image.svg" />
+            </div>
+            <div class="okta-game-banner--details">
+              <p>Can you turn this small business into a global powerhouse?</p>
+              <div class="okta-game-banner--details-buttons">
+                <SmartLink
+                  :item="{ link: 'https://codetycoongame.com/' }"
+                  classes="play-now-btn"
+                >
+                  Play Now
+                </SmartLink>
+                <SmartLink
+                  :item="{ link: 'https://youtu.be/aO5QTNjUQ6o' }"
+                  classes="learn-more"
+                >
+                  Learn More
+                </SmartLink>
+              </div>
             </div>
           </div>
         </div>
