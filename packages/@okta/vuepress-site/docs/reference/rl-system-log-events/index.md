@@ -402,7 +402,7 @@ The following is an example System Log rate limit event where too many profile r
 
 The following table includes the available `Subtypes` for operation rate limits.
 
-> **Note:** The `AD agent` and `LDAP agent` are only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** The `AD agent` and `LDAP agent` subtypes are only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
 | Subtype           | Description                                                         |
 | ----------------- | ------------------------------------------------------------------- |
