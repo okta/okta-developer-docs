@@ -59,7 +59,7 @@ The following table describes the rate limit information that is returned in the
 
 > **Important:** The information contained in `debugContext.debugData` is intended to add context when troubleshooting customer platform issues. The key names and values in the following table are standard properties for rate limit events. However, other properties may be included in the DebugContext object, for example: `countryCallingCode`. These types of event-specific properties may change from release to release and aren't guaranteed to be stable. Therefore, they shouldn't be viewed as a data contract but as a debugging aid instead.
 
-> **Note:** The `profile_reload` type is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** The `profile_reload` type is only available with Okta Identity Engine.
 
 | Property                           | Type   | Description                                                                                                       |
 | ---------------------------------- | ------ | ----------------------------------------------------------------------------------------------------------------- |
@@ -295,9 +295,9 @@ The following is an example System Log rate limit event where too many OTP verif
 }
 ```
 
-The following is an example System Log rate limit event where too many profile reload attempts were made for the Active Directory or LDAP agent.
+The following is an example of a System Log rate limit event for too many profile reload attempts via Active Directory or LDAP agent.
 
-> **Note:** This event is valid with Identity Experience flows only.
+> **Note:** This event is valid with Okta Identity Engine only.
 
 ```json
 {
@@ -402,7 +402,7 @@ The following is an example System Log rate limit event where too many profile r
 
 The following table includes the available `Subtypes` for operation rate limits.
 
-> **Note:** The `AD agent` and `LDAP agent` subtypes are only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** The `AD agent` and `LDAP agent` subtypes are only available with Okta Identity Engine.
 
 | Subtype           | Description                                                         |
 | ----------------- | ------------------------------------------------------------------- |
