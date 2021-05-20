@@ -31,6 +31,7 @@ guides:
  - implement-saml2
  - mfa
  - migrate-to-okta
+ - oie-embedded-sdk-start-with-use-case
  - oin-oidc-guide
  - build-provisioning-integration
  - build-sso-integration

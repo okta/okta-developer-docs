@@ -357,6 +357,35 @@ export const guides = [
             guideName: "token-inline-hook"
           },
         ]
+      },
+      {
+        title: "Identity Engine",
+        subLinks: [
+          {
+                title: "Building your app with the Okta SDK",
+                subLinks: [
+                  {
+                    title: "Overview",
+                  },
+                  {
+                    title: "Before you begin",
+                  },
+                  {
+                    title: "Start with a use case",
+                    guideName: "oie-embedded-sdk-start-with-use-case",
+                  },
+                  {
+                    title: "Developer Tools",
+                  },
+                  {
+                    title: "Next Steps",
+                  },
+                ],
+              },
+              {
+                title: "Building your app with the Okta sign in widget",
+              }
+            ]
       }
     ]
   }
