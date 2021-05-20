@@ -59,6 +59,7 @@ The following table describes the rate limit information that is returned in the
 
 > **Important:** The information contained in `debugContext.debugData` is intended to add context when troubleshooting customer platform issues. The key names and values in the following table are standard properties for rate limit events. However, other properties may be included in the DebugContext object, for example: `countryCallingCode`. These types of event-specific properties may change from release to release and aren't guaranteed to be stable. Therefore, they shouldn't be viewed as a data contract but as a debugging aid instead.
 
+<ApiLifecycle access="ie" /><br>
 > **Note:** The `profile_reload` type is only available for Okta Identity Engine.
 
 | Property                           | Type   | Description                                                                                                       |
@@ -69,7 +70,7 @@ The following table describes the rate limit information that is returned in the
 | `operationRateLimitThreshold`      | String | The relevant numerical limit that this event is associated with                                                   |
 | `operationRateLimitTimeSpan`       | String | The amount of time before the rate limit resets                                                                   |
 | `operationRateLimitTimeUnit`       | String | Indicates the reset interval for `operationRateLmitTimeSpan` in minutes or seconds                                |
-| `operationRateLimitType`           | String | The type of rate limit event affected. Example types: `web_request`, `authenticator_otp_verification`, `sms_factor_enroll`, `event_hook_delivery`, `elastic_rate_limit_activated`, `phone_enrollment`, `profile_reload`, and so on|
+| `operationRateLimitType`           | String | The type of rate limit event affected. Example types: `web_request`, `authenticator_otp_verification`, `sms_factor_enroll`, `event_hook_delivery`, `elastic_rate_limit_activated`, `phone_enrollment`, `profile_reload`<ApiLifecycle access="ie" />, and so on|
 
 > **Note:** Additional information for some events may be included in the DebugContext object, such as for the Notification or Warning event types. For example:<br>
 > **For Notification event types**<br>
@@ -297,6 +298,7 @@ The following is an example System Log rate limit event where too many OTP verif
 
 The following is an example of a System Log rate limit event for too many profile reload attempts through Active Directory or LDAP agent.
 
+<ApiLifecycle access="ie" /><br>
 > **Note:** This event is valid for Okta Identity Engine only.
 
 ```json
@@ -402,6 +404,7 @@ The following is an example of a System Log rate limit event for too many profil
 
 The following table includes the available `Subtypes` for operation rate limits.
 
+<ApiLifecycle access="ie" /><br>
 > **Note:** The `AD agent` and `LDAP agent` subtypes are only available for Okta Identity Engine.
 
 | Subtype           | Description                                                         |
@@ -409,5 +412,5 @@ The following table includes the available `Subtypes` for operation rate limits.
 | `Email`           | The user exceeded their limit for sending email messages            |
 | `SMS`             | The user exceeded their limit for sending SMS                       |
 | `Voice call`      | The user exceeded their limit for sending voice-call messages       |
-| `AD agent`        | The user exceeded their limit for profile reload via AD agent       |
-| `LDAP agent`      | The user exceeded their limit for profile reload via LDAP agent     |
+| `AD agent` <ApiLifecycle access="ie" />      | The user exceeded their limit for profile reload via AD agent       |
+| `LDAP agent` <ApiLifecycle access="ie" />     | The user exceeded their limit for profile reload via LDAP agent     |
