@@ -968,6 +968,21 @@ Specifies a particular platform or device to match on
 }
 ```
 
+#### Risk Score Condition Object
+
+Specifies a particular level of risk to match on
+
+| Parameter | Description              | Data Type | Required |
+| ---       | ---                      | ---       | ---      |
+| level     | The level to match       | `ANY`, `LOW`, `MEDIUM`, or `HIGH`     | Yes      |
+
+#### Risk Score Condition object example
+
+```json
+"riskScore": {
+  "level": "MEDIUM"
+}
+```
 ## Type-Specific Policy data structures
 
 ## Okta Sign On Policy
@@ -1036,6 +1051,8 @@ The following conditions may be applied to the Rules associated with Okta Sign O
 * [Network Condition](#network-condition-object)
 
 * [AuthContext Condition](#authcontext-condition-object)
+
+* [Risk Score Condition](#risk-score-condition-object)
 
 ## Multifactor (MFA) Enrollment Policy
 
@@ -1668,7 +1685,7 @@ The following conditions may be applied to the rules associated with an app sign
 
 * [Office365Client Condition](#office365Client-condition-object)
 
-* [Risk Condition](#riskscore-condition-object)
+* [Risk Score Condition](#risk-score-condition-object)
 
 * [User Type Condition](#usertype-condition-object)
 
