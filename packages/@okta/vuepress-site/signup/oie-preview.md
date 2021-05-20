@@ -9,8 +9,6 @@ Identity engine is still in development and not yet generally available. Orgs cr
 
 <a href="https://developer.okta.com/docs/concepts/ie-intro/" target="_blank">Learn more about Identity engine</a>
 
-<a href="/signup/">Create a regular Developer Edition org instead</a>
-
 :::
 
 <SignUpOiePreview />
