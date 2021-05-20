@@ -1,7 +1,7 @@
 <template>
   <div class="signup">
     <div class="signup--banner-oie">
-      Identity engine preview
+      Identity Engine Preview for Early Access Integrators Only
     </div>
     <div class="signup--content">
       <div class="signup--form">
