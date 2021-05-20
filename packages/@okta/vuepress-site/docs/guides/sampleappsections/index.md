@@ -139,7 +139,33 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Log out** in the upper-right corner of the page to sign out of the app.
 
-The sections above are added
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the ASP.NET app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. In Visual Studio, run the okta-aspnet-mvc-example solution. Your default browser automatically opens to `localhost:44314`.
+2. Click **Log in** in the upper-right corner of the <StackSelector snippet="applang" noSelector inline /> landing page.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **Log out** in the upper-right corner of the page to sign out of the app.
 
 -----
 samples-aspnet-webforms
@@ -187,7 +213,34 @@ This section walks you through enrolling a user and authenticating that user.
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
 5. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
-The sections above are added
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the ASP.NET Web Forms app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. In Visual Studio, run the okta-aspnet-webforms-example solution. Your default browser automatically opens to `localhost:44314`.
+2. Click **Login** in the upper-right corner of the <StackSelector snippet="applang" noSelector inline /> landing page.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **Logout** in the upper-right corner of the page to sign out of the app.
+
 
 -------
 samples-aspnetcore
@@ -1189,7 +1242,33 @@ This section walks you through enrolling a user and authenticating that user.
 5. Enter the **Username** and **Password** for an admin user in your Okta org, and then click **Next**. The simulator displays the access token.
     > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 
-The sections above are added
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the Swift app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. In XCode, open `okta-idx.xcworkspace` from the `okta-idx-swift` directory, select **OktaIdxExample** in the title bar to set the active scheme, and then run the example.
+2. In the simulator, enter the **Issuer URL**, **Client ID**, and **Redirect URL** that you copied in previous steps and then click **Log In**.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
 -----
 
