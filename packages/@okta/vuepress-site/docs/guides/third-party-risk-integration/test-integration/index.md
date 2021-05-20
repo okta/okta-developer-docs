@@ -98,7 +98,7 @@ This procedure reviews the Admin Console's System Log to identify the risk event
 3. Review the log file or search for the event `security.risk.signal.consume`, which is logged when a risk provider sends a risk event to Okta.
 4. With a risk action of `enforce_and_log`, and a risk-based policy setup, the third-party risk provider event is used when calculating the authentication risk. This information is logged in the `user.session.start` event.
 
-### General Troubleshooting Tips
+### General troubleshooting tips
 1. Save the Postman environment after every change to the environment. Confirm that you are using the correct Postman environment.
 2. Postman environment variables are case sensitive. Make sure there are no typos, no leading/trailing spaces, no leading/trailing double qoutes in the environment variables.
 3. The URL should not be the admin URL (ex: use https://demo-org.oktapreview.com vs https://demo-org-admin.oktapreview.com) and you don't need a trailing `/` at the end of the URL.
