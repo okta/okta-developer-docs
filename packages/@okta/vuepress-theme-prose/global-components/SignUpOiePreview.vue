@@ -232,7 +232,6 @@ import {
   GDPR_COUNTRIES
 } from "../const/signup.const";
 import getAnalyticsValues from "../util/attribution/attribution";
-import { getIdpUri } from "../util/uris";
 
 const CANADA = "Canada";
 const USA = "United States";
@@ -305,14 +304,6 @@ export default {
       const baseUri = 'https://ejcldsss1c.execute-api.us-east-2.amazonaws.com';
       return new Api(baseUri);
     },
-    uris() {
-      const { uris } = this.$site.themeConfig;
-
-      return {
-        github: getIdpUri(uris, "github"),
-        google: getIdpUri(uris, "google")
-      };
-    }
   },
   methods: {
     submitForm(e) {
