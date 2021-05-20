@@ -289,7 +289,7 @@ Deletes the requested [Risk Provider](#risk-provider-object).
 
 #### Request example
 
-This request deletes a risk provider object based on the id:
+This request deletes a risk provider object based on the `id`:
 
 ```bash
 curl -X DELETE \
