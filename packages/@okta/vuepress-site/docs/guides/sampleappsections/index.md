@@ -989,7 +989,7 @@ samples-php
 
 Before we begin, you need to create an Okta OpenID Connect app to represent the PHP sample app and then install the sample app.
 
-> **Note:** We depend on other packages for the samples to run. To install these dependencies, we use composer. These steps assume that you have Composer installed.
+> **Note:** We depend on other packages for the samples to run. To install these dependencies, we use Composer. These steps assume that Composer is installed.
 
 1. Sign in to your [Okta Admin Console](https://login.okta.com).
 2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
@@ -1030,7 +1030,33 @@ This section walks you through enrolling a user and authenticating that user.
     > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 5. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
-The sections above are added
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the PHP app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. From the command line inside the `okta-hosted-login` subdirectory, start the <StackSelector snippet="applang" noSelector inline /> app by running `composer server:start`.
+2. Open `localhost:8080` in an incognito/private window, and click **Login** on the landing page.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
 ------
 samples-python-flask
@@ -1093,7 +1119,33 @@ This section walks you through enrolling a user and authenticating that user.
     > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
 5. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
-The sections above are added
+## Enable self-service enrollment
+
+This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
+
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+
+1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
+2. Give your Policy a **Name** and then click **Save**.
+3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
+4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
+5. Locate the Flask app that you created earlier, click **Apply**, and then **Close**.
+6. Click **Back to Profile Enrollment Policy**.
+7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
+
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment).
+
+### Try enrollment
+
+This section walks you through the self-service enrollment steps for a new user.
+
+1. From the command line inside the `okta-hosted-login` subdirectory, start the <StackSelector snippet="applang" noSelector inline /> app by running `python main.py`.
+2. Open `localhost:8080` in an incognito/private window and then click **Login** on the landing page.
+3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
+4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+6. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
 -----
 okta-idx-swift

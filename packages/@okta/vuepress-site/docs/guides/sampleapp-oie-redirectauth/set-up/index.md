@@ -28,12 +28,12 @@ To get started, you need to create an Okta OAuth app to represent the <StackSele
 3. In the dialog box that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSelector snippet="apptype" noSelector inline /> as the **Application type**, and then click **Next**.
 4. Fill in the New <StackSelector snippet="apptypepage" noSelector inline /> Integration fields that you need, and then click **Save**:
 
-   * Add the following values (or leave the defaults if they match):
+   * Be sure to add the following values (or leave the defaults if they match):
 
-      **Sign-in redirect URIs** &mdash; <StackSelector snippet="signinredirecturi" noSelector inline />
+      **Sign-in redirect URIs** &mdash; <StackSelector snippet="signinredirecturi" noSelector inline /><br>
       **Sign-out redirect URIs** &mdash; <StackSelector snippet="signoutredirecturi" noSelector inline />
 
-   * In the **Assignments** section, select **Allow everyonein your organization to access**. This assigns all Users in the Everyone Group to the app. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
+   * In the **Assignments** section, select **Allow everyone in your organization to access**. This assigns all Users in the Everyone Group to the app. You must assign the app to either the Everyone Group or a custom Group that you create so that profile enrollment functions correctly.
 5. On the new Application page, click the "Copy to clipboard" icon to copy the <StackSelector snippet="clientidsd" noSelector inline />. Store this information temporarly for use when you <StackSelector snippet="configfile" noSelector inline /> in the next section.
 
 <StackSelector snippet="corsissuer" noSelector />
@@ -76,7 +76,7 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
 8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
 
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment).
 
 ### Try enrollment
 
@@ -87,7 +87,7 @@ This section walks you through the self-service enrollment steps for a new user.
 3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
 4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
 5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+6. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Add MFA with a mandatory second factor
 
