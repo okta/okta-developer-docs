@@ -19,7 +19,7 @@ The Risk Providers API has the following CRUD operations:
 * [Get a Risk Provider by ID](#get-a-risk-provider)
 * [Update Risk Provider](#update-risk-provider)
 * [Get all Risk Providers](#list-all-risk-providers)
-* [Delete Risk Provider](#delete-risk-provider)
+* [Delete Risk Provider](#delete-a-risk-provider)
 
 
 ### Create Risk Provider
