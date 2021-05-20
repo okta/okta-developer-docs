@@ -412,5 +412,5 @@ The following table includes the available `Subtypes` for operation rate limits.
 | `Email`           | The user exceeded their limit for sending email messages            |
 | `SMS`             | The user exceeded their limit for sending SMS                       |
 | `Voice call`      | The user exceeded their limit for sending voice-call messages       |
-| `AD agent` <ApiLifecycle access="ie" /><br>       | The user exceeded their limit for profile reload via AD agent       |
-| `LDAP agent` <ApiLifecycle access="ie" /><br>     | The user exceeded their limit for profile reload via LDAP agent     |
+| `AD agent` <ApiLifecycle access="ie" />      | The user exceeded their limit for profile reload via AD agent       |
+| `LDAP agent` <ApiLifecycle access="ie" />     | The user exceeded their limit for profile reload via LDAP agent     |
