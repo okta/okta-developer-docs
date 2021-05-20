@@ -43,7 +43,7 @@ For further background information on this process, see [Create and sign the JWT
 This procedure creates an access token using the `clientAssertion` value required for authentication into the risk provider service application.
 
 1. Call the following POST API from the Risk Integration Postman collection: **Partner: API to get the access token** (`{{url}}/oauth2/v1/token`).
-2. Review the response from the call, and copy the `access_token` value to your Postman's `accessToken` environment variable. Don't include the leading and trailing double qoutes around the access_token below while saving the `accessToken` variable. A sample response follows:
+2. Review the response from the call, and copy the `access_token` value to your Postman's `accessToken` environment variable. Don't include the leading and trailing double quotes around the `access_token` value, below, while saving the `accessToken` variable. A sample response follows:
 
     ```JSON
     {
