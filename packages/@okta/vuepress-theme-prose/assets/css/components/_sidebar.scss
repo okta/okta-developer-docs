@@ -9,7 +9,7 @@
       .link-wrap {
         margin-top: 1rem;
         .blank-divider {
-          color: #6e6f78;
+          color: cv("gray", "300");
           cursor: default;
           margin-top: 12px;
         }
@@ -29,14 +29,14 @@
         color: #b7bcc0;
         cursor: pointer;
         &:hover {
-          color: #dd2864;
+          color: cv("cerise", "active");
         }
         &.children-active {
           font-weight: bold;
         }
         &.router-link-active {
           font-weight: bold;
-          color: #dd2864;
+          color: cv("cerise", "active");
         }
         > span.text-holder {
           margin-left: 20px;

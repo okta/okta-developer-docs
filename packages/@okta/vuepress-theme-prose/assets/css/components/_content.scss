@@ -34,7 +34,6 @@
 
   @include media(">=tablet") {
     flex-direction: row;
-    // margin-top: 4rem;
 
     // Normalize usual look in case screen > tablet.
     code {
