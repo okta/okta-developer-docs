@@ -23,7 +23,7 @@ Prior to creating the service application for the third-party risk provider, you
     - **Key Use**: Signature
     - **Algorithm**: RS256
     - **Key ID**: SHA-256
-    - **Show X.509**: NO
+    - **Show X.509**: No
 
 3. Click **Generate**. A sample **Public Key** value follows:
 
