@@ -99,6 +99,6 @@ This procedure reviews the Admin Console's System Log to identify the risk event
 4. With a risk action of `enforce_and_log`, and a risk-based policy setup, the third-party risk provider event is used when calculating the authentication risk. This information is logged in the `user.session.start` event.
 
 ### General troubleshooting tips
-1. Save the Postman environment after every change to the environment. Confirm that you are using the correct Postman environment.
+* Save the Postman environment after every change to the environment. Confirm that you are using the correct Postman environment.
 2. Postman environment variables are case sensitive. Make sure there are no typos, no leading/trailing spaces, no leading/trailing double qoutes in the environment variables.
 * The org URL should not be the admin URL (for example, use `https://demo-org.oktapreview.com` instead of  `https://demo-org-admin.oktapreview.com`) and you don't need a trailing `/` at the end of the URL.
