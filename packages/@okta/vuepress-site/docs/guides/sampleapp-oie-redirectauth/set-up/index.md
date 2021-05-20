@@ -7,12 +7,13 @@ layout: Guides
 This document walks you through setting up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
 
 * [Simple enrollment and authentication](#simple-enrollment-and-authentication)
+* [Enable self-service enrollment](#enable-self-service-enrollment)
 * [Add MFA with a mandatory second factor](#add-mfa-with-a-mandatory-second-factor)
 * [Authenticator recovery](#authenticator-recovery)
 * [Progressive Profiling](#progressive-profiling)
 * [Identity Provider routing to Facebook](#identity-provider-routing-to-facebook)
 
-Select the sample app language to get started.
+Select your sample app language.
 
 <StackSelector snippet="sampleapplang" />
 
@@ -25,16 +26,15 @@ To get started, you need to create an Okta OAuth app to represent the <StackSele
 1. Sign in to your [Okta Admin Console](https://login.okta.com).
 2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
 3. In the dialog box that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSelector snippet="apptype" noSelector inline /> as the **Application type**, and then click **Next**.
-4. Fill in the New <StackSelector snippet="apptypepage" noSelector inline /> Integration fields that you need.
+4. Fill in the New <StackSelector snippet="apptypepage" noSelector inline /> Integration fields that you need, and then click **Save**:
 
-   Be sure to add the following values (or leave the defaults if they match), and then click **Save**:
+   * Add the following values (or leave the defaults if they match):
 
-    * **Sign-in redirect URIs** &mdash; <StackSelector snippet="signinredirecturi" noSelector inline />
-    * **Sign-out redirect URIs** &mdash; <StackSelector snippet="signoutredirecturi" noSelector inline />
+      **Sign-in redirect URIs** &mdash; <StackSelector snippet="signinredirecturi" noSelector inline />
+      **Sign-out redirect URIs** &mdash; <StackSelector snippet="signoutredirecturi" noSelector inline />
 
-5. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-6. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-7. Select the **General** tab and click the "Copy to clipboard" icon to copy the <StackSelector snippet="clientidsd" noSelector inline />. Store this information temporarly for use when you <StackSelector snippet="configfile" noSelector inline /> in the next section.
+   * In the **Assignments** section, select **Allow everyonein your organization to access**. This assigns all Users in the Everyone Group to the app. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
+5. On the new Application page, click the "Copy to clipboard" icon to copy the <StackSelector snippet="clientidsd" noSelector inline />. Store this information temporarly for use when you <StackSelector snippet="configfile" noSelector inline /> in the next section.
 
 <StackSelector snippet="corsissuer" noSelector />
 
@@ -56,6 +56,10 @@ This section walks you through enrolling a user and authenticating that user.
 ### Open and test the Sign-In Widget
 
 <StackSelector snippet="simpleenrollauth" noSelector />
+
+4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
+    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-about-asop) is configured.
+5. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Enable self-service enrollment
 
@@ -83,7 +87,7 @@ This section walks you through the self-service enrollment steps for a new user.
 3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
 4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
 5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the app.
+6. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Add MFA with a mandatory second factor
 
