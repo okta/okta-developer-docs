@@ -125,7 +125,7 @@ The Risk Subject object has the following properties:
 | ----------- | -------------- | ------------- |
 | `ip` | String | The IP address. This is a required field and should either be an IpV6 or IpV4 address.|
 | `riskLevel` | String | The risk level associated with the IP. The values can be `LOW`, `MEDIUM`, or `HIGH`. This is a required field. |
-| `message` | String | Any additional message that the provider can send specifying the reason for the risk level of the IP. This is an optional field with a maximum of 512 characters. The allowed characters are alphabets, numbers, `.`, `_`, `-`|
+| `message` | String | Any additional message that the provider can send specifying the reason for the risk level of the IP. This is an optional field with a maximum of 512 characters. The allowed characters are alphabetic, numeric, `.`, `_`, and `-`.|
 
 
 #### Risk Event example
