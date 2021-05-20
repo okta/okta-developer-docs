@@ -1682,8 +1682,7 @@ The following conditions may be applied to the rules associated with an app sign
                 "factorMode": "1FA",
                 "type": "ASSURANCE",
                 "reauthenticateIn": "PT43800H"
-            },
-            "oktaSignOnSettings": null
+            }
         }
     }
 ```
@@ -1694,7 +1693,6 @@ The following conditions may be applied to the rules associated with an app sign
 | ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
 | `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
 | `verificationMethod`      | A Verification Method describes the means by which the user must be verified. The only supported type is `ASSURANCE`.                                                       | Object                                          | Yes                           | [Default](#app-sign-on-action-default-example)        |
-| `oktaSignOnSettings`      | TODO                                                                                                                                                                       | TODO                                            | Yes                           | null    |
 
 
 ### Verification Method Object
