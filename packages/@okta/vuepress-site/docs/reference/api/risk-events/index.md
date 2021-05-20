@@ -23,7 +23,7 @@ The Risk Events API has the following operations:
 <ApiOperation method="post" url="/api/v1/risk/events/ip" />
 
 A Risk Provider can send Risk Events to Okta using this API.
-This API has a rate limit of 30 requests per minute. The caller should include multiple risk events in a single payload to reduce
+This API has a rate limit of 30 requests per minute. The caller should include multiple Risk Events in a single payload to reduce
 the number of API calls. If a client has more risk signals to send than what the API supports, we recommend prioritizing posting high risk signals.
 
 #### Request body
@@ -137,4 +137,3 @@ The Risk Subject object has the following properties:
     "message": "none"
 }
 ```
-
