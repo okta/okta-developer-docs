@@ -132,4 +132,6 @@ account page. Pass this object into the `IdxClient’s` `RegisterAsync` method.
 
 <StackSelector snippet="call-registerasync" noSelector />
 
+#### Step 4: Handle the response from RegisterAsync
+
 </div>
