@@ -12,8 +12,6 @@ When you are configuring federation between two Okta orgs using OpenID Connect:
     * Needs to be a secure domain that you own
     * Should match the redirect URI sent in the authorize request from the client
 
-1. Assign a group or leave the **Everyone** default. Be sure to verify that the users you want to have access are assigned to the group that you select.
-
-For instructions on how to assign the application to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Apps_Page.htm) topic in the Okta product documentation.
+1. Assign a group or leave the **Everyone** default. Be sure to verify that the users you want to have access are assigned to the group that you select. For instructions on how to assign the application to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Apps_Page.htm) topic in the Okta product documentation.
 1. Click **Save**.
 1. Copy the **Client ID** and **Client secret** from the **Client Credentials** section and paste into a text editor. You need these when you configure this Identity Provider in your other Okta org in the next section.
