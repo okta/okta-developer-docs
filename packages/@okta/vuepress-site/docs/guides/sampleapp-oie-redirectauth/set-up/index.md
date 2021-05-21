@@ -84,10 +84,11 @@ This section walks you through the self-service enrollment steps for a new user.
 
 <StackSelector snippet="tryenrollin" noSelector />
 
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+3. In the Okta Sign-In Widget, click **Sign up** just below the **Forgot password?** link.
+4. Enter the requested information, and then click **Sign Up**.
+5. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
+6. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+7. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Add MFA with a mandatory second factor
 

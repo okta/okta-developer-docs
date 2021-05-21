@@ -7,8 +7,8 @@
     <add key="okta:ClientSecret" value="{ClientSecret}" />
     <add key="okta:OktaDomain" value="${yourOktaDomain}" />
     <add key="okta:AuthorizationServerId" value="{authServerId}" />
-    <add key="okta:RedirectUri" value="http://localhost:8080/authorization-code/callback" />
-    <add key="okta:PostLogoutRedirectUri" value="http://localhost:8080/" />
+    <add key="okta:RedirectUri" value="https://localhost:44314/authorization-code/callback" />
+    <add key="okta:PostLogoutRedirectUri" value="https://localhost:44314/" />
 ```
 
    > **Note:** In this example we are using the "default" Custom Authorization Server. The value for `"okta:AuthorizationServerId"` is `"default"`.
