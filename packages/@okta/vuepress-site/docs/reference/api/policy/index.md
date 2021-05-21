@@ -754,6 +754,27 @@ Specifies a set of Groups whose Users are to be included or excluded
     }
   }
 ```
+#### UserType Condition object
+
+Specifies a set of UserTypes are to be included or excluded. You can use the [UserTypes API](/docs/reference/api/user-types/) to manage UserTypes.
+
+| Parameter | Description                  | Data Type | Required |
+| ---       | ---                          | ---       | ---      |
+| include   | The UserTypes to be included | Array     | Yes      |
+| exclude   | The UserTypes to be excluded | Array     | Yes      |
+
+#### UserType Condition object example
+
+```json
+  "userType": {
+    "include": [
+      "oty1q0xE6xRC1rYS30g4"
+    ],
+    "exclude": [
+      "oty1q0xE6xRC1rYS30g4"
+    ]
+  }
+```
 
 #### AuthContext Condition object
 
