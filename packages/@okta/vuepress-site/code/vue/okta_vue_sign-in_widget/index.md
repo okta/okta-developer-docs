@@ -23,7 +23,7 @@ This guide will walk you through integrating authentication into a Vue app with 
 - [Support](#support)
 
 
-> This guide is for `@okta/okta-signin-widget` v5.2.0, `@okta/okta-vue` v3.0.0 and `okta-auth-js` v4.5.0.
+> This guide is for `@okta/okta-signin-widget` v5.2.0, `@okta/okta-vue` v3.0.0 and `@okta/okta-auth-js` v4.5.0.
 
 ## Prerequisites
 
