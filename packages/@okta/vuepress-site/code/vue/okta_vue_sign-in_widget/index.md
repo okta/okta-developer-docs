@@ -292,7 +292,7 @@ This example is using Vue Router. Replace the code in `src/router/index.js` with
 ```js
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Auth from '@okta/okta-vue'
+import Auth, { LoginCallback } from '@okta/okta-vue'
 import { OktaAuth } from '@okta/okta-auth-js'
 import HomeComponent from '@/components/Home'
 import LoginComponent from '@/components/Login'
@@ -321,7 +321,7 @@ const router = new VueRouter({
     },
     {
       path: '/login/callback',
-      component: Auth.handleCallback()
+      component: LoginCallback
     },
     {
       path: '/profile',
