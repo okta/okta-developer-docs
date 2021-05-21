@@ -221,7 +221,7 @@ HTTP/1.1 204 No Content
 ##### Request
 
 ```bash
-curl -v -X POST \
+curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
