@@ -53,7 +53,7 @@
               <div class="col-12">
                 <p class="homepage--sub-heading-disclaimer homepage--color-main">
                   Quickly deploy auth that protects your apps, APIs, and infrastructure.                    </p>
-              </div>
+              </div> 
             </div>
             
             <div class="row">
