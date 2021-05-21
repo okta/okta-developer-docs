@@ -1,4 +1,4 @@
-ASP.NET Core hosts an internal sign-out handler at `/signout/callback`. You need to add it as a valid **Logout redirect URI** in Okta. See [Define the signout callback](/docs/guides/sign-users-out/define-signout-callback/) for more information on defining this URI in your application settings.
+ASP.NET Core hosts an internal sign-out handler at `/signout/callback`. You need to add it as a valid **Sign-out redirect URIs** in Okta. See [Define the signout callback](/docs/guides/sign-users-out/define-signout-callback/) for more information on defining this URI in your application settings.
 
 Open the controller where you handle the sign-out process and update the `SignOut` action. This time you need to also sign the user out of the Okta OIDC middleware with `OktaDefaults.MvcAuthenticationScheme`:
 

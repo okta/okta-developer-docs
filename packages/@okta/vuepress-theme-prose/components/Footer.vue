@@ -1,6 +1,6 @@
 <template>
-  <footer>
-    <p>
+  <footer class="app-footer">
+    <p class="app-footer--need-support">
       <span class="italic">Need support?</span> Ask on the
       <SmartLink
         :item="{ link: config.forum_url, target: '_self' }"

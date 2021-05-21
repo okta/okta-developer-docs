@@ -19,7 +19,7 @@ After the Identity engine feature is enabled for your org, it should become acti
 
 ### Enable interaction code grant on an authorization server
 
-1. Navigate to **Security > API > Authorization Servers** in the Admin Console.
+1. In the Admin Console, go to **Security** > **API** > **Authorization Servers**.
 2. Select an authorization server and click the edit icon.
 3. Click the **Access Policies** tab.
 4. Edit the **Default Policy Rule**.
@@ -27,7 +27,7 @@ After the Identity engine feature is enabled for your org, it should become acti
 
 ### Enable interaction code grant on an application
 
-1. Navigate to **Applications > Applications** in the Admin Console.
+1. In the Admin Console, go to **Applications** > **Applications**.
 2. Click an application in the list.
 3. Click the **General** tab on the application detail.
 4. Click edit on the **General Settings** panel.

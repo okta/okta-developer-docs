@@ -179,7 +179,7 @@ Enumerates Groups in your organization with pagination. A subset of Groups can b
 | limit     | Specifies the number of Group results in a page                                            | Query     | Number   | FALSE    | 10000   |
 | q         | Finds a group that matches the `name` property                                               | Query     | String   | FALSE    |         |
 | expand        | If specified, it causes additional metadata to be included in the response. Possible values are `stats` and/or `app`.                                             | Query     | String   | FALSE    |         |
-| search <ApiLifecycle access="ea" /> | Searches for groups with a supported [filtering](/docs/reference/api-overview/#filtering) expression for all [attributes](#group-attributes) except for `_embedded`, `_links`, and `objectClass`  | Query     | String   | FALSE    |         |
+| search | Searches for groups with a supported [filtering](/docs/reference/api-overview/#filtering) expression for all [attributes](#group-attributes) except for `_embedded`, `_links`, and `objectClass`  | Query     | String   | FALSE    |         |
 
 > **Notes:** The `after` cursor should be treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).<br><br>
 Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future.
@@ -724,8 +724,6 @@ curl -v -X GET \
 ```
 
 #### List Groups with Search
-
-<ApiLifecycle access="ea" />
 
 Searches for groups based on the properties specified in the search parameter
 
@@ -1853,7 +1851,9 @@ Specifies required and optional properties for a Group. The `objectClass` of a G
 
 #### ObjectClass: okta:user_group
 
-Profile for any Group that is not imported from Active Directory
+Profile for any Group that is not imported from Active Directory. Specifies the [standard](#default-profile-properties) and [custom](#custom-profile-properties) profile properties for a Group.
+
+##### Default Profile Properties
 
 | Property    | Description              | DataType | Nullable | Readonly | MinLength | MaxLength | Validation |
 | ----------- | ------------------------ | -------- | -------- | -------- | --------- | --------- | ---------- |
@@ -1866,6 +1866,13 @@ Profile for any Group that is not imported from Active Directory
   "description": "All Users West of The Rockies"
 }
 ```
+##### Custom Profile Properties
+
+<ApiLifecycle access="ea" />
+
+You can extend Group Profiles with custom properties, but you must first add the properties to the Group Profile schema before they can be referenced. You can use the Profile Editor in the administrator UI or the [Schemas API](/docs/reference/api/schemas/) to manage schema extensions.
+
+Custom properties may contain HTML tags. It is the client's responsibility to escape or encode this data before displaying it. Use [best-practices](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html) to prevent cross-site scripting.
 
 ## Rule object
 

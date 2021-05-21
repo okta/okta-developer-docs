@@ -12,12 +12,12 @@ For testing purposes, use [this tool](https://www.jsonwebtoken.dev) to generate 
 
 You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-for-client-authentication-with-client-secret-or-private-key-jwt) in the request for a scoped access token:
 
-* `aud` &mdash; The full URL of the resource that you're using the JWT to authenticate to
-* `exp` &mdash; The expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only an hour in the future.
+* `aud` &mdash; the full URL of the resource that you're using the JWT to authenticate to
+* `exp` &mdash; the expiration time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp). This value must be a maximum of only an hour in the future.
 * `jti` &mdash; (Optional) A unique identifier of the token. This value is used to prevent the JWT from being replayed. The claim is a case-sensitive string.
 * `iat` &mdash; (Optional) The issuing time of the token in seconds since January 1, 1970 UTC (current UNIX timestamp)
-* `iss` &mdash; The issuer of the token. This value must be the same as the `client_id`.
-* `sub` &mdash; The subject of the token. This value must be the same as the `client_id`.
+* `iss` &mdash; the issuer of the token. This value must be the same as the `client_id`.
+* `sub` &mdash; the subject of the token. This value must be the same as the `client_id`.
 
 1. For this example, include the following parameters in the payload of the JWT:
 

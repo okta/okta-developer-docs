@@ -2,6 +2,111 @@
 title: Okta API Products Release Notes 2021
 ---
 
+## May
+
+### Weekly Release 2021.05.2
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2021.05.2](#bugs-fixed-in-2021-05-2)         | May 19, 2021           |
+
+#### Bugs fixed in 2021.05.2
+
+* When a user was enrolled with SMS or Call factors and an additional or retry [API call](/docs/reference/api/factors) was made within 30 seconds of enrollment, the response included multiple rate limit headers. (OKTA-379654)
+
+* When [OIDC apps](/docs/reference/api/oauth-clients/#register-new-client) were created concurrently, some apps were created in a deactivated state. (OKTA-384407)
+
+* The [Client Credentials Flow](/docs/guides/implement-client-creds/overview/) could not implement a custom claim named `scope`. (OKTA-389874)
+
+### Weekly Release 2021.05.1
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.6.1](#okta-sign-in-widget-version-5-6-1) | May 12, 2021 |
+| [Bugs fixed in 2021.05.1](#bugs-fixed-in-2021-05-1)         | May 12, 2021           |
+
+#### Okta Sign-In Widget, version 5.6.1
+
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.1). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-393866-->
+
+#### Bugs fixed in 2021.05.1
+
+* Duplicate parameter names were passed in requests to the following [OAuth endpoints](/docs/reference/api/oidc/#possible-errors), and no error message was sent. (OKTA-132318)
+
+  * `/token`
+  * `/authorize`
+  * `/revoke`
+  * `/introspect`
+
+* When an OpenID Connect [application was created](/docs/reference/api/apps/#add-application) using a deactivated application's name, a "Duplicate Client Name" error appeared. (OKTA-215049)
+
+* When using the [Factor lifecycle operations endpoints](/docs/reference/api/factors/#factor-lifecycle-operations) to enroll a phone number, users who entered an incorrect phone format received the wrong Factor Service error messages. (OKTA-385106)
+
+### Monthly Release 2021.05.0
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Access-Control-Expose-Headers now available in CORS response](#access-control-expose-headers-now-available-in-cors-response) | May 5, 2021 |
+| [Administrator Roles API third-party admin status update](#administrator-roles-api-third-party-admin-status-update) | May 5, 2021 |
+| [Custom Group Profile Properties is Self-Service EA in Preview](#custom-group-profile-properties-is-self-service-ea-in-preview) | May 5, 2021 |
+| [Domains API is GA in Preview](#domains-api-is-ga-in-preview) | May 5, 2021 |
+| [Domains API supports OAuth 2.0](#domains-api-supports-oauth-2-0) | May 5, 2021 |
+| [Okta Sign-In Widget, version 5.6.0](#okta-sign-in-widget-version-5-6-0) | May 5, 2021 |
+| [Refresh Token Rotation is GA in Preview](#refresh-token-rotation-is-ga-in-preview) | May 5, 2021 |
+| [SAML parameter SessionNotOnOrAfter is GA in Preview](#saml-parameter-sessionnotonorafter-is-ga-in-preview) | May 5, 2021 |
+| [System Log API SCIM filter expression update](#system-log-api-scim-filter-expression-update) | May 5, 2021 |
+| [Bug fixed in 2021.05.0](#bug-fixed-in-2021-05-0)         | May 5, 2021 |
+
+#### Access-Control-Expose-Headers now available in CORS response
+
+The `Access-Control-Expose-Headers` header is now included in the response to an Okta CORS endpoint call. This header can be accessed by the cross-origin user agent and includes the following possible header names:
+
+* `Date`
+* `Link`
+* `X-Okta-Edge-Log`
+* `X-Okta-Request-Id`
+* `X-Rate-Limit-Limit`
+* `X-Rate-Limit-Remaining`
+* `X-Rate-Limit-Reset`
+<!--OKTA-357710-->
+
+#### Administrator Roles API third-party admin status update
+
+The [Administrator Roles API](/docs/reference/api/roles/) has been updated to support third-party admin status for a user or a group without requiring a role assignment. See [Role assignment operations](/docs/reference/api/roles/#role-assignment-operations). <!--OKTA-381780-->
+
+#### Custom Group Profile Properties is Self-Service EA in Preview
+
+[Custom Group Profile properties](/docs/reference/api/groups/#custom-profile-properties) has been released in Preview as Self-Service Early Access. The [Groups API](/docs/reference/api/groups/) can now manage [custom Group Profile properties](/docs/reference/api/groups/#custom-profile-properties) after these properties are added to the Group Profile schema. The [Schemas API](/docs/reference/api/schemas) includes a new [Groups Schema object](/docs/reference/api/schemas/#group-schema-object) and [operations](/docs/reference/api/schemas/#group-schema-operations) that support custom Group properties. You can use the Schemas API or the Profile Editor in the Admin Console to manage schema extensions. Custom Group Profile properties provide flexibility to manage the default profile for Okta groups in the Okta Admin Console Profile Editor or through the Schemas API. This new functionality simplifies group management and lets you quickly add, edit, or remove custom profile attributes to groups. <!--OKTA-389897-->
+
+#### Domains API is GA in Preview
+
+The [Domains API](/docs/reference/api/domains/) is now Generally Available in Preview. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users can see the same base URL for your application. <!--OKTA-386752-->
+
+#### Domains API supports OAuth 2.0
+
+The [Domains API](/docs/reference/api/domains/) has been updated to support OAuth 2.0. You can grant access to the Domains API using the `okta.domains.manage` and the `okta.domains.read` scopes instead of using SSWS tokens. See [Scopes and supported endpoints](/docs/guides/implement-oauth-for-okta/scopes/). <!--OKTA-381286-->
+
+#### Okta Sign-In Widget, version 5.6.0
+
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
+
+#### Refresh Token Rotation is GA in Preview
+
+[Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/) is now Generally Available in Preview. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. When refresh token rotation behavior is enabled in Okta, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token.
+<!--OKTA-390933-->
+
+#### SAML parameter SessionNotOnOrAfter is GA in Preview
+
+The SAML parameter `SessionNotOnOrAfter` is now Generally Available in Preview for SAML assertions and is available for use with Okta’s [SAML Inline Hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-390950-->
+
+#### System Log API SCIM filter expression update
+
+The [System Log API](/docs/reference/api/system-log/) has been updated to return an HTTP 400 response code when a request is made with a SCIM filter expression using the `co` (contains) operator with the `debugContext.debugData.url` or `debugContext.debugData.requestUri` field values. Use an alternative filter expression field such as `actor.id` or `target.id` to filter events in the System Log API. <!--OKTA-388434-->
+
+#### Bug fixed in 2021.05.0
+
+* When a [Dynamic Client Registration API](/docs/reference/api/oauth-clients/) call was created without a JSON Web Key Set (JWKS) configured, the error message returned was misleading, stating an invalid JWKS. (OKTA-383344)
+
 ## April
 
 ### Weekly Release 2021.04.2
@@ -48,7 +153,7 @@ The OAuth 2.0 authorization code lifetime has increased from one minute to five 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
 | [Okta Sign-In Widget, version 5.5.0](#okta-sign-in-widget-version-5-5-0) | April 1, 2021 |
-| [Custom Domain API now in EA in Preview](#custom-domain-api-is-now-in-ea-in-preview) | April 1, 2021 |
+| [Domains API now in EA in Preview](#domains-api-is-now-in-ea-in-preview) | April 1, 2021 |
 | [Groups API extended search now GA in Production](#groups-api-extended-search-is-now-ga-in-production) | April 1, 2021 |
 | [Bug fixed in 2021.04.0](#bug-fixed-in-2021-04-0)         | April 1, 2021           |
 
@@ -56,9 +161,9 @@ The OAuth 2.0 authorization code lifetime has increased from one minute to five 
 
 For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.5.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/).
 
-#### Custom Domain API is now in EA in Preview
+#### Domains API is now in EA in Preview
 
-The [Custom Domain API](/docs/reference/api/domains/) is now in Early Access (EA) in Preview.
+The [Domains API](/docs/reference/api/domains/) is now in Early Access in Preview.
 
 #### Groups API extended search is now GA in Production
 

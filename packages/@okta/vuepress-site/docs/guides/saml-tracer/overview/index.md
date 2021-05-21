@@ -36,7 +36,7 @@ Figure 2: SP-Initiated Response in SAML tracer
 To create a SAML request for an IdP-initiated flow and inspect it in SAML tracer:
 
 1. Assign the SAML app to a user.
-2. Navigate to dashboard of that user and click on the app icon.
+2. Navigate to dashboard of that user and click the app icon.
 3. The application opens in new browser and if successful, sends a SAML response.
 
 You can also start an IdP flow by selecting the App Embed link in a browser (**SAML App** > **General** > **App Embed Link**).
