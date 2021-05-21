@@ -1697,7 +1697,7 @@ The following conditions may be applied to the rules associated with an app sign
 
 ### Verification Method Object
 
-A Verification Method describes the means by which the user must be verified. The only supported type is `ASSURANCE`.
+The verification method ensures that user must be verified. Only supported type is `ASSURANCE`.
 
 Assurance is the degree of confidence that the end-user signing into an application or service is the same end-user who previously enrolled or signed in to the application or service.
 
