@@ -362,6 +362,9 @@ export const guides = [
         title: "Identity Engine",
         subLinks: [
           {
+            title: "Embedded",
+            subLinks: [
+              {
                 title: "Building your app with the Okta SDK",
                 subLinks: [
                   {
@@ -386,6 +389,8 @@ export const guides = [
                 title: "Building your app with the Okta sign in widget",
               }
             ]
+          }
+        ]
       }
     ]
   }

@@ -19,12 +19,7 @@ to be performed:
 Once fully integrated, the self service registration flow in your app will look
 similar to the following;
 
-<div class="sequence-diagram-format">
-
-![Self Service Registration Flow](/img/oie-embedded-sdk/self-serv-reg-flow-complete.png
- "Complete flow of the user self service registration")
-
-</div>
+<StackSelector snippet="sequence-flow-generic" noSelector />
 
 The above sequence diagram illustrates generically how the required factors are
 retrieved and verified within an app. For this use case, the loop in the
@@ -35,25 +30,16 @@ In this use case there will be two factors: password and email.  Password is
 verified first with the user and then the email.
 
 ### Password factor sequence flow
+
 The sequence flow for the password factor is shown below.
 
-<div class="sequence-diagram-format">
-
-![Self Service Registration Flow](/img/oie-embedded-sdk/self-serv-reg-flow-password.png
- "Flow of the user self service registration password factor")
-
-</div>
+<StackSelector snippet="sequence-flow-password" noSelector />
 
 ### Email factor sequence flow
 After the password is verified the email is verified. The steps to verify the
 email are shown below.
 
-<div class="sequence-diagram-format">
-
-![Self Service Registration Flow](/img/oie-embedded-sdk/self-serv-reg-flow-email.png
- "Flow of the user self service registration email factor")
-
-</div>
+<StackSelector snippet="sequence-flow-email" noSelector />
 
 ### Configuration updates
 Before building out the self registration flow in your app, perform the
@@ -100,38 +86,6 @@ both the password and email factors.
 
 ### Integration steps
 
-#### Step 1: Create the create account page
-
-Create a page that accepts the user’s basic profile information. An example is
-shown below:
-
-<div class="sequence-diagram-format">
-
-![Create your account page](/img/oie-embedded-sdk/ssr-create-your-account-page.png
- "Shows the user a create your account mockup page")
-
-</div>
-
-#### Step 2: Create a sign up link for new users
-
-On the sign in page, create a sign up link that links to the create account
-page.  Note the sign up link in the example below under the Continue button.
-
-<div class="sequence-diagram-format">
-
-![Sign up link](/img/oie-embedded-sdk/ssr-sign-up-link-page.png
- "Shows the user the sign up link on the login page")
-
-</div>
-
-#### Step 3: Call RegisterAsync to register the new user
-
-When the user clicks on the register button, create a `UserProfile` object and
-set its properties with the user profile information captured in the Create
-account page. Pass this object into the `IdxClient’s` `RegisterAsync` method.
-
-<StackSelector snippet="call-registerasync" noSelector />
-
-#### Step 4: Handle the response from RegisterAsync
+<StackSelector snippet="integration-steps" noSelector />
 
 </div>
