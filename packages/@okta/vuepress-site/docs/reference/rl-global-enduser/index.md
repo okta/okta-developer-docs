@@ -36,6 +36,14 @@ This page provides the API rate limits for authentication and end-user activitie
 | `/api/{apiVersion}/radius`                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 | `/idp/idx`                                                                                                             | 100              | 600              | 600     | 600        | 500                   |
 | `/login/token/redirect`                                                                                                             | 100              | 600              | 600     | 600        | 600                   |
+| <ApiLifecycle access="ie" /> **Identity Engine rate limit buckets:**                                                                            |               |               |      |         |                    |
+| `/idp/idx`                                                                                                     | 100              | 600              | 600     | 600        | 1200                   |
+| `/idp/idx/introspect`                                                                                                     | 150              | 900              | 900     | 900        | 900                   |
+| `/idp/idx/identify`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
+| `/idp/idx/authenticators/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
+| `/idp/idx/challenge/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
+| `/idp/idx/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
+| New logical app intent bucket                                                                                                     | 150              | 900              | 900     | 900        | 900                   |
 
 
 > **Note:** The following public metadata endpoints aren't subjected to rate limiting.
