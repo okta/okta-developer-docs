@@ -49,7 +49,7 @@ To configure and run the SCIM CRUD tests:
     ![Dev Window](/img/oin/scim_crud-test-identifiers.png "Browser bar showing the oktaOrgUrl location")
     * `oktaToken` - the security token used to connect to your API. You can generate a token for your integration inside your Okta org:
         * Click **Security** > **API**.
-        * Click on **Tokens** and **Create Token**.
+        * Click **Tokens** and **Create Token**.
         * Give the token a name click **Create Token**.
         * Copy the resulting token value over to this Runscope variable.
     * `SCIMUrl` - the Base URL of the SCIM implementation on your server. For example: `https://example.com/scim/v2`

@@ -1,6 +1,6 @@
 Define a callback route for the sign-out process.
 
-Make sure that the `endSessionRedirectUri` in `OIDCConfig` is the same as the one defined in the **Logout redirect URI** section. For example, if you are creating the `OIDCConfig` by builder:
+Ensure that the `endSessionRedirectUri` in `OIDCConfig` is the same as the one defined in the **Sign-out redirect URIs** section. For example, if you are creating the `OIDCConfig` by builder:
 
 ```java
 config = new OIDCConfig.Builder()

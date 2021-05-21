@@ -4,6 +4,7 @@ title: Preview and Test the Event Hook
 The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service when an event is triggered. In this example, the event is triggered when a user is deactivated in the Okta org.
 
 ### Preview
+
 To run a preview call of your Event Hook, sign in to your Okta org as the super admin.
 
 1. In the Admin Console, go to **Workflow** > **Event Hooks**.
@@ -22,7 +23,7 @@ To run a test of your Event Hook:
 
 1. Start by going to your Glitch application and opening the log console (**Tools** > **Logs**). Make sure your application is listening for requests.
 2. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
-    - Navigate to **Directory** > **People**, and click **Add Person**.
+    - Go to **Directory** > **People**, and click **Add Person**.
     - As an example, add the user John Doe as seen from the [Event Object sample code](/docs/guides/event-hook-implementation/event-object).
 3. For this user, select the User's profile by clicking John Doe's name.
 4. Click the **More Actions** drop-down menu, and select **Deactivate**.

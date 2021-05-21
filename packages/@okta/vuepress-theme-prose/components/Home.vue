@@ -5,6 +5,33 @@
         <HomeSidebar />
       </div>
       <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+        <div class="okta-game-banner row">
+          <div class="col-11 okta-game-banner-wrapper">
+            <div class="okta-game-banner--logo">
+              <img src="/img/okta-game/okta-game-logo.svg" />
+            </div>
+            <div class="okta-game-banner--image">
+              <img src="/img/okta-game/okta-game-image.svg" />
+            </div>
+            <div class="okta-game-banner--details">
+              <p>Can you turn this small business into a global powerhouse?</p>
+              <div class="okta-game-banner--details-buttons">
+                <SmartLink
+                  :item="{ link: 'https://codetycoongame.com/' }"
+                  classes="play-now-btn"
+                >
+                  Play Now
+                </SmartLink>
+                <SmartLink
+                  :item="{ link: 'https://youtu.be/aO5QTNjUQ6o' }"
+                  classes="learn-more"
+                >
+                  Learn More
+                </SmartLink>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="row justify-content-center">
           <div class="col-11 homepage--elevated">
             <div class="row">
@@ -12,24 +39,6 @@
                 <h1 class="homepage--main-heading homepage--color-main">
                   Okta Developer Portal
                 </h1>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12 homepage--auth0-banner">
-                <div class="homepage--auth0-banner-text">
-                  <h2 class="homepage--color-main">
-                    It’s official! Okta completes acquisition of Auth0
-                  </h2>
-                  <SmartLink
-                    :item="{ link: 'https://auth0.com/blog/developers-explore-okta-auth0', target: '_blank' }"
-                    classes="homepage--color-main"
-                  >
-                    Read more on the Auth0 blog
-                  </SmartLink>
-                </div>
-                <div class="homepage--auth0-banner-logos">
-                  <img src="/img/okta-auth0-logo-pair.svg" />
-                </div>
               </div>
             </div>
 
@@ -160,7 +169,10 @@
                   grappling with endless meetings, bumbling co-workers, denial
                   of service attacks, and aggressive competitors.
                 </p>
-                <SmartLink :item="{ link: 'https://codetycoongame.com/' }" classes="play-now-btn">
+                <SmartLink
+                  :item="{ link: 'https://codetycoongame.com/' }"
+                  classes="play-now-btn"
+                >
                   play now
                 </SmartLink>
               </div>

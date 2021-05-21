@@ -20,7 +20,7 @@ Any request that is sent with a different scope won't match any rules and conseq
 
 To create a rule for a policy:
 
-1. In the Admin Console, navigate to **Security > API**.
+1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, select the name of an Authorization Server, and then select **Access Policies**.
 3. Select the name of an access policy, and then select **Add Rule**.
 4. Enter a **Name** for the rule, and then use the following fields to define the rule logic:
