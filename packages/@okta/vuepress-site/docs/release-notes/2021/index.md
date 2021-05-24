@@ -8,6 +8,7 @@ title: Okta API Products Release Notes 2021
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.6.4](#okta-sign-in-widget-version-5-6-4) | May 26, 2021 |
 | [Bugs fixed in 2021.05.3](#bugs-fixed-in-2021-05-3)         | May 26, 2021           |
 
 #### Okta Sign-In Widget, version 5.6.4
@@ -20,13 +21,11 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 * SAML requests and responses weren't logged in the Okta [System Log](/docs/reference/api/system-log/) as distinct event fields and were lacking detail about the SAML assertion. (OKTA-378981)
 
-
 ### Weekly Release 2021.05.2
 
 | Change                                                                                              | Expected in Preview Orgs |
 |-----------------------------------------------------------------------------------------------------|--------------------------|
-| [Okta Sign-In Widget, version 5.6.4](#okta-sign-in-widget-version-5-6-4) | May 26, 2021 |
-| [Bugs fixed in 2021.05.2](#bugs-fixed-in-2021-05-2)         | May 26, 2021           |
+| [Bugs fixed in 2021.05.2](#bugs-fixed-in-2021-05-2)         | May 19, 2021           |
 
 #### Bugs fixed in 2021.05.2
 
