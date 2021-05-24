@@ -902,18 +902,19 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 | system                                   | Whether Okta created the Scope                                                                          | Boolean   |                | False                                      |
 
 * A consent dialog box appears depending on the values of three elements:
-    * `prompt` - a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
-    * `consent_method` - a property on [apps](/docs/reference/api/apps/#settings-7)
-    * `consent` - a property on Scopes as listed in the table above
 
-| `prompt` Value   | `consent_method`        | `consent`                            | Result       |
-| :--------------- | :---------------------- | :----------------------------------- | :----------- |
-| `CONSENT`        | `TRUSTED` or `REQUIRED` | `REQUIRED`                           | Prompted     |
-| `CONSENT`        | `TRUSTED` or `REQUIRED` | `FLEXIBLE`                           | Prompted     |
-| `CONSENT`        | `TRUSTED`               | `IMPLICIT`                           | Not prompted |
-| `NONE`           | `TRUSTED`               | `FLEXIBLE`, `IMPLICIT`, or `REQUIRED`| Not prompted |
-| `NONE`           | `REQUIRED`              | `FLEXIBLE` or `REQUIRED`             | Prompted     |
-| `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
+  * `prompt` - a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
+  * `consent_method` - a property on [apps](/docs/reference/api/apps/#settings-7). Allows you to determine whether a client is fully trusted (for example: a trusted application) or requires consent (for example: a third-party application).
+  * `consent` - a property on Scopes as listed in the table above. Allows you to individually enable and disable user consent for a scope.
+
+  | `prompt` Value   | `consent_method`        | `consent`                            | Result       |
+  | :--------------- | :---------------------- | :----------------------------------- | :----------- |
+  | `CONSENT`        | `TRUSTED` or `REQUIRED` | `REQUIRED`                           | Prompted     |
+  | `CONSENT`        | `TRUSTED` or `REQUIRED` | `FLEXIBLE`                           | Prompted     |
+  | `CONSENT`        | `TRUSTED`               | `IMPLICIT`                           | Not prompted |
+  | `NONE`           | `TRUSTED`               | `FLEXIBLE`, `IMPLICIT`, or `REQUIRED`| Not prompted |
+  | `NONE`           | `REQUIRED`              | `FLEXIBLE` or `REQUIRED`             | Prompted     |
+  | `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
 
 > **Note:** If `CONSENT` is set to `FLEXIBLE`, and the scope is requested when using the Client Credentials grant flow, the scope is granted in the access token with no consent prompt. This is because there is no user involved in a 2-legged OAuth [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow.
 <!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->

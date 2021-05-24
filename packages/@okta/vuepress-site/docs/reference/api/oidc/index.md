@@ -1071,9 +1071,9 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 
 A consent dialog appears depending on the values of three elements:
 
-* `prompt`: a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
-* `consent_method`: a property on [apps](/docs/reference/api/apps/#settings-7)
-* `consent`: a property on scopes as listed in the table above
+* `prompt` - a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
+* `consent_method` - a property on [apps](/docs/reference/api/apps/#settings-7). Allows you to determine whether a client is fully trusted (for example: a trusted application) or requires consent (for example: a third-party application).
+* `consent` - a property on Scopes as listed in the table above. Allows you to individually enable and disable user consent for a scope.
 
 | `prompt` Value   | `consent_method`        | `consent`                            | Result       |
 | :--------------- | :---------------------- | :----------------------------------- | :----------- |

@@ -1355,19 +1355,20 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * The `grant_types` and `response_types` values described above are partially orthogonal, as they refer to arguments passed to different endpoints in the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749). However, they are related in that the `grant_types` available to a client influence the `response_types` that the client is allowed to use, and vice versa. For instance, a `grant_types` value that includes `authorization_code` implies a `response_types` value that includes `code`, as both values are defined as part of the OAuth 2.0 authorization code grant.
 
-* A consent dialog appears depending on the values of three elements:
-    * `prompt`: a query parameter used in requests to [`/oauth2/${authServerId}/v1/authorize`](/docs/reference/api/oidc/#authorize)(custom authorization server) or [`/oauth2/v1/authorize`](/docs/reference/api/oidc/#authorize) (Org authorization server)
-    * `consent_method`: a property listed in the Settings table above
-    * `consent`: a property on [scopes](/docs/reference/api/authorization-servers/#scope-properties)
+* A consent dialog box appears depending on the values of three elements:
 
-| `prompt` Value   | `consent_method`        | `consent`                            | Result       |
-| :--------------- | :---------------------- | :----------------------------------- | :----------- |
-| `CONSENT`        | `TRUSTED` or `REQUIRED` | `REQUIRED`                           | Prompted     |
-| `CONSENT`        | `TRUSTED` or `REQUIRED` | `FLEXIBLE`                           | Prompted     |
-| `CONSENT`        | `TRUSTED`               | `IMPLICIT`                           | Not prompted |
-| `NONE`           | `TRUSTED`               | `FLEXIBLE`, `IMPLICIT`, or `REQUIRED`| Not prompted |
-| `NONE`           | `REQUIRED`              | `FLEXIBLE` or `REQUIRED`             | Prompted     |
-| `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
+  * `prompt` - a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
+  * `consent_method` - a property on [apps](/docs/reference/api/apps/#settings-7). Allows you to determine whether a client is fully trusted (for example: a trusted application) or requires consent (for example: a third-party application).
+  * `consent` - a property on Scopes as listed in the table above. Allows you to individually enable and disable user consent for a scope.
+
+  | `prompt` Value   | `consent_method`        | `consent`                            | Result       |
+  | :--------------- | :---------------------- | :----------------------------------- | :----------- |
+  | `CONSENT`        | `TRUSTED` or `REQUIRED` | `REQUIRED`                           | Prompted     |
+  | `CONSENT`        | `TRUSTED` or `REQUIRED` | `FLEXIBLE`                           | Prompted     |
+  | `CONSENT`        | `TRUSTED`               | `IMPLICIT`                           | Not prompted |
+  | `NONE`           | `TRUSTED`               | `FLEXIBLE`, `IMPLICIT`, or `REQUIRED`| Not prompted |
+  | `NONE`           | `REQUIRED`              | `FLEXIBLE` or `REQUIRED`             | Prompted     |
+  | `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
 
 > **Note:** If `CONSENT` is set to `FLEXIBLE`, and the scope is requested when using the Client Credentials grant flow, the scope is granted in the access token with no consent prompt. This is because there is no user involved in a 2-legged OAuth [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow.
 <!-- If you change this section, change it in authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->

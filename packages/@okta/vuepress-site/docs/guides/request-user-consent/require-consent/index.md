@@ -29,9 +29,11 @@ Use the following steps to display the user consent dialog box as part of an Ope
 
 1. Click the edit icon for the **phone** scope. The Edit Scope dialog box appears.
 
-1. Select **Require user consent for this scope** and click **Save**.  The **Block services from requesting this scope** check box is automatically selected.
+1. Select **Require user consent for this scope**. The **Block services from requesting this scope** check box is automatically selected.
 
-    The **Block services from requesting this scope** check box strictly enforces end user consent for the scope. With this check box selected, the authorization server returns an error when this scope is requested while using the [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow. This is because there is no user involved in a 2-legged OAuth Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the check box.
+    The **Block services from requesting this scope** check box strictly enforces end user consent for the scope. With this check box selected, the authorization server returns an error when this scope is requested while using the [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow. This is because there is no user involved in a 2-legged OAuth Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the check box. See the Authorization Servers API (/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
+
+1. Click **Save**.
 
 ## Enable consent using the APIs
 
