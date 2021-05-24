@@ -93,6 +93,14 @@ This section walks you through the self-service enrollment steps for a new user.
 5. After you complete set up, click **Finish**. You are redirected to the Android Welcome page.
 5. Sign out of the app using the **SIGN OUT** button.
 
+## Add MFA with a mandatory second factor
+
+### Enable multifactor authentication
+
+### Try multifactor authentication
+
+all in main doc managed by stack selector variables.
+
 -------
 samples-aspnet
 

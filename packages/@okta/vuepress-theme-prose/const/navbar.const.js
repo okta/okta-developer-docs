@@ -357,6 +357,19 @@ export const guides = [
             guideName: "token-inline-hook"
           },
         ]
+      },
+      {
+        title: "Identity Engine",
+        subLinks: [
+          {
+            title: "Embedded authentication",
+            guideName: "test"
+          },
+          {
+            title: "Redirect authentication",
+            guideName: "sampleapp-oie-redirectauth"
+          },
+        ]
       }
     ]
   }

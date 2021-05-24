@@ -99,7 +99,7 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 ### Enable multifactor authentication
 
 1. Ensure that your org has the Phone Authenticator enabled by going to **Security** > **Authenticators** and checking that **Phone** is listed. If it isn't, add it using the **Add Authenticator** button.
-2. From the side navigation, select **Applications** > **Applications** and then select the Application that you created.
+2. From the side navigation, select **Applications** > **Applications** and then select the Okta OAuth app that you created to represent the <StackSelector snippet="applang" noSelector inline /> app.
 3. Select the **Sign On** tab.
 4. Scroll down to the **Sign On Policy** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
 5. In the Edit Rule dialog box, scroll down to the **THEN** section and locate **AND User must authenticate with**.
@@ -107,11 +107,11 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 
 ### Try multifactor authentication
 
-1. Return to the React Sample page and click **Login**. You are once again redirected to the Widget.
+1. Return to the <StackSelector snippet="applang" noSelector inline /> page and click <StackSelector snippet="signn2app" noSelector inline />. You are once again redirected to the Widget.
 2. Sign in with the credentials of the user that you enrolled earlier.
 3. The Set up Authentications page appears, which prompts you to set up either the Okta Verify or the Phone Authenticator. Under Phone, click **Set up**.
-4. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the React Sample's success page.
-5. Sign out of the app using the **Logout** button at the top of the page.
+4. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> Welcome page.
+5. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Authenticator recovery
 
