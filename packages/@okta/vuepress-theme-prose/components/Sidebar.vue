@@ -1,6 +1,5 @@
 <template>
-  <aside class="landing-navigation">
-    <ul class="landing">
+  <aside class="tree-nav">
       <ul class="sections">
         <SidebarItem
           v-for="link in navigation"
@@ -8,7 +7,6 @@
           :link="link"
         />
       </ul>
-    </ul>
   </aside>
 </template>
 

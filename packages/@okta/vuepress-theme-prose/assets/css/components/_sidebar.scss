@@ -1,50 +1,63 @@
-.landing-navigation {
-  width: 100%;
+.tree-nav {
+  width: 22%;
+  position: sticky;
+  top: 70px;
   min-height: 100%;
   padding: 3rem 1rem 3rem 0;
   background: #16272f;
-  .landing {
-    .sections {
-      margin-left: 1.5rem;
-      .link-wrap {
-        margin-top: 1rem;
-        .blank-divider {
-          color: cv("gray", "300");
-          cursor: default;
-          margin-top: 12px;
-        }
+  overflow: auto;
+   @include media(">=desktop") {
+    flex-grow: 0;
+    flex-shrink: 0;
+  }
+
+  @include media("<tablet") {
+    flex-basis: 0;
+    width: 40rem;
+    .landing-navigation {
+      display: none;
+    }
+  }
+  .sections {
+    margin-left: 1.5rem;
+    .link-wrap {
+      margin-top: 1rem;
+      .blank-divider {
+        color: cv("gray", "300");
+        cursor: default;
+        margin-top: 12px;
       }
-      .subnav-active {
-        .tree-nav-link {
-          color: #ffffff;
-        }
-      }
+    }
+    .subnav-active {
       .tree-nav-link {
-        position: relative;
-        display: inline-flex;
-        align-items: center;
-        justify-content: flex-start;
-        font-size: 1em;
-        text-decoration: none;
-        color: #b7bcc0;
-        cursor: pointer;
-        &:hover {
-          color: cv("cerise", "active");
-        }
-        &.children-active {
-          font-weight: bold;
-        }
-        &.router-link-active {
-          font-weight: bold;
-          color: cv("cerise", "active");
-        }
-        > span.text-holder {
-          margin-left: 20px;
-        }
-        > i.fa {
-          position: absolute;
-          left: 0;
-        }
+        color: #ffffff;
+      }
+    }
+    .tree-nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 1em;
+      text-decoration: none;
+      color: #b7bcc0;
+      cursor: pointer;
+      &:hover {
+        color: cv("cerise", "active");
+      }
+      &.children-active {
+        font-weight: bold;
+      }
+      &.router-link-active {
+        font-weight: bold;
+        color: cv("cerise", "active");
+      }
+      > span.text-holder {
+        margin-left: 20px;
+      }
+      > i.fa {
+        position: absolute;
+        left: 0;
       }
     }
   }

@@ -64,25 +64,23 @@
     max-width: 650px;
   }
 
-  .tree-nav {
-    width: 22%;
-    overflow: scroll;
-    position: sticky;
-    top: 70px;
+  // .tree-nav {
+  //   // overflow: scroll;
+   
 
-    @include media(">=desktop") {
-      flex-grow: 0;
-      flex-shrink: 0;
-    }
+  //   @include media(">=desktop") {
+  //     flex-grow: 0;
+  //     flex-shrink: 0;
+  //   }
 
-    @include media("<tablet") {
-      flex-basis: 0;
-      width: 40rem;
-      .landing-navigation {
-        display: none;
-      }
-    }
-  }
+  //   @include media("<tablet") {
+  //     flex-basis: 0;
+  //     width: 40rem;
+  //     .landing-navigation {
+  //       display: none;
+  //     }
+  //   }
+  // }
 
   &.navigation-only {
     @include media("<=tablet") {
@@ -149,7 +147,7 @@
         text-align: left;
         font-weight: 600;
         background-color: white;
-      } 
+      }
       .dropdown-button-option-value {
         margin-top: 0.5rem;
         padding-left: 0.5rem;
