@@ -4,6 +4,19 @@ title: Okta API Products Release Notes 2021
 
 ## May
 
+### Weekly Release 2021.05.3
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2021.05.3](#bugs-fixed-in-2021-05-3)         | May 26, 2021           |
+
+#### Bugs fixed in 2021.05.3
+
+* Array indexing [expressions](/docs/reference/okta-expression-language/#constants-and-operators) (for example: `myArray[0]`) were blocked at validation even when the array and the index were valid. (OKTA-395810)
+
+* SAML requests and responses weren't logged in the Okta [System Log](/docs/reference/api/system-log/) as distinct event fields and were lacking detail about the SAML assertion. (OKTA-378981)
+
+
 ### Weekly Release 2021.05.2
 
 | Change                                                                                              | Expected in Preview Orgs |
