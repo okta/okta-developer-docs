@@ -66,7 +66,7 @@ export default {
   data() {
     return {
       sublinksExpanded: false,
-      hidden: !!this .link.hidden,
+      hidden: !!this.link.hidden,
       types: {
         link: 'link',
         blankDivider: 'blankDivider',
