@@ -21,7 +21,7 @@ The Okta Universal Directory is the service that stores all the information on y
 
 Additionally, the Universal Directory holds app user profiles, which define the attributes that applications require from individual users. For example, one of your applications may only need to know the user’s name as one string (for example, “John Doe”) while another application may require the user’s first and last names to be separate (for example,  “John” and “Doe”). Furthermore, some applications may store sensitive information, like a user’s address, while other applications do not. If you were to share the same user profile with each application, both applications would have access to data they may not need or be authorized to view. With Universal Directory, you can be sure that each application only gets the data that it needs.
 
-The Universal Directory has a single Okta user profile for every user and an app user profile for each application. The user profile is the primary place for all user information to be stored and the app users profile is where application specific information is stored.
+The Universal Directory has a single Okta user profile for every user and an app user profile for each application. The user profile is the primary place for all user information to be stored, and the app users profile is where application-specific information is stored.
 
 You can manage the User profiles in the Universal Directory from the Admin Console or use the [User API](/docs/reference/api/users).
 
