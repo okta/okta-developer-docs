@@ -26,7 +26,7 @@ If you need to create a new OIDC app integration:
 1. Click **Save**.
 1. Click **Edit** to change the **General Settings** pane. In the **Allowed grant types** section, enable **Implicit**. Using the [Implicit](/docs/guides/implement-implicit/overview/) flow streamlines authentication by returning tokens without introducing additional steps. It allows you to get an ID token quickly, which makes it easy to test your configuration. Click **Save** to confirm your changes.
     > **Note:** The Authorization Code grant flow is also supported.
-1. On the **Assignments** tab, click **Assign** to assign the app integration to any user or group in your org. Click **Done** when the assignments are complete. For instructions on how to assign the application to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Apps_Page.htm) topic in the Okta product documentation.
+1. On the **Assignments** tab, click **Assign** to assign the app integration to any user or group in your org. Click **Done** when the assignments are complete. For instructions on how to assign the application to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
 
 To get the client credentials for your app integration:
 

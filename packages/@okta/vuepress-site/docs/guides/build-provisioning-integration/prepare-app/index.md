@@ -23,7 +23,7 @@ Begin by signing up for an [Okta developer account](https://developer.okta.com/s
     Fill in this information and click **Test API Credentials** to test whether the Okta integration can connect to your SCIM API.
 
     Click **Save** to complete the API integration.
-1. On the **Assignments** tab, ensure that the right users and groups in your org are assigned to the application. For instructions on how to assign the application to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Apps_Page.htm) topic in the Okta product documentation.
+1. On the **Assignments** tab, ensure that the right users and groups in your org are assigned to the application. For instructions on how to assign the application to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
 
 <!-- Saving these instructions for when we switch over to the Okta App Integration Wizard
 1. Click **Create App Integration** to start the Application Integration Wizard.
