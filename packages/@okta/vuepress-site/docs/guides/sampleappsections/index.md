@@ -149,314 +149,46 @@ all in main doc managed by stack selector variables
 ------
 samples-js-vue
 
-## Initial set up
+# Add MFA with a mandatory second factor
 
-Before we begin, you need to create an Okta OpenID Connect app to represent the Vue sample app and then install the sample app.
+### Enable multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Single Page App (SPA)** as your **Platform**, then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
-    * **Login redirect URIs** &mdash; `http://localhost:8080/login/callback`
-    * **Logout redirect URIs** &mdash; `http://localhost:8080/`
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**. Store this temporarily for use when you add it to the `testenv` file in a few steps.
-9. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
-10. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
-11. Select the **CORS** check box and click **Save**.
-12. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default`. For example: `https://example-1234.oktapreview.com/oauth2/default`
-13. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-js-vue.git`
-14. From the command line, enter the `okta-hosted-login` directory and run `npm install` to install the dependencies.
-15. Create a `testenv` file in the  `samples-js-vue` directory with the  information that you copied in previous steps:
+### Try multifactor authentication
 
-    ```ini
-    ISSUER=https://${yourOktaDomain}/oauth2/default
-    CLIENT_ID={yourAppClientID}
-    ```
-
-You have now created your App in Okta and installed the Okta Vue sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. On the command line inside the `okta-hosted-login` subdirectory, start the Vue app by running `npm start`.
-2. Open `localhost:8080` in an incognito/private window, and the PKCE Flow w/Okta Hosted Login Page appears for the Okta Vue sample project.
-3. Click **Login**. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
-5. Click **Logout** at the top of the page to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the Vue app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. From the command line, enter the Vue sample app's `okta-hosted-login` subdirectory and start the <StackSelector snippet="applang" noSelector inline /> app by running `npm start`.
-2. Open `localhost:8080` in an incognito/private window, and click **Login** on the landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **Logout** at the top of the page to sign out of the app.
+all in main doc managed by stack selector variables
 
 ----
 samples-nodejs-express
 
-## Initial set up
+# Add MFA with a mandatory second factor
 
-Before we begin, you need to create an Okta OpenID Connect app to represent the Node.js Express sample app and then install the sample app.
+### Enable multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click ?**Save**:
-    * **Login redirect URIs** &mdash; `http://localhost:8080/authorization-code/callback`
-    * **Logout redirect URIs** &mdash; `http://localhost:8080/`
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID** and the **Client secret**. Store these temporarily for use when you add this information to the `testenv` file in a few steps.
-9. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
-10. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
-11. Select the **CORS** check box and click **Save**.
-12. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default`. For example: `https://example-1234.oktapreview.com/oauth2/default`
-13. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-nodejs-express-4.git`
-14. From the command line, enter the `samples-nodejs-express-4` directory and run `npm install` to install the dependencies.
-15. Create a `testenv` file in the  `samples-nodejs-express-4` directory with the information that you copied in previous steps:
+### Try multifactor authentication
 
-    ```ini
-    ISSUER=https://${yourOktaDomain}/oauth2/default
-    CLIENT_ID={yourAppClientID}
-    CLIENT_SECRET={yourAppClientSecret}
-    ```
-
-You have now created your App in Okta and installed the Okta Node.js Express sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. On the command line inside the `samples-nodejs-express-4` directory, start the Node.js app by running `npm run okta-hosted-login-server`.
-2. Open `localhost:8080` in an incognito/private window, and the Okta Hosted Login + Express JS Example page appears.
-3. Click **Log In**. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
-5. Click **Logout** from the left side of the page to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the Node Express app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. From the command line, enter the Node Express sample app's `samples-nodejs-express-4` directory and start the <StackSelector snippet="applang" noSelector inline /> app by running `npm run okta-hosted-login-server`.
-2. Open `localhost:8080` in an incognito/private window, and click **Log In** on the landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **Logout** from the left side of the page to sign out of the app.
+all in main doc managed by stack selector variables
 
 -----
 samples-php
 
-## Initial set up
+# Add MFA with a mandatory second factor
 
-Before we begin, you need to create an Okta OpenID Connect app to represent the PHP sample app and then install the sample app.
+### Enable multifactor authentication
 
-> **Note:** We depend on other packages for the samples to run. To install these dependencies, we use Composer. These steps assume that Composer is installed.
+### Try multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click ?**Save**:
-    * **Login redirect URIs** &mdash; `http://localhost:8080/authorization-code/callback`
-    * **Logout redirect URIs** &mdash; `http://localhost:8080/`
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID** and the **Client secret**. Store these temporarily for use when you add this information to the `.env` file in a few steps.
-9. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
-10. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
-11. Select the **CORS** check box and click **Save**.
-12. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default`. For example: `https://example-1234.oktapreview.com/oauth2/default`
-13. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-php.git`
-14. From the command line, enter the `okta-hosted-login` directory and run `composer install` to install the dependencies.
-15. Create an `.env` file in the `okta-hosted-login` directory and add the  information that you copied in previous steps:
-
-    ```ini
-    CLIENT_ID={yourAppClientID}
-    CLIENT_SECRET={yourAppClientSecret}
-    ISSUER=https://{yourOktaDomain}/oauth2/default
-    ```
-
-You have now created your App in Okta and installed the Okta PHP sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. On the command line inside the `okta-hosted-login` subdirectory, start the PHP app by running `composer server:start`.
-2. Open `localhost:8080` in an incognito/private window, and the Okta Hosted Login + PHP Example page appears.
-3. Click **Login**. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
-5. Click **Logout** in the upper-right corner of the page to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the PHP app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. From the command line inside the `okta-hosted-login` subdirectory, start the <StackSelector snippet="applang" noSelector inline /> app by running `composer server:start`.
-2. Open `localhost:8080` in an incognito/private window, and click **Login** on the landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **Logout** in the upper-right corner of the page to sign out of the app.
+all in main doc managed by stack selector variables
 
 ------
 samples-python-flask
 
-## Initial set up
+# Add MFA with a mandatory second factor
 
-Before we begin, you need to create an Okta OpenID Connect app to represent the Flask sample app and then install the sample app.
+### Enable multifactor authentication
 
-> **Note:** These steps require Python version 3.6.0 or higher.
+### Try multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
-    * **Login redirect URIs** &mdash; `http://localhost:8080/authorization-code/callback`
-    * **Logout redirect URIs** &mdash; `http://localhost:8080/`
-    > **Note:** Copy the Login redirect URIs value and store it temporarily. You need it in a few steps.
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID** and the **Client secret**. Store these temporarily for use when you add this information to the `client_secrets.json` file in a few steps.
-9. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
-10. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
-11. Select the **CORS** check box and click **Save**.
-12. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default`. For example: `https://example-1234.oktapreview.com/oauth2/default`
-13. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-python-flask.git`
-14. From the command line, enter the `samples-python-flask` directory and run `pip install -r requirements.txt` to install the dependencies.
-15. In the `samples-python-flask` directory, open the `okta-hosted-login` directory.
-16. Copy the `client_secrets.json.dist` to `client_secrets.json` and fill in the information that you copied in previous steps.
-
-    ```json
-    {
-    "web": {
-        "auth_uri": "https://{yourOktaDomain}/oauth2/default/v1/authorize",
-        "client_id": "{yourClientId}",
-        "client_secret": "{yourClientSecret}",
-        "redirect_uris": [
-            "http://localhost:8080/authorization-code/callback"
-     ],
-        "issuer": "https://{yourOktaDomain}/oauth2/default",
-        "token_uri": "https://{yourOktaDomain}/oauth2/default/v1/token",
-        "token_introspection_uri": "https://{yourOktaDomain}/oauth2/default/v1/introspect",
-        "userinfo_uri": "https://{yourOktaDomain}/oauth2/default/v1/userinfo"
-        }
-    }
-    ```
-
-You have now created your App in Okta and installed the Okta Flask Python sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. On the command line inside the `okta-hosted-login` subdirectory, start the Flask app by running `python main.py`.
-2. Open `localhost:8080` in an incognito/private window, and the Okta Hosted Login + Flask Example page appears.
-3. Click **Login**. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-about-asop) is configured.
-5. Click **Logout** in the upper-right corner of the page to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the Flask app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. From the command line inside the `okta-hosted-login` subdirectory, start the <StackSelector snippet="applang" noSelector inline /> app by running `python main.py`.
-2. Open `localhost:8080` in an incognito/private window and then click **Login** on the landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **Logout** in the upper-right corner of the page to sign out of the app.
+all in main doc managed by stack selector variables
 
 -----
 okta-idx-swift
