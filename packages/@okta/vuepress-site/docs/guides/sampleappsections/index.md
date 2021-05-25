@@ -92,6 +92,16 @@ all in main doc managed by stack selector variables
 
 samples-java-spring
 
+# Add MFA with a mandatory second factor
+
+### Enable multifactor authentication
+
+### Try multifactor authentication
+
+all in main doc managed by stack selector variables
+
+----
+
 samples-java-micronaut
 
 # Add MFA with a mandatory second factor
@@ -105,247 +115,36 @@ all in main doc managed by stack selector variables
 -----
 samples-js-angular
 
-## Initial set up
+# Add MFA with a mandatory second factor
 
-Before we begin, you need to create an Okta Single Page App to represent the Angular sample app and then install the sample app.
+### Enable multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Single Page App (SPA)** as the **Platform**, then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
-    * **Login redirect URIs** &mdash; `http://localhost:8080/login/callback`
-    * **Logout redirect URIs** &mdash; `http://localhost:8080`
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**. Store this temporarily for use when you add it to the `testenv` file in a few steps.
-9. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
-10. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
-11. Select the **CORS** check box and click **Save**.
-12. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default`. For example: `https://example-1234.oktapreview.com/oauth2/default`
-13. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-js-angular.git`
-14. From the command line, enter the `okta-hosted-login` directory and run `npm install`.
-15. Create a `testenv` file in the `samples-js-angular` directory with the information that you copied in previous steps:
+### Try multifactor authentication
 
-    ```ini
-        ISSUER=https://${yourOktaDomain}/oauth2/default
-        CLIENT_ID={yourAppClientId}
-    ```
-
-You have now created your SPA in Okta and installed the Okta Angular sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. On the command line inside the `okta-hosted-login` subdirectory, start the Angular app by running `npm start`.
-2. Open `localhost:8080` in an incognito/private window, and the PKCE Flow w/Okta Hosted Login Page appears for the Okta Angular sample project.
-3. Click **Login**. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-5. Click **Logout** at the top of the page to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the Angular app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. From the command line, enter the Angular app's `okta-hosted-login` subdirectory and start the <StackSelector snippet="applang" noSelector inline /> app by running `npm start`.
-2. Open `localhost:8080` in an incognito/private window, and click **Login** on the <StackSelector snippet="applang" noSelector inline /> landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **Logout** at the top of the page to sign out of the app.
+all in main doc managed by stack selector variables
 
 -----
 
 samples-js-react-native (iOS)
 
-## Initial set up
+# Add MFA with a mandatory second factor
 
-Before we begin, you need to create an Okta Native App to represent the React Native for iOS sample app and then install the sample app.
+### Enable multifactor authentication
 
-> **Note:** These steps assume that you are using XCode and the provided XCode project in the sample app.
+### Try multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Native app** as the **Platform**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
-    * **Login redirect URIs** &mdash; &mdash; `com.okta.example:/callback`
-    * **Logout redirect URIs** &mdash; `com.okta.example:/logoutCallback`
-    > **Note:** Copy these values and store them temporarily. You need them in a few steps.
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**. Store this temporarily for use when you add it to the `samples.config.js` file in a few steps.
-9. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default`. For example: `https://example-1234.oktapreview.com/oauth2/default`
-10. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-js-react-native.git`
-11. From the command line, enter the `browser-sign-in` directory and install the iOS dependencies:
-    `cd ios`
-    `pod install`
-12. Within the `samples-react-native` directory, edit the `samples.config.js` file in the `browser-sign-in` directory with the information that you copied in previous steps:
-
-    ```javascript
-    export default {
-            oidc: {
-    	        clientId: `{yourAppClientId}`,
-    	        redirectUri: `com.okta.example:/callback`,
-    	        endSessionRedirectUri: `com.okta.example:/logoutCallback`,
-    	        discoveryUri: `https://${yourOktaDomain}/oauth2/default`,
-    	        scopes: ['openid', 'profile', 'offline_access'],
-    	        requireHardwareBackedKeyStore: false,
-  	            },
-         };
-    ```
-
-    > **Note:** The `discovery_uri` is the issuer URL that you built in a previous step.
-
-You have now created your React Native app in Okta and installed the Okta React Native app for iOS.
-
-## Simple enrollment and authentication
-
-1. On the command line inside the `ios` subdirectory, start the React Native app by running `npm start`.
-2. In XCode, run the `browserSignIn` project.
-3. In the simulator, click **Login**. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org, and click **Next**. You are redirected to the success page.
-5. Click **Logout** to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the React Native app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. From the command line, enter the React Native sample app's `ios` subdirectory and start the <StackSelector snippet="applang" noSelector inline /> app by running `npm start`.
-2. In XCode, run the `browserSignIn` project, and in the simulator click **Login** on the <StackSelector snippet="applang" noSelector inline /> landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **Logout** to sign out of the app.
+all in main doc managed by stack selector variables
 
 -------
 samples-js-react-native (Android)
 
-## Initial set up
+# Add MFA with a mandatory second factor
 
-Before we begin, you need to create an Okta Native App to represent the React Native for Android sample app and then install the sample app.
+### Enable multifactor authentication
 
-> **Note:** These steps assume that you are using Android Studio to run the sample app.
+### Try multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Native app** as the **Platform**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
-    * **Login redirect URIs** &mdash; &mdash; `com.okta.example:/callback`
-    * **Logout redirect URIs** &mdash; `com.okta.example:/logoutCallback`
-    > **Note:** Copy these values and store them temporarily. You need them in a few steps.
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**. Store this temporarily for use when you add it to the `samples.config.js` file in a few steps.
-9. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default`. For example: `https://example-1234.oktapreview.com/oauth2/default`
-10. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-js-react-native.git`
-11. From the command line, enter the `browser-sign-in` directory and run `npm install` to install the dependencies.
-12. Within the `samples-react-native` directory, edit the `samples.config.js` file in the `browser-sign-in` directory with the information that you copied in previous steps:
-
-    ```javascript
-    export default {
-        oidc: {
-    	    clientId: `{yourAppClientId}`,
-    	    redirectUri: `com.okta.example:/callback`,
-    	    endSessionRedirectUri: `com.okta.example:/logoutCallback`,
-    	    discoveryUri: `https://${yourOktaDomain}/oauth2/default`,
-    	    scopes: ['openid', 'profile', 'offline_access'], 
-    	    requireHardwareBackedKeyStore: false,
-  	        },
-        };
-    ```
-
-    > **Note:** The `discovery_uri` is the issuer URL that you built in a previous step.
-
-13. To redirect back to your application, you must specify a unique URI to your app. To do this, define a gradle manifest placeholder in the `build.gradle` file located in the `browser-sign-in` > `android` > `app` directory.
-
-```bash
-android.defaultConfig.manifestPlaceholders = [
-    "appAuthRedirectScheme": "com.okta.example"
-]
-```
-
-> **Note:** Make sure that this value is consistent with the redirect URI that you added to the `samples.config.js` file. For example, if your redirect URI is `com.okta.example:/callback`, then the `appAuthRedirectScheme` should be `com.okta.example`.
-
-You have now created your React Native app in Okta and installed the Okta React Native app for Android.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. On the command line inside the `browser-sign-in` subdirectory, start the React Native app by running `npm start`.
-2. From Android Studio, run the app.
-3. In the emulator, click **LOGIN**. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-5. Click **LOGOUT** in the emulator to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the React Native app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. From the command line, enter the React Native sample app's `browser-sign-in` subdirectory and start the <StackSelector snippet="applang" noSelector inline /> app by running `npm start`.
-2. From Android Studio, run the app, and in the emulator click **LOGIN** on the <StackSelector snippet="applang" noSelector inline /> landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **LOGOUT** to sign out of the app.
+all in main doc managed by stack selector variables
 
 ------
 samples-js-vue

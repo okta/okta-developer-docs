@@ -102,7 +102,13 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 ### Enable multifactor authentication
 
 1. Ensure that your org has the Phone authenticator enabled by going to **Security** > **Authenticators** and checking that **Phone** is listed.
-    If it isn't listed, add it by clicking **Add Authenticator**, **Add** for the Phone authenticator, leave the **Authentication (MFA/SSO) default)**, and then click **Add**.
+
+    If it isn't listed, add it by doing the following:
+    * Click **Add Authenticator**.
+    * Click **Add** in the **Phone** authentication box.
+    * Leave **Authentication (MFA/SSO)** selected in the **Add Phone** dialog box.
+    * Click **Add**.
+
 2. From the side navigation, select **Applications** > **Applications** and then select the Okta OAuth app that you created to represent the <StackSelector snippet="applang" noSelector inline /> app.
 3. Select the **Sign On** tab.
 4. Scroll down to the **Sign On Policy** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
@@ -114,7 +120,7 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 <StackSelector snippet="tryenrollin" noSelector />
 
 3. Enter the credentials of the user that you enrolled earlier.
-4. The Set up authentications page appears, which prompts you to set up either the Okta Verify or the Phone Authenticator. Under Phone, click **Set up**.
+4. The Set up authentications page appears, which prompts you to set up either the Okta Verify or the Phone authenticator. Under **Phone**, click **Set up**.
 5. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> Welcome page.
 6. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
