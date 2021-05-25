@@ -5,94 +5,6 @@ layout: Guides
 ---
 samples-android
 
-## Initial set up
-
-Before we begin, you need to create an Okta Native OpenID Connect app to represent the Android sample app and then install the sample app.
-
-> **Note:** These steps assume that you are using Android Studio to configure the sample app.
-
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Native app** as the **Platform**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
-    * **Login redirect URIs** &mdash; `com.okta.example:/callback`
-    * **Logout redirect URIs** &mdash; `com.okta.example:/logoutCallback`
-    > **Note:** Copy these values and store them temporarily. You need them in a few steps.
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**. Store this temporarily for use when you add it to the `okta_oidc_config.json` file in a few steps.
-9. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default/.well-known/openid-configuration`. For example: `https://example-1234.oktapreview.com/oauth2/default/.well-known/openid-configuration`.
-10. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-android.git`
-Open the `browser-sign-in` directory and navigate to the `okta_oidc_config.json` file in the app's `res/raw/` directory.
-Add the information that you copied in the previous steps:
-
-    ```JSON
-    {
-    "client_id": "{clientId}",
-    "redirect_uri": "{LoginredirectUri}",
-    "end_session_redirect_uri": "{LogoutredirectUri}",
-    "scopes": [
-        "openid",
-        "profile"
-    ],
-    "Discovery_uri": "https://{yourOktaDomain}/oauth2/default/.well-known/openid-configuration"
-    }
-    ```
-
-> **Note:** The `discovery_uri` is the issuer URL that you built earlier.
-
-11. To redirect back to your application from a web browser, you must specify a unique URI to your app. To do this, define a gradle manifest placeholder in your app's `build.gradle` file:
-
-    ```bash
-    android.defaultConfig.manifestPlaceholders = [
-        "appAuthRedirectScheme": "com.okta.example"]
-    ```
-
-    > **> **Note:**** Make sure that this value is consistent with the redirect URI that you added to the `okta_oidc_config.json` file. For example, if your redirect URI is `com.okta.example:/callback`, then the `appAuthRedirectScheme` should be `com.okta.example`.
-12. Verify that the correct Okta OIDC Library is defined: `implementation 'com.okta.android:oidc-androidx:1.0.18`
-
-You have now created your App in Okta and installed the Okta Android sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. From Android Studio, run the app.
-2. In the emulator, click **SIGN IN**, and you are redirected to the Okta Sign-In Widget.
-3. Enter the **Username** and **Password** for an admin user in your Okta org, and click **Next**. You are redirected to the success page.
-4. Click **SIGN OUT** to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the Android app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. From Android Studio, run the app.
-2. In the emulator, click **SIGN IN**.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the Android Welcome page.
-5. Sign out of the app using the **SIGN OUT** button.
-
 ## Add MFA with a mandatory second factor
 
 ### Enable multifactor authentication
@@ -104,605 +16,91 @@ all in main doc managed by stack selector variables.
 -------
 samples-aspnet
 
-## Initial set up
+## Add MFA with a mandatory second factor
 
-Before we begin, you need to create an Okta Web OpenID Connect app to represent the ASP.NET sample app and then install the sample app.
+### Enable multifactor authentication
 
-> **Note:** These steps assume that you are using Visual Studio to work with the sample app.
+### Try multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click ?**Save**:
-    * **Login redirect URIs** &mdash; `https://localhost:44314/authorization-code/callback`
-    * **Logout redirect URIs** &mdash; `https://localhost:44314/Account/PostLogout`
-    > **Note:** Copy these values and store them temporarily. You need them in a few steps.
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**, **Client secret**, and the **Okta domain**. Store these temporarily for use when you configure the `web.config` file in a few steps.
-9. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-aspnet.git`
-10. In Visual Studio, open the `okta-aspnet-mvc-example` solution file in the `okta-hosted-login` directory.
-11. Open the `web.config` file and, in the `configuration.appSettings` section, add the information that you copied in previous steps:
-    <add key="okta:ClientId" value="{ClientID}" />
-    <add key="okta:ClientSecret" value="{ClientSecret}" />
-    <add key="okta:OktaDomain" value="${yourOktaDomain}" />
-    <add key="okta:AuthorizationServerId" value="{authServerId}" />
-    <add key="okta:RedirectUri" value="http://localhost:8080/authorization-code/callback" />
-    <add key="okta:PostLogoutRedirectUri" value="http://localhost:8080/" />
-
-> **Note:** In this example we are using the "default" Custom Authorization Server. The value for `"okta:AuthorizationServerId"` is `"default"`.
-
-You have now created your Web app in Okta and installed the Okta ASP.NET sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. In Visual Studio, run the okta-aspnet-mvc-example solution.
-2. Your default browser automatically opens to `localhost:44314`, and the Okta ASP.NET Sample App landing page appears.
-3. Click **Log in** in the upper-right corner of the page. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-5. Click **Log out** in the upper-right corner of the page to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the ASP.NET app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. In Visual Studio, run the okta-aspnet-mvc-example solution. Your default browser automatically opens to `localhost:44314`.
-2. Click **Log in** in the upper-right corner of the <StackSelector snippet="applang" noSelector inline /> landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **Log out** in the upper-right corner of the page to sign out of the app.
-
+all in main doc managed by stack selector variables.
 -----
 samples-aspnet-webforms
 
-## Initial set up
+## Add MFA with a mandatory second factor
 
-Before we begin, you need to create an Okta Web OpenID Connect app to represent the ASP.NET Web Forms sample app and then install the sample app.
+### Enable multifactor authentication
 
-> **Note:** These steps assume that you are using Visual Studio to work with the sample app.
+### Try multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
-    * **Login redirect URIs** &mdash; `https://localhost:44314/authorization-code/callback`
-    * **Logout redirect URIs** &mdash; `https://localhost:44314`
-    > **Note:** Copy these values and store them temporarily. You need them in a few steps.
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**, **Client secret**, and the **Okta domain**. Store these temporarily for use when you configure the `web.config` file in a few steps.
-9. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-aspnet-webforms.git`
-10. In Visual Studio, open the `okta-aspnet-webforms-example` solution file in the `okta-hosted-login` directory.
-11. Open the `web.config` file and, in the `configuration.appSettings` section, add the information that you copied in previous steps:
-    <add key="okta:ClientId" value="{ClientID}" />
-    <add key="okta:ClientSecret" value="{ClientSecret}" />
-    <add key="okta:OktaDomain" value="${yourOktaDomain}" />
-    <add key="okta:AuthorizationServerId" value="{authServerId}" />
-    <add key="okta:RedirectUri" value="http://localhost:8080/authorization-code/callback" />
-    <add key="okta:PostLogoutRedirectUri" value="http://localhost:8080/" />
-
-> **Note:** In this example we are using the "default" Custom Authorization Server. The value for "okta:AuthorizationServerId" is "default".
-
-You have now created your Web app in Okta and installed the Okta ASP.NET Web Forms sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. In Visual Studio, run the okta-aspnet-webforms-example solution.
-2. Your default browser automatically opens to `localhost:44314`, and the Okta ASP.NET OIDC Sample App landing page appears.
-3. Click **Login** in the upper-right corner of the page. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-5. Click **Logout** in the upper-right corner of the page to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the ASP.NET Web Forms app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. In Visual Studio, run the okta-aspnet-webforms-example solution. Your default browser automatically opens to `localhost:44314`.
-2. Click **Login** in the upper-right corner of the <StackSelector snippet="applang" noSelector inline /> landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **Logout** in the upper-right corner of the page to sign out of the app.
-
+all in main doc managed by stack selector variables
 -------
 samples-aspnetcore
 
-Initial set up
-Before we begin, you need to create an Okta Web OpenID Connect app to represent the ASP.NET Core sample app and then install the sample app.
+# Add MFA with a mandatory second factor
 
-> **Note:** These steps assume that you are using Visual Studio 2019 and higher to work with the aspnetcore-3x sample app.
+### Enable multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click ?**Save**:
-    * **Login redirect URIs** &mdash; `https://localhost:44314/authorization-code/callback`
-    * **Logout redirect URIs** &mdash; `https://localhost:44314/signout/callback`
-    > **Note:** Copy these values and store them temporarily. You need them in a few steps.
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**, **Client secret**, and the **Okta domain**. Store these temporarily for use when you configure the `appsettings.json` file in a few steps.
-9. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-aspnetcore.git`
-10. In Visual Studio, open the `okta-aspnetcore-mvc-example` solution file in the `samples-aspnetcore-3x` > `okta-hosted-login` directory.
-11. Open the `appsettings.json` file in the `okta-aspnetcore-mvc-example` folder, and in the `Okta` section, add the information that you copied in previous steps:
+### Try multifactor authentication
 
-    ```json
-    "Okta": {
-    	"OktaDomain": "https://{yourOktaDomain}",
-    	"ClientId": "{ClientId}",
-    	"ClientSecret": "{ClientSecret}",
-    	"AuthorizationServerId": "default"
-         }
-    ```
-
-You have now created your Web app in Okta and installed the Okta ASP.NET Core sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. In Visual Studio, run the okta-aspnetcore-example solution.
-2. Your default browser automatically opens to `localhost:44314`, and the Okta ASP.NET Core example app landing page appears.
-3. Click **Sign In** in the upper-right corner of the page. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the Welcome page.
-5. Click **Sign Out** in the upper-right corner of the page to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the ASP.NET Core app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. In Visual Studio, run the okta-aspnetcore-example solution. Your default browser automatically opens to `localhost:44314`.
-2. Click **Sign In** in the upper-right corner of the <StackSelector snippet="applang" noSelector inline /> landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **Sign Out** in the upper-right corner of the page to sign out of the app.
-
+all in main doc managed by stack selector variables
 ------
-
 samples-blazor
 
-## Initial set up
+# Add MFA with a mandatory second factor
 
-Before we begin, you need to create an Okta Web OpenID Connect app to represent the Blazor sample app and then install the sample app.
+### Enable multifactor authentication
 
-> **Note:** These steps assume that you are using Visual Studio 2019 and higher to configure the sample app.
+### Try multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click ?**Save**:
-    * **Login redirect URIs** &mdash; `https://localhost:44314/authorization-code/callback`
-    * **Logout redirect URIs** &mdash; `https://localhost:44314/signout/callback`
-    > **Note:** Copy these values and store them temporarily. You need them in a few steps.
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**, **Client secret**, and the **Okta domain**. Store these temporarily for use when you configure the `appsettings.json` file in a few steps.
-9. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-blazor.git`
-10. In Visual Studio, open the `okta-blazor-server-side-example` solution file in the `okta-hosted-login` directory.
-11. Open the `appsettings.json` file and, in the `Okta` section, add the information that you copied in previous steps:
-
-    ```json
-    "Okta": {
-        "OktaDomain": "https://oietiger147.oktapreview.com",
-        "ClientId": "0oaywibbsnwZpjBNf0h7",
-        "ClientSecret": "_FG3_au--d_SPoxggTUo8LcgFUXt6d2sx4XjfwIR",
-        "AuthorizationServerId": "default"
-    }
-    ```
-
-You have now created your Web app in Okta and installed the Okta Blazor sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. In Visual Studio, run the okta-blazor-server-side-example solution.
-2. Your default browser automatically opens to `localhost:44314`, and the Okta Blazor Sample App landing page appears.
-3. Click **Sign in** at the top of the page. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-5. Click **Sign out** at the top of the page to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the Blazor app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. In Visual Studio, run the okta-blazor-server-side-example solution. Your default browser automatically opens to `localhost:44314`.
-2. Click **Sign in** at the top of the <StackSelector snippet="applang" noSelector inline /> landing page.
-3. In the Okta Sign-In Widget, click **Sign up** just below the **Forgot password?** link.
-4. Enter the requested information, and click **Sign Up**.
-5. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-6. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-7. Click **Sign out** at the top of the page to sign out of the app.
-
+all in main doc managed by stack selector variables
 -----
-
 samples-golang
 
-## Initial set up
+# Add MFA with a mandatory second factor
 
-Before we begin, you need to create an Okta OpenID Connect app to represent the Golang sample app and then install the sample app.
+### Enable multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click ?**Save**:
-    * **Login redirect URIs** &mdash; `http://localhost:8080/authorization-code/callback`
-    * **Logout redirect URIs** &mdash; `http://localhost:8080/`
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID** and the **Client secret**. Store this temporarily for use when you add it to the `env` file in a few steps.
-9. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
-10. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
-11. Select the **CORS** check box and click **Save**.
-12. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default`. For example: `https://example-1234.oktapreview.com/oauth2/default`
-13. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-golang.git`
-14. From the command line, enter the  `okta-hosted-login` directory and run `go get` to install the dependencies.
-15. Create an `.env` file in the `okta-hosted-login` directory and add the information that you copied in previous steps:
+### Try multifactor authentication
 
-    ```ini
-    CLIENT_ID={ClientID}
-    CLIENT_SECRET={ClientSecret}
-    ISSUER=https://{yourOktaDomain}/oauth2/default
-    ```
-
-You have now created your App in Okta and installed the Okta Golang sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. On the command line inside the `okta-hosted-login` subdirectory, start the Golang app by running `go run main.go`.
-2. Enter `localhost:8080` in an incognito/private window, and the Okta Hosted Login + Golang Example landing page appears.
-3. Click **Login**. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-5. Click **Logout** in the upper-right corner of the page to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the Go app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. On the command line inside the `okta-hosted-login` subdirectory, start the <StackSelector snippet="applang" noSelector inline /> app by running `go run main.go`.
-2. Enter `localhost:8080` in an incognito/private window, and click **Login** on the <StackSelector snippet="applang" noSelector inline /> landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the Android Welcome page.
-6. Click the **Logout** button in the upper-right corner of the page to sign out of the app.
+all in main doc managed by stack selector variables
 
 -----
 samples-ios
 
-## Initial set up
+samples-golang
 
-Before we begin, you need to create an Okta Native OpenID Connect app to represent the iOS sample app and then install the sample app.
+# Add MFA with a mandatory second factor
 
-> **Note:** These steps assume that you are using XCode and the provided XCode project in the sample app.
+### Enable multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Native app** as the **Platform**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
-    * **Login redirect URIs** &mdash; `com.okta.example:/callback`
-    * **Logout redirect URIs** &mdash; `com.okta.example:/logoutCallback`
-    > **Note:** Copy these values and store them temporarily. You need them in a few steps.
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**. Store this temporarily for use when you add it to the `Okta.plist` file in a few steps.
-9. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default`. For example: `https://example-1234.oktapreview.com/oauth2/default`.
-10. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-ios.git`
-11. Navigate to the `OktaBrowserSignIn` directory and edit the `Okta.plist` file with the information that you copied in previous steps:
+### Try multifactor authentication
 
-    <?xml version="1.0" encoding="UTF-8"?>
-    <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-    <plist version="1.0">
-    <dict>
-        <key>scopes</key>
-        <string>openid profile offline_access</string>
-        <key>redirectUri</key>
-        <string>{redirectUri}</string>
-        <key>clientId</key>
-        <string>{clientID}</string>
-        <key>issuer</key>
-        <string>{issuer}</string>
-        <key>logoutRedirectUri</key>
-         <string>{logoutRedirectUri}</string>
-    </dict>
-    </plist>
-
-12. To redirect back to your application from a web browser, you must specify a unique URI to your app. To do this, open `Info.plist` in your application bundle and add `com.okta.example` as a URL Scheme.
-
-    > **Note:** Make sure that this value is consistent with the redirect URI that you added to the `Okta.plist` file. For example, if your redirect URI is `com.okta.example:/callback`, then the URL Scheme that you add should be `com.okta.example`.
-
-You have now created your App in Okta and installed the Okta iOS sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. In XCode, run the OktaBrowserSignIn project.
-2. In the simulator, click **Sign In**. You are redirected to the Okta Sign-In Widget.
-3. Enter the **Username** and **Password** for an admin user in your Okta org, and then click **Next**. You are redirected to the success page.
-4. Click **Sign Out** to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the Go app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. In XCode, run the OktaBrowserSignIn project.
-2. In the simulator, click **Sign In**.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **Sign Out** to sign out of the app.
+all in main doc managed by stack selector variables
 
 ------
 samples-java-micronaut
 
-## Initial set up
+# Add MFA with a mandatory second factor
 
-Before we begin, you need to create an Okta OpenID Connect app to represent the Micronaut sample app and then install the sample app.
+### Enable multifactor authentication
 
-> **Note:** This sample app works with any Java version up to version 15.
+### Try multifactor authentication
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click ?**Save**:
-    * **Login redirect URIs** &mdash; `http://localhost:8080/oauth/callback/okta`
-    * **Logout redirect URIs** &mdash; &mdash; `http://localhost:8080/logout`
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID**, **Client secret**, and the **Okta domain**. Store these temporarily for use when you set dependencies in a few steps.
-9. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
-10. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
-11. Select the **CORS** check box and click **Save**.
-12. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-java-micronaut.git`
-13. From the command line, enter the `okta-hosted-login` directory and set the following dependencies with the information that you copied in a previous step:
-
-    `export OIDC_ISSUER_DOMAIN=https://{yourOktaDomain}`
-    `export OAUTH_CLIENT_ID={clientID}`
-    `export OAUTH_CLIENT_SECRET={clientSecret}`
-    `export OIDC_ISSUER_AUTHSERVERID=default`
-
-You have now created your App in Okta and installed the Okta Micronaut sample app.
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-1. On the command line inside the `okta-hosted-login` subdirectory, start the Micronaut sample app by running `mvn mn:run`.
-2. Open `localhost:8080` in an incognito/private window, and the Okta Hosted Login + Micronaut Example landing page appears.
-3. Click **Login**. You are redirected to the Okta Sign-In Widget.
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-5. Click **Logout** to sign out of the app.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the Micronaut app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. On the command line inside the `okta-hosted-login` subdirectory, start the <StackSelector snippet="applang" noSelector inline /> sample app by running `mvn mn:run`.
-2. Open `localhost:8080` in an incognito/private window, and click **Login** on the <StackSelector snippet="applang" noSelector inline /> landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **Logout** to sign out of the app.
+all in main doc managed by stack selector variables
 
 -----
 
 samples-java-spring
 
-## Initial set up and authentication
+samples-java-micronaut
 
-Before we begin, you need to create an Okta OpenID Connect app to represent the Spring sample app and then install the sample app.
+# Add MFA with a mandatory second factor
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Add Application**.
-3. From the Add Application page, click **Create New App**.
-4. In the dialog box that appears, select **Web** as the **Platform**, select **OpenID Connect** as the **Sign on method**, and then click **Create**.
-5. Fill in the Create OpenID Connect App Integration fields that you need. Be sure to add the following, and then click **Save**:
-    * **Login redirect URIs** &mdash; `http://localhost:8080/authorization-code/callback`
-    * **Logout redirect URIs** &mdash; `http://localhost:8080/`
-6. On your new Application page, select the **Assignments** tab, click **Assign**, and then select **Assign to Groups**.
-7. In the dialog box that appears, select **Assign** for the Everyone group, and then click **Done**. You must assign the app to either the Everyone Group or a custom Group that you create so that the profile enrollment functions correctly.
-8. Select the **General** tab and click the "Copy to clipboard" icon to copy the **Client ID** and the **Client secret**. Store these temporarily for use when you start the sample app in a few steps.
-9. From the side navigation, select **Security** > **API**, and then select the **Trusted Origins** tab.
-10. Click **Add Origin**, enter a **Name**, and add `http://localhost:8080` as the **Origin URL**.
-11. Select the **CORS** check box and click **Save**.
-12. Build your issuer URL, which is the URL of the authorization server that performs the authentication. In this example, we use the "default" Custom Authorization Server. The issuer is a combination of your Org URL (found in the global header located in the upper-right corner of the Admin Console) and `/oauth2/default`. For example: `https://example-1234.oktapreview.com/oauth2/default`
-13. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-java-spring.git`
-14. From the command line, enter the `okta-hosted-login` directory and run the following `mvn` commands to start the application using the information that you copied in previous steps:
+### Enable multifactor authentication
 
-    `mvn -Dokta.oauth2.issuer=https://{yourOktaDomain}/oauth2/default` \
-    `-Dokta.oauth2.clientId={clientId}` \
-    `-Dokta.oauth2.clientSecret={clientSecret}` \
-    `-Dokta.oauth2.postLogoutRedirectUri={absoluteLogoutRedirectUri}`
+### Try multifactor authentication
 
-    > **Note:** This example is only for testing. Don't put client secrets on the command line in production environments. Instead, we recommend that you store them as environment variables.
-15. Open `http://localhost:8080` in an incognito/private window, and the Okta Hosted Login + Spring Boot Example page appears.
-16. Click **Login**. You are redirected to the Okta Sign-In Widget.
-17. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-18. Click **Logout** in the upper-right corner of the page to sign out of the app.
-
-You have now created your App in Okta, and the Okta Spring sample app is installed and working.
-
-## Enable self-service enrollment
-
-This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
-
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
-
-1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
-2. Give your Policy a **Name** and then click **Save**.
-3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
-4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the Spring app that you created earlier, click **Apply**, and then **Close**.
-6. Click **Back to Profile Enrollment Policy**.
-7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
-8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
-
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
-
-### Try enrollment
-
-This section walks you through the self-service enrollment steps for a new user.
-
-1. From the command line, enter the Spring app's `okta-hosted-login` directory and run the following `mvn` commands to start the application using the information that you copied in previous steps:
-
-    `mvn -Dokta.oauth2.issuer=https://{yourOktaDomain}/oauth2/default` \
-    `-Dokta.oauth2.clientId={clientId}` \
-    `-Dokta.oauth2.clientSecret={clientSecret}` \
-    `-Dokta.oauth2.postLogoutRedirectUri={absoluteLogoutRedirectUri}`
-
-2. Open `localhost:8080` in an incognito/private window, and click **Login** on the <StackSelector snippet="applang" noSelector inline /> landing page.
-3. Click **Sign up** just below the **Forgot password?** link, enter the requested information, and click **Sign Up**.
-4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-6. Click **Logout** in the upper-right corner of the page to sign out of the app.
+all in main doc managed by stack selector variables
 
 -----
 samples-js-angular

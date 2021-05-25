@@ -107,11 +107,12 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 
 ### Try multifactor authentication
 
-1. Return to the <StackSelector snippet="applang" noSelector inline /> page and click <StackSelector snippet="signn2app" noSelector inline />. You are once again redirected to the Widget.
-2. Sign in with the credentials of the user that you enrolled earlier.
-3. The Set up Authentications page appears, which prompts you to set up either the Okta Verify or the Phone Authenticator. Under Phone, click **Set up**.
-4. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> Welcome page.
-5. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+<StackSelector snippet="tryenrollin" noSelector />
+
+3. Enter the credentials of the user that you enrolled earlier.
+4. The Set up authentications page appears, which prompts you to set up either the Okta Verify or the Phone Authenticator. Under Phone, click **Set up**.
+5. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> Welcome page.
+6. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Authenticator recovery
 
