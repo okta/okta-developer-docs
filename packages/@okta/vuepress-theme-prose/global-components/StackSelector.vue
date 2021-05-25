@@ -47,14 +47,14 @@
         default: false,
       },
     },
-    data() { 
-      return { 
+    data() {
+      return {
         offsetFromViewport: null,
         hasFocus: false,
       };
     },
-    methods: { 
-      handleScroll() { 
+    methods: {
+      handleScroll() {
         // beforeUpdated was somehow AFTER the viewport offsets were calculated for new content
         // thus we need to save this from before they swap tabs within the StackSelector
         this.offsetFromViewport = this.$el.getBoundingClientRect().top;
@@ -76,11 +76,11 @@
         window.removeEventListener('scroll', this.handleScroll);
       }
     },
-    computed: { 
+    computed: {
       guideName() {
         return guideFromPath( this.$route.path ).guideName;
       },
-      framework() { 
+      framework() {
         // Default to first available framework
         return guideFromPath( this.$route.path ).framework || this.options[0].name;
       },
@@ -90,14 +90,11 @@
       guide() {
          return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName];
       },
-      section() { 
+      section() {
         return this.guide.sectionByName[this.sectionName];
       },
-      options() { 
-        return (this.section &&  // Eagerly awaiting the ?. operator 
-          this.section.snippetByName && 
-          this.section.snippetByName[this.snippet] && 
-          this.section.snippetByName[this.snippet].frameworks) || []; 
+      options() {
+        return this.section?.snippetByName?.[this.snippet]?.frameworks ?? [];
       },
       snippetComponentKey() { 
         const option = this.options.find( option => option.framework === this.framework );
@@ -112,7 +109,7 @@
           }
       }
     },
-    updated() { 
+    updated() {
       // If we are the Stack Selector that was focused (clicked on), 
       // scroll that we stay in the same position relative to the viewport
       if(this.hasFocus && this.offsetFromViewport ) { 
@@ -125,7 +122,7 @@
   };
 </script>
 <style scoped lang="scss">
-  .no-stack-content { 
+  .no-stack-content {
     border: 1px solid #d66;
     padding: 10px;
   }
