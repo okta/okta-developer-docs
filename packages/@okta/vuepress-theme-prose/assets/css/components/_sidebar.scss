@@ -14,7 +14,8 @@
 
   @include media("<tablet") {
     flex-basis: 0;
-    width: 40rem;
+    width: 100%;
+    padding: 0 0 3rem 0;
     display: none;
   }
   .sections {
@@ -62,5 +63,10 @@
   }
   .hidden {
     display: none;
+  }
+}
+.content--container.navigation-only {
+  .tree-nav {
+    display: block;
   }
 }
