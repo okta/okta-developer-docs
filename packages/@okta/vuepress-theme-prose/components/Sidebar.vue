@@ -33,7 +33,6 @@ export default {
   data() {
     return {
       usingFile: false,
-      pageChanged: true,
       navigation: []
     };
   },

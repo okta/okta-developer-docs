@@ -51,6 +51,9 @@
         if (value && value.link) {
           this.hasFocus = true;
           this.$router.push(value.link);
+
+          // After new value selected we record new route value and prev value into shared stackSelectorData object
+          // to be able to use it in SidebarItem.vue component
           this.stackSelectorData.from = this.selectedOption.link;
           this.stackSelectorData.to = value.link;
         }

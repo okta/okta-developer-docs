@@ -103,11 +103,11 @@ export default {
 
     // Will triggers when StackSelector component will change it value.
     "stackSelectorData.to"() {
-      // After StackSelector value has changed, rout link will be modified.
-      // This condition will be true only for sidebaritem that contains last pre-modified rout link.
+      // After StackSelector value has changed, route link will be modified.
+      // This condition will be true only for SidebarItem that contains last pre-modified route link.
       if (this.stackSelectorData.from === this.link.path) {
-        // A path link for that items will be changed on modified one.
-        // This logic needed to keep current sidebaritems active.
+        // A path link for that item will be changed on modified one.
+        // This logic needed to keep current SidebarItem active.
         this.link.path = this.stackSelectorData.to;
       }
     },
