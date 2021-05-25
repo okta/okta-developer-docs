@@ -78,7 +78,7 @@ This endpoint returns a list of objects with the following fields and a `200` co
 | `hostname`   | string | The hostname of the Server |
 | `id`   | string | The UUID corresponding to the Server |
 | `instance_details`   | object | Information that the cloud provider provides about the Server, if one exists |
-| `labels`   | object | (Optional) The labels for this server. Only available with the PolicySync feature, which is currently in EA. |
+| `labels`   | object | (Optional) The labels for this server. This parameter is only available with the PolicySync feature, which is currently in EA. |
 | `last_seen`   | string | The last time that the Server made a request to the ASA platform |
 | `managed`   | boolean | True if the Server is managed by 'sftd'. Unmanaged Servers are used in configurations where users may have a bastion, for example, that they don't want/can't connect to through 'sftd'. With an Unmanaged Server record to represent this box, ASA knows that it exists and to use it as a bastion hop. |
 | `os`   | string | The particular OS of the Server, such as CentOS 6 or Debian 9.13 |
@@ -160,7 +160,7 @@ https://app.scaleft.com/v1/teams/${team_name}/servers
 ### Update a Server
 
 <ApiOperation method="PUT" url="https://app.scaleft.com/v1/teams/${team_name}/servers/${server_id}" />
-Update a Server. This endpoint is only available with the PolicySync feature, which is currently in EA
+Updates a Server. This endpoint is only available with the PolicySync feature, which is currently in EA.
 
 This endpoint requires one of the following roles: `access_admin`, or `server_admin`.
 
@@ -179,10 +179,10 @@ This endpoint has no query parameters.
 #### Request body
 
 
-This endpoint requires an object with the following fields.
+This endpoint requires an object with the following fields:
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
-| `labels`   | object | (Optional) A map of key value pairs. These labels will overwrite all labels previously supplied via the API for this server. Labels from any other source can only be updated using that source. The prefix 'api.' will be automatically prepended if not supplied. |
+| `labels`   | object | (Optional) A map of key value pairs. These labels overwrite all labels previously supplied through the API for this server. You can only update labels from other sources using that source. If you don't supply the prefix 'api.', it is automatically prepended. |
 
 #### Response body
 This endpoint returns a `204 No Content` response on a successful call.
