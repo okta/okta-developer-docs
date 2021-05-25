@@ -37,7 +37,14 @@ public class Startup
     }
 }
 ```
-Okta middleware uses the default Custom Authorization Server by default. If you are using an Authorization Server other than the `default`, make sure to configure it by setting up the `AuthorizationServerId`. If you are using the [Org Authorization Server](/docs/concepts/auth-servers/), your middleware configuration should look like this: 
+
+Okta middleware uses the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server) by default. Ensure you configure `AuthorizationServerId` for the Authorization Server you are using for your app:
+
+* if you are using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), set `AuthorizationServerId = "default"`
+* if you are using your own [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), set `AuthorizationServerId = "{authServerId}"`
+* if you are using the [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server), set `AuthorizationServerId = ""`
+
+Here is an example of middleware configuration using the Org Authorization Server:
 
 ```csharp
 public class Startup
