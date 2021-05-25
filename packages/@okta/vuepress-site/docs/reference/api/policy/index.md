@@ -1709,7 +1709,7 @@ The following conditions may be applied to the rules associated with an app sign
 | Property                | Description                                                                                                                                                               | Data Type                                       | Required                      | Default |
 | ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
 | `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
-| `verificationMethod`      | A Verification Method describes the means by which the user must be verified. The only supported type is `ASSURANCE`.                                                       | Object                                          | Yes                           | [Default](#app-sign-on-action-default-example)        |
+| `verificationMethod`      | A Verification method describes the means by which the user must be verified. The only supported type is `ASSURANCE`.                                                       | [Verification Method Object](#verification-method-object)                                       | Yes                           | [Default](#app-sign-on-action-default-example)        |
 
 
 ### Verification Method Object
@@ -1726,23 +1726,28 @@ Authenticators can be broadly classified into three kinds of factors. A factor r
 
 Multi-factor authentication (MFA) is the use of more than one factor. MFA is the most common way to increase assurance. Authenticators also have other characteristics that may raise or lower assurance. For example, possession factors may be implemented in software or hardware, with hardware being able to provide greater protection when storing shared secrets or private keys, and thus providing higher assurance.
 
-| Parameter            | Type              | Description                                                                                                             | Supported Values                                                                                  |
+| Property            | Data Type              | Description                                                                                                             | Supported Values                                                                                  |
 | -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `factorMode`         | String            | The number of factors required to satisfy this assurance level.                                                         | `1FA`, `2FA`                                                                                      |
-| `constraints`        | Object            | A JSON array containing nested authenticator constraint objects which are organized by Authenticator Class.                                                                           | `POSSESSION`, `KNOWLEDGE`                                                                         |
-| `types`              | Array             | The Authenticator Types which are permitted.                                                                            | `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`                          |
-| `methods`            | Array             | The Authenticator Methods which are permitted.                                                                          | `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2` |
-| `hardwareProtection` | String            | Indicates whether any secrets or private keys used during authentication must be hardware protected and not exportable. | `REQUIRED`, `OPTIONAL`                                                                            |
+| `type`         | String            | Verification method type.                                                         | `ASSURANCE`     |
+| `constraints`        | [Constraint Object](#constraints)           | A JSON array containing nested authenticator constraint objects which are organized by Authenticator Class.                                                                           | `POSSESSION`, `KNOWLEDGE`                                                                         |
 | `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user should be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
 | `inactivityPeriod`   | String (ISO 8601) | The period of inactivity after which the user should be reauthenticated.                                                | N/A                                                                                               |
 
-##### Constraints
-
+#### Constraints
 Each nested constraint object is treated as a list, all of which must be satisfied. The top-level array is treated as a set, one of which must be satisfied.
 
 This can be read logically as: `( (1A && 1B) || (2A && 2B) )`
 
 The number of authenticator class constraints in each constraint object be less than or equal to the value of `factorMode`. If the value is less, there are no constraints on any additional factors.
+
+| Property            | Data Type              | Description                                                                                                             | Supported Values                                                                                  |
+| -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `types`              | Array             | The Authenticator Types which are permitted.                                                                            | `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`                          |
+| `methods`            | Array             | The Authenticator Methods which are permitted.                                                                          | `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2` |
+| `hardwareProtection` | String            | Indicates whether any secrets or private keys used during authentication must be hardware protected and not exportable. | `REQUIRED`, `OPTIONAL`                                                                            |
+| `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user should be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
+
 
 #### Verification Method JSON Examples
 
