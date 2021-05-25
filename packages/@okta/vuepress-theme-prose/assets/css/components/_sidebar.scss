@@ -6,7 +6,8 @@
   padding: 3rem 1rem 3rem 0;
   background: #16272f;
   overflow: auto;
-   @include media(">=desktop") {
+
+  @include media(">=desktop") {
     flex-grow: 0;
     flex-shrink: 0;
   }
@@ -14,9 +15,7 @@
   @include media("<tablet") {
     flex-basis: 0;
     width: 40rem;
-    .landing-navigation {
-      display: none;
-    }
+    display: none;
   }
   .sections {
     margin-left: 1.5rem;
