@@ -1,5 +1,5 @@
 .tree-nav {
-  width: 22%;
+  width: 100%;
   position: sticky;
   top: 70px;
   min-height: 100%;
@@ -16,7 +16,6 @@
     flex-basis: 0;
     width: 100%;
     padding: 0 0 3rem 0;
-    display: none;
   }
   .sections {
     margin-left: 1.5rem;
@@ -63,10 +62,5 @@
   }
   .hidden {
     display: none;
-  }
-}
-.content--container.navigation-only {
-  .tree-nav {
-    display: block;
   }
 }

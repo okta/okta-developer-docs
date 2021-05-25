@@ -64,36 +64,10 @@
     max-width: 650px;
   }
 
-  // .tree-nav {
-  //   // overflow: scroll;
-   
-
-  //   @include media(">=desktop") {
-  //     flex-grow: 0;
-  //     flex-shrink: 0;
-  //   }
-
-  //   @include media("<tablet") {
-  //     flex-basis: 0;
-  //     width: 40rem;
-  //     .landing-navigation {
-  //       display: none;
-  //     }
-  //   }
-  // }
-
-  &.navigation-only {
-    @include media("<=tablet") {
-      padding: 0;
-      .tree-nav {
-        flex-basis: auto;
-        .landing-navigation {
-          display: block;
-          position: static;
-          border-right: none;
-          padding-top: 3rem;
-        }
-      }
+  .sidebar-area {
+    width: 22%;
+    @include media("<tablet") {
+      display: none;
     }
   }
 
@@ -253,15 +227,24 @@
     }
   }
 
-  &.navigation-only .content-area {
-    @include media("<tablet") {
-      display: none;
-    }
-  }
-
   .on-this-page {
     width: 18%;
     @include media("<desktop") {
+      display: none;
+    }
+  }
+  &.navigation-only {
+    @include media("<=tablet") {
+      padding: 0;
+      .sidebar-area {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
+
+  &.navigation-only .content-area {
+    @include media("<tablet") {
       display: none;
     }
   }

@@ -19,7 +19,9 @@
             'navigation-only': appContext.isTreeNavMobileOpen
           }"
         >
+          <div class="sidebar-area">
             <Sidebar />
+          </div>
           <div class="content-area">
             <PageTitle />
             <MobileOnThisPage />
