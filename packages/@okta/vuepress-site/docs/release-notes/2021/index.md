@@ -4,6 +4,23 @@ title: Okta API Products Release Notes 2021
 
 ## May
 
+### Weekly Release 2021.05.3
+
+| Change                                                                         | Expected in Preview Orgs |
+|--------------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.6.4](#okta-sign-in-widget-version-5-6-4)       | May 26, 2021             |
+| [Bugs fixed in 2021.05.3](#bugs-fixed-in-2021-05-3)                            | May 26, 2021             |
+
+#### Okta Sign-In Widget, version 5.6.4
+
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.6.4). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-397857-->
+
+#### Bugs fixed in 2021.05.3
+
+* Array indexing [expressions](/docs/reference/okta-expression-language/#constants-and-operators) (for example: `myArray[0]`) were blocked at validation even when the array and the index were valid. (OKTA-395810)
+
+* SAML requests and responses weren't logged in the [System Log](/docs/reference/api/system-log/) as distinct event fields and lacked detail about the SAML assertion. (OKTA-378981)
+
 ### Weekly Release 2021.05.2
 
 | Change                                                                                              | Expected in Preview Orgs |
