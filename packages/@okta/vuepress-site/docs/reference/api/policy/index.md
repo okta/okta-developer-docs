@@ -1709,7 +1709,7 @@ The following conditions may be applied to the rules associated with an app sign
 | Property                | Description                                                                                                                                                               | Data Type                                       | Required                      | Default |
 | ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
 | `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
-| `verificationMethod`      | A Verification method describes the means by which the user must be verified. The only supported type is `ASSURANCE`.                                                       | [Verification Method Object](#verification-method-object)                                       | Yes                           | [Default](#app-sign-on-action-default-example)        |
+| `verificationMethod`      | A verification method describes the means by which the user must be verified. The only supported type is `ASSURANCE`.                                                       | [Verification Method Object](#verification-method-object)                                       | Yes                           | [Default](#app-sign-on-action-default-example)        |
 
 
 ### Verification Method Object
@@ -1747,7 +1747,6 @@ The number of authenticator class constraints in each constraint object be less 
 | `methods`            | Array             | The Authenticator Methods which are permitted.                                                                          | `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2` |
 | `hardwareProtection` | String            | Indicates whether any secrets or private keys used during authentication must be hardware protected and not exportable. | `REQUIRED`, `OPTIONAL`                                                                            |
 | `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user should be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
-
 
 #### Verification Method JSON Examples
 
