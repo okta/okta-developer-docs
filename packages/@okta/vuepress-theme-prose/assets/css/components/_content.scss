@@ -66,6 +66,9 @@
 
   .sidebar-area {
     width: 22%;
+    position: sticky;
+    top: 70px;
+    overflow: scroll;
     @include media("<tablet") {
       display: none;
     }

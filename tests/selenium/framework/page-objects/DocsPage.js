@@ -17,7 +17,7 @@ const getLabelSelector = '.api-uri-get';
 const postLabelSelector = '.api-uri-post';
 const deleteLabelSelector = '.api-uri-delete';
 const promoBannerLabelSelector = '.DocsPromoBanner';
-const treeNavSelector = '.tree-nav';
+const treeNavSelector = '.sidebar-area';
 const treeNavLinkSelector = '.tree-nav-link';
 const showTreeNavSelector = '.crumb-show-contents';
 

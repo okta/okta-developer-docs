@@ -1,11 +1,8 @@
-.tree-nav {
+.tree-nav{
   width: 100%;
-  position: sticky;
-  top: 70px;
   min-height: 100%;
   padding: 3rem 1rem 3rem 0;
   background: #16272f;
-  overflow: auto;
 
   @include media(">=desktop") {
     flex-grow: 0;

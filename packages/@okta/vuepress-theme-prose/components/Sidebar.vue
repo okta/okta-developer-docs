@@ -64,7 +64,7 @@ export default {
         window.innerHeight -
         document.querySelector(".fixed-header").clientHeight ;
 
-      document.querySelector(".tree-nav").style.height =
+      document.querySelector(".sidebar-area").style.height =
         maxHeight + "px";
     },
     addStatesToLink(link) {

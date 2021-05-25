@@ -2,7 +2,7 @@
   <div class="homepage content">
     <div class="content--container">
        <div
-        class="tree-nav сol-xl-2 col-lg-2 homepage--col-no-padding" 
+        class="sidebar-area сol-xl-2 col-lg-2 homepage--col-no-padding" 
       >
         <Sidebar/>
       </div> 
