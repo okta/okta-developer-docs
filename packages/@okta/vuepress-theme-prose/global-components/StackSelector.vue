@@ -34,14 +34,15 @@
   export default {
     name: 'StackSelector',
     props: [ 'snippet' ],
-    data() { 
-      return { 
+    inject: ['stackSelectorData'],
+    data() {
+      return {
         offsetFromViewport: null,
         hasFocus: false,
       };
     },
-    methods: { 
-      handleScroll() { 
+    methods: {
+      handleScroll() {
         // beforeUpdated was somehow AFTER the viewport offsets were calculated for new content
         // thus we need to save this from before they swap tabs within the StackSelector
         this.offsetFromViewport = this.$el.getBoundingClientRect().top;
@@ -50,24 +51,27 @@
         if (value && value.link) {
           this.hasFocus = true;
           this.$router.push(value.link);
+          this.stackSelectorData.from = this.selectedOption.link;
+          this.stackSelectorData.to = value.link;
         }
       }
     },
     created () {
-      if(typeof window !== "undefined") { 
+      if(typeof window !== "undefined") {
         window.addEventListener('scroll', this.handleScroll);
       }
     },
     destroyed () {
-      if(typeof window !== "undefined") { 
+      this.stackSelector = false
+      if(typeof window !== "undefined") {
         window.removeEventListener('scroll', this.handleScroll);
       }
     },
-    computed: { 
+    computed: {
       guideName() {
         return guideFromPath( this.$route.path ).guideName;
       },
-      framework() { 
+      framework() {
         // Default to first available framework
         return guideFromPath( this.$route.path ).framework || this.options[0].name;
       },
@@ -77,16 +81,16 @@
       guide() {
          return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName];
       },
-      section() { 
+      section() {
         return this.guide.sectionByName[this.sectionName];
       },
-      options() { 
-        return (this.section &&  // Eagerly awaiting the ?. operator 
-          this.section.snippetByName && 
-          this.section.snippetByName[this.snippet] && 
-          this.section.snippetByName[this.snippet].frameworks) || []; 
+      options() {
+        return (this.section &&  // Eagerly awaiting the ?. operator
+          this.section.snippetByName &&
+          this.section.snippetByName[this.snippet] &&
+          this.section.snippetByName[this.snippet].frameworks) || [];
       },
-      snippetComponentKey() { 
+      snippetComponentKey() {
         const option = this.options.find( option => option.framework === this.framework );
         return (option ? option.componentKey : '');
       },
@@ -99,10 +103,10 @@
           }
       }
     },
-    updated() { 
-      // If we are the Stack Selector that was focused (clicked on), 
+    updated() {
+      // If we are the Stack Selector that was focused (clicked on),
       // scroll that we stay in the same position relative to the viewport
-      if(this.hasFocus && this.offsetFromViewport ) { 
+      if(this.hasFocus && this.offsetFromViewport ) {
         this.$nextTick(() => { // postponed to allow child components to rerender
           window.scroll(0, this.$el.offsetTop - this.offsetFromViewport );
           this.hasFocus = false;
@@ -112,7 +116,7 @@
   };
 </script>
 <style scoped lang="scss">
-  .no-stack-content { 
+  .no-stack-content {
     border: 1px solid #d66;
     padding: 10px;
   }

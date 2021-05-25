@@ -57,14 +57,14 @@
       />
     </ul>
   </li>
-  
+
 </template>
 
 <script>
 export default {
   name: "SidebarItem",
   props: ["link"],
-  inject: ["appContext"],
+  inject: ["appContext", "stackSelectorData"],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },
@@ -79,7 +79,7 @@ export default {
       }
     };
   },
-  
+
   computed:{
     entityType: function(){
       if(this.link.hasOwnProperty('path') && this.link.path !== null ){
@@ -97,9 +97,19 @@ export default {
     this.setData();
   },
   watch: {
-    
     link() {
       this.setData();
+    },
+
+    // Will triggers when StackSelector component will change it value.
+    "stackSelectorData.to"() {
+      // After StackSelector value has changed, rout link will be modified.
+      // This condition will be true only for sidebaritem that contains last pre-modified rout link.
+      if (this.stackSelectorData.from === this.link.path) {
+        // A path link for that items will be changed on modified one.
+        // This logic needed to keep current sidebaritems active.
+        this.link.path = this.stackSelectorData.to;
+      }
     },
 
     sublinksExpanded(isActivated, _) {
@@ -118,15 +128,16 @@ export default {
       }
     }
   },
-  
+
   methods: {
     toggleExpanded() {
       this.sublinksExpanded = !this.sublinksExpanded;
+      this.link.iHaveChildrenActive = !this.link.iHaveChildrenActive;
     },
     setData: function() {
       this.sublinksExpanded = Boolean(this.link.iHaveChildrenActive);
     }
-    
+
   }
 };
 </script>

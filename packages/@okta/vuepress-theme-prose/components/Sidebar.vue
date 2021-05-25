@@ -23,27 +23,22 @@ import {
   releaseNotes
 } from "../const/navbar.const";
 
+
 export default {
   name: "Sidebar",
   inject: ["appContext"],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },
-  computed: {
-    navigation() {
-      return this.getNavigation()
-        .map(nav => {
-          this.addStatesToLink(nav);
-          return nav;
-        });
-    }
-  },
   data() {
     return {
       usingFile: false,
+      pageChanged: true,
+      navigation: []
     };
   },
   mounted() {
+    this.navigation = this.getNavigationData();
     if (!this.appContext.isInMobileViewport) {
       this.handleScroll();
       window.addEventListener("scroll", this.handleScroll);
@@ -53,6 +48,12 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
+    getNavigationData() {
+      return this.getNavigation().map(nav => {
+        this.addStatesToLink(nav);
+        return nav;
+      });
+    },
     toggleSubNav: function(event) {
       const parent = event.target.parentElement;
       const sections = parent.querySelector(".sections");
@@ -78,7 +79,8 @@ export default {
       if (link.subLinks) {
         for (const subLink of link.subLinks) {
           // Compute state to section link
-          link.iHaveChildrenActive = link.iHaveChildrenActive || this.addStatesToLink(subLink);
+          link.iHaveChildrenActive =
+            link.iHaveChildrenActive || this.addStatesToLink(subLink);
         }
       }
       return link.iHaveChildrenActive;
@@ -91,7 +93,7 @@ export default {
         ..._.cloneDeep(concepts),
         ..._.cloneDeep(reference),
         ..._.cloneDeep(languagesSdk),
-        ..._.cloneDeep(releaseNotes),
+        ..._.cloneDeep(releaseNotes)
       ];
     },
     getGuides() {
@@ -125,6 +127,7 @@ export default {
           }
           current = queue.pop();
         }
+
       });
       return navs;
     }
