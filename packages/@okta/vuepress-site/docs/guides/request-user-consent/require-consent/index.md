@@ -24,7 +24,7 @@ Use the following steps to display the user consent dialog box as part of an Ope
 
 1. Select **Require user consent for this scope**. The **Block services from requesting this scope** check box is automatically selected.
 
-    The **Block services from requesting this scope** check box strictly enforces end user consent for the scope. With this check box selected, the authorization server returns an error when this scope is requested while using the [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow. This is because there is no user involved in a 2-legged OAuth Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the check box. See the Authorization Servers API (/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
+    The **Block services from requesting this scope** check box strictly enforces end user consent for the scope. With this check box selected, the authorization server returns an error when this scope is requested while using the [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow. This is because there is no user involved in a 2-legged OAuth Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the check box. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
 
 1. Click **Save**.
 
@@ -96,7 +96,7 @@ This example shows the JSON body of a PUT request to an existing OpenID Connect 
 }
 ```
 
-To enable consent for a scope that you want to require consent for, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by setting the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`. You can also set the `consent` property for the scope to `FLEXIBLE`. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on this value.
+To enable consent for a scope, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by setting the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`. You can also set the `consent` property for the scope to `FLEXIBLE`. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on this value.
 
 ### Update Scope consent
 
