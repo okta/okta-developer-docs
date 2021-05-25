@@ -57,6 +57,10 @@ export const concepts = [
         path: "/docs/concepts/key-rotation/"
       },
       {
+        title: "Monitor Okta",
+        path: "/docs/concepts/monitor/"
+      },
+      {
         title: "Multi-tenant solutions",
         path: "/docs/concepts/multi-tenancy/"
       },
@@ -470,7 +474,7 @@ export const reference = [
     subLinks: [
       { title: "Overview", path: "/docs/reference/" },
       {
-        title: "Core Okta API", 
+        title: "Core Okta API",
         subLinks: [
           { title: "Overview", path: "/docs/reference/core-okta-api/" },
           {
@@ -526,12 +530,10 @@ export const reference = [
           { title: "Apps", path: "/docs/reference/api/apps/" },
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
           { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/"},
-          { title: "Event Hooks", path: "/docs/reference/api/event-hooks/" },
           { title: "Event Types", path: "/docs/reference/api/event-types/" },
           { title: "Factors", path: "/docs/reference/api/factors/" },
           { title: "Features", path: "/docs/reference/api/features/" },
           { title: "Groups", path: "/docs/reference/api/groups/" },
-          { title: "Inline Hooks", path: "/docs/reference/api/inline-hooks/" },
           { title: "Linked Objects", path: "/docs/reference/api/linked-objects/"},
           { title: "Mappings", path: "/docs/reference/api/mappings/" },
           { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
@@ -584,12 +586,12 @@ export const reference = [
       {
         title: 'SCIM Protocol',
         subLinks: [
-          { 
+          {
             title: "Overview",
             path: "/docs/reference/scim/"
           },
           {
-            title: "SCIM V2.0", 
+            title: "SCIM V2.0",
             path: "/docs/reference/scim/scim-20/"
           },
           {
@@ -603,13 +605,22 @@ export const reference = [
         path: "/docs/reference/postman-collections/"
       },
       {
-        title: 'Inline Hooks',
+        title: 'Hooks',
         subLinks: [
-          { title: "Import Hook", path: "/docs/reference/import-hook/"},
-          { title: "Password Hook", path: "/docs/reference/password-hook/" },
-          { title: "Registration Hook", path: "/docs/reference/registration-hook/" },
-          { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-          { title: "Token Hook", path: "/docs/reference/token-hook/" },
+          { title: "Event Hooks", path: "/docs/reference/api/event-hooks/" },
+          { title: "Inline Hooks", path: "/docs/reference/api/inline-hooks/" },
+          { title: "Hooks best practices", path: "/docs/reference/hooks-best-practices/"},
+          {
+            title: 'Inline Hook Types',
+            subLinks: [
+              { title: "Token Hook", path: "/docs/reference/token-hook/" },
+              { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
+              { title: "Password Import Hook", path: "/docs/reference/password-hook/" },
+              { title: "User Import Hook", path: "/docs/reference/import-hook/"},
+              { title: "Registration Hook", path: "/docs/reference/registration-hook/" },
+
+            ]
+          }
         ]
       },
       {
@@ -730,10 +741,16 @@ export const referenceOld = [
         ]
       },
       { title: "Error Codes", path: "/docs/reference/error-codes/" },
+
       { title: "Import Hook", path: "/docs/reference/import-hook/" },
       {
         title: "Okta Expression Language",
         path: "/docs/reference/okta-expression-language/"
+      },
+      {
+        title: "Okta Expression Language in Identity Engine",
+        path: "/docs/reference/okta-expression-language-in-identity-engine/",
+        hidden: true
       },
       { title: "Password Hook", path: "/docs/reference/password-hook/" },
       {

@@ -6,18 +6,18 @@ Your application needs to support at least one protocol for interacting with Okt
 
 Protocol support details can be submitted all together or asynchronously. For example, if your application currently only supports SAML and SCIM, you can create the submission with the SAML and SCIM protocol details. At a later date, when you add OIDC support to your application, you can return to your integration submission, activate the OIDC support panel, and add in the details needed for Okta to enable OIDC support.
 
-For each protocol, click on the appropriate tab name and change the protocol support drop-down box from **Off** to **On**.
+For each protocol, click the appropriate tab name and change the protocol support drop-down box from **Off** to **On**.
 
 ## Instance URL
 
 For each protocol, enter the **Okta instance URL** for your integration in the first field.
 
-To get your Okta instance URL:
+To get your Okta instance URL in your development org:
 
-1. Open the Okta Admin Console in your development org.
-1. Click **Applications > Applications** to see all the integrations in your org.
-1. Click on the name of the integration you are going to submit. The browser opens the settings page. Confirm that the settings match what you want as the global defaults for all customers.
-1. In your browser, click on the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
+1. In the Okta Admin Console, go to **Applications** > **Applications** to see all the integrations in your org.
+1. Click the name of the app integration that you are going to submit.
+1. On the settings page, confirm that the settings match what you want as the global defaults for all customers.
+1. In your browser, click in the address bar showing the current URL and copy it to your clipboard. This is the Okta instance URL for your integration.
 1. Back in the OIN Manager, paste that URL into your submission.
 
 <!--

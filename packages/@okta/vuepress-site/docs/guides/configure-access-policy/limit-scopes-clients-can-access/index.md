@@ -6,7 +6,7 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 ## Create the policy container
 
-1. In the Admin Console, navigate to **Security > API**.
+1. In the Admin Console, go to **Security** > **API**.
 
 2. On the **Authorization Servers** tab, select the name of the authorization server that you want to apply the policy to.
 

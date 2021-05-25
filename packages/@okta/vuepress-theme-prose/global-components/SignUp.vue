@@ -268,7 +268,7 @@ import {
   canadianProvinces,
   GDPR_COUNTRIES
 } from "../const/signup.const";
-import setHiddenUtmValues from "../util/attribution/attribution";
+import getAnalyticsValues from "../util/attribution/attribution";
 import { getIdpUri } from "../util/uris";
 
 const CANADA = "Canada";
@@ -378,8 +378,10 @@ export default {
             country: this.form.country.value,
             state: this.form.state.value,
             emailOptInC: this.form.consentAgree.value,
-            captchaResponse: this.form.captcha.value
-          }
+            captchaResponse: this.form.captcha.value,
+            // Merge in analytics tracking data
+            ...this.analyticsValues,
+          },
         };
 
         if (this.isOie) {
@@ -390,14 +392,17 @@ export default {
 
         this.apiService
           .post(registrationPath, { body })
-          .then(res => {
+          .then(() => {
             // Reset error in case of transient failure that succeeds later
             this.error = null;
-            // Google Analytics email signup success event
-            window.dataLayer &&
+
+            if (window.dataLayer) {
+              // Google Analytics email signup success event
               window.dataLayer.push({ event: "07_CIAMTrial" });
+            }
+
             // Redirect user to success landing page
-            window.location.assign("/signup/thank-you");
+            window.location.assign("/signup/thank-you/");
           })
           .catch(err => {
             this.handleApiError(err);
@@ -479,8 +484,7 @@ export default {
     }
   },
   mounted() {
-    const formElement = document.querySelector("#signupForm");
-    setHiddenUtmValues(formElement);
-  }
+    this.analyticsValues = getAnalyticsValues();
+  },
 };
 </script>

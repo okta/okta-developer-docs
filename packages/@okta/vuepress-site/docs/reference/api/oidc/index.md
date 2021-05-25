@@ -191,7 +191,7 @@ These APIs are compliant with the OpenID Connect and OAuth 2.0 spec with some Ok
 | access_denied               | The server denied the request.                                                                                                                                                                                     |
 | invalid_client              | The specified client ID is invalid.                                                                                                                                                                                |
 | invalid_grant               | The specified grant is invalid, expired, revoked, or doesn't match the redirect URI used in the authorization request.                                                                                            |
-| invalid_request             | The request is missing a necessary parameter or the parameter has an invalid value.                                                                                                                                |
+| invalid_request             | The request is missing a necessary parameter, the parameter has an invalid value, or the request contains duplicate parameters.                                                                                                                                |
 | invalid_scope               | The scopes list contains an invalid or unsupported value.                                                                                                                                                          |
 | invalid_token               | The provided access token is invalid.                                                                                                                                                                              |
 | server_error                | The server encountered an internal error.                                                                                                                                                                          |
@@ -297,9 +297,9 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 
 | Error Id                 | Details                                                                                                                                                                                                    |
 | :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| invalid_client           | The specified `client_id` wasn't found.                                                                                                                                                                      |
+| invalid_client           | The specified `client_id` isn't found.                                                                                                                                                                      |
 | invalid_grant            | The `code`, `refresh_token`, or `username` and `password` combination is invalid, or the `redirect_uri` doesn't match the one used in the authorization request.                                          |
-| invalid_request          | The request structure was invalid. For example: the basic authentication header is malformed, both header and form parameters were used for authentication, or no authentication information was provided. |
+| invalid_request          | The request structure is invalid. For example, the basic authentication header is malformed, both header and form parameters are used for authentication, no authentication information is provided, or the request contains duplicate parameters. |
 | invalid_scope            | The scopes list contains an invalid or unsupported value.                                                                                                                                                  |
 | unsupported_grant_type   | The `grant_type` isn't `authorization_code`, `refresh_token`, or `password`.                                                                                                                               |
 
@@ -400,8 +400,8 @@ Based on the type of token and whether it is active, the returned JSON contains 
 
 | Error Id          | Details                                                                                                  |
 | :---------------- | :------------------------------------------------------------------------------------------------------- |
-| invalid_client    | The specified `client_id` wasn't found.                                                                  |
-| invalid_request   | The request structure was invalid. For example, the basic authentication header was malformed, both header and form parameters were used for authentication, or no authentication information was provided. |
+| invalid_client    | The specified `client_id` isn't found.                                                                  |
+| invalid_request   | The request structure is invalid. For example, the basic authentication header is malformed, both header and form parameters are used for authentication, no authentication information is provided, or the request contains duplicate parameters. |
 
 #### Response example (success, access token)
 
@@ -484,7 +484,7 @@ A successful revocation is denoted by an HTTP 200 OK response. Note that revokin
 | Error Id          | Details                                                                                                                                                       |
 | :---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | invalid_client    | The specified `client_id` wasn't found.                                                                                                                       |
-| invalid_request   | The request structure was invalid. For example, the basic authentication header was malformed, both header and form parameters were used for authentication, or no authentication information was provided. |
+| invalid_request   | The request structure is invalid. For example, the basic authentication header is malformed, both header and form parameters are used for authentication, no authentication information is provided, or the request contains duplicate parameters. |
 
 #### Response example (success)
 
@@ -743,7 +743,7 @@ curl -X GET \
 | response_types_supported                      | JSON array that contains a list of the `response_type` values that this authorization server supports. Can be a combination of `code`, `token`, and `id_token`.                                                                                                                                                                                                     | Array   |
 | response_modes_supported                      | JSON array that containis a list of the `response_mode` values that this authorization server supports. More information [here](#parameter-details). | Array   |
 | grant_types_supported                         | JSON array that contains a list of the `grant_type` values that this authorization server supports.                                       | Array   |
-| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this OP supports. Valid values are `pairwise` and `public`. More info [here](https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes).                                                                                                                                         | Array   |
+| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this OP supports. Valid values are `pairwise` and `public`, but only `public` is currently supported. See the [Subject Identifier Types] (https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes) section in the OpenID Connect specification.                                                                                                                                         | Array   |
 | scopes_supported                              | JSON array that contains a list of the `scope` values that this authorization server supports.                                            | Array   |
 | token_endpoint_auth_methods_supported         | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this token endpoint.                                        | Array   |
 | claims_supported                              | A list of the claims supported by this authorization server.                                                                              | Array   |
@@ -907,7 +907,7 @@ curl -X GET \
 | revocation_endpoint                           | URL of the authorization server's [revocation endpoint](#revoke).                                                                                                                                                                          | String  |
 | revocation_endpoint_auth_methods_supported    | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this revocation endpoint.                                                                                                                                       | Array   |
 | scopes_supported                              | JSON array that contains a list of the `scope` values that this authorization server supports.                                                                                                                                                | Array   |
-| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this authorization server supports. Valid types include `pairwise` and `public`. More info [here](https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes). | Array   |
+| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this authorization server supports. Valid types include `pairwise` and `public`, but only `public` is currently supported. See the [Subject Identifier Types] (https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes) section in the OpenID Connect specification. | Array   |
 | token_endpoint                                | URL of the authorization server's [token endpoint](#token).                                                                                                                                                                                | String  |
 | token_endpoint_auth_methods_supported         | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this token endpoint.                                                                                                                                            | Array   |
 

@@ -1,24 +1,26 @@
 ### Prepare an OIDC integration
 
-Okta uses a multi-tenant local credential system for OIDC. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your application.
+#### Multi-tenancy
 
-For example, consider a scenario where your app integration is added to 10 separate customer orgs. Seven of those customers create a single instance of your app integration. However, the other three customers each create two separate instances of your app integration so they can use different configuration options. This creates a total of 13 (7 + (3*2)) sets of client credentials for your application that you need to track.
+Okta uses a [multi-tenant](/docs/concepts/multi-tenancy) local credential system for OIDC. Each instance of your app integration inside a customer org has a separate set of OIDC client credentials that are used to access your application.
+
+For example, consider a scenario where your app integration is added to 10 separate customer orgs. Seven of those customers create a single instance of your app integration. However, the other three customers each create two separate instances of your app integration so they can use different configuration options. This scenario creates a total of 13 sets of client credentials for your application that you need to track.
 
 This multi-tenant approach is different from other IdPs that use a global credential system, where a given application has the same customer credentials across all orgs.
 
-Before you create a new OIDC integration in Okta:
+#### Prerequisites
 
-<!-- [ian 2020.02.25] this step doesn't matter unless the user can choose something besides the web as a platform
-1. Decide which platform you'll be using for the integration:
-   * A web application is accessed through the browser and can remain running on a server that can store a secret safely.
-   * A native application resides on the end user's device.
-   * A single-page app (SPA) is a web application that is contained on a single web page. All code is retrieved when the page is loaded initially - the page doesn't reload or refresh. A SPA application cannot keep running on a server.
--->
+Before you create a new OIDC integration in Okta:
 
 1. Have your application developed and tested, with a front-end (for example, JavaScript and HTML) and back-end (for example, middleware and database software) stack, along with services available through APIs, and accepting HTTP connections.
 1. Based on the [type of application that you have built](/docs/concepts/oauth-openid/#what-kind-of-client-are-you-building), determine the correct [OAuth 2.0 flow](/docs/concepts/oauth-openid/#recommended-flow-by-application-type) that is required below the OIDC identity layer.
-    >**Note:** For OIDC app integrations intended for publication in the OIN, you must use a Web (server-side) platform with an authorization code flow.
-1. Determine the login redirect URIs on your system. A redirect URI is where Okta sends the authentication response and ID token during the sign-in flow. You can specify more than one URI if required.
+
+    For OIDC applications destined for the OIN, you can create either of the following:
+
+    * A Web application with a dedicated server-side back-end that is capable of securely storing a Client Secret and exchanging information with an authorization server through trusted back-channel connections. Okta recommends using the Authorization Code flow with an exchange of the client credentials (Client ID and Client Secret) for controlling the access between your application and the resource server.
+    * A Single Page Application (SPA) that uses an Authorization Code flow with a Proof Key for Code Exchange (PKCE). Okta recommends this method to control the access between your SPA application and a resource server.
+
+1. Determine the sign-in redirect URIs on your system. A redirect URI is where Okta sends the authentication response and ID token during the sign-in flow. You can specify more than one URI if required.
 1. Your application must support automatic credential rotation. For more information, see the `/keys` section in the [OpenID Connect & OAuth 2.0 API reference](/docs/reference/api/oidc/#key-rotation).
 
 <!-- [ian 2020.02.25] the following steps are unnecessary if we only support web applications in the OIN

@@ -8,11 +8,11 @@ Create an OAuth service app and register the public key with the service app usi
 
 1. Use the following POST example to create your service app using the `/oauth2/v1/clients` endpoint and provide values for these parameters:
 
-    * `client_name` &mdash; Name of the service app
+    * `client_name` &mdash; name of the service app
     * `grant_types` &mdash; `client_credentials`
     * `token_endpoint_auth_method` &mdash; `private_key_jwt`
     * `application_type` &mdash; `service`
-    * `jwks` &mdash; Add the JSON Web Key Set (JWKS) that you created in the <GuideLink link="../create-publicprivate-keypair">last step</GuideLink>.
+    * `jwks` &mdash; add the JSON Web Key Set (JWKS) that you created in the <GuideLink link="../create-publicprivate-keypair">last step</GuideLink>.
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/oauth2/v1/clients' \

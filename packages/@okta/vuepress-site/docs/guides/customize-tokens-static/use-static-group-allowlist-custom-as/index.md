@@ -5,7 +5,7 @@ title: Use a static group allow list with a Custom Authorization Server
 Add a Groups custom claim for an ID token or access token in a Custom Authorization Server. The maximum number of Groups specified must be less than 100. For the following example, we are adding a custom claim for an access token.
 
 1. In the Admin Console, from the **Security** menu, select **API**, and then select the authorization server that you want to configure.
-2. Navigate to the **Claims** tab and click **Add Claim**.
+2. Go to the **Claims** tab and click **Add Claim**.
 3. Enter a name for the claim. For this example, name it **groups**.
 4. In the **Include in token type** section, leave **Access Token** selected.
 5. Leave **Expression** as the **Value type**.

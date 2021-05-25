@@ -6,7 +6,7 @@ The following are step-by-step instructions to configure an Okta Sign-On Policy 
 
 ### Create the policy container
 
-1. In the Admin Console, navigate to **Security** and then **Authentication**.
+1. In the Admin Console, go to **Security** > **Authentication**.
 
 2. Click the **Sign On** tab, and then click **Add New Okta Sign-on Policy**.
 
