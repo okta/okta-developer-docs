@@ -87,7 +87,10 @@ This section walks you through the self-service enrollment steps for a new user.
 3. In the Okta Sign-In Widget, click **Sign up** just below the **Forgot password?** link.
 4. Enter the requested information, and then click **Sign Up**.
 5. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
-6. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
+
+    > **Note:** In this example, when you set up the Email factor, copy the code from the email and paste it into the Sign-In Widget to manually verify the email address. Avoid the use of the **Verify Email Address** button.
+
+6. After you complete set up, click **Finish**. You are redirected to the app's Welcome page.
 7. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Add MFA with a mandatory second factor
@@ -98,7 +101,8 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 
 ### Enable multifactor authentication
 
-1. Ensure that your org has the Phone Authenticator enabled by going to **Security** > **Authenticators** and checking that **Phone** is listed. If it isn't, add it using the **Add Authenticator** button.
+1. Ensure that your org has the Phone authenticator enabled by going to **Security** > **Authenticators** and checking that **Phone** is listed.
+    If it isn't listed, add it by clicking **Add Authenticator**, **Add** for the Phone authenticator, leave the **Authentication (MFA/SSO) default)**, and then click **Add**.
 2. From the side navigation, select **Applications** > **Applications** and then select the Okta OAuth app that you created to represent the <StackSelector snippet="applang" noSelector inline /> app.
 3. Select the **Sign On** tab.
 4. Scroll down to the **Sign On Policy** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
