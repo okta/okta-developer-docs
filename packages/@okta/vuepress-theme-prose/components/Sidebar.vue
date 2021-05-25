@@ -65,7 +65,7 @@ export default {
         document.querySelector(".fixed-header").clientHeight ;
 
       document.querySelector(".sidebar-area").style.height =
-        maxHeight + "px";
+        maxHeight + "px"; 
     },
     addStatesToLink(link) {
       if (link.path) {
