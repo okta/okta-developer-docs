@@ -285,7 +285,7 @@ Delete a Risk Provider by its `id`.
 
 #### Response body
 
-Deletes the requested [Risk Provider](#risk-provider-object).
+Deletes the requested [Risk Provider](#risk-provider-object)
 
 #### Request example
 
