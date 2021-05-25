@@ -11,7 +11,7 @@ If you Remix a Glitch Inline Hook project, the packages and code are already inc
 
 To add the `npm` packages:
 
-1. Click on the `package.json` file in the left-hand project menu.
+1. Select the `package.json` file in the left-hand project menu.
 2. From the `Add Package` drop-down, search for the `express-basic-auth` and `body-parser` packages.
 3. Click each package to add to your project.
 

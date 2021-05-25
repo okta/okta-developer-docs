@@ -4,9 +4,9 @@ title:  Set up your Application
 
 You set up your OpenID Connect application inside the Okta Admin Console:
 
-1. From the side navigation, select **Applications** and then **Applications**.
-1. On the Applications page, choose **Add Application**.
-1. On the Create New Application page, select **Service**.
-1. Fill in the **Application Name**, then click **Done**.
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. Click **Create App Integration**.
+1. On the Create a new application page, select **API Services** as the **Sign-in method** and click **Next**.
+1. Fill in the **App integration name** and click **Save**.
 
 <NextSectionLink/>

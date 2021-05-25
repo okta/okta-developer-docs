@@ -13,6 +13,7 @@ Use the following high-level steps to configure this service application:
 For information on this general process, see [Implement OAuth for Okta with a Service App](/docs/guides/implement-oauth-for-okta-serviceapp/overview/).
 
 ### Create a public-private key pair
+
 Prior to creating the service application for the third-party risk provider, you need to create a public-private key pair for client authentication. Use a tool such as the [JSON Web Key Generator](https://mkjwk.org/) to generate  a public-private key pair for an example setup.
 
 1. Navigate to [JSON Web Key Generator](https://mkjwk.org/).
@@ -41,6 +42,7 @@ Prior to creating the service application for the third-party risk provider, you
 For background information on this process, see [Create a public/private key pair](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair).
 
 ### Create a service application
+
 Create the service application that integrates with the third-party risk provider using the previously generated public key for authentication.
 
 1. Copy the name of your third-party risk provider to your Postman environment's `providerName` variable. In this example, use `Risk Provider Example`.
@@ -91,6 +93,7 @@ This call retrieves all service applications from your Okta org, including the n
 For background information on this process, see [Create a service app and grant scopes](/docs/guides/implement-oauth-for-okta-serviceapp/create-serviceapp-grantscopes/).
 
 ### Add scope grant to application
+
 You must now define the allowed Risk scope for use with the third-party risk provider service application.
 
 1. Call the following POST API from the Risk Integration Postman collection: **Admin: API to grant scopes to the OAuth service client** (`/api/v1/apps/${clientId}/grants`).
