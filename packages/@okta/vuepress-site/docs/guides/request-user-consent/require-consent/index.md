@@ -7,7 +7,7 @@ Use the following steps to display the user consent dialog box as part of an Ope
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect app that you want to require user consent for.
-1. On the **General** tab, click **Edit**.
+1. On the **General** tab, in the **General Settings** section, click **Edit**.
 1. Scroll down to the **User Consent** section and select **Require consent**.
 
     > **Note:** If the **User Consent** section doesn't appear, you don't have the API Access Management and the User Consent features enabled. To enable these features, contact [Support](https://support.okta.com/help/open_case?_).
