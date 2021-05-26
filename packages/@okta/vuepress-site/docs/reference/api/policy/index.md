@@ -1709,7 +1709,7 @@ The following conditions may be applied to the rules associated with an app sign
 | Property                | Description                                                                                                                                                               | Data Type                                       | Required                      | Default |
 | ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
 | `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
-| `verificationMethod`      | A verification method describes the means by which the user must be verified. The only supported type is `ASSURANCE`.                                                       | [Verification Method Object](#verification-method-object)                                       | Yes                           | [Default](#app-sign-on-action-default-example)        |
+| `verificationMethod`      | Describes the method to verify the user. The only supported method type is `ASSURANCE`.                                                       | [Verification Method Object](#verification-method-object)                                       | Yes                           | [Default](#app-sign-on-action-default-example)        |
 
 
 ### Verification Method Object
