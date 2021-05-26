@@ -95,6 +95,18 @@ When Okta calls your external service, it enforces a default timeout of 3 second
 
 The Okta process flow that triggered the Inline Hook remains in progress until the response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/reference/rate-limits/#concurrent-rate-limits).
 
+#### Inline Hook failure behavior
+
+In the case of an Inline Hook timeout or failure, the Okta process flow continues with the following behavior based on Inline Hook type:
+
+| Inline Hook    | Inline Hook Failure Behavior                             |
+|----------------| ---------------------------------------------------------|
+| Token Inline Hook | Okta process flow continues with original token returned. |
+| SAML Assertion Inline Hook | Okta process flow continues with original SAML assertion returned. |
+| Password Import Inline Hook | Okta process flow stops and user can't sign-in. The password is not imported. Future attempts to sign-in will trigger the Inline Hook again.|
+| User Import Inline Hook | Okta import process continues and user is created.         |
+| Registration Inline Hook | Okta process flow stops and registration is denied.       |
+
 ### Security
 
 To secure the communication channel between Okta and your external service, HTTPS is used for requests, and support is provided for header-based authentication. Okta recommends that you implement an authentication scheme using the authentication header, to be used to authenticate every request received by your external service.
