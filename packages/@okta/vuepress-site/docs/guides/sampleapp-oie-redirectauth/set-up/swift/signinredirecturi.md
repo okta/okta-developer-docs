@@ -1,1 +1,0 @@
-`com.okta.example:/callback`

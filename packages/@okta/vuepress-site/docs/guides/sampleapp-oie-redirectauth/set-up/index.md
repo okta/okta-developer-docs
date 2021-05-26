@@ -126,7 +126,7 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 
 ## Authenticator recovery
 
-By default, your org should have Password reset configured to be initiated with an email. You can try out the email password recovery flow by selecting **Forgot password?** from the Sign-In Widget. You are prompted for your email or username, and then an OTP code is sent to your email address. After you enter this code and answer a security question, you are prompted to enter in a new password. You are then directed to the React Sample's success page. Sign out of the app using the **Logout** button at the top of the page.
+The default setting for Password reset is that the reset is initiated with an email. The steps in this section assume that this configuration hasn't changed. You can try out the email password recovery flow by selecting **Forgot password?** from the Sign-In Widget. You are prompted for your email or username, and then an OTP code is sent to your email address. After you enter this code and answer a security question, you are prompted to enter a new password. You are then directed to the <StackSelector snippet="applang" noSelector inline /> Welcome page. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ### Recovery with Okta Verify
 
