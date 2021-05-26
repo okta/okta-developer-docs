@@ -1732,7 +1732,7 @@ Multi-factor authentication (MFA) is the use of more than one factor. MFA is the
 | `type`         | String            | The Verification Method type                                                         | `ASSURANCE`     |
 | `constraints`        | Array of [Constraint Object](#constraints)           | A JSON array containing nested authenticator constraint objects which are organized by Authenticator Class.                                                                           | [Constraint Object](#constraints) consisting of `POSSESSION` constraint or `KNOWLEDGE` constraint or both. See [Verification Method JSON Examples](#verification-method-JSON-examples)                                                                      |
 | `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user must be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
-| `inactivityPeriod`   | String (ISO 8601) | The period of inactivity after which the user must be reauthenticated.                                                | N/A                                                                                               |
+| `inactivityPeriod`   | String (ISO 8601) | The inactivity time period after which the End User must re-authenticate                                                | N/A                                                                                               |
 
 #### Constraints
 
