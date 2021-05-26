@@ -1730,16 +1730,45 @@ Multi-factor authentication (MFA) is the use of more than one factor. MFA is the
 | -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `factorMode`         | String            | The number of factors required to satisfy this assurance level.                                                         | `1FA`, `2FA`                                                                                      |
 | `type`         | String            | Verification method type.                                                         | `ASSURANCE`     |
-| `constraints`        | [Constraint Object](#constraints)           | A JSON array containing nested authenticator constraint objects which are organized by Authenticator Class.                                                                           | `POSSESSION`, `KNOWLEDGE`                                                                         |
+| `constraints`        | Array of [Constraint Object](#constraints)           | A JSON array containing nested authenticator constraint objects which are organized by Authenticator Class.                                                                           | [Constraint Object](#constraints) consisting of `POSSESSION` constraint or `KNOWLEDGE` constraint or both. See [Verification Method JSON Examples](#verification-method-JSON-examples)                                                                      |
 | `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user must be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
 | `inactivityPeriod`   | String (ISO 8601) | The period of inactivity after which the user must be reauthenticated.                                                | N/A                                                                                               |
 
 #### Constraints
+
+##### Constrints default example
+```json
+"constraints": [
+  { // object 1
+    "knowledge": {  // 1A
+      "types": [
+        "password"
+      ],
+      "reauthenticateIn": "PTOS"
+    },
+    "possession": { // 1B
+      "userPresence": "OPTIONAL"
+    }
+  },
+  { // object 2
+    "knowledge": {  // 2A 
+      "types": [
+        "password"
+      ],
+    },
+    "possession": { // 2B
+      "phishingResistant": "REQUIRED"
+    }
+  }
+]
+```
 Each nested constraint object is treated as a list, all of which must be satisfied. The top-level array is treated as a set, one of which must be satisfied.
+
+In the above example contraint object 1 (password factor with reauthenticatation on every signin attempt and a possession factor) or constraint object 2 (password factor  and a possession factor which is a phishing resistant factor liked WebAuthn ) must be used to satisfy the assurance policy.
 
 This can be read logically as: `( (1A && 1B) || (2A && 2B) )`
 
-The number of authenticator class constraints in each constraint object be less than or equal to the value of `factorMode`. If the value is less, there are no constraints on any additional factors.
+The number of authenticator class constraints in each constraint object must be less than or equal to the value of `factorMode`. If the value is less, there are no constraints on any additional factors.
 
 | Property            | Data Type              | Description                                                                                                             | Supported Values                                                                                  |
 | -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
@@ -1748,7 +1777,7 @@ The number of authenticator class constraints in each constraint object be less 
 | `hardwareProtection` | String            | Indicates whether any secrets or private keys used during authentication must be hardware protected and not exportable. This property can be set in `POSSESSION` constraint only.| `REQUIRED`, `OPTIONAL`                                                                            |
 | `deviceBound` | String            | Indicates whether device bound factors are required. This property can be set in `POSSESSION` constraint only. | `REQUIRED`, `OPTIONAL`                                                                            |
 | `phishingResistant` | String            | Indicates whether phishing resistant factors are required. This property can be set in `POSSESSION` constraint only. | `REQUIRED`, `OPTIONAL`                                                                            |
-| `userPresence` | String            | Indicates if user presence is required or not.  This property can be set in `POSSESSION` constraint only.| `REQUIRED`, `OPTIONAL`                                                                            |
+| `userPresence` | String            | Indicates whether the user needs to approve a prompt in Okta Verify or provide biometrics (meets NIST AAL2 requirements). This property can be set in `POSSESSION` constraint only.| `REQUIRED`, `OPTIONAL`                                                                            |
 | `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user must be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
 
 #### Verification Method JSON Examples
