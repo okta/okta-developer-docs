@@ -97,13 +97,13 @@ The Okta process flow that triggered the Inline Hook remains in progress until t
 
 #### Inline Hook failure behavior
 
-In the case of an Inline Hook timeout or failure, the Okta process flow continues with the following behavior based on Inline Hook type:
+In the case of an Inline Hook timeout or failure, the Okta process flow behavior either continues or stops based on the Inline Hook type:
 
-| Inline Hook    | Inline Hook Failure Behavior                             |
-|----------------| ---------------------------------------------------------|
+| Inline Hook        | Inline Hook Failure Behavior                             |
+|--------------------------------| ---------------------------------------------------------|
 | Token Inline Hook | Okta process flow continues with original token returned. |
 | SAML Assertion Inline Hook | Okta process flow continues with original SAML assertion returned. |
-| Password Import Inline Hook | Okta process flow stops and user can't sign-in. The password is not imported. Future attempts to sign-in will trigger the Inline Hook again.|
+| Password Import Inline Hook | Okta process flow stops and user can't sign-in. The password is not imported. Future attempts to sign-in triggers the Inline Hook again.|
 | User Import Inline Hook | Okta import process continues and user is created.         |
 | Registration Inline Hook | Okta process flow stops and registration is denied.       |
 
