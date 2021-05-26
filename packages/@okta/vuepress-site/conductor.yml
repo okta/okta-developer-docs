@@ -1933,12 +1933,6 @@ redirects:
     to: /
   - from: /docs/index.html
     to: /
-  - from: /product/authentication/index.html
-    to: /
-  - from: /product/authorization/index.html
-    to: /
-  - from: /product/overview/index.html
-    to: /
   - from: /docs/examples/session_cookie
     to: /docs/guides/session-cookie/overview
   - from: /docs/examples/session_cookie/index.html
