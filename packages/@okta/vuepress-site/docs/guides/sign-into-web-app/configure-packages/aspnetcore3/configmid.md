@@ -34,7 +34,7 @@ Okta middleware uses the [default Custom Authorization Server](/docs/concepts/au
 
 * If you're using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), set `AuthorizationServerId = "default"`.
 * If you're using your own [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), set `AuthorizationServerId = "{authServerId}"`.
-* if you are using the [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server), set `AuthorizationServerId = ""`
+* If you're using the [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server), set `AuthorizationServerId = ""`.
 
 Here is an example of middleware configuration using the Org Authorization Server:
 
