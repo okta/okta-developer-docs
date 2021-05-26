@@ -109,18 +109,18 @@
         return (option ? option.componentKey : '');
       },
       selectedOption: {
-          get: function() {
-            return this.options.find(option => option.framework === this.framework)
-          },
-          set: function (selectedOption) {
-            // no-op for silencing computed property assignemnt(by vue-select) warning
-          }
+        get: function() {
+          return this.options.find(option => option.framework === this.framework)
+        },
+        set: function (selectedOption) {
+          // no-op for silencing computed property assignemnt(by vue-select) warning
+        }
       }
     },
     updated() {
       // If we are the Stack Selector that was focused (clicked on), 
       // scroll that we stay in the same position relative to the viewport
-      if(this.hasFocus && this.offsetFromViewport ) { 
+      if(!this.noSelector && this.hasFocus && this.offsetFromViewport ) { 
         this.$nextTick(() => { // postponed to allow child components to rerender
           window.scroll(0, this.$el.offsetTop - this.offsetFromViewport );
           this.hasFocus = false;
