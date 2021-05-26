@@ -916,7 +916,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
   | `NONE`           | `REQUIRED`              | `FLEXIBLE` or `REQUIRED`             | Prompted     |
   | `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
 
-> **Note:** If `CONSENT` is set to `FLEXIBLE`, and the scope is requested when using the Client Credentials grant flow, the scope is granted in the access token with no consent prompt. This is because there is no user involved in a 2-legged OAuth [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow.
+> **Note:** If `CONSENT` is set to `FLEXIBLE` and the scope is requested when using the Client Credentials grant flow, the scope is granted in the access token with no consent prompt. This occurs because there is no user involved in a two-legged OAuth [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow.
 <!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
 
 **Notes:**
