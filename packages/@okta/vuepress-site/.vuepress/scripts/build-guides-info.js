@@ -21,15 +21,24 @@ const getFrameworksFor = path => {
 
 const guideInfo = {};
 
+// Load frontmatter yaml to JS from root file index page
 const allGuidesMeta = getMetaFor(GUIDE_ROOT);
+// Iterate over the known universe of guides from previous step
 allGuidesMeta.guides.forEach( guide => {
+  // Load frontmatter yaml to JS from _those_ guides index pages
+  // .meta{}
+  // .sections[]
   const guideMeta = getMetaFor(`${GUIDE_ROOT}/${guide}`);
   guideMeta.guide = guide;
   guideInfo[`/${GUIDE_ROOT}/${guide}/`] = {...guideMeta};
 
+  // iterate over the sections of this guide
   guideMeta.sections.forEach( section => {
     // TODO: Informatively blow up if no such section
+    // load frontmatter yaml to JS for the index page of the sections of this guide
+    // .meta{}
     const sectionMeta = getMetaFor(`${GUIDE_ROOT}/${guide}/${section}`);
+    // get all the directories under this section, count them each as a framework
     const frameworks = getFrameworksFor(`${GUIDE_ROOT}/${guide}/${section}`);
     if(!guideMeta.frameworks && frameworks.length) {
       // set default if none

@@ -140,7 +140,8 @@ export const buildGuidesInfo = ({ pages }) => {
   const guidesInfo = { byName: {} };
   const withinGuides = new RegExp(`^${FRAGMENTS}`);
 
-  pages.filter( page => page.regularPath.match(withinGuides) )
+  const filtered = pages.filter( page => page.regularPath.match(withinGuides) );
+  filtered
     .forEach( page => recordMeta({ page, guidesInfo }) );
 
   updateDerivedMeta({ guidesInfo });
@@ -149,5 +150,11 @@ export const buildGuidesInfo = ({ pages }) => {
 
 let guidesInfo; // singleton for getGuideInfo()
 export const getGuidesInfo = ({ pages }) => { 
-  return guidesInfo || (guidesInfo = buildGuidesInfo({ pages }));
+  if (!guidesInfo) {
+    guidesInfo = buildGuidesInfo({pages});
+    console.warn('GUIDES INFO');
+    console.log(guidesInfo);
+  }
+  return guidesInfo;
+  //return guidesInfo || (guidesInfo = buildGuidesInfo({ pages }));
 }
