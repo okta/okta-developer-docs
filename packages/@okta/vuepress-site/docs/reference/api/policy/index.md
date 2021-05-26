@@ -1778,7 +1778,7 @@ The number of authenticator class constraints in each constraint object must be 
 | `deviceBound` | String            | Indicates if device-bound factors are required. This property is only set for  `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |
 | `phishingResistant` | String            | Indicates if phishing-resistant factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |
 | `userPresence` | String            | Indicates whether the user needs to approve a prompt in Okta Verify or provide biometrics (meets NIST AAL2 requirements). This property can be set in `POSSESSION` constraint only.| `REQUIRED`, `OPTIONAL`                                                                            |
-| `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user must be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
+| `reauthenticateIn`   | String (ISO 8601) | The time that the End User must re-authenticate, regardless of user activity                            | N/A                                                                                               |
 
 #### Verification Method JSON Examples
 
