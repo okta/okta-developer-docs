@@ -1736,7 +1736,7 @@ Multi-factor authentication (MFA) is the use of more than one factor. MFA is the
 
 #### Constraints
 
-##### Constrints default example
+##### Constraints default example
 ```json
 "constraints": [
   { // object 1
