@@ -32,7 +32,8 @@ This procedure retrieves the default risk provider profile and Provider ID.
                 "hints": {
                     "allow": [
                         "GET",
-                        "PUT"
+                        "PUT",
+                        "DELETE"
                     ]
                 }
             }
@@ -69,7 +70,8 @@ This procedure updates the default risk provider profile with the service applic
             "hints": {
                 "allow": [
                     "GET",
-                    "PUT"
+                    "PUT",
+                    "DELETE"
                 ]
             }
         }
