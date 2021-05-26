@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ 'stack-selector': !noSelector, 'no-selector': noSelector, 'display-inline': inline }" v-if="options.length">
+  <div :class="{ 'stack-selector': !noSelector, 'no-selector': noSelector, 'no-snippet': !snippet, 'display-inline': inline }" v-if="options.length">
     <div class="selector-control" v-if="!noSelector">
       <span class="instructions-label">
         Instructions for
@@ -137,6 +137,11 @@
   .no-selector {
     & /deep/ ol[start] {
       margin-top: -0.75rem;
+    }
+  }
+  .no-snippet {
+    .selector-control {
+      border-bottom: 0;
     }
   }
   .display-inline {
