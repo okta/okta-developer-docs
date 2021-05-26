@@ -1731,8 +1731,8 @@ Multi-factor authentication (MFA) is the use of more than one factor. MFA is the
 | `factorMode`         | String            | The number of factors required to satisfy this assurance level.                                                         | `1FA`, `2FA`                                                                                      |
 | `type`         | String            | Verification method type.                                                         | `ASSURANCE`     |
 | `constraints`        | [Constraint Object](#constraints)           | A JSON array containing nested authenticator constraint objects which are organized by Authenticator Class.                                                                           | `POSSESSION`, `KNOWLEDGE`                                                                         |
-| `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user should be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
-| `inactivityPeriod`   | String (ISO 8601) | The period of inactivity after which the user should be reauthenticated.                                                | N/A                                                                                               |
+| `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user must be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
+| `inactivityPeriod`   | String (ISO 8601) | The period of inactivity after which the user must be reauthenticated.                                                | N/A                                                                                               |
 
 #### Constraints
 Each nested constraint object is treated as a list, all of which must be satisfied. The top-level array is treated as a set, one of which must be satisfied.
@@ -1743,10 +1743,13 @@ The number of authenticator class constraints in each constraint object be less 
 
 | Property            | Data Type              | Description                                                                                                             | Supported Values                                                                                  |
 | -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `types`              | Array             | The Authenticator Types which are permitted.                                                                            | `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`                          |
-| `methods`            | Array             | The Authenticator Methods which are permitted.                                                                          | `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2` |
-| `hardwareProtection` | String            | Indicates whether any secrets or private keys used during authentication must be hardware protected and not exportable. | `REQUIRED`, `OPTIONAL`                                                                            |
-| `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user should be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
+| `types`              | Array             | The Authenticator Types which are permitted.                                                                            | `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`, `APP`, `FEDERATED`                          |
+| `methods`            | Array             | The Authenticator Methods which are permitted.                                                                          | `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2`, `PUSH`, `SIGNED_NONCE`, `OTP`, `WEBAUTHN`, `DUO`, `IDP` |
+| `hardwareProtection` | String            | Indicates whether any secrets or private keys used during authentication must be hardware protected and not exportable. This property can be set in `POSSESSION` constraint only.| `REQUIRED`, `OPTIONAL`                                                                            |
+| `deviceBound` | String            | Indicates whether device bound factors are required. This property can be set in `POSSESSION` constraint only. | `REQUIRED`, `OPTIONAL`                                                                            |
+| `phishingResistant` | String            | Indicates whether phishing resistant factors are required. This property can be set in `POSSESSION` constraint only. | `REQUIRED`, `OPTIONAL`                                                                            |
+| `userPresence` | String            | Indicates if user presence is required or not.  This property can be set in `POSSESSION` constraint only.| `REQUIRED`, `OPTIONAL`                                                                            |
+| `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user must be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
 
 #### Verification Method JSON Examples
 
