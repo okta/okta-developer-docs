@@ -130,6 +130,10 @@
   };
 </script>
 <style scoped lang="scss">
+  .stack-selector {
+    margin-bottom: 1.5rem;
+  }
+
   .no-stack-content {
     border: 1px solid #d66;
     padding: 10px;
