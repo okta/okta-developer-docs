@@ -903,7 +903,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 
 * A consent dialog box appears depending on the values of three elements:
 
-  * `prompt` - a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
+  * `prompt` - a query parameter that is used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
   * `consent_method` - an [application](/docs/reference/api/apps/#settings-7) property. Allows you to determine whether a client is fully trusted (for example: a first-party application) or requires consent (for example: a third-party application).
   * `consent` - a property on Scopes as listed in the table above. Allows you to individually enable and disable user consent for a scope.
 
