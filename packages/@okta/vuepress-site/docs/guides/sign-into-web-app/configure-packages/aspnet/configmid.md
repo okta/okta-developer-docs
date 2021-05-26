@@ -40,7 +40,7 @@ public class Startup
 
 Okta middleware uses the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server) by default. Ensure you configure `AuthorizationServerId` for the Authorization Server that you are using for your app:
 
-* if you are using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), set `AuthorizationServerId = "default"`
+* If you're using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), set `AuthorizationServerId = "default"`.
 * if you are using your own [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), set `AuthorizationServerId = "{authServerId}"`
 * if you are using the [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server), set `AuthorizationServerId = ""`
 
