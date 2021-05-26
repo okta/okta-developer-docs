@@ -20,7 +20,7 @@
       </v-select>
       </nav>
     </div>
-    <aside class="stack-content">
+    <aside class="stack-content" v-if="snippet">
       <Content v-if="snippetComponentKey" :pageKey="snippetComponentKey" />
     </aside>
   </div>
@@ -36,7 +36,7 @@
     props: {
       snippet: {
         type: String,
-        required: true,
+        required: false,
       },
       noSelector: {
         type: Boolean,
@@ -94,7 +94,15 @@
         return this.guide.sectionByName[this.sectionName];
       },
       options() {
-        return this.section?.snippetByName?.[this.snippet]?.frameworks ?? [];
+        const snippetByName = this.section?.snippetByName;
+
+        if (typeof snippetByName !== 'object') {
+          return [];
+        }
+
+        const frameworksData = Object.values(snippetByName)[0]?.frameworks ?? [];
+
+        return frameworksData;
       },
       snippetComponentKey() { 
         const option = this.options.find( option => option.framework === this.framework );
