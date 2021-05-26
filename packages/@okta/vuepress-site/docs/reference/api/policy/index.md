@@ -754,6 +754,31 @@ Specifies a set of Groups whose Users are to be included or excluded
     }
   }
 ```
+#### UserType Condition object
+
+<ApiLifecycle access="ie" /><br>
+
+> **Note:** This feature is only available as a part of the Okta Identity Engine. Contact [Support](mailto:dev-inquiries@okta.com) for more information.
+
+Specifies which [User Types](/docs/reference/api/user-types/#user-type-object) to include and/or exclude. You can use the [User Types API](/docs/reference/api/user-types/) to manage User Types.
+
+| Parameter | Description                  | Data Type | Required |
+| ---       | ---                          | ---       | ---      |
+| include   | The User Types to be included | Array     | Yes      |
+| exclude   | The User Types to be excluded | Array     | Yes      |
+
+#### UserType Condition object example
+
+```json
+  "userType": {
+    "include": [
+      "oty1q0xE6xRC1rYS30g4"
+    ],
+    "exclude": [
+      "oty1q0xE6xRC1rYS30g4"
+    ]
+  }
+```
 
 #### AuthContext Condition object
 
