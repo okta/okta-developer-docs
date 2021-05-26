@@ -23,4 +23,4 @@ const oidc = new ExpressOIDC({
 app.use(oidc.router);
 ```
 
-If you are using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), set `{authServerId}=default`. If you are using another [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), set `{authServerId}` to the custom Authorization Server ID.
+If you're using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), set `{authServerId}=default`. If you're using another [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), set `{authServerId}` to the custom Authorization Server ID.
