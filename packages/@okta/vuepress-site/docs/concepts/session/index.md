@@ -22,7 +22,7 @@ The application session (also known as a local session) is created by the app af
 
 Identity management admins and app developers need to collaborate on how to manage the IdP session with the application sessions to produce an optimal user experience with security, device, and app privileged access in mind. This implies balancing terminating sessions and redirecting the user to re-authenticate for security purposes, combined with extending the session or silently re-authenticating with a new session for a frictionless user experience.
 
-## Examples of sign out experiences
+## Examples of sign-out experiences
 
 ### Privileged access use case
 
