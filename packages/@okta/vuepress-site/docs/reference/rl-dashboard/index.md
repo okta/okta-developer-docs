@@ -97,9 +97,9 @@ The line graph shows usage in the past hour and allows you to focus on a particu
 
 The line graph can show the number of unique IPs that are creating traffic at a given minute. For example, the line graph can show many users are signing in at the same time, perhaps to attend a company-wide meeting. By comparing the number of unique IPs to the number of unique requests, you can see almost the same number of IPs as the number of requests. This means that there are a lot of IPs creating the traffic and not just one IP consuming all the traffic.
 
-### Timeline graph view
+### Combination of the line graph and timeline graph view
 
-The timeline graph gives you an overview of the usage from the last 28 hours so that you can drill into other time periods from the previous day. This graph enables you to understand whether this rate limit was an abnormal spike in usage compared to fairly regular usage up to that point in time.
+The timeline graph gives you an overview of the usage from the days in the past week so that you can drill into other time periods from the previous week. You can select one day at a time within the past week from the drop-down menu and view one hour at a time in the line graph. These views enable you to understand whether this rate limit was an abnormal spike in usage compared to fairly regular usage up to that point in time.
 
 ### Bar graph view
 
