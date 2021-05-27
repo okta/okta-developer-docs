@@ -1734,7 +1734,7 @@ The following conditions may be applied to the rules associated with an app sign
 | Property                | Description                                                                                                                                                               | Data Type                                       | Required                      | Default |
 | ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
 | `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
-| `verificationMethod`      | A Verification Method describes the means by which the user must be verified. The only supported type is `ASSURANCE`.                                                       | Object                                          | Yes                           | [Default](#app-sign-on-action-default-example)        |
+| `verificationMethod`      | Describes the method to verify the user. The only supported method type is `ASSURANCE`.                                                       | [Verification Method Object](#verification-method-object)                                       | Yes                           | [Default](#app-sign-on-action-default-example)        |
 
 
 ### Verification Method Object
@@ -1751,23 +1751,60 @@ Authenticators can be broadly classified into three kinds of factors. A factor r
 
 Multi-factor authentication (MFA) is the use of more than one factor. MFA is the most common way to increase assurance. Authenticators also have other characteristics that may raise or lower assurance. For example, possession factors may be implemented in software or hardware, with hardware being able to provide greater protection when storing shared secrets or private keys, and thus providing higher assurance.
 
-| Parameter            | Type              | Description                                                                                                             | Supported Values                                                                                  |
+| Property            | Data Type              | Description                                                                                                             | Supported Values                                                                                  |
 | -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | `factorMode`         | String            | The number of factors required to satisfy this assurance level.                                                         | `1FA`, `2FA`                                                                                      |
-| `constraints`        | Object            | A JSON array containing nested authenticator constraint objects which are organized by Authenticator Class.                                                                           | `POSSESSION`, `KNOWLEDGE`                                                                         |
-| `types`              | Array             | The Authenticator Types which are permitted.                                                                            | `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`                          |
-| `methods`            | Array             | The Authenticator Methods which are permitted.                                                                          | `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2` |
-| `hardwareProtection` | String            | Indicates whether any secrets or private keys used during authentication must be hardware protected and not exportable. | `REQUIRED`, `OPTIONAL`                                                                            |
-| `reauthenticateIn`   | String (ISO 8601) | The period after which the end-user should be reauthenticated, regardless of activity.                                  | N/A                                                                                               |
-| `inactivityPeriod`   | String (ISO 8601) | The period of inactivity after which the user should be reauthenticated.                                                | N/A                                                                                               |
+| `type`         | String            | The Verification Method type                                                         | `ASSURANCE`     |
+| `constraints`        | Array of [Constraint Object](#constraints)           | A JSON array that contains nested Authenticator Constraint objects, which are organized by the Authenticator class.        | [Constraint Object](#constraints) consisting of `POSSESSION` constraint or `KNOWLEDGE` constraint or both. See [Verification Method JSON Examples](#verification-method-json-examples)                                                                      |
+| `reauthenticateIn`   | String (ISO 8601) | The duration after which the End User must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals.                                  | N/A                                                                                              |
+| `inactivityPeriod`   | String (ISO 8601) | The inactivity duration after which the End User must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.                                               | N/A                                                                                               |
 
-##### Constraints
+#### Constraints
 
-Each nested constraint object is treated as a list, all of which must be satisfied. The top-level array is treated as a set, one of which must be satisfied.
+The Constraints are logically evaluated such that only one Constraint object needs to be satisfied, but within a Constraint object, each Constraint property must all be satisfied.
+
+##### Constraints default example
+```json
+"constraints": [
+  { // object 1
+    "knowledge": {  // 1A
+      "types": [
+        "password"
+      ],
+      "reauthenticateIn": "PTOS"
+    },
+    "possession": { // 1B
+      "userPresence": "OPTIONAL"
+    }
+  },
+  { // object 2
+    "knowledge": {  // 2A 
+      "types": [
+        "password"
+      ],
+    },
+    "possession": { // 2B
+      "phishingResistant": "REQUIRED"
+    }
+  }
+]
+```
+
+In the preceding example, the Assurance policy is satisfied if Constraint object 1 (password factor with re-authentication on every sign-in attempt, and a possession factor) or Constraint object 2 (password factor and a possession factor that is a phishing-resistant, such as WebAuthn ) is satisfied.
 
 This can be read logically as: `( (1A && 1B) || (2A && 2B) )`
 
-The number of authenticator class constraints in each constraint object be less than or equal to the value of `factorMode`. If the value is less, there are no constraints on any additional factors.
+The number of authenticator class constraints in each constraint object must be less than or equal to the value of `factorMode`. If the value of `factorMode` is less, there are no constraints on any additional factors.
+
+| Property            | Data Type              | Description                                                                                                             | Supported Values                                  | Default |                                                
+| -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |-----------|
+| `types`              | Array  of Authenticator types           | The Authenticator types that are permitted.                                                                           | [ `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`, `APP`, `FEDERATED` ]                         |  N/A|
+| `methods`            | Array of Authenticator methods           | The Authenticator methods that are permitted.                                                                          | [ `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2`, `PUSH`, `SIGNED_NONCE`, `OTP`, `WEBAUTHN`, `DUO`, `IDP` ] |  N/A|
+| `hardwareProtection` | String            | Indicates if any secrets or private keys that are used during authentication must be hardware protected and not exportable. This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`     |   `OPTIONAL`|
+| `deviceBound` | String            | Indicates if device-bound factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
+| `phishingResistant` | String            | Indicates if phishing-resistant factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
+| `userPresence` | String            | Indicates if the user needs to approve an Okta Verify prompt or provide biometrics (meets NIST AAL2 requirements). This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`                                                                            |`REQUIRED`|
+| `reauthenticateIn`   | String (ISO 8601) | The duration after which the End User must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals.                            | N/A                                                                                               | N/A|
 
 #### Verification Method JSON Examples
 
