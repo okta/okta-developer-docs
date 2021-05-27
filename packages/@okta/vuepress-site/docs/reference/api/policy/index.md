@@ -1736,7 +1736,7 @@ Multi-factor authentication (MFA) is the use of more than one factor. MFA is the
 
 #### Constraints
 
-Each nested constraint object is treated as a list, all of which must be satisfied. The top-level array is treated as a set, one of which must be satisfied.
+The Constraints are logically evaluated such that only one Constraint object needs to be satisfied, but within a Constraint object, each Constraint property must all be satisfied.
 
 ##### Constraints default example
 ```json
