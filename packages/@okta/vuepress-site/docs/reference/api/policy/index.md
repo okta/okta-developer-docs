@@ -1736,6 +1736,8 @@ Multi-factor authentication (MFA) is the use of more than one factor. MFA is the
 
 #### Constraints
 
+Each nested constraint object is treated as a list, all of which must be satisfied. The top-level array is treated as a set, one of which must be satisfied.
+
 ##### Constraints default example
 ```json
 "constraints": [
@@ -1762,7 +1764,6 @@ Multi-factor authentication (MFA) is the use of more than one factor. MFA is the
   }
 ]
 ```
-Each nested constraint object is treated as a list, all of which must be satisfied. The top-level array is treated as a set, one of which must be satisfied.
 
 In the above example contraint object 1 (password factor with reauthenticatation on every signin attempt and a possession factor) or constraint object 2 (password factor  and a possession factor which is a phishing resistant factor liked WebAuthn ) must be used to satisfy the assurance policy.
 
@@ -1770,15 +1771,15 @@ This can be read logically as: `( (1A && 1B) || (2A && 2B) )`
 
 The number of authenticator class constraints in each constraint object must be less than or equal to the value of `factorMode`. If the value is less, there are no constraints on any additional factors.
 
-| Property            | Data Type              | Description                                                                                                             | Supported Values                                                                                  |
-| -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| `types`              | Array  of Authenticator Types           | The Authenticator Types that are permitted                                                                           | [ `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`, `APP`, `FEDERATED` ]                         |
-| `methods`            | Array of Authenticator Methods           | The Authenticator Methods that are permitted                                                                          | [ `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2`, `PUSH`, `SIGNED_NONCE`, `OTP`, `WEBAUTHN`, `DUO`, `IDP` ] |
-| `hardwareProtection` | String            | Indicates if any secrets or private keys that are used during authentication must be hardware protected and not exportable. This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`                                                                            |
-| `deviceBound` | String            | Indicates if device-bound factors are required. This property is only set for  `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |
-| `phishingResistant` | String            | Indicates if phishing-resistant factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |
-| `userPresence` | String            | Indicates whether the user needs to approve a prompt in Okta Verify or provide biometrics (meets NIST AAL2 requirements). This property can be set in `POSSESSION` constraint only.| `REQUIRED`, `OPTIONAL`                                                                            |
-| `reauthenticateIn`   | String (ISO 8601) | The time that the End User must re-authenticate, regardless of user activity                            | N/A                                                                                               |
+| Property            | Data Type              | Description                                                                                                             | Supported Values                                  | Default |                                                
+| -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |-----------|
+| `types`              | Array  of Authenticator Types           | The Authenticator Types that are permitted                                                                           | [ `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`, `APP`, `FEDERATED` ]                         |  N/A|
+| `methods`            | Array of Authenticator Methods           | The Authenticator Methods that are permitted                                                                          | [ `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2`, `PUSH`, `SIGNED_NONCE`, `OTP`, `WEBAUTHN`, `DUO`, `IDP` ] |  N/A|
+| `hardwareProtection` | String            | Indicates if any secrets or private keys that are used during authentication must be hardware protected and not exportable. This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`     |   `OPTIONAL`|
+| `deviceBound` | String            | Indicates if device-bound factors are required. This property is only set for  `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
+| `phishingResistant` | String            | Indicates if phishing-resistant factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
+| `userPresence` | String            | Indicates whether the user needs to approve a prompt in Okta Verify or provide biometrics (meets NIST AAL2 requirements). This property can be set in `POSSESSION` constraint only.| `REQUIRED`, `OPTIONAL`                                                                            |`REQUIRED`|
+| `reauthenticateIn`   | String (ISO 8601) | The time that the End User must re-authenticate, regardless of user activity                            | N/A                                                                                               | N/A|
 
 #### Verification Method JSON Examples
 
