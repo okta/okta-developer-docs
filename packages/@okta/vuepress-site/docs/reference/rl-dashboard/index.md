@@ -6,7 +6,7 @@ excerpt: >-
 
 # Rate limit dashboard
 
-The rate limit dashboard is a tool to help you to understand and investigate the rate limit and the current use of each endpoint. The dashboard provides:
+The rate limit dashboard is a tool that helps you understand the usage of each endpoint and investigate potential [rate limit](/docs/reference/rate-limits/) issues. The dashboard provides:
 
 * The ability to track the endpoint's use
 * Alerts when you are about to hit or have hit the rate limit
@@ -46,7 +46,7 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 ## Key components of the dashboard
 
-The rate limits dashboard provides data usage information for the endpoint based on a set of statistics and shows multiple views of the data use. The dashboard helps you to investigate the rate limit or violation issue and to prevent subsequent rate limit issues from occurring. To view the most recent data, refresh your screen. There may be a slight delay of two to four minutes in obtaining new data.
+The rate limits dashboard provides data usage information for the endpoint based on a set of statistics and shows multiple views of the data usage. The dashboard helps you to investigate the rate limit or violation issue and to prevent subsequent rate limit issues from occurring. To view the most recent data, refresh your screen. There may be a slight delay of two to four minutes in obtaining new data.
 
 ### Overview pane
 
