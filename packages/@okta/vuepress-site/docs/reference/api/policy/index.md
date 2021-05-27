@@ -1769,7 +1769,7 @@ In the preceding example, the Assurance policy is satisfied if Constraint object
 
 This can be read logically as: `( (1A && 1B) || (2A && 2B) )`
 
-The number of Constraint objects in an Authenticator class must be less than or equal to the value of `factorMode`. If the number of Constraint objects is less than the `factorMode` value, then there are no constraints on any additional factors.
+The number of authenticator class constraints in each constraint object must be less than or equal to the value of `factorMode`. If the value of `factorMode` is less, there are no constraints on any additional factors.
 
 | Property            | Data Type              | Description                                                                                                             | Supported Values                                  | Default |                                                
 | -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |-----------|
