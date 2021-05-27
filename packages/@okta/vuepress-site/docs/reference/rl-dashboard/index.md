@@ -46,22 +46,30 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 ## Key components of the dashboard
 
-The rate limits dashboard provides use for the endpoint based on a set of statistics and shows multiple views of the data use. The dashboard helps you to investigate the rate limit or violation issue and to prevent subsequent rate limit issues from occurring. To view the most recent data, refresh your screen. There may be a slight delay of two to four minutes in obtaining new data.
+The rate limits dashboard provides information on data use for the endpoint based on a set of statistics and shows multiple views of the data use. The dashboard helps you to investigate the rate limit or violation issue and to prevent subsequent rate limit issues from occurring. To view the most recent data, refresh your screen. There may be a slight delay of two to four minutes in obtaining new data.
 
 ### Overview pane
 
-The Overview pane provides a summary of the data use for the specified endpoint. The following utilization data is displayed:
+The Overview pane provides a summary of the data use for the specified endpoint. The following information on data use is displayed:
 
 * Rate Limit: The rate limit for this bucket per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation.
 * Latest Utilization: The latest use for the bucket, which includes the endpoint and its sub-endpoints, as of the specified time
 * Average Utilization: The average use of the bucket within the last 24 hours and the last hour
 * Downtime: The amount of time that the org is affected by a rate limit violation on this endpoint
 
+### Rate limit multiplier
+
+A customer can additionally purchase the rate limit multiplier, which is an add-on feature that allows the customer to multiply an existing rate limit to, for example, three times the current rate limit.
+
+![Summary of the rate limit utilization over time pane](/img/RLDashboard4.png "Displays the line graph, bar graph, and timeline graph")
+
+With the rate limit multiplier, a customer has an increased rate limit, so as not to stop end users from using an application. The rate limit multiplier is based on the customer's use case and what the expected usage would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the Overview pane indicates this, and the graphs in the [Rate limit utilization over time pane] will reflect the applied rate limit multiplier.
+
 ### Rate limit utilization over time pane
 
 The Rate limit utilization over time pane comprises the line graph, bar graph, and timeline graph.
 
-![Summary of the rate limit utilization over time pane](/img/RLDashboard4.png "Displays the line graph, bar graph, and timeline graph")
+![Summary of the rate limit utilization over time pane](/img/RLDashboard5.png "Displays the line graph, bar graph, and timeline graph")
 
 #### Line graph
 
