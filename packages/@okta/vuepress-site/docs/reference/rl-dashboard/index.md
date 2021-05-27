@@ -36,7 +36,7 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 ![Access the dashboard by email notification](/img/RLDashboard1.png "Displays the email notification of a rate limit violation with the link to the endpoint's rate limit dashboard")
 
-* You've hit a rate limit when you're in the rate limits dashboard or the Admin Console, and a banner appears to inform you. Click **utilization history** in the banner to open the Rate Limits Dashboard for that particular endpoint or **syslog** to open the System Log.
+* You've hit a rate limit when you're in the Admin Console, and a banner appears to inform you. Click **utilization history** in the banner to open the Rate Limits Dashboard for that particular endpoint or **syslog** to open the System Log.
 
 ![Access the dashboard by link in the banner](/img/RLDashboard2.png "Displays the banner in the dashboard that notifies you of a rate limit violation with the link to the endpoint's rate limit dashboard")
 
@@ -46,7 +46,7 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 ## Key components of the dashboard
 
-The rate limits dashboard provides information on data use for the endpoint based on a set of statistics and shows multiple views of the data use. The dashboard helps you to investigate the rate limit or violation issue and to prevent subsequent rate limit issues from occurring. To view the most recent data, refresh your screen. There may be a slight delay of two to four minutes in obtaining new data.
+The rate limits dashboard provides data usage information for the endpoint based on a set of statistics and shows multiple views of the data use. The dashboard helps you to investigate the rate limit or violation issue and to prevent subsequent rate limit issues from occurring. To view the most recent data, refresh your screen. There may be a slight delay of two to four minutes in obtaining new data.
 
 ### Overview pane
 
@@ -63,7 +63,7 @@ A customer can additionally purchase the rate limit multiplier, which is an add-
 
 ![Summary of the rate limit utilization over time pane](/img/RLDashboard4.png "Displays the line graph, bar graph, and timeline graph")
 
-With the rate limit multiplier, a customer has an increased rate limit, so as not to stop end users from using an application. The rate limit multiplier is based on the customer's use case and what the expected usage would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the Overview pane indicates this, and the graphs in the [Rate limit utilization over time pane] will reflect the applied rate limit multiplier.
+The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, is not to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected usage would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the Overview pane indicates which tier was purchased, and the graphs in the [Rate limit utilization over time pane] will reflect the applied rate limit multiplier.
 
 ### Rate limit utilization over time pane
 
