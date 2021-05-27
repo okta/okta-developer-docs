@@ -44,7 +44,7 @@ To get started, you need to create an Okta OAuth app to represent the <StackSele
 
 <!--
 Once sample download is working we can provide these instructions instead:
-7. From the **General** tab, click **Download sample app**, and then select **React**. (NOTE: THIS WILL NOT WORK UNTIL THE 2021-03-12 CODE FREEZE) This file contains the [React sample application](https://github.com/okta/samples-js-react) pre-configured with the settings of the Application that you just created. Your application settings are saved in the `testenv` file in the root directory.
+7. From the **General** tab, click **Download sample app**, and then select **React**. (NOTE: THIS WILL NOT WORK UNTIL THE 2021-03-12 CODE FREEZE??) This file contains the [React sample application](https://github.com/okta/samples-js-react) pre-configured with the settings of the Application that you just created. Your application settings are saved in the `testenv` file in the root directory.
 8. You can extract the ZIP file and then open the `samples-js-react` directory from the command line.
 9. Enter the okta-hosted-login subdirectory and run `npm install`.
 -->
@@ -59,7 +59,7 @@ This section walks you through enrolling a user and authenticating that user.
 
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
     > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-about-asop) is configured.
-5. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+5. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Enable self-service enrollment
 
@@ -88,10 +88,10 @@ This section walks you through the self-service enrollment steps for a new user.
 4. Enter the requested information, and then click **Sign Up**.
 5. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
 
-    > **Note:** In this example, when you set up the Email factor, copy the code from the email and paste it into the Sign-In Widget to manually verify the email address. Avoid the use of the **Verify Email Address** button.
+    > **Note:** Be sure to copy the code from the email and paste it into the Sign-In Widget to manually verify the email address rather than using the **Verify Email Address** button.
 
 6. After you complete set up, click **Finish**. You are redirected to the app's Welcome page.
-7. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+7. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Add MFA with a mandatory second factor
 
@@ -122,11 +122,15 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 3. Enter the credentials of the user that you enrolled earlier.
 4. The Set up authentications page appears, which prompts you to set up either the Okta Verify or the Phone authenticator. Under **Phone**, click **Set up**.
 5. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> Welcome page.
-6. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+6. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Authenticator recovery
 
-By default, the Password reset feature in your org is configured to be initiated with an email. The steps in this section assume that you haven't changed that default configuration. You can try out the email password recovery flow by selecting **Forgot password?** from the Sign-In Widget. You are prompted for your email or username, and then an OTP code is sent to your email address. After you enter this code and answer a security question, you are prompted to enter a new password. You are then directed to the <StackSelector snippet="applang" noSelector inline /> Welcome page. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+In your org, Password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
+
+You can try out the email password recovery flow by selecting **Forgot password?** from the Sign-In Widget. You are prompted for your email or username, and then an OTP code is sent to your email address. Be sure to copy the code from the email and paste it into the Sign-In Widget manually. After you enter the code and answer a security question, you are prompted to enter a new password. You are then directed to the <StackSelector snippet="applang" noSelector inline /> Welcome page. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+
+CHECK and fix - For completeness, the flow also prompts for additional phone authentication, as setup on the previous step.
 
 ### Recovery with Okta Verify
 
@@ -138,13 +142,18 @@ In addition to recovering your password with an email, you can also add Okta Ver
 4. In the **Password reset** section, locate **AND Users can initiate reset with**.
 5. Select **Okta Verify (Push)** and click **Update Rule**.
 6. [Enroll a new user](#try-enrollment), ensuring that this time you also enroll Okta Verify.
-7. Sign in with your new user to confirm that you added the user correctly, and then click **Logout**.
-8. Back on the welcome page of the React Sample, click **Login**.
+7. Sign in with your new user to confirm that you added the user correctly, and then click <StackSelector snippet="tryenrollout" noSelector inline />.
+8. Back on the welcome page of the <StackSelector snippet="applang" noSelector inline /> app, click <StackSelector snippet="appsignin" noSelector inline />.
 9. After you are redirected to the Sign-In Widget, click **Forgot password?**.
 10. Enter the email address of the user that you just created with Okta Verify as a factor, and then click **Next**.
 11. On the next page, click **Select** beside **Get a push notification**. You should receive a push notification in Okta Verify. Respond appropriately.
 12. You are prompted for the answer to your Security Question, and then you are asked to reset your password.
 13. When you are finished, the React Sample's success page should appear.
+
+
+
+4. In the **Recovery authenticators** section, locate **AND Users can initiate recovery with**.
+5. Select **Okta Verify (Push notification only)** and click **Update Rule**.
 
 ## Progressive Profiling
 

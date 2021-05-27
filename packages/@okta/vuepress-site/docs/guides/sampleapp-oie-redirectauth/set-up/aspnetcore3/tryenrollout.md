@@ -1,1 +1,1 @@
-Click **Sign Out** in the upper-right corner of the page
+**Sign Out** in the upper-right corner of the page

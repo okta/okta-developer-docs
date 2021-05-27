@@ -1,1 +1,1 @@
-Click **Logout** at the top of the page 
+**Logout** at the top of the page 

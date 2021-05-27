@@ -1,1 +1,1 @@
-Click **Logout** in the upper-right corner of the page
+**Logout** in the upper-right corner of the page

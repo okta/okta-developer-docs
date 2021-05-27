@@ -1,1 +1,1 @@
-Click **Logout**
+**Logout**
