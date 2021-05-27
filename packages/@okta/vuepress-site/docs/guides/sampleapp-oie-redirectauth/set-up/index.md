@@ -128,9 +128,15 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 
 In your org, Password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
 
-You can try out the email password recovery flow by selecting **Forgot password?** from the Sign-In Widget. You are prompted for your email or username, and then an OTP code is sent to your email address. Be sure to copy the code from the email and paste it into the Sign-In Widget manually. After you enter the code and answer a security question, you are prompted to enter a new password. You are then directed to the <StackSelector snippet="applang" noSelector inline /> Welcome page. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+You can try out the email password recovery flow:
 
-CHECK and fix - For completeness, the flow also prompts for additional phone authentication, as setup on the previous step.
+* Select **Forgot password?** in the Sign-In Widget.
+* Enter your email or username when prompted. An OTP code is sent to your email address.
+
+> **Note:** Be sure to copy the code from the email and paste it into the Sign-In Widget manually.
+
+* After you paste the code, answer the security question that appears. You are then prompted to enter a new password.
+* After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in the last section. Then, you are directed to the <StackSelector snippet="applang" noSelector inline /> Welcome page. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ### Recovery with Okta Verify
 
@@ -139,8 +145,8 @@ In addition to recovering your password with an email, you can also add Okta Ver
 1. Go to **Security** > **Authenticators**.
 2. Click **Actions** beside the Password Authenticator, and then click **Edit**.
 3. In the **Add Rule** section at the bottom of the page, click the pencil icon for the Default Rule.
-4. In the **Password reset** section, locate **AND Users can initiate reset with**.
-5. Select **Okta Verify (Push)** and click **Update Rule**.
+4. In the **Recovery authenticators** section, locate **AND Users can initiate recovery with**.
+5. Select **Okta Verify (Push notification only)** and click **Update Rule**.
 6. [Enroll a new user](#try-enrollment), ensuring that this time you also enroll Okta Verify.
 7. Sign in with your new user to confirm that you added the user correctly, and then click <StackSelector snippet="tryenrollout" noSelector inline />.
 8. Back on the welcome page of the <StackSelector snippet="applang" noSelector inline /> app, click <StackSelector snippet="appsignin" noSelector inline />.
@@ -152,8 +158,7 @@ In addition to recovering your password with an email, you can also add Okta Ver
 
 
 
-4. In the **Recovery authenticators** section, locate **AND Users can initiate recovery with**.
-5. Select **Okta Verify (Push notification only)** and click **Update Rule**.
+
 
 ## Progressive Profiling
 

@@ -5,13 +5,7 @@ layout: Guides
 ---
 samples-android
 
-## Add MFA with a mandatory second factor
-
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables.
+okta verify done
 
 -------
 samples-aspnet
@@ -283,3 +277,66 @@ This section walks you through the self-service enrollment steps for a new user.
 4. Set up the Email, Password, and Security Question factors. Don't set up any other factors.
 5. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
 6. Click **Logout** in the upper-right corner of the page to sign out of the app.
+
+## Add MFA with a mandatory second factor
+
+You can now modify the Application's Sign-On Policy to require the user to have a second factor enabled for authentication. In this example, we use the Phone Authenticator.
+
+> **Note:** Your Okta org may have different Authenticators enabled by default.
+
+### Enable multifactor authentication
+
+1. Ensure that your org has the Phone authenticator enabled by going to **Security** > **Authenticators** and checking that **Phone** is listed.
+
+    If it isn't listed, add it by doing the following:
+    * Click **Add Authenticator**.
+    * Click **Add** in the **Phone** authentication box.
+    * Leave **Authentication (MFA/SSO)** selected in the **Add Phone** dialog box.
+    * Click **Add**.
+
+2. From the side navigation, select **Applications** > **Applications** and then select the Okta OAuth app that you created to represent the <StackSelector snippet="applang" noSelector inline /> app.
+3. Select the **Sign On** tab.
+4. Scroll down to the **Sign On Policy** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
+5. In the Edit Rule dialog box, scroll down to the **THEN** section and locate **AND User must authenticate with**.
+6. Select **Password + Another factor** and click **Save**.
+
+### Try multifactor authentication
+
+<StackSelector snippet="tryenrollin" noSelector />
+
+3. Enter the credentials of the user that you enrolled earlier.
+4. The Set up authentications page appears, which prompts you to set up either the Okta Verify or the Phone authenticator. Under **Phone**, click **Set up**.
+5. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> Welcome page.
+6. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+
+## Authenticator recovery
+
+In your org, Password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
+
+You can try out the email password recovery flow:
+
+* Select **Forgot password?** from the Sign-In Widget.
+* Enter your email or username when prompted. An OTP code is sent to your email address.
+
+> **Note:** Be sure to copy the code from the email and paste it into the Sign-In Widget manually.
+
+* After you paste the code, answer the security question that appears. You are then prompted to enter a new password.
+* After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in the last section. Then, you are directed to the <StackSelector snippet="applang" noSelector inline /> Welcome page. <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+
+### Recovery with Okta Verify
+
+In addition to recovering your password with an email, you can also add Okta Verify as a recovery option.
+
+1. Go to **Security** > **Authenticators**.
+2. Click **Actions** beside the Password Authenticator, and then click **Edit**.
+3. In the **Add Rule** section at the bottom of the page, click the pencil icon for the Default Rule.
+4. In the **Password reset** section, locate **AND Users can initiate reset with**.
+5. Select **Okta Verify (Push)** and click **Update Rule**.
+6. [Enroll a new user](#try-enrollment), ensuring that this time you also enroll Okta Verify.
+7. Sign in with your new user to confirm that you added the user correctly, and then click <StackSelector snippet="tryenrollout" noSelector inline />.
+8. Back on the welcome page of the <StackSelector snippet="applang" noSelector inline /> app, click <StackSelector snippet="appsignin" noSelector inline />.
+9. After you are redirected to the Sign-In Widget, click **Forgot password?**.
+10. Enter the email address of the user that you just created with Okta Verify as a factor, and then click **Next**.
+11. On the next page, click **Select** beside **Get a push notification**. You should receive a push notification in Okta Verify. Respond appropriately.
+12. You are prompted for the answer to your Security Question, and then you are asked to reset your password.
+13. When you are finished, the React Sample's success page should appear.
