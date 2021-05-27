@@ -20,13 +20,13 @@ The application session (also known as a local session) is created by the app af
 * A shorter and restrictive session is required for privileged access apps, such as an e-commerce site where users make payments.
 * A longer and less restrictive session is typical for non-privileged access apps, such as a catalog site where users browse listed items. The session for these apps can remain active even when the user navigates away, closes the browser tab or website, or closes the mobile app.
 
-Identity management admins and app developers need to collaborate on how to manage the IdP session with the application sessions to produce an optimal user experience with security, device, and app privileged access in mind. This implies balancing terminating sessions and redirecting the user to re-authenticate for security purposes, combined with extending the session or silently re-authenticating with a new session for a frictionless user experience.
+Identity management admins and app developers need to collaborate on how to manage the IdP session with the application sessions to produce an optimal user experience with security, device, and app privileged access in mind. This collaboration includes balancing terminating sessions and redirecting the user to re-authenticate for security purposes, combined with extending the session or silently re-authenticating with a new session for a frictionless user experience.
 
 ## Examples of sign-out experiences
 
 ### Privileged access use case
 
-For privileged access apps, such as an e-commerce payment app, securing sensitive user information is paramount and application sessions need to be tightly restricted. Application sessions are usually short lived and inactivity timeouts are in the minutes for these types of apps. Developers need to employ best practices and end sessions when they are no longer required. If the application session is terminated, the user must be redirected to the IdP to re-authenticate back into the app for a new session. If there is no active IdP session during the redirect, the user is prompted to sign in to the IdP and then use SSO to sign in to the app for a new session.
+For privileged access apps, such as an e-commerce payment app, securing sensitive user information is paramount and application sessions need to be tightly restricted. Application sessions are usually short lived and inactivity timeouts are in the minutes for these types of apps. Developers need to employ best practices and end application sessions when they are no longer required. If the application session is terminated, the user must be redirected to the IdP to re-authenticate back into the app for a new session. If there is no active IdP session during the redirect, the user is prompted to sign in to the IdP for a new IdP session, and then through SSO is signed in to the app for a new application session.
 
 ### Non-privileged access use case
 
@@ -42,7 +42,7 @@ See [Sign users out of your app](/docs/guides/sign-users-out/-/sign-out-of-your-
 
 ### Single logout
 
-Single logout is the act of signing the user out of the IdP and all of the apps signed in with the same IdP credentials. This results in ending the IdP session and all the associated application sessions for the user.
+Single logout is the act of signing the user out of the IdP and signing out of all the apps with the same IdP credentials. This results in ending the IdP session and all the associated application sessions for the user.
 
 Currently, Okta supports single logout initiated by an app, where the user signs out of an app and the Okta IdP, ending both the app and IdP sessions. However, other active application sessions for the user can still persist without the IdP session, depending on the restrictive nature of the apps. For non-privileged access apps, the user can still access the app within the scope of the application session. For example, a user can still browse through a catalog of vacation experiences and add to their cart. When this user is ready to check out and make a payment, the app can enforce a privileged access workflow and redirect the user to re-authenticate with Okta to secure an IdP session. For privileged access apps with short-lived sessions, the user is typically redirected to re-authenticate with Okta to start a new IdP session and an application session.
 
