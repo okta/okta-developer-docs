@@ -13,13 +13,15 @@ This page provides reference documentation for:
 
 This information is specific to the Password Import Inline Hook, one type of Inline Hook supported by Okta.
 
-## See Also
+## See also
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
 For steps to enable this Inline Hook, see below, [Enabling a Password Import Inline Hook](#enabling-a-password-import-inline-hook).
+
+For an example implementation of this Inline Hook, see [Password Import Inline Hook](/docs/guides/password-import-inline-hook).
 
 ## About
 
@@ -29,7 +31,7 @@ The Password Import Inline Hook is triggered when the end user tries to sign in 
 
 If your service returns a response that indicates that the password is valid, Okta sets the password for the user and won't normally need to call your service again. However, if Okta service is disrupted or degraded, it might not be possible to set the password. Okta then needs to call your service again the next time the end user attempts to signs in. See [Password Inline Hook and Okta Service Mode](#password-inline-hook-and-okta-service-mode) and [Removing Password from Existing User Store](#removing-password-from-existing-user-store) for details.
 
-## Objects in the Request from Okta
+## Objects in the request from Okta
 
 The outbound call from Okta to your external service includes the following objects in its JSON payload:
 
@@ -41,7 +43,7 @@ This object contains `username` and `password` properties. These are the user na
 
 This specifies the default action Okta is set to take. Okta will take this action if your external service sends an empty HTTP 204 response. You can override the default action by returning a `commands` object in your response specifying the action to take.
 
-## Objects in Response You Send
+## Objects in response you send
 
 The objects that you can return in the JSON payload of your response are an array of one or more `commands` objects, which specify commands to be executed by Okta.
 
@@ -60,7 +62,7 @@ For the Password Import Inline Hook, you will typically only return one `command
 
 For example commands, see the [value](#value) section below.
 
-#### Supported Command
+#### Supported command
 
 The following command is supported for the Password Import Inline Hook type:
 
@@ -76,9 +78,9 @@ The `value` object is the parameter to pass to the command.
 
 For `com.okta.action.update` commands, `value` should be an object that contains a `credential` property set to either `VERIFIED` or `UNVERIFIED`:
 
-* To indicate that the supplied credentials are valid, supply a type property set to `com.okta.action.update` together with a value property set to `{"credential": "VERIFIED"}`.
+- To indicate that the supplied credentials are valid, supply a type property set to `com.okta.action.update` together with a value property set to `{"credential": "VERIFIED"}`.
 
-* To indicate that the supplied credentials are not valid, supply a type property set to `com.okta.action.update` together with a value property set to`{"credential": "UNVERIFIED"}`.
+- To indicate that the supplied credentials are not valid, supply a type property set to `com.okta.action.update` together with a value property set to`{"credential": "UNVERIFIED"}`.
 
 For example, to indicate that the supplied credentials should not be accepted as valid, you would return the following:
 
@@ -97,7 +99,11 @@ For example, to indicate that the supplied credentials should not be accepted as
 
 If the default action sent by Okta in the `action.credential` property of the request to your external service was `UNVERIFIED`, then the same result, of rejecting the user-supplied credentials, could also be accomplished by means of returning an empty response with HTTP status code `204 NO CONTENT`. This would cause Okta to proceed with the default action.
 
-## Sample JSON Payload of Request
+### Timeout behavior
+
+After receiving the Okta request, if there is a response timeout or error, the end-user can't sign in, and the password is not imported.
+
+## Sample JSON payload of request
 
 ```json
 {
@@ -130,7 +136,7 @@ If the default action sent by Okta in the `action.credential` property of the re
 }
 ```
 
-## Sample JSON Payload of Response
+## Sample JSON payload of response
 
 ```json
 {
@@ -153,11 +159,11 @@ When creating a new user with the `/users` API, you need to use the [Create User
 
 When the end user that you have added attempts to sign in to Okta for the first time, the hook is triggered and Okta calls your external service, sending it the credentials that the end user provided. Your service can check the credentials and respond with a command to indicate to Okta whether the credentials are valid or not.
 
-## Password Inline Hook and Okta Service Mode
+## Password Inline Hook and Okta service mode
 
 Normally, if your external service responds to Okta indicating that the credentials are valid, Okta saves the password and can authenticate the user independently from then on. However, if your Okta org is in a special [service mode](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_ref_service_op_mode) at the time the end user signs in, then saving the password might not be possible, and the next time the end user attempts to sign in, the Password Import Inline Hook needs to be called again.
 
-## Removing Password from Existing User Store
+## Removing Password from existing user store
 
 Because of the possibility of your org being in a special service mode, permanent deletion of user passwords from your existing user store should not be performed until success of the password import can be verified. An Okta System Log [Event](/docs/reference/api/event-types/), `user.import.password`, is available for this purpose. An event of this type is created every time a Password Import Inline Hook is fired, with its `Event.Outcome` property providing a status of `FAILURE` or `SUCCESS` for the password import operation. If the status is `SUCCESS`, Okta has successfully saved the end user's password, and it's safe to delete it from your previous user store.
 
