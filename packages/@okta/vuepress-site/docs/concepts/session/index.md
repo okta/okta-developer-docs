@@ -36,7 +36,7 @@ For non-privileged access apps, such as a loyalty program catalog, sessions can 
 
 ### Local logout
 
-Local logout is the act of signing the user out of the app and terminating the application session. The user IdP session is still active and other application sessions aren't affected by terminating a specific local application session. Local logout is managed by the app. If the user wants to access the app again, they are automatically authenticated through the active IdP session into the app and the app creates a new session for the user.
+Local logout is the act of signing the user out of the app and terminating the application session. The user IdP session is still active, and other application sessions aren't affected by terminating a specific local application session. Local logout is managed by the app. If the user wants to access the app again, the user is automatically authenticated through the active IdP session into the app, and the app creates a new session for the user.
 
 See [Sign users out of your app](/docs/guides/sign-users-out/-/sign-out-of-your-app/) for a guide to implement local logout with Okta.
 
