@@ -1765,7 +1765,7 @@ The Constraints are logically evaluated such that only one Constraint object nee
 ]
 ```
 
-In the above example contraint object 1 (password factor with reauthenticatation on every signin attempt and a possession factor) or constraint object 2 (password factor  and a possession factor which is a phishing resistant factor liked WebAuthn ) must be used to satisfy the assurance policy.
+In the preceding example, the Assurance policy is satisfied if Constraint object 1 (password factor with re-authentication on every sign-in attempt, and a possession factor) or Constraint object 2 (password factor and a possession factor that is a phishing-resistant, such as WebAuthn ) is satisfied.
 
 This can be read logically as: `( (1A && 1B) || (2A && 2B) )`
 
