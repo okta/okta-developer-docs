@@ -90,7 +90,7 @@ This section walks you through the self-service enrollment steps for a new user.
 
     > **Note:** Be sure to copy the code from the email and paste it into the Sign-In Widget to manually verify the email address rather than using the **Verify Email Address** button.
 
-6. After you complete set up, click **Finish**. You are redirected to the app's Welcome page.
+6. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
 7. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Add MFA with a mandatory second factor
@@ -121,7 +121,7 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 
 3. Enter the credentials of the user that you enrolled earlier.
 4. The Set up authentications page appears, which prompts you to set up either the Okta Verify or the Phone authenticator. Under **Phone**, click **Set up**.
-5. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> Welcome page.
+5. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> welcome page.
 6. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Authenticator recovery
@@ -130,13 +130,13 @@ In your org, Password reset is configured by default to be initiated with an ema
 
 You can try out the email password recovery flow:
 
-* Select **Forgot password?** in the Sign-In Widget.
-* Enter your email or username when prompted. An OTP code is sent to your email address.
-
-> **Note:** Be sure to copy the code from the email and paste it into the Sign-In Widget manually.
-
-* After you paste the code, answer the security question that appears. You are then prompted to enter a new password.
-* After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in the last section. Then, you are directed to the <StackSelector snippet="applang" noSelector inline /> Welcome page. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+1. Select **Forgot password?** in the Sign-In Widget.
+1. Enter your email or username when prompted and click **Next**.
+1. Click **Select** for the Email authenticator. An OTP code is sent to your email address.
+1. Make sure to manually copy the code from the email and paste it into the Sign-In Widget.
+1. After you paste the code, answer the security question that appears. You are then prompted to enter a new password.
+1. After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in the last section. Then, you are directed to the <StackSelector snippet="applang" noSelector inline /> welcome page.
+1. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ### Recovery with Okta Verify
 
@@ -153,12 +153,9 @@ In addition to recovering your password with an email, you can also add Okta Ver
 9. After you are redirected to the Sign-In Widget, click **Forgot password?**.
 10. Enter the email address of the user that you just created with Okta Verify as a factor, and then click **Next**.
 11. On the next page, click **Select** beside **Get a push notification**. You should receive a push notification in Okta Verify. Respond appropriately.
-12. You are prompted for the answer to your Security Question, and then you are asked to reset your password.
-13. When you are finished, the React Sample's success page should appear.
-
-
-
-
+12. Enter the answer to your security question, and then you are asked to reset your password.
+13. When you finish, the <StackSelector snippet="applang" noSelector inline /> welcome page should appear.
+14. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Progressive Profiling
 

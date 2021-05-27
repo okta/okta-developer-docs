@@ -7,182 +7,89 @@ samples-android
 
 okta verify done
 
+----
+
+samples-js-angular
+
+okta verify done
+
 -------
 samples-aspnet
 
-## Add MFA with a mandatory second factor
+okta verify done
 
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables.
------
-samples-aspnet-webforms
-
-## Add MFA with a mandatory second factor
-
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables
 -------
 samples-aspnetcore
 
-# Add MFA with a mandatory second factor
+okta verify done
 
-### Enable multifactor authentication
+-----
+samples-aspnet-webforms
 
-### Try multifactor authentication
+okta verify done
 
-all in main doc managed by stack selector variables
 ------
 samples-blazor
 
-# Add MFA with a mandatory second factor
+okta verify done
 
-### Enable multifactor authentication
+------
+samples-python-flask
 
-### Try multifactor authentication
+okta verify done
 
-all in main doc managed by stack selector variables
 -----
 samples-golang
 
-# Add MFA with a mandatory second factor
-
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables
+okta verify done
 
 -----
 samples-ios
 
-samples-golang
-
-# Add MFA with a mandatory second factor
-
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables
+okta verify done
 
 ------
 samples-java-micronaut
 
-# Add MFA with a mandatory second factor
-
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables
-
------
-
-samples-java-spring
-
-# Add MFA with a mandatory second factor
-
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables
+okta verify done
 
 ----
+samples-nodejs-express
 
-samples-java-micronaut
-
-# Add MFA with a mandatory second factor
-
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables
+okta verify done
 
 -----
-samples-js-angular
+samples-php
 
-# Add MFA with a mandatory second factor
+okta verify done
 
-### Enable multifactor authentication
+-----
 
-### Try multifactor authentication
+samples-react
 
-all in main doc managed by stack selector variables
+okta verify done
+
+-------
+samples-js-react-native (Android)
+
+okta verify done
 
 -----
 
 samples-js-react-native (iOS)
 
-# Add MFA with a mandatory second factor
+okta verify done
 
-### Enable multifactor authentication
+------
+samples-java-spring
 
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables
-
--------
-samples-js-react-native (Android)
-
-# Add MFA with a mandatory second factor
-
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables
+okta verify done
 
 ------
 samples-js-vue
 
-# Add MFA with a mandatory second factor
+okta verify done
 
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables
-
-----
-samples-nodejs-express
-
-# Add MFA with a mandatory second factor
-
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables
-
------
-samples-php
-
-# Add MFA with a mandatory second factor
-
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables
-
-------
-samples-python-flask
-
-# Add MFA with a mandatory second factor
-
-### Enable multifactor authentication
-
-### Try multifactor authentication
-
-all in main doc managed by stack selector variables
 -----
 
 DO LAST
