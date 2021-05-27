@@ -30,7 +30,7 @@ For privileged access apps, such as an e-commerce payment app, securing sensitiv
 
 ### Non-privileged access use case
 
-For non-privileged access apps, such as a loyalty program catalog, sessions can be active for a long period of time (even days) and app developers don't need to implement session timeouts to restrict access. This is especially true for mobile apps where you want your users to have a seamless and frictionless user experience. In this scenario, the application session can outlive the IdP session. Application sessions can still track user interactions without the IdP session. However, when the user signs out and ends the application session, without the IdP session, the user is redirected to the IdP sign-in page and must authenticate with the IdP to gain access to the app, as before.
+For non-privileged access apps, such as a loyalty program catalog, sessions can be active for a long period of time (even days) and app developers don't need to implement session timeouts to restrict access. This is especially true for mobile apps where you want your users to have a seamless and frictionless user experience. In this scenario, the application session can outlive the IdP session. Application sessions can still track user interactions without the IdP session. However, when the user signs out and ends the application session without the IdP session, the user is redirected to the IdP sign-in page and must authenticate with the IdP to gain access to the app, as before.
 
 ## Terminate sessions
 
