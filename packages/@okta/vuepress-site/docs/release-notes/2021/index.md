@@ -13,7 +13,7 @@ title: Okta API Products Release Notes 2021
 | [Provisioning for Org2Org app integrations can be configured using the API](#provisioning-for-org2org-app-integrations-can-be-configured-using-the-api)| June 3, 2021 |
 | [Refresh Token Rotation is GA in Production](#refresh-token-rotation-is-ga-in-production) | June 3, 2021 |
 | [Retrieving applications by catalog name is now available](#retrieving-applications-by-catalog-name-is-now-available) | June 3, 2021 |
-| [The `application.lifecycle.create` event is now generated](#the-application-lifecycle-create-event-is-now-generated) | June 3, 2021 |
+| [The `application.lifecycle.create` event is now generated for OIDC Apps](#the-application-lifecycle-create-event-is-now-generated-for-oidc-apps) | June 3, 2021 |
 | [Bug fixed in 2021.05.0](#bug-fixed-in-2021-06-0)         | June 3, 2021 |
 
 #### Okta Sign-In Widget, version 5.7.0
@@ -42,13 +42,13 @@ Additionally, you can set or update the **Logo** or **Notes** fields for any of 
 
 You can now look up apps by their catalog name using the Apps API. Use a `name` expression (for example: `name eq ":name"`) with the `filter` parameter to search for apps by catalog name on the `/apps` endpoint. <!--OKTA-391038-->
 
-#### The `application.lifecycle.create` event is now generated
+#### The `application.lifecycle.create` event is now generated for OIDC Apps
 
-When OpenID Connect apps are created using the App Integration Wizard or the Apps API, the `application.lifecycle.create` event is now generated. Additionally, app context is now included with the event. <!--OKTA-389740-->
+When OpenID Connect (OIDC) apps are created using the App Integration Wizard or the Apps API, the `application.lifecycle.create` event is now generated. Additionally, app context is now included with the event. <!--OKTA-389740-->
 
 #### Bug fixed in 2021.06.0
 
-Error messages that pertained to a unique property in the Admin Console were sometimes the wrong error or didn't appear in the correct place. (OKTA-395953)
+Error messages for properties with unique values were sometimes the wrong error message or didn't appear in the correct place in the Admin Console. (OKTA-395953)
 
 ## May
 
