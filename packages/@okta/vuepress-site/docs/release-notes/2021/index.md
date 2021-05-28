@@ -1,6 +1,54 @@
 ---
 title: Okta API Products Release Notes 2021
 ---
+## June
+
+### Monthly Release 2021.06.0
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.7.0](#okta-sign-in-widget-version-5-7-0) | June 3, 2021 |
+| [Domains API is GA in Production](#domains-api-is-ga-in-production) | June 3, 2021 |
+| [Flexible Consent allows the same scopes to be used for user and service-based OAuth flows](#flexible-consent-allows-the-same-scopes-to-be-used-for-user-and-service-based-oauth-flows) | June 3, 2021 |
+| [Provisioning for Org2Org app integrations can be configured using the API](#provisioning-for-org2org-app-integrations-can-be-configured-using-the-api)| June 3, 2021 |
+| [Refresh Token Rotation is GA in Production](#refresh-token-rotation-is-ga-in-production) | June 3, 2021 |
+| [Retrieving applications by catalog name is now available](#retrieving-applications-by-catalog-name-is-now-available) | June 3, 2021 |
+| [The `application.lifecycle.create` event is now generated](#the-application-lifecycle-create-event-is-now-generated) | June 3, 2021 |
+| [Bug fixed in 2021.05.0](#bug-fixed-in-2021-06-0)         | June 3, 2021 |
+
+#### Okta Sign-In Widget, version 5.7.0
+
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.7.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
+
+#### Domains API is GA in Production
+
+The [Domains API](/docs/reference/api/domains/) is now Generally Available in Production. <!--OKTA-395907-->
+
+#### Flexible Consent allows the same scopes to be used for user and service-based OAuth flows
+
+The new `FLEXIBLE` Consent setting allows customers to use a single set of scopes in both 3-legged and 2-legged OAuth flows. When a scope is requested during a [Client Credential grant flow](/docs/guides/implement-client-creds/overview/) and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This allows customers to use the same scopes for both user and service-based OAuth flows. <!--OKTA-?-->
+
+#### Provisioning for Org2Org app integrations can be configured using the API
+
+Previously, Okta admins could only configure provisioning for the Org2Org app integration using the Admin Console. With the introduction of Multi-Org functions within the [Apps API](/docs/reference/api/apps/#application-provisioning-connection-operations), you can write code scripts or use SDKs to automate Okta hub and spoke scenarios.
+
+Additionally, you can set or update the **Logo** or **Notes** fields for any of your Okta app integrations using the API. <!--OKTA-397181-->
+
+#### Refresh Token Rotation is GA in Production
+
+[Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/) is now Generally Available in Production. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. <!--OKTA-399846-->
+
+#### Retrieving applications by catalog name is now available
+
+You can now look up apps by their catalog name using the Apps API. Use a `name` expression (for example: `name eq ":name"`) with the `filter` parameter to search for apps by catalog name on the `/apps` endpoint. <!--OKTA-391038-->
+
+#### The `application.lifecycle.create` event is now generated
+
+When OpenID Connect apps are created using the App Integration Wizard or the Apps API, the `application.lifecycle.create` event is now generated. Additionally, app context is now included with the event. <!--OKTA-389740-->
+
+#### Bug fixed in 2021.06.0
+
+Error messages that pertained to a unique property in the Admin Console were sometimes the wrong error or didn't appear in the correct place. (OKTA-395953)
 
 ## May
 
