@@ -5,90 +5,90 @@ layout: Guides
 ---
 samples-android
 
-okta verify done
+Progressive Profiling done
 
 ----
-
 samples-js-angular
 
-okta verify done
+Progressive Profiling done
 
 -------
 samples-aspnet
 
-okta verify done
+Progressive Profiling done
 
 -------
 samples-aspnetcore
 
-okta verify done
+Progressive Profiling done
 
 -----
 samples-aspnet-webforms
 
-okta verify done
+Progressive Profiling done
 
 ------
 samples-blazor
 
-okta verify done
+Progressive Profiling done
 
 ------
 samples-python-flask
 
-okta verify done
+Progressive Profiling done
 
 -----
 samples-golang
 
-okta verify done
+Progressive Profiling done
 
 -----
 samples-ios
 
-okta verify done
+Progressive Profiling done - region doesn't show up on user's profile page - it's blank.
 
 ------
 samples-java-micronaut
 
-okta verify done
+Progressive Profiling done
 
 ----
 samples-nodejs-express
 
-okta verify done
+Progressive Profiling done
 
 -----
 samples-php
 
-okta verify done
+Progressive Profiling done
 
 -----
 
 samples-react
 
-okta verify done
+Progressive Profiling done
 
 -------
 samples-js-react-native (Android)
 
-okta verify done
+Progressive Profiling done
 
 -----
 
 samples-js-react-native (iOS)
 
-okta verify done
+Progressive Profiling done
 
 ------
 samples-java-spring
 
-okta verify done
+Progressive Profiling done
 
 ------
 samples-js-vue
 
-okta verify done
+
+Progressive Profiling done
 
 -----
 

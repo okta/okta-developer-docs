@@ -159,6 +159,8 @@ In addition to recovering your password with an email, you can also add Okta Ver
 
 ## Progressive Profiling
 
+> **Note:** To use Progressive Profiling, you must disable the `SELF_SERVICE_REGISTRATION` feature flag in your org. Contact [Support](https://support.okta.com/help/s/opencase).
+
 Okta now gives you the ability to check for what data is required from a user before they can access an app. For example, you can change the required user profile information for the same app, or handle SSO between two apps with different profile requirements. In this example, we add a required profile attribute, and the user we have already enrolled is asked for this information when they next authenticate.
 
 When we enrolled our test user, the user was only prompted for first and last name, as well as their email and a password. Now add an additional required property to the Profile Enrollment Policy.
@@ -174,19 +176,18 @@ When we enrolled our test user, the user was only prompted for first and last na
 5. Select the **Required** check box, and then click **Save**.
 6. From the side navigation, select **Directory** > **Profile Editor**.
 7. Under **Filters**, select **Okta**, and then click the pencil icon for the **User (default)** Profile.
-8. Under **Attributes**, click **Add Attribute**, and then fill out the dialog box that appears:
+8. Under **Attributes**, click **Add Attribute**, and then fill out the dialog box that appears with the following values. The other fields are optional and can be left blank. Click **Save** when you finish.
 
     * **Data type** &mdash; `string`
     * **Display name** &mdash; `Region`
     * **Variable name** &mdash; `region`
 
-9. Click **Save** when you are done. The other fields are optional and can be left blank.
-10. Find the **Region** attribute that you just created and click the pencil icon beside it.
-11. In the **Region** dialog box that appears, set **User permission** to **Read-Write**, and then click **Save Attribute**.
+9. Find the **Region** attribute that you just created and click the pencil icon beside it.
+10. In the **Region** dialog box that appears, set **User permission** to **Read-Write**, and then click **Save Attribute**.
 
 > **Note:** You can check which User Attributes are required for your Directory by clicking the Information icon beside each Attribute. By default, **First name** and **Last name** are marked as required, in addition to what you specify in your Enrollment Policy.
 
-12. Now try to authenticate using one of the same users as in the previous steps. You are prompted with a **Region** field and a **Register** button. After you add a value, you can confirm that it has been saved by accessing **Directory** > **People** in the Admin Console, locating the correct user, and selecting their **Profile** tab. If you try to register a new user, you see the **Region** field added to the **Create Account** page.
+11. Now try to authenticate using one of the same users as in the previous steps. You are prompted with a **Region** field and a **Sign Up** button. After you add a value, you can confirm that it has been saved by accessing **Directory** > **People** in the Admin Console, locating the correct user, and selecting their **Profile** tab. If you try to register a new user, you see the **Region** field added to the **Create Account** page.
 
 ## Identity Provider routing to Facebook
 
