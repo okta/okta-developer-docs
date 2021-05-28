@@ -69,7 +69,10 @@
     position: sticky;
     top: 70px;
     overflow: scroll;
-    @include media("<tablet") {
+    @include media("<=bootstrap-lg") {
+      width: 32%;
+    }
+    @include media("<=tablet") {
       display: none;
     }
   }

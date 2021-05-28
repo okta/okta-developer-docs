@@ -2,11 +2,11 @@
   <div class="homepage content">
     <div class="content--container">
        <div
-        class="sidebar-area сol-xl-2 col-lg-2 homepage--col-no-padding" 
+        class="sidebar-area" 
       >
         <Sidebar/>
       </div> 
-      <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+      <div class="width-adjuster col-xl-10 col-lg-10 col-md-12 col-sm-12">
         <div class="okta-game-banner row">
           <div class="col-11 okta-game-banner-wrapper">
             <div class="okta-game-banner--logo">

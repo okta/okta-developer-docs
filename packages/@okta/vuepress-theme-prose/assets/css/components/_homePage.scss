@@ -6,9 +6,11 @@ $oktaGameButtonColor: #ffdd53;
   font-family: $font-family;
   min-height: 100vh;
   color: white;
-  &--col-no-padding.col-lg-2,
-  &--col-no-padding.col-xl-2 {
-    padding: 0px 0px;
+  .width-adjuster.col-xl-10.col-lg-10.col-md-12.col-sm-12 {
+    flex: 4 0 78%;
+    @include media("<=bootstrap-lg") {
+      flex: 4 0 68%;
+    }
   }
 
   .row {
