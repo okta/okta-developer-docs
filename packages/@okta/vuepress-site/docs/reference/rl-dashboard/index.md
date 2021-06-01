@@ -8,7 +8,7 @@ excerpt: >-
 
 The rate limit dashboard is a tool that helps you understand the usage of each endpoint and investigate potential [rate limit](/docs/reference/rate-limits/) issues. The dashboard provides:
 
-* The ability to track the endpoint's use
+* The ability to track the endpoint's usage
 * Alerts when you are about to hit or have hit the rate limit
 * The ability for you to investigate the issue when an endpoint has reached the rate limit
 
@@ -18,7 +18,7 @@ You can find out more about the rate limit dashboard in these sections:
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
 | [About the rate limit dashboard](#about-the-rate-limit-dashboard)                                                          | A summary of the rate limit dashboard                     |
 | [Access the dashboard](#access-the-dashboard)                                                                  | The different types of notifications that provide access to the dashboard |
-| [Key components of the dashboard](#key-components-of-the-dashboard)                                                        | RA description of the key components on the dashboard                                                      |
+| [Key components of the dashboard](#key-components-of-the-dashboard)                                                        | A description of the key components on the dashboard                                                      |
 | [Investigate the rate limit violation](#investigate-the-rate-limit-violation)                                                                | How to use the key components on the dashboard to investigate the rate limit violation                                                     |
 | [Potential next steps](#potential-next-steps)                                                                | The recommended next steps you can take to resolve your rate limit issues                                    |
 
@@ -46,14 +46,14 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 ## Key components of the dashboard
 
-The rate limits dashboard provides data usage information for the endpoint based on a set of statistics and shows multiple views of the data usage. The dashboard helps you to investigate the rate limit or violation issue and to prevent subsequent rate limit issues from occurring. To view the most recent data, refresh your screen. There may be a slight delay of two to four minutes in obtaining new data.
+The rate limit dashboard provides data usage information for the endpoint based on a set of statistics and shows multiple views of the data usage. The dashboard helps you to investigate the rate limit or violation issue and to prevent subsequent rate limit issues from occurring. To view the most recent data, refresh your screen. There may be a slight delay of two to four minutes in obtaining new data.
 
 ### Overview pane
 
 The Overview pane provides a summary of the data use for the specified endpoint. The following information on data use is displayed:
 
 * Rate Limit: The rate limit for this bucket per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation.
-* Latest Utilization: The latest use for the bucket, which includes the endpoint and its sub-endpoints, as of the specified time
+* Latest Utilization: The latest use of the bucket, which includes the endpoint and its sub-endpoints, as of the specified time
 * Average Utilization: The average use of the bucket within the last 24 hours and the last hour
 * Downtime: The amount of time that the org is affected by a rate limit violation on this endpoint
 
@@ -79,7 +79,7 @@ Each data point represents how many times the endpoint was called within that on
 
 #### Timeline graph
 
-The timeline graph shows use over the last week. When a rate violation occurs, you can select a day from the past week in the drop-down menu on the timeline graph and compare the same point in time with a day from the past week.
+The timeline graph shows the usage over the last week. When a rate violation occurs, you can select a day from the past week in the drop-down menu on the timeline graph and compare the same point in time with a day from the past week.
 
 #### Bar graph
 
