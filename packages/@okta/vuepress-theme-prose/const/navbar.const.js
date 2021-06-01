@@ -235,6 +235,10 @@ export const guides = [
             title: "Implement the Implicit flow",
             guideName: "implement-implicit"
           },
+          {
+            title: "Implement the grant-type flow",
+            guideName: "implement-grant-type"
+          },
           { title: "Request user consent", guideName: "request-user-consent" },
           {
             title: "Implement the Resource Owner Password flow",

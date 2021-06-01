@@ -48,6 +48,11 @@ const COMMON_NAME_TO_FANCY_NAME = {
   cli: 'CLI',
   website: 'Website',
   blazorwebassembly: 'Blazor WebAssembly',
+  authcode: 'Authorization Code',
+  authcodepkce: 'Authorization Code with PKCE',
+  implicit: 'Implicit',
+  clientcreds: 'Client Credentials',
+  ropassword: 'Resource Owner Password',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
