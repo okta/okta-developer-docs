@@ -309,14 +309,12 @@ export default {
     }
 
     pre {
-      padding: 0.5rem 0.5rem 2rem 0.5rem;
+      padding: 0.5rem;
       margin: 0px;
       white-space: pre-line;
-    }
-
-    pre code {
-      white-space: pre;
-      padding-left: 20px;
+      code {
+        white-space: pre;
+      }
     }
 
     .toggleErrorExample {
