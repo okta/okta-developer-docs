@@ -11,7 +11,7 @@ const outputDir = Path.resolve(__dirname, '../dist/');
 
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
-module.exports = {
+module.exports = ctx => ({
   dest: 'dist',
   theme: "@okta/vuepress-theme-prose",
   /**
@@ -389,4 +389,14 @@ module.exports = {
       }
     }
   },
-}
+  async ready() {
+    if (!ctx.isProd) {
+      ctx.pages.forEach((page) => {
+        if (!page.frontmatter['meta']) {
+          page.frontmatter['meta'] = []
+        }
+        page.frontmatter['meta'].push({ name: 'robots', content:'noindex,nofollow'});
+      });
+    }
+  },
+})
