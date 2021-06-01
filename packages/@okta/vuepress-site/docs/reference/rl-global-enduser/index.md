@@ -43,7 +43,7 @@ This page provides the API rate limits for authentication and end-user activitie
 | `/idp/idx/authenticators/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
 | `/idp/idx/challenge/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
 | `/idp/idx/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
-| New logical app intent bucket                                                                                                     | 150              | 900              | 900     | 900        | 900                   |
+| Identity Engine App Intent                                                                                                     | 150              | 900              | 900     | 900        | 900                   |
 
 
 > **Note:** The following public metadata endpoints aren't subjected to rate limiting.
