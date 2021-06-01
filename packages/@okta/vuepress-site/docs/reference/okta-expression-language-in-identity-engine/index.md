@@ -44,6 +44,16 @@ When you create an Okta expression, you can reference any property that exists i
 | `user.$property`                  | `user` reference to the Okta user<br>`property` the top-level property variable name<br>`id`, `status`, `created`, `lastUpdated`, `passwordChanged`, `lastLogin`   | `user.id`<br>`user.status`<br>`user.created`   |
 | `user.profile.$profile_property`  | `profile_property` reference to user profile property, including custom-defined properties  | `user.profile.firstName`<br>`user.profile.email`<br>           |
 
+### Okta Device Profile
+When you create an Okta expression, you can reference EDR attributes and any property that exists in an Okta Device Profile.
+
+| Syntax                             | Definitions                                                                              | Examples                                                       |
+| --------                           | ----------                                                                               | ------------                                                   |
+| `device.profile.$profile_property`  | `profile_property` references a Device Profile property  | `device.profile.managed`<br>`device.profile.registered`<br>           |
+| `device.provider.<vendor>.<signal>`| `vendor` references a vendor, such as `wtc` for Windows Security Center, or `zta` for CrowdStrike. <br>`signal` references the supported EDR signal by the vendor.| `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall`   |
+For details about the `vendor` and `signal`, see [Integrate with Endpoint Detection and Response solutions
+](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/edr-integration-main.htm) and [Available EDR signals by vendor](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/edr-integration-available-signals.htm).
+
 ## Functions
 
 Okta offers a variety of functions to manipulate properties to generate a desired output. You can combine and nest functions inside a single expression.

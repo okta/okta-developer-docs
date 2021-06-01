@@ -993,7 +993,34 @@ Specifies a particular platform or device to match on
 }
 ```
 
-#### Risk Score Condition Object
+#### Device Condition object
+
+<ApiLifecycle access="ie" /><br>
+
+> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+
+Specifies the device condition to match on
+
+| Parameter | Description              | Data Type | Required |
+| ---       | ---                      | ---       | ---      |
+| registered   | If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device. | Boolean     | No      |
+| managed   | If the device is managed. A device is managed if it's managed by a device management system.| Boolean     | No      |
+
+> **Note:** When `managed` is passed, `registered` must also be included and must be set to `true`.
+
+For details on integration with a device management system, see
+ - [Configure Device Trust on Identity Engine for desktop devices](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/config-desktop.htm)
+ - [Configure Device Trust on Identity Engine for mobile devices](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/config-mobile.htm)
+#### Device Condition object example
+
+```json
+"device": {
+  "registered": true,
+  "managed": true
+}
+```
+
+#### Risk Score Condition object
 
 Specifies a particular level of risk to match on
 
@@ -1008,6 +1035,7 @@ Specifies a particular level of risk to match on
   "level": "MEDIUM"
 }
 ```
+
 ## Type-Specific Policy data structures
 
 ## Okta Sign On Policy
@@ -1548,12 +1576,12 @@ In the final example, end users are required to verify two Authenticators before
 
 > **Note:** The indicated objects and properties below are only available as a part of the Okta Identity Engine. Please contact support for further information.
 
-| Property                                                       | Data Type   | Description                                                                                 | Supported Values                | Required | Default 
+| Property                                                       | Data Type   | Description                                                                                 | Supported Values                | Required | Default
 | ---                                                            | ---         | ---                                                                                         | ---                             | ---      | ---
 | `access`                                                       | String      | Indicates if the action is permitted                                                        | `ALLOW`, `DENY`                 | No       | `DENY`
 | `requirement` <ApiLifecycle access="ie" />                     | Object      | JSON object containing Authenticator methods required to be verified if `access` is `ALLOW`. If access is `ALLOW` and `requirement` is not specified, `recovery.factors` from parent policy object is used to determine recovery factors.                             | No       |
-| `requirement.primary.methods` <ApiLifecycle access="ie" />     | Array       | Authenticator methods that can be used by end user to initiate password recovery            | `EMAIL`, `SMS`, `VOICE`, `PUSH` | Yes | 
-| `requirement.stepUp.required` <ApiLifecycle access="ie" />     | Boolean     | Indicates if any step up verification is required to recover password following primary methods verification | `true`, `false` | Yes | 
+| `requirement.primary.methods` <ApiLifecycle access="ie" />     | Array       | Authenticator methods that can be used by the End User to initiate a password recovery            | `EMAIL`, `SMS`, `VOICE`, `PUSH` | Yes |
+| `requirement.stepUp.required` <ApiLifecycle access="ie" />     | Boolean     | Indicates if any step-up verification is required to recover a password that follows a primary methods verification | `true`, `false` | Yes |
 | `requirement.stepUp.methods`  <ApiLifecycle access="ie" />     | Array       | If `requirement.stepUp.required` is `true`, JSON object containing authenticator methods required to be verified as a step up. If not specified, any enrolled Authenticator methods allowed for sign-on can be used as step up. | `null` or an array containing`SECURITY_QUESTION` | No
 
 
@@ -1666,7 +1694,7 @@ Multiple IdP instances can be defined in a single Policy Action. This allows use
   }
 ```
 
-## App Sign On Policy 
+## App Sign On Policy
 
 <ApiLifecycle access="ie" /><br>
 
@@ -1778,7 +1806,7 @@ The Constraints are logically evaluated such that only one Constraint object nee
     }
   },
   { // object 2
-    "knowledge": {  // 2A 
+    "knowledge": {  // 2A
       "types": [
         "password"
       ],
@@ -1796,7 +1824,7 @@ This can be read logically as: `( (1A && 1B) || (2A && 2B) )`
 
 The number of authenticator class constraints in each constraint object must be less than or equal to the value of `factorMode`. If the value of `factorMode` is less, there are no constraints on any additional factors.
 
-| Property            | Data Type              | Description                                                                                                             | Supported Values                                  | Default |                                                
+| Property            | Data Type              | Description                                                                                                             | Supported Values                                  | Default |
 | -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |-----------|
 | `types`              | Array  of Authenticator types           | The Authenticator types that are permitted.                                                                           | [ `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`, `APP`, `FEDERATED` ]                         |  N/A|
 | `methods`            | Array of Authenticator methods           | The Authenticator methods that are permitted.                                                                          | [ `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2`, `PUSH`, `SIGNED_NONCE`, `OTP`, `WEBAUTHN`, `DUO`, `IDP` ] |  N/A|
@@ -1900,7 +1928,7 @@ The number of authenticator class constraints in each constraint object must be 
 }
 ```
 
-## Profile Enrollment Policy 
+## Profile Enrollment Policy
 
 <ApiLifecycle access="ie" /><br>
 
@@ -1908,7 +1936,7 @@ The number of authenticator class constraints in each constraint object must be 
 
 Profile Enrollemnt policies specify what profile attributes are required for creating new Users via self-service registration, and also can be used for progressive profiling. The type is specified as `PROFILE_ENROLLMENT`.
 
-> **Note:** You can have a maximum of 500 profile enrollment policies in an org. 
+> **Note:** You can have a maximum of 500 profile enrollment policies in an org.
 > A profile enrollment policy can only have one rule associated with it. Adding more rules is not allowed.
 
 
