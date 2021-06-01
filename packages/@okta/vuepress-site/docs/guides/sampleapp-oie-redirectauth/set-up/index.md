@@ -197,15 +197,15 @@ Instead of signing in to Okta, it is possible to route users to an external Iden
 
 ### Create a Facebook App
 
-1. Go to [Facebook for Developers](https://developers.facebook.com) and register for a developer account if you haven't already done so.
+1. Go to [Facebook for Developers](https://developers.facebook.com/docs/development/register) and register for a developer account if you haven't already done so.
 2. Access the [Facebook App Dashboard](https://developers.facebook.com/apps).
-3. Create a Facebook app using these [instructions](https://developers.facebook.com/docs/apps/register).
+3. Create a Facebook app using these [instructions](https://developers.facebook.com/docs/development/create-an-app).
 
-    > **Note:** When you are creating the app, select **Build Connected Experiences** as the app type.
+    > **Note:** When you are creating the app, select **Consumer** as the app type.
 
-4. After you create the app, on the Add a Product page, click **Set Up** on the **Facebook Login** tile.
+4. After you create the app, on the Add Products to Your App page, click **Set Up** on the **Facebook Login** tile.
 5. On the first page of the Quickstart, select **Web**.
-6. In the **Site URL** box, enter the Okta redirect URI. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the IdP. This is the URL where the IdP returns the authentication response (the access token and the ID token). In this example, this is `http://localhost:8080/login/callback`.
+6. In the **Site URL** box, enter the Okta redirect URI. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the IdP. This is the URL where the IdP returns the authentication response (the access token and the ID token). In this example, this is <StackSelector snippet="signinredirecturi" noSelector inline />.
 7. Click **Save**, click **Continue**, and then click **Next** until you exit the Quickstart wizard.
 
     > **Note:** Normally, under the "Facebook Login" **Settings** section, you would enter the **Valid OAuth Redirect URIs**, but Facebook automatically adds `localhost` redirects so this isn't required for this example.
@@ -219,12 +219,14 @@ Instead of signing in to Okta, it is possible to route users to an external Iden
 
 To connect your org to the IdP, add and configure that IdP in Okta.
 
+> **Note:** You must assign your app to either the Everyone Group or a custom Group that you create so that profile enrollment functions correctly.
+
 1. From the Admin Console side navigation, select **Security** > **Identity Providers**.
 2. Select **Add Identity Provider** and then select **Add Facebook**.
 3. In the Add an Identity Provider dialog box, define the following:
 
     * **Name** &mdash; Enter a name for the IdP configuration.
-    * **Client Id** &mdash; Paste the app ID that you obtained from the IdP in the previous section.
+    * **Client ID** &mdash; Paste the app ID that you obtained from the IdP in the previous section.
     * **Client Secret** &mdash; Paste the secret that you obtained from the IdP in the previous section.
     * **Scopes** &mdash; Leave the defaults.
 
@@ -240,14 +242,15 @@ To connect your org to the IdP, add and configure that IdP in Okta.
 
 ### Create the Routing Rule
 
+> **Note:** These steps assume that you have no other Routing Rules defined. The steps in this section may be different if you have existing Routing Rules for the Identity Provider.
+
 Create a Routing Rule that automatically routes all authentication requests to Facebook.
 
 1. On the Identity Providers page in the Admin Console, select the **Routing Rules** tab.
 2. Click **Add Routing Rule**.
 3. Name the Rule, and then for the purposes of this example set two rule conditions:
-    * For **AND User is accessing**, select **Any of the following applications**, and then choose your Application. This routes any attempts to access the React sample to the Facebook IdP, but still allows you to access your Admin Console normally.
+    * For **AND User is accessing**, select **Any of the following applications**, and then choose your Application. This routes any attempts to access the <StackSelector snippet="applang" noSelector inline /> app to the Facebook IdP, but still allows you to access your Admin Console normally.
     * For **THEN Use this identity provider**, select the Facebook IdP that you added earlier, and then click **Create Rule**.
-4. A dialog box appears asking if you'd like to activate the rule. Select **Activate**.
-5. Return to the React sample at `localhost:8080` and click **Login**. You are redirected to the Facebook site, where you can sign in.
-6. After successful authentication, you are returned to the React sample's success page.
-7. From the Admin Console side navigation, under **Directory** > **People**, you should see the Facebook user that you just authenticated as a new user.
+4. A dialog box appears asking if you'd like to activate the rule. Click **Activate**.
+5. Start the <StackSelector snippet="applang" noSelector inline /> app and click <StackSelector snippet="appsignin" noSelector inline />. You are redirected to the Facebook site, where you can sign in.
+6. After successful authentication, you are returned to the <StackSelector snippet="applang" noSelector inline /> app's welcome page.

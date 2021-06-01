@@ -7,11 +7,6 @@ samples-android
 
 Progressive Profiling done
 
-----
-samples-js-angular
-
-Progressive Profiling done
-
 -------
 samples-aspnet
 
@@ -35,38 +30,7 @@ Progressive Profiling done
 ------
 samples-python-flask
 
-Progressive Profiling done
-
------
-samples-golang
-
-Progressive Profiling done
-
------
-samples-ios
-
-Progressive Profiling done - region doesn't show up on user's profile page - it's blank.
-
-------
-samples-java-micronaut
-
-Progressive Profiling done
-
-----
-samples-nodejs-express
-
-Progressive Profiling done
-
------
-samples-php
-
-Progressive Profiling done
-
------
-
-samples-react
-
-Progressive Profiling done
+IdP Not working
 
 -------
 samples-js-react-native (Android)
@@ -77,18 +41,7 @@ Progressive Profiling done
 
 samples-js-react-native (iOS)
 
-Progressive Profiling done
-
-------
-samples-java-spring
-
-Progressive Profiling done
-
-------
-samples-js-vue
-
-
-Progressive Profiling done
+IdP not working
 
 -----
 
