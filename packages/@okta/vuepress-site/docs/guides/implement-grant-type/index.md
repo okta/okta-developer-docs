@@ -1,11 +1,7 @@
 ---
-title: Implement Authorization grant-type flow
-excerpt: How to implement Authorization grant-type flow with Okta
+title: Implement Authorization by grant type
+excerpt: How to implement Authorization flows by grant type with Okta
 layout: Guides
 sections:
-- overview
-- setup-app
-- use-flow
-- one-page
-- next-steps
+- one-guide
 ---

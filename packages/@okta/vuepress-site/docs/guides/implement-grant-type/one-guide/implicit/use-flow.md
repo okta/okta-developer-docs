@@ -1,7 +1,3 @@
----
-title: Use the Implicit flow
----
-
 Using this flow is very similar to the [authorization code flow](/docs/guides/implement-auth-code/) except that the `response_type` is `token` and/or `id_token` instead of `code`.
 
 Your application redirects the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the default Custom Authorization Server, then your request URL would look something like this:
@@ -27,5 +23,3 @@ http://${yourOktaDomain}/#access_token=eyJhb[...]erw&token_type=Bearer&expires_i
 ```
 
 Your application must now extract the token(s) from the URI and store them.
-
-<NextSectionLink>Next Steps</NextSectionLink>
