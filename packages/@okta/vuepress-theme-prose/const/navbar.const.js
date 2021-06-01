@@ -97,6 +97,10 @@ export const concepts = [
         path: "/docs/concepts/social-login/"
       },
       {
+        title: "User Profiles",
+        path: "/docs/concepts/user-profiles/"
+      },
+      {
         title: "Understanding SAML",
         subLinks: [
           {
