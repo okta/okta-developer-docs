@@ -9,6 +9,8 @@ const path = require('path')
 //
 // Also blow up on sanity failures, so we can catch them at build time (even dev build)
 
+console.warn('====== build-guides-info.js ======');
+
 const GUIDE_ROOT = 'docs/guides';
 
 const getFrontMatterFrom = text => text.replace(/.*^---\s/m, '').replace(/^---[\s\S]*/m, '');
@@ -36,16 +38,34 @@ allGuidesMeta.guides.forEach( guide => {
   //   // try to parse directly as a 'section' (do the inside of forEach loop)
   //   const frameworks = getFrameworksFor(GUIDE_ROOT/guide)
   // fi
-
-  // iterate over the sections of this guide
-  // this is to fill in all frameworks used in the guide sections
-  guideMeta.sections.forEach( section => {
-    // TODO: Informatively blow up if no such section
+  if (guideMeta.sections) {
+    // parse as multi-section guide
+    // iterate over the sections of this guide
+    // this is to fill in all frameworks used in the guide sections
+    guideMeta.sections.forEach( section => {
+      // TODO: Informatively blow up if no such section
+      // load frontmatter yaml to JS for the index page of the sections of this guide
+      // .meta{}
+      const sectionMeta = getMetaFor(`${GUIDE_ROOT}/${guide}/${section}`);
+      // get all the directories under this section, count them each as a framework
+      const frameworks = getFrameworksFor(`${GUIDE_ROOT}/${guide}/${section}`);
+      if(!guideMeta.frameworks && frameworks.length) {
+        // set default if none
+        // (always runs on first iteration)
+        guideMeta.frameworks = frameworks;
+        guideMeta.mainFramework = guideMeta.mainFramework || frameworks[0];
+      } else if (guideMeta.frameworks && frameworks.length) {
+        // add more frameworks if defined in further sections
+        guideMeta.frameworks = Array.from( new Set([...guideMeta.frameworks, ...frameworks]));
+      }
+    });
+  } else {
+    // try to parse as single-page guide
     // load frontmatter yaml to JS for the index page of the sections of this guide
     // .meta{}
-    const sectionMeta = getMetaFor(`${GUIDE_ROOT}/${guide}/${section}`);
+    const sectionMeta = getMetaFor(`${GUIDE_ROOT}/${guide}`);
     // get all the directories under this section, count them each as a framework
-    const frameworks = getFrameworksFor(`${GUIDE_ROOT}/${guide}/${section}`);
+    const frameworks = getFrameworksFor(`${GUIDE_ROOT}/${guide}`);
     if(!guideMeta.frameworks && frameworks.length) {
       // set default if none
       // (always runs on first iteration)
@@ -55,25 +75,44 @@ allGuidesMeta.guides.forEach( guide => {
       // add more frameworks if defined in further sections
       guideMeta.frameworks = Array.from( new Set([...guideMeta.frameworks, ...frameworks]));
     }
-  });
+  }
+
   // If a guide had no frameworks in any section
   guideMeta.frameworks = guideMeta.frameworks || [];
+  
   // repeat now that we have a list of frameworks
-  guideMeta.sections.forEach( section => {
-    const sectionMeta = getMetaFor(`${GUIDE_ROOT}/${guide}/${section}`);
+  if (guideMeta.sections) {
+    guideMeta.sections.forEach( section => {
+      const sectionMeta = getMetaFor(`${GUIDE_ROOT}/${guide}/${section}`);
+      [...guideMeta.frameworks, '-'].forEach( framework => {
+        // here also we can put GUIDE_ROOT/guide/framework/ for single-page?
+        guideInfo[`/${GUIDE_ROOT}/${guide}/${framework}/${section}/`] = {
+          ...sectionMeta,
+          sectionTitle: sectionMeta.title,
+          guideTitle: guideMeta.title,
+          title: `${sectionMeta.title} - ${guideMeta.title}`,
+          toAdd: true, // used to flag additions compared to any existing page definitions
+          mainFramework: guideMeta.mainFramework,
+          filePath: path.resolve(__dirname, `../../${GUIDE_ROOT}/${guide}/${section}/index.md`)
+        };
+      });
+    });
+  } else {
+    const sectionMeta = getMetaFor(`${GUIDE_ROOT}/${guide}`);
     [...guideMeta.frameworks, '-'].forEach( framework => {
-      // here also we can put GUIDE_ROOT/guide/framework/ for single-page?
-      guideInfo[`/${GUIDE_ROOT}/${guide}/${framework}/${section}/`] = {
+      guideInfo[`/${GUIDE_ROOT}/${guide}/${framework}/`] = {
+        // elim sectionmeta or guidemeta here
         ...sectionMeta,
         sectionTitle: sectionMeta.title,
         guideTitle: guideMeta.title,
         title: `${sectionMeta.title} - ${guideMeta.title}`,
         toAdd: true, // used to flag additions compared to any existing page definitions
         mainFramework: guideMeta.mainFramework,
-        filePath: path.resolve(__dirname, `../../${GUIDE_ROOT}/${guide}/${section}/index.md`)
+        filePath: path.resolve(__dirname, `../../${GUIDE_ROOT}/${guide}/index.md`)
       };
     });
-  });
+  }
+
   guideInfo[`/${GUIDE_ROOT}/${guide}/`] = {...guideMeta};
 });
 
