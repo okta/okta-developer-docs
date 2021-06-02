@@ -4,18 +4,8 @@ excerpt: initial set up, sign in and enrollment sections
 layout: Guides
 ---
 
-samples-android
-
-IdP not working
-
 -------
 samples-js-react-native (Android)
-
-IdP not working
-
------
-
-samples-js-react-native (iOS)
 
 IdP not working
 
