@@ -205,7 +205,7 @@ Instead of signing in to Okta, it is possible to route users to an external Iden
 
 4. After you create the app, on the Add Products to Your App page, click **Set Up** on the **Facebook Login** tile.
 5. On the first page of the Quickstart, select **Web**.
-6. In the **Site URL** box, enter the Okta redirect URI. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the IdP. This is the URL where the IdP returns the authentication response (the access token and the ID token). For the <StackSelector snippet="applang" noSelector inline /> example, this is <StackSelector snippet="signinredirecturi" noSelector inline />.
+6. In the **Site URL** box, enter your Org URL (found in the global header located in the upper-right corner of the Admin Console). This URL can also be any URL that makes sense for your app.
 7. Click **Save**, click **Continue**, and then click **Next** until you exit the Quickstart wizard.
 
     > **Note:** Normally, under the "Facebook Login" **Settings** section, you would enter the **Valid OAuth Redirect URIs**, but Facebook automatically adds `localhost` redirects so this isn't required for this example.

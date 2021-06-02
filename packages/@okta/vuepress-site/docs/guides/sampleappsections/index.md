@@ -4,13 +4,6 @@ excerpt: initial set up, sign in and enrollment sections
 layout: Guides
 ---
 
--------
-samples-js-react-native (Android)
-
-IdP not working
-
------
-
 DO LAST
 samples-java-servlet
 
