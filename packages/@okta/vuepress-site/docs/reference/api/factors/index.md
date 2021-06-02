@@ -1112,6 +1112,9 @@ curl -v -X POST \
 
 #### Enroll Okta Verify TOTP Factor
 
+<ApiLifecycle access="ie" /><br>
+> **Note:** Although Okta Identity Engine supports users with multiple Okta Verify factors, multiple factors cannot be enrolled using the Factors API.
+
 Enrolls a user with an Okta `token:software:totp` factor. The factor must be [activated](#activate-totp-factor) after enrollment by following the `activate` link relation to complete the enrollment process.
 
 ##### Request example
@@ -1189,6 +1192,16 @@ curl -v -X POST \
 Enrolls a user with the Okta Verify `push` Factor. The Factor must be [activated on the device](#activate-push-factor) by scanning the QR code or visiting the activation link sent through email or SMS.
 
 > **Note:** Use the published activation links to embed the QR code or distribute an activation `email` or `sms`.
+
+##### Okta Identity Engine Features
+<ApiLifecycle access="ie" /><br>
+
+Although Okta Identity Engine supports several new Okta Verify features, these are not available when enrolling in Okta Verify using the Factors API:
+
+* Multiple Okta Verify Push factors for the same user may not be enrolled
+* The FIPS compliance requirement for enrollments is not enforced
+* The User Verification requirement for enrollments is not enforced
+* New enrollments are not mapped to a device
 
 ##### Request example
 
@@ -3060,6 +3073,9 @@ curl -v -X POST \
 #### Poll for verify transaction completion
 
 <ApiOperation method="get" url="/api/v1/users/${userId}/factors/${factorId}/transactions/${transactionId}" />
+
+<ApiLifecycle access="ie" /><br>
+> **Note:** The User Verification requirement available on the Okta Verify authenticator in Okta Identity Engine is not enforced when verifying Okta Verify Push with the Factors API.
 
 Polls a push verification transaction for completion. The transaction result is `WAITING`, `SUCCESS`, `REJECTED`, or `TIMEOUT`.
 

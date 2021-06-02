@@ -250,6 +250,8 @@ curl -v -H "Authorization: SSWS yourtoken" \
 ```
 ### Activate SMS
 
+<ApiLifecycle access="ie" /><br>
+> **Note:** Activating SMS is not supported on Okta Identity Engine.
 
 <ApiOperation method="post" url="/api/v1/org/factors/okta_sms/lifecycle/activate" />
 
@@ -301,6 +303,8 @@ curl -v -H "Authorization: SSWS yourtoken" \
 
 ### Deactivate SMS
 
+<ApiLifecycle access="ie" /><br>
+> **Note:** Deactivating SMS is not supported on Okta Identity Engine.
 
 <ApiOperation method="post" url="/api/v1/org/factors/okta_sms/lifecycle/deactivate" />
 
