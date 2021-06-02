@@ -216,6 +216,10 @@ export const guides = [
         title: "Authorization",
         subLinks: [
           {
+            title: "Implement Authorization by grant type",
+            guideName: "implement-grant-type"
+          },
+          {
             title: "Implement the Authorization Code flow",
             guideName: "implement-auth-code"
           },
@@ -234,10 +238,6 @@ export const guides = [
           {
             title: "Implement the Implicit flow",
             guideName: "implement-implicit"
-          },
-          {
-            title: "Implement Authorization by grant type",
-            guideName: "implement-grant-type"
           },
           { title: "Request user consent", guideName: "request-user-consent" },
           {

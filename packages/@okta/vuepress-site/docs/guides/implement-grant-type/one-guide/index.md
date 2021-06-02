@@ -1,42 +1,24 @@
 ---
-title: Implement Authorization flow
+title: Implement Authorization
 ---
 
-Select the Authorization grant type flow to implement: [Stack selector for:]
-* Authorization Code
-* Authorization Code with PKCE
-* Implicit (Hybrid)
-* Client Credentials
-* Resource Owner Password
+Select the Authorization grant-type flow to implement:
 
 ### Overview
 
-- Overview stack selector for grant type description
-When do we use this type of grant? (which sign-on method and app type, service?)
+<StackSelector snippet="overview" />
 
-<StackSnippet snippet="overview" />
+### Grant-type flows
 
-### Prerequisites
+<StackSelector snippet="flow-diagram" />
 
-- Prerequisite stack selector for grant type description and prerequisites
+### Flow usage
 
-### Grant Type Flow
-
-Sequence diagram stack selector for:
-
-* Authorization Code
-* Implicit
-* Authorization Code with PKCE
-* Client Credentials
-* Resource Owner Password
-
-<StackSnippet snippet="use-flow" />
+<StackSelector snippet="use-flow" />
 
 ### Set up your app
 
-- Link to App Wizard for instructions to create an app.
-
-<StackSnippet snippet="setup-app" />
+<StackSelector snippet="setup-app" />
 
 - Stack selector for App Wizard settings
 

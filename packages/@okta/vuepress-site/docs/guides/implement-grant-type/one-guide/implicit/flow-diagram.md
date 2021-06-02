@@ -1,0 +1,1 @@
+![Implicit flow width:](/img/oauth_implicit_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Implicit flow")

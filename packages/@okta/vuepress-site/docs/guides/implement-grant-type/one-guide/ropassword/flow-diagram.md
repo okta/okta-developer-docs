@@ -1,0 +1,1 @@
+![Resource Owner Password flow width:](/img/oauth_password_flow.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Resource Owner Password flow")
