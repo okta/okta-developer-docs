@@ -10,7 +10,7 @@ Within the same org, you need to set up two Native OpenID Connect (OIDC) client 
 1. Give the app integration a name, and then enter `com.first.sample:/callback` in the **Sign-in redirect URIs** box for the first app.
     > **Note:** When you create the second app, enter `com.second.sample:/callback`.
 1. Ensure that **Authorization Code** and **Refresh Token** are selected in the **Grant Type Allowed** section.
-1. Assign the group that you want (if you set [Group Assignments](/docs/reference/social-settings/) for your app) or leave the **Everyone** default. For instructions on how to assign the application to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
+1. Assign the group that you want (if you set [Group Assignments](/docs/reference/social-settings/) for your app) or leave the **Everyone** default. For instructions on how to assign the app integration to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
 1. Click **Save**.
 1. In the **General Settings** section, click **Edit**.
 1. In the **Login** section, click **Add URI** next to **Sign-out Redirect URIs**.

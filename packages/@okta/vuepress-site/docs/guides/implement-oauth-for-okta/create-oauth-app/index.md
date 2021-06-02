@@ -17,6 +17,6 @@ Create the client application that you want to use with the Okta APIs.
     > **Note:** You can leave the rest of the defaults as they work with this guide for testing purposes.
 
 1. Click **Done**. The settings page for the app integration appears, showing the **General** tab. Make note of the **Client ID** listed in the **Client Credentials** section at the bottom of the page. You need this in the <GuideLink link="../request-access-token">Request an access token</GuideLink> section.
-1. Click the **Assignments** tab and ensure that the right users are assigned to the app. For instructions on how to assign the application to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page-assign) topic in the Okta product documentation. For more information about which users have access to which scopes, see the <GuideLink link="../scopes">Scopes and supported endpoints</GuideLink> section.
+1. Click the **Assignments** tab and ensure that the right users are assigned to the app. For instructions on how to assign the app integration to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page-assign) topic in the Okta product documentation. For more information about which users have access to which scopes, see the <GuideLink link="../scopes">Scopes and supported endpoints</GuideLink> section.
 
 <NextSectionLink/>
