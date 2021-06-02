@@ -159,7 +159,7 @@ In addition to recovering your password with an email, you can also add Okta Ver
 
 ## Progressive Profiling
 
-> **Note:** To use Progressive Profiling, you must disable the `SELF_SERVICE_REGISTRATION` feature flag in your org. Contact [Support](https://support.okta.com/help/s/opencase).
+> **Note:** To use Progressive Profiling, you must disable the `SELF_SERVICE_REGISTRATION` feature flag in your org. Contact [Support](https://support.okta.com/help/s/opencase) if you need help with that.
 
 Okta now gives you the ability to check for what data is required from a user before they can access an app. For example, you can change the required user profile information for the same app, or handle SSO between two apps with different profile requirements. In this example, we add a required profile attribute, and the user we have already enrolled is asked for this information when they next authenticate.
 
@@ -187,7 +187,7 @@ When we enrolled our test user, the user was only prompted for first and last na
 
 > **Note:** You can check which User Attributes are required for your Directory by clicking the Information icon beside each Attribute. By default, **First name** and **Last name** are marked as required, in addition to what you specify in your Enrollment Policy.
 
-11. Now try to authenticate using one of the same users as in the previous steps. You are prompted with a **Region** field and a **Sign Up** button. After you add a value, you can confirm that it has been saved by accessing **Directory** > **People** in the Admin Console, locating the correct user, and selecting their **Profile** tab. If you try to register a new user, you see the **Region** field added to the **Create Account** page.
+11. Now try to authenticate using one of the same users as in the previous steps. You are prompted with a **Region** field and a **Sign Up** button. After you add a value, you can confirm that it is saved by accessing **Directory** > **People** in the Admin Console, locating the correct user, and selecting their **Profile** tab. If you try to register a new user, you see the **Region** field added to the **Create Account** page.
 
 ## Identity Provider routing to Facebook
 
@@ -205,7 +205,7 @@ Instead of signing in to Okta, it is possible to route users to an external Iden
 
 4. After you create the app, on the Add Products to Your App page, click **Set Up** on the **Facebook Login** tile.
 5. On the first page of the Quickstart, select **Web**.
-6. In the **Site URL** box, enter the Okta redirect URI. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the IdP. This is the URL where the IdP returns the authentication response (the access token and the ID token). In this example, this is <StackSelector snippet="signinredirecturi" noSelector inline />.
+6. In the **Site URL** box, enter the Okta redirect URI. The redirect URI sent in the authorize request from the client needs to match the redirect URI in the IdP. This is the URL where the IdP returns the authentication response (the access token and the ID token). For the <StackSelector snippet="applang" noSelector inline /> example, this is <StackSelector snippet="signinredirecturi" noSelector inline />.
 7. Click **Save**, click **Continue**, and then click **Next** until you exit the Quickstart wizard.
 
     > **Note:** Normally, under the "Facebook Login" **Settings** section, you would enter the **Valid OAuth Redirect URIs**, but Facebook automatically adds `localhost` redirects so this isn't required for this example.
@@ -252,5 +252,5 @@ Create a Routing Rule that automatically routes all authentication requests to F
     * For **AND User is accessing**, select **Any of the following applications**, and then choose your Application. This routes any attempts to access the <StackSelector snippet="applang" noSelector inline /> app to the Facebook IdP, but still allows you to access your Admin Console normally.
     * For **THEN Use this identity provider**, select the Facebook IdP that you added earlier, and then click **Create Rule**.
 4. A dialog box appears asking if you'd like to activate the rule. Click **Activate**.
-5. Start the <StackSelector snippet="applang" noSelector inline /> app and click <StackSelector snippet="appsignin" noSelector inline />. You are redirected to the Facebook site, where you can sign in.
+5. Start the <StackSelector snippet="applang" noSelector inline /> app in an incognito/private browser window and click <StackSelector snippet="appsignin" noSelector inline />. You are redirected to the Facebook site, where you can sign in.
 6. After successful authentication, you are returned to the <StackSelector snippet="applang" noSelector inline /> app's welcome page.

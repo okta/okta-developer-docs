@@ -3,39 +3,15 @@ title: Sample apps
 excerpt: initial set up, sign in and enrollment sections
 layout: Guides
 ---
+
 samples-android
 
-Progressive Profiling done
-
--------
-samples-aspnet
-
-Progressive Profiling done
-
--------
-samples-aspnetcore
-
-Progressive Profiling done
-
------
-samples-aspnet-webforms
-
-Progressive Profiling done
-
-------
-samples-blazor
-
-Progressive Profiling done
-
-------
-samples-python-flask
-
-IdP Not working
+IdP not working
 
 -------
 samples-js-react-native (Android)
 
-Progressive Profiling done
+IdP not working
 
 -----
 
