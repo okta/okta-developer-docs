@@ -1,6 +1,7 @@
 ---
 title: Guides overview
 guides:
+ - a-single-page-guide
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
