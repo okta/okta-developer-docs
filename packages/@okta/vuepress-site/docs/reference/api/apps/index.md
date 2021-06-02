@@ -6404,8 +6404,6 @@ Determines the refresh token rotation configuration for the OAuth 2.0 client.
 | rotation_type              | The refresh token rotation mode for the OAuth 2.0 client          | `STATIC` or `ROTATE` | FALSE |
 | leeway                     | The leeway allowed for the OAuth 2.0 client. After the refresh token is rotated, the previous token remains valid for the configured amount of time to allow clients to get the new token.                                           | Number               | TRUE |
 
-* Refresh token rotation is an <ApiLifecycle access="ea" /> feature.
-
 * When you create or update an OAuth 2.0 client, you can configure refresh token rotation by setting the `rotation_type` and `leeway` properties within the `refresh_token` object. If you don't set these properties, the default values are used when you create an app and your previously configured values are used when you update an app.
 
 * The default `rotation_type` value is `ROTATE` for Single-Page Applications (SPAs). For all other clients, the default is `STATIC`.
