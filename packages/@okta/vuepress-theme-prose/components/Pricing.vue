@@ -70,9 +70,9 @@
             </div>
             <div class="pricing-card">
               <div class="pricing-card-top">
-                <h3>Enterprise</h3>
+                <h3>Custom</h3>
                 <p class="pricing-card-amount">
-                  Custom
+                  Contact Sales
                 </p>
                 <p class="pricing-card-subtitle">
                   Okta's most advanced offering for production deployments
@@ -86,7 +86,7 @@
               </div>
               <div class="pricing-card-bottom">
                 <p>
-                  All advanced plan, plus
+                  Custom package with access to
                 </p>
                 <ul>
                   <li>Unlimited monthly active users</li>
