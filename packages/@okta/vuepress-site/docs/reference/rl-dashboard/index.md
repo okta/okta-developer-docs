@@ -50,7 +50,7 @@ The rate limit dashboard provides data use information for the endpoint based on
 
 ### Overview pane
 
-The Overview pane provides a summary of the data use for the specified endpoint. The following information on data use is displayed:
+The Overview pane provides a summary of the data use for the specified endpoint. The following information on data use appears:
 
 * Rate Limit: The rate limit for this endpoint per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation.
 * Latest Utilization: The latest use of the endpoint, which includes the endpoint and its sub-endpoints, as of the specified time
