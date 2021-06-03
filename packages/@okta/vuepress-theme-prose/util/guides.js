@@ -75,25 +75,41 @@ const recordSnippetMeta = ({ section, page, framework, guideName, sectionName, s
 
 const recordMeta = ({ guidesInfo, page }) => { 
   const guideParts = new RegExp(`^${FRAGMENTS}${PATH_LIKE}${PATH_LIKE}${PATH_LIKE}${FILE_LIKE}`);
+  // look in here \/ -- doesn't seem to like the single page guide paths
+  // regex : ^\/docs\/guides\/(?:([^/]*)\\/?)(?:([^/]*)\\/?)(?:([^/]*)\\/?)(?:([^./]*).?[^./]*$)
+  // /docs/guides/a-single-page-guide/
+  // /docs/guides/a-single-page-guide/apple/snippet-a.html
+  //
+  // /docs/guides/add-an-external-idp/configure-idp-in-okta/
+  // /docs/guides/add-an-external-idp/configure-idp-in-okta/azure/afterappidpinokta.html
   const [,guideName, sectionName, framework, snippet] = page.regularPath.match(guideParts);
   const isGuidesMeta = !guideName;
   const isGuideMeta = guideName && !sectionName;
   const isSectionMeta = sectionName && !framework;
 
   // data for all guides
-  if(isGuidesMeta) { return recordGuidesMeta({ guidesInfo, page }); }
+  if(isGuidesMeta) { 
+    // /docs/guides
+    return recordGuidesMeta({ guidesInfo, page }); 
+  }
 
   // data for this guide
   guidesInfo.byName[guideName] = guidesInfo.byName[guideName] || { sectionByName: {}, mainFramework: '' };
   const guide = guidesInfo.byName[guideName];
 
-  if(isGuideMeta) { return recordGuideMeta({ guide, page, guideName, framework }); }
+  if(isGuideMeta) { 
+    // /docs/guides/mfa
+    return recordGuideMeta({ guide, page, guideName, framework }); 
+  }
 
   // data for this section
 
   guide.sectionByName[sectionName] = guide.sectionByName[sectionName] || {};
   const section = guide.sectionByName[sectionName];
-  if(isSectionMeta) { return recordSectionMeta({ section, page, guideName, sectionName }); }
+  if(isSectionMeta) { 
+    // /docs/guides/migrate-to-okta/bulk-migration-with-credentials/
+    return recordSectionMeta({ section, page, guideName, sectionName }); 
+  }
 
   // data about the frameworks in this section
   return recordSnippetMeta({ section, page, framework, guideName, sectionName, snippet });

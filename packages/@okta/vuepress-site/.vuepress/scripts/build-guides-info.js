@@ -116,6 +116,8 @@ allGuidesMeta.guides.forEach( guide => {
   guideInfo[`/${GUIDE_ROOT}/${guide}/`] = {...guideMeta};
 });
 
+console.warn(guideInfo);
+
 const additionalPagesForGuides = () => {
   return Object.entries(guideInfo)
     .filter( ([, info]) => info.toAdd )
