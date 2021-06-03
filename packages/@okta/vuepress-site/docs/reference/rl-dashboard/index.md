@@ -32,11 +32,11 @@ You can investigate high usage of a rate limit or a rate limit violation. After 
 
 When a rate limit violation occurs, you're notified in the following ways and can access the rate limits dashboard from the link in the notification:
 
-* You receive a rate limit email that informs you that you've hit a rate limit for an endpoint. Click **View utilization history** in the email to navigate to the Rate Limits Dashboard and System Log for that particular endpoint.
+* You receive a rate limit email that informs you that you've hit a rate limit for an endpoint. Click **View utilization history** in the email to navigate to the rate limits dashboard and System Log for that particular endpoint.
 
 ![Access the dashboard by email notification](/img/RLDashboard1.png "Displays the email notification of a rate limit violation with the link to the endpoint's rate limit dashboard")
 
-* You've hit a rate limit when you're in the Admin Console, and a banner appears to inform you. Click **utilization history** in the banner to open the Rate Limits Dashboard for that particular endpoint or **syslog** to open the System Log.
+* You've hit a rate limit when you're in the Admin Console, and a banner appears to inform you. Click **utilization history** in the banner to open the rate limits dashboard for that particular endpoint or **syslog** to open the System Log.
 
 ![Access the dashboard by link in the banner](/img/RLDashboard2.png "Displays the banner in the dashboard that notifies you of a rate limit violation with the link to the endpoint's rate limit dashboard")
 
@@ -52,9 +52,9 @@ The rate limit dashboard provides data usage information for the endpoint based 
 
 The Overview pane provides a summary of the data use for the specified endpoint. The following information on data use is displayed:
 
-* Rate Limit: The rate limit for this bucket per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation.
-* Latest Utilization: The latest use of the bucket, which includes the endpoint and its sub-endpoints, as of the specified time
-* Average Utilization: The average use of the bucket within the last 24 hours and the last hour
+* Rate Limit: The rate limit for this endpoint per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation.
+* Latest Utilization: The latest use of the endpoint, which includes the endpoint and its sub-endpoints, as of the specified time
+* Average Utilization: The average use of the endpoint within the last 24 hours and the last hour
 * Downtime: The amount of time that the org is affected by a rate limit violation on this endpoint
 
 ### Rate limit multiplier
@@ -73,7 +73,7 @@ The Rate limit utilization over time pane comprises the line graph, bar graph, a
 
 #### Line graph
 
-The line graph shows the total number of requests and the number of unique IPs over the past hour for the bucket if the **Total Requests** and **# of Unique IPs** toggle buttons are enabled. If an IP address is selected in the bar graph, the line graph also shows the traffic from that IP address.
+The line graph shows the total number of requests and the number of unique IPs over the past hour for the endpoint if the **Total Requests** and **# of Unique IPs** toggle buttons are enabled. If an IP address is selected in the bar graph, the line graph also shows the traffic from that IP address.
 
 Each data point represents how many times the endpoint was called within that one-minute window. You can select a point in the line graph to see which IPs were making requests at that time. If there's a spike in the rate limit usage, you can hover over the line graph and view the number of requests and the number of unique IPs in the past hour.
 
