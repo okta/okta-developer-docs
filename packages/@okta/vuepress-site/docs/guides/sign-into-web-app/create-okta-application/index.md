@@ -14,12 +14,13 @@ Before you can sign a user in, you need to create an Okta app integration that r
     > **Note:** It is important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients aren't designed to have, and would break the sign-in or sign-out flow.
 1. Enter a name for your app integration (or leave the default value).
 1. Enter values for the **Sign-in redirect URIs**. This is the callback described in <GuideLink link="../define-callback">Understand the callback route</GuideLink>. Add values for local development (for example, `http://localhost:8080/authorization-code/callback`) and production (for example, `https://app.example.com/authorization-code/callback`).
-1. Include a URI in the **Initiate login URI** box to have Okta initiate the sign-in flow. When Okta redirects to this endpoint (for example, `https://example:0000.com/login`), the client is triggered to send an authorize request. This URI is also used when users reset their passwords while signing in to the app. Okta redirects the user back to this URI after the password is reset so that the user can continue to sign in.
 1. Add the **Base URI** of your application during local development, such as `http://localhost:3000`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`.
+1. Assign the group that you want (if you set [Group Assignments](/docs/reference/social-settings/) for your app) or leave the **Everyone** default. For instructions on how to assign the app integration to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
 1. Click **Save** to finish creating the Okta app integration.
 1. On the **General** tab, the **Client Credentials** section shows the client ID and client secret values for your app integration.
 1. Copy the **Client ID** and **Client secret** values using the **Copy to Clipboard** button beside each text field.
 You need to copy some values into your application later, so leave your Admin Console open.
+1. In the **General Settings** section, click **Edit** and scroll down to **Login**. Include a URI in the **Initiate login URI** box to have Okta initiate the sign-in flow. When Okta redirects to this endpoint (for example, `https://example.com/login`), the client is triggered to send an authorize request. This URI is also used when users reset their passwords while signing in to the app. Okta redirects the user back to this URI after the password is reset so that the user can continue to sign in.
 
 ## Enable refresh token rotation
 
