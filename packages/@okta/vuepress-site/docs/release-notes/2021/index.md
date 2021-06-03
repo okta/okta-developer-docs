@@ -42,7 +42,7 @@ Additionally, you can set or update the **Logo** or **Notes** fields for any of 
 
 #### Retrieving applications by catalog name is now available
 
-You can now look up apps by their catalog name using the Apps API. Use a `name` expression (for example: `name eq ":name"`) with the `filter` parameter to search for apps by catalog name on the `/apps` endpoint. <!--OKTA-391038-->
+You can now look up apps by their catalog name using the [Apps API](/docs/reference/api/apps/). Use a `name` expression (for example: `name eq ":name"`) with the `filter` parameter to search for apps by catalog name on the `/apps` endpoint. <!--OKTA-391038-->
 
 #### The `application.lifecycle.create` event is now generated for OIDC Apps
 
