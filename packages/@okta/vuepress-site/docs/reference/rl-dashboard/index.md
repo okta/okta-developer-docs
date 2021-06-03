@@ -59,7 +59,7 @@ The Overview pane provides a summary of the data use for the specified endpoint.
 
 ### Rate limit multiplier
 
-A customer can additionally purchase the rate limit multiplier, which is an add-on feature that allows the customer to multiply an existing rate limit to. For example, three times the current rate limit.
+A customer can additionally purchase the rate limit multiplier, which is an add-on feature that allows the customer to multiply an existing rate limit. For example, three times the current rate limit.
 
 ![Summary of the rate limit utilization over time pane](/img/RLDashboard4.png "Displays the line graph, bar graph, and timeline graph")
 
