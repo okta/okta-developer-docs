@@ -1359,7 +1359,7 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
   * `prompt` - a query parameter that is used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
   * `consent_method` - An [application](/docs/reference/api/apps/#settings-7) property that allows you to determine whether a client is fully trusted (for example, a first-party application) or requires consent (for example, a third-party application).
-  * `consent` - a property on Scopes as listed in the table above. Allows you to individually enable and disable user consent for a scope.
+  * `consent` - a Scope property, listed in the previous table, that allows you to enable or disable user consent for an individual scope.
 
   | `prompt` Value   | `consent_method`        | `consent`                            | Result       |
   | :--------------- | :---------------------- | :----------------------------------- | :----------- |
