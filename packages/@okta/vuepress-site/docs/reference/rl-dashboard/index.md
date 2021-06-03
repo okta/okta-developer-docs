@@ -79,7 +79,7 @@ Each data point represents how many times the endpoint was called within that on
 
 #### Timeline graph
 
-The timeline graph shows the usage over the last week. When a rate violation occurs, you can select a day from the past week in the drop-down menu on the timeline graph and compare the same point in time with a day from the past week.
+The timeline graph shows use over the last week. When a rate violation occurs, you can select a day from the past week from the drop-down menu on the timeline graph and compare the same point in time with a day from the past week.
 
 #### Bar graph
 
