@@ -111,16 +111,21 @@ export default {
             current.subLinks = [];
             const guide = guidesInfo.byName[current.guideName];
             if (guide && guide.sections) {
-              guide.sections.forEach(section => {
-                current.subLinks.push({
-                  title: section.title,
-                  path: section.makeLink(
-                    guide.frameworks.includes(framework)
-                      ? framework
-                      : guide.mainFramework
-                  )
+              if (guide.sections[0].name === 'single-page') {
+                current.title = guide.sections[0].title;
+                current.path = guide.sections[0].makeLink(guide.frameworks.includes(framework) ? framework : guide.mainFramework);
+              } else {
+                guide.sections.forEach(section => {
+                  current.subLinks.push({
+                    title: section.title,
+                    path: section.makeLink(
+                      guide.frameworks.includes(framework)
+                        ? framework
+                        : guide.mainFramework
+                    )
+                  });
                 });
-              });
+              }
             }
           }
           current = queue.pop();
