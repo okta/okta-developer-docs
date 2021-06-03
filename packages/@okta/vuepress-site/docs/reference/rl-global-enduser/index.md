@@ -38,10 +38,10 @@ This page provides the API rate limits for authentication and end-user activitie
 | `/login/token/redirect`                                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 | <ApiLifecycle access="ie" /> **Identity Engine APIs:**                                                                            |               |               |      |         |                    |
 | `/idp/idx`                                                                                                     | 100              | 600              | 600     | 600        | 1,200                   |
-| `/idp/idx/introspect`                                                                                                     | 150              | 900              | 900     | 900        | 900                   |
 | `/idp/idx/identify`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
-| `/idp/idx/authenticators/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
+| `/idp/idx/introspect`                                                                                                     | 150              | 900              | 900     | 900        | 900                   |
 | `/idp/idx/challenge/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
+| `/idp/idx/authenticators/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
 | `/idp/idx/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
 | Identity Engine App Intent                                                                                                     | 150              | 900              | 900     | 900        | 900                   |
 
