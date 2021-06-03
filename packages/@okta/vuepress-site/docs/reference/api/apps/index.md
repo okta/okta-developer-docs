@@ -1541,7 +1541,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 | --------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
 | after     | Specifies the pagination cursor for the next page of apps                                                        | Query      | String   | FALSE    |         |
 | expand    | Traverses the `users` link relationship and optionally embeds the [Application User](#application-user-object) resource   | Query      | String   | FALSE    |         |
-| filter    | Filters apps by `status`, `user.id`, `group.id`, `credentials.signing.kid` or `name` expression                  | Query      | String   | FALSE    |         |
+| filter    | Filters apps by `status`, `user.id`, `group.id`, `credentials.signing.kid`, or `name` expression                  | Query      | String   | FALSE    |         |
 | limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
 | q         | Searches the `name` or `label` property of applications using `startsWith` that matches what the string starts with to the query                              | Query      | String   | FALSE    |         |
 
