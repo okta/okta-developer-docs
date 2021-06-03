@@ -85,7 +85,7 @@ The timeline graph shows use over the last week. When a rate violation occurs, y
 
 The **Top Requests by IP** bar graph shows the top 10 IP addresses that are consuming the most traffic for the endpoint. This view enables you to check if there is a single IP or multiple IPs that are creating the spike in traffic.
 
-Click once on an IP address bar to view the traffic for that IP address on the line graph. Double-click on any IP address bar to view the traffic for all the IP addresses on the line graph.
+Click an IP address bar once to view the traffic for that IP address on the line graph. Double-click any IP address bar to view the traffic for all the IP addresses on the line graph.
 
 ## Investigate the rate limit violation
 
