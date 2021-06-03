@@ -117,7 +117,7 @@ export default {
               // Special value for guide that only has one section and should be
               // linked at the parent
               if (firstSection.name === 'main') {
-                current.title = guide.title;
+                current.title = firstSection.title;
                 current.path = firstSection.makeLink(guide.frameworks.includes(framework) ? framework : guide.mainFramework);
               } else {
                 guide.sections.forEach(section => {
