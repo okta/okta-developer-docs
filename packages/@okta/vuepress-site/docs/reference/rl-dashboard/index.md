@@ -75,7 +75,7 @@ The Rate limit utilization over time pane comprises the line graph, bar graph, a
 
 The line graph shows the total number of requests and the number of unique IPs over the past hour for the endpoint if the **Total Requests** and **# of Unique IPs** toggle buttons are enabled. If an IP address is selected in the bar graph, the line graph also shows the traffic from that IP address.
 
-Each data point represents how many times the endpoint was called within that one-minute window. You can select a point in the line graph to see which IPs were making requests at that time. If there's a spike in the rate limit usage, you can hover over the line graph and view the number of requests and the number of unique IPs in the past hour.
+Each data point represents how many times the endpoint was called within that one-minute window. You can select a point in the line graph to see which IPs were making requests at that time. If there's a spike in the rate limit use, you can hover over the line graph and view the number of requests and the number of unique IPs in the past hour.
 
 #### Timeline graph
 
