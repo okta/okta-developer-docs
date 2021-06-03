@@ -139,6 +139,7 @@ In this case, you would like to use the Widget to sign in to a simple web page a
     <script type="text/javascript">
       const oktaSignIn = new OktaSignIn({
         baseUrl: "https://${yourOktaDomain}",
+        redirectUri: '{{redirectUri configured in OIDC app}}',
         clientId: "${yourClientId}",
         authParams: {
           issuer: "https://${yourOktaDomain}/oauth2/default"
