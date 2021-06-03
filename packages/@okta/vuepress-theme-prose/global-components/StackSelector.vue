@@ -113,7 +113,7 @@
           return this.options.find(option => option.framework === this.framework)
         },
         set: function (selectedOption) {
-          // no-op for silencing computed property assignemnt(by vue-select) warning
+          // no-op for silencing computed property assignment(by vue-select) warning
         }
       }
     },
