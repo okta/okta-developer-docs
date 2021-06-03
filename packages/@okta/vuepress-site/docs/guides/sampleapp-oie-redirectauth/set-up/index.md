@@ -34,7 +34,7 @@ To get started, you need to create an Okta OAuth app to represent the <StackSele
       **Sign-out redirect URIs** &mdash; <StackSelector snippet="signoutredirecturi" noSelector inline />
 
    * In the **Assignments** section, select **Allow everyone in your organization to access**. This assigns all Users in the Everyone Group to the app. You must assign the app to either the Everyone Group or a custom Group that you create so that profile enrollment functions correctly.
-5. On the new Application page, click the "Copy to clipboard" icon to copy the <StackSelector snippet="clientidsd" noSelector inline />. Store this information temporarly for use when you <StackSelector snippet="configfile" noSelector inline /> in the next section.
+5. On the new Application page, click the "Copy to clipboard" icon to copy the <StackSelector snippet="clientidsd" noSelector inline />. Store this information temporarily for use when you <StackSelector snippet="configfile" noSelector inline /> in the next section.
 
 <StackSelector snippet="corsissuer" noSelector />
 
@@ -65,7 +65,7 @@ This section walks you through enrolling a user and authenticating that user.
 
 This section walks you through enabling self-service enrollment for the Sign-In Widget and then trying self-service enrollment with a user.
 
-> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above.
+> **Note:** This section assumes that you followed the "Initial set up" and "Simple enrollment and authentication" sections above. The steps may be different if you didn't.
 
 1. In the Admin Console, select **Security** > **Profile Enrollment**, and then select **Add New Profile Enrollment Policy**.
 2. Give your Policy a **Name** and then click **Save**.
@@ -95,7 +95,7 @@ This section walks you through the self-service enrollment steps for a new user.
 
 ## Add MFA with a mandatory second factor
 
-You can now modify the Application's Sign-On Policy to require the user to have a second factor enabled for authentication. In this example, we use the Phone Authenticator.
+You can modify the Application's Sign-On Policy to require the user to have a second factor enabled for authentication. In this example, we use the Phone Authenticator.
 
 > **Note:** Your Okta org may have different Authenticators enabled by default.
 
@@ -103,11 +103,9 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 
 1. Ensure that your org has the Phone authenticator enabled by going to **Security** > **Authenticators** and checking that **Phone** is listed.
 
-    If it isn't listed, add it by doing the following:
-    * Click **Add Authenticator**.
-    * Click **Add** in the **Phone** authentication box.
-    * Leave **Authentication (MFA/SSO)** selected in the **Add Phone** dialog box.
-    * Click **Add**.
+    If it isn't listed, add it:
+    * Click **Add Authenticator**, and then click **Add** in the **Phone** authentication box.
+    * Leave **Authentication (MFA/SSO)** selected in the **Add Phone** dialog box, and click **Add**.
 
 2. From the side navigation, select **Applications** > **Applications** and then select the Okta OAuth app that you created to represent the <StackSelector snippet="applang" noSelector inline /> app.
 3. Select the **Sign On** tab.
@@ -119,8 +117,8 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 
 <StackSelector snippet="tryenrollin" noSelector />
 
-3. Enter the credentials of the user that you enrolled earlier.
-4. The Set up authentications page appears, which prompts you to set up either the Okta Verify or the Phone authenticator. Under **Phone**, click **Set up**.
+3. Enter the credentials of the user that you enrolled earlier. The Set up authentications page appears, which prompts you to set up either the Okta Verify or the Phone authenticator.
+4. Under **Phone**, click **Set up**.
 5. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> welcome page.
 6. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
@@ -128,19 +126,19 @@ You can now modify the Application's Sign-On Policy to require the user to have 
 
 In your org, Password reset is configured by default to be initiated with an email. The steps in this section assume that you haven't changed that default configuration.
 
-You can try out the email password recovery flow:
+Try out the email password recovery flow:
 
 1. Select **Forgot password?** in the Sign-In Widget.
 1. Enter your email or username when prompted and click **Next**.
 1. Click **Select** for the Email authenticator. An OTP code is sent to your email address.
-1. Make sure to manually copy the code from the email and paste it into the Sign-In Widget.
+1. Manually copy the code from the email and paste it into the Sign-In Widget.
 1. After you paste the code, answer the security question that appears. You are then prompted to enter a new password.
-1. After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in the last section. Then, you are directed to the <StackSelector snippet="applang" noSelector inline /> welcome page.
+1. After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in the last section. Then, you are redirected to the <StackSelector snippet="applang" noSelector inline /> welcome page.
 1. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ### Recovery with Okta Verify
 
-In addition to recovering your password with an email, you can also add Okta Verify as a recovery option.
+In addition to recovering your password with an email, you can add Okta Verify as a recovery option.
 
 1. Go to **Security** > **Authenticators**.
 2. Click **Actions** beside the Password Authenticator, and then click **Edit**.
@@ -154,7 +152,7 @@ In addition to recovering your password with an email, you can also add Okta Ver
 10. Enter the email address of the user that you just created with Okta Verify as a factor, and then click **Next**.
 11. On the next page, click **Select** beside **Get a push notification**. You should receive a push notification in Okta Verify. Respond appropriately.
 12. Enter the answer to your security question, and then you are asked to reset your password.
-13. When you finish, the <StackSelector snippet="applang" noSelector inline /> welcome page should appear.
+13. When you finish, the <StackSelector snippet="applang" noSelector inline /> welcome page appears.
 14. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
 
 ## Progressive Profiling
@@ -191,7 +189,7 @@ When we enrolled our test user, the user was only prompted for first and last na
 
 ## Identity Provider routing to Facebook
 
-Instead of signing in to Okta, it is possible to route users to an external Identity Provider (IdP) instead, using Okta's IdP Routing rules.
+Instead of signing in to Okta, it is possible to route users to an external Identity Provider (IdP) using Okta's IdP Routing Rules.
 
 > **Note:** For B2B scenarios, you may want to add a SAML 2.0 Identity Provider rather than a social Identity Provider. See [Add an external Identity Provider](/docs/guides/add-an-external-idp/saml2/before-you-begin/).
 
@@ -208,7 +206,7 @@ Instead of signing in to Okta, it is possible to route users to an external Iden
 6. In the **Site URL** box, enter your Org URL (found in the global header located in the upper-right corner of the Admin Console). This URL can also be any URL that makes sense for your app.
 7. Click **Save**, click **Continue**, and then click **Next** until you exit the Quickstart wizard.
 
-    > **Note:** Normally, under the "Facebook Login" **Settings** section, you would enter the **Valid OAuth Redirect URIs**, but Facebook automatically adds `localhost` redirects so this isn't required for this example.
+    > **Note:** Normally, under the **Facebook Login** > **Settings** section, you would enter the **Valid OAuth Redirect URIs**, but Facebook automatically adds `localhost` redirects so this isn't required for this example.
 
 8. On the App's Dashboard page, expand **Settings** on the left side of the page, and then click **Basic**.
 9. Save the **App ID** and the **App Secret** values so that you can add them to the Okta configuration in the next section.
@@ -237,12 +235,12 @@ To connect your org to the IdP, add and configure that IdP in Okta.
 4. Click **Add Identity Provider**. The Identity Provider page appears.
 5. Locate the IdP that you just added and click the arrow next to the IdP name to expand.
 6. Copy the **Redirect URI** (ending in `/callback`).
-7. On the page for your Facebook App, under **Facebook Login**, select **Settings** and add the redirect URI that you just copied to the **Valid OAuth Redirect URIs**.
+7. On the page for your Facebook App, under **Facebook Login**, select **Settings** and add the redirect URI that you just copied to the **Valid OAuth Redirect URIs** box.
 8. Click **Save Changes**.
 
 ### Create the Routing Rule
 
-> **Note:** These steps assume that you have no other Routing Rules defined. The steps in this section may be different if you have existing Routing Rules for the Identity Provider.
+> **Note:** These steps assume that you have no other Routing Rules defined. The following steps may be different if you have existing Routing Rules for the Identity Provider.
 
 Create a Routing Rule that automatically routes all authentication requests to Facebook.
 
@@ -251,6 +249,6 @@ Create a Routing Rule that automatically routes all authentication requests to F
 3. Name the Rule, and then for the purposes of this example set two rule conditions:
     * For **AND User is accessing**, select **Any of the following applications**, and then choose your Application. This routes any attempts to access the <StackSelector snippet="applang" noSelector inline /> app to the Facebook IdP, but still allows you to access your Admin Console normally.
     * For **THEN Use this identity provider**, select the Facebook IdP that you added earlier, and then click **Create Rule**.
-4. A dialog box appears asking if you'd like to activate the rule. Click **Activate**.
+4. Click **Activate** in the dialog box that appears.
 5. Start the <StackSelector snippet="applang" noSelector inline /> app in an incognito/private browser window and click <StackSelector snippet="appsignin" noSelector inline />. You are redirected to the Facebook site, where you can sign in.
 6. After successful authentication, you are returned to the <StackSelector snippet="applang" noSelector inline /> app's welcome page.
