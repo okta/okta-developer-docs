@@ -99,7 +99,7 @@ The line graph can show the number of unique IPs that are creating traffic at a 
 
 ### Combination of the line graph and timeline graph view
 
-The timeline graph gives you an overview of the usage from the days in the past week so that you can drill in to other time periods from the previous week. You can select one day at a time within the past week from the drop-down menu and view use one hour at a time in the line graph. These views enable you to understand whether this rate limit was an abnormal spike in usage compared to fairly regular usage up to that point in time.
+The timeline graph gives you an overview of use from the days in the past week so that you can drill in to other time periods from the previous week. You can select one day at a time within the past week from the drop-down menu and view use one hour at a time in the line graph. These views enable you to understand whether this rate limit was an abnormal spike in use compared to fairly regular use up to that point in time.
 
 ### Bar graph view
 
