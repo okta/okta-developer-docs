@@ -921,7 +921,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 
 **Notes:**
 
-* Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
+* Apps created by `/api/v1/apps` default to `consent_method=TRUSTED`, while those created by `/api/v1/clients` default to `consent_method=REQUIRED`.
 * If you request a Scope that requires consent while using the `client_credentials` flow, an error is returned. Since there is no user, consent can't be given.
 * If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
 * The Scope name must only contain printable ASCII except for spaces, double quotes, and backslashes. It also must not start with `okta.` or `okta:` and must not be only `okta` or `*`.
