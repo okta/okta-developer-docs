@@ -63,7 +63,7 @@ A customer can additionally purchase the rate limit multiplier, which is an add-
 
 ![Summary of the rate limit utilization over time pane](/img/RLDashboard4.png "Displays the line graph, bar graph, and timeline graph")
 
-The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, is not to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected usage would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the Overview pane indicates which tier was purchased, and the graphs in the [Rate limit utilization over time pane] will reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
+The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, is not to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected usage would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the Overview pane indicates which tier was purchased, and the graphs in the [Rate limit utilization over time pane] reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
 
 ### Rate limit utilization over time pane
 
