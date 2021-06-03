@@ -50,9 +50,9 @@ These rate limits apply to all new Okta organizations. For orgs created before 2
 ### End-user rate limits
 
 Okta limits the number of requests:
-* From the Admin Console and the End-User Dashboard, to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other and from other API requests in the system.
+* To the Admin Console and the End-User Dashboard, to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other and from other API requests in the system.
 
-* From the Identity Engine, to 20 requests per user per 5 seconds and 10 requests per state token per 5 seconds. <ApiLifecycle access="ie" />
+* To the Identity Engine, to 20 requests per user per 5 seconds and 10 requests per state token per 5 seconds. <ApiLifecycle access="ie" />
 
 If a user exceeds this limit, they receive an HTTP 429 error response without affecting other users in your org. A message is written to the System Log that indicates that the end-user rate limit was encountered.
 
