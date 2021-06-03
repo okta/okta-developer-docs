@@ -1,5 +1,5 @@
 ---
-title: Title in Main
+title: My Single-page Guide
 ---
 Single page guide exmple
 
