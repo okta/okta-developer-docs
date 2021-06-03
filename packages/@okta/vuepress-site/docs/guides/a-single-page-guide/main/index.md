@@ -1,5 +1,5 @@
 ---
-title: Create an App at the Identity Provider
+title: Title in Main
 ---
 Single page guide exmple
 

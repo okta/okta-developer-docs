@@ -1,8 +1,8 @@
 ---
-title: A single page guide
+title: Title on Guide
 meta:
   - name: description
     content: Content description
 sections:
-  - single-page
+  - main
 ---
