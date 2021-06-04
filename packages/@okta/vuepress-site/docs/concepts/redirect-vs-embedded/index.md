@@ -29,10 +29,6 @@ This authentication model is easy to implement, secure, and requires minimal mai
 
 An example of this flow is an organization using Okta as its Identity Provider. A user signs into an organization's on-site or cloud-based application (for example, email) and is redirected to the corporate Identity Provider, Okta, to provide sign-in and authentication. An authenticated user is then provided with a token or assertion, which provides the user access to their original application. With this existing Okta session, using SSO, the user is automatically logged into any other of the organization's service provider applications (CRM, IT, HR, and so on).
 
-In a simplified detail, the following diagram illustrates the redirect authentication flow:
-
-![Simplified Redirect Authentication](/img/fed-auth-simplified.png "Simplified Redirect Authentication flow diagram")
-
 The interactions and communication with the Identity Provider are as follows:
 
 <!--
@@ -72,10 +68,6 @@ Embedded authentication is the process of authenticating user credentials direct
 With embedded authentication, the user’s credentials are directly obtained by the client application and validated by API calls to Okta, generally through the customer-hosted Sign-in Widget. Based on the organization’s requirements, the client application then creates a session for user access. The client application may also exchange tokens with a Security Token Service (STS) to provide SSO access to other service providers (CRM, IT, HR, and so on). Using this deployment model, the client’s sign-in page can render native user experiences and use native platform APIs.
 
 This deployment model does require more effort to implement and includes increased risk. However, it provides a deeper scope of customization and keeps users in the application with reduced redirects to Okta.
-
-In simplified details, the following diagram illustrates the embedded authentication flow:
-
-![Simplified Direct Authentication](/img/direct-auth-simplified.png "Simplified Direct Authentication flow diagram")
 
 The detailed interactions at the client level between a client’s authorization server and resource owner are provided below:
 
