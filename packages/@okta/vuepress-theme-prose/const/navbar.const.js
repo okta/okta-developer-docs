@@ -471,7 +471,8 @@ export const languagesSdk = [
           { title: "Python", path: "/code/python/" },
           { title: "REST", path: "/code/rest/" }
         ]
-      }
+      },
+      { title: "Identity Engine SDKs & Samples", path: "/code/oie/" }
     ]
   }
 ];
