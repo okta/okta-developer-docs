@@ -389,7 +389,7 @@ module.exports = ctx => ({
     }
   },
   async ready() {
-    if (process.env.TEST_ENV) {
+    if (!process.env.PROD_ENV) {
       ctx.pages.forEach((page) => {
         if (!page.frontmatter['meta']) {
           page.frontmatter['meta'] = []
