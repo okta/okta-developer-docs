@@ -5,6 +5,7 @@ cd ${OKTA_HOME}/${REPO}/packages/@okta/vuepress-site
 DEPLOY_ENVIRONMENT=""
 export REGISTRY_REPO="npm-topic"
 export REGISTRY="${ARTIFACTORY_URL}/api/npm/${REGISTRY_REPO}"
+export TEST_ENV="true"
 
 declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod

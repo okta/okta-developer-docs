@@ -8,7 +8,6 @@ const signInWidgetMajorVersion = 5;
 const projectRootDir = Path.resolve(__dirname, '../../../../');
 const outputDir = Path.resolve(__dirname, '../dist/');
 
-
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
 module.exports = ctx => ({
@@ -390,7 +389,7 @@ module.exports = ctx => ({
     }
   },
   async ready() {
-    if (!ctx.isProd) {
+    if (process.env.TEST_ENV) {
       ctx.pages.forEach((page) => {
         if (!page.frontmatter['meta']) {
           page.frontmatter['meta'] = []
