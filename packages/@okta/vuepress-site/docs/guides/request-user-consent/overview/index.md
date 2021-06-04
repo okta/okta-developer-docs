@@ -19,9 +19,9 @@ When an application needs to get a new access token from an authorization server
 
 When a consent dialog appears depends on the values of three elements:
 
-* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) used in requests to `/oauth2/${authServerId}/v1/authorize`(custom authorization server) or `/oauth2/v1/authorize` (Org authorization server)
+* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/${authServerId}/v1/authorize` (custom authorization server)
 * `consent_method`: a property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc
-* `consent`: a property listed in the [**Parameter details**](/docs/reference/api/oidc/#parameter-details) section for the `/authorize` endpoint
+* `consent`: a property listed in the **Parameter details** [section](/docs/reference/api/oidc/#parameter-details) for the `/authorize` endpoint
 
 ## Support
 
