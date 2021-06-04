@@ -12,7 +12,7 @@
   @include media("<tablet") {
     flex-basis: 0;
     width: 100%;
-    padding: 0 0 3rem 0;
+    padding: 1rem 0 0 0;
   }
   .sections {
     margin-left: 1.5rem;
@@ -57,7 +57,6 @@
         top: 4px;
       }
     }
-    
   }
   .hidden {
     display: none;
