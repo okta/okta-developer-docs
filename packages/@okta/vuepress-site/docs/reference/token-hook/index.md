@@ -13,7 +13,7 @@ This page provides reference documentation for:
 
 This information is specific to the Token Inline Hook, one type of Inline Hook supported by Okta.
 
-## See Also
+## See also
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
@@ -190,7 +190,7 @@ When you return an error object, it should have the following structure:
 
 Returning an error object causes Okta to return an OAuth 2.0 error to the requester of the token, with the value of `error` set to `server_error`, and the value of `error_description` set to the string that you supplied in the `errorSummary` property of the `error` object that you returned.
 
-> **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`. In the event of a timeout or error, the original token is returned.
+> **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`.
 
 ## Sample JSON payload of a request
 
@@ -598,6 +598,7 @@ You can modify how long the access and ID tokens are valid by specifying the `li
 ```
 
 ### Sample response to remove token claims
+
 You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
 For the list of access token reserved claims that you can't remove, see [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims).
@@ -636,6 +637,7 @@ See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of I
 You can also use the `remove` operation to remove members from existing JSON objects and elements from existing arrays. For example, you have an array that contains the user's preferred airports, and you want to remove an airport from the array.
 
 Existing target JSON object:
+
 ```json
 {
    "preferred_airports":[
@@ -646,6 +648,7 @@ Existing target JSON object:
    ]
 }
 ```
+
 You can remove the element from the array by specifying the array name followed by the index of the element that you want to remove. You don't need to specify a value for the `remove` operation. But, you can specify `null` as the value if you want.
 
 > **Note:** Attempting to remove an element within an array that doesn't exist or specifying an invalid value results in the entire PATCH failing and errors logged in the token hooks events.
@@ -666,7 +669,8 @@ You can remove the element from the array by specifying the array name followed 
 }
 ```
 
-The resulting JSON object
+The resulting JSON object:
+
 ```json
 {
    "preferred_airports":[
