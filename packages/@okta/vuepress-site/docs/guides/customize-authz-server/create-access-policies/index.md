@@ -4,8 +4,8 @@ title: Create access policies
 
 Access policies are containers for rules. Each [access policy](/docs/guides/configure-access-policy/overview/) applies to a particular OpenID Connect application, and the rules that it contains define different access and refresh token lifetimes depending on the nature of the token request.
 
-1. From the Admin Console side navigation, select **Security** and then **API**.
-1. From the **Authorization Servers** tab, select the name of an authorization server.
+1. In the Admin Console, go to **Security** > **API**.
+1. On the **Authorization Servers** tab, select the name of an authorization server.
 1. Select **Access Policies**, and then **Add Policy**.
 1. Enter a **Name** and a **Description** for the policy.
 1. Assign the policy to **All clients** or select **The following clients:** and enter the name of the Okta OpenID Connect applications that are covered by this access policy. This field auto-completes the names of your OpenID Connect applications as you type.

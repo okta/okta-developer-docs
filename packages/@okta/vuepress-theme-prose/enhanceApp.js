@@ -1,6 +1,7 @@
 import VueSelect from 'vue-select';
 import pageComponents from '@internal/page-components'
 import 'bootstrap/dist/css/bootstrap-grid.css';
+import PortalVue from 'portal-vue';
 
 
 export default ({
@@ -9,6 +10,7 @@ export default ({
   router,
   siteData
 }) => {
+  Vue.use(PortalVue);
   Vue.component('v-select', VueSelect);
 
   router.beforeEach((to, from, next) => {

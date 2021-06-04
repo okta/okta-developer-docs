@@ -3,10 +3,10 @@
 To install the library, add the following to your `build.gradle`:
 
 ```groovy
-implementation 'com.okta.oidc.android:okta-oidc-androidx:1.0.16'
+implementation 'com.okta.android:oidc-androidx:1.0.18'
 ```
 
 For projects that don't yet use AndroidX:
 
 ```groovy
-implementation 'com.okta.oidc.android:okta-oidc-android:1.0.16'
+implementation 'com.okta.android:oidc-android:1.0.18'

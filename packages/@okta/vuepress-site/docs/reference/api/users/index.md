@@ -9,7 +9,7 @@ The Okta User API provides operations to manage users in your organization.
 
 ## Getting Started
 
-Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ff2ad5a39f77ba4cfabf)
+Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
 
 
 
@@ -729,6 +729,28 @@ Fetches a user from your Okta organization
 - [Get User with ID](#get-user-with-id)
 - [Get User with Login](#get-user-with-login)
 - [Get User with Login Shortname](#get-user-with-login-shortname)
+##### Content-Type Header Fields
+
+This endpoint supports an optional `okta-response` value for the `Content-Type` header, which can be used for performance optimization. Complex DelAuth configurations may degrade performance when fetching specific parts of the response, and passing this parameter can omit these parts, bypassing the bottleneck.
+
+The `okta-response` header value takes a comma-separated list of omit options (optionally surrounded in quotes), each specifying a part of the response to omit.
+
+| okta-response value       | Description                                                                                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| omitCredentials           | Omits the credentials subobject from the response                                                                                        |
+| omitCredentialsLinks      | Omits the following HAL links from the response:  Change Password, Change Recovery Question, Forgot Password, Reset Password, Reset Factors, Unlock |
+| omitTransitioningToStatus | Omits the `transitioningToStatus` field from the response                                                                                 |
+
+The performance optimization will only be applied when all three parameters are passed.  Unrecognized parameters are ignored.
+
+###### Content-Type Header Examples
+
+**Header:** `Content-Type: application/json; okta-response=omitCredentials,omitCredentialsLinks`<br>
+**Result:** Omits the credentials subobject and credentials links from the response.  Does not apply performance optimization.
+
+
+**Header:** `Content-Type: application/json; okta-response="omitCredentials,omitCredentialsLinks, omitTransitioningToStatus"`<br>
+**Result:** Omits the credentials, credentials links, and `transitioningToStatus` field from the response.  Applies performance optimization.
 
 ##### Request Parameters
 
@@ -1069,9 +1091,29 @@ curl -v -X GET \
 Lists users in your organization with pagination in most cases
 
 A subset of users can be returned that match a supported filter expression or search criteria.
+##### Content-Type Header Fields
+
+This endpoint supports an optional `okta-response` value for the `Content-Type` header, which can be used for performance optimization. Complex DelAuth configurations may degrade performance when fetching specific parts of the response, and passing this parameter can omit these parts, bypassing the bottleneck.
+
+The `okta-response` header value takes a comma-separated list of omit options (optionally surrounded in quotes), each specifying a part of the response to omit.
+
+| okta-response value       | Description                                                                                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| omitCredentials           | Omits the credentials subobject from the response                                                                                        |
+| omitCredentialsLinks      | Omits the following HAL links from the response:  Change Password, Change Recovery Question, Forgot Password, Reset Password, Reset Factors, Unlock |
+| omitTransitioningToStatus | Omits the `transitioningToStatus` field from the response                                                                                 |
+
+The performance optimization will only be applied when all three parameters are passed.  Unrecognized parameters are ignored.
+
+###### Content-Type Header Examples
+
+**Header:** `Content-Type: application/json; okta-response=omitCredentials,omitCredentialsLinks`<br>
+**Result:** Omits the credentials subobject and credentials links from the response.  Does not apply performance optimization.
+
+**Header:** `Content-Type: application/json; okta-response="omitCredentials,omitCredentialsLinks, omitTransitioningToStatus"`<br>
+**Result:** Omits the credentials, credentials links, and `transitioningToStatus` field from the response.  Applies performance optimization.
 
 ##### Request Parameters
-
 
 The first three parameters in the table below correspond to different types of lists:
 
@@ -1294,7 +1336,7 @@ Examples use cURL-style escaping instead of URL encoding to make them easier to 
 
 > Hint: If filtering by `email`, `lastName`, or `firstName`, it may be easier to use `q` instead of `filter`.
 
-See [Filtering](/docs/reference/api-overview/#filtering) for more information about the expressions used in filtering.
+See [Filtering](/docs/reference/api-overview/#filter) for more information about the expressions used in filtering.
 
 ##### Filter Examples
 
@@ -4168,7 +4210,7 @@ Specifies the authentication provider that validates the user's password credent
 
 ### Links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a user.  The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations.  The Links object is read-only.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current status of a user.  The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations.  The Links object is read-only.
 
 #### Individual Users vs. Collection of Users
 

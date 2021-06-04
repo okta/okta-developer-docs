@@ -12,7 +12,7 @@ Okta's [Universal Directory](https://help.okta.com/en/prod/okta_help_CSH.htm#ext
 
 ## Get started
 
-Explore the Mappings API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2b9feba6001a56b2a885)
+Explore the Mappings API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/42f528e8de2085ef2c97)
 
 ## Profile Mapping operations
 

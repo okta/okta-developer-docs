@@ -1,7 +1,13 @@
 const guidesInfo = require('./scripts/build-guides-info');
 const findLatestWidgetVersion = require('./scripts/findLatestWidgetVersion');
 const convertReplacementStrings = require('./scripts/convert-replacement-strings');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const Path = require('path')
 const signInWidgetMajorVersion = 5;
+
+const projectRootDir = Path.resolve(__dirname, '../../../../');
+const outputDir = Path.resolve(__dirname, '../dist/');
+
 
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
@@ -25,12 +31,6 @@ module.exports = {
     ['meta', { 'http-equiv': 'XA-UA-Compatible', content: 'IE=edge'}],
     ['meta', { name: 'viewport', content: 'width=device-width, initial-scale=1.0'}],
 
-    /*
-     * Okta sign-in widget
-     */
-    ['link', { href: `https://global.oktacdn.com/okta-signin-widget/${WIDGET_VERSION}/css/okta-sign-in.min.css`, type: 'text/css', rel: 'stylesheet'}],
-    ['script', { src: `https://global.oktacdn.com/okta-signin-widget/${WIDGET_VERSION}/js/okta-sign-in.min.js`, type: 'text/javascript'}],
-
     /**
      * Header scripts for typekit, GA, GTM (WIP)
      */
@@ -40,7 +40,7 @@ module.exports = {
       var isProduction = window.location.hostname === 'developer.okta.com';
       if (isProduction) {
 
-        // START Google Tag Manager
+        // START Google Tag Manager - main container
         (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -79,6 +79,14 @@ module.exports = {
         github: '0oayfl0lW6xetjKjD5d5',
         google: '0oay75bnynuF2YStd5d5',
       },
+      /* Trex values:
+      baseUri: 'https://okta-dev-parent.trexcloud.com',
+      registrationPolicyId: 'reg3kwstakmbOrIly0g7',
+      idps: {
+        github: '0oa3jobx2bBlylNft0g7',
+        google: '0oa3jaktbqkiwCthn0g7',
+      },
+      */
     },
 
     /**
@@ -117,7 +125,7 @@ module.exports = {
       { text: 'Blog', link: '/blog/' },
       { text: 'Support', link: 'https://www.okta.com/contact/',
         children: [
-          { text: 'Okta Developer Forums', link: 'https://devforum.okta.com/' },
+          { text: 'Okta Developer Forum', link: 'https://devforum.okta.com/' },
           { text: 'developers@okta.com', link: 'mailto:developers@okta.com' },
         ]
       }
@@ -187,6 +195,7 @@ module.exports = {
           { text: 'Forum', link: 'https://devforum.okta.com' },
           { text: 'Blog', link: 'https://developer.okta.com/blog/' },
           { text: 'Toolkit', link: 'https://toolkit.okta.com/' },
+          { text: 'Developer Day', link: 'https://www.okta.com/developerday/' },
           { type: 'divider' },
           { type: 'icons',
             icons: [
@@ -213,7 +222,7 @@ module.exports = {
       social: {
         heading: 'Social',
         items: [
-          { text: 'GitHub', link: 'https://github.com/oktadeveloper', target: '_self', icon: '<svg width="19" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.214 4.595a9.185 9.185 0 00-3.358-3.358C12.443.412 10.9 0 9.226 0 7.552 0 6.008.412 4.595 1.237a9.184 9.184 0 00-3.358 3.358C.412 6.008 0 7.552 0 9.225c0 2.01.587 3.818 1.76 5.424 1.173 1.606 2.689 2.717 4.546 3.333.217.04.377.012.48-.084a.47.47 0 00.157-.36l-.006-.649c-.004-.408-.006-.764-.006-1.069l-.276.048a3.52 3.52 0 01-.667.042 5.092 5.092 0 01-.835-.084 1.866 1.866 0 01-.805-.36 1.524 1.524 0 01-.528-.739l-.12-.276a3.003 3.003 0 00-.379-.613c-.172-.224-.346-.376-.522-.456l-.084-.06a.882.882 0 01-.156-.144.66.66 0 01-.108-.169c-.025-.056-.005-.102.06-.138.064-.036.18-.054.348-.054l.24.036c.16.032.358.128.595.289.236.16.43.368.582.624.185.328.407.579.667.75.26.173.522.26.787.26.264 0 .492-.021.684-.06.192-.04.373-.101.541-.181.072-.537.268-.95.588-1.238a8.224 8.224 0 01-1.23-.216 4.896 4.896 0 01-1.13-.468 3.233 3.233 0 01-.967-.805c-.256-.32-.466-.741-.63-1.261-.165-.521-.247-1.122-.247-1.802 0-.97.317-1.794.95-2.475-.297-.729-.269-1.545.083-2.45.233-.073.577-.018 1.033.162.457.18.791.334 1.004.462.212.128.382.237.51.325a8.53 8.53 0 012.307-.313 8.53 8.53 0 012.306.313l.457-.289c.312-.192.68-.368 1.104-.528.425-.16.75-.204.974-.132.36.905.392 1.721.096 2.45.632.68.949 1.506.949 2.475 0 .68-.082 1.283-.246 1.808-.164.524-.377.944-.637 1.26a3.36 3.36 0 01-.973.8 4.916 4.916 0 01-1.13.468 8.208 8.208 0 01-1.23.217c.416.36.624.929.624 1.705v2.535c0 .144.05.264.15.36.1.096.258.124.475.084 1.858-.617 3.373-1.728 4.547-3.333 1.173-1.606 1.76-3.414 1.76-5.424-.001-1.673-.414-3.217-1.238-4.63z"/></svg>' },
+          { text: 'GitHub', link: 'https://github.com/oktadev', target: '_self', icon: '<svg width="19" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M17.214 4.595a9.185 9.185 0 00-3.358-3.358C12.443.412 10.9 0 9.226 0 7.552 0 6.008.412 4.595 1.237a9.184 9.184 0 00-3.358 3.358C.412 6.008 0 7.552 0 9.225c0 2.01.587 3.818 1.76 5.424 1.173 1.606 2.689 2.717 4.546 3.333.217.04.377.012.48-.084a.47.47 0 00.157-.36l-.006-.649c-.004-.408-.006-.764-.006-1.069l-.276.048a3.52 3.52 0 01-.667.042 5.092 5.092 0 01-.835-.084 1.866 1.866 0 01-.805-.36 1.524 1.524 0 01-.528-.739l-.12-.276a3.003 3.003 0 00-.379-.613c-.172-.224-.346-.376-.522-.456l-.084-.06a.882.882 0 01-.156-.144.66.66 0 01-.108-.169c-.025-.056-.005-.102.06-.138.064-.036.18-.054.348-.054l.24.036c.16.032.358.128.595.289.236.16.43.368.582.624.185.328.407.579.667.75.26.173.522.26.787.26.264 0 .492-.021.684-.06.192-.04.373-.101.541-.181.072-.537.268-.95.588-1.238a8.224 8.224 0 01-1.23-.216 4.896 4.896 0 01-1.13-.468 3.233 3.233 0 01-.967-.805c-.256-.32-.466-.741-.63-1.261-.165-.521-.247-1.122-.247-1.802 0-.97.317-1.794.95-2.475-.297-.729-.269-1.545.083-2.45.233-.073.577-.018 1.033.162.457.18.791.334 1.004.462.212.128.382.237.51.325a8.53 8.53 0 012.307-.313 8.53 8.53 0 012.306.313l.457-.289c.312-.192.68-.368 1.104-.528.425-.16.75-.204.974-.132.36.905.392 1.721.096 2.45.632.68.949 1.506.949 2.475 0 .68-.082 1.283-.246 1.808-.164.524-.377.944-.637 1.26a3.36 3.36 0 01-.973.8 4.916 4.916 0 01-1.13.468 8.208 8.208 0 01-1.23.217c.416.36.624.929.624 1.705v2.535c0 .144.05.264.15.36.1.096.258.124.475.084 1.858-.617 3.373-1.728 4.547-3.333 1.173-1.606 1.76-3.414 1.76-5.424-.001-1.673-.414-3.217-1.238-4.63z"/></svg>' },
           { text: 'Twitter', link: 'https://twitter.com/OktaDev', target: '_self', icon: '<svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 0a9.001 9.001 0 000 18A9.001 9.001 0 009 0zm4.11 7.017c.003.089.005.178.005.267 0 2.73-2.078 5.878-5.877 5.878a5.847 5.847 0 01-3.167-.928 4.144 4.144 0 003.058-.856A2.068 2.068 0 015.2 9.943a2.056 2.056 0 00.934-.035 2.066 2.066 0 01-1.657-2.051c.278.154.597.247.935.258a2.064 2.064 0 01-.64-2.758A5.865 5.865 0 009.03 7.515a2.066 2.066 0 013.52-1.884c.47-.092.913-.264 1.312-.5a2.074 2.074 0 01-.909 1.142 4.12 4.12 0 001.187-.326 4.2 4.2 0 01-1.03 1.07z"/></svg>' },
           { text: 'YouTube', link: 'https://www.youtube.com/c/oktadev', target: '_self', icon: '<svg width="18" height="18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.879 10.372l2.928-1.686L7.878 7v3.372z"/><path d="M9 0a9.001 9.001 0 000 18A9.001 9.001 0 009 0zm5.624 9.009s0 1.825-.232 2.705a1.41 1.41 0 01-.991.992c-.88.231-4.401.231-4.401.231s-3.511 0-4.4-.24a1.41 1.41 0 01-.992-.992C3.376 10.835 3.376 9 3.376 9s0-1.825.232-2.705c.13-.482.519-.871.991-1.001C5.48 5.062 9 5.062 9 5.062s3.52 0 4.4.241c.482.13.862.51.992.992.241.88.232 2.714.232 2.714z"/></svg>' },
           { text: 'Forum', link: 'https://devforum.okta.com/', target: '_self', icon: '<svg width="19" height="19" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.434.158a8.927 8.927 0 00-6.51 3.102C.098 6.513.012 11.48 2.725 14.81a9.033 9.033 0 009.974 2.81c1.454-.51 3.01-.174 4.061.878l.297.297.296-.296a2.854 2.854 0 00.002-4.032l-.232-.232c2.437-3.538 2.016-8.4-1.04-11.457A9.014 9.014 0 009.434.158zm3.189 6.08a4.107 4.107 0 01-.008 5.801 4.106 4.106 0 01-5.801.008 4.106 4.106 0 01.007-5.802 4.107 4.107 0 015.802-.007z"/></svg>' },
@@ -236,6 +245,7 @@ module.exports = {
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Change log', link: '/docs/release-notes/' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
+          { text: 'Auth0 platform', link: 'https://auth0.com/developers' },
         ]
       },
       websites: {
@@ -275,6 +285,19 @@ module.exports = {
           TEST_JUNK: 'this is a test replacement', // Leave for testing
         })
       });
+
+    /*
+     * Copy *.scss from Sign-In Widget for use in /live-widget.
+     * See /components/LiveWidget.vue for usage
+     */
+    config.plugin('copy-sass')
+      .use(CopyWebpackPlugin, [
+        [{
+           from: Path.join(projectRootDir, 'node_modules/@okta/okta-signin-widget/dist/sass/'),
+           to: Path.join(outputDir, 'assets/widget-sass/'),
+         },
+        ]
+      ]);
   },
 
   evergreen: false,
@@ -317,12 +340,18 @@ module.exports = {
               '/docs/guides/sign-into-web-app-remediation/get-tokens/',
               '/docs/guides/sign-into-web-app-remediation/next-steps/',
               '/docs/reference/api/authenticators-admin/',
-              '/docs/guides/third-party-risk-integration/overview/', //Beta release of Risk APIs and Guide
+              '/docs/guides/third-party-risk-integration/', //Beta release of Risk APIs and Guide
+              '/docs/guides/third-party-risk-integration/overview/',
               '/docs/guides/third-party-risk-integration/create-service-app/',
               '/docs/guides/third-party-risk-integration/update-default-provider/',
               '/docs/guides/third-party-risk-integration/test-integration/',
               '/docs/reference/api/risk-providers/',
-              '/docs/reference/api/risk-events/'
+              '/docs/reference/api/risk-events/',
+              '/docs/reference/api/iam-roles/',
+              '/docs/concepts/role-assignment/',
+              '/docs/guides/migrate-to-oie/',
+              '/docs/guides/ie-intro/',
+              '/docs/reference/okta-expression-language-in-identity-engine/'
           ]
         }
       ]

@@ -3,92 +3,103 @@
 </template>
 
 <script>
-import { LAYOUT_CONSTANTS } from "../layouts/Layout";
+import _ from "lodash";
+import AnchorHistory from "../mixins/AnchorHistory.vue";
 export default {
   name: "ContentPage",
+  mixins: [AnchorHistory],
   data() {
     return {
       anchors: [],
-      headingAnchorsMap: {},
-      paddedHeaderHeight: 0
+      headingAnchorsMap: {}
     };
   },
   mounted() {
-    this.paddedHeaderHeight =
-      document.querySelector(".fixed-header").clientHeight +
-      LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
-    if (document.readyState === "complete") {
-        this.scrollToActiveAnchor();
-        this.captureAnchors();
-    } else {
-      window.addEventListener("load", () => {
-        this.scrollToActiveAnchor();
-        this.captureAnchors();
-      });
-    }
+    this.anchors = this.getAnchors(``);
+    document.onreadystatechange = () => {
+      if (document.readyState === "complete") {
+        this.$nextTick(function() {
+          this.onPageChange();
+        });
+      }
+    };
+    window.addEventListener("popstate", e => {
+      e.target.location.hash && this.scrollToAnchor(e.target.location.hash);
+    });
+    window.addEventListener("scroll", this.setHeadingAnchorToURL);
+  },
+  beforeDestroy() {
+    window.removeEventListener("scroll", this.setHeadingAnchorToURL);
+    window.removeEventListener("popstate", this.scrollToAnchor);
   },
   watch: {
     $page(to, from) {
-      this.$nextTick(function() {
-        this.scrollToActiveAnchor();
-        if (from.title !== to.title) {
-          this.captureAnchors();
-        }
-      });
+      if (from.title !== to.title) {
+        this.$nextTick(function() {
+          this.anchors = this.getAnchors();
+          this.onPageChange();
+        });
+      }
     }
   },
   methods: {
+    onPageChange() {
+      const anchor = window.location.hash;
+
+      if (anchor) {
+        this.scrollToAnchor(`${anchor}`);
+      } else {
+        // navigating via back button to no-anchor URL
+        window.scrollTo(0, 0);
+      }
+      this.onClickCaptureAnchors();
+    },
+    onClickCaptureAnchors() {
+      const noneHeadingAnchors = Array.from(
+        document.querySelectorAll(
+          'a[href^="#"]:not(.on-this-page-link):not(.tree-nav-link)'
+        )
+      );
+      noneHeadingAnchors.forEach(
+        link => link.removeEventListener("click", this.onAnchorClick),
+        this
+      );
+
+      this.headingAnchorsMap = this.anchors.reduce((anchorsByHash, anchor) => {
+        anchorsByHash[anchor.hash] = anchor;
+        return anchorsByHash;
+      }, {});
+
+      noneHeadingAnchors.forEach(
+        link => link.addEventListener("click", this.onAnchorClick),
+        this
+      );
+    },
     onAnchorClick(event) {
       const element = event.target.hash
         ? event.target
         : event.target.closest("a");
       if (
-        location.pathname.replace(/^\//, "") ==
+        location.pathname.replace(/^\//, "") ===
           element.pathname.replace(/^\//, "") &&
-        location.hostname == element.hostname
+        location.hostname === element.hostname
       ) {
-        let scrollToAnchor = this.headingAnchorsMap[element.hash];
+        const scrollToAnchor = this.headingAnchorsMap[element.hash];
         if (scrollToAnchor) {
           event.preventDefault();
-          location.hash = element.hash;
+          this.historyPushAndScrollToAnchor(scrollToAnchor.hash);
           return false;
         }
       }
     },
-    captureAnchors() {
-      this.anchors.forEach(
-        link => link.removeEventListener("click", this.onAnchorClick),
-        this
-      );
-
-      this.headingAnchorsMap = Array.from(
-        document.querySelectorAll(".header-anchor.header-link")
-      ).reduce(function(anchorsByHash, anchor) {
-        anchorsByHash[anchor.hash] = anchor;
-        return anchorsByHash;
-      }, {});
-      this.anchors = Array.from(
-        document.querySelectorAll(
-          'a[href^="#"]:not(.on-this-page-link):not(.tree-nav-link)'
-        )
-      );
-
-      this.anchors.forEach(
-        link => link.addEventListener("click", this.onAnchorClick),
-        this
-      );
-    },
-    scrollToActiveAnchor() {
-      let anchor = window.location.href.split("#")[1];
-      if (anchor) {
-        let target = document.getElementById(anchor);
-        if (target) {
-          window.scrollTo(0, target.offsetTop - this.paddedHeaderHeight);
-        }
-      } else {
-        // navigating via back button to no-anchor URL
-        window.scrollTo(0, 0);
-      }
+    setHeadingAnchorToURL: _.debounce(function() {
+      const activeAnchor = this.getActiveAnchor();
+      activeAnchor
+        ? this.historyReplaceAnchor(activeAnchor.hash)
+        : this.historyReplaceAnchor("");
+    }, 200),
+    getAnchors() {
+      return Array.from(document.querySelectorAll(".header-anchor"));
     }
   }
 };

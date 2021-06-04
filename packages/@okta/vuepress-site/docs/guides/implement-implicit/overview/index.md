@@ -17,6 +17,6 @@ See our [OAuth 2.0 overview](/docs/concepts/oauth-openid/#implicit-flow) for mor
 
 ## Support
 
-If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>

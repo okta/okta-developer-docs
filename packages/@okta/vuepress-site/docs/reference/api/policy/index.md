@@ -23,7 +23,7 @@ The Policy API supports the following **Rule operations**:
 
 ## Getting started
 
-Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/7c7660f56191450a27aa)
+Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5413fd90e946001c74e8)
 
 ## Policy API operations
 
@@ -583,7 +583,7 @@ The Conditions object specifies the conditions that must be met during Policy ev
 
 ### Links object
 
-Specifies Link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current Policy. The Links object is used for dynamic discovery of related resources. The Links object is **read-only**.
+Specifies Link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current Policy. The Links object is used for dynamic discovery of related resources. The Links object is **read-only**.
 
 | Parameter  | Description                                                                     | Data Type | Required |
 | ---        | ---                                                                             | ---       | ---      |
@@ -697,7 +697,7 @@ The Conditions object specifies the conditions that must be met during Policy ev
 
 ### Links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current Rule. The Links object is used for dynamic discovery of related resources. The Links object is **read-only**.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current Rule. The Links object is used for dynamic discovery of related resources. The Links object is **read-only**.
 
 | Parameter  | Description                                                              | Data Type | Required |
 | ---        | ---                                                                      | ---       | ---      |
@@ -1296,6 +1296,7 @@ Specifies how lookups for weak passwords are done. Designed to be extensible wit
 | recovery_question | Settings for Security Question Factor | [Recovery Question Factor object](#recovery-question-factor-object) | No       |
 | okta_email        | Settings for Email Factor             | [Email Factor object](#email-factor-object)                         | No       |
 | okta_sms          | Settings for SMS Factor               | [SMS Factor object](#sms-factor-object)                             | No       |
+| okta_call         | Settings for Call Factor              | [Call Factor object](#call-factor-object)                           | No       |
 
 ###### Recovery Question Factor object
 
@@ -1336,6 +1337,12 @@ Specifies how lookups for weak passwords are done. Designed to be extensible wit
 | tokenLifetimeMinutes | Lifetime (in minutes) of the recovery token | Integer   | No       | 10080   |
 
 ###### SMS Factor object
+
+| Property | Description                         | Data Type            | Required | Default    |
+| ---      | ---                                 | ---                  | ---      | ---        |
+| status   | Indicates if the Factor is enabled. | `ACTIVE`, `INACTIVE` | No       | 'INACTIVE' |
+
+###### Call Factor object
 
 | Property | Description                         | Data Type            | Required | Default    |
 | ---      | ---                                 | ---                  | ---      | ---        |

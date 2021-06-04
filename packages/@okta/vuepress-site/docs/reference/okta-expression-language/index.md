@@ -247,9 +247,10 @@ The functions above are often used in tandem to check whether a user has an AD o
 | Common Actions                                                                              | Example                                     |
 | ----------------                                                                            | --------                                    |
 | Refer to a `String` constant                                                                | `'Hello world'`                             |
-| Refer to a `Integer` constant                                                               | `1234`                                      |
+| Refer to an `Integer` constant                                                              | `1234`                                      |
 | Refer to a `Number` constant                                                                | `3.141`                                     |
 | Refer to a `Boolean` constant                                                               | `true`                                      |
+| Refer to an `Array` element                                                                 | `{1, 2, 3}[0]` or `user.arrayProperty[0]`   |
 | Concatenate two strings                                                                     | `user.firstName + user.lastName`            |
 | Concatenate two strings with space                                                          | `user.firstName + " " + user.lastName`      |
 | Ternary operator example:<br>If group code is 123, assign value of Sales, else assign Other | `user.groupCode == 123 ? 'Sales' : 'Other'` |
@@ -267,7 +268,7 @@ The format for conditional expressions is
 
 * Expressions must have valid syntax.
 * Expressions must evaluate to Boolean.
-* Expressions cannot contain an assignment operator, such as =.
+* Expressions cannot contain an assignment operator, such as `=`.
 * User attributes used in expressions can contain only available User or AppUser attributes.
 
 <br>The following functions are supported in conditions.
@@ -277,6 +278,7 @@ The format for conditional expressions is
 * The `OR` operator
 * The `!` operator to designate NOT
 * Standard relational operators including <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code>.
+* The `matches` operator to evaluate a String against a regular expression.
 
 **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 

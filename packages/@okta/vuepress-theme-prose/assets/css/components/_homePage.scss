@@ -1,3 +1,6 @@
+$oktaGameSectionMainColor: #122a34;
+$oktaGameButtonColor: #ffdd53;
+
 .homepage {
   background-color: #182a33;
   font-family: $font-family;
@@ -88,7 +91,7 @@
 
   &--code-example {
     height: 500px;
-    background-color: cv('brand', 'dark');
+    background-color: cv("brand", "dark");
     border: 1.5px solid #2a4c63;
     border-radius: 10px;
     width: 100%;
@@ -230,11 +233,170 @@
 
     &-fill {
       flex: 1;
-      background-color: #1F3B54;
+      background-color: #1f3b54;
     }
 
     @include media("<tablet") {
       height: 45%;
+    }
+  }
+}
+
+.okta-game-banner {
+  min-height: 130.5px;
+  background: #1DBFFF;
+  justify-content: center;
+  .okta-game-banner-wrapper {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+  }
+  .okta-game-banner--logo,
+  .okta-game-banner--image,
+  .okta-game-banner--details {
+    display: flex;
+  }
+  .okta-game-banner--logo {
+    align-items: center;
+    margin-right: 30px;
+    img {
+      max-height: 74.67px;
+    }
+  }
+  .okta-game-banner--image {
+    align-items: flex-end;
+    img {
+      max-height: 114.57px;
+    }
+  }
+  .okta-game-banner--details {
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 10px;
+    margin-left: 75px;
+    p {
+      margin: 10px 0 10px 0;
+      width: 100%;
+      color: $oktaGameSectionMainColor;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    .okta-game-banner--details-buttons {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 14px;
+      .play-now-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        padding: 6px 14px;
+        border-radius: 3px;
+        text-align: center;
+        background-color: $oktaGameButtonColor;
+        margin: 0 24px 0 0;
+        color: $oktaGameSectionMainColor;
+      }
+      .learn-more {
+        cursor: pointer;
+        color: $oktaGameSectionMainColor;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@include media("<bootstrap-lg") {
+  .okta-game-banner {
+    .okta-game-banner--details {
+      max-width: 300px;
+      margin-left: 10px;
+    }
+    .okta-game-banner--logo {
+      margin-right: 10px;
+    }
+  }
+}
+
+@include media("<tablet") {
+  .okta-game-banner {
+    padding-top: 10px;
+    .okta-game-banner-wrapper {
+      flex-direction: column;
+      align-items: center;
+      .okta-game-banner--logo {
+        margin-bottom: 10px;
+      }
+      .okta-game-banner--details {
+        max-width: 100%;
+      }
+    }
+  }
+}
+
+@include media("<bootstrap-sm") {
+  .okta-game-banner {
+    .okta-game-banner--details {
+      align-items: center;
+      max-width: 100%;
+      .okta-game-banner--details-buttons {
+        justify-content: center;
+      }
+      p {
+        text-align: center;
+
+      }
+    }
+  }
+}
+
+.homepage--okta-game {
+  display: flex;
+  max-width: 2000px;
+  padding: 40px 35px 35px 35px;
+  margin: 0 0 50px 0;
+  min-height: 400px;
+  background-color: $oktaGameSectionMainColor;
+  .homepage--okta-game-description {
+    flex-basis: 100%;
+    padding: 0 35px 0 0;
+    h3 {
+      color: #fff;
+      font-weight: normal;
+    }
+    p {
+      font-size: 1.3em;
+      line-height: 1.3em;
+      max-width: 100%;
+    }
+    .play-now-btn {
+      align-items: center;
+      float: right;
+      height: 44px;
+      line-height: 25px;
+      padding: 10px 20px;
+      border-radius: 3px;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      background-color: $oktaGameButtonColor;
+      color: $oktaGameSectionMainColor;
+    }
+  }
+  .homepage--okta-game-video {
+    flex-basis: 100%;
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  @include media("<tablet") {
+    flex-direction: column-reverse;
+    .homepage--okta-game-description {
+      margin: 20px 0 0 0;
+      padding: 0;
     }
   }
 }

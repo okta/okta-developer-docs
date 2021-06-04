@@ -1,8 +1,6 @@
 ---
 title: Refresh token rotation
 ---
-Refresh token rotation is an <ApiLifecycle access="ea"/> feature.
-
 Refresh token rotation helps a public client to securely rotate refresh tokens after each use. When refresh token rotation behavior is enabled in Okta, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token.
 
 ## Refresh token reuse detection
@@ -29,7 +27,7 @@ Rotating refresh token behavior is the default for SPAs. When you create a new S
 To update existing OpenID Connect applications to use refresh token rotation:
 
 1. Sign in to your Okta organization with your administrator account.
-1. From the Admin Console side navigation, click **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the app integration that you want to configure.
 1. On the **General** tab, click **Edit** in the **General Settings** section.
 1. In the **Allowed grant types** section, select **Refresh Token**.
@@ -40,8 +38,8 @@ To update existing OpenID Connect applications to use refresh token rotation:
 When you create a new native or web app and want to use refresh token rotation:
 
 1. Sign in to your Okta organization with your administrator account.
-1. From the Admin Console side navigation, click **Applications** > **Applications**.
-1. Click **Add Application** and then **Create New App**.
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. Click **Create App Integration** and follow the instructions to create a new OIDC app integration.
 1. After creating the app integration using the wizard, on the **General** tab, click **Edit** in the **General Settings** section.
 1. In the **Allowed grant types** section, select **Refresh Token**.
 1. In the **Refresh Token** section, select **Rotate token after every use**.

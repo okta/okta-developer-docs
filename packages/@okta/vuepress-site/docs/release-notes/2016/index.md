@@ -1,5 +1,5 @@
 ---
-title: Okta API Products Release Notes
+title: Okta API Products Release Notes 2016
 ---
 
 ## 2016.52
@@ -566,7 +566,6 @@ To ensure a successful password recovery lookup if an email address is associate
 
 * The OIDC Access Token was incorrectly available to Okta endpoints other than `/oauth2/v1/userinfo`. (OKTA-91099)
 * The format of the issuer (`iss`) in the Access Token has changed: it was the client ID. It now takes the form: `https://${yourOktaDomain}.okta.com/as/{authorization-server-ID}. (OKTA-93628)
-
 
 
 ## 2016.26

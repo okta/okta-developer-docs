@@ -33,7 +33,7 @@ Note the parameters that are being passed:
 - `client_id` matches the Client ID of your Okta OAuth application that you created in the <GuideLink link="../setup-app">previous step</GuideLink>. You can find it at the bottom of your application's **General** tab.
 - `response_type` is `code`, indicating that we are using the authorization code grant type.
 - `scope` is `openid`, which means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
-- `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This must match one of the **Login redirect URIs** that you specified when you were creating your Okta application in the <GuideLink link="../setup-app">previous step</GuideLink>.
+- `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This must match one of the **Sign-in redirect URIs** that you specified when you were creating your Okta application in the <GuideLink link="../setup-app">previous step</GuideLink>.
 - `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 - `code_challenge_method` is the hash method used to generate the challenge, which is always `S256`.
 - `code_challenge` is the code challenge used for PKCE.
@@ -46,6 +46,6 @@ If the user doesn't have an existing session, this request opens the Okta sign-i
 yourApp:/callback?code=BdLDvZvO3ZfSwg-asLNk&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9
 ```
 
-This code can only be used once, and remains valid for 60 seconds, during which time it can be exchanged for tokens.
+This code can only be used once, and remains valid for 300 seconds, during which time it can be exchanged for tokens.
 
 <NextSectionLink/>

@@ -91,9 +91,9 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 3. Authorize
 
-    * [Implement the Authorization Code Flow](/docs/guides/implement-auth-code/overview/)
-    * [Implement the Authorization Code Flow with PKCE](/docs/guides/implement-auth-code-pkce/overview/)
-    * [Implement the Client Credentials Flow](/docs/guides/implement-client-creds/overview/)
+    * [Implement the Authorization Code flow](/docs/guides/implement-auth-code/overview/)
+    * [Implement the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/overview/)
+    * [Implement the Client Credentials flow](/docs/guides/implement-client-creds/overview/)
     * [Refresh access tokens](/docs/guides/refresh-tokens/overview/)
     * [Validate access tokens](/docs/guides/validate-access-tokens/go/overview/)
     * [Validate ID tokens](/docs/guides/validate-id-tokens/overview/)
@@ -115,6 +115,13 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Pre-launch checklist](/docs/guides/production-deployment/deployment-checklist/)
     * [Deploy your app](/docs/guides/deploy-your-app/overview/)
     * [Migrate to Okta](/docs/guides/migrate-to-okta/prerequisites/)
+
+6. Customize Okta process flows with Event or Inline Hooks
+
+    * [Event Hook example](/docs/guides/event-hook-implementation/nodejs/overview/)
+    * [Token Inline Hook example](/docs/guides/token-inline-hook/nodejs/overview/)
+    * [Password Import Inline Hook example](/docs/guides/password-import-inline-hook/nodejs/overview/)
+    * [Registration Inline Hook example](/docs/guides/registration-inline-hook/nodejs/overview/)
 
 ## Publish an integration
 

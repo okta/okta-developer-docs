@@ -6,7 +6,7 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 ## Create the policy container
 
-1. In the Admin Console, navigate to **Security > API**.
+1. In the Admin Console, go to **Security** > **API**.
 
 2. On the **Authorization Servers** tab, select the name of the authorization server that you want to apply the policy to.
 
@@ -68,7 +68,7 @@ Let's test your access policy and get back an access token.
 
 4. Open a private browsing session in your browser and paste the URL into the address box. You are redirected to the sign-in page for your Okta org.
 
-5. Enter the credentials for a user who is mapped to your Open ID Connect application, and you are directed to the `redirect_uri` that you specified. Look in the address box for the URL that contains the access token, scopes, and any state that you defined:
+5. Enter the credentials for a user who is mapped to your OpenID Connect application, and you are directed to the `redirect_uri` that you specified. Look in the address box for the URL that contains the access token, scopes, and any state that you defined:
 
      `http://yourRedirectUriHere.com#access_token=eyJraWQiOiJYc2hYcGZTSHdEMk1zU2pvSTlZTmozWF9KdE1mclpmYWFOUklfNlBCVjQwIi[...]i7U9uW0mI0Bb8SbUeKZjzuxP9aDog&token_type=Bearer&expires_in=3600&scope=openid+email&state=WM6D`
 

@@ -18,6 +18,7 @@ Use the following high-level steps to test the risk provider integration:
 4. [Confirm the response and system log](/docs/guides/third-party-risk-integration/test-integration/#confirm-the-response)
 
 ### Create a client assertion
+
 This procedure creates a signed JSON Web Token (JWT), which is used as the client assertion value required in the request for a scoped access token.
 
 1. Navigate to [Generate JWT](https://www.jsonwebtoken.dev/) to create a JWT.
@@ -33,15 +34,16 @@ This procedure creates a signed JSON Web Token (JWT), which is used as the clien
     ```
 
 4. Click **Generate JWT**.
-5. Copy the resulting JWT value to your Postman's `clientAssertion` environment variable.
+5. Copy the resulting JWT value to your Postman's `clientAssertion` environment variable. Save the environment.
 
 For further background information on this process, see [Create and sign the JWT](/docs/guides/implement-oauth-for-okta-serviceapp/create-sign-jwt/).
 
 ### Create an access token
+
 This procedure creates an access token using the `clientAssertion` value required for authentication into the risk provider service application.
 
 1. Call the following POST API from the Risk Integration Postman collection: **Partner: API to get the access token** (`{{url}}/oauth2/v1/token`).
-2. Review the response from the call, and copy the `access_token` value to your Postman's `accessToken` environment variable. A sample response follows:
+2. Review the response from the call, and copy the `access_token` value to your Postman's `accessToken` environment variable. Don't include the leading and trailing double quotes around the `access_token` value, below, while saving the `accessToken` variable. A sample response follows:
 
     ```JSON
     {
@@ -56,6 +58,7 @@ This procedure creates an access token using the `clientAssertion` value require
 For further background information on this process, see [Get an access token](/docs/guides/implement-oauth-for-okta-serviceapp/get-access-token/).
 
 ### Send a risk event to Okta
+
 This procedure sends a sample risk event payload to the Okta org.
 
 1. Call the following POST API from the Risk Integration Postman collection: **Partner: API to send RiskEvents (Auth using access token)** (`/api/v1/risk/events/ip`). A sample payload follows, which includes two events:
@@ -76,7 +79,7 @@ This procedure sends a sample risk event payload to the Okta org.
             "message": "Detected Attack tooling and suspicious activity"
           }
         ]
-    }
+     }
     ]
     ```
 
@@ -87,9 +90,15 @@ This procedure sends a sample risk event payload to the Okta org.
 For reference information on this API, see [Risk Events](/docs/reference/api/risk-events).
 
 ### Confirm the response
+
 This procedure reviews the Admin Console's System Log to identify the risk event information logged after calling the Risk Event API.
 
 1. Sign in to your Okta org as an administrator.
-2. From the Admin Console, navigate to the System Log (**Reports** > **System Log**).
+2. In the Admin Console, go to **Reports** > **System Log**.
 3. Review the log file or search for the event `security.risk.signal.consume`, which is logged when a risk provider sends a risk event to Okta.
 4. With a risk action of `enforce_and_log`, and a risk-based policy setup, the third-party risk provider event is used when calculating the authentication risk. This information is logged in the `user.session.start` event.
+
+### General troubleshooting tips
+* Save the Postman environment after every change to the environment. Confirm that you are using the correct Postman environment.
+* Postman environment variables are case sensitive. Ensure there are no typos, no leading/trailing spaces, no leading or trailing double quotes in the environment variables.
+* The org URL should not be the admin URL (for example, use `https://demo-org.oktapreview.com` instead of  `https://demo-org-admin.oktapreview.com`) and you don't need a trailing `/` at the end of the URL.

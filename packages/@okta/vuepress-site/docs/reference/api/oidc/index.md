@@ -17,7 +17,7 @@ This page contains detailed information about the OAuth 2.0 and OpenID Connect e
 
 ## Get started
 
-Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/fd92d7c1ab0fbfdecab2)
+Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9e7ad28ca1c26870a4b0)
 
 ## Endpoints
 
@@ -86,8 +86,8 @@ This is a starting point for browser-based OpenID Connect flows such as the impl
 | code_challenge_method            | Method used to derive the code challenge for [PKCE](/docs/guides/implement-auth-code-pkce/). Valid value: `S256`                                                                                                                                                                                                                                                                                                         | Query       | String    | FALSE      |
 | display                          | The `display` parameter to be passed to the Social Identity Provider when performing Social Login.                                                                                                                                                                                                                                                                                                                                                 | Query       | String    | FALSE      |
 | idp_scope                        | A space delimited list of scopes to be provided to the Social Identity Provider when performing [Social Login](/docs/concepts/social-login/). These scopes are used in addition to the scopes already configured on the Identity Provider.                                                                                                                                                                                                  | Query       | String    | FALSE      |
-| [idp](/docs/reference/api/idps/) | Identity provider to use if there is no Okta Session. NOTE: Using this parameter will cause `login_hint` to be ignored.                                                                                                                                                                                                                                                                                                                   | Query       | String    | FALSE      |
-| login_hint                       | A username to prepopulate if prompting for authentication and an IDP is not specified.                                                                                                                                                                                                                                                                                                                                           | Query       | String    | FALSE      |
+| [idp](/docs/reference/api/idps/) | Identity provider to use if there's no Okta Session.                                                                                                                                                                                                                                                                                                                  | Query       | String    | FALSE      |
+| login_hint                       | A username to prepopulate if prompting for authentication.                                                                                                                                                                                                                                                                                                                                           | Query       | String    | FALSE      |
 | max_age                          | Allowable elapsed time, in seconds, since the last time the end user was actively authenticated by Okta.                                                                                                                                                                                                                                                                                                                                           | Query       | String    | FALSE      |
 | nonce                            | A value that is returned in the ID token. It is used to mitigate replay attacks.                                                                                                                                                                                                                                                                                                                                                              | Query       | String    | TRUE       |
 | prompt                           | Valid values: `none`, `consent`, `login`, or `consent` and `login` in either order. See [Parameter details](#parameter-details) for more information.                                                                                                                                                                                                                                                                                              | Query       | String    | FALSE      |
@@ -171,7 +171,7 @@ Irrespective of the response type, the contents of the response are as described
 | Property            | Description                                                                                                                                                                              | DataType |
 | :------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------- |
 | access_token        | An [access token](#access-token). This is returned if `response_type` included `token`.                                                                                                  | String   |
-| code                | An opaque value that can be used to redeem tokens from the [token endpoint](#token). `code` is returned if the `response_type` includes `code`. The code has a lifetime of 60 seconds.   | String   |
+| code                | An opaque value that can be used to redeem tokens from the [token endpoint](#token). `code` is returned if the `response_type` includes `code`. The code has a lifetime of 300 seconds.   | String   |
 | error               | The error code, if something went wrong.                                                                                                                                                 | String   |
 | error_description   | Additional error information (if any).                                                                                                                                                   | String   |
 | expires_in          | Number of seconds until the `access_token` expires. This is only returned if the response included an `access_token`.                                                                    | String   |
@@ -191,7 +191,7 @@ These APIs are compliant with the OpenID Connect and OAuth 2.0 spec with some Ok
 | access_denied               | The server denied the request.                                                                                                                                                                                     |
 | invalid_client              | The specified client ID is invalid.                                                                                                                                                                                |
 | invalid_grant               | The specified grant is invalid, expired, revoked, or doesn't match the redirect URI used in the authorization request.                                                                                            |
-| invalid_request             | The request is missing a necessary parameter or the parameter has an invalid value.                                                                                                                                |
+| invalid_request             | The request is missing a necessary parameter, the parameter has an invalid value, or the request contains duplicate parameters.                                                                                                                                |
 | invalid_scope               | The scopes list contains an invalid or unsupported value.                                                                                                                                                          |
 | invalid_token               | The provided access token is invalid.                                                                                                                                                                              |
 | server_error                | The server encountered an internal error.                                                                                                                                                                          |
@@ -270,7 +270,7 @@ The following parameters can be posted as a part of the URL-encoded form values 
 
 | Parameter               | Description                                                                                                                                                                                                                                                                                                                        | Type   |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
-| code                    | Required if `grant_type` is `authorization_code`. The value is what was returned from the [authorization endpoint](#authorize). The code has a lifetime of 60 seconds.                                                                                                                                                             | String |
+| code                    | Required if `grant_type` is `authorization_code`. The value is what was returned from the [authorization endpoint](#authorize). The code has a lifetime of 300 seconds.                                                                                                                                                             | String |
 | code_verifier           | Required if `grant_type` is `authorization_code`  and `code_challenge` was specified in the original `/authorize` request. This value is the code verifier for [PKCE](#parameter-details). Okta uses it to recompute the `code_challenge` and verify if it matches the original `code_challenge` in the authorization request.     | String |
 | grant_type              | Can be one of the following: `authorization_code`, `password`, `client_credentials`, `refresh_token`, or `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />. Determines the mechanism Okta uses to authorize the creation of the tokens.                                                                                                                                               | String |
 | password                | Required if the grant_type is `password`.                                                                                                                                                                                                                                                                                          | String |
@@ -297,9 +297,9 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 
 | Error Id                 | Details                                                                                                                                                                                                    |
 | :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| invalid_client           | The specified `client_id` wasn't found.                                                                                                                                                                      |
+| invalid_client           | The specified `client_id` isn't found.                                                                                                                                                                      |
 | invalid_grant            | The `code`, `refresh_token`, or `username` and `password` combination is invalid, or the `redirect_uri` doesn't match the one used in the authorization request.                                          |
-| invalid_request          | The request structure was invalid. For example: the basic authentication header is malformed, both header and form parameters were used for authentication, or no authentication information was provided. |
+| invalid_request          | The request structure is invalid. For example, the basic authentication header is malformed, both header and form parameters are used for authentication, no authentication information is provided, or the request contains duplicate parameters. |
 | invalid_scope            | The scopes list contains an invalid or unsupported value.                                                                                                                                                  |
 | unsupported_grant_type   | The `grant_type` isn't `authorization_code`, `refresh_token`, or `password`.                                                                                                                               |
 
@@ -400,8 +400,8 @@ Based on the type of token and whether it is active, the returned JSON contains 
 
 | Error Id          | Details                                                                                                  |
 | :---------------- | :------------------------------------------------------------------------------------------------------- |
-| invalid_client    | The specified `client_id` wasn't found.                                                                  |
-| invalid_request   | The request structure was invalid. For example, the basic authentication header was malformed, both header and form parameters were used for authentication, or no authentication information was provided. |
+| invalid_client    | The specified `client_id` isn't found.                                                                  |
+| invalid_request   | The request structure is invalid. For example, the basic authentication header is malformed, both header and form parameters are used for authentication, no authentication information is provided, or the request contains duplicate parameters. |
 
 #### Response example (success, access token)
 
@@ -484,7 +484,7 @@ A successful revocation is denoted by an HTTP 200 OK response. Note that revokin
 | Error Id          | Details                                                                                                                                                       |
 | :---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | invalid_client    | The specified `client_id` wasn't found.                                                                                                                       |
-| invalid_request   | The request structure was invalid. For example, the basic authentication header was malformed, both header and form parameters were used for authentication, or no authentication information was provided. |
+| invalid_request   | The request structure is invalid. For example, the basic authentication header is malformed, both header and form parameters are used for authentication, no authentication information is provided, or the request contains duplicate parameters. |
 
 #### Response example (success)
 
@@ -589,6 +589,8 @@ Okta also recommends caching or persisting these keys to improve performance. If
 #### Response properties
 
 JWKS properties can be found [here](/docs/reference/api/authorization-servers/#key-properties).
+
+> **Note:** Okta returns [standard HTTP Cache-Control headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control) for applicable JWKS endpoints. Ensure that you respect the cache header directives, as they are updated based on the time of the request.
 
 #### Response example
 
@@ -741,7 +743,7 @@ curl -X GET \
 | response_types_supported                      | JSON array that contains a list of the `response_type` values that this authorization server supports. Can be a combination of `code`, `token`, and `id_token`.                                                                                                                                                                                                     | Array   |
 | response_modes_supported                      | JSON array that containis a list of the `response_mode` values that this authorization server supports. More information [here](#parameter-details). | Array   |
 | grant_types_supported                         | JSON array that contains a list of the `grant_type` values that this authorization server supports.                                       | Array   |
-| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this OP supports. Valid values are `pairwise` and `public`. More info [here](https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes).                                                                                                                                         | Array   |
+| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this OP supports. Valid values are `pairwise` and `public`, but only `public` is currently supported. See the [Subject Identifier Types] (https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes) section in the OpenID Connect specification.                                                                                                                                         | Array   |
 | scopes_supported                              | JSON array that contains a list of the `scope` values that this authorization server supports.                                            | Array   |
 | token_endpoint_auth_methods_supported         | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this token endpoint.                                        | Array   |
 | claims_supported                              | A list of the claims supported by this authorization server.                                                                              | Array   |
@@ -905,7 +907,7 @@ curl -X GET \
 | revocation_endpoint                           | URL of the authorization server's [revocation endpoint](#revoke).                                                                                                                                                                          | String  |
 | revocation_endpoint_auth_methods_supported    | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this revocation endpoint.                                                                                                                                       | Array   |
 | scopes_supported                              | JSON array that contains a list of the `scope` values that this authorization server supports.                                                                                                                                                | Array   |
-| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this authorization server supports. Valid types include `pairwise` and `public`. More info [here](https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes). | Array   |
+| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this authorization server supports. Valid types include `pairwise` and `public`, but only `public` is currently supported. See the [Subject Identifier Types] (https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes) section in the OpenID Connect specification. | Array   |
 | token_endpoint                                | URL of the authorization server's [token endpoint](#token).                                                                                                                                                                                | String  |
 | token_endpoint_auth_methods_supported         | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this token endpoint.                                                                                                                                            | Array   |
 
@@ -1069,16 +1071,20 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 
 A consent dialog appears depending on the values of three elements:
 
-* `prompt`: a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
-* `consent_method`: a property on [apps](/docs/reference/api/apps/#settings-7)
-* `consent`: a property on scopes as listed in the table above
+* `prompt` - a query parameter that is used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
+* `consent_method` - an [application](/docs/reference/api/apps/#settings-7) property that allows you to determine whether a client is fully trusted (for example, a first-party application) or requires consent (for example, a third-party application).
+* `consent` - a Scope property, listed in the previous table, that allows you to enable or disable user consent for an individual scope.
 
-| `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
-| :------------------ | :--------------------------------- | :---------------------------- | :----------- |
-| `CONSENT`           | `TRUSTED` or `REQUIRED`            | `REQUIRED`                    | Prompted     |
-| `CONSENT`           | `TRUSTED`                          | `IMPLICIT`                    | Not prompted |
-| `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
-| `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
+| `prompt` Value   | `consent_method`        | `consent`                            | Result       |
+| :--------------- | :---------------------- | :----------------------------------- | :----------- |
+| `CONSENT`        | `TRUSTED` or `REQUIRED` | `REQUIRED`                           | Prompted     |
+| `CONSENT`        | `TRUSTED` or `REQUIRED` | `FLEXIBLE`                           | Prompted     |
+| `CONSENT`        | `TRUSTED`               | `IMPLICIT`                           | Not prompted |
+| `NONE`           | `TRUSTED`               | `FLEXIBLE`, `IMPLICIT`, or `REQUIRED`| Not prompted |
+| `NONE`           | `REQUIRED`              | `FLEXIBLE` or `REQUIRED`             | Prompted     |
+| `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
+
+> **Note:** When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This occurs because there is no user involved in a two-legged OAuth [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow.
 <!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) as well. Add 'LOGIN' to the first three rows when supported --> |
 
 **Notes:**

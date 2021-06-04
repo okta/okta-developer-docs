@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "99d020e8-7f80-4069-bf97-10fd11c38cea",
+		"_postman_id": "591a6b44-6fca-4073-9b0a-2d9c9b9fced7",
 		"name": "Identity Providers (Okta API)",
 		"description": "Includes templates for Social and SAML identity provider operations.",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
@@ -196,8 +196,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Key Store Operations",
@@ -348,8 +347,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Lifecycle Operations",
@@ -432,8 +430,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Signing Key Store Operations",
@@ -870,8 +867,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Transaction Operations",
@@ -1174,8 +1170,43 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
+		},
+		{
+			"name": "Add an Apple IdP",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "SSWS {{apikey}}"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"type\": \"APPLE\",\n  \"name\": \"Apple Identity Provider\",\n  \"protocol\": {\n    \"type\": \"OIDC\",\n    \"scopes\": [\"openid\", \"email\", \"name\"],\n    \"credentials\": {\n      \"client\": {\n        \"client_id\": \"your-client-id\"\n      },\n      \"signing\": {\n        \"privateKey\": \"{privateKey_from_Apple}\",\n        \"kid\": \"test key id\",\n        \"teamId\": \"test team id\"\n      }\n    }\n  },\n  \"policy\": {\n    \"provisioning\": {\n      \"action\": \"AUTO\",\n      \"profileMaster\": true,\n      \"groups\": {\n        \"action\": \"NONE\"\n      },\n      \"conditions\": {\n        \"deprovisioned\": {\n          \"action\": \"NONE\"\n        },\n        \"suspended\": {\n          \"action\": \"NONE\"\n        }\n      }\n    },\n    \"accountLink\": {\n      \"action\": \"AUTO\"\n    },\n    \"subject\": {\n      \"userNameTemplate\": {\n        \"template\": \"idpuser.email\"\n      },\n      \"matchType\": \"USERNAME\"\n    }\n  }\n}"
+				},
+				"url": {
+					"raw": "{{url}}/api/v1/idps",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"idps"
+					]
+				}
+			},
+			"response": []
 		},
 		{
 			"name": "Add Generic OIDC IdP",
@@ -1537,7 +1568,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "2a1b9244-4fc4-4864-8099-671f85a4ea79",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1547,13 +1577,11 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "9ffcedfc-82da-47c3-987c-ca5f51e01fc6",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
