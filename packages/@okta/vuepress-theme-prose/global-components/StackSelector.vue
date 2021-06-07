@@ -143,6 +143,11 @@
       margin-top: -0.75rem;
     }
   }
+  .no-snippet {
+    .selector-control {
+      border-bottom: 0;
+    }
+  }
   .display-inline {
     display: inline;
 
