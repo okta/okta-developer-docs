@@ -752,7 +752,7 @@ This section covers what happens when a token inline hook flow fails either due 
 
 > **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information on the events related to Inline Hooks that the Okta System Log captures.
 
-- When there is a communication failure with the external service, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+- When there is a communication failure with the external service, a timeout for example, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 
   **Who can see this error?** Administrators
 

@@ -150,6 +150,8 @@ When you return an error object, it should contain an `errorSummary` sub-object:
 
 Returning an error object will cause Okta to record a failure event in the Okta System Log. The string you supplied in the `errorSummary` property of the `error` object will be recorded in the System Log event.
 
+>**Note:** If a response to the Import Inline Hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta import process continues and the user is created.
+
 #### Timeout behavior
 
 After receiving the Okta request, if there is a response timeout or error, the Okta process flow continues and the user is created.

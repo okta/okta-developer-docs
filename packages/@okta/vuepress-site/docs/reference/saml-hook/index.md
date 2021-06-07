@@ -330,6 +330,8 @@ The `value` object is where you specify the specific operation to perform. It is
 | add     | Add a new claim to the assertion       |
 | replace | Modify any element of the assertion   |
 
+>**Note:** If a response to the SAML Assertion Inline Hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta process flow continues with the original SAML assertion returned.
+
 ### Specify location within the assertion
 
 Specify the location within the assertion where you want to apply your operation using a slash-delimited path, which follows JSON Patch conventions.

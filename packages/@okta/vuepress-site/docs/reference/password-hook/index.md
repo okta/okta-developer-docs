@@ -29,7 +29,9 @@ The Password Import Inline Hook enables migration of users from another data sto
 
 The Password Import Inline Hook is triggered when the end user tries to sign in to Okta for the first time. Okta sends your external service the password that the user supplied. Your external service then needs to send a response to Okta indicating whether the password supplied by the end user is valid or not.
 
-If your service returns a response that indicates that the password is valid, Okta sets the password for the user and won't normally need to call your service again. However, if Okta service is disrupted or degraded, it might not be possible to set the password. Okta then needs to call your service again the next time the end user attempts to signs in. See [Password Inline Hook and Okta Service Mode](#password-inline-hook-and-okta-service-mode) and [Removing Password from Existing User Store](#removing-password-from-existing-user-store) for details.
+If your service returns a response that indicates that the password is valid, Okta sets the password for the user and won't normally need to call your service again. However, if the Okta service is disrupted or degraded, it might not be possible to set the password. Okta then needs to call your service again the next time the end user attempts to signs in. See [Password Inline Hook and Okta Service Mode](#password-inline-hook-and-okta-service-mode) and [Removing Password from Existing User Store](#removing-password-from-existing-user-store) for details.
+
+>**Note:** If a response to the Password Import Inline Hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta process flow stops and the user can't sign in. The password is not imported and the Inline Hook is called the next time the end user attempts to sign in.
 
 ## Objects in the request from Okta
 
