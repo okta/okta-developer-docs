@@ -8,7 +8,7 @@ You can use either an existing OpenID Connect app integration or create a new on
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
-1. On the Create a new app integration window, select **SAML 2.0** as the **Sign-in method**. Select **Native Application** as the **Application type**. Click **Next**.
+1. On the Create a new app integration window, select **OIDC - OpenID Connect ** as the **Sign-on method**. Select **Native Application** as the **Application type**. Click **Next**.
 1. Enter a name for your app integration. In the **Sign-in redirect URIs** box, specify the callback location where Okta returns the browser (along with the token).
 1. Click **Save** to create the app.
 1. On the **General** tab that appears, scroll to the **General Settings** section and click **Edit**.
