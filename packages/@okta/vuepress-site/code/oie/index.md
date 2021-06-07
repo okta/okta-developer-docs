@@ -8,7 +8,7 @@ title: Identity Engine SDKs & Samples
 
 ## What's new
 
-[Identity Engine](/docs/concepts/ie-intro/) introduces new identity management capabilities with greater flexibility and customization. To take advantage of these new features and for a better development experience, use the Identity Experience SDKs to manage authentication in your apps. These new SDKs are recommended for orgs using Identity Engine.
+[Identity Engine](/docs/concepts/ie-intro/) introduces new identity management capabilities with greater flexibility and customization. To take advantage of these new features and for a better development experience, use the Identity Engine SDKs to manage authentication in your apps. These new SDKs are recommended for orgs using Identity Engine.
 
 Experiment with sample apps that showcase Identity Engine using the following [authentication approaches](/docs/concepts/redirect-vs-embedded/):
 
@@ -16,7 +16,7 @@ Experiment with sample apps that showcase Identity Engine using the following [a
 
 * **Embedded**: These sample apps demonstrate how to embed the Okta Sign-In Widget in an app as a package dependency.
 
-Learn how to implement each approach with these IDX SDKs and sample apps in the [Redirect authentication guide](/docs/guides/sampleapp-oie-redirectauth/) and [Embedded authentication guide](/docs/guides/oie-embedded-sdk-start-with-use-case/).
+Learn how to implement each approach with these Identity Engine SDKs and sample apps in the [Redirect authentication guide](/docs/guides/sampleapp-oie-redirectauth/) and [Embedded authentication guide](/docs/guides/oie-embedded-sdk-start-with-use-case/).
 
 Orgs using Identity Engine can also continue to use current SDKs and tools. You can find those SDKs for your stack from the [Languages & SDKs overview](/code/).
 
@@ -26,17 +26,17 @@ Orgs using Identity Engine can also continue to use current SDKs and tools. You 
 
 ##### iOS
 
-* [Swift IDX SDK](https://github.com/okta/okta-idx-swift) 
+* [Swift Identity Engine SDK](https://github.com/okta/okta-idx-swift)
 * [iOS sample app](https://github.com/okta/samples-ios)
 	- see [Browser Sign In](https://github.com/okta/samples-ios/tree/master/browser-sign-in) for redirect sample configuration
 	- see [Custom Sign In](https://github.com/okta/samples-ios/tree/master/custom-sign-in) for embedded sample configuration
-* iOS IDX SDK (??? is there another iOS SDK?)
+* iOS Identity Engine SDK (??? is there another iOS SDK?)
 * iOS Redirect/Embedded Sample App (??? sample app downloads are the same for redirect/embedded)
 * More iOS resources (???)
 
 ##### Android
 
-* [Android IDX SDK](https://github.com/okta/okta-idx-android)
+* [Android Identity Engine SDK](https://github.com/okta/okta-idx-android)
 * [Android sample app](https://github.com/okta/samples-android)
 	- see [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in) for redirect sample configuration
 	- see [Custom Sign In](https://github.com/okta/samples-android/tree/master/custom-sign-in) for embedded sample configuration
@@ -60,7 +60,7 @@ Orgs using Identity Engine can also continue to use current SDKs and tools. You 
 ##### JavaScript
 
 * [Sign-In Widget](https://github.com/okta/okta-signin-widget)
-* [JavaScript IDX SDK](https://github.com/okta/okta-idx-js)
+* [JavaScript Identity Engine SDK](https://github.com/okta/okta-idx-js)
 * More JavaScript resources (???)
 
 ##### React
@@ -88,7 +88,7 @@ Orgs using Identity Engine can also continue to use current SDKs and tools. You 
 
 ##### Go
 
-* [Golang IDX SDK](https://github.com/okta/okta-idx-golang)
+* [Golang Identity Engine SDK](https://github.com/okta/okta-idx-golang)
 * [Golang sample app](https://github.com/okta/samples-golang)
 	- see [Okta-Hosted Login](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) for redirect sample configuration
 	- see [Custom Login Page](https://github.com/okta/samples-golang/tree/master/custom-login) for embedded sample configuration
@@ -96,7 +96,7 @@ Orgs using Identity Engine can also continue to use current SDKs and tools. You 
 
 ##### Java
 
-* [Java IDX SDK](https://github.com/okta/okta-idx-java)
+* [Java Identity Engine SDK](https://github.com/okta/okta-idx-java)
 * [Spring sample app](https://github.com/okta/samples-java-spring)
 	- see [Okta-Hosted Login](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) for redirect sample configuration
 	- see [Custom Login Page](https://github.com/okta/samples-java-spring/tree/master/custom-login) for embedded sample configuration
@@ -105,8 +105,8 @@ Orgs using Identity Engine can also continue to use current SDKs and tools. You 
 
 ##### .NET
 
-* [.NET IDX SDK](https://github.com/okta/okta-idx-dotnet)
-* [ASP.NET MVC 4.x embedded-IDX sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet)
+* [.NET Identity Engine SDK](https://github.com/okta/okta-idx-dotnet)
+* [ASP.NET MVC 4.x embedded Identity Engine sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet)
 * [ASP.NET MVC 4.x sample app](https://github.com/okta/samples-aspnet) (??? Classic engine?)
 * [ASP.NET Core 2.x and 3.x sample app](https://github.com/okta/samples-aspnetcore)
 * [ASP.NET Web Forms redirect sample app](https://github.com/okta/samples-aspnet-webforms)
