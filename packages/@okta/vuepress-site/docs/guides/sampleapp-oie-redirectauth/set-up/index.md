@@ -15,32 +15,32 @@ This document walks you through setting up an Okta sample app to demonstrate som
 
 Select your sample app language.
 
-<StackSelector snippet="sampleapplang" />
+<StackSelector />
 
 ## Initial set up
 
 To get started, you need to create an Okta OAuth app to represent the <StackSelector snippet="applang" noSelector inline /> app and then install the <StackSelector snippet="applang" noSelector inline /> sample app.
 
-<StackSelector snippet="toolnote" noSelector />
+<StackSnippet snippet="toolnote" />
 
 1. Sign in to your [Okta Admin Console](https://login.okta.com).
 2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
-3. In the dialog box that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSelector snippet="apptype" noSelector inline /> as the **Application type**, and then click **Next**.
-4. Fill in the New <StackSelector snippet="apptypepage" noSelector inline /> Integration fields that you need, and then click **Save**:
+3. In the dialog box that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSnippet snippet="apptype" inline /> as the **Application type**, and then click **Next**.
+4. Fill in the New <StackSnippet snippet="apptypepage" inline /> Integration fields that you need, and then click **Save**:
 
    * Be sure to add the following values (or leave the defaults if they match):
 
-      **Sign-in redirect URIs** &mdash; <StackSelector snippet="signinredirecturi" noSelector inline /><br>
-      **Sign-out redirect URIs** &mdash; <StackSelector snippet="signoutredirecturi" noSelector inline />
+      **Sign-in redirect URIs** &mdash; <StackSnippet snippet="signinredirecturi" inline /><br>
+      **Sign-out redirect URIs** &mdash; <StackSnippet snippet="signoutredirecturi" inline />
 
    * In the **Assignments** section, select **Allow everyone in your organization to access**. This assigns all Users in the Everyone Group to the app. You must assign the app to either the Everyone Group or a custom Group that you create so that profile enrollment functions correctly.
-5. On the new Application page, click the "Copy to clipboard" icon to copy the <StackSelector snippet="clientidsd" noSelector inline />. Store this information temporarily for use when you <StackSelector snippet="configfile" noSelector inline /> in the next section.
+5. On the new Application page, click the "Copy to clipboard" icon to copy the <StackSnippet snippet="clientidsd" inline />. Store this information temporarily for use when you <StackSnippet snippet="configfile" inline /> in the next section.
 
-<StackSelector snippet="corsissuer" noSelector />
+<StackSnippet snippet="corsissuer" />
 
 ### Install the sample app
 
-<StackSelector snippet="installsampleapp" noSelector />
+<StackSnippetr snippet="installsampleapp" />
 
 <!--
 Once sample download is working we can provide these instructions instead:
@@ -55,11 +55,11 @@ This section walks you through enrolling a user and authenticating that user.
 
 ### Open and test the Sign-In Widget
 
-<StackSelector snippet="simpleenrollauth" noSelector />
+<StackSnippet snippet="simpleenrollauth" />
 
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
     > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-about-asop) is configured.
-5. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+5. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Enable self-service enrollment
 
@@ -71,7 +71,7 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 2. Give your Policy a **Name** and then click **Save**.
 3. On the Profile Enrollment page, select the pencil icon for your new Policy from the **Actions** column.
 4. On the Policy page, click **Manage Apps** and then click **Add an App to This Policy**.
-5. Locate the <StackSelector snippet="applang" noSelector inline /> app that you created earlier, click **Apply**, and then **Close**.
+5. Locate the <StackSnippet snippet="applang" inline /> app that you created earlier, click **Apply**, and then **Close**.
 6. Click **Back to Profile Enrollment Policy**.
 7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
 8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
@@ -82,7 +82,7 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 
 This section walks you through the self-service enrollment steps for a new user.
 
-<StackSelector snippet="tryenrollin" noSelector />
+<StackSnippet snippet="tryenrollin" />
 
 3. In the Okta Sign-In Widget, click **Sign up** just below the **Forgot password?** link.
 4. Enter the requested information, and then click **Sign Up**.
@@ -91,7 +91,7 @@ This section walks you through the self-service enrollment steps for a new user.
     > **Note:** Be sure to copy the code from the email and paste it into the Sign-In Widget to manually verify the email address rather than using the **Verify Email Address** button.
 
 6. After you complete set up, click **Finish**. You are redirected to the app's welcome page.
-7. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+7. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Add MFA with a mandatory second factor
 
@@ -107,7 +107,7 @@ You can modify the Application's Sign-On Policy to require the user to have a se
     * Click **Add Authenticator**, and then click **Add** in the **Phone** authentication box.
     * Leave **Authentication (MFA/SSO)** selected in the **Add Phone** dialog box, and click **Add**.
 
-2. From the side navigation, select **Applications** > **Applications** and then select the Okta OAuth app that you created to represent the <StackSelector snippet="applang" noSelector inline /> app.
+2. From the side navigation, select **Applications** > **Applications** and then select the Okta OAuth app that you created to represent the <StackSnippet snippet="applang" inline /> app.
 3. Select the **Sign On** tab.
 4. Scroll down to the **Sign On Policy** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
 5. In the Edit Rule dialog box, scroll down to the **THEN** section and locate **AND User must authenticate with**.
@@ -115,12 +115,12 @@ You can modify the Application's Sign-On Policy to require the user to have a se
 
 ### Try multifactor authentication
 
-<StackSelector snippet="tryenrollin" noSelector />
+<StackSnippet snippet="tryenrollin" />
 
 3. Enter the credentials of the user that you enrolled earlier. The Set up authentications page appears, which prompts you to set up either the Okta Verify or the Phone authenticator.
 4. Under **Phone**, click **Set up**.
-5. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSelector snippet="applang" noSelector inline /> welcome page.
-6. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+5. Fill out the requested phone authentication information, verify your phone with a code, and then click **Finish**. You are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
+6. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Authenticator recovery
 
@@ -133,8 +133,8 @@ Try out the email password recovery flow:
 1. Click **Select** for the Email authenticator. An OTP code is sent to your email address.
 1. Manually copy the code from the email and paste it into the Sign-In Widget.
 1. After you paste the code, answer the security question that appears. You are then prompted to enter a new password.
-1. After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in the last section. Then, you are redirected to the <StackSelector snippet="applang" noSelector inline /> welcome page.
-1. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+1. After you enter the new password successfully, you are prompted for the additional phone authentication that you set up in the last section. Then, you are redirected to the <StackSnippet snippet="applang" inline /> welcome page.
+1. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ### Recovery with Okta Verify
 
@@ -146,14 +146,14 @@ In addition to recovering your password with an email, you can add Okta Verify a
 4. In the **Recovery authenticators** section, locate **AND Users can initiate recovery with**.
 5. Select **Okta Verify (Push notification only)** and click **Update Rule**.
 6. [Enroll a new user](#try-enrollment), ensuring that this time you also enroll Okta Verify.
-7. Sign in with your new user to confirm that you added the user correctly, and then click <StackSelector snippet="tryenrollout" noSelector inline />.
-8. Back on the welcome page of the <StackSelector snippet="applang" noSelector inline /> app, click <StackSelector snippet="appsignin" noSelector inline />.
+7. Sign in with your new user to confirm that you added the user correctly, and then click <StackSnippet snippet="tryenrollout" inline />.
+8. Back on the welcome page of the <StackSnippet snippet="applang" inline /> app, click <StackSnippet snippet="appsignin" inline />.
 9. After you are redirected to the Sign-In Widget, click **Forgot password?**.
 10. Enter the email address of the user that you just created with Okta Verify as a factor, and then click **Next**.
 11. On the next page, click **Select** beside **Get a push notification**. You should receive a push notification in Okta Verify. Respond appropriately.
 12. Enter the answer to your security question, and then you are asked to reset your password.
-13. When you finish, the <StackSelector snippet="applang" noSelector inline /> welcome page appears.
-14. Click <StackSelector snippet="tryenrollout" noSelector inline /> to sign out of the <StackSelector snippet="applang" noSelector inline /> app.
+13. When you finish, the <StackSnippet snippet="applang" inline /> welcome page appears.
+14. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Progressive Profiling
 
@@ -247,8 +247,8 @@ Create a Routing Rule that automatically routes all authentication requests to F
 1. On the Identity Providers page in the Admin Console, select the **Routing Rules** tab.
 2. Click **Add Routing Rule**.
 3. Name the Rule, and then for the purposes of this example set two rule conditions:
-    * For **AND User is accessing**, select **Any of the following applications**, and then choose your Application. This routes any attempts to access the <StackSelector snippet="applang" noSelector inline /> app to the Facebook IdP, but still allows you to access your Admin Console normally.
+    * For **AND User is accessing**, select **Any of the following applications**, and then choose your Application. This routes any attempts to access the <StackSnippet snippet="applang" inline /> app to the Facebook IdP, but still allows you to access your Admin Console normally.
     * For **THEN Use this identity provider**, select the Facebook IdP that you added earlier, and then click **Create Rule**.
 4. Click **Activate** in the dialog box that appears.
-5. Start the <StackSelector snippet="applang" noSelector inline /> app in an incognito/private browser window and click <StackSelector snippet="appsignin" noSelector inline />. You are redirected to the Facebook site, where you can sign in.
-6. After successful authentication, you are returned to the <StackSelector snippet="applang" noSelector inline /> app's welcome page.
+5. Start the <StackSnippet snippet="applang" inline /> app in an incognito/private browser window and click <StackSnippet snippet="appsignin" inline />. You are redirected to the Facebook site, where you can sign in.
+6. After successful authentication, you are returned to the <StackSnippet snippet="applang" inline /> app's welcome page.
