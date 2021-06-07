@@ -743,7 +743,7 @@ curl -X GET \
 | response_types_supported                      | JSON array that contains a list of the `response_type` values that this authorization server supports. Can be a combination of `code`, `token`, and `id_token`.                                                                                                                                                                                                     | Array   |
 | response_modes_supported                      | JSON array that containis a list of the `response_mode` values that this authorization server supports. More information [here](#parameter-details). | Array   |
 | grant_types_supported                         | JSON array that contains a list of the `grant_type` values that this authorization server supports.                                       | Array   |
-| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this OP supports. Valid values are `pairwise` and `public`. More info [here](https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes).                                                                                                                                         | Array   |
+| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this OP supports. Valid values are `pairwise` and `public`, but only `public` is currently supported. See the [Subject Identifier Types] (https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes) section in the OpenID Connect specification.                                                                                                                                         | Array   |
 | scopes_supported                              | JSON array that contains a list of the `scope` values that this authorization server supports.                                            | Array   |
 | token_endpoint_auth_methods_supported         | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this token endpoint.                                        | Array   |
 | claims_supported                              | A list of the claims supported by this authorization server.                                                                              | Array   |
@@ -907,7 +907,7 @@ curl -X GET \
 | revocation_endpoint                           | URL of the authorization server's [revocation endpoint](#revoke).                                                                                                                                                                          | String  |
 | revocation_endpoint_auth_methods_supported    | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this revocation endpoint.                                                                                                                                       | Array   |
 | scopes_supported                              | JSON array that contains a list of the `scope` values that this authorization server supports.                                                                                                                                                | Array   |
-| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this authorization server supports. Valid types include `pairwise` and `public`. More info [here](https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes). | Array   |
+| subject_types_supported                       | JSON array that contains a list of the Subject Identifier types that this authorization server supports. Valid types include `pairwise` and `public`, but only `public` is currently supported. See the [Subject Identifier Types] (https://openid.net/specs/openid-connect-core-1_0.html#SubjectIDTypes) section in the OpenID Connect specification. | Array   |
 | token_endpoint                                | URL of the authorization server's [token endpoint](#token).                                                                                                                                                                                | String  |
 | token_endpoint_auth_methods_supported         | JSON array that contains a list of [client authentication methods](/docs/reference/api/oidc/#client-authentication-methods/) supported by this token endpoint.                                                                                                                                            | Array   |
 
@@ -1071,16 +1071,20 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 
 A consent dialog appears depending on the values of three elements:
 
-* `prompt`: a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
-* `consent_method`: a property on [apps](/docs/reference/api/apps/#settings-7)
-* `consent`: a property on scopes as listed in the table above
+* `prompt` - a query parameter that is used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
+* `consent_method` - an [application](/docs/reference/api/apps/#settings-7) property that allows you to determine whether a client is fully trusted (for example, a first-party application) or requires consent (for example, a third-party application).
+* `consent` - a Scope property, listed in the previous table, that allows you to enable or disable user consent for an individual scope.
 
-| `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
-| :------------------ | :--------------------------------- | :---------------------------- | :----------- |
-| `CONSENT`           | `TRUSTED` or `REQUIRED`            | `REQUIRED`                    | Prompted     |
-| `CONSENT`           | `TRUSTED`                          | `IMPLICIT`                    | Not prompted |
-| `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
-| `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
+| `prompt` Value   | `consent_method`        | `consent`                            | Result       |
+| :--------------- | :---------------------- | :----------------------------------- | :----------- |
+| `CONSENT`        | `TRUSTED` or `REQUIRED` | `REQUIRED`                           | Prompted     |
+| `CONSENT`        | `TRUSTED` or `REQUIRED` | `FLEXIBLE`                           | Prompted     |
+| `CONSENT`        | `TRUSTED`               | `IMPLICIT`                           | Not prompted |
+| `NONE`           | `TRUSTED`               | `FLEXIBLE`, `IMPLICIT`, or `REQUIRED`| Not prompted |
+| `NONE`           | `REQUIRED`              | `FLEXIBLE` or `REQUIRED`             | Prompted     |
+| `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
+
+> **Note:** When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This occurs because there is no user involved in a two-legged OAuth [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow.
 <!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) as well. Add 'LOGIN' to the first three rows when supported --> |
 
 **Notes:**

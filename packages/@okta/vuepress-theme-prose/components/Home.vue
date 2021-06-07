@@ -6,27 +6,29 @@
       </div>
       <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
         <div class="okta-game-banner row">
-          <div class="okta-game-banner--logo">
-            <img src="/img/okta-game/okta-game-logo.svg" />
-          </div>
-          <div class="okta-game-banner--image">
-            <img src="/img/okta-game/okta-game-image.svg" />
-          </div>
-          <div class="okta-game-banner--details">
-            <p>Can you turn this small business into a global powerhouse?</p>
-            <div class="okta-game-banner--details-buttons">
-              <SmartLink
-                :item="{ link: 'https://codetycoongame.com/' }"
-                classes="play-now-btn"
-              >
-                Play Now
-              </SmartLink>
-              <SmartLink
-                :item="{ link: 'https://youtu.be/aO5QTNjUQ6o' }"
-                classes="learn-more"
-              >
-                Learn More
-              </SmartLink>
+          <div class="col-11 okta-game-banner-wrapper">
+            <div class="okta-game-banner--logo">
+              <img src="/img/okta-game/okta-game-logo.svg" />
+            </div>
+            <div class="okta-game-banner--image">
+              <img src="/img/okta-game/okta-game-image.svg" />
+            </div>
+            <div class="okta-game-banner--details">
+              <p>Can you turn this small business into a global powerhouse?</p>
+              <div class="okta-game-banner--details-buttons">
+                <SmartLink
+                  :item="{ link: 'https://codetycoongame.com/' }"
+                  classes="play-now-btn"
+                >
+                  Play Now
+                </SmartLink>
+                <SmartLink
+                  :item="{ link: 'https://youtu.be/aO5QTNjUQ6o' }"
+                  classes="learn-more"
+                >
+                  Learn More
+                </SmartLink>
+              </div>
             </div>
           </div>
         </div>
@@ -39,6 +41,21 @@
                 </h1>
               </div>
             </div>
+
+            <div class="row">
+              <div class="col-12">
+                <h2 class="homepage--sub-heading homepage--color-main">
+                  Auth for All
+                </h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <p class="homepage--sub-heading-disclaimer homepage--color-main">
+                  Quickly deploy auth that protects your apps, APIs, and infrastructure.                    </p>
+              </div> 
+            </div>
+            
             <div class="row">
               <div class="col-12">
                 <h2 class="homepage--sub-heading homepage--color-main">
@@ -53,6 +70,7 @@
                 </p>
               </div>
             </div>
+
             <div class="row homepage--selector-block-margin ">
               <div
                 class="col-xl-3 col-lg-6 col-md-6"

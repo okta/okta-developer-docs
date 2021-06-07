@@ -10,7 +10,10 @@
       <i class="fa fa-fire-extinguisher"></i> Deprecated
     </span>
     <span class="api-label api-label-ie" v-if="access === labelType.IDENTITY_ENGINE">
-      Identity engine
+      Identity Engine
+    </span>
+    <span class="api-label api-label-classic-engine" v-if="access === labelType.CLASSIC_ENGINE">
+      Classic Engine
     </span>
     <span class="api-label api-label-limited-ga" v-if="access === labelType.LIMITED_GA">
       Limited GA
@@ -30,12 +33,14 @@ export default {
   props: {
     access: {
       type: String,
-      default: "beta"
+      default: "Beta"
     }
   },
   computed: {
     link() {
-      return this.access === this.labelType.IDENTITY_ENGINE ? IE_LINK : DEFAULT_LINK;
+      return this.access === this.labelType.IDENTITY_ENGINE ||
+             this.access === this.labelType.CLASSIC_ENGINE
+             ? IE_LINK : DEFAULT_LINK;
     }
   },
   created() {
@@ -44,7 +49,8 @@ export default {
       EARLY_ACCESS: "ea",
       DEPRECATED: "deprecated",
       IDENTITY_ENGINE: "ie",
-      LIMITED_GA: "Limited GA"
+      LIMITED_GA: "Limited GA",
+      CLASSIC_ENGINE: "Classic Engine"
     };
   }
 };

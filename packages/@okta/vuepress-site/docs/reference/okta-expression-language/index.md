@@ -247,9 +247,10 @@ The functions above are often used in tandem to check whether a user has an AD o
 | Common Actions                                                                              | Example                                     |
 | ----------------                                                                            | --------                                    |
 | Refer to a `String` constant                                                                | `'Hello world'`                             |
-| Refer to a `Integer` constant                                                               | `1234`                                      |
+| Refer to an `Integer` constant                                                              | `1234`                                      |
 | Refer to a `Number` constant                                                                | `3.141`                                     |
 | Refer to a `Boolean` constant                                                               | `true`                                      |
+| Refer to an `Array` element                                                                 | `{1, 2, 3}[0]` or `user.arrayProperty[0]`   |
 | Concatenate two strings                                                                     | `user.firstName + user.lastName`            |
 | Concatenate two strings with space                                                          | `user.firstName + " " + user.lastName`      |
 | Ternary operator example:<br>If group code is 123, assign value of Sales, else assign Other | `user.groupCode == 123 ? 'Sales' : 'Other'` |

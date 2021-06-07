@@ -8,8 +8,6 @@ meta:
 
 # Subscriptions API
 
-<ApiLifecycle access="ea" />
-
 The subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.
 
 ## List subscriptions of a Role
