@@ -3,6 +3,20 @@ title: Okta API Products Release Notes 2021
 ---
 ## June
 
+### Weekly Release 2021.06.1
+
+| Change                                                                         | Expected in Preview Orgs |
+|--------------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2021.06.1](#bugs-fixed-in-2021-06-1)                            | June 9, 2021             |
+
+#### Bugs fixed in 2021.06.1
+
+* When updating user credentials, if the [User Type](/docs/reference/api/user-types/) was set to a non-email username, the update failed and returned an error message. (OKTA-334754)
+
+* When an [authorize](/docs/reference/api/authn/) request with an [IdP param](/docs/reference/api/idps/#add-identity-provider) that referenced a [SAML IdP](/docs/reference/api/idps/#add-saml-2-0-identity-provider) was sent, an error message was returned because the OIDCIdpAuthRequestHelperImpl request assumed that all IdPs are Social IdPs. (OKTA-385800)
+
+* Service clients were unable to update [SAML apps](/docs/reference/api/apps/#update-application) due to a user context check that was performed and failed to pass. (OKTA-395492)
+
 ### Monthly Release 2021.06.0
 
 | Change                                                                                              | Expected in Preview Orgs |
