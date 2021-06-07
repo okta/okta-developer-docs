@@ -68,7 +68,7 @@
     width: 22%;
     position: sticky;
     top: 70px;
-    overflow: scroll;
+    overflow: auto;
     @include media("<=bootstrap-lg") {
       width: 32%;
     }
