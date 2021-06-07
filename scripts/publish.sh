@@ -11,6 +11,9 @@ declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
 branch_environment_map[staging]=vuepress-site-preprod
 
+# Master branch indecates that current deploy is for production.
+# In such case, PROD_ENV will take 'true' value.
+# PROD ENV is used to distinguished the prod environment from the test environment (see config.js)
 if [[ $BRANCH == "master" ]]; then
     PROD_ENV = "true"
 fi
