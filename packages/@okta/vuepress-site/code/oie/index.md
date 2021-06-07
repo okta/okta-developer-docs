@@ -8,7 +8,7 @@ title: Identity Engine SDKs & Samples
 
 ## What's new
 
-[Identity Engine](/docs/concepts/ie-intro/) introduces new identity management capabilities with greater flexibility and customization. To take advantage of these new features and for a better development experience, use the Identity Experience (IDX) SDKs to manage authentication in your apps. These new SDKs are recommended for orgs using the Identity Engine.
+[Identity Engine](/docs/concepts/ie-intro/) introduces new identity management capabilities with greater flexibility and customization. To take advantage of these new features and for a better development experience, use the Identity Experience SDKs to manage authentication in your apps. These new SDKs are recommended for orgs using Identity Engine.
 <!-- Identity Engine introduces new capabilities and design patterns. To take advantage of these new features and provide a better development experience, new Okta Identity Experience (IDX) SDKs are available and recommended for orgs using Identity Engine. -->
 
 Experiment with sample apps that showcase Identity Engine using the following [authentication approaches](/docs/concepts/redirect-vs-embedded/):
