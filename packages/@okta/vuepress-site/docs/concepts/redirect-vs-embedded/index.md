@@ -23,7 +23,7 @@ Redirect authentication is the process of delegating authentication to your Okta
 
 When a user signs-in to the client application, they are redirected to Okta using a protocol like SAML or OIDC. After the user signs in (based on policies that are configured in Okta), Okta redirects the user back to your application. The hosted Okta Sign-in Widget can also be customized, including the domain, to match your application's brand.
 
-Single Sign-on (SSO) is supported for this implementation. That is, Okta may create a session (based on the Okta policies, for example), and other integrated applications use SSO to sign in users with no configurations.
+Single Sign-on (SSO) is supported for this implementation. That is, Okta may create a session (based on the Okta policies, for example), and other integrated applications can use SSO to sign in users.
 
 This authentication model is easy to implement, secure, and requires minimal maintenance from client application developers. It serves most client deployment requirements.
 
@@ -52,7 +52,7 @@ is -> cl: Return Assertion to Client
 @enduml
 
  -->
-![Redirect Authentication](/img/fed-auth-seq-flow.png "Redirect Authentication sequence flow")
+![Redirect authentication](/img/fed-auth-seq-flow.png "Redirect authentication sequence flow")
 
 Deploy the redirect authentication model in the following use-cases:
 
@@ -94,15 +94,15 @@ as -> cl: Tokens
 @enduml
 
  -->
-![Embedded Authentication](/img/direct-auth-seq-flow.png "Embedded Authentication sequence flow diagram")
+![Embedded authentication](/img/direct-auth-seq-flow.png "Embedded authentication sequence flow diagram")
 
 ## Comparison between deployment models
 
-The type of deployment model or authentication is dependent on your individual implementation needs and client application. In general, the method of delegating user interaction (redirect authentication) is generally preferred for many reasons spanning security to user experience.
+The deployment model or authentication approach is dependent on your implementation requirements and client application. In general, the method of delegating user sign-in interaction (redirect authentication) is generally preferred for many reasons spanning security to user experience.
 
 Use this table and following Q&A to understand the differences between redirect authentication and embedded authentication, and what flow works best for your application implementation:
 
-| Change                                                    | Redirect Authentication | Embedded Authentication |
+| Change                                                    | Redirect authentication | Embedded authentication |
 | --------------------------------------------------------- | ------------------------ | --------------------- |
 | Client application requires a redirect to an Identity Provider.   |   &#9989;     | |
 | Client application is tightly coupled with authentication methods and processes.  |        | &#9989; |
@@ -123,7 +123,7 @@ Q. Does the application need to support external identity providers, authenticat
 
 A. Redirect authentication or embedded authentication
 
-Q. Does the application need to SSO to downstream resources?
+Q. Does the application need SSO for downstream resources?
 
 A. Redirect authentication
 
