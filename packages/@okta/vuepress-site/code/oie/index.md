@@ -14,7 +14,7 @@ title: Identity Engine SDKs & Samples
 Experiment with sample apps that showcase Identity Engine using the following [authentication approaches](/docs/concepts/redirect-vs-embedded/):
 <!-- We also have new sample apps for you to experiment with Identity Engine authentication, for multiple authentication approaches: -->
 
-* **Redirect**: These sample apps demonstrate how to redirect users to an Okta-hosted sign-in page, and then receive users redirected back from Okta after sign in. This approach is recommended for most developers, as it is easier to build and maintain.
+* **Redirect**: These sample apps demonstrate how to redirect users to an Okta-hosted sign-in page, and then receive users redirected back from Okta after users sign in. This approach is recommended for most developers, as it is easier to build and maintain.
 <!--This approach is much easier to build and maintain, and is recommended for most developers.-->
 
 * **Embedded**: These sample apps demonstrate how to embed the Okta Sign-In Widget in an app as a package dependency.
