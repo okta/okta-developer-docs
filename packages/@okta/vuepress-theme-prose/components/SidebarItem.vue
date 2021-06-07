@@ -61,6 +61,8 @@
 </template>
 
 <script>
+import { guideFromPath } from "../util/guides"
+
 export default {
   name: "SidebarItem",
   props: ["link"],
@@ -104,11 +106,16 @@ export default {
     // Will triggers when StackSelector component will change it value.
     "stackSelectorData.to"() {
       // After StackSelector value has changed, route link will be modified.
-      // This condition will be true only for SidebarItem that contains last pre-modified route link.
-      if (this.stackSelectorData.from === this.link.path) {
-        // A path link for that item will be changed on modified one.
-        // This logic needed to keep current SidebarItem active.
-        this.link.path = this.stackSelectorData.to;
+      // This condition will be true only for SidebarItems that contains links on pages with StackSelector.
+      if (this.link.frameworks && this.link.frameworks.length) {
+        const newFramework = guideFromPath(this.stackSelectorData.to).framework;
+        if (this.link.frameworks.includes(newFramework)) {
+          // All links on pages with StackSelector that contains same frameworks list will be modifiend
+          // and will include new framework value.
+          // Such approach will make it possible to activate the same value in all StackSelector
+          // components that has similar frameworks set.
+          this.link.path = this.setNewLinkPath(this.link.path, newFramework);
+        }
       }
     },
 
@@ -130,6 +137,10 @@ export default {
   },
 
   methods: {
+    setNewLinkPath(path, newFramework) {
+      const framework = guideFromPath(path).framework;
+      return path.replace(framework, newFramework);
+    },
     toggleExpanded() {
       this.sublinksExpanded = !this.sublinksExpanded;
       this.link.iHaveChildrenActive = !this.link.iHaveChildrenActive;

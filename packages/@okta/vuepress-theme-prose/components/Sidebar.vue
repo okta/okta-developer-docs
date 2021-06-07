@@ -119,7 +119,8 @@ export default {
                     guide.frameworks.includes(framework)
                       ? framework
                       : guide.mainFramework
-                  )
+                  ),
+                  frameworks: guide.frameworks
                 });
               });
             }
