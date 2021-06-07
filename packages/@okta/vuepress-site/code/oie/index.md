@@ -9,20 +9,16 @@ title: Identity Engine SDKs & Samples
 ## What's new
 
 [Identity Engine](/docs/concepts/ie-intro/) introduces new identity management capabilities with greater flexibility and customization. To take advantage of these new features and for a better development experience, use the Identity Experience SDKs to manage authentication in your apps. These new SDKs are recommended for orgs using Identity Engine.
-<!-- Identity Engine introduces new capabilities and design patterns. To take advantage of these new features and provide a better development experience, new Okta Identity Experience (IDX) SDKs are available and recommended for orgs using Identity Engine. -->
 
 Experiment with sample apps that showcase Identity Engine using the following [authentication approaches](/docs/concepts/redirect-vs-embedded/):
-<!-- We also have new sample apps for you to experiment with Identity Engine authentication, for multiple authentication approaches: -->
 
 * **Redirect**: These sample apps demonstrate how to redirect users to an Okta-hosted sign-in page, and then receive users redirected back from Okta after users sign in. This approach is recommended for most developers, as it is easier to build and maintain.
-<!--This approach is much easier to build and maintain, and is recommended for most developers.-->
 
 * **Embedded**: These sample apps demonstrate how to embed the Okta Sign-In Widget in an app as a package dependency.
 
 Learn how to implement each approach with these IDX SDKs and sample apps in the [Redirect authentication guide](/docs/guides/sampleapp-oie-redirectauth/) and [Embedded authentication guide](/docs/guides/oie-embedded-sdk-start-with-use-case/).
 
 Orgs using Identity Engine can also continue to use current SDKs and tools. You can find those SDKs for your stack from the [Languages & SDKs overview](/code/).
-<!-- Orgs using Identity Engine can also continue to use current SDKs and tools, including  Authentication, Management, and Hooks SDKs. You can find those SDKs for your stack from the Languages & SDKs overview. -->
 
 ## Repository
 
