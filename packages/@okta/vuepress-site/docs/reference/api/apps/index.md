@@ -1088,7 +1088,7 @@ curl -v -X POST \
       "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
       "slo": {
         "enabled": true,
-        "spIssuer": "https://testorgone.okta.com",
+        "issuer": "https://testorgone.okta.com",
         "logoutUrl": "https://testorgone.okta.com/logout"
       },
       "spCertificate": {
