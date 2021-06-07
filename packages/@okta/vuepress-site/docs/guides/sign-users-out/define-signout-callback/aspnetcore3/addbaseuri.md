@@ -6,7 +6,7 @@ In ASP.NET Core, you have two redirect options for your app after the user is si
 
     * Follow your base URI with `/account/postsignout` (for example, `http://localhost:3000/account/postsignout`).
 
-    * Modify the Okta configuration in your application to also include the **Logout redirect URI**.
+    * Modify the Okta configuration in your application to also include the **Sign-out redirect URIs**.
 
     * Open the `Startup.cs` file and update the `Configuration` method to include `PostLogoutRedirectUri` in the Okta configuration:
 

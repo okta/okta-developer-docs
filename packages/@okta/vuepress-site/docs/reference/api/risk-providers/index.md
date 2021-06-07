@@ -19,6 +19,7 @@ The Risk Providers API has the following CRUD operations:
 * [Get a Risk Provider by ID](#get-a-risk-provider)
 * [Update Risk Provider](#update-risk-provider)
 * [Get all Risk Providers](#list-all-risk-providers)
+* [Delete Risk Provider](#delete-a-risk-provider)
 
 
 ### Create Risk Provider
@@ -267,6 +268,41 @@ curl -X GET \
       }
   }
 ]
+```
+
+### Delete a Risk Provider
+
+<ApiOperation method="get" url="/api/v1/risk/providers/${providerId}" />
+
+Delete a Risk Provider by its `id`.
+
+
+#### Request path parameters
+
+| Parameter | Type        | Description   |
+| --------- | ----------- | ------------- |
+| `providerId`  | String | The ID of the provider to delete |
+
+#### Response body
+
+Deletes the requested [Risk Provider](#risk-provider-object)
+
+#### Request example
+
+This request deletes a risk provider object based on the `id`:
+
+```bash
+curl -X DELETE \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/risk/providers/00rp23r4skkjkjgsn"
+```
+
+#### Response example
+
+```http
+HTTP/1.1 204 No Content
 ```
 
 ## Risk Provider objects

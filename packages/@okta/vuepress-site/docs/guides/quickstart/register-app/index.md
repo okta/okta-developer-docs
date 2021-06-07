@@ -44,7 +44,7 @@ In the Admin Console, gather the following information from the **General** tab 
 
  - **Client Secret**: This is the secret used by the client to exchange an authorization code for a token. This must be kept confidential.
 
-Remaining in the Admin Console, go to **Security > API** and gather the following value found on the **Authorization Servers** tab:
+Remaining in the Admin Console, go to **Security** > **API** and gather the following value found on the **Authorization Servers** tab:
 
  - **Issuer URI**: This is the URI of the authorization server that will perform authentication. All Developer Accounts have a "default" authorization server you can use.
  --->

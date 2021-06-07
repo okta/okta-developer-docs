@@ -8,7 +8,7 @@
                 </svg>
                 <i class="icon-75" :class=headerIcon v-else></i>
             </figure>
-            <section class="card--header-main">
+            <section class="card--header-main-own">
                 <h2 class="card--title" v-if="cardTitle">
                     {{cardTitle}}
                 </h2>

@@ -5,12 +5,9 @@ Use the following steps to display the user consent dialog box as part of an Ope
 
 > **Note:** Currently OAuth Consent works only with custom authorization servers. See [Authorization Servers](/docs/concepts/auth-servers/) for more information on the types of authorization servers available to you and what you can use them for.
 
-1. In the Admin Console, select **Applications** and then **Applications**.
-
+1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect app that you want to require user consent for.
-
-1. Select the **General** tab and click **Edit**.
-
+1. On the **General** tab, in the **General Settings** section, click **Edit**.
 1. Scroll down to the **User Consent** section and select **Require consent**.
 
     > **Note:** If the **User Consent** section doesn't appear, you don't have the API Access Management and the User Consent features enabled. To enable these features, contact [Support](https://support.okta.com/help/open_case?_).
@@ -20,16 +17,16 @@ Use the following steps to display the user consent dialog box as part of an Ope
     For the [Authorization Code flow](/docs/concepts/oauth-openid/#authorization-code-flow), the response type is `code`. You can exchange an authorization code for an ID token and/or an access token using the `/token` endpoint.
 
 1. Click **Save**.
-
 1. To enable consent for the [scopes](/docs/reference/api/authorization-servers/#create-a-scope) that you want to require consent for, select **Security** and then **API**.
-
 1. On the **Authorization Servers** tab, select **default** (Custom Authorization Server) in the table. In this example, we are enabling consent for default Custom Authorization Server scopes.
-
 1. Select the **Scopes** tab.
-
 1. Click the edit icon for the **phone** scope. The Edit Scope dialog box appears.
 
-1. Select **Require user consent for this scope** and click **Save**.
+1. Select **Require user consent for this scope**. The **Block services from requesting this scope** check box is automatically selected.
+
+    The **Block services from requesting this scope** check box strictly enforces end-user consent for the scope. When this check box is selected, if a service using the [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow makes a request that contains this scope, the authorization server returns an error. This occurs because there is no user involved in a Client Credentials grant flow. If you want to allow service-to-service interactions to request this scope, clear the check box. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on consent options.
+
+1. Click **Save**.
 
 ## Enable consent using the APIs
 
@@ -99,7 +96,7 @@ This example shows the JSON body of a PUT request to an existing OpenID Connect 
 }
 ```
 
-To enable consent for a scope that you want to require consent for, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by setting the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`.
+To enable consent for a scope, you need to [update the appropriate scope](/docs/reference/api/authorization-servers/#update-a-scope) by setting the `consent` property for the scope from `IMPLICIT` (the default) to `REQUIRED`. You can also set the `consent` property for the scope to `FLEXIBLE`. See the [Authorization Servers API](/docs/reference/api/authorization-servers/#scope-properties) for more information on this value.
 
 ### Update Scope consent
 

@@ -117,6 +117,13 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Deploy your app](/docs/guides/deploy-your-app/overview/)
     * [Migrate to Okta](/docs/guides/migrate-to-okta/prerequisites/)
 
+6. Customize Okta process flows with Event or Inline Hooks
+
+    * [Event Hook example](/docs/guides/event-hook-implementation/nodejs/overview/)
+    * [Token Inline Hook example](/docs/guides/token-inline-hook/nodejs/overview/)
+    * [Password Import Inline Hook example](/docs/guides/password-import-inline-hook/nodejs/overview/)
+    * [Registration Inline Hook example](/docs/guides/registration-inline-hook/nodejs/overview/)
+
 ## Publish an integration
 
 Partner integrations connect your app or service to our mutual customers. One of the most common integrations is Single Sign-On (SSO), which gives Okta users the ability to sign in directly to your application through Okta. Many partners also build provisioning integrations (using the SCIM protocol) to automate lifecycle management use cases for their customers. Integrations can also extend Okta's functionality or integrate with your service in more complex ways.

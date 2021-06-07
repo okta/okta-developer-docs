@@ -15,6 +15,10 @@
 
 6. Click **Update**.
 
+7. From the **Products** tab, in the **Sign In with LinkedIn** box, click **Select**.
+
+8. In the resulting dialog box, select **I have read and agree to these terms**, and then click **Add Product**.
+
 > **Note:** You must explicitly request the `r_liteprofile` and `r_emailaddress` scopes when requesting an authorization code. See [Permissions](https://docs.microsoft.com/en-us/linkedin/shared/authentication/permissions?context=linkedin/context) for more information.
 
 Example: `scope=r_liteprofile r_emailaddress w_member_social`

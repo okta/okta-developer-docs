@@ -1,7 +1,7 @@
 ---
 title: Schemas
 category: management
-excerpt: The Schemas API defines custom user profiles for Okta users and applications.
+excerpt: The Schemas API defines custom user profiles for Okta users, applications, and groups.
 ---
 
 # Schemas API
@@ -1037,6 +1037,504 @@ curl -v -X POST \
 }
 ```
 
+## Group Schema operations
+
+<ApiLifecycle access="ea" />
+
+The [User Types](/docs/reference/api/user-types) feature doesn't extend to groups. All groups use the same [Group Schema](#group-schema-object). Unlike User Schema operations, Group Schema operations all specify `default` and don't accept a Schema ID.
+
+### Get Group Schema
+
+
+<ApiOperation method="get" url="/api/v1/meta/schemas/group/default" />
+
+Fetches the group schema.
+
+##### Request parameters
+
+
+N/A
+
+##### Response parameters
+
+
+[Group Schema](#group-schema-object)
+
+##### Request example
+
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/meta/schemas/group/default"
+```
+
+##### Response example
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "_links": {
+    "self": {
+      "href": "http://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "method": "GET",
+      "rel": "self"
+    }
+  },
+  "created": "2021-01-30T00:18:24.000Z",
+  "definitions": {
+    "base": {
+      "id": "#base",
+      "properties": {
+        "description": {
+          "description": "Description",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "maxLength": 1024,
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "scope": "NONE",
+          "title": "Description",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "maxLength": 255,
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "required": true,
+          "scope": "NONE",
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "custom": {
+      "id": "#custom",
+      "properties": {
+        "exampleCustomProperty": {
+          "description": "exampleCustomProperty",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "maxLength": 20,
+          "minLength": 1,
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "required": true,
+          "scope": "NONE",
+          "title": "exampleCustomProperty",
+          "type": "string",
+          "unique": "UNIQUE_VALIDATED"
+        }
+      },
+      "required": [
+        "exampleCustomProperty"
+      ],
+      "type": "object"
+    }
+  },
+  "description": "Okta group profile template",
+  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "lastUpdated": "2021-02-19T08:51:57.000Z",
+  "name": "group",
+  "properties": {
+    "profile": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/custom"
+        },
+        {
+          "$ref": "#/definitions/base"
+        }
+      ]
+    }
+  },
+  "title": "Okta group",
+  "type": "object"
+}
+```
+
+### Add property to Group Profile Schema
+
+<ApiOperation method="post" url="/api/v1/meta/schemas/group/default" />
+
+Adds one or more [custom Group Profile Schema properties](#group-profile-schema-property-object) to the group schema.
+
+##### Request parameters
+
+
+| Parameter   | Description                                          | Param Type | DataType                                                          | Required |
+|:------------|:-----------------------------------------------------|:-----------|:------------------------------------------------------------------|:---------|
+| definitions | Subschema with one or more custom Profile properties | Body       | [Group Profile custom subschema](#group-profile-custom-subschema) | TRUE     |
+
+##### Response parameters
+
+
+[Group Schema](#group-schema-object)
+
+##### Request example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "definitions": {
+    "custom": {
+      "id": "#custom",
+      "type": "object",
+      "properties": {
+        "groupContact": {
+          "title": "Group administrative contact",
+          "description": "Group administrative contact",
+          "type": "string",
+          "required": false,
+          "minLength": 1,
+          "maxLength": 20,
+          "permissions": [
+            {
+              "principal": "SELF",
+              "action": "READ_WRITE"
+            }
+          ]
+        }
+      },
+      "required": []
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/group/default"
+```
+
+##### Response example
+
+The following response is only a subset of properties for brevity.
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "_links": {
+    "self": {
+      "href": "http://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "method": "GET",
+      "rel": "self"
+    }
+  },
+  "created": "2021-01-30T00:18:24.000Z",
+  "definitions": {
+    "base": {
+      "id": "#base",
+      "properties": {},
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "custom": {
+      "id": "#custom",
+      "properties": {
+        "groupContact": {
+          "description": "Group administrative contact",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "scope": "NONE",
+          "title": "Group administrative contact",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    }
+  },
+  "description": "Okta group profile template",
+  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "lastUpdated": "2021-02-25T23:05:31.000Z",
+  "name": "group",
+  "properties": {
+    "profile": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/custom"
+        },
+        {
+          "$ref": "#/definitions/base"
+        }
+      ]
+    }
+  },
+  "title": "Okta group",
+  "type": "object"
+}
+```
+
+### Update Group Profile Schema property
+
+
+<ApiOperation method="post" url="/api/v1/meta/schemas/group/default" />
+
+Updates one or more [custom Group Profile properties](#group-profile-schema-property-object) in the schema.  Currently Okta does not support changing [base Group Profile properties](#group-profile-base-subschema).
+
+##### Request parameters
+
+
+| Parameter   | Description                                          | Param Type | DataType                                                          | Required |
+|:------------|:-----------------------------------------------------|:-----------|:------------------------------------------------------------------|:---------|
+| definitions | Subschema with one or more custom Profile properties | Body       | [Group Profile custom subschema](#group-profile-custom-subschema) | TRUE     |
+
+##### Response parameters
+
+
+[Group Schema](#Group-schema-object)
+
+##### Request example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "definitions": {
+    "custom": {
+      "id": "#custom",
+      "type": "object",
+      "properties": {
+        "groupContact": {
+          "title": "Group administrative contact",
+          "description": "Group administrative contact",
+          "type": "string",
+          "required": false,
+          "minLength": 1,
+          "maxLength": 20,
+          "permissions": [
+            {
+              "principal": "SELF",
+              "action": "READ_WRITE"
+            }
+          ]
+        }
+      },
+      "required": []
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/group/default"
+```
+
+##### Response example
+
+The following response is only a subset of properties for brevity.
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "_links": {
+    "self": {
+      "href": "http://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "method": "GET",
+      "rel": "self"
+    }
+  },
+  "created": "2021-01-30T00:18:24.000Z",
+  "definitions": {
+    "base": {
+      "id": "#base",
+      "properties": {},
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "custom": {
+      "id": "#custom",
+      "properties": {
+        "groupContact": {
+          "description": "Group administrative contact",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "scope": "NONE",
+          "title": "Group administrative contact",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    }
+  },
+  "description": "Okta group profile template",
+  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "lastUpdated": "2021-02-25T23:05:31.000Z",
+  "name": "group",
+  "properties": {
+    "profile": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/custom"
+        },
+        {
+          "$ref": "#/definitions/base"
+        }
+      ]
+    }
+  },
+  "title": "Okta group",
+  "type": "object"
+}
+```
+
+### Remove property from Group Profile Schema
+
+<ApiOperation method="post" url="/api/v1/meta/schemas/group/default" />
+
+Removes one or more [custom Group Profile Schema properties](#group-profile-schema-property-object) from the group schema. Currently, Okta doesn't support removing [base Group Profile properties](#group-profile-base-subschema).
+
+##### Request parameters
+
+
+| Parameter   | Description                                                    | Param Type | DataType                                                          | Required |
+|:------------|:---------------------------------------------------------------|:-----------|:------------------------------------------------------------------|:---------|
+| definitions | Subschema with one or more custom Profile properties to remove | Body       | [Group Profile custom subschema](#group-profile-custom-subschema) | TRUE     |
+
+> **Note:** Since `POST` is interpreted as a partial update, you must set properties explicitly to `null` to remove them from the Schema.
+
+##### Response parameters
+
+[Group Schema](#group-schema-object)
+
+##### Request example
+
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "definitions": {
+    "custom": {
+      "id": "#custom",
+      "type": "object",
+      "properties": {
+        "groupContact": null
+      },
+      "required": []
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/group/default"
+```
+
+##### Response example
+
+The following response is only a subset of properties for brevity.
+
+```json
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "_links": {
+    "self": {
+      "href": "http://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "method": "GET",
+      "rel": "self"
+    }
+  },
+  "created": "2021-01-30T00:18:24.000Z",
+  "definitions": {
+    "base": {
+      "id": "#base",
+      "properties": {},
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "custom": {
+      "id": "#custom",
+      "properties": {
+        "remainingOtherCustomProperty": {
+          "description": "A property that was not deleted",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "scope": "NONE",
+          "title": "Lorem ipsum",
+          "type": "string"
+        }
+      },
+      "required": [],
+      "type": "object"
+    }
+  },
+  "description": "Okta group profile template",
+  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "lastUpdated": "2021-02-25T23:05:31.000Z",
+  "name": "group",
+  "properties": {
+    "profile": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/custom"
+        },
+        {
+          "$ref": "#/definitions/base"
+        }
+      ]
+    }
+  },
+  "title": "Okta group",
+  "type": "object"
+}
+```
+
 ## User Schema object
 
 The [User object](/docs/reference/api/users/#user-object) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
@@ -1473,7 +1971,7 @@ The App User Schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html
 | lastUpdated | timestamp when the Schema was last updated                                                   | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)            | FALSE    | FALSE  | TRUE     |             |
 | definitions | App User Profile subschemas                                                              | [App User Profile Subschemas](#app-user-profile-subschemas)       | FALSE    | FALSE  | FALSE    | JSON Schema |
 | type        | type of [root Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4) | String                                                             | FALSE    | FALSE  | TRUE     |             |
-| properties  | User object properties                                                                    | [App User object](/docs/reference/api/apps/#application-user-object) property set | FALSE    | FALSE  | TRUE     |             |
+| properties  | App User object properties                                                                | [App User object](/docs/reference/api/apps/#application-user-object) property set | FALSE    | FALSE  | TRUE     |             |
 
 ### App User Profile subschemas
 
@@ -1622,6 +2120,338 @@ Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-z
 ```
 
 ##### App User Schema property types and validation
+
+Specific property types support a subset of [JSON Schema validations](https://tools.ietf.org/html/draft-fge-json-schema-validation-00).
+
+| Property Type | Description                                                                                                                         | Validation Keywords         |
+| :------------- | :----------------------------------------------------------------------------------------------------------------------------------- | :--------------------------- |
+| `string`      | [JSON String](https://tools.ietf.org/html/rfc7159#section-7)                                                                        | `minLength` and `maxLength` |
+| `boolean`     | `false`, `true`, or `null`                                                                                                          |                             |
+| `number`      | [JSON Number](https://tools.ietf.org/html/rfc7159#section-6) with double-precision 64-bit IEEE 754 floating point number constraint | `minimum` and `maximum`     |
+| `integer`     | [JSON Number](https://tools.ietf.org/html/rfc7159#section-6) with 32-bit signed two's complement integer constraint           | `minimum` and `maximum`     |
+| `array`       | [JSON Array](https://tools.ietf.org/html/rfc7159#section-5)                                                                         |                             |
+
+## Group Schema object
+
+<ApiLifecycle access="ea" />
+
+The [Group object](/docs/reference/api/groups/#group-object) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+
+> **Note:** The schema currently only defines the [Profile object](/docs/reference/api/groups/#profile-object).
+
+### Example Group Schema
+
+```json
+{
+  "id": "https://${yourOktaDomain}/meta/schemas/group/default",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "name": "example group",
+  "title": "Okta group example",
+  "lastUpdated": "2017-07-18T22:37:55.000Z",
+  "description": "Okta group profile template",
+  "created": "2017-07-18T22:35:30.000Z",
+  "definitions": {
+    "base": {
+      "id": "#base",
+      "properties": {
+        "description": {
+          "description": "Description",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "maxLength": 1024,
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "scope": "NONE",
+          "title": "Description",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "maxLength": 255,
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "required": true,
+          "scope": "NONE",
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "custom": {
+      "id": "#custom",
+      "properties": {
+        "exampleCustomProperty": {
+          "description": "exampleCustomProperty",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "maxLength": 20,
+          "minLength": 1,
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "required": true,
+          "scope": "NONE",
+          "title": "exampleCustomProperty",
+          "type": "string",
+          "unique": "UNIQUE_VALIDATED"
+        }
+      },
+      "required": [
+        "exampleCustomProperty"
+      ],
+      "type": "object"
+    }
+  },
+  "type": "object",
+  "properties": {
+    "profile": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/base"
+        },
+        {
+          "$ref": "#/definitions/custom"
+        }
+      ]
+    }
+  },
+  "_links": {
+    "self": {
+      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "method": "GET",
+      "rel": "self"
+    }
+  }
+}
+```
+
+### Schema properties
+
+The Group Schema is a valid [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) document with the following properties:
+
+| Property    | Description                                                                              | DataType                                                           | Nullable | Unique | Readonly | Validation  |
+|:------------|:-----------------------------------------------------------------------------------------|:-------------------------------------------------------------------|:---------|:-------|:---------|:------------|
+| id          | URI of Group Schema                                                                      | String                                                             | FALSE    | TRUE   | TRUE     |             |
+| $schema     | JSON Schema version identifier                                                           | String                                                             | FALSE    | FALSE  | TRUE     |             |
+| name        | Name for the Schema                                                                      | String                                                             | FALSE    | TRUE   | TRUE     |             |
+| description | Description for the Schema                                                               | String                                                             | FALSE    | FALSE  | TRUE     |             |
+| title       | User-defined display name for the Schema                                                 | String                                                             | FALSE    | FALSE  | TRUE     |             |
+| created     | Timestamp when the Schema was created                                                    | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)             | FALSE    | FALSE  | TRUE     |             |
+| lastUpdated | Timestamp when the Schema was last updated                                               | [ISO 8601 String](https://tools.ietf.org/html/rfc3339)             | FALSE    | FALSE  | TRUE     |             |
+| definitions | Group Profile subschemas                                                                 | [Group Profile Subschemas](#group-profile-subschemas)           | FALSE    | FALSE  | FALSE    | JSON Schema |
+| type        | Type of [root Schema](https://tools.ietf.org/html/draft-zyp-json-schema-04#section-3.4)  | String                                                             | FALSE    | FALSE  | TRUE     |             |
+| properties  | Group object properties                                                                  | [Group object](/docs/reference/api/groups/#group-object) property set | FALSE    | FALSE  | TRUE     |             |
+
+### Group Profile subschemas
+
+The [Profile object](/docs/reference/api/groups/#profile-object) for a Group is defined by a composite schema of base and custom properties using a JSON path to reference subschemas. The `#base` properties are defined and versioned by Okta while `#custom` properties are extensible.
+
+- [Group Profile base subschema](#group-profile-base-subschema)
+- [Group Profile custom subschema](#group-profile-custom-subschema)
+
+Custom property names for the [Profile object](/docs/reference/api/groups/#profile-object) must be unique and can't conflict with a property name defined in the `#base` subschema.
+
+```json
+{
+  "definitions": {
+    "base": {
+      "id": "#base",
+      "properties": {
+        "description": {
+          "description": "Description",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "maxLength": 1024,
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "scope": "NONE",
+          "title": "Description",
+          "type": "string"
+        },
+        "name": {
+          "description": "Name",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "maxLength": 255,
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "required": true,
+          "scope": "NONE",
+          "title": "Name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "name"
+      ],
+      "type": "object"
+    },
+    "custom": {
+      "id": "#custom",
+      "properties": {
+        "exampleCustomProperty": {
+          "description": "exampleCustomProperty",
+          "master": {
+            "type": "PROFILE_MASTER"
+          },
+          "maxLength": 20,
+          "minLength": 1,
+          "mutability": "READ_WRITE",
+          "permissions": [
+            {
+              "action": "READ_WRITE",
+              "principal": "SELF"
+            }
+          ],
+          "required": true,
+          "scope": "NONE",
+          "title": "exampleCustomProperty",
+          "type": "string",
+          "unique": "UNIQUE_VALIDATED"
+        }
+      },
+      "required": [
+        "exampleCustomProperty"
+      ],
+      "type": "object"
+    }
+  }
+}
+```
+
+#### Group Profile base subschema
+
+All Okta-defined Profile properties are defined in a Profile subschema with the resolution scope `#base`. These properties can't be removed or edited, regardless of any attempt to do so.
+
+The base Group Profile properties are as follows:
+
+| Property          | Description                                                                                                                  | DataType | Nullable | Unique | Readonly | MinLength | MaxLength |
+| ----------------- | ---------------------------------------------------------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- |
+| name              | Unique identifier for the Group                                                                                              | String   | FALSE    | TRUE   | FALSE    |           | 1024      |
+| description       | Human readable description of the Group                                                                                      | String   | TRUE     | FALSE  | FALSE    |           | 1024      |
+
+#### Group Profile custom subschema
+
+All custom Profile properties are defined in a Profile subschema with the resolution scope `#custom`.
+
+```json
+{
+  "definitions": {
+    "custom": {
+        "id": "#custom",
+        "type": "object",
+        "properties": {
+            "customPropertyName": {
+                "title": "Title of custom property",
+                "description": "Description of custom property",
+                "type": "string"
+            }
+        },
+        "required": []
+    }
+  }
+}
+```
+
+#### Group Profile Schema Property object
+
+Group Profile schema properties have the following standard [JSON Schema Draft 6](https://tools.ietf.org/html/draft-wright-json-schema-validation-01) properties:
+
+| Property                       | Description                                | DataType                                          | Nullable | Unique | Readonly |
+|:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
+| title                          | User-defined display name for the property | String                                            | FALSE    | FALSE  | FALSE    |
+| description                    | Description of the property                | String                                            | TRUE     | FALSE  | FALSE    |
+| type                           | Type of property                           | `string`, `boolean`, `number`, `integer`, `array` | FALSE    | FALSE  | FALSE    |
+| enum                           | Enumerated value of the property           | Array                                             | TRUE     | TRUE   | FALSE    |
+| oneOf                          | Non-empty array of valid JSON schemas      | Array                                             | TRUE     | TRUE   | FALSE    |
+
+##### Description Details
+
+* `enum`: The value of the property is limited to one of the values specified in the `enum` definition. The list of values for `enum` must contain unique elements.
+
+* `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
+
+ ```json
+{
+  "const": "enumValue",
+  "title": "display name"
+}
+ ```
+
+In case `enum` is used in conjunction with `oneOf`, the set of enumerated values and their order must be kept.
+
+```json
+{"enum": ["S","M","L","XL"],
+  "oneOf": [
+    {"const": "S", "title": "Small"},
+    {"const": "M", "title": "Medium"},
+    {"const": "L", "title": "Large"},
+    {"const": "XL", "title": "Extra Large"}
+  ]
+}
+ ```
+
+`oneOf` is only supported in conjunction with `enum`, providing a mechanism to return a display name for the `enum` value.
+
+Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) with the following keywords:
+
+| Property      | Description                                     | DataType                                                                  | Nullable | Unique | Readonly |
+| :------------- | :----------------------------------------------- | :------------------------------------------------------------------------- | :--------- | :------ | :-------- |
+| required      | Determines whether the property is required     | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
+| scope         | Determines whether a group attribute can be set at the individual or group level | `SELF`, `NONE`                           | FALSE    | FALSE  | TRUE     |
+
+> **Note:** A read-only [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) compliant `required` property is also available on [Group Profile subschemas](#group-profile-subschemas).
+
+```json
+{
+  "twitterUserName": {
+    "title": "Twitter username",
+    "description": "User's username for twitter.com",
+    "type": "string",
+    "required": false,
+    "scope": "NONE",
+    "minLength": 1,
+    "maxLength": 20
+  }
+}
+```
+
+##### Group Schema property types and validation
 
 Specific property types support a subset of [JSON Schema validations](https://tools.ietf.org/html/draft-fge-json-schema-validation-00).
 

@@ -1929,13 +1929,9 @@ redirects:
     to: https://www.okta.com/contact-sales/
   - from: /contact-us/
     to: https://www.okta.com/contact-sales/
-  - from: /login-widget-gallery/
+  - from: /login-widget-gallery/index.html
     to: /
-  - from: /product/authentication/
-    to: /
-  - from: /product/authorization/
-    to: /
-  - from: /product/overview/
+  - from: /docs/index.html
     to: /
   - from: /docs/examples/session_cookie
     to: /docs/guides/session-cookie/overview

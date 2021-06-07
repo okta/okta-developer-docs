@@ -2,7 +2,7 @@ If you'd like to use a custom sign-out flow, you can skip to the next step: <Gui
 
 If you'd like to use the browser sign-out flow, you will need to define a callback route.
 
-Make sure that the `endSessionRedirectUri` configured at `createConfig` is the same as the one defined in the **Logout redirect URI** section of the Okta Admin Console. For example if you are initializing your client with a config file:
+Ensure that the `endSessionRedirectUri` configured at `createConfig` is the same as one of those defined in the **Sign-out redirect URIs** section of the Okta Admin Console. For example, if you are initializing your client with a config file:
 
 ```javascript
 {

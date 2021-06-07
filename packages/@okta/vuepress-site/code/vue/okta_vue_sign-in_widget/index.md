@@ -23,7 +23,7 @@ This guide will walk you through integrating authentication into a Vue app with 
 - [Support](#support)
 
 
-> This guide is for `@okta/okta-signin-widget` v5.2.0, `@okta/okta-vue` v3.0.0 and `okta-auth-js` v4.5.0.
+> This guide is for `@okta/okta-signin-widget` v5.2.0, `@okta/okta-vue` v3.0.0 and `@okta/okta-auth-js` v4.5.0.
 
 ## Prerequisites
 
@@ -292,7 +292,7 @@ This example is using Vue Router. Replace the code in `src/router/index.js` with
 ```js
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Auth from '@okta/okta-vue'
+import Auth, { LoginCallback } from '@okta/okta-vue'
 import { OktaAuth } from '@okta/okta-auth-js'
 import HomeComponent from '@/components/Home'
 import LoginComponent from '@/components/Login'
@@ -321,7 +321,7 @@ const router = new VueRouter({
     },
     {
       path: '/login/callback',
-      component: Auth.handleCallback()
+      component: LoginCallback
     },
     {
       path: '/profile',
