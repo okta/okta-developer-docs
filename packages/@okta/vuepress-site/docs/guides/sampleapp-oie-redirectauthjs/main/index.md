@@ -1,65 +1,35 @@
 ---
-title: Use redirect auth with the sample apps
-excerpt: Learn how to test some of the features of Identity Engine with our sample apps
+title: Use redirect auth with the Java servlet
+excerpt: Learn how to test some of the features of Identity Engine with the Java servlet sample app
 layout: Guides
 ---
 
-This document walks you through setting up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
+This document walks you through setting up the Okta Java servlet sample app to demonstrate some Identity Engine features. Among the many set up options available with the Java servlet sample apps, the app can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
 
-* [Simple enrollment and authentication](#simple-enrollment-and-authentication)
+* [Initial set up, authentication, and simple enrollment](#initial-set-up-authentcation-and-simple-enrollment)
 * [Enable self-service enrollment](#enable-self-service-enrollment)
 * [Add MFA with a mandatory second factor](#add-mfa-with-a-mandatory-second-factor)
 * [Authenticator recovery](#authenticator-recovery)
 * [Progressive Profiling](#progressive-profiling)
 * [Identity Provider routing to Facebook](#identity-provider-routing-to-facebook)
 
-Select your sample app language.
+## Initial set up, authentication, and simple enrollment
 
-<StackSelector />
+This section shows you how to use the Okta Java Authentication SDK to sign a user in to a servlet-based application. You can integrate the Okta Java Authentication SDK into existing frameworks or applications. It is a convenient HTTP client wrapper for Okta's Authentication API.
 
-## Initial set up
+1. Install the sample app wherever you want using: `git clone https://github.com/okta/samples-java-servlet.git`
 
-To get started, you need to create an Okta OAuth app to represent the <StackSelector snippet="applang" noSelector inline /> app and then install the <StackSelector snippet="applang" noSelector inline /> sample app.
+    > **Note:** There is a `pom.xml` at the root of this project that exists to build all of the projects. Each project is independent and could be copied from this repo as a primer for your own application.
 
-<StackSnippet snippet="toolnote" />
+2. Obtain your Org URL (found in the global header located in the upper-right corner of the Admin Console), for example, `https://example-1234.oktapreview.com`.
+3. From the command line, enter the `authn-servlet` directory.
+4. Include your Org URL in the following `mvn` command to start the application: `mvn -Dokta.client.orgUrl=https://{yourOktaDomain}`
+5. Open `http://localhost:8080` in an incognito/private browser window. The Okta Authentication SDK + Servlet page appears.
+6. Click **Login**. You are redirected to a sign-in page.
+7. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the welcome page.
+8. Click **Logout** in the upper-right corner of the page to sign out of the app.
 
-1. Sign in to your [Okta Admin Console](https://login.okta.com).
-2. From the side navigation, select **Applications** > **Applications**, and then click **Create App Integration**.
-3. In the dialog box that appears, select **OIDC - OpenID Connect** as the **Sign-on method**, <StackSnippet snippet="apptype" inline /> as the **Application type**, and then click **Next**.
-4. Fill in the New <StackSnippet snippet="apptypepage" inline /> Integration fields that you need, and then click **Save**:
-
-   * Be sure to add the following values (or leave the defaults if they match):
-
-      **Sign-in redirect URIs** &mdash; <StackSnippet snippet="signinredirecturi" inline /><br>
-      **Sign-out redirect URIs** &mdash; <StackSnippet snippet="signoutredirecturi" inline />
-
-   * In the **Assignments** section, select **Allow everyone in your organization to access**. This assigns all Users in the Everyone Group to the app. You must assign the app to either the Everyone Group or a custom Group that you create so that profile enrollment functions correctly.
-5. On the new Application page, click the "Copy to clipboard" icon to copy the <StackSnippet snippet="clientidsd" inline />. Store this information temporarily for use when you <StackSnippet snippet="configfile" inline /> in the next section.
-
-<StackSnippet snippet="corsissuer" />
-
-### Install the sample app
-
-<StackSnippet snippet="installsampleapp" />
-
-<!--
-Once sample download is working we can provide these instructions instead:
-7. From the **General** tab, click **Download sample app**, and then select **React**. (NOTE: THIS WILL NOT WORK UNTIL THE 2021-03-12 CODE FREEZE??) This file contains the [React sample application](https://github.com/okta/samples-js-react) pre-configured with the settings of the Application that you just created. Your application settings are saved in the `testenv` file in the root directory.
-8. You can extract the ZIP file and then open the `samples-js-react` directory from the command line.
-9. Enter the okta-hosted-login subdirectory and run `npm install`.
--->
-
-## Simple enrollment and authentication
-
-This section walks you through enrolling a user and authenticating that user.
-
-### Open and test the Sign-In Widget
-
-<StackSnippet snippet="simpleenrollauth" />
-
-4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-about-asop) is configured.
-5. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
+You now have the Okta Java servlet sample app installed and working.
 
 ## Enable self-service enrollment
 

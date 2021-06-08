@@ -1,6 +1,6 @@
 ---
-title: Redirect authentication with the sample apps and Identity Engine
-excerpt: Learn how to test some of the features of the Identity Dngine with our sample apps
+title: Use redirect auth with the sample apps
+excerpt: Learn how to test some of the features of Identity Engine with our sample apps
 layout: Guides
 sections:
  - main
