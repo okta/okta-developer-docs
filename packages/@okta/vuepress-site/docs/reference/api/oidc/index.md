@@ -665,7 +665,7 @@ You must include an access token (returned from the [authorization endpoint](#au
 #### Request example
 
 ```bash
-curl -v -X POST \
+curl -X GET \
 -H "Authorization: Bearer ${access_token}" \
 "https://{baseUrl}/userinfo"
 ```
