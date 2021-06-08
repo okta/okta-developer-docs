@@ -1,8 +1,8 @@
 ---
 title: Expression Language In Identity Engine
 meta:
-  - name: description
-    content: Learn more about the features and syntax of the Okta Expression Language in Identity Engine.
+- name: description
+  content: Learn more about the features and syntax of the Okta Expression Language in Identity Engine.
 ---
 
 # Okta Expression Language In Identity Engine
@@ -11,8 +11,6 @@ meta:
 <ApiLifecycle access="Limited GA" />
 
 ## Overview
-
-Expressions allow you to reference, transform, and combine properties before you store them on a user profile or before passing them to an application for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine `firstName` and lastName properties into a single `displayName` property.
 
 This document details the features and syntax of the Okta Expression Language used in the Identity Engine. Expressions being used outside of the Identity Engine should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document will be updated over time as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
 
@@ -54,25 +52,34 @@ When you create an Okta expression, you can reference EDR attributes and any pro
 For details about the `vendor` and `signal`, see [Integrate with Endpoint Detection and Response solutions
 ](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/edr-integration-main.htm) and [Available EDR signals by vendor](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/edr-integration-available-signals.htm).
 
+### Security Context
+
+Certain [Rule Conditions](/docs/reference/api/policy/#conditions) in [App Sign On Policies](/docs/reference/api/policy/#app-sign-on-policy) can be specified using expressions based on the Security Context of the app sign on request. The Security Context is made up of the [Risk level](https://help.okta.com/en/prod/Content/Topics/Security/Security_Risk_Scoring.htm) and the matching [User Behaviors](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm) for the request.
+
+| Syntax | Definitions | Type | Examples | Usage   |
+| ------ | ----------- | ---- | -------- | -----   |
+| security.risk.level | `security` reference to the Security Context of the request<br>`risk` reference to the [risk](https://help.okta.com/en/prod/Content/Topics/Security/Security_Risk_Scoring.htm) context of the request<br>`level` the risk level associated with the request | String | `'LOW'`<br>`'MEDIUM'`<br>`'HIGH'` | `security.risk.level == 'HIGH'`<br>`security.risk.level != 'LOW'`   |
+| security.behaviors | `security` reference to the Security Context of the request<br>`behaviors` the list of matching [User Behaviors](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
+
 ## Functions
 
 Okta offers a variety of functions to manipulate properties to generate a desired output. You can combine and nest functions inside a single expression.
 
 > **Note:** For the following expression examples, assume the following properties exist in Okta and the User has the associated values.
 
-| Attribute       | Type          | Data                       |
-| ---------       | ----          | --------                   |
-| created         | ZonedDateTime | 2015-07-30T23:58:32.000Z   |
-| firstName       | String        | "John"                     |
-| lastName        | String        | "Doe"                      |
-| email           | String        | "john.doe@okta.com"        |
-| strArray        | Array         | `{"one", "two"}`           |
-| intArray        | Array         | `{1, 2, 3}`                |
-| stringDouble    | String        | "1.1"                      |
-| country         | String        | "United States"            |
-| countryAlpha2   | String        | "US"                       |
-| countryAlpha3   | String        | "USA"                      |
-| isContractor    | Boolean       | False                      |
+| Attribute            | Type          | Data                       |
+| ---------            | ----          | --------                   |
+| user.created         | ZonedDateTime | 2015-07-30T23:58:32.000Z   |
+| user.firstName       | String        | "John"                     |
+| user.lastName        | String        | "Doe"                      |
+| user.email           | String        | "john.doe@okta.com"        |
+| user.strArray        | Array         | `{"one", "two"}`           |
+| user.intArray        | Array         | `{1, 2, 3}`                |
+| user.stringDouble    | String        | "1.1"                      |
+| user.country         | String        | "United States"            |
+| user.countryAlpha2   | String        | "US"                       |
+| user.countryAlpha3   | String        | "USA"                      |
+| user.isContractor    | Boolean       | False                      |
 
 ### String Functions
 
