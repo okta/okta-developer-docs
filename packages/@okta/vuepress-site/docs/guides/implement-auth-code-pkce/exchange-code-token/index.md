@@ -21,6 +21,7 @@ Note the parameters that are being passed:
 - `redirect_uri` must match the URI that was used to get the authorization code.
 - `code` is the authorization code that you got from the `/authorize` endpoint.
 - `code_verifier` is the PKCE code verifier that your app generated at the beginning of this flow.
+- `client_id`
 
 See the [OIDC & OAuth 2.0 API reference](/docs/reference/api/oidc/#token) for more information on these parameters.
 
