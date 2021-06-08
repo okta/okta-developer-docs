@@ -13,7 +13,7 @@ You need to add code in your native app to create the code verifier and code cha
 
 The PKCE generator code creates output like this:
 
-```
+```json
 {
   "code_verifier":"M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag",
   "code_challenge":"qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es"
