@@ -714,7 +714,7 @@ export const referenceOld = [
             path: "/docs/reference/rate-limits/"
           },
           {
-            title: "Rate limits dashboard",
+            title: "Rate limit dashboard",
             path: "/docs/reference/rl-dashboard/"
           },
           {
