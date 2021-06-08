@@ -40,7 +40,7 @@ To get started, you need to create an Okta OAuth app to represent the <StackSele
 
 ### Install the sample app
 
-<StackSnippetr snippet="installsampleapp" />
+<StackSnippet snippet="installsampleapp" />
 
 <!--
 Once sample download is working we can provide these instructions instead:
