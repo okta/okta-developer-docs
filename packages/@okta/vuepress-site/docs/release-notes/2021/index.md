@@ -13,7 +13,7 @@ title: Okta API Products Release Notes 2021
 
 * User credential updates failed and returned an error message if the [User Type](/docs/reference/api/user-types/) was set to a non-email username. (OKTA-334754)
 
-* When an [authorize](/docs/reference/api/authn/) request with an [IdP param](/docs/reference/api/idps/#add-identity-provider) that referenced a [SAML IdP](/docs/reference/api/idps/#add-saml-2-0-identity-provider) was sent, an error message was returned because the OIDCIdpAuthRequestHelperImpl request assumed that all IdPs are Social IdPs. (OKTA-385800)
+* When an `/authorize` request with an [IdP parameter](/docs/reference/api/idps/#add-identity-provider) that referenced a SAML Identity Provider (IdP) was sent, an internal server error was returned because it was assumed that all IdPs are social IdPs. (OKTA-385800)
 
 * Service clients were unable to update [SAML apps](/docs/reference/api/apps/#update-application) due to a user context check that failed to pass. (OKTA-395492)
 
