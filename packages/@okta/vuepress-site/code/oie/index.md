@@ -26,105 +26,77 @@ Orgs using Identity Engine can also continue to use current SDKs and tools. You 
 
 ##### Android
 
-* [Android Identity Engine SDK](https://github.com/okta/okta-idx-android)
-* [Android sample app](https://github.com/okta/samples-android)
-	- see [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in) for redirect sample configuration
-	- see [Custom Sign In](https://github.com/okta/samples-android/tree/master/custom-sign-in) for embedded sample configuration
-* [More Android resources](/code/android/)
+<!--* [Android Identity Engine SDK](https://github.com/okta/okta-idx-android)-->
+* [Android redirect sample app](https://github.com/okta/samples-android) &mdash; see [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in) for redirect configuration
 
 ##### iOS
 
 * [Swift Identity Engine SDK](https://github.com/okta/okta-idx-swift)
-* [iOS sample app](https://github.com/okta/samples-ios)
-	- see [Browser Sign In](https://github.com/okta/samples-ios/tree/master/browser-sign-in) for redirect sample configuration
-	- see [Custom Sign In](https://github.com/okta/samples-ios/tree/master/custom-sign-in) for embedded sample configuration
-* [More iOS resources](/code/ios/)
+* [iOS embedded authentication with SDK sample app](https://github.com/okta/okta-idx-swift/tree/feat-dynamic-auth/Samples/EmbeddedAuthWithSDKs)
+* [iOS redirect sample app](https://github.com/okta/samples-ios) &mdash; see [Browser Sign In](https://github.com/okta/samples-ios/tree/master/browser-sign-in) for redirect configuration
 
 ##### React Native
 
-* [React Native for iOS and Android sample app](https://github.com/okta/samples-js-react-native)
-	- see [Browser Sign In](https://github.com/okta/samples-js-react-native/tree/master/browser-sign-in) for redirect sample configuration
-	- see [Custom Sign In](https://github.com/okta/samples-js-react-native/tree/master/custom-sign-in) for embedded sample configuration
-* [More React Native resources](/code/react-native/)
+* [React Native redirect sample app](https://github.com/okta/samples-js-react-native) &mdash; see [Browser Sign In](https://github.com/okta/samples-js-react-native/tree/master/browser-sign-in) for redirect configuration
 
 ### Front End
 
 ##### Angular
 
-* [Angular sample app](https://github.com/okta/samples-js-angular)
-	- see [Okta-Hosted Login](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login) for redirect sample configuration
-	- see [Custom Login Page](https://github.com/okta/samples-js-angular/tree/master/custom-login) for embedded sample configuration
-* [More Angular resources](/code/angular)
+* [Angular redirect sample app](https://github.com/okta/samples-js-angular) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login) for redirect configuration
 
-##### JavaScript
+<!--
+#### JavaScript
 
 * [JavaScript Identity Engine SDK](https://github.com/okta/okta-idx-js)
 * [Sign-In Widget](https://github.com/okta/okta-signin-widget)
-* [More JavaScript resources](/code/javascript/)
+-->
 
 ##### React
 
-* [React sample app](https://github.com/okta/samples-js-react)
-	- see [Okta-Hosted Login](https://github.com/okta/samples-js-react/tree/master/okta-hosted-login) for redirect sample configuration
-	- see [Custom Login Page](https://github.com/okta/samples-js-react/tree/master/custom-login) for embedded sample configuration
-* [More React resources](/code/react/)
+* [React redirect sample app](https://github.com/okta/samples-js-react) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-js-react/tree/master/okta-hosted-login) for redirect configuration
 
 ##### Vue
 
-* [Vue sample app](https://github.com/okta/samples-js-vue)
-	- see [Okta-Hosted Login](https://github.com/okta/samples-js-vue/tree/master/okta-hosted-login) for redirect sample configuration
-	- see [Custom Login Page](https://github.com/okta/samples-js-vue/tree/master/custom-login) for embedded sample configuration
-* [More Vue resources](/code/vue/)
+* [Vue redirect sample app](https://github.com/okta/samples-js-vue) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-js-vue/tree/master/okta-hosted-login) for redirect configuration
 
 ### Back End
 
 ##### .NET
 
 * [.NET Identity Engine SDK](https://github.com/okta/okta-idx-dotnet)
-* [ASP.NET MVC 4.x embedded Identity Engine sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet) (??? should this link be listed?)
-* [ASP.NET MVC 4.x sample app](https://github.com/okta/samples-aspnet) (??? Classic engine?)
-* [ASP.NET Web Forms sample app](https://github.com/okta/samples-aspnet-webforms)
-* [More ASP.NET resources](/code/dotnet/aspnet)
-* [Blazor sample app](https://github.com/okta/samples-blazor)
-* [More Blazor resources](/code/dotnet/blazor/)
-* [ASP.NET Core 2.x and 3.x sample app](https://github.com/okta/samples-aspnetcore)
-* [More ASP.NET Core resources](/code/dotnet/aspnetcore/)
+* [ASP.NET MVC embedded authentication with SDK sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-auth-with-sdk)
+
+* [ASP.NET MVC redirect sample app](https://github.com/okta/samples-aspnet) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login) for redirect configuration
+* [ASP.NET Web Forms redirect sample app](https://github.com/okta/samples-aspnet-webforms) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnet-webforms/tree/master/okta-hosted-login) for redirect configuration
+* [Blazor redirect sample app](https://github.com/okta/samples-blazor) &mdash;  see [Blazor Server-Side Okta-Hosted Login](https://github.com/okta/samples-blazor/tree/master/server-side/okta-hosted-login) for redirect configuration
+* [ASP.NET Core 2.x and 3.x redirect sample app](https://github.com/okta/samples-aspnetcore) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-2x/okta-hosted-login) for redirect configuration
 
 ##### Express JS
 
-* [Node.js Express sample app](https://github.com/okta/samples-nodejs-express-4)
-	- see [Okta-Hosted Login](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) for redirect sample configuration
-	- see [Custom Login Page](https://github.com/okta/samples-nodejs-express-4/tree/master/custom-login) for embedded sample configuration
-* [More Node.js resources](/code/nodejs/)
+* [Express JS SDK](https://github.com/okta/okta-auth-js) &mdash; see [Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for Identity Engine specific instructions
+* [Express JS embedded authentication with SDK sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/express-embedded-auth-with-sdk)
+* [Express JS embedded Sign-In Widget sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/express-embedded-sign-in-widget)
+* [Express JS redirect sample app](https://github.com/okta/samples-nodejs-express-4) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) for redirect configuration
 
 ##### Go
 
-* [Golang Identity Engine SDK](https://github.com/okta/okta-idx-golang)
-* [Golang sample app](https://github.com/okta/samples-golang)
-	- see [Okta-Hosted Login](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) for redirect sample configuration
-	- see [Custom Login Page](https://github.com/okta/samples-golang/tree/master/custom-login) for embedded sample configuration
-* [More Go resources](/code/go/)
+<!--* [Golang Identity Engine SDK](https://github.com/okta/okta-idx-golang)-->
+* [Golang redirect sample app](https://github.com/okta/samples-golang) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) for redirect configuration
 
 ##### Java
 
 * [Java Identity Engine SDK](https://github.com/okta/okta-idx-java)
-* [Spring sample app](https://github.com/okta/samples-java-spring)
-	- see [Okta-Hosted Login](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) for redirect sample configuration
-	- see [Custom Login Page](https://github.com/okta/samples-java-spring/tree/master/custom-login) for embedded sample configuration
-* [More Spring resources](/code/java/spring/)
-* [Micronaut sample app](https://github.com/okta/samples-java-micronaut)
-* [More Java resources](/code/java)
+* [Java embedded authentication with SDK sample app](https://github.com/okta/okta-idx-java/tree/master/samples/embedded-auth-with-sdk)
+* [Spring embedded Sign-In Widget sample app](https://github.com/okta/okta-idx-java/tree/master/samples/embedded-sign-in-widget)
+* [Spring redirect sample app](https://github.com/okta/samples-java-spring) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) for redirect configuration
+* [Micronaut redirect sample app](https://github.com/okta/samples-java-micronaut) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-java-micronaut/tree/master/okta-hosted-login) for redirect configuration
 
 ##### PHP
 
-* [PHP sample app](https://github.com/okta/samples-php)
-	- see [Okta-Hosted Login](https://github.com/okta/samples-php/tree/develop/okta-hosted-login) for redirect sample configuration
-	- see [Custom Login Page](https://github.com/okta/samples-php/tree/develop/custom-login) for embedded sample configuration
-* [More PHP resources](/code/php/)
+* [PHP redirect sample app](https://github.com/okta/samples-php) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-php/tree/develop/okta-hosted-login) for redirect configuration
 
 ##### Python
 
-* [Flask sample app](https://github.com/okta/samples-python-flask)
-	- see [Okta-Hosted Login](https://github.com/okta/samples-python-flask/tree/master/okta-hosted-login) for redirect sample configuration
-	- see [Custom Login Page](https://github.com/okta/samples-python-flask/tree/master/custom-login) for embedded sample configuration
-* [More Python resources](/code/python/)
+* [Flask redirect sample app](https://github.com/okta/samples-python-flask) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-python-flask/tree/master/okta-hosted-login) for redirect configuration
+
