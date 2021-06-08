@@ -11,6 +11,33 @@ const outputDir = Path.resolve(__dirname, '../dist/');
 
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
+function configUris() {
+  let uris;
+  switch (process.env.PROD_ENV) {
+    case 'staging':
+      uris = {
+        baseUri: 'https://okta-dev-parent.trexcloud.com',
+        registrationPolicyId: 'reg3kwstakmbOrIly0g7',
+        idps: {
+          github: '0oa3jobx2bBlylNft0g7',
+          google: '0oa3jaktbqkiwCthn0g7',
+        }
+      }
+      break;
+    default:
+      uris = {
+        baseUri: 'https://okta-devok12.okta.com',
+        registrationPolicyId: 'reg405abrRAkn0TRf5d6',
+        idps: {
+          github: '0oayfl0lW6xetjKjD5d5',
+          google: '0oay75bnynuF2YStd5d5',
+        }
+      }
+      break;
+  }
+  return uris;
+}
+
 module.exports = {
   dest: 'dist',
   theme: "@okta/vuepress-theme-prose",
@@ -72,22 +99,7 @@ module.exports = {
     /**
      * URI config
      */
-    uris: {
-      baseUri: 'https://okta-devok12.okta.com',
-      registrationPolicyId: 'reg405abrRAkn0TRf5d6',
-      idps: {
-        github: '0oayfl0lW6xetjKjD5d5',
-        google: '0oay75bnynuF2YStd5d5',
-      },
-      /* Trex values:
-      baseUri: 'https://okta-dev-parent.trexcloud.com',
-      registrationPolicyId: 'reg3kwstakmbOrIly0g7',
-      idps: {
-        github: '0oa3jobx2bBlylNft0g7',
-        google: '0oa3jaktbqkiwCthn0g7',
-      },
-      */
-    },
+    uris: configUris(),
 
     /**
      * CAPTCHA config
