@@ -134,7 +134,7 @@ class BasePage {
   }
 
   refresh() {
-    return browser.refresh();
+    return browser.driver.navigate().refresh();
   }
 
   async smartClick(element) {
