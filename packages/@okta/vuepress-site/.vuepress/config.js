@@ -391,6 +391,8 @@ module.exports = ctx => ({
   async ready() {
     if (!process.env.PROD_ENV) {
       ctx.pages.forEach((page) => {
+        // We adding meta tag `robots` for all non-prod versions of the site
+        // to be able to exclude test envs from browser search.
         if (!page.frontmatter['meta']) {
           page.frontmatter['meta'] = []
         }
