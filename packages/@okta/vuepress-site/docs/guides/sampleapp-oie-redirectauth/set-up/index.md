@@ -250,5 +250,5 @@ Create a Routing Rule that automatically routes all authentication requests to F
     * For **AND User is accessing**, select **Any of the following applications**, and then choose your Application. This routes any attempts to access the <StackSnippet snippet="applang" inline /> app to the Facebook IdP, but still allows you to access your Admin Console normally.
     * For **THEN Use this identity provider**, select the Facebook IdP that you added earlier, and then click **Create Rule**.
 4. Click **Activate** in the dialog box that appears.
-5. Start the <StackSnippet snippet="applang" inline /> app in an incognito/private browser window and click <StackSnippet snippet="appsignin" inline />. You are redirected to the Facebook site, where you can sign in.
+5. Start the <StackSnippet snippet="applang" inline /> app in an incognito/private browser window and click ç. You are redirected to the Facebook site, where you can sign in.
 6. After successful authentication, you are returned to the <StackSnippet snippet="applang" inline /> app's welcome page.
