@@ -134,6 +134,11 @@ class BasePage {
   }
 
   refresh() {
+    /*
+     * Do not use `browser.refresh()` since it assumes the page uses Angular (we don't).
+     * Instead, directly use the WebDriver wrapper via `browser.driver.navigate().refresh()`.
+     * Source: https://www.protractortest.org/#/api?view=ProtractorBrowser.prototype.refresh
+     */
     return browser.driver.navigate().refresh();
   }
 
