@@ -27,7 +27,7 @@ See the [OIDC & OAuth 2.0 API reference](/docs/reference/api/oidc/#token) for mo
 
 If the code is still valid, and the code verifier matches, your application receives back access and ID tokens:
 
-```
+```json
 {
     "access_token": "eyJhb[...]Hozw",
     "expires_in": 3600,
