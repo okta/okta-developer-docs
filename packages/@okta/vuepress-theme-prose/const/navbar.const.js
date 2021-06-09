@@ -379,16 +379,26 @@ export const guides = [
         subLinks: [
           {
             title: "Embedded authentication",
-            guideName: "test"
+            subLinks: [
+              {
+                title: "test",
+                guideName: "test",
+              },
+            ]
           },
-          {
+           {
             title: "Redirect authentication",
-            guideName: "sampleapp-oie-redirectauth"
+            subLinks: [
+              {
+                title: "Use redirect auth with the sample apps",
+                guideName: "sampleapp-oie-redirectauth",
+              },
+            ]
           },
         ]
-      }
+      },
     ]
-  }
+  },
 ];
 
 export const languagesSdk = [
