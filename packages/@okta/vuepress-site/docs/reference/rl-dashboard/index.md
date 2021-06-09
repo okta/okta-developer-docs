@@ -30,11 +30,11 @@ You can investigate high use of a rate limit or a rate limit violation. After yo
 
 ## Enable the dashboard
 
-The dashboard is not enabled by default. You can enable it by going into your org's **Settings** > **Features**. In the **Early Access** section, scroll to the **Rate Limit Investigation Dashboard** setting, and click the toggle button to enable this feature.
+The dashboard is available in Self-Service Early Access (EA). You can enable it by going into your org's **Settings** > **Features**. In the **Early Access** section, scroll to the **Rate Limit Investigation Dashboard** setting, and click the toggle button to enable this feature.
 
 ## Access the dashboard
 
-The dashboard is an optimized tool that helps you investigate warnings and violations, and therefore, access to the dashboard is restricted to when you receive a rate limit violation for an endpoint. You can continue to follow that endpoint by bookmarking the dashboard URL, so you can always go back and check the consumption of that endpoint's rate limit.
+The dashboard is an optimized tool that helps you investigate warnings and violations, and therefore, access to the dashboard is available when you receive a rate limit violation for an endpoint.
 
 When a rate limit violation occurs, you're notified in the following ways and can access the rate limits dashboard from the link in the notification:
 
