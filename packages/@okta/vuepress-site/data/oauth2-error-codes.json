@@ -1,6 +1,6 @@
 {
-  "release" : "2021.05.1",
-  "build" : "2021.05.1-begin-78-g803f4ad1e272",
+  "release" : "2021.06.1",
+  "build" : "2021.06.1-begin-75-g2deed98c55cb",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -247,6 +247,13 @@
     "errorCode" : "access_denied",
     "errorDescription" : "Transformed username '{0}' is invalid."
   }, {
+    "title" : "Authorization pending",
+    "statusCode" : 200,
+    "statusReasonPhrase" : "OK",
+    "internalErrorCode" : "authorization_pending",
+    "errorCode" : "authorization_pending",
+    "errorDescription" : "The device authorization is pending. Please try again later."
+  }, {
     "title" : "Client credentials self scope requested",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -288,6 +295,13 @@
     "internalErrorCode" : "no_org_scopes_granted",
     "errorCode" : "consent_required",
     "errorDescription" : "You are not allowed any of the requested scopes."
+  }, {
+    "title" : "Expired token",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "expired_token",
+    "errorCode" : "expired_token",
+    "errorDescription" : "The device code has expired."
   }, {
     "title" : "ID token does not match session",
     "statusCode" : 400,
@@ -582,6 +596,13 @@
     "internalErrorCode" : "invalid_authorization_code",
     "errorCode" : "invalid_grant",
     "errorDescription" : "The authorization code is invalid or has expired."
+  }, {
+    "title" : "Invalid device code",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "invalid_device_code",
+    "errorCode" : "invalid_grant",
+    "errorDescription" : "The device code is invalid or has expired."
   }, {
     "title" : "User rate limited",
     "statusCode" : 429,
@@ -904,6 +925,13 @@
     "internalErrorCode" : "mfa_attestation_login_hint_required",
     "errorCode" : "invalid_request",
     "errorDescription" : "'login_hint' is required for MFA attestation."
+  }, {
+    "title" : "Missing token request parameter",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "missing_token_request_parameter",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "The required parameter '{0}' is missing."
   }, {
     "title" : "Invalid subject token",
     "statusCode" : 400,
@@ -1345,6 +1373,13 @@
     "internalErrorCode" : "missing_redirect_uri",
     "errorCode" : "missing_redirect_uri",
     "errorDescription" : "redirect_uri is missing."
+  }, {
+    "title" : "OpenID scope required for scope",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "openid_scope_required_for_scope",
+    "errorCode" : "openid_scope_required_for_scope",
+    "errorDescription" : "When requesting scope '{0}' the openid scope is required."
   }, {
     "title" : "Refresh token validation failure",
     "statusCode" : 400,

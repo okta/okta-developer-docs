@@ -1,6 +1,60 @@
 ---
 title: Okta API Products Release Notes 2021
 ---
+## June
+
+### Monthly Release 2021.06.0
+
+| Change                                                                                              | Expected in Preview Orgs |
+|-----------------------------------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.7.0](#okta-sign-in-widget-version-5-7-0) | June 3, 2021 |
+| [Domains API is GA in Production](#domains-api-is-ga-in-production) | June 3, 2021 |
+| [Flexible Consent is GA in Preview](#flexible-consent-is-ga-in-preview) | June 3, 2021 |
+| [Provisioning for Org2Org app integrations can be configured using the API](#provisioning-for-org2org-app-integrations-can-be-configured-using-the-api)| June 3, 2021 |
+| [Refresh Token Rotation is GA in Production](#refresh-token-rotation-is-ga-in-production) | June 3, 2021 |
+| [Retrieving applications by catalog name is now available](#retrieving-applications-by-catalog-name-is-now-available) | June 3, 2021 |
+| [The application.lifecycle.create event is now generated for OIDC Apps](#the-application-lifecycle-create-event-is-now-generated-for-oidc-apps) | June 3, 2021 |
+| [The Subscriptions API is GA in Preview](#the-subscriptions-api-is-ga-in-preview) | June 3, 2021 |
+
+#### Okta Sign-In Widget, version 5.7.0
+
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.7.0). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-391046-->
+
+#### Domains API is GA in Production
+
+The [Domains API](/docs/reference/api/domains/) is now Generally Available in Production. This API allows you to customize your Okta org domain name for a seamless branded experience so that your users can see the same base URL for your application. <!--OKTA-395907-->
+
+#### Flexible Consent is GA in Preview
+
+Flexible Consent is now Generally Available in Preview. Customers are unable to request consent-enabled scopes when using the [Client Credential grant flow](/docs/guides/implement-client-creds/overview/). Since the Client Credential grant flow doesn't involve an end user, consent shouldn't be required for these flows. The authorization server should understand that this flow doesn't involve a user, ignore the consent for these scopes, and include the scope in the response. However, the authorization server returns an error. This causes customers to design separate scopes when using the Client Credentials grant flow.
+
+The new Flexible Consent setting allows customers to use a single set of scopes in both 3-legged and 2-legged OAuth flows. When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This allows customers to use the same scopes for both user and service-based OAuth flows. <!--OKTA-392294-->
+
+#### Provisioning for Org2Org app integrations can be configured using the API
+
+Previously, Okta admins could only configure provisioning for the Org2Org app integration using the Admin Console. With the introduction of Multi-Org functions within the [Apps API](/docs/reference/api/apps/#application-provisioning-connection-operations), you can write code scripts or use SDKs to automate Okta hub and spoke scenarios.
+
+Additionally, you can set or update the **Logo** or **Notes** fields for any of your Okta app integrations using the API. <!--OKTA-397181-->
+
+#### Refresh Token Rotation is GA in Production
+
+[Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/) is now Generally Available in Production. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. <!--OKTA-399846-->
+
+#### Retrieving applications by catalog name is now available
+
+You can now look up apps by their catalog name using the [Apps API](/docs/reference/api/apps/). Use a `name` expression (for example: `name eq ":name"`) with the `filter` parameter to search for apps by catalog name on the `/apps` endpoint. <!--OKTA-391038-->
+
+#### The application.lifecycle.create event is now generated for OIDC Apps
+
+When OpenID Connect (OIDC) apps are created using the App Integration Wizard or the Apps API, the `application.lifecycle.create` event is now generated. Additionally, app context is now included with the event. <!--OKTA-389740-->
+
+#### The Subscriptions API is GA in Preview
+
+The [Subscriptions API](/docs/reference/api/admin-notifications/) is now Generally Available in Preview. The Subscriptions API provides operations to manage email subscription settings for Okta administrator notifications.
+
+* Super Admins can manage the default admin notifications that each admin receives based on their role.
+* Individual admins can update their own notification preferences by subscribing or unsubscribing.
+<!--OKTA-395158-->
 
 ## May
 
