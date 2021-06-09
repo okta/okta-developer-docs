@@ -3,9 +3,9 @@ title: Create an Identity Provider in Okta
 ---
 To connect your org to the Identity Provider, add and configure that Identity Provider in Okta.
 
-1. In the Admin Console, go to **Security** > **Identity Providers**.
-
 > **Note:** See the [Identity Providers API](/docs/reference/api/idps/#add-identity-provider) for request and response examples of creating an Identity Provider in Okta using the API.
+
+1. In the Admin Console, go to **Security** > **Identity Providers**.
 
 1. Select **Add Identity Provider** and then select the appropriate Identity Provider.
 
