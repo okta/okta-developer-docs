@@ -35,16 +35,16 @@ export const concepts = [
         path: "/docs/concepts/feature-lifecycle-management/"
       },
       {
-        title: "Role Assignment",
-        path: "/docs/concepts/role-assignment/",
-        hidden: true
-      },
-      {
         title: "How Okta works",
         path: "/docs/concepts/how-okta-works/"
       },
       {
-        title: "Identity engine",
+        title: "Role assignment",
+        path: "/docs/concepts/role-assignment/",
+        hidden: true
+      },
+      {
+        title: "Identity Engine",
         path: "/docs/concepts/ie-intro/",
         hidden: true
       },
@@ -381,8 +381,8 @@ export const guides = [
             title: "Embedded authentication",
             subLinks: [
               {
-                title: "test",
-                guideName: "test",
+                title: "Build your app with the embedded auth SDK",
+                guideName: "oie-embedded-sdk-start-with-use-case",
               },
             ]
           },
