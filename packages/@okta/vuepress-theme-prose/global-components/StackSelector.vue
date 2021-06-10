@@ -88,7 +88,7 @@
         return guideFromPath( this.$route.path ).sectionName;
       },
       guide() {
-         return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName];
+        return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName];
       },
       section() {
         return this.guide.sectionByName[this.sectionName];
