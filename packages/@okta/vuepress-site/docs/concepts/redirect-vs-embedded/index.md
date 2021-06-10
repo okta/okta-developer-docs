@@ -63,7 +63,7 @@ Deploy the redirect authentication model in the following use-cases:
 
 ## Embedded authentication
 
-Embedded authentication is the process of authenticating user credentials directly at the client application site using proprietary Okta authentication protocols. No redirection to Okta is required. The client application's code determines the methods and processes necessary to authenticate, and uses Okta’s Identity Engine SDK to validate the credentials. Client applications create their own application sessions and require explicit support for SSO to other external Service Providers.
+Embedded authentication is the process of authenticating user credentials directly at the client application site using proprietary Okta authentication SDKs and APIs. No redirection to Okta is required. The client application's code determines the methods and processes necessary to authenticate, and uses Okta’s Identity Engine SDK to validate the credentials. Client applications create their own application sessions and require explicit support for SSO to other external Service Providers.
 
 With embedded authentication, the client application obtains and validates the user's credentials by API calls to Okta, generally through the customer-hosted Sign-In Widget. Based on the organization’s requirements, the client application then creates a session for user access. The client application may also exchange tokens with a Security Token Service (STS) to provide SSO access to other Service Providers (CRM, IT, HR, and so on). Using this deployment model, the client’s sign-in page can render native user experiences and use native platform APIs.
 
