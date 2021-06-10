@@ -1,7 +1,7 @@
 ---
-title: Redirect vs. embedded Authentication
+title: Redirect vs. embedded authentication
 meta:
-  - name: description
+  - name: descriptionclear
     content: A high-level overview of the the redirect and embedded authentication models for Okta Identity Engine.
 ---
 
