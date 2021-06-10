@@ -35,18 +35,27 @@ export const concepts = [
         path: "/docs/concepts/feature-lifecycle-management/"
       },
       {
-        title: "How Okta works",
-        path: "/docs/concepts/how-okta-works/"
-      },
-      {
         title: "Role assignment",
         path: "/docs/concepts/role-assignment/",
         hidden: true
       },
       {
+        title: "How Okta works",
+        path: "/docs/concepts/how-okta-works/"
+      },
+      {
         title: "Identity Engine",
         path: "/docs/concepts/ie-intro/",
         hidden: true
+      },
+      {
+        title: "Identity Engine",
+        subLinks: [
+          {
+            title: "Redirect vs. embedded authentication",
+            path: "/docs/concepts/redirect-vs-embedded"
+          },
+        ]
       },
       {
         title: "Inline Hooks",
