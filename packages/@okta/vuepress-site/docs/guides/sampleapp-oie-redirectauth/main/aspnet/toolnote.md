@@ -1,0 +1,1 @@
+> **Note:** These steps assume that you are using Visual Studio to configure the sample app.

@@ -40,6 +40,7 @@ guides:
  - deploy-your-app
  - protect-your-api
  - quickstart
+ - sampleapp-oie-redirectauth
  - refresh-tokens
  - registration-inline-hook
  - request-user-consent

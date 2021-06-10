@@ -35,7 +35,7 @@ export const concepts = [
         path: "/docs/concepts/feature-lifecycle-management/"
       },
       {
-        title: "Role Assignment",
+        title: "Role assignment",
         path: "/docs/concepts/role-assignment/",
         hidden: true
       },
@@ -44,9 +44,18 @@ export const concepts = [
         path: "/docs/concepts/how-okta-works/"
       },
       {
-        title: "Identity engine",
+        title: "Identity Engine",
         path: "/docs/concepts/ie-intro/",
         hidden: true
+      },
+      {
+        title: "Identity Engine",
+        subLinks: [
+          {
+            title: "Redirect vs. embedded authentication",
+            path: "/docs/concepts/redirect-vs-embedded"
+          },
+        ]
       },
       {
         title: "Inline Hooks",
@@ -171,6 +180,10 @@ export const guides = [
       {
         title: "Sign Users In",
         subLinks: [
+          {
+            title: "Single page guide",
+            guideName: "a-single-page-guide"
+          },
           {
             title: "Add an external Identity Provider",
             guideName: "add-an-external-idp"
@@ -369,9 +382,32 @@ export const guides = [
             guideName: "token-inline-hook"
           },
         ]
-      }
+      },
+      {
+        title: "Identity Engine",
+        subLinks: [
+          {
+            title: "Embedded authentication",
+            subLinks: [
+              {
+                title: "Build your app with the embedded auth SDK",
+                guideName: "oie-embedded-sdk-start-with-use-case",
+              },
+            ]
+          },
+           {
+            title: "Redirect authentication",
+            subLinks: [
+              {
+                title: "Use redirect auth with the sample apps",
+                guideName: "sampleapp-oie-redirectauth",
+              },
+            ]
+          },
+        ]
+      },
     ]
-  }
+  },
 ];
 
 export const languagesSdk = [
