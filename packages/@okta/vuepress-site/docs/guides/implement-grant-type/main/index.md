@@ -10,7 +10,7 @@ Select the Authorization grant-type flow to implement:
 
 ### Grant-type flows
 
-<StackSelector snippet="flow-diagram" />
+<StackSelector snippet="flow-diagram" inline/>
 
 ### Flow usage
 
