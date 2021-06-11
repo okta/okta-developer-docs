@@ -143,7 +143,6 @@ export default {
     },
     toggleExpanded() {
       this.sublinksExpanded = !this.sublinksExpanded;
-      this.link.iHaveChildrenActive = !this.link.iHaveChildrenActive;
     },
     setData: function() {
       this.sublinksExpanded = Boolean(this.link.iHaveChildrenActive);
