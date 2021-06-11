@@ -21,26 +21,35 @@ const getFrameworksFor = path => {
 
 const guideInfo = {};
 
+// Load frontmatter yaml to JS from root file index page
 const allGuidesMeta = getMetaFor(GUIDE_ROOT);
+// Iterate over the known universe of guides from previous step
 allGuidesMeta.guides.forEach( guide => {
+  // Load frontmatter yaml to JS from _those_ guides index pages
   const guideMeta = getMetaFor(`${GUIDE_ROOT}/${guide}`);
   guideMeta.guide = guide;
   guideInfo[`/${GUIDE_ROOT}/${guide}/`] = {...guideMeta};
 
   guideMeta.sections.forEach( section => {
     // TODO: Informatively blow up if no such section
+    // load frontmatter yaml to JS for the index page of the sections of this guide
     const sectionMeta = getMetaFor(`${GUIDE_ROOT}/${guide}/${section}`);
+    // get all the directories under this section, count them each as a framework
     const frameworks = getFrameworksFor(`${GUIDE_ROOT}/${guide}/${section}`);
-    if(!guideMeta.frameworks && frameworks.length) {
+    if (!guideMeta.frameworks && frameworks.length) {
       // set default if none
+      // (always runs on first iteration)
       guideMeta.frameworks = frameworks;
       guideMeta.mainFramework = guideMeta.mainFramework || frameworks[0];
     } else if (guideMeta.frameworks && frameworks.length) {
+      // add more frameworks if defined in further sections
       guideMeta.frameworks = Array.from( new Set([...guideMeta.frameworks, ...frameworks]));
     }
   });
+
   // If a guide had no frameworks in any section
   guideMeta.frameworks = guideMeta.frameworks || [];
+
   // repeat now that we have a list of frameworks
   guideMeta.sections.forEach( section => {
     const sectionMeta = getMetaFor(`${GUIDE_ROOT}/${guide}/${section}`);
@@ -56,6 +65,7 @@ allGuidesMeta.guides.forEach( guide => {
       };
     });
   });
+
   guideInfo[`/${GUIDE_ROOT}/${guide}/`] = {...guideMeta};
 });
 

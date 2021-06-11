@@ -1,6 +1,6 @@
 {
-  "release" : "2021.05.1",
-  "build" : "2021.05.1-begin-78-g803f4ad1e272",
+  "release" : "2021.06.1",
+  "build" : "2021.06.1-begin-75-g2deed98c55cb",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -9496,7 +9496,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "import", "system" ],
+      "tags" : [ "event-hook-eligible", "import", "system" ],
       "mappings" : [ "app.generic.import.fail.roadblock" ],
       "schema" : {
         "debugData" : "SystemImportDebugData",
@@ -10338,7 +10338,7 @@
       }
     }, {
       "id" : "system.sms.send_okta_push_verify_message",
-      "category" : "authn",
+      "category" : "enterprise-auth",
       "description" : "Send activate Okta Verify Push for mobile SMS.",
       "info" : {
         "created" : "2016-03-16",
@@ -11677,7 +11677,7 @@
       "schema" : {
         "debugData" : "UserAuthenticationDebugData",
         "actor" : "UserAuthenticationResourceDetails",
-        "targets" : [ "UserAuthenticationResourceDetails" ]
+        "targets" : [ "UserAuthenticationResourceDetails", "CaptchaVerifyResourceDetails" ]
       }
     }, {
       "id" : "workflows.user.connection.create",
@@ -16858,6 +16858,14 @@
             "format" : "username",
             "examples" : [ ]
           },
+          "interaction_handle" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "cf23f425e960c55f98b9e3e36591ab54c50a2506408a4368d51f968aeaf21e43", "363f0da452551507fd793bbcb6aff91997f041c3fc73a96682d583d9d2da3fe1", "b989bb2ccf3208620b4826072aa2b5d8a4d723e1b7ba8a8b8dd032067a568d7a" ]
+          },
           "in_response_to" : {
             "type" : "String",
             "sensitive" : false,
@@ -19751,6 +19759,14 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "rate_limit_seconds_to_reset" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "1", "5", "10" ]
           },
           "rate_limit_scope_type" : {
             "type" : "String",
@@ -24425,6 +24441,35 @@
             "examples" : [ "myCaptcha" ]
           },
           "captcha_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:captchaId",
+            "examples" : [ "capzomKHvPhLF7lrR0g3" ]
+          }
+        }
+      },
+      "CaptchaVerifyResourceDetails" : {
+        "name" : "CaptchaVerifyResourceDetails",
+        "properties" : {
+          "failure_count" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "0", "1", "2" ]
+          },
+          "success_count" : {
+            "type" : "Integer",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "integer",
+            "examples" : [ "1", "2", "3" ]
+          },
+          "adopted_captcha_id" : {
             "type" : "String",
             "sensitive" : false,
             "personal" : false,

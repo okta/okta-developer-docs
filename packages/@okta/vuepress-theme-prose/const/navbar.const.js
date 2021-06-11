@@ -89,8 +89,16 @@ export const concepts = [
         path: "/docs/concepts/policies/"
       },
       {
+        title: "Session management",
+        path: "/docs/concepts/session/"
+      },
+      {
         title: "Social Login Overview",
         path: "/docs/concepts/social-login/"
+      },
+      {
+        title: "User Profiles",
+        path: "/docs/concepts/user-profiles/"
       },
       {
         title: "Understanding SAML",
@@ -485,6 +493,10 @@ export const reference = [
                 path: "/docs/reference/rate-limits/"
               },
               {
+                title: "Rate limit dashboard",
+                path: "/docs/reference/rl-dashboard/"
+              },
+              {
                 title: "Authentication/End-user rate limits",
                 path: "/docs/reference/rl-global-enduser/"
               },
@@ -704,6 +716,10 @@ export const referenceOld = [
           {
             title: "Rate limits overview",
             path: "/docs/reference/rate-limits/"
+          },
+          {
+            title: "Rate limit dashboard",
+            path: "/docs/reference/rl-dashboard/"
           },
           {
             title: "Authentication/End-user rate limits",
