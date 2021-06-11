@@ -26,13 +26,13 @@ Orgs using Identity Engine can also continue to use current SDKs and tools. You 
 
 ##### Android
 
-<!--* [Android Identity Engine SDK](https://github.com/okta/okta-idx-android)-->
+* [Android embedded authentication with SDK sample app](https://github.com/okta/okta-idx-android)
 * [Android redirect authentication sample app](https://github.com/okta/samples-android) &mdash; see [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in) for redirect configuration
 
 ##### iOS
 
 * [Swift Identity Engine SDK](https://github.com/okta/okta-idx-swift)
-* [iOS embedded authentication with SDK sample app](https://github.com/okta/okta-idx-swift/tree/feat-dynamic-auth/Samples/EmbeddedAuthWithSDKs)
+* [iOS embedded authentication with SDK sample app](https://github.com/okta/okta-idx-swift/tree/master/Samples/EmbeddedAuthWithSDKs)
 * [iOS redirect authentication sample app](https://github.com/okta/samples-ios) &mdash; see [Browser Sign In](https://github.com/okta/samples-ios/tree/master/browser-sign-in) for redirect configuration
 
 ##### React Native
@@ -47,7 +47,6 @@ Orgs using Identity Engine can also continue to use current SDKs and tools. You 
 
 #### JavaScript
 
-<!--* [JavaScript Identity Engine SDK](https://github.com/okta/okta-idx-js)-->
 * [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/)
 
 ##### React
@@ -64,7 +63,7 @@ Orgs using Identity Engine can also continue to use current SDKs and tools. You 
 
 * [.NET Identity Engine SDK](https://github.com/okta/okta-idx-dotnet)
 * [ASP.NET embedded authentication with SDK sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-auth-with-sdk)
-
+* [ASP.NET embedded Sign-In Widget sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-sign-in-widget)
 * [ASP.NET redirect authentication sample app](https://github.com/okta/samples-aspnet) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login) for redirect configuration
 * [ASP.NET Web Forms redirect authentication sample app](https://github.com/okta/samples-aspnet-webforms) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnet-webforms/tree/master/okta-hosted-login) for redirect configuration
 * [Blazor redirect authentication sample app](https://github.com/okta/samples-blazor) &mdash;  see [Blazor Server-Side Okta-Hosted Login](https://github.com/okta/samples-blazor/tree/master/server-side/okta-hosted-login) for redirect configuration
