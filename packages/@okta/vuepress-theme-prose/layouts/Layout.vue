@@ -19,7 +19,7 @@
             'navigation-only': appContext.isTreeNavMobileOpen
           }"
         >
-          <div class="tree-nav">
+          <div class="sidebar-area">
             <Sidebar />
           </div>
           <div class="content-area">

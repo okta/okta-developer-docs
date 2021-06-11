@@ -1,6 +1,5 @@
 <template>
-  <aside class="landing-navigation">
-    <ul class="landing">
+  <aside class="tree-nav">
       <ul class="sections">
         <SidebarItem
           v-for="link in navigation"
@@ -8,7 +7,6 @@
           :link="link"
         />
       </ul>
-    </ul>
   </aside>
 </template>
 
@@ -64,11 +62,10 @@ export default {
     handleScroll: function(event) {
       let maxHeight =
         window.innerHeight -
-        document.querySelector(".fixed-header").clientHeight -
-        60;
+        document.querySelector(".fixed-header").clientHeight ;
 
-      document.querySelector(".landing-navigation").style.height =
-        maxHeight + "px";
+      document.querySelector(".sidebar-area").style.height =
+        maxHeight + "px"; 
     },
     addStatesToLink(link) {
       if (link.path) {
