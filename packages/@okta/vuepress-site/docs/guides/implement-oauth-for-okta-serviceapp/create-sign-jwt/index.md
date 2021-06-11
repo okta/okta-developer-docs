@@ -29,12 +29,12 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
     **Payload example**
 
 ```json
-    {
+{
     "aud": "https://{yourOktaDomain}/oauth2/v1/token",
     "iss": "0oar95zt9zIpYuz6A0h7",
     "sub": "0oar95zt9zIpYuz6A0h7",
     "exp": "1614664267"
-    }
+}
 ```
 
 2. In the **Signing Key** box, paste the public and private key that you generated in the <GuideLink link="../create-publicprivate-keypair">Create a public/private key pair</GuideLink> step.

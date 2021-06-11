@@ -3,6 +3,20 @@ title: Okta API Products Release Notes 2021
 ---
 ## June
 
+### Weekly Release 2021.06.1
+
+| Change                                                                         | Expected in Preview Orgs |
+|--------------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2021.06.1](#bugs-fixed-in-2021-06-1)                            | June 9, 2021             |
+
+#### Bugs fixed in 2021.06.1
+
+* User credential updates failed and returned an error message if the [User Type](/docs/reference/api/user-types/) was set to a non-email username. (OKTA-334754)
+
+* When an `/authorize` request with an [IdP parameter](/docs/reference/api/idps/#add-identity-provider) that referenced a SAML Identity Provider (IdP) was sent, an internal server error was returned because it was assumed that all IdPs are social IdPs. (OKTA-385800)
+
+* Service clients were unable to update [SAML apps](/docs/reference/api/apps/#update-application) due to a user context check that failed to pass. (OKTA-395492)
+
 ### Monthly Release 2021.06.0
 
 | Change                                                                                              | Expected in Preview Orgs |
@@ -13,7 +27,7 @@ title: Okta API Products Release Notes 2021
 | [Provisioning for Org2Org app integrations can be configured using the API](#provisioning-for-org2org-app-integrations-can-be-configured-using-the-api)| June 3, 2021 |
 | [Refresh Token Rotation is GA in Production](#refresh-token-rotation-is-ga-in-production) | June 3, 2021 |
 | [Retrieving applications by catalog name is now available](#retrieving-applications-by-catalog-name-is-now-available) | June 3, 2021 |
-| [The `application.lifecycle.create` event is now generated for OIDC Apps](#the-application-lifecycle-create-event-is-now-generated-for-oidc-apps) | June 3, 2021 |
+| [The application.lifecycle.create event is now generated for OIDC Apps](#the-application-lifecycle-create-event-is-now-generated-for-oidc-apps) | June 3, 2021 |
 | [The Subscriptions API is GA in Preview](#the-subscriptions-api-is-ga-in-preview) | June 3, 2021 |
 
 #### Okta Sign-In Widget, version 5.7.0
@@ -44,7 +58,7 @@ Additionally, you can set or update the **Logo** or **Notes** fields for any of 
 
 You can now look up apps by their catalog name using the [Apps API](/docs/reference/api/apps/). Use a `name` expression (for example: `name eq ":name"`) with the `filter` parameter to search for apps by catalog name on the `/apps` endpoint. <!--OKTA-391038-->
 
-#### The `application.lifecycle.create` event is now generated for OIDC Apps
+#### The application.lifecycle.create event is now generated for OIDC Apps
 
 When OpenID Connect (OIDC) apps are created using the App Integration Wizard or the Apps API, the `application.lifecycle.create` event is now generated. Additionally, app context is now included with the event. <!--OKTA-389740-->
 

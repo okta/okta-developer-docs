@@ -95,7 +95,7 @@
         return guideFromPath( this.$route.path ).sectionName;
       },
       guide() {
-         return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName];
+        return getGuidesInfo({pages: this.$site.pages}).byName[this.guideName];
       },
       section() {
         return this.guide.sectionByName[this.sectionName];
@@ -103,10 +103,16 @@
       options() {
         const snippetByName = this.section?.snippetByName;
 
+        // when snippet name is provided, find frameworks data for that one
+        if (this.snippet) {
+          return snippetByName?.[this.snippet]?.frameworks ?? [];
+        }
+
         if (typeof snippetByName !== 'object') {
           return [];
         }
 
+        // when no snippet name is provided, use the first defined snippet in the snippet data
         const frameworksData = Object.values(snippetByName)[0]?.frameworks ?? [];
 
         return frameworksData;
