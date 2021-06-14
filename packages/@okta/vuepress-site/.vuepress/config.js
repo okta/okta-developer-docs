@@ -396,7 +396,7 @@ module.exports = ctx => ({
         if (!page.frontmatter['meta']) {
           page.frontmatter['meta'] = []
         }
-        page.frontmatter['meta'].push({ name: 'robots', content:'noindex'});
+        page.frontmatter['meta'].push({ name: 'robots', content:'noindex,nofollow'});
       });
     }
   },
