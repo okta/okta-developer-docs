@@ -5,17 +5,19 @@ cd ${OKTA_HOME}/${REPO}/packages/@okta/vuepress-site
 DEPLOY_ENVIRONMENT=""
 export REGISTRY_REPO="npm-topic"
 export REGISTRY="${ARTIFACTORY_URL}/api/npm/${REGISTRY_REPO}"
-export PROD_ENV=""
+export ENV="test"
 
 declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
 branch_environment_map[staging]=vuepress-site-preprod
 
 # Master branch indecates that current deploy is for production.
-# In such case, PROD_ENV will take 'true' value.
+# In such case, PROD will take 'prod' value.
 # PROD ENV is used to distinguished the prod environment from the test environment (see config.js)
 if [[ $BRANCH == "master" ]]; then
-    PROD_ENV = "true"
+    ENV = "prod"
+else
+    ENV = "test"
 fi
 
 if ! yarn build; then
