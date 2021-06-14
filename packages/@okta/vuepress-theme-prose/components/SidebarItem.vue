@@ -52,14 +52,16 @@
       />
     </ul>
   </li>
-  
+
 </template>
 
 <script>
+import { guideFromPath } from "../util/guides"
+
 export default {
   name: "SidebarItem",
   props: ["link"],
-  inject: ["appContext"],
+  inject: ["appContext", "stackSelectorData"],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },
@@ -74,7 +76,7 @@ export default {
       }
     };
   },
-  
+
   computed:{
     entityType: function(){
       if(this.link.hasOwnProperty('path') && this.link.path !== null ){
@@ -92,9 +94,22 @@ export default {
     this.setData();
   },
   watch: {
-    
     link() {
       this.setData();
+    },
+
+    // Will triggers when StackSelector component will change it value.
+    "stackSelectorData.to"() {
+      // After StackSelector value has changed, route link will be modified.
+      // This condition will be true only for SidebarItems that contains links on pages with StackSelector.
+      const newFramework = guideFromPath(this.stackSelectorData.to).framework;
+      if (this.link?.frameworks?.includes(newFramework)) {
+        // All links on pages with StackSelector that contains same frameworks list will be modifiend
+        // and will include new framework value.
+        // Such approach will make it possible to activate the same value in all StackSelector
+        // components that has similar frameworks set.
+        this.link.path = this.getNewLinkPath(this.link.path, newFramework);
+      }
     },
 
     sublinksExpanded(isActivated, _) {
@@ -113,15 +128,19 @@ export default {
       }
     }
   },
-  
+
   methods: {
+    getNewLinkPath(path, newFramework) {
+      const framework = guideFromPath(path).framework;
+      return path.replace(framework, newFramework);
+    },
     toggleExpanded() {
       this.sublinksExpanded = !this.sublinksExpanded;
     },
     setData: function() {
       this.sublinksExpanded = Boolean(this.link.iHaveChildrenActive);
     }
-    
+
   }
 };
 </script>

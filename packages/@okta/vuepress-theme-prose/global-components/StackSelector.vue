@@ -33,6 +33,7 @@
   import { getGuidesInfo, guideFromPath } from '../util/guides';
   export default {
     name: 'StackSelector',
+    inject: ['stackSelectorData'],
     props: {
       snippet: {
         type: String,
@@ -63,16 +64,22 @@
         if (value && value.link) {
           this.hasFocus = true;
           this.$router.push(value.link);
+
+          // After new value selected we record new route value and prev value into shared stackSelectorData object
+          // to be able to use it in SidebarItem.vue component
+          this.stackSelectorData.from = this.selectedOption.link;
+          this.stackSelectorData.to = value.link;
         }
       }
     },
     created () {
-      if(typeof window !== "undefined") { 
+      if(typeof window !== "undefined") {
         window.addEventListener('scroll', this.handleScroll);
       }
     },
     destroyed () {
-      if(typeof window !== "undefined") { 
+      this.stackSelector = false
+      if(typeof window !== "undefined") {
         window.removeEventListener('scroll', this.handleScroll);
       }
     },
@@ -110,7 +117,7 @@
 
         return frameworksData;
       },
-      snippetComponentKey() { 
+      snippetComponentKey() {
         const option = this.options.find( option => option.framework === this.framework );
         return (option ? option.componentKey : '');
       },
@@ -124,9 +131,9 @@
       }
     },
     updated() {
-      // If we are the Stack Selector that was focused (clicked on), 
+      // If we are the Stack Selector that was focused (clicked on),
       // scroll that we stay in the same position relative to the viewport
-      if(!this.noSelector && this.hasFocus && this.offsetFromViewport ) { 
+      if(!this.noSelector && this.hasFocus && this.offsetFromViewport ) {
         this.$nextTick(() => { // postponed to allow child components to rerender
           window.scroll(0, this.$el.offsetTop - this.offsetFromViewport );
           this.hasFocus = false;
