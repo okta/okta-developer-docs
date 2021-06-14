@@ -107,15 +107,13 @@ export default {
     "stackSelectorData.to"() {
       // After StackSelector value has changed, route link will be modified.
       // This condition will be true only for SidebarItems that contains links on pages with StackSelector.
-      if (this.link.frameworks && this.link.frameworks.length) {
-        const newFramework = guideFromPath(this.stackSelectorData.to).framework;
-        if (this.link.frameworks.includes(newFramework)) {
-          // All links on pages with StackSelector that contains same frameworks list will be modifiend
-          // and will include new framework value.
-          // Such approach will make it possible to activate the same value in all StackSelector
-          // components that has similar frameworks set.
-          this.link.path = this.setNewLinkPath(this.link.path, newFramework);
-        }
+      const newFramework = guideFromPath(this.stackSelectorData.to).framework;
+      if (this.link?.frameworks?.includes(newFramework)) {
+        // All links on pages with StackSelector that contains same frameworks list will be modifiend
+        // and will include new framework value.
+        // Such approach will make it possible to activate the same value in all StackSelector
+        // components that has similar frameworks set.
+        this.link.path = this.getNewLinkPath(this.link.path, newFramework);
       }
     },
 
@@ -137,7 +135,7 @@ export default {
   },
 
   methods: {
-    setNewLinkPath(path, newFramework) {
+    getNewLinkPath(path, newFramework) {
       const framework = guideFromPath(path).framework;
       return path.replace(framework, newFramework);
     },
