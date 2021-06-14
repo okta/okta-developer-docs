@@ -1,24 +1,28 @@
 ---
-title: Implement Authorization
+title: Implement Authorization by grant type
+excerpt: How to implement Authorization flows by grant type with Okta
+layout: Guides
 ---
 
-Select the Authorization grant-type flow to implement:
+This document guides you through implementing OAuth 2.0 authorization flow for your app by grant types with Okta.
+
+Select the authorization grant-type flow to implement: <StackSelector />
 
 ### Overview
 
-<StackSelector snippet="overview" />
+<StackSnippet snippet="overview" />
 
-### Grant-type flows
+### Grant-type flow
 
-<StackSelector snippet="flow-diagram" inline/>
+<StackSnippet snippet="flow-diagram"/>
 
 ### Flow usage
 
-<StackSelector snippet="use-flow" />
+<StackSnippet snippet="use-flow" />
 
 ### Set up your app
 
-<StackSelector snippet="setup-app" />
+<StackSnippet snippet="setup-app" />
 
 - Stack selector for App Wizard settings
 
@@ -55,9 +59,11 @@ Select the Authorization grant-type flow to implement:
 
 ### Next steps
 
-Now that you have implemented your Authentication flow, you can add features such as
+Now that you have implemented Authorization in your app, you can add features such as
 
 * Self-service enrollment
 * MFA
 * Authentication recovery
 * Progressive profiling
+
+> **Note:** If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
