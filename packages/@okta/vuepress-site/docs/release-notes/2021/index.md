@@ -3,6 +3,16 @@ title: Okta API Products Release Notes 2021
 ---
 ## June
 
+### Weekly Release 2021.06.2
+
+| Change                                                                         | Expected in Preview Orgs |
+|--------------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2021.06.2](#bug-fixed-in-2021-06-2)                              | June 16, 2021             |
+
+#### Bug fixed in 2021.06.2
+
+When the [features endpoint of the Apps API](/docs/reference/api/apps/#update-feature-for-application) was called to enable or disable user deactivation (`lifecycleDeactivate` property), the call didn’t toggle the `REACTIVATE_USERS` app feature. (OKTA-399233)
+
 ### Weekly Release 2021.06.1
 
 | Change                                                                         | Expected in Preview Orgs |
