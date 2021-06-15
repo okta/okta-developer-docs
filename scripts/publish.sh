@@ -5,15 +5,10 @@ cd ${OKTA_HOME}/${REPO}/packages/@okta/vuepress-site
 DEPLOY_ENVIRONMENT=""
 export REGISTRY_REPO="npm-topic"
 export REGISTRY="${ARTIFACTORY_URL}/api/npm/${REGISTRY_REPO}"
-export TREX_ENV=""
 
 declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
 branch_environment_map[staging]=vuepress-site-preprod
-
-if [[ $BRANCH == "staging" ]]; then
-    TREX_ENV = "true"
-fi
 
 if ! yarn build; then
     echo "Error building site"

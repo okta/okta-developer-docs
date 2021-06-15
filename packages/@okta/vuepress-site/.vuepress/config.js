@@ -13,18 +13,8 @@ const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
 function configUris() {
   let uris;
-  switch (process.env.PROD_ENV) {
-    case 'staging':
-      uris = {
-        baseUri: 'https://okta-dev-parent.trexcloud.com',
-        registrationPolicyId: 'reg3kwstakmbOrIly0g7',
-        idps: {
-          github: '0oa3jobx2bBlylNft0g7',
-          google: '0oa3jaktbqkiwCthn0g7',
-        }
-      }
-      break;
-    default:
+  switch (process.env.ENV) {
+    case 'prod':
       uris = {
         baseUri: 'https://okta-devok12.okta.com',
         registrationPolicyId: 'reg405abrRAkn0TRf5d6',
@@ -33,7 +23,16 @@ function configUris() {
           google: '0oay75bnynuF2YStd5d5',
         }
       }
-      break;
+      return;
+    default:
+      uris = {
+        baseUri: 'https://okta-dev-parent.trexcloud.com',
+        registrationPolicyId: 'reg3kwstakmbOrIly0g7',
+        idps: {
+          github: '0oa3jobx2bBlylNft0g7',
+          google: '0oa3jaktbqkiwCthn0g7',
+        }
+      }
   }
   return uris;
 }
