@@ -659,6 +659,10 @@ redirects:
     to: /docs/reference/api/users/
   - from: /docs/api/resources/zones
     to: /docs/reference/api/zones/
+  - from: /docs/api/resources/social_authentication
+    to: /docs/reference/social-settings/
+  - from: /docs/api/resources/social_authentication/index.html
+    to: /docs/reference/social-settings/
   - from: /docs/how-to/add-user-consent-to-flow
     to: /docs/guides/request-user-consent/
   - from: /docs/how-to/byo_saml
@@ -2105,6 +2109,10 @@ redirects:
     to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
   - from: /docs/guides/password-import-hook/-/next-steps
     to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
+  - from: /docs/reference/api/systemlog
+    to: /docs/reference/api/system-log/
+  - from: /docs/reference/api/systemlog/index.html
+    to: /docs/reference/api/system-log/
   - from: /docs/code/java/spring_security_saml.html
     to: /docs/code/java/spring_security_saml/index.html
   - from: /docs/guides/password-import-hook/-/next-steps/index.html
