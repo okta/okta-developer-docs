@@ -2114,6 +2114,6 @@ redirects:
   - from: /docs/reference/api/systemlog/index.html
     to: /docs/reference/api/system-log/
   - from: /docs/code/java/spring_security_saml.html
-    to: /docs/code/java/spring_security_saml/index.html
+    to: /code/java/spring_security_saml/index.html
   - from: /docs/guides/password-import-hook/-/next-steps/index.html
     to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
