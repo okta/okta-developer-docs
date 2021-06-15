@@ -92,8 +92,6 @@ To specify a resource targeted by a Resource Set, you can use the REST URL of th
   https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users
   ```
 
-> **Note:** All Users and Groups are represented by using either [All Users](/docs/reference/api/users/#list-users) or [All Groups](/docs/reference/api/groups/#list-groups) links. There is no functional difference between the two.
-
 > **Note:** If you use a Role with permissions that don't apply to the resources in the Resource Set, it doesn't affect the admin Role. For example, the `okta.users.profile.manage` permission gives the admin no privileges if it is granted to a Resource Set that only includes `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}` resources. If you want the admin to be able to manage the Users within the group, the Resource Set must include the corresponding `https://${yourOktaDomain}/api/v1/groups/${targetGroupId}/users` resource.
 
 #### Binding member identifiers
