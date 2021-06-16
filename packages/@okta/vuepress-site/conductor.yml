@@ -1985,13 +1985,13 @@ redirects:
     to: /
   - from: /product/authorization/
     to: /
-  - from: /product/overview
-    to: /
   - from: /product/overview/index.html
     to: /
-  - from: /product
+  - from: /product/overview
     to: /
   - from: /product/index.html
+    to: /
+  - from: /product
     to: /
   - from: /docs/examples/session_cookie
     to: /docs/guides/session-cookie/overview
