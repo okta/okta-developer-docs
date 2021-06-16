@@ -31,7 +31,7 @@ The Okta PHP SDK can be used in your server-side code to create and update users
 	<span class='icon download-16'></span> <span>okta/sdk on Packagist</span>
 </a>
 
-<<!-- TODO figure out what this should be -->
+<!-- TODO figure out what this should be -->
 <!--
 <p class="language-reference">
 	<a href='https://developer.okta.com/okta-sdk-php/' class="language-reference">
