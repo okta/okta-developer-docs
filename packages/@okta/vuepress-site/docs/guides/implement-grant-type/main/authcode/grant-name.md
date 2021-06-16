@@ -1,1 +1,1 @@
-Authorization code
+**Authorization Code**

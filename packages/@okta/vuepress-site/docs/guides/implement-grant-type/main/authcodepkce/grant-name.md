@@ -1,1 +1,1 @@
-Authorization code with PKCE
+**Authorization Code** and **Refresh Token**

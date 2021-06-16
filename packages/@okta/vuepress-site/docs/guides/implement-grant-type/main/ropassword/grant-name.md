@@ -1,1 +1,1 @@
-Resource Owner Password
+**Resource Owner Password**

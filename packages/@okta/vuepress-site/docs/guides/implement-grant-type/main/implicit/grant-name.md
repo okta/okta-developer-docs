@@ -1,1 +1,1 @@
-Implicit
+**Implicit (Hybrid)**

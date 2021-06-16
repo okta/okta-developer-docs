@@ -1,1 +1,1 @@
-Refer to [Configure the SDK](/docs/guides/sign-into-spa/-/configure-the-sdk) for instructions on how to install and use front-end framework SDKs.
+Refer to [Add and configure packages](/docs/guides/sign-into-web-app/-/configure-packages) for instructions on how to install and use Okta back-end framework SDKs.

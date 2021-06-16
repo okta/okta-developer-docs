@@ -1,3 +1,5 @@
+### Use the Resource Owner Password flow
+
 Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint. If you are using the default Custom Authorization Server, then your request would look something like this:
 
 ```bash
@@ -31,3 +33,7 @@ If the credentials are valid, your application receives back access and ID token
     "token_type": "Bearer"
 }
 ```
+
+### Request access to resource server
+
+When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).

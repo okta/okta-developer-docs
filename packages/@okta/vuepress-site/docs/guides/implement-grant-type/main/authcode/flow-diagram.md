@@ -1,4 +1,26 @@
-![Authorization Code flow](/img/oauth_auth_code_flow.png "Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow")
+#### Authorization code flow
+
+![Authorization Code flow](/img/authorization/oauth-auth-code-grant-flow.png "Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow")
+
+<!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
+
+skinparam monochrome true
+
+actor "Resource Owner (User)" as user
+participant "Web App" as client
+participant "Authorization Server (Okta) " as okta
+participant "Resource Server (Your App) " as app
+
+autonumber "<b>#."
+client -> okta: Authorization Code Request to /authorize
+okta -> user: 302 redirect to authentication prompt
+user -> okta: Authentication & consent
+okta -> client: Authorization Code Response
+client -> okta: Send authorization code + client secret to /token
+okta -> client: Access token (and optionally Refresh Token)
+client -> app: Request with access token
+app -> client: Response
+-->
 
 At a high-level, this flow has the following steps:
 

@@ -1,3 +1,9 @@
+### Create custom scopes
+
+The Client Credentials flow never has a user context, so you can't request OpenID scopes. Instead, you must create a custom scope. See the **Scopes** section of the [Create a Custom Authorization Server](/docs/guides/customize-authz-server/create-scopes/) guide for more information on creating custom scopes.
+
+### Use the Client Credentials flow
+
 The Client Credentials flow is intended for server-side (confidential) client applications with no end user, which normally describes machine-to-machine communication. Your client application needs to have its client ID and secret stored in a secure manner. You can find the client ID and secret on the **General** tab for your app integration.
 
 [Base64 encode](#base64-encode-the-client-ID-and-client-secret) the client ID and secret and then pass through [Basic Authentication](https://tools.ietf.org/html/rfc7617) in the request to your [Custom Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint:
@@ -67,3 +73,7 @@ To use the command line for Windows:
 1. Locate and open appbase64Creds.txt in `C:\temp`, copy its contents, and then close the file.
 
 > **Note:** Delete the appCreds.txt and the appbase64Creds.txt files after you finish.
+
+### Next steps
+
+When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).
