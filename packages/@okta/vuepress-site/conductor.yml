@@ -1981,10 +1981,6 @@ redirects:
     to: /
   - from: /login-widget-gallery/index.html
     to: /
-  - from: /product/authentication/
-    to: /
-  - from: /product/authorization/
-    to: /
   - from: /product
     to: /
   - from: /docs/examples/session_cookie
