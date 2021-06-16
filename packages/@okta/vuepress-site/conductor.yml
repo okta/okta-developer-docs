@@ -1986,13 +1986,13 @@ redirects:
   - from: /product/authorization/
     to: /
   - from: /product/overview
-    to: /docs/
+    to: /
   - from: /product/overview/index.html
-    to: /docs/
+    to: /
   - from: /product
     to: /
   - from: /product/index.html
-    to: /docs/
+    to: /
   - from: /docs/examples/session_cookie
     to: /docs/guides/session-cookie/overview
   - from: /docs/examples/session_cookie/index.html
