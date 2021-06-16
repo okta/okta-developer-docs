@@ -16,53 +16,37 @@ Select the authorization grant-type flow to implement: <StackSelector />
 
 <StackSnippet snippet="flow-diagram"/>
 
-### Flow usage
-
-<StackSnippet snippet="use-flow" />
-
 ### Set up your app
+
+Before you can implement authorization, you need to register your app in Okta by creating an Okta app integration from the Admin Console.
 
 <StackSnippet snippet="setup-app" />
 
-- Stack selector for App Wizard settings
-
-| Parameter | Description        |
-| --------- | ----------- |
-| Sign-on method  | xxx |
-| App type  | xxx |
-| Grant type | xxx |
-| Sign-in redirect URIs | xxx |
-
+Save the Okta Client ID (`client_id`) value generated from the created app integration to implement your authorization flow.
 
 ### Install an Okta SDK
 
-- stack selector for which SDK you can use for the grant type
-- this could be links to other actions from the Sign-in guides
+Okta provides an array of language and framework SDKs to speed up implementing authorization with Okta. See [Languages & SDKs overivew](/code/) for a list of SDKs you can download to start using with your app.
 
-### Redirect to Auth Server for code
+<StackSnippet snippet="install-sdk" />
 
-- stack selector for info on how to implement redirect to auth server for code
-- this could be links to other actions from the Sign-in guides
+<!-- "Redirect to Auth Server" , "Flow usage" , "Exchange authorization code for token", "Scopes", "Get access token" grant-specific content -->
 
-### Exchange authorization code for token
+<StackSnippet snippet="use-flow" />
 
-- stack selector for info on how to implement redirect to auth server for token, if required
-- this could be links to the Sign-in guides
+<!-- ### Exchange authorization code for token -->
 
-### Scopes
-
-- stack selector for scope instructions, if required
-
-### Get access token
-
-- stack selector for get access token instructions, if required
+<!-- ### Get access token -->
 
 ### Next steps
 
+<StackSnippet snippet="nextsteps" />
+
 Now that you have implemented Authorization in your app, you can add features such as
 
-* Self-service enrollment
+* [Self-service enrollment](/docs/guides/set-up-self-service-registration/)
 * MFA
+* Brand customization ([custom domain](/docs/guides/custom-url-domain/), [custom SMS messages](/docs/guides/sms-customization/), [custom emails](/docs/guides/email-customization/))
 * Authentication recovery
 * Progressive profiling
 

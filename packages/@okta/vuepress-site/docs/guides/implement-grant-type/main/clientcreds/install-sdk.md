@@ -1,0 +1,1 @@
+Refer to [Configure the SDK](/docs/guides/sign-into-spa/-/configure-the-sdk) for instructions on how to install and use front-end framework SDKs.

@@ -1,6 +1,8 @@
-You set up your OpenID Connect application inside the Okta Admin Console:
+See [Create an Okta app integration](/docs/guides/sign-into-web-app/-/create-okta-application/) for step-by-step instructions to create an app integration with the following parameters for Authorization Code flow:
 
-1. In the Admin Console, go to **Applications** > **Applications**.
-1. Click **Create App Integration**.
-1. On the Create a new app integration page, select **OIDC - OpenID Connect** for the **Sign-in method** and then select **Web Application** as the **Application type**.
-1. Fill in the **Application Settings**. The **Sign-in redirect URIs** must match a URI that your user can be redirected to with their authorization code. Click **Done**.
+ Parameter | Required Value for Authorization Code flow       |
+| --------- | ----------- |
+| Sign-in method  | **OIDC - OpenID Connect** |
+| Application type  | **Web Application**  |
+| Grant type | **Authorization Code** |
+| Sign-in redirect URIs | Specify the callback location to redirect the user with their authorization code. |
