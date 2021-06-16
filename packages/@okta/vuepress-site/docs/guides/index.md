@@ -63,7 +63,13 @@ guides:
  - updating-saml-cert
  - validate-access-tokens
  - validate-id-tokens
-
+ - oie-embedded-sdk-use-cases
+ - oie-embedded-sdk-setup
+ - oie-embedded-sdk-alternate-flows
+ - oie-embedded-sdk-limitations
+ - oie-embedded-sdk-common
+ - oie-embedded-widget-setup
+ - oie-embedded-widget-use-cases
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

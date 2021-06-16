@@ -390,19 +390,53 @@ export const guides = [
             title: "Embedded authentication",
             subLinks: [
               {
-                title: "Build your app with the embedded auth SDK",
-                guideName: "oie-embedded-sdk-start-with-use-case",
+                title: "Build with the embedded SDK",
+                subLinks: [
+                  {
+                    title: "Setup",
+                    guideName: "oie-embedded-sdk-setup",
+                  },
+                  {
+                    title: "Start with a use case",
+                    guideName: "oie-embedded-sdk-use-cases",
+                  },
+                  {
+                    title: "Alternate flows",
+                    guideName: "oie-embedded-sdk-alternate-flows",
+                  },
+                  {
+                    title: "Limitations",
+                    guideName: "oie-embedded-sdk-limitations",
+                  },
+                  {
+                    title: "Common",
+                    guideName: "oie-embedded-sdk-common",
+                  },
+                ]
               },
-            ]
-          },
-           {
-            title: "Redirect authentication",
-            subLinks: [
               {
-                title: "Use redirect auth with the sample apps",
-                guideName: "sampleapp-oie-redirectauth",
+                title: "Build with the embedded widget",
+                subLinks: [
+                  {
+                    title: "Setup",
+                    guideName: "oie-embedded-widget-setup",
+                  },
+                  {
+                    title: "Start with a use case",
+                    guideName: "oie-embedded-widget-use-cases",
+                  }
+                ]
               },
             ]
+            },
+          {
+          title: "Redirect authentication",
+          subLinks: [
+            {
+              title: "Use redirect auth with the sample apps",
+              guideName: "sampleapp-oie-redirectauth",
+            },
+          ]
           },
         ]
       },
