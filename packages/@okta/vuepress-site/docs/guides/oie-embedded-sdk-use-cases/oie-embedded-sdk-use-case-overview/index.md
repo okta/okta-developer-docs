@@ -4,7 +4,7 @@ title: Overview
 
 <ApiLifecycle access="ie" /><br>
 
-### Start with a use case
+## Start with a use case
 
 Using the sample app as your guide, walk through each of the use cases in
 this section to build your own app with the SDK. Each use case describes
@@ -20,7 +20,8 @@ The supported use cases are as follows:
 1. [Sign in with password and email factor](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-email/)
 1. [Sign in with password and phone factor](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-phone/)
 
-The use cases are purposely ordered so you can test each one as you gradually
+The above use cases are purposely ordered to start you off with
+simplier use cases before advancing to the more complex scenarios. so you can test each one as you gradually
 move on to more complex scenarios.
 
 > **Note:** The code samples for each use case are based primarly off the

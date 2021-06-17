@@ -25,7 +25,7 @@ and must be identical.
    [Download and setup the SDK and sample app](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-sample-app-setup/).
 1. A URI defined in the **Sign-in redirect URIs** field in the Okta
    Application. The **Sign-in redirect URIs** field is described in
-   [Setup your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#setup-org-password-only).
+   [Setup your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
 For the sample application, the RedirectURI should be set to `https://localhost:44314/interactioncode/callback`
 

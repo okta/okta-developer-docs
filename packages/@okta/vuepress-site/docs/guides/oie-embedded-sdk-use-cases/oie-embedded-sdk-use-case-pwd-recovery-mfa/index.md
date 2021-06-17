@@ -10,7 +10,7 @@ title: User password recovery
 
 This use case describes how a user would reset their forgotten password with the email factor.
 
-### Factor setup
+## Factor setup
 
 This use case requires the **password** and **email** factor.
 
@@ -25,24 +25,24 @@ The use case describes how to integrate a password recovery flow in your
 app using the SDK. The flow includes an email factor step that the user needs
 to verify before changing their password.
 
-### Configuration updates
+## Configuration updates
 
 The following configurations need to be completed before continuing with this use case.
 
-#### Step 1:  Complete steps in Set up your Okta org for password factor only use cases
+### Step 1:  Complete steps in Set up your Okta org for password factor only use cases
 
 If not already done, complete the steps described in the
-[Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#setup-org-password-only).
+[Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
-#### Step 2:  Complete steps in Set up your Okta org (for multi-factor use cases)
+### Step 2:  Complete steps in Set up your Okta org (for multi-factor use cases)
 If not already done, complete the steps described in the
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#setup-org-multi-factor) section.
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-multi-factor-use-cases) section.
 
 
-#### Step 3:  Reconfigure Okta application for password only
+### Step 3:  Reconfigure Okta application for password only
 
 If you completed the steps in
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#setup-org-multi-factor),
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-multi-factor-use-cases),
 you have set up your application for multiple factors. Ensure the application’s
 policy is setup for **Password + Another factor**.
 
@@ -58,7 +58,7 @@ policy is setup for **Password + Another factor**.
    already set to that value.
 1. Click **Save**.
 
-#### Step 4:  Ensure only email is only factor enabled for password recovery
+### Step 4:  Ensure only email is only factor enabled for password recovery
 
 1. In the Admin console, select **Security > Authenticators** from the left
    navigation menu.
@@ -72,17 +72,17 @@ policy is setup for **Password + Another factor**.
    1. **Email** is checked.
    1. Click the **Update rule** button if any values have changed.
 
-### Summary of steps
+## Summary of steps
 
 The sequence of steps for the Facebook sign in flow is shown below.
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
-### Integration steps
+## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 
-### Troubleshooting Tips
+## Troubleshooting Tips
 
 Ensure the user is valid and it’s status is **Active** in your Okta org
 

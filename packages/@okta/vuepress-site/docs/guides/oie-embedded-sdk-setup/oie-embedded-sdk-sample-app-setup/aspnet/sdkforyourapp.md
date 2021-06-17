@@ -36,9 +36,5 @@ var idxAuthClient = new IdxClient();
 
 Note that configuration values can be passed into the object’s constructor.
 See
-[Option 3: Add parameter to the SDK’s client constructor](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-sample-app-setup/#sdkconstructor)
+[Option 3: Add parameter to the SDK’s client constructor](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-sample-app-setup/#option-3-add-parameter-to-the-sdk-s-client-constructor)
 for more information.
-
-Once the `IdxClient` is created, you can start using the methods.
-See [Start with a use case](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-overview/) to explore the use cases available for
-the SDK.

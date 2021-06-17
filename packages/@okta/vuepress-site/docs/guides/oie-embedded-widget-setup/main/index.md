@@ -8,27 +8,27 @@ layout: Guides
 
 <ApiLifecycle access="ie" /><br>
 
-### Overview
+## Overview
 
 This document describes how to integrate user sign using Okta’s embedded widget.
 All the code samples come from the SDK’s sample application that is provided with the SDK.
 
-### Before you begin
+## Before you begin
 
 Before you can start integrating the widget into your application,
 you need to do the following:
 
-1. [Create your Okta Account](/docs/guides/oie-embedded-sdk-setup/oie-embedded-sdk-org-setup/#createaccount)
+1. [Create your Okta Account](/docs/guides/oie-embedded-sdk-setup/oie-embedded-sdk-org-setup/#create-your-okta-account)
 1. Setup your Okta org. For the use cases in this guide,
    you will need to perform the following:
 
-   1. [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#setup-org-password-only).
+   1. [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-password-factor-only-use-cases).
    (Link points to the SDK Guide)
 1. [Download and setup the SDK and sample app](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-sample-app-setup/)
    (Link points to the SDK Guide)
-1. [Add a trusted origins and enable CORS](#enablecors)
+1. [Add a trusted origins and enable CORS](#add-a-trusted-origin-and-enable-cors)
 
-### Add a trusted origin and enable CORS {#enablecors}
+## Add a trusted origin and enable CORS
 
 1. In the Admin console (for the Okta org you set up in the previous step),
    select **Security > API** from the left navigation menu.

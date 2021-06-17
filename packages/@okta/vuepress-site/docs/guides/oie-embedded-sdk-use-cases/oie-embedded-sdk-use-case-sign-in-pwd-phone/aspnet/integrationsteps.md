@@ -1,4 +1,4 @@
-#### Step 1: Build a signin page on the client
+### Step 1: Build a signin page on the client
 
 Build a sign in page that captures both the user’s name and
 password. An example is shown below:
@@ -10,7 +10,7 @@ password. An example is shown below:
 
 </div>
 
-#### Step 2: Authenticate user credentials
+### Step 2: Authenticate user credentials
 
 When the user initiates the sign in (e.g. Continue button click),
 create a `AuthenticationOptions` object and set it’s `Username` and
@@ -29,7 +29,7 @@ var authnResponse = await idxAuthClient.AuthenticateAsync(authnOptions).Configur
 (false);
 ```
 
-#### Step 3: Handle the response from the sign in
+### Step 3: Handle the response from the sign in
 
 Assuming the username and password is valid, `AuthenticateAsync` should
 return an `AuthenticationStatus` of
@@ -56,7 +56,7 @@ switch (authnResponse?.AuthenticationStatus)
               return RedirectToAction("SelectAuthenticator", "Manage");
 ```
 
-#### Step 4: Show phone factor in authenticator list (Show phone factor to user)
+### Step 4: Show phone factor in authenticator list - show phone factor to user
 
 The next step is to show the phone factor in an authenticator list page.
 If not already done, this page needs to be built out and display the list
@@ -70,7 +70,7 @@ factor will be displayed. See below for a sample screenshot.
 
 </div>
 
-#### Step 5: Call SelectChallengeAuthenticatorAsync (User selects phone factor)
+### Step 5: Call SelectChallengeAuthenticatorAsync - user selects phone factor
 
 When the user selects the **phone** factor, a call to
 `SelectChallengeAuthenticatorAsync` is made that sends a verification code
@@ -97,7 +97,7 @@ switch (enrollResponse?.AuthenticationStatus)
                  return RedirectToAction("EnrollPhoneAuthenticator", "Manage");
 ```
 
-#### Step 6: Build out phone number entry page (Show user phone number entry page
+### Step 6: Build out phone number entry page - show user phone number entry page
 
 Build out the phone number entry page that accepts the phone number the user will
 enroll and verify.
@@ -111,10 +111,10 @@ enroll and verify.
 
 > ***Note:*** The SDK requires the phone number format needs to be
 in the format `+#######` including the beginning plus (+) sign.
-[See Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/aspnet/main/#datareqphonenum)
+[See Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/aspnet/main/#phone-number)
 for more information.
 
-#### Step 7: Call EnrollAuthenticatorAsync to submit phone number and send SMS  (User clicks send code via SMS button)
+### Step 7: Call EnrollAuthenticatorAsync to submit phone number and send SMS  - user clicks send code via SMS button
 
 When the user enters their phone number and clicks on the
 send code via sms button,  a call to `EnrollAuthenticatorAsync`
@@ -140,7 +140,7 @@ var enrollPhoneAuthenticatorOptions = new EnrollPhoneAuthenticatorOptions
 var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-#### Step 8: Handle the response to EnrollAuthenticatorAsync
+### Step 8: Handle the response to EnrollAuthenticatorAsync
 
 If the call to `EnrollAuthenticatorAsync` was successful, it
 should return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`.
@@ -162,7 +162,7 @@ if (enrollResponse.AuthenticationStatus ==
     }
 ```
 
-#### Step 9: Build out (or reuse) phone verification code page (Show user phone verification page)
+### Step 9: Build out (or reuse) phone verification code page - show user phone verification page
 
 Build out a page that accepts the code sent to your phone number
 via SMS. Depending on your implementation, this page can be the
@@ -176,7 +176,7 @@ app reuses the same page for both the email and phone verifications.
 
 </div>
 
-#### Step 10: Call VerifyAuthenticatorAsync to verify phone code (User enters code and clicks verify)
+### Step 10: Call VerifyAuthenticatorAsync to verify phone code - user enters code and clicks verify
 
 The next step is to call `VerifyAuthenticatorAsync`. In the case of
 the phone verification, the code passed into `VerifyAuthenticatorAsync` will
@@ -192,7 +192,7 @@ var idxAuthClient = new IdxClient(null);
 var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
 ```
 
-#### Step 11: Handle response from VerifyAuthenticatorAsync (Factor verifications completed)
+### Step 11: Handle response from VerifyAuthenticatorAsync - factor verifications completed
 
 The next step is to handle the response from `VerifyAuthenticatorAsync`. If
 the phone SMS code was valid, the method should return `AuthenticationStatus`
@@ -218,3 +218,9 @@ switch (authnResponse.AuthenticationStatus)
    ...
 }
 ```
+
+### Step 12: Get user profile information - optional
+
+Optionally, you can obtain basic user information after a successful sign
+in by making a request to Okta’s Open ID Connect authorization server.
+See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#get-user-profile-information-after-sign-in) for more details.

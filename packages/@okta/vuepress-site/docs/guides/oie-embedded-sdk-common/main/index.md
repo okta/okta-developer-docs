@@ -8,9 +8,9 @@ layout: Guides
 
 <ApiLifecycle access="ie" /><br>
 
-### Data requirements
+## Data requirements
 
-#### Phone number {#datareqphonenum}
+### Phone number
 
 The SDK requires the phone number to be in the following format:
 

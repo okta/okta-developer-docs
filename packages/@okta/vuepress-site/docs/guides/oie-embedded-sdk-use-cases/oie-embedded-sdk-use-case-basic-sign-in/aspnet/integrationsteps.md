@@ -1,4 +1,4 @@
-#### Step 1: Build a signin page on the client
+### Step 1: Build a signin page on the client
 
 Build a sign in page that captures both the user’s name and password.
 An example is shown below:
@@ -10,7 +10,7 @@ An example is shown below:
 
 </div>
 
-#### Step 2: Authenticate user credentials
+### Step 2: Authenticate user credentials
 
 When the user initiates the sign in (e.g. Continue button click), create
 a `AuthenticationOptions` object and set it’s `Username` and `Password`
@@ -43,7 +43,7 @@ For successful sign ins
    tokens.
 1. OPTIONAL: Using the tokens returned from `AuthenticateAsync`, pull the user’s
    basic profile information. See
-   [Step 4: Get user profile information (Optional)](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo)
+   [Step 4: Get user profile information (Optional)](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#get-user-profile-information-after-sign-in)
    for more information.
 1. Once the tokens are stored, send the user to the default home page.
 
@@ -78,9 +78,9 @@ switch (authnResponse?.AuthenticationStatus)
 In the code sample above, the
 `AuthenticationHelper.GetIdentityFromAuthResponseAsync` get’s user
 profile information. See
-[Step 4: Get user profile information (Optional)](#getuserprofileinfo) for more information.
+[Step 4: Get user profile information (Optional)](#step-4-get-user-profile-information-optional) for more information.
 
-#### Step 4: Get user profile information (Optional){#getuserprofileinfo}
+### Step 4: Get user profile information-optional
 
 Optionally, you can obtain basic user information after a successful
 sign in by making a request to Okta’s Open ID Connect authorization server.

@@ -2,7 +2,7 @@ The Embedded Auth with SDK sample app is located here:
 
 `https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-auth-with-sdk`
 
-Test the sample app using the SDK by performing the following steps:
+Test the sample app by performing the following steps:
 
 1. Setup your Okta org by completing the steps located at
    [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/).
@@ -12,14 +12,14 @@ Test the sample app using the SDK by performing the following steps:
 1. Open `embedded-auth-with-sdk.sln` using Visual Studio
 1. Right click on the embedded-auth-with-sdk project (which is the sample app)
    and select **Set as startup project**.
-1. Add a okta.yaml configuration file. For more information on how to configure
-   and where to place the configuration file see [Option 1: YAML configuration file](#configfile).
+1. Add a `okta.yaml` configuration file. For more information on how to configure
+   and where to place the configuration file see [Option 1: YAML configuration file](#where-to-place-the-configurations).
 1. Click Visual Studio’s play button and run the solution. The default web browser
    should open and navigate to the application home page. The URL should be:
    `https://localhost:44314`,  which is the default address when using IISExpress.
    Once the app loads, click the **Sign In** button located on the home screen.
 1. On the Sign in page enter the username (email) and password you used in
-   [Create your Okta account](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#createaccount).
+   [Create your Okta account](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#create-your-okta-account).
    A screenshot of the log in form is shown below:
 
    <div class="common-image-format">

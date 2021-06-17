@@ -8,9 +8,9 @@ layout: Guides
 
 <ApiLifecycle access="ie" /><br>
 
-### Passwordless sign in using magic links is not supported
+## Passwordless sign in using magic links is not supported
 
-#### Description
+### Description
 
 Passwordless sign in using magic links is currently not supported with
 the SDK. In this use case, the user submits only their email address
@@ -20,7 +20,7 @@ the email and clicks the link that sends them to your application signed
 in.  See the sequence of steps below for a more detailed explanation of
 the passwordless sign in process.
 
-#### Sequence of steps
+### Sequence of steps
 
 <div class="common-image-format">
 
@@ -29,7 +29,7 @@ the passwordless sign in process.
 
 </div>
 
-#### Sign in email
+### Sign in email
 
 The screenshot below shows a sample of the sign in email’s content.
 
@@ -40,16 +40,16 @@ The screenshot below shows a sample of the sign in email’s content.
 
 </div>
 
-#### Workaround
+### Workaround
 
 User other means for user sign in such as using the password or social identity providers.
 
-### Primary factor for the Okta sign in policy rule must be set to Password / IDP
+## Primary factor for the Okta sign in policy rule must be set to Password / IDP
 
-#### Description
+### Description
 
 Currently, the SDK only supports the primary factor for the Org’s
-global sign in policy to be set to Password / IDP. This limitation is due
+global sign in policy to be set to **Password / IDP**. This limitation is due
 to the fact that the SDK currently only supports password and IDP as
 factors to sign in to an application.  To identify the current value
 for this field perform the following steps:
@@ -57,22 +57,22 @@ for this field perform the following steps:
 1. In the Admin console (for the Okta org you set up in the previous step),
    select **Security > Okta Sign-on policy** from the left navigation menu.
 1. Take note of the number of policies configured. The Default policy is
-   automatically created when the Org is created and will have a default rule with the **Primary factor** set to **Password / IDP**. To verify this value, expand the Default Policy’s Default rule by clicking on the information icon to the right of the rule. Note the value of the Primary factor which should be set to Password / IDP.
+   automatically created when the Org is created and will have a default rule with the **Primary factor** set to **Password / IDP**. To verify this value, expand the **Default Policy’s Default rule** by clicking on the information icon to the right of the rule. Note the value of the Primary factor which should be set to Password / IDP.
 1. If there is another rule defined to the Default Policy or there are other
    policies defined, ensure that the policy rule’s **Primary factor** field
    is set to **Password / IDP**.
 
-#### Workaround
-Preserve the default state or **Primary factor** value and use either
-password or social identity providers.
+### Workaround
+
+Preserve the default state and use either password or social identity providers.
 
 ### User creation should be done via self service registration
 
-#### Description
+### Description
+
 Due to a limitation where the sample apps and SDKs do not handle password
 expiration flows, users cannot be created in the Okta org directly with
-the **Password** field set to **Set by user**. Only the **Set by Admin**
-value is currently supported.
+the **Password** field set to **Set by user**.
 
 To find this field to do the following:
 
@@ -84,14 +84,22 @@ To find this field to do the following:
    1. **Set by admin**
 1. Only set by admin is supported.
 
-### Email Verification email does not support redirecting user to application {#emailverifynosupport}
+### Workaround
 
-#### Description
+There are two workarounds:
+
+1. Create users via self registration
+1. Create users in the Okta org with the **Password** set to **Set by Admin**
+
+## Email Verification email does not support redirecting user to application
+
+### Description
+
 If the email factor is enabled for new user registration or user authentication,
 the **Verify Email Address** link provided in the email will not redirect the
 user to the application that generated the email.
 
-#### Workaround
+### Workaround
 
 There are two recommended options to mitigate this limitation.
 
@@ -103,12 +111,12 @@ There are two recommended options to mitigate this limitation.
   1. Inform your users to ignore the Verify Email Address link and continue
      the activation via the code flow.
 
-##### Option 1: Remove the verification link
+#### Option 1: Remove the verification link
 
 > Email template customizations are not available for free developer orgs.
 
 The Okta org you created in
-[Create your Okta Account](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#createaccount)
+[Create your Okta Account](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#create-your-okta-account)
 contains a list of email templates used for correspondence with the users.
 One such template, named **Email Factor Verification**, is used during the
 new user registration process. The default template included a
@@ -133,7 +141,7 @@ To find the Email Factor Verification email template to the following:
 
 Contact Okta support if the Edit button is disabled.
 
-##### Option 2: Inform users
+#### Option 2: Inform users
 
 Inform your users to ignore the Verify Email Address link
 and continue the activation via the code flow.

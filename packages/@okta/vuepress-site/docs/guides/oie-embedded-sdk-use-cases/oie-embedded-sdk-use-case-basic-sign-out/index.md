@@ -10,23 +10,23 @@ title: Basic sign out
 
 This use case describes how to sign a user out.
 
-### Factor setup
+## Factor setup
 
 No additional factors needed.
 
-### Configuration updates
+## Configuration updates
 
 There are no additional configuration changes needed to implement
 this use case.
 
-### Summary of steps
+## Summary of steps
 
 This use case signs a user out of the local app by revoking
 their session tokens. The sequence of steps is shown below:
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
-### Integration steps
+## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 

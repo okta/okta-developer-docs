@@ -1,8 +1,8 @@
 There are several options you have to set the configuration values. They are:
 
-#### Option 1: Configuration file {#configfile}
+### Option 1: Configuration file
 
-Create a YAML file named okta.yaml in one of the following three available directories:
+Create a YAML file named `okta.yaml` in one of the following three available directories:
 
 1. Current user’s home directory.
    1. **Unix/Linux**:    `~/.okta/okta.yaml`
@@ -11,7 +11,7 @@ Create a YAML file named okta.yaml in one of the following three available direc
 1. Application or project’s root directory
 
 > **Note:** If your using the **IISExpress** debugger (recommended) in Visual Studio
-to run your application, the location of the okta.yaml file needs to be in the
+to run your application, the location of the `okta.yaml` file needs to be in the
 following location: `{IIS Express install location}\IIS Express`
 (e.g. `C:\Program Files (x86)\IIS Express\okta.yaml`)
 
@@ -29,7 +29,7 @@ idx:
   redirectUri: "{redirectUri}"
 ```
 
-#### Option 2: Environment variables
+### Option 2: Environment variables
 
 > **Note:** Environment variables are currently not yet supported.
 
@@ -41,7 +41,7 @@ Add the values as environment variables with the following naming convention:
 1. `OKTA_IDX_REDIRECTURI`
 1. `OKTA_IDX_SCOPES`
 
-#### Option 3: Add parameter to the SDK’s client constructor {#sdkconstructor}
+### Option 3: Add parameter to the SDK’s client constructor
 
 Add the values as parameters to `IdxClient’s` constructor.
 

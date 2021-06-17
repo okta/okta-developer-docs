@@ -1,4 +1,4 @@
-#### Sequence flow - part 1
+### Sequence flow - part 1
 
 <div class="common-image-format">
 
@@ -7,7 +7,7 @@
 
 </div>
 
-#### Sequence flow - part 2
+### Sequence flow - part 2
 
 <div class="common-image-format">
 

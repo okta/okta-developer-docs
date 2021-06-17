@@ -1,4 +1,5 @@
-#### Step 1: Create a sign up link for new users (User clicks sign up link)
+### Step 1: Create a sign up link for new users (User clicks sign up link)
+
 Initiation of the self registration flow begins when the user clicks the
 sign up link. On the sign in page, create a sign up link that links to the
 create account page you will create in the next step.
@@ -13,7 +14,7 @@ create account page you will create in the next step.
 
 Note the sign up link in the example below under the Continue button.
 
-#### Step 2: Create the create account page (User enters sign up info)
+### Step 2: Create the create account page (User enters sign up info)
 
 The next step is for the user to enter basic information (e.g. email,
 first and last name). Create a page that accepts this information. An
@@ -26,7 +27,7 @@ example is shown below:
 
 </div>
 
-#### Step 3: Call RegisterAsync to register the new user (User clicks Register)
+### Step 3: Call RegisterAsync to register the new user (User clicks Register)
 
 When the user clicks on the register button, create a `UserProfile` object and
 set its properties with the user profile information captured in the Create account
@@ -43,14 +44,14 @@ userProfile.SetProperty("email", model.Email);
 var registerResponse = await idxAuthClient.RegisterAsync(userProfile);
 ```
 
-#### Step 4: Handle the response from RegisterAsync
+### Step 4: Handle the response from RegisterAsync
 
 If the org’s application has been properly configured with multiple factors,
 `RegisterAsync` should return a response with `AuthenticationStatus` equal
 to `AwaitingAuthenticatorEnrollment`.  This status indicates there is a
 required authenticator that needs to be verified.  If you completed the steps
 properly in the
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#setup-org-multi-factor) section,  it will be the **password** factor which
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-multi-factor-use-cases) section,  it will be the **password** factor which
 is stored in the `Authenticators` list property.
 
 ```csharp
@@ -63,7 +64,7 @@ if (registerResponse.AuthenticationStatus == AuthenticationStatus.AwaitingAuthen
     }
 ```
 
-#### Step 5: Build an authenticator list page (Show password factor to user)
+### Step 5: Build an authenticator list page (Show password factor to user)
 The next step is to build a page that shows the required factors that need to
 be verified. After the call to `RegisterAsync` the user needs to see the
 password factor requirement and select it for verification.
@@ -93,7 +94,7 @@ TempData["authenticators"] = viewModel.Authenticators;
 return View(viewModel);
 ```
 
-#### Step 6: Call EnrollAuthenticatorAsync (User selects password authenticator)
+### Step 6: Call EnrollAuthenticatorAsync (User selects password authenticator)
 The next step is to call the `EnrollAuthenticatorAsync` method when the user
 selects the authenticator.  In this case the `AuthenticatorId` for the
 **password** factor is passed in.
@@ -107,7 +108,7 @@ var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
 var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-#### Step 7: Handle the response to EnrollAuthenticatorAsync
+### Step 7: Handle the response to EnrollAuthenticatorAsync
 
 `EnrollAuthenticatorAsync` returns a `AuthenticationStatus`  and if the
 enrollment was successful this property should return
@@ -133,7 +134,7 @@ default:
 }
 ```
 
-#### Step 8: Build page to verify new password authenticator (Show user password fields)
+### Step 8: Build page to verify new password authenticator (Show user password fields)
 
 Once the password authenticator is awaiting verification, the next step
 is to build a page to that allows the user to verify the new password by
@@ -146,7 +147,7 @@ supplying the password.
 
 </div>
 
-#### Step 9: Call VerifyAuthenticatorAsync to verify password (User enters password)
+### Step 9: Call VerifyAuthenticatorAsync to verify password (User enters password)
 
 When the user fills out the new password, and clicks the register button, a call
 to `VerifyAuthenticatorAsync` is made to verify (in the case set the password for
@@ -163,10 +164,10 @@ var idxAuthClient = new IdxClient(null);
 var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
 ```
 
-#### Step 10: Handle the response from VerifyAuthenticatorAsync (Starting multi-factor verification flow)
+### Step 10: Handle the response from VerifyAuthenticatorAsync (Starting multi-factor verification flow)
 
 If you completed the steps in
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#setup-org-multi-factor)
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-multi-factor-use-cases)
 that sets up multi-factors for your application, the return
 `AuthenticationResponse.AuthenticationStatus` should be
 `AwaitingAuthenticatorEnrollment`.  The `AwaitingAuthenticatorEnrollment`,
@@ -208,7 +209,7 @@ switch (authnResponse.AuthenticationStatus)
 > **Note** The CanSkip property in the code sample above  is used for optional factors.
 See the SDK sample for more information.
 
-#### Step 11: Call EnrollAuthenticatorAsync to verify the email authenticator  (User selects email factor)
+### Step 11: Call EnrollAuthenticatorAsync to verify the email authenticator  (User selects email factor)
 
 Assuming the user selects the **email** authenticator, a call to
 `EnrollAuthenticatorAsync` is made passing in  the **email**
@@ -224,14 +225,15 @@ var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
 var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-#### Step 12: Update the Email Factor Verification email template (optional)
+### Step 12: Update the Email Factor Verification email template (optional)
+
 The email sent to the user will have a Verify Email Address link that is not yet
 supported. Accordingly, there are two recommended options to mitigate this limitation.
 See
-[Email Verification email does not support redirecting user to application](/docs/guides/oie-embedded-sdk-limitations/main/#emailverifynosupport)
+[Email Verification email does not support redirecting user to application](/docs/guides/oie-embedded-sdk-limitations/main/#email-verification-email-does-not-support-redirecting-user-to-application)
 for more information.
 
-#### Step 13: Handle the response to EnrollAuthenticatorAsync
+### Step 13: Handle the response to EnrollAuthenticatorAsync
 
 If the call to `EnrollAuthenticatorAsync` was successful, it should return
 an AuthenticationStatus of `AwaitingAuthenticatorVerification`.  When
@@ -252,7 +254,7 @@ switch (enrollResponse?.AuthenticationStatus)
 }
 ```
 
-#### Step 14: Build out email verification code page (Show user email verification page)
+### Step 14: Build out email verification code page (Show user email verification page)
 
 Build out the email verification code page that will accept the code from
 the email.
@@ -264,7 +266,7 @@ the email.
 
 </div>
 
-#### Step 15: Call VerifyAuthenticatorAsync to verify email code (User enters code and clicks verify)
+### Step 15: Call VerifyAuthenticatorAsync to verify email code (User enters code and clicks verify)
 
 The next step is to call `VerifyAuthenticatorAsync`. In the case of the
 email verification, the code passed into `VerifyAuthenticatorAsync` will be
@@ -280,14 +282,14 @@ var idxAuthClient = new IdxClient(null);
 var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
 ```
 
-#### Step 16: Handle response from VerifyAuthenticatorAsync
+### Step 16: Handle response from VerifyAuthenticatorAsync
 
 The next step is to handle the response from `VerifyAuthenticatorAsync`.
 If the email code was valid, the method should return `AuthenticationStatus`
 of `AwaitingAuthenticatorEnrollment`. This status signifies that there is
 another factor (required or optional) waiting to be enrolled and verified.
 If the steps described in
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#setup-org-multi-factor) were properly followed,
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-multi-factor-use-cases) were properly followed,
 the user should be sent back to the Authenticator list page
 showing only the **phone** authenticator.
 
@@ -308,7 +310,7 @@ switch (authnResponse.AuthenticationStatus)
       }
 ```
 
-#### Step 17: Show remaining list of authenticators (Show user the phone factor)
+### Step 17: Show remaining list of authenticators (Show user the phone factor)
 
 The remaining authenticator should display the phone factor.  Since this factor
 is optional now and there are no other required factors that need to be verified,
@@ -327,13 +329,13 @@ illustration.
 The user can either enroll in the Phone factor or skip the phone factor. Your
 code should handle both scenarios described in the below steps.
 
-#### Step 18a: Option 1: Enroll and verify the phone authenticator  (User selects phone factor)
+### Step 18a: Option 1: Enroll and verify the phone authenticator  (User selects phone factor)
 
 If the user selects the phone authenticator (instead of skipping it) the
 steps to enroll and verify are similar to the email factor verification flow in
 this section with subtle differences.
 
-#### Step 18b: Option 1: Call EnrollAuthenticatorAsync (1st time) to start phone verification
+### Step 18b: Option 1: Call EnrollAuthenticatorAsync (1st time) to start phone verification
 
 If the user selects the **phone** authenticator, a call to
 `EnrollAuthenticatorAsync` is made passing in the **phone**
@@ -359,7 +361,7 @@ switch (enrollResponse?.AuthenticationStatus)
       }
 ```
 
-#### Step 18c: Option 1: Build out phone number entry page (Show user phone number entry page
+### Step 18c: Option 1: Build out phone number entry page (Show user phone number entry page
 
 Build out the phone number entry page that accepts the phone number the
 user will enroll and verify.
@@ -373,9 +375,9 @@ user will enroll and verify.
 
 > **Note:** The SDK requires the phone number format needs to be in the format
 `+#######` including the beginning plus (+) sign. See
-[Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/aspnet/main/#datareqphonenum) for more information.
+[Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/aspnet/main/#phone-number) for more information.
 
-#### Step 18d: Option1: Call EnrollAuthenticatorAsync (2nd time) to submit phone number and send SMS (User clicks send code via SMS button)
+### Step 18d: Option1: Call EnrollAuthenticatorAsync (2nd time) to submit phone number and send SMS (User clicks send code via SMS button)
 
 When the user enters their phone number and clicks on the send code via
 sms button,  a call to `EnrollAuthenticatorAsync` is made passing in the
@@ -403,7 +405,7 @@ var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthen
       Session["IdxContext"] = enrollResponse.IdxContext;
 ```
 
-#### Step 18e: Option1: Handle the response to EnrollAuthenticatorAsync
+### Step 18e: Option1: Handle the response to EnrollAuthenticatorAsync
 
 If the call to `EnrollAuthenticatorAsync` was successful, it should
 return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`.
@@ -425,7 +427,7 @@ if (enrollResponse.AuthenticationStatus ==
     }
 ```
 
-#### Step 18f: Option1: Build out (or reuse) phone verification code page (Show user phone verification page)
+### Step 18f: Option1: Build out (or reuse) phone verification code page (Show user phone verification page)
 
 Build out a page that accepts the code sent to your phone number via SMS.
 Depending on your implementation, this page can be the same page that
@@ -439,7 +441,7 @@ for both the email and phone verifications.
 
 </div>
 
-#### Step 18g: Option 1: Call VerifyAuthenticatorAsync to verify phone code (User enters code and clicks verify)
+### Step 18g: Option 1: Call VerifyAuthenticatorAsync to verify phone code (User enters code and clicks verify)
 
 The next step is to call `VerifyAuthenticatorAsync`. In the case of the
 phone verification, the code passed into `VerifyAuthenticatorAsync` will
@@ -455,7 +457,7 @@ var idxAuthClient = new IdxClient(null);
 var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
 ```
 
-#### Step 18h: Option 1: Handle response from VerifyAuthenticatorAsync (Factor verifications completed)
+### Step 18h: Option 1: Handle response from VerifyAuthenticatorAsync (Factor verifications completed)
 
 The next step is to handle the response from `VerifyAuthenticatorAsync`. If
 the phone SMS code was valid, the method should return `AuthenticationStatus`
@@ -484,7 +486,7 @@ switch (authnResponse.AuthenticationStatus)
 }
 ```
 
-#### Step 19: Option 2: Call SkipAuthenticatorSelectionAsync (User clicks skip)
+### Step 19: Option 2: Call SkipAuthenticatorSelectionAsync (User clicks skip)
 
 If the user opts to skip the phone enrollment, a call to
 `SkipAuthenticatorSelectionAsync` needs to be made. This method will skip the
@@ -512,14 +514,16 @@ statuses: `Success` or `Terminal`.  For `Success`, the user is signed in, respon
 should be stored in session, and the user should be redirected to the default sign
 in page (in the case of the sample app it’s the user profile page)
 
-#### Step 20: User is sent to user profile page
+### Step 20: User is sent to user profile page
 
 Once the factor verifications are successful and there are no more
 authenticators to enroll and verify, the user is now successfully
 registered and can be sent to the default sign in page. In the case
 of the sample application, the default sign page is the user profile page.
+See
+[Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more details on how to fetch user information.
 
-#### Troubleshooting Tips
+### Troubleshooting Tips
 
 Ensure when testing this use case you use a new email each time. If you have
 a gmail account you can reuse the same email by add a plus (+) and additional

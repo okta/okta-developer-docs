@@ -10,7 +10,7 @@ title: Sign in with password and phone factors
 
 This use case describes a user sign in with the password and phone factors,
 
-### Factor setup
+## Factor setup
 
 This use case requires the **password** and **phone** factor.
 
@@ -21,24 +21,23 @@ This use case requires the **password** and **phone** factor.
 
 </div>
 
-
-### Configuration updates
+## Configuration updates
 
 Before building out the self registration flow in your app, perform
 the following steps to configure the Okta org to accept self registration
 with both the password and phone factors.
 
-#### Step 1:  Complete steps in Set up your Okta org for password factor only use cases
+### Step 1:  Complete steps in Set up your Okta org for password factor only use cases
 
 If not already done, complete the steps described in the
-[Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#setup-org-password-only).
+[Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
-#### Step 2:  Complete steps in Set up your Okta org (for multi-factor use cases)
+### Step 2:  Complete steps in Set up your Okta org (for multi-factor use cases)
+
 If not already done, complete the steps described in the
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#setup-org-multi-factor) section.
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-multi-factor-use-cases) section.
 
-
-#### Step 3:  Ensure application is configured for password and another factor
+### Step 3:  Ensure application is configured for password and another factor
 
 1. In the Admin console, select **Applications > Applications** from the left
    navigation menu.
@@ -52,7 +51,7 @@ If not already done, complete the steps described in the
      **Password + Another factor**.
    1. Click **Save** if an update was made.
 
-#### Step 4:  Ensure only Phone is set as optional for authentication enrollment
+### Step 4:  Ensure only Phone is set as optional for authentication enrollment
 
 1. In the Admin console, select **Security > Authenticators** from the left navigation menu.
 1. In the **Authenticators** page, click on the enrollment tab..
@@ -62,13 +61,13 @@ If not already done, complete the steps described in the
    1. Set **Phone Authentication** to Optional
 1. Click **Update Policy** if a value has changed.
 
-### Summary of steps
+## Summary of steps
 
 The sequence of steps for the Facebook sign in flow is shown below.
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
-### Integration steps
+## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 
