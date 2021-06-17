@@ -1,4 +1,4 @@
-#### Implicit flow
+#### Implicit
 
 ![Implicit flow](/img/authorization/oauth-implicit-grant-flow.png "Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Implicit grant flow")
 
@@ -32,4 +32,6 @@ See [Add a user using Console](/docs/guides/quickstart/cli/add-user/). Alternati
 
 4. Okta redirects the browser back to the specified redirect URI, along with access and ID tokens as a hash fragment in the URI.
 
-5. Your application extracts the tokens from the URI and can now use these tokens to call the resource server (for example an API) on behalf of the User. See [Access token response](#access-token-response).
+5. Your application extracts the tokens from the URI. See [Handle the callback](#handle-the-callback).
+
+6. The Client can use the access token to call the resource server (for example, an API) on behalf of the User. See [Use the access token](#use-the-access-token).

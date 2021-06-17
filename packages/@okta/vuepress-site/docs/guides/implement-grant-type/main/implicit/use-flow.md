@@ -18,7 +18,7 @@ Note the parameters that are being passed:
 
 See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
 
-###  Access token response
+###  Handle the callback
 
 If the user doesn't have an existing session, the request opens the Okta Sign-in Page. If they have an existing session, or after they authenticate, the user is redirected back to the specified `redirect_uri` along with a `token` as a hash fragment:
 
@@ -30,12 +30,4 @@ Your application must now extract the token(s) from the URI and store them.
 
 When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).
 
-### Examples
-
-The following quickstart guides show you how to integrate the Implicit flow into your front-end application.
-
-|                                           | Framework         | Quickstart Link                                   |
-| :---------------------------------------: | ----------------- | ------------------------------------------------- |
-| <i class="icon code-angular-32"></i>      | Angular           | <https://developer.okta.com/quickstart/#/angular> |
-| <i class="icon code-react-32"></i>        | React             | <https://developer.okta.com/quickstart/#/react>   |
-| <i class="icon code-javascript-32"></i>   | Vanilla JS        | <https://developer.okta.com/quickstart/#/widget>  |
+###  Use the access token
