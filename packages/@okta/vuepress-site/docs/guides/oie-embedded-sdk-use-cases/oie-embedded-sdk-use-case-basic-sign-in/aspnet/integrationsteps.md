@@ -43,7 +43,7 @@ For successful sign ins
    tokens.
 1. OPTIONAL: Using the tokens returned from `AuthenticateAsync`, pull the user’s
    basic profile information. See
-   [Step 4: Get user profile information (Optional)]()
+   [Step 4: Get user profile information (Optional)](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo)
    for more information.
 1. Once the tokens are stored, send the user to the default home page.
 
@@ -78,10 +78,10 @@ switch (authnResponse?.AuthenticationStatus)
 In the code sample above, the
 `AuthenticationHelper.GetIdentityFromAuthResponseAsync` get’s user
 profile information. See
-[Step 4: Get user profile information (Optional)]() for more information.
+[Step 4: Get user profile information (Optional)](#getuserprofileinfo) for more information.
 
-#### Step 4: Get user profile information (Optional)
+#### Step 4: Get user profile information (Optional){#getuserprofileinfo}
 
 Optionally, you can obtain basic user information after a successful
 sign in by making a request to Okta’s Open ID Connect authorization server.
-See [Get user profile information after sign in]() for more details.
+See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more details.

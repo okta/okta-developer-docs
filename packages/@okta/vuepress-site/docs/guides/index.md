@@ -65,6 +65,7 @@ guides:
  - validate-id-tokens
  - oie-embedded-sdk-use-cases
  - oie-embedded-sdk-setup
+ - oie-embedded-sdk-overview
  - oie-embedded-sdk-alternate-flows
  - oie-embedded-sdk-limitations
  - oie-embedded-sdk-common

@@ -228,7 +228,7 @@ var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenti
 The email sent to the user will have a Verify Email Address link that is not yet
 supported. Accordingly, there are two recommended options to mitigate this limitation.
 See
-[Email Verification email does not support redirecting user to application]()
+[Email Verification email does not support redirecting user to application](/docs/guides/oie-embedded-sdk-limitations/main/#emailverifynosupport)
 for more information.
 
 #### Step 13: Handle the response to EnrollAuthenticatorAsync
@@ -373,9 +373,9 @@ user will enroll and verify.
 
 > **Note:** The SDK requires the phone number format needs to be in the format
 `+#######` including the beginning plus (+) sign. See
-[Data Requirements - Phone number]() for more information.
+[Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/aspnet/main/#datareqphonenum) for more information.
 
-#### Step 18d: Option1: Call EnrollAuthenticatorAsync (2nd time) to submit phone number and send SMS  (User clicks send code via SMS button)
+#### Step 18d: Option1: Call EnrollAuthenticatorAsync (2nd time) to submit phone number and send SMS (User clicks send code via SMS button)
 
 When the user enters their phone number and clicks on the send code via
 sms button,  a call to `EnrollAuthenticatorAsync` is made passing in the

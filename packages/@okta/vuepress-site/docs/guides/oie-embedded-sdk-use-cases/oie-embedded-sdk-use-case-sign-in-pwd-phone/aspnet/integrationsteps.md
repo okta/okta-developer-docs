@@ -111,7 +111,8 @@ enroll and verify.
 
 > ***Note:*** The SDK requires the phone number format needs to be
 in the format `+#######` including the beginning plus (+) sign.
-[See Data Requirements - Phone number]() for more information.
+[See Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/aspnet/main/#datareqphonenum)
+for more information.
 
 #### Step 7: Call EnrollAuthenticatorAsync to submit phone number and send SMS  (User clicks send code via SMS button)
 

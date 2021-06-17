@@ -393,6 +393,10 @@ export const guides = [
                 title: "Build with the embedded SDK",
                 subLinks: [
                   {
+                    title: "Overview",
+                    guideName: "oie-embedded-sdk-overview",
+                  },
+                  {
                     title: "Setup",
                     guideName: "oie-embedded-sdk-setup",
                   },

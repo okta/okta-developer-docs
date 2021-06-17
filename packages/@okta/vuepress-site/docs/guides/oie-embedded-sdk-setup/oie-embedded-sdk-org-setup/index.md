@@ -8,12 +8,12 @@ title: Setup your Okta org
 Before you can start integrating the IDX SDK into your application and run the
 sample app, you need to do the following:
 
-1. [Create your Okta Account]()
-1. [Setup your Okta org. Depending on the use cases, you will need to perform the following:]()
-1. [Setup your Okta org (for password factor only use cases)]()
-1. [Set up your Okta org (for multi-factor use cases)]()
-1. [Set up your Okta org (for social identity providers)]()
-1. [Download and setup the SDK and sample app]()
+1. [Create your Okta Account](#createaccount)
+1. Setup your Okta org. Depending on the use cases, you will need to perform the following:
+   1. [Setup your Okta org (for password factor only use cases)](#setup-org-password-only)
+   1. [Set up your Okta org (for multi-factor use cases)](#setup-org-multi-factor)
+   1. [Set up your Okta org (for social identity providers)](#setup-org-social-idp)
+1. [Download and setup the SDK and sample app](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-sample-app-setup/)
 
 ### Create your Okta account {#createaccount}
 The first step is to create an Okta account, if you have not already.
@@ -47,9 +47,9 @@ use cases.** These use cases only use the password factor and not additional
 factors such as email and phone SMS.  The use cases that support this basic
 setup include:
 
-1. [Basic user sign in  (password factor only)]()
-1. [User sign out (local app)]()
-1. [Sign in with a social identity provider (password factor only)]()
+1. [Basic user sign in (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/)
+1. [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-out/)
+1. [Sign in with a social identity provider (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-soc-idp/)
 
 The steps to setup an org application for the sample app are as follows:
 
@@ -101,10 +101,10 @@ The steps to setup an org application for the sample app are as follows:
 This section sets up your org for the use cases that support multiple factors.
 These multi-factor use use cases include:
 
-1. [Sign in (password and email factor)]()
-1. [Sign in (password and phone factor)]()
-1. [User password recovery (password and email factors)]()
-1. [Self user registration (email and optional phone factor)]()
+1. [Sign in (password and email factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-email/)
+1. [Sign in (password and phone factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-phone/)
+1. [User password recovery (password and email factors)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-pwd-recovery-mfa/)
+1. [Self user registration (email and optional phone factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-self-reg/)
 
 You can skip this section until you have completed password factor only use cases
 described in [Set up your Okta org for password factor only use cases](#setup-org-password-only).
@@ -161,7 +161,7 @@ The steps to enable these factors are as follows:
 This section describes how to set up your org for the facebook social identity
 provider. The use cases requiring this setup are as follows:
 
-1. [Use Case 3:  Sign in with Facebook (password factor only)]()
+1. [Use Case 3:  Sign in with Facebook (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-soc-idp/)
 
 You can skip this section until you are ready to run through the above use
 case. Otherwise, the steps to add support for the Facebook social provider are

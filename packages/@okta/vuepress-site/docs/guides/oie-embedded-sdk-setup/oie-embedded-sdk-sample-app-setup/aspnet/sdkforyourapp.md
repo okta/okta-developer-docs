@@ -40,5 +40,5 @@ See
 for more information.
 
 Once the `IdxClient` is created, you can start using the methods.
-See [Start with a use case]() to explore the use cases available for
+See [Start with a use case](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-overview/) to explore the use cases available for
 the SDK.

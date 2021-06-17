@@ -10,7 +10,7 @@ layout: Guides
 
 ### Data requirements
 
-#### Phone number
+#### Phone number {#datareqphonenum}
 
 The SDK requires the phone number to be in the following format:
 

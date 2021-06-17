@@ -46,7 +46,7 @@ In this case, the user is sent an email using the following email template:
 The user clicks the link in the activation email and is redirected to the
 sample app's home page.
 
-#### Get user profile information after sign in
+#### Get user profile information after sign in {#getuserprofileinfo}
 
 Depending on your requirements and what information you want to retrieve
 and display after a successful user sign in, you can obtain basic user
