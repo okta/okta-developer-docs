@@ -659,6 +659,10 @@ redirects:
     to: /docs/reference/api/users/
   - from: /docs/api/resources/zones
     to: /docs/reference/api/zones/
+  - from: /docs/api/resources/social_authentication
+    to: /docs/reference/social-settings/
+  - from: /docs/api/resources/social_authentication/index.html
+    to: /docs/reference/social-settings/
   - from: /docs/how-to/add-user-consent-to-flow
     to: /docs/guides/request-user-consent/
   - from: /docs/how-to/byo_saml
@@ -1853,39 +1857,63 @@ redirects:
     to: /docs/reference/api/oidc/
   - from: /docs/api/resources/authn.html/index.html
     to: /docs/reference/api/authn/
+  - from: /docs/guides/saml-application-setup/-/overview
+    to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /docs/guides/saml-application-setup/-/overview/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
+  - from: /docs/guides/saml-application-setup/-/add-general-info
+    to: /docs/guides/build-sso-integration/saml2/before-you-begin/
   - from: /docs/guides/saml-application-setup/-/add-general-info/index.html
     to: /docs/guides/build-sso-integration/saml2/before-you-begin/
+  - from: /docs/guides/saml-application-setup/-/configure-saml-in-okta
+    to: /docs/guides/build-sso-integration/saml2/create-your-app/
   - from: /docs/guides/saml-application-setup/-/configure-saml-in-okta/index.html
     to: /docs/guides/build-sso-integration/saml2/create-your-app/
+  - from: /docs/guides/saml-application-setup/-/assign-users-to-the-app
+    to: /docs/guides/build-sso-integration/saml2/test-your-app/
   - from: /docs/guides/saml-application-setup/-/assign-users-to-the-app/index.html
     to: /docs/guides/build-sso-integration/saml2/test-your-app/
+  - from: /docs/guides/saml-application-setup/-/config-saml-in-app
+    to: /docs/guides/build-sso-integration/saml2/specify-your-settings/
   - from: /docs/guides/saml-application-setup/-/config-saml-in-app/index.html
     to: /docs/guides/build-sso-integration/saml2/specify-your-settings/
+  - from: /docs/guides/saml-application-setup/-/next-steps
+    to: /docs/guides/build-sso-integration/saml2/next-steps/
   - from: /docs/guides/saml-application-setup/-/next-steps/index.html
     to: /docs/guides/build-sso-integration/saml2/next-steps/
+  - from: /docs/guides/saml-application-setup/overview
+    to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /docs/guides/saml-application-setup/overview/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
+  - from: /docs/guides/saml-application-setup/add-general-info
+    to: /docs/guides/build-sso-integration/saml2/before-you-begin/
   - from: /docs/guides/saml-application-setup/add-general-info/index.html
     to: /docs/guides/build-sso-integration/saml2/before-you-begin/
+  - from: /docs/guides/saml-application-setup/configure-saml-in-okta
+    to: /docs/guides/build-sso-integration/saml2/create-your-app/
   - from: /docs/guides/saml-application-setup/configure-saml-in-okta/index.html
     to: /docs/guides/build-sso-integration/saml2/create-your-app/
+  - from: /docs/guides/saml-application-setup/assign-users-to-the-app
+    to: /docs/guides/build-sso-integration/saml2/test-your-app/
   - from: /docs/guides/saml-application-setup/assign-users-to-the-app/index.html
     to: /docs/guides/build-sso-integration/saml2/test-your-app/
+  - from: /docs/guides/saml-application-setup/config-saml-in-app
+    to: /docs/guides/build-sso-integration/saml2/specify-your-settings/
   - from: /docs/guides/saml-application-setup/config-saml-in-app/index.html
     to: /docs/guides/build-sso-integration/saml2/specify-your-settings/
+  - from: /docs/guides/saml-application-setup/next-steps
+    to: /docs/guides/build-sso-integration/saml2/next-steps/
   - from: /docs/guides/saml-application-setup/next-steps/index.html
     to: /docs/guides/build-sso-integration/saml2/next-steps/
   - from: /docs/reference/webfinger/index.html
     to: /docs/reference/api/webfinger/
-  - from: /docs/reference/webfinger/
+  - from: /docs/reference/webfinger
     to: /docs/reference/api/webfinger/
-  - from: /docs/guides/saml-application-setup/
+  - from: /docs/guides/saml-application-setup
     to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /docs/guides/saml-application-setup/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
-  - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/
+  - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
@@ -1893,26 +1921,46 @@ redirects:
     to: /docs/concepts/oauth-openid/
   - from: /docs/concepts/auth-overview/index.html
     to: /docs/concepts/oauth-openid/
+  - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim
+    to: /docs/guides/customize-tokens-groups-claim/-/overview/
+  - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim
+    to: /docs/guides/customize-tokens-groups-claim/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-groups-claim/-/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-groups-claim/overview/
+  - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as
+    to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as/index.html
     to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic
+    to: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic/index.html
     to: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/
+  - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-org-as
+    to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-custom-as
+    to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-custom-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-org-as/index.html
     to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-custom-as/index.html
     to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-custom-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/static-whitelist
+    to: /docs/guides/customize-tokens-static/static-allowlist/
+  - from: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist
+    to: /docs/guides/customize-tokens-static/-/static-allowlist
   - from: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/index.html
     to: /docs/guides/customize-tokens-static/static-allowlist/
-  - from: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/index.html
-    to: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as
   - from: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/index.html
     to: /docs/guides/customize-tokens-static/-/static-allowlist
+  - from: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as
+    to: /docs/guides/customize-tokens-static/-/use-static-group-allowlist-org-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as
+    to: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as
   - from: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/index.html
     to: /docs/guides/customize-tokens-static/-/use-static-group-allowlist-org-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/index.html
+    to: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as
   - from: /docs/guides/custom-hosted-signin
     to: /docs/guides/style-the-widget/style-okta-hosted/
   - from: /docs/guides/custom-hosted-signin/index.html
@@ -1923,15 +1971,31 @@ redirects:
     to: /docs/guides/style-the-widget/customization-examples/
   - from: /contact-sales-enterprise
     to: https://www.okta.com/contact-sales/
-  - from: /contact-sales-enterprise/
+  - from: /contact-sales-enterprise/index.html
     to: https://www.okta.com/contact-sales/
   - from: /contact-us
     to: https://www.okta.com/contact-sales/
-  - from: /contact-us/
+  - from: /contact-us/index.html
     to: https://www.okta.com/contact-sales/
+  - from: /login-widget-gallery
+    to: /
   - from: /login-widget-gallery/index.html
     to: /
-  - from: /docs/index.html
+  - from: /product/authentication/index.html
+    to: /
+  - from: /product/authentication
+    to: /
+  - from: /product/authorization/index.html
+    to: /
+  - from: /product/authorization
+    to: /
+  - from: /product/overview/index.html
+    to: /
+  - from: /product/overview
+    to: /
+  - from: /product/index.html
+    to: /
+  - from: /product
     to: /
   - from: /docs/examples/session_cookie
     to: /docs/guides/session-cookie/overview
@@ -2049,5 +2113,11 @@ redirects:
     to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
   - from: /docs/guides/password-import-hook/-/next-steps
     to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
+  - from: /docs/reference/api/systemlog
+    to: /docs/reference/api/system-log/
+  - from: /docs/reference/api/systemlog/index.html
+    to: /docs/reference/api/system-log/
+  - from: /docs/code/java/spring_security_saml.html
+    to: /code/java/spring_security_saml/index.html
   - from: /docs/guides/password-import-hook/-/next-steps/index.html
     to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
