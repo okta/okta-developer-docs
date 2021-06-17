@@ -726,6 +726,10 @@ The resulting JSON object:
 }
 ```
 
+## Timeout behavior
+
+After receiving the Okta request, if there is a response timeout, the Okta process flow proceeds with original token returned. See [Troubleshooting](#Troubleshooting).
+
 ## Enabling a Token Inline Hook
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).

@@ -101,7 +101,7 @@ For example, to indicate that the supplied credentials should not be accepted as
 
 If the default action sent by Okta in the `action.credential` property of the request to your external service was `UNVERIFIED`, then the same result, of rejecting the user-supplied credentials, could also be accomplished by means of returning an empty response with HTTP status code `204 NO CONTENT`. This would cause Okta to proceed with the default action.
 
-### Timeout behavior
+## Timeout behavior
 
 After receiving the Okta request, if there is a response timeout or error, the end-user can't sign in, and the password is not imported.
 

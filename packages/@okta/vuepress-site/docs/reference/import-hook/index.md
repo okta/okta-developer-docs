@@ -152,7 +152,7 @@ Returning an error object will cause Okta to record a failure event in the Okta 
 
 >**Note:** If a response to the Import Inline Hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta import process continues and the user is created.
 
-#### Timeout behavior
+## Timeout behavior
 
 After receiving the Okta request, if there is a response timeout or error, the Okta process flow continues and the user is created.
 

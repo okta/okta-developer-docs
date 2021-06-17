@@ -87,28 +87,6 @@ The objects providing this information are nested within a larger object called 
 
 Always included is `data.context`, providing context information. In general, `data.context` encapsulates Okta objects that your external service cannot affect, while objects in `data` that are outside of `data.context` encapsulate objects that your external service does have the ability to affect, by means of the commands it sends in its response.
 
-### Timeout and retry
-
-When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry. A request is not retried if the customer endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful and not retried. If the external service endpoint responds with a redirect, it is not followed.
-
-#### Inline Hooks and concurrent rate limits
-
-The Okta process flow that triggered the Inline Hook remains in progress until the response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/reference/rate-limits/#concurrent-rate-limits).
-
-#### Inline Hook timeout behavior
-
-In the case of an Inline Hook timeout or failure, the Okta process flow behavior either continues or stops based on the Inline Hook type:
-
-| Inline Hook        | Inline Hook Failure Behavior                             |
-|--------------------------------| ---------------------------------------------------------|
-| Token Inline Hook | Okta process flow continues with original token returned. |
-| SAML Assertion Inline Hook | Okta process flow continues with original SAML assertion returned. |
-| Password Import Inline Hook | Okta process flow stops and user can't sign in. The password is not imported. Future attempts to sign-in triggers the Inline Hook again. |
-| User Import Inline Hook | Okta import process continues and user is created. |
-| Registration Inline Hook | Okta process flow stops and registration is denied. The user receives the following UI message: "There was an error creating your account. Please try registering again". |
-
->**Note:** Review the System Log for errors of type `inline_hook.executed`, which appear when Okta does not receive a response from your external service or a response with status codes other than `2xx`. See [Troubleshooting](#troubleshooting).
-
 ### Security
 
 To secure the communication channel between Okta and your external service, HTTPS is used for requests, and support is provided for header-based authentication. Okta recommends that you implement an authentication scheme using the authentication header, to be used to authenticate every request received by your external service.
@@ -165,6 +143,28 @@ While there are no technical restrictions on the values for any of the fields in
 #### debugContext
 
 Lets you specify additional information to make available in the Okta System Log in connection with the call to your hook. You can use this object as you wish, sending any information that would be useful for debugging purposes. In the System Log, content sent in this object is populated into the `inline_hook.response.processed` event.
+
+## Timeout and retry
+
+When Okta calls your external service, it enforces a default timeout of 3 seconds. Okta will attempt at most one retry. A request is not retried if the customer endpoint returns a 4xx HTTP error code. Any 2xx code is considered successful and not retried. If the external service endpoint responds with a redirect, it is not followed.
+
+### Inline Hooks and concurrent rate limits
+
+The Okta process flow that triggered the Inline Hook remains in progress until the response from your external service is received. For process flows initiated by calls to Okta APIs, slow processing times by your external service can cause open API transactions to accumulate, potentially exceeding [Concurrent Rate Limits](/docs/reference/rate-limits/#concurrent-rate-limits).
+
+### Inline Hook timeout behavior
+
+In the case of an Inline Hook timeout or failure, the Okta process flow behavior either continues or stops based on the Inline Hook type:
+
+| Inline Hook        | Inline Hook Failure Behavior                             |
+|--------------------------------| ---------------------------------------------------------|
+| Token Inline Hook | Okta process flow continues with original token returned. |
+| SAML Assertion Inline Hook | Okta process flow continues with original SAML assertion returned. |
+| Password Import Inline Hook | Okta process flow stops and user can't sign in. The password is not imported. Future attempts to sign-in triggers the Inline Hook again. |
+| User Import Inline Hook | Okta import process continues and user is created. |
+| Registration Inline Hook | Okta process flow stops and registration is denied. The user receives the following UI message: "There was an error creating your account. Please try registering again". |
+
+>**Note:** Review the System Log for errors of type `inline_hook.executed`, which appear when Okta does not receive a response from your external service or a response with status codes other than `2xx`. See [Troubleshooting](#troubleshooting).
 
 ## Inline Hook setup
 
