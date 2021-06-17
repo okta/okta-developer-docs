@@ -71,6 +71,7 @@ guides:
  - oie-embedded-sdk-common
  - oie-embedded-widget-setup
  - oie-embedded-widget-use-cases
+ - oie-embedded-widget-overview
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
