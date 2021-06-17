@@ -11,7 +11,7 @@ into your app using Okta’s embedded widget. Most of the code
 samples in this guide are derived from the included sample application that
 is provided with the Widget.
 
-## Why you would want to use the embedded Widget
+## Why you would want to use the embedded widget
 
 Several reasons why you would choose the embedded Widget include:
 

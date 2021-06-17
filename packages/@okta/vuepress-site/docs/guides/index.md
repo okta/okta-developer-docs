@@ -72,6 +72,7 @@ guides:
  - oie-embedded-widget-setup
  - oie-embedded-widget-use-cases
  - oie-embedded-widget-overview
+ - oie-embedded-overview
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

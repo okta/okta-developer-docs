@@ -390,6 +390,10 @@ export const guides = [
             title: "Embedded authentication",
             subLinks: [
               {
+                title: "Overview",
+                guideName: "oie-embedded-overview",
+              },
+              {
                 title: "Build with the embedded SDK",
                 subLinks: [
                   {
