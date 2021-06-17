@@ -1,13 +1,13 @@
-#### Step 1: Call StartWidgetSigninAsync (User navigates to sign in page)
+### Step 1: Call StartWidgetSigninAsync (User navigates to sign in page)
 
-##### Summary
+#### Summary
 
 The first step is to call the `StartWidgetSigninAsync` method when
 the page that will contain the embedded widget is loaded.  The `IdxClient`
-contains the configuration information (either from okta.yaml file, env variables,
+contains the configuration information (either from `okta.yaml` file, env variables,
 or passed in from constructor) to establish a connection to the Okta org and application.
 
-##### Code sample
+#### Code sample
 
 The sample code below shows the instantiation of the
 `IdxClient` and the calling of the `StartWidgetSignInAsync`.
@@ -63,9 +63,9 @@ in JSON format is shown below:
 }
 ```
 
-#### Step 2: Integrate the widget into your page
+### Step 2: Integrate the widget into your page
 
-##### Step 1a:  Setup page
+#### Step 1a:  Setup page
 
 If using a MVC setup (as in the sample) the namespaces and
 model need to be defined in the page.
@@ -77,10 +77,10 @@ model need to be defined in the page.
 @model SignInWidgetConfiguration
 ```
 
-##### Step 2b: Add Okta CDN Link
+#### Step 2b: Add Okta CDN Link
 
 In order to use the widget, you need to make a reference to the
-Okta CDN. Note in the sample below the Version property returned
+Okta CDN. Note in the sample below the `Version` property returned
 `StartWidgetSignInAsync` is used in the path to the CDN.
 
 ```csharp
@@ -91,7 +91,7 @@ Okta CDN. Note in the sample below the Version property returned
 }
 ```
 
-##### Step 2c Add javascript to initialize and load the widget
+#### Step 2c Add javascript to initialize and load the widget
 
 The next step includes the following:
 
@@ -105,7 +105,24 @@ The next step includes the following:
 The `div id` you passed into the widget needs to match a div on the page that
 you will create in the next step. Sample code is shown below.
 
-##### Step 2d: Add div tag
+```csharp
+<script type="text/javascript">
+   const widgetConfig = @Html.Raw(JsonConvert.SerializeObject(Model));
+
+   console.log(widgetConfig.interactionHandle);
+
+   const signIn = new OktaSignIn({
+       el: '#okta-signin-widget-container',
+       ...widgetConfig
+   });
+   signIn.showSignInAndRedirect()
+       .catch(err => {
+           console.log('Error happen in showSignInAndRedirect: ', err);
+       });
+</script>
+```
+
+#### Step 2d: Add div tag
 
 The final step is to add a `div` tag with the id
 (e.g. `okta-signin-widget-container`). This `id` needs to match the
@@ -115,7 +132,7 @@ same id you passed into the widget object in the previous step.
 <div id="okta-signin-widget-container"></div>
 ```
 
-#### Step 3: Run your app
+### Step 3: Run your app
 
 The final step is to run your app. If the widget and Okta org are property
 configured, the widget should load and you should see the login in screen
@@ -131,16 +148,16 @@ similar to the screenshot below:
 Note that the Facebook, Signup and Forgot password links are configurable elements in your
 Okta org and may not show in screen.
 
-#### Troubleshooting
+### Troubleshooting
 
 1. If you get a Null Reference exception when the `IDXClient` is
-   instantiated check to make sure you have properly setup your configurations.
-   To troubleshoot the error, set the configurations in the `IdxClient`
-   to determine whether the issue is originating from the SDK not being able
-   to locate your configurations.
+   instantiated, check to make sure you have properly setup your local
+   configurations. To troubleshoot the error, set the local configurations
+   in the `IdxClient`'s constructor to determine whether the issue is
+   originating from the SDK not being able to locate your configurations.
 
 1. If the Widget does not load and instead displays the following error:
    “There was an unexpected internal error. Please try again.”,
    make sure CORS is enabled. Follow the steps in
-   [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-widget-setup/main/#add-a-trusted-origin-and-enable-cors)
+   [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-widget-setup/aspnet/main/#add-a-trusted-origin-and-enable-cors)
    to make sure CORS is enabled.

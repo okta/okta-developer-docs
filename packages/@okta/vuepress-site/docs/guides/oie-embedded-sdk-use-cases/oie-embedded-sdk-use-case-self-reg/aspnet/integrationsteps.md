@@ -230,7 +230,7 @@ var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenti
 The email sent to the user will have a Verify Email Address link that is not yet
 supported. Accordingly, there are two recommended options to mitigate this limitation.
 See
-[Email Verification email does not support redirecting user to application](/docs/guides/oie-embedded-sdk-limitations/main/#email-verification-email-does-not-support-redirecting-user-to-application)
+[Email Verification email does not support redirecting user to application](/docs/guides/oie-embedded-sdk-limitations/aspnet/main/#email-verification-email-does-not-support-redirecting-user-to-application)
 for more information.
 
 ### Step 13: Handle the response to EnrollAuthenticatorAsync

@@ -1,5 +1,5 @@
 ---
-title: Load the widget
+title: Sign in with Facebook
 ---
 
 <div class="oie-embedded-sdk">
@@ -10,10 +10,11 @@ title: Load the widget
 
 ## Factor setup
 
-This use case does not require any additional factors.
-It involves simply loading the widget
+This use case skips any factor requirements since it uses the Facebook identity provider.
 
 ## Configuration Updates
+
+### Step 1:  Complete steps in the widget setup
 
 If not already done, complete the steps described in the
 [Widget setup](/docs/guides/oie-embedded-widget-setup/).
@@ -22,13 +23,19 @@ of the embedded widget sample app, identify the NuGet packages
 to install, and detail the additional changes needed to the Okta
 org required by the widget.
 
+### Step 2: Complete steps in Set up your Okta org (for social identity providers)
+
+If not already done, complete the steps described in the
+[Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-social-identity-providers)
+section.
+
 ## Summary of steps
 
-The sequence of steps to load the widget is illustrated below:
+The sequence of steps to sign into the widget is illustrated below:
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
-### Integration steps
+## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 

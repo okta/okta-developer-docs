@@ -1,5 +1,5 @@
 ---
-title: Create your Okta org
+title: Create and setup your Okta org
 ---
 
 <div class="oie-embedded-sdk">

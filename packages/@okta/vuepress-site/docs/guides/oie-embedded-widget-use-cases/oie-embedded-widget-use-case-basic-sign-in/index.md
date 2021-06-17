@@ -8,7 +8,7 @@ title: Basic Sign in using the widget
 
 <StackSelector class="cleaner-selector"/>
 
-### Factor setup
+## Factor setup
 
 This use case requires the **password** factor.
 
@@ -19,7 +19,7 @@ This use case requires the **password** factor.
 
 </div>
 
-### Configuration Updates
+## Configuration Updates
 
 If not already done, complete the steps described in the
 [Widget setup](/docs/guides/oie-embedded-widget-setup/).
@@ -28,13 +28,13 @@ of the embedded widget sample app, identify the NuGet packages
 to install, and detail the additional changes needed to the Okta
 org required by the widget.
 
-### Summary of steps
+## Summary of steps
 
 The sequence of steps to sign into the widget is illustrated below:
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
-### Integration steps
+## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 

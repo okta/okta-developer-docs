@@ -422,6 +422,10 @@ export const guides = [
                 title: "Build with the embedded widget",
                 subLinks: [
                   {
+                    title: "Overview",
+                    guideName: "oie-embedded-widget-overview",
+                  },
+                  {
                     title: "Setup",
                     guideName: "oie-embedded-widget-setup",
                   },

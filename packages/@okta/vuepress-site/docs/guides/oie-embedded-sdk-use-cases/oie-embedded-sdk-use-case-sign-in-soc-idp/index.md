@@ -12,14 +12,7 @@ The user sign in with Facebook describes how to build your application to allow 
 
 ## Factor setup
 
-This use case requires the **password** factor.
-
-<div class="common-image-format">
-
-![Password Factor Only](/img/oie-embedded-sdk/factor-password-only.png
- "Password Factor")
-
-</div>
+This use case skips any factor requirements since it uses the Facebook identity provider.
 
 ## Configuration updates
 

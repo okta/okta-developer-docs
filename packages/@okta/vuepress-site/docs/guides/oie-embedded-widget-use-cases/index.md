@@ -6,4 +6,5 @@ sections:
  - oie-embedded-widget-use-case-overview
  - oie-embedded-widget-use-case-load
  - oie-embedded-widget-use-case-basic-sign-in
+ - oie-embedded-widget-use-case-sign-in-soc-idp
 ---

@@ -1,20 +1,38 @@
-###  Step 1: User signs in
+###  Step 1: User clicks on Sign in with Facebook link
 
-If the widget successfully loads after completing the steps in
-[Use Case 1: Load the widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-load/),
-then the next step is for the user to sign in.  There is no
-additional code that needs to be added to your application for this
-step.  The user enters their credentials, and clicks the Next or Sign
-in button.  See screenshot below:
+If the the steps in
+[Complete steps in Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-sign-in-soc-idp/#step-2-complete-steps-in-set-up-your-okta-org-for-social-identity-providers),
+were completed, the **Sign in with Facebook** link should
+appear automatically on the widget. There are no code changes
+need to make the link appear.
+
+When the user cicks this link they are send to the Facebook login screen.
+
+### Step 2: User signs into Facebook
+
+Next, the user enters their email and password and clicks login.
+This page is hosted by Facebook. The user information you enter originates
+from  a test user you configured in
+[Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-social-identity-providers). There are no code changes
+you need to make in your app to support to this step.
 
 <div class="common-image-format">
 
-![Widget sign in screen](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-screen.png
- "Widget sign in screen")
+![Facebook sign in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png
+ "Facebook sign in")
 
 </div>
 
-### Step 2: Set up the callback from the widget
+### Step 3: Facebook redirects to your Okta org
+If the user Facebook login is successful, facebook routes the user to the value you enter for **Valid OAuth Redirect URIs** and **Site URL** in
+[Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-social-identity-providers).
+The value takes on the following format:  `https://{Okta org domain}/oauth2/v1/authorize/callback.` (e.g. `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
+
+### Step 4: Okta org redirects to your app via the Sign-in redirect URIs
+
+After Facebook sends the success login request to your Okta org, the org
+redirects the request to your application via the Application’s
+**Sign-in redirect URIs** field.
 
 This step handles the callback from the widget that
 returns a `interaction_code`. This code will be redeemed in the
@@ -40,7 +58,7 @@ public async Task<ActionResult> Callback(string state = null, string interaction
 }
 ```
 
-### Step 3: Call RedeemInteractionCodeAsync to get tokens
+### Step 5: Call RedeemInteractionCodeAsync to get tokens
 
 The next step is to call the `IdxClient’s RedeemInteractionCodeAsync`
 function inside the callback function. The interaction code is used get the ID
@@ -50,7 +68,7 @@ and access tokens, which you can subsequently use to pull user information.
 Okta.Idx.Sdk.TokenResponse tokens = await _idxClient.RedeemInteractionCodeAsync(idxContext, interaction_code);
 ```
 
-### Step 4: Call user profile information (Optional)
+### Step 6: Call user profile information (Optional)
 
 Depending on your implementation, you may choose to pull user information.
 Using the tokens provided by the `RedeemInteractionCodeAsync` method,
@@ -74,7 +92,7 @@ public static async Task<IEnumerable<Claim>> GetClaimsFromUserInfoAsync(IdxConfi
 }
 ```
 
-### Step 4: Persist the tokens in session
+### Step 7: Persist the tokens in session
 
 The final step is to persist the tokens in session for future use.
 The sample code below (from the sample application) uses
