@@ -1,26 +1,22 @@
 ---
-title: Identity engine
+title: Identity Engine
 meta:
   - name: description
-    content: Identity engine offers customizable building blocks that can support dynamic, app-based user journeys. Find out more about Identity engine, why you would use it, and how to upgrade your org.
+    content: Identity Engine offers customizable building blocks that can support dynamic, app-based user journeys. Find out more about Identity Engine, why you would use it, and how to upgrade your org.
 ---
 
-# Identity engine
+# Identity Engine
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
-## About Identity engine
+## About Identity Engine
 
-Identity engine allows organizations to customize their Okta cloud components to satisfy an unlimited number of identity use cases. Instead of a reliance on pre-defined behavior for authentication, authorization, and enrollment, Identity engine offers customizable building blocks that can support dynamic, app-based user journeys.
+The Okta Identity Engine is a platform service that powers flexible and customizable access experiences, which allows enterprises to build access experiences tailored to their organizational needs. Just one of the many goals of Okta Identity Engine is that customers are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, they can customize and extend each of these steps, which delivers more flexible and customizable access experiences, including passwordless sign-in, improved per app experiences, enhanced context for secure authentication, and more.
 
-Identity engine provides greater fine-grained control when compared to traditional access flows. It enforces custom requirements at every point in the end user's sign-in experience &mdash; from registration and authentication to enrollment and authorization.
+## Why use Identity Engine?
 
-Using the Admin Console, you can direct the user experience based on user type, group membership, and target application. Since Identity engine can execute Okta Hooks or redirect to external services, you can also extend that experience further within the security guardrails of Okta.
-
-## Why use Identity engine?
-
-Identity engine provides:
+Identity Engine provides:
 
 * Passwordless authentication
 
@@ -40,13 +36,13 @@ Identity engine provides:
 
 ## New concepts and terminology
 
-Identity engine introduces new concepts and terminology.
+Identity Engine introduces new concepts and terminology.
 
 * Assurance
 
   Assurance is the degree of confidence that an end user signing in to an application is the same end user who previously signed in to the application, and the use of one or more authenticators (see below) and its characteristics determine an assurance level. For example, an end user who authenticates with a knowledge factor and a possession factor has a higher assurance level than one who can only authenticate with one factor.
 
-  Assurance is enforced by sign-on policies. Identity engine requires that the assurance specified in the Okta and app sign-on policies are satisfied before it allows the end user to access an app. This is a change from the traditional model of authentication, which evaluates one policy depending on whether the user signs in to the org or directly through the app.
+  Assurance is enforced by sign-on policies. Identity Engine requires that the assurance specified in the Okta and app sign-on policies are satisfied before it allows the end user to access an app. This is a change from the traditional model of authentication, which evaluates one policy depending on whether the user signs in to the org or directly through the app.
 
 * Authenticators
 
@@ -68,10 +64,10 @@ Identity engine introduces new concepts and terminology.
 
   App sign-on policies enforce authentication when an end user attempts to access an application. Each application is assigned one app sign-on policy (with multiple rules that you can order). See [App sign-on policies](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/about-app-sign-on-policies.htm).
 
-## Enable Identity engine for your organization
+## Enable Identity Engine for your organization
 
-To upgrade to Identity engine, reach out to your account manager. If you don't have an account manager, reach out to oie@okta.com for more information.
+To upgrade to Identity Engine, reach out to your account manager. If you don't have an account manager, reach out to oie@okta.com for more information.
 
-* The v1 API continues to work as before until you're ready to use new Identity engine functionality.
+* The v1 API continues to work as before until you're ready to use new Identity Engine functionality.
 * The existing Okta-hosted widget continues to work after upgrading your org.
 * Upgrade your SDK as you would normally do with other SDK updates.
