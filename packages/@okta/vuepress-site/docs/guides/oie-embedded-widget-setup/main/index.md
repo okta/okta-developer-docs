@@ -46,7 +46,7 @@ you need to do the following:
       1. Under Type, check the **CORS** and **Redirect** checkboxes.
       1. Click **Save**.
 
-## Now you're ready to start working with the use cases!
+## Start working with the use cases
 
 Now that you have
 [created and configured your Okta org](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/)
