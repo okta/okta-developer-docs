@@ -1,0 +1,27 @@
+$border-color: #D7D7DC;
+
+.nutrition-facts {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  margin: 0 0 20px 0;
+  .fact-item {
+    display: flex;
+    flex-direction: row;
+    flex: 1 3;
+    padding: 12px 24px;
+    color: #212126;
+    font-size: 14px;
+    &:not(:last-child) {
+      border-bottom: 1px solid $border-color;
+    }
+    .fact-item-title {
+      flex-basis: 35%;
+      font-weight: 900;
+    }
+    .fact-bullet-list {
+      flex-basis: 65%;
+    }
+  }
+}
