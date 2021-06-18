@@ -91,7 +91,7 @@ There are two workarounds:
 1. Create users via self registration
 1. Create users in the Okta org with the **Password** set to **Set by Admin**
 
-## Email Verification email does not support redirecting user to application
+## Email verify email link does not work
 
 ### Description
 
