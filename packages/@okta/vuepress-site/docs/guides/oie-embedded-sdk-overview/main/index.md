@@ -6,21 +6,27 @@ title: Overview
 
 <div class="oie-embedded-sdk">
 
-This document describes how to integrate user sign in, self-registration, and
-other features into your app using Okta’s embedded SDK. Most of the code
-samples in this guide are derived from the included sample application that
-is provided with the SDK.
+This guide walks you through the steps to download, set up, and configure
+the SDK and provided sample application. After you complete the initial steps,
+you are ready to walk through the available use cases that highlight
+the supported features such as sign in, multifactor authentication, and
+self-registration.
+
+Use the sample application as your guide when learning about and integrating the SDK
+into your application.
 
 ## Why you would want to use the embedded SDK
 
-Several reasons why you would choose the embedded SDK include:
+There are several reasons why you would choose the embedded SDK to help you build out
+your identity solution:
 
-1. Customized user experience
-1. Branding requirements
+* Allow for a fully customized user experience
+* Easy to code against a high level SDK interface
+* Greater flexibility to solve your specific branding requirements
 
 For a full list of reasons and a complete overview of the different deployment
 models see
-[Federated Authentication Vs Direct Authentication](/docs/concepts/hosted-vs-embedded/#okta-hosted-vs-customer-hosted).
+[Embedded vs redirect authentication](/docs/concepts/hosted-vs-embedded/#okta-hosted-vs-customer-hosted).
 
 ## The SDK flow
 

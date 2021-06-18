@@ -113,7 +113,7 @@ set, it is recommended to only use one configuration option in your solution.
 
 <StackSelector snippet="sdkforyourapp" noSelector />
 
-## Now your ready to start working with the use cases!
+## Start working with the use cases
 
 Now that you have
 [created and configured your Okta org](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/)
