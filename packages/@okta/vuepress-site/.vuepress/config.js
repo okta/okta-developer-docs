@@ -8,10 +8,9 @@ const signInWidgetMajorVersion = 5;
 const projectRootDir = Path.resolve(__dirname, '../../../../');
 const outputDir = Path.resolve(__dirname, '../dist/');
 
-
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
-module.exports = {
+module.exports = ctx => ({
   dest: 'dist',
   theme: "@okta/vuepress-theme-prose",
   /**
@@ -389,4 +388,16 @@ module.exports = {
       }
     }
   },
-}
+  async ready() {
+    if (process.env.DEPLOY_ENV !== 'prod') {
+      ctx.pages.forEach((page) => {
+        // We adding meta tag `robots` for all non-prod versions of the site
+        // to be able to exclude test envs from browser search.
+        if (!page.frontmatter['meta']) {
+          page.frontmatter['meta'] = []
+        }
+        page.frontmatter['meta'].push({ name: 'robots', content:'noindex,nofollow'});
+      });
+    }
+  },
+})
