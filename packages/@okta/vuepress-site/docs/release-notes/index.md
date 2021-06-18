@@ -3,24 +3,6 @@ title: Okta API Products Release Notes | Okta Developer
 meta:
   - name: description
     content: List of changes to the Okta API and related API...
-nutritionItems:
-  - title: This will cover
-    bulletList:
-      - Line one
-      - Line two
-  - title: Looking for something else?
-    bulletList:
-      - Line one
-      - Line two
-
-  - title: You should know
-    bulletList:
-      - Line one
-      - Line two
-  - title: You will need
-    bulletList:
-      - Line one
-      - Line two
 ---
 
 # Okta API Products Release Notes
@@ -35,8 +17,6 @@ To verify the current release for an org, check the footer of the administrator 
 ![Release Number in Footer](/img/release_notes/version_footer.png)
 
 > **Note:** Changes to Okta unrelated to API Products are published in the [Okta Release Notes](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_okta_relnotes).
-
-<NutritionFacts></NutritionFacts>
 
 <div class="next-section">
   <RouterLink to='/docs/release-notes/2021'>
