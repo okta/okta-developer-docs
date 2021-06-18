@@ -514,7 +514,7 @@ redirects:
   - from: /authentication-guide/implementing-authentication/set-up-authz-server/index.html
     to: /docs/guides/customize-authz-server/
   - from: /authentication-guide/social-login/social-settings/index.html
-    to: /docs/reference/social-settings/
+    to: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
   - from: /authentication-guide/social-login/index.html
     to: /docs/concepts/social-login/
   - from: /authentication-guide/index.html
@@ -660,9 +660,9 @@ redirects:
   - from: /docs/api/resources/zones
     to: /docs/reference/api/zones/
   - from: /docs/api/resources/social_authentication
-    to: /docs/reference/social-settings/
+    to: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
   - from: /docs/api/resources/social_authentication/index.html
-    to: /docs/reference/social-settings/
+    to: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
   - from: /docs/how-to/add-user-consent-to-flow
     to: /docs/guides/request-user-consent/
   - from: /docs/how-to/byo_saml
@@ -681,8 +681,12 @@ redirects:
     to: /docs/guides/customize-authz-server/
   - from: /authentication-guide/implementing-authentication/set-up-authz-server
     to: /docs/guides/customize-authz-server/
+  - from: /docs/reference/social-settings
+    to: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
+  - from: /docs/reference/social-settings/index.html
+    to: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
   - from: /authentication-guide/social-login/social-settings
-    to: /docs/reference/social-settings/
+    to: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
   - from: /authentication-guide/social-login
     to: /docs/concepts/social-login/
   - from: /authentication-guide
