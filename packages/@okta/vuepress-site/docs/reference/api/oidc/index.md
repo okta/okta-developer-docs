@@ -1201,14 +1201,12 @@ The payload includes the following reserved claims:
 
 | Property | Description                                                                                                            | DataType |
 | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------- |
-| aud      | Identifies the audience (resource URI or server) that this access token is intended for.                               | String   |
 | cid      | Client ID of the client that requested the access token.                                                               | String   |
 | exp      | The time the access token expires, represented in Unix time (seconds).                                                 | Integer  |
 | iat      | The time the access token was issued, represented in Unix time (seconds).                                              | Integer  |
 | iss      | The Issuer Identifier of the response. This value is the unique identifier for the Authorization Server instance.      | String   |
 | jti      | A unique identifier for this access token for debugging and revocation purposes.                                       | String   |
 | scp      | Array of scopes that are granted to this access token.                                                                 | Array    |
-| sub      | The subject. A name for the user or a unique identifier for the client.                                                | String   |
 | uid      | A unique identifier for the user. It isn't included in the access token if there is no user bound to it.               | String   |
 | ver      | The semantic version of the access token.                                                                              | Integer  |
 
