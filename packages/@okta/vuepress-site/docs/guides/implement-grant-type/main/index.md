@@ -23,16 +23,8 @@ Before you can implement authorization, you need to register your app in Okta by
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. Select **<StackSnippet snippet="sign-in-method" inline />** as the **Sign-in method**.
-1. Select <StackSnippet snippet="application-type" inline /> as the **Application type**, then click **Next**.
 
-    > **Note:** It is important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have and would break the sign-in or sign-out flow.
-
-1. Specify the app integration name.
-1. Select <StackSnippet snippet="grant-name" inline /> as the **Grant type**.
-1. Fill in the remaining details for your app integration, then click **Save**.
-
-
-<StackSelector snippet="setup-app" />
+<StackSnippet snippet="setup-app" />
 
 ## Install an Okta SDK
 
@@ -49,8 +41,6 @@ Okta provides an array of language and framework SDKs to quickly implement autho
 <!-- ### Exchange authorization code for token -->
 
 <!-- ### Get access token -->
-
-## Examples
 
 <StackSnippet snippet="examples" />
 

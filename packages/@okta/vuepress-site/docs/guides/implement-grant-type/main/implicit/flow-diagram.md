@@ -1,4 +1,4 @@
-#### Implicit
+### Implicit
 
 ![Implicit flow](/img/authorization/oauth-implicit-grant-flow.png "Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Implicit grant flow")
 

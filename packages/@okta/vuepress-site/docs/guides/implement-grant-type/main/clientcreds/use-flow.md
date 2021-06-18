@@ -74,6 +74,6 @@ To use the command line for Windows:
 
 > **Note:** Delete the appCreds.txt and the appbase64Creds.txt files after you finish.
 
-### Next steps
+### Validate access tokens
 
 When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).

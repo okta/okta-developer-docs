@@ -1,1 +1,0 @@
-**Single-Page Application**

@@ -1,4 +1,3 @@
-1. In the Admin Console, go to **Applications** > **Applications**.
-1. Click **Create App Integration**.
-1. On the Create a new application page, select **API Services** as the **Sign-in method** and click **Next**.
-1. Fill in the **App integration name** and click **Save**.
+4. Fill in the remaining details for your app integration, then click **Save**.
+
+Save the Okta Client ID (`client_id`) value generated from the created app integration to implement your authorization flow.

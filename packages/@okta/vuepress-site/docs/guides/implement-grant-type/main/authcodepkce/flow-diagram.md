@@ -1,18 +1,17 @@
-#### Authorization code with PKCE
+### Authorization code with PKCE
 
-![Auth Code flow with PKCE](/img/oauth_auth_code_flow_pkce.png "Flowchart that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow with PKCE")
+![Auth Code flow with PKCE](/img/authorization/oauth-auth-code-pkce-grant-flow.png "Sequence diagram that displays the back and forth between the resource owner, authorization server, and resource server for Auth Code flow with PKCE")
 
 <!-- Source for image. Generated using http://www.plantuml.com/plantuml/uml/
 
 @startuml
-
 skinparam monochrome true
-
 actor "Resource Owner (User)" as user
 participant "Client" as client
 participant "Authorization Server (Okta)" as okta
 participant "Resource Server (Your App)" as app
 
+autonumber "<b>#."
 client -> client: Generate PKCE code verifier & challenge
 client -> okta: Authorization Code Request + code_challenge to /authorize
 okta -> user: 302 redirect to authentication prompt
@@ -23,6 +22,7 @@ okta -> okta: Evaluates PKCE code
 okta -> client: Access token (and optionally Refresh Token)
 client -> app: Request with access token
 app -> client: Response
+@enduml
 
 -->
 

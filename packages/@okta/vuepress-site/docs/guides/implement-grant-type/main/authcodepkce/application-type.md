@@ -1,1 +1,0 @@
-either **Native Application** or **Single-Page Application** (depending on the type of application that you are working on)
