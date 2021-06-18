@@ -43,7 +43,7 @@ you need to do the following:
       1. Set a origin name (e.g. MyOrigin)
       1. Add the url to your application. If you are using the
          sample application, use `https://localhost:44314/`
-      1. Under Type, check the **CORS** and **Redirect** checkboxes.
+      1. Under Type, select the **CORS** and **Redirect** checkboxes.
       1. Click **Save**.
 
 ## Start working with the use cases

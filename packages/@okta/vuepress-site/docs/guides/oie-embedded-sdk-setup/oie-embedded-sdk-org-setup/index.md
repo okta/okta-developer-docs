@@ -30,25 +30,24 @@ The steps are as follows:
    1. **After July 20th, 2021:** [Sign-up](https://developer.okta.com/signup/oie.html) for an Okta account.
       **Only use this link after the listed date.**
 
-   Once you sign up, Okta will send you a verify email with the email address
+   After you sign up, Okta sends you a verify email with the email address that
    you provided.
 
 1. Using the activate link in Okta’s email, activate your account
-   providing a new password. Okta will redirect you to the
+   providing a new password. Okta redirects you to the
    [Admin console](https://developer.okta.com/docs/guides/quickstart/using-console/)
    dashboard.
 
 ## Set up your Okta org for password factor only use cases
 
-The next step is to set up your Okta org so you can connect your sample app
-and any app you're building to it. The setup includes creating a new org
+The next step is to set up your Okta org so that you can connect your sample app
+and any app that you're building, to the org. The setup includes creating a new org
 application, updating the default authorization server’s settings, and
 defining new org policies. See
-[Create an Okta app integration](https://developer.okta.com/docs/guides/sign-into-web-app/aspnet/create-okta-application/)
-for more information.
+[Create an Okta app integration](https://developer.okta.com/docs/guides/sign-into-web-app/aspnet/create-okta-application/).
 
 **This section discusses how to set up your Okta Org for password factor only
-use cases.** These use cases (except are intended to use the password factor only
+use cases.** These use cases are intended to use the password factor only
 without any additional factors such as email and phone SMS. The use cases
 that support this basic setup include:
 

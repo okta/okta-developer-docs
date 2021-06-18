@@ -6,23 +6,23 @@ title: Overview
 
 <div class="oie-embedded-sdk">
 
-This guide walks you through the steps to download, setup, and configure
-the SDK and provided sample application. Once you completed the initial steps,
-you'll be ready to to walk through the available use cases that highlights
-the supported features such as sign in, multi-factor authentication, and
+This guide walks you through the steps to download, set up, and configure
+the SDK and provided sample application. After you complete the initial steps,
+you are ready to walk through the available use cases that highlight
+the supported features such as sign in, multifactor authentication, and
 self-registration.
 
-Use the sample application as your guide when learning and integrating the SDK
+Use the sample application as your guide when learning about and integrating the SDK
 into your application.
 
 ## Why you would want to use the embedded SDK
 
 There are several reasons why you would choose the embedded SDK to help you build out
-your idenity solution. They are:
+your identity solution:
 
-1. Allow for a fully customized user experience
-1. Easy to code against high level SDK interface
-1. Greater flexibility to solve your specific branding requirements
+* Allow for a fully customized user experience
+* Easy to code against a high level SDK interface
+* Greater flexibility to solve your specific branding requirements
 
 For a full list of reasons and a complete overview of the different deployment
 models see
