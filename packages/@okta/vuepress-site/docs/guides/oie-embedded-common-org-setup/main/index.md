@@ -147,9 +147,9 @@ include:
 1. [User password recovery (password and email factors)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-pwd-recovery-mfa/)
 1. [Self user registration (email and optional phone factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-self-reg/)
 
-> **Note:** It is recommended to skip this step until you have completed the basic
-use cases described in
-[Set up your Okta org (for password factor only use cases)](#set-up-your-okta-org-for-password-factor-only-use-cases)**
+> **Note:** It is recommended to skip this step if you are just getting started with the
+sample app and like to run the basic use cases listed in
+[Set up your Okta org (for password factor only use cases)](#set-up-your-okta-org-for-password-factor-only-use-cases).
 
 If you have completed the basic use cases or simply want to move on to more
 complex multi factor use cases, continue with the steps below.
@@ -219,6 +219,10 @@ provider. The use cases requiring this setup are as follows:
 You can skip this section until you are ready to run through the above use
 case. Otherwise, the steps to add support for the Facebook social provider are
 listed below.
+
+> **Note:** It is recommended to skip this step if you are just getting started with the
+sample app and like to run the basic use cases listed in
+[Set up your Okta org (for password factor only use cases)](#set-up-your-okta-org-for-password-factor-only-use-cases).
 
 ### Step 1: Create a Facebook app in Facebook
 

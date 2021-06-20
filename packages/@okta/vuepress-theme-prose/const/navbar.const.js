@@ -409,7 +409,7 @@ export const guides = [
                     guideName: "oie-embedded-sdk-overview",
                   },
                   {
-                    title: "Run the sample app",
+                    title: "Run the SDK sample app",
                     guideName: "oie-embedded-sdk-run-sample",
                   },
                   {
@@ -438,7 +438,7 @@ export const guides = [
                     guideName: "oie-embedded-widget-overview",
                   },
                   {
-                    title: "Setup",
+                    title: "Run the widget sample app",
                     guideName: "oie-embedded-widget-run-sample",
                   },
                   {

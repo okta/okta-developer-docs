@@ -24,8 +24,11 @@ Before you download the SDK, widget and sample apps, you need the following:
 
 ## Configure the SDK, widget and sample app
 
-Before integrating either SDK or widget into your app, you need to initialize the
-SDK with configuration settings. The list of settings is shown below:
+Before integrating either SDK or widget into your app, you need to understand the
+configuration settings that need to be added to initialize the SDK and widget (if you
+decide to also use the widget). The list of settings is shown below:
+
+## Configuration settings
 
 ### Issuer
 

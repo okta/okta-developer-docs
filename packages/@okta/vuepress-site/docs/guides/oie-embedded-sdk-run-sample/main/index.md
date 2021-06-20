@@ -1,5 +1,5 @@
 ---
-title: Run the sample app
+title: Run the SDK sample app
 ---
 <div class="oie-embedded-sdk">
 

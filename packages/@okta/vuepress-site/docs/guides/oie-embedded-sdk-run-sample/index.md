@@ -1,6 +1,6 @@
 ---
-title: Run the sample app
-excerpt: Run the sample app
+title: Run the SDK sample app
+excerpt: Run the SDK sample app
 layout: Guides
 sections:
  - main

@@ -23,8 +23,8 @@ Okta provides two embedded identity solutions.
 ## Get started
 
 Sample apps are provided for each solution to show you exactly how to integrate
-the SDK and widget into your own application. To get started using either **SDK**
-or **widget** follow the steps below:
+the SDK and widget into your own application. To get started using either the
+**SDK** or **widget + SDK** follow the steps below:
 
 **Step 1:** [Create your account and setup your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
 

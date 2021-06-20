@@ -38,3 +38,17 @@ The sample app is located here: `okta-idx-dotnet/samples/samples-aspnet/embedded
    "User profile page")
 
    </div>
+
+## Troubleshooting
+
+1. If you get a Null Reference exception when the `IDXClient` is
+   instantiated, check to make sure you have properly setup your local
+   configurations. To troubleshoot the error, set the local configurations
+   in the `IdxClient`'s constructor to determine whether the issue is
+   originating from the SDK not being able to locate your configurations.
+
+1. If the Widget does not load and instead displays the following error:
+   “There was an unexpected internal error. Please try again.”,
+   make sure CORS is enabled. Follow the steps in
+   [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#step-3-add-a-trusted-origin-and-enable-cors)
+   to make sure CORS is enabled.
