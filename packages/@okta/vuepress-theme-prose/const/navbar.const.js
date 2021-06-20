@@ -394,6 +394,14 @@ export const guides = [
                 guideName: "oie-embedded-overview",
               },
               {
+                title: "Create and setup your Okta org",
+                guideName: "oie-embedded-common-org-setup",
+              },
+              {
+                title: "Download and setup the sample app",
+                guideName: "oie-embedded-common-download-setup-app",
+              },
+              {
                 title: "Build with the embedded SDK",
                 subLinks: [
                   {
@@ -401,8 +409,8 @@ export const guides = [
                     guideName: "oie-embedded-sdk-overview",
                   },
                   {
-                    title: "Setup",
-                    guideName: "oie-embedded-sdk-setup",
+                    title: "Run the sample app",
+                    guideName: "oie-embedded-sdk-run-sample",
                   },
                   {
                     title: "Start with a use case",
@@ -431,7 +439,7 @@ export const guides = [
                   },
                   {
                     title: "Setup",
-                    guideName: "oie-embedded-widget-setup",
+                    guideName: "oie-embedded-widget-run-sample",
                   },
                   {
                     title: "Start with a use case",

@@ -159,5 +159,5 @@ Okta org and may not show in screen.
 1. If the Widget does not load and instead displays the following error:
    “There was an unexpected internal error. Please try again.”,
    make sure CORS is enabled. Follow the steps in
-   [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-widget-setup/aspnet/main/#add-a-trusted-origin-and-enable-cors)
+   [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#step-3-add-a-trusted-origin-and-enable-cors)
    to make sure CORS is enabled.

@@ -13,7 +13,7 @@ When the user cicks this link they are send to the Facebook login screen.
 Next, the user enters their email and password and clicks login.
 This page is hosted by Facebook. The user information you enter originates
 from  a test user you configured in
-[Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-social-identity-providers). There are no code changes
+[Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers). There are no code changes
 you need to make in your app to support to this step.
 
 <div class="common-image-format">
@@ -25,7 +25,7 @@ you need to make in your app to support to this step.
 
 ### Step 3: Facebook redirects to your Okta org
 If the user Facebook login is successful, facebook routes the user to the value you enter for **Valid OAuth Redirect URIs** and **Site URL** in
-[Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-social-identity-providers).
+[Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers).
 The value takes on the following format:  `https://{Okta org domain}/oauth2/v1/authorize/callback.` (e.g. `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
 ### Step 4: Okta org redirects to your app via the Sign-in redirect URIs
@@ -40,10 +40,10 @@ next step for tokens. The callback URL is defined in two locations
 and must be identical. These locations are:
 
 1. The `RedirectURI` parameter in the configuration setting defined in
-   [Download and setup the SDK and sample app](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-sample-app-setup/).
+   [Download and setup the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
 1. A URI defined in the **Sign-in redirect URIs** field in the Okta
    Application. The **Sign-in redirect URIs** field is described in
-   [Setup your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-password-factor-only-use-cases).
+   [Setup your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
 For the sample application, the **RedirectURI** should be set to `https://localhost:44314/interactioncode/callback`
 

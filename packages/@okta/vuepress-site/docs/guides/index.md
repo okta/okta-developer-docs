@@ -64,15 +64,17 @@ guides:
  - validate-access-tokens
  - validate-id-tokens
  - oie-embedded-sdk-use-cases
- - oie-embedded-sdk-setup
+ - oie-embedded-sdk-run-sample
  - oie-embedded-sdk-overview
  - oie-embedded-sdk-alternate-flows
  - oie-embedded-sdk-limitations
  - oie-embedded-sdk-common
- - oie-embedded-widget-setup
+ - oie-embedded-widget-run-sample
  - oie-embedded-widget-use-cases
  - oie-embedded-widget-overview
  - oie-embedded-overview
+ - oie-embedded-common-org-setup
+ - oie-embedded-common-download-setup-app
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

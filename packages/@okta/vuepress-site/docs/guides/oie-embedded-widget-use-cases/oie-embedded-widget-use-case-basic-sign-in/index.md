@@ -22,7 +22,7 @@ This use case requires the **password** factor.
 ## Configuration Updates
 
 If not already done, complete the steps described in the
-[Widget setup](/docs/guides/oie-embedded-widget-setup/).
+[Widget setup](oie-embedded-widget-run-sample).
 These steps guide you to the appropriate repo and location
 of the embedded widget sample app, identify the NuGet packages
 to install, and detail the additional changes needed to the Okta
