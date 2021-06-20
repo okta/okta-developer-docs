@@ -8,17 +8,27 @@ title: Create and setup your Okta org
 
 <StackSelector class="cleaner-selector"/>
 
-## Before you begin
+## Overview
 
-Before you can run the provided sample app or integrate the SDK
-into your own app, you need to do the following:
+Before you can run the provided sample app or integrate the SDK or
+Widget into your own app, you need to do the following:
 
-1. [Create your Okta Account](#create-your-okta-account)
-1. Setup your Okta org. Depending on the use cases, you will need to perform the following:
-   1. [Setup your Okta org (for password factor only use cases)](#set-up-your-okta-org-for-password-factor-only-use-cases)
-   1. [Set up your Okta org (for multi-factor use cases)](#set-up-your-okta-org-for-multi-factor-use-cases)
-   1. [Set up your Okta org (for social identity providers)](#set-up-your-okta-org-for-social-identity-providers)
-1. [Download and setup the SDK and sample app](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-sample-app-setup/)
+1. **Step 1:** [Create your Okta Account](#create-your-okta-account)
+1. **Step 2:** Setup your Okta org.
+
+   1. To load the SDK and Widget and get started with the simple use cases
+      go to [Setup your Okta org (for password factor only use cases)](#set-up-your-okta-org-for-password-factor-only-use-cases)
+
+   1. **Recommended for later:** Once you've completed the basic use cases, advance to the more
+      complex use cases by performing the following:
+
+      1. [Set up your Okta org (for multi-factor use cases)](#set-up-your-okta-org-for-multi-factor-use-cases)
+      1. [Set up your Okta org (for social identity providers)](#set-up-your-okta-org-for-social-identity-providers)
+
+      > **Note:** It is recommended to skip these more advance configurations
+        until you got the basic use cases working.
+
+Once you have completed setting up the Okta org, [download and setup the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
 
 ## Create your Okta account
 The first step is to create an Okta account, if you have not already.
@@ -43,13 +53,21 @@ The steps are as follows:
 The next step is to set up your Okta org so that you can connect your sample app
 and any app that you're building, to the org. The setup includes creating a new org
 application, updating the default authorization server’s settings, and
-defining new org policies. See
-[Create an Okta app integration](https://developer.okta.com/docs/guides/sign-into-web-app/aspnet/create-okta-application/).
+defining new org policies.
 
 **This section discusses how to set up your Okta Org for password factor only
 use cases.** These use cases are intended to use the password factor only
 without any additional factors such as email and phone SMS. The use cases
 that support this basic setup include:
+
+**Widget**
+
+1. [Load the widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-load/)
+1. [Basic sign in using the widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-basic-sign-in/)
+1. [Sign in with Facebook](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-sign-in-soc-idp/)
+
+
+**SDK**
 
 1. [Basic user sign in (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/)
 1. [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-out/)
@@ -73,7 +91,7 @@ The steps are as follows:
       1. Click **Update Rule**.
 
 ### Step 2: Update the authenticators for password factor only use cases
-1. In the Admin console, select **Security > Authenticators** from the left navigation menu.
+1. Select **Security > Authenticators** from the left navigation menu.
 1. From the **Authenticators** page, perform the following steps:
    1. Select the **Actions** link from the **Password** authenticator row.
    1. Click the **Edit** submenu.
@@ -82,7 +100,19 @@ The steps are as follows:
    1. In the edit rule page, set the **Additional verification is** field to **Not Required**.
    1. Click **Update Rule**.
 
-### Step 3:  Create new application
+### Step 3: Add a trusted origin and enable CORS
+
+1. Select **Security > API** from the left navigation menu.
+1. In the **API** page click on the **Trusted Origins** tab:
+1. Under the Trusted Origins tab click on **Add Origin**.
+   1. In the Add Origin dialog do the following:
+      1. Set a origin name (e.g. MyOrigin)
+      1. Add the url to your application. If you are using the
+         sample application, use `https://localhost:44314/`
+      1. Under Type, select the **CORS** and **Redirect** checkboxes.
+      1. Click **Save**.
+
+### Step 4:  Create new application
 1. Select **Applications > Applications** from the left navigation menu.
 1. From the **Applications** page, click **Create App Integration**.
 1. From the **Add Applications** page, click **Create New App**.
@@ -110,14 +140,16 @@ The steps are as follows:
 This section sets up your org for the multi factor use cases. These use cases
 include:
 
+**SDK**
+
 1. [Sign in (password and email factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-email/)
 1. [Sign in (password and phone factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-phone/)
 1. [User password recovery (password and email factors)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-pwd-recovery-mfa/)
 1. [Self user registration (email and optional phone factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-self-reg/)
 
-**It is recommended to skip this step until you have completed the basic
-use cases described in
-[Set up your Okta org (for password factor only use cases)](#set-up-your-okta-org-for-password-factor-only-use-cases)**
+> **Note:** It is recommended to skip this step if you are just getting started with the
+sample app and like to run the basic use cases listed in
+[Set up your Okta org (for password factor only use cases)](#set-up-your-okta-org-for-password-factor-only-use-cases).
 
 If you have completed the basic use cases or simply want to move on to more
 complex multi factor use cases, continue with the steps below.
@@ -176,11 +208,21 @@ The steps to enable these factors are as follows:
 This section describes how to set up your org for the facebook social identity
 provider. The use cases requiring this setup are as follows:
 
+**Widget**
+
+1. [Sign in with Facebook](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-sign-in-soc-idp/)
+
+**SDK**
+
 1. [Sign in with Facebook (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-soc-idp/)
 
 You can skip this section until you are ready to run through the above use
 case. Otherwise, the steps to add support for the Facebook social provider are
 listed below.
+
+> **Note:** It is recommended to skip this step if you are just getting started with the
+sample app and like to run the basic use cases listed in
+[Set up your Okta org (for password factor only use cases)](#set-up-your-okta-org-for-password-factor-only-use-cases).
 
 ### Step 1: Create a Facebook app in Facebook
 
@@ -301,9 +343,9 @@ The next step is to add a new routing rule.
 
 </div>
 
-### Step 7: Download and setup the SDK and sample app
+### Download and setup the SDK and sample app
 
 Once you have completed setting up your Okta org, the next step is to
 download and setup the sample app and SDK.  See
-[Download and setup the SDK and sample app](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-sample-app-setup/)
+[Download and setup the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
 for further details.

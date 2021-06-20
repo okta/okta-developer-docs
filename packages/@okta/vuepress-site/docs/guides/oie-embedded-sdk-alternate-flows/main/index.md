@@ -26,9 +26,9 @@ Even when only password factor is required for the Okta Application, an email ca
 In this scenario, the org is setup in the following manner:
 
 1. The org is initially configured following the steps described in:
-[Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-password-factor-only-use-cases)
+[Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases)
 and
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-multi-factor-use-cases) .
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases) .
 1. The Application's Sign on Policy is updated for only the password factor. In
    Admin Console the **User must authenticate with** field is set to **Password**.
 1. The **Email verification** field in the profile enrollment’s default policy

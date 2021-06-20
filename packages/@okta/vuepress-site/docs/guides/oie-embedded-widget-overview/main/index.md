@@ -35,6 +35,12 @@ the Okta APIs. The flow is summarized below:
 
 ## Get started using the widget
 
-To get started using the widget go to the [widget setup](/docs/guides/oie-embedded-widget-setup/aspnet/main/).
+To get started using the widget following the steps below.
+
+1. If not already done, [create your account and setup your okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
+1. If not already done, [download and setup the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
+1. [Run the widget sample app](/docs/guides/oie-embedded-widget-run-sample/aspnet/main/)
+1. Using the sample app as your guide, integrate the SDK into your app using the available
+   [use cases](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-overview/)
 
 </div>

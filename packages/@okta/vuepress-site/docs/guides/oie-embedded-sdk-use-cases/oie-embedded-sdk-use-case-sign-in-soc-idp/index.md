@@ -21,18 +21,18 @@ The following configurations need to be completed before continuing with this us
 ### Step 1:  Complete steps in Set up your Okta org for password factor only use cases
 
 If not already done, complete the steps described in the
-[Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-password-factor-only-use-cases).
+[Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers).
 
 ### Step 2: Complete steps in Set up your Okta org (for social identity providers)
 
 If not already done, complete the steps described in the
-[Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-social-identity-providers)
+[Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers)
 section.
 
 ### Step 3:  Reconfigure Okta application for password only
 
 If you completed the steps in
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#set-up-your-okta-org-for-multi-factor-use-cases),
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases),
 you have set up your application for multiple factors. Since this use case has
 no additional factors, the application’s policy needs to be set up for password
 only. Perform the following steps to set the app up for password only.

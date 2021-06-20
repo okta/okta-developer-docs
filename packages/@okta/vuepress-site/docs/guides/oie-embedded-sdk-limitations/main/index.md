@@ -116,7 +116,7 @@ There are two recommended options to mitigate this limitation.
 > Email template customizations are not available for free developer orgs.
 
 The Okta org you created in
-[Create your Okta Account](/docs/guides/oie-embedded-sdk-setup/aspnet/oie-embedded-sdk-org-setup/#create-your-okta-account)
+[Create your Okta Account](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-your-okta-account)
 contains a list of email templates used for correspondence with the users.
 One such template, named **Email Factor Verification**, is used during the
 new user registration process. The default template included a
