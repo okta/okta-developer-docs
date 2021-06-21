@@ -28,8 +28,8 @@ One of the following attributes must be defined. These attributes are defined by
 
 | Field Name     | Description                                                                                 | Data Type                                     | Required        | Max Length    |
 | :------------- | :------------------------------------------------------------------------------------------ | :-------------------------------------------- | :-------------- | :------------ |
-| gateways       | IP addresses (range or CIDR form) of this Zone                                              | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
-| proxies        | IP addresses (range or CIDR form) that are allowed to forward a request from gateway addresses. These proxies are automatically trusted by Threat Insights. These proxies are used to identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | 150 (entries) |
+| gateways       | IP addresses (range or CIDR form) of this Zone                                              | Array of [Address Objects](#address-object)   | No              | 150 (entries), 5,000 entries in the default |
+| proxies        | IP addresses (range or CIDR form) that are allowed to forward a request from gateway addresses. These proxies are automatically trusted by Threat Insights. These proxies are used to identify the client IP of a request.   | Array of [Address Objects](#address-object)   | No              | 150 (entries), 5,000 entries in the default  |
 
 #### Address object
 
