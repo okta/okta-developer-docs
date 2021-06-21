@@ -44,7 +44,7 @@ If not already done, complete the steps described in the
 If you completed the steps in
 [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases),
 you have set up your application for multiple factors. Ensure the application’s
-policy is setup for **Password + Another factor**.
+policy is set up for **Password + Another factor**.
 
 1. In the Admin console, select **Applications > Applications** from the
    left navigation menu.

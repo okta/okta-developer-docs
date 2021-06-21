@@ -45,8 +45,8 @@ REST interface. The flow is summarized below:
 
 To get started using the SDK following the steps below.
 
-1. If not already done, [create your account and setup your okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
-1. If not already done, [download and setup the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
+1. If not already done, [create your account and set up your okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
+1. If not already done, [download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
 1. [Run the SDK sample app](/docs/guides/oie-embedded-sdk-run-sample/aspnet/main/)
 1. Using the sample app as your guide, integrate the SDK into your app using the available
    [use cases](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-overview/)

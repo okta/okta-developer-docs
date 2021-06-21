@@ -1,5 +1,5 @@
 ---
-title: Create and setup your Okta org
+title: Create and set up your Okta org
 ---
 
 <div class="oie-embedded-sdk">
@@ -28,7 +28,7 @@ Widget into your own app, you need to do the following:
       > **Note:** It is recommended to skip these more advance configurations
         until you got the basic use cases working.
 
-Once you have completed setting up the Okta org, [download and setup the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
+Once you have completed setting up the Okta org, [download and set up the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
 
 ## Create your Okta account
 The first step is to create an Okta account, if you have not already.
@@ -343,9 +343,9 @@ The next step is to add a new routing rule.
 
 </div>
 
-### Download and setup the SDK and sample app
+### Download and set up the SDK and sample app
 
 Once you have completed setting up your Okta org, the next step is to
-download and setup the sample app and SDK.  See
-[Download and setup the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
+download and set up the sample app and SDK.  See
+[Download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
 for further details.

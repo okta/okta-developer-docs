@@ -1,5 +1,5 @@
 ---
-title: Download and setup the SDK, widget, and sample app
+title: Download and set up the SDK, widget, and sample app
 ---
 <div class="oie-embedded-sdk">
 
@@ -8,7 +8,7 @@ title: Download and setup the SDK, widget, and sample app
 <StackSelector class="cleaner-selector"/>
 
 Once you have
-[created and setup your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/),
+[created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/),
 next step is to download the GitHub repostory containing the SDK, widget, and
 accompanying sample apps.
 

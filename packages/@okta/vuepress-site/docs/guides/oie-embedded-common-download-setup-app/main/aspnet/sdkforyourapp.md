@@ -1,4 +1,4 @@
-#### Step 1: Setup your application for .Net 4.8 or greater
+#### Step 1: Set up your application for .Net 4.8 or greater
 
 The SDK and samples are built using .Net 4.8.
 

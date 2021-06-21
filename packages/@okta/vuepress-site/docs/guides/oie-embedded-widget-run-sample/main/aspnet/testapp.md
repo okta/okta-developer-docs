@@ -2,10 +2,10 @@ The sample app is located here: `okta-idx-dotnet/samples/samples-aspnet/embedded
 
 ## Steps to test the sample app
 
-1. If not already done, setup your Okta org by completing the steps located at
+1. If not already done, set up your Okta org by completing the steps located at
    [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 1. If not already done,
-   [download and setup the sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
+   [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
 1. Locate the sample apps solution file in the following path:
 `...\okta-idx-dotnet\samples\samples-aspnet\embedded-sign-in-widget`
 1. Open `embedded-sign-in-widget.sln` using Visual Studio
@@ -42,7 +42,7 @@ The sample app is located here: `okta-idx-dotnet/samples/samples-aspnet/embedded
 ## Troubleshooting
 
 1. If you get a Null Reference exception when the `IDXClient` is
-   instantiated, check to make sure you have properly setup your local
+   instantiated, check to make sure you have properly set up your local
    configurations. To troubleshoot the error, set the local configurations
    in the `IdxClient`'s constructor to determine whether the issue is
    originating from the SDK not being able to locate your configurations.

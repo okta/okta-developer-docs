@@ -12,9 +12,9 @@ layout: Guides
 
 
 Once you have
-[created and setup your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
+[created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
 and
-[downloaded and setup the SDK configurations](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/), the next step is to test the Widget sample app.
+[downloaded and set up the SDK configurations](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/), the next step is to test the Widget sample app.
 
 <StackSelector snippet="testapp" noSelector />
 
