@@ -7,8 +7,8 @@ The SDK and samples are built using .Net 4.8.
 Before using the SDK into your own application, you need to add the following
 Nuget Packages to your project:
 
-1. Okta.Idx.Sdk
-1. Okta.Sdk.Abstractions
+* Okta.Idx.Sdk
+* Okta.Sdk.Abstractions
 
 > **Note:** The Nuget Packages are prerelease.  When search for the nuget
 packages in Visual Studio ensure the prerelease checkbox is checked.

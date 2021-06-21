@@ -15,9 +15,9 @@ is provided with the Widget.
 
 Several reasons why you would choose the embedded Widget include:
 
-1. Easy and quick integration
-1. Most features are out of the box ready
-1. Most functionality such as multi-factor authentication is purely
+* Easy and quick integration
+* Most features are out of the box ready
+* Most functionality such as multi-factor authentication is purely
    a configuration change with no additional code
 
 ## The widget flow

@@ -88,8 +88,8 @@ To find this field to do the following:
 
 There are two workarounds:
 
-1. Create users via self registration
-1. Create users in the Okta org with the **Password** set to **Set by Admin**
+* Create users via self registration
+* Create users in the Okta org with the **Password** set to **Set by Admin**
 
 ## Email verify email link does not work
 
@@ -106,9 +106,9 @@ There are two recommended options to mitigate this limitation.
 > Verification of activation emails via the Verify Email Address link
   is not yet supported. It is recommended to do one of the following:
 
-  1. Remove the verification link from the Email Factor Verification email
+* Remove the verification link from the Email Factor Verification email
      template.
-  1. Inform your users to ignore the Verify Email Address link and continue
+* Inform your users to ignore the Verify Email Address link and continue
      the activation via the code flow.
 
 #### Option 1: Remove the verification link

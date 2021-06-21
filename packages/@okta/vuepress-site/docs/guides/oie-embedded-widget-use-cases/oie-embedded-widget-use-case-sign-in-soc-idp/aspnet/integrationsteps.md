@@ -39,9 +39,9 @@ returns a `interaction_code`. This code will be redeemed in the
 next step for tokens. The callback URL is defined in two locations
 and must be identical. These locations are:
 
-1. The `RedirectURI` parameter in the configuration setting defined in
+* The `RedirectURI` parameter in the configuration setting defined in
    [Download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
-1. A URI defined in the **Sign-in redirect URIs** field in the Okta
+* A URI defined in the **Sign-in redirect URIs** field in the Okta
    Application. The **Sign-in redirect URIs** field is described in
    [Setup your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 

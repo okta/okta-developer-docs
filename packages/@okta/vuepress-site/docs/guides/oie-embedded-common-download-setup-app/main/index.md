@@ -41,16 +41,16 @@ An example of the URI is:  `https://dev-foo.okta.com/oauth2/default`.
 
 Note that there are two main types of authorization servers: Org and custom:
 
-1. **Org**: If you want to use the Org authorization server use the following
+* **Org**: If you want to use the Org authorization server use the following
    url: `https://dev-foo.okta.com`.
-1. **Custom**: There are two types of custom authorization servers:
-   1. **default**: The default authorization server is predefined and
+* **Custom**: There are two types of custom authorization servers:
+  * **default**: The default authorization server is predefined and
       was created when you created the org.  An example URI for this type
       is:  `https://dev-foo.okta.com/oauth2/default`.
 
       > **Note:** If you are just getting started and want to run the sample app,
         use this value.
-   1. **Create your own**: You can also create your own custom authorization
+  * **Create your own**: You can also create your own custom authorization
       server.  An example URI for this type is:
       `https://dev-foo.okta.com/oauth2/${authServerId}`
 
@@ -98,9 +98,9 @@ For more information on available scopes see the
 When multiple çonfigurations options are used simultaneously, the SDK chooses
 the option based on the following order:
 
-1. SDK Client constructor
-1. Environment variables
-1. Configuration
+* SDK Client constructor
+* Environment variables
+* Configuration
 
 For example, values set in the SDK Client constructor override the
 environment variables and configuration file settings. Subsequently,
