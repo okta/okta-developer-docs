@@ -83,7 +83,7 @@ you need to make in your app to support to this step.
 ### Step 5: Facebook redirects to your Okta org
 If the user Facebook login is successful, facebook routes the user to the value you enter for **Valid OAuth Redirect URIs** and **Site URL** in
 [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers).
-The value takes on the following format:  `https://{Okta org domain}/oauth2/v1/authorize/callback.` (e.g. `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
+The value takes on the following format:  `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
 ### Step 6: Okta org redirects to your app via the Sign-in redirect URIs
 

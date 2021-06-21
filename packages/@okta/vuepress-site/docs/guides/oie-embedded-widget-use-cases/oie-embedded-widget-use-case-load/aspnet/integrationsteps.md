@@ -97,7 +97,7 @@ The next step includes the following:
 
 1. Creates a javascript object from the model
 1. Initializes the widget object, passing in the div id
-   (e.g. `okta-signin-widget-container`) on the page, and
+   (for example, `okta-signin-widget-container`) on the page, and
    javascript model object
 1. Calls the `showSignInAndRedirect` method on the widget object
     to display the sign in page.
@@ -125,7 +125,7 @@ you will create in the next step. Sample code is shown below.
 #### Step 2d: Add div tag
 
 The final step is to add a `div` tag with the id
-(e.g. `okta-signin-widget-container`). This `id` needs to match the
+(for example, `okta-signin-widget-container`). This `id` needs to match the
 same id you passed into the widget object in the previous step.
 
 ```html

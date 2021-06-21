@@ -106,7 +106,7 @@ The steps are as follows:
 1. In the **API** page click on the **Trusted Origins** tab:
 1. Under the Trusted Origins tab click on **Add Origin**.
    1. In the Add Origin dialog do the following:
-      1. Set a origin name (e.g. MyOrigin)
+      1. Set a origin name (for example, MyOrigin)
       1. Add the url to your application. If you are using the
          sample application, use `https://localhost:44314/`
       1. Under Type, select the **CORS** and **Redirect** checkboxes.
@@ -240,7 +240,7 @@ sample app and like to run the basic use cases listed in
     1. On the first set up page, select **web** as the platform type.
     1. On the next page, set the value for **Site URL** to
    `https://{Okta org domain}/oauth2/v1/authorize/callback`
-    (e.g. `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+    (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
     1. Click **Save** and then **Continue**.
     1. Click through all the **Next** buttons until you run through all the
        sections.
@@ -249,7 +249,7 @@ sample app and like to run the basic use cases listed in
    1. In the **Settings** page and under **Client OAuth Settings**, add the
       following urls for the  **Valid OAuth Redirect URIs**. field:
       `https://{Okta org domain}/oauth2/v1/authorize/callback`
-      (e.g. `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+      (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
    1. Click the **Save Changes** button at the bottom of the page to save
       your changes.
 
@@ -313,7 +313,7 @@ The next step is to create the Facebook identity provider in Okta.
    button. (A dropdown menu will appear.)
 1. In the dropdown menu, select **Add Facebook**.
 1. In the **Add Identity Provider – Facebook** page, do the following:
-  1. Enter a name (e.g. Facebook IdP)
+  1. Enter a name (for example, Facebook IdP)
   1. Keep **Idp Usage** set to the **SSO Only** default.
   1. Set the **Client ID** and **Client Secret** to the **App ID** and
      **Secret** you copied in the previous step.
@@ -329,8 +329,8 @@ The next step is to add a new routing rule.
 1. In the **Identity Providers** page, click on the **Routing rules** tab.
 1. Click **Add Routing Rule**.
    1. In the **Add Rule** page do the following:
-   1. Set a value for the **Rule Name** (e.g. FB and Okta Rule)
-   1. Add the F**acebook identity provider** for the **Use this identity provider**
+   1. Set a value for the **Rule Name** (for example, FB and Okta Rule)
+   1. Add the **Facebook identity provider** for the **Use this identity provider**
       field. Since Okta is defaulted, the two values should be:
       1. Okta
       1. Facebook Identity Provider (IdP)

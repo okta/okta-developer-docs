@@ -12,7 +12,7 @@ password. An example is shown below:
 
 ### Step 2: Authenticate user credentials
 
-When the user initiates the sign in (e.g. Continue button click),
+When the user initiates the sign in (for example, Continue button click),
 create a `AuthenticationOptions` object and set it’s `Username` and
 `Password` properties to the values entered in by the user. Send this
 object to the `IdxClient’s AuthenticateAsync` method.
