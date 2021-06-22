@@ -310,7 +310,7 @@ The next step is to create the Facebook identity provider in Okta.
 1. Select **Security > Identity Providers** from the left navigation menu.
 1. In the **Identity Providers** page click the **Add Identity Provider**
    button. (A drop-down menu appears.)
-1. In the dropdown menu, select **Add Facebook**.
+1. In the drop-down menu, select **Add Facebook**.
 1. In the **Add Identity Provider – Facebook** page, do the following:
   1. Enter a name (for example, Facebook IdP)
   1. Keep **Idp Usage** set to the **SSO Only** default.
