@@ -326,7 +326,7 @@ The next step is to create the Facebook identity provider in Okta.
 The next step is to add a new routing rule.
 
 1. Select **Security > Identity Providers** from the left navigation menu.
-1. In the **Identity Providers** page, click on the **Routing rules** tab.
+1. On the Identity Providers page, click **Routing rules**.
 1. Click **Add Routing Rule**.
    1. In the **Add Rule** page do the following:
    1. Set a value for the **Rule Name** (for example, FB and Okta Rule)
