@@ -7,4 +7,4 @@ consists of the following:
 * `okta-idx-dotnet/samples/samples-aspnet/embedded-auth-with-sdk`:
     Embedded SDK sample
 * `okta-idx-dotnet/samples/samples-aspnet/embedded-sign-in-widget`:
-    Embedded Widget sample
+    Embedded Sign-In Widget sample
