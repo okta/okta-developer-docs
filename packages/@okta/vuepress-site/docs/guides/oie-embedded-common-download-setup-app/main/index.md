@@ -41,7 +41,7 @@ Example URI:  `https://dev-foo.okta.com/oauth2/default`.
 
 > **Note:** There are two main types of authorization servers: Org and Custom
 
-* **Org**: If you want to use the Org authorization server use the following
+* **Org**: If you want to use the Org Authorization Server, use the following
    url: `https://dev-foo.okta.com`.
 * **Custom**: There are two types of custom authorization servers:
   * **default**: The default authorization server is predefined and
