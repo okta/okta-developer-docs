@@ -39,11 +39,12 @@ Server’s Issuer URI appears in the list.
 
 Example URI:  `https://dev-foo.okta.com/oauth2/default`.
 
-> **Note:** There are two main types of authorization servers: Org and Custom
+There are two main types of authorization servers: **Org** and **Custom**:
 
 * **Org**: If you want to use the Org Authorization Server, use the following
    URL: `https://dev-example.okta.com`.
-* **Custom**: There are two types of custom authorization servers:
+* **Custom**: You can either use the **default** custom server or create
+  your own.
   * **default**: The default authorization server is predefined and
       was created when you created the org.  An example URI for this type
       is:  `https://dev-foo.okta.com/oauth2/default`.

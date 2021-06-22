@@ -4,7 +4,7 @@ The SDK and samples are built using .Net 4.8.
 
 #### Step 2: Add the Okta SDK Nuget Packages
 
-Before using the SDK into your own app, you need to add the following
+Before using the SDK in your own app, you need to add the following
 Nuget Packages to your project:
 
 * Okta.Idx.Sdk

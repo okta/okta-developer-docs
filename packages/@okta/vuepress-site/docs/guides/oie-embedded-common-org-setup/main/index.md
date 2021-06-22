@@ -237,7 +237,7 @@ sample app and like to run the basic use cases listed in
    page select the App you just created.
 1. In the **App** page, scroll to the **Add a product** section.
     1. Click the **Set up** link in the **Facebook Login** tile.
-    1. On the first set up page, select **web** as the platform type.
+    1. On the first set up page, select **Web** as the platform type.
     1. On the next page, set the value for **Site URL** to
    `https://{Okta org domain}/oauth2/v1/authorize/callback`
     (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
