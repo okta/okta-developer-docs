@@ -34,7 +34,7 @@ decide to also use the widget). The list of settings is shown below:
 
 Use the **Issuer URI** named "default" from your Custom Authorization Server.
 To find this value, go to **Security** > **API** in the Admin
-Console. Under the **Authorization servers** tab, the default authorization
+Console. On the **Authorization servers** tab, the "default" Authorization
 server’s Issuer URI is displayed in the list.
 
 Example URI:  `https://dev-foo.okta.com/oauth2/default`.
