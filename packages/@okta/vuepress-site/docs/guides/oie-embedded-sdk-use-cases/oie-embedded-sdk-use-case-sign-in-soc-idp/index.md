@@ -8,7 +8,7 @@ title: Sign in with Facebook
 
 <StackSelector class="cleaner-selector"/>
 
-The user sign in with Facebook describes how to build your application to allow users to sign in with the Facebook social identity provider.
+The user sign in with Facebook describes how to build your app to allow users to sign in with the Facebook social identity provider.
 
 ## Factor setup
 

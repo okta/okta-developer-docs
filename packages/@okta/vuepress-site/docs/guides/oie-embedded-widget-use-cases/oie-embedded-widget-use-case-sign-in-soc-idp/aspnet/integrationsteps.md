@@ -31,7 +31,7 @@ The value takes on the following format:  `https://{Okta org domain}/oauth2/v1/a
 ### Step 4: Okta org redirects to your app via the Sign-in redirect URIs
 
 After Facebook sends the success login request to your Okta org, the org
-redirects the request to your application via the Application’s
+redirects the request to your app via the Application’s
 **Sign-in redirect URIs** field.
 
 This step handles the callback from the widget that

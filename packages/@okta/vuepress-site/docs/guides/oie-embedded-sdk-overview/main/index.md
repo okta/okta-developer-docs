@@ -7,13 +7,13 @@ title: Overview
 <div class="oie-embedded-sdk">
 
 This guide walks you through the steps to download, set up, and configure
-the SDK and provided sample application. After you complete the initial steps,
+the SDK and provided sample app. After you complete the initial steps,
 you are ready to walk through the available use cases that highlight
 the supported features such as sign in, multifactor authentication, and
 self-registration.
 
-Use the sample application as your guide when learning about and integrating the SDK
-into your application.
+Use the sample app as your guide when learning about and integrating the SDK
+into your own app.
 
 ## Why you would want to use the embedded SDK
 
@@ -30,7 +30,7 @@ models see
 
 ## The SDK flow
 
-The SDK integrates into your application using a native language
+The SDK integrates into your app using a native language
 interface and communicates directly with the Okta APIs using a
 REST interface. The flow is summarized below:
 

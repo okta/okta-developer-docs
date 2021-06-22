@@ -11,7 +11,7 @@ Create a YAML file named `okta.yaml` in one of the following three available dir
 * Application or project’s root directory
 
 > **Note:** If you're using the **IISExpress** debugger (recommended) in Visual Studio
-to run your application, the location of the `okta.yaml` file needs to be in the
+to run your app, the location of the `okta.yaml` file needs to be in the
 following location: `{IIS Express install location}\IIS Express`
 (for example, `C:\Program Files (x86)\IIS Express\okta.yaml`)
 

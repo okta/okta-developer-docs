@@ -8,7 +8,7 @@ title: Self registration
 
 <StackSelector class="cleaner-selector"/>
 
-Self service registration allows users to sign up for your application themselves.
+Self service registration allows users to sign up for your app themselves.
 In this use case we will require the user to register with a **password**,
 and (**email** or **SMS**) factors. To enable self service registrations, the
 following steps need to be performed:

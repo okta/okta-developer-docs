@@ -29,7 +29,7 @@ The next step is to loop through the identity provider list and show links
 for each of the configured identity providers. In this case there should
 only be the one Facebook identity provider.
 
-#### Code from sample application
+#### Code from sample app
 
 The code (from the sample app) below shows the loop of identity providers
 that build the buttons on the sign page.  In this use case there should
@@ -88,7 +88,7 @@ The value takes on the following format:  `https://{Okta org domain}/oauth2/v1/a
 ### Step 6: Okta org redirects to your app via the Sign-in redirect URIs
 
 After Facebook sends the success login request to your Okta org, the org
-redirects the request to your application via the Application’s
+redirects the request to your app via the Application’s
 **Sign-in redirect URIs** field. This field was configured in
 [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 

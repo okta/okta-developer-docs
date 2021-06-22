@@ -107,8 +107,8 @@ The steps are as follows:
 1. Under the Trusted Origins tab click on **Add Origin**.
    1. In the Add Origin dialog do the following:
       1. Set a origin name (for example, MyOrigin)
-      1. Add the url to your application. If you are using the
-         sample application, use `https://localhost:44314/`
+      1. Add the url of your app. If you are using the
+         sample app, use `https://localhost:44314/`
       1. Under Type, select the **CORS** and **Redirect** checkboxes.
       1. Click **Save**.
 
@@ -297,7 +297,7 @@ steps:
 1. In the left navigation menu, click on **Settings** which will display the
    **Basic** sub menu.
 1. Click **Basic**. In the **Basic settings** page do the following:
-  1. Set a value in the Privacy Policy URL for your application.  If you don’t
+  1. Set a value in the Privacy Policy URL for your app.  If you don’t
      have one you can temporarily use:  `https://www.okta.com/privacy-policy/`.
   1. Click **Save Changes** at the bottom of the page.
 1. On the top of the dashboard screen, select the **In development** slider to

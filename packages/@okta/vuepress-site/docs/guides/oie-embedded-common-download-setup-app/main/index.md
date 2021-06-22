@@ -120,10 +120,10 @@ Once you have completed the configurations, the next step is to run the sample a
 * [Run the SDK sample app](/docs/guides/oie-embedded-sdk-run-sample/aspnet/main/)
 * [Run the widget sample app](/docs/guides/oie-embedded-widget-run-sample/aspnet/main/)
 
-## Set up the SDK for your own application
+## Set up the SDK for your own app
 
 Once you have run the sample app and explored it's available use cases, you can begin
-to integrate the SDK and/or widget into your own application.  To get started follow
+to integrate the SDK and/or widget into your own app.  To get started follow
 the below steps:
 
 <StackSelector snippet="sdkforyourapp" noSelector />

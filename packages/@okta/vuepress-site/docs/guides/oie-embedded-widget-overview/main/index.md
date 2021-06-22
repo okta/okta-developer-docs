@@ -23,7 +23,7 @@ Several reasons why you would choose the embedded Widget include:
 ## The widget flow
 
 In tandem with the embedded SDK, the widget integrates into your
-application using a native language interface and communicates directly with
+app using a native language interface and communicates directly with
 the Okta APIs. The flow is summarized below:
 
 <div class="common-image-format">

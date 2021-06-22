@@ -14,7 +14,7 @@ The sample app is located here: `okta-idx-dotnet/samples/samples-aspnet/embedded
 1. Add a `okta.yaml` configuration file. For more information on how to configure
    and where to place the configuration file see [Option 1: YAML configuration file](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/#option-1-configuration-file).
 1. Click Visual Studio’s play button and run the solution. The default web browser
-   should open and navigate to the application home page. The URL should be:
+   should open and navigate to the app's home page. The URL should be:
    `https://localhost:44314`,  which is the default address when using IISExpress.
    Once the app loads, click the **Sign In** button located on the home screen.
 1. On the Sign in page enter the username (email) and password you used in

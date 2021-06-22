@@ -519,7 +519,7 @@ in page (in the case of the sample app it’s the user profile page)
 Once the factor verifications are successful and there are no more
 authenticators to enroll and verify, the user is now successfully
 registered and can be sent to the default sign in page. In the case
-of the sample application, the default sign page is the user profile page.
+of the sample app, the default sign page is the user profile page.
 See
 [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more details on how to fetch user information.
 

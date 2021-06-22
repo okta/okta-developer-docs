@@ -14,9 +14,9 @@ layout: Guides
 
 Passwordless sign in using magic links is currently not supported with
 the SDK. In this use case, the user submits only their email address
-through your application to initiate the sign in. An email is subsequently
+through your app to initiate the sign in. An email is subsequently
 sent to the user to complete the sign in via a sign link. The user opens
-the email and clicks the link that sends them to your application signed
+the email and clicks the link that sends them to your app already signed
 in.  See the sequence of steps below for a more detailed explanation of
 the passwordless sign in process.
 
@@ -51,7 +51,7 @@ User other means for user sign in such as using the password or social identity 
 Currently, the SDK only supports the primary factor for the Org’s
 global sign in policy to be set to **Password / IDP**. This limitation is due
 to the fact that the SDK currently only supports password and IDP as
-factors to sign in to an application.  To identify the current value
+factors to sign in to an app.  To identify the current value
 for this field perform the following steps:
 
 1. In the Admin Console (for the Okta org you set up in the previous step),
