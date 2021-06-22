@@ -14,9 +14,9 @@ layout: Guides
 
 Passwordless sign in using magic links is currently not supported with
 the SDK. In this use case, the user submits only their email address
-through your application to initiate the sign in. An email is subsequently
+through your app to initiate the sign in. An email is subsequently
 sent to the user to complete the sign in via a sign link. The user opens
-the email and clicks the link that sends them to your application signed
+the email and clicks the link that sends them to your app already signed
 in.  See the sequence of steps below for a more detailed explanation of
 the passwordless sign in process.
 
@@ -51,10 +51,10 @@ User other means for user sign in such as using the password or social identity 
 Currently, the SDK only supports the primary factor for the Org’s
 global sign in policy to be set to **Password / IDP**. This limitation is due
 to the fact that the SDK currently only supports password and IDP as
-factors to sign in to an application.  To identify the current value
+factors to sign in to an app.  To identify the current value
 for this field perform the following steps:
 
-1. In the Admin console (for the Okta org you set up in the previous step),
+1. In the Admin Console (for the Okta org you set up in the previous step),
    select **Security > Okta Sign-on policy** from the left navigation menu.
 1. Take note of the number of policies configured. The Default policy is
    automatically created when the Org is created and will have a default rule with the **Primary factor** set to **Password / IDP**. To verify this value, expand the **Default Policy’s Default rule** by clicking on the information icon to the right of the rule. Note the value of the Primary factor which should be set to Password / IDP.
@@ -76,7 +76,7 @@ the **Password** field set to **Set by user**.
 
 To find this field to do the following:
 
-1. In the Admin console (for the Okta org you set up in the previous step),
+1. In the Admin Console (for the Okta org you set up in the previous step),
    select **Directory > People** from the left navigation menu.
 1. Select **Add Person** from the **People** screen.
 1. In the **Add Person** page, note the **Password** field. The two current values are:
@@ -88,8 +88,8 @@ To find this field to do the following:
 
 There are two workarounds:
 
-1. Create users via self registration
-1. Create users in the Okta org with the **Password** set to **Set by Admin**
+* Create users via self registration
+* Create users in the Okta org with the **Password** set to **Set by Admin**
 
 ## Email verify email link does not work
 
@@ -103,12 +103,12 @@ user to the application that generated the email.
 
 There are two recommended options to mitigate this limitation.
 
-> Verification of activation emails via the Verify Email Address link
-  is not yet supported. It is recommended to do one of the following:
+> **Note:** Verification of activation emails through the **Verify Email Address** link
+  isn't yet supported. It's recommended to do one of the following:
 
-  1. Remove the verification link from the Email Factor Verification email
+* Remove the verification link from the Email Factor Verification email
      template.
-  1. Inform your users to ignore the Verify Email Address link and continue
+* Inform your users to ignore the Verify Email Address link and continue
      the activation via the code flow.
 
 #### Option 1: Remove the verification link
@@ -133,7 +133,7 @@ See screenshot below:
 
 To find the Email Factor Verification email template to the following:
 
-1. In the Admin console select **Settings > Email & SMS** from the
+1. In the Admin Console select **Settings > Email & SMS** from the
    left navigation menu.
 1. On the **Email & SMS Customization** page, scroll down through the
    template list and click on Email Factor Verification.

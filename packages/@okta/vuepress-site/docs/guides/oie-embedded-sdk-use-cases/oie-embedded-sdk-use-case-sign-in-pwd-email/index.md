@@ -39,7 +39,7 @@ If not already done, complete the steps described in the
 
 ### Step 3:  Ensure application is configured for password and another factor
 
-1. In the Admin console, select **Applications > Applications** from the left
+1. In the Admin Console, select **Applications > Applications** from the left
    navigation menu.
 1. In the **Applications** page, click on your application.
 1. In your application page, select the **Sign On** tab and scroll down to the
@@ -53,7 +53,7 @@ If not already done, complete the steps described in the
 
 ### Step 4:  Ensure only Email is set as optional for authentication enrollment
 
-1. In the Admin console, select **Security > Authenticators** from the left navigation menu.
+1. In the Admin Console, select **Security > Authenticators** from the left navigation menu.
 1. In the **Authenticators** page, click on the enrollment tab..
 1. Click **Edit** for the **Default Policy**.
 1. In the **Edit Policy** page note the factors under **Effective Factors** and do the following:

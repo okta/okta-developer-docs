@@ -12,7 +12,7 @@ password. An example is shown below:
 
 ### Step 2: Authenticate user credentials
 
-When the user initiates the sign in (e.g. Continue button click),
+When the user initiates the sign in (for example, Continue button click),
 create a `AuthenticationOptions` object and set it’s `Username` and
 `Password` properties to the values entered in by the user. Send this
 object to the `IdxClient’s AuthenticateAsync` method.
@@ -200,7 +200,7 @@ of `Success`. This status signifies that there are no more factors (required
 or optional) waiting to be enrolled and verified. The user should now be
 registered with no more factors to be verified and be sent to the default
 page after they have successfully registered. In the case of the sample
-application, the user is sent to the user profile page.
+app, the user is sent to the user profile page.
 
 ```csharp
 var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);

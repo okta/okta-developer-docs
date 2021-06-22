@@ -1,6 +1,6 @@
 ### Step 1: Create a sign out UI element
 The first step is to create a link, button, or another similar UI
-element that allows the user to sign out of the application.
+element that allows the user to sign out of the app.
 
 <div class="common-image-format">
 

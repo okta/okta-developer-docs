@@ -26,12 +26,12 @@ you need to make in your app to support to this step.
 ### Step 3: Facebook redirects to your Okta org
 If the user Facebook login is successful, facebook routes the user to the value you enter for **Valid OAuth Redirect URIs** and **Site URL** in
 [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers).
-The value takes on the following format:  `https://{Okta org domain}/oauth2/v1/authorize/callback.` (e.g. `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
+The value takes on the following format:  `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
 ### Step 4: Okta org redirects to your app via the Sign-in redirect URIs
 
 After Facebook sends the success login request to your Okta org, the org
-redirects the request to your application via the Application’s
+redirects the request to your app via the Application’s
 **Sign-in redirect URIs** field.
 
 This step handles the callback from the widget that
@@ -39,9 +39,9 @@ returns a `interaction_code`. This code will be redeemed in the
 next step for tokens. The callback URL is defined in two locations
 and must be identical. These locations are:
 
-1. The `RedirectURI` parameter in the configuration setting defined in
-   [Download and setup the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
-1. A URI defined in the **Sign-in redirect URIs** field in the Okta
+* The `RedirectURI` parameter in the configuration setting defined in
+   [Download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
+* A URI defined in the **Sign-in redirect URIs** field in the Okta
    Application. The **Sign-in redirect URIs** field is described in
    [Setup your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 

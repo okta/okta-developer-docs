@@ -16,7 +16,7 @@ Note the sign up link in the example below under the Continue button.
 
 ### Step 2: Create the create account page (User enters sign up info)
 
-The next step is for the user to enter basic information (e.g. email,
+The next step is for the user to enter basic information (for example, email,
 first and last name). Create a page that accepts this information. An
 example is shown below:
 
@@ -519,7 +519,7 @@ in page (in the case of the sample app it’s the user profile page)
 Once the factor verifications are successful and there are no more
 authenticators to enroll and verify, the user is now successfully
 registered and can be sent to the default sign in page. In the case
-of the sample application, the default sign page is the user profile page.
+of the sample app, the default sign page is the user profile page.
 See
 [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more details on how to fetch user information.
 
@@ -527,6 +527,6 @@ See
 
 Ensure when testing this use case you use a new email each time. If you have
 a gmail account you can reuse the same email by add a plus (+) and additional
-text (e.g. `myemail+1@gmail.com`, `myemail+2@gmail.com`, etc)
+text (for example, `myemail+1@gmail.com`, `myemail+2@gmail.com`, etc)
 Ensure the password you use meets minimum security requirements. For example,
 passwords such as `test123` will fail.

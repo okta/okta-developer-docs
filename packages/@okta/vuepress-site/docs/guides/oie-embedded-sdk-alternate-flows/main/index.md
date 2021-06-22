@@ -23,7 +23,7 @@ Even when only password factor is required for the Okta Application, an email ca
 
 ### Setup
 
-In this scenario, the org is setup in the following manner:
+In this scenario, the org is set up in the following manner:
 
 1. The org is initially configured following the steps described in:
 [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases)

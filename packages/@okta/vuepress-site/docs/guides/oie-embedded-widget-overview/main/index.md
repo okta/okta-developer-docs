@@ -15,15 +15,15 @@ is provided with the Widget.
 
 Several reasons why you would choose the embedded Widget include:
 
-1. Easy and quick integration
-1. Most features are out of the box ready
-1. Most functionality such as multi-factor authentication is purely
+* Easy and quick integration
+* Most features are out of the box ready
+* Most functionality such as multi-factor authentication is purely
    a configuration change with no additional code
 
 ## The widget flow
 
 In tandem with the embedded SDK, the widget integrates into your
-application using a native language interface and communicates directly with
+app using a native language interface and communicates directly with
 the Okta APIs. The flow is summarized below:
 
 <div class="common-image-format">
@@ -37,8 +37,8 @@ the Okta APIs. The flow is summarized below:
 
 To get started using the widget following the steps below.
 
-1. If not already done, [create your account and setup your okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
-1. If not already done, [download and setup the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
+1. If not already done, [create your account and set up your okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
+1. If not already done, [download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
 1. [Run the widget sample app](/docs/guides/oie-embedded-widget-run-sample/aspnet/main/)
 1. Using the sample app as your guide, integrate the SDK into your app using the available
    [use cases](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-overview/)

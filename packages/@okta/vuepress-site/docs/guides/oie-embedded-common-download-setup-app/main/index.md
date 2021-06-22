@@ -1,5 +1,5 @@
 ---
-title: Download and setup the SDK, widget, and sample app
+title: Download and set up the SDK, widget, and sample app
 ---
 <div class="oie-embedded-sdk">
 
@@ -7,9 +7,9 @@ title: Download and setup the SDK, widget, and sample app
 
 <StackSelector class="cleaner-selector"/>
 
-Once you have
-[created and setup your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/),
-next step is to download the GitHub repostory containing the SDK, widget, and
+After you have
+[created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/),
+the next step is to download the GitHub repository that contains the SDK, widget, and
 accompanying sample apps.
 
 ## Software requirements
@@ -32,25 +32,26 @@ decide to also use the widget). The list of settings is shown below:
 
 ### Issuer
 
-For the sample app use the **Issuer URI** from the custom authorization server
-named “default”.  To find this value, go to **Security > API** in the Admin
-console. Under the **Authorization servers** tab, the default authorization
-server’s Issuer URI is displayed in the list.
+Use the **Issuer URI** named "default" from your Custom Authorization Server.
+To find this value, go to **Security** > **API** in the Admin
+Console. On the **Authorization servers** tab, the "default" Authorization
+Server’s Issuer URI appears in the list.
 
-An example of the URI is:  `https://dev-foo.okta.com/oauth2/default`.
+Example URI:  `https://dev-foo.okta.com/oauth2/default`.
 
-Note that there are two main types of authorization servers: Org and custom:
+There are two main types of authorization servers: **Org** and **Custom**:
 
-1. **Org**: If you want to use the Org authorization server use the following
-   url: `https://dev-foo.okta.com`.
-1. **Custom**: There are two types of custom authorization servers:
-   1. **default**: The default authorization server is predefined and
+* **Org**: If you want to use the Org Authorization Server, use the following
+   URL: `https://dev-example.okta.com`.
+* **Custom**: You can either use the **default** custom server or create
+  your own.
+  * **default**: The default authorization server is predefined and
       was created when you created the org.  An example URI for this type
       is:  `https://dev-foo.okta.com/oauth2/default`.
 
       > **Note:** If you are just getting started and want to run the sample app,
         use this value.
-   1. **Create your own**: You can also create your own custom authorization
+  * **Create your own**: You can also create your own custom authorization
       server.  An example URI for this type is:
       `https://dev-foo.okta.com/oauth2/${authServerId}`
 
@@ -64,14 +65,14 @@ following resources:
 
 For the sample app use the **Client id** for the application you created in
 [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/).
-To find this value, go to **Applications > Applications** in the Admin console.
+To find this value, go to **Applications > Applications** in the Admin Console.
 Click on your app, and under the **Generals** copy the **Client Id**.
 
 ### Client Secret
 
 For the sample app use the **Client Secret** for the application you created in
 [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/).
-To find this value, go to **Applications > Applications** in the Admin console.
+To find this value, go to **Applications > Applications** in the Admin Console.
 Click on your app, and under the **Generals** copy the **Client Secret**.
 
 #### Redirect URI
@@ -81,7 +82,7 @@ Click on your app, and under the **Generals** copy the **Client Secret**.
 This is the same value as **Redirect URI** for the application you created in
 [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/).
 To find this value, go to **Applications > Applications**
-in the Admin console. Click on your app, and under the **Generals** copy
+in the Admin Console. Click on your app, and under the **Generals** copy
 the **Sign-in redirect URI**.
 
 ### Scopes
@@ -98,9 +99,9 @@ For more information on available scopes see the
 When multiple çonfigurations options are used simultaneously, the SDK chooses
 the option based on the following order:
 
-1. SDK Client constructor
-1. Environment variables
-1. Configuration
+* SDK Client constructor
+* Environment variables
+* Configuration
 
 For example, values set in the SDK Client constructor override the
 environment variables and configuration file settings. Subsequently,
@@ -120,10 +121,10 @@ Once you have completed the configurations, the next step is to run the sample a
 * [Run the SDK sample app](/docs/guides/oie-embedded-sdk-run-sample/aspnet/main/)
 * [Run the widget sample app](/docs/guides/oie-embedded-widget-run-sample/aspnet/main/)
 
-## Set up the SDK for your own application
+## Set up the SDK for your own app
 
 Once you have run the sample app and explored it's available use cases, you can begin
-to integrate the SDK and/or widget into your own application.  To get started follow
+to integrate the SDK and/or widget into your own app.  To get started follow
 the below steps:
 
 <StackSelector snippet="sdkforyourapp" noSelector />

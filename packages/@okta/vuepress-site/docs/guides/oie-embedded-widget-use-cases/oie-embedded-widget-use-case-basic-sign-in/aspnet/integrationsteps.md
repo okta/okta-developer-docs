@@ -3,7 +3,7 @@
 If the widget successfully loads after completing the steps in
 [Use Case 1: Load the widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-load/),
 then the next step is for the user to sign in.  There is no
-additional code that needs to be added to your application for this
+additional code that needs to be added to your app for this
 step.  The user enters their credentials, and clicks the Next or Sign
 in button.  See screenshot below:
 
@@ -22,7 +22,7 @@ next step for tokens. The callback URL is defined in two locations
 and must be identical. These locations are:
 
 1. The `RedirectURI` parameter in the configuration setting defined in
-   [Download and setup the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
+   [Download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
 1. A URI defined in the **Sign-in redirect URIs** field in the Okta
    Application. The **Sign-in redirect URIs** field is described in
    [Setup your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).

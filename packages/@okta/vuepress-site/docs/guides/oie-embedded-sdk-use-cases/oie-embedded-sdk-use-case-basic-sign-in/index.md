@@ -39,7 +39,7 @@ you have set up your application for multiple factors.
 In order to use this password factor only use case,
 perform the following steps:
 
-1. In the [Admin console](https://developer.okta.com/docs/guides/quickstart/using-console/),
+1. In the [Admin Console](https://developer.okta.com/docs/guides/quickstart/using-console/),
    select **Applications > Applications** from the left navigation menu.
 1. In the **Applications** page, click on your application.
 1. In your application page, select the **Sign On** tab and scroll down

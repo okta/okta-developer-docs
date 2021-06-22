@@ -1,5 +1,5 @@
 ---
-title: Create and setup your Okta org
+title: Create and set up your Okta org
 ---
 
 <div class="oie-embedded-sdk">
@@ -25,10 +25,10 @@ Widget into your own app, you need to do the following:
       1. [Set up your Okta org (for multi-factor use cases)](#set-up-your-okta-org-for-multi-factor-use-cases)
       1. [Set up your Okta org (for social identity providers)](#set-up-your-okta-org-for-social-identity-providers)
 
-      > **Note:** It is recommended to skip these more advance configurations
+      > **Note:** It's recommended to skip these more advanced configurations
         until you got the basic use cases working.
 
-Once you have completed setting up the Okta org, [download and setup the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
+After you have completed setting up the Okta org, [download and set up the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
 
 ## Create your Okta account
 The first step is to create an Okta account, if you have not already.
@@ -45,7 +45,7 @@ The steps are as follows:
 
 1. Using the activate link in Okta’s email, activate your account
    providing a new password. Okta redirects you to the
-   [Admin console](https://developer.okta.com/docs/guides/quickstart/using-console/)
+   [Admin Console](https://developer.okta.com/docs/guides/quickstart/using-console/)
    dashboard.
 
 ## Set up your Okta org for password factor only use cases
@@ -62,21 +62,21 @@ that support this basic setup include:
 
 **Widget**
 
-1. [Load the widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-load/)
-1. [Basic sign in using the widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-basic-sign-in/)
-1. [Sign in with Facebook](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-sign-in-soc-idp/)
+* [Load the widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-load/)
+* [Basic sign in using the widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-basic-sign-in/)
+* [Sign in with Facebook](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-sign-in-soc-idp/)
 
 
 **SDK**
 
-1. [Basic user sign in (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/)
-1. [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-out/)
-1. [Sign in with a social identity provider (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-soc-idp/)
+* [Basic user sign in (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/)
+* [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-out/)
+* [Sign in with a social identity provider (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-soc-idp/)
 
 The steps are as follows:
 
 ### Step 1:  Update the custom authorization server named “default”
-1. In the [Admin console](/docs/guides/quickstart/using-console/)
+1. In the [Admin Console](/docs/guides/quickstart/using-console/)
    (for the Okta org you set up in the previous step), select
    ***Security > API*** from the left navigation menu.
 1. In the **API** page under the **Authorization Servers** tab:
@@ -103,13 +103,13 @@ The steps are as follows:
 ### Step 3: Add a trusted origin and enable CORS
 
 1. Select **Security > API** from the left navigation menu.
-1. In the **API** page click on the **Trusted Origins** tab:
-1. Under the Trusted Origins tab click on **Add Origin**.
-   1. In the Add Origin dialog do the following:
-      1. Set a origin name (e.g. MyOrigin)
-      1. Add the url to your application. If you are using the
-         sample application, use `https://localhost:44314/`
-      1. Under Type, select the **CORS** and **Redirect** checkboxes.
+1. On the **API** page, click **Trusted Origins**:
+1. On the **Trusted Origins** tab, click **Add Origin**.
+   1. On the Add Origin dialog, do the following:
+      * Set an origin name (for example, MyOrigin)
+      1. Add the url of your app. If you are using the
+         sample app, use `https://localhost:44314/`
+      * Under **Type**, select the **CORS** and **Redirect** checkboxes.
       1. Click **Save**.
 
 ### Step 4:  Create new application
@@ -142,10 +142,10 @@ include:
 
 **SDK**
 
-1. [Sign in (password and email factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-email/)
-1. [Sign in (password and phone factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-phone/)
-1. [User password recovery (password and email factors)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-pwd-recovery-mfa/)
-1. [Self user registration (email and optional phone factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-self-reg/)
+* [Sign in (password and email factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-email/)
+* [Sign in (password and phone factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-phone/)
+* [User password recovery (password and email factors)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-pwd-recovery-mfa/)
+* [Self user registration (email and optional phone factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-self-reg/)
 
 > **Note:** It is recommended to skip this step if you are just getting started with the
 sample app and like to run the basic use cases listed in
@@ -157,7 +157,7 @@ complex multi factor use cases, continue with the steps below.
 The steps to enable these factors are as follows:
 
 ### Step 1: Setup the authenticators for multi-factor use cases
-1. In the Admin console,
+1. In the Admin Console,
    select **Security > Authenticators** from the left navigation menu.
 1. From the **Authenticators page**, perform the following steps:
 
@@ -210,11 +210,11 @@ provider. The use cases requiring this setup are as follows:
 
 **Widget**
 
-1. [Sign in with Facebook](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-sign-in-soc-idp/)
+* [Sign in with Facebook](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-sign-in-soc-idp/)
 
 **SDK**
 
-1. [Sign in with Facebook (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-soc-idp/)
+* [Sign in with Facebook (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-soc-idp/)
 
 You can skip this section until you are ready to run through the above use
 case. Otherwise, the steps to add support for the Facebook social provider are
@@ -237,21 +237,20 @@ sample app and like to run the basic use cases listed in
    page select the App you just created.
 1. In the **App** page, scroll to the **Add a product** section.
     1. Click the **Set up** link in the **Facebook Login** tile.
-    1. On the first set up page, select **web** as the platform type.
+    1. On the first set up page, select **Web** as the platform type.
     1. On the next page, set the value for **Site URL** to
    `https://{Okta org domain}/oauth2/v1/authorize/callback`
-    (e.g. `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+    (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
     1. Click **Save** and then **Continue**.
     1. Click through all the **Next** buttons until you run through all the
        sections.
 1. In the left navigation menu, click on **Facebook Login** (under products)
    and then click **Settings**.
-   1. In the **Settings** page and under **Client OAuth Settings**, add the
-      following urls for the  **Valid OAuth Redirect URIs**. field:
+   1. On the **Settings** page and under **Client OAuth Settings**, add the
+      following URLs for the  **Valid OAuth Redirect URIs** field:
       `https://{Okta org domain}/oauth2/v1/authorize/callback`
-      (e.g. `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
-   1. Click the **Save Changes** button at the bottom of the page to save
-      your changes.
+      (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+   1. Click **Save Changes** at the bottom of the page.
 
 #### Step 1b:  Copy the App ID and Secret
 
@@ -297,7 +296,7 @@ steps:
 1. In the left navigation menu, click on **Settings** which will display the
    **Basic** sub menu.
 1. Click **Basic**. In the **Basic settings** page do the following:
-  1. Set a value in the Privacy Policy URL for your application.  If you don’t
+  1. Set a value in the Privacy Policy URL for your app.  If you don’t
      have one you can temporarily use:  `https://www.okta.com/privacy-policy/`.
   1. Click **Save Changes** at the bottom of the page.
 1. On the top of the dashboard screen, select the **In development** slider to
@@ -310,13 +309,13 @@ The next step is to create the Facebook identity provider in Okta.
 
 1. Select **Security > Identity Providers** from the left navigation menu.
 1. In the **Identity Providers** page click the **Add Identity Provider**
-   button. (A dropdown menu will appear.)
-1. In the dropdown menu, select **Add Facebook**.
+   button. (A drop-down menu appears.)
+1. In the drop-down menu, select **Add Facebook**.
 1. In the **Add Identity Provider – Facebook** page, do the following:
-  1. Enter a name (e.g. Facebook IdP)
+  1. Enter a name (for example, Facebook IdP)
   1. Keep **Idp Usage** set to the **SSO Only** default.
   1. Set the **Client ID** and **Client Secret** to the **App ID** and
-     **Secret** you copied in the previous step.
+     **Secret** that you copied in the previous step.
   1. Keep the **Scopes** values to the default: **public_profile** and
      **default**.
   1. Click the **Add Identity Provider** button to save the settings.
@@ -326,11 +325,11 @@ The next step is to create the Facebook identity provider in Okta.
 The next step is to add a new routing rule.
 
 1. Select **Security > Identity Providers** from the left navigation menu.
-1. In the **Identity Providers** page, click on the **Routing rules** tab.
+1. On the Identity Providers page, click **Routing rules**.
 1. Click **Add Routing Rule**.
    1. In the **Add Rule** page do the following:
-   1. Set a value for the **Rule Name** (e.g. FB and Okta Rule)
-   1. Add the F**acebook identity provider** for the **Use this identity provider**
+   1. Set a value for the **Rule Name** (for example, FB and Okta Rule)
+   1. Add the **Facebook identity provider** for the **Use this identity provider**
       field. Since Okta is defaulted, the two values should be:
       1. Okta
       1. Facebook Identity Provider (IdP)
@@ -343,9 +342,9 @@ The next step is to add a new routing rule.
 
 </div>
 
-### Download and setup the SDK and sample app
+### Download and set up the SDK and sample app
 
 Once you have completed setting up your Okta org, the next step is to
-download and setup the sample app and SDK.  See
-[Download and setup the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
+download and set up the sample app and SDK.  See
+[Download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
 for further details.

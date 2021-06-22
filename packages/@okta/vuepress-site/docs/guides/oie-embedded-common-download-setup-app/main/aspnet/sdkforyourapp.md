@@ -1,17 +1,17 @@
-#### Step 1: Setup your application for .Net 4.8 or greater
+#### Step 1: Set up your app for .Net 4.8 or greater
 
 The SDK and samples are built using .Net 4.8.
 
 #### Step 2: Add the Okta SDK Nuget Packages
 
-Before using the SDK into your own application, you need to add the following
+Before using the SDK in your own app, you need to add the following
 Nuget Packages to your project:
 
-1. Okta.Idx.Sdk
-1. Okta.Sdk.Abstractions
+* Okta.Idx.Sdk
+* Okta.Sdk.Abstractions
 
-> **Note:** The Nuget Packages are prerelease.  When search for the nuget
-packages in Visual Studio ensure the prerelease checkbox is checked.
+> **Note:** Nuget packages are pre-release.  When you search for Nuget
+packages in Visual Studio, ensure that the pre-release checkbox is selected.
 
 #### Step 3: Initialize IdxClient
 

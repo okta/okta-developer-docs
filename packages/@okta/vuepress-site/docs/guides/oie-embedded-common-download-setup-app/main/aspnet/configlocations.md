@@ -4,14 +4,14 @@ There are several options you have to set the configuration values. They are:
 
 Create a YAML file named `okta.yaml` in one of the following three available directories:
 
-1. Current user’s home directory.
-   1. **Unix/Linux**:    `~/.okta/okta.yaml`
-   1. **Windows**:       `%userprofile%\.okta\okta.yaml`
+* Current user’s home directory.
+  * **Unix/Linux**:    `~/.okta/okta.yaml`
+  * **Windows**:       `%userprofile%\.okta\okta.yaml`
 
-1. Application or project’s root directory
+* Application or project’s root directory
 
 > **Note:** If you're using the **IISExpress** debugger (recommended) in Visual Studio
-to run your application, the location of the `okta.yaml` file needs to be in the
+to run your app, the location of the `okta.yaml` file needs to be in the
 following location: `{IIS Express install location}\IIS Express`
 (for example, `C:\Program Files (x86)\IIS Express\okta.yaml`)
 
@@ -35,11 +35,11 @@ idx:
 
 Add the values as environment variables with the following naming convention:
 
-1. `OKTA_IDX_ISSUER`
-1. `OKTA_IDX_CLIENTID`
-1. `OKTA_IDX_CLIENTSECRET`
-1. `OKTA_IDX_REDIRECTURI`
-1. `OKTA_IDX_SCOPES`
+* `OKTA_IDX_ISSUER`
+* `OKTA_IDX_CLIENTID`
+* `OKTA_IDX_CLIENTSECRET`
+* `OKTA_IDX_REDIRECTURI`
+* `OKTA_IDX_SCOPES`
 
 ### Option 3: Add parameter to the SDK’s client constructor
 
