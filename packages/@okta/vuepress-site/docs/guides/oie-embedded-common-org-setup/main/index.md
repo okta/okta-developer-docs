@@ -28,7 +28,7 @@ Widget into your own app, you need to do the following:
       > **Note:** It is recommended to skip these more advance configurations
         until you got the basic use cases working.
 
-Once you have completed setting up the Okta org, [download and set up the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
+After you have completed setting up the Okta org, [download and set up the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
 
 ## Create your Okta account
 The first step is to create an Okta account, if you have not already.
