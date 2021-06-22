@@ -3,6 +3,16 @@ title: Okta API Products Release Notes 2021
 ---
 ## June
 
+### Weekly Release 2021.06.3
+
+| Change                                                                         | Expected in Preview Orgs |
+|--------------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2021.06.3](#bug-fixed-in-2021-06-3)                              | June 23, 2021             |
+
+#### Bug fixed in 2021.06.3
+
+When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/-/create-app-profile-attribute/) were not allowed. (OKTA-403289)
+
 ### Weekly Release 2021.06.2
 
 | Change                                                                         | Expected in Preview Orgs |
@@ -11,7 +21,7 @@ title: Okta API Products Release Notes 2021
 
 #### Bug fixed in 2021.06.2
 
-When the [Features endpoint of the Apps API](/docs/reference/api/apps/#update-feature-for-application) was called to enable or disable user deactivation (`lifecycleDeactivate` property), the call didn’t toggle the `REACTIVATE_USERS` app feature. (OKTA-399233)
+When the [Features endpoint of the Apps API](/docs/reference/api/apps/#update-feature-for-application) was called to enable or disable user deactivation (`lifecycleDeactivate` property), the call didn't toggle the `REACTIVATE_USERS` app feature. (OKTA-399233)
 
 ### Weekly Release 2021.06.1
 
