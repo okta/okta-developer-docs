@@ -12,7 +12,7 @@ This guide will walk you through integrating authentication into an Angular appl
 - [Create an Angular App](#create-an-angular-app)
 - [Install Dependencies](#install-dependencies)
 - [Create Routes](#create-routes)
-  - [`/`](#)
+  - [`/`](#index-page)
   - [`/protected`](#protected)
   - [`/login`](#login)
   - [Connect the Routes](#connect-the-routes)
@@ -80,7 +80,7 @@ Some routes require authentication in order to render. Defining these protected 
 * `/protected`: A protected route that can only be accessed by an authenticated user.
 * `/login`: A custom sign-in page to handle signing users into your app.
 
-### `/`
+### `/ - index page`
 
 First, update `src/app/app.component.html` to provide the Login logic:
 

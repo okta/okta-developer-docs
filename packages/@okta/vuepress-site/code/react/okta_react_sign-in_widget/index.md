@@ -14,7 +14,7 @@ This guide will walk you through integrating authentication into a React app wit
 - [Config](#config)
 - [Create a Widget Wrapper](#create-a-widget-wrapper)
 - [Create Routes](#create-routes)
-  - [`/`](#)
+  - [`/`](#index-page)
   - [`/protected`](#protected)
   - [`/login`](#login)
   - [`/login/callback`](#logincallback)
@@ -140,7 +140,7 @@ Some routes require authentication in order to render. Defining those routes is 
 * `/login`: Show the sign-in page.
 * `/login/callback`: A route to parse tokens after a redirect.
 
-### `/`
+### `/ - index page`
 
 First, create `src/Home.js` to provide links to navigate our app:
 
