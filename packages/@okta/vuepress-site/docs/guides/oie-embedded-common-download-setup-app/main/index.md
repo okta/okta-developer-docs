@@ -34,7 +34,7 @@ decide to also use the widget). The list of settings is shown below:
 
 For the sample app use the **Issuer URI** from the custom authorization server
 named “default”.  To find this value, go to **Security > API** in the Admin
-console. Under the **Authorization servers** tab, the default authorization
+Console. Under the **Authorization servers** tab, the default authorization
 server’s Issuer URI is displayed in the list.
 
 An example of the URI is:  `https://dev-foo.okta.com/oauth2/default`.
@@ -64,14 +64,14 @@ following resources:
 
 For the sample app use the **Client id** for the application you created in
 [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/).
-To find this value, go to **Applications > Applications** in the Admin console.
+To find this value, go to **Applications > Applications** in the Admin Console.
 Click on your app, and under the **Generals** copy the **Client Id**.
 
 ### Client Secret
 
 For the sample app use the **Client Secret** for the application you created in
 [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/).
-To find this value, go to **Applications > Applications** in the Admin console.
+To find this value, go to **Applications > Applications** in the Admin Console.
 Click on your app, and under the **Generals** copy the **Client Secret**.
 
 #### Redirect URI
@@ -81,7 +81,7 @@ Click on your app, and under the **Generals** copy the **Client Secret**.
 This is the same value as **Redirect URI** for the application you created in
 [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/).
 To find this value, go to **Applications > Applications**
-in the Admin console. Click on your app, and under the **Generals** copy
+in the Admin Console. Click on your app, and under the **Generals** copy
 the **Sign-in redirect URI**.
 
 ### Scopes

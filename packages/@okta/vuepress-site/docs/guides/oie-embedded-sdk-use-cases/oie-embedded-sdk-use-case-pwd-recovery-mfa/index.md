@@ -46,7 +46,7 @@ If you completed the steps in
 you have set up your application for multiple factors. Ensure the application’s
 policy is set up for **Password + Another factor**.
 
-1. In the Admin console, select **Applications > Applications** from the
+1. In the Admin Console, select **Applications > Applications** from the
    left navigation menu.
 1. In the **Applications** page, click on your application.
 1. In your application page, select the **Sign On** tab and scroll down to
@@ -60,7 +60,7 @@ policy is set up for **Password + Another factor**.
 
 ### Step 4:  Ensure only email is only factor enabled for password recovery
 
-1. In the Admin console, select **Security > Authenticators** from the left
+1. In the Admin Console, select **Security > Authenticators** from the left
    navigation menu.
 1. In the **Authenticators** page, click on **Actions** and **Edit** for the
    **Password** authenticator.

@@ -37,7 +37,7 @@ you have set up your application for multiple factors. Since this use case has
 no additional factors, the application’s policy needs to be set up for password
 only. Perform the following steps to set the app up for password only.
 
-1. In the Admin console, select **Applications > Applications** from the
+1. In the Admin Console, select **Applications > Applications** from the
    left navigation menu.
 1. In the **Applications** page, click on your application.
 1. In your application page, select the **Sign On** tab and scroll

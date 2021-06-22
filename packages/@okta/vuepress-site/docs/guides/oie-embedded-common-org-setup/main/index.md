@@ -45,7 +45,7 @@ The steps are as follows:
 
 1. Using the activate link in Okta’s email, activate your account
    providing a new password. Okta redirects you to the
-   [Admin console](https://developer.okta.com/docs/guides/quickstart/using-console/)
+   [Admin Console](https://developer.okta.com/docs/guides/quickstart/using-console/)
    dashboard.
 
 ## Set up your Okta org for password factor only use cases
@@ -76,7 +76,7 @@ that support this basic setup include:
 The steps are as follows:
 
 ### Step 1:  Update the custom authorization server named “default”
-1. In the [Admin console](/docs/guides/quickstart/using-console/)
+1. In the [Admin Console](/docs/guides/quickstart/using-console/)
    (for the Okta org you set up in the previous step), select
    ***Security > API*** from the left navigation menu.
 1. In the **API** page under the **Authorization Servers** tab:
@@ -157,7 +157,7 @@ complex multi factor use cases, continue with the steps below.
 The steps to enable these factors are as follows:
 
 ### Step 1: Setup the authenticators for multi-factor use cases
-1. In the Admin console,
+1. In the Admin Console,
    select **Security > Authenticators** from the left navigation menu.
 1. From the **Authenticators page**, perform the following steps:
 

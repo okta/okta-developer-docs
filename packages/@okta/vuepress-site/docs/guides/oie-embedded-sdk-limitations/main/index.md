@@ -54,7 +54,7 @@ to the fact that the SDK currently only supports password and IDP as
 factors to sign in to an application.  To identify the current value
 for this field perform the following steps:
 
-1. In the Admin console (for the Okta org you set up in the previous step),
+1. In the Admin Console (for the Okta org you set up in the previous step),
    select **Security > Okta Sign-on policy** from the left navigation menu.
 1. Take note of the number of policies configured. The Default policy is
    automatically created when the Org is created and will have a default rule with the **Primary factor** set to **Password / IDP**. To verify this value, expand the **Default Policy’s Default rule** by clicking on the information icon to the right of the rule. Note the value of the Primary factor which should be set to Password / IDP.
@@ -76,7 +76,7 @@ the **Password** field set to **Set by user**.
 
 To find this field to do the following:
 
-1. In the Admin console (for the Okta org you set up in the previous step),
+1. In the Admin Console (for the Okta org you set up in the previous step),
    select **Directory > People** from the left navigation menu.
 1. Select **Add Person** from the **People** screen.
 1. In the **Add Person** page, note the **Password** field. The two current values are:
@@ -133,7 +133,7 @@ See screenshot below:
 
 To find the Email Factor Verification email template to the following:
 
-1. In the Admin console select **Settings > Email & SMS** from the
+1. In the Admin Console select **Settings > Email & SMS** from the
    left navigation menu.
 1. On the **Email & SMS Customization** page, scroll down through the
    template list and click on Email Factor Verification.

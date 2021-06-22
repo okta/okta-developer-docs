@@ -61,7 +61,7 @@ If not already done, complete the steps described in the
 
 ### Step 4:  Confirm org application is assigned to everyone
 
-1. In the Admin console, select **Applications > Applications** from the left
+1. In the Admin Console, select **Applications > Applications** from the left
    navigation menu.
 1. From the Applications page, select the **Assignments** tab:
    1. Click on the **Groups** filter.
@@ -69,7 +69,7 @@ If not already done, complete the steps described in the
 
 ### Step 5:  Reconfigure application for email and optional phone factors
 
-1. In the Admin console, select **Applications > Applications** from the left
+1. In the Admin Console, select **Applications > Applications** from the left
    navigation menu.
 1. In the **Applications** page, click on your application.
 1. In your application page, select the **Sign On** tab and scroll down to the
