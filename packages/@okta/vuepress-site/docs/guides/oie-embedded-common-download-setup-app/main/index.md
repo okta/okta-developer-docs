@@ -37,7 +37,7 @@ named “default”.  To find this value, go to **Security > API** in the Admin
 Console. Under the **Authorization servers** tab, the default authorization
 server’s Issuer URI is displayed in the list.
 
-An example of the URI is:  `https://dev-foo.okta.com/oauth2/default`.
+Example URI:  `https://dev-foo.okta.com/oauth2/default`.
 
 Note that there are two main types of authorization servers: Org and custom:
 
