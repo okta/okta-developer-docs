@@ -109,7 +109,7 @@ The steps are as follows:
       * Set an origin name (for example, MyOrigin)
       1. Add the url of your app. If you are using the
          sample app, use `https://localhost:44314/`
-      1. Under Type, select the **CORS** and **Redirect** checkboxes.
+      * Under **Type**, select the **CORS** and **Redirect** checkboxes.
       1. Click **Save**.
 
 ### Step 4:  Create new application
