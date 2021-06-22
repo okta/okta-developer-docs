@@ -11,7 +11,7 @@ title: Okta API Products Release Notes 2021
 
 #### Bug fixed in 2021.06.3
 
-When creating an app using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/-/create-app-profile-attribute/) were not allowed for some app types. (OKTA-403289)
+When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/-/create-app-profile-attribute/) were not allowed. (OKTA-403289)
 
 ### Weekly Release 2021.06.2
 
