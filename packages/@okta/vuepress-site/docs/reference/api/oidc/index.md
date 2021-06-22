@@ -649,13 +649,13 @@ Key rotation behaves differently with Custom Authorization Servers. For more inf
 
 You can use an [introspection request](#introspect) for validation.
 
-#### Best Practices
+#### Best practices
 
-Okta strongly recommends retrieving keys dynamically with the JWKS published in the discovery document. Okta also recommends caching or persisting these keys to improve performance. If you cache signing keys and automatic key rotation is enabled, be aware that verification fails when Okta rotates the keys automatically. Clients that cache keys should periodically check the JWKS for updated signing keys.
+Okta strongly recommends retrieving keys dynamically with the JWKS published in the discovery document. Okta also recommends caching or persisting these keys to improve performance. If you cache signing keys, and automatic key rotation is enabled, be aware that verification fails when Okta rotates the keys automatically. Clients that cache keys should periodically check the JWKS for updated signing keys.
 
-Okta recommends a background process that regularly caches the `/keys` endpoint. This can be once a day or more infrequently, like once per week. This ensures that you always have an up-to-date set of keys for validation even when we generate the next key or rotate automatically at the 45/90 day mark respectively. 
+Okta recommends a background process that regularly caches the `/keys` endpoint. This process can be completed once a day or more infrequently, for example, once per week. This ensures that you always have an up-to-date set of keys for validation even when we generate the next key or rotate automatically at the 45 or 90 day mark respectively. 
 
-Under almost all circumstances, the above would be sufficient except in cases where keys were rotated/generated outside the usual timespans. An example of this would be if Okta or a customer had a need to perform this operation for security reasons. You should augment the above approach with a failsafe for circumstances where keys are quickly regenerated and rotated.
+Under almost all circumstances, the above would be sufficient except in cases where keys were rotated or generated outside the usual timespans. An example of this would be if Okta or a customer had a need to perform this operation for security reasons. You should augment the above approach with a failsafe for circumstances where keys are quickly regenerated and rotated.
 
 Why not just use the second approach? There's potential for the caching of stale data since there is no guarantee that the `/keys` endpoint is up-to-date. For example, the keys are rotated but the `/keys` endpoint hasn't yet been updated, which results in a period of time where failures occur.
 
