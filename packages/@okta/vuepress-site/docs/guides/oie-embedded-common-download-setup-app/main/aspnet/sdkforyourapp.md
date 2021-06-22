@@ -11,7 +11,7 @@ Nuget Packages to your project:
 * Okta.Sdk.Abstractions
 
 > **Note:** Nuget packages are pre-release.  When you search for Nuget
-packages in Visual Studio ensure the prerelease checkbox is checked.
+packages in Visual Studio, ensure that the pre-release checkbox is selected.
 
 #### Step 3: Initialize IdxClient
 
