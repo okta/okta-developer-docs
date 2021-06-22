@@ -106,7 +106,7 @@ The steps are as follows:
 1. On the **API** page, click **Trusted Origins**:
 1. On the **Trusted Origins** tab, click **Add Origin**.
    1. On the Add Origin dialog, do the following:
-      1. Set a origin name (for example, MyOrigin)
+      * Set an origin name (for example, MyOrigin)
       1. Add the url of your app. If you are using the
          sample app, use `https://localhost:44314/`
       1. Under Type, select the **CORS** and **Redirect** checkboxes.
