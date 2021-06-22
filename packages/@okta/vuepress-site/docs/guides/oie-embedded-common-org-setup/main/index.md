@@ -246,7 +246,7 @@ sample app and like to run the basic use cases listed in
        sections.
 1. In the left navigation menu, click on **Facebook Login** (under products)
    and then click **Settings**.
-   1. In the **Settings** page and under **Client OAuth Settings**, add the
+   1. On the **Settings** page and under **Client OAuth Settings**, add the
       following urls for the  **Valid OAuth Redirect URIs**. field:
       `https://{Okta org domain}/oauth2/v1/authorize/callback`
       (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
