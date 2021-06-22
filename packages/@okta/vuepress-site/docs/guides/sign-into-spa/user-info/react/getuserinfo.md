@@ -15,7 +15,7 @@ const Home = () => {
   const [userInfo, setUserInfo] = useState(null);
 
   useEffect(() => {
-    if (!authState.isAuthenticated) {
+    if (!authState || !authState.isAuthenticated) {
       // When user isn't authenticated, forget any user info
       setUserInfo(null);
     } else {
@@ -46,7 +46,7 @@ import { withOktaAuth } from "@okta/okta-react";
 import React, { Component } from "react";
 
 async function checkUser() {
-  if (this.props.authState.isAuthenticated && !this.state.userInfo) {
+  if (this.props.authState && this.props.authState.isAuthenticated && !this.state.userInfo) {
     const userInfo = await this.props.oktaAuth.getUserInfo();
     if (this._isMounted) {
       this.setState({ userInfo });

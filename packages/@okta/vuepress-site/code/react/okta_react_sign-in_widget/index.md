@@ -154,7 +154,7 @@ const Home = () => {
   const history = useHistory();
   const { oktaAuth, authState } = useOktaAuth();
 
-  if (authState.isPending) return null;
+  if (!authState) return null;
 
   const login = async () => history.push('/login');
   
@@ -211,7 +211,7 @@ const Login = ({ config }) => {
     console.log('error logging in', err);
   };
 
-  if (authState.isPending) return null;
+  if (!authState) return null;
 
   return authState.isAuthenticated ?
     <Redirect to={{ pathname: '/' }}/> :
@@ -269,7 +269,9 @@ const AppWithRouterAccess = () => {
   };
   
   const restoreOriginalUri = async (_oktaAuth, originalUri) => {
-    history.replace(toRelativeUrl(originalUri, window.location.origin));
+    if (originalUri) {
+      history.replace(toRelativeUrl(originalUri, window.location.origin));
+    }
   };
 
   return (
