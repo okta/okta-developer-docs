@@ -7,7 +7,7 @@ title: Download and set up the SDK, widget, and sample app
 
 <StackSelector class="cleaner-selector"/>
 
-Once you have
+After you have
 [created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/),
 the next step is to download the GitHub repository that contains the SDK, widget, and
 accompanying sample apps.
