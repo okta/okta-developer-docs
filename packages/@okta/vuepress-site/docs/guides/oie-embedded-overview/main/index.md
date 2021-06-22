@@ -23,13 +23,13 @@ Okta provides two embedded identity solutions.
 ## Get started
 
 Sample apps are provided for each solution to show you exactly how to integrate
-the SDK and widget into your own app. To get started using either the
-**SDK** or **widget + SDK** follow the steps below:
+the SDK and the Widget into your own app. To get started using either the
+**SDK** or the **Widget + SDK**, follow these steps:
 
 **Step 1:** [Create your account and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/)
 
-**Step 2:** [Download and set up the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
+**Step 2:** [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
 
-**Step 3:** Depending on your integration type, start building with the [widget](/docs/guides/oie-embedded-widget-overview/main/) or [SDK](/docs/guides/oie-embedded-sdk-overview/main/).
+**Step 3:** Depending on your integration type, start building with the [Widget](/docs/guides/oie-embedded-widget-overview/main/) or [SDK](/docs/guides/oie-embedded-sdk-overview/main/).
 
 </div>
