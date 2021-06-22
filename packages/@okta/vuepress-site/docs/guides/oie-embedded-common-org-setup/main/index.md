@@ -105,7 +105,7 @@ The steps are as follows:
 1. Select **Security > API** from the left navigation menu.
 1. On the **API** page, click **Trusted Origins**:
 1. On the **Trusted Origins** tab, click **Add Origin**.
-   1. In the Add Origin dialog do the following:
+   1. On the Add Origin dialog, do the following:
       1. Set a origin name (for example, MyOrigin)
       1. Add the url of your app. If you are using the
          sample app, use `https://localhost:44314/`
