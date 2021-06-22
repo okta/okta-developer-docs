@@ -103,7 +103,7 @@ user to the application that generated the email.
 
 There are two recommended options to mitigate this limitation.
 
-> Verification of activation emails via the Verify Email Address link
+> **Note:** Verification of activation emails through the **Verify Email Address** link
   is not yet supported. It is recommended to do one of the following:
 
 * Remove the verification link from the Email Factor Verification email
