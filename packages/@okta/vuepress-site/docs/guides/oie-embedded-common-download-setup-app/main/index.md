@@ -9,7 +9,7 @@ title: Download and set up the SDK, widget, and sample app
 
 Once you have
 [created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/),
-next step is to download the GitHub repostory containing the SDK, widget, and
+the next step is to download the GitHub repository that contains the SDK, widget, and
 accompanying sample apps.
 
 ## Software requirements
