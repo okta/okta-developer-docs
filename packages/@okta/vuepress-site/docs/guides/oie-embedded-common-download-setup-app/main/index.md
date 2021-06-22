@@ -32,7 +32,7 @@ decide to also use the widget). The list of settings is shown below:
 
 ### Issuer
 
-For the sample app use the **Issuer URI** from the custom authorization server
+Use the **Issuer URI** named "default" from your Custom Authorization Server.
 named “default”.  To find this value, go to **Security > API** in the Admin
 Console. Under the **Authorization servers** tab, the default authorization
 server’s Issuer URI is displayed in the list.
