@@ -251,7 +251,6 @@ sample app and like to run the basic use cases listed in
       `https://{Okta org domain}/oauth2/v1/authorize/callback`
       (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
    1. Click **Save Changes** at the bottom of the page.
-      your changes.
 
 #### Step 1b:  Copy the App ID and Secret
 
