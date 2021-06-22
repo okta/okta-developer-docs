@@ -25,7 +25,7 @@ Widget into your own app, you need to do the following:
       1. [Set up your Okta org (for multi-factor use cases)](#set-up-your-okta-org-for-multi-factor-use-cases)
       1. [Set up your Okta org (for social identity providers)](#set-up-your-okta-org-for-social-identity-providers)
 
-      > **Note:** It is recommended to skip these more advance configurations
+      > **Note:** It's recommended to skip these more advanced configurations
         until you got the basic use cases working.
 
 After you have completed setting up the Okta org, [download and set up the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
