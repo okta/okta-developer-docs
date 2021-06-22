@@ -104,7 +104,7 @@ user to the application that generated the email.
 There are two recommended options to mitigate this limitation.
 
 > **Note:** Verification of activation emails through the **Verify Email Address** link
-  is not yet supported. It is recommended to do one of the following:
+  isn't yet supported. It's recommended to do one of the following:
 
 * Remove the verification link from the Email Factor Verification email
      template.
