@@ -649,7 +649,7 @@ Key rotation behaves differently with Custom Authorization Servers. For more inf
 
 You can use an [introspection request](#introspect) for validation.
 
-#### Best Practices
+#### Best practices
 
 Okta strongly recommends retrieving keys dynamically with the JWKS published in the discovery document. Okta also recommends caching or persisting these keys to improve performance. If you cache signing keys and automatic key rotation is enabled, be aware that verification fails when Okta rotates the keys automatically. Clients that cache keys should periodically check the JWKS for updated signing keys.
 
