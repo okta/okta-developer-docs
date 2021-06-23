@@ -14,7 +14,7 @@ Get the [sample app](`okta-idx-dotnet/samples/samples-aspnet/embedded-sign-in-wi
 1. Click Visual Studio's play button and run the solution. The default web browser
    should open and navigate to the app's home page. The URL should be:
    `https://localhost:44314`,  which is the default address when using IISExpress.
-   After the app loads, click **Sign in** located on the app's home page. (??is it Sign in or Sign In?)
+   After the app loads, click **Sign In** located on the app's home page.
 1. On the Sign In page enter the username (email) and password that you used in
    [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-your-okta-account).
    The following is a screenshot of the sign-in form:
@@ -26,7 +26,7 @@ Get the [sample app](`okta-idx-dotnet/samples/samples-aspnet/embedded-sign-in-wi
 
    </div>
 
-1. Click **Sign in**. (?? is it Sign in or Sign In?). If successful, the app should redirect you to the user profile page that displays basic user profile and security token information.
+1. Click **Sign In**. If successful, the app should redirect you to the user profile page that displays basic user profile and security token information.
 
    <div class="common-image-format">
 
