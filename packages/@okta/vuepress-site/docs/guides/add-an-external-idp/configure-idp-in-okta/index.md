@@ -27,7 +27,7 @@ When you are setting up your social Identity Provider (IdP) in Okta, there are a
 
 **IdP Username:** The expression (written in the Okta Expression Language) that is used to convert an IdP attribute to the Application User's `username`. This IdP username is used for matching an Application User to an Okta User through the `oidc_idp` profile.
 
-You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/).
+You can enter an expression to reformat the value, if you want. For example, if the social username is `john.doe@mycompany.com`, you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/).
 
 **Match against &mdash;** The Okta user property against which the IdP username is compared to determine if an account link needs to be established. If an existing account link is found, no comparison is performed.
 
