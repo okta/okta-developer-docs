@@ -51,7 +51,7 @@ If the org’s application has been properly configured with multiple factors,
 to `AwaitingAuthenticatorEnrollment`.  This status indicates there is a
 required authenticator that needs to be verified.  If you completed the steps
 properly in the
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases) section,  it will be the **password** factor which
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) section,  it will be the **password** factor which
 is stored in the `Authenticators` list property.
 
 ```csharp
@@ -167,7 +167,7 @@ var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthentic
 ### Step 10: Handle the response from VerifyAuthenticatorAsync (Starting multi-factor verification flow)
 
 If you completed the steps in
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases)
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases)
 that sets up multi-factors for your application, the return
 `AuthenticationResponse.AuthenticationStatus` should be
 `AwaitingAuthenticatorEnrollment`.  The `AwaitingAuthenticatorEnrollment`,
@@ -289,7 +289,7 @@ If the email code was valid, the method should return `AuthenticationStatus`
 of `AwaitingAuthenticatorEnrollment`. This status signifies that there is
 another factor (required or optional) waiting to be enrolled and verified.
 If the steps described in
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases) were properly followed,
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed,
 the user should be sent back to the Authenticator list page
 showing only the **phone** authenticator.
 
@@ -463,7 +463,7 @@ The next step is to handle the response from `VerifyAuthenticatorAsync`. If
 the phone SMS code was valid, the method should return `AuthenticationStatus`
 of `Success`. This status signifies that there is no more factors (required or
 optional) waiting to be enrolled and verified. If the steps described in
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases)
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases)
 were properly followed,  the user should now be registered with no more
 factors to be verified and be sent to the default page after they have
 successfully registered. In the case of the sample application, the user

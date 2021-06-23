@@ -27,7 +27,7 @@ After the password and email is verified, the user has the option to
 enroll in the phone factor.
 
 > **Note**: Based on the steps described in
-  [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), the Okta application is setup to require one possession factor
+  [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases), the Okta application is setup to require one possession factor
   (either email or phone). Once the email factor has been verified the phone
   factor becomes optional.
 

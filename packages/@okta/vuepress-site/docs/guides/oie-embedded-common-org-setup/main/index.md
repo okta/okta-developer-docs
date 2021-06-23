@@ -22,7 +22,7 @@ Widget into your own app, you need to do the following:
    * **Recommended for later:** After you've completed the basic use cases, advance to the more
       complex use cases by performing the following:
 
-      * [Set up your Okta org (for multifactor use cases)](#set-up-your-okta-org-for-multi-factor-use-cases)
+      * [Set up your Okta org (for multifactor use cases)](#set-up-your-okta-org-for-multifactor-use-cases)
       * [Set up your Okta org (for social identity providers)](#set-up-your-okta-org-for-social-identity-providers)
 
       > **Note:** We recommend that you skip the more advanced configurations until you have the basic use cases working.
@@ -116,7 +116,7 @@ that support this basic setup include:
 1. Select the **Sign On** tab, and in the **Sign On Policy** section make note of the **Available Authenticators**. The value
       should be **1 factor** that is **Password**. (If you are coming back to this
       step after completing
-      [Set up your Okta org (for multifactor use cases)](#set-up-your-okta-org-for-multi-factor-use-cases),
+      [Set up your Okta org (for multifactor use cases)](#set-up-your-okta-org-for-multifactor-use-cases),
       then set this value to **Password**. Currently, if there are multiple factors
       defined in the Okta org but the application uses only one factor, it must
       be **Password**.)
@@ -141,20 +141,16 @@ complex multifactor use cases, continue with the following steps.
 
 The steps to enable these factors are as follows:
 
-### Step 1: Set up the authenticators for multifactor use cases
+### Step 1: Set up the email authenticator for authentication
 
 1. In the Admin Console, select **Security** > **Authenticators** from the left navigation menu.
-1. From the **Authenticators page**, do the following:
-
-#### Step 1a: Set up the email authenticator for authentication (I don't think 1a, 1b, 1c are necessary....these could be separate headers and not be confusing)
-
-1. Select **Edit** from the **Actions** menu on the **Email** authenticator row.
+1. From the **Authenticators page**, select **Edit** from the **Actions** menu on the **Email** authenticator row.
 1. In the **Used for** section, select the **Authentication and recovery** option for the **This authenticator can be used for** field.
 1. Click **Save**.
 
-#### Step 1c: Add the phone authenticator
+### Step 2: Add the phone authenticator
 
-1. Click **Add Authenticator**.
+1. From the **Authenticators page**, click **Add Authenticator**.
 1. On the **Add Authenticator** page, click **Add** for the **Phone** authenticator.
 1. In the **Verification options** section, select **SMS** for the **User can verify with** field.
 
@@ -163,7 +159,7 @@ The steps to enable these factors are as follows:
 1. In the **Used for** section, select **Authentication and recovery** for the **This authenticator can be used for** field.
 1. Click **Add**.
 
-#### Step 2: Update Application sign on policy for multiple factors
+### Step 3: Update Application sign on policy for multiple factors
 
 1. Select **Applications** > **Applications** from the left navigation menu.
 1. From the **Applications** page, select the application that you created
@@ -196,8 +192,6 @@ sample app and like to run the basic use cases listed in
 
 ### Step 1: Create a Facebook app in Facebook
 
-#### Step 1a: Create the app
-
 1. Go to [Facebook for Developers](https://developers.facebook.com/) and click the **Login** link. If you don't have an account, then create one.
 1. Using these [instructions](https://developers.facebook.com/docs/apps/register) as a guide, create a Facebook app. Ensure that when you are creating the app, you select **None** as the app type.
 1. After creating the app, on the [Apps](https://developers.facebook.com/apps/) page select the App that you just created.
@@ -212,14 +206,14 @@ sample app and like to run the basic use cases listed in
       `https://{Okta org domain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save Changes** at the bottom of the page.
 
-#### Step 1b: Copy the App ID and Secret
+### Step 2: Copy the App ID and Secret
 
 After you finish creating the app, the next step is to copy the **App ID** and **App Secret** for the next step where you will set up the Facebook social provider in the Okta org.
 
 1. In the left navigation menu, click **Settings** and then **Basic**.
 1. Copy the **App ID** and **App Secret** to an accessible place in preparation for the next step.
 
-### Step 3: Set up and copy test user information (Where is Step 2?)
+### Step 3: Set up and copy test user information
 
 A test account is required to test the social media sign in in development mode. Facebook automatically creates one test user that we can use for the Facebook use cases. Perform the following steps to find, set the password, and copy this user's information.
 
@@ -245,7 +239,7 @@ live mode. To switch the app to live mode, do the following:
 1. Click **Save Changes** at the bottom of the page.
 1. At the top of the Dashboard page, select the **App Mode** slider and slide to switch the app from **Development** to
    **Live** mode.
-1. In the **Switch to Live Mode?** dialog box, click **Switch Mode**.
+1. In the **Switch to Live Mode** dialog box, click **Switch Mode**.
 
 ### Step 5: Create the Facebook Identity Provider in Okta
 

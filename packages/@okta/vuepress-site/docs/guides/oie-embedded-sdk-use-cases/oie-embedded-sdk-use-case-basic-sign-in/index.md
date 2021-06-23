@@ -34,7 +34,7 @@ If not already done, complete the steps described in the
 ### Step 2: Reconfigure application for password factor only
 
 If you completed the steps in
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), you have set up your application for multiple factors.
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases), you have set up your application for multiple factors.
 To use this password factor only use case, do the following:
 
 1. In the [Admin Console](https://developer.okta.com/docs/guides/quickstart/using-console/),
