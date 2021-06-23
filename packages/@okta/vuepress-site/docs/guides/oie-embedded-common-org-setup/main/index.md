@@ -156,29 +156,20 @@ complex multi factor use cases, continue with the steps below.
 
 The steps to enable these factors are as follows:
 
-### Step 1: Setup the authenticators for multi-factor use cases
-1. In the Admin Console,
-   select **Security > Authenticators** from the left navigation menu.
-1. From the **Authenticators page**, perform the following steps:
+### Step 1: Setup the email authenticator for authentication
 
-#### Step 1a:  Setup the email authenticator for authentication
-1. Select the **Actions** link from the **Email** authenticator row.
+1. In the Admin Console, select **Security > Authenticators** from the left navigation menu.
+1. From the **Authenticators page**, select the **Actions** link from
+   the **Email** authenticator row.
 1. Click the **Edit** submenu.
 1. In the **User for** section, select the
    **Authentication and password reset** option for the
    **This authenticator can be used for** field.
 1. Click the **Save** button.
 
-#### Step 1b:  Setup the password authenticator for authentication
-1. Select the **Actions** link from the **password** authenticator row.
-1. Click the **Edit** submenu.
-1. In the **User for** section, select the
-   **Authentication and password reset** option for the
-   **This authenticator can be used for** field.
-1. Click the **Save** button.
+### Step 2:  Add the phone authenticator
 
-#### Step 1c:  Add the phone authenticator
-1. Click on **Add Authenticator**.
+1. From the **Authenticators page**, click on **Add Authenticator**.
 1. On the **Add Authenticator** page, click **Add** for the
    **Phone** authenticator.
 1. In the **Verification options** section, select **SMS** for the
@@ -190,7 +181,8 @@ The steps to enable these factors are as follows:
    for the **This authenticator can be used for** field.
 1. Click the **Add** button.
 
-#### Step 2: Update Application sign on policy for multiple factors
+### Step 3: Update Application sign on policy for multiple factors
+
 1. Select **Applications > Applications** from the left navigation menu.
 1. From the **Applications** page, click on the application name you created
    in [Set up your Okta org for password factor only use cases](#set-up-your-okta-org-for-password-factor-only-use-cases).
@@ -226,8 +218,6 @@ sample app and like to run the basic use cases listed in
 
 ### Step 1: Create a Facebook app in Facebook
 
-#### Step 1a:  Create the app
-
 1. Go to [Facebook for Developers](https://developers.facebook.com/) and click
    on the **Login** link. If you don’t have a login, then create an account.
 1. Using these [instructions](https://developers.facebook.com/docs/apps/register)
@@ -252,7 +242,7 @@ sample app and like to run the basic use cases listed in
       (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
    1. Click **Save Changes** at the bottom of the page.
 
-#### Step 1b:  Copy the App ID and Secret
+### Step 2:  Copy the App ID and Secret
 
 After you have completed creating the app, the next step is to copy the
 **App ID** and **sApp ecret** for the next step where you will set up the Facebook social
@@ -266,7 +256,7 @@ provider in the Okta org.
 ### Step 3: Setup and copy test user information
 
 In order to test the social media login in development mode, a test account is
-required. Facebook automatically creates one test user which we will use for
+required. Facebook automatically creates one test user which we will be used for
 the Facebook use cases. Perform the following steps to find, set the
 password, and copy this user’s information.
 
@@ -317,7 +307,7 @@ The next step is to create the Facebook identity provider in Okta.
   1. Set the **Client ID** and **Client Secret** to the **App ID** and
      **Secret** that you copied in the previous step.
   1. Keep the **Scopes** values to the default: **public_profile** and
-     **default**.
+     **email**.
   1. Click the **Add Identity Provider** button to save the settings.
 
 ### Step 6: Add routing rule

@@ -38,8 +38,7 @@ If not already done, complete the steps described in the
 If not already done, complete the steps described in the
 [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases) section.
 
-
-### Step 3:  Reconfigure Okta application for password only
+### Step 3:  Reconfigure Okta application for password plus another factor
 
 If you completed the steps in
 [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases),
