@@ -1,4 +1,5 @@
 ### Step 1: Create a sign out UI element
+
 The first step is to create a link, button, or another similar UI
 element that allows the user to sign out of the app.
 
@@ -31,5 +32,4 @@ var client = new IdxClient();
 
 ### Step 3: Send user to the signed out page
 
-After the user is signed out, send them to the desired page after
-they have signed out.
+After the user is signed out, send them to the desired page.

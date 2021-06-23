@@ -12,7 +12,7 @@ This use case describes how to sign a user out.
 
 ## Factor setup
 
-No additional factors needed.
+No additional factors are needed.
 
 ## Configuration updates
 
