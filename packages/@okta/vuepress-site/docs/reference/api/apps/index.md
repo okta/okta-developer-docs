@@ -6572,7 +6572,7 @@ Specifies the template used to generate a user's username when the application i
 | userSuffix | suffix for built-in mapping expressions | String                           | TRUE     | NULL              |           |            |            |
 | pushStatus | push username on update                 | `PUSH`, `DONT_PUSH`              | TRUE     | `DONT_PUSH` for `CUSTOM` type |           |            |            |
 
-> **Note:** You must use the `CUSTOM` type when defining your own expression that is not built-in. `pushStatus` is only effective for `CUSTOM` type.
+> **Note:** You must use the `CUSTOM` type when defining your own expression that is not built-in. The `pushStatus` parameter is effective only for the `CUSTOM` type.
 
 ```json
 {
