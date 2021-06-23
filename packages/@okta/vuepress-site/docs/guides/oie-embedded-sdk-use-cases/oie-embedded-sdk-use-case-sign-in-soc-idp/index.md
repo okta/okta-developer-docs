@@ -32,7 +32,7 @@ section.
 ### Step 3:  Reconfigure Okta application for password only
 
 If you completed the steps in
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases),
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases),
 you have set up your application for multiple factors. Since this use case has
 no additional factors, the application’s policy needs to be set up for password
 only. Perform the following steps to set the app up for password only.

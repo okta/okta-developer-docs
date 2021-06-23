@@ -22,7 +22,7 @@ Widget into your own app, you need to do the following:
    * **Recommended for later:** After you've completed the basic use cases, advance to the more
       complex use cases by performing the following:
 
-      * [Set up your Okta org (for multifactor use cases)](#set-up-your-okta-org-for-multi-factor-use-cases)
+      * [Set up your Okta org (for multifactor use cases)](#set-up-your-okta-org-for-multifactor-use-cases)
       * [Set up your Okta org (for social identity providers)](#set-up-your-okta-org-for-social-identity-providers)
 
       > **Note:** We recommend that you skip the more advanced configurations until you have the basic use cases working.
@@ -116,7 +116,7 @@ that support this basic setup include:
 1. Select the **Sign On** tab, and in the **Sign On Policy** section make note of the **Available Authenticators**. The value
       should be **1 factor** that is **Password**. (If you are coming back to this
       step after completing
-      [Set up your Okta org (for multifactor use cases)](#set-up-your-okta-org-for-multi-factor-use-cases),
+      [Set up your Okta org (for multifactor use cases)](#set-up-your-okta-org-for-multifactor-use-cases),
       then set this value to **Password**. Currently, if there are multiple factors
       defined in the Okta org but the application uses only one factor, it must
       be **Password**.)
