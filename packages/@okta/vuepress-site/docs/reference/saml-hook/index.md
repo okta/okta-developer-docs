@@ -13,7 +13,7 @@ This page provides reference documentation for:
 
 This information is specific to the SAML Assertion Inline Hook, one type of Inline Hook supported by Okta.
 
-## See Also
+## See also
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
@@ -29,17 +29,17 @@ This functionality can be used to add data to assertions, which might be data th
 
 This Inline Hook works only when using custom SAML apps, not apps from the OIN.
 
-## Objects in the Request from Okta
+## Objects in the request from Okta
 
 The outbound call from Okta to your external service provides you with the contents of the SAML assertion that was generated, which you will be able to augment or modify by means of the commands you return. Also provided is contextual information about the authentication request.
 
-Because SAML is XML-based, but the call from Okta to your service uses a JSON payload, the contents of the SAML assertion are converted to a JSON representation for sending.
+Because SAML is XML-based, but the call from Okta to your service uses a JSON payload, the contents of the SAML assertion are mapped to a JSON representation for sending.
 
 ### data.assertion.subject
 
 Provides a JSON representation of the `<saml:Subject>` element of the SAML assertion. The following is an example of how the SAML XML is represented in JSON:
 
-```json
+```JSON
 {
    "subject":{
       "nameId":"administrator1@example.net",
@@ -58,9 +58,26 @@ Provides a JSON representation of the `<saml:Subject>` element of the SAML asser
 
 Provides a JSON representation of the `<saml:AuthnStatement>` element of the SAML assertion.
 
+```JSON
+"authentication": {
+        "sessionIndex": "id1553800523546.312669168",
+        "authnContext": {
+          "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport"
+        }
+}
+```
+
 ### data.assertion.conditions
 
 Provides a JSON representation of the `<saml:Conditions>` element of the SAML assertion.
+
+```JSON
+"conditions": {
+        "audienceRestriction": [
+          "urn:example:sp"
+        ]
+}
+```
 
 ### data.assertion.claims
 
@@ -68,19 +85,19 @@ Provides a JSON representation of the `<saml:AttributeStatement>` element contai
 
 The following is an example of how an XML `<saml:AttributeStatement>` element is represented in JSON in this object:
 
-```json
+```JSON
 {
   "claims": {
-    "foobie": {
+    "extPatientId": {
       "attributes": {
         "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
       },
       "attributeValues": [
         {
           "attributes": {
-            "xsi:type": "xs:string"
+            "xsi:type": "xs:integer"
           },
-          "value": "doobie"
+          "value": "4321"
         }
       ]
     }
@@ -92,76 +109,28 @@ The following is an example of how an XML `<saml:AttributeStatement>` element is
 
 Specifies the expiration time, in seconds, of the SAML assertion.
 
+```JSON
+"lifetime": {
+    "expiration": 300
+}
+```
+
 ### data.context
 
 This object contains a number of sub-objects, each of which provides some type of contextual information. Unlike the `data.assertion.*` objects, you cannot affect the `data.context.*` objects by means of the commands you return.
 
 The following sub-objects are included:
 
- - `data.context.request`: Details of the SAML request that triggered the generation of the SAML assertion.
- - `data.context.protocol`: Details of the assertion protocol being used.
- - `data.context.session`: Details of the user session.
- - `data.context.user`: Identifies the Okta user that the assertion was generated to authenticate, and provides details of their Okta user profile.
+- `data.context.request`: Details of the SAML request that triggered the generation of the SAML assertion
+- `data.context.protocol`: Details of the assertion protocol being used
+- `data.context.session`: Details of the user session
+- `data.context.user`: Identifies the Okta user that the assertion was generated to authenticate and provides details of their Okta user profile
 
-## Objects in Response You Send
+## Sample listing of JSON payload of request
 
-For the SAML Assertion Inline Hook, the objects you can return in the JSON payload of your response are defined as follows:
-
-### commands
-
-The `commands` object is where you can tell Okta to add additional claims to the assertion or to modify the existing assertion statements.
-
-`commands` is an array, allowing you to send multiple commands. In each array element, there needs to be a `type` property and `value` property. The `type` property is where you specify which of the supported commands you wish to execute, and `value` is where you supply an operand for that command.
-
-In the case of the SAML Assertion Inline Hook, the `value` property is itself a nested object, in which you specify a particular operation, a path to act on, and a value.
-
-| Property | Description                                                              | Data Type       |
-|----------|--------------------------------------------------------------------------|-----------------|
-| type     | One of the [supported commands](#supported-commands).                    | String          |
-| value    | Operand to pass to the command. It specifies a particular op to perform. | [value](#value) |
-
-#### Supported Commands
-
-The following command is currently supported for the SAML Assertion Inline Hook type:
-
-| Command                  | Description              |
-|--------------------------|--------------------------|
-| com.okta.assertion.patch | Modify a SAML assertion. |
-
-#### value
-
-The `value` object is where you specify the specific operation to perform. It is an array, allowing you to request more than one operation.
-
-| Property | Description                                                                                                                                                                                                           | Data Type       |
-|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
-| op       | The name of one of the [supported ops](#list-of-supported-ops).                                                                                                                                                       | String          |
-| path     | Location, within the assertion, to apply the operation. See [Specifying Location within the Assertion](##specifying-location-within-the-assertion) below. | String          |
-| value    | Value to set the claim to.                                                                                                                                                                                            | Any JSON object |
-
-#### List of Supported Ops
-
-| Op      | Description                             |
-|---------|-----------------------------------------|
-| add     | Add a new claim to the assertion.       |
-| replace | Modify an existing attribute statement. |
-
-### Specifying Location within the Assertion
-
-You specify the location within the assertion at which to apply your operation using a slash-delimited path.
-
-When performing an `add` op to add a new attribute statement, this will always begin with `/claims/` and be followed by the name of the new attribute you are adding.
-
-When modifying an existing assertions statement, the path could begin with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, for example, `/claims/array/attributeValues/1/value`.
-
-### URI claims
-
-Okta supports URI claims with SAML assertion hooks. When you need to replace or add a URI claim, you must encode the claim name within the command per the [JavaScript Object Notation (JSON) Pointer](https://tools.ietf.org/html/rfc6901) specification. Specifically, this replaces `~` with `~0` and  `/` with `~1`.
-
-## Sample Listing of JSON Payload of Request
-
-```json
+```JSON
 {
-  "source": "https://${yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml",
+  "source": "https://${yourOktaDomain}/app/saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml",
   "eventId": "XMFoHCM1S4Wi_SGWzL8T9A",
   "eventTime": "2019-03-28T19:15:23.000Z",
   "data": {
@@ -170,7 +139,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
         "id": "reqqXypjzYJRSu2j1G1imUovA",
         "method": "GET",
         "url": {
-          "value": "https://${yourOktaDomain}/app/raincloud59_saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml"
+          "value": "https://${yourOktaDomain}/app/saml20app_1/exkth8lMzFm0HZOTU0g3/sso/saml"
         },
         "ipAddress": "127.0.0.1"
       },
@@ -185,7 +154,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
       "session": {
         "id": "102LN9Bnuc4S_ewfc9BYwageA",
         "userId": "00uq8tMo3zV0OfJON0g3",
-        "login": "administrator1@clouditude.net",
+        "login": "administrator1@example.com",
         "createdAt": "2019-03-28T16:45:55.000Z",
         "expiresAt": "2019-03-28T21:15:23.000Z",
         "status": "ACTIVE",
@@ -203,9 +172,9 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
         "id": "00uq8tMo3zV0OfJON0g3",
         "passwordChanged": "2018-09-11T23:19:12.000Z",
         "profile": {
-          "login": "administrator1@clouditude.net",
-          "firstName": "Add-Mine",
-          "lastName": "O'Cloudy Tud",
+          "login": "administrator1@example.com",
+          "firstName": "Admin",
+          "lastName": "Last",
           "locale": "en",
           "timeZone": "America/Los_Angeles"
         },
@@ -221,7 +190,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
     },
     "assertion": {
       "subject": {
-        "nameId": "administrator1@clouditude.net",
+        "nameId": "administrator1@example.com",
         "nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified",
         "confirmation": {
           "method": "urn:oasis:names:tc:SAML:2.0:cm:bearer",
@@ -242,16 +211,16 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
         ]
       },
       "claims": {
-        "foobie": {
+        "extPatientId": {
           "attributes": {
             "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:unspecified"
           },
           "attributeValues": [
             {
               "attributes": {
-                "xsi:type": "xs:string"
+                "xsi:type": "xs:integer"
               },
-              "value": "doobie"
+              "value": "4321"
             }
           ]
         },
@@ -289,7 +258,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
               "attributes": {
                 "xsi:type": "xs:string"
               },
-              "value": "middellllll"
+              "value": "admin"
             }
           ]
         },
@@ -319,9 +288,67 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
 }
 ```
 
-## Sample Listing of JSON Payload of Response
+## Objects in response you send
 
-```json
+For the SAML Assertion Inline Hook, the objects that you can return in the JSON payload of your response are defined as follows:
+
+### commands
+
+The `commands` object is where you can tell Okta to add additional claims to the assertion or to modify the existing assertion statements.
+
+`commands` is an array, allowing you to send multiple commands. In each array element, you include a `type` property and a `value` property. The `type` property is where you specify which of the supported commands you want to execute, and `value` is where you supply an operand for that command.
+
+In the case of the SAML Assertion Inline Hook, the `value` property is itself a nested object, in which you specify a particular operation, a path to act on, and a value.
+
+| Property | Description                                                              | Data Type       |
+|----------|--------------------------------------------------------------------------|-----------------|
+| type     | One of the [supported commands](#supported-commands)                    | String          |
+| value    | Operand to pass to the command. It specifies a particular op to perform. | [value](#value) |
+
+#### Supported commands
+
+The following command is currently supported for the SAML Assertion Inline Hook type:
+
+| Command                  | Description              |
+|--------------------------|--------------------------|
+| com.okta.assertion.patch | Modify a SAML assertion |
+
+#### value
+
+The `value` object is where you specify the specific operation to perform. It is an array, allowing you to request more than one operation.
+
+| Property | Description                                                                                                                                                                                                           | Data Type       |
+|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------|
+| op       | The name of one of the [supported ops](#list-of-supported-ops)                                                                                                                                                       | String          |
+| path     | Location, within the assertion, to apply the operation. See [Specifying Location within the Assertion](#specifying-location-within-the-assertion) below. | String          |
+| value    | The value of the claim that you add or replace, and can also include other attributes. If adding to a claim, you need to add another `value` attribute residing within an array called `attributeValues`. See the [Sample listing of JSON payload response](#sample-listing-of-json-payload-of-response) for an example.                                                                                                                                                                                          | Any JSON object |
+
+#### List of supported ops
+
+| Op      | Description                             |
+|---------|-----------------------------------------|
+| add     | Add a new claim to the assertion       |
+| replace | Modify any element of the assertion   |
+
+### Specify location within the assertion
+
+Specify the location within the assertion where you want to apply your operation using a slash-delimited path, which follows JSON Patch conventions.
+
+When you perform an `add` op to add a new attribute statement, begin with `/claims/` and follow that with the name of the new attribute that you are adding.
+
+When you modify an existing assertions statement, begin the path with `/subject/`, `/authentication/`, `/conditions/`, or `/claims/`, depending on which part of the assertion you want to modify. You then drill down within the child elements using slash-delimited element names, for example, `/claims/array/attributeValues/1/value`. (The `/1/` in the path indicates the index of the array.)
+
+### URI claims
+
+Okta supports URI claims with SAML assertion hooks. When you need to replace or add a URI claim, you must encode the claim name within the command per the [JavaScript Object Notation (JSON) Pointer](https://tools.ietf.org/html/rfc6901) specification. Specifically, this replaces `~` with `~0` and  `/` with `~1`.
+
+### SessionNotOnOrAfter support
+
+In some scenarios, your service provider may require the `SessionNotOnOrAfter` attribute for the `<saml:AuthnStatement>` in the SAML assertion, which sets the provider session time correctly. Use `add` op with the path `/authentication/sessionLifetime` and a value for session lifetime in seconds to add this attribute. See the [Sample listing of JSON payload response](/docs/reference/saml-hook/#sample-listing-of-json-payload-of-response) for an example. Okta calculates `SessionNotOnOrAfter` by adding the `/authentication/sessionLifetime` value to the `issueInstant` attribute and returns it in the SAML assertion.
+
+## Sample listing of JSON payload of response
+
+```JSON
 {
    "commands": [
     {
@@ -336,12 +363,12 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
           "op": "replace",
           "path": "/authentication/authnContext",
           "value": {
-            "authnContextClassRef": "Something:different?"
+            "authnContextClassRef": "replacementValue"
           }
         },
         {
           "op": "add",
-          "path": "/claims/foo",
+          "path": "/claims/extPatientId",
           "value": {
             "attributes": {
               "NameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
@@ -351,10 +378,15 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
                 "attributes": {
                   "xsi:type": "xs:string"
                 },
-                "value": "barer"
+                "value": "4321"
               }
             ]
           }
+        },
+        {
+          "op": "add",
+          "path": "/authentication/sessionLifetime",
+          "value": 300
         }
       ]
     },
@@ -376,7 +408,7 @@ Okta supports URI claims with SAML assertion hooks. When you need to replace or 
 
 This example displays `replace` and `add` operations with the URI formatted claim encoded.
 
-```json
+```JSON
 {
   "commands": [
     {
@@ -431,9 +463,9 @@ You then need to associate the registered Inline Hook with a SAML app by complet
 
 1. In the SAML Settings section, click **Edit**.
 
-1. Click **Show Advanced Settings**.
+1. Click **Next** to get to **SAML Settings** section.
 
-1. Click **Next** to get to the **Configure SAML** section.
+1. Click **Show Advanced Settings**.
 
 1. In the **Assertion Inline Hook** field, select your registered Inline Hook.
 

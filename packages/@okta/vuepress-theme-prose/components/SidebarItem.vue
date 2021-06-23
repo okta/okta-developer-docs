@@ -1,48 +1,50 @@
 <template>
-  <li :class="{ subnav: link.subLinks, hidden: hidden }">
-    <div class="link-wrap">
-      <div v-if="link.path">
-        <router-link
+  <li :class="{'link-wrap': true, 'subnav-active': link.iHaveChildrenActive, hidden: hidden }">
+    <router-link
+          v-if="entityType === types.link"
           :to="link.path"
-          exact
-          @click="setData"
+          v-slot="{ route, href, navigate }"
           class="tree-nav-link"
-          >{{ link.title }}</router-link
         >
-      </div>
+          <a
+            :href="href"
+            @click="navigate"
+            :class="route.path === $route.path ? 'router-link-active' : ''"
+            :aria-current="route.path === $route.path && 'page'"
+            >
+            <slot>
+              <span class="text-holder">
+                {{ link.title }}
+              </span>
+            </slot>
+          </a>
+    </router-link>
 
-      <div v-else>
-        <div
-          :class="{
-            'is-link': true,
-            'item-collapsable': true,
-            'router-link-active': iHaveChildrenActive
-          }"
-          @click="toggle"
-        >
-          <svg
-            viewBox="0 0 320 512"
-            v-if="link.subLinks && !iHaveChildrenActive"
-          >
-            <path
-              d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"
-            />
-          </svg>
-
-          <svg
-            viewBox="0 0 320 512"
-            v-if="link.subLinks && iHaveChildrenActive"
-          >
-            <path
-              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-            />
-          </svg>
-          {{ link.title }}
+    <div v-if="entityType === types.blankDivider">
+        <div class="blank-divider">
+          {{link.title}}
         </div>
-      </div>
     </div>
 
-    <ul v-if="link.subLinks" class="sections" v-show="iHaveChildrenActive">
+    <div
+          v-if="entityType === types.parent"
+          :class="{
+            'tree-nav-link': true,
+            'children-active': link.iHaveChildrenActive
+          }"
+          @click="toggleExpanded"
+        >
+          <i :class="{
+            'fa': true,
+            'fa-chevron-right': link.subLinks && !sublinksExpanded,
+            'fa-chevron-down': link.subLinks && sublinksExpanded,
+             }"></i>
+          <span class="text-holder">
+            {{ link.title }}
+          </span>
+    </div>
+
+    <ul v-if="entityType === types.parent" class="sections" v-show="sublinksExpanded">
       <SidebarItem
         v-for="sublink in link.subLinks"
         :key="sublink.title"
@@ -50,21 +52,43 @@
       />
     </ul>
   </li>
+
 </template>
 
 <script>
+import { guideFromPath } from "../util/guides"
+
 export default {
   name: "SidebarItem",
   props: ["link"],
-  inject: ["appContext"],
+  inject: ["appContext", "stackSelectorData"],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },
   data() {
     return {
-      iHaveChildrenActive: false,
-      hidden: !!this.link.hidden
+      sublinksExpanded: false,
+      hidden: !!this.link.hidden,
+      types: {
+        link: 'link',
+        blankDivider: 'blankDivider',
+        parent: 'parent'
+      }
     };
+  },
+
+  computed:{
+    entityType: function(){
+      if(this.link.hasOwnProperty('path') && this.link.path !== null ){
+        return this.types.link
+      }
+      if(!this.link.hasOwnProperty('path') && this.link.hasOwnProperty('subLinks')){
+        return this.types.parent
+      }
+      if(this.link.hasOwnProperty('path') && this.link.path === null){
+        return this.types.blankDivider
+      }
+    },
   },
   mounted() {
     this.setData();
@@ -73,7 +97,22 @@ export default {
     link() {
       this.setData();
     },
-    iHaveChildrenActive(isActivated, _) {
+
+    // Will triggers when StackSelector component will change it value.
+    "stackSelectorData.to"() {
+      // After StackSelector value has changed, route link will be modified.
+      // This condition will be true only for SidebarItems that contains links on pages with StackSelector.
+      const newFramework = guideFromPath(this.stackSelectorData.to).framework;
+      if (this.link?.frameworks?.includes(newFramework)) {
+        // All links on pages with StackSelector that contains same frameworks list will be modifiend
+        // and will include new framework value.
+        // Such approach will make it possible to activate the same value in all StackSelector
+        // components that has similar frameworks set.
+        this.link.path = this.getNewLinkPath(this.link.path, newFramework);
+      }
+    },
+
+    sublinksExpanded(isActivated, _) {
       if (isActivated) {
         // element.scrollIntoViewIfNeeded is not supported by Firefox
         if (this.$el.scrollIntoViewIfNeeded) {
@@ -84,18 +123,24 @@ export default {
       }
     },
     "appContext.isTreeNavMobileOpen"(isOpen, _) {
-      if (isOpen && this.link.imActive && this.link.path) {
+      if (isOpen && this.link.iHaveChildrenActive && this.link.path) {
         this.$el.scrollIntoView({ block: "center" });
       }
     }
   },
+
   methods: {
-    toggle() {
-      this.iHaveChildrenActive = !this.iHaveChildrenActive;
+    getNewLinkPath(path, newFramework) {
+      const framework = guideFromPath(path).framework;
+      return path.replace(framework, newFramework);
+    },
+    toggleExpanded() {
+      this.sublinksExpanded = !this.sublinksExpanded;
     },
     setData: function() {
-      this.iHaveChildrenActive = Boolean(this.link.imActive);
+      this.sublinksExpanded = Boolean(this.link.iHaveChildrenActive);
     }
+
   }
 };
 </script>

@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "ae22a5bc-5daa-4543-9d08-a1cf6a6e976e",
+		"_postman_id": "edef629b-a5a5-4579-98b2-828f1a5d9ff4",
 		"name": "Policy (Okta API)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -197,8 +197,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Okta Sign On",
@@ -506,8 +505,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Password",
@@ -701,8 +699,7 @@
 					},
 					"response": []
 				}
-			],
-			"protocolProfileBehavior": {}
+			]
 		},
 		{
 			"name": "Get Rule",
@@ -1047,7 +1044,6 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "e1da6eeb-101f-49e6-8cf2-7c668ce42686",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1057,13 +1053,11 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "e97dac16-0ec6-4bdb-9a08-97eb3860def4",
 				"type": "text/javascript",
 				"exec": [
 					""
 				]
 			}
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }

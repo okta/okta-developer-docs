@@ -7,24 +7,26 @@ To include custom claims in an ID token or an access token, add the claim to you
 
 To add a custom claim:
 
-1. In the Developer Console, navigate to **API**, and then **Authorization Servers**.
+1. In the Admin Console, go to **Security** > **API**.
 
-2. Select the name of the authorization server and then click **Claims**. Okta provides a default subject claim. You can edit that mapping or create your own claims. For this example, we are creating a custom claim.
+2. On the **Authorization Servers** tab, select the name of the Custom Authorization Server (or select **default** when you use the `default` Custom Authorization Server) and then click **Claims**. Okta provides a default subject claim. You can edit that mapping or create your own claims. For this example, we are creating a custom claim.
 
 3. Click **Add Claim**, and then configure the claim settings:
 
     * Enter a **Name** for the claim. In this example, we use **IDTClaim** for the ID token and **ATClaim** for the access token.
-    * **Include in token type** &mdash; If you are creating a claim for an ID token, select **ID Token** (for OpenID Connect). You can then define whether you want the claim included only when requested or always included. For this example, select **Always**.
+    * **Include in token type** &mdash; if you are creating a claim for an ID token, select **ID Token** (for OpenID Connect). You can then define whether you want the claim included only when requested or always included. For this example, select **Always**.
     If you are creating a claim for an access token, leave **Access Token** (for OAuth 2.0) selected.
-    * **Value type** &mdash; Select whether you want to define the claim by a **Groups** filter or by an **Expression** written in Okta Expression Language. For this example, select **Expression**.
-    * **Value** &mdash; This option appears if you chose **Expression**. Use [Okta Expression Language](/docs/reference/okta-expression-language/) syntax to generate values derived from attributes in Universal Directory and app profiles. For the ID token example, we use `user.preferredLanguage` and for the access token example, we use `user.secondEmail`. These are referencing an Okta user profile attribute.
+    * **Value type** &mdash; select whether you want to define the claim by a **Groups** filter or by an **Expression** written in Okta Expression Language. For this example, select **Expression**.
+    * **Value** &mdash; this option appears if you chose **Expression**. Use [Okta Expression Language](/docs/reference/okta-expression-language/) syntax to generate values derived from attributes in Universal Directory and app profiles. For the ID token example, we use `user.preferredLanguage` and for the access token example, we use `user.secondEmail`. These are referencing an Okta user profile attribute.
 
-    > **Note:** You can validate that your expression returns the results expected using the **Token Preview** tab.
+    > **Note:** In this example, the user has a preferred language and a second email defined in their profile.
 
-    * **Disable claim** &mdash; Select if you want to temporarily disable the claim for testing or debugging. Leave this clear for this example.
-    * **Include in** &mdash; Specify whether the claim is valid for any scope or select the scopes for which the claim is valid. Leave **Any scope** selected for this example.
+    * **Disable claim** &mdash; select if you want to temporarily disable the claim for testing or debugging. Leave this clear for this example.
+    * **Include in** &mdash; specify whether the claim is valid for any scope or select the scopes for which the claim is valid. Leave **Any scope** selected for this example.
 
 4. Click **Create**.
+
+    > **Note:** You can validate that your expression returns the results expected using the **Token Preview** tab.
 
 ### Verify the custom claim
 
@@ -32,7 +34,7 @@ To confirm that your custom claim was successfully added, you can [retrieve a li
 
 `https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}/claims`
 
-> **Note:** If you added the claim to the default authorization server, the `${authServerId}` is `default`.
+> **Note:** If you added the claim to the default Custom Authorization Server, the `${authServerId}` is `default`.
 
 ### Request a token that contains the custom claim
 

@@ -45,7 +45,7 @@ After registering an Event Hook, but before you can use it, you need to have Okt
 
 This one-time verification request is the only GET request Okta will send to your external service, while the ongoing requests to notify your service of event occurrences will be HTTPS POST requests. Your web service can use the GET versus POST distinction to implement logic to handle this special one-time request.
 
-The way your service needs to handle this one-time verification is as follows: The request from Okta will contain an HTTP header named `X-Okta-Verification-Challenge`. Your service needs to read the value of that header and return it in the response body, in a JSON object named `verification`, that is: `{ "verification" : "value_from_header" }`. Note that the value comes to you in an HTTP header, but you need to send it back in a JSON object.
+The way your service needs to handle this one-time verification is as follows: The request from Okta will contain an HTTP header named `x-okta-verification-challenge`. Your service needs to read the value of that header and return it in the response body, in a JSON object named `verification`, that is: `{ "verification" : "value_from_header" }`. Note that the value comes to you in an HTTP header, but you need to send it back in a JSON object.
 
 See [Event Hooks](/docs/guides/event-hook-implementation) for a working example of an Event Hook setup, including code that completes the one-time verification step.
 
@@ -57,7 +57,7 @@ Information is encapsulated in the JSON payload in the `data.events` object. The
 
 The content of each array element is an object of the [LogEvent](/docs/reference/api/system-log/#example-logevent-object) type. This is the same object that the [System Log API](/docs/reference/api/system-log/) defines for System Log events. See the documentation there for information on the object and its sub-objects.
 
-Delivery of events is best effort. Events are delivered at least once. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `data.events.uuid` value of incoming events against the values for events previously received.
+Delivery of events is best effort. Events are delivered at least once. Delivery may be delayed by network conditions. In some cases, multiple requests may arrive at the same time after a delay, or events may arrive out of order. To establish ordering, you can use the time stamp contained in the `data.events.published` property of each event. To detect duplicated delivery, you can compare the `eventId` value of incoming events against the values for events previously received.
 
 No guarantee of maximum delay between event occurrence and delivery is currently specified.
 
@@ -95,7 +95,7 @@ As a best practice, you should return the HTTP response immediately, rather than
 
 ### Rate Limits
 
-Event Hooks are limited to sending 100,000 events per 24-hour period. 
+Event Hooks are limited to sending 100,000 events per 24-hour period.
 
 ### Debugging
 

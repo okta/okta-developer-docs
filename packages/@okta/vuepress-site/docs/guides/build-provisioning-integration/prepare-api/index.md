@@ -90,7 +90,7 @@ If your integration supports user attributes beyond those four base attributes, 
 
 In addition to the basic user schema attributes, your SCIM API must also specify a unique identifier for each user resource.
 
-[Section 3.1](https://tools.ietf.org/html/rfc7643#section-3.1) of the SCIM specification asserts that the `id` attribute is used to uniquely identify resources. This unique identifier:
+[Section 3.1](https://tools.ietf.org/html/rfc7643#section-3.1) of the SCIM specification asserts that the `id` attribute is used to identify resources. This unique identifier:
 
 - Is assigned a value by the service provider (your application) for each SCIM resource
 - Is always issued by the service provider (your application) and not specified by the client (Okta)
@@ -114,10 +114,10 @@ Okta user management requires that your SCIM API supports an `active` attribute 
 
 There are numerous examples of how to implement SCIM servers and applications. Here are a few to get you started:
 
-- [scimify](https://toolkit.okta.com/apps/scimify/) &mdash; A PHP application for Okta that supports both SCIM 1.1 and SCIM 2.0 servers with operations for /Users, /Groups, and /ServiceProviderConfig endpoints
+- [scimify](https://toolkit.okta.com/apps/scimify/) &mdash; a PHP application for Okta that supports both SCIM 1.1 and SCIM 2.0 servers with operations for /Users, /Groups, and /ServiceProviderConfig endpoints
 - [Apache Directory SCIMple](https://github.com/apache/directory-scimple) &mdash; Apache's Java EE implementation of the SCIM version 2.0 specification
-- [django-scim2](https://github.com/15five/django-scim2) &mdash; A SCIM 2.0 service provider implementation (for Django)
-- [go-scim](https://github.com/imulab/go-scim) &mdash; Building blocks for servers implementing SCIM v2
+- [django-scim2](https://github.com/15five/django-scim2) &mdash; a SCIM 2.0 service provider implementation (for Django)
+- [go-scim](https://github.com/imulab/go-scim) &mdash; building blocks for servers implementing SCIM v2
 
 A full list of implementations, both open-source and proprietary, is available at [SimpleCloud.info](http://www.simplecloud.info/#Implementations2).
 

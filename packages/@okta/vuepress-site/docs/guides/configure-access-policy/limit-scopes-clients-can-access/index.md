@@ -6,9 +6,9 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 ## Create the policy container
 
-1. In the Developer Console, navigate to **API > Authorization Servers**.
+1. In the Admin Console, go to **Security** > **API**.
 
-2. Select the name of the authorization server that you want to apply the policy to.
+2. On the **Authorization Servers** tab, select the name of the authorization server that you want to apply the policy to.
 
 3. Select **Access Policies**, and then **Add Policy**.
 
@@ -38,14 +38,14 @@ Use the following steps to create a policy that limits which scopes that a desig
 
 Let's test your access policy and get back an access token.
 
-1. You need the following values from your Okta OpenID client application, both of which can be found on the application's **General** tab in the Developer Console:
+1. You need the following values from your Okta OpenID client application, both of which can be found on the application's **General** tab in the Admin Console:
 
      * Client ID
      * Valid Redirect URI
 
 > **Note:** Make sure that you have a user assigned to the client application.
 
-2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration.
+2. Retrieve the authorization server's authorization endpoint by using the server's Metadata URI: `https://${yourOktaDomain}/oauth2/${authServerId}/.well-known/openid-configuration`.
 
      It looks like this: `https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize`
 
@@ -68,7 +68,7 @@ Let's test your access policy and get back an access token.
 
 4. Open a private browsing session in your browser and paste the URL into the address box. You are redirected to the sign-in page for your Okta org.
 
-5. Enter the credentials for a user who is mapped to your Open ID Connect application, and you are directed to the `redirect_uri` that you specified. Look in the address box for the URL that contains the access token, scopes, and any state that you defined:
+5. Enter the credentials for a user who is mapped to your OpenID Connect application, and you are directed to the `redirect_uri` that you specified. Look in the address box for the URL that contains the access token, scopes, and any state that you defined:
 
      `http://yourRedirectUriHere.com#access_token=eyJraWQiOiJYc2hYcGZTSHdEMk1zU2pvSTlZTmozWF9KdE1mclpmYWFOUklfNlBCVjQwIi[...]i7U9uW0mI0Bb8SbUeKZjzuxP9aDog&token_type=Bearer&expires_in=3600&scope=openid+email&state=WM6D`
 

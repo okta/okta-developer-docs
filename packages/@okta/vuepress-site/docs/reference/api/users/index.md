@@ -9,7 +9,7 @@ The Okta User API provides operations to manage users in your organization.
 
 ## Getting Started
 
-Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ff2ad5a39f77ba4cfabf)
+Explore the Users API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9daeb4b935a423c39009)
 
 
 
@@ -41,7 +41,7 @@ Creates a new user in your Okta organization with or without credentials
 | provider      | Indicates whether to create a user with a specified authentication provider                                                                                                | Query        | Boolean                                      | FALSE      | FALSE   |
 | profile       | Profile properties for user                                                                                                                                                | Body         | [Profile object](#profile-object)            | TRUE       |         |
 | credentials   | Credentials for user                                                                                                                                                       | Body         | [Credentials object](#credentials-object)    | FALSE      |         |
-| groupIds      | Ids of groups that user will be immediately added to at time of creation                                                                                                   | Body         | Array of Group Ids                           | FALSE      |         |
+| groupIds      | Ids of groups that user will be added to at time of creation                                                                                                   | Body         | Array of Group Ids                           | FALSE      |         |
 | nextLogin     | With `activate=true`, if `nextLogin=changePassword`, a user is created, activated, and the password is set to `EXPIRED`, so user must change it the next time they log in. | Query        | String                                       | FALSE      | FALSE   |
 
 ##### Response Parameters
@@ -211,7 +211,7 @@ curl -v -X POST \
 
 Creates a user without a [recovery question & answer](#recovery-question-object)
 
-The new user is able to sign in immediately after activation with the assigned password.
+The new user is able to sign in after activation with the assigned password.
 This flow is common when developing a custom user registration experience.
 
 > Important: Do not generate or send a one-time activation token when activating users with an assigned password.  Users should sign in with their assigned password.
@@ -281,7 +281,7 @@ curl -v -X POST \
 
 Creates a user with a specified [hashed password](#hashed-password-object).
 
-The new user is able to sign in immediately after activation with the specified password.
+The new user is able to sign in after activation with the specified password.
 This flow is common when migrating users from another data store in cases where we want to allow the users to retain their current passwords.
 
 > Important: Do not generate or send a one-time activation token when activating users with an imported password.  Users should login with their imported password.
@@ -360,7 +360,7 @@ Creates a user with a [Password Hook](#password-hook-object) object specifying t
 
 The Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the Password Inline Hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password Import Inline Hook](/docs/reference/password-hook/) for more details.
 
-The new user is able to sign in immediately after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
+The new user is able to sign in after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
 
 > Important: Do not generate or send a one-time activation token when activating users with an Password Inline Hook.  Users should sign in with their existing password to be imported using the Password Import Inline Hook.
 
@@ -430,7 +430,7 @@ curl -v -X POST \
 
 Creates a new user with a [password](#password-object) and [recovery question & answer](#recovery-question-object)
 
-The new user is able to log in with the assigned password immediately after activation.
+The new user is able to log in with the assigned password after activation.
 This flow is common when developing a custom user-registration experience.
 
 > Important: Don't generate or send a one-time activation token when activating users with an assigned password.  Users should login with their assigned password.
@@ -582,7 +582,7 @@ curl -v -X POST \
 #### Create User in Group
 
 
-Creates a user that is immediately added to the specified groups upon creation
+Creates a user that is added to the specified groups upon creation
 
 Use this in conjunction with other create operations for a Group Administrator that is scoped to create users only in specified groups.  The request may specify up to 20 group ids.  (This limit applies only when creating a user.  The user may later be added to more groups.)
 
@@ -729,6 +729,28 @@ Fetches a user from your Okta organization
 - [Get User with ID](#get-user-with-id)
 - [Get User with Login](#get-user-with-login)
 - [Get User with Login Shortname](#get-user-with-login-shortname)
+##### Content-Type Header Fields
+
+This endpoint supports an optional `okta-response` value for the `Content-Type` header, which can be used for performance optimization. Complex DelAuth configurations may degrade performance when fetching specific parts of the response, and passing this parameter can omit these parts, bypassing the bottleneck.
+
+The `okta-response` header value takes a comma-separated list of omit options (optionally surrounded in quotes), each specifying a part of the response to omit.
+
+| okta-response value       | Description                                                                                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| omitCredentials           | Omits the credentials subobject from the response                                                                                        |
+| omitCredentialsLinks      | Omits the following HAL links from the response:  Change Password, Change Recovery Question, Forgot Password, Reset Password, Reset Factors, Unlock |
+| omitTransitioningToStatus | Omits the `transitioningToStatus` field from the response                                                                                 |
+
+The performance optimization will only be applied when all three parameters are passed.  Unrecognized parameters are ignored.
+
+###### Content-Type Header Examples
+
+**Header:** `Content-Type: application/json; okta-response=omitCredentials,omitCredentialsLinks`<br>
+**Result:** Omits the credentials subobject and credentials links from the response.  Does not apply performance optimization.
+
+
+**Header:** `Content-Type: application/json; okta-response="omitCredentials,omitCredentialsLinks, omitTransitioningToStatus"`<br>
+**Result:** Omits the credentials, credentials links, and `transitioningToStatus` field from the response.  Applies performance optimization.
 
 ##### Request Parameters
 
@@ -927,7 +949,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users/isaac.brock@example.com"
+"https://${yourOktaDomain}/api/v1/users/isaac.brock%40example.com"
 ```
 
 ##### Response Example
@@ -1069,9 +1091,29 @@ curl -v -X GET \
 Lists users in your organization with pagination in most cases
 
 A subset of users can be returned that match a supported filter expression or search criteria.
+##### Content-Type Header Fields
+
+This endpoint supports an optional `okta-response` value for the `Content-Type` header, which can be used for performance optimization. Complex DelAuth configurations may degrade performance when fetching specific parts of the response, and passing this parameter can omit these parts, bypassing the bottleneck.
+
+The `okta-response` header value takes a comma-separated list of omit options (optionally surrounded in quotes), each specifying a part of the response to omit.
+
+| okta-response value       | Description                                                                                                                                |
+| ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| omitCredentials           | Omits the credentials subobject from the response                                                                                        |
+| omitCredentialsLinks      | Omits the following HAL links from the response:  Change Password, Change Recovery Question, Forgot Password, Reset Password, Reset Factors, Unlock |
+| omitTransitioningToStatus | Omits the `transitioningToStatus` field from the response                                                                                 |
+
+The performance optimization will only be applied when all three parameters are passed.  Unrecognized parameters are ignored.
+
+###### Content-Type Header Examples
+
+**Header:** `Content-Type: application/json; okta-response=omitCredentials,omitCredentialsLinks`<br>
+**Result:** Omits the credentials subobject and credentials links from the response.  Does not apply performance optimization.
+
+**Header:** `Content-Type: application/json; okta-response="omitCredentials,omitCredentialsLinks, omitTransitioningToStatus"`<br>
+**Result:** Omits the credentials, credentials links, and `transitioningToStatus` field from the response.  Applies performance optimization.
 
 ##### Request Parameters
-
 
 The first three parameters in the table below correspond to different types of lists:
 
@@ -1294,7 +1336,7 @@ Examples use cURL-style escaping instead of URL encoding to make them easier to 
 
 > Hint: If filtering by `email`, `lastName`, or `firstName`, it may be easier to use `q` instead of `filter`.
 
-See [Filtering](/docs/reference/api-overview/#filtering) for more information about the expressions used in filtering.
+See [Filtering](/docs/reference/api-overview/#filter) for more information about the expressions used in filtering.
 
 ##### Filter Examples
 
@@ -4168,7 +4210,7 @@ Specifies the authentication provider that validates the user's password credent
 
 ### Links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current status of a user.  The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations.  The Links object is read-only.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288) available for the current status of a user.  The Links object is used for dynamic discovery of related resources, lifecycle operations, and credential operations.  The Links object is read-only.
 
 #### Individual Users vs. Collection of Users
 

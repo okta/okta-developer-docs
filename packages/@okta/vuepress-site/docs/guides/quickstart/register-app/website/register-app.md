@@ -1,21 +1,25 @@
-In the Developer Console, complete these steps:
+To create a web app integration with an OpenID Connect (OIDC) sign-in:
 
-1. Click **Applications**.
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. Click **Create App Integration**.
+1. Select **OpenID Connect** for the **Sign-in method**.
+1. Select **Web Application** for the **Application type**.
+    > **Note:** **Web Application** is typically used for applications that use tokens in server-side code. For applications that use tokens in Angular, React, Vue, or other browser-side code, choose **Single-Page Application**.
+1. Click **Next**.
+1. From the **New Web App Integration** page, specify your **App integration name**.
+1. Next to **Sign-in redirect URIs**, click **+ Add URI** to specify each sign-in redirect URI for your app. Okta sends OAuth authorization responses to the specified URIs, which are also known as callback endpoints. For the Okta sample **Web Application** apps, specify `http://localhost:8080/authorization-code/callback` as a sign-in redirect URI. For **Single-Page Application** samples, use `http://localhost:8080/login/callback`.
+1. Next to **Sign-out redirect URIs**, click **+ Add URI** to specify the sign-out redirect URI. This setting lets you specify a URI that the user’s browser is redirected to when the user signs out. For the Okta sample **Web Application** app integrations, you don't need to specify a sign-out redirect URI. For **Single-Page Application** app integrations, use the base URI, for example `http://localhost:8080`.
+1. Click **Save**.
 
-2. Click **Add Application**.
+Your registered app page is displayed.
 
-3. Select **Web** as the type of application. Click **Next**.
+From the **General** tab, save the following client credentials for your app build:
 
-4. Enter the **Name** of your app.
+- **Client ID** &mdash; the public identifier for the client that is required for all OAuth flows
+- **Client secret** &mdash; the secret key used by the client to exchange an authorization code for a token (must be kept confidential)
 
-5. Leave **Base URI** set to the default. This is the domain where your app runs. For this quick start guide, we use `localhost`, which is where the sample apps run by default. You might need to change the port, depending on the default port your framework uses to serve `localhost` pages.
+Remaining in the Admin Console, go to **Security** > **API**. On the **Authorization Servers** tab, save the following value from your **default** authorization server:
 
-6. For **Login redirect URIs**, enter: `http://localhost:8080/login/callback`. Okta sends OAuth authorization responses to the specified URIs, which are also known as callback endpoints.
+- **Issuer URI** &mdash; the authorization server URI that will perform authentication
 
-5. Leave **Logout redirect URIs** set to the default. This setting lets you specify a URI to redirect the user’s browser to when they sign out.
-
-6. Leave **Group assignments** set to the default, which is **Everyone**. Users can only sign in to apps that they are assigned to. Group assignments let you manage assignments for large numbers of users at once.
-
-7. For **Grant type allowed**, under "Client acting on behalf of a user", select **Authorization Code**. This is the OAuth 2.0 grant type that Okta provides.
-
-8. Click **Done**.
+If you create a **Single-Page Application**, make sure to register its trusted origin to enable CORS (Cross-Origin Resource Sharing). Go to **Security** > **API**** > **Trusted Origins** and add `http://localhost:8080` (select both CORS and redirect).

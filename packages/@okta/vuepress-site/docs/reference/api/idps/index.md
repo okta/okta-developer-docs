@@ -9,7 +9,7 @@ The Okta Identity Providers API provides operations to manage federations with e
 
 ## Get started
 
-Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b6ae6cc993c84d50d927)
+Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2635b07ecc5dc2435ade)
 
 ## Setup guides
 
@@ -245,7 +245,7 @@ curl -v -X POST \
 
 Adds a new `SAML2` type IdP to your organization
 
-> **Notes:** You must first add the IdP's signature certificate to the IdP key store before you can add a SAML 2.0 IdP with a `kid` credential reference. Don't use `fromURI` to automatically redirect a user to a particular app after successfully authenticating with a third-party IdP. Instead, use [SAML Deep Links](#redirect-with-saml-deep-links). Using `fromURI` isn't tested and not supported. For more information about using deep links when signing users in using an SP-initiated flow, see [Understanding SP-Initiated Login Flow](/docs/concepts/saml/#understanding-sp-initiated-login-flow).
+> **Notes:** You must first add the IdP's signature certificate to the IdP key store before you can add a SAML 2.0 IdP with a `kid` credential reference. Don't use `fromURI` to automatically redirect a user to a particular app after successfully authenticating with a third-party IdP. Instead, use [SAML Deep Links](#redirect-with-saml-deep-links). Using `fromURI` isn't tested and not supported. For more information about using deep links when signing users in using an SP-initiated flow, see [Understanding SP-Initiated Login flow](/docs/concepts/saml/#understanding-sp-initiated-login-flow).
 
 ##### Request example
 
@@ -4667,7 +4667,7 @@ All Identity Providers have the following properties:
 | _links      | [Discoverable resources](#links-object) related to the IdP | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
 | created     | Timestamp when the IdP was created                             | Date                                                           | FALSE | FALSE | TRUE  |   |     |
 | id            | Unique key for the IdP                                       | String                                                         | FALSE    | TRUE   | TRUE     |           |           |
-| issuerMode <ApiLifecycle access="ea" />  | Indicates whether Okta uses the original Okta org domain URL or a custom domain URL in the request to the social IdP  | `ORG_URL` or `CUSTOM_URL_DOMAIN` | FALSE | FALSE | FALSE |   |
+| issuerMode <ApiLifecycle access="ea" />  | Indicates whether Okta uses the original Okta org domain URL or a custom domain URL in the request to the social IdP  | `ORG_URL` or `CUSTOM_URL` | FALSE | FALSE | FALSE |   |
 | lastUpdated | Timestamp when the IdP was last updated                        | Date                                                           | FALSE | FALSE | TRUE  |   |     |
 | name        | Unique name for the IdP                                    | String                                                         | FALSE | TRUE  | FALSE | 1 | 100 |
 | policy      | Policy settings for IdP `type`                             | [Policy object](#policy-object)                       | FALSE | FALSE | FALSE |   |     |
@@ -4683,9 +4683,9 @@ All Identity Providers have the following properties:
 
     * If set to `ORG_URL`, then in the authorize request to the social IdP, Okta uses the Okta org's original domain URL (`https://${yourOktaDomain}`) as the domain in the `redirect_uri`. This is the default value for social IdPs created before the Custom URL Domain feature is enabled.
 
-    * If set to `CUSTOM_URL_DOMAIN`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri`. This is the default value for social IdPs created after the Custom URL Domain feature is enabled.
+    * If set to `CUSTOM_URL`, then in the authorize request to the social IdP, Okta uses the custom domain URL as the domain in the `redirect_uri`. This is the default value for social IdPs created after the Custom URL Domain feature is enabled.
 
-  After you enable the Custom URL Domain feature, all new social IdPs use the `CUSTOM_URL_DOMAIN` by default. All existing social IdPs continue to use the `ORG_URL` so that existing integrations with the social IdP continue to work after the feature is enabled. You can change this value in any social IdP through the API or Admin Console.
+  After you enable the Custom URL Domain feature, all new social IdPs use the `CUSTOM_URL` by default. All existing social IdPs continue to use the `ORG_URL` so that existing integrations with the social IdP continue to work after the feature is enabled. You can change this value in any social IdP through the API or Admin Console.
 
 ### Identity Provider type
 
@@ -5073,14 +5073,14 @@ Determines the [IdP Key Credential](#identity-provider-key-credential-object) us
 
 #### OAuth 2.0 Protocol
 
-Protocol settings for authentication using the [OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1):
+Protocol settings for authentication using the [OAuth 2.0 Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-4.1):
 
 | Property    | Description                                                                                                                     | DataType                                                                     | Nullable | Readonly | MinLength |
 | ----------- | ---------------------                                                                                                           | ---------------------------------------------------------                    | -------- | -------- | --------- |
 | credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-client-credentials-object) | FALSE    | FALSE    |           |
 | endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server (AS)                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE     | TRUE     |           |
 | scopes      | IdP-defined permission bundles to request delegated access from the User                                                            | Array of String                                                              | FALSE    | FALSE    | 1         |
-| type        | [OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1)                                            | `OAUTH2`                                                                     | FALSE    | TRUE     |           |
+| type        | [OAuth 2.0 Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-4.1)                                            | `OAUTH2`                                                                     | FALSE    | TRUE     |           |
 
 > **Note:** The [OAuth 2.0 Setup Guide](#setup-guides) lists the scopes that are supported [per-IdP provider](#identity-provider-type).
 
@@ -5121,7 +5121,7 @@ Protocol settings for authentication using the [OpenID Connect Protocol](http://
 | credentials | Client authentication credentials for an [OAuth 2.0 Authorization Server (AS)](https://tools.ietf.org/html/rfc6749#section-2.3) | [Credentials object](#oauth-2-0-and-openid-connect-credentials-object) | FALSE | FALSE |   |
 | endpoints   | Endpoint settings for the OAuth 2.0 Authorization Server (AS)                                                                       | [OAuth 2.0 Endpoints object](#oauth-2-0-and-openid-connect-endpoints-object)  | TRUE  | TRUE  |   |
 | scopes      | OpenID Connect and IdP-defined permission bundles to request delegated access from the User                                         | Array of String                                                              | FALSE | FALSE | 1 |
-| type        | [OpenID Connect Authorization Code Flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)                     | `OIDC`                                                                       | FALSE | TRUE  |   |
+| type        | [OpenID Connect Authorization Code flow](http://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)                     | `OIDC`                                                                       | FALSE | TRUE  |   |
 
 > **Note:** The [IdP setup guides](#setup-guides) list the scopes that are supported [per-IdP provider](#identity-provider-type). The base `openid` scope is always required.
 
@@ -5982,13 +5982,13 @@ Webhook authorization settings for an IdP provisioning or account link Transacti
 
 ### Links object
 
-Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc5988) available for the IdP using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
+Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc8288) available for the IdP using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
 
 | Link Relation Type | Description                                                                                                                       |
 | ------------------ | --------------------------------------------------------------------------------------------------------------------------------- |
 | acs                | SAML 2.0 Assertion Consumer Service URL for the Okta SP                                                                               |
-| authorize          | OAuth 2.0 authorization endpoint for the IdP [OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1) |
-| clientRedirectUri  | Redirect URI for the [OAuth 2.0 Authorization Code Flow](https://tools.ietf.org/html/rfc6749#section-4.1)                             |
+| authorize          | OAuth 2.0 authorization endpoint for the IdP [OAuth 2.0 Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-4.1) |
+| clientRedirectUri  | Redirect URI for the [OAuth 2.0 Authorization Code flow](https://tools.ietf.org/html/rfc6749#section-4.1)                             |
 | metadata           | Federation metadata document for the IdP (for example: SAML 2.0 Metadata)                                                                      |
 | self               | The primary URL for the IdP                                                                                                       |
 | users              | IdP Users                                                                                                                         |
@@ -6103,7 +6103,7 @@ Additional Context that describes the HTTP client for the Transaction:
 
 ### Links object
 
-Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc5988) available for the IdP Transaction using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
+Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc8288) available for the IdP Transaction using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
 
 | Link Relation Type       | Description                                                                                                                                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------                                                          |
@@ -6264,7 +6264,7 @@ Identity Provider User profiles are IdP-specific but may be customized by the Pr
 
 ### Links object
 
-Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc5988) available for the IdP User using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
+Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc8288) available for the IdP User using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
 
 | Link Relation Type | Description                                       |
 | ------------------ | ----------------------------------                |

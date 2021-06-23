@@ -1,6 +1,6 @@
 {
-  "release" : "2021.02.1",
-  "build" : "2021.02.1-begin-92-g9c38991a385d",
+  "release" : "2021.04.1",
+  "build" : "2021.04.1-begin-177-gffbed663c7f7",
   "errors" : [ {
     "title" : "API validation exception",
     "includesExceptionMessage" : true,
@@ -930,7 +930,7 @@
     "errorSummary" : "An email was recently sent. Please wait 5 seconds before trying again.",
     "errorDescription" : null
   }, {
-    "title" : "User locked recovery answer exception",
+    "title" : "User locked recovery exception",
     "includesExceptionMessage" : false,
     "statusCode" : 403,
     "statusReasonPhrase" : "Forbidden",
@@ -1200,6 +1200,94 @@
     "statusReasonPhrase" : "Gone",
     "errorCode" : "E0000156",
     "errorSummary" : "Invalid user id; the user either does not exist or has been deleted.",
+    "errorDescription" : null
+  }, {
+    "title" : "Authenticator already exists exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000157",
+    "errorSummary" : "Another authenticator with key: {0} is already active.",
+    "errorDescription" : null
+  }, {
+    "title" : "Non user verification compliance okta verify enrollment exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000158",
+    "errorSummary" : "Invalid Enrollment. User verification required.",
+    "errorDescription" : null
+  }, {
+    "title" : "Non fips compliance okta verify enrollment exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "errorCode" : "E0000159",
+    "errorSummary" : "Invalid Enrollment. FIPS compliance required.",
+    "errorDescription" : null
+  }, {
+    "title" : "Mutually exclusive authenticator active exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 409,
+    "statusReasonPhrase" : "Conflict",
+    "errorCode" : "E0000160",
+    "errorSummary" : "Cannot enable authenticator at this time. Conflicts with authenticator with key: {0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Domain already exists exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000161",
+    "errorSummary" : "Unique domain name required.",
+    "errorDescription" : null
+  }, {
+    "title" : "Domain limit exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000162",
+    "errorSummary" : "Domain count limit reached.",
+    "errorDescription" : null
+  }, {
+    "title" : "Domain not found exception",
+    "includesExceptionMessage" : false,
+    "statusCode" : 404,
+    "statusReasonPhrase" : "Not Found",
+    "errorCode" : "E0000163",
+    "errorSummary" : "Domain ID not found.",
+    "errorDescription" : null
+  }, {
+    "title" : "Domain not verified exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000165",
+    "errorSummary" : "Domain not verified.",
+    "errorDescription" : null
+  }, {
+    "title" : "Captcha limit exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000166",
+    "errorSummary" : "CAPTCHA count limit reached. At most one CAPTCHA instance is allowed per Org. Please remove existing CAPTCHA to create a new one.",
+    "errorDescription" : null
+  }, {
+    "title" : "Deactivate idp in use exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000167",
+    "errorSummary" : "{0}",
+    "errorDescription" : null
+  }, {
+    "title" : "Captcha associated with org exception",
+    "includesExceptionMessage" : true,
+    "statusCode" : 403,
+    "statusReasonPhrase" : "Forbidden",
+    "errorCode" : "E0000168",
+    "errorSummary" : "CAPTCHA cannot be removed. This CAPTCHA is associated with org-wide CAPTCHA settings, please unassociate it before removing it.",
     "errorDescription" : null
   } ]
 }

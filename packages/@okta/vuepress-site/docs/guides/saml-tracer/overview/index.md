@@ -17,7 +17,7 @@ Once you install SAML tracer, open it from the browser menu bar: **Tools** > **S
 and [SAML Chrome Panel](https://chrome.google.com/webstore/detail/saml-devtools-extension/jndllhgbinhiiddokbeoeepbppdnhhio) for Chrome.
 We use SAML Tracer in the following examples.
 
-## SP-Initiated Flow
+## SP-Initiated flow
 
 To create a SAML request for an SP-initiated flow and inspect the request and response in SAML tracer:
 
@@ -25,18 +25,18 @@ To create a SAML request for an SP-initiated flow and inspect the request and re
 2. Look at the SAML tracer window and see the SAML request sent from your application to Okta.
 3. Okta returns a SAML Response.
 
-![SAML Request SP Flow](/img/saml-request-sp-flow.png "SAML Request SP Flow")
+![SAML Request SP flow](/img/saml-request-sp-flow.png "SAML Request SP flow")
 Figure 1: SP-Initiated Request in SAML tracer
 
-![SAML Response SP Flow](/img/saml-response-sp-flow.png "SAML Response SP Flow")
+![SAML Response SP flow](/img/saml-response-sp-flow.png "SAML Response SP flow")
 Figure 2: SP-Initiated Response in SAML tracer
 
-## IDP Initiated Flow
+## IDP Initiated flow
 
 To create a SAML request for an IdP-initiated flow and inspect it in SAML tracer:
 
 1. Assign the SAML app to a user.
-2. Navigate to dashboard of that user and click on the app icon.
+2. Navigate to dashboard of that user and click the app icon.
 3. The application opens in new browser and if successful, sends a SAML response.
 
 You can also start an IdP flow by selecting the App Embed link in a browser (**SAML App** > **General** > **App Embed Link**).
@@ -235,4 +235,4 @@ SAML responses are signed, and contain the profile attributes of the person who 
 
 ## Support
 
-If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).

@@ -5,10 +5,20 @@ cd ${OKTA_HOME}/${REPO}/packages/@okta/vuepress-site
 DEPLOY_ENVIRONMENT=""
 export REGISTRY_REPO="npm-topic"
 export REGISTRY="${ARTIFACTORY_URL}/api/npm/${REGISTRY_REPO}"
+export DEPLOY_ENV=""
 
 declare -A branch_environment_map
 branch_environment_map[master]=vuepress-site-prod
 branch_environment_map[staging]=vuepress-site-preprod
+
+# Master branch indecates that current deploy is for production.
+# In such case, PROD will take 'prod' value.
+# PROD ENV is used to distinguished the prod environment from the test environment (see config.js)
+if [[ $BRANCH == "master" ]]; then
+    DEPLOY_ENV = "prod"
+else
+    DEPLOY_ENV = "test"
+fi
 
 if ! yarn build; then
     echo "Error building site"
@@ -21,6 +31,18 @@ if [[ -z "${branch_environment_map[$BRANCH]+unset}" ]]; then
     exit ${SUCCESS}
 else
     DEPLOY_ENVIRONMENT=${branch_environment_map[$BRANCH]}
+fi
+
+if [[ $BRANCH == "master" ]]; then
+  if ! ci-append-sha --include-count; then
+    echo "ci-append-sha failed! Exiting..."
+    exit $FAILED_SETUP
+  fi
+else
+  if ! ci-append-sha --include-count --tag ${BRANCH}; then
+    echo "ci-append-sha failed! Exiting..."
+    exit $FAILED_SETUP
+  fi
 fi
 
 interject "Generating conductor file in $(pwd)"
@@ -38,11 +60,6 @@ else
   TARGET_BRANCH=$BRANCH
 fi
 
-if ! ci-append-sha; then
-  echo "ci-append-sha failed! Exiting..."
-  exit $FAILED_SETUP
-fi
-
 npm config set @okta:registry ${REGISTRY}
 if ! npm publish --registry ${REGISTRY}; then
   echo "npm publish failed! Exiting..."
@@ -53,20 +70,28 @@ ARTIFACT_FILE="$(ci-pkginfo -t pkgname)-$(ci-pkginfo -t pkgsemver).tgz"
 DEPLOY_VERSION="$([[ ${ARTIFACT_FILE} =~ vuepress-site-(.*)\.tgz ]] && echo ${BASH_REMATCH[1]})"
 ARTIFACT_PATH="@okta/vuepress-site/-/${ARTIFACT_FILE}"
 
-if ! trigger_and_wait_release_promotion_task 60; then
-  echo "Automatic promotion failed..."
-  exit ${BUILD_FAILURE}
+# Only auto-promote to npm-release on main branch
+if [[ $BRANCH == "master" ]]; then
+  if ! trigger_and_wait_release_promotion_task 60; then
+    echo "Automatic promotion failed..."
+    exit ${BUILD_FAILURE}
+  fi
+  # update target registry to release for production deploy
+  REGISTRY_REPO="npm-release"
 fi
 
-if ! send_promotion_message "${DEPLOY_ENVIRONMENT}" "${ARTIFACT_PATH}" "${DEPLOY_VERSION}"; then
+# tell conductor to deploy
+if ! send_promotion_message "${DEPLOY_ENVIRONMENT}" "${REGISTRY_REPO}" "${ARTIFACT_PATH}" "${DEPLOY_VERSION}"; then
   echo "Error sending promotion event to aperture"
   exit ${BUILD_FAILURE}
 fi
 
-# Get the Runscope trigger ID
-get_secret prod/tokens/vuepress_runscope_trigger_id RUNSCOPE_TRIGGER_ID
+if [[ $BRANCH == "master" ]]; then
+  # Get the Runscope trigger ID
+  get_secret prod/tokens/vuepress_runscope_trigger_id RUNSCOPE_TRIGGER_ID
 
-# Trigger the runscope tests
-curl -I -X GET "https://api.runscope.com/radar/bucket/${RUNSCOPE_TRIGGER_ID}/trigger?base_url=https://developer.okta.com"
+  # Trigger the runscope tests
+  curl -I -X GET "https://api.runscope.com/radar/bucket/${RUNSCOPE_TRIGGER_ID}/trigger?base_url=https://developer.okta.com"
+fi;
 
 exit ${SUCCESS}

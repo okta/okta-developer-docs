@@ -1,72 +1,99 @@
 <template>
   <li>
-    <a :href="link.path || '#' + link.slug" class="on-this-page-link" :class="{'router-link-active': imActive}" @click.prevent="clickLink">
-      <span >{{link.title}}</span>
+    <a
+      :href="link.path || '#' + link.slug"
+      class="on-this-page-link"
+      :class="{ 'router-link-active': imActive }"
+      @click.prevent="clickLink"
+    >
+      <span>{{ link.title }}</span>
     </a>
-    <ul v-if="link.children && (iHaveChildrenActive || imActive)">
-      <OnThisPageItem v-for="(childLink, index) in link.children" :key="index" :link="childLink" :activeAnchor=activeAnchor />
+    <ul
+      :id="ulId"
+      v-show="link.children && (iHaveChildrenActive || imActive)"
+    >
+      <OnThisPageItem
+        v-for="(childLink, index) in filteredLink"
+        :key="index"
+        :link="childLink"
+        :activeAnchor="activeAnchor"
+      />
     </ul>
   </li>
 </template>
 
 <script>
-import { LAYOUT_CONSTANTS } from '../layouts/Layout.vue';
+import AnchorHistory from "../mixins/AnchorHistory.vue";
 export default {
-  name: 'OnThisPageItem',
-  props: ['link', 'activeAnchor'],
+  name: "OnThisPageItem",
+  props: ["link", "activeAnchor"],
+  mixins: [AnchorHistory],
   data() {
     return {
+      id: "",
       imActive: false,
       iHaveChildrenActive: false
-    }
+    };
   },
   components: {
-    OnThisPageItem: () => import('../components/OnThisPageItem.vue'),
+    OnThisPageItem: () => import("../components/OnThisPageItem.vue")
+  },
+  computed: {
+    filteredLink() {
+      return this.link.children
+        ? this.link.children.filter(item => item.level <= 3)
+        : [];
+    },
+    ulId() {
+      const identifier = 'submenu_'
+      if (this.link.path) {
+        const hash = this.link.path.split('#')[1];
+        return `${identifier}${hash}`
+      }
+
+      return `${identifier}${this.link.slug}`;
+    }
   },
   mounted() {
     this.setActiveData();
   },
   watch: {
-    activeAnchor: function (val) {
+    activeAnchor: function() {
       this.setActiveData();
     }
   },
   methods: {
-    isActive: function( node ) {
-      if(this.activeAnchor === null) {
+    isActive: function(node) {
+      if (this.activeAnchor === null) {
         return false;
       }
-      let anchor = this.activeAnchor.replace(/^#/, '');
-      return (node.path && node.path == node.basePath + '#' + anchor) || (node.slug && node.slug == anchor);
+      let anchor = this.activeAnchor.replace(/^#/, "");
+      return (
+        (node.path && node.path == node.basePath + "#" + anchor) ||
+        (node.slug && node.slug == anchor)
+      );
     },
     setActiveData: function() {
       this.imActive = this.isActive(this.link);
-      this.iHaveChildrenActive = (this.link.children || [] ).some( child => this.isActive(child) );
+
+      this.iHaveChildrenActive = (this.link.children || []).some(child =>
+        this.isActive(child)
+      );
     },
     clickLink: function(e) {
       let hash = "";
-      if(e.target.tagName.toLowerCase() === 'span') {
-        hash = e.target.parentNode.hash
+      if (e.target.tagName.toLowerCase() === "span") {
+        hash = e.target.parentNode.hash;
       }
 
-      if(e.target.tagName.toLowerCase() === 'a') {
-        hash = e.target.hash
+      if (e.target.tagName.toLowerCase() === "a") {
+        hash = e.target.hash;
       }
 
-      if(hash) {
-        const node = document.querySelector(hash);
-        if(node) { // node is sometimes null - perhaps content hasn't loaded?
-          const scrollToPosition = node.offsetTop - document.querySelector('.fixed-header').clientHeight - LAYOUT_CONSTANTS.HEADER_TO_CONTENT_GAP;
-          window.scrollTo(0, scrollToPosition);
-          // Chrome & Safari: when zoomed in/out, window.scrollTo does not always perform scroll strictly equal to passed parameter
-          // https://bugs.chromium.org/p/chromium/issues/detail?id=890345
-          if(window.scrollY < scrollToPosition) {
-            const scrollAlignment = 2;
-            window.scrollBy(0, scrollAlignment);
-          }
-        }
+      if (hash) {
+        this.historyPushAndScrollToAnchor(hash);
       }
     }
   }
-}
+};
 </script>

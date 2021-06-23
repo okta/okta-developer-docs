@@ -3,14 +3,14 @@ title: Preview, test, and troubleshoot
 ---
 The external service example is now ready with code to receive and respond to an Okta call. The Okta org is now set up to call the external service using a Registration Inline Hook.
 
-In your Okta org, you can preview the request and response JSON right from the Developer Console. You can also test the code directly with self-registering users.
+In your Okta org, you can preview the request and response JSON right from the Admin Console. You can also test the code directly with self-registering users.
 
 ### Preview
 
 To preview the Registration Inline Hook:
 
-1. Navigate to Inline Hooks (**Workflow** > **Inline Hooks**) in your Developer Console.
-2. Click on the Registration Inline Hook name (in this example, "Guide Registration Hook Code").
+1. In the Admin Console, go to **Workflow** > **Inline Hooks**.
+2. Select the Registration Inline Hook name (in this example, "Guide Registration Hook Code").
 3. Click the **Preview** tab.
 4. Select a user from your org in the first block titled "Configure Inline Hook request"; that is, a value for the  `data.userProfile` value.
 5. From the "Preview example Inline Hook request" block, click **Generate Request**.

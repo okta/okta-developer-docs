@@ -134,7 +134,12 @@ class BasePage {
   }
 
   refresh() {
-    return browser.refresh();
+    /*
+     * Do not use `browser.refresh()` since it assumes the page uses Angular (we don't).
+     * Instead, directly use the WebDriver wrapper via `browser.driver.navigate().refresh()`.
+     * Source: https://www.protractortest.org/#/api?view=ProtractorBrowser.prototype.refresh
+     */
+    return browser.driver.navigate().refresh();
   }
 
   async smartClick(element) {
@@ -148,6 +153,11 @@ class BasePage {
 
   getInPageLink(hash) {
     return element(by.css(`a[href='${hash}']:not(.header-anchor)`));
+  }
+
+  getOnThisPageItem(hash) {
+    const onThisPageSidebarSelector = '.on-this-page-navigation';
+    return element(by.css(`${onThisPageSidebarSelector} a[href="${hash}"]`));
   }
 
   getHeading(selector) {

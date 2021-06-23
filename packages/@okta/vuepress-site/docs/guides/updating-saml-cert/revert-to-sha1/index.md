@@ -6,11 +6,11 @@ title: Reverting to a SHA1 Certificate
 If your ISV does not accept certificates with a SHA256 signature, you can revert the settings to use the previous SHA1 certificate by rolling
 over the app key to specify the SHA1 certificate you previously associated with your integration.
 
-#### Step 1: List your apps and get the id, name, and label for the app to revert.
+#### Step 1: List your apps and get the ID, name, and label for the app to revert
 
 This step is the same as [Step 1](#step-1-list-your-apps-and-get-the-app-id-name-and-label-for-each-app-to-update), above.
 
-#### Step 2: Retrieve all certificates associated with the app and locate the SHA1 certificate.
+#### Step 2: Retrieve all certificates associated with the app and locate the SHA1 certificate
 
 Use the [List Key Credentials for an Application API](/docs/reference/api/apps/#list-key-credentials-for-application) to list all the credentials.
 Pass the app ID (`id`) that was collected in the previous step as the app ID (`aid`) in this API. Then, determine which certificate is the SHA1 certificate by copying the certificate text for each of the returned certificates, and [determine the signature algorithm](#determine-the-signature-algorithm-of-a-certificate)
@@ -59,7 +59,7 @@ Response:
 
 > After you complete step 3, your users can't access the SAML app until you complete step 4.
 
-#### Step 3: Update the key credential for the application with the SHA1 certificate.
+#### Step 3: Update the key credential for the application with the SHA1 certificate
 
 Use the [Apps API](/docs/reference/api/apps/#update-key-credential-for-application)
 to update the key credential for the application to specify the kid of the SHA1 certificate that you retrieved in Step 2.
@@ -67,12 +67,13 @@ to update the key credential for the application to specify the kid of the SHA1 
 This step is the same as
 [Step 3](#step-3-update-the-key-credential-for-the-app-to-specify-the-new-signing-key-id), above.
 
-#### Step 4: Upload the SHA1 certificate to the ISV.
+#### Step 4: Upload the SHA1 certificate to the ISV
 
-1. In the administrator UI, select **Applications** and choose your app.
-2. Select **Sign-On Options**.
-3. Click **View Setup Instructions**, as shown below.<br/>![Accessing SAML Setup Instructions](/img/saml_setup_link.png)
-4. Perform the setup for your app again, using the instructions provided. During this setup, you will upload the certificate in a specified format, the metadata, or the certificate fingerprint.
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. Select your app integration.
+1. Select **Sign-On Options**.
+1. Click **View Setup Instructions**, as shown below.<br/>![Accessing SAML Setup Instructions](/img/saml_setup_link.png)
+1. Perform the setup for your app integration again by using the instructions provided. During this setup, you can upload the certificate in a specified format, the metadata, or the certificate fingerprint.
 
 
 <NextSectionLink/>

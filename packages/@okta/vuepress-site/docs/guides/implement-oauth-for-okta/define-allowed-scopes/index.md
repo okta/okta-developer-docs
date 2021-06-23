@@ -7,21 +7,21 @@ When a request is sent to the Okta Org Authorization Server's `/authorize` endpo
 > **Note:** Only the Super Admin role has permissions to grant scopes to an app.
 
 1. Sign in to your Okta organization with your administrator account.
-1. From the Admin Console side navigation, click **Applications** > **Applications**.
+1. In the Admin Console, go to **Applications** > **Applications**.
 1. Select the OpenID Connect (OIDC) or OAuth 2.0 app that needs grants added.
 1. Select the **Okta API Scopes** tab and then click **Grant** for each of the scopes that you want to add to the application's grant collection.
 
 Alternatively, you can add grants using the `/grants` API. The following is an example request to create a grant for the `okta.users.read` scope.
 
 ```bash
-    curl -X POST \
-    -H 'Accept: application/json' \
-    -H "Authorization: SSWS ${api_token}" \
-    -H 'Content-Type: application/json' \
-    -d '{
-          "scopeId": "okta.users.read",
-          "issuer": "https://{yourOktaDomain}"
-    }' "https://${yourOktaDomain}/api/v1/apps/client_id/grants"
+curl --location --request POST 'https://${yourOktaDomain}/api/v1/apps/client_id/grants' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: SSWS ${api_token}' \
+--data-raw '{
+    "scopeId": "okta.users.read",
+    "issuer": "https://${yourOktaDomain}"
+}'
 ```
 
 > **Note:** You can find a list of available values for `scopeId` in the <GuideLink link="../scopes">Scopes and supported endpoints</GuideLink> section.

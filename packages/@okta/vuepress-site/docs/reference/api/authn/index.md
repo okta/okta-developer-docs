@@ -37,7 +37,7 @@ Trusted applications are backend applications that act as authentication broker 
 2. For more advanced use cases, learn [the Okta API basics](/code/rest/).
 3. Explore the Authentication API:
 
-    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6f4f9ca4145db4d80270)
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/41c71ad6815e708b504a)
 
 ## Authentication operations
 
@@ -617,6 +617,7 @@ Authenticates a user via a [trusted application](#trusted-application) or proxy 
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` is ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/api-overview/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
+* The ```Authorization: SSWS ${api_token}``` header is optional, in case of a SPA (Single Page app) this header can be omitted. 
 
 ##### Request example for activation token
 
@@ -879,7 +880,7 @@ Content-Type: application/json
 
 Include the `X-Device-Fingerprint` header to supply a device fingerprint. The `X-Device-Fingerprint` header is used in the following ways:
 
-* If the new or unknown device email notification is enabled, an email is sent to the user if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation]https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_General.
+* If the new or unknown device email notification is enabled, an email is sent to the user if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_General).
 * If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. See [New Device Behavior Detection](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_proc_security_behavior_detection).
 > **Note:** The use of the `X-Device-Fingerprint` header for new device security behavior detection is deprecated. Starting April 12 2021, we are going to enable [improvements to the new device security behavior](https://help.okta.com/en/prod/Content/Topics/Security/improved-new-device-behavior-detection.htm) for all the existing tenants. Once the improvements are rolled out, new device security behavior will only rely on the `deviceToken` in the [Context Object](#context-object) and will not rely on the `X-Device-Fingerprint` header. The new or unknown device email notification feature will continue to rely on the `X-Device-Fingerprint` header.
 
@@ -2747,7 +2748,7 @@ curl -v -X POST \
 
 #### Enroll Duo Factor
 
-The enrollment process starts with an enrollment request to Okta, then continues with the Duo widget that is embedded in the page. The page needs to create an iframe with the name `duo_iframe` (described in the [Duo documentation](https://duo.com/docs/duoweb#3.-show-the-iframe)) to host the widget. The script address is received in the response object in \_embedded.factor.\_embedded.\_links.script object. The information to initialize the Duo object is taken from \_embedded.factor.\_embedded.activation object as it is shown in the [full example](#full-page-example-for-duo-enrollment). To maintain the link between Duo and Okta, the stateToken must be passed back when Duo calls the callback. This is done by populating the hidden element in the "duo_form" as it is described [here](https://duo.com/docs/duoweb/#passing-additional-post-arguments-with-the-signed-response). After Duo enrollment and verification is done, the Duo script makes a call back to Okta. To complete the authentication process, make a call using [the poll link](#activation-poll-request-example) to get session token and verify successful state.
+The enrollment process starts with an enrollment request to Okta, then continues with the Duo widget that is embedded in the page. The page needs to create an iframe with the name `duo_iframe` (described in the [Duo documentation](https://duo.com/docs/duoweb#3.-show-the-iframe)) to host the widget. The script address is received in the response object in `\_embedded.factor.\_embedded.\_links.script` object. The information to initialize the Duo object is taken from `\_embedded.factor.\_embedded.activation` object as it is shown in the [full example](#full-page-example-for-duo-enrollment). To maintain the link between Duo and Okta, the stateToken must be passed back when Duo calls the callback. This is done by populating the hidden element in the "duo_form" as it is described [here](https://duo.com/docs/duoweb/#passing-additional-post-arguments-with-the-signed-response). After Duo enrollment and verification is done, the Duo script makes a call back to Okta. To complete the authentication process, make a call using [the poll link](#activation-poll-request-example) to get session token and verify successful state.
 
 ##### Request example for enroll Duo Factor
 
@@ -7276,7 +7277,7 @@ The following table shows the possible values for this property:
 
 ### Links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the current [transaction state](#transaction-state) using the [JSON](https://tools.ietf.org/html/rfc7159) specification. These links are used to transition the [state machine](#transaction-state) of the authentication or recovery transaction.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current [transaction state](#transaction-state) using the [JSON](https://tools.ietf.org/html/rfc7159) specification. These links are used to transition the [state machine](#transaction-state) of the authentication or recovery transaction.
 
 The Links object is read-only.
 
@@ -7550,7 +7551,7 @@ TOTP factors, when activated, have an embedded verification object that describe
 
 ###### TOTP activation links object
 
-Specifies link relations (See [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the TOTP activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the TOTP activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
 
 | Link Relation Type | Description                                                              |
 | ------------------ | ------------------------------------------------------------------------ |
@@ -7627,7 +7628,7 @@ Push factors must complete activation on the device by scanning the QR code or v
 
 ###### Push Factor activation links object
 
-Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the push Factor activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the push Factor activation object using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
 
 | Link Relation Type | Description                                                                              |
 | ------------------ | ---------------------------------------------------------------------------------------- |
@@ -7636,7 +7637,7 @@ Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988))
 
 ##### Factor links object
 
-Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc5988)) available for the Factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
+Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the Factor using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and operations.
 
 The Factor Links object is read-only.
 

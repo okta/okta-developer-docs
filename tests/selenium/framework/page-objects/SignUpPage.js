@@ -1,5 +1,7 @@
 'use strict';
 
+const { example } = require('joi');
+const { element, by } = require('protractor');
 const BasePage = require('./BasePage');
 
 const headerSelector = '.signup';
@@ -7,12 +9,16 @@ const emailFieldId = 'email';
 const firstNameFieldId = 'firstName';
 const lastNameFieldId = 'lastName';
 const countryFieldId = 'country';
+const signupWithGoogleButtonId = 'continue-google';
+const signupWithGithubButtonId = 'continue-github';
 const signUpByEmailButtonId = 'signup';
-const signUpWithGitHubButtonText = 'CONTINUE WITH GITHUB';
-const signUpWithGoogleButtonText = 'CONTINUE WITH GOOGLE';
 const signInLinkText = 'Sign in';
+const oieLinkText = 'Learn more about Identity engine';
 const redirectUrl = '/signup';
+const oieRedirectUrl = '/signup/oie.html';
 const captchaIFrameXpath = "//*[@for='recaptcha']/div/div/div/iframe";
+const dialogContainerClass = '.dialog-container';
+const dialogTermsConditionsHeader = `${dialogContainerClass} .dialog--header`
 const agreeCheckboxDivCss = ".consent--section-agree";
 const stateSelectionId = "state";
 
@@ -53,6 +59,10 @@ class SignUpPage extends BasePage {
     return this.getSignInLinkElement().isPresent();
   }
 
+  isOieLinkPresent() {
+    return this.getOieLinkElement().isPresent();
+  }
+
   isCaptchaPresent() {
     return this.getCaptchaIframeElement().isPresent();
   }
@@ -61,9 +71,19 @@ class SignUpPage extends BasePage {
     return this.getStateSelectionElement().isPresent();
   }
 
+  isDialogWindowPresent() {
+    return this.getDialogWindow().isPresent();
+  }
+
   navigate() {
     const pageLoadElement = SignUpPage.getPageLoadElement();
     this.load(redirectUrl, pageLoadElement);
+    this.waitForPresence(pageLoadElement);
+  }
+
+  navigateToOie() {
+    const pageLoadElement = SignUpPage.getPageLoadElement();
+    this.load(oieRedirectUrl, pageLoadElement);
     this.waitForPresence(pageLoadElement);
   }
 
@@ -71,12 +91,20 @@ class SignUpPage extends BasePage {
     return element(by.css(headerSelector));
   }
 
+  getDialogWindow() {
+    return element(by.css(dialogContainerClass));
+  }
+
+  getDialogWindowHeader() {
+    return element(by.css(dialogTermsConditionsHeader));
+  }
+
   getGithubSignUpButtonElement() {
-    return element(by.linkText(signUpWithGitHubButtonText));
+    return element(by.id(signupWithGithubButtonId));
   }
 
   getGoogleSignUpButtonElement() {
-    return element(by.linkText(signUpWithGoogleButtonText));
+    return element(by.id(signupWithGoogleButtonId));
   }
 
   getSignUpByEmailButtonElement() {
@@ -101,6 +129,10 @@ class SignUpPage extends BasePage {
 
   getSignInLinkElement() {
     return element(by.linkText(signInLinkText));
+  }
+
+  getOieLinkElement() {
+    return element(by.linkText(oieLinkText));
   }
 }
 

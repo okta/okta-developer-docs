@@ -30,7 +30,7 @@ The System Log API has one endpoint:
 
 <ApiOperation method="get" url="/api/v1/logs" />
 
-[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/54def5ab52f04b7e4011)
+[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3295add9e852d8728ef2)
 
 This collection resource is backed by a [LogEvent object](#logevent-object) and associated [event types](#event-types).
 
@@ -492,13 +492,9 @@ The following sections outline the key event types that are captured by the syst
 * `policy.evaluate_sign_on` provides context on the values that are used and evaluated in the context of the Okta sign-in policy. For example, you can determine which network zones are matched for this event.
 * For `policy.lifecycle` and `policy.rule` events, the corresponding policy is listed in the target object.
 
-### System events
+### Rate limit events
 
-| Event                                | Description                                                                                                                  |
-| :-------------------                 | :----------------------------------                                                                                          |
-| system.org.rate_limit.warning        | An endpoint is near its [rate limit](/docs/reference/rate-limits/).                                                 |
-| system.org.rate_limit.violation      | An endpoint exceeds its [rate limit](/docs/reference/rate-limits/).                                            |
-| core.concurrency.org.limit.violation | A request exceeds the org's allotted [concurrency limit](/docs/reference/rate-limits/#concurrent-rate-limits). |
+See [System Log events for rate limits](/docs/reference/rl-system-log-events/) for information on rate limit event types.
 
 Rate limit warnings are sent at different times, depending on the org type. For One App and Enterprise orgs, the warning is sent when the org is at 60% of its limit.
 
@@ -643,6 +639,8 @@ The following example expressions are supported for events with the `filter` que
 | `actor.id eq ":id"`                          | Events that are published with a specific actor ID                                      |
 
 > **Note:** SCIM filter expressions can't use the `published` attribute since it may conflict with the logic of the `since`, `after`, and `until` query params.
+> In addition, a SCIM filter expression that uses the `co` (contains) operator with the `debugContext.debugData.url` or the `debugContext.debugData.requestUri` attribute is not supported.
+> A request with an invalid SCIM filter expression returns an HTTP 400 API response.
 
 See [Filtering](/docs/reference/api-overview/#filtering) for more information on expressions.
 
@@ -781,6 +779,15 @@ The following is another example, where the parameters are invalid:
   "errorCode": "E0000053",
   "errorSummary": "Invalid parameter: The since parameter is over 180 days prior to the current day.",
   "errorId": "55166534-b7d8-45a5-a4f6-3b38a5507046"
+}
+```
+
+An invalid SCIM field and operator combination within a `filter` request parameter (for example, `debugContext.debugData.url co "/oauth/"`) returns an HTTP 400 error with a message that indicates the unsupported combination, for example:
+```json
+{
+  "errorCode": "E0000031",
+  "errorSummary": "The supplied combination of operator and field is not currently supported. Operator: co, Field: debugContext.debugData.url",
+  "errorId": "ec93dhe2-6d76-458c-8c0c-f8df8fb7a24b"
 }
 ```
 

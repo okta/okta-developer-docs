@@ -1,6 +1,5 @@
 <template>
-  <aside class="landing-navigation">
-    <ul class="landing">
+  <aside class="tree-nav">
       <ul class="sections">
         <SidebarItem
           v-for="link in navigation"
@@ -8,7 +7,6 @@
           :link="link"
         />
       </ul>
-    </ul>
   </aside>
 </template>
 
@@ -16,17 +14,13 @@
 import _ from "lodash";
 import { getGuidesInfo, guideFromPath } from "../util/guides";
 import {
-  concepts as conceptsRedesign,
-  guides as guidesRedesign,
-  languagesSdk as languagesSdkRedesign,
-  reference as referenceRedesign
-} from "../const/navbar/redesign/navbar.const";
-import {
   concepts,
   guides,
   languagesSdk,
-  reference
-} from "../const/navbar/navbar.const";
+  reference,
+  releaseNotes
+} from "../const/navbar.const";
+
 
 export default {
   name: "Sidebar",
@@ -34,24 +28,14 @@ export default {
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },
-  computed: {
-    navigation() {
-      // Redesign FeatureFlag
-      return (this.$page.redesign
-        ? this.getNewNavigation()
-        : this.getNavigation() || []
-      ).map(nav => {
-        this.addStatesToLink(nav);
-        return nav;
-      });
-    }
-  },
   data() {
     return {
       usingFile: false,
+      navigation: []
     };
   },
   mounted() {
+    this.navigation = this.getNavigationData();
     if (!this.appContext.isInMobileViewport) {
       this.handleScroll();
       window.addEventListener("scroll", this.handleScroll);
@@ -60,7 +44,25 @@ export default {
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
   },
+  watch: {
+    $route(to, from) {
+      // On route change check if base path has changed.
+      // If true update `iHaveChildrenActive` parameter.
+      // In such way will be possible to indicate current active item without needs to re-render sidebar
+      if (from.path !== to.path) {
+        this.navigation.forEach((nav) => {
+          this.addStatesToLink(nav);
+        });
+      }
+    }
+  },
   methods: {
+    getNavigationData() {
+      return this.getNavigation().map(nav => {
+        this.addStatesToLink(nav);
+        return nav;
+      });
+    },
     toggleSubNav: function(event) {
       const parent = event.target.parentElement;
       const sections = parent.querySelector(".sections");
@@ -72,92 +74,83 @@ export default {
     handleScroll: function(event) {
       let maxHeight =
         window.innerHeight -
-        document.querySelector(".fixed-header").clientHeight -
-        60;
+        document.querySelector(".fixed-header").clientHeight ;
 
-      document.querySelector(".landing-navigation").style.height =
-        maxHeight + "px";
+      document.querySelector(".sidebar-area").style.height =
+        maxHeight + "px"; 
     },
     addStatesToLink(link) {
+      // Reset iHaveChildrenActive value.
+      link.iHaveChildrenActive = false;
+
       if (link.path) {
         // Add state to leaf link
-        link.imActive = link.path === this.$page.regularPath;
+        link.iHaveChildrenActive = link.path === this.$page.regularPath;
       }
       if (link.subLinks) {
         for (const subLink of link.subLinks) {
           // Compute state to section link
-          link.imActive = link.imActive || this.addStatesToLink(subLink);
+          link.iHaveChildrenActive =
+            link.iHaveChildrenActive || this.addStatesToLink(subLink);
         }
       }
-      return link.imActive;
+      return link.iHaveChildrenActive;
     },
-    getNewNavigation() {
+    getNavigation() {
       const homeLink = { title: "Home", path: "/" };
       return [
         homeLink,
-        ...this.getGuides(guidesRedesign),
-        ..._.cloneDeep(conceptsRedesign),
-        ..._.cloneDeep(referenceRedesign),
-        ..._.cloneDeep(languagesSdkRedesign)
+        ...this.getGuides(),
+        ..._.cloneDeep(concepts),
+        ..._.cloneDeep(reference),
+        ..._.cloneDeep(languagesSdk),
+        ..._.cloneDeep(releaseNotes)
       ];
     },
-    getNavigation() {
-      if (this.$page.path.includes("/code/")) {
-        this.usingFile = true;
-        return _.cloneDeep(languagesSdk);
-      }
-      if (this.$page.path.includes("/docs/reference/")) {
-        this.usingFile = true;
-        return _.cloneDeep(reference);
-      }
-      if (this.$page.path.includes("/docs/concepts/")) {
-        this.usingFile = true;
-        return _.cloneDeep(concepts);
-      }
-      if (this.$page.path.includes("/docs/guides")) {
-        return this.getGuides();
-      }
-      if (this.$page.path.includes("/books/")) {
-        const booksRegex = /(\/books\/)[A-Za-z-]*\/$/;
-        return _.chain(this.$site.pages)
-          .filter(page => page.path.match(booksRegex))
-          .sortBy(page => page.title)
-          .sort()
-          .value();
-      }
-    },
-    getGuides(overrides) {
+    getGuides() {
       const pages = this.$site.pages;
       const guidesInfo = getGuidesInfo({ pages });
-      // Redesign FeatureFlag
-      let navs = _.cloneDeep(overrides || guides);
+      let navs = _.cloneDeep(guides);
       const framework = guideFromPath(this.$route.path).framework;
       navs.forEach(nav => {
         let queue = new Array();
         queue.push(nav);
         let current = queue.pop();
         while (current) {
-          if (current && current.subLinks) {
+          if (current?.subLinks) {
             queue.push(...current.subLinks);
-          } else if (current && current.guideName) {
+          } else if (current?.guideName) {
             // add sections
             current.subLinks = [];
             const guide = guidesInfo.byName[current.guideName];
-            if (guide && guide.sections) {
-              guide.sections.forEach(section => {
-                current.subLinks.push({
-                  title: section.title,
-                  path: section.makeLink(
-                    guide.frameworks.includes(framework)
-                      ? framework
-                      : guide.mainFramework
-                  )
+
+            if (Array.isArray(guide?.sections)) {
+              const [firstSection] = guide.sections;
+
+              // Special value for guide that only has one section and should be
+              // linked at the parent
+              if (guide.sections.length === 1 && firstSection.name === 'main') {
+                current.title = firstSection.title;
+                current.path = firstSection.makeLink(guide.frameworks.includes(framework) ? framework : guide.mainFramework);
+                current.frameworks = guide.frameworks;
+              } else {
+                guide.sections.forEach(section => {
+                  current.subLinks.push({
+                    title: section.title,
+                    path: section.makeLink(
+                      guide.frameworks.includes(framework)
+                        ? framework
+                        : guide.mainFramework
+                    ),
+                    frameworks: guide.frameworks
+                  });
                 });
-              });
+              }
             }
           }
           current = queue.pop();
         }
+
       });
       return navs;
     }

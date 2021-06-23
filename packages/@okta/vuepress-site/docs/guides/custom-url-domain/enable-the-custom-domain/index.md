@@ -3,7 +3,7 @@ title: Enable the custom domain
 ---
 Use the configuration wizard to walk through the steps to customize your Okta URL domain.
 
-1. In the Developer Console, select **Customization**, and then **Domain Name**. In the Classic UI, select **Settings**, and then **Customization**.
+1. In the Admin Console, select **Settings**, and then **Customization**.
 2. In the **Custom URL Domain** box, click **Edit**.
 3. Click **Get Started** to start the configuration wizard.
     * The **Continue** button appears if the configuration is incomplete.

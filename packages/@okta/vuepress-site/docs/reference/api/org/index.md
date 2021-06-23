@@ -5,9 +5,11 @@ category: management
 
 # Org API
 
-<ApiLifecycle access="ea" />
-
 The Okta Org API provides operations to manage your org account settings such as contact information, granting Okta Support access, and more.
+
+## Getting Started
+
+Explore the Org API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b85f2faf4e0bdb7baa3b)
 
 ## Org operations
 

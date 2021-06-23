@@ -20,7 +20,7 @@ This page provides the API rate limits for authentication and end-user activitie
 
 | Action and Okta API Endpoint                                                                                           | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ---------------------------------------------------------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ---------------------: |
-| **Cumulative rate limit**                                                                                              | **1,600**        | **8,400**        | **8,400**| **10,600**| **13,000**            |
+| **Cumulative rate limit**                                                                                              | **1,700**        | **9,000**        | **9,000**| **11,200**| **13,900**            |
 | **Authenticate different end users:**<br>`/api/v1/authn`                                                               | 100              | 600              | 600     | 600        | 500                   |
 | **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only                                     | 100              | 600              | 600     | 600        | 500                   |
 | **Get session information:**<br>`/api/v1/sessions`                                                                     | 100              | 600              | 600     | 600        | 750                   |
@@ -35,16 +35,17 @@ This page provides the API rate limits for authentication and end-user activitie
 | `/login/sso_iwa_auth`                                                                                                  | 100              | 600              | 600     | 600        | 500                   |
 | `/api/{apiVersion}/radius`                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 | `/idp/idx`                                                                                                             | 100              | 600              | 600     | 600        | 500                   |
+| `/login/token/redirect`                                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 
 
 > **Note:** The following public metadata endpoints aren't subjected to rate limiting.
 >
-> Public metadata endpoints for Org Authorization Server are:
+> Public metadata endpoints for the Org Authorization Server are:
 > * `/oauth2/v1/keys`
 > * `/.well-known/openid-configuration`
 > * `/.well-known/oauth-authorization-server`
 >
-> Public metadata endpoints for Custom Authorization Servers are:
+> Public metadata endpoints for the Custom Authorization Servers are:
 > * `/oauth2/{authorizationServerId}/v1/keys`
 > * `/oauth2/{authorizationServerId}/.well-known/openid-configuration`
 > * `/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`

@@ -1,8 +1,6 @@
 ---
-title: Request user consent during authentication
+title: Overview
 ---
-
-<ApiLifecycle access="ea" />
 
 If you want users to acknowledge and accept that they are giving an app access to their data, you can configure an Okta-hosted user consent dialog box for OAuth 2.0 or OpenID Connect authentication flows. With the correct configuration, Okta displays a consent dialog box that shows which app is asking for access. The dialog box displays the app logo that you specify and also provides details about what data is shared if the user consents.
 
@@ -19,8 +17,14 @@ When an application needs to get a new access token from an authorization server
 
 > **Note:** The user only has to grant consent once for an attribute per authorization server.
 
+When a consent dialog appears depends on the values of three elements:
+
+* `prompt`: a query [parameter](/docs/reference/api/oidc/#parameter-details) that is used in requests to `/oauth2/${authServerId}/v1/authorize` (custom authorization server)
+* `consent_method`: a property listed in the **Settings** [table](/docs/reference/api/apps/#settings-10) in the Apps API doc
+* `consent`: a property listed in the **Parameter details** [section](/docs/reference/api/oidc/#parameter-details) for the `/authorize` endpoint
+
 ## Support
 
-If you need help or have an issue, post a question in our [Developer Forum](https://devforum.okta.com).
+If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
 <NextSectionLink/>

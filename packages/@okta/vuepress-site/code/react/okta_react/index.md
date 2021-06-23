@@ -6,15 +6,22 @@ excerpt: Integrate Okta with a React app using Auth JS.
 ---
 
 This guide will walk you through integrating authentication into a React app with Okta by performing these steps:
-1. [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
-2. [Create a React App](#create-a-react-app)
-3. [Install Dependencies](#install-dependencies)
-4. [Create a Custom Sign-In Form](#create-a-custom-sign-in-form)
-5. [Create Routes](#create-routes)
-6. [Connect the Routes](#connect-the-routes)
-7. [Start Your App](#start-your-app)
+- [Prerequisites](#prerequisites)
+- [Add an OpenID Connect Client in Okta](#add-an-openid-connect-client-in-okta)
+- [Create a React App](#create-a-react-app)
+- [Install Dependencies](#install-dependencies)
+- [Create a Custom Sign-In Form](#create-a-custom-sign-in-form)
+- [Create Routes](#create-routes)
+  - [`/`](#)
+  - [`/protected`](#protected)
+  - [`/login`](#login)
+  - [`/login/callback`](#logincallback)
+  - [Connect the Routes](#connect-the-routes)
+- [Start your app](#start-your-app)
+- [Conclusion](#conclusion)
+- [Support](#support)
 
-> This guide is for `@okta/okta-auth-js` v4.5.2 and `@okta/okta-react` v4.1.0.
+> This guide is for `@okta/okta-auth-js` v5.1.1 and `@okta/okta-react` v6.0.0.
 
 ## Prerequisites
 If you do not already have a **Developer Edition Account**, you can create one at [https://developer.okta.com/signup/](https://developer.okta.com/signup/).
@@ -223,7 +230,7 @@ const Home = () => {
   const { authState, oktaAuth } = useOktaAuth();
   const history = useHistory();
 
-  if (authState.isPending) {
+  if (!authState) {
     return <div>Loading...</div>;
   }
 
@@ -252,7 +259,7 @@ import { withOktaAuth } from '@okta/okta-react';
 export default withOktaAuth(class Home extends Component {
 
   render() {
-    if (this.props.authState.isPending) {
+    if (!this.props.authState) {
       return <div>Loading...</div>;
     }
 
@@ -279,7 +286,8 @@ Create a new component `src/Protected.jsx`:
 ```jsx
 import React from 'react';
 
-export default () => <h3>Protected</h3>;
+const Home = () => <h3>Protected</h3>;
+export default Home;
 ```
 
 ### `/login`
@@ -297,7 +305,7 @@ import { useOktaAuth } from '@okta/okta-react';
 const SignIn = () => {
   const { authState } = useOktaAuth();
 
-  if (authState.isPending) {
+  if (!authState) {
     return <div>Loading...</div>;
   }
   return authState.isAuthenticated ?
@@ -318,7 +326,7 @@ import { withOktaAuth } from '@okta/okta-react';
 
 export default withOktaAuth(class SignIn extends Component {
   render() {
-    if (this.props.authState.isPending) {
+    if (!this.props.authState) {
       return <div>Loading...</div>;
     }
     return this.props.authState.isAuthenticated ?
@@ -359,7 +367,7 @@ And, create its companion at `src/AppWithRouterAccess.jsx`. Make sure to replace
 import React from 'react';
 import { Route, useHistory } from 'react-router-dom';
 import { Security, SecureRoute, LoginCallback } from '@okta/okta-react';
-import { OktaAuth } from '@okta/okta-auth-js';
+import { OktaAuth, toRelativeUrl } from '@okta/okta-auth-js';
 import Home from './Home';
 import SignIn from './SignIn';
 import Protected from './Protected';
@@ -378,8 +386,12 @@ const AppWithRouterAccess = () => {
     pkce: true
   });
 
+  const restoreOriginalUri = async (_oktaAuth, originalUri) => {
+    history.replace(toRelativeUrl(originalUri, window.location.origin));
+  };
+
   return (
-    <Security oktaAuth={oktaAuth}>
+    <Security oktaAuth={oktaAuth} restoreOriginalUri={restoreOriginalUri}>
       <Route path='/' exact={true} component={Home} />
       <SecureRoute path='/protected' component={Protected} />
       <Route path='/login' render={() => <SignIn />} />
@@ -436,9 +448,13 @@ export default withRouter(class AppWithRouterAccess extends Component {
     this.props.history.push('/login');
   }
 
+  async restoreOriginalUri(_oktaAuth, originalUri) {
+    this.props.history.replace(toRelativeUrl(originalUri, window.location.origin));
+  };
+
   render() {
     return (
-      <Security oktaAuth={this.oktaAuth} >
+    <Security oktaAuth={oktaAuth} restoreOriginalUri={this.restoreOriginalUri}>
         <Route path='/' exact={true} component={Home} />
         <SecureRoute path='/protected' component={Protected} />
         <Route path='/login' render={() => <SignIn />} />
@@ -462,4 +478,4 @@ You have now successfully authenticated with Okta! Now what? With a user's `id_t
 Want to learn how to use the user's `access_token`? Check out our <a href='/docs/guides/sign-into-spa/react/before-you-begin/' data-proofer-ignore>React How To Guide</a> to learn about protecting routes on your server, validating the `access_token`, and more!
 
 ## Support
-Have a question or see a bug? Post your question on the [Okta Developer Forums](https://devforum.okta.com/).
+Have a question or see a bug? Post your question on the [Okta Developer Forum](https://devforum.okta.com/).

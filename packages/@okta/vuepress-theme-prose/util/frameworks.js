@@ -6,6 +6,7 @@ const FRAMEWORK_TO_COMMON_NAME = {
   '.net': 'dotnet',
   net: 'dotnet',
   'react-native': 'reactnative',
+  blazorwebasm: 'blazorwebassembly',
 };
 
 const COMMON_NAME_TO_FANCY_NAME = {
@@ -45,15 +46,18 @@ const COMMON_NAME_TO_FANCY_NAME = {
   ga: 'Authenticator',
   sms: 'SMS',
   cli: 'CLI',
-  website: 'Website'
+  website: 'Website',
+  blazorwebassembly: 'Blazor WebAssembly',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
   android: 'code-android-32',
   angular: 'code-angular-32',
   aspnet: 'code-dotnet-32',
+  dotnet: 'code-dotnet-32',
   aspnetcore: 'code-dotnet-32',
   aspnetcore3: 'code-dotnet-32',
+  blazorwebassembly: 'code-dotnet-32',
   go: 'code-go-32',
   ios: 'code-ios-32',
   java: 'code-java-32',
@@ -67,7 +71,7 @@ const COMMON_NAME_TO_ICON_NAME = {
   reactnative: 'code-react-32',
   saml2: 'advanced-sso-16-blue',
   springboot: 'code-spring-32',
-  vue: 'code-vue-32'
+  vue: 'code-vue-32',
 };
 
 const IDP_COMMON_NAME_TO_ICON_NAME = {
@@ -77,7 +81,6 @@ const IDP_COMMON_NAME_TO_ICON_NAME = {
   linkedin: 'linkedin-16',
   google: 'google-16',
   oktatookta: 'oktatookta-16',
-
 }
 
 export const commonify = framework => FRAMEWORK_TO_COMMON_NAME[framework] || framework.toLowerCase();

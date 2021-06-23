@@ -1,7 +1,6 @@
 ---
 title: Enable and configure a self-service registration policy
 ---
-<RequireClassicUI/>
 
 Use a self-service registration policy to let users self register for application access. When you create the policy, you can choose the fields that you want to include on the Create Account registration form, specify how those fields are ordered, and mark which of the fields are required.
 
@@ -51,6 +50,8 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
         * **User dashboard:** Select to redirect users to your org's Okta homepage.
         * **Custom URL** Select and then enter the URL where you want the authorization server to redirect your users, such as to your custom app or portal.
+
+    > **Note:** Ensure the domain for the custom URL that you've configured for the **Default redirect** is added as a [Trusted Origin](/docs/guides/enable-cors/overview/) for redirects.
 
 6. Click **Save**.
 

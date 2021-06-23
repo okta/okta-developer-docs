@@ -4,19 +4,18 @@ title: Add a Groups claim for the Org Authorization Server
 
 Use these steps to create a Groups claim for an OpenID Connect client application. This approach is recommended if you are using only Okta-mastered Groups. For an Okta Org Authorization Server, you can only create an ID token with a Groups claim, not an access token. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
 
-<RequireClassicUI/>
-
-1. From the **Applications** menu, select **Applications**, and then select the OpenID Connect client application that you want to configure.
-2. Navigate to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
-3. In the **Groups claim type** section, you can select either **Filter** or **Expression**. For this example, leave **Filter** selected.
-4. In the **Group claims filter** section, leave the default name `groups` (or add it if the box is empty), and then add the appropriate filter. For this example, select **Matches regex** and enter `.*` to return all of the user's Groups. See [Okta Expression Language Group Functions](/docs/reference/okta-expression-language/#group-functions) for more information on expressions.
-5. Click **Save**.
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. Select the OpenID Connect client application that you want to configure.
+1. Go to the **Sign On** tab and click **Edit** in the **OpenID Connect ID Token** section.
+1. In the **Groups claim type** section, you can select either **Filter** or **Expression**. For this example, leave **Filter** selected.
+1. In the **Group claims filter** section, leave the default name `groups` (or add it if the box is empty), and then add the appropriate filter. For this example, select **Matches regex** and enter `.*` to return all of the user's Groups. See [Okta Expression Language Group Functions](/docs/reference/okta-expression-language/#group-functions) for more information on expressions.
+1. Click **Save**.
 
 ### Request an ID token that contains the Groups claim
 
-To test the full authentication flow that returns an ID token, build your request URL. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the claim</GuideLink>.
+To test the full authentication flow that returns an ID token, build your request URL. The scopes that you need to include as query parameters are `openid` and `groups`. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the custom claim</GuideLink>.
 
-> **Note:** The scopes that you need to include as query parameters are `openid` and `groups`.
+> **Note:** In this example, the user signing in to your app is assigned to a group called "IT" as well as being a part of the "Everyone" group.
 
 The resulting URL looks something like this:
 

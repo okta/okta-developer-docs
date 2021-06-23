@@ -53,7 +53,7 @@ import '@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
 
 Because the Widget will be making cross-origin requests, you need to enable Cross Origin Access (CORS) by adding your application's URL to your Okta org's Trusted Origins (in **API** > **Trusted Origins**). More information about this can be found on the [Enable CORS](/docs/guides/enable-cors/) page.
 
-> If you are using the Widget to sign users in to your own application, then you can skip this step. When you create an Application in Okta, you will need to specify a `redirectURI`, and the Okta Developer Console will automatically add it as a CORS URL.
+> If you are using the Widget to sign users in to your own application, then you can skip this step. When you create an Application in Okta, you need to specify a `redirectURI`, and the Okta Admin Console automatically adds it as a CORS URL.
 
 ## Usage
 
@@ -102,7 +102,12 @@ The Widget can handle a number of different authentication scenarios. Here are a
 
 In this case, you would like to use the Widget to sign in to a simple web page and display the user's email. This requires an Okta developer account, and you have to create a new Single-Page App (SPA) for it to work.
 
-Sign in to your Okta developer dashboard and navigate to **Applications** > **Add Application**. Choose **Single-Page App** and click **Next**. Set `http://localhost:8080` as a Login redirect URI and click **Done**. The next page will show a client ID that you'll need to use in the code below.
+1. Sign in to your Okta Admin Console. Go to **Applications** > **Applications**.
+1. Click **Create App Integration**.
+1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
+1. Select **Single-Page Application** as the **Application Type**. Click **Next**.
+1. Set `http://localhost:8080` as a **Sign-in redirect URIs** and click **Save**.
+1. After the app integration is created, the **General** tab on the settings page contains a **Client ID** that you'll need to copy and use in the code below.
 
 ```html
 <!doctype html>

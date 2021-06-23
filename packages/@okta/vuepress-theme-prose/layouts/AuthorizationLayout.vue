@@ -14,13 +14,14 @@
       <img src="/img/authorization/bg-image.png" alt="" />
       <Footer />
     </div>
+    <portal-target name="dialog-wrapper"></portal-target>
   </div>
 </template>
 
 <script>
 export default {
   components: {
-    Footer: () => import("../components/Footer.redesign"),
+    Footer: () => import("../components/Footer"),
     SmartLink: () => import("../components/SmartLink"),
   },
   mounted: function() {

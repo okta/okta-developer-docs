@@ -5,7 +5,6 @@
   ],
   "scripts": {
     "dev": "yarn workspace @okta/vuepress-site dev",
-    "dev:redesign": "REDESIGN=true yarn run dev",
     "build": "yarn workspace @okta/vuepress-site build",
     "broken-link-checker:all": "node scripts/broken-link-checker all",
     "broken-link-checker:internal": "node scripts/broken-link-checker internal",
@@ -34,7 +33,7 @@
   "author": "Brian Retterer <brian.retterer@okta.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "chai": "^4.2.0",
     "chai-as-promised": "*",
     "chalk": "^2.4.2",

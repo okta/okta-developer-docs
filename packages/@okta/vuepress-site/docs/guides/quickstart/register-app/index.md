@@ -2,13 +2,15 @@
 title: Register your app
 ---
 
-In this section, you'll learn how to hook up your Okta org to the app that's going to use it for sign-in.
+You can use either the Okta CLI or the Admin Console to register your app to your Okta org for user authentication. After your app is registered, your Okta org generates the issuer ID, client ID, and client secret for you to integrate into your app build.
 
-For simplicity, we'll assume that your app is a server-side web app, rather than one of the other supported types of apps, and that you want to use the Okta-hosted sign-in page, rather than host the sign-in page yourself.
+The following instructions show you how to register a server-side web app to have an Okta-hosted sign-in page. For Admin Console instructions on how to register other supported app types and sign-in methods, see [Create a new Okta app integration](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_App_Integration_Wizard.htm).
 
 #### Start from a sample app
 
-To start, find the example applications provided by Okta on GitHub for the language or framework you work in:
+You can review and build Okta's sample applications from GitHub to learn how the various languages or frameworks can be used for Okta authentication.
+
+Find the sample applications that match your app's language or framework:
 
 | Framework         | Repository                                         |
 |-------------------|----------------------------------------------------|
@@ -25,28 +27,30 @@ To start, find the example applications provided by Okta on GitHub for the langu
 | Python Flask      | <https://github.com/okta/samples-python-flask>     |
 | PHP               | <https://github.com/okta/samples-php>              |
 
-Specifically, look for the `okta-hosted-login` example (there are samples provided for several use cases).
+For Okta-hosted sign-in implementations, explore the `okta-hosted-login` folder where several use case examples are provided.
 
-You can try building the example app as-is to start, or you can use it as a template for modifying your own app. When you have an app running, you're ready to connect it to your Okta org.
+Build the example app as-is, or use it as a template for modifying your own app. When you have an app running, you're ready to connect it to your Okta org.
 
 #### Tell Okta about the app
 
 <StackSelector snippet="register-app" />
 
+<!--- 
 #### Get values from Okta to set in the app
 
-In the Developer Console, gather the following information from your app's settings page:
+In the Admin Console, gather the following information from the **General** tab of your Application:
 
  - **Client ID**: This is the public identifier for the client, which is required for all OAuth flows.
 
  - **Client Secret**: This is the secret used by the client to exchange an authorization code for a token. This must be kept confidential.
 
-Remaining in Developer Console, go to **API > Authorization Servers** and gather the following value found on that page:
+Remaining in the Admin Console, go to **Security** > **API** and gather the following value found on the **Authorization Servers** tab:
 
- - **Issuer URI**: This is the URI of the authorization server that will perform authentication. All Developer Accounts have a "default" authorization server you can use..
+ - **Issuer URI**: This is the URI of the authorization server that will perform authentication. All Developer Accounts have a "default" authorization server you can use.
+ --->
 
 #### Set values in environment variables or configuration file
 
-You now have the specific values for Client ID, Client Secret, and Issuer ID, which your app needs to use. The various example apps all provide ways of setting these values, but some of the example apps expect you to set environment variables, while some expect settings in a configuration file. Consult the README file for the example app you're using and set the three values.
+After registering your app, you now have the specific values for client ID, client secret, and issuer ID required for your app integration. All the various example apps in Okta's GitHub provide ways of setting these values. Some example apps expect you to set environment variables, while others expect you to set parameters in a configuration file. Consult the README file for the example app you're using and set these three values.
 
 <NextSectionLink/>

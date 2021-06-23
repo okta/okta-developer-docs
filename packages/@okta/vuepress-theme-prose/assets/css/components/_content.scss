@@ -1,64 +1,81 @@
 .content--container {
   display: flex;
-  padding-bottom: 2em;
-
+  padding: 0;
+  @include media("<=tablet") {
+    padding: 0.5rem 1.5rem;
+  }
 
   a[href*="app.getpostman.com"] {
     display: block;
     margin-top: 0.5rem;
   }
 
+  code {
+    // line breakes single <code> text if it necessary.
+    white-space: pre-wrap; /* css-3 */
+    word-break: break-word;
+  }
 
-  @include media('>=tablet') {
+  pre {
+    overflow-x: auto;
+    code {
+      // I'm assuming that all code examples with <pre> tag includes multiple lines.
+      // That's why all white-spaces should be in the right position for good readability.
+      // In case of code example with multiple lines it will not break line. <pre> scroll will do the trick.
+      white-space: pre;
+      word-break: keep-all;
+    }
+  }
+
+  h1,
+  h3 {
+    word-break: break-word;
+  }
+
+  @include media(">=tablet") {
     flex-direction: row;
-    margin-top: 4rem;
 
+    // Normalize usual look in case screen > tablet.
+    code {
+      white-space: normal;
+      word-break: normal;
+    }
 
-    p, ol, ul {
+    p,
+    ol,
+    ul {
       max-width: inherit;
     }
 
-    h3, h4, h5, h6 {
+    h1,
+    h3 {
+      word-break: normal;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
       margin-top: $base-spacing;
     }
   }
 
-  .tree-nav {
-    width: 18%;
-
-    @include media('>=desktop') {
-      flex-grow: 0;
-      flex-shrink: 0;
-    }
-
-    @include media('>=tablet') {
-      width: 18rem;
-    }
-
-    @include media('<tablet') {
-      flex-basis: 0;
-      width: 40rem;
-
-      .landing-navigation {
-        display: none;
-      }
-    }
+  .video-tutorial {
+    max-width: 650px;
   }
 
-  &.navigation-only .tree-nav {
-    @include media('<tablet') {
-      flex-basis: auto;
-      margin: 0 1.5rem;
-
-      .landing-navigation {
-        display: block;
-        position: static;
-        border-right: none;
-        padding-top: 3rem;
-      }
+  .sidebar-area {
+    width: 22%;
+    position: sticky;
+    top: 70px;
+    overflow: auto;
+    @include media("<=bootstrap-lg") {
+      width: 32%;
+    }
+    @include media("<=tablet") {
+      display: none;
     }
   }
-
 
   .content-area {
     flex: 1;
@@ -67,14 +84,19 @@
     width: 100%;
     max-width: 100%;
 
-    @include media('>=tablet') {
-      margin: 0rem $big-spacing;
+    @include media(">=tablet") {
+      margin: 3rem $big-spacing;
       width: 64%;
       max-width: 64%;
+
+      a {
+        word-break: normal;
+      }
     }
 
     a {
       text-decoration: underline;
+      word-break: break-word;
     }
 
     .language-tabs a,
@@ -110,18 +132,18 @@
         margin-top: 0.5rem;
         padding-left: 0.5rem;
         &:hover {
-          background: cv('gray', '100');
+          background: cv("gray", "100");
         }
       }
       a {
         font-size: 14px;
-        color: cv('blue', '900')
+        color: cv("blue", "900");
       }
-      &:hover, &:active {
+      &:hover,
+      &:active {
         .dropdown-button-options {
-
           &:before {
-            content: '';
+            content: "";
             position: absolute;
             top: -10px;
             left: 0;
@@ -129,12 +151,12 @@
             height: 10px;
           }
           display: block;
-          border: 1px solid cv('blue', '900');
+          border: 1px solid cv("blue", "900");
         }
       }
 
-      @include media('<=tablet') {
-        &:hover{
+      @include media("<=tablet") {
+        &:hover {
           .dropdown-button-options {
             display: none;
           }
@@ -142,9 +164,8 @@
         &.dropdown-button-expanded {
           &:hover {
             .dropdown-button-options {
-
               &:before {
-                content: '';
+                content: "";
                 position: absolute;
                 top: -10px;
                 left: 0;
@@ -152,14 +173,14 @@
                 height: 10px;
               }
               display: block;
-              border: 1px solid cv('blue', '900');
+              border: 1px solid cv("blue", "900");
             }
           }
         }
       }
     }
     .mobile-on-this-page {
-      @include media('>=desktop') {
+      @include media(">=desktop") {
         display: none;
       }
     }
@@ -177,10 +198,11 @@
       display: inline-block;
     }
 
-    div[class^='language-'] {
-      @include media('>=tablet') {
+    div[class^="language-"] {
+      position: relative;
+      @include media(">=tablet") {
         td img {
-          width:100%;
+          width: 100%;
           max-width: 100%;
         }
       }
@@ -189,11 +211,12 @@
     }
 
     table {
+      position: relative;
       overflow-x: scroll;
 
-      @include media('>=tablet') {
+      @include media(">=tablet") {
         td img {
-          width:100%;
+          width: 100%;
           max-width: 100%;
         }
       }
@@ -210,15 +233,24 @@
     }
   }
 
-  &.navigation-only .content-area {
-    @include media('<tablet') {
+  .on-this-page {
+    width: 18%;
+    @include media("<desktop") {
       display: none;
     }
   }
+  &.navigation-only {
+    @include media("<=tablet") {
+      padding: 0;
+      .sidebar-area {
+        display: block;
+        width: 100%;
+      }
+    }
+  }
 
-  .on-this-page {
-    width: 18%;
-    @include media('<desktop') {
+  &.navigation-only .content-area {
+    @include media("<tablet") {
       display: none;
     }
   }

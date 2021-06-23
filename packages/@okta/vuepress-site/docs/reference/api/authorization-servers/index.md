@@ -15,7 +15,7 @@ Authorization Servers generate OAuth 2.0 and OpenID Connect tokens, including ac
 
 ## Get Started
 
-Explore the Authorization Servers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6e58e52a03637c290665)
+Explore the Authorization Servers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3db644315e549633361a)
 
 This page also has information about the [OAuth 2.0 Objects](#oauth-20-objects) related to these operations.
 
@@ -159,9 +159,9 @@ When you use these API endpoints to create or modify an Authorization Server res
 
 * If set to `ORG_URL`, then in responses, `issuer` is the Okta org's original domain URL: `https://${yourOktaDomain}`.
 
-* If set to `CUSTOM_URL_DOMAIN`, then in responses, `issuer` is the custom domain URL configured in the administration user interface.
+* If set to `CUSTOM_URL`, then in responses, `issuer` is the custom domain URL configured in the administration user interface.
 
-After you enable the Custom URL Domain feature, all new Custom Authorization Servers use `CUSTOM_URL_DOMAIN` by default. All existing Custom Authorization Servers continue to use `ORG_URL` until changed using the Admin Console or the API, so that existing integrations with client and resource server continue to work after the feature is enabled.
+After you enable the Custom URL Domain feature, all new Custom Authorization Servers use `CUSTOM_URL` by default. All existing Custom Authorization Servers continue to use `ORG_URL` until changed using the Admin Console or the API, so that existing integrations with client and resource server continue to work after the feature is enabled.
 
 #### Create Authorization Server
 
@@ -892,7 +892,7 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 
 | Property                                 | Description                                                                                             | Type      | Default        | Required for create or update              |
 | :-------------------------------------   | :------------------------------------------------------------------------------------------------------ | :-------- | :------------- | :----------------------------              |
-| consent                                  | Indicates whether a consent dialog is needed for the Scope. Valid values: `REQUIRED`, `IMPLICIT`       | Enum      | `IMPLICIT`     | True for update                        |
+| consent                                  | Indicates whether a consent dialog is needed for the Scope. Valid values: `REQUIRED`, `IMPLICIT`, `FLEXIBLE`       | Enum      | `IMPLICIT`     | True for update                        |
 | default                                  | Whether the Scope is a default Scope                                                               | Boolean   |                | False                                      |
 | description                              | Description of the Scope                                                                                | String    |                | False                                      |
 | displayName                              | Name of the end user displayed in a consent dialog box                                                      | String    |                | False                                      |
@@ -902,24 +902,29 @@ When you use these API endpoints to create or modify a Scope resource, the respo
 | system                                   | Whether Okta created the Scope                                                                          | Boolean   |                | False                                      |
 
 * A consent dialog box appears depending on the values of three elements:
-    * `prompt` - a query parameter used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
-    * `consent_method` - a property on [apps](/docs/reference/api/apps/#settings-7)
-    * `consent` - a property on Scopes as listed in the table above
 
-| `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
-| :------------------ | :--------------------------------- | :---------------------------- | :----------- |
-| `CONSENT`           | `TRUSTED` or `REQUIRED`            | `REQUIRED`                    | Prompted     |
-| `CONSENT`           | `TRUSTED`                          | `IMPLICIT`                    | Not prompted |
-| `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
-| `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
+  * `prompt` - a query parameter that is used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
+  * `consent_method` - An [application](/docs/reference/api/apps/#settings-7) property that allows you to determine whether a client is fully trusted (for example: a first-party application) or requires consent (for example: a third-party application).
+  * `consent` - A Scope property, listed in the previous table, that allows you to enable or disable user consent for an individual scope.
+
+  | `prompt` Value   | `consent_method`        | `consent`                            | Result       |
+  | :--------------- | :---------------------- | :----------------------------------- | :----------- |
+  | `CONSENT`        | `TRUSTED` or `REQUIRED` | `REQUIRED`                           | Prompted     |
+  | `CONSENT`        | `TRUSTED` or `REQUIRED` | `FLEXIBLE`                           | Prompted     |
+  | `CONSENT`        | `TRUSTED`               | `IMPLICIT`                           | Not prompted |
+  | `NONE`           | `TRUSTED`               | `FLEXIBLE`, `IMPLICIT`, or `REQUIRED`| Not prompted |
+  | `NONE`           | `REQUIRED`              | `FLEXIBLE` or `REQUIRED`             | Prompted     |
+  | `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
+
+> **Note:** When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This occurs because there is no user involved in a two-legged OAuth [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow.
 <!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
 
 **Notes:**
 
-  * Apps created on `/api/v1/apps` default to `consent_method=TRUSTED`, while those created on `/api/v1/clients` default to `consent_method=REQUIRED`.
-  * If you request a Scope that requires consent while using the `client_credentials` flow, an error is returned. Because there is no user, no consent can be given.
-  * If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
-  * The Scope name must only contain printable ASCII except for spaces, double quotes, and backslashes. It also must not start with `okta.` or `okta:` and must not be only `okta` or `*`.
+* Apps created by `/api/v1/apps` default to `consent_method=TRUSTED`, while those created by `/api/v1/clients` default to `consent_method=REQUIRED`.
+* If you request a Scope that requires consent while using the `client_credentials` flow, an error is returned. Since there is no user, consent can't be given.
+* If the `prompt` value is set to `NONE`, but the `consent_method` and the `consent` values are set to `REQUIRED`, then an error occurs.
+* The Scope name must only contain printable ASCII characters, except for spaces, double quotes, and backslashes. It also must not start with `okta.` or `okta:` and must not be only `okta` or `*`.
 
 #### Get all Scopes
 

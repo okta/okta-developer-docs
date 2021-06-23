@@ -32,7 +32,7 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/sign-into-web-app/aspnetcore/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-web-app/aspnetcore3/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
@@ -82,7 +82,7 @@ The Okta Authentication SDK for .NET is useful if you cannot use OIDC and need y
 	</li>
 </ul>
 
-The Okta SDK for Xamarin follows current best practice for native apps using ODIC, the Authorization Code Flow + PKCE.
+The Okta SDK for Xamarin follows current best practice for native apps using ODIC, the Authorization Code flow + PKCE.
 
 <ul class="language-libraries">
 	<li>

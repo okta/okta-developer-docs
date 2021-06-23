@@ -659,6 +659,10 @@ redirects:
     to: /docs/reference/api/users/
   - from: /docs/api/resources/zones
     to: /docs/reference/api/zones/
+  - from: /docs/api/resources/social_authentication
+    to: /docs/reference/social-settings/
+  - from: /docs/api/resources/social_authentication/index.html
+    to: /docs/reference/social-settings/
   - from: /docs/how-to/add-user-consent-to-flow
     to: /docs/guides/request-user-consent/
   - from: /docs/how-to/byo_saml
@@ -917,16 +921,6 @@ redirects:
     to: /docs/guides/protect-your-api/aspnet/next-steps/
   - from: /guides/protect-your-api/aspnet/require-authentication/index.html
     to: /docs/guides/protect-your-api/aspnet/require-authentication/
-  - from: /guides/protect-your-api/aspnetcore/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/before-you-begin/
-  - from: /guides/protect-your-api/aspnetcore/configure-cors/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/configure-cors/
-  - from: /guides/protect-your-api/aspnetcore/configure-packages/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/configure-packages/
-  - from: /guides/protect-your-api/aspnetcore/next-steps/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/next-steps/
-  - from: /guides/protect-your-api/aspnetcore/require-authentication/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/require-authentication/
   - from: /guides/protect-your-api/springboot/before-you-begin/index.html
     to: /docs/guides/protect-your-api/springboot/before-you-begin/
   - from: /guides/protect-your-api/springboot/configure-cors/index.html
@@ -1127,22 +1121,6 @@ redirects:
     to: /docs/guides/sign-into-web-app/aspnet/redirect-to-sign-in/
   - from: /guides/sign-into-web-app/aspnet/require-authentication/index.html
     to: /docs/guides/sign-into-web-app/aspnet/require-authentication/
-  - from: /guides/sign-into-web-app/aspnetcore/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/before-you-begin/
-  - from: /guides/sign-into-web-app/aspnetcore/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/configure-packages/
-  - from: /guides/sign-into-web-app/aspnetcore/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/create-okta-application/
-  - from: /guides/sign-into-web-app/aspnetcore/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/define-callback/
-  - from: /guides/sign-into-web-app/aspnetcore/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/get-user-info/
-  - from: /guides/sign-into-web-app/aspnetcore/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/next-steps/
-  - from: /guides/sign-into-web-app/aspnetcore/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/redirect-to-sign-in/
-  - from: /guides/sign-into-web-app/aspnetcore/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/require-authentication/
   - from: /guides/sign-into-web-app/springboot/before-you-begin/index.html
     to: /docs/guides/sign-into-web-app/springboot/before-you-begin/
   - from: /guides/sign-into-web-app/springboot/configure-packages/index.html
@@ -1175,14 +1153,6 @@ redirects:
     to: /docs/guides/sign-users-out/aspnet/sign-out-of-okta/
   - from: /guides/sign-users-out/aspnet/sign-out-of-your-app/index.html
     to: /docs/guides/sign-users-out/aspnet/sign-out-of-your-app/
-  - from: /guides/sign-users-out/aspnetcore/before-you-begin/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/before-you-begin/
-  - from: /guides/sign-users-out/aspnetcore/next-steps/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/next-steps/
-  - from: /guides/sign-users-out/aspnetcore/sign-out-of-okta/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/sign-out-of-okta/
-  - from: /guides/sign-users-out/aspnetcore/sign-out-of-your-app/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/sign-out-of-your-app/
   - from: /guides/sign-users-out/springboot/before-you-begin/index.html
     to: /docs/guides/sign-users-out/springboot/before-you-begin/
   - from: /guides/sign-users-out/springboot/next-steps/index.html
@@ -1265,40 +1235,30 @@ redirects:
     to: /docs/guides/custom-hosted-signin/use-macros-and-request-context/
   - from: /guides/protect-your-api/aspnet/before-you-begin/index.html
     to: /docs/guides/protect-your-api/aspnet/before-you-begin/
-  - from: /guides/protect-your-api/aspnetcore/before-you-begin/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/before-you-begin/
   - from: /guides/protect-your-api/springboot/before-you-begin/index.html
     to: /docs/guides/protect-your-api/springboot/before-you-begin/
   - from: /guides/protect-your-api/-/before-you-begin/index.html
     to: /docs/guides/protect-your-api/-/before-you-begin/
   - from: /guides/protect-your-api/aspnet/configure-cors/index.html
     to: /docs/guides/protect-your-api/aspnet/configure-cors/
-  - from: /guides/protect-your-api/aspnetcore/configure-cors/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/configure-cors/
   - from: /guides/protect-your-api/springboot/configure-cors/index.html
     to: /docs/guides/protect-your-api/springboot/configure-cors/
   - from: /guides/protect-your-api/-/configure-cors/index.html
     to: /docs/guides/protect-your-api/-/configure-cors/
   - from: /guides/protect-your-api/aspnet/configure-packages/index.html
     to: /docs/guides/protect-your-api/aspnet/configure-packages/
-  - from: /guides/protect-your-api/aspnetcore/configure-packages/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/configure-packages/
   - from: /guides/protect-your-api/springboot/configure-packages/index.html
     to: /docs/guides/protect-your-api/springboot/configure-packages/
   - from: /guides/protect-your-api/-/configure-packages/index.html
     to: /docs/guides/protect-your-api/-/configure-packages/
   - from: /guides/protect-your-api/aspnet/next-steps/index.html
     to: /docs/guides/protect-your-api/aspnet/next-steps/
-  - from: /guides/protect-your-api/aspnetcore/next-steps/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/next-steps/
   - from: /guides/protect-your-api/springboot/next-steps/index.html
     to: /docs/guides/protect-your-api/springboot/next-steps/
   - from: /guides/protect-your-api/-/next-steps/index.html
     to: /docs/guides/protect-your-api/-/next-steps/
   - from: /guides/protect-your-api/aspnet/require-authentication/index.html
     to: /docs/guides/protect-your-api/aspnet/require-authentication/
-  - from: /guides/protect-your-api/aspnetcore/require-authentication/index.html
-    to: /docs/guides/protect-your-api/aspnetcore/require-authentication/
   - from: /guides/protect-your-api/springboot/require-authentication/index.html
     to: /docs/guides/protect-your-api/springboot/require-authentication/
   - from: /guides/protect-your-api/-/require-authentication/index.html
@@ -1423,22 +1383,6 @@ redirects:
     to: /docs/guides/sign-into-web-app/aspnet/redirect-to-sign-in/
   - from: /guides/sign-into-web-app/aspnet/require-authentication/index.html
     to: /docs/guides/sign-into-web-app/aspnet/require-authentication/
-  - from: /guides/sign-into-web-app/aspnetcore/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/before-you-begin/
-  - from: /guides/sign-into-web-app/aspnetcore/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/configure-packages/
-  - from: /guides/sign-into-web-app/aspnetcore/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/create-okta-application/
-  - from: /guides/sign-into-web-app/aspnetcore/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/define-callback/
-  - from: /guides/sign-into-web-app/aspnetcore/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/get-user-info/
-  - from: /guides/sign-into-web-app/aspnetcore/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/next-steps/
-  - from: /guides/sign-into-web-app/aspnetcore/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/redirect-to-sign-in/
-  - from: /guides/sign-into-web-app/aspnetcore/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/aspnetcore/require-authentication/
   - from: /guides/sign-into-web-app/springboot/before-you-begin/index.html
     to: /docs/guides/sign-into-web-app/springboot/before-you-begin/
   - from: /guides/sign-into-web-app/springboot/configure-packages/index.html
@@ -1471,14 +1415,6 @@ redirects:
     to: /docs/guides/sign-users-out/aspnet/sign-out-of-okta/
   - from: /guides/sign-users-out/aspnet/sign-out-of-your-app/index.html
     to: /docs/guides/sign-users-out/aspnet/sign-out-of-your-app/
-  - from: /guides/sign-users-out/aspnetcore/before-you-begin/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/before-you-begin/
-  - from: /guides/sign-users-out/aspnetcore/next-steps/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/next-steps/
-  - from: /guides/sign-users-out/aspnetcore/sign-out-of-okta/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/sign-out-of-okta/
-  - from: /guides/sign-users-out/aspnetcore/sign-out-of-your-app/index.html
-    to: /docs/guides/sign-users-out/aspnetcore/sign-out-of-your-app/
   - from: /guides/sign-users-out/springboot/before-you-begin/index.html
     to: /docs/guides/sign-users-out/springboot/before-you-begin/
   - from: /guides/sign-users-out/springboot/next-steps/index.html
@@ -1921,81 +1857,267 @@ redirects:
     to: /docs/reference/api/oidc/
   - from: /docs/api/resources/authn.html/index.html
     to: /docs/reference/api/authn/
+  - from: /docs/guides/saml-application-setup/-/overview
+    to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /docs/guides/saml-application-setup/-/overview/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
+  - from: /docs/guides/saml-application-setup/-/add-general-info
+    to: /docs/guides/build-sso-integration/saml2/before-you-begin/
   - from: /docs/guides/saml-application-setup/-/add-general-info/index.html
     to: /docs/guides/build-sso-integration/saml2/before-you-begin/
+  - from: /docs/guides/saml-application-setup/-/configure-saml-in-okta
+    to: /docs/guides/build-sso-integration/saml2/create-your-app/
   - from: /docs/guides/saml-application-setup/-/configure-saml-in-okta/index.html
     to: /docs/guides/build-sso-integration/saml2/create-your-app/
+  - from: /docs/guides/saml-application-setup/-/assign-users-to-the-app
+    to: /docs/guides/build-sso-integration/saml2/test-your-app/
   - from: /docs/guides/saml-application-setup/-/assign-users-to-the-app/index.html
     to: /docs/guides/build-sso-integration/saml2/test-your-app/
+  - from: /docs/guides/saml-application-setup/-/config-saml-in-app
+    to: /docs/guides/build-sso-integration/saml2/specify-your-settings/
   - from: /docs/guides/saml-application-setup/-/config-saml-in-app/index.html
     to: /docs/guides/build-sso-integration/saml2/specify-your-settings/
+  - from: /docs/guides/saml-application-setup/-/next-steps
+    to: /docs/guides/build-sso-integration/saml2/next-steps/
   - from: /docs/guides/saml-application-setup/-/next-steps/index.html
     to: /docs/guides/build-sso-integration/saml2/next-steps/
+  - from: /docs/guides/saml-application-setup/overview
+    to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /docs/guides/saml-application-setup/overview/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
+  - from: /docs/guides/saml-application-setup/add-general-info
+    to: /docs/guides/build-sso-integration/saml2/before-you-begin/
   - from: /docs/guides/saml-application-setup/add-general-info/index.html
     to: /docs/guides/build-sso-integration/saml2/before-you-begin/
+  - from: /docs/guides/saml-application-setup/configure-saml-in-okta
+    to: /docs/guides/build-sso-integration/saml2/create-your-app/
   - from: /docs/guides/saml-application-setup/configure-saml-in-okta/index.html
     to: /docs/guides/build-sso-integration/saml2/create-your-app/
+  - from: /docs/guides/saml-application-setup/assign-users-to-the-app
+    to: /docs/guides/build-sso-integration/saml2/test-your-app/
   - from: /docs/guides/saml-application-setup/assign-users-to-the-app/index.html
     to: /docs/guides/build-sso-integration/saml2/test-your-app/
+  - from: /docs/guides/saml-application-setup/config-saml-in-app
+    to: /docs/guides/build-sso-integration/saml2/specify-your-settings/
   - from: /docs/guides/saml-application-setup/config-saml-in-app/index.html
     to: /docs/guides/build-sso-integration/saml2/specify-your-settings/
+  - from: /docs/guides/saml-application-setup/next-steps
+    to: /docs/guides/build-sso-integration/saml2/next-steps/
   - from: /docs/guides/saml-application-setup/next-steps/index.html
     to: /docs/guides/build-sso-integration/saml2/next-steps/
   - from: /docs/reference/webfinger/index.html
     to: /docs/reference/api/webfinger/
-  - from: /docs/reference/webfinger/
+  - from: /docs/reference/webfinger
     to: /docs/reference/api/webfinger/
-  - from: /docs/guides/saml-application-setup/
+  - from: /docs/guides/saml-application-setup
     to: /docs/guides/build-sso-integration/saml2/overview/
   - from: /docs/guides/saml-application-setup/index.html
     to: /docs/guides/build-sso-integration/saml2/overview/
-  - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/
+  - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
   - from: /docs/concepts/auth-overview
     to: /docs/concepts/oauth-openid/
-  - from: /docs/concepts/auth-overview/
+  - from: /docs/concepts/auth-overview/index.html
     to: /docs/concepts/oauth-openid/
+  - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim
+    to: /docs/guides/customize-tokens-groups-claim/-/overview/
+  - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim
+    to: /docs/guides/customize-tokens-groups-claim/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/-/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-groups-claim/-/overview/
   - from: /docs/guides/customize-tokens-returned-from-okta/create-groups-claim/index.html
     to: /docs/guides/customize-tokens-groups-claim/overview/
+  - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as
+    to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as/index.html
     to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic
+    to: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic/index.html
     to: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/
+  - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-org-as
+    to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-custom-as
+    to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-custom-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-org-as/index.html
     to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-custom-as/index.html
     to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-custom-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/static-whitelist
+    to: /docs/guides/customize-tokens-static/static-allowlist/
+  - from: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist
+    to: /docs/guides/customize-tokens-static/-/static-allowlist
   - from: /docs/guides/customize-tokens-returned-from-okta/static-whitelist/index.html
     to: /docs/guides/customize-tokens-static/static-allowlist/
-  - from: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/index.html
-    to: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist/index.html
-    to: /docs/guides/customize-tokens-static/-/static-allowlist/
+    to: /docs/guides/customize-tokens-static/-/static-allowlist
+  - from: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as
+    to: /docs/guides/customize-tokens-static/-/use-static-group-allowlist-org-as/
+  - from: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as
+    to: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as
   - from: /docs/guides/customize-tokens-returned-from-okta/-/use-static-group-whitelist-org-as/index.html
     to: /docs/guides/customize-tokens-static/-/use-static-group-allowlist-org-as/
-  - from: /docs/guides/custom-hosted-signin/
+  - from: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/index.html
+    to: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as
+  - from: /docs/guides/custom-hosted-signin
     to: /docs/guides/style-the-widget/style-okta-hosted/
   - from: /docs/guides/custom-hosted-signin/index.html
     to: /docs/guides/style-the-widget/style-okta-hosted/
-  - from: /docs/guides/custom-hosted-signin/customization-examples/
+  - from: /docs/guides/custom-hosted-signin/customization-examples
     to: /docs/guides/style-the-widget/customization-examples/
   - from: /docs/guides/custom-hosted-signin/customization-examples/index.html
     to: /docs/guides/style-the-widget/customization-examples/
   - from: /contact-sales-enterprise
     to: https://www.okta.com/contact-sales/
-  - from: /contact-sales-enterprise/
+  - from: /contact-sales-enterprise/index.html
     to: https://www.okta.com/contact-sales/
   - from: /contact-us
     to: https://www.okta.com/contact-sales/
-  - from: /contact-us/
+  - from: /contact-us/index.html
     to: https://www.okta.com/contact-sales/
-  - from: /login-widget-gallery/
+  - from: /login-widget-gallery
     to: /
+  - from: /login-widget-gallery/index.html
+    to: /
+  - from: /product/authentication/index.html
+    to: /
+  - from: /product/authentication
+    to: /
+  - from: /product/authorization/index.html
+    to: /
+  - from: /product/authorization
+    to: /
+  - from: /product/overview/index.html
+    to: /
+  - from: /product/overview
+    to: /
+  - from: /product/index.html
+    to: /
+  - from: /product
+    to: /
+  - from: /docs/examples/session_cookie
+    to: /docs/guides/session-cookie/overview
+  - from: /docs/examples/session_cookie/index.html
+    to: /docs/guides/session-cookie/overview
+  - from: /docs/rest
+    to: /code/rest/
+  - from: /docs/rest/index.html
+    to: /code/rest/
+  - from: /docs/code/python/pysaml2.html
+    to: /code/python/pysaml2/
+  - from: /integrate-with-okta
+    to: /okta-integration-network
+  - from: /integrate-with-okta/index.html
+    to: /okta-integration-network
+  - from: /docs/guides/set-up-event-hook/overview
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/overview/index.html
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/-/overview
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/-/overview/index.html
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/implement-your-service
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/implement-your-service/index.html
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/-/implement-your-service
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/-/implement-your-service/index.html
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/register-your-endpoint
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/register-your-endpoint/index.html
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/-/register-your-endpoint
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/-/register-your-endpoint/index.html
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/verify-your-endpoint
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/verify-your-endpoint/index.html
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/-/verify-your-endpoint
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/-/verify-your-endpoint/index.html
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/ongoing-delivery-of-events
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/ongoing-delivery-of-events/index.html
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/-/ongoing-delivery-of-events
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/set-up-event-hook/-/ongoing-delivery-of-events/index.html
+    to: /docs/guides/event-hook-implementation/-/overview/
+  - from: /docs/guides/password-import-hook/overview
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/overview/index.html
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/-/overview
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/-/overview/index.html
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/dependencies
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/dependencies/index.html
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/-/dependencies
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/-/dependencies/index.html
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/web-server
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/web-server/index.html
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/-/web-server
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/-/web-server/index.html
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/check-authorization-header
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/check-authorization-header/index.html
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/-/check-authorization-header
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/-/check-authorization-header/index.html
+    to: /docs/guides/password-import-inline-hook/-/overview/
+  - from: /docs/guides/password-import-hook/get-submitted-credentials
+    to: /docs/guides/password-import-inline-hook/-/get-submitted-credentials/
+  - from: /docs/guides/password-import-hook/get-submitted-credentials/index.html
+    to: /docs/guides/password-import-inline-hook/-/get-submitted-credentials/
+  - from: /docs/guides/password-import-hook/-/get-submitted-credentials
+    to: /docs/guides/password-import-inline-hook/-/get-submitted-credentials/
+  - from: /docs/guides/password-import-hook/-/get-submitted-credentials/index.html
+    to: /docs/guides/password-import-inline-hook/-/get-submitted-credentials/
+  - from: /docs/guides/password-import-hook/check-against-user-store
+    to: /docs/guides/password-import-inline-hook/-/check-credentials-against-data-store/
+  - from: /docs/guides/password-import-hook/check-against-user-store/index.html
+    to: /docs/guides/password-import-inline-hook/-/check-credentials-against-data-store/
+  - from: /docs/guides/password-import-hook/-/check-against-user-store
+    to: /docs/guides/password-import-inline-hook/-/check-credentials-against-data-store/
+  - from: /docs/guides/password-import-hook/-/check-against-user-store/index.html
+    to: /docs/guides/password-import-inline-hook/-/check-credentials-against-data-store/
+  - from: /docs/guides/password-import-hook/send-response
+    to: /docs/guides/password-import-inline-hook/-/send-response/
+  - from: /docs/guides/password-import-hook/send-response/index.html
+    to: /docs/guides/password-import-inline-hook/-/send-response/
+  - from: /docs/guides/password-import-hook/-/send-response
+    to: /docs/guides/password-import-inline-hook/-/send-response/
+  - from: /docs/guides/password-import-hook/-/send-response/index.html
+    to: /docs/guides/password-import-inline-hook/-/send-response/
+  - from: /docs/guides/password-import-hook/next-steps
+    to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
+  - from: /docs/guides/password-import-hook/next-steps/index.html
+    to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
+  - from: /docs/guides/password-import-hook/-/next-steps
+    to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
+  - from: /docs/reference/api/systemlog
+    to: /docs/reference/api/system-log/
+  - from: /docs/reference/api/systemlog/index.html
+    to: /docs/reference/api/system-log/
+  - from: /docs/code/java/spring_security_saml.html
+    to: /code/java/spring_security_saml/index.html
+  - from: /docs/guides/password-import-hook/-/next-steps/index.html
+    to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
