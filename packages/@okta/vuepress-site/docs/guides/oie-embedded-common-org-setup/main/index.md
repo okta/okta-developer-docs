@@ -152,18 +152,14 @@ The steps to enable these factors are as follows:
 1. In the **Used for** section, select the **Authentication and recovery** option for the **This authenticator can be used for** field.
 1. Click **Save**.
 
-#### Step 1b: Set up the password authenticator for authentication
-
-1. Select **Edit** from the **Actions** menu on the **Password** authenticator row.
-1. ??In the **Used for** section, select the **Authentication and recovery** option for the **This authenticator can be used for** field. (I don't see a dialog box after clicking edit - I see an entire page of fields and these are a part of that page)
-1. Click **Save**.
-
 #### Step 1c: Add the phone authenticator
 
 1. Click **Add Authenticator**.
 1. On the **Add Authenticator** page, click **Add** for the **Phone** authenticator.
-1. ??In the **Verification options** section, select **SMS** for the **User can verify with** field. (this section does not appear for me)
->  **Note:** Currently, the SDK works only with a phone authenticator set up for SMS.
+1. In the **Verification options** section, select **SMS** for the **User can verify with** field.
+
+   > **Note:** Currently, the SDK works only with a phone authenticator set up for SMS.
+
 1. In the **Used for** section, select **Authentication and recovery** for the **This authenticator can be used for** field.
 1. Click **Add**.
 
@@ -200,7 +196,7 @@ sample app and like to run the basic use cases listed in
 
 ### Step 1: Create a Facebook app in Facebook
 
-#### Step 1a: Create the app (again, I don't think that you need 1a, 1b and so on)
+#### Step 1a: Create the app
 
 1. Go to [Facebook for Developers](https://developers.facebook.com/) and click the **Login** link. If you don't have an account, then create one.
 1. Using these [instructions](https://developers.facebook.com/docs/apps/register) as a guide, create a Facebook app. Ensure that when you are creating the app, you select **None** as the app type.
@@ -249,7 +245,7 @@ live mode. To switch the app to live mode, do the following:
 1. Click **Save Changes** at the bottom of the page.
 1. At the top of the Dashboard page, select the **App Mode** slider and slide to switch the app from **Development** to
    **Live** mode.
-1. ??In the **Switch to Live Mode?** dialog box, click **Switch Mode**.?? (I don't get this dialog box in Facebook Dev)
+1. In the **Switch to Live Mode?** dialog box, click **Switch Mode**.
 
 ### Step 5: Create the Facebook Identity Provider in Okta
 
@@ -259,9 +255,9 @@ The next step is to create the Facebook Identity Provider in Okta.
 1. On the **Identity Providers** page, click **Add Identity Provider**.
 1. In the drop-down menu that appears, select **Add Facebook**.
 1. On the **Add Identity Provider - Facebook** page, enter a name (for example, Facebook IdP).
-1. ??Keep **Idp Usage** set to the **SSO Only** default.?? (I do not see this field)
+1. Keep **Idp Usage** set to the **SSO Only** default.
 1. Set the **Client ID** and **Client Secret** to the **App ID** and **App Secret** that you copied in the previous step.
-1. Keep the **Scopes** values set to the default: **public_profile** and **default**.??? (I see **email** not default?)
+1. Keep the **Scopes** values set to the default: **public_profile** and **email**.
 1. Click **Add Identity Provider**.
 
 ### Step 6: Add routing rule
