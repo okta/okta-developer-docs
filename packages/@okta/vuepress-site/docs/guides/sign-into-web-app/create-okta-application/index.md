@@ -15,7 +15,7 @@ Before you can sign a user in, you need to create an Okta app integration that r
 1. Enter a name for your app integration (or leave the default value).
 1. Enter values for the **Sign-in redirect URIs**. This is the callback described in <GuideLink link="../define-callback">Understand the callback route</GuideLink>. Add values for local development (for example, `http://localhost:8080/authorization-code/callback`) and production (for example, `https://app.example.com/authorization-code/callback`).
 1. Add the **Base URI** of your application during local development, such as `http://localhost:3000`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`.
-1. Assign the group that you want (if you set Group Assignments for your app) or leave the **Everyone** default. For instructions on how to assign the app integration to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
+1. Assign the group that you want (if you set Group Assignments for your app) or leave the **Everyone** default. See the [Assign applications for people and groups](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page-assign) topic in the Okta product documentation for instructions on how to assign the app integration to individual users and groups.
 1. Click **Save** to finish creating the Okta app integration.
 1. On the **General** tab, the **Client Credentials** section shows the client ID and client secret values for your app integration.
 1. Copy the **Client ID** and **Client secret** values using the **Copy to Clipboard** button beside each text field.
