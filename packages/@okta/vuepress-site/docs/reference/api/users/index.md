@@ -759,7 +759,7 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 
 | Parameter | Description                                                        | Param Type | DataType | Required |
 | --------- | ------------------------------------------------------------------ | ---------- | -------- | -------- |
-| id        | `id`, `login`, or *login shortname* (as long as it is unambiguous) | URL        | String   | TRUE     |
+| id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) | URL        | String   | TRUE     |
 
 > When fetching a user by `login` or `login shortname`, you should [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.  Logins with a `/` or `?`  character can only be fetched by `id` due to URL issues with escaping the `/` and `?` characters.
 
@@ -2044,7 +2044,7 @@ Fetches appLinks for all direct or indirect (via group membership) assigned appl
 
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
-| id        | `id` of user | URL        | String   | TRUE     |
+| id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) of user | URL        | String   | TRUE     |
 
 ##### Response Parameters
 
@@ -2130,7 +2130,7 @@ Fetches the groups of which the user is a member
 
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
-| id        | `id` of user | URL        | String   | TRUE     |
+| id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) of user | URL        | String   | TRUE     |
 
 ##### Response Parameters
 
@@ -2250,7 +2250,7 @@ Users that don't have a password must complete the flow by completing [Reset Pas
 
 | Parameter | Description                                                                | Param Type | DataType | Required |
 | --------- | -------------------------------------------------------------------------- | ---------- | -------- | -------- |
-| id        | `id` of user                                                               | URL        | String   | TRUE     |
+| id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) of user                                                               | URL        | String   | TRUE     |
 | sendEmail | Sends an activation email to the user if `true`. Default value is `false`. | Query      | Boolean  | FALSE    |
 
 ##### Response Parameters
