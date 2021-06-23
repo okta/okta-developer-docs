@@ -22,4 +22,4 @@ We recommend that if the external IdP requires information from Okta for setup b
 
 * **IdP Signature Certificate** &mdash; click **Browse files** to upload the certificate from the Identity Provider used to sign the assertion.
 
-> **Note:** For more information about **Advanced Settings**, see [Social Identity Provider Settings](#social-identity-provider-settings).
+> **Note:** See [Social Identity Provider Settings](#social-identity-provider-settings) for more information on **Advanced Settings**.
