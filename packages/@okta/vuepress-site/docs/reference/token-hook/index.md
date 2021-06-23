@@ -13,7 +13,7 @@ This page provides reference documentation for:
 
 This information is specific to the Token Inline Hook, one type of Inline Hook supported by Okta.
 
-## See Also
+## See also
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
@@ -33,7 +33,7 @@ In addition to adding custom claims, you can modify or remove an existing custom
 
 This Inline Hook works only when using an [Okta Custom Authorization Server](/docs/guides/customize-authz-server/create-authz-server/), not the built-in Okta Authorization Server.
 
-## Objects in the Request from Okta
+## Objects in the request from Okta
 
 For the Token Inline Hook, the outbound call from Okta to your external service includes the following objects in its JSON payload:
 
@@ -70,7 +70,7 @@ Consists of name-value pairs for each included claim. For descriptions of the cl
 
 The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
 
-## Objects in the Response that You Send
+## Objects in the response that You Send
 
 For the Token Inline Hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
 
@@ -87,7 +87,7 @@ In the case of the Token hook type, the `value` property is itself a nested obje
 | type     | One of the [supported commands](#supported-commands).                    | String          |
 | value    | Operand to pass to the command. It specifies a particular op to perform. | [value](#value) |
 
-#### Supported Commands
+#### Supported commands
 
 The following commands are supported for the Token Inline Hook type:
 
@@ -108,7 +108,7 @@ The `value` object is where you specify the specific operation to perform. It is
 | path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding, replacing, or removing a claim, this always begins with `/claims/`  and is followed by the name of the new claim that you are adding. When replacing a token lifetime, the path should always be `/token/lifetime/expiration`. | String          |
 | value    | Value to set the claim to.                                                                                                                                                                                        | Any JSON object |
 
-#### List of Supported Ops
+#### List of supported ops
 
 | Op      | Description               |
 |---------|---------------------------|
@@ -194,7 +194,7 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
 
 > **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`
 
-## Sample JSON Payload of a Request
+## Sample JSON payload of a request
 
 ```json
 {
@@ -336,11 +336,11 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
 }
 ```
 
-## Sample JSON Payloads of Responses
+## Sample JSON payloads of responses
 
 This section provides example JSON payloads for the supported operations.
 
-### Sample Response to Add a Claim
+### Sample response to add a claim
 
 Use the `add` operation to add new claims to a token. If you use the `add` operation and include an existing claim in your response with a different value, that value is replaced. Use the `replace` operation instead. See [Sample Response to Replace an Existing Claim](/docs/reference/token-hook/#sample-response-to-replace-an-existing-claim) for more information. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
@@ -481,13 +481,13 @@ This `add` operation adds `lax` to the end of the array. Alternatively, you can 
 }
 ```
 
-> **Note:** Attempting to add an element within an array that doesn't exist or specifying an invalid index results in the entire PATCH failing and errors logged in the token hooks events.
+**Note:** If you attempt to add an element within an array that doesn't exist or specify an invalid index, the entire PATCH will fail and errors will be logged in the token hooks events.
 
-### Sample Response to Replace an Existing Claim
+### Sample response to replace an existing claim
 
 You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system-specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
-For the list of access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims).
+See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token reserved claims that you can't modify.
 
 >**Note:** Although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens. You can't modify these claims in ID tokens.
 
@@ -569,7 +569,7 @@ The resulting JSON object:
 
 Similarly, you can replace elements in an array by specifying the array name and the valid index of the element that you want to replace in the path.
 
-### Sample Response to Modify Token Lifetime
+### Sample response to modify token lifetime
 
 You can modify how long the access and ID tokens are valid by specifying the `lifetime` in seconds. The `lifetime` value must be a minimum of five minutes (300 seconds) and a maximum of 24 hours (86,400 seconds).
 
@@ -601,11 +601,11 @@ You can modify how long the access and ID tokens are valid by specifying the `li
 }
 ```
 
-### Sample Response to Remove Token Claims
+### Sample response to remove token claims
 
-You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
+You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. If you attempt to remove a system-specific claim or use an invalid operation, the entire PATCH will fail and errors will be logged in the token hooks events.
 
-For the list of access token reserved claims that you can't remove, see [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims).
+See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token reserved claims that you can't remove.
 
 See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
 
@@ -653,7 +653,7 @@ Existing target JSON object:
 }
 ```
 
-You can remove the element from the array by specifying the array name followed by the index of the element that you want to remove. You don't need to specify a value for the `remove` operation. But, you can specify `null` as the value if you want.
+You can remove the element from the array by specifying the array name followed by the index of the element that you want to remove. You don't need to specify a value for the `remove` operation, but you can specify `null` as the value if you want.
 
 > **Note:** Attempting to remove an element within an array that doesn't exist or specifying an invalid value results in the entire PATCH failing and errors logged in the token hooks events.
 
