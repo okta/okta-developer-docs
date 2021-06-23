@@ -22,31 +22,28 @@ This use case requires the **password** factor.
 
 </div>
 
-## Configuration Updates
+## Configuration updates
 
-The following configurations need to be completed before continuing with this use case.
+You need to complete the following configurations before you continue with this use case.
 
-### Step 1:  Complete steps in Set up your Okta org for password factor only use cases
+### Step 1: Complete steps in Set up your Okta org for password factor only use cases
 
 If not already done, complete the steps described in the
 [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
-### Step 2:  Reconfigure application for password factor only
+### Step 2: Reconfigure application for password factor only
 
 If you completed the steps in
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases),
-you have set up your application for multiple factors.
-In order to use this password factor only use case,
-perform the following steps:
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases), you have set up your application for multiple factors.
+To use this password factor only use case, do the following:
 
 1. In the [Admin Console](https://developer.okta.com/docs/guides/quickstart/using-console/),
    select **Applications > Applications** from the left navigation menu.
-1. In the **Applications** page, click on your application.
+1. In the **Applications** page, select your application.
 1. In your application page, select the **Sign On** tab and scroll down
-   to the **Sign on policy** section.
-1. Under **Sign on Policy** select the **Actions** menu icon (⋮) beside
-   the **ENABLED** flag for the **Catch-all rule** and select **Edit**.
-   1. In the **Edit Rule** page scroll down to the **User must authenticate with** field and change it’s value to **Password**.
+   to the **Sign On Policy** section.
+1. Select the **Actions** menu icon (⋮) beside the **ENABLED** flag for the **Catch-all Rule** and select **Edit**.
+1. In the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** field and change its value to **Password**.
    1. Click **Save**.
 
 ## Summary of steps

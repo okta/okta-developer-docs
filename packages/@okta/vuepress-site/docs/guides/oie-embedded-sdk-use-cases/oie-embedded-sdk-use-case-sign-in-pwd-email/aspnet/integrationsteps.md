@@ -136,7 +136,7 @@ The next step is to handle the response from `VerifyAuthenticatorAsync`.
 If the email code was valid, the method should return `AuthenticationStatus`
 of `Success`. This status signifies that there are no more factors waiting to
 be enrolled and verified. If the steps described in
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases)
+[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases)
 were properly followed,  the user has successfully signed in and should be sent
 to the default sign in home page.  In the case of the sample app, it is the
 user profile page.

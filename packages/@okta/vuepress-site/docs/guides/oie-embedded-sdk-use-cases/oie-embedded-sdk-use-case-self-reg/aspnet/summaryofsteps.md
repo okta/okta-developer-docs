@@ -26,7 +26,7 @@ The self-registration flow continues in this sequence.
 After the password and email are verified, the user has the option to
 enroll in the phone factor.
 
-> **Note**: Based on the steps described in [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), the Okta application is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional.
+> **Note**: Based on the steps described in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), the Okta application is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional.
 
 The flow below describes the steps when the user enrolls in the optional phone SMS factor.
 
