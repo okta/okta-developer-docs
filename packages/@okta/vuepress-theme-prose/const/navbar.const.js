@@ -799,10 +799,6 @@ export const referenceOld = [
           }
         ]
       },
-      {
-        title: "Social IdP Settings",
-        path: "/docs/reference/social-settings/"
-      },
       { title: "Token Hook", path: "/docs/reference/token-hook/" },
       { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
       {
