@@ -10,7 +10,7 @@ Using the sample app as your guide, walk through each of the use cases in
 this section to build your own app with the SDK. Each use case describes
 the steps required to integrate your app with the SDK.
 
-The supported use cases are as follows:
+The supported use cases include:
 
 * [Basic user sign in](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/)
 * [User sign out](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-out/)
@@ -20,9 +20,6 @@ The supported use cases are as follows:
 * [Sign in with password and email factor](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-email/)
 * [Sign in with password and phone factor](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-phone/)
 
-The above use cases are purposely ordered to start you off with
-simplier use cases before advancing to the more complex scenarios. so you can test each one as you gradually
-move on to more complex scenarios.
+The above use cases are purposely ordered to start you off with simplier use cases before advancing to the more complex scenarios, so that you can test each one as you gradually move on.
 
-> **Note:** The code samples for each use case are based primarly off the
-sample app provided with the SDK.
+> **Note:** The code samples for each use case are based primarly off of the sample app that is provided with the SDK.

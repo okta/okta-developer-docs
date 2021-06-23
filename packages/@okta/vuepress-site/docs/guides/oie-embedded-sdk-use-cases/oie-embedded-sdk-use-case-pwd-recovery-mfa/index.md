@@ -8,11 +8,11 @@ title: User password recovery
 
 <StackSelector class="cleaner-selector"/>
 
-This use case describes how a user would reset their forgotten password with the email factor.
+This use case describes how a user would reset their forgotten password using the email factor.
 
 ## Factor setup
 
-This use case requires the **password** and **email** factor.
+This use case requires the **password** and **email** factors.
 
 <div class="common-image-format">
 
@@ -21,13 +21,13 @@ This use case requires the **password** and **email** factor.
 
 </div>
 
-The use case describes how to integrate a password recovery flow in your
+This use case describes how to integrate a password recovery flow into your
 app using the SDK. The flow includes an email factor step that the user needs
 to verify before changing their password.
 
 ## Configuration updates
 
-The following configurations need to be completed before continuing with this use case.
+You need to complete the following configurations before you continue with this use case.
 
 ### Step 1:  Complete steps in Set up your Okta org for password factor only use cases
 
@@ -35,46 +35,43 @@ If not already done, complete the steps described in the
 [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
 ### Step 2:  Complete steps in Set up your Okta org (for multi-factor use cases)
+
 If not already done, complete the steps described in the
 [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) section.
-
 
 ### Step 3:  Reconfigure Okta application for password only
 
 If you completed the steps in
-[Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases),
-you have set up your application for multiple factors. Ensure the application’s
-policy is set up for **Password + Another factor**.
 
-1. In the Admin Console, select **Applications > Applications** from the
+[Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases),
+you have set up your application for multiple factors. Ensure that the application's policy is set up for **Password + Another factor**.
+
+1. In the Admin Console, select **Applications** > **Applications** from the
    left navigation menu.
-1. In the **Applications** page, click on your application.
-1. In your application page, select the **Sign On** tab and scroll down to
-   the **Sign on** policy section.
-1. Under **Sign on Policy** select the **Actions** menu icon (⋮) beside the
-   **ENABLED** flag for the **Catch-all** rule and select Edit.
-1. In the **Edit Rule** page scroll down to the **User must authenticate with**
-   field and change it’s value to **Password + Another factor** if it is not
-   already set to that value.
+1. On the **Applications** page, select your application.
+1. On your application page, select the **Sign On** tab and scroll down to
+   the **Sign On Policy** section.
+1. Select the **Actions** menu icon (⋮) beside the **ENABLED** flag for the **Catch-all Rule** and select **Edit**.
+1. In the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with**
+   field and change its value to **Password + Another factor** if it isn't already set to that value.
 1. Click **Save**.
 
 ### Step 4:  Ensure only email is only factor enabled for password recovery
 
-1. In the Admin Console, select **Security > Authenticators** from the left
+1. In the Admin Console, select **Security** > **Authenticators** from the left
    navigation menu.
-1. In the **Authenticators** page, click on **Actions** and **Edit** for the
+1. On the **Authenticators** page, click **Actions** and then **Edit** for the
    **Password** authenticator.
-1. In the **Password** page, scroll down on the **Default Policy** and click
-   the edit pencil icon for the **Default rule**.
-1. In the **Edit Rule** page, ensure the following values are checked for the
-   **Users can initiate recovery** with field:
-   1. **Phone (SMS / Voice call)** is unchecked.
-   1. **Email** is checked.
-   1. Click the **Update rule** button if any values have changed.
+1. In the **Password** page, scroll down to the bottom of the page for the **Default Policy** and click
+   the edit pencil icon for the **Default Rule**.
+1. In the **Edit Rule** dialgo box, ensure that the following values are configured for the **AND Users can initiate recovery with** field:
+   * **Phone (SMS / Voice call)**: Clear
+   * **Email**: Selected
+1. Click **Update Rule** if you change any values.
 
 ## Summary of steps
 
-The sequence of steps for the Facebook sign in flow is shown below.
+The following are the sequence of steps for the Facebook sign-in flow.
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
@@ -84,6 +81,6 @@ The sequence of steps for the Facebook sign in flow is shown below.
 
 ## Troubleshooting Tips
 
-Ensure the user is valid and it’s status is **Active** in your Okta org
+Ensure that the user is valid and that the user status is set to **Active** in your Okta org.
 
 </div>

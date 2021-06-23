@@ -1,7 +1,7 @@
 ### Diagram 1: Start new user registration with password factor
 
-The diagram below illustrates the beginning of the registration process
-where the user initiates the sign in and enters their password.
+The following diagram illustrates the beginning of the registration process
+where the user initiates their sign in and enters their password.
 
 <div class="common-image-format">
 
@@ -12,7 +12,7 @@ where the user initiates the sign in and enters their password.
 
 ### Diagram 2: Enroll and verify email factor
 
-The self registration flow continues in this sequence.
+The self-registration flow continues in this sequence.
 
 <div class="common-image-format">
 
@@ -23,16 +23,12 @@ The self registration flow continues in this sequence.
 
 ### Diagram 3: Option 1: Enroll and verify phone (SMS) factor
 
-After the password and email is verified, the user has the option to
+After the password and email are verified, the user has the option to
 enroll in the phone factor.
 
-> **Note**: Based on the steps described in
-  [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases), the Okta application is setup to require one possession factor
-  (either email or phone). Once the email factor has been verified the phone
-  factor becomes optional.
+> **Note**: Based on the steps described in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), the Okta application is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional.
 
-  The flow below describes the steps when the user enrolls in the optional
-  phone SMS factor.
+The flow below describes the steps when the user enrolls in the optional phone SMS factor.
 
 <div class="common-image-format">
 
@@ -43,7 +39,7 @@ enroll in the phone factor.
 
 ### Diagram 4: Option 2: Skip optional phone (SMS) factor
 
-The user can also opt to skip the factors when all the remaining
+The user can also opt to skip the factors when all of the remaining
 factors are optional. In this case, the user opts to skip the phone
 (SMS) factor.
 
