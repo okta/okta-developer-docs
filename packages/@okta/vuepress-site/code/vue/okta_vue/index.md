@@ -84,7 +84,9 @@ Create a `src/auth.js` file:
 const OktaAuth = require('@okta/okta-auth-js').OktaAuth
 const authClient = new OktaAuth({
   issuer: 'https://{yourOktaDomain}',
-          clientId: '{clientId}',
+  clientId: '{clientId}',
+  scopes: ['openid', 'email', 'profile'],
+  redirectUri: window.location.origin + '/login/callback'
 })
 
 export default {
@@ -102,9 +104,7 @@ export default {
       if (transaction.status === 'SUCCESS') {
         return authClient.token.getWithoutPrompt({
           responseType: ['id_token', 'token'],
-          scopes: ['openid', 'email', 'profile'],
           sessionToken: transaction.sessionToken,
-          redirectUri: window.location.origin + '/login/callback'
         }).then(response => {
           localStorage.token = response.tokens.accessToken
           localStorage.idToken = response.tokens.idToken
@@ -261,7 +261,7 @@ Add a `src/components/Login.vue` to render your sign-in form:
 </style>
 ```
 
-To make the `v-focus` directive on the email field work, modify app creation code as follows:
+To make the `v-focus` directive on the email field work, modify app creation code in `src/main.js` as follows:
 
 ```js
 createApp(App)
