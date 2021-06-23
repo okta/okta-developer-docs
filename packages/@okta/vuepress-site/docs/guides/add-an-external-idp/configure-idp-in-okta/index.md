@@ -29,7 +29,7 @@ When you are setting up your social Identity Provider (IdP) in Okta, there are a
 
 You can enter an expression to reformat the value, if you want. For example, if the social username is `john.doe@mycompany.com`, you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/).
 
-**Match against &mdash;** The Okta user property against which the IdP username is compared to determine if an account link needs to be established. If an existing account link is found, no comparison is performed.
+**Match against &mdash;** The Okta user property that the IdP username is compared against in order to determine if an account link needs to be established. If an existing account link is found, no comparison is performed.
 
 > **Note:** See [Account Linking](/docs/concepts/identity-providers/#account-linking) for more information on how account linking works.
 
