@@ -36,6 +36,14 @@ This page provides the API rate limits for authentication and end-user activitie
 | `/api/{apiVersion}/radius`                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 | `/idp/idx`                                                                                                             | 100              | 600              | 600     | 600        | 500                   |
 | `/login/token/redirect`                                                                                                             | 100              | 600              | 600     | 600        | 600                   |
+| <ApiLifecycle access="ie" /> **Identity Engine APIs:**                                                                            |               |               |      |         |                    |
+| `/idp/idx`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
+| `/idp/idx/identify`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
+| `/idp/idx/introspect`                                                                                                     | 150              | 900              | 900     | 900        | 900                   |
+| `/idp/idx/challenge/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
+| `/idp/idx/authenticators/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
+| `/idp/idx/poll`                                                                                                     | 100              | 600              | 600     | 600        | 600                   |
+| Identity Engine App Intent                                                                                                     | 150              | 900              | 900     | 900        | 900                   |
 
 
 > **Note:** The following public metadata endpoints aren't subjected to rate limiting.
