@@ -27,9 +27,10 @@ In this scenario, the org is set up in the following manner:
 1. The org is initially configured following the steps described in:
 [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases)
 and
+
 [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases).
 1. The application's sign-on policy is updated for only the password factor. In
-   Admin Console, the **AND User must authenticate with** field is set to **Password**.
+   the Admin Console, the **AND User must authenticate with** field is set to **Password**.
 1. The **Email verification** field in the profile enrollment's Default Policy
    is set to **Required before access is granted**. Profile enrollment configuration can
    be found by navigating to **Security** > **Profile Enrollment**.

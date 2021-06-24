@@ -1,5 +1,3 @@
-Get the [sample app](`okta-idx-dotnet/samples/samples-aspnet/embedded-sign-in-widget`)
-
 ## Steps to test the sample app
 
 1. If not already done, set up your Okta org by completing these steps: [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
