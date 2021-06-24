@@ -103,6 +103,11 @@ API endpoints that take username and password credentials, including the [Authen
   * `/api/v1/authn/factors`
   * `/api/v1/users/{userId}/factors`
 
+  **Identity Engine endpoints**<br>
+  <ApiLifecycle access="ie" />
+  * `/idp/idx/challenge`
+  * `/idp/idx/credential/enroll`
+
 ### Workforce license rate limit multiplier
 
 Workforce orgs that are created after January 7, 2021 have increased default rate limits. This increase is for [specific endpoints](#list-of-endpoints) and depends on a Workforce org's license count (Universal Directory or Single-Sign On).
