@@ -89,8 +89,16 @@ export const concepts = [
         path: "/docs/concepts/policies/"
       },
       {
+        title: "Session management",
+        path: "/docs/concepts/session/"
+      },
+      {
         title: "Social Login Overview",
         path: "/docs/concepts/social-login/"
+      },
+      {
+        title: "User Profiles",
+        path: "/docs/concepts/user-profiles/"
       },
       {
         title: "Understanding SAML",
@@ -485,6 +493,10 @@ export const reference = [
                 path: "/docs/reference/rate-limits/"
               },
               {
+                title: "Rate limit dashboard",
+                path: "/docs/reference/rl-dashboard/"
+              },
+              {
                 title: "Authentication/End-user rate limits",
                 path: "/docs/reference/rl-global-enduser/"
               },
@@ -529,6 +541,7 @@ export const reference = [
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
           { title: "Apps", path: "/docs/reference/api/apps/" },
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
+          { title: "Domains", path: "/docs/reference/api/domains/"},
           { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/"},
           { title: "Event Types", path: "/docs/reference/api/event-types/" },
           { title: "Factors", path: "/docs/reference/api/factors/" },
@@ -701,6 +714,10 @@ export const referenceOld = [
           {
             title: "Rate limits overview",
             path: "/docs/reference/rate-limits/"
+          },
+          {
+            title: "Rate limit dashboard",
+            path: "/docs/reference/rl-dashboard/"
           },
           {
             title: "Authentication/End-user rate limits",

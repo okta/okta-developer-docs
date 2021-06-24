@@ -1,9 +1,7 @@
 <template>
-  <li :class="{ subnav: link.subLinks, hidden: hidden }">
-    <div class="link-wrap">
-
-      <div v-if="entityType === types.link">
-        <router-link
+  <li :class="{'link-wrap': true, 'subnav-active': link.iHaveChildrenActive, hidden: hidden }">
+    <router-link
+          v-if="entityType === types.link"
           :to="link.path"
           v-slot="{ route, href, navigate }"
           class="tree-nav-link"
@@ -13,40 +11,37 @@
             @click="navigate"
             :class="route.path === $route.path ? 'router-link-active' : ''"
             :aria-current="route.path === $route.path && 'page'"
-            ><slot>{{ link.title }}</slot></a
-          >
-        </router-link>
-      </div>
+            >
+            <slot>
+              <span class="text-holder">
+                {{ link.title }}
+              </span>
+            </slot>
+          </a>
+    </router-link>
 
-      <div v-if="entityType === types.blankDivider">
+    <div v-if="entityType === types.blankDivider">
         <div class="blank-divider">
           {{link.title}}
         </div>
-      </div>
+    </div>
 
-      <div v-if="entityType === types.parent">
-        <div
+    <div
+          v-if="entityType === types.parent"
           :class="{
-            'is-link': true,
-            'item-collapsable': true,
+            'tree-nav-link': true,
             'children-active': link.iHaveChildrenActive
           }"
           @click="toggleExpanded"
         >
-          <svg viewBox="0 0 320 512" v-if="link.subLinks && !sublinksExpanded">
-            <path
-              d="M0 384.662V127.338c0-17.818 21.543-26.741 34.142-14.142l128.662 128.662c7.81 7.81 7.81 20.474 0 28.284L34.142 398.804C21.543 411.404 0 402.48 0 384.662z"
-            />
-          </svg>
-
-          <svg viewBox="0 0 320 512" v-if="link.subLinks && sublinksExpanded">
-            <path
-              d="M31.3 192h257.3c17.8 0 26.7 21.5 14.1 34.1L174.1 354.8c-7.8 7.8-20.5 7.8-28.3 0L17.2 226.1C4.6 213.5 13.5 192 31.3 192z"
-            />
-          </svg>
-          {{ link.title }}
-        </div>
-      </div>
+          <i :class="{
+            'fa': true,
+            'fa-chevron-right': link.subLinks && !sublinksExpanded,
+            'fa-chevron-down': link.subLinks && sublinksExpanded,
+             }"></i>
+          <span class="text-holder">
+            {{ link.title }}
+          </span>
     </div>
 
     <ul v-if="entityType === types.parent" class="sections" v-show="sublinksExpanded">
@@ -57,14 +52,16 @@
       />
     </ul>
   </li>
-  
+
 </template>
 
 <script>
+import { guideFromPath } from "../util/guides"
+
 export default {
   name: "SidebarItem",
   props: ["link"],
-  inject: ["appContext"],
+  inject: ["appContext", "stackSelectorData"],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },
@@ -79,7 +76,7 @@ export default {
       }
     };
   },
-  
+
   computed:{
     entityType: function(){
       if(this.link.hasOwnProperty('path') && this.link.path !== null ){
@@ -97,9 +94,22 @@ export default {
     this.setData();
   },
   watch: {
-    
     link() {
       this.setData();
+    },
+
+    // Will triggers when StackSelector component will change it value.
+    "stackSelectorData.to"() {
+      // After StackSelector value has changed, route link will be modified.
+      // This condition will be true only for SidebarItems that contains links on pages with StackSelector.
+      const newFramework = guideFromPath(this.stackSelectorData.to).framework;
+      if (this.link?.frameworks?.includes(newFramework)) {
+        // All links on pages with StackSelector that contains same frameworks list will be modifiend
+        // and will include new framework value.
+        // Such approach will make it possible to activate the same value in all StackSelector
+        // components that has similar frameworks set.
+        this.link.path = this.getNewLinkPath(this.link.path, newFramework);
+      }
     },
 
     sublinksExpanded(isActivated, _) {
@@ -118,15 +128,19 @@ export default {
       }
     }
   },
-  
+
   methods: {
+    getNewLinkPath(path, newFramework) {
+      const framework = guideFromPath(path).framework;
+      return path.replace(framework, newFramework);
+    },
     toggleExpanded() {
       this.sublinksExpanded = !this.sublinksExpanded;
     },
     setData: function() {
       this.sublinksExpanded = Boolean(this.link.iHaveChildrenActive);
     }
-    
+
   }
 };
 </script>

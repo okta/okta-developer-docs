@@ -360,7 +360,7 @@ Content-Type: text/json;charset=UTF-8
 
 >**Note:**
 >
-> * For any new OIN app integrations, all updates to a User object are handled using a PUT method request, except as noted in [Update a specific User (PATCH)](#update-a-specific-user-profile-patch).
+> * For any new OIN app integrations, all updates to a User object are handled using a PUT method request, except as noted in [Update a specific User (PATCH)](#update-a-specific-user-patch).
 > * For any custom app integrations created using the App Integration Wizard (AIW), all updates to a User object are handled using a PUT method request.
 
 After the User object is retrieved from the SCIM server, Okta modifies the attributes that were changed and runs a PUT method request with the new body to the `/Users/${userID}` endpoint:

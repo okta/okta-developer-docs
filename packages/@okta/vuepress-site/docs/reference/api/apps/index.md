@@ -1088,7 +1088,7 @@ curl -v -X POST \
       "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
       "slo": {
         "enabled": true,
-        "spIssuer": "https://testorgone.okta.com",
+        "issuer": "https://testorgone.okta.com",
         "logoutUrl": "https://testorgone.okta.com/logout"
       },
       "spCertificate": {
@@ -1355,18 +1355,22 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * The `grant_types` and `response_types` values described above are partially orthogonal, as they refer to arguments passed to different endpoints in the [OAuth 2.0 protocol](https://tools.ietf.org/html/rfc6749). However, they are related in that the `grant_types` available to a client influence the `response_types` that the client is allowed to use, and vice versa. For instance, a `grant_types` value that includes `authorization_code` implies a `response_types` value that includes `code`, as both values are defined as part of the OAuth 2.0 authorization code grant.
 
-* A consent dialog appears depending on the values of three elements:
-    * `prompt`: a query parameter used in requests to [`/oauth2/${authServerId}/v1/authorize`](/docs/reference/api/oidc/#authorize)(custom authorization server) or [`/oauth2/v1/authorize`](/docs/reference/api/oidc/#authorize) (Org authorization server)
-    * `consent_method`: a property listed in the Settings table above
-    * `consent`: a property on [scopes](/docs/reference/api/authorization-servers/#scope-properties)
+* A consent dialog box appears depending on the values of three elements:
 
-| `prompt` Value      | `consent_method`                   | `consent`                     | Result       |
-| :------------------ | :--------------------------------- | :---------------------------- | :----------- |
-| `CONSENT`           | `TRUSTED` or `REQUIRED`            | `REQUIRED`                    | Prompted     |
-| `CONSENT`           | `TRUSTED`                          | `IMPLICIT`                    | Not prompted |
-| `CONSENT`           | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
-| `NONE`              | `TRUSTED`                          | `REQUIRED` or `IMPLICIT`      | Not prompted |
-| `NONE`              | `REQUIRED`                         | `IMPLICIT`                    | Not prompted |
+  * `prompt` - a query parameter that is used in requests to [`/authorize`](/docs/reference/api/oidc/#authorize)
+  * `consent_method` - An [application](/docs/reference/api/apps/#settings-7) property that allows you to determine whether a client is fully trusted (for example, a first-party application) or requires consent (for example, a third-party application).
+  * `consent` - a Scope property, listed in the previous table, that allows you to enable or disable user consent for an individual scope.
+
+  | `prompt` Value   | `consent_method`        | `consent`                            | Result       |
+  | :--------------- | :---------------------- | :----------------------------------- | :----------- |
+  | `CONSENT`        | `TRUSTED` or `REQUIRED` | `REQUIRED`                           | Prompted     |
+  | `CONSENT`        | `TRUSTED` or `REQUIRED` | `FLEXIBLE`                           | Prompted     |
+  | `CONSENT`        | `TRUSTED`               | `IMPLICIT`                           | Not prompted |
+  | `NONE`           | `TRUSTED`               | `FLEXIBLE`, `IMPLICIT`, or `REQUIRED`| Not prompted |
+  | `NONE`           | `REQUIRED`              | `FLEXIBLE` or `REQUIRED`             | Prompted     |
+  | `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
+
+> **Note:** When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This occurs because there is no user involved in a two-legged OAuth [Client Credentials](/docs/guides/implement-client-creds/overview/) grant flow.
 <!-- If you change this section, change it in authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) and oidc.md (/docs/reference/api/oidc/#scopes) as well. Add 'LOGIN' to the first three rows when supported -->
 
 > **Note:** The `refresh_token` <ApiLifecycle access="ea" /> parameter is visible only if the client has `refresh_token` defined as one of its allowed `grant_types`. See [Refresh token object](#refresh-token-object).
@@ -1529,6 +1533,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 - [List applications assigned to a user](#list-applications-assigned-to-a-user)
 - [List applications assigned to a group](#list-applications-assigned-to-a-group)
 - [List applications using a key](#list-applications-using-a-key)
+- [List apps by name](#list-apps-by-name)
 
 ##### Request parameters
 
@@ -1536,7 +1541,7 @@ Enumerates apps added to your organization with pagination. A subset of apps can
 | --------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
 | after     | Specifies the pagination cursor for the next page of apps                                                        | Query      | String   | FALSE    |         |
 | expand    | Traverses the `users` link relationship and optionally embeds the [Application User](#application-user-object) resource   | Query      | String   | FALSE    |         |
-| filter    | Filters apps by `status`, `user.id`, `group.id` or `credentials.signing.kid` expression                          | Query      | String   | FALSE    |         |
+| filter    | Filters apps by `status`, `user.id`, `group.id`, `credentials.signing.kid`, or `name` expression                  | Query      | String   | FALSE    |         |
 | limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
 | q         | Searches the `name` or `label` property of applications using `startsWith` that matches what the string starts with to the query                              | Query      | String   | FALSE    |         |
 
@@ -1554,6 +1559,7 @@ The following filters are supported with the filter query parameter:
 | `status eq "ACTIVE"`                | Apps that have a `status` of `ACTIVE`                                             |
 | `status eq "INACTIVE"`              | Apps that have a `status` of `INACTIVE`                                           |
 | `user.id eq ":uid"`                 | Apps assigned to a specific user such as `00ucw2RPGIUNTDQOYPOF`                   |
+| `name eq ":name"`                   | Apps that have the same `name` such as `workday`                                  |
 
 > **Note:** Only a single expression is supported as this time. The only supported filter type is `eq`.
 
@@ -2206,6 +2212,205 @@ curl -v -X GET \
       "metadata": {
         "href": "http://testorgone.okta.com:/api/v1/apps/0oa1gjh63g214q0Hq0g4/sso/saml/metadata",
         "type": "application/xml"
+      }
+    }
+  }
+]
+```
+
+#### List apps by name
+
+Enumerates all apps by the app name
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/apps?filter=name+eq+\"workday\""
+```
+
+##### Response example
+
+```json
+[
+  {
+    "id": "0oa7vicdkRNrz59R80w6",
+    "name": "workday",
+    "label": "hrportal2",
+    "status": "ACTIVE",
+    "lastUpdated": "2021-05-17T23:10:50.000Z",
+    "created": "2021-05-17T23:10:49.000Z",
+    "accessibility": {
+      "selfService": false,
+      "errorRedirectUrl": null,
+      "loginRedirectUrl": null
+    },
+    "visibility": {
+      "autoSubmitToolbar": false,
+      "hide": {
+        "iOS": false,
+        "web": false
+      },
+      "appLinks": {
+        "login": true
+      }
+    },
+    "features": [],
+    "signOnMode": "SAML_2_0",
+    "credentials": {
+      "userNameTemplate": {
+        "template": "${source.login}",
+        "type": "BUILT_IN"
+      },
+      "signing": {
+        "kid": "wRejFXWxFlK9nnLozx5qKWQa3fg-JRXw7dvdlTjs5Pg"
+      }
+    },
+    "settings": {
+      "app": {
+        "siteURL": "https://acme.workday.com"
+      },
+      "notifications": {
+        "vpn": {
+          "network": {
+            "connection": "DISABLED"
+          },
+          "message": null,
+          "helpUrl": null
+        }
+      },
+      "signOn": {
+        "defaultRelayState": null,
+        "ssoAcsUrlOverride": null,
+        "audienceOverride": null,
+        "recipientOverride": null,
+        "destinationOverride": null,
+        "attributeStatements": []
+      }
+    },
+    "_links": {
+      "help": {
+        "href": "https://testorgone-admin.okta.com/app/workday/0oa7vicdkRNrz59R80w6/setup/help/SAML_2_0/external-doc",
+        "type": "text/html"
+      },
+      "metadata": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicdkRNrz59R80w6/sso/saml/metadata",
+        "type": "application/xml"
+      },
+      "appLinks": [
+        {
+          "name": "login",
+          "href": "https://testorgone.okta.com/home/workday/0oa7vicdkRNrz59R80w6/30",
+          "type": "text/html"
+        }
+      ],
+      "groups": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicdkRNrz59R80w6/groups"
+      },
+      "logo": [
+        {
+          "name": "medium",
+          "href": "https://tc2static.oktacdn.com/fs/bcg/4/gfs1wwhrwJR4LpB5X0w6",
+          "type": "image/png"
+        }
+      ],
+      "users": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicdkRNrz59R80w6/users"
+      },
+      "deactivate": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicdkRNrz59R80w6/lifecycle/deactivate"
+      }
+    }
+  },
+  {
+    "id": "0oa7vicvor8YSr9Hc0w6",
+    "name": "workday",
+    "label": "hrportal1",
+    "status": "ACTIVE",
+    "lastUpdated": "2021-05-17T23:10:22.000Z",
+    "created": "2021-05-17T23:10:22.000Z",
+    "accessibility": {
+      "selfService": false,
+      "errorRedirectUrl": null,
+      "loginRedirectUrl": null
+    },
+    "visibility": {
+      "autoSubmitToolbar": false,
+      "hide": {
+        "iOS": false,
+        "web": false
+      },
+      "appLinks": {
+        "login": true
+      }
+    },
+    "features": [],
+    "signOnMode": "SAML_2_0",
+    "credentials": {
+      "userNameTemplate": {
+        "template": "${source.login}",
+        "type": "BUILT_IN"
+      },
+      "signing": {
+        "kid": "wRejFXWxFlK9nnLozx5qKWQa3fg-JRXw7dvdlTjs5Pg"
+      }
+    },
+    "settings": {
+      "app": {
+        "siteURL": "https://acme.workday.com"
+      },
+      "notifications": {
+        "vpn": {
+          "network": {
+            "connection": "DISABLED"
+          },
+          "message": null,
+          "helpUrl": null
+        }
+      },
+      "signOn": {
+        "defaultRelayState": null,
+        "ssoAcsUrlOverride": null,
+        "audienceOverride": null,
+        "recipientOverride": null,
+        "destinationOverride": null,
+        "attributeStatements": []
+      }
+    },
+    "_links": {
+      "help": {
+        "href": "https://testorgone-admin.okta.com/app/workday/0oa7vicvor8YSr9Hc0w6/setup/help/SAML_2_0/external-doc",
+        "type": "text/html"
+      },
+      "metadata": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicvor8YSr9Hc0w6/sso/saml/metadata",
+        "type": "application/xml"
+      },
+      "appLinks": [
+        {
+          "name": "login",
+          "href": "https://testorgone.okta.com/home/workday/0oa7vicvor8YSr9Hc0w6/30",
+          "type": "text/html"
+        }
+      ],
+      "groups": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicvor8YSr9Hc0w6/groups"
+      },
+      "logo": [
+        {
+          "name": "medium",
+          "href": "https://tc2static.oktacdn.com/fs/bcg/4/gfs1wwhrwJR4LpB5X0w6",
+          "type": "image/png"
+        }
+      ],
+      "users": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicvor8YSr9Hc0w6/users"
+      },
+      "deactivate": {
+        "href": "https://testorgone.okta.com/api/v1/apps/0oa7vicvor8YSr9Hc0w6/lifecycle/deactivate"
       }
     }
   }
@@ -6154,7 +6359,7 @@ Applications have the following properties:
 | credentials        | Credentials for the specified `signOnMode`     | [Application Credentials object](#application-credentials-object)    | TRUE         | FALSE      | FALSE        |               |             |
 | features           | Enabled app features                           | [Features](#features)                                                | TRUE         | FALSE      | FALSE        |               |             |
 | id                 | Unique key for app                             | String                                                               | FALSE        | TRUE       | TRUE         |               |             |
-| label              | Unique user-defined display name for app       | String                                                               | FALSE        | TRUE       | FALSE        | 1             | 100         |
+| label              | User-defined display name for app              | String                                                               | FALSE        | FALSE      | FALSE        | 1             | 100         |
 | lastUpdated        | Timestamp when app was last updated            | Date                                                                 | FALSE        | FALSE      | TRUE         |               |             |
 | name               | Unique key for app definition                  | String ([App Names](#app-names))                | FALSE        | TRUE       | TRUE         | 1             | 255         |
 | profile            | Valid JSON schema for specifying properties    | [JSON](#profile-object)                                              | TRUE         | FALSE      | FALSE        |               |             |
@@ -6403,8 +6608,6 @@ Determines the refresh token rotation configuration for the OAuth 2.0 client.
 | -------------------------- | ----------------------------------------------------------------- | -------- | -------- |
 | rotation_type              | The refresh token rotation mode for the OAuth 2.0 client          | `STATIC` or `ROTATE` | FALSE |
 | leeway                     | The leeway allowed for the OAuth 2.0 client. After the refresh token is rotated, the previous token remains valid for the configured amount of time to allow clients to get the new token.                                           | Number               | TRUE |
-
-* Refresh token rotation is an <ApiLifecycle access="ea" /> feature.
 
 * When you create or update an OAuth 2.0 client, you can configure refresh token rotation by setting the `rotation_type` and `leeway` properties within the `refresh_token` object. If you don't set these properties, the default values are used when you create an app and your previously configured values are used when you update an app.
 
