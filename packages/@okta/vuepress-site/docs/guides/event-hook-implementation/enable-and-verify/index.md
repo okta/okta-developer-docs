@@ -7,29 +7,32 @@ The Event Hook must be set up and verified within your Okta Admin Console.
 
 To set up the Event Hook:
 
-1. In the Admin Console, go to **Workflow** > **Event Hooks**.
+1. Sign in to your [Okta org](https://login.okta.com/).
 
-2. Click **Create Event Hook**.
+2. From the Admin Console, go to **Workflow** > **Event Hooks**.
 
-3. Add a name for the Hook in the **Add Event Hook Endpoint** dialog box (in this example, "Deactivated User Event Hook").
+3. Click **Create Event Hook**.
 
-4. Add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/userDeactivated`.
+4. In the **Name** field, add a unique name for the Hook in the **Add Event Hook Endpoint** dialog box (in this example, "Deactivated User Event Hook").
 
-5. Include authentication field and secret. In this example:
+5. In the **URL** field, add your external service URL, including endpoint. For example, use your Glitch project name with the endpoint: `https://your-glitch-projectname.glitch.me/userDeactivated`.
+
+6. Include authentication field and secret. In this example:
 
     - **Authentication field** = `authorization`
 
     - **Authentication secret** = `Basic YWRtaW46c3VwZXJzZWNyZXQ=`
 
-6. In the **Requests** section of the dialog box, subscribe to the Event Type you want to monitor. In this example, a user deactivated in the Okta org: `User deactivated`
+7. In the **REQUESTS** section of the dialog box, subscribe to the Event Type you want to monitor. In this example, a user deactivated in the Okta org: `User deactivated`.
 
-7. Click **Save & Continue**.
+8. Click **Save & Continue**.
 
-8. You can complete the one-time verification Okta call at this time or verify the Event Hook later. If using the Glitch example, proceed to verification.
+9. You can complete the one-time verification Okta call at this time or verify the Event Hook later. If using the Glitch example, proceed to verification.
 
 > **Note** You can also set up an Event Hook using an API. See [Event Hooks Management](/docs/reference/api/event-hooks/#create-event-hook) for further information.
 
 ### Verify the Event Hook
+
 You must verify the Event Hook to prove your external service controls the endpoint. See the [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for further information on this process.
 
 To complete the one-time verification of the Event Hook:
