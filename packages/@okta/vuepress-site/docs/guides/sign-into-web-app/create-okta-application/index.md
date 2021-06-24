@@ -14,6 +14,13 @@ Before you can sign a user in, you need to create an Okta app integration that r
     > **Note:** It is important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients aren't designed to have, and would break the sign-in or sign-out flow.
 1. Enter a name for your app integration (or leave the default value).
 1. Enter values for the **Sign-in redirect URIs**. This is the callback described in <GuideLink link="../define-callback">Understand the callback route</GuideLink>. Add values for local development (for example, `http://localhost:8080/authorization-code/callback`) and production (for example, `https://app.example.com/authorization-code/callback`).
+
+    If your OpenID Connect client is configured to support subdomains and you want to use a single redirect URI with a wildcard, select the **Allow wildcard * in sign-in redirect URI** checkbox.
+
+    > **Caution:** The use of wildcard subdomains is discouraged as an insecure practice, since it may allow malicious actors to have tokens or authorization codes sent to unexpected or attacker-controlled pages. Exercise caution if you decide to include a wildcard redirect URI in your configuration.
+
+    See the parameter [Details](https://developer.okta.com/docs/reference/api/apps/#details) section on the Apps API Reference page for configuration guidance on the use of wildcard subdomains.
+
 1. Add the **Base URI** of your application during local development, such as `http://localhost:3000`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`.
 1. Assign the group that you want (if you set [Group Assignments](/docs/reference/social-settings/) for your app) or leave the **Everyone** default. For instructions on how to assign the app integration to individual users and groups, see the [Assign applications for people and groups](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
 1. Click **Save** to finish creating the Okta app integration.

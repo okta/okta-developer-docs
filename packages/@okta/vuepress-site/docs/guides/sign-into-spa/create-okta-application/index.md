@@ -15,6 +15,13 @@ Before you can sign a user in, you need to create an Okta app integration that r
 1. Enter a name for your app integration (or leave the default value).
 1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables Authorization Code flow with PKCE for your application and the ability to refresh the access token when it expires without prompting the user to re-authenticate.
 1. Enter values for the **Sign-in redirect URIs**. This is the callback from <GuideLink link="../define-callback/">Define a callback route</GuideLink>. Add values for local development (for example, `http://localhost:8080/login/callback` or `http://localhost:8080/authentication/login-callback` for Blazor) and production (for example, `https://app.example.com/login/callback`).
+
+    If your OpenID Connect client is configured to support subdomains and you want to use a single redirect URI with a wildcard, select the **Allow wildcard * in sign-in redirect URI** checkbox.
+
+    > **Caution:** The use of wildcard subdomains is discouraged as an insecure practice, since it may allow malicious actors to have tokens or authorization codes sent to unexpected or attacker-controlled pages. Exercise caution if you decide to include a wildcard redirect URI in your configuration.
+
+    See the parameter [Details](https://developer.okta.com/docs/reference/api/apps/#details) section on the Apps API Reference page for configuration guidance on the use of wildcard subdomains.
+
 1. In the **Trusted Origins** section, add the **Base URI** of your application during local development, such as `http://localhost:8080`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`. These URIs are added as trusted origins in your Okta org and can be managed by navigating to **Security** > **API** and selecting the **Trusted Origins** tab. See [Enable Trusted Origins](#enable-trusted-origins).
 
 1. In the **Assignments** section, select **Allow everyone in your organization to access** for everyone to access your app, or **Limit access to selected groups** and specify the groups that can access your app.
