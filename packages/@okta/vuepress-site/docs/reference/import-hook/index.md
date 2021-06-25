@@ -154,7 +154,7 @@ Returning an error object will cause Okta to record a failure event in the Okta 
 
 ## Timeout behavior
 
-After receiving the Okta request, if there is a response timeout or error, the Okta process flow continues and the user is created.
+If the external service times out after receiving an Okta request, the Okta process flow continues and the user is created.
 
 ## Sample JSON payload of request from Okta to your external service
 

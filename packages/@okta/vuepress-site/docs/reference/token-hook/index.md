@@ -732,7 +732,7 @@ The resulting JSON object:
 
 ## Timeout behavior
 
-After receiving the Okta request, if there is a response timeout, the Okta process flow proceeds with original token returned. See [Troubleshooting](#Troubleshooting).
+After receiving the Okta request, if there is a response timeout, the Okta process flow proceeds with original token returned. See [Troubleshooting](#troubleshooting).
 
 ## Enabling a Token Inline Hook
 

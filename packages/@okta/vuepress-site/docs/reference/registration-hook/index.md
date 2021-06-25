@@ -168,7 +168,7 @@ If you do not return any value for that `errorCauses` object, but deny the user'
 
 ## Timeout behavior
 
-After receiving the Okta request, if there is a response timeout, the Okta process flow stops and registration is denied. The user receives the following UI message: "There was an error creating your account. Please try registering again".
+If there is a response timeout after receiving the Okta request, the Okta process flow stops and registration is denied. The following message appears: "There was an error creating your account. Please try registering again".
 
 ## Sample JSON Payload of Request
 

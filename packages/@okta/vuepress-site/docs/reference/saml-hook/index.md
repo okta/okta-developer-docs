@@ -350,7 +350,7 @@ In some scenarios, your service provider may require the `SessionNotOnOrAfter` a
 
 ## Timeout behavior
 
-After receiving the Okta request, if there is a response timeout or error, the Okta process flow proceeds with the original SAML assertion returned.
+If there is a response timeout after receiving the Okta request, the Okta process flow proceeds with the original SAML assertion returned.
 
 ## Sample listing of JSON payload of response
 
