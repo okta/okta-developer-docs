@@ -713,8 +713,8 @@ The People Condition identifies Users and Groups that are used together. For Pol
 
 | Parameter | Description          | Data Type                                         | Required |
 | ---       | ---                  | ---                                               | ---      |
-| groups    | The Groups condition | [User Condition object](#user-condition-object)   | Yes      |
-| users     | The Users condition  | [Group Condition object](#group-condition-object) | Yes      |
+| groups    | The Groups condition | [Group Condition object](#group-condition-object) | Yes      |
+| users     | The Users condition  | [User Condition object](#user-condition-object) | Yes      |
 
 ##### User Condition object
 
