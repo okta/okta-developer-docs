@@ -15,9 +15,9 @@ branch_environment_map[staging]=vuepress-site-preprod
 # In such case, PROD will take 'prod' value.
 # PROD ENV is used to distinguished the prod environment from the test environment (see config.js)
 if [[ $BRANCH == "master" ]]; then
-    DEPLOY_ENV = "prod"
+    DEPLOY_ENV="prod"
 else
-    DEPLOY_ENV = "test"
+    DEPLOY_ENV="test"
 fi
 
 if ! yarn build; then
