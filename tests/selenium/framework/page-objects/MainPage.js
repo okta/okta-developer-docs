@@ -4,6 +4,7 @@ const BasePage = require('./BasePage');
 
 const headerSelector = '.page-header';
 const signUpButtonSelector = '.sign-up--button';
+const signupPricingSelector = '.pricing-link'
 const signInLinkXpath = "//*[text()='Sign in to Okta']";
 const oktaMainPageLinkXpath = "//*[text()='Okta.com']";
 const pricingLinkXpath = "//*[text()='Pricing']";
@@ -57,7 +58,7 @@ class MainPage extends BasePage {
   }
 
   getPricingLinkElement() {
-    return element(by.xpath(pricingLinkXpath));
+    return element(by.css(signupPricingSelector));
   }
 
   getCommunityLinkElement() {

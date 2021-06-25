@@ -37,14 +37,13 @@ describe('header sanity check', () => {
         .to.contain("/signup/");
     }));
 
-    it('pricing link click takes user to pricing okta.com page', util.itHelper(async () => {
+    it('pricing link click takes user to pricing okta.com page from a new tab', util.itHelper(async () => {
       await mainPage.getPricingLinkElement().click();
-      await browser.wait(
-        until.urlContains('https://www.okta.com'),
-        2000
-      );
-      expect(await browser.getCurrentUrl())
-        .to.contain(pricingURL);
+      browser.getAllWindowHandles().then(async function(handles) {
+        await browser.switchTo().window(handles[1]);
+        expect(await browser.getCurrentUrl()).to.equal(pricingURL);
+        browser.switchTo().window(handles[0]);
+      });
     }));
   });
 });

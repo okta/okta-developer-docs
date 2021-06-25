@@ -58,7 +58,7 @@
             :key="itemIndex"
           >
             <SmartLink :item="item" classes="link link-list--link">
-              <span class="link-list--text">{{ item.text }}</span>
+              <span class="link-list--text" v-bind:class="{ 'pricing-link': item.text === 'Pricing'}">{{ item.text }}</span>
             </SmartLink>
           </li>
         </ul>
