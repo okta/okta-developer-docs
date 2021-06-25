@@ -8,6 +8,10 @@ This guide walks you through creating a Groups claim for an OpenID Connect clien
 
 Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static) allow list when you need to set group allow lists on a per-application basis using both the Org Authorization Server and a Custom Authorization Server.
 
+The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow) for quick testing. The example requests to the <GuideLink link="../add-groups-claim-org-as">Org Authorization Server</GuideLink> include only `id_token` as the `response_type` value. This means that the requests are for a [fat ID token](/docs/concepts/api-access-management/#tokens-and-scopes), and the ID token is the only token included in the response. The ID token contains any groups assigned to the user that signs in when you include the `groups` scope in the request.
+
+When you make a request for both the ID token and the access token, that is considered a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) and contains only base claims. Profile attributes and groups aren't returned, even if those scopes are included in the request.
+
 See [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/overview/) when you want to define your own custom claims. For example, you might want to add a user's email address to an access token and use that to uniquely identify the user, or you may want to add information stored in a user profile to an ID token.
 
 This guide assumes that you:
