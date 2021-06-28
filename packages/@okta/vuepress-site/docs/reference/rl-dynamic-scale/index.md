@@ -23,7 +23,6 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 
 * `/oauth2/{authorizationServerId}/v1`
 * `/oauth2/v1` except `/oauth2/v1/clients`
-* `/login/token/redirect`
 
 **SAML endpoints:**
 
