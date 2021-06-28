@@ -16,7 +16,7 @@ Before you can sign a user in, you need to create an Okta app integration that r
 1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables Authorization Code flow with PKCE for your application and the ability to refresh the access token when it expires without prompting the user to re-authenticate.
 1. Enter values for the **Sign-in redirect URIs**. This is the callback from <GuideLink link="../define-callback/">Define a callback route</GuideLink>. Add values for local development (for example, `http://localhost:8080/login/callback` or `http://localhost:8080/authentication/login-callback` for Blazor) and production (for example, `https://app.example.com/login/callback`).
 
-    If your OpenID Connect client is configured to support subdomains and you want to use a single redirect URI with a wildcard, select the **Allow wildcard * in sign-in redirect URI** checkbox.
+    If your OpenID Connect client has multiple redirect URIs and you want to use a single redirect URI with a wildcard for the subdomain, select the **Allow wildcard * in sign-in redirect URI** checkbox.
 
     > **Caution:** The use of wildcard subdomains is discouraged as an insecure practice, since it may allow malicious actors to have tokens or authorization codes sent to unexpected or attacker-controlled pages. Exercise caution if you decide to include a wildcard redirect URI in your configuration.
 
