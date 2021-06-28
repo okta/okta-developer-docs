@@ -16,9 +16,7 @@ The [default Authorization Server](/docs/concepts/auth-servers/#default-custom-a
 
 #### Bug fixed in 2021.06.4
 
-* When the [`prompt=login` parameter](/docs/guides/shared-sso-android-ios/-/optional-settings/#always-prompt-for-sign-in-regardless-of-session) was present in the `/authorize` request for apps with an app-level sign-in policy that requires an MFA prompt every time, the MFA prompt didn’t appear for federated users. (OKTA-394991)
-
-* The group app assignment process failed to assign Users to an app when a database exception occurs. (OKTA-378076)
+The group app assignment process failed to assign Users to an app when a database exception occurs. (OKTA-378076)
 
 ### Weekly Release 2021.06.3
 
