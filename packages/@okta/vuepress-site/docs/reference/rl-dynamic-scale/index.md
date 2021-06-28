@@ -17,11 +17,13 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 * `/login/login.htm`
 * `/login/sessionCookieRedirect`
 * `/login/token/redirect`
+* `/api/va/authn/factors/*/verify`
 
 **OAuth2 endpoints:**
 
 * `/oauth2/{authorizationServerId}/v1`
 * `/oauth2/v1` except `/oauth2/v1/clients`
+* `/login/token/redirect`
 
 **SAML endpoints:**
 

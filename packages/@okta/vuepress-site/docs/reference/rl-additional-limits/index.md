@@ -122,6 +122,7 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/login/sessionCookieRedirect`
 * `/login/token/redirect`
 * `/api/{apiVersion}/radius`
+* `/api/va/authn/factors/*/verify`
 
 [Authorization](/docs/reference/rl-global-enduser/)
 
@@ -131,6 +132,7 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/app/office365{appType}/{key}/sso/wsfed/active`
 * `/app/office365{appType}/{key}/sso/wsfed/passive`
 * `/app/template_saml_2_0/{key}/sso/saml`
+* `/login/token/redirect`
 
 [Single User/Group/App operations (GET, UPDATE, and DELETE)](/docs/reference/rl-dynamic-scale/)
 
