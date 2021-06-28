@@ -17,7 +17,7 @@ To test the full authentication flow that returns an ID token, build your reques
 
 > **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow) for quick testing. In the following example we are requesting only `id_token` as the `response_type` value. This means that the requests are for a [fat ID token](/docs/concepts/api-access-management/#tokens-and-scopes), and the ID token is the only token included in the response. The ID token contains any groups assigned to the user that signs in when you include the `groups` scope in the request.
 >
->If you make a request to the Org Authorization Server for both the ID token and the access token, that is considered a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) and contains only base claims. Profile attributes and Groups aren't returned, even if those scopes are included in the request. You can use the access token to get the Groups claim from the `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). You can also use a <GuideLink link="../add-groups-claim-custom-as">Custom Authorization Server</GuideLink>.
+>If you make a request to the Org Authorization Server for both the ID token and the access token, that is considered a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) and contains only base claims. Profile attributes and Groups aren't returned, even if those scopes are included in the request. You can use the access token to get the Groups claim from the `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo).
 >
 
 The resulting URL looks something like this:
