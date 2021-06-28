@@ -22,8 +22,8 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 
 * `/oauth2/{authorizationServerId}/v1`
 * `/oauth2/v1` except `/oauth2/v1/clients`
-* `/idp/idx/introspect EXACT MATCH` <ApiLifecycle access="ie" />
-* `/idp/idx/identify EXACT MATCH` <ApiLifecycle access="ie" />
+* `/idp/idx/introspect` <ApiLifecycle access="ie" />
+* `/idp/idx/identify` <ApiLifecycle access="ie" />
 * Identity Engine App Intent <ApiLifecycle access="ie" />
 
 **SAML endpoints:**
