@@ -60,6 +60,23 @@ cd okta-app
 npm install @okta/okta-signin-widget
 ```
 
+To be able to require `@okta/okta-signin-widget` please install:
+```bash
+npm i --save-dev @types/node
+```
+And add `node` to the types field in your `tsconfig.app.json`:
+```js
+{
+  "compilerOptions": {
+    "types": [
+      "node"
+    ],
+    ...
+  },
+  ...
+}
+```
+
 To easily interact with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/), we will also need [`@okta/okta-angular`](https://github.com/okta/okta-angular/):
 
 ```bash
@@ -114,7 +131,7 @@ import { OktaAuthService } from '@okta/okta-angular';
 })
 
 export class AppComponent implements OnInit {
-  isAuthenticated: boolean;
+  isAuthenticated: boolean = false;
 
   constructor(public oktaAuth: OktaAuthService, public router: Router) {
     // Subscribe to authentication state changes
@@ -182,7 +199,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationStart} from '@angular/router';
 
 import { OktaAuthService } from '@okta/okta-angular';
-import * as OktaSignIn from '@okta/okta-signin-widget';
+const OktaSignIn = require('@okta/okta-signin-widget');
 
 @Component({
   selector: 'app-secure',
@@ -223,7 +240,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.widget.showSignInAndRedirect().catch(err => {
+    const originalUri = this.authService.getOriginalUri();
+    if (!originalUri) {
+      this.authService.setOriginalUri('/');
+    }
+    
+    this.widget.showSignInAndRedirect().catch((err: Error) => {
       throw(err);
     });
   }
@@ -240,8 +262,9 @@ Update `src/app/app.module.ts` to include your project components and routes. Yo
 // app.module.ts
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
+import { OktaAuthService } from '@okta/okta-angular';
 
 import {
   OKTA_CONFIG,
@@ -261,7 +284,7 @@ const config = {
   pkce: true
 }
 
-export function onAuthRequired(oktaAuth, injector) {
+export function onAuthRequired(oktaAuth: OktaAuthService, injector: Injector) {
   const router = injector.get(Router);
 
   // Redirect the user to your custom login page
