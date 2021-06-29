@@ -31,7 +31,7 @@ The Event Hook must be set up and verified within your Okta Admin Console.
 
 ### Verify the Event Hook
 
-You must verify the Event Hook to prove your external service controls the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for further information on this process.
+You must verify the Event Hook to prove that your external service controls the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for further information on this process.
 
 To complete the one-time verification of the Event Hook:
 
