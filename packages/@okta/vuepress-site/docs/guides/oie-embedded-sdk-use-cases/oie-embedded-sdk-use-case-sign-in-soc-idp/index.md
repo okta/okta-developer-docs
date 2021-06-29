@@ -6,6 +6,8 @@ title: Sign in with Facebook
 
 <ApiLifecycle access="ie" /><br>
 
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
+
 <StackSelector class="cleaner-selector"/>
 
 The user sign in with Facebook describes how to build your app to allow users to sign in with the Facebook social identity provider.

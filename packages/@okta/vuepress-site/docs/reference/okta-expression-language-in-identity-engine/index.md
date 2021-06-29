@@ -8,7 +8,8 @@ meta:
 # Okta Expression Language In Identity Engine
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
 
 ## Overview
 

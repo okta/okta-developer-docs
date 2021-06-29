@@ -6,6 +6,8 @@ title: User password recovery
 
 <ApiLifecycle access="ie" /><br>
 
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
+
 <StackSelector class="cleaner-selector"/>
 
 This use case describes how a user would reset their forgotten password using the email factor.

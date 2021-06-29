@@ -6,6 +6,8 @@ layout: Guides
 
 <ApiLifecycle access="ie" /><br>
 
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
+
 This document walks you through setting up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
 
 * [Simple enrollment and authentication](#simple-enrollment-and-authentication)

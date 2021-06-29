@@ -479,7 +479,11 @@ Different Policy types control settings for different operations. All Policy typ
 
 [App Sign-On Policy](#app-sign-on-policy) <ApiLifecycle access="ie" /><br>
 
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
+
 [Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
+
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
 
 ### Policy priority and defaults
 
@@ -559,12 +563,16 @@ When a Policy is evaluated for a user, Policy "A" is evaluated first. If the use
 
 ### Policy object
 
+> **Note:** The indicated properties below are only available as a part of the Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for more information.
+
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
+
 The Policy object defines several attributes:
 
 | Parameter   | Description                                                                                                                                          | Data Type                                         | Required | Default                |
 | ---------   | -----------                                                                                                                                          | ---------                                         | -------- | -------                |
 | id          | Identifier of the Policy                                                                                                                             | String                                            | No       | Assigned               |
-| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`.<br> [Contact support](mailto:dev-inquiries@okta.com) for more information on Identity Engine.  | String                                            | Yes      |                        |
+| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`.<br> | String                                            | Yes      |                        |
 | name        | Name of the Policy                                                                                                                                   | String                                            | Yes      |                        |
 | system      | This is set to `true` on system policies, which cannot be deleted.                                                                                   | Boolean                                           | No       | `false`                |
 | description | Description of the Policy.                                                                                                                           | String                                            | No       | Null                   |
@@ -675,12 +683,16 @@ If a request came in from the Radius endpoint, the action in Rule A is taken, an
 
 ### Rules object
 
+> **Note:** The indicated properties below are only available as a part of the Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for more information.
+
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
+
 The Rules object defines several attributes:
 
 | Parameter     | Description                                                        | Data Type                                      | Required   | Default                |
 | :------------ | :----------------------------------------------------------------- | :--------------------------------------------- | :--------- | :--------------------- |
 | id            | Identifier of the Rule                                             | String                                         | No         | Assigned               |
-| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`. <br>[Contact support](mailto:dev-inquiries@okta.com) for more information on Identity Engine.| String (Enum)                                  | Yes        |                        |
+| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`.<br> | String (Enum)                                  | Yes        |                        |
 | name          | Name of the Rule                                                   | String                                         | Yes        |                        |
 | status        | Status of the Rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | No         | ACTIVE                 |
 | priority      | Priority of the Rule                                               | Integer                                        | No         | Last / Lowest Priority |
@@ -758,7 +770,7 @@ Specifies a set of Groups whose Users are to be included or excluded
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Contact [Support](mailto:dev-inquiries@okta.com) for more information.
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
 
 Specifies which [User Types](/docs/reference/api/user-types/#user-type-object) to include and/or exclude. You can use the [User Types API](/docs/reference/api/user-types/) to manage User Types.
 
@@ -997,7 +1009,7 @@ Specifies a particular platform or device to match on
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
 
 Specifies the device condition to match on
 
@@ -1465,6 +1477,8 @@ The following conditions may be applied to Password Policy:
 
 <ApiLifecycle access="ie" /><br>
 
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
+
 With Identity Engine, Recovery Factors can be specified inside the Password Policy Rule object instead of in the Policy Settings object. Recovery factors for the rule are defined inside the `selfServicePasswordReset` Action.
 
 Below are 3 examples of how Recovery Factors are configured in the Rule based on admin requirements.
@@ -1574,7 +1588,9 @@ In the final example, end users are required to verify two Authenticators before
 
 ##### Self Service Password Reset Action object
 
-> **Note:** The indicated objects and properties below are only available as a part of the Okta Identity Engine. Please contact support for further information.
+> **Note:** The indicated objects and properties below are only available as a part of the Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for more information.
+
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
 
 | Property                                                       | Data Type   | Description                                                                                 | Supported Values                | Required | Default
 | ---                                                            | ---         | ---                                                                                         | ---                             | ---      | ---
@@ -1626,7 +1642,7 @@ The following conditions may be applied to IdP Discovery Policy:
 | providers | List of configured identity providers that a given Rule can route to | array     | Yes      |
 
 > **Note:** Ability to define multiple providers is a part of Okta Identity Engine.
-> Please [contact support](mailto:dev-inquiries@okta.com) for further information
+> [Contact support](mailto:dev-inquiries@okta.com) for more information.
 
 > **Note:** IdP types `OKTA`, `AgentlessDSSO`, and `IWA` don't require an `id`.
 
@@ -1646,9 +1662,10 @@ The following conditions may be applied to IdP Discovery Policy:
 ```
 
 #### Policy Action with multiple IdP instances
+
 <ApiLifecycle access="ie" />
 
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
 
 Multiple IdP instances can be defined in a single Policy Action. This allows users to choose a Provider when they sign in.
 
@@ -1698,7 +1715,7 @@ Multiple IdP instances can be defined in a single Policy Action. This allows use
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
 
 The app sign-on policy determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked. It is always associated with an app via a Mapping. The Okta Identity Engine always evaluates both Okta sign-on policy and the sign-on policy for the app. The resulting user experience will be the union of both policies. App sign on policies have the type `ACCESS_POLICY`.
 
@@ -1792,6 +1809,7 @@ Multi-factor authentication (MFA) is the use of more than one factor. MFA is the
 The Constraints are logically evaluated such that only one Constraint object needs to be satisfied, but within a Constraint object, each Constraint property must all be satisfied.
 
 ##### Constraints default example
+
 ```json
 "constraints": [
   { // object 1
@@ -1932,7 +1950,7 @@ The number of authenticator class constraints in each constraint object must be 
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
 
 Profile Enrollemnt policies specify what profile attributes are required for creating new Users via self-service registration, and also can be used for progressive profiling. The type is specified as `PROFILE_ENROLLMENT`.
 

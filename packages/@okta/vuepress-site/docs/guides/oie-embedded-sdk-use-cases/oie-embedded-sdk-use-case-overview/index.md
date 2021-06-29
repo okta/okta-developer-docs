@@ -4,6 +4,8 @@ title: Overview
 
 <ApiLifecycle access="ie" /><br>
 
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
+
 ## Start with a use case
 
 Using the sample app as your guide, walk through each of the use cases in

@@ -4,7 +4,8 @@ category: management
 ---
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
 
 > **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 

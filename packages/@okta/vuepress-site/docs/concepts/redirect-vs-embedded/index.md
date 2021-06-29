@@ -8,7 +8,7 @@ meta:
 # Redirect authentication vs. embedded authentication
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
 
 When you develop applications that require customer sign in and authentication, the user authentication deployment model is a critical design consideration that can broadly be divided into two approaches:
 

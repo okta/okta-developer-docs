@@ -6,6 +6,8 @@ title: Basic sign in
 
 <ApiLifecycle access="ie" /><br>
 
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
+
 <StackSelector class="cleaner-selector"/>
 
 The basic user sign in is the simplest of all use cases and is the first

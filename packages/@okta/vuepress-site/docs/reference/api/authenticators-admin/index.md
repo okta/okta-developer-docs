@@ -6,7 +6,8 @@ category: other
 # Authenticators Administration API
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
 
 The Authenticators Administration API enables an Org Administrator to configure which Authenticators are available to end users to be used for signing into applications.
 

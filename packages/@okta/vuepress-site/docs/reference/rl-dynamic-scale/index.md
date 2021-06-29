@@ -26,6 +26,8 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 * `/idp/idx/identify` <ApiLifecycle access="ie" />
 * Identity Engine App Intent <ApiLifecycle access="ie" />
 
+> **Limited GA:** Okta Identity Engine is under Limited General Availability (LGA) and currently available only to a selected audience.
+
 **SAML endpoints:**
 
 * `/app/template_saml_2_0/{key}/sso/saml`
