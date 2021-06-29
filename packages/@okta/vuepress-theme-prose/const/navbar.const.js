@@ -447,6 +447,10 @@ export const guides = [
                   }
                 ]
               },
+              {
+                title: "Token refresh best practices",
+                guideName: "oie-embedded-common-refresh-tokens",
+              },
             ]
             },
           {

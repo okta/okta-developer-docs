@@ -75,6 +75,7 @@ guides:
  - oie-embedded-overview
  - oie-embedded-common-org-setup
  - oie-embedded-common-download-setup-app
+ - oie-embedded-common-refresh-tokens
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
