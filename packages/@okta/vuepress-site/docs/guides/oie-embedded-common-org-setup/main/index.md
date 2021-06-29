@@ -96,7 +96,7 @@ that support this basic setup include:
 1. In the **Add Origin** dialog box, do the following:
       * Set an origin name (for example, MyOrigin).
       * Add your app's URL. If you are using the
-         sample app, use <StackSelector snippet="appsbaseurl" noSelector />.
+         sample app, use <StackSelector snippet="appsbaseurl" noSelector />
       * Under **Type**, select the **CORS** and **Redirect** checkboxes.
       * Click **Save**.
 
