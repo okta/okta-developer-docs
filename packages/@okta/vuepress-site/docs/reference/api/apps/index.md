@@ -1332,9 +1332,9 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * At least one redirect URI and response type is required for all client types, with exceptions: if the client uses the [Resource Owner Password](https://tools.ietf.org/html/rfc6749#section-4.3) flow (if `grant_types` contains the value `password`) or [Client Credentials](https://tools.ietf.org/html/rfc6749#section-4.4) flow (if `grant_types` contains the value `client_credentials`) then no redirect URI or response type is necessary. In these cases you can pass either null or an empty array for these attributes.
 
-* If `wildcard_redirect` <ApiLifecycle access="ea" /> is `DISABLED`, all redirect URIs must be absolute URIs and must not include a fragment component. If `wildcard_redirect` is `SUBDOMAIN`, then configured redirect URIs may contain a single `*` character in the lowest-level domain to act as a wildcard. The wildcard subdomain must have at least one subdomain between it and the top level domain.
+* If `wildcard_redirect` <ApiLifecycle access="ea" /> is `DISABLED`, all redirect URIs must be absolute URIs and must not include a fragment component. If `wildcard_redirect` is `SUBDOMAIN`, then any configured redirect URIs may contain a single `*` character in the lowest-level domain (for example, `https://redirect-*-domain.example.com/oidc/redirect`) to act as a wildcard. The wildcard subdomain must have at least one subdomain between it and the top level domain.
 
-  * The wildcard can match any valid hostname characters, but can't span more than one domain. As an example, if `https://redirect-*-domain.example.com/oidc/redirect` is configured as a redirect URI, then `https://redirect-1-domain.example.com/oidc/redirect` and `https://redirect-sub-domain.example.com/oidc/redirect` match, but `https://redirect-1.sub-domain.example.com/oidc/redirect` won't match.
+  * The wildcard can match any valid hostname characters, but can't span more than one domain. For example, if `https://redirect-*-domain.example.com/oidc/redirect` is configured as a redirect URI, then `https://redirect-1-domain.example.com/oidc/redirect` and `https://redirect-sub-domain.example.com/oidc/redirect` match, but `https://redirect-1.sub-domain.example.com/oidc/redirect` doesn't match.
 
   * Only the `https` URI scheme can use wildcard redirect URIs.
 
