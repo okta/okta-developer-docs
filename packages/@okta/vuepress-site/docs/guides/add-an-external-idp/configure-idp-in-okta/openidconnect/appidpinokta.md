@@ -15,4 +15,6 @@ Add the following endpoint URLs for the OpenID Connect Identity Provider that yo
 * **Authorization endpoint** &mdash; the URL of the Identity Provider's OAuth 2.0 authorization endpoint. For example: `https://{theIdPdomain}/oauth2/v1/authorize`
 * **Token endpoint** &mdash; the URL of the Identity Provider's token endpoint for obtaining access and ID tokens. For example: `https://{theIdPdomain}/oauth2/v1/token`
 * **JWKS endpoint** &mdash; the URL of the Identity Provider's JSON Web Key Set document. This document contains signing keys that are used to validate the signatures from the provider. For example: `https://{theIdPdomain}/oauth2/v1/keys`
-* **Userinfo endpoint** &mdash; the endpoint for getting identity information about the user. For example: `https://{theIdPdomain}/oauth2/v1/userinfo`
+* **Userinfo endpoint (optional)** &mdash; the endpoint for getting identity information about the user. For example: `https://{theIdPdomain}/oauth2/v1/userinfo`.
+
+> **Note:** Okta requires an access token returned from the Identity Provider if you add the `/userinfo` endpoint URL.

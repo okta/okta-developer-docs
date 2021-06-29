@@ -13,7 +13,7 @@ This page provides reference documentation for:
 
 This information is specific to the Token Inline Hook, one type of Inline Hook supported by Okta.
 
-## See Also
+## See also
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
@@ -33,7 +33,7 @@ In addition to adding custom claims, you can modify or remove an existing custom
 
 This Inline Hook works only when using an [Okta Custom Authorization Server](/docs/guides/customize-authz-server/create-authz-server/), not the built-in Okta Authorization Server.
 
-## Objects in the Request from Okta
+## Objects in the request from Okta
 
 For the Token Inline Hook, the outbound call from Okta to your external service includes the following objects in its JSON payload:
 
@@ -70,7 +70,7 @@ Consists of name-value pairs for each included claim. For descriptions of the cl
 
 The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
 
-## Objects in the Response that You Send
+## Objects in the response that You Send
 
 For the Token Inline Hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
 
@@ -87,7 +87,7 @@ In the case of the Token hook type, the `value` property is itself a nested obje
 | type     | One of the [supported commands](#supported-commands).                    | String          |
 | value    | Operand to pass to the command. It specifies a particular op to perform. | [value](#value) |
 
-#### Supported Commands
+#### Supported commands
 
 The following commands are supported for the Token Inline Hook type:
 
@@ -108,7 +108,7 @@ The `value` object is where you specify the specific operation to perform. It is
 | path     | Location within the token to apply the operation, specified as a slash-delimited path. When adding, replacing, or removing a claim, this always begins with `/claims/`  and is followed by the name of the new claim that you are adding. When replacing a token lifetime, the path should always be `/token/lifetime/expiration`. | String          |
 | value    | Value to set the claim to.                                                                                                                                                                                        | Any JSON object |
 
-#### List of Supported Ops
+#### List of supported ops
 
 | Op      | Description               |
 |---------|---------------------------|
@@ -118,7 +118,7 @@ The `value` object is where you specify the specific operation to perform. It is
 
 #### Reserved claims for Token Hooks
 
-Okta defines a number of reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/reference/api/oidc/#tokens-and-claims) or modify a claim, avoid using the following reserved claims:
+Okta defines a number of reserved claims that can't be overridden. When you add a custom claim to a [token](/docs/reference/api/oidc/#tokens-and-claims) or modify a claim, don't use the following reserved claims:
 
 | Claim Name     | Token Type        |
 |----------------|-------------------|
@@ -133,6 +133,7 @@ Okta defines a number of reserved claims that can't be overridden. When you add 
 | username       | Access Token      |
 | active         | ID Token          |
 | aid            | ID Token          |
+| aud            | ID Token          |
 | app_id         | ID Token          |
 | app_type       | ID Token          |
 | at_hash        | ID Token          |
@@ -173,8 +174,9 @@ Okta defines a number of reserved claims that can't be overridden. When you add 
 | scope          | ID Token          |
 | scopes         | ID Token          |
 | sid            | ID Token          |
+| sub            | ID Token          |
 | term           | ID Token          |
-| user_ip        |  ID Token         |
+| user_ip        | ID Token          |
 | iss            | Access Token & ID Token |
 | jti            | Access Token & ID Token |
 | token_type     | Access Token & ID Token |
@@ -192,7 +194,7 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
 
 > **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`
 
-## Sample JSON Payload of a Request
+## Sample JSON payload of a request
 
 ```json
 {
@@ -334,11 +336,11 @@ Returning an error object causes Okta to return an OAuth 2.0 error to the reques
 }
 ```
 
-## Sample JSON Payloads of Responses
+## Sample JSON payloads of responses
 
 This section provides example JSON payloads for the supported operations.
 
-### Sample Response to Add a Claim
+### Sample response to add a claim
 
 Use the `add` operation to add new claims to a token. If you use the `add` operation and include an existing claim in your response with a different value, that value is replaced. Use the `replace` operation instead. See [Sample Response to Replace an Existing Claim](/docs/reference/token-hook/#sample-response-to-replace-an-existing-claim) for more information. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
@@ -372,25 +374,27 @@ Use the `add` operation to add new claims to a token. If you use the `add` opera
 You can also use the `add` operation to add new members to existing JSON objects and new elements to existing arrays. For example, you have a JSON object in a claim called `employee_profile`, and you want to add the `department_id` member to the claim.
 
 The existing target JSON object:
+
 ```json
-{  
-   "employee_profile":{  
+{
+   "employee_profile":{
       "employee_id":"1234",
       "name":"Anna"
    }
 }
 ```
+
 Add `department_id` by specifying the claim in the path, followed by the name of the object member.
 
 > **Note:** Attempting to add a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
 ```json
-{  
-   "commands":[  
-      {  
+{
+   "commands":[
+      {
          "type":"com.okta.identity.patch",
-         "value":[  
-            {  
+         "value":[
+            {
                "op":"add",
                "path":"/claims/employee_profile/department_id",
                "value":"4947"
@@ -398,13 +402,14 @@ Add `department_id` by specifying the claim in the path, followed by the name of
          ]
       }
    ]
-}   
+}
 ```
 
 The resulting JSON object:
 ```json
-{  
-   "employee_profile":{  
+
+{
+   "employee_profile":{
       "employee_id":"1234",
       "name":"Anna",
       "department_id":"4947"
@@ -417,8 +422,9 @@ You can also append an element to an array by specifying the name of the array, 
 
 The existing target JSON object:
 ```json
-{  
-   "preferred_airports":[  
+
+{
+   "preferred_airports":[
       "sjc",
       "sfo",
       "oak"
@@ -427,12 +433,12 @@ The existing target JSON object:
 ```
 
 ```json
-{  
-   "commands":[  
-      {  
+{
+   "commands":[
+      {
          "type":"com.okta.identity.patch",
-         "value":[  
-            {  
+         "value":[
+            {
                "op":"add",
                "path":"/claims/preferred_airports/3",
                "value":"lax"
@@ -445,8 +451,9 @@ The existing target JSON object:
 
 The resulting JSON object:
 ```json
-{  
-   "preferred_airports":[  
+
+{
+   "preferred_airports":[
       "sjc",
       "sfo",
       "oak",
@@ -458,12 +465,12 @@ The resulting JSON object:
 This `add` operation adds `lax` to the end of the array. Alternatively, you can just specify the array name followed by a hyphen `-` in the path to append an element at the end of the array.
 
 ```json
-{  
-   "commands":[  
-      {  
+{
+   "commands":[
+      {
          "type":"com.okta.identity.patch",
-         "value":[  
-            {  
+         "value":[
+            {
                "op":"add",
                "path":"/claims/preferred_airports/-",
                "value":"lax"
@@ -473,38 +480,41 @@ This `add` operation adds `lax` to the end of the array. Alternatively, you can 
    ]
 }
 ```
-> **Note:** Attempting to add an element within an array that doesn't exist or specifying an invalid index results in the entire PATCH failing and errors logged in the token hooks events. 
 
-### Sample Response to Replace an Existing Claim
+**Note:** If you attempt to add an element within an array that doesn't exist or specify an invalid index, the entire PATCH will fail and errors will be logged in the token hooks events.
+
+### Sample response to replace an existing claim
 
 You can modify existing custom claims or OIDC standard profile claims, such as `birthdate` and `locale`. You can't, however, modify any system-specific claims, such as `iss` or `ver`, and you can't modify a claim that isn't currently part of the token in the request payload. Attempting to modify a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
-For the list of access token reserved claims that you can't modify, see [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims). Note that although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens. You can't modify these claims in ID tokens.
+See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token reserved claims that you can't modify.
+
+>**Note:** Although the `aud` and `sub` claims are listed as reserved claims, you can modify those claims in access tokens. You can't modify these claims in ID tokens.
 
 See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't modify.
 
 ```json
 {
-   "commands": [ 
-        { 
+   "commands": [
+        {
             "type": "com.okta.identity.patch",
-            "value": [ 
-                 { 
+            "value": [
+                 {
                      "op": "replace",
                      "path": "/claims/extPatientId",
                      "value": "1234"
                   }
-             ] 
-         }, 
-         { 
+             ]
+         },
+         {
              "type": "com.okta.access.patch",
              "value": [
-                  { 
+                  {
                      "op": "replace",
                      "path": "/claims/external_guid",
-                     "value": "F0384685-F87D-474B-848D-2058AC5655A7" 
+                     "value": "F0384685-F87D-474B-848D-2058AC5655A7"
                    }
-              ] 
+              ]
           }
       ]
 }
@@ -513,26 +523,28 @@ See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of I
 You can also use the `replace` operation to modify members within JSON objects and elements within arrays. For example, you have a JSON object in a claim called `employee_profile`, and you want to update the email address of the employee.
 
 The existing target JSON object:
+
 ```json
-{  
-   "employee_profile":{  
+{
+   "employee_profile":{
       "employee_id":"1234",
       "name":"Anna",
       "email":"anna.v@company.com"
    }
 }
 ```
+
 Specify the claim in the path, followed by the name of the object member that you want to modify. 
 
 > **Note:** Attempting to modify a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
 ```json
-{  
-   "commands":[  
-      {  
+{
+   "commands":[
+      {
          "type":"com.okta.identity.patch",
-         "value":[  
-            {  
+         "value":[
+            {
                "op":"replace",
                "path":"/claims/employee_profile/email",
                "value":"anna@company.com"
@@ -544,9 +556,10 @@ Specify the claim in the path, followed by the name of the object member that yo
 ```
 
 The resulting JSON object:
+
 ```json
-{  
-   "employee_profile":{  
+{
+   "employee_profile":{
       "employee_id":"1234",
       "name":"Anna",
       "email":"anna@company.com"
@@ -556,40 +569,43 @@ The resulting JSON object:
 
 Similarly, you can replace elements in an array by specifying the array name and the valid index of the element that you want to replace in the path.
 
-### Sample Response to Modify Token Lifetime
+### Sample response to modify token lifetime
+
 You can modify how long the access and ID tokens are valid by specifying the `lifetime` in seconds. The `lifetime` value must be a minimum of five minutes (300 seconds) and a maximum of 24 hours (86,400 seconds).
 
 ```json
 {
-   "commands": 
-     [ 
-        { 
+   "commands":
+     [
+        {
             "type": "com.okta.identity.patch",
-            "value": [ 
-                 { 
+            "value": [
+                 {
                      "op": "replace",
                      "path": "/token/lifetime/expiration",
                      "value": 36000
                   }
-             ] 
-         }, 
-         { 
+             ]
+         },
+         {
              "type": "com.okta.access.patch",
              "value": [
-                  { 
+                  {
                      "op": "replace",
                      "path": "/token/lifetime/expiration",
-                     "value": 36000 
+                     "value": 36000
                    }
-              ] 
+              ]
           }
       ]
 }
 ```
-### Sample Response to Remove Token Claims
-You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. Attempting to remove a system-specific claim or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events. 
 
-For the list of access token reserved claims that you can't remove, see [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims). 
+### Sample response to remove token claims
+
+You can remove existing custom claims or OIDC standard profile claims, such as `birthdate` or `locale`. You can't, however, remove any system-specific claims, such as `iss` or `ver`, and you can't remove a claim that isn't currently part of the token in the request payload. If you attempt to remove a system-specific claim or use an invalid operation, the entire PATCH will fail and errors will be logged in the token hooks events.
+
+See [Access Tokens Scopes and Claims](/docs/reference/api/oidc/#access-token-scopes-and-claims) for the list of access token reserved claims that you can't remove.
 
 See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of ID token reserved claims that you can't remove.
 
@@ -597,26 +613,26 @@ See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of I
 
 ```json
 {
-   "commands": 
-     [ 
-        { 
+   "commands":
+     [
+        {
             "type": "com.okta.identity.patch",
-            "value": [ 
-                 { 
+            "value": [
+                 {
                      "op": "remove",
                      "path": "/claims/birthdate",
                      "value": null
                   }
-             ] 
-         }, 
-         { 
+             ]
+         },
+         {
              "type": "com.okta.access.patch",
              "value": [
-                  { 
+                  {
                      "op": "remove",
                      "path": "/claims/external_guid"
                    }
-              ] 
+              ]
           }
       ]
 }
@@ -625,9 +641,10 @@ See [ID Token Claims](/docs/reference/api/oidc/#id-token-claims) for a list of I
 You can also use the `remove` operation to remove members from existing JSON objects and elements from existing arrays. For example, you have an array that contains the user's preferred airports, and you want to remove an airport from the array.
 
 Existing target JSON object:
+
 ```json
-{  
-   "preferred_airports":[  
+{
+   "preferred_airports":[
       "sjc",
       "lax",
       "sfo",
@@ -635,30 +652,32 @@ Existing target JSON object:
    ]
 }
 ```
-You can remove the element from the array by specifying the array name followed by the index of the element that you want to remove. You don't need to specify a value for the `remove` operation. But, you can specify `null` as the value if you want. 
+
+You can remove the element from the array by specifying the array name followed by the index of the element that you want to remove. You don't need to specify a value for the `remove` operation, but you can specify `null` as the value if you want.
 
 > **Note:** Attempting to remove an element within an array that doesn't exist or specifying an invalid value results in the entire PATCH failing and errors logged in the token hooks events.
 
 ```json
-{  
-   "commands":[  
-      {  
+{
+   "commands":[
+      {
          "type":"com.okta.identity.patch",
-         "value":[  
-            {  
+         "value":[
+            {
                "op":"remove",
                "path":"/claims/preferred_airports/1"
             }
          ]
       }
    ]
-} 
+}
 ```
 
-The resulting JSON object
+The resulting JSON object:
+
 ```json
-{  
-   "preferred_airports":[  
+{
+   "preferred_airports":[
       "sjc",
       "sfo",
       "oak"
@@ -671,24 +690,26 @@ Similarly, you can remove a JSON object member by specifying the JSON object in 
 > **Note:** Attempting to remove a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
 The existing target JSON object:
+
 ```json
-{  
-   "employee_profile":{  
+{
+   "employee_profile":{
       "employee_id":"1234",
       "name":"Anna",
       "email":"anna.v@company.com"
    }
 }
 ```
-PATCH command that removes the employee's email: 
+
+PATCH command that removes the employee's email:
 
 ```json
-{  
-   "commands":[  
-      {  
+{
+   "commands":[
+      {
          "type":"com.okta.identity.patch",
-         "value":[  
-            {  
+         "value":[
+            {
                "op":"remove",
                "path":"/claims/employee_profile/email"
             }
@@ -697,11 +718,12 @@ PATCH command that removes the employee's email:
    ]
 }
 ```
+
 The resulting JSON object:
 
 ```json
-{  
-   "employee_profile":{  
+{
+   "employee_profile":{
       "employee_id":"1234",
       "name":"Anna"
    }

@@ -19,7 +19,7 @@
             'navigation-only': appContext.isTreeNavMobileOpen
           }"
         >
-          <div class="tree-nav">
+          <div class="sidebar-area">
             <Sidebar />
           </div>
           <div class="content-area">
@@ -84,12 +84,17 @@ export default {
       appContext: {
         isTreeNavMobileOpen: false,
         isInMobileViewport: false
+      },
+      stackSelectorData: {
+        to: '',
+        from: ''
       }
     };
   },
   provide() {
     return {
-      appContext: this.appContext
+      appContext: this.appContext,
+      stackSelectorData: this.stackSelectorData
     };
   },
   mounted: function() {

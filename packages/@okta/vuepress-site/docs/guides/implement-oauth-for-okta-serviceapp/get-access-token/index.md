@@ -17,7 +17,7 @@ Include the following parameters:
 The following is an example request for an access token (the JWT is truncated for brevity).
 
 ```bash
-    curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
+curl --location --request POST 'https://{yourOktaDomain}/oauth2/v1/token' \
     --header 'Accept: application/json' \
     --header 'Content-Type: application/x-www-form-urlencoded' \
     --data-urlencode 'grant_type=client_credentials' \

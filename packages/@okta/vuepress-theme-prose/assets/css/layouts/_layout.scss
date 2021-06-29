@@ -1,10 +1,12 @@
 body {
-  font-family: proxima-nova,"Proxima Nova",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-family: proxima-nova, "Proxima Nova", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue",
+    sans-serif;
   font-style: normal;
   font-weight: 400;
   line-height: 1.5;
-  font-feature-settings: "lnum","pnum";
-  background-color: cv('brand', 'dark');
+  font-feature-settings: "lnum", "pnum";
+  background-color: cv("brand", "dark");
 }
 
 .flex {
@@ -15,7 +17,7 @@ body {
   flex-direction: row;
 }
 .wrap {
-  background-color: cv('brand');
+  background-color: cv("brand");
 }
 
 .text-center {
@@ -26,7 +28,7 @@ body {
   max-width: $container-width;
   margin: 0 auto;
 
-  @include media('>=desktop-xx-large') {
+  @include media(">=desktop-xx-large") {
     max-width: $container-width-desktop-large;
   }
 }
@@ -36,15 +38,10 @@ body {
 }
 
 [class$="--container"] {
-  max-width: $container-width;
   margin: 0 auto;
   padding: 0em 1.5em;
   display: flex;
   justify-content: space-between;
-
-  @include media('>=desktop-xx-large') {
-    max-width: $container-width-desktop-large;
-  }
 }
 
 
@@ -52,7 +49,7 @@ body {
   position: fixed;
   width: 100%;
   z-index: 100;
-  background-color: cv('brand');
+  background-color: cv("brand");
 }
 
 .page-body {
@@ -60,8 +57,7 @@ body {
   background-color: white;
 }
 
-a[target='_blank']:not([href^='mailto:'])::after {
+a[target="_blank"]:not([href^="mailto:"])::after {
   display: none;
   background-image: none;
 }
-

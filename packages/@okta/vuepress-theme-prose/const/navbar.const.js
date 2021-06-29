@@ -493,6 +493,10 @@ export const reference = [
                 path: "/docs/reference/rate-limits/"
               },
               {
+                title: "Rate limit dashboard",
+                path: "/docs/reference/rl-dashboard/"
+              },
+              {
                 title: "Authentication/End-user rate limits",
                 path: "/docs/reference/rl-global-enduser/"
               },
@@ -537,6 +541,7 @@ export const reference = [
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
           { title: "Apps", path: "/docs/reference/api/apps/" },
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
+          { title: "Domains", path: "/docs/reference/api/domains/"},
           { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/"},
           { title: "Event Types", path: "/docs/reference/api/event-types/" },
           { title: "Factors", path: "/docs/reference/api/factors/" },
@@ -714,7 +719,7 @@ export const referenceOld = [
             path: "/docs/reference/rate-limits/"
           },
           {
-            title: "Rate limits dashboard",
+            title: "Rate limit dashboard",
             path: "/docs/reference/rl-dashboard/"
           },
           {

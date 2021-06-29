@@ -1088,7 +1088,7 @@ curl -v -X POST \
       "authnContextClassRef": "urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport",
       "slo": {
         "enabled": true,
-        "spIssuer": "https://testorgone.okta.com",
+        "issuer": "https://testorgone.okta.com",
         "logoutUrl": "https://testorgone.okta.com/logout"
       },
       "spCertificate": {
@@ -6359,7 +6359,7 @@ Applications have the following properties:
 | credentials        | Credentials for the specified `signOnMode`     | [Application Credentials object](#application-credentials-object)    | TRUE         | FALSE      | FALSE        |               |             |
 | features           | Enabled app features                           | [Features](#features)                                                | TRUE         | FALSE      | FALSE        |               |             |
 | id                 | Unique key for app                             | String                                                               | FALSE        | TRUE       | TRUE         |               |             |
-| label              | Unique user-defined display name for app       | String                                                               | FALSE        | TRUE       | FALSE        | 1             | 100         |
+| label              | User-defined display name for app              | String                                                               | FALSE        | FALSE      | FALSE        | 1             | 100         |
 | lastUpdated        | Timestamp when app was last updated            | Date                                                                 | FALSE        | FALSE      | TRUE         |               |             |
 | name               | Unique key for app definition                  | String ([App Names](#app-names))                | FALSE        | TRUE       | TRUE         | 1             | 255         |
 | profile            | Valid JSON schema for specifying properties    | [JSON](#profile-object)                                              | TRUE         | FALSE      | FALSE        |               |             |

@@ -3161,7 +3161,8 @@ A resource has an ID and a link that points to the resource. Supported resources
 
 * Groups
 * All Users within a Group
-* All Users and Groups within the org
+* All Users within the org
+* All Groups within the org
 
 The ID of a resource is unique to the Resource Set, whereas the link that points to the resource is unique for the org. A Group, if used in two Resource Sets, has distinct IDs in each Resource Set but has the same self link in both.
 
@@ -3197,7 +3198,7 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
     }
 ```
 
-##### All Users and Groups as resource
+##### All Users as resource
 
 ```json
     {
@@ -3208,14 +3209,24 @@ The ID of a resource is unique to the Resource Set, whereas the link that points
         "users": {
           "href": "https://${yourOktaDomain}/api/v1/users"
         },
+      }
+    }
+```
+
+##### All Groups as resource
+
+```json
+    {
+      "id": "ire106sQKoHoXXsAe0g4",
+      "created": "2021-02-06T16:20:57.000Z",
+      "lastUpdated": "2021-02-06T16:20:57.000Z",
+      "_links": {
         "groups": {
           "href": "https://${yourOktaDomain}/api/v1/groups"
         }
       }
     }
 ```
-
-> **Note:** When you provide either [all Groups](#all-groups-as-resource) or [all Users](#all-users-as-resource) when adding a resource to a [Resource Set](#resource-set-object), a single resource that encompasses all Users and Groups is included.
 
 ### Binding object
 
