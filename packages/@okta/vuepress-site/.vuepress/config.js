@@ -13,7 +13,7 @@ const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
 function configUris() {
   let uris;
-  switch (process.env.ENV) {
+  switch (process.env.DEPLOY_ENV) {
     case 'prod':
       uris = {
         baseUri: 'https://okta-devok12.okta.com',
@@ -24,6 +24,7 @@ function configUris() {
         }
       }
       return;
+    case 'test':
     default:
       uris = {
         baseUri: 'https://okta-dev-parent.trexcloud.com',
