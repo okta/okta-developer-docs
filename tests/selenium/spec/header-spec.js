@@ -39,7 +39,7 @@ describe('header sanity check', () => {
       const pricingURL = 'https://www.okta.com/pricing/#customer-identity-products';
 
       await mainPage.getPricingLinkElement().click();
-      browser.sleep(10000);
+      await browser.sleep(10000);
       browser.getAllWindowHandles().then(async function(handles) {
         await browser.switchTo().window(handles[1]);
         expect(await browser.getCurrentUrl()).to.equal(pricingURL);
