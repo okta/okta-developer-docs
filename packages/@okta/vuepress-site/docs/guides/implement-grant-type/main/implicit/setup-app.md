@@ -7,4 +7,4 @@
 7. Specify the **Sign-in redirect URIs** where the User is directed to along with the access token.
 8. Fill in the remaining details for your app integration, then click **Save**.
 
-Save the Okta Client ID (`client_id`) value generated from the created app integration to implement your authorization flow.
+From the **General Settings** tab of your app integration, save the generated **Client ID** value to implement your authorization flow.
