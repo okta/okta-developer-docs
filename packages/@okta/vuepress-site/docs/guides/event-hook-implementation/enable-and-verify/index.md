@@ -25,7 +25,7 @@ The Event Hook must be set up and verified within your Okta Admin Console.
 
 8. Click **Save & Continue**.
 
-9. You can complete the one-time verification Okta call at this time or verify the Event Hook later. If using the Glitch example, proceed to verification.
+9. You can complete the one-time verification Okta call at this time or verify the Event Hook later. If you are using the Glitch example, proceed to verification.
 
 > **Note:** You can also set up an Event Hook using an API. See [Event Hooks Management](/docs/reference/api/event-hooks/#create-event-hook) for further information.
 
