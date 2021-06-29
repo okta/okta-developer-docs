@@ -12,10 +12,9 @@ const outputDir = Path.resolve(__dirname, '../dist/');
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
 function configUris() {
-  let uris;
   switch (process.env.DEPLOY_ENV) {
     case 'prod':
-      uris = {
+      return {
         baseUri: 'https://okta-devok12.okta.com',
         registrationPolicyId: 'reg405abrRAkn0TRf5d6',
         idps: {
@@ -23,10 +22,9 @@ function configUris() {
           google: '0oay75bnynuF2YStd5d5',
         }
       }
-      return;
     case 'test':
     default:
-      uris = {
+      return {
         baseUri: 'https://okta-dev-parent.trexcloud.com',
         registrationPolicyId: 'reg3kwstakmbOrIly0g7',
         idps: {
@@ -35,7 +33,6 @@ function configUris() {
         }
       }
   }
-  return uris;
 }
 
 module.exports = {
