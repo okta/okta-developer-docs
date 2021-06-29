@@ -23,8 +23,12 @@
 <script>
 /*
 Inside index.md of the page you like put <NutritionFacts></NutritionFacts>
-And special data set for that component
-ex.
+And special data set for that component.
+Data set should be placed into YAML frontmatter block of .md file
+see https://vuepress.vuejs.org/guide/frontmatter.html
+
+ex. index.md
+---
 nutritionItems:
   - title: This will cover
     bulletList:
@@ -43,6 +47,9 @@ nutritionItems:
     bulletList:
       - Line one
       - Line two
+---
+
+<NutritionFacts></NutritionFacts>
 */
 export default {
   name: "NutritionFacts",
