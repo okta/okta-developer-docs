@@ -7,26 +7,23 @@ title: Okta API Products Release Notes 2021
 
 | Change                                                                         | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------|--------------------------|
-| [Interaction code enabled in default Policy Rule](#interaction-code-enabled-in-default-policy-rule) | June 30, 2021 |
 | [Bug fixed in 2021.06.4](#bug-fixed-in-2021-06-4)                              | June 30, 2021            |
-
-#### Interaction code enabled in default Policy Rule
-
-The [default Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server)'s default Policy Rule has been updated to have Interaction Code grant type enabled by default. <!--OKTA-379608-->
 
 #### Bug fixed in 2021.06.4
 
-The group app assignment process failed to assign Users to an app when a database exception occurs. (OKTA-378076)
+The group app assignment process failed to assign users to an app when a database exception occurred. (OKTA-378076)
 
 ### Weekly Release 2021.06.3
 
 | Change                                                                         | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------|--------------------------|
-| [Bug fixed in 2021.06.3](#bug-fixed-in-2021-06-3)                              | June 23, 2021             |
+| [Bugs fixed in 2021.06.3](#bugs-fixed-in-2021-06-3)                              | June 23, 2021             |
 
-#### Bug fixed in 2021.06.3
+#### Bugs fixed in 2021.06.3
 
-When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/-/create-app-profile-attribute/) were not allowed. (OKTA-403289)
+* When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/-/create-app-profile-attribute/) were not allowed. (OKTA-403289)
+
+* If an app’s sign-in policy required an MFA prompt every time and the [`prompt=login` parameter](/docs/guides/shared-sso-android-ios/-/optional-settings/#always-prompt-for-sign-in-regardless-of-session) was present in the `/authorize` request, the MFA prompt didn’t appear for federated users. (OKTA-394991)
 
 ### Weekly Release 2021.06.2
 
