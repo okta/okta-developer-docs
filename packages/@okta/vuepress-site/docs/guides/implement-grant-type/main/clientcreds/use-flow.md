@@ -2,7 +2,7 @@
 
 The Client Credentials flow never has a user context, so you can't request OpenID scopes. Instead, you must create a custom scope. See the **Scopes** section of the [Create a Custom Authorization Server](/docs/guides/customize-authz-server/create-scopes/) guide for more information on creating custom scopes.
 
-### Use the Client Credentials flow
+### Request for token
 
 The Client Credentials flow is intended for server-side (confidential) client applications with no end user, which normally describes machine-to-machine communication. Your client application needs to have its client ID and secret stored in a secure manner. You can find the client ID and secret on the **General** tab for your app integration.
 
@@ -42,7 +42,7 @@ Use this section to Base64 encode the client ID and secret. When you finish enco
 
 1. Sign in to your Okta organization with your administrator account.
 1. In the Admin Console, go to **Applications** > **Applications**.
-1. Select the application that you want to use, and then on the **General** tab, copy the client ID and secret.
+1. Select the application that you want to use, and then on the **General** tab, copy the **Client ID** and **Client Secret**.
 1. Launch your preferred text editor and then paste the client ID and secret into a new file.
 1. Place the client ID and secret on the same line and insert a colon between them: `clientid:clientsecret`
 1. Copy the `clientid:clientsecret` line.
@@ -50,7 +50,7 @@ Use this section to Base64 encode the client ID and secret. When you finish enco
 1. Leave **UTF-8** as the **Destination character set** and click **Encode**.
 1. Copy the encoded line that appears.
 
-To use the command line for Mac and Linux:
+To encode the client ID and secret using the command line on Mac or Linux:
 
 1. Follow steps 1 through 4 above.
 1. Launch a terminal and enter the following command, replacing `clientid:clientsecret` with the value that you just copied to the clipboard.
@@ -61,7 +61,7 @@ To use the command line for Mac and Linux:
 
 > **Note:** If the value that is returned is broken into more than one line, return to your text editor and make sure that the entire results are on a single line with no text wrapping.
 
-To use the command line for Windows:
+To encode the client ID and secret using the command line on Windows:
 
 1. Follow steps 1 through 3 above.
 1. Save the file to `C:\temp` and name the file appCreds.txt.
@@ -74,6 +74,6 @@ To use the command line for Windows:
 
 > **Note:** Delete the appCreds.txt and the appbase64Creds.txt files after you finish.
 
-### Validate access tokens
+### Validate access token
 
 When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).

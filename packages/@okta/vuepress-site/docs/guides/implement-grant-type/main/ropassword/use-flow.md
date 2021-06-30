@@ -1,6 +1,6 @@
-### Use the Resource Owner Password flow
+### Request for tokens
 
-Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint. If you are using the default Custom Authorization Server, then your request would look something like this:
+Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request would look something like this:
 
 ```bash
 curl --request POST \
@@ -11,7 +11,7 @@ curl --request POST \
   --data 'grant_type=password&username=testuser1%40example.com&password=%7CmCovrlnU9oZU4qWGrhQSM%3Dyd&scope=openid'
 ```
 
-> **Important:** The call to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and secret. You can find the Client ID and secret on your application's **General** tab. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
+> **Important:** The call to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the client ID and secret. You can find the client ID and secret on your application's **General** tab. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
@@ -34,6 +34,6 @@ If the credentials are valid, your application receives back access and ID token
 }
 ```
 
-### Request access to resource server
+### Validate access tokens
 
 When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).

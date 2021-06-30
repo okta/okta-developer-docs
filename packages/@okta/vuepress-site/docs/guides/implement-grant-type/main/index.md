@@ -21,8 +21,8 @@ Select the authorization grant-type flow to implement: <StackSelector />
 Before you can implement authorization, you need to register your app in Okta by creating an app integration from the Admin Console.
 
 1. In the Admin Console, go to **Applications** > **Applications**.
-1. Click **Create App Integration**.
-1. Select **<StackSnippet snippet="sign-in-method" inline />** as the **Sign-in method**.
+2. Click **Create App Integration**.
+3. Select **<StackSnippet snippet="sign-in-method" inline />** as the **Sign-in method**.
 
 <StackSnippet snippet="setup-app" />
 

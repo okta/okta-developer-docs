@@ -18,3 +18,7 @@ app -> client: Response
 @enduml
 
 -->
+At a high-level, this flow has the following steps:
+
+- Your application passes its client credentials to your Okta Authorization Server.
+- If the credentials are accurate, Okta responds with an access token.

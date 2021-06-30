@@ -60,6 +60,6 @@ If the code is still valid, your application receives back access and ID tokens:
 }
 ```
 
-### Validate access tokens
+### Validate access token
 
 When your application passes a request with an `access_token`, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).

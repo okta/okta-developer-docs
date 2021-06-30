@@ -1,4 +1,4 @@
-### Redirect to Auth Server
+### Request for tokens
 
 Using this flow is very similar to the <GuideLink link="../../authcode/main/">authorization code flow</GuideLink>
 except that the `response_type` is `token` and/or `id_token` instead of `code`.
@@ -19,7 +19,7 @@ Note the parameters that are being passed:
 
 See the [OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more information on these parameters.
 
-###  Handle the callback
+### Extract tokens from redirect URI
 
 If the user doesn't have an existing session, the request opens the Okta Sign-in Page. If they have an existing session, or after they authenticate, the user is redirected back to the specified `redirect_uri` along with a `token` as a hash fragment:
 
@@ -29,4 +29,6 @@ http://${yourOktaDomain}/#access_token=eyJhb[...]erw&token_type=Bearer&expires_i
 
 Your application must now extract the token(s) from the URI and store them.
 
-<!-- ###  Use the access token -->
+### Validate access tokens
+
+When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).

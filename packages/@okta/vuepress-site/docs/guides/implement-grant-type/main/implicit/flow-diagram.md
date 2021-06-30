@@ -22,7 +22,7 @@ app -> client: Response
 The Implicit flow contains the following interaction steps:
 
 1. The Client sends a request to the Auth Server (Okta) for an access token.<br>
-You need to register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can initiate this authorization request to Okta for an access token. See [Redirect to Auth Server](#redirect-to-auth-server) to implement this request.
+You need to register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can initiate this authorization request to Okta for an access token. See [Request for tokens](#request-for-tokens) to implement this request.
 
 2. The Auth Server redirects the User browser to an authentication prompt (the Okta Sign-In Page), where the user authenticates.
 
@@ -32,6 +32,6 @@ See [Add a user using Console](/docs/guides/quickstart/cli/add-user/), [Import U
 
 4. Okta redirects the browser back to the specified redirect URI, along with access and ID tokens as a hash fragment in the URI.
 
-5. Your application extracts the tokens from the URI. See [Handle the callback](#handle-the-callback).
+5. Your application extracts the tokens from the URI. See [Extract tokens from redirect URI](#extract-tokens-from-redirect-URI).
 
-6. The Client can use the access token to call the resource server (for example, an API) on behalf of the User. See [Use the access token](#use-the-access-token).
+6. The Client can use the access token to call the resource server (for example, an API) on behalf of the User. See [Validate access tokens](#validate-access-tokens).

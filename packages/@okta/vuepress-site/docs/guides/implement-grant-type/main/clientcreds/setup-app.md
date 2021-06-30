@@ -1,3 +1,4 @@
-4. Fill in the remaining details for your app integration, then click **Save**.
+4. Click **Next**.
+5. Specify the app integration name, then click **Save**.
 
-Save the Okta Client ID (`client_id`) value generated from the created app integration to implement your authorization flow.
+From the **General** tab of your app integration, save the generated **Client ID** and **Client Secret** values to implement your authorization flow.
