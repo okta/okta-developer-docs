@@ -4,6 +4,11 @@ The following web application examples show you the Authorization Code flow, as 
 
 |                                       | Framework    | Example Repository                                             |
 | :-----------------------------------: | ------------ | -------------------------------------------------------------- |
-| <i class="icon code-dotnet-32"></i>   | ASP.NET Core | <https://github.com/oktadeveloper/okta-aspnetcore-mvc-example> |
-| <i class="icon code-nodejs-32"></i>   | Express.js   | <https://github.com/okta/samples-nodejs-express-4>             |
-| <i class="icon code-java-32"></i>     | Spring       | <https://github.com/okta/samples-java-spring-mvc>              |
+| <i class="icon code-dotnet-32"></i> | ASP.NET | <https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login> |
+| <i class="icon code-dotnet-32"></i> | ASP.NET Core 3.x | <https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/okta-hosted-login> |
+| <i class="icon code-go-32"></i> | Go  | <https://github.com/okta/samples-golang/tree/master/okta-hosted-login> |
+| <i class="icon code-nodejs-32"></i> | Node Express | <https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login> |
+| <i class="icon code-php-32"></i> | PHP       | <https://github.com/okta/samples-php/tree/develop/okta-hosted-login> |
+| <i class="icon code-python-32"></i> | Python | <https://github.com/okta/samples-python-flask/tree/master/okta-hosted-login> |
+| <i class="icon code-spring-32"></i>     | Spring Boot | <https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login> |
+

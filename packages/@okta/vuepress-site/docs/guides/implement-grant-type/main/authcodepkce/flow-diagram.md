@@ -26,11 +26,16 @@ app -> client: Response
 
 -->
 
+ At a high-level, the flow has the following steps:
 
-The Authorization Code flow with PKCE is the standard code flow with an extra step at the beginning and an extra verification at the end. At a high-level, the flow has the following steps:
-
-- Your application generates a code verifier followed by a code challenge.
-- Your application directs the browser to the Okta sign-in page, along with the generated code challenge, and the user authenticates.
-- Okta redirects back to your native application with an authorization code.
-- Your application sends this code, along with the code verifier, to Okta. Okta returns access and ID tokens, and optionally a refresh token.
-- Your application can now use these tokens to call the resource server (for example, an API) on behalf of the user.
+1. Your application (app) generates a code verifier followed by a code challenge. See [Create the proof key for code exchange](#create-the-proof-key-for-code-exchange).
+2. Your app directs the browser to the Okta sign-in page, along with the generated code challenge.<br>
+You need to register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can redirect the browser to Okta. See [Request an authorization code](#request-an-authorization-code).
+3. The Authorization Server (Okta) redirects the authentication prompt to the user.
+4. The user authenticates.
+5. Okta redirects back to your native application with an authorization code.
+6. Your application sends this code, along with the code verifier, to Okta. See [Exchange the code for tokens](#exchange-the-code-for-tokens).
+7. Okta evaluates the PKCE code.
+8. Okta returns access and ID tokens, and optionally a refresh token.
+9. Your application can now use these tokens to call the resource server (for example, an API) on behalf of the user.
+10. The resource server validates the token before responding to the request. See [Validate access token](#validate-access-token).

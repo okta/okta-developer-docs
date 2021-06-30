@@ -1,3 +1,5 @@
+The following sections outline the main processes required to implement the Resource Owner Password flow, using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/).
+
 ### Request for tokens
 
 Before you can begin this flow, collect the user's password in a manner of your choosing. After you collect the credentials, all that is required is a single API call to the [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request would look something like this:

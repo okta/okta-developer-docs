@@ -1,3 +1,7 @@
+Okta recommends using our framework SDKs to quickly implement your authorization flow. You can download Okta sample apps to see how the SDKs are used in your app's framework. See [Examples](#examples) for a list of sample apps.
+
+The following sections outline the main processes required to implement the Authorization Code flow, using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/).
+
 ### Request an authorization code
 
 To get an authorization code, your app redirects the user to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the default Custom Authorization Server, then your request URL would look something like this:

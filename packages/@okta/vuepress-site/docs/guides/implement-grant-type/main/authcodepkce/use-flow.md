@@ -1,3 +1,7 @@
+Okta recommends using our framework SDKs to quickly implement your authorization flow. You can download Okta sample apps to see how the SDKs are used in your app's framework. See [Examples](#examples) for a list of sample apps.
+
+The following sections outline the main processes required to implement the Authorization Code with PKCE flow, using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/).
+
 ### Create the proof key for code exchange
 
 Just like with the regular <GuideLink link="../../authcode/main/">authorization code flow</GuideLink>, your app starts by redirecting the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. However, in this instance you also have to pass along a code challenge.
@@ -22,7 +26,7 @@ The `code_challenge` is a Base64 URL-encoded SHA256 hash of the `code_verifier`.
 
 ### Request an authorization code
 
-If you are using the default Custom Authorization Server, then your request URL would look something like this:
+If you are using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request URL would look something like this:
 
 ```
 https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabygpxgk9lXaMgF0h7&response_type=code&scope=openid&redirect_uri=yourApp%3A%2Fcallback&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
