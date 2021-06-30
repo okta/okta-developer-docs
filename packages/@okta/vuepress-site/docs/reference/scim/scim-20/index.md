@@ -761,7 +761,7 @@ Okta administrators can remove pushed groups from the Okta Admin Console, under 
 
 On the **Push Groups** tab, click **Active** then click **Unlink pushed group**. In the dialog box that appears, you can choose whether you want to **Delete the group in the target app** or **Leave the group in the target app** on the SCIM server.
 
-When the admin clicks **Unlink**, Okta sends a DELETE method request:
+When you select the **Delete the group in the target app** option and click **Unlink**, Okta sends a DELETE method request:
 
 ```http
 DELETE /scim/v2/Groups/abf4dd94-a4c0-4f67-89c9-76b03340cb9b HTTP/1.1
