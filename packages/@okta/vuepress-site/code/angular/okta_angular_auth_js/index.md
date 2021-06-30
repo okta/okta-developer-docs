@@ -73,7 +73,7 @@ First, create `src/app/app.service.ts` as an authorization utility file and use 
 import { Observable, Observer } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { OktaAuth } from '@okta/okta-auth-js';
+import { OktaAuth, IDToken, AccessToken } from '@okta/okta-auth-js';
 
 @Injectable({providedIn: 'root'})
 export class OktaAuthService {
@@ -124,16 +124,16 @@ export class OktaAuthService {
   async handleAuthentication() {
     const tokenContainer = await this.oktaAuth.token.parseFromUrl();
 
-    this.oktaAuth.tokenManager.add('idToken', tokenContainer.tokens.idToken!);
-    this.oktaAuth.tokenManager.add('accessToken', tokenContainer.tokens.accessToken!);
+    this.oktaAuth.tokenManager.add('idToken', tokenContainer.tokens.idToken as IDToken);
+    this.oktaAuth.tokenManager.add('accessToken', tokenContainer.tokens.accessToken as AccessToken);
 
     if (await this.isAuthenticated()) {
       this.observer?.next(true);
     }
 
     // Retrieve the saved URL and navigate back
-    const url = sessionStorage.getItem('okta-app-url');
-    this.router.navigateByUrl(url!);
+    const url = sessionStorage.getItem('okta-app-url') as string;
+    this.router.navigateByUrl(url);
   }
 
   async logout() {
