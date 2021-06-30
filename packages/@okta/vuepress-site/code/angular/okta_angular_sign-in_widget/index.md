@@ -60,23 +60,6 @@ cd okta-app
 npm install @okta/okta-signin-widget
 ```
 
-To be able to require `@okta/okta-signin-widget` please install:
-```bash
-npm i --save-dev @types/node
-```
-And add `node` to the types field in your `tsconfig.app.json`:
-```js
-{
-  "compilerOptions": {
-    "types": [
-      "node"
-    ],
-    ...
-  },
-  ...
-}
-```
-
 To easily interact with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/), we will also need [`@okta/okta-angular`](https://github.com/okta/okta-angular/):
 
 ```bash
@@ -200,7 +183,8 @@ import { Router, NavigationStart} from '@angular/router';
 
 import { OktaAuthService } from '@okta/okta-angular';
 import { Tokens } from '@okta/okta-auth-js';
-const OktaSignIn = require('@okta/okta-signin-widget');
+//@ts-ignore
+import * as OktaSignIn from '@okta/okta-signin-widget';
 
 @Component({
   selector: 'app-secure',
