@@ -199,6 +199,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationStart} from '@angular/router';
 
 import { OktaAuthService } from '@okta/okta-angular';
+import { Tokens } from '@okta/okta-auth-js';
 const OktaSignIn = require('@okta/okta-signin-widget');
 
 @Component({
@@ -239,15 +240,17 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     const originalUri = this.authService.getOriginalUri();
     if (!originalUri) {
       this.authService.setOriginalUri('/');
     }
-    
-    this.widget.showSignInAndRedirect().catch((err: Error) => {
-      throw(err);
+
+    const tokens: Tokens = await this.widget.showSignInToGetTokens({
+      el: '#okta-signin-container',
     });
+    this.authService.handleLoginRedirect(tokens);
+    this.widget.hide();
   }
 }
 ```
