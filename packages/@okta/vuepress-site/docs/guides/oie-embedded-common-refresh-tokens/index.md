@@ -1,6 +1,6 @@
 ---
-title: Token refresh best practices
-excerpt: Token refresh best practices
+title: Refresh access and id tokens
+excerpt: Refresh access and id tokens
 layout: Guides
 sections:
  - main

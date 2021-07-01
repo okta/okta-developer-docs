@@ -1,5 +1,5 @@
 ---
-title: Token refresh best practices
+title: Refresh access and id tokens
 ---
 <div class="oie-embedded-sdk">
 
@@ -7,25 +7,33 @@ title: Token refresh best practices
 
 <StackSelector class="cleaner-selector"/>
 
-
-
 ## Summary
 
+Access tokens often have limited lifetimes. Allowing access
+tokens to expire limits there usefulness in case they are discovered
+by an attacker. In order for your app to continue to use the
+appropriate resources with an expired access token, it can refresh
+them without user intervention through the use of a refresh token.
 
-
-
-## Getting the tokens
-
-
-## Refresh the tokens
-
-### Using the SDK
+All the SDK's expose functionality that allow you
+to access these tokens. Depending on the SDK (Swift, Javascript,
+ etc), you have varying degrees of convenience
+methods and other functionality that provide you with built-in support
+for token refresh, auto-renewal, and storage.  Minimally,
+all the SDK's allow you to obtain the refresh token and call the authorization
+server's token endpoint to renew the access token.
 
 <StackSelector snippet="refreshusingthesdk" noSelector />
 
-### Direct using HTTP POST
+## Refresh using the OAuth token endpoint
 
-#### Post request
+Access and id tokens can be refreshed using OAuth token endpoint
+described in the OAuth
+[specification](https://datatracker.ietf.org/doc/html/rfc6749#section-5.1).
+
+Before calling this endpoint, obtain the refresh token from the SDK. Once
+retrieved, create an HTTP Post request to the authorization server's `token` endpoint.
+See example below.
 
 ```http
 POST /oauth2/default/v1/token HTTP/1.1
@@ -39,58 +47,8 @@ scope: offline_access openid profile
 refresh_token: 03_hBtVj-Hk0Mxo9TPSdl7TLkxQioKqQEzud3ldqHqs
 ```
 
-#### Post request through code
-
-<StackSelector snippet="postrequestincode" noSelector />
-
-
-## Reasons why token expire matters
-
-## Determining token expiry
-
-
-## Refresh token usage scenarios
-
-### Scenario 1: Tie the access
-
-
-
-
-
-
-## When to refresh
-
-### Returned error
-
-### Proactive refresh process
-
-### On demand automatic
-
-### On demand manual
-
-## How to refresh
-
-### Manual
-
-
-
-## See also
-
-### Token storage recommendations
-
-###
-
-
-
-## Open questions
-
-* Can you update any of the SDKs with the updated token?  Would you need to?
-* Need for both the widget and SDK
-* SDK purpose is to login and give you a token, what else?
-
-
-
-
-
+Note the use of the `refresh_token` `grant_type` value which indicates
+the request is for refreshing the access token. For further details on access token refresh, see
+[Use a refresh token](/docs/guides/refresh-tokens/use-refresh-token/).
 
 </div>
