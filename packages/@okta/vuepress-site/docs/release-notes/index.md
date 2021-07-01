@@ -3,22 +3,6 @@ title: Okta API Products Release Notes | Okta Developer
 meta:
   - name: description
     content: List of changes to the Okta API and related API...
-nutritionItems:
-  - title: This will cover
-    bulletList:
-      - Line one
-      - Line two
-  - title: Looking for something else?
-    bulletList:
-      - Line one
-      - Line two
-  - title: You should know
-    bulletList:
-      - Line one
-  - title: You will need
-    bulletList:
-      - Line one
-      - Line two
 ---
 
 # Okta API Products Release Notes
@@ -41,5 +25,3 @@ To verify the current release for an org, check the footer of the administrator 
     </button>
   </RouterLink>
 </div>
-
-<NutritionFacts></NutritionFacts>
