@@ -574,7 +574,7 @@ The DomainListResponse object defines list of domains with a subset of the prope
 
 | Property                  | Type                                                           | Description                                                                               |
 | ------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `domains`                  | Array of [DomainResponse](#domainresponse-object)             | Describes zero or more domains       |
+| `domains`                  | Array of [DomainResponse](#domainresponse-object)             | Describes the domains       |
 
 #### DomainListResponse example
 
