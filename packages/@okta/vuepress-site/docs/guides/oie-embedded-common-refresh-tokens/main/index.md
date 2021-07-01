@@ -16,7 +16,7 @@ appropriate resources with an expired access token, it can refresh
 them without user intervention through the use of a refresh token.
 
 All the SDK's expose functionality that allow you
-to access these tokens. Depending on the SDK (Swift, Javascript,
+to obtain these tokens. Depending on the SDK (Swift, Javascript,
  etc), you have varying degrees of convenience
 methods and other functionality that provide you with built-in support
 for token refresh, auto-renewal, and storage.  Minimally,
