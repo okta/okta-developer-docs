@@ -5,7 +5,7 @@ $border-color: #D7D7DC;
   flex-direction: column;
   border: 1px solid $border-color;
   border-radius: 4px;
-  margin: 0 0 20px 0;
+  margin: 20px 0;
   .fact-item {
     display: flex;
     flex-direction: row;
@@ -22,5 +22,8 @@ $border-color: #D7D7DC;
     .fact-bullet-list {
       flex-basis: 65%;
     }
+  }
+  .none-list {
+    list-style: none;
   }
 }

@@ -9,6 +9,7 @@
       <div class="fact-bullet-list">
         <ul>
           <li
+            v-bind:class="{ 'none-list': nutrition.bulletList.length <= 1 }"
             v-for="(bulletItem, index) in nutrition.bulletList"
             v-bind:key="index"
           >
