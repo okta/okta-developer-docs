@@ -570,7 +570,7 @@ The DomainResponse object defines the following properties:
 
 ### DomainListResponse object
 
-The DomainListResponse object defines list of domains, with a subset of the properties for each domain:
+The DomainListResponse object defines list of domains with a subset of the properties for each domain:
 
 | Property                  | Type                                                           | Description                                                                               |
 | ------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
