@@ -62,7 +62,7 @@ This object contains a number of sub-objects, each of which provides some type o
 
 - `data.context.conflicts`: List of user profile attributes that are in conflict.
 - `data.context.application`: Details of the app from which the user is being imported.
-- `data.context.job`: Details of the import job being run.
+- `data.context.job`: Details of the running import job.
 - `data.context.matches`: List of Okta users currently matched to the app user based on import matching. There can be more than one match.
 - `data.context.policy`: List of any Policies that apply to the import matching.
 
