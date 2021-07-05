@@ -620,20 +620,17 @@ export const reference = [
       {
         title: 'Hooks',
         subLinks: [
-          { title: "Event Hooks", path: "/docs/reference/api/event-hooks/" },
-          { title: "Inline Hooks", path: "/docs/reference/api/inline-hooks/" },
-          { title: "Hooks best practices", path: "/docs/reference/hooks-best-practices/"},
-          {
-            title: 'Inline Hook Types',
+          { title: "Event Hooks Management API", path: "/docs/reference/api/event-hooks/" },
+          { title: "Inline Hooks Management API", path: "/docs/reference/api/inline-hooks/" },
+          { title: "Inline Hook Types",
             subLinks: [
-              { title: "Token Hook", path: "/docs/reference/token-hook/" },
-              { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-              { title: "Password Import Hook", path: "/docs/reference/password-hook/" },
-              { title: "User Import Hook", path: "/docs/reference/import-hook/"},
-              { title: "Registration Hook", path: "/docs/reference/registration-hook/" },
-
-            ]
-          }
+            { title: "Token Hook", path: "/docs/reference/token-hook/" },
+            { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
+            { title: "Password Import Hook", path: "/docs/reference/password-hook/" },
+            { title: "User Import Hook", path: "/docs/reference/import-hook/"},
+            { title: "Registration Hook", path: "/docs/reference/registration-hook/" }
+          ]},
+          { title: "Hooks best practices", path: "/docs/reference/hooks-best-practices/"},
         ]
       },
       {

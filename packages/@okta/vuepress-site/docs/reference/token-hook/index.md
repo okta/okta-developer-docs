@@ -70,7 +70,7 @@ Consists of name-value pairs for each included claim. For descriptions of the cl
 
 The set of scopes that have been granted. For descriptions of the scopes that can be included, see Okta's [OpenID Connect and OAuth 2.0 API reference](/docs/reference/api/oidc/#tokens-and-claims).
 
-## Objects in the response that You Send
+## Objects in the response that you send
 
 For the Token Inline Hook, the `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
 
@@ -192,7 +192,7 @@ When you return an error object, it should have the following structure:
 
 Returning an error object causes Okta to return an OAuth 2.0 error to the requester of the token, with the value of `error` set to `server_error`, and the value of `error_description` set to the string that you supplied in the `errorSummary` property of the `error` object that you returned.
 
-> **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`
+> **Note:** If the error object doesn't include the `errorSummary` property defined, the following common default message is returned to the end user: `The callback service returned an error`.
 
 ## Sample JSON payload of a request
 
@@ -406,8 +406,8 @@ Add `department_id` by specifying the claim in the path, followed by the name of
 ```
 
 The resulting JSON object:
-```json
 
+```json
 {
    "employee_profile":{
       "employee_id":"1234",
@@ -421,8 +421,8 @@ The resulting JSON object:
 You can also append an element to an array by specifying the name of the array, followed by the index where you want to insert the element in the path. For example, you have an array that contains the user's preferred airports, and you want to add a new airport to the array.
 
 The existing target JSON object:
-```json
 
+```json
 {
    "preferred_airports":[
       "sjc",
@@ -450,8 +450,8 @@ The existing target JSON object:
 ```
 
 The resulting JSON object:
-```json
 
+```json
 {
    "preferred_airports":[
       "sjc",
@@ -534,7 +534,7 @@ The existing target JSON object:
 }
 ```
 
-Specify the claim in the path, followed by the name of the object member that you want to modify. 
+Specify the claim in the path, followed by the name of the object member that you want to modify.
 
 > **Note:** Attempting to modify a member within a JSON object that doesn't exist or using an invalid operation results in the entire PATCH failing and errors logged in the token hooks events.
 
@@ -730,6 +730,10 @@ The resulting JSON object:
 }
 ```
 
+## Timeout behavior
+
+After receiving the Okta request, if there is a response timeout, the Okta process flow proceeds with original token returned. See [Troubleshooting](#troubleshooting).
+
 ## Enabling a Token Inline Hook
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta using the [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
@@ -756,7 +760,7 @@ This section covers what happens when a token inline hook flow fails either due 
 
 > **Note:** Administrators can use the [Okta System Log](/docs/reference/api/system-log/) to view errors. See the [Troubleshooting](/docs/concepts/inline-hooks/#troubleshooting) section in the Inline Hooks concept piece for more information on the events related to Inline Hooks that the Okta System Log captures.
 
-- When there is a communication failure with the external service, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
+- When there is a communication failure with the external service, a timeout for example, the inline hook operation is skipped. The token is generated without any modification from the inline hook.
 
   **Who can see this error?** Administrators
 
