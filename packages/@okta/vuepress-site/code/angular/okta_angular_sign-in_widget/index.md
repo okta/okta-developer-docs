@@ -114,7 +114,7 @@ import { OktaAuthService } from '@okta/okta-angular';
 })
 
 export class AppComponent implements OnInit {
-  isAuthenticated: boolean;
+  isAuthenticated: boolean = false;
 
   constructor(public oktaAuth: OktaAuthService, public router: Router) {
     // Subscribe to authentication state changes
@@ -182,6 +182,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, NavigationStart} from '@angular/router';
 
 import { OktaAuthService } from '@okta/okta-angular';
+import { Tokens } from '@okta/okta-auth-js';
+//@ts-ignore
 import * as OktaSignIn from '@okta/okta-signin-widget';
 
 @Component({
@@ -222,10 +224,17 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
-    this.widget.showSignInAndRedirect().catch(err => {
-      throw(err);
+  async ngOnInit() {
+    const originalUri = this.authService.getOriginalUri();
+    if (!originalUri) {
+      this.authService.setOriginalUri('/');
+    }
+
+    const tokens: Tokens = await this.widget.showSignInToGetTokens({
+      el: '#okta-signin-container',
     });
+    this.authService.handleLoginRedirect(tokens);
+    this.widget.hide();
   }
 }
 ```
@@ -240,8 +249,9 @@ Update `src/app/app.module.ts` to include your project components and routes. Yo
 // app.module.ts
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injector } from '@angular/core';
 import { Routes, RouterModule, Router } from '@angular/router';
+import { OktaAuthService } from '@okta/okta-angular';
 
 import {
   OKTA_CONFIG,
@@ -261,7 +271,7 @@ const config = {
   pkce: true
 }
 
-export function onAuthRequired(oktaAuth, injector) {
+export function onAuthRequired(oktaAuth: OktaAuthService, injector: Injector) {
   const router = injector.get(Router);
 
   // Redirect the user to your custom login page
