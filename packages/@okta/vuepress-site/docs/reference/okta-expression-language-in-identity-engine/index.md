@@ -1,22 +1,22 @@
 ---
-title: Expression Language In Identity Engine
+title: Expression Language in Identity Engine
 meta:
 - name: description
   content: Learn more about the features and syntax of the Okta Expression Language in Identity Engine.
 ---
 
-# Okta Expression Language In Identity Engine
+# Okta Expression Language in Identity Engine
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
 ## Overview
 
-This document details the features and syntax of the Okta Expression Language used in the Identity Engine. Expressions being used outside of the Identity Engine should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document will be updated over time as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
+This document details the features and syntax of the Okta Expression Language used in the Identity Engine. Expressions being used outside of the Identity Engine should continue using the features and syntax of [the legacy Okta Expression Language](/docs/reference/okta-expression-language/). This document is updated as new capabilities are added to the language. Okta Expression Language is based on a subset of [SpEL functionality](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html).
 
-## Unsupported Features
+## Unsupported features
 
-The following operators and functionality offered by SpEL are not supported in Okta Expression Language:
+The following operators and functionality offered by SpEL aren't supported in Okta Expression Language:
 
 - [Decrement operator](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/OpDec.html)
 - [Increment operator](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/OpInc.html)
@@ -31,41 +31,42 @@ The following operators and functionality offered by SpEL are not supported in O
 - [Projection](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/Projection.html)
 - [Qualified identifier](https://www.javadoc.io/static/org.springframework/spring-expression/4.0.2.RELEASE/org/springframework/expression/spel/ast/QualifiedIdentifier.html)
 
-## Referencing Attributes
+## Referencing attributes
 
 ### Okta User Profile
 
-When you create an Okta expression, you can reference any property that exists in an Okta User Profile, in addition to some top-level User properties.
+When you create an Okta expression, you can reference any property that exists in an Okta User Profile in addition to some top-level User properties.
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
-| `user.$property`                  | `user` reference to the Okta user<br>`property` the top-level property variable name<br>`id`, `status`, `created`, `lastUpdated`, `passwordChanged`, `lastLogin`   | `user.id`<br>`user.status`<br>`user.created`   |
-| `user.profile.$profile_property`  | `profile_property` reference to user profile property, including custom-defined properties  | `user.profile.firstName`<br>`user.profile.email`<br>           |
+| `user.$property`                  | `user` - references the Okta user<br>`property` - top-level property variable name<br>Values: `id`, `status`, `created`, `lastUpdated`, `passwordChanged`, `lastLogin`   | `user.id`<br>`user.status`<br>`user.created`   |
+| `user.profile.$profile_property`  | `profile_property` - references the user profile property, including custom-defined properties  | `user.profile.firstName`<br>`user.profile.email`<br>           |
 
 ### Okta Device Profile
+
 When you create an Okta expression, you can reference EDR attributes and any property that exists in an Okta Device Profile.
 
 | Syntax                             | Definitions                                                                              | Examples                                                       |
 | --------                           | ----------                                                                               | ------------                                                   |
-| `device.profile.$profile_property`  | `profile_property` references a Device Profile property  | `device.profile.managed`<br>`device.profile.registered`<br>           |
-| `device.provider.<vendor>.<signal>`| `vendor` references a vendor, such as `wtc` for Windows Security Center, or `zta` for CrowdStrike. <br>`signal` references the supported EDR signal by the vendor.| `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall`   |
-For details about the `vendor` and `signal`, see [Integrate with Endpoint Detection and Response solutions
-](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/edr-integration-main.htm) and [Available EDR signals by vendor](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/edr-integration-available-signals.htm).
+| `device.profile.$profile_property`  | `profile_property` - references a Device Profile property  | `device.profile.managed`<br>`device.profile.registered`<br>           |
+| `device.provider.<vendor>.<signal>`| `vendor` - references a vendor, such as `wtc` for Windows Security Center or `zta` for CrowdStrike <br>`signal` - references the supported EDR signal by the vendor| `device.provider.wsc.fireWall`<br>`device.provider.wsc.autoUpdateSettings`<br>`device.provider.zta.overall`   |
+See [Integrate with Endpoint Detection and Response solutions
+](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/edr-integration-main.htm) and [Available EDR signals by vendor](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/edr-integration-available-signals.htm) for details about `vendor` and `signal`.
 
 ### Security Context
 
-Certain [Rule Conditions](/docs/reference/api/policy/#conditions) in [App Sign On Policies](/docs/reference/api/policy/#app-sign-on-policy) can be specified using expressions based on the Security Context of the app sign on request. The Security Context is made up of the [Risk level](https://help.okta.com/en/prod/Content/Topics/Security/Security_Risk_Scoring.htm) and the matching [User Behaviors](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm) for the request.
+You can specify certain [rule conditions](/docs/reference/api/policy/#conditions) in [app sign-on policies](/docs/reference/api/policy/#app-sign-on-policy) using expressions based on the Security Context of the app sign-on request. Security Context is made up of the [risk level](https://help.okta.com/en/prod/Content/Topics/Security/Security_Risk_Scoring.htm) and the matching [User behaviors](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm) for the request.
 
 | Syntax | Definitions | Type | Examples | Usage   |
 | ------ | ----------- | ---- | -------- | -----   |
-| security.risk.level | `security` reference to the Security Context of the request<br>`risk` reference to the [risk](https://help.okta.com/en/prod/Content/Topics/Security/Security_Risk_Scoring.htm) context of the request<br>`level` the risk level associated with the request | String | `'LOW'`<br>`'MEDIUM'`<br>`'HIGH'` | `security.risk.level == 'HIGH'`<br>`security.risk.level != 'LOW'`   |
-| security.behaviors | `security` reference to the Security Context of the request<br>`behaviors` the list of matching [User Behaviors](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
+| security.risk.level | `security` - references the Security Context of the request<br>`risk` - references the [risk](https://help.okta.com/en/prod/Content/Topics/Security/Security_Risk_Scoring.htm) context of the request<br>`level` - the risk level associated with the request | String | `'LOW'`<br>`'MEDIUM'`<br>`'HIGH'` | `security.risk.level == 'HIGH'`<br>`security.risk.level != 'LOW'`   |
+| security.behaviors | `security` - references the Security Context of the request<br>`behaviors` - the list of matching [User behaviors](https://help.okta.com/en/prod/Content/Topics/Security/proc-security-behavior-detection.htm) for the request, by name. | Array of Strings | `{'New IP', 'New Device'}`| `security.behaviors.contains('New IP') && security.behaviors.contains('New Device')`   |
 
 ## Functions
 
 Okta offers a variety of functions to manipulate properties to generate a desired output. You can combine and nest functions inside a single expression.
 
-> **Note:** For the following expression examples, assume the following properties exist in Okta and the User has the associated values.
+> **Note:** For the following expression examples, assume that the following properties exist in Okta and that the User has the associated values.
 
 | Attribute            | Type          | Data                       |
 | ---------            | ----          | --------                   |
@@ -81,7 +82,7 @@ Okta offers a variety of functions to manipulate properties to generate a desire
 | user.countryAlpha3   | String        | "USA"                      |
 | user.isContractor    | Boolean       | False                      |
 
-### String Functions
+### String functions
 
 | Function                                | Input Parameter Signature                     | Return Type | Example                                          | Output           |
 | -----------------------                 | -------------------------                     | ----------- | -------                                          | ------           |
@@ -103,7 +104,7 @@ Okta offers a variety of functions to manipulate properties to generate a desire
 
 **Note:**  In the `substring` function, `startIndex` is inclusive and `endIndex` is exclusive.
 
-### Array Functions
+### Array functions
 
 | Function                         | Input Parameter Signature                     | Return Type | Example                                          | Output                      |
 | ---------------                  | -------------------------                     | ----------- | -------                                          | ------                      |
@@ -125,19 +126,18 @@ Okta offers a variety of functions to manipulate properties to generate a desire
 | Function                         | Return Type | Example                                          | Output                           |
 | ---------------                  | ----------- | -------                                          | -----                            |
 | `$string_object.toInteger`       | Integer     | `user.profile.stringDouble.toInteger()`          | 1                                |
-|                                  |             | `user.profile.email.toInteger()`                 | An exception will be thrown      |
+|                                  |             | `user.profile.email.toInteger()`                 | An exception is thrown      |
 |                                  |             | `'-2147483649'.toInteger()`                      | 2147483647                       |
 | `$string_object.toNumber`        | Double      | `user.profile.stringDouble.toNumber()`           | 1.1                              |
 |                                  |             | `'1.7'.toNumber()`                               | 1.7                              |
-|                                  |             | `'123This is a test'.toNumber()`                 | An exception will be thrown      |
+|                                  |             | `'123This is a test'.toNumber()`                 | An exception is thrown      |
 | `$number_object.toInteger`       | Integer     | `1.1.toInteger()`                                | 1                                |
 |                                  |             | `-1.6.toInteger()`                               | -2                               |
 |                                  |             | `2147483647.7.toInteger()`                       | -2147483648 (Integer overflow)   |
 
-> **Note:**  The `toInteger` functions round the passed numeric value (or the String representation of the numeric value) either up or down to the nearest integer.
-Be sure to consider integer type range limitations when converting to an integer with these functions.
+> **Note:**  The `toInteger` functions round the passed numeric value (or the String representation of the numeric value) either up or down to the nearest integer. Make sure to consider integer type range limitations when you convert to an integer with these functions.
 
-##### Country Code Conversion Functions
+##### Country Code conversion functions
 
 These functions convert between ISO 3166-1 2-character country codes (Alpha 2), 3-character country codes (Alpha 3), numeric country codes, and full ISO country names.
 
@@ -152,14 +152,13 @@ These functions convert between ISO 3166-1 2-character country codes (Alpha 2), 
 | `$country_code_object.toNumeric`         | String      | `'United States'.parseCountryCode().toNumeric()`                    | "840"                     |
 | `$country_code_object.toName`            | String      | `'US'.parseCountryCode().toName()`                                  | "United States"           |
 
-> **Note:**  The `parseCountryCode` function can be called on the String representations of ISO 3166-1 2-character country codes (Alpha 2), 3-character country codes (Alpha 3), numeric country codes, and country names. The other four functions can be called on country code objects, and return the output in the format specified by the function names.
+> **Note:**  You can call the `parseCountryCode` function on the String representations of ISO 3166-1 2-character country codes (Alpha 2), 3-character country codes (Alpha 3), numeric country codes, and country names. You can call the other four functions on country code objects and return the output in the format specified by the function names.
 
-For more information on these codes, see the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/).
+See the [ISO 3166-1 online lookup tool](https://www.iso.org/obp/ui/#search/code/).
 
+### Group functions
 
-### Group Functions
-
-> **Note:** For the following expression examples, assume that the User is a member of the following Groups.
+> **Note:** For the following expression examples, assume that the User is a member of the following Groups:
 
 | Group ID                 | Group Name               | Group Type            |
 | --------                 | -----------              | -----------           |
@@ -169,8 +168,8 @@ For more information on these codes, see the [ISO 3166-1 online lookup tool](htt
 | 00gjitX9HqABSoqTB0g3     | Engineering Users        | APP_GROUP             |
 
 Group functions take in a list of search criteria as input. Each search criteria is a key-value pair:<br>
-Key: Specifies the matching property. Currently supported keys are `group.id`, `group.type`, and `group.profile.name`.<br>
-Value: Specifies a list of matching values which can be exact values or a regex pattern (only supporting the [.*] wildcard to match `starts with`)
+**Key:** Specifies the matching property. Currently supported keys are: `group.id`, `group.type`, and `group.profile.name`.<br>
+**Value:** Specifies a list of matching values that can be exact values or a regex pattern (only supporting the [.*] wildcard to match `starts with`)
 
 | Function                 | Return Type | Example                                                                                                         | Output                                                                          |
 | ---------------          | ----------- | -------                                                                                                         | -----                                                                           |
@@ -181,17 +180,17 @@ Value: Specifies a list of matching values which can be exact values or a regex 
 | `user.isMemberOf`        | Boolean     | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'APP_GROUP'})`  | True                                                                            |
 |                          |             | `user.isMemberOf({'group.id': {'00gjitX9HqABSoqTB0g3', '00garwpuyxHaWOkdV0g4'}}, {'group.type': 'BUILT_IN'})`   | False
 
-### Linked Object Function
+### Linked Object function
 
-Use this function to retrieve the User identified with the specified `primary` relationship. You can then access properties of that User.
+Use this function to retrieve the User that is identified with the specified `primary` relationship. You can then access properties of that User.
 
-* Function: `user.getLinkedObject($primaryName)`
-    * Parameter: (String primaryName)
-    * Return Type: User
-    * Example: `user.getLinkedObject("manager").lastName`
-    * Example Result: `Gates`
+* **Function:** `user.getLinkedObject($primaryName)`
+    * **Parameter:** (String primaryName)
+    * **Return Type:** User
+    * **Example:** `user.getLinkedObject("manager").lastName`
+    * **Example Result:** `Gates`
 
-### Time Functions
+### Time functions
 
 > **Note:** For the following expression examples, assume that the current date and time is `2015-07-31T17:18:37.979Z`.
 
@@ -220,9 +219,9 @@ Use this function to retrieve the User identified with the specified `primary` r
 | `$zoned_date_time_object.withinMinutes`  | (int minutes)                        | Boolean         | `user.created.withinMinutes(2)`                                       | False                                                                       |
 | `$zoned_date_time_object.withinSeconds`  | (int seconds)                        | Boolean         | `user.created.withinSeconds(100)`                                     | False                                                                       |
 
-> **Note:** Okta supports the use of the time zone IDs and aliases listed in [the Time Zone Codes table](/docs/reference/okta-expression-language/#appendix-time-zone-codes).
+> **Note:** Okta supports the use of the time zone IDs and aliases listed in the [Time Zone Codes table](/docs/reference/okta-expression-language/#appendix-time-zone-codes).
 
-## Constants and Operators
+## Constants and operators
 
 | Common Action                                                                               | Example                                                     |
 | ----------------                                                                            | --------                                                    |
@@ -232,26 +231,26 @@ Use this function to retrieve the User identified with the specified `primary` r
 | Refer to a `Boolean` constant                                                               | `true`                                                      |
 | Concatenate two strings                                                                     | `user.profile.firstName + user.profile.lastName`            |
 
-## Conditional Expressions
+## Conditional expressions
 
-The following rules apply to conditional expressions.
+The following rules apply to conditional expressions:
 
 * Expressions must have valid syntax.
 * Expressions must evaluate to Boolean.
-* Expressions cannot contain an assignment operator, such as `=`.
+* Expressions can't contain an assignment operator, such as `=`.
 * User properties referenced in an expression must exist.
 
-<br>The following functions are supported in conditions.
+The following functions are supported in conditions:
 
 * Any Okta Expression Language function
 * The `&&` operator to designate AND
 * The `||` operator to designate OR
 * The `!` operator to designate NOT
-* Standard relational operators including `&lt;`, `&gt;`, `&lt;=`, and `&gt;=`.
+* Standard relational operators including `&lt;`, `&gt;`, `&lt;=`, and `&gt;=`
 
 **Note:** Use the double equals sign `==` to check for equality and `!=` for inequality.
 
-Examples:
+**Examples**
 
 | Expression                                                                 | Output                                 |
 | -----------                                                                | -------                                |
@@ -261,11 +260,11 @@ Examples:
 
 You can use the ternary operator for performing IF, THEN, ELSE conditional logic inside the expression.
 
-The format for a ternary conditional expression is `[Condition] ? [Value if TRUE] : [Value if FALSE]`
+The format for a ternary conditional expression is: `[Condition] ? [Value if TRUE] : [Value if FALSE]`
 
-Examples:
+**Examples**
 
-If the middle initial is not empty, include it as part of the full name, using just the first character and appending a period.<br>
+If the middle initial isn't empty, include it as part of the full name using just the first character and appending a period.<br>
 `user.profile.firstName + " " + (user.profile.middleInitial.length() == 0 ? "" : (user.profile.middleInitial.substring(0, 1) + ". ")) + user.profile.lastName`
 
 If the user is a contractor and is a member of the "West Coast Users" user group, output "West coast contractors", else output "Others".<br>
