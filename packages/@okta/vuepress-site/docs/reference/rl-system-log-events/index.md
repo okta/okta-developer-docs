@@ -299,6 +299,8 @@ The following table includes the available `Subtypes` for operation rate limits.
 
 | Subtype           | Description                                                         |
 | ----------------- | ------------------------------------------------------------------- |
-| `Email`           | The user exceeded their limit for sending email messages            |
-| `SMS`             | The user exceeded their limit for sending SMS                       |
-| `Voice call`      | The user exceeded their limit for sending voice-call messages       |
+| `Email`           | The user exceeded their limit for sending email messages.            |
+| `SMS`             | The user exceeded their limit for sending SMS.                      |
+| `Voice call`      | The user exceeded their limit for sending voice-call messages.       |
+| `Authenticated user`      | The user (session user) exceeded their limit for requests to authenticated endpoints.       |
+| `Identified user`      | The user exceeded their limit for requests to authorization endpoints.       |
