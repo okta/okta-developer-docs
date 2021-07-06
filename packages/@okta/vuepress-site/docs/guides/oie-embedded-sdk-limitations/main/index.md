@@ -21,7 +21,7 @@ In a passwordless sign-in with magic links, users submit only their email addres
 <div class="common-image-format">
 
 ![Passwordless sign-in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-seq.png
- "Passwordless sign on")
+ "Passwordless sign-in")
 
 </div>
 
@@ -31,7 +31,7 @@ The following image shows an example of the sign-in email's content.
 
 <div class="common-image-format">
 
-![Passwordless sign on email link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-screen-email-signin.png
+![Passwordless sign-in email link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-screen-email-signin.png
  "Passwordless sign-in email link")
 
 </div>
@@ -40,7 +40,7 @@ The following image shows an example of the sign-in email's content.
 
 Users can use other means to sign in, such as by entering the password or through social identity providers.
 
-## Primary factor for the Okta sign-in policy rule must be set to Password/IDP
+## Primary factor for the Okta sign-in policy rule set to Password/IDP
 
 ### Description
 
