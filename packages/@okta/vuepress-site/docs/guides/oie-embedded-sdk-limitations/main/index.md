@@ -8,43 +8,39 @@ layout: Guides
 
 <ApiLifecycle access="ie" /><br>
 
-## Passwordless sign in using magic links is not supported
+## Passwordless sign-in with magic links
 
 ### Description
 
-Passwordless sign in using magic links is currently not supported with
-the SDK. In this use case, the user submits only their email address
-through your app to initiate the sign in. An email is subsequently
-sent to the user to complete the sign in via a sign link. The user opens
-the email and clicks the link that sends them to your app already signed
-in.  See the sequence of steps below for a more detailed explanation of
-the passwordless sign in process.
+The SDK currently doesn't support passwordless sign-in with magic links.
+
+In a passwordless sign-in with magic links, users submit only their email address through their app to initiate the sign-in. An email is then sent to the users to complete the sign-in by using a sign link. Uers open the email and click the link that sends them to your app already signed in. See the sequence of steps below for a details on the passwordless sign-in process.
 
 ### Sequence of steps
 
 <div class="common-image-format">
 
-![Passwordless sign on](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-seq.png
+![Passwordless sign-in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-seq.png
  "Passwordless sign on")
 
 </div>
 
-### Sign in email
+### Sign-in email
 
-The screenshot below shows a sample of the sign in email’s content.
+The following image shows an example of the sign-in email's content.
 
 <div class="common-image-format">
 
 ![Passwordless sign on email link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-screen-email-signin.png
- "Passwordless sign on email link")
+ "Passwordless sign-in email link")
 
 </div>
 
 ### Workaround
 
-User other means for user sign in such as using the password or social identity providers.
+Users can use other means to sign in, such as by entering the password or through social identity providers.
 
-## Primary factor for the Okta sign in policy rule must be set to Password / IDP
+## Primary factor for the Okta sign-in policy rule must be set to Password/IDP
 
 ### Description
 
