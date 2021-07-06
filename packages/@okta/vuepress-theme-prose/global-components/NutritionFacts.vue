@@ -28,7 +28,7 @@ And special data set for that component.
 Data set should be placed into YAML frontmatter block of .md file
 see https://vuepress.vuejs.org/guide/frontmatter.html
 
-ex. index.md
+Example with multiple items: index.md
 ---
 nutritionItems:
   - title: This will cover
@@ -50,7 +50,18 @@ nutritionItems:
       - Line two
 ---
 
+Example with single item: index.md
+---
+nutritionItems:
+  - title: This will cover
+    bulletList:
+      - Line one
+---
+
 <NutritionFacts></NutritionFacts>
+
+Recommendation: after changes in index.md file for local testing is recommended to
+                re-run 'yarn run dev' command in case changes not visible.
 */
 export default {
   name: "NutritionFacts",
