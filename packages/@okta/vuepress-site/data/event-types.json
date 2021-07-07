@@ -1,6 +1,6 @@
 {
-  "release" : "2021.06.1",
-  "build" : "2021.06.1-begin-75-g2deed98c55cb",
+  "release" : "2021.07.1",
+  "build" : "2021.07.1-begin-64-gb7f5e2c62280",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -674,6 +674,10 @@
     "description" : "Group.",
     "tags" : [ ]
   }, {
+    "id" : "oie-only",
+    "description" : "OIE-only. Useful when migrating to or analyzing behavior differences in OIE. Used to denote event types which are only present when OIE is activated.",
+    "tags" : [ ]
+  }, {
     "id" : "end-user-visible",
     "description" : "",
     "tags" : [ ]
@@ -739,6 +743,10 @@
     "tags" : [ ]
   }, {
     "id" : "workflows",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "certification",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -4388,7 +4396,7 @@
       }
     }, {
       "id" : "application.policy.sign_on.deny_access",
-      "category" : "authn",
+      "category" : "mfa-platform",
       "description" : "Deny user access due to app sign on policy. When fired due to app assurance being evaluated as unsatisfiable (the policy requirements could not be satisfied by the users' current set of available authenticator enrollments), this event contains information about the user and the app that the user is trying to authenticate into.",
       "info" : {
         "created" : "2016-03-24",
@@ -5390,6 +5398,142 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "certification.campaign.create",
+      "category" : "id-fabric",
+      "description" : "Triggered when a new campaign is created. Can be used to audit campaign activity in the system log as well as reports. This is triggered by creating a new campaign.",
+      "info" : {
+        "created" : "2021-05-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "certification.campaign.delete",
+      "category" : "id-fabric",
+      "description" : "Triggered when a campaign is deleted. Can be used to audit campaign activity in the system log as well as reports. This is triggered by deleting a campaign.",
+      "info" : {
+        "created" : "2021-05-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "certification.campaign.update",
+      "category" : "id-fabric",
+      "description" : "Triggered when a campaign is updated. Can be used to audit campaign activity in the system log as well as reports. This is triggered by updating a campaign.",
+      "info" : {
+        "created" : "2021-05-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "certification.campaign_item.approve",
+      "category" : "id-fabric",
+      "description" : "Triggered when access to a resource has been approved. Can be used to audit campaign item activity in the system log as well as reports. This is triggered by approving access to a resource.",
+      "info" : {
+        "created" : "2021-05-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "certification.campaign_item.delegate",
+      "category" : "id-fabric",
+      "description" : "Triggered when resource access request has been delegated. Can be used to audit the campaign item activity in the system log as well as reports and registered as an event hook to use in workflows. This is triggered by delegating the resource access request to someone else.",
+      "info" : {
+        "created" : "2021-05-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification", "event-hook-eligible" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "certification.campaign_item.revoke",
+      "category" : "id-fabric",
+      "description" : "Triggered when access to a resource has been revoked. Can be used to audit campaign item activity in the system log as well as reports. This is triggered by revoking access to a resource.",
+      "info" : {
+        "created" : "2021-05-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "certification.remediation.complete",
+      "category" : "id-fabric",
+      "description" : "Triggered when the remediation enters the remediated state. Can be used to audit remediation activity in the system log as well as reports. This is triggered when the remediation enters the remediated state.",
+      "info" : {
+        "created" : "2021-05-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "certification.remediation.open",
+      "category" : "id-fabric",
+      "description" : "Triggered when the remediation state is open. Can be used to audit remediation activity in the system log as well as reports. This is triggered when the remediation state is open.",
+      "info" : {
+        "created" : "2021-05-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "core.concurrency.org.limit.violation",
       "category" : "performance",
       "description" : "Too many requests in flight.",
@@ -5484,7 +5628,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "device-identity", "event-hook-eligible", "user" ],
+      "tags" : [ "device-identity", "event-hook-eligible", "oie-only", "user" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : "SystemDebugData",
@@ -7091,7 +7235,7 @@
       }
     }, {
       "id" : "policy.evaluate_sign_on",
-      "category" : "authn",
+      "category" : "mfa-platform",
       "description" : "",
       "info" : {
         "created" : "2017-03-10",
@@ -7430,7 +7574,24 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
-      "id" : "security.attack.detect",
+      "id" : "security.attack.end",
+      "category" : "adaptive",
+      "description" : "Fired when Threat Insight detects that an org is no longer under attack. This can be used to monitor when our models no longer detect an attack on an org. When this event is fired, Threat Insight will stop being extra aggressive in logging and/or blocking suspicious requests. This is fired from within an internal Okta context and therefore will not have any request level context information.",
+      "info" : {
+        "created" : "2021-02-05",
+        "release" : "2021.02.2"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "threat-insight" ],
+      "mappings" : [ "security.attack.end" ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "security.attack.start",
       "category" : "adaptive",
       "description" : "Fired when Threat Insight detects that an org is under attack. This can be used to monitor attacks against your organization. When this event is fired, Threat Insight will automatically become more aggressive in logging and/or blocking suspicious requests. This is fired from within an internal Okta context and therefore will not have any request level context information.",
       "info" : {
@@ -7440,7 +7601,7 @@
       "beta" : true,
       "internal" : false,
       "tags" : [ "threat-insight" ],
-      "mappings" : [ "security.attack.detect" ],
+      "mappings" : [ "security.attack.start" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -7456,7 +7617,7 @@
       },
       "beta" : true,
       "internal" : false,
-      "tags" : [ "authenticator", "event-hook-eligible" ],
+      "tags" : [ "authenticator", "event-hook-eligible", "oie-only" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -7473,7 +7634,7 @@
       },
       "beta" : true,
       "internal" : false,
-      "tags" : [ "authenticator", "event-hook-eligible" ],
+      "tags" : [ "authenticator", "event-hook-eligible", "oie-only" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -7577,23 +7738,6 @@
       "internal" : false,
       "tags" : [ "device", "security" ],
       "mappings" : [ "security.device.temporarily_disable_blacklisting" ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null
-      }
-    }, {
-      "id" : "security.internal.attack_end",
-      "category" : "adaptive",
-      "description" : "Fired when Threat Insight detects that an org is no longer under attack. This can be used to monitor when out models no longer detect an attack on an org. For internal use only.",
-      "info" : {
-        "created" : "2021-02-05",
-        "release" : "2021.02.2"
-      },
-      "beta" : true,
-      "internal" : true,
-      "tags" : [ "threat-insight" ],
-      "mappings" : [ "security.internal.attack_end" ],
       "schema" : {
         "debugData" : null,
         "actor" : null,
@@ -8791,7 +8935,7 @@
       }
     }, {
       "id" : "system.email.account_unlock.sent_message",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Send self-service account unlock email.",
       "info" : {
         "created" : "2016-03-17",
@@ -8876,7 +9020,7 @@
       }
     }, {
       "id" : "system.email.password_reset.sent_message",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Send self-service password reset email.",
       "info" : {
         "created" : "2016-03-17",
@@ -8909,16 +9053,50 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.email.template.create",
+      "category" : "developer-platform",
+      "description" : "This event is fired when a custom email template is created. Developers and Org Admins can use this to identify when a default email template has been overridden with a new template. The event details can be used to identify the template type and template engine. Usually this event will precede \"system.email.template.update\" or \"system.email.template.delete\" events.",
+      "info" : {
+        "created" : "2021-06-28",
+        "release" : "2021.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin", "email" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "EmailTemplateResourceDetails" ]
+      }
+    }, {
+      "id" : "system.email.template.delete",
+      "category" : "developer-platform",
+      "description" : "This event is fired when a custom email template is deleted. Developers and Org Admins can use this to identify when a custom email template has been deleted to fall back to default template. The event details can be used to identify the template type and template engine. Usually this event will follow \"system.email.template.create\" or \"system.email.template.update\" events.",
+      "info" : {
+        "created" : "2021-06-28",
+        "release" : "2021.07.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin", "email" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "EmailTemplateResourceDetails" ]
+      }
+    }, {
       "id" : "system.email.template.update",
       "category" : "idx",
-      "description" : "Fired when a custom email template has been updated. Can be used to identify when an admin user has updated a custom email template. This event can be used to understand which email template has been updated, but this event does not provide information about the type of update made to a template.",
+      "description" : "This event is fired when a custom email template has been updated. Developers and Org Admins can use this to identify when a custom email template has been updated. The event details can be used to identify the template type and template engine. Usually this event will follow \"system.email.template.create\" and precede \"system.email.template.delete\" events.",
       "info" : {
         "created" : "2020-02-28",
         "release" : "2020.03.0"
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "admin" ],
+      "tags" : [ "admin", "email" ],
       "mappings" : [ "system.email.template.update" ],
       "schema" : {
         "debugData" : "SystemDebugData",
@@ -10304,7 +10482,7 @@
       }
     }, {
       "id" : "system.sms.send_account_unlock_message",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Send self-service account unlock SMS message.",
       "info" : {
         "created" : "2016-03-16",
@@ -10321,7 +10499,7 @@
       }
     }, {
       "id" : "system.sms.send_factor_verify_message",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Send second factor auth SMS.",
       "info" : {
         "created" : "2016-03-16",
@@ -10355,7 +10533,7 @@
       }
     }, {
       "id" : "system.sms.send_password_reset_message",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Send self-service password reset SMS message.",
       "info" : {
         "created" : "2016-03-16",
@@ -10372,7 +10550,7 @@
       }
     }, {
       "id" : "system.sms.send_phone_verification_message",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Send phone verification SMS message.",
       "info" : {
         "created" : "2016-03-16",
@@ -10406,7 +10584,7 @@
       }
     }, {
       "id" : "system.voice.send_account_unlock_call",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Send self-service account unlock call.",
       "info" : {
         "created" : "2017-10-27",
@@ -10423,7 +10601,7 @@
       }
     }, {
       "id" : "system.voice.send_call",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Send phone call.",
       "info" : {
         "created" : "2017-10-27",
@@ -10440,7 +10618,7 @@
       }
     }, {
       "id" : "system.voice.send_mfa_challenge_call",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Send second factor auth call.",
       "info" : {
         "created" : "2017-10-27",
@@ -10457,7 +10635,7 @@
       }
     }, {
       "id" : "system.voice.send_password_reset_call",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Send self-service password reset call.",
       "info" : {
         "created" : "2017-10-27",
@@ -10474,7 +10652,7 @@
       }
     }, {
       "id" : "system.voice.send_phone_verification_call",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Send phone verification call.",
       "info" : {
         "created" : "2017-10-27",
@@ -10593,7 +10771,7 @@
       }
     }, {
       "id" : "user.account.lock",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Auto-lock user account for Okta.",
       "info" : {
         "created" : "2016-01-08",
@@ -10678,7 +10856,7 @@
       }
     }, {
       "id" : "user.account.reset_password",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Fired when the user's Okta password is reset.",
       "info" : {
         "created" : "2016-04-01",
@@ -10695,7 +10873,7 @@
       }
     }, {
       "id" : "user.account.unlock",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Auto-unlock user account for Okta.",
       "info" : {
         "created" : "2016-04-01",
@@ -10712,7 +10890,7 @@
       }
     }, {
       "id" : "user.account.unlock_by_admin",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "User account unlock by admin.",
       "info" : {
         "created" : "2016-04-01",
@@ -10729,7 +10907,7 @@
       }
     }, {
       "id" : "user.account.unlock_failure",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Failed to schedule unlock job for user.",
       "info" : {
         "created" : "2018-05-31",
@@ -10746,7 +10924,7 @@
       }
     }, {
       "id" : "user.account.unlock_token",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Issued recovery token for self-service account unlock.",
       "info" : {
         "created" : "2017-11-15",
@@ -10763,7 +10941,7 @@
       }
     }, {
       "id" : "user.account.update_password",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "User update password for Okta.",
       "info" : {
         "created" : "2016-04-01",
@@ -10984,7 +11162,7 @@
       }
     }, {
       "id" : "user.authentication.auth_via_mfa",
-      "category" : "mfa-factors",
+      "category" : "mfa-platform",
       "description" : "Authentication of user via MFA.",
       "info" : {
         "created" : "2016-01-08",
@@ -11273,7 +11451,7 @@
       }
     }, {
       "id" : "user.lifecycle.password_mass_expiry",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Mass expire all users' passwords initiated.",
       "info" : {
         "created" : "2018-01-17",
@@ -11341,7 +11519,7 @@
       }
     }, {
       "id" : "user.mfa.attempt_bypass",
-      "category" : "mfa-factors",
+      "category" : "mfa-platform",
       "description" : "Attempt bypass of factor.",
       "info" : {
         "created" : "2016-03-08",
@@ -11358,7 +11536,7 @@
       }
     }, {
       "id" : "user.mfa.factor.activate",
-      "category" : "mfa-factors",
+      "category" : "mfa-platform",
       "description" : "Activate factor for user. Provides org admins with audit log and oversight utility for an MFA factor when it is activated. When fired, the event contains information about the MFA factor that has been activated, as well as the target user and the user activating the factor.",
       "info" : {
         "created" : "2016-03-08",
@@ -11375,7 +11553,7 @@
       }
     }, {
       "id" : "user.mfa.factor.deactivate",
-      "category" : "mfa-factors",
+      "category" : "mfa-platform",
       "description" : "Reset factor for user. Provides org admins with audit log and oversight utility for the change in MFA factor lifecycle status when a specific factor is permanently deactivated. When fired, the event contains information about the MFA factor that has been deactivated, as well as the target user and the user deactivating the factor.",
       "info" : {
         "created" : "2016-03-08",
@@ -11392,7 +11570,7 @@
       }
     }, {
       "id" : "user.mfa.factor.reset_all",
-      "category" : "mfa-factors",
+      "category" : "mfa-platform",
       "description" : "Reset all factors for user. Provides org admins with audit log and oversight utility for the change in MFA factor lifecycle statuses when all MFA factors for a user are permanently deactivated. When fired, the event contains information about the target user for whom all factors have been deactivated, as well as the user resetting the factors.",
       "info" : {
         "created" : "2016-03-08",
@@ -11409,7 +11587,7 @@
       }
     }, {
       "id" : "user.mfa.factor.suspend",
-      "category" : "mfa-factors",
+      "category" : "enterprise-auth",
       "description" : "Suspend factor for user. Provides org admins with audit log and oversight utility for the change in MFA factor lifecycle status when a factor is suspended, usually as a result of suspected compromise. When fired, the event contains information about the MFA factor that has been suspended, as well as the target user and the user suspending the factor. When unsuspended, related event user.mfa.factor.unsuspend will be fired.",
       "info" : {
         "created" : "2020-09-17",
@@ -11417,7 +11595,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "event-hook-eligible", "mfa" ],
+      "tags" : [ "event-hook-eligible", "mfa", "oie-only" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -11426,7 +11604,7 @@
       }
     }, {
       "id" : "user.mfa.factor.unsuspend",
-      "category" : "mfa-factors",
+      "category" : "enterprise-auth",
       "description" : "Unsuspend factor for user. Provides org admins with audit log and oversight utility for the change in MFA factor lifecycle status when a factor is reactivated from a state of suspension, after it has been determined that the authenticator is secure. When fired, the event contains information about the MFA factor that has been unsuspended, as well as the target user and the user reactivating the suspended factor. Before suspension, related event user.mfa.factor.suspend would have been fired.",
       "info" : {
         "created" : "2020-09-17",
@@ -11434,7 +11612,7 @@
       },
       "beta" : false,
       "internal" : false,
-      "tags" : [ "event-hook-eligible", "mfa" ],
+      "tags" : [ "event-hook-eligible", "mfa", "oie-only" ],
       "mappings" : [ ],
       "schema" : {
         "debugData" : null,
@@ -11443,7 +11621,7 @@
       }
     }, {
       "id" : "user.mfa.factor.update",
-      "category" : "mfa-factors",
+      "category" : "mfa-platform",
       "description" : "Update factor for user.",
       "info" : {
         "created" : "2016-03-08",
@@ -11460,7 +11638,7 @@
       }
     }, {
       "id" : "user.mfa.okta_verify",
-      "category" : "mfa-factors",
+      "category" : "enterprise-auth",
       "description" : "Verify user with Okta verify.",
       "info" : {
         "created" : "2016-03-08",
@@ -11477,7 +11655,7 @@
       }
     }, {
       "id" : "user.mfa.okta_verify.deny_push",
-      "category" : "mfa-factors",
+      "category" : "enterprise-auth",
       "description" : "User rejected Okta push verify.",
       "info" : {
         "created" : "2018-01-09",
@@ -11528,7 +11706,7 @@
       }
     }, {
       "id" : "user.session.clear",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Clear user session.",
       "info" : {
         "created" : "2016-04-01",
@@ -11545,7 +11723,7 @@
       }
     }, {
       "id" : "user.session.end",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "User logout from Okta.",
       "info" : {
         "created" : "2016-01-08",
@@ -11562,7 +11740,7 @@
       }
     }, {
       "id" : "user.session.expire",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "Expire user session.",
       "info" : {
         "created" : "2016-04-01",
@@ -11664,7 +11842,7 @@
       }
     }, {
       "id" : "user.session.start",
-      "category" : "authn",
+      "category" : "cred-platform",
       "description" : "User login to Okta.",
       "info" : {
         "created" : "2016-01-08",
@@ -23106,6 +23284,14 @@
             "format" : "id",
             "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
           },
+          "factor_intent" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "LOGIN", "CREDENTIAL_ENROLLMENT", "CREDENTIAL_RECOVERY" ]
+          },
           "factor" : {
             "type" : "String",
             "sensitive" : false,
@@ -24704,6 +24890,22 @@
       "EmailTemplateResourceDetails" : {
         "name" : "EmailTemplateResourceDetails",
         "properties" : {
+          "email_template_language" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "EN", "zh_CN" ]
+          },
+          "email_template_engine" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "MUSTACHE", "EL", "VELOCITY" ]
+          },
           "email_template_type" : {
             "type" : "String",
             "sensitive" : false,
