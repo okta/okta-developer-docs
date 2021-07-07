@@ -299,6 +299,6 @@ The following table includes the available `Subtypes` for operation rate limits.
 
 | Subtype           | Description                                                         |
 | ----------------- | ------------------------------------------------------------------- |
-| `Email`           | The user exceeded their limit for sending email messages            |
+| `Email`           | The user exceeded their limit for sending email messages.            |
 | `SMS`             | The user exceeded their limit for sending SMS                       |
 | `Voice call`      | The user exceeded their limit for sending voice-call messages       |
