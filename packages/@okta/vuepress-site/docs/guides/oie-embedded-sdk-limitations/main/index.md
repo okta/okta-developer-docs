@@ -40,20 +40,14 @@ The following image shows an example of the sign-in email's content.
 
 Users can use other means to sign in, such as by entering the password or through social identity providers.
 
-## Primary factor for the Okta sign-in policy rule set to Password/IDP
+## Primary factor for the Okta sign-in policy rule
 
 ### Description
 
-Currently, the SDK only supports the primary factor for the Org’s
-global sign in policy to be set to **Password / IDP**. This limitation is due
-to the fact that the SDK currently only supports password and IDP as
-factors to sign in to an app.  To identify the current value
-for this field perform the following steps:
+The primary factor for the Org's global sign-in policy must be set to **Password/IDP**, because the SDK currently only supports password and IDP as factors to sign in to an app. To identify the current value for this field, perform the following steps:
 
-1. In the Admin Console (for the Okta org you set up in the previous step),
-   select **Security > Okta Sign-on policy** from the left navigation menu.
-1. Take note of the number of policies configured. The Default policy is
-   automatically created when the Org is created and will have a default rule with the **Primary factor** set to **Password / IDP**. To verify this value, expand the **Default Policy’s Default rule** by clicking on the information icon to the right of the rule. Note the value of the Primary factor which should be set to Password / IDP.
+1. In the Admin Console for the Okta org you set up, select **Security** > **Okta Sign-on policy** from the left-hand navigation pane.
+1. Take note of the number of policies configured. The Default policy is automatically created when the Org is created and will have a default rule with the **Primary factor** set to **Password / IDP**. To verify this value, expand the **Default Policy’s Default rule** by clicking on the information icon to the right of the rule. Note the value of the Primary factor which should be set to Password / IDP.
 1. If there is another rule defined to the Default Policy or there are other
    policies defined, ensure that the policy rule’s **Primary factor** field
    is set to **Password / IDP**.
