@@ -63,7 +63,7 @@ N/A
 
 An Array of [Authenticator Objects](#authenticator-object)
 
-#### Usage example
+#### Use example
 
 This request returns all available Authenticators:
 
@@ -286,7 +286,7 @@ N/A
 
 The requested [Authenticator](#Authenticator-object)
 
-#### Usage example
+#### Use example
 
 Returns the Authenticator with an `id` value of `aut1nd8PQhGcQtSxB0g4`:
 
@@ -363,7 +363,7 @@ N/A
 
 Returns an [Authenticator](#authenticator-object)
 
-#### Usage example
+#### Use example
 
 Sets the `status` of the specified Authenticator to `ACTIVE`
 
@@ -442,7 +442,7 @@ N/A
 
 Returns an [Authenticator](#Authenticator-object).
 
-#### Usage example
+#### Use example
 
 Sets the `status` of the specified Authenticator to `INACTIVE`
 
@@ -524,7 +524,7 @@ The Authenticators Administration API only involves one object: the Authenticato
 
 ### Authenticator object
 
-#### Authenticator Properties
+#### Authenticator properties
 
 The Authenticator object defines the following properties:
 
