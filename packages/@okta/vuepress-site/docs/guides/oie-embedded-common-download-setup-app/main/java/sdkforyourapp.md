@@ -1,39 +1,37 @@
-#### Step 1: Set up your app for .Net 4.8 or greater
+#### Step 1: Set up your app with prerequisites
 
-The SDK and samples are built using .Net 4.8.
+Ensure you have all the [software requirements](#software-requirements) and have cloned the [okta-idx-java](https://github.com/okta/okta-idx-java) repository.
 
-#### Step 2: Add the Okta SDK Nuget Packages
+#### Step 2: Import packages and add framework
 
-Before using the SDK in your own app, you need to add the following
-Nuget packages to your project:
+The Java SDK includes the Sprint Boot framework, which are used in both embedded authentication sample apps. Import the Okta API packages as well as any Sprint Boot packages you need.
 
-* `Okta.Idx.Sdk`
-* `Okta.Sdk.Abstractions`
+For example:
 
-> **Note:** Nuget packages are pre-release. When you search for Nuget
-packages in Visual Studio, ensure that the pre-release checkbox is selected.
+```java
+package com.okta.spring.example;
 
-#### Step 3: Initialize IdxClient
-
-All functionality in the SDK is accessed through the methods of the
-`IdxClient` object. After you add the Nuget packages, the next step
-is to initialize the `IdxClient`. There are two steps to initialize
-the client:
-
-1. Add the following namespaces:
-   * `Okta.Idx.Sdk`
-   * `Okta.Sdk.Abstractions`
-1. Initialize the `IdxClient`
-
-See the following sample code for more details:
-
-```csharp
-using Okta.Idx.Sdk;
-using Okta.Sdk.Abstractions;
-
-var idxAuthClient = new IdxClient();
+import com.okta.idx.sdk.api.client.IDXAuthenticationWrapper;
+import com.okta.idx.sdk.api.client.ProceedContext;
+import com.okta.idx.sdk.api.response.AuthenticationResponse;
+import com.okta.idx.sdk.api.response.TokenResponse;
+import com.okta.spring.example.helpers.HomeHelper;
+import com.okta.spring.example.helpers.ResponseHandler;
+import com.okta.spring.example.helpers.Util;
 ```
 
-> **Note:** You can pass configuration values into the object's constructor.
-See
-[Option 3: Add parameter to the SDK's client constructor](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/#option-3-add-parameter-to-the-sdk-s-client-constructor).
+#### Step 3: Instantiate IDXAuthenticationWrapper
+
+Authentication Okta APIs can be invoked after the `IDXAuthenticationWrapper` object is instantiated.
+
+Code snippet example:
+
+```java
+import com.okta.idx.sdk.api.client.IDXAuthenticationWrapper;
+import com.okta.idx.sdk.api.client.ProceedContext;
+import com.okta.idx.sdk.api.response.AuthenticationResponse;
+import com.okta.idx.sdk.api.response.TokenResponse;
+
+
+AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin()
+```

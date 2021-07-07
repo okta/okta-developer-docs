@@ -6,7 +6,7 @@ There are several options to set the application's configuration:
 4. Configure Java system properties
 5. Program the configuration explicitly in your application
 
-Each increasing configuration step supersedes the previous configuration. For example, if you configure the `~/.okta/okta.yaml` file and set environment variables with different configuration values, the values in the environment variables will override the configurations in the `~/.okta/okta.yaml` file.
+Each increasing configuration option supersedes the previous configuration. For example, if you configure the `~/.okta/okta.yaml` file and set environment variables with different configuration values, the values in the environment variables will override the configurations in the `~/.okta/okta.yaml` file.
 
 ### Option 1 and 2: YAML configuration
 
@@ -18,7 +18,7 @@ Create a YAML file named `okta.yaml` in one of the following three directories:
 
 * Application or project's root directory
 
-The file format is shown below:
+Below is the required content format for the YAML file:
 
 ```yaml
 okta:
@@ -44,7 +44,7 @@ okta:
     - "openid"
     - "profile"
     - "offline_access"
-    redirectUri: "https://loginredirect.com"
+    redirectUri: "http://localhost:8080/login"
 ```
 
 Where you are using the default Custom Authorization Server and
@@ -52,7 +52,7 @@ Where you are using the default Custom Authorization Server and
 * `{yourOktaDomain}=dev-1234.okta.com`
 * `{clientId}=123xyz`
 * `{clientSecret}=123456abcxyz`
-* `{redirectUri}=https://loginredirect.com`
+* `{redirectUri}=http://localhost:8080/login`
 
 ### Option 3: Environment variables
 
@@ -64,9 +64,9 @@ Add the configuration values as environment variables with the following naming 
 * `OKTA_IDX_REDIRECTURI`
 * `OKTA_IDX_SCOPES`
 
-For example, in bash or zsh, set `OKTA_IDX_ISSUER`:
+Here is an example of setting `OKTA_IDX_ISSUER` in bash or zsh:
 
-```zsh
+```bash
 export OKTA_IDX_ISSUER=https://dev-1234.okta.com/oauth2/default
 ```
 
@@ -82,27 +82,14 @@ Use the following configuration values, written in 'dot' notation, as Java syste
 
 For example:
 
-```zsh
+```bash
 mvn -Dokta.idx.issuer=https://dev-1234.okta.com/oauth2/default \
     -Dokta.idx.clientId=123xyz \
     -Dokta.idx.clientSecret=123456abcxyz \
     -Dokta.idx.scopes="openid profile offline_access" \
-    -Dokta.idx.redirectUri=https://loginredirect.com
+    -Dokta.idx.redirectUri=http://localhost:8080/login
 ```
 
 ### Option 5: Add configuration to the SDK's client constructor
 
-Add the values as parameters to the constructor for the `IdxClient`.
-
-```csharp
- var client = new IdxClient(new IdxConfiguration()
-           {
-               Issuer = "{YOUR_ISSUER}",
-               ClientId = "{YOUR_CLIENT_ID}",
-               ClientSecret = "{YOUR_CLIENT_SECRET}",
-               RedirectUri = "{YOUR_REDIRECT_URI}",
-               Scopes = new List<string>{"openid","profile", "offline_access"}
-           });
-```
-
-> **Note:** NOT SURE IF THIS APPLIES to JAVA! Maybe remove this section???
+> **Note:**  Maybe remove this section for Java? This should be an advanced topic and should not be spelled out for the novice.

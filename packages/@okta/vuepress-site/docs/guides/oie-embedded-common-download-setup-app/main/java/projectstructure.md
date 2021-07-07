@@ -1,10 +1,12 @@
-The source code from the sample app and SDK are located here:
-`.../okta-idx-dotnet/src`. Under the `src` folder, the project structure
-consists of the following:
+The Identity Engine Java SDK project consists of the following directories:
 
-* `okta-idx-dotnet/src`: SDK source, unit tests, and integration tests
-* `okta-idx-dotnet/samples`: Sample directory
-* `okta-idx-dotnet/samples/samples-aspnet/embedded-auth-with-sdk`:
-    Embedded SDK sample
-* `okta-idx-dotnet/samples/samples-aspnet/embedded-sign-in-widget`:
-    Embedded Sign-In Widget sample
+* `okta-idx-java/api/src`: API source
+* `okta-idx-java/api/src/test`: API unit tests
+* `okta-idx-java/src`: Java Sprint Boot framework source
+* `okta-idx-java/samples`: Sample app directory
+* `okta-idx-java/samples/embedded-auth-with-sdk`:
+    Embedded SDK app sample
+* `okta-idx-java/samples/embedded-sign-in-widget`:
+    Embedded Sign-In Widget app sample
+* `okta-idx-java/integration-tests`: Integration tests
+* `okta-idx-java/coverage`: ???
