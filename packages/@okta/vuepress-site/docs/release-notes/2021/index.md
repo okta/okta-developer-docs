@@ -1,6 +1,50 @@
 ---
 title: Okta API Products Release Notes 2021
 ---
+## July
+
+### Monthly Release 2021.07.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Support for Push Status using the Apps API is GA in Preview](#support-for-push-status-using-the-apps-api-is-ga-in-preview) | July 8, 2021 |
+| [Provisioning for Org2Org app integrations is GA in Production](#provisioning-for-org2org-app-integrations-is-ga-in-production) | July 8, 2021 |
+| [New Domains API response properties available](#new-domains-api-response-properties-available) | July 8, 2021 |
+| [Rate limit events for user and session user activity](#rate-limit-events-for-user-and-session-user-activity) | July 8, 2021 |
+| [Schema API feature unique attributes is now GA in Preview](#schema-api-feature-unique-attributes-is-now-ga-in-preview) | July 8, 2021 |
+| [Bugs fixed in 2021.07.0](#bugs-fixed-in-2021-07-0) | July 8, 2021 |
+
+#### Support for Push Status using the Apps API is GA in Preview
+
+Developers can use the `pushStatus` parameter to handle a username update to an app integration. Previously, this option wasn't available through the [Apps API](/docs/reference/api/apps), which caused inconsistent behavior between app integrations configured using the Okta Admin Console and those configured through the API.
+<!--OKTA-405533-->
+
+#### Provisioning for Org2Org app integrations is GA in Production
+
+Previously, Okta admins could only configure provisioning for the Org2Org app integration using the Admin Console. With the introduction of Multi-Org functions within the [Apps API](/docs/reference/api/apps), you can write code scripts or use SDKs to automate Okta hub and spoke scenarios.
+
+Additionally, you can set or update the Logo or Notes fields for any of your Okta app integrations using the API. <!--OKTA-405943-->
+
+#### New Domains API response properties available
+
+The [Domains API](/docs/reference/api/domains) includes the new response object properties of `certificateSourcetype` and `expiration`. The `certificateSourcetype` is a required property that indicates whether the Certificate is provided by the user. The accepted value is `Manual`. The `expiration` property on the DNSrecord object is an optional property that defines the TXT record expiration. <!--OKTA-403600-->
+
+#### Rate limit events for user and session user activity
+
+Previously, rate limit violation events for user and session user were logged as org-wide system events (`system.org.rate_limit.violation`). These rate limit violation events are now logged more specifically as [operation events](/docs/reference/rl-system-log-events/#operation-rate-limits) (`system.operation.rate_limit.violation`). <!--OKTA-394607-->
+
+#### Schema API feature unique attributes is now GA in Preview
+
+The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#uniqueattributes) for custom properties in Okta user profiles and the Okta Group profile. You can declare a maximum of five unique properties for each user type and five unique properties in the Okta group profile. This feature helps prevent the duplication of data and ensures data integrity. <!--OKTA-400824-->
+
+#### Bugs fixed in 2021.07.0
+
+- The IdP claim was not available in the `id_token` or included with the Token Inline Hook request. (OKTA-407459)
+
+- When the Users lifecycle API `users/{{userId}}/lifecycle/reset_factors` was called to reset user factors, a status 403 error was received, even with a valid bearer token and scope (`okta.users.manage`). (OKTA-404613)
+
+- When an OIDC client app was created, the [Apps API](/docs/reference/api/apps) call could not modify the `visibility.hide` property. (OKTA-399408)
+
 ## June
 
 ### Weekly Release 2021.06.4
