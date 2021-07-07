@@ -1834,10 +1834,11 @@ In case `enum` is used in conjunction with `oneOf`, the set of enumerated values
 
 Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) with the following keywords:
 
-| Property      | Description                                     | DataType                                                                  | Nullable | Unique | Readonly |
-| :------------- | :----------------------------------------------- | :------------------------------------------------------------------------- | :--------- | :------ | :-------- |
-| required      | determines whether the property is required     | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
-| permissions   | access control permissions for the property     | Array of [Schema property permission](#schema-property-permission-object) | FALSE    | FALSE  | FALSE    |
+| Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
+| :---------------------------------- | :---------------------------------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
+| required                            | Determines whether the property is required                       | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
+| [unique](#unique-attribute)         | Determines whether property values must be unique                 | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
+| permissions                         | Access control permissions for the property                       | Array of [Schema property permission](#schema-property-permission-object) | FALSE    | FALSE  | FALSE    |
 
 > **Note:** A read-only [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) compliant `required` property is also available on the [User Profile Subschemas](#user-profile-subschemas).
 
@@ -2430,10 +2431,11 @@ In case `enum` is used in conjunction with `oneOf`, the set of enumerated values
 
 Okta has also extended [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) with the following keywords:
 
-| Property      | Description                                     | DataType                                                                  | Nullable | Unique | Readonly |
-| :------------- | :----------------------------------------------- | :------------------------------------------------------------------------- | :--------- | :------ | :-------- |
-| required      | Determines whether the property is required     | Boolean                                                                   | FALSE    | FALSE  | FALSE    |
-| scope         | Determines whether a group attribute can be set at the individual or group level | `SELF`, `NONE`                           | FALSE    | FALSE  | TRUE     |
+| Property                       | Description                                                                      | DataType                    | Nullable | Unique | Readonly |
+| :----------------------------- | :------------------------------------------------------------------------------- | :-------------------------- | :------- | :----- | :------- |
+| required                       | Determines whether the property is required                                      | Boolean                     | FALSE    | FALSE  | FALSE    |
+| [unique](#unique-attribute)    | Determines whether property values must be unique                                | Boolean                     | FALSE    | FALSE  | FALSE    |
+| scope                          | Determines whether a group attribute can be set at the individual or group level | `SELF`, `NONE`              | FALSE    | FALSE  | TRUE     |
 
 > **Note:** A read-only [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) compliant `required` property is also available on [Group Profile subschemas](#group-profile-subschemas).
 
@@ -2462,3 +2464,528 @@ Specific property types support a subset of [JSON Schema validations](https://to
 | `number`      | [JSON Number](https://tools.ietf.org/html/rfc7159#section-6) with double-precision 64-bit IEEE 754 floating point number constraint | `minimum` and `maximum`     |
 | `integer`     | [JSON Number](https://tools.ietf.org/html/rfc7159#section-6) with 32-bit signed two's complement integer constraint           | `minimum` and `maximum`     |
 | `array`       | [JSON Array](https://tools.ietf.org/html/rfc7159#section-5)                                                                         |                             |
+
+## Unique attributes
+
+You can enforce uniqueness for custom properties in Okta user profiles or the Okta group profile, such as an employee identification number. You can declare a maximum of five unique properties for each user type and five unique properties in the Okta group profile. Different user types can have the same or different unique properties (up to the limit of five per type).
+
+Unique properties in Okta user profiles share a single namespace across all [user types](/docs/reference/api/user-types) in an org. If user types A and B both contain the property `ice cream` and you identify it as unique in both profiles, then if a user of type A has the value `chocolate`, no other users of type A or B (or any other user type which declares `ice cream` as unique) can have that value.
+
+Properties that aren't unique also aren't tracked for uniqueness. Suppose the property `candy` is unique in type E and not unique in type F. If a user of type E has the value `caramel` for the `candy` property, no other users of type E can also have the value `caramel`, but any number of users of type F can already have or later be assigned the value `caramel`. Furthermore, because `candy` is not unique in type F, any values users of type F may have are not considered when enforcing uniqueness for users of type E. No matter how many users of type F already have the value `cotton`, it may be assigned to a user of type E as long as no other such user already has that value.
+
+If you attempt to create or update a user with a duplicate value for a custom user property with a uniqueness restriction, the user creation or update operation fails. The user isn't created or updated until you enter a unique value. Similarly, creating or updating a group will fail when the request contains a value for a unique custom group property that is duplicated by another group.
+
+`null` values don't enter into the uniqueness calculation. If the unique property is not also specified as being required, you can also omit the value entirely; multiple users or groups can omit the property and not violate uniqueness.
+
+To enforce uniqueness for custom properties, you can either add new unique custom properties or update existing custom properties to be unique.
+
+### Add new unique custom property
+
+You can use the [add property to user profile schema](#add-property-to-user-profile-schema) request or the [add property to group profile schema](#add-property-to-group-profile-schema) request to add one or more unique custom user or group properties. Specify `"unique": true` on the properties to be marked as unique. The response shows the properties with `"unique": "UNIQUE_VALIDATED"` and uniqueness is then enforced on those properties.
+
+##### Request example
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "definitions": {
+    "custom": {
+      "id": "#custom",
+      "type": "object",
+      "properties": {
+        "twitterUserName": {
+          "title": "Twitter username",
+          "description": "Twitter Username",
+          "type": "string",
+          "required": false,
+          "unique": true,
+          "minLength": 1,
+          "maxLength": 20,
+          "permissions": [
+            {
+              "principal": "SELF",
+              "action": "READ_WRITE"
+            }
+          ]
+        }
+      },
+      "required": []
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/user/default"
+```
+
+##### Response example
+
+The following response is only a subset of properties for brevity.
+
+```json
+{
+    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "name": "user",
+    "title": "Default Okta User",
+    "lastUpdated": "2015-09-05T10:40:45.000Z",
+    "created": "2015-02-02T10:27:36.000Z",
+    "definitions": {
+        "base": {
+            "id": "#base",
+            "type": "object",
+            "properties": {
+                "login": {
+                    "title": "Username",
+                    "type": "string",
+                    "required": true,
+                    "minLength": 5,
+                    "maxLength": 100,
+                    "permissions": [
+                        {
+                            "principal": "SELF",
+                            "action": "READ_WRITE"
+                        }
+                    ]
+                },
+                "firstName": {
+                    "title": "First name",
+                    "type": "string",
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 50,
+                    "permissions": [
+                        {
+                            "principal": "SELF",
+                            "action": "READ_WRITE"
+                        }
+                    ]
+                },
+                "lastName": {
+                    "title": "Last name",
+                    "type": "string",
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 50,
+                    "permissions": [
+                        {
+                            "principal": "SELF",
+                            "action": "READ_WRITE"
+                        }
+                    ]
+                },
+                "email": {
+                    "title": "Primary email",
+                    "type": "string",
+                    "required": true,
+                    "format": "email",
+                    "permissions": [
+                        {
+                            "principal": "SELF",
+                            "action": "READ_WRITE"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "login",
+                "firstName",
+                "lastName",
+                "email"
+            ]
+        },
+        "custom": {
+            "id": "#custom",
+            "type": "object",
+            "properties": {
+              "twitterUserName": {
+                  "title": "Twitter username",
+                  "description": "User's username for twitter.com",
+                  "type": "string",
+                  "required": false,
+                  "unique": "UNIQUE_VALIDATED",
+                  "minLength": 1,
+                  "maxLength": 20,
+                  "permissions": [
+                      {
+                          "principal": "SELF",
+                          "action": "READ_WRITE"
+                      }
+                  ]
+              }
+            },
+            "required": []
+        }
+    },
+    "type": "object",
+    "properties": {
+        "profile": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/base"
+                },
+                {
+                    "$ref": "#/definitions/custom"
+                }
+            ]
+        }
+    }
+}
+```
+
+### Update existing custom property to be unique
+
+You can use the [update user profile schema property](#update-user-profile-schema-property) request or the [update group profile schema property](#update-group-profile-schema-property) request to mark existing custom user or group properties as unique by specifying `"unique": true` on the properties to be marked as unique.
+
+After the request to mark existing custom properties as unique is submitted, an asynchronous validation check is performed to make sure that there are no existing duplicate entries. If you have a significant number of users or groups, the validation can take some time.
+
+A uniqueness status of `"unique": "PENDING_UNIQUENESS"` indicates that the validation check is still in progress. Use the Universal Directory page in the Admin Console (**Directory** > **Directory Integrations**) to track the status of the validation check. After the validation completes, if you submit a [get user schema](#get-user-schema) request or a [get group schema](#get-group-schema) request, the property's uniqueness status changes to `UNIQUE_VALIDATED` if no duplicate records are found, and uniqueness is then enforced on that property. Otherwise, if duplicate records are found, the `unique` attribute of the schema property isn't shown in the get schema request and uniqueness isn't enforced on the schema property.
+
+##### Request example
+
+For the request example below, assume that the default user profile schema contains the custom property `twitterUserName` that is not unique.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "definitions": {
+    "base": {
+      "id": "#base",
+      "type": "object",
+      "properties": {
+        "firstName": {
+        "title": "First name",
+        "type": "string",
+        "required": false,
+        "mutability": "READ_WRITE",
+        "scope": "NONE",
+        "permissions": [
+          {
+            "principal": "SELF",
+            "action": "READ_ONLY"
+          }
+        ]
+      }
+    },
+    "required": []
+  },
+    "custom": {
+      "id": "#custom",
+      "type": "object",
+      "properties": {
+        "twitterUserName": {
+          "title": "Twitter username",
+          "description": "User'\''s username for twitter.com",
+          "type": "string",
+          "required": false,
+          "unique": true,
+          "minLength": 1,
+          "maxLength": 10,
+          "permissions": [
+            {
+              "principal": "SELF",
+              "action": "READ_ONLY"
+            }
+          ]
+        }
+      },
+      "required": []
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/user/default"
+```
+
+##### Response example
+
+The following response is only a subset of properties for brevity.
+
+```json
+{
+    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "name": "user",
+    "title": "Default Okta User",
+    "lastUpdated": "2015-09-05T10:40:45.000Z",
+    "created": "2015-02-02T10:27:36.000Z",
+    "definitions": {
+        "base": {
+            "id": "#base",
+            "type": "object",
+            "properties": {
+                "login": {
+                    "title": "Username",
+                    "type": "string",
+                    "required": true,
+                    "minLength": 5,
+                    "maxLength": 100,
+                    "permissions": [
+                        {
+                            "principal": "SELF",
+                            "action": "READ_WRITE"
+                        }
+                    ]
+                },
+                "firstName": {
+                    "title": "First name",
+                    "type": "string",
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 50,
+                    "permissions": [
+                        {
+                            "principal": "SELF",
+                            "action": "READ_WRITE"
+                        }
+                    ]
+                },
+                "lastName": {
+                    "title": "Last name",
+                    "type": "string",
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 50,
+                    "permissions": [
+                        {
+                            "principal": "SELF",
+                            "action": "READ_WRITE"
+                        }
+                    ]
+                },
+                "email": {
+                    "title": "Primary email",
+                    "type": "string",
+                    "required": true,
+                    "format": "email",
+                    "permissions": [
+                        {
+                            "principal": "SELF",
+                            "action": "READ_WRITE"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "login",
+                "firstName",
+                "lastName",
+                "email"
+            ]
+        },
+        "custom": {
+            "id": "#custom",
+            "type": "object",
+            "properties": {
+              "twitterUserName": {
+                  "title": "Twitter username",
+                  "description": "User's username for twitter.com",
+                  "type": "string",
+                  "required": false,
+                  "unique": "PENDING_UNIQUENESS",
+                  "minLength": 1,
+                  "maxLength": 10,
+                  "permissions": [
+                      {
+                          "principal": "SELF",
+                          "action": "READ_ONLY"
+                      }
+                  ]
+              }
+            },
+            "required": []
+        }
+    },
+    "type": "object",
+    "properties": {
+        "profile": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/base"
+                },
+                {
+                    "$ref": "#/definitions/custom"
+                }
+            ]
+        }
+    }
+}
+```
+
+### Update existing unique custom property to be non-unique
+
+You can use the [update user profile schema property](#update-user-profile-schema-property) request or the [update group profile schema property](#update-group-profile-schema-property) request to change existing unique custom user or group properties to be non-unique by specifying `"unique": false` on the properties to be changed to non-unique. The response shows the properties without the `unique` attribute and the uniqueness constraint is then removed on those properties.
+
+Note that if multiple user types declare a property as unique and you remove the uniqueness constraint on one type, there may be a delay before users of other types which declare the property as unique can be assigned values formerly held by users of the first type.
+
+##### Request example
+
+For the request example below, assume that the default user profile schema contains the custom property `twitterUserName` that is unique.
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "definitions": {
+    "base": {
+      "id": "#base",
+      "type": "object",
+      "properties": {
+        "firstName": {
+        "title": "First name",
+        "type": "string",
+        "required": false,
+        "mutability": "READ_WRITE",
+        "scope": "NONE",
+        "permissions": [
+          {
+            "principal": "SELF",
+            "action": "READ_ONLY"
+          }
+        ]
+      }
+    },
+    "required": []
+  },
+    "custom": {
+      "id": "#custom",
+      "type": "object",
+      "properties": {
+        "twitterUserName": {
+          "title": "Twitter username",
+          "description": "User'\''s username for twitter.com",
+          "type": "string",
+          "required": false,
+          "unique": false,
+          "minLength": 1,
+          "maxLength": 10,
+          "permissions": [
+            {
+              "principal": "SELF",
+              "action": "READ_ONLY"
+            }
+          ]
+        }
+      },
+      "required": []
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/user/default"
+```
+
+##### Response example
+
+The following response is only a subset of properties for brevity.
+
+```json
+{
+    "id": "https://${yourOktaDomain}/meta/schemas/user/default",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "name": "user",
+    "title": "Default Okta User",
+    "lastUpdated": "2015-09-05T10:40:45.000Z",
+    "created": "2015-02-02T10:27:36.000Z",
+    "definitions": {
+        "base": {
+            "id": "#base",
+            "type": "object",
+            "properties": {
+                "login": {
+                    "title": "Username",
+                    "type": "string",
+                    "required": true,
+                    "minLength": 5,
+                    "maxLength": 100,
+                    "permissions": [
+                        {
+                            "principal": "SELF",
+                            "action": "READ_WRITE"
+                        }
+                    ]
+                },
+                "firstName": {
+                    "title": "First name",
+                    "type": "string",
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 50,
+                    "permissions": [
+                        {
+                            "principal": "SELF",
+                            "action": "READ_WRITE"
+                        }
+                    ]
+                },
+                "lastName": {
+                    "title": "Last name",
+                    "type": "string",
+                    "required": true,
+                    "minLength": 1,
+                    "maxLength": 50,
+                    "permissions": [
+                        {
+                            "principal": "SELF",
+                            "action": "READ_WRITE"
+                        }
+                    ]
+                },
+                "email": {
+                    "title": "Primary email",
+                    "type": "string",
+                    "required": true,
+                    "format": "email",
+                    "permissions": [
+                        {
+                            "principal": "SELF",
+                            "action": "READ_WRITE"
+                        }
+                    ]
+                }
+            },
+            "required": [
+                "login",
+                "firstName",
+                "lastName",
+                "email"
+            ]
+        },
+        "custom": {
+            "id": "#custom",
+            "type": "object",
+            "properties": {
+              "twitterUserName": {
+                  "title": "Twitter username",
+                  "description": "User's username for twitter.com",
+                  "type": "string",
+                  "required": false,
+                  "minLength": 1,
+                  "maxLength": 10,
+                  "permissions": [
+                      {
+                          "principal": "SELF",
+                          "action": "READ_ONLY"
+                      }
+                  ]
+              }
+            },
+            "required": []
+        }
+    },
+    "type": "object",
+    "properties": {
+        "profile": {
+            "allOf": [
+                {
+                    "$ref": "#/definitions/base"
+                },
+                {
+                    "$ref": "#/definitions/custom"
+                }
+            ]
+        }
+    }
+}
+```
