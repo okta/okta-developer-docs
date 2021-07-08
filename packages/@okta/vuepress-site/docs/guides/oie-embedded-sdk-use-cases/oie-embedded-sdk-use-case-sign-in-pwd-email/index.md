@@ -61,13 +61,7 @@ If not already done, complete the steps described in the
    1. Set **Phone Authentication** to **Disabled**.
 1. Click **Update Policy** if a value has changed.
 
-## Summary of steps
-
-The sequence of steps for the Facebook sign in flow is shown below.
-
 <StackSelector snippet="summaryofsteps" noSelector />
-
-## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 

@@ -1,3 +1,5 @@
+## Integration steps
+
 ### Step 1: Call StartWidgetSigninAsync (User navigates to sign in page)
 
 #### Summary

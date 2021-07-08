@@ -22,13 +22,7 @@ of the embedded widget sample app, identify the NuGet packages
 to install, and detail the additional changes needed to the Okta
 org required by the widget.
 
-## Summary of steps
-
-The sequence of steps to load the widget is illustrated below:
-
 <StackSelector snippet="summaryofsteps" noSelector />
-
-### Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 

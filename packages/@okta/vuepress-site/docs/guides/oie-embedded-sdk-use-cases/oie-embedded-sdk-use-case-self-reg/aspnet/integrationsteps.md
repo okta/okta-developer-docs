@@ -1,3 +1,5 @@
+## Integration steps
+
 ### Step 1: Create a sign up link for new users (User clicks sign up link)
 
 Initiation of the self-registration flow begins when the user clicks the

@@ -49,13 +49,7 @@ only. Perform the following steps to set the app up for password only.
    value.
 1. Click **Save**.
 
-## Summary of steps
-
-The sequence of steps for the Facebook sign in flow is shown below.
-
 <StackSelector snippet="summaryofsteps" noSelector />
-
-## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 

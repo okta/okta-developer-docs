@@ -46,14 +46,7 @@ To use this password factor only use case, do the following:
 1. In the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** field and change its value to **Password**.
    1. Click **Save**.
 
-## Summary of steps
-
-This use case entails building out a simple UI to capture the username and password
-and authenticating the credentials with Okta using the SDK. See sequence diagram below:
-
 <StackSelector snippet="summaryofsteps" noSelector />
-
-### Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 
