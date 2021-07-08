@@ -45,11 +45,6 @@ export const concepts = [
       },
       {
         title: "Identity Engine",
-        path: "/docs/concepts/ie-intro/",
-        hidden: true
-      },
-      {
-        title: "Identity Engine",
         subLinks: [
           {
             title: "Redirect vs. embedded authentication",
