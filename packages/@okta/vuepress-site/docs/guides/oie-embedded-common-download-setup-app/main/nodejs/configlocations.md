@@ -2,31 +2,14 @@ You have several options for setting the configuration values:
 
 ### Option 1: Configuration file
 
-Create a YAML file named `okta.yaml` in one of the following three available directories:
-
-* Current user's home directory.
-  * **Unix/Linux**:    `~/.okta/okta.yaml`
-  * **Windows**:       `%userprofile%\.okta\okta.yaml`
-
-* Application or project's root directory
-
-> **Note:** If you're using the **IISExpress** debugger (recommended) in Visual Studio
-to run your app, the location of the `okta.yaml` file needs to be in the
-following location: `{IIS Express install location}\IIS Express`
-(for example, `C:\Program Files (x86)\IIS Express\okta.yaml`)
+Create a dotenv file named `testenv` (no extension) in the root level of the sample project.
 
 The file format is shown below:
 
 ```yaml
-okta:
-idx:
-  issuer: "https://{yourOktaDomain}/oauth2/default"
-  clientId: "{clientId}"
-  clientSecret: "{clientSecret}"
-  scopes:
-  - "{scope1}"
-  - "{scope2}"
-  redirectUri: "{redirectUri}"
+ISSUER=https://oie-9102348.oktapreview.com/oauth2/default
+CLIENT_ID=0oazcjm779c5MPY0O1d6
+CLIENT_SECRET=hCBX_o3OFZMMZMOUzmXb3kHBJd-_Q4IcxIT
 ```
 
 ### Option 2: Environment variables

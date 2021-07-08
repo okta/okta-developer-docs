@@ -1,10 +1,10 @@
 The source code from the sample app and SDK are located here:
-`.../okta-idx-dotnet/src`. Under the `src` folder, the project structure
-consists of the following:
 
-* `okta-idx-dotnet/src`: SDK source, unit tests, and integration tests
-* `okta-idx-dotnet/samples`: Sample directory
-* `okta-idx-dotnet/samples/samples-aspnet/embedded-auth-with-sdk`:
+`.../okta-auth-js/`. The project structure consists of the following:
+
+* `okta-auth-js/docs/idx.md`: Identity Engine introduction and reference
+* `okta-auth-js/samples`: Sample directory
+* `okta-auth-js/samples/generated/express-embedded-auth-with-sdk`:
     Embedded SDK sample
-* `okta-idx-dotnet/samples/samples-aspnet/embedded-sign-in-widget`:
+* `okta-auth-js/samples/generated/express-embedded-sign-in-widget`:
     Embedded Sign-In Widget sample

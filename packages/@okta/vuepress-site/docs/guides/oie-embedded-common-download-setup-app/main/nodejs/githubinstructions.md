@@ -1,3 +1,3 @@
 After you satisfy the software requirements, clone the
-[okta-idx-dotnet](https://github.com/okta/okta-idx-dotnet)
+[Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js)
 repo in a local directory on your computer.
