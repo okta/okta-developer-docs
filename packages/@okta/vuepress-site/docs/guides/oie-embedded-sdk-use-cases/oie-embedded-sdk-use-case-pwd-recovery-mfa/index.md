@@ -69,13 +69,7 @@ you have set up your application for multiple factors. Ensure that the applicati
    * **Email**: Selected
 1. Click **Update Rule** if you change any values.
 
-## Summary of steps
-
-The following are the sequence of steps for the Facebook sign-in flow.
-
 <StackSelector snippet="summaryofsteps" noSelector />
-
-## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 

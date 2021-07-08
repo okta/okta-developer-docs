@@ -29,13 +29,7 @@ If not already done, complete the steps described in the
 [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers)
 section.
 
-## Summary of steps
-
-The sequence of steps to sign into the widget is illustrated below:
-
 <StackSelector snippet="summaryofsteps" noSelector />
-
-## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 

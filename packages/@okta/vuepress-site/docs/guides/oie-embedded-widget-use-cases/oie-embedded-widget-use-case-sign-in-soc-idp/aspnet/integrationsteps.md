@@ -1,4 +1,6 @@
-###  Step 1: User clicks on Sign in with Facebook link
+## Integration steps
+
+### Step 1: User clicks on Sign in with Facebook link
 
 If the the steps in
 [Complete steps in Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-sign-in-soc-idp/#step-2-complete-steps-in-set-up-your-okta-org-for-social-identity-providers),

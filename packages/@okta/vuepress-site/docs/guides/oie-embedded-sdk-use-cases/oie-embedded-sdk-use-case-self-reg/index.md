@@ -86,15 +86,8 @@ If not already done, complete the steps described in the
    * Set **Phone Authentication** to **Optional**.
 1. Click **Update Policy**.
 
-## Summary of steps
-
-The sequence of steps for self-service registration is described in the following three sequence diagrams:
-
 <StackSelector snippet="summaryofsteps" noSelector />
 
-## Integration steps
-
 <StackSelector snippet="integrationsteps" noSelector />
-
 
 </div>

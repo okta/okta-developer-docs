@@ -1,3 +1,5 @@
+## Integration steps
+
 ### Step 1: Make a call to GetIdentityProvidersAsync when user goes to sign in page
 
 The first step is make a call to `GetIdentityProvidersAsync` when the sign in
