@@ -11,7 +11,7 @@ title: Okta API Products Release Notes 2021
 | [Provisioning for Org2Org app integrations is GA in Production](#provisioning-for-org2org-app-integrations-is-ga-in-production) | July 8, 2021 |
 | [New Domains API response properties available](#new-domains-api-response-properties-available) | July 8, 2021 |
 | [Rate limit events for user and session user activity](#rate-limit-events-for-user-and-session-user-activity) | July 8, 2021 |
-| [Schema API feature unique attributes is now GA in Preview](#schema-api-feature-unique-attributes-is-now-ga-in-preview) | July 8, 2021 |
+| [Schemas API feature unique attributes is now GA in Preview](#schemas-api-feature-unique-attributes-is-now-ga-in-preview) | July 8, 2021 |
 | [Bugs fixed in 2021.07.0](#bugs-fixed-in-2021-07-0) | July 8, 2021 |
 
 #### Support for Push Status using the Apps API is GA in Preview
@@ -33,7 +33,7 @@ The [Domains API](/docs/reference/api/domains) includes the new response object 
 
 Previously, rate limit violation events for user and session user were logged as org-wide system events (`system.org.rate_limit.violation`). These rate limit violation events are now logged more specifically as [operation events](/docs/reference/rl-system-log-events/#operation-rate-limits) (`system.operation.rate_limit.violation`). <!--OKTA-394607-->
 
-#### Schema API feature unique attributes is now GA in Preview
+#### Schemas API feature unique attributes is now GA in Preview
 
 The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#uniqueattributes) for custom properties in the Okta User Profile and the Okta Group Profile. You can declare a maximum of five unique properties for each user type and five unique properties in the Okta Group Profile. This feature helps prevent the duplication of data and ensures data integrity. <!--OKTA-400824-->
 
