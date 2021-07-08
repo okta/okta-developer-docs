@@ -2817,7 +2817,7 @@ The following response is only a subset of properties for brevity.
 
 You can use the [update user profile schema property](#update-user-profile-schema-property) request or the [update group profile schema property](#update-group-profile-schema-property) request to change existing unique custom user or group properties to be non-unique by specifying `"unique": false` on the properties to be changed to non-unique. The response shows the properties without the `unique` attribute and the uniqueness constraint is then removed on those properties.
 
-Note that if multiple user types declare a property as unique and you remove the uniqueness constraint on one type, there may be a delay before users of other types which declare the property as unique can be assigned values formerly held by users of the first type.
+Note that if multiple user types declare a property as unique and you remove the uniqueness constraint on one type, there may be a delay before users of other types that declare the property as unique can be assigned values formerly held by users of the first type.
 
 ##### Request example
 
