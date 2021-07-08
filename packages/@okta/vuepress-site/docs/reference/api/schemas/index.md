@@ -2643,7 +2643,7 @@ A uniqueness status of `"unique": "PENDING_UNIQUENESS"` indicates that the valid
 
 ##### Request example
 
-For the request example below, assume that the default user profile schema contains the custom property `twitterUserName` that is not unique.
+For the following request example, assume that the default user profile schema contains the custom property `twitterUserName` that isn't unique.
 
 ```bash
 curl -v -X POST \
