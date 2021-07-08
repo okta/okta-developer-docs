@@ -2475,7 +2475,7 @@ Properties that aren't unique also aren't tracked for uniqueness. Suppose the pr
 
 If you attempt to create or update a user with a duplicate value for a custom user property with a uniqueness restriction, the user creation or update operation fails. The user isn't created or updated until you enter a unique value. Similarly, creating or updating a group fails when the request contains a value for a unique custom group property that is duplicated by another group.
 
-`null` values don't enter into the uniqueness calculation. If the unique property is not also specified as being required, you can also omit the value entirely; multiple users or groups can omit the property and not violate uniqueness.
+`null` values don't enter into the uniqueness calculation. If the unique property isn't also specified as being required, you can also omit the value entirely. Multiple users or groups can omit the property and not violate uniqueness.
 
 To enforce uniqueness for custom properties, you can either add new unique custom properties or update existing custom properties to be unique.
 
