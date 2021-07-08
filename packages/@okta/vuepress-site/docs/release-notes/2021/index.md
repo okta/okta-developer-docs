@@ -43,7 +43,7 @@ The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#un
 
 - When the Users lifecycle API `users/{{userId}}/lifecycle/reset_factors` was called to reset user factors, a status 403 error was received, even with a valid bearer token and scope (`okta.users.manage`). (OKTA-404613)
 
-- When an OIDC client app was created, the [Apps API](/docs/reference/api/apps) call could not modify the `visibility.hide` property. (OKTA-399408)
+- When an OIDC client app was created, the [Apps API](/docs/reference/api/apps) call couldn't modify the `visibility.hide` property. (OKTA-399408)
 
 ## June
 
