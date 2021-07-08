@@ -51,11 +51,13 @@ The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#un
 
 | Change                                                                         | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------|--------------------------|
-| [Bug fixed in 2021.06.4](#bug-fixed-in-2021-06-4)                              | June 30, 2021            |
+| [Bugs fixed in 2021.06.4](#bugs-fixed-in-2021-06-4)                              | June 30, 2021            |
 
-#### Bug fixed in 2021.06.4
+#### Bugs fixed in 2021.06.4
 
-The group app assignment process failed to assign users to an app when a database exception occurred. (OKTA-378076)
+* The group app assignment process failed to assign users to an app when a database exception occurred. (OKTA-378076)
+
+* To follow cryptographic standards, the default client secret length has been increased for public applications. (OKTA-303734)
 
 ### Weekly Release 2021.06.3
 
