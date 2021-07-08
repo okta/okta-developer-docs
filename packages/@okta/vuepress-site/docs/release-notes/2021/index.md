@@ -35,7 +35,7 @@ Previously, rate limit violation events for user and session user were logged as
 
 #### Schema API feature unique attributes is now GA in Preview
 
-The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#uniqueattributes) for custom properties in Okta user profiles and the Okta Group profile. You can declare a maximum of five unique properties for each user type and five unique properties in the Okta group profile. This feature helps prevent the duplication of data and ensures data integrity. <!--OKTA-400824-->
+The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#uniqueattributes) for custom properties in the Okta User Profile and the Okta Group Profile. You can declare a maximum of five unique properties for each user type and five unique properties in the Okta Group Profile. This feature helps prevent the duplication of data and ensures data integrity. <!--OKTA-400824-->
 
 #### Bugs fixed in 2021.07.0
 
