@@ -1,16 +1,6 @@
-There are several options to set the app's configuration:
+There are several options to set the sample app's configuration.
 
-1. Configure the `okta.yaml` file at the root of the app's classpath
-2. Configure the `okta.yaml` file in the `.okta` folder from your home directory (for instance, `~/.okta/okta.yaml` or `%userprofile%\.okta\okta.yaml`)
-3. Set environment variables
-4. Configure Java system properties
-5. Program the configuration explicitly in your app
-
-Each increasing configuration option supersedes the previous configuration. For example, if you configure the `~/.okta/okta.yaml` file and set the environment variables with different configuration values, the environment variable values will override the `~/.okta/okta.yaml` configuration values when the app starts.
-
-> **Note:** We recommend that you only use one configuration option to avoid confusion.
-
-### Option 1 and 2: YAML configuration
+### Option 1: YAML configuration
 
 Create a YAML file named `okta.yaml` in one of the following three directories:
 
@@ -56,12 +46,13 @@ Where
 * `{clientId}=123xyz`
 * `{clientSecret}=123456abcxyz`
 * `{redirectUri}=http://localhost:8080`
+* `openid`, `profile`, and `offline_access` scopes are used for the sample app
 
-### Option 3: Environment variables
+### Option 2: Environment variables
 
-#### Embedded SDK sample app
+#### Embedded authentication with SDK sample app
 
-Set the following environment variables with your app's configuration values before running the embedded SDK sample app:
+Set the following environment variables with your app's configuration values before running the embedded authentication with SDK sample app:
 
 * `OKTA_IDX_ISSUER`
 * `OKTA_IDX_CLIENTID`
@@ -69,7 +60,7 @@ Set the following environment variables with your app's configuration values bef
 * `OKTA_IDX_REDIRECTURI`
 * `OKTA_IDX_SCOPES`
 
-The following is an example of setting environment variables for the embedded SDK sample app, in bash or zsh:
+The following is an example of setting environment variables for the embedded authentication with SDK sample app, in bash or zsh:
 
 ```bash
 export OKTA_IDX_ISSUER=https://dev-1234.okta.com/oauth2/default
@@ -89,12 +80,11 @@ Set the following environment variables with your app's configuration values bef
 * `OKTA_OAUTH2_REDIRECTURI`
 * `OKTA_IDX_SCOPES`
 
+### Option 3: Java system properties
 
-### Option 4: Java system properties
+#### Embedded authentication with SDK sample app
 
-#### Embedded SDK sample app
-
-Use the following Java system properties when you run the embedded SDK sample app:
+Use the following Java system properties when you run the embedded authentication with SDK sample app:
 
 * `okta.idx.issuer`
 * `okta.idx.clientId`
@@ -122,6 +112,21 @@ Use the following Java system properties when you run the embedded Sign-In Widge
 * `okta.idx.scopes`
 * `okta.oauth2.redirectUri`
 
-### Option 5: Add configuration to the SDK's client constructor
+### Option 4: Add configuration to the SDK's client constructor
 
-> **Note:**  Maybe remove this section for Java? This should be an advanced topic and should not be spelled out for the novice???
+Add the configuration values as parameters to the constructor for `IDXAuthenticationWrapper`:
+
+```java
+public IDXAuthenticationWrapper(String issuer, String clientId, String clientSecret,
+                                    Set<String> scopes, String redirectUri) {
+        this.client = Clients.builder()
+                .setIssuer(issuer)
+                .setClientId(clientId)
+                .setClientSecret(clientSecret)
+                .setScopes(scopes)
+                .setRedirectUri(redirectUri)
+                .build();
+    }
+```
+
+> **Note:** The sample app uses Java system properties to instantiate the `IDXAuthenticationWrapper`.
