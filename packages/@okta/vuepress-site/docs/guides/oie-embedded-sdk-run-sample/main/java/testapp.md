@@ -1,31 +1,24 @@
-## Steps to test the sample app
+## Steps to test the embedded SDK sample app
 
-1. If not already done, set up your Okta org by completing these steps: [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
-1. If not already done,
-   [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
-1. Locate the sample apps solution file in the following path:
-`...\okta-idx-java\samples\embedded-auth-with-sdk`
-1. Add an `okta.yaml` configuration file. See [Option 1: YAML configuration file](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/#option-1-configuration-file) for more information on how to configure and where to place the configuration file.
-1. Type `mvn install`. The default web browser
-   should open and navigate to the app's home page. The URL should be:
-   `https://localhost:8080`.
-   After the app loads, click **Sign In** located on the app's home page.
-1. On the Sign In page enter the username (email) and password that you used in
-   [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-your-okta-account).
-   The following is a screenshot of the sign-in form:
+1. Locate the embedded SDK sample app source files in the following path: `...\okta-idx-java\samples\embedded-auth-with-sdk`.
 
-   <div class="common-image-format">
+1. Obtain app-specific configuration values (such as `{clientId}`, `{clientSecret}`, `{yourOktaDomain}`) from the app integration you've created in [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application).
 
-    ![Sample app sign in](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-signin.png
-   "Sample app sign in")
+1. Execute `mvn` with your app-specific configuration as Java system properties. See [Option 4: Java system properties](/docs/guides/oie-embedded-common-download-setup-app/java/main/#option-4-java-system-properties). For example:<br>
+   ```bash
+   mvn -Dokta.idx.issuer=https://{yourOktaDomain}/oauth2/default \
+      -Dokta.idx.clientId={clientId} \
+      -Dokta.idx.clientSecret={clientSecret} \
+      -Dokta.idx.scopes="openid profile offline_access" \
+      -Dokta.idx.redirectUri=http://localhost:8080
+   ```
 
-   </div>
+1. Navigate to the sample app's home page on your browser: `http://localhost:8080`. <br>The Welcome to the Okta Samples for Java page appears with your app's configuration values.
 
-1. Click **Sign In**. If successful, the app should redirect you to the user profile page that displays basic user profile and security token information.
+1. Click **Login** on the welcome page.
+1. Enter the **Username** and **Password** for the user that you've created in
+   [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/java/main/#create-your-okta-account).
 
-   <div class="common-image-format">
+1. Click **Login**. <br>If successful, the app redirects you to a page that displays basic user profile and security token information.
 
-    ![User profile page](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-user-profile-page.png
-   "User profile page")
-
-   </div>
+1. Click **Logout** in the upper-right corner of the page to sign out of the sample app.
