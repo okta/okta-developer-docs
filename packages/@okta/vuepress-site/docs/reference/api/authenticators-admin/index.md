@@ -8,17 +8,19 @@ category: other
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
-The Authenticators Administration API enables an Org Administrator to configure which Authenticators are available to end users to be used for signing into applications.
+The Authenticators Administration API enables an Org Administrator to configure which Authenticators are available to end users for use when signing in to applications.
 
-End users would be required to use one or more Authenticators depending on the security requirements of the application sign-on policy.
+End users are required to use one or more Authenticators depending on the security requirements of the application sign-on policy.
 
 The Okta Identity Engine currently supports Authenticators for the following factors:
 
 **Knowledge-based:**
+
 * Password
 * Security Question
 
 **Possession-based:**
+
 * Phone (SMS, Voice Call)
 * Email
 * WebAuthn
@@ -30,12 +32,12 @@ Explore the Authenticators Administration API: [![Run in Postman](https://run.ps
 
 -->
 
-## Authenticators Administration Operations
+## Authenticators Administration operations
 
 The Authenticators Administration API has the following CRUD operations:
 
 * [List Authenticators](#list-authenticators)
-* [Get an Authenticator by id](#get-an-authenticator-by-id)
+* [Get an Authenticator by ID](#get-an-authenticator-by-id)
 * [Activate an Authenticator](#activate-an-authenticator)
 * [Deactivate an Authenticator](#deactivate-an-authenticator)
 
@@ -43,7 +45,7 @@ The Authenticators Administration API has the following CRUD operations:
 
 <ApiOperation method="get" url="/api/v1/authenticators" />
 
-Lists all available Authenticators.
+Lists all available Authenticators
 
 #### Request path parameters
 
@@ -61,9 +63,9 @@ N/A
 
 An Array of [Authenticator Objects](#authenticator-object)
 
-#### Usage example
+#### Use example
 
-This request would return all available Authenticators:
+This request returns all available Authenticators:
 
 ##### Request
 
@@ -260,17 +262,17 @@ curl -v -X GET \
 ]
 ```
 
-### Get an Authenticator by id
+### Get an Authenticator by ID
 
 <ApiOperation method="get" url="/api/v1/authenticators/${authenticatorId}" />
 
-Fetches an Authenticator by its `id`.
+Fetches an Authenticator by its `id`
 
 #### Request path parameters
 
 | Parameter          | Type   | Description                                            |
 | ------------------ | ------ | ------------------------------------------------------ |
-| `authenticatorId`  | String | The Authenticator's unique identifier.                 |
+| `authenticatorId`  | String | The Authenticator's unique identifier                |
 
 #### Request query parameters
 
@@ -282,11 +284,11 @@ N/A
 
 #### Response body
 
-The requested [Authenticator](#Authenticator-object).
+The requested [Authenticator](#Authenticator-object)
 
-#### Usage example
+#### Use example
 
-This request returns the Authenticator with an `id` value of `aut1nd8PQhGcQtSxB0g4`:
+Returns the Authenticator with an `id` value of `aut1nd8PQhGcQtSxB0g4`:
 
 ##### Request
 
@@ -351,7 +353,7 @@ Activates an Authenticator
 
 | Parameter          | Type   | Description                                            |
 | ------------------ | ------ | ------------------------------------------------------ |
-| `authenticatorId`  | String | The Authenticator's unique identifier.                 |
+| `authenticatorId`  | String | The Authenticator's unique identifier               |
 
 #### Request body
 
@@ -359,11 +361,11 @@ N/A
 
 #### Response body
 
-Returns an [Authenticator](#authenticator-object).
+Returns an [Authenticator](#authenticator-object)
 
-#### Usage example
+#### Use example
 
-This request would set the `status` of the specified Authenticator to `ACTIVE`
+Sets the `status` of the specified Authenticator to `ACTIVE`
 
 ##### Request
 
@@ -420,13 +422,13 @@ curl -v -X POST \
 
 <ApiOperation method="POST" url="/api/v1/authenticators/${authenticatorId}/lifecycle/deactivate" />
 
-Deactivates an Authenticator.
+Deactivates an Authenticator
 
 #### Request path parameters
 
 | Parameter          | Type   | Description                                            |
 | ------------------ | ------ | ------------------------------------------------------ |
-| `authenticatorId`  | String | The Authenticator's unique identifier.                 |
+| `authenticatorId`  | String | The Authenticator's unique identifier                 |
 
 #### Request query parameters
 
@@ -440,9 +442,9 @@ N/A
 
 Returns an [Authenticator](#Authenticator-object).
 
-#### Usage example
+#### Use example
 
-This request would set the `status` of the specified Authenticator to `INACTIVE`.
+Sets the `status` of the specified Authenticator to `INACTIVE`
 
 ##### Request
 
@@ -497,7 +499,7 @@ curl -v -X POST \
 
 ##### Error response example
 
-If the Authenticator you are trying to deactivate is currently in-use as part of an active Policy, you will get a 403 error:
+If the Authenticator that you are trying to deactivate is currently in use as part of an active policy, you receive a 403 error:
 
 ```json
 {
@@ -516,31 +518,30 @@ If the Authenticator you are trying to deactivate is currently in-use as part of
 }
 ```
 
-
 ## Authenticators Administration API object
 
-The Authenticators Administration API only involves one object: the Authenticator.
+The Authenticators Administration API only involves one object: the Authenticator
 
 ### Authenticator object
 
-#### Authenticator Properties
+#### Authenticator properties
 
 The Authenticator object defines the following properties:
 
 | Property      | Type                                                            | Description                                                                     |
 | ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | `_links`      | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                                  |
-| `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created.                                   |
-| `id`          | String                                                          | A unique identifier for the Authenticator.                                                |
-| `key`         | String                                                          | A human-readable string that identifies the Authenticator.                                |
-| `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified.                             |
-| `name`        | String                                                          | Display name of this Authenticator.                                             |
-| `type`        | String (Enum)                                                   | The type of Authenticator. Values include `password`, `security_question`, `phone`, `email` and `security_key`                            |
-| `settings.allowedFor`        | String (Enum)                                    | The allowed types of usages for the Authenticator. Values include `recovery`, `sso`, `any` and `none`                            |
-| `settings.tokenLifetimeInMinutes` | Number                                      | Specify lifetime of an `email` token. Only apply to `email` authenticator type. Default value is `5` minutes.                            |
+| `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created                                   |
+| `id`          | String                                                          | A unique identifier for the Authenticator                                                |
+| `key`         | String                                                          | A human-readable string that identifies the Authenticator                                |
+| `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified                             |
+| `name`        | String                                                          | Display name of this Authenticator                                             |
+| `type`        | String (Enum)                                                   | The type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, and `security_key`.                            |
+| `settings.allowedFor`        | String (Enum)                                    | The allowed types of uses for the Authenticator. Values include: `recovery`, `sso`, `any`, and `none`.                            |
+| `settings.tokenLifetimeInMinutes` | Number                                      | Specifies the lifetime of an `email` token, and only applies to the `email` Authenticator type. Default value is `5` minutes.                            |
 
 
-#### Example of Email Authenticator
+#### Example Email Authenticator
 
 ```json
 {
@@ -585,7 +586,7 @@ The Authenticator object defines the following properties:
 }
 ```
 
-#### Example of Password Authenticator
+#### Example Password Authenticator
 
 ```json
 {
@@ -618,7 +619,7 @@ The Authenticator object defines the following properties:
 }
 ```
 
-#### Example of Phone Authenticator
+#### Example Phone Authenticator
 
 ```json
 {
@@ -662,7 +663,7 @@ The Authenticator object defines the following properties:
 }
 ```
 
-#### Example of Security Question Authenticator
+#### Example Security Question Authenticator
 
 ```json
 {
@@ -702,7 +703,7 @@ The Authenticator object defines the following properties:
 }
 ```
 
-#### Example of WebAuthn Authenticator
+#### Example WebAuthn Authenticator
 
 ```json
 {
