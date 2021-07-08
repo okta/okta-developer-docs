@@ -27,7 +27,7 @@ Additionally, you can set or update the Logo or Notes fields for any of your Okt
 
 #### New Domains API response properties available
 
-The [Domains API](/docs/reference/api/domains) includes the new response object properties of `certificateSourcetype` and `expiration`. The `certificateSourcetype` is a required property that indicates whether the Certificate is provided by the user. The accepted value is `Manual`. The `expiration` property on the DNSrecord object is an optional property that defines the TXT record expiration. <!--OKTA-403600-->
+The [Domains API](/docs/reference/api/domains) includes the new response object properties of `certificateSourceType` and `expiration`. The `certificateSourceType` is a required property that indicates whether the Certificate is provided by the user. The accepted value is `Manual`. The `expiration` property on the DNSRecord object is an optional property that defines the TXT record expiration. <!--OKTA-403600-->
 
 #### Rate limit events for user and session user activity
 
