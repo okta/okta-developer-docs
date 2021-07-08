@@ -18,26 +18,24 @@ CLIENT_SECRET=hCBX_o3OFZMMZMOUzmXb3kHBJd-_Q4IcxIT
 
 Add the values as environment variables with the following naming convention:
 
-* `OKTA_IDX_ISSUER`
-* `OKTA_IDX_CLIENTID`
-* `OKTA_IDX_CLIENTSECRET`
-* `OKTA_IDX_REDIRECTURI`
-* `OKTA_IDX_SCOPES`
+* `ISSUER`
+* `CLIENT_ID`
+* `CLIENT_SECRET`
+* `REDIRECTURI` (?)
+* `COPES` (?)
 
 ### Option 3: Add parameter to the SDK's client constructor
 
-Add the values as parameters to the constructor for the `IdxClient`.
+Add the values as parameters to the `config.js` file:
 
-```csharp
- var client = new IdxClient(new IdxConfiguration()
-           {
-               Issuer = "{YOUR_ISSUER}",
-               ClientId = "{YOUR_CLIENT_ID}",
-               ClientSecret = "{YOUR_CLIENT_SECRET}",
-               RedirectUri = "{YOUR_REDIRECT_URI}",
-               Scopes = new List<string>{"openid","profile", "offline_access"}
-           });
+```JavaScript
+module.exports = function () {
+  const {
+    CLIENT_ID =`{YOUR_CLIENT_ID}`,
+    CLIENT_SECRET = `{YOUR_CLIENT_SECRET}`,
+    ISSUER =`{YOUR_ISSUER}` ,
+    OKTA_TESTING_DISABLEHTTPSCHECK = false,
+  } = process.env;
+
+  ...
 ```
-
-> **Note:** The sample app uses dependency injection to instantiate the `IdxClient`,
-so the constructor code is located in the `UnityConfig.cs` file.

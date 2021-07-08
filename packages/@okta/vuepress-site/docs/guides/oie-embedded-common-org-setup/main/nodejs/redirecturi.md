@@ -1,2 +1,2 @@
-  If you are using the sample app use: `https://localhost:44314/interactioncode/callback`.
+  If you are using the sample app use: `http://localhost:8080/login/callback`.
   Otherwise, choose a URI that your app accepts.
