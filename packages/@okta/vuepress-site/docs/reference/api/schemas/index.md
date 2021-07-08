@@ -2821,7 +2821,7 @@ Note that if multiple user types declare a property as unique and you remove the
 
 ##### Request example
 
-For the request example below, assume that the default user profile schema contains the custom property `twitterUserName` that is unique.
+For the following request example, assume that the default user profile schema contains the custom property `twitterUserName` that is unique.
 
 ```bash
 curl -v -X POST \
