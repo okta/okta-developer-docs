@@ -1,17 +1,22 @@
-## Steps to test the embedded SDK sample app
+> **Note:** The Java SDK embedded authentication sample app uses the Spring Boot framework. See [Spring Boot Getting Started](https://spring.io/guides/gs/spring-boot/) for more information on Spring.
 
-1. Locate the embedded SDK sample app source files in the following path: `...\okta-idx-java\samples\embedded-auth-with-sdk`.
+## Steps to test the sample app
+
+1. Locate the embedded authentication SDK sample app source files in the following path: `...\okta-idx-java\samples\embedded-auth-with-sdk`.
 
 1. Obtain app-specific configuration values (such as `{clientId}`, `{clientSecret}`, `{yourOktaDomain}`) from the app integration you've created in [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application).
 
-1. Execute `mvn` with your app-specific configuration as Java system properties. See [Option 4: Java system properties](/docs/guides/oie-embedded-common-download-setup-app/java/main/#option-4-java-system-properties). For example:<br>
+
+1. Set the app-specific environment variables:<br>
    ```bash
-   mvn -Dokta.idx.issuer=https://{yourOktaDomain}/oauth2/default \
-      -Dokta.idx.clientId={clientId} \
-      -Dokta.idx.clientSecret={clientSecret} \
-      -Dokta.idx.scopes="openid profile offline_access" \
-      -Dokta.idx.redirectUri=http://localhost:8080
+   export OKTA_IDX_ISSUER=https://{yourOktaDomain}/oauth2/default
+   export OKTA_IDX_CLIENTID={clientId}
+   export OKTA_IDX_CLIENTSECRET={clientSecret}
+   export OKTA_IDX_SCOPES="openid profile offline_access"
+   export OKTA_IDX_REDIRECTURI=http://localhost:8080
    ```
+
+1. Execute `mvn` from the `...\okta-idx-java\samples\embedded-auth-with-sdk` sample app root directory.
 
 1. Navigate to the sample app's home page on your browser: `http://localhost:8080`. <br>The Welcome to the Okta Samples for Java page appears with your app's configuration values.
 
