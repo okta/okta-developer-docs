@@ -1,0 +1,37 @@
+$border-color: #D7D7DC;
+
+.nutrition-facts {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  margin: 20px 0;
+  .fact-item {
+    display: flex;
+    flex-direction: row;
+    padding: 12px 24px;
+    color: #212126;
+    font-size: 14px;
+    &:not(:last-child) {
+      border-bottom: 1px solid $border-color;
+    }
+    .fact-item-title {
+      flex-basis: 35%;
+      font-weight: 900;
+    }
+    .fact-bullet-list {
+      flex-basis: 65%;
+    }
+    ul {
+      list-style: initial;
+    }
+    &.none-list {
+      .fact-item-title {
+        flex-basis: 33%;
+      }
+      ul {
+        list-style: none;
+      }
+    }
+  }
+}

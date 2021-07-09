@@ -18,7 +18,6 @@ To verify the current release for an org, check the footer of the administrator 
 
 > **Note:** Changes to Okta unrelated to API Products are published in the [Okta Release Notes](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_okta_relnotes).
 
-
 <div class="next-section">
   <RouterLink to='/docs/release-notes/2021'>
     <button class="button is-button-cerise is-button-small">

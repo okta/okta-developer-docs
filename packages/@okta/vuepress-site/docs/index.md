@@ -108,5 +108,4 @@ band_links:
     description: Learn how to integrate Okta SSO and make your apps available to millions of enterprise users.
     link: https://www.okta.com/integrate/
     link_text: Go to okta.com/integrate
-
 ---
