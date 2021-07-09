@@ -2062,8 +2062,8 @@ redirects:
   - from: /docs/guides/sign-into-web-app-remediation/-/create-okta-application/index.html
     to: /docs/guides/oie-embedded-common-org-setup/main/
   - from: /docs/guides/sign-into-web-app-remediation/-/get-tokens/index.html
-    to: /docs/guides/oie-embedded-common-org-setup/main/
+    to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
   - from: /docs/guides/sign-into-web-app-remediation/-/handle-remediation/index.html
-    to: /docs/guides/oie-embedded-common-org-setup/main/
+    to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
   - from: /docs/guides/sign-into-web-app-remediation/-/next-steps/index.html
-    to: /docs/guides/oie-embedded-common-org-setup/main/
+    to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
