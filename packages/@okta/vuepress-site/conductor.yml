@@ -2067,7 +2067,7 @@ redirects:
     to: /docs/guides/oie-embedded-common-download-setup-app/main/
   - from: /docs/guides/sign-into-web-app-remediation/java/configure-packages/index.html
     to: /docs/guides/oie-embedded-common-download-setup-app/main/
-  - from: docs/guides/sign-into-web-app-remediation/create-okta-application/index.html
+  - from: docs/guides/sign-into-web-app-remediation/-/create-okta-application/index.html
     to: /docs/guides/oie-embedded-common-org-setup/main/
   - from: /docs/guides/sign-into-web-app-remediation/aspnet/get-tokens/index.html
     to: /docs/guides/oie-embedded-common-org-setup/main/
