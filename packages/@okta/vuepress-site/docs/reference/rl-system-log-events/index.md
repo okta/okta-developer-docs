@@ -304,3 +304,4 @@ The following table includes the available `Subtypes` for operation rate limits.
 | `Voice call`      | The user exceeded their limit for sending voice-call messages.       |
 | `Authenticated user`      | The session user exceeded their limit for requests to authenticated endpoints.       |
 | `Identified user`      | The user exceeded their limit for requests to authentication and authorization endpoints.       |
+

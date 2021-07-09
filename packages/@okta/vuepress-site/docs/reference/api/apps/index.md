@@ -5418,11 +5418,7 @@ HTTP/1.1 204 No Content
 
 ## Application logo operations
 
-<ApiLifecycle access="ea" />
-
 ### Update logo for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/logo" />
 
@@ -5458,13 +5454,9 @@ Location: https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUO
 
 ## Application Provisioning Connection operations
 
-<ApiLifecycle access="ea" />
-
 > **Note:** The only currently supported application is Okta Org2Org.
 
 ### Get default Provisioning Connection for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/connections/default" />
 
@@ -5519,8 +5511,6 @@ curl -v -X GET \
 ```
 
 ### Set default Provisioning Connection for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/default" />
 
@@ -5583,8 +5573,6 @@ curl -v -X POST \
 
 ### Activate default Provisioning Connection for application
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/default/lifecycle/activate" />
 
 Activates the default Provisioning Connection for an application.
@@ -5612,8 +5600,6 @@ HTTP/1.1 204 No Content
 ```
 
 ### Deactivate default Provisioning Connection for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/lifecycle/deactivate" />
 
@@ -5643,13 +5629,9 @@ HTTP/1.1 204 No Content
 
 ## Application Feature operations
 
-<ApiLifecycle access="ea" />
-
 > **Note:** The only currently supported application is Okta Org2Org.
 
 ### List Features for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/features" />
 
@@ -5723,8 +5705,6 @@ curl -v -X GET \
 
 ### Get Feature for application
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/features/${name}" />
 
 Fetches a Feature object for an application.
@@ -5791,8 +5771,6 @@ curl -v -X GET \
 ```
 
 ### Update Feature for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="put" url="/api/v1/apps/${applicationId}/features/${featureName}" />
 
@@ -6402,8 +6380,6 @@ Currently, the catalog isn't exposed via an API. The current solution is to manu
 
 ###### Notes object
 
-<ApiLifecycle access="ea" />
-
 An additional `notes` object can be passed within the `settings` object. The `notes` object contains the following:
 
 | Property  | Description                                        | DataType | Nullable | Default | MinLength | MaxLength | Validation |
@@ -6483,7 +6459,7 @@ Specifies visibility settings for the application
 | Property          | Description                                        | DataType                            | Nullable | Default | MinLength | MaxLength | Validation |
 | ----------------- | -------------------------------------------------- | ----------------------------------- | -------- | ------- | --------- | --------- | ---------- |
 | appLinks          | Displays specific appLinks for the app             | [AppLinks object](#applinks-object) | FALSE    |         |           |           |            |
-| <ApiLifecycle access="ea" /> autoLaunch  |  Automatically signs in to the app when user signs into Okta.            | Boolean | FALSE   | FALSE    |           |           |            |
+| autoLaunch        |  Automatically signs in to the app when user signs into Okta.            | Boolean | FALSE   | FALSE    |           |           |            |
 | autoSubmitToolbar | Automatically sign in when user lands on the sign-in page | Boolean                             | FALSE    | FALSE   |           |           |            |
 | hide              | Hides this app for specific end-user apps          | [Hide object](#hide-object)         | FALSE    | FALSE   |           |           |            |
 
@@ -6568,8 +6544,9 @@ Specifies the template used to generate a user's username when the application i
 | template   | mapping expression for username         | String                           | TRUE     | `${source.login}` |           | 1024       |            |
 | type       | type of mapping expression              | `NONE`,  `BUILT_IN`, or `CUSTOM` | FALSE    | BUILT_IN          |           |            |            |
 | userSuffix | suffix for built-in mapping expressions | String                           | TRUE     | NULL              |           |            |            |
+| pushStatus | push username on update                 | `PUSH`, `DONT_PUSH`              | TRUE     | `DONT_PUSH` for `CUSTOM` type |           |            |            |
 
-> **Note:** You must use the `CUSTOM` type when defining your own expression that is not built-in.
+> **Note:** You must use the `CUSTOM` type when defining your own expression that is not built-in. The `pushStatus` parameter is effective only for the `CUSTOM` type.
 
 ```json
 {
