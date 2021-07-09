@@ -4,12 +4,12 @@
       class="fact-item"
       v-for="(nutrition, index) in $page.frontmatter.nutritionItems"
       v-bind:key="index"
+      v-bind:class="{ 'none-list': nutrition.bulletList.length <= 1 }"
     >
       <div class="fact-item-title">{{ nutrition.title }}</div>
       <div class="fact-bullet-list">
         <ul>
           <li
-            v-bind:class="{ 'none-list': nutrition.bulletList.length <= 1 }"
             v-for="(bulletItem, index) in nutrition.bulletList"
             v-bind:key="index"
           >

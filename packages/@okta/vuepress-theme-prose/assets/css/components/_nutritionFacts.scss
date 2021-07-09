@@ -22,8 +22,16 @@ $border-color: #D7D7DC;
     .fact-bullet-list {
       flex-basis: 65%;
     }
-  }
-  .none-list {
-    list-style: none;
+    ul {
+      list-style: initial;
+    }
+    &.none-list {
+      .fact-item-title {
+        flex-basis: 33%;
+      }
+      ul {
+        list-style: none;
+      }
+    }
   }
 }
