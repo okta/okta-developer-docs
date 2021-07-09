@@ -2,10 +2,11 @@
 
 ## Steps to test the sample app
 
-1. Locate the embedded authentication SDK sample app source files in the following path: `...\okta-idx-java\samples\embedded-auth-with-sdk`.
+1. Ensure that you've [set up your Okta org for one password factor only use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
 1. Obtain app-specific configuration values (such as `{clientId}`, `{clientSecret}`, `{yourOktaDomain}`) from the app integration you've created in [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application).
 
+1. Locate the embedded authentication SDK sample app source files in the following path: `...\okta-idx-java\samples\embedded-auth-with-sdk`.
 
 1. Set the app-specific environment variables:<br>
    ```bash
@@ -16,7 +17,7 @@
    export OKTA_IDX_REDIRECTURI=http://localhost:8080
    ```
 
-1. Execute `mvn` from the `...\okta-idx-java\samples\embedded-auth-with-sdk` sample app root directory.
+1. Execute `mvn` from the `...\okta-idx-java\samples\embedded-auth-with-sdk\` sample app root directory.
 
 1. Navigate to the sample app's home page on your browser: `http://localhost:8080`. <br>The Welcome to the Okta Samples for Java page appears with your app's configuration values.
 

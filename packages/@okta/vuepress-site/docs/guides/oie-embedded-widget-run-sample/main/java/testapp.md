@@ -2,12 +2,12 @@
 
 ## Steps to test the sample app
 
-1. Ensure that you have configured your Okta Org for password factor only. See [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
+1. Ensure that you've [set up your Okta org for one password factor only use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
+
+1. Obtain app-specific configuration values (such as `{clientId}`, `{clientSecret}`, `{yourOktaDomain}`) from the app integration you've created in [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application).
 
 1. Locate the embedded Sign-in Widget sample apps source files from the cloned Java SDK project:
 `...\okta-idx-java\samples\embedded-sign-in-widget`
-
-1. Obtain app-specific configuration values (such as `{clientId}`, `{clientSecret}`, `{yourOktaDomain}`) from the app integration you've created in [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application).
 
 1. Set the app-specific environment variables:<br>
    ```bash
@@ -18,7 +18,7 @@
    export OKTA_OAUTH2_REDIRECTURI=http://localhost:8080
    ```
 
-1. Execute `mvn` from the `...\okta-idx-java\samples\embedded-sign-in-widget` sample app root directory.
+1. Execute `mvn` from the `...\okta-idx-java\samples\embedded-sign-in-widget\` sample app root directory.
 
 1. Navigate to the sample app's home page on your browser: `http://localhost:8080`. <br>The Embedded Sign In Widget + Spring Boot Example page appears.
 
