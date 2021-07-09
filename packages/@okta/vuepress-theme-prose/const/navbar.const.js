@@ -45,11 +45,6 @@ export const concepts = [
       },
       {
         title: "Identity Engine",
-        path: "/docs/concepts/ie-intro/",
-        hidden: true
-      },
-      {
-        title: "Identity Engine",
         subLinks: [
           {
             title: "Redirect vs. embedded authentication",
@@ -394,11 +389,11 @@ export const guides = [
                 guideName: "oie-embedded-overview",
               },
               {
-                title: "Create and setup your Okta org",
+                title: "Create and set up your Okta org",
                 guideName: "oie-embedded-common-org-setup",
               },
               {
-                title: "Download and setup the sample app",
+                title: "Download and set up the sample app",
                 guideName: "oie-embedded-common-download-setup-app",
               },
               {
@@ -431,14 +426,14 @@ export const guides = [
                 ]
               },
               {
-                title: "Build with the embedded widget",
+                title: "Build with the embedded Widget",
                 subLinks: [
                   {
                     title: "Overview",
                     guideName: "oie-embedded-widget-overview",
                   },
                   {
-                    title: "Run the widget sample app",
+                    title: "Run the Widget sample app",
                     guideName: "oie-embedded-widget-run-sample",
                   },
                   {
@@ -627,6 +622,7 @@ export const reference = [
           { title: "Manage Okta Objects", path: null},
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
           { title: "Apps", path: "/docs/reference/api/apps/" },
+          { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
           { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/"},
           { title: "Event Types", path: "/docs/reference/api/event-types/" },
@@ -727,6 +723,10 @@ export const reference = [
         path: "/docs/reference/okta-expression-language/"
       },
       {
+        title: "Okta Expression Language in Identity Engine",
+        path: "/docs/reference/okta-expression-language-in-identity-engine/"
+      },
+      {
         title: 'Release Life Cycle',
         path: "/docs/reference/releases-at-okta/"
       },
@@ -756,22 +756,11 @@ export const referenceOld = [
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
           { title: "Administrator Roles", path: "/docs/reference/api/iam-roles/", hidden: true },
           { title: "Apps", path: "/docs/reference/api/apps/" },
-          {
-            title: "Authorization Servers",
-            path: "/docs/reference/api/authorization-servers/"
-          },
-          {
-            title: "CAPTCHAs",
-            path: "/docs/reference/api/captchas/"
-          },
-          {
-            title: "Domains",
-            path: "/docs/reference/api/domains/"
-          },
-          {
-            title: "Dynamic Client Registration",
-            path: "/docs/reference/api/oauth-clients/"
-          },
+          { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
+          { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/" },
+          { title: "CAPTCHAs", path: "/docs/reference/api/captchas/" },
+          { title: "Domains", path: "/docs/reference/api/domains/" },
+          { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/" },
           { title: "Event Hooks", path: "/docs/reference/api/event-hooks/" },
           { title: "Event Types", path: "/docs/reference/api/event-types/" },
           { title: "Factors", path: "/docs/reference/api/factors/" },
@@ -788,14 +777,8 @@ export const referenceOld = [
           { title: "Sessions", path: "/docs/reference/api/sessions/" },
           { title: "System Log", path: "/docs/reference/api/system-log/" },
           { title: "Templates", path: "/docs/reference/api/templates/" },
-          {
-            title: "ThreatInsight",
-            path: "/docs/reference/api/threat-insight/"
-          },
-          {
-            title: "Trusted Origins",
-            path: "/docs/reference/api/trusted-origins/"
-          },
+          { title: "ThreatInsight", path: "/docs/reference/api/threat-insight/" },
+          { title: "Trusted Origins", path: "/docs/reference/api/trusted-origins/" },
           { title: "User Types", path: "/docs/reference/api/user-types/" },
           { title: "Users", path: "/docs/reference/api/users/" },
           { title: "Zones", path: "/docs/reference/api/zones/" }
@@ -856,8 +839,7 @@ export const referenceOld = [
       },
       {
         title: "Okta Expression Language in Identity Engine",
-        path: "/docs/reference/okta-expression-language-in-identity-engine/",
-        hidden: true
+        path: "/docs/reference/okta-expression-language-in-identity-engine/"
       },
       { title: "Password Hook", path: "/docs/reference/password-hook/" },
       {

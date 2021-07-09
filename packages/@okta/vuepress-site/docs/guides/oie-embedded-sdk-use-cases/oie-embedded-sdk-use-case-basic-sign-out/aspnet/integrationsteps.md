@@ -1,3 +1,5 @@
+## Integration steps
+
 ### Step 1: Create a sign out UI element
 
 The first step is to create a link, button, or another similar UI

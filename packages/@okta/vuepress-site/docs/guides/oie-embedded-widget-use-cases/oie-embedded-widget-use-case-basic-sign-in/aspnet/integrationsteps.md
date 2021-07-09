@@ -1,3 +1,5 @@
+## Integration steps
+
 ###  Step 1: User signs in
 
 If the widget successfully loads after completing the steps in

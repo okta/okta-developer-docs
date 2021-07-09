@@ -1,3 +1,7 @@
+## Summary of steps
+
+The sequence of steps for self-service registration is described in the following three sequence diagrams:
+
 ### Diagram 1: Start new user registration with password factor
 
 The following diagram illustrates the beginning of the registration process
