@@ -1,5 +1,6 @@
 const MainPage = require('../framework/page-objects/MainPage');
 const util = require('../framework/shared/util');
+const { browser, promise } = require("protractor");
 
 var chai = require('chai');
 var chaiAsPromised = require('chai-as-promised');
@@ -34,10 +35,18 @@ describe('header sanity check', () => {
         .to.contain("/signup/");
     }));
 
-    it('pricing link click takes user to pricing page', util.itHelper(async () => {
+    it('pricing link click takes user to pricing okta.com page from a new tab', util.itHelper(async () => {
+      const pricingURL = 'https://www.okta.com/pricing/#customer-identity-products';
+
       await mainPage.getPricingLinkElement().click();
-      expect(await mainPage.getCurrentURL())
-        .to.contain("/pricing/");
+
+      const handles = await browser.getAllWindowHandles();
+      await browser.switchTo().window(handles[1]);
+      const url = await browser.getCurrentUrl();
+      await browser.close();
+      await browser.switchTo().window(handles[0]);
+      
+      expect(url).to.equal(pricingURL);
     }));
   });
 });
