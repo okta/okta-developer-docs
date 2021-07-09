@@ -22,9 +22,9 @@ Add the values as environment variables with the following naming convention:
 * `CLIENT_ID`
 * `CLIENT_SECRET`
 * `REDIRECTURI` (?)
-* `COPES` (?)
+* `SCOPES` (?)
 
-### Option 3: Add parameter to the SDK's client constructor
+### Option 3: Add parameters to the SDK's config.js file
 
 Add the values as parameters to the `config.js` file:
 

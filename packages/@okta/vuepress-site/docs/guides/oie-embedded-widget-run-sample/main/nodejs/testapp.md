@@ -1,4 +1,4 @@
-The sample app is located here: `okta-idx-dotnet/samples/samples-aspnet/embedded-sign-in-widget`
+The sample app is located here: `okta-auth-js/samples/generated/express-embedded-sign-in-widget`
 
 ## Steps to test the sample app
 
@@ -7,11 +7,11 @@ The sample app is located here: `okta-idx-dotnet/samples/samples-aspnet/embedded
 1. If not already done,
    [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/).
 1. Locate the sample apps solution file in the following path:
-`...\okta-auth-js\samples\generated\express-embedded-sign-in-widget`
+`...\okta-auth-js\samples\generated\express-embedded-sign-in-widget` and ensure the module dependencies are installed. See [Install module dependencies](/docs/guides/oie-embedded-common-download-setup-app/main/nodejs/).
 1. Open `express-embedded-sign-in-widget` using Visual Studio or the editor of your choice.
 1. Add a `testenv` configuration file. For more information on how to configure
    and where to place the configuration file see [Option 1: Configuration file](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#option-1-configuration-file).
-1. From the terminal, navigate to the `express-embedded-sign-in-widget` sample directory and run the application: `yarn start`. This process sets the environment variables and starts the web server.
+1. From the terminal, navigate to the `express-embedded-sign-in-widget` sample directory and run the application: `npm run start`. This process sets the environment variables and starts the web server. Check the console to see that the environment variables are set.
 1. Open a browser window and navigate to the app's home page. The URL should be:
    `http://localhost:8080`. After the app loads, click the **Sign In** button located on the home screen.
 1. On the Sign in page enter the username (email) and password you used in
@@ -31,7 +31,7 @@ The sample app is located here: `okta-idx-dotnet/samples/samples-aspnet/embedded
 
    <div class="common-image-format">
 
-    ![User profile page](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-user-profile-page.png
+    ![User profile page](/img/oie-embedded-sdk/Embedded-SIW-profile-page-nodejs.png
    "User profile page")
 
    </div>
