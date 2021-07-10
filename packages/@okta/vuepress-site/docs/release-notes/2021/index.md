@@ -12,6 +12,7 @@ title: Okta API Products Release Notes 2021
 | [New Domains API response properties available](#new-domains-api-response-properties-available) | July 8, 2021 |
 | [Rate limit events for user and session user activity](#rate-limit-events-for-user-and-session-user-activity) | July 8, 2021 |
 | [Schemas API feature unique attributes is now GA in Preview](#schemas-api-feature-unique-attributes-is-now-ga-in-preview) | July 8, 2021 |
+| [The SAML 2.0 Assertion grant flow is now GA in Preview](#the-saml-2-0-assertion-grant-flow-is-now-ga-in-preview) | July 8, 2021 |
 | [Bugs fixed in 2021.07.0](#bugs-fixed-in-2021-07-0) | July 8, 2021 |
 
 #### Support for Push Status using the Apps API is GA in Preview
@@ -36,6 +37,10 @@ Previously, rate limit violation events for user and session user were logged as
 #### Schemas API feature unique attributes is now GA in Preview
 
 The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#uniqueattributes) for custom properties in the Okta User Profile and the Okta Group Profile. You can declare a maximum of five unique properties for each user type and five unique properties in the Okta Group Profile. This feature helps prevent the duplication of data and ensures data integrity. <!--OKTA-400824-->
+
+#### The SAML 2.0 Assertion grant flow is now GA in Preview
+
+You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-saml2/overview/). <!--OKTA-406626-->
 
 #### Bugs fixed in 2021.07.0
 
