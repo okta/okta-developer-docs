@@ -1,4 +1,4 @@
-You have several options for setting the configuration values in the SDK:
+You have several options for setting the configuration values:
 
 ### Option 1: Configuration file
 
