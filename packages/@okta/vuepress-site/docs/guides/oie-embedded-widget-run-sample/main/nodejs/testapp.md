@@ -39,7 +39,7 @@ The sample app is located here: `okta-auth-js/samples/generated/express-embedded
 ## Troubleshooting
 
 * If the Widget does not load or hangs, check to make sure you have properly set up your local
-   configurations. Follow the steps in [Configuration Settings](docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#where-to-place-the-configurations).
+   configurations. Follow the steps in [Configuration Settings](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#where-to-place-the-configurations).
 
 * If the Widget does not load and instead displays the following error:
    “There was an unexpected internal error. Please try again.”,
