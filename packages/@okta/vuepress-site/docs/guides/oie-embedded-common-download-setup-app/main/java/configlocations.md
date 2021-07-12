@@ -117,15 +117,23 @@ Use the following Java system properties when you run the embedded Sign-In Widge
 Add the configuration values as parameters to the constructor for `IDXAuthenticationWrapper`:
 
 ```java
-public IDXAuthenticationWrapper(String issuer, String clientId, String clientSecret, Set<String> scopes, String redirectUri) {
-  this.client = Clients.builder()
-      .setIssuer(issuer)
-      .setClientId(clientId)
-      .setClientSecret(clientSecret)
-      .setScopes(scopes)
-      .setRedirectUri(redirectUri)
-      .build();
-    }
+/**
+* Creates {@link IDXAuthenticationWrapper} instance.
+*
+* @param issuer the issuer url
+* @param clientId the client id
+* @param clientSecret the client secret
+* @param scopes the set of scopes
+* @param redirectUri the redirect uri
+*/
+public IDXAuthenticationWrapper(String issuer, String clientId, String clientSecret,
+                                Set<String> scopes, String redirectUri) {
+    this.client = Clients.builder()
+            .setIssuer(issuer)
+            .setClientId(clientId)
+            .setClientSecret(clientSecret)
+            .setScopes(scopes)
+            .setRedirectUri(redirectUri)
+            .build();
+}
 ```
-
-> **Note:** The sample app uses Java system properties to instantiate the `IDXAuthenticationWrapper`.
