@@ -15,4 +15,7 @@ describe('header sanity check', () => {
     mainPage.getCommunityLink().should('have.text', 'Community');
   });
 
+  it('Should open new tab with okta.com inside', () => {
+    mainPage.getFooterPricingLink().click()
+  });
 });

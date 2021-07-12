@@ -4,7 +4,6 @@ const oktaMainPageLinkXpath = "//*[text()='Okta.com']";
 const pricingLinkXpath = "//*[text()='Pricing']";
 const communityLinkXpath = "//*[text()='Community']";
 
-
 class MainPage {
   isSignupButtonPresent() {
     return cy.get(signUpButtonSelector)
@@ -14,6 +13,9 @@ class MainPage {
   };
   getCommunityLink() {
     return cy.get(`header .header--links li.expandable span.link`);
+  }
+  getFooterPricingLink() {
+    return cy.get('footer ul.link-list a[href="/pricing/"]');
   }
 }
 
