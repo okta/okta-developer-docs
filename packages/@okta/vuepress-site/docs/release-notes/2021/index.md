@@ -12,16 +12,14 @@ title: Okta API Products Release Notes 2021
 | [New Domains API response properties available](#new-domains-api-response-properties-available) | August 2, 2021 |
 | [Bugs fixed in 2021.08.0](#bugs-fixed-in-2021-08-0) | August 2, 2021 |
 
+
+
 ### Okta Classic Only
 
 #### Support for Push Status using the Apps API is GA in Preview
 
 Developers can use the `pushStatus` parameter to handle a username update to an app integration. Previously, this option wasn't available through the [Apps API](/docs/reference/api/apps), which caused inconsistent behavior between app integrations configured using the Okta Admin Console and those configured through the API.
 <!--OKTA-405533-->
-
-#### Bugs fixed in 2021.07.0
-
-- The IdP claim wasn't available in the `id_token` or included with the Token Inline Hook request. (OKTA-407459)
 
 ### Okta Identity Engine Only
 
@@ -31,20 +29,22 @@ Previously, Okta admins could only configure provisioning for the Org2Org app in
 
 Additionally, you can set or update the Logo or Notes fields for any of your Okta app integrations using the API. <!--OKTA-405943-->
 
-#### Bugs fixed in 2021.07.0
-
-- The IdP claim wasn't available in the `id_token` or included with the Token Inline Hook request. (OKTA-407459)
-
-- When an OIDC client app was created, the [Apps API](/docs/reference/api/apps) call couldn't modify the `visibility.hide` property. (OKTA-399408) 
-
 ### Okta Classic and Okta Identity Engine (Applies to both)
 
 #### New Domains API response properties available
 
 The [Domains API](/docs/reference/api/domains) includes the new response object properties of `certificateSourceType` and `expiration`. The `certificateSourceType` is a required property that indicates whether the Certificate is provided by the user. The accepted value is `Manual`. The `expiration` property on the DNSRecord object is an optional property that defines the TXT record expiration. <!--OKTA-403600-->
 
-#### Bugs fixed in 2021.07.0
+### Bugs fixed in 2021.08.0
+
+#### Okta Classic Only
 
 - The IdP claim wasn't available in the `id_token` or included with the Token Inline Hook request. (OKTA-407459)
+
+#### Okta Identity Engine Only
+
+- When the Users lifecycle API `users/{{userId}}/lifecycle/reset_factors` was called to reset user factors, a status 403 error was received, even with a valid bearer token and scope (`okta.users.manage`). (OKTA-404613)
+
+#### Okta Classic and Okta Identity Engine (Applies to both)
 
 - When the Users lifecycle API `users/{{userId}}/lifecycle/reset_factors` was called to reset user factors, a status 403 error was received, even with a valid bearer token and scope (`okta.users.manage`). (OKTA-404613)
