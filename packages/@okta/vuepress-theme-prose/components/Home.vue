@@ -18,7 +18,8 @@
             <div class="row">
               <div class="col-12">
                 <h2 class="homepage--sub-heading homepage--color-main">
-                  Keynote + Breakout Sessions now available
+                  Check out the event website for agenda, speakers + breakout
+                  session topics!
                 </h2>
               </div>
             </div>
