@@ -18,6 +18,24 @@
             <div class="row">
               <div class="col-12">
                 <h2 class="homepage--sub-heading homepage--color-main">
+                  Keynote + Breakout Sessions now available
+                </h2>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <a
+                  href="https://www.okta.com/developerday/"
+                  class="homepage--dev-day-banner"
+                >
+                  <img src="/img/devDayBanner.png" />
+                </a>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-12">
+                <h2 class="homepage--sub-heading homepage--color-main">
                   Auth for All
                 </h2>
               </div>

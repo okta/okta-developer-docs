@@ -11,6 +11,14 @@
     }
   }
 
+  &--dev-day-banner{
+    display: block;
+    margin-bottom: 20px;
+    >img{
+      width: 100%;
+    }
+  }
+
   .row {
     height: auto;
   }
