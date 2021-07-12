@@ -331,15 +331,6 @@ module.exports = {
           userAgent: '*',
           crawlDelay: 10,
           disallow: [
-              '/docs/reference/api/oie-policy-types/',
-              '/docs/guides/sign-into-web-app-remediation/',
-              '/docs/guides/sign-into-web-app-remediation/before-you-begin/',
-              '/docs/guides/sign-into-web-app-remediation/configure-packages/',
-              '/docs/guides/sign-into-web-app-remediation/create-okta-application/',
-              '/docs/guides/sign-into-web-app-remediation/handle-remediation/',
-              '/docs/guides/sign-into-web-app-remediation/get-tokens/',
-              '/docs/guides/sign-into-web-app-remediation/next-steps/',
-              '/docs/reference/api/authenticators-admin/',
               '/docs/guides/third-party-risk-integration/', //Beta release of Risk APIs and Guide
               '/docs/guides/third-party-risk-integration/overview/',
               '/docs/guides/third-party-risk-integration/create-service-app/',
@@ -350,8 +341,6 @@ module.exports = {
               '/docs/reference/api/iam-roles/',
               '/docs/concepts/role-assignment/',
               '/docs/guides/migrate-to-oie/',
-              '/docs/guides/ie-intro/',
-              '/docs/reference/okta-expression-language-in-identity-engine/'
           ]
         }
       ]

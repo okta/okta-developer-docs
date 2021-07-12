@@ -58,8 +58,6 @@ The following shows the sequence of steps for the Facebook sign-in flow.
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
-## Integration steps
-
 <StackSelector snippet="integrationsteps" noSelector />
 
 </div>

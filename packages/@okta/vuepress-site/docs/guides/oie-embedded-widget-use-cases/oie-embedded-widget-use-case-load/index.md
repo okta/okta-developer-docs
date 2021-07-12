@@ -23,8 +23,6 @@ The following is the sequence of steps to load the widget.
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
-### Integration steps
-
 <StackSelector snippet="integrationsteps" noSelector />
 
 </div>

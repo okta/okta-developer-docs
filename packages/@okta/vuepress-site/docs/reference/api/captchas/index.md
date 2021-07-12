@@ -6,20 +6,20 @@ category: management
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
-# CAPTCHAs API
+As an option to increase org security, Okta supports CAPTCHA services to prevent automated sign-in attempts. You can integrate one of two providers: [hCaptcha](https://www.hcaptcha.com/) or [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/invisible).
 
-As an option to increase org security, Okta supports CAPTCHA services to prevent automated sign-in attempts. You can integrate either of two providers: [hCaptcha](https://www.hcaptcha.com/) or [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/invisible).
+The vendor implementations supported by Okta are both invisible. They each run risk-analysis software in the background during user sign in to determine the likelihood that the user is a bot. This risk analysis is based on the settings that you configure with the provider that you choose.
 
-The vendor implementations supported by Okta are both invisible; they each run risk-analysis software in the background during sign in to determine the likelihood that the user is a bot. This risk-analysis is based on the settings that you configure with the provider you choose.
+The Okta CAPTCHAs API provides operations to manage CAPTCHAs and Org-wide CAPTCHA Settings.
 
-The Okta CAPTCHAs API provides operations to manage CAPTCHAs and org-wide CAPTCHA settings.
 * [CAPTCHAs](#captcha-operations)
-* [Org-wide CAPTCHA settings](#org-wide-captcha-settings-operations)
+* [Org-wide CAPTCHA Settings](#org-wide-captcha-settings-operations)
 
 ## Get started
-Before you configure your org to use CAPTCHA, sign in to the vendor of your choice or sign up for an account. For more details, please refer to [CAPTCHA integration]( https://help.okta.com/okta_help.htm?type=oie&id=csh-captcha)
+
+Before you configure your org to use CAPTCHA, sign in to the vendor of your choice or sign up for an account. For more details, refer to [CAPTCHA integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-captcha).
 
 Explore the CAPTCHAs API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c51413d80cc8e88fd101?action=collection%2Fimport)
 
@@ -39,12 +39,14 @@ The CAPTCHAs API has the following CRUD operations:
 
 Creates a CAPTCHA object
 
-> **Note:** One organization can only have one CAPTCHA provider configured at a time.
+> **Note:** One organization can have only one CAPTCHA provider configured at a time.
 
 #### Request path parameters
+
 N/A
 
 #### Request query parameters
+
 N/A
 
 #### Request body
@@ -104,9 +106,11 @@ Content-Type: application/json
 ```
 
 #### Error example
-The following request would return an error when the org already has a CAPTCHA.
+
+The following request returns an error when the org already has a CAPTCHA.
 
 ##### Request
+
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -121,6 +125,7 @@ curl -v -X POST \
 ```
 
 ##### Response
+
 ```http
 HTTP/1.1 403 Forbidden
 Content-Type: application/json
@@ -147,13 +152,13 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/captchas/{id}" />
 
-Fetches a CAPTCHA by `id`.
+Fetches a CAPTCHA by `id`
 
 #### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `id `       | String (URL)        | Required. ID of a CAPTCHA. |
+| `id `       | String (URL)        | ID of a CAPTCHA |
 
 #### Request query parameters
 
@@ -169,7 +174,7 @@ The requested [CAPTCHA Response](#captcha-response-object)
 
 #### Use example
 
-This example returns a CAPTCHA object by id:
+The following example returns a CAPTCHA object by ID:
 
 ##### Request
 
@@ -214,7 +219,7 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/captchas" />
 
-List all CAPTCHAs for the org.
+List all CAPTCHAs for the org
 
 #### Request path parameters
 
@@ -230,13 +235,13 @@ N/A
 
 #### Response body
 
-Array of [CAPTCHA Response](#captcha-response-object)
+Array of the [CAPTCHA Response](#captcha-response-object)
 
 #### Use example
 
-This example returns all CAPTCHAs in the org:
+The following example returns all CAPTCHAs in the org.
 
-> **Note:** Currently, there's only one CAPTCHA per org.
+> **Note:** Currently, only one CAPTCHA per org is supported.
 
 ##### Request
 
@@ -284,7 +289,7 @@ Content-Type: application/json
 <ApiOperation method="put" url="/api/v1/captchas/{id}" />
 <ApiOperation method="post" url="/api/v1/captchas/{id}" />
 
-Update a CAPTCHA by `id`.
+Updates a CAPTCHA by `id`
 
 > **Note:** Use the `POST` method for partial updates.
 
@@ -292,7 +297,7 @@ Update a CAPTCHA by `id`.
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `id `       | String (URL)       | Required. ID of a CAPTCHA.  |
+| `id `       | String (URL)       | ID of a CAPTCHA  |
 
 #### Request query parameters
 
@@ -304,11 +309,11 @@ The [CAPTCHA](#captcha-object)
 
 #### Response body
 
-Returns updated [CAPTCHA Response](#captcha-response-object).
+Returns an updated [CAPTCHA Response](#captcha-response-object)
 
 #### Use example
 
-This example fully updates a CAPTCHA with the `PUT` method:
+The following example fully updates a CAPTCHA with the `PUT` method.
 
 ```bash
 curl -v -X PUT \
@@ -324,6 +329,7 @@ curl -v -X PUT \
 ```
 
 ##### Response
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -351,7 +357,7 @@ Content-Type: application/json
 }
 ```
 
-This example partially updates a CAPTCHA with the `POST` method:
+The following example partially updates a CAPTCHA with the `POST` method.
 
 ```bash
 curl -v -X POST \
@@ -365,6 +371,7 @@ curl -v -X POST \
 ```
 
 ##### Response
+
 ```http
 HTTP/1.1 200 OK
 Content-Type: application/json
@@ -396,15 +403,15 @@ Content-Type: application/json
 
 <ApiOperation method="delete" url="/api/v1/captchas/{id}" />
 
-Permanently deletes a CAPTCHA.
+Permanently deletes a CAPTCHA
 
-> **Note:** If the CAPTCHA is associated with org-wide CAPTCHA settings, it cannot be removed before it is unassociated with the [org-wide CAPTCHA settings](#org-wide-captcha-settings-object).
+> **Note:** If the CAPTCHA is associated with Org-wide CAPTCHA Settings, you can't remove it before it's unassociated with the [Org-wide CAPTCHA Settings](#org-wide-captcha-settings-object).
 
 #### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
-| `id `       | String (URL)        | Required. ID of a CAPTCHA. |
+| `id `       | String (URL)        | ID of a CAPTCHA |
 
 #### Request query parameters
 
@@ -420,7 +427,7 @@ N/A
 
 #### Usage example
 
-The following request would delete a CAPTCHA with the specified `id`:
+The following request deletes a CAPTCHA with the specified `id`.
 
 ##### Request
 
@@ -436,10 +443,13 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
+
 #### Error example
-The following request would return an error because the CAPTCHA is associated with [org-wide CAPTCHA settings](#org-wide-captcha-settings-object).
+
+The following request returns an error because the CAPTCHA is associated with [Org-wide CAPTCHA Settings](#org-wide-captcha-settings-object).
 
 ##### Request
+
 ```bash
 curl -v -X DELETE \
 -H "Authorization: SSWS ${api_token}" \
@@ -447,6 +457,7 @@ curl -v -X DELETE \
 ```
 
 ##### Response
+
 ```http
 HTTP/1.1 403 Forbidden
 Content-Type: application/json
@@ -479,10 +490,10 @@ The CAPTCHA object defines the following properties:
 
 | Property           | Type                           | Description                                                                                                       |
 | ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `name`             | String                         | Required. Name of CAPTCHA |
-| `siteKey`          | String                         | Required. Site key issued from CAPTCHA Vendor to render CAPTCHA in a page.|
-| `secretKey`        | String                         | Required. Secret key issued from CAPTCHA Vendor to perform server-side validation for CAPTCHA token.|
-| `type`             | String                         | Required. Type of CAPTCHA. Available Values are `HCAPTCHA` and `RECAPTCHA_V2`.|
+| `name`             | String                         | Name of CAPTCHA |
+| `siteKey`          | String                         | Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page|
+| `secretKey`        | String                         | Secret key issued from the CAPTCHA vendor to perform server-side validation for a CAPTCHA token|
+| `type`             | String                         | Type of CAPTCHA. Supported values: `HCAPTCHA` and `RECAPTCHA_V2`|
 
 #### CAPTCHA example
 
@@ -503,11 +514,12 @@ The CAPTCHA object defines the following properties:
 
 | Property           | Type                           | Description                                                                                                       |
 | ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `id`               | String                         | Required. Unique key for the CAPTCHA|
-| `name`             | String                         | Required. Name of the CAPTCHA |
-| `siteKey`          | String                         | Required. Site key issued from CAPTCHA Vendor to render CAPTCHA in a page.|
-| `type`             | `HCAPTCHA`, `RECAPTCHA_V2`     | Required. Type of CAPTCHA.|
-| `_links`           | [Links](#captcha-links-object)         | Link relations for this object|
+| `id`               | String                         | Unique key for the CAPTCHA|
+| `name`             | String                         | Name of the CAPTCHA |
+| `siteKey`          | String                         | Site key issued from the CAPTCHA vendor to render a CAPTCHA on a page|
+| `type`             | `HCAPTCHA`, `RECAPTCHA_V2`     | Type of CAPTCHA|
+| `_links`           | [Links](#captcha-links-object) | Link relations for this object|
+
 #### CAPTCHA example
 
 ```json
@@ -536,23 +548,23 @@ The CAPTCHA object defines the following properties:
 
 Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288)) available for the current status of an application using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only.
 
-## Org-wide CAPTCHA settings operations
+## Org-wide CAPTCHA Settings operations
 
-The org-wide CAPTCHA settings are used to configure which parts of the authentication flow will require users to pass the CAPTCHA logic.
+The Org-wide CAPTCHA Settings are used to configure which parts of the authentication flow requires users to pass the CAPTCHA logic.
 
-The org-wide CAPTCHA settings API has the following operations:
+The Org-wide CAPTCHA Settings API has the following operations:
 
-* [Get org-wide CAPTCHA settings](#get-org-wide-captcha-settings)
-* [Update org-wide CAPTCHA settings](#update-org-wide-captcha-settings)
-* [Delete org-wide CAPTCHA settings](#delete-org-wide-captcha-settings)
+* [Get Org-wide CAPTCHA Settings](#get-org-wide-captcha-settings)
+* [Update Org-wide CAPTCHA Settings](#update-org-wide-captcha-settings)
+* [Delete Org-wide CAPTCHA Settings](#delete-org-wide-captcha-settings)
 
-### Get org-wide CAPTCHA settings
+### Get Org-wide CAPTCHA Settings
 
 <ApiOperation method="get" url="/api/v1/org/captcha" />
 
-Fetch org-wide CAPTCHA settings.
+Fetch Org-wide CAPTCHA Settings
 
-> **Note:**  If there's no org-wide CAPTCHA settings in current org, it will return an empty org-wide CAPTCHA settings.
+> **Note:**  If there's no Org-wide CAPTCHA Settings in the current org, empty Org-wide CAPTCHA Settings are returned.
 
 #### Request path parameters
 
@@ -568,11 +580,11 @@ N/A
 
 #### Response body
 
-The requested [Org-wide CAPTCHA Setting response](#org-wide-captcha-settings-response-object)
+The requested [Org-wide CAPTCHA Settings response](#org-wide-captcha-settings-response-object)
 
 #### Use example
 
-This example returns org-wide CAPTCHA settings:
+The following example returns Org-wide CAPTCHA Settings.
 
 ##### Request
 
@@ -624,7 +636,7 @@ Content-Type: application/json
 }
 ```
 
-This example returns an empty org-wide CAPTCHA settings:
+The following example returns empty Org-wide CAPTCHA Settings.
 
 ##### Request
 
@@ -661,13 +673,13 @@ Content-Type: application/json
 }
 ```
 
-### Update org-wide CAPTCHA settings
+### Update Org-wide CAPTCHA Settings
 
 <ApiOperation method="put" url="/api/v1/org/captcha" />
 
-Update org-wide CAPTCHA settings.
+Updates Org-wide CAPTCHA Settings
 
-> **Note:**  `captchaId` cannot be null if `enabledPages` is null or empty.
+> **Note:** `captchaId` can't be null if `enabledPages` is null or empty.
 
 #### Request path parameters
 
@@ -679,7 +691,7 @@ N/A
 
 #### Request body
 
-The [Org-wide CAPTCHA Settings](#org-wide-captcha-settings-object) to update.
+The [Org-wide CAPTCHA Settings](#org-wide-captcha-settings-object) to update
 
 #### Response body
 
@@ -687,7 +699,7 @@ The updated [Org-wide CAPTCHA Settings response](#org-wide-captcha-settings-resp
 
 #### Use example
 
-This example enables CAPTCHA on self-service password recovery and sign-in pages by setting `enabledPages` with `SSPR` and `SIGN_IN`:
+The following example enables CAPTCHA on self-service password recovery and sign-in pages by setting `enabledPages` with `SSPR` and `SIGN_IN`.
 
 ##### Request
 
@@ -741,7 +753,7 @@ Content-Type: application/json
 }
 ```
 
-This example disables CAPTCHA org-wide by setting `captchaId` and `enabledPages` as `null`:
+The following example disables CAPTCHA org-wide by setting `captchaId` and `enabledPages` to `null`.
 
 ##### Request
 
@@ -782,9 +794,11 @@ Content-Type: application/json
 ```
 
 #### Error example
-The following request would return error when updated `captchaId` is null but `enabledPages` is not empty.
+
+The following request returns an error when the updated `captchaId` is null but `enabledPages` isn't empty.
 
 ##### Request
+
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
@@ -797,6 +811,7 @@ curl -v -X POST \
 ```
 
 ##### Response
+
 ```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
@@ -816,11 +831,11 @@ Content-Type: application/json
 }
 ```
 
-### Delete Org-wide CAPTCHA settings
+### Delete Org-wide CAPTCHA Settings
 
 <ApiOperation method="delete" url="/api/v1/org/captcha" />
 
-Permanently delete the Org-wide CAPTCHA settings object.
+Permanently deletes the Org-wide CAPTCHA Settings object
 
 #### Request path parameters
 
@@ -838,9 +853,9 @@ N/A
 
 N/A
 
-#### Usage example
+#### Use example
 
-The following request would delete Org-wide CAPTCHA Settings:
+The following request deletes Org-wide CAPTCHA Settings.
 
 ##### Request
 
@@ -857,16 +872,16 @@ HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
-## Org-wide CAPTCHA settings API objects
+## Org-wide CAPTCHA Settings API objects
 
-### Org-wide CAPTCHA settings object
+### Org-wide CAPTCHA Settings object
 
-#### Org-wide CAPTCHA settings properties
+#### Org-wide CAPTCHA Settings properties
 
 | Property           | Type                           | Description                                                                                                       |
 | ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `captchaId`        | String                         | Required. Unique key of assigned CAPTCHA|
-| `enabledPages`     | `SSR`, `SSPR`,`SIGN_IN`        | Required. Array of pages that have CAPTCHA enabled.|
+| `captchaId`        | String                         | Unique key of the assigned CAPTCHA|
+| `enabledPages`     | `SSR`, `SSPR`,`SIGN_IN`        | Array of pages that have CAPTCHA enabled|
 
 Available values for `enabledPages`:
 
@@ -874,9 +889,9 @@ Available values for `enabledPages`:
 | -------------------- | ----------- |
 | `SSR` | Self-service Registration |
 | `SSPR`| Self-service Password Recovery |
-| `SIGN_IN`| User login page |
+| `SIGN_IN`| User sign-in page |
 
-#### Org-wide CAPTCHA settings example
+#### Org-wide CAPTCHA Settings example
 
 ```json
 {
@@ -885,16 +900,18 @@ Available values for `enabledPages`:
 }
 ```
 
-### Org-wide CAPTCHA settings Response object
+### Org-wide CAPTCHA Settings Response object
 
-#### Org-wide CAPTCHA settings Response properties
+#### Org-wide CAPTCHA Settings Response properties
+
 Property           | Type                             | Description                                                                                                       |
 | ------------------ | ------------------------------ | ----------------------------------------------------------------------------------------------------------------- |
-| `captchaId`        | String                         | Required. Unique key of assigned CAPTCHA|
-| `enabledPages`     | `SSR`, `SSPR`,`SIGN_IN`        | Required. Array of pages that have CAPTCHA enabled.|
+| `captchaId`        | String                         | Unique key of assigned CAPTCHA|
+| `enabledPages`     | `SSR`, `SSPR`,`SIGN_IN`        | Array of pages that have CAPTCHA enabled|
 | `_links`           | [Links](#org-wide-captcha-links-object) | Link relations for this object|
 
 #### CAPTCHA example
+
 ```json
 {
     "enabledPages": [

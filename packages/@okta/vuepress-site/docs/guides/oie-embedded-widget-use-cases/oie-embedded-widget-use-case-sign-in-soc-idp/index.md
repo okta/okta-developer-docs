@@ -28,8 +28,6 @@ The following shows the sequence of steps to sign in to the widget.
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
-## Integration steps
-
 <StackSelector snippet="integrationsteps" noSelector />
 
 </div>

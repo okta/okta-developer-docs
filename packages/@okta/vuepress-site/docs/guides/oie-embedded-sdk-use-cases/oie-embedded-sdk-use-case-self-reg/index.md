@@ -81,9 +81,6 @@ The sequence of steps for self-service registration is described in the followin
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
-## Integration steps
-
 <StackSelector snippet="integrationsteps" noSelector />
-
 
 </div>

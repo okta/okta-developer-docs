@@ -19,14 +19,7 @@ No additional factors are needed.
 There are no additional configuration changes needed to implement
 this use case.
 
-## Summary of steps
-
-This use case signs a user out of the local app by revoking
-their session tokens. The sequence of steps is shown below:
-
 <StackSelector snippet="summaryofsteps" noSelector />
-
-## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 

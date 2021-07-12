@@ -1,6 +1,7 @@
+
 ###  Step 1: User signs in with Facebook link
 
-AFter you complete the steps in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-sign-in-soc-idp/#step-2-set-up-your-okta-org-for-social-identity-providers), the **Sign in with Facebook** link should appear automatically on the widget. You don't need to make any code changes to make the link appear.
+After you complete the steps in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-sign-in-soc-idp/#step-2-set-up-your-okta-org-for-social-identity-providers), the **Sign in with Facebook** link should appear automatically on the widget. You don't need to make any code changes to make the link appear.
 
 When the user clicks this link, they are sent to the Facebook login screen.
 

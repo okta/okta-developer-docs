@@ -1,3 +1,5 @@
+## Integration steps
+
 ### Step 1: Add forgot password link to sign-in page
 
 The first step is to create a forgot password link on the sign-in page. This link points to the "Reset your password" page.

@@ -106,11 +106,13 @@ that support this basic setup include:
 1. On the **Applications** page, click **Create App Integration**.
 1. From the **Add Applications** page, click **Create New App**.
 1. In the **Create New Application Integration** dialog box:
-   * Select **OIDC - OpenID Connect** as the **Sign-on method**.
-   * Select **Web Application** as application type, and then click **Next**.
-1. On the **New Web App Integration** page:
+
+   *  Select **OIDC - OpenID Connect** as the **Sign-on method**.
+   *  <StackSelector snippet="applicationtype" noSelector />
+1. <StackSelector snippet="newapp" noSelector />
    * Enter an application name.
    * Select the **Interaction Code** checkbox if not already selected.
+   * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to: <StackSelector snippet="redirecturi" noSelector />
    * Click **Save**.
 1. Select the **Sign On** tab, and in the **Sign On Policy** section make note of the **Available Authenticators**. The value
