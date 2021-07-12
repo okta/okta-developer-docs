@@ -1,5 +1,5 @@
 
-Using the `tokenResponse` obtained from `IDXAuthenticationWrapper`'s `authenticate`
+Using the `TokenResponse` obtained from `IDXAuthenticationWrapper`'s `authenticate`
 method, make a request to the following endpoint:
 
 ```java
