@@ -1,6 +1,6 @@
 {
-  "release" : "2021.06.1",
-  "build" : "2021.06.1-begin-75-g2deed98c55cb",
+  "release" : "2021.07.1",
+  "build" : "2021.07.1-begin-64-gb7f5e2c62280",
   "errors" : [ {
     "title" : "Access denied",
     "statusCode" : 403,
@@ -849,6 +849,13 @@
     "errorCode" : "invalid_request",
     "errorDescription" : "PKCE code challenge is required when the token endpoint authentication method is 'NONE'."
   }, {
+    "title" : "PKCE missing challenge verifier present",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "pkce_missing_challenge_verifier_present",
+    "errorCode" : "invalid_request",
+    "errorDescription" : "PKCE code challenge should be specified in the authorize request for code verification."
+  }, {
     "title" : "PKCE missing verifier",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1185,6 +1192,27 @@
     "errorCode" : "invalid_scope",
     "errorDescription" : "Custom scopes are not allowed for this request."
   }, {
+    "title" : "Illegal scope",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "illegal_scope",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "The following scopes are not allowed for this request: [{0}]."
+  }, {
+    "title" : "Illegal scope combination",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "illegal_scope_combination",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "The following scopes cannot be requested together: [{0}]."
+  }, {
+    "title" : "Required scope combination",
+    "statusCode" : 400,
+    "statusReasonPhrase" : "Bad Request",
+    "internalErrorCode" : "required_scope_combination",
+    "errorCode" : "invalid_scope",
+    "errorDescription" : "The following scopes: [{0}] must be requested together with [{1}]."
+  }, {
     "title" : "MFA attestation invalid scope",
     "statusCode" : 400,
     "statusReasonPhrase" : "Bad Request",
@@ -1373,13 +1401,6 @@
     "internalErrorCode" : "missing_redirect_uri",
     "errorCode" : "missing_redirect_uri",
     "errorDescription" : "redirect_uri is missing."
-  }, {
-    "title" : "OpenID scope required for scope",
-    "statusCode" : 400,
-    "statusReasonPhrase" : "Bad Request",
-    "internalErrorCode" : "openid_scope_required_for_scope",
-    "errorCode" : "openid_scope_required_for_scope",
-    "errorDescription" : "When requesting scope '{0}' the openid scope is required."
   }, {
     "title" : "Refresh token validation failure",
     "statusCode" : 400,

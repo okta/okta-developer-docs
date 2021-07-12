@@ -1,17 +1,68 @@
 ---
 title: Okta API Products Release Notes 2021
 ---
+## July
+
+### Monthly Release 2021.07.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Support for Push Status using the Apps API is GA in Preview](#support-for-push-status-using-the-apps-api-is-ga-in-preview) | July 8, 2021 |
+| [Provisioning for Org2Org app integrations is GA in Production](#provisioning-for-org2org-app-integrations-is-ga-in-production) | July 8, 2021 |
+| [New Domains API response properties available](#new-domains-api-response-properties-available) | July 8, 2021 |
+| [Rate limit events for user and session user activity](#rate-limit-events-for-user-and-session-user-activity) | July 8, 2021 |
+| [Schemas API feature unique attributes is now GA in Preview](#schemas-api-feature-unique-attributes-is-now-ga-in-preview) | July 8, 2021 |
+| [The SAML 2.0 Assertion grant flow is now GA in Preview](#the-saml-2-0-assertion-grant-flow-is-now-ga-in-preview) | July 8, 2021 |
+| [Bugs fixed in 2021.07.0](#bugs-fixed-in-2021-07-0) | July 8, 2021 |
+
+#### Support for Push Status using the Apps API is GA in Preview
+
+Developers can use the `pushStatus` parameter to handle a username update to an app integration. Previously, this option wasn't available through the [Apps API](/docs/reference/api/apps), which caused inconsistent behavior between app integrations configured using the Okta Admin Console and those configured through the API.
+<!--OKTA-405533-->
+
+#### Provisioning for Org2Org app integrations is GA in Production
+
+Previously, Okta admins could only configure provisioning for the Org2Org app integration using the Admin Console. With the introduction of Multi-Org functions within the [Apps API](/docs/reference/api/apps), you can write code scripts or use SDKs to automate Okta hub and spoke scenarios.
+
+Additionally, you can set or update the Logo or Notes fields for any of your Okta app integrations using the API. <!--OKTA-405943-->
+
+#### New Domains API response properties available
+
+The [Domains API](/docs/reference/api/domains) includes the new response object properties of `certificateSourceType` and `expiration`. The `certificateSourceType` is a required property that indicates whether the Certificate is provided by the user. The accepted value is `Manual`. The `expiration` property on the DNSRecord object is an optional property that defines the TXT record expiration. <!--OKTA-403600-->
+
+#### Rate limit events for user and session user activity
+
+Previously, rate limit violation events for user and session user were logged as org-wide system events (`system.org.rate_limit.violation`). These rate limit violation events are now logged more specifically as [operation events](/docs/reference/rl-system-log-events/#operation-rate-limits) (`system.operation.rate_limit.violation`). <!--OKTA-394607-->
+
+#### Schemas API feature unique attributes is now GA in Preview
+
+The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#uniqueattributes) for custom properties in the Okta User Profile and the Okta Group Profile. You can declare a maximum of five unique properties for each user type and five unique properties in the Okta Group Profile. This feature helps prevent the duplication of data and ensures data integrity. <!--OKTA-400824-->
+
+#### The SAML 2.0 Assertion grant flow is now GA in Preview
+
+You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-saml2/overview/). <!--OKTA-406626-->
+
+#### Bugs fixed in 2021.07.0
+
+- The IdP claim wasn't available in the `id_token` or included with the Token Inline Hook request. (OKTA-407459)
+
+- When the Users lifecycle API `users/{{userId}}/lifecycle/reset_factors` was called to reset user factors, a status 403 error was received, even with a valid bearer token and scope (`okta.users.manage`). (OKTA-404613)
+
+- When an OIDC client app was created, the [Apps API](/docs/reference/api/apps) call couldn't modify the `visibility.hide` property. (OKTA-399408)
+
 ## June
 
 ### Weekly Release 2021.06.4
 
 | Change                                                                         | Expected in Preview Orgs |
 |--------------------------------------------------------------------------------|--------------------------|
-| [Bug fixed in 2021.06.4](#bug-fixed-in-2021-06-4)                              | June 30, 2021            |
+| [Bugs fixed in 2021.06.4](#bugs-fixed-in-2021-06-4)                              | June 30, 2021            |
 
-#### Bug fixed in 2021.06.4
+#### Bugs fixed in 2021.06.4
 
-The group app assignment process failed to assign users to an app when a database exception occurred. (OKTA-378076)
+* The group app assignment process failed to assign users to an app when a database exception occurred. (OKTA-378076)
+
+* To follow cryptographic standards, the default client secret length has been increased for public applications. (OKTA-303734)
 
 ### Weekly Release 2021.06.3
 
