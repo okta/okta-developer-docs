@@ -1,5 +1,5 @@
 ---
-title: Basic sign out
+title: User sign-out (local app)
 ---
 
 <div class="oie-embedded-sdk">
@@ -8,7 +8,7 @@ title: Basic sign out
 
 <StackSelector class="cleaner-selector"/>
 
-This use case describes how to sign a user out.
+This use case describes how to sign out a user.
 
 ## Factor setup
 

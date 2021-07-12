@@ -1,6 +1,6 @@
 ---
-title: Embedded Widget Overview
-excerpt: Embedded Widget Overview
+title: Embedded widget overview
+excerpt: Embedded widget overview
 layout: Guides
 sections:
  - main
