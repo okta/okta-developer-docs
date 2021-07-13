@@ -1,4 +1,4 @@
-## Refresh using the Android SDK
+## Option 1: Refresh using the Android SDK
 
 The [Android SDK, widget and sample app](https://github.com/okta/okta-idx-android)
 do not currently have built-in support for refreshing tokens. Instead use

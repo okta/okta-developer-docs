@@ -1,4 +1,4 @@
-## Refresh using the Java SDK
+## Option 1: Refresh using the Java SDK
 
 The [Java SDK, widget and sample app](https://github.com/okta/okta-idx-java)
 do not currently have built-in support for refreshing tokens. Instead use

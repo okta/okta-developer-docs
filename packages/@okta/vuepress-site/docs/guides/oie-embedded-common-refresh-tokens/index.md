@@ -1,6 +1,6 @@
 ---
-title: Refresh access and id tokens
-excerpt: Refresh access and id tokens
+title: Token refresh
+excerpt: Token refresh
 layout: Guides
 sections:
  - main

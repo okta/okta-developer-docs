@@ -1,5 +1,5 @@
 ---
-title: Refresh access and id tokens
+title: Token refresh
 ---
 <div class="oie-embedded-sdk">
 
@@ -25,30 +25,96 @@ server's token endpoint to renew the access token.
 
 <StackSelector snippet="refreshusingthesdk" noSelector />
 
-## Refresh using the OAuth token endpoint
+## Option 2: Refresh using the OAuth token endpoint
 
-Access and id tokens can be refreshed using OAuth token endpoint
-described in the OAuth
-[specification](https://datatracker.ietf.org/doc/html/rfc6749#section-5.1).
+Access and id tokens can be refreshed using the
+[`/token`](https://developer.okta.com/docs/reference/api/oidc/#token)
+endpoint with the `grant_type` set to `refresh_token`.  Before calling this endpoint,
+obtain the refresh token from the SDK and ensure you have included
+`offline_access` as a scope in the SDK configurations. For further details on
+access token refresh, see
+[Use a refresh token](/docs/guides/refresh-tokens/use-refresh-token/).
 
-Before calling this endpoint, obtain the refresh token from the SDK. Once
-retrieved, create an HTTP Post request to the authorization server's `token` endpoint.
-See example below.
+<StackSelector snippet="refreshendpointrequest" noSelector />
+
+### Native and Spa applications
+
+Unlike web applications, native applications and single-page applications
+don't use client secrets. As a result, token refresh requests for these
+applications omit the `Authorization` header and include the `client_id`
+query parameter.
 
 ```http
 POST /oauth2/default/v1/token HTTP/1.1
 Accept: application/json
 Content-Type: application/x-www-form-urlencoded
-Authorization: Basic MG9hMTJncG5qZnpvdllTbk41ZDc6UG9zWGpjNmw0WHF5ZDBhek03cjF0SnhyMS1LWHdWYmNFaDk0Q0FDNA==
 
-grant_type: refresh_token
-redirect_uri: http://localhost:8080
-scope: offline_access openid profile
-refresh_token: 03_hBtVj-Hk0Mxo9TPSdl7TLkxQioKqQEzud3ldqHqs
+grant_type=refresh_token
+redirect_uri=com.embeddedauth://callback
+scope=offline_access openid profile
+refresh_token=03_hBtVj-Hk0Mxo9TPSdl7TLkxQioKqQEzud3ldqHqs
+client_id=0oa94el1z4nUDxx0z5d7
 ```
 
-Note the use of the `refresh_token` `grant_type` value which indicates
-the request is for refreshing the access token. For further details on access token refresh, see
-[Use a refresh token](/docs/guides/refresh-tokens/use-refresh-token/).
+### Response
+
+An example response is shown below:
+
+```json
+{
+    "token_type": "Bearer",
+    "expires_in": 3600,
+    "access_token": "eyJraWQiOiJoQkZNR...",
+    "scope": "offline_access openid profile",
+    "refresh_token": "HRzOBfj1A1g6akWqNHfCE-KX-9NASmnFqhRFOt_rEdc",
+    "id_token": "eyJraWQiOiJoQkZN..."
+}
+```
+
+## Get token info using introspect endpoint
+
+To learn more information about a tokens (access or Id) including whether
+they are still active, use the
+[`/introspect`](https://developer.okta.com/docs/reference/api/oidc/#introspect)
+endpoint.
+
+<StackSelector snippet="introspectendpointrequest" noSelector />
+
+### Native and Spa applications
+
+Unlike web applications, native applications and single-page applications don't
+use client secrets. Refresh requests for these applications omit the `Authorization`
+header and include the `client_id` query parameter.
+
+```http
+POST /oauth2/default/v1/introspect HTTP/1.1
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+token=eyJraWQiOiJoQk...
+client_id=0oa14dl1z4nUJxx0z5d7
+token_type_hint=access_token
+```
+
+### Response
+
+An example response is shown below:
+
+```json
+{
+    "active": true,
+    "scope": "profile openid offline_access",
+    "username": "robnicolo+oie7@gmail.com",
+    "exp": 1626128470,
+    "iat": 1626124870,
+    "sub": "robnicolo+oie7@gmail.com",
+    "aud": "api://default",
+    "iss": "https://dev-47512710.okta.com/oauth2/default",
+    "jti": "AT.4PAhL3RW5Yxn5leKbT3_xpiflVWYvcrKtzgkt9HHwDo.oar2str41LSUbsgXb5d6",
+    "token_type": "Bearer",
+    "client_id": "0oa14dl1z4nUJxx0z5d7",
+    "uid": "00u128itb5sYrGii55d7"
+}
+```
 
 </div>

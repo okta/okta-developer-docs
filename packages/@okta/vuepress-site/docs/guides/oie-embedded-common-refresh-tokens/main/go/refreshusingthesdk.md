@@ -1,4 +1,4 @@
-## Refresh using the Golang SDK
+## Option 1: Refresh using the Golang SDK
 
 The [Go SDK, widget and sample app](https://github.com/okta/okta-idx-golang)
 do not currently have built-in support for refreshing tokens. Instead use

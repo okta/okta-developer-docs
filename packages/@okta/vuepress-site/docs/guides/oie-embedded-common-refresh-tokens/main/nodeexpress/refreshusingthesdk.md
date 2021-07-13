@@ -1,4 +1,4 @@
-## Refresh using the Javascript SDK
+## Option 1: Refresh using the Javascript SDK
 
 The Javascript SDK has built-in support for auto renewing of access and
 id tokens. This behavior is enabled by default, but can be disabled by

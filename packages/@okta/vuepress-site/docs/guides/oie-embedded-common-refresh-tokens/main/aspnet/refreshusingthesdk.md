@@ -1,4 +1,4 @@
-## Refresh using the .Net SDK
+## Option 1: Refresh using the .Net SDK
 
 The [.Net SDK, widget and sample app](https://github.com/okta/okta-idx-dotnet)
 do not currently have built-in support for refreshing tokens. Instead use

@@ -1,4 +1,4 @@
-## Refresh using the Swift SDK
+## Option 1: Refresh using the Swift SDK
 
 The Swift SDK has built-in support for refreshing tokens through
 use of the `Token` object's `refresh` method.
