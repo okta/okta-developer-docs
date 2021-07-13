@@ -3,15 +3,19 @@ title: Identity Engine Limitations
 excerpt: The Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features.
 ---
 
-## Overview
+## Okta Identity Engine Limitations
 
-The Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features.
+<ApiLifecycle access="ie" /><br>
+
+> **Limited GA:** Okta Identity Engine is currently available only to selected customers.
+
+The Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features. Additionally, some of these changes result in Okta Identity Engine features not supported for use with Okta Classic APIs.
 
 > **Note:** This doc is designed for people familiar with Okta Classic. If you are new to Okta and Okta Identity Engine, see [Get started](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) with Okta Identity Engine.
 
-Are you an admin? See the Identity Engine [Limitations](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-oie-limitations) doc for the Admin Console.
+Are you an admin? See the Identity Engine [Limitations](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-oie-limitations) doc for admins.
 
-### Classic features not supported in Identity Engine
+### Okta Classic features not supported in Okta Identity Engine
 
 #### Event Type availability for Event Hooks
 
@@ -118,7 +122,7 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 ***
 
-### Identity Engine features not supported with Classic APIs
+### Okta Identity Engine features not supported with Okta Classic APIs
 
 #### Factor API enrollment limitations
 
@@ -134,8 +138,8 @@ The following Okta Identity Engine features aren't supported using the Factor AP
 
 ***
 
-#### Password recovery limitations with the Classic /authn API
+#### Password recovery limitations with the /authn API
 
-Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users that use the Classic Authentication APIs are denied recovery.
+Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users that use the Okta Classic Authentication APIs are denied recovery.
 
 **Further information:** [Recovery operations](https://developer.okta.com/docs/reference/api/authn/#recovery-operations) section of the Authentication API.
