@@ -1467,9 +1467,9 @@ The following conditions may be applied to Password Policy:
 
 With Identity Engine, Recovery Factors can be specified inside the Password Policy Rule object instead of in the Policy Settings object. Recovery factors for the rule are defined inside the `selfServicePasswordReset` Action.
 
-Below are 3 examples of how Recovery Factors are configured in the Rule based on admin requirements.
+The following three examples demonstrate how Recovery Factors are configured in the Rule based on admin requirements.
 
-In this example, the requirement is that end users verify with just one Authenticator before they can recover their password. Email, SMS, Voice or Okta Verify Push can be used by end users to initiate recovery. We know that only one Authenticator is required because there are no step up Authenticators specified as can be seen by the `stepUp` object having the `required` attribute set as `false`.
+In this example, the requirement is that end users verify with just one Authenticator before they can recover their password. Email, SMS, Voice, or Okta Verify Push can be used by end users to initiate recovery. We know that only one Authenticator is required because there are no step up Authenticators specified as can be seen by the `stepUp` object having the `required` attribute set as `false`.
 
 ```json
 "actions": {
@@ -1497,7 +1497,6 @@ In this example, the requirement is that end users verify with just one Authenti
       }
 }
 ```
-
 
 In this example, the requirement is that end users verify two Authenticators before they can recover their password. Only email or Okta Verify Push can be used by end users to initiate recovery. A security question is required as a step up.
 
@@ -1530,8 +1529,7 @@ In this example, the requirement is that end users verify two Authenticators bef
 }
 ```
 
-
-In the final example, end users are required to verify two Authenticators before they can recover their password. Only Okta Verify Push can be used by end users to initiate recovery. A step up verification is required, for which they can use any enrolled Authenticator that can be used for sign-on. This is indicated by the `stepUp` object containing only the `required` attribute set as `true` but without the `methods` array attribute.
+In the final example, end users are required to verify two Authenticators before they can recover their password. Only Okta Verify Push can be used by end users to initiate recovery. A step-up verification is required, for which they can use any enrolled Authenticator that can be used for sign-on. This is indicated by the `stepUp` object that contains only the `required` attribute set as `true` but without the `methods` array attribute.
 
 
 ```json
@@ -1579,10 +1577,10 @@ In the final example, end users are required to verify two Authenticators before
 | Property                                                       | Data Type   | Description                                                                                 | Supported Values                | Required | Default
 | ---                                                            | ---         | ---                                                                                         | ---                             | ---      | ---
 | `access`                                                       | String      | Indicates if the action is permitted                                                        | `ALLOW`, `DENY`                 | No       | `DENY`
-| `requirement` <ApiLifecycle access="ie" />                     | Object      | JSON object containing Authenticator methods required to be verified if `access` is `ALLOW`. If access is `ALLOW` and `requirement` is not specified, `recovery.factors` from parent policy object is used to determine recovery factors.                             | No       |
+| `requirement` <ApiLifecycle access="ie" />                     | Object      | JSON object that contains Authenticator methods required to be verified if `access` is `ALLOW`. If access is `ALLOW` and `requirement` isn't specified, `recovery.factors` from parent policy object is used to determine recovery factors.                             | No       |
 | `requirement.primary.methods` <ApiLifecycle access="ie" />     | Array       | Authenticator methods that can be used by the End User to initiate a password recovery            | `EMAIL`, `SMS`, `VOICE`, `PUSH` | Yes |
 | `requirement.stepUp.required` <ApiLifecycle access="ie" />     | Boolean     | Indicates if any step-up verification is required to recover a password that follows a primary methods verification | `true`, `false` | Yes |
-| `requirement.stepUp.methods`  <ApiLifecycle access="ie" />     | Array       | If `requirement.stepUp.required` is `true`, JSON object containing authenticator methods required to be verified as a step up. If not specified, any enrolled Authenticator methods allowed for sign-on can be used as step up. | `null` or an array containing`SECURITY_QUESTION` | No
+| `requirement.stepUp.methods`  <ApiLifecycle access="ie" />     | Array       | If `requirement.stepUp.required` is `true`, a JSON object that contains Authenticator methods is required to be verified as a step up. If not specified, any enrolled Authenticator methods allowed for sign-on can be used as step up. | `null` or an array containing`SECURITY_QUESTION` | No
 
 
 ##### Self Service Unlock Action object
@@ -1601,7 +1599,7 @@ The following conditions may be applied to the Rules associated with Password Po
 
 ## IdP Discovery Policy
 
-The IdP Discovery Policy determines where to route Users when they are attempting to sign in to your org. Users can be routed to a variety of identity providers (`SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`) based on multiple conditions. For an introduction to the topic, see [IdP Discovery](/docs/concepts/identity-providers/#idp-discovery).
+The IdP Discovery Policy determines where to route Users when they are attempting to sign in to your org. Users can be routed to a variety of Identity Providers (`SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`) based on multiple conditions. For an introduction to the topic, see [IdP Discovery](/docs/concepts/identity-providers/#idp-discovery).
 
 All Okta orgs contain one and only one IdP Discovery Policy, with an immutable default Rule routing to your org's sign-in page.
 
@@ -1623,7 +1621,7 @@ The following conditions may be applied to IdP Discovery Policy:
 
 | Property  | Description                                                          | Data Type | Required |
 | ---       | ---                                                                  | ---       | ---      |
-| providers | List of configured identity providers that a given Rule can route to | array     | Yes      |
+| providers | List of configured Identity Providers that a given Rule can route to | array     | Yes      |
 
 > **Note:** Ability to define multiple providers is a part of Okta Identity Engine.
 > Please [contact support](mailto:dev-inquiries@okta.com) for further information
@@ -1646,6 +1644,7 @@ The following conditions may be applied to IdP Discovery Policy:
 ```
 
 #### Policy Action with multiple IdP instances
+
 <ApiLifecycle access="ie" />
 
 > **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
@@ -1664,11 +1663,11 @@ Multiple IdP instances can be defined in a single Policy Action. This allows use
 
 ##### Limitations
 
-* Up to 10 providers can be added to a single `idp` Policy Action
+* You can add up to 10 providers to a single `idp` Policy Action.
 
-* Only one `provider` can be defined for the following IdP types: `AgentlessDSSO`, `IWA`, `X509`
+* You can define only one `provider` for the following IdP types: `AgentlessDSSO`, `IWA`, `X509`.
 
-* If a [User Identifier Condition](#user-identifier-condition-object) is defined together with an `OKTA` provider, sign in requests will be handled by Okta exclusively
+* If a [User Identifier Condition](#user-identifier-condition-object) is defined together with an `OKTA` provider, sign in requests are handled by Okta exclusively.
 
 ##### Example
 
@@ -1694,21 +1693,21 @@ Multiple IdP instances can be defined in a single Policy Action. This allows use
   }
 ```
 
-## App Sign On Policy
+## App sign-on policy
 
 <ApiLifecycle access="ie" /><br>
 
 > **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
-The app sign-on policy determines the extra levels of authentication (if any) that must be performed before a specific Okta application can be invoked. It is always associated with an app via a Mapping. The Okta Identity Engine always evaluates both Okta sign-on policy and the sign-on policy for the app. The resulting user experience will be the union of both policies. App sign on policies have the type `ACCESS_POLICY`.
+The app sign-on policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. The Okta Identity Engine always evaluates both the Okta sign-on policy and the sign-on policy for the app. The resulting user experience is the union of both policies. App sign-on policies have the type `ACCESS_POLICY`.
 
 > **Note:** You can have a maximum of 5000 app sign-on policies in an org.
 > There is a max limit of 100 rules allowed per policy.
-> When you create an app sign-on policy, you will automatically also create a default policy rule with the lowest priority of `99`.
-> The highest priority that an app sign on policy rule can be set is `0`.
+> When you create an app sign-on policy, you automatically also create a default policy rule with the lowest priority of `99`.
+> The highest priority that an app sign-on policy rule can be set to is `0`.
 
 
-#### App Sign On Policy example
+#### App sign-on policy example
 
 ```json
     {
@@ -1720,11 +1719,11 @@ The app sign-on policy determines the extra levels of authentication (if any) th
 
 ### Policy conditions
 
-Policy conditions are not supported, conditions are applied at the rule level for this type of policies.
+Policy conditions aren't supported. Conditions are applied at the rule level for these types of policies.
 
 ### Policy Rules conditions
 
-The following conditions may be applied to the rules associated with an app sign on policy:
+You can apply the following conditions to the rules associated with an app sign-on policy:
 
 * [People Condition](#people-condition-object)
 
@@ -1759,25 +1758,24 @@ The following conditions may be applied to the rules associated with an app sign
 
 #### App Sign On Action object
 
-| Property                | Description                                                                                                                                                               | Data Type                                       | Required                      | Default |
-| ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
-| `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
-| `verificationMethod`      | Describes the method to verify the user. The only supported method type is `ASSURANCE`.                                                       | [Verification Method Object](#verification-method-object)                                       | Yes                           | [Default](#app-sign-on-action-default-example)        |
-
+| Property                | Description              | Data Type                                       | Required                      | Default |
+| ---                     | ---------------          | ---                                             | ---                           | ---     |
+| `access`                  | `ALLOW` or      | `ALLOW` or `DENY`                               | Yes                           | N/A     |
+| `verificationMethod`      | Describes the method to verify the user. The only supported method type is `ASSURANCE`.    | [Verification Method Object](#verification-method-object)  | Yes  | [Default](#app-sign-on-action-default-example)        |
 
 ### Verification Method Object
 
-The verification method ensures that user must be verified. Only supported type is `ASSURANCE`.
+The verification method ensures that user must be verified. The only supported type is `ASSURANCE`.
 
-Assurance is the degree of confidence that the end-user signing into an application or service is the same end-user who previously enrolled or signed in to the application or service.
+Assurance is the degree of confidence that the end user signing in to an application or service is the same end user who previously enrolled or signed in to the application or service.
 
-Authenticators can be broadly classified into three kinds of factors. A factor represents the mechanism by which an end-user owns or controls the authenticator. The three classifications are:
+Authenticators can be broadly classified into three kinds of factors. A factor represents the mechanism by which an end user owns or controls the Authenticator. The three classifications are:
 
 * Knowledge: something you know, such as a password
 * Possession: something you have, such as a phone
 * Inherence: something you are, such as a fingerprint or other biometric scan
 
-Multi-factor authentication (MFA) is the use of more than one factor. MFA is the most common way to increase assurance. Authenticators also have other characteristics that may raise or lower assurance. For example, possession factors may be implemented in software or hardware, with hardware being able to provide greater protection when storing shared secrets or private keys, and thus providing higher assurance.
+Multifactor Authentication (MFA) is the use of more than one Factor. MFA is the most common way to increase assurance. Authenticators also have other characteristics that may raise or lower assurance. For example, possession Factors may be implemented in software or hardware, with hardware being able to provide greater protection when storing shared secrets or private keys, and thus providing higher assurance.
 
 | Property            | Data Type              | Description                                                                                                             | Supported Values                                                                                  |
 | -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
