@@ -32,4 +32,4 @@ Authentication Okta APIs can be invoked after the `IDXAuthenticationWrapper` obj
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin()
 ```
 
-See [Okta Java SDK Usage guide](https://github.com/okta/okta-idx-java#usage-guide) for more information on using the SDK.
+See [Okta Java SDK Usage guide](https://github.com/okta/okta-idx-java#usage-guide) for more information on SDK usage.
