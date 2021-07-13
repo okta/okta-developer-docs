@@ -7,8 +7,11 @@ title: Okta API Products Release Notes 2021
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
+| **Okta Classic Only**                                                    |                          |
 | [Support for Push Status using the Apps API is GA in Preview](#support-for-push-status-using-the-apps-api-is-ga-in-preview) | August 2, 2021 |
+| **Okta Identity Engine Only**                                            |                          |
 | [Provisioning for Org2Org app integrations is GA in Production](#provisioning-for-org2org-app-integrations-is-ga-in-production) | August 2, 2021 |
+| **Okta Classic/Okta Identity Engine (applies to both)**                    |                          |
 | [New Domains API response properties available](#new-domains-api-response-properties-available) | August 2, 2021 |
 | [Bugs fixed in 2021.08.0](#bugs-fixed-in-2021-08-0) | August 2, 2021 |
 
@@ -27,7 +30,7 @@ Previously, Okta admins could only configure provisioning for the Org2Org app in
 
 Additionally, you can set or update the Logo or Notes fields for any of your Okta app integrations using the API. <!--OKTA-405943-->
 
-### Okta Classic/Okta Identity Engine (Applies to both)
+### Okta Classic/Okta Identity Engine (applies to both)
 
 #### New Domains API response properties available
 
