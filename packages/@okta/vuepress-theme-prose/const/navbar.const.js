@@ -442,6 +442,10 @@ export const guides = [
                   }
                 ]
               },
+              {
+                title: "Refresh access and ID tokens",
+                guideName: "oie-embedded-common-refresh-tokens",
+              },
             ]
             },
           {
