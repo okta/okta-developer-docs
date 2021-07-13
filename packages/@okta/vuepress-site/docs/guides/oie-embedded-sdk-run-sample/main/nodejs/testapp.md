@@ -26,7 +26,7 @@
 
    <div class="common-image-format">
 
-    ![User profile page](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-user-profile-page.png
+   ![User profile page](/img/oie-embedded-sdk/Embedded-SIW-profile-page-nodejs.png
    "User profile page")
 
    </div>

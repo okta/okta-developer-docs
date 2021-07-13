@@ -1,41 +1,32 @@
 ## Integration steps
 
-### Step 1: Call StartWidgetSigninAsync (User navigates to sign in page)
+### Step 1: Call signIn.showSignInAndRedirect() (User navigates to sign in page)
 
 #### Summary
 
-The first step is to call the `StartWidgetSigninAsync` method when
-the page that will contain the embedded widget is loaded.  The `IdxClient`
-contains the configuration information (either from `okta.yaml` file, env variables,
-or passed in from constructor) to establish a connection to the Okta org and application.
+The first step is to call the `signIn.showSignInAndRedirect()` method when
+the page that will contain the embedded widget is loaded.  The `widgetConfig`
+contains the configuration information (either from `testenv` file, env variables,
+or passed in from `config.js`) to establish a connection to the Okta org and application.
 
 #### Code sample
 
 The sample code below shows the instantiation of the
-`IdxClient` and the calling of the `StartWidgetSignInAsync`.
+`widgetConfig` and the calling of the `signIn.showSignInAndRedirect()`.
 
-```csharp
-public async Task<ActionResult> Index()
-{
-     var idxClient = new IdxClient(new IdxConfiguration()
-     {
-           Issuer = "https://dev-12345678.okta.com/oauth2/default",
-           ClientId = "{clientid}",
-           ClientSecret = "{clientsecret}",
-           RedirectUri = "https://localhost:44314/interactioncode/callback/",
-           Scopes = new List<string>{"openid","profile", "offline_access"}
-     });
-
-     var widgetSignInResponse = await idxClient.StartWidgetSignInAsync(default);
-     var idxContext = widgetSignInResponse.IdxContext;
-     var signInWidgetConfiguration = widgetSignInResponse.SignInWidgetConfiguration;
-
-     return View(signInWidgetConfiguration);
-}
+```JavaScript
+<script type="text/javascript">
+        const widgetConfig = {{{widgetConfig}}};
+        const signIn = new OktaSignIn({
+          el: '#okta-signin-widget-container',
+          ...widgetConfig
+        });
+        signIn.showSignInAndRedirect()
+          .catch(err => {
+            console.log('Error happen in showSignInAndRedirect: ', err);
+          });
+</script>
 ```
-
-Note in the MVC setup above, the response’s `SignInWidgetConfiguration`
-property is passed to the view as a model.
 
 The `StartWidgetSigninAsync` returns a `WidgetSigninResponse` response
 object. The `SignInWidgetConfiguration`  property of this response object
