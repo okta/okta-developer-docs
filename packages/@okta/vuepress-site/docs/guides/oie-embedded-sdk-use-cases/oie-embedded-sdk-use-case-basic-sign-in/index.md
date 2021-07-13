@@ -1,5 +1,5 @@
 ---
-title: Basic sign in
+title: Basic user sign-in (password factor only)
 ---
 
 <div class="oie-embedded-sdk">

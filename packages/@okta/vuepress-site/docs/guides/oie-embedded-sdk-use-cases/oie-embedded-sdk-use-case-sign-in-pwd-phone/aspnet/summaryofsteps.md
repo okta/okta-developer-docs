@@ -1,8 +1,4 @@
-## Summary of steps
-
-The sequence of steps for the Facebook sign in flow is shown below.
-
-### Sequence flow - part 1
+### Sequence flow (part 1)
 
 <div class="common-image-format">
 
@@ -11,7 +7,7 @@ The sequence of steps for the Facebook sign in flow is shown below.
 
 </div>
 
-### Sequence flow - part 2
+### Sequence flow (part 2)
 
 <div class="common-image-format">
 

@@ -17,13 +17,13 @@ Widget into your own app, you need to do the following:
 1. **Step 2:** Set up your Okta org.
 
    * To load the SDK, Widget, and get started with the simple use cases
-      go to [Set up your Okta org (for Password factor only use cases)](#set-up-your-okta-org-for-password-factor-only-use-cases)
+      go to [Set up your Okta org for password factor only use cases](#set-up-your-okta-org-for-password-factor-only-use-cases)
 
    * **Recommended for later:** After you've completed the basic use cases, advance to the more
       complex use cases by performing the following:
 
-      * [Set up your Okta org (for multifactor use cases)](#set-up-your-okta-org-for-multifactor-use-cases)
-      * [Set up your Okta org (for social identity providers)](#set-up-your-okta-org-for-social-identity-providers)
+      * [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases)
+      * [Set up your Okta org for social Identity Providers](#set-up-your-okta-org-for-social-identity-providers)
 
       > **Note:** We recommend that you skip the more advanced configurations until you have the basic use cases working.
 
@@ -59,13 +59,13 @@ that support this basic setup include:
 **Widget**
 
 * [Load the Widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-load/)
-* [Basic sign in using the Widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-basic-sign-in/)
+* [Basic sign-in using the Widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-basic-sign-in/)
 * [Sign in with Facebook](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-sign-in-soc-idp/)
 
 **SDK**
 
-* [Basic user sign in (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/)
-* [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-out/)
+* [Basic user sign-in (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/)
+* [User sign-out (local app)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-out/)
 * [Sign in with a social Identity Provider (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-soc-idp/)
 
 ### Step 1:  Update the default Custom Authorization Server
@@ -118,7 +118,7 @@ that support this basic setup include:
 1. Select the **Sign On** tab, and in the **Sign On Policy** section make note of the **Available Authenticators**. The value
       should be **1 factor** that is **Password**. (If you are coming back to this
       step after completing
-      [Set up your Okta org (for multifactor use cases)](#set-up-your-okta-org-for-multifactor-use-cases),
+      [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases),
       then set this value to **Password**. Currently, if there are multiple factors
       defined in the Okta org but the application uses only one factor, it must
       be **Password**.)
@@ -136,7 +136,7 @@ This section sets up your org for multifactor use cases. These use cases include
 
 > **Note:** We recommend that you skip this step if you are just getting started with the
 sample app and like to run the basic use cases listed in
-[Set up your Okta org (for password factor only use cases)](#set-up-your-okta-org-for-password-factor-only-use-cases).
+[Set up your Okta org for password factor only use cases](#set-up-your-okta-org-for-password-factor-only-use-cases).
 
 If you have completed the basic use cases or simply want to move on to more
 complex multifactor use cases, continue with the following steps.
@@ -277,7 +277,4 @@ The next step is to add a new routing rule.
 
 ### Download and set up the SDK and sample app
 
-After you finish setting up your Okta org, the next step is to
-download and set up the sample app and SDK. See
-[Download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
-for further details.
+After you finish setting up your Okta org, the next step is to download and set up the sample app and SDK. See [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/) for more details.
