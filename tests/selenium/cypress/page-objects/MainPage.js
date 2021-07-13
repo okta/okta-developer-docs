@@ -5,7 +5,7 @@ const pricingLinkXpath = "//*[text()='Pricing']";
 const communityLinkXpath = "//*[text()='Community']";
 
 class MainPage {
-  isSignupButtonPresent() {
+  getSignupButton() {
     return cy.get(signUpButtonSelector)
   };
   getHeaderLink(link) {
@@ -15,7 +15,7 @@ class MainPage {
     return cy.get(`header .header--links li.expandable span.link`);
   }
   getFooterPricingLink() {
-    return cy.get('footer ul.link-list a[href="/pricing/"]');
+    return cy.get('footer ul.link-list a[href="https://www.okta.com/pricing/#customer-identity-products"]');
   }
 }
 

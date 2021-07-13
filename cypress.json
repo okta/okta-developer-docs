@@ -1,4 +1,13 @@
 {
   "baseUrl": "http://localhost:8080/",
-  "integrationFolder": "tests/selenium/cypress/integration"
+  "integrationFolder": "tests/selenium/cypress/integration",
+  "screenshotsFolder": "tests/selenium/cypress/screenshots",
+  "videosFolder": "tests/selenium/cypress/videos",
+  "chromeWebSecurity": false,
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  },
+  "viewportWidth": 1200,
+  "viewportHeight": 1160
 }

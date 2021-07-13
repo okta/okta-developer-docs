@@ -15,6 +15,7 @@
     "migrate": "yarn workspace @okta/migrate-from-jekyll migrate",
     "test": "yarn dev & yarn test:test-local && yarn stop-all",
     "cy:open": "cypress open",
+    "cy:run": "cypress run",
     "test:unit": "jest tests/unit",
     "test-only": "yarn test:unit && yarn test:update-web-driver && protractor tests/selenium/conf.js && yarn stop",
     "test:test-local": "yarn test:wait-on-local && yarn test-only || (yarn stop && exit 1)",
