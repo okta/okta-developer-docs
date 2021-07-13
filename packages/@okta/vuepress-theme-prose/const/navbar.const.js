@@ -657,5 +657,12 @@ export const releaseNotes = [
       { title: "2017", path: "/docs/release-notes/2017/" },
       { title: "2016", path: "/docs/release-notes/2016/" }
     ]
+  },
+  {
+    title: "Identity Engine Release Notes",
+    subLinks: [
+      { title: "Overview", path: "/docs/release-notes/ie-release-notes" },
+      { title: "2021", path: "/docs/release-notes/ie-release-notes/2021/" }
+    ]
   }
 ]
