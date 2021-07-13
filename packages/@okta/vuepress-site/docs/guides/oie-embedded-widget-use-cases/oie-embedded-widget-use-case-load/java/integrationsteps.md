@@ -13,7 +13,7 @@ Add the Sign-In Widget source to your JavaScript sign-in page by referencing the
 
 ### Step 2: Add JavaScript to initialize and load the widget
 
-Load the widget in the sign-in page, similar to the following snippet:
+Initialize the widget in the sign-in page, similar to the following snippet:
 
 ```javascript
 <script th:inline="javascript">
