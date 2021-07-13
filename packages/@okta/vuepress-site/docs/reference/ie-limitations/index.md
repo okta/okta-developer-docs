@@ -9,6 +9,8 @@ The Okta Identity Engine introduces a lot of changes to the Okta platform. Some 
 
 > **Note:** This doc is designed for people familiar with Okta Classic. If you are new to Okta and Okta Identity Engine, see [Get started](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) with Okta Identity Engine.
 
+Are you an admin? See the Identity Engine [Limitations]() doc for the Admin Console.
+
 ### Classic features not supported in Identity Engine
 
 #### Event Type availability for Event Hooks
@@ -41,15 +43,6 @@ The following Event Types are available only in the Identity Engine and can't be
 **What Changed:** Not supported
 
 **Further Information:** [Add a Smart Card IdP](https://help.okta.com/en/prod/Content/Topics/Security/idp-smart-card-workflow.htm)
-
-***
-STILL NEEDS TO BE APPROVED
-
-#### Session management for direct client authentication
-
-**What Changed:** Session management through the `/sessions` API is no longer supported. Successful user sign in no longer returns a `sessionToken` that is used to create an Okta session using the `/sessions` API.
-
-Further Information: [Sessions API reference](/docs/reference/api/sessions/)
 
 ***
 
