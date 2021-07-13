@@ -1,7 +1,7 @@
 ## Option 1: Refresh using the Javascript SDK
 
 The Javascript SDK has built-in support for the auto-renewing of access and
-ID tokens. This behavior is enabled by default, but you can disabled it by
+ID tokens. This behavior is enabled by default, but you can disable it by
 setting the `tokenManager` `autoRenew` property to `false`.
 
 ```javascript
