@@ -1,8 +1,8 @@
 ## Option 1: Refresh using the Javascript SDK
 
-The Javascript SDK has built-in support for auto renewing of access and
-id tokens. This behavior is enabled by default, but can be disabled by
-setting the `tokenManager's` `autoRenew` property to `false`.
+The Javascript SDK has built-in support for the auto-renewing of access and
+id tokens. This behavior is enabled by default, but you can disabled it by
+setting the `tokenManager` `autoRenew` property to `false`.
 
 ```javascript
 const authClient = new OktaAuth({
@@ -13,7 +13,7 @@ const authClient = new OktaAuth({
 ```
 
 With this property set to `false`, you can still manually refresh tokens by
-subscribing to the `tokenManager's` `expired` event and calling it's
+subscribing to the `tokenManager` `expired` event and calling its
 `renew` method.
 
 ```javascript
@@ -22,14 +22,15 @@ authClient.tokenManager.on('expired', function (key, expiredToken) {
 });
 ```
 
-For more information about these methods and events, see the links below that
-refer to SDK's repository [readme](https://github.com/okta/okta-auth-js#readme).
+See the following links to the SDK repository
+[readme](https://github.com/okta/okta-auth-js#readme) for more
+information about these methods and events.
 
-* [`tokenManager's` `autoRenew` property](https://github.com//okta/okta-auth-js#autorenew)
-* [`tokenManager's` `expired` event](https://github.com/okta/okta-auth-js#tokenmanageronevent-callback-context)
-* [`tokenManager's` `renew` method](https://github.com/okta/okta-auth-js#tokenmanagerrenewkey)
+* [`tokenManager` `autoRenew` property](https://github.com//okta/okta-auth-js#autorenew)
+* [`tokenManager` `expired` event](https://github.com/okta/okta-auth-js#tokenmanageronevent-callback-context)
+* [`tokenManager` `renew` method](https://github.com/okta/okta-auth-js#tokenmanagerrenewkey)
 
 > **Note:** The direct approach using the
-[OAuth token endpoint](#refresh-using-the-oauth-token-endpoint) is also supported to
+[OAuth token endpoint](#refresh-using-the-oauth-token-endpoint) is also supported for
 refresh tokens. However, this approach is discouraged because it requires
 you to implement token storage, rotation, and other token refresh functionality.

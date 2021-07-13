@@ -1,7 +1,10 @@
 ### Web applications
 
-Web applications require the `Authorization` header. This header is computed from the
-client ID and client secret used by web applications.
+Web applications introspect tokens by calling the `/introspect` endpoint and passing
+in a required `Authorization` header. This header is computed from the client ID and
+client secret.
+
+Example
 
 ```http
 POST /oauth2/default/v1/introspect HTTP/1.1
