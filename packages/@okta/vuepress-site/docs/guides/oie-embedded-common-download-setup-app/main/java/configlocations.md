@@ -60,7 +60,7 @@ Set the following environment variables with your app's configuration values bef
 * `OKTA_IDX_REDIRECTURI`
 * `OKTA_IDX_SCOPES`
 
-The following is an example of setting environment variables for the embedded authentication with SDK sample app, in bash or zsh:
+The following is an example of setting environment variables for the embedded authentication with SDK sample app, in shell:
 
 ```bash
 export OKTA_IDX_ISSUER=https://dev-1234.okta.com/oauth2/default
@@ -117,16 +117,23 @@ Use the following Java system properties when you run the embedded Sign-In Widge
 Add the configuration values as parameters to the constructor for `IDXAuthenticationWrapper`:
 
 ```java
+/**
+* Creates {@link IDXAuthenticationWrapper} instance.
+*
+* @param issuer the issuer url
+* @param clientId the client id
+* @param clientSecret the client secret
+* @param scopes the set of scopes
+* @param redirectUri the redirect uri
+*/
 public IDXAuthenticationWrapper(String issuer, String clientId, String clientSecret,
-                                    Set<String> scopes, String redirectUri) {
-        this.client = Clients.builder()
-                .setIssuer(issuer)
-                .setClientId(clientId)
-                .setClientSecret(clientSecret)
-                .setScopes(scopes)
-                .setRedirectUri(redirectUri)
-                .build();
-    }
+                                Set<String> scopes, String redirectUri) {
+    this.client = Clients.builder()
+            .setIssuer(issuer)
+            .setClientId(clientId)
+            .setClientSecret(clientSecret)
+            .setScopes(scopes)
+            .setRedirectUri(redirectUri)
+            .build();
+}
 ```
-
-> **Note:** The sample app uses Java system properties to instantiate the `IDXAuthenticationWrapper`.

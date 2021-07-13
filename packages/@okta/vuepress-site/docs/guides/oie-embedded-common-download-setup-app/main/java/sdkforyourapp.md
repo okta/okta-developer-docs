@@ -7,9 +7,7 @@
 
 #### Step 2: Import packages and add framework
 
-Both the embedded authentication with SDK and the embedded Sign-In Widget sample apps use the Spring Boot framework with the Okta Java SDK. Import the Okta API packages as well as any Sprint Boot packages you need.
-
-Code snippet example:
+Both the embedded authentication with SDK and the embedded Sign-In Widget sample apps use the Spring Boot framework with the Okta Java SDK. Import the Okta API packages as well as any Spring Boot packages you need.
 
 ```java
 package com.okta.spring.example;
@@ -24,17 +22,14 @@ import com.okta.idx.sdk.api.response.TokenResponse;
 import com.okta.spring.example.helpers.HomeHelper;
 import com.okta.spring.example.helpers.ResponseHandler;
 import com.okta.spring.example.helpers.Util;
-...
 ```
 
 #### Step 3: Instantiate IDXAuthenticationWrapper
 
 Authentication Okta APIs can be invoked after the `IDXAuthenticationWrapper` object is instantiated.
 
-Code snippet example:
-
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin()
 ```
 
-See [Okta Java SDK Usage guide](https://github.com/okta/okta-idx-java#usage-guide) for more information on using the SDK.
+See [Okta Java SDK Usage guide](https://github.com/okta/okta-idx-java#usage-guide) for more information on SDK usage.

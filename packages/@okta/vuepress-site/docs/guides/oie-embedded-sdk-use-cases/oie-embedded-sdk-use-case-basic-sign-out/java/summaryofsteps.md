@@ -5,7 +5,7 @@ their session tokens. The sequence of steps is shown below:
 
 <div class="common-image-format">
 
-![Basic sign out sequence diagram for Java](/img/oie-embedded-sdk/oie-embedded-java-sdk-use-case-simple-sign-out-seq.png
+![Basic sign out sequence diagram for Java](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-out-seq-java.png
  "Basic sign out sequence diagram for Java]")
 
 </div>
