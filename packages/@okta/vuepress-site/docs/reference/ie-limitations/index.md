@@ -1,13 +1,12 @@
 ---
-title: Identity Engine Limitations
+title: Okta Identity Engine Limitations
 excerpt: The Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features.
 ---
 
 ## Okta Identity Engine Limitations
 
 <ApiLifecycle access="ie" /><br>
-
-> **Limited GA:** Okta Identity Engine is currently available only to selected customers.
+<ApiLifecycle access="Limited GA" />
 
 The Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features. Additionally, some of these changes result in Okta Identity Engine features not supported for use with Okta Classic APIs.
 
