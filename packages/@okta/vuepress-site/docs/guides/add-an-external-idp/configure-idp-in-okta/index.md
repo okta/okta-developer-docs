@@ -1,5 +1,6 @@
 ---
 title: Create an Identity Provider in Okta
+layout: StackSelectorLayout
 ---
 To connect your org to the Identity Provider, add and configure that Identity Provider in Okta.
 
