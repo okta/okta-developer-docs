@@ -3,6 +3,16 @@ title: Okta API Products Release Notes 2021
 ---
 ## July
 
+### Weekly Release 2021.07.1
+
+| Change                                                                         | Expected in Preview Orgs |
+|--------------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2021.07.1](#bug-fixed-in-2021-07-1)                            | July 14, 2021            |
+
+#### Bug fixed in 2021.07.1
+
+* When factor sequencing was enabled for passwordless authentication flows, requests to the `/authn` endpoint returned personal user information prior to primary authentication. (OKTA-407199)
+
 ### Monthly Release 2021.07.0
 
 | Change                                                                   | Expected in Preview Orgs |
