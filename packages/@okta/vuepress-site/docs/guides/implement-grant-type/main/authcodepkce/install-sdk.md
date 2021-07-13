@@ -1,0 +1,1 @@
+For instructions on how to install and use Okta framework SDKs, refer to [Configure the SDK](/docs/guides/sign-into-spa/-/configure-the-sdk) for front-end SDKs and [Add and configure packages](/docs/guides/sign-into-mobile-app/-/configure-packages/) for mobile native SDKs.
