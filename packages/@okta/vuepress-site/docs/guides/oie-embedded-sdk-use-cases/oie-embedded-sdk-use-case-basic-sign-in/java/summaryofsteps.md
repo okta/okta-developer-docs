@@ -4,7 +4,7 @@ This use case entails building out a simple UI to capture the username, password
 
 <div class="common-image-format">
 
-![Basic sign in sequence diagram for Java SDK](/img/oie-embedded-sdk/oie-embedded-java-sdk-use-case-simple-sign-on-seq.png
+![Basic sign in sequence diagram for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-seq-java.png
  "Basic sign in sequence diagram for Java SDK")
 
 </div>
