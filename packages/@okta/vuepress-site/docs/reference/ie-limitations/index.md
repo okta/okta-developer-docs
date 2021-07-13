@@ -9,7 +9,7 @@ The Okta Identity Engine introduces a lot of changes to the Okta platform. Some 
 
 > **Note:** This doc is designed for people familiar with Okta Classic. If you are new to Okta and Okta Identity Engine, see [Get started](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) with Okta Identity Engine.
 
-Are you an admin? See the Identity Engine [Limitations]() doc for the Admin Console.
+Are you an admin? See the Identity Engine [Limitations](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-oie-limitations) doc for the Admin Console.
 
 ### Classic features not supported in Identity Engine
 
