@@ -1,7 +1,7 @@
 ## Option 1: Refresh using the Swift SDK
 
 The Swift SDK has built-in support for refreshing tokens through
-the use of the `Token` object's `refresh` method.
+the use of the `Token` class's `refresh` method.
 
 ```javascript
 token.refresh { (newToken, error) in
