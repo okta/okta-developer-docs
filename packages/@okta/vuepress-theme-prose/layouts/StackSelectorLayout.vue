@@ -42,6 +42,7 @@
             </div>
           </div>
           <div class="on-this-page">
+            <StackSelectorDropdown />
             <OnThisPage />
           </div>
         </div>
@@ -78,6 +79,8 @@ export default {
     Terms: () => import("../components/Terms.vue"),
     LiveWidget: () => import("../components/LiveWidget.vue"),
     Errors: () => import("../components/Errors.vue"),
+    StackSelectorDropdown: () =>
+      import("../global-components/StackSelectorDropdown.vue"),
   },
   inject: ["stackSelectorData"],
   data() {
