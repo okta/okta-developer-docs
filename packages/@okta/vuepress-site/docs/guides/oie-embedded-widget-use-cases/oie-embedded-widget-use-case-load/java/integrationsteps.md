@@ -45,7 +45,7 @@ Initialize the widget in the sign-in page, similar to the following snippet:
 </script>
 ```
 
-The Okta Sign-In Widget renders in the sign-in page when the Spring controller `/custom-login` is triggered.
+The Okta Sign-In Widget renders in the sign-in/login page when your app's login page controller is hit.
 
 ### Step 3: Run your app
 
