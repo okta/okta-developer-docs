@@ -49,7 +49,7 @@ The Okta Sign-In Widget renders in the sign-in page when the Spring controller `
 
 ### Step 3: Run your app
 
-The final step is to run your app. If the widget and your Okta org are property
+The final step is to run your app. If the widget and your Okta org are correctly
 configured, then the Okta Sign-In Widget displays in your sign-in page:
 
 <div class="common-image-format">
