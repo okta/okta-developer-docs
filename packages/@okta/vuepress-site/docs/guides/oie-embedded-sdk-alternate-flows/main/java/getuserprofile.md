@@ -1,6 +1,6 @@
 
 Using the `TokenResponse` obtained from `IDXAuthenticationWrapper`'s `authenticate`
-method, make a request to the following endpoint:
+method, make a request to the `/v1/userinfo` endpoint:
 
 ```java
 try {
