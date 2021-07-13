@@ -21,8 +21,6 @@ Add the values as environment variables with the following naming convention:
 * `ISSUER`
 * `CLIENT_ID`
 * `CLIENT_SECRET`
-* `REDIRECTURI` (?)
-* `SCOPES` (?)
 
 ### Option 3: Add parameters to the SDK's config.js file
 
