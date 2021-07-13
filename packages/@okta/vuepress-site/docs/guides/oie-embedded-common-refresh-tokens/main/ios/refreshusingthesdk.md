@@ -21,6 +21,6 @@ revoking tokens, refer to the sample app and
 [readme](https://github.com/okta/okta-idx-swift#readme).
 
 The direct approach using the
-[OAuth token endpoint](#refresh-using-the-oauth-token-endpoint) is also supported to
+[OAuth token endpoint](#refresh-using-the-oauth-token-endpoint) is also supported for
 refresh tokens. It's up to the developer whether they want to use this endpoint or
 the SDK's convenience method.
