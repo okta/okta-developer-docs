@@ -1,7 +1,8 @@
 ---
 title: Okta Identity Engine API Products Release Notes 2021
 ---
-<ApiLifecycle access="ie" />
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
 
 ## August
 
