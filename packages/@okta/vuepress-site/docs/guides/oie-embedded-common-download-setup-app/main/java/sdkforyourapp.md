@@ -3,11 +3,11 @@
 1. In your Okta Org, [create a new application integration](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application) for your app.
 1. Ensure that you have all the [software requirements](#software-requirements).
 1. Clone the [okta-idx-java](https://github.com/okta/okta-idx-java) repository.
-1. Ensure that you have set the Okta Java SDK [dependency](#software-requirements) for Apache Maven. Use the latest release version listed [here](https://github.com/okta/okta-idx-java#release-status).
+1. Ensure that you have set the Okta Identity Engine Java SDK [dependency](#software-requirements) for Apache Maven. Use the [latest released version](https://github.com/okta/okta-idx-java/releases).
 
 #### Step 2: Import packages and add framework
 
-Both the embedded authentication with SDK and the embedded Sign-In Widget sample apps use the Spring Boot framework with the Okta Java SDK. Import the Okta API packages as well as any Spring Boot packages you need.
+Both the embedded authentication with SDK and the embedded Sign-In Widget sample apps use the Spring Boot framework with the Okta Identity Engine Java SDK. Import the Okta API packages as well as any Spring Boot packages you need.
 
 ```java
 package com.okta.spring.example;

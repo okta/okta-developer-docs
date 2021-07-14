@@ -1,6 +1,6 @@
 ## Summary of steps
 
-The sequence of steps to load the widget is illustrated below:
+The following is the sequence of steps to load the widget.
 
 <div class="common-image-format">
 

@@ -60,7 +60,7 @@ Set the following environment variables with your app's configuration values bef
 * `OKTA_IDX_REDIRECTURI`
 * `OKTA_IDX_SCOPES`
 
-The following is an example of setting environment variables for the embedded authentication with SDK sample app, in shell:
+The following is an example of setting environment variables for the sample app, in shell:
 
 ```bash
 export OKTA_IDX_ISSUER=https://dev-1234.okta.com/oauth2/default

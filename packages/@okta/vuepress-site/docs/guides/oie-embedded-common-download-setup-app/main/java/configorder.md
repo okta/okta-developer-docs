@@ -1,4 +1,4 @@
-When multiple çonfigurations options are used simultaneously, the SDK library selects the configurations based on the following order:
+When multiple configuration options are used simultaneously, the SDK library selects the configuration to use based on the following order:
 
 1. The `okta.yaml` file at the root of the app's classpath
 2. The `okta.yaml` file in the `.okta` folder from your home directory (for instance, `~/.okta/okta.yaml` or `%userprofile%\.okta\okta.yaml`)
