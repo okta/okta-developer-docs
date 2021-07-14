@@ -8,7 +8,6 @@
 1. Open `express-embedded-auth-with-sdk` using Visual Studio or the editor of your choice.
 1. Add a `testenv` configuration file. See [Option 1: Configuration file](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#option-1-configuration-file) for further information.
 1. From the terminal, navigate to the `express-embedded-auth-with-sdk` sample directory and run the application: `npm run start`. This process sets the environment variables and starts the web server. Check the console to see that the environment variables are set.
-1. Add an `okta.yaml` configuration file. See [Option 1: YAML configuration file](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/#option-1-configuration-file) for more information on how to configure and where to place the configuration file.
 1. Open a browser window and navigate to the app's home page. The URL should be:
    `http://localhost:8080`. After the app loads, click the **Sign In** button located on the home screen.
 1. On the Sign In page enter the username (email) and password that you used in

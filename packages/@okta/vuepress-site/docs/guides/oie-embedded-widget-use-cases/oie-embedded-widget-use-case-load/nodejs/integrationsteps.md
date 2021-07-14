@@ -41,7 +41,7 @@ Load the widget in the sign-in page, similar to the following snippet:
 The `WidgetConfig` is referenced in the `login.js` file, which uses values defined in the `config.js` file:
 
 ```JavaScript
-console.log('renderLoginWithWidget: using interaction handle: ', interactionHandle);
+      console.log('renderLoginWithWidget: using interaction handle: ', interactionHandle);
       const { clientId, redirectUri, issuer, scopes } = getConfig().webServer.oidc;
       const widgetConfig = {
         baseUrl: issuer.split('/oauth2')[0],
@@ -62,7 +62,7 @@ console.log('renderLoginWithWidget: using interaction handle: ', interactionHand
 The Okta Sign-In Widget renders in the sign-in page when the `router.get('/login', (req, res, next) =>` call is triggered.
 
 ```JavaScript
-res.render('login', {
+        res.render('login', {
         siwVersion: '{{siwVersion}}',
         widgetConfig: JSON.stringify(widgetConfig),
       });
