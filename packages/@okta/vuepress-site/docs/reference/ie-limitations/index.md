@@ -99,7 +99,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 #### Sign-In Widget customization - Registration Inline Hooks
 
-**What Changed:** Existing Registration Inline Hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta Registration Inline Hook request. Your application may require code updates to properly consume the new request format.
+**What Changed:** Existing Registration Inline Hooks may experience compatibility issues after migrating to Okta Identity Engine due to changes in the Okta Registration Inline Hook request. Your application may require code updates to consume the new request format properly.
 
 In the Admin Console, the enablement of a Registration Inline Hook has changed from the former Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**) to the Profile Enrollment Rules page (**Security** > **Profile Enrollment**). The creation of the Registration Inline Hook remains the same and can be completed in the Admin Console or by Inline Hook Management APIs.
 
