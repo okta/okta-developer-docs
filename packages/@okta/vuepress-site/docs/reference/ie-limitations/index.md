@@ -132,7 +132,7 @@ The following Okta Identity Engine features aren't supported using the Factor AP
 
   * The FIPS compliance requirement for enrollments
   * The User Verification requirement for enrollments
-  * New Okta Verify enrollments that are created with the Factors API aren't mapped to a device
+  * New Okta Verify enrollments that are created with the Factors API aren't mapped to a device.
   * WebAuthN authenticator User Verification settings aren't enforced when enrolling using the Factors API.
 
 ***
