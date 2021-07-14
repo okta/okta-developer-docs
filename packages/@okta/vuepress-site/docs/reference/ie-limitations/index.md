@@ -107,7 +107,7 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 ***
 
-#### Sign-In Widget Customization - Security image
+#### Sign-In Widget customization - Security image
 
 **What Changed:** The ability for end users to specify a security image when they first register for an account isn't supported with Okta Identity Engine. Additionally, existing users who may have already registered a security image, won't see that image when they sign in.
 
