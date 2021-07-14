@@ -139,6 +139,6 @@ The following Okta Identity Engine features aren't supported using the Factor AP
 
 #### Password recovery limitations with the /authn API
 
-Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users that use the Okta Classic Authentication APIs are denied recovery.
+Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in Okta Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Okta Classic Authentication APIs are denied recovery.
 
 **Further information:** [Recovery operations](https://developer.okta.com/docs/reference/api/authn/#recovery-operations) section of the Authentication API.
