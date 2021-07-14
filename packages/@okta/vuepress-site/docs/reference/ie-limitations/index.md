@@ -76,7 +76,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 * `features.selfServiceUnlock`
 * `features.registration`
 
-**Further Information:** [Okta Sign-In Widget Feature Flags](https://github.com/okta/okta-signin-widget#feature-flags)
+**Further Information:** [Okta Sign-In Widget feature flags](https://github.com/okta/okta-signin-widget#feature-flags)
 
 ***
 
