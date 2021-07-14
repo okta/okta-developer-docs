@@ -1,5 +1,5 @@
 
-Using the `TokenResponse` obtained from `IDXAuthenticationWrapper`'s `authenticate`
+Using the [TokenResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/TokenResponse.java) obtained from [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `authenticate`
 method, make a request to the `/v1/userinfo` endpoint:
 
 ```java
@@ -24,4 +24,4 @@ try {
 }
 ```
 
-See [`/userinfo` endpoint](/docs/reference/api/oidc/#userinfo) for more response details.
+See [`/v1/userinfo` endpoint](/docs/reference/api/oidc/#userinfo) for more response details.

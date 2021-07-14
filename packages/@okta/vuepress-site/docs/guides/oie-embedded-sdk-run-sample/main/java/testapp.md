@@ -1,12 +1,12 @@
-> **Note:** The Java SDK embedded authentication sample app uses the Spring Boot framework. See [Spring Boot Getting Started](https://spring.io/guides/gs/spring-boot/) for more information on Spring.
+> **Note:** The Okta Java SDK embedded authentication sample app uses the Spring Boot framework. See [Spring Boot Getting Started](https://spring.io/guides/gs/spring-boot/) for more information on Spring.
 
 ## Steps to test the sample app
 
-1. Ensure that you've [set up your Okta org for one password factor only use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
+1. Ensure that you've [set up your Okta org for one password factor only use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
 1. Obtain app-specific configuration values (such as `{clientId}`, `{clientSecret}`, `{yourOktaDomain}`) from the app integration you've created in [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application).
 
-1. Locate the embedded authentication SDK sample app source files in the following path: `...\okta-idx-java\samples\embedded-auth-with-sdk`.
+1. From your command shell, locate the embedded authentication SDK sample app source files in the following path: `...\okta-idx-java\samples\embedded-auth-with-sdk`.
 
 1. Set the app-specific environment variables:<br>
    ```bash
@@ -25,6 +25,6 @@
 1. Enter the **Username** and **Password** for the user that you've created in
    [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/java/main/#create-your-okta-account).
 
-1. Click **Login**. <br>If successful, the app redirects you to a page that displays basic user profile and security token information.
+1. Click **Login**. <br>After you've successfully signed in, the app redirects you to a page that displays your basic user profile and security token information.
 
 1. Click **Logout** in the upper-right corner of the page to sign out of the sample app.

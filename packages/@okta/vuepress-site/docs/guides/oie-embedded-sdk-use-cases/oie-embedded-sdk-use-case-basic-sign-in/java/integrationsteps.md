@@ -4,7 +4,7 @@
 
 Build a sign-in page that captures both the user's name and password.
 
-Example:
+For example:
 
 <div class="common-image-format">
 
@@ -15,10 +15,8 @@ Example:
 
 ### Step 2: Authenticate user credentials
 
-When the user initiates the sign in (for example, **Continue** button click), create
-an `AuthenticationOptions` object and set its `username` and `password`
-properties to the values entered by the user. Send this object to the
-`IDXAuthenticationWrapper`'s `authenticate` method.
+When the user initiates the sign-in process, your app needs to create an [AuthenticationOptions](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationOptions.java) object and set its `username` and `password` properties to the values entered by the user. Send this object to the
+[IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `authenticate` method.
 
 ```java
 AuthenticationResponse authenticationResponse =
@@ -27,11 +25,11 @@ AuthenticationResponse authenticationResponse =
 
 ### Step 3: Handle the response from the sign in
 
-Depending on the `AuthenticationResponse.AuthenticationStatus` value, you need to handle the response accordingly:
+Depending on [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java)'s [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) value, you need to handle the response accordingly:
 
 #### Success status
 
-For a successful user sign in (`AuthenticationStatus.Success`), use the `getTokenResponse` method to retrieve the token and proceed to process the authenticated user request.
+For a successful user sign in (`AuthenticationStatus.Success`), use [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java)'s `getTokenResponse` method to retrieve the token and proceed to process the authenticated user request.
 
 For example:
 
@@ -61,7 +59,7 @@ For example:
 
 #### Other status
 
-You need to handle other returned `AuthenticationStatus` cases if the user didn't sign in successfully.
+You need to handle other returned [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) cases if the user didn't sign in successfully.
 
 For example:
 

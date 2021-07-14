@@ -1,6 +1,8 @@
 ## Summary of steps
 
-The sequence of steps to sign into the widget is illustrated below:
+> **Note:** The Okta Java SDK uses the Spring Boot framework to handle OAuth authentication flow. See [Spring Boot Getting Started](https://spring.io/guides/gs/spring-boot/) for more information on Spring.
+
+The following is the sequence of steps to sign in to the app using the embedded Sign-In Widget:
 
 <div class="common-image-format">
 
