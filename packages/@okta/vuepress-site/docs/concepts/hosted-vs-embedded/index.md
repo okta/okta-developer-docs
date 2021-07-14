@@ -4,7 +4,20 @@ title: Okta Hosted Vs. Customer Hosted
 
 ## Okta Hosted Vs. Customer Hosted
 
-Okta offers multiple integration options when designing an authentication experience. The two most recommended concepts are using the Okta-hosted Sign-In Widget and the Customer-hosted Sign-In Widget. Both of these Okta-built experiences provide easy implementation and maintenance, industry best practice, user self service, and built-in user registration. The difference between the two concepts is where the Sign-In Widget itself is hosted.
+Okta offers multiple integration options when designing an authentication experience. The two most recommended concepts are using the Okta-hosted Sign-In Widget and the Customer-hosted Sign-In Widget. Both of these Okta-built experiences provide easy implementation and maintenance, industry best practice, user self service, and built-in user registration. You can customize the Okta URL domain and the Okta-hosted or Customer-hosted Sign-In Widget style. See [Customize the Okta URL domain](/docs/guides/custom-url-domain/overview/) and [Style the Widget](/docs/guides/style-the-widget/before-you-begin/).
+
+The difference between the two concepts is where the Sign-In Widget itself is hosted. See [Okta-hosted widget](/docs/concepts/hosted-vs-embedded/#okta-hosted-widget) and [Customer-hosted widget](/docs/concepts/hosted-vs-embedded/#customer-hosted-widget) for diagrams on where the Sign-In Widget is hosted.
+
+Another difference is when you're using the Okta-hosted Sign-In widget, you're communicating with Okta using OAuth and OIDC. When you're using the Customer-hosted Sign-In widget, you're using the Javascript SDK and communication with Okta is handled for you transparently.
+
+## Configure policies for app sign-in experiences
+
+For both Okta-hosted and Customer-hosted sign-in experiences, you can configure the policies in the Okta Admin console to determine how the app will behave. 
+
+1. Go to **Security** > **API**. 
+1. In the **Authorization Servers** tab, select an authorization server and click the edit icon beside it. 
+1. On the authorization server page, select the **Access Policies** tab and scroll down to the Rules
+1. Select a Rule, and click the edit icon beside it. The Edit Rule window appears where you can update the settings for the access policies.
 
 ## Okta-hosted widget
 
