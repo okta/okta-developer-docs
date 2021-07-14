@@ -1,13 +1,8 @@
 ### Sample app
 
 There are two main ways to store configuration settings in the sample app.
-Setting these values can be accomplished by either setting key-value pairs
-in the [`Okta.plist` file](#okta-plist) or entering the values through
-the [Configuration screen](#configuration-screen).
-
-The sample app sends these values during SDK initialization through the use
-of the `IDXClient` `Configuration` class which is discussed in the
-[SDK section](#sdk).
+You can either update the key-value pairs in the [`Okta.plist` file](#okta-plist)
+or update the fields in the [Configuration screen](#configuration-screen).
 
 #### Okta.plist
 
@@ -27,12 +22,12 @@ screen.
 
 </div>
 
-The screen is accessed from the configure link on the startup screen.
+Access the screen from the **Configure** link on the startup screen.
 
 ### SDK
 
-The SDK is initialized with the configuration settings by creating
-`IDXClient` `Configuration` and passing in the configuration values.
+Before initializing the SDK with the `start` method, create
+`IDXClient` `Configuration` and pass in the configuration values.
 
 Example
 

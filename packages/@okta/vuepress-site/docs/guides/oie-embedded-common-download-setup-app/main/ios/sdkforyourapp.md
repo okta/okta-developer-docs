@@ -1,6 +1,6 @@
 #### Step 1: Add package dependency
 
-Add the following to the `dependencies` attribute defined in your `Package.swift` file.
+Add the following code to the `dependencies` attribute defined in your `Package.swift` file.
 You can select the version using the `majorVersion` and `minor` parameters. For example:
 
 ```swift
