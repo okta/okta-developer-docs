@@ -80,11 +80,6 @@
         <span>{{ config.copyright_text }}</span>
       </div>
     </div>
-    <img
-      v-if="showMagentaCircle"
-      src="/img/home-magenta-circle.svg"
-      class="home--magenta-circle"
-    />
   </footer>
 </template>
 
@@ -97,22 +92,6 @@ export default {
     config() {
       return this.$themeConfig;
     },
-  },
-  data() {
-    return {
-      showMagentaCircle: false,
-    };
-  },
-  watch: {
-    $route: "setShowMagentaCircle",
-  },
-  methods: {
-    setShowMagentaCircle() {
-      this.showMagentaCircle = ["/", "/pricing/"].indexOf(window.location.pathname) >= 0;
-    },
-  },
-  mounted() {
-    this.setShowMagentaCircle();
   },
 };
 </script>

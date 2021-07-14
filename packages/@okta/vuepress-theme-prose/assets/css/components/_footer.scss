@@ -4,7 +4,7 @@ $redesign_footer_border: #1F3B54;
 
 .app-footer {
   position: relative;
-  background-color: cv('brand', 'dark');
+  background-color: cv('header');
   border-top: 1px solid $redesign_footer_border;
   padding: 80px 96px 80px 126px;
 

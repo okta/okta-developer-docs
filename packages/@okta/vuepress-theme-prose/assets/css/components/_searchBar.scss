@@ -45,16 +45,20 @@ $redesign_placeholder_color: #616161;
     }
 
     .search--form {
-      background: #fff;
       display: flex;
 
       .CoveoSearchButton {
         color: cv('header');
         border: none;
         height: auto;
-        width: auto;
-        padding: 0 20px;
+        width: 80px;
         line-height: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-left: 2px solid cv('header');
+        box-sizing: content-box;
+        font-size: 14px;
         &:before {
           display: none;
         }
