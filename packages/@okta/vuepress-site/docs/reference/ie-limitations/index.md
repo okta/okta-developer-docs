@@ -18,7 +18,7 @@ Are you an admin? See the Okta Identity Engine [Limitations](https://help.okta.c
 
 #### Event Type availability for Event Hooks
 
-**What Changed:** The following Event Types aren't available in the Identity Engine because Device Trust isn't yet supported:
+**What Changed:** The following Event Types aren't available in the Okta Identity Engine because Device Trust isn't currently supported:
 
 * `user.authentication.authenticate`
 * `user.credential.enroll`
