@@ -62,7 +62,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 ***
 
-#### Sign-In Widget Customization - Feature Flags
+#### Sign-In Widget customization - feature flags
 
 **What Changed:** The following feature flags aren't supported:
 
