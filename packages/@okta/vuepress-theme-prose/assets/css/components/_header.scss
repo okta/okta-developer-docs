@@ -1,7 +1,5 @@
 $redesign_white: #ffffff;
-$redesign_pink: #dd2864;
 $redesign_black: #000000;
-$redesign_header_background: #14222a;
 $redesign_slideout_background: #1b2f3b;
 
 header.page-header {
@@ -9,7 +7,7 @@ header.page-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: $redesign_header_background;
+  background-color: cv('header');
   height: 70px;
   padding: 0 50px 0 28px;
 
@@ -54,15 +52,14 @@ header.page-header {
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    height: 44px;
-    padding: 0 35px;
-    background: $redesign_pink;
-    border-radius: 3px;
+    height: 38px;
+    padding: 7px 12px;
+    background: cv('header');
+    border: 1px solid $redesign_white;
+    border-radius: 4px;
     font-weight: 600;
     font-size: 14px;
-    letter-spacing: 1.5px;
     color: $redesign_white;
-    text-transform: uppercase;
   }
 
   .mobile--toggles {
@@ -263,7 +260,7 @@ header.page-header {
               > ul.submenu--items {
                 max-height: 100%;
               }
-              
+
               > span.link:after {
                 transform: rotate(0deg);
               }

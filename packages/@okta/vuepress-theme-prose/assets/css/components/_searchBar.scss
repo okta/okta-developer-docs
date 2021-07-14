@@ -44,6 +44,23 @@ $redesign_placeholder_color: #616161;
       max-width: initial;
     }
 
+    .search--form {
+      background: #fff;
+      display: flex;
+
+      .CoveoSearchButton {
+        color: cv('header');
+        border: none;
+        height: auto;
+        width: auto;
+        padding: 0 20px;
+        line-height: 1em;
+        &:before {
+          display: none;
+        }
+      }
+    }
+
     .CoveoOmnibox.magic-box {
       width: 100%;
       height: 38px;
@@ -57,7 +74,7 @@ $redesign_placeholder_color: #616161;
           &:before {
             border-left: none;
           }
-  
+
           .magic-box-icon:before {
             display: none;
           }
@@ -67,6 +84,8 @@ $redesign_placeholder_color: #616161;
           height: 38px;
           padding-left: 40px;
           padding-right: 12px;
+          background: url('/img/icons/search.svg') no-repeat 10px center;
+          background-size: 12px 12px;
         }
 
         input {
