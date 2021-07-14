@@ -45,7 +45,7 @@ session.setAttribute(CODE_VERIFIER, idxClientContext.getCodeVerifier());
 
 ### Step 3: Request tokens from Okta
 
-Use the interaction code and code verifier to request for tokens. See helper class [exchangeCodeForToken()](https://github.com/okta/okta-idx-java/blob/f9378d48d39c10c76294e079f35214bbef3a02cd/samples/embedded-sign-in-widget/src/main/java/com/okta/spring/example/HelperUtil.java#L80).
+Use the interaction code and code verifier to request for tokens. See helper function [exchangeCodeForToken()](https://github.com/okta/okta-idx-java/blob/f9378d48d39c10c76294e079f35214bbef3a02cd/samples/embedded-sign-in-widget/src/main/java/com/okta/spring/example/HelperUtil.java#L80).
 
 ```java
 final JsonNode jsonNode = helperUtil.exchangeCodeForToken(interactionCode, codeVerifier);
