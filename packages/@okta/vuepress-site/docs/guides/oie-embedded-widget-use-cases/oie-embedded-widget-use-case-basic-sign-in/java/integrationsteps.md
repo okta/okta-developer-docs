@@ -53,7 +53,7 @@ final OAuth2AccessToken oAuth2AccessToken = helperUtil.buildOAuth2AccessToken(js
 final OAuth2RefreshToken oAuth2RefreshToken = helperUtil.buildOAuth2RefreshToken(jsonNode);
 ```
 
-The Spring security framework doesn't understand Okta’s interaction code flow. Therefore, the app needs to intercept Spring’s OAuth authentication code flow, exchange the interaction code obtained from Okta for an access token, fill the user profile attributes, and construct [OAuth2AuthenticationToken.java](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) to hand over authentication flow back to Spring.
+The Spring security framework doesn't understand Okta’s Interaction code flow. Therefore, your app needs to intercept Spring’s OAuth authentication code flow, exchange the interaction code obtained from Okta for an access token, populate the user profile attributes, and construct [OAuth2AuthenticationToken.java](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) before handing over the authentication flow back to Spring.
 
 ### Step 4: Retrieve user profile
 
