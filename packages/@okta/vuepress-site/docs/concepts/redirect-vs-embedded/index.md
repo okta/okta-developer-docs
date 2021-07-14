@@ -8,7 +8,7 @@ meta:
 # Redirect authentication vs. embedded authentication
 
 <ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" />
+<ApiLifecycle access="Limited GA" /><br>
 
 When you develop applications that require customer sign in and authentication, the user authentication deployment model is a critical design consideration that can broadly be divided into two approaches:
 
