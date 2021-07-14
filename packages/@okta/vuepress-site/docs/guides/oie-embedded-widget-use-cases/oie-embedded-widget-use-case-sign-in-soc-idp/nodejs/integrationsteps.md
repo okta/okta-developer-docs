@@ -49,23 +49,11 @@ and must be identical. These locations are:
 
 For the sample application, the **RedirectURI** should be set to `http://localhost:8080/login/callback`
 
-Okta returns the interaction code to the **Sign-in redirect URI** specified in the [create new application step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#step-4-create-new-application).
+Okta returns the interaction code to the **Sign-in redirect URI** specified in the [create new application step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#step-4-create-new-application) and is accessed in the sample app from `login.js`.
+
 
 ```JavaScript
-Not sure what code to reference here?
-
-
-
-
-```
-
-
-### Step 5: Request tokens from Okta
-
-Use the interaction code and code verifier to request tokens in the `login.js` page.
-
-```JavaScript
-outer.get('/login/callback', async (req, res, next) => {
+router.get('/login/callback', async (req, res, next) => {
   const url = req.protocol + '://' + req.get('host') + req.originalUrl;
   const authClient = getAuthClient(req);
   try {
@@ -85,12 +73,32 @@ outer.get('/login/callback', async (req, res, next) => {
 });
 ```
 
+### Step 5: Request and store tokens from Okta
+
+Use the interaction code component of the `login.js` page to request tokens and store them in the SDK.
+
+```JavaScript
+  try {
+    // Exchange code for tokens
+    await authClient.idx.handleInteractionCodeRedirect(url);
+    // Redirect back to home page
+    res.redirect('/');
+  } catch (err) {
+    if (authClient.isInteractionRequiredError(err) === true) {
+      const { state } = req.query;
+      res.redirect('/login?state=' + state);
+      return;
+    }
+  }
+});
+```
+
 ### Step 4: Call user profile information (optional
 
 Retrieve the user profile information, stored in the `attributes` variable, from the `home.js` file:
 
 ```JavaScript
-onst express = require('express');
+const express = require('express');
 
 const router = express.Router();
 
