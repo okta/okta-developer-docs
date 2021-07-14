@@ -16,7 +16,7 @@ The Customer-hosted Sign-In Widget is considered the best balance of flexibility
 
 ## Most should use Okta-hosted
 
-* Easy to maintain with no maintenance and no updates.
+* Easy to use with no maintenance and no updates.
 * Hosted and secured by Okta.
 * No [XSS](https://developer.okta.com/books/api-security/sanitizing/common-attacks/#xss-cross-site-scripting) (cross-site scripting) attacks.
 * Easy to integrate.

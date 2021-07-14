@@ -24,6 +24,7 @@ Explore the OpenID Connect & OAuth 2.0 API: [![Run in Postman](https://run.pstmn
 | Endpoint                                                                          | Use                                                                                     |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
 | [/authorize](#authorize)                                                          | Interact with the resource owner and obtain an authorization grant.                     |
+| [/device/authorize](#device-authorize)                                            | Obtain an activation code for the resource owner.<ApiLifecycle access="ea" />           |
 | [/token](#token)                                                                  | Obtain an access and/or ID token by presenting an authorization grant or refresh token. |
 | [/introspect](#introspect)                                                        | Return information about a token.                                                      |
 | [/revoke](#revoke)                                                                | Revoke an access or refresh token.                                                     |
@@ -162,7 +163,7 @@ Use the `postMessage()` data object to help you when working with the `okta_post
 | id_token            | An [ID token](#id-token). This is returned if the `response_type` included `id_token`.        | String   |
 | state               | The unmodified `state` value from the request.                                                | String   |
 
-> **Note:** The value of the `targetOrigin` parameter for `postMessage()` specifies what the origin of `parentWindow` must be for the event to be dispatched (this is enforced by the browser). The `okta-post-message` response mode always uses the origin from the `redirect_uri` specified by the client. This is crucial to prevent the sensitive token data from being exposed to a malicious site.
+> **Note:** The value of the `targetOrigin` parameter for `postMessage()` specifies what the origin of `parentWindow` must be for the event to be dispatched (this is enforced by the browser). The `okta_post_message` response mode always uses the origin from the `redirect_uri` specified by the client. This is crucial to prevent the sensitive token data from being exposed to a malicious site.
 
 #### Response properties
 
@@ -254,11 +255,84 @@ The requested scope is invalid:
 https://www.example.com/#error=invalid_scope&error_description=The+requested+scope+is+invalid%2C+unknown%2C+or+malformed
 ```
 
+### /device/authorize
+
+<ApiOperation method="post" url="${baseUrl}/v1/device/authorize" /><ApiLifecycle access="ea" />
+
+This endpoint returns user code, device code, activation link and a qr code activation link.
+
+>  **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. For more information, see [Composing your base URL](#composing-your-base-url).
+
+#### Request parameters
+
+The following parameters can be posted as a part of the URL-encoded form values to the API.
+
+> **Note:** The `/device/authorize` endpoint requires client authentication. See the [Client authentication methods](#client-authentication-methods) section for more information on which method to choose and how to use the parameters in your request.
+
+| Parameter               | Description                                                                                                                                                                                                                                                                                                                        | Type   |
+| :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
+| client_id               | Obtained during either manual client registration or via the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/). It identifies the client and must match the value preregistered in Okta.                                                                                                                       | String |
+| scope                   | This is a list of scopes that the client wants to be included in the access token. See [scopes](#access-token-scopes-and-claims) for details.                                                                                                                                                                                                 | String |
+
+#### Response properties
+
+Based on the scopes requested. Generally speaking, the scopes specified in a request are included in the access token in the response.
+
+| Property                  | Description                                                                                    | Type    |
+| :------------------------ | :--------------------------------------------------------------------------------------------- | :------ |
+| verification_uri          | The verification uri the resource owner must visit to authenticate.                            | String  |
+| verification_uri_complete | The complete verification uri the resource owner can alternatively visit to authenticate.      | String  |
+| device_code               | The device code to be kept hidden from the resource owner.                                     | String  |
+| user_code                 | The user code to be shown to the resource owner.                                               | String  |
+| interval                  | The interval time the client should wait until it can poll the /token endpoint in seconds.     | Integer |
+| expires_in                | The expiration time of the device code and user code in seconds.                               | Integer |
+
+#### List of errors
+
+| Error Id                 | Details                                                                                                                                                                                                    |
+| :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| invalid_client           | The specified `client_id` isn't found.                                                                                                                                                                      |
+| invalid_request          | The request structure is invalid. For example, the basic authentication header is malformed, both header and form parameters are used for authentication, no authentication information is provided, or the request contains duplicate parameters. |
+| invalid_scope            | The scopes list contains an invalid or unsupported value.                                                                                                                                                  |
+
+#### Request example
+
+```bash
+curl -v -X POST \
+-H "Content-type:application/x-www-form-urlencoded" \
+"https://${yourOktaDomain}/oauth2/default/v1/device/authorize" \
+-d "client_id={client_id}&client_secret={client_secret}&scope={scope}"
+```
+
+#### Response example (success)
+
+```json
+{
+  "user_code": "RGTCFDTL",
+  "device_code": "5cbeb234-7e00-4ff7-9aa2-b1a4558a75d2",
+  "interval": 5,
+  "verification_uri_complete": "https://${yourOktaDomain}/activate?user_code=RGTCFDTL",
+  "verification_uri": "https://${yourOktaDomain}/activate",
+  "expires_in": 600
+}
+```
+
+#### Response example (error)
+
+```http
+HTTP 401 Unauthorized
+Content-Type: application/json;charset=UTF-8
+{
+    "error" : "invalid_client",
+    "error_description" : "No client credentials found."
+}
+```
+
 ### /token
 
 <ApiOperation method="post" url="${baseUrl}/v1/token" />
 
-This endpoint returns access tokens, ID tokens, and refresh tokens, depending on the request parameters. For [password](/docs/guides/implement-password/), [client credentials](/docs/guides/implement-client-creds/), and [refresh token](/docs/guides/refresh-tokens/) flows, calling `/token` is the only step of the flow. For the [authorization code](/docs/guides/implement-auth-code/) flow, calling `/token` is the second step of the flow.
+This endpoint returns access tokens, ID tokens, and refresh tokens, depending on the request parameters. For [password](/docs/guides/implement-password/), [client credentials](/docs/guides/implement-client-creds/), [saml2 assertion](/docs/guides/implement-saml2/overview/)<ApiLifecycle access="ea" />, and [refresh token](/docs/guides/refresh-tokens/) flows, calling `/token` is the only step of the flow. For the [authorization code](/docs/guides/implement-auth-code/) flow, calling `/token` is the second step of the flow.
 
 >  **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. For more information, see [Composing your base URL](#composing-your-base-url).
 
@@ -272,13 +346,18 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
 | code                    | Required if `grant_type` is `authorization_code`. The value is what was returned from the [authorization endpoint](#authorize). The code has a lifetime of 300 seconds.                                                                                                                                                             | String |
 | code_verifier           | Required if `grant_type` is `authorization_code`  and `code_challenge` was specified in the original `/authorize` request. This value is the code verifier for [PKCE](#parameter-details). Okta uses it to recompute the `code_challenge` and verify if it matches the original `code_challenge` in the authorization request.     | String |
-| grant_type              | Can be one of the following: `authorization_code`, `password`, `client_credentials`, `refresh_token`, or `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />. Determines the mechanism Okta uses to authorize the creation of the tokens.                                                                                                                                               | String |
-| password                | Required if the grant_type is `password`.                                                                                                                                                                                                                                                                                          | String |
+| grant_type              | Can be one of the following: `authorization_code`, `password`, `client_credentials`, `refresh_token`, `urn:ietf:params:oauth:grant-type:device_code`<ApiLifecycle access="ea" />, `urn:ietf:params:oauth:grant-type:token-exchange`<ApiLifecycle access="ea" />, or `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />. Determines the mechanism Okta uses to authorize the creation of the tokens.                                                                                                                                               | String |
+| password                | Required if the `grant_type` is `password`.                                                                                                                                                                                                                                                                                          | String |
 | redirect_uri            | Required if `grant_type` is `authorization_code`. Specifies the callback location where the authorization was sent. This value must match the `redirect_uri` used to generate the original `authorization_code`.                                                                                                                   | String |
 | refresh_token           | Required if `grant_type` is `refresh_token`. The value is a valid refresh token that was returned from this endpoint previously.                                                                                                                                                                                                   | String |
 | scope                   | Required if `password` is the `grant_type`. This is a list of scopes that the client wants to be included in the access token. For the `refresh_token` grant type, these scopes have to be a subset of the scopes used to generate the refresh token in the first place.                                                             | String |
-| username                | Required if the grant_type is `password`.                                                                                                                                                                                                                                                                                          | String |
-| assertion               | Required if the grant_type is `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />. | String |
+| username                | Required if the `grant_type` is `password`.                                                                                                                                                                                                                                                                                          | String |
+| assertion               | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:saml2-bearer`<ApiLifecycle access="ea" />. | String |
+| audience                | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`<ApiLifecycle access="ea" />. | String |
+| subject_token_type      | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`<ApiLifecycle access="ea" />. | String |
+| subject_token           | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`<ApiLifecycle access="ea" />. | String |
+| actor_token_type        | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`<ApiLifecycle access="ea" />. | String |
+| actor_token             | Required if the `grant_type` is `urn:ietf:params:oauth:grant-type:token-exchange`<ApiLifecycle access="ea" />. | String |
 
 #### Response properties
 
@@ -356,7 +435,7 @@ Content-Type: application/json;charset=UTF-8
 
 > **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. For more information, see [Composing your base URL](#composing-your-base-url).
 
-This endpoint takes an access, ID, or refresh token, and returns a boolean that indicates whether it is active or not.
+This endpoint takes an access token, ID token, refresh token, or device secret<ApiLifecycle access="ea" /> and returns a boolean that indicates whether it is active or not.
 If the token is active, additional data about the token is also returned. If the token is invalid, expired, or revoked, it is considered inactive.
 
 Be sure that you are using the `/introspect` endpoint of the same authorization server that you used to create the token.
@@ -372,8 +451,8 @@ The following parameters can be posted as a part of the URL-encoded form values 
 
 | Parameter               | Description                                                                                                    | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------------------- | :-----        |
-| token                   | An access token, ID token, or refresh token.                                                                   | String        |
-| token_type_hint         | Indicates the type of `token` being passed. Valid values are `access_token`, `id_token` and `refresh_token`.   | String (Enum) |
+| token                   | An access token, ID token, refresh token or device secret<ApiLifecycle access="ea" />.                                                                   | String        |
+| token_type_hint         | Indicates the type of `token` being passed. Valid values are `access_token`, `id_token`, `refresh_token` and `device_secret`<ApiLifecycle access="ea" />.   | String (Enum) |
 
 #### Response properties
 
@@ -653,7 +732,7 @@ You can use an [introspection request](#introspect) for validation.
 
 Okta strongly recommends retrieving keys dynamically with the JWKS published in the discovery document. Okta also recommends caching or persisting these keys to improve performance. If you cache signing keys, and automatic key rotation is enabled, be aware that verification fails when Okta rotates the keys automatically. Clients that cache keys should periodically check the JWKS for updated signing keys.
 
-Okta recommends a background process that regularly caches the `/keys` endpoint. This process can be completed once a day or more infrequently, for example, once per week. This ensures that you always have an up-to-date set of keys for validation even when we generate the next key or rotate automatically at the 45 or 90 day mark respectively. 
+Okta recommends a background process that regularly caches the `/keys` endpoint. This process can be completed once a day or more infrequently, for example, once per week. This ensures that you always have an up-to-date set of keys for validation even when we generate the next key or rotate automatically at the 45 or 90 day mark respectively.
 
 Under almost all circumstances, the above would be sufficient except in cases where keys were rotated or generated outside the usual timespans. An example of this would be if Okta or a customer had a need to perform this operation for security reasons. You should augment the above approach with a failsafe for circumstances where keys are quickly regenerated and rotated.
 
@@ -746,6 +825,7 @@ curl -X GET \
 | --------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- | ------- |
 | issuer                                        | The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token. In the context of this document, this is your authorization server's [base URL](#composing-your-base-url).                                                                                                                                              | String  |
 | authorization endpoint                        | URL of the authorization server's [authorization endpoint](#authorize).                                                                   | String  |
+| device_authorization_endpoint                 | URL of the authorization server's [device authorize endpoint](#device-authorize)<ApiLifecycle access="ea" />.                                                                                                                      | String   |
 | token_endpoint                                | URL of the authorization server's [token endpoint](#token).                                                                               | String  |
 | registration_endpoint                         | URL of the authorization server's [Dynamic Client Registration endpoint](/docs/reference/api/oauth-clients/#register-new-client).         | String  |
 | jwks_uri                                      | URL of the authorization server's [JSON Web Key Set](/docs/reference/api/authorization-servers/#certificate-json-web-key-object) document. | String  |
@@ -900,6 +980,7 @@ curl -X GET \
 | Property                                      | Description                                                                                                                                                                                                                                | Type    |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------- |
 | authorization_endpoint                        | URL of the authorization server's [authorization endpoint](#authorize).                                                                                                                                                                    | String  |
+| device_authorization_endpoint                 | URL of the authorization server's [device authorize endpoint](#device-authorize)<ApiLifecycle access="ea" />.                                                                                                                      | String   |
 | claims_supported                              | A list of the claims supported by this authorization server.                                                                                                                                                                               | Array   |
 | code_challenge_methods_supported              | JSON array that contains a list of [PKCE code challenge](/docs/guides/implement-auth-code-pkce/) methods supported by this authorization server.                                                                    | Array   |
 | end_session_endpoint                          | URL of the authorization server's [logout endpoint](#logout).                                                                                                                                                                              | String  |
@@ -963,7 +1044,9 @@ curl -X GET \
         "address",
         "phone",
         "offline_access",
-        "groups"
+        "groups",
+        "online_access", [Early Access](/docs/reference/releases-at-okta/#early-access-ea)
+        "device_sso" [Early Access](/docs/reference/releases-at-okta/#early-access-ea)
     ],
     "token_endpoint_auth_methods_supported": [
         "client_secret_basic",
@@ -1057,6 +1140,8 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 | address          | Requests access to the `address` claim.                                                                         | No             |
 | groups           | Requests access to the `groups` claim.                                                                          | No             |
 | offline_access   | Requests a refresh token used to obtain more access tokens without re-prompting the user for authentication.   | No             |
+| online_access <ApiLifecycle access="ea" />    | Requests a refresh token used to obtain more access tokens without re-prompting the user for authentication. The refresh token and the id token will be bound to the browser session. See *link*.   | No             |
+| device_sso <ApiLifecycle access="ea" />   | Requests a device secret used to obtain new set of tokens without re-prompting the user for authentication. See *link*  | No             |
 
 ### Scope values
 
@@ -1064,6 +1149,8 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 * `profile` requests access to these default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`,`locale`, and `updated_at`.
 * `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored.
 * For more information about `offline_access`, see the [OIDC spec](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess).
+* For more information about `online_access`<ApiLifecycle access="ea" />, see *link*.
+* For more information about `device_sso`<ApiLifecycle access="ea" />, see *link*.
 
 ### Scope properties
 
@@ -1194,6 +1281,8 @@ Okta defines a number of reserved scopes and claims that can't be overridden.
 ###### Reserved scopes
 
 `openid`, `profile`, `email`, `address`, `phone`, `offline_access`, and `groups` are available to ID tokens and access tokens, using either the Okta Org Authorization Server or a Custom Authorization Server. For details, see [Scopes](#access-token-scopes-and-claims). All of these scopes except `groups` are defined in the OpenID Connect specification.
+
+Additionally, we have reserved the scopes `online_access`<ApiLifecycle access="ea" /> and `device_sso`<ApiLifecycle access="ea" /> as they have a particular meaning in their respective flows.
 
 ###### Reserved claims in the header section
 
