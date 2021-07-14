@@ -20,7 +20,7 @@ To verify the current release for an org, check the footer of the Admin Console.
 <!-- need link to product oie release notes when Graham isn't buried -->
 
 <div class="next-section">
-  <RouterLink to='/docs/release-notes/2021'>
+  <RouterLink to='/docs/release-notes/ie-release-notes/2021'>
     <button class="button is-button-cerise is-button-small">
       <span>Next: view 2021 release notes</span>
     </button>
