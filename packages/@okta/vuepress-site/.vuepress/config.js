@@ -204,7 +204,7 @@ module.exports = ctx => ({
           }
         ]
       },
-      { text: 'Developer Blog', link: '/blog/' },
+      { text: 'Blog', link: '/blog/' },
       { text: 'Pricing', link: '/pricing/' },
     ],
     primary_right_nav: [
