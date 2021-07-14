@@ -6,11 +6,11 @@ Add the Sign-In Widget source to your JavaScript sign-in page by referencing the
 
 ```JavaScript
 <!-- okta-signin-widget assets are avilable on CDN -->
-    <script src="https://global.oktacdn.com/okta-signin-widget/{{siwVersion}}/js/okta-sign-in.min.js" type="text/javascript"></script>
-    <link href="https://global.oktacdn.com/okta-signin-widget/{{siwVersion}}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/{{siwVersion}}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/{{siwVersion}}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
->**NOTE:** Ensure you use or reference the latest Sign-In Widget for `{{siwVersion}}`. The latest version is available on the Okta Sign-In Widget [repository](https://github.com/okta/okta-signin-widget/releases/).
+>**NOTE:** Ensure you use or reference the latest Sign-In Widget for `siwVersion`. The latest version is available on the Okta Sign-In Widget [repository](https://github.com/okta/okta-signin-widget/releases/).
 
 ### Step 2: Add JavaScript to initialize and load the widget
 
@@ -38,7 +38,7 @@ Load the widget in the sign-in page, similar to the following snippet:
 </div>
 ```
 
-The `{{WidgetConfig}}` is referenced in the `login.js` file, which uses values defined in the `config.js` file:
+The `WidgetConfig` is referenced in the `login.js` file, which uses values defined in the `config.js` file:
 
 ```JavaScript
 console.log('renderLoginWithWidget: using interaction handle: ', interactionHandle);
@@ -79,5 +79,5 @@ The final step is to run your app. If the widget and your Okta org are property 
 
 </div>
 
->**Note:** The Facebook, Sign-up, and Forgot password links are configurable elements in your
+>**Note:** The Facebook, Sign Up, and Forgot password links are configurable elements in your
 Okta org and may not show in screen.
