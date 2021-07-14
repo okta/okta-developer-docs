@@ -51,7 +51,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 #### Sessions APIs
 
-**What Changed:** Some Sessions APIs aren't supported in Identity Engine.
+**What Changed:** Some Sessions APIs aren't supported in Okta Identity Engine.
 
 **Further Information:** APIs not supported on Okta Identity Engine sessions:
 
