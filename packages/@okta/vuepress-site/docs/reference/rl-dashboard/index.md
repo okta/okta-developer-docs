@@ -61,7 +61,7 @@ The Overview pane provides a summary of the data use for the specified endpoint.
 * Rate Limit: The rate limit for this endpoint per minute for your org. If the traffic hits the rate limit for your org, the system triggers a rate limit violation.
 * Latest Utilization: The latest use of the endpoint, which includes the endpoint and its sub-endpoints, as of the specified time
 * Average Utilization: The average use of the endpoint within the last 24 hours and the last hour
-* Downtime: The amount of time that the org is affected by a rate limit violation on this endpoint
+* Downtime: The amount of time that the org is affected by a rate limit violation on this endpoint. The downtime is the remainder of the one-minute interval after your org hits the rate limit. For example, if your org hits the rate limit 40 seconds into the one-minute interval, then the downtime is 20 seconds for that endpoint.
 
 ### Rate limit multiplier
 
