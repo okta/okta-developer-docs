@@ -23,7 +23,7 @@ Are you an admin? See the Okta Identity Engine [Limitations](https://help.okta.c
 * `user.authentication.authenticate`
 * `user.credential.enroll`
 
-The following Event Types are available only in the Identity Engine and can't be used by Okta Classic customers:
+The following Event Types are available only in the Okta Identity Engine and can't be used by Okta Classic customers:
 
 * `device.enrollment.create`
 * `user.mfa.factor.suspend`
