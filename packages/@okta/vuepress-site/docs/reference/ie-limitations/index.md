@@ -37,7 +37,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 #### Help Support number
 
-**What Changed:** In Okta Identity Engine, if the user is unable to use an authenticator, rather than providing a Help Support number, the Authenticator list page appears enabling the user to select another way to authenticate.
+**What Changed:** In Okta Identity Engine, if the user is unable to use an authenticator, rather than providing a Help Support number, the Authenticator list page appears that enables the user to select another way to authenticate.
 
 ***
 
