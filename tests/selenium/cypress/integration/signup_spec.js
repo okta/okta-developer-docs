@@ -1,19 +1,24 @@
+import { DialogWindow } from "../page-objects/DialogWindow";
 import { SignUpPage } from "../page-objects/SignUpPage";
 
 describe('Sign up page check spec', () => {
   const signUpPage = new SignUpPage();
+  const dialogWindow = new DialogWindow();
 
   beforeEach(() => {
     cy.visit('signup/');
   });
 
-  it('should show all the fields and button', () => {
+  it('should show all the fields and buttons', () => {
     signUpPage.getEmailInput().should('exist');
     signUpPage.getFirsNameInput().should('exist');
     signUpPage.getLastNameInput().should('exist');
     signUpPage.getCountrySelect().should('exist');
-    signUpPage.getGithubInput().should('exist');
+    signUpPage.getGithubButtonInput().should('exist');
+    signUpPage.getGoogleButtonInput().should('exist');
+    signUpPage.getSignUpSubmitInput().should('exist');
     signUpPage.getGoogleCaptcha().its('0.contentDocument').should('exist');
+    signUpPage.getSignInLink().should('exist');
   });
 
   it('should show agree checkbox for Canada', () => {
@@ -33,7 +38,7 @@ describe('Sign up page check spec', () => {
     signUpPage.getCountrySelect().select('United States');
     signUpPage.getStateProviceSelect().should('be.visible');
     cy.get('label[for="state"]').should(($label) => {
-      expect($label[0].firstChild.data.trim()).equal('Sta');
+      expect($label[0].firstChild.data.trim()).equal('State');
     })
   });
 
@@ -46,5 +51,26 @@ describe('Sign up page check spec', () => {
     signUpPage.getCountrySelect().select('United States');
 
     signUpPage.getAgreeCheckbox().should('not.be.visible');
+  });
+
+  describe('verify button clicks', () => {
+    it('sign up with github button click display dialog window for "Terms and Conditions"', () => {
+      signUpPage.getGithubButtonInput().click();
+
+      dialogWindow.getDialogWindow().should('exist');
+      dialogWindow.getDialogWindow().contains(/^Tell us more about yourself$/);
+    });
+
+    it('sign up with google button click display dialog window for "Terms and Conditions"', () => {
+      signUpPage.getGoogleButtonInput().click();
+
+      dialogWindow.getDialogWindow().should('exist');
+      dialogWindow.getDialogWindow().contains(/^Tell us more about yourself$/);
+    });
+
+    it('should contain proper router for signin link', () => {
+      signUpPage.getSignInLink().should('have.attr', 'href')
+                                .and('eq', '/login/');
+    });
   });
 });

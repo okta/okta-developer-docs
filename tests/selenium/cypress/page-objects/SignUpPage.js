@@ -15,15 +15,15 @@ export class SignUpPage {
     return cy.get('select[id="country"]');
   }
 
-  getSignUpInput() {
-    return cy.get('input[type="button"][id="signup"]');
+  getSignUpSubmitInput() {
+    return cy.get('input[type="submit"][id="signup"]');
   }
 
-  getGithubInput() {
+  getGithubButtonInput() {
     return cy.get('input[type="button"][id="continue-github"]');
   }
 
-  getGoogleInput() {
+  getGoogleButtonInput() {
     return cy.get('input[type="button"][id="continue-google"]');
   }
 
@@ -37,5 +37,9 @@ export class SignUpPage {
 
   getStateProviceSelect() {
     return cy.get('select[id="state"]');
+  }
+
+  getSignInLink() {
+    return cy.get('.goto-signin a[href="/login/"]');
   }
 }
