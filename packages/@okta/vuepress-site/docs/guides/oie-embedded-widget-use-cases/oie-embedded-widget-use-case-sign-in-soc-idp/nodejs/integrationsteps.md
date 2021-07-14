@@ -90,10 +90,9 @@ Use the interaction code component of the `login.js` page to request tokens and 
       return;
     }
   }
-});
 ```
 
-### Step 4: Call user profile information (optional
+### Step 4: Call user profile information (optional)
 
 Retrieve the user profile information, stored in the `attributes` variable, from the `home.js` file:
 
