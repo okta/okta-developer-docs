@@ -1,9 +1,4 @@
 const signUpButtonSelector = '.sign-up--button';
-const signInLinkXpath = "//*[text()='Sign in to Okta']";
-const oktaMainPageLinkXpath = "//*[text()='Okta.com']";
-const pricingLinkXpath = "//*[text()='Pricing']";
-const communityLinkXpath = "//*[text()='Community']";
-
 class MainPage {
   getSignupButton() {
     return cy.get(signUpButtonSelector)

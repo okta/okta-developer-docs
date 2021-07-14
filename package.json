@@ -35,9 +35,6 @@
   "author": "Brian Retterer <brian.retterer@okta.com>",
   "license": "Apache-2.0",
   "devDependencies": {
-    "@wdio/local-runner": "^7.7.4",
-    "@wdio/mocha-framework": "^7.7.4",
-    "@wdio/spec-reporter": "^7.7.3",
     "axios": "^0.21.1",
     "chai": "^4.2.0",
     "chai-as-promised": "*",
@@ -52,9 +49,7 @@
     "recursive-readdir": "^2.2.2",
     "remove": "^0.1.5",
     "wait-on": "^3.2.0",
-    "wait-until": "^0.0.2",
-    "wdio-chromedriver-service": "^7.1.1",
-    "webdriverio": "^7.7.4"
+    "wait-until": "^0.0.2"
   },
   "dependencies": {
     "@wdio/cli": "^7.7.4",

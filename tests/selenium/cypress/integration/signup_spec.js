@@ -73,4 +73,19 @@ describe('Sign up page check spec', () => {
                                 .and('eq', '/login/');
     });
   });
+
+  describe('verify button text', () => {
+    it('email signup button text verification', () => {
+      signUpPage.getSignUpSubmitInput().should('have.value', 'sign up');
+    });
+
+    it('github signup button text verification', () => {
+      signUpPage.getGithubButtonInput().should('have.value', 'continue with github');
+    });
+
+    it('google signup button text verification', () => {
+      signUpPage.getGoogleButtonInput().should('have.value', 'continue with google');
+    });
+  })
+
 });
