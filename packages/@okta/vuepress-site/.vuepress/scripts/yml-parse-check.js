@@ -43,7 +43,7 @@ try {
         failures.push(`Error: 'to' path is not valid: ${pair.to}`);
       }
       if(!pair.from.match(pathLike)) { 
-        failures.push(`Error: 'from' path is not valid: ${path.from}`);
+        failures.push(`Error: 'from' path is not valid: ${pair.from}`);
       }
     }
   });

@@ -2125,3 +2125,5 @@ redirects:
     to: /code/java/spring_security_saml/index.html
   - from: /docs/guides/password-import-hook/-/next-steps/index.html
     to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
+  - from: /pricing/index.html
+    to: https://www.okta.com/pricing/#customer-identity-products
