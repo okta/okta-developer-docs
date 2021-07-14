@@ -80,7 +80,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 ***
 
-#### Sign-In Widget Customization - Help Title & Need Help string
+#### Sign-In Widget customization - Help title link and Need help signing in string
 
 **What Changed:** The following customizations aren't supported:
 
