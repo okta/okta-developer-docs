@@ -41,7 +41,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 ***
 
-#### Personal Identity Verification
+#### Personal identity verification
 
 **What Changed:** Not supported
 
