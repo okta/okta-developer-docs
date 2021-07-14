@@ -91,7 +91,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 ***
 
-#### Sign-In Widget Customization - processCreds hook
+#### Sign-In Widget customization - processCreds hook
 
 **What Changed:** Developers can't subscribe to the `processCreds` hook in the Sign-In Widget.
 
