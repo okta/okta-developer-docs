@@ -1,60 +1,49 @@
-You have several options for setting the configuration values:
+### Sample app
 
-### Option 1: Configuration file
+There are two main ways to store configuration settings in the sample app.
+Setting these values can be accomplished by either setting key-value pairs
+in the [`Okta.plist` file](#okta-plist) or entering the values through
+the [Configuration screen](#configuration-screen).
 
-Create a YAML file named `okta.yaml` in one of the following three available directories:
+The sample app sends these values during SDK initialization through the use
+of the `IDXClient` `Configuration` class which is discussed in the
+[SDK section](#sdk).
 
-* Current user's home directory.
-  * **Unix/Linux**:    `~/.okta/okta.yaml`
-  * **Windows**:       `%userprofile%\.okta\okta.yaml`
+#### Okta.plist
 
-* Application or project's root directory
+`Okta.plist` is a property file that stores the name and value for
+each configuration setting. The file is located here:
+`okta-idx-swift/Samples/EmbeddedAuthWithSDKs/EmbeddedAuth/Okta.plist`.
 
-> **Note:** If you're using the **IISExpress** debugger (recommended) in Visual Studio
-to run your app, the location of the `okta.yaml` file needs to be in the
-following location: `{IIS Express install location}\IIS Express`
-(for example, `C:\Program Files (x86)\IIS Express\okta.yaml`)
+#### Configuration screen
 
-The file format is shown below:
+As alternative to the property file, the settings can be set in the configuration
+screen.
 
-```yaml
-okta:
-idx:
-  issuer: "https://{yourOktaDomain}/oauth2/default"
-  clientId: "{clientId}"
-  clientSecret: "{clientSecret}"
-  scopes:
-  - "{scope1}"
-  - "{scope2}"
-  redirectUri: "{redirectUri}"
+<div class="common-image-format">
+
+![Configuration setup](/img/oie-embedded-sdk/oie-embedded-sdk-widget-swift-configs.png
+ "Configuration setup screen in the Swift sample app")
+
+</div>
+
+The screen is accessed from the configure link on the startup screen.
+
+### SDK
+
+The SDK is initialized with the configuration settings by creating
+`IDXClient` `Configuration` and passing in the configuration values.
+
+Example
+
+```swift
+let configuration = IDXClient.Configuration(
+    issuer: "https:///<#oktaDomain#>/oauth2/default", // e.g. https://foo.okta.com/oauth2/default, https://foo.okta.com/oauth2/ausar5vgt5TSDsfcJ0h7
+    clientId: "<#clientId#>",
+    clientSecret: nil, // Optional, only required for confidential clients.
+    scopes: ["openid", "email", "offline_access", "<#otherScopes#>"],
+    redirectUri: "<#redirectUri#>") // Must match the redirect uri in client app settings/console
 ```
 
-### Option 2: Environment variables
-
-> **Note:** Environment variables are currently not supported.
-
-Add the values as environment variables with the following naming convention:
-
-* `OKTA_IDX_ISSUER`
-* `OKTA_IDX_CLIENTID`
-* `OKTA_IDX_CLIENTSECRET`
-* `OKTA_IDX_REDIRECTURI`
-* `OKTA_IDX_SCOPES`
-
-### Option 3: Add parameter to the SDK's client constructor
-
-Add the values as parameters to the constructor for the `IdxClient`.
-
-```csharp
- var client = new IdxClient(new IdxConfiguration()
-           {
-               Issuer = "{YOUR_ISSUER}",
-               ClientId = "{YOUR_CLIENT_ID}",
-               ClientSecret = "{YOUR_CLIENT_SECRET}",
-               RedirectUri = "{YOUR_REDIRECT_URI}",
-               Scopes = new List<string>{"openid","profile", "offline_access"}
-           });
-```
-
-> **Note:** The sample app uses dependency injection to instantiate the `IdxClient`,
-so the constructor code is located in the `UnityConfig.cs` file.
+For more details about configuring and the available methods see the SDK's
+[readme](https://github.com/okta/okta-idx-swift#readme).
