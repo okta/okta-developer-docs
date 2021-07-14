@@ -10,7 +10,7 @@ excerpt: The Okta Identity Engine introduces a lot of changes to the Okta platfo
 
 The Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features. Additionally, some of these changes result in Okta Identity Engine features not supported for use with Okta Classic APIs.
 
-> **Note:** This doc is designed for people familiar with Okta Classic. If you are new to Okta and Okta Identity Engine, see [Get started](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) with Okta Identity Engine.
+> **Note:** This doc is designed for people who are familiar with Okta Classic. If you are new to Okta and Okta Identity Engine, see [Get started](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) with Okta Identity Engine.
 
 Are you an admin? See the Identity Engine [Limitations](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-oie-limitations) doc for admins.
 
