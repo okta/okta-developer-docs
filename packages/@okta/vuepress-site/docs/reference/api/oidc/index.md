@@ -653,7 +653,7 @@ You can use an [introspection request](#introspect) for validation.
 
 Okta strongly recommends retrieving keys dynamically with the JWKS published in the discovery document. Okta also recommends caching or persisting these keys to improve performance. If you cache signing keys, and automatic key rotation is enabled, be aware that verification fails when Okta rotates the keys automatically. Clients that cache keys should periodically check the JWKS for updated signing keys.
 
-Okta recommends a background process that regularly caches the `/keys` endpoint. This process can be completed once a day or more infrequently, for example, once per week. This ensures that you always have an up-to-date set of keys for validation even when we generate the next key or rotate automatically at the 45 or 90 day mark respectively. 
+Okta recommends a background process that regularly caches the `/keys` endpoint. This process can be completed once a day or more infrequently, for example, once per week. This ensures that you always have an up-to-date set of keys for validation even when we generate the next key or rotate automatically at the 45 or 90 day mark respectively.
 
 Under almost all circumstances, the above would be sufficient except in cases where keys were rotated or generated outside the usual timespans. An example of this would be if Okta or a customer had a need to perform this operation for security reasons. You should augment the above approach with a failsafe for circumstances where keys are quickly regenerated and rotated.
 
@@ -805,7 +805,9 @@ curl -X GET \
         "email",
         "address",
         "phone",
-        "offline_access"
+        "offline_access",
+        "online_access", [Early Access](/docs/reference/releases-at-okta/#early-access-ea)
+        "device_sso" [Early Access](/docs/reference/releases-at-okta/#early-access-ea)
     ],
     "token_endpoint_auth_methods_supported": [
         "client_secret_basic",
@@ -963,7 +965,9 @@ curl -X GET \
         "address",
         "phone",
         "offline_access",
-        "groups"
+        "groups",
+        "online_access", [Early Access](/docs/reference/releases-at-okta/#early-access-ea)
+        "device_sso" [Early Access](/docs/reference/releases-at-okta/#early-access-ea)
     ],
     "token_endpoint_auth_methods_supported": [
         "client_secret_basic",
@@ -1057,6 +1061,8 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 | address          | Requests access to the `address` claim.                                                                         | No             |
 | groups           | Requests access to the `groups` claim.                                                                          | No             |
 | offline_access   | Requests a refresh token used to obtain more access tokens without re-prompting the user for authentication.   | No             |
+| online_access [Early Access](/docs/reference/releases-at-okta/#early-access-ea)    | Requests a refresh token used to obtain more access tokens without re-prompting the user for authentication. The refresh token and the id token will be bound to the browser session. See *link*.   | No             |
+| device_sso [Early Access](/docs/reference/releases-at-okta/#early-access-ea)   | Requests a device secret used to obtain new set of tokens without re-prompting the user for authentication. See *link*  | No             |
 
 ### Scope values
 
@@ -1194,6 +1200,8 @@ Okta defines a number of reserved scopes and claims that can't be overridden.
 ###### Reserved scopes
 
 `openid`, `profile`, `email`, `address`, `phone`, `offline_access`, and `groups` are available to ID tokens and access tokens, using either the Okta Org Authorization Server or a Custom Authorization Server. For details, see [Scopes](#access-token-scopes-and-claims). All of these scopes except `groups` are defined in the OpenID Connect specification.
+
+Additionally, we have reserved the scopes `online_access` [Early Access](/docs/reference/releases-at-okta/#early-access-ea) and `device_sso` [Early Access](/docs/reference/releases-at-okta/#early-access-ea) as they have a particular meaning in *link*.
 
 ###### Reserved claims in the header section
 
