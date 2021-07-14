@@ -97,7 +97,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 ***
 
-#### Sign-In Widget Customization - Registration Hooks
+#### Sign-In Widget customization - Registration Inline Hooks
 
 **What Changed:** Existing Registration Inline Hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta Registration Inline Hook request. Your application may require code updates to properly consume the new request format.
 
