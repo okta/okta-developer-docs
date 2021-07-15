@@ -2,7 +2,7 @@
   width: 100%;
   min-height: 100%;
   padding: 3rem 1rem 3rem 0;
-  background: #16272f;
+  background: cv('body');
 
   @include media(">=desktop") {
     flex-grow: 0;
@@ -26,7 +26,7 @@
     }
     .subnav-active {
       .tree-nav-link {
-        color: #ffffff;
+        color: cv('text', 'link');
       }
     }
     .tree-nav-link {
@@ -36,17 +36,17 @@
       justify-content: flex-start;
       font-size: 1em;
       text-decoration: none;
-      color: #b7bcc0;
+      color: cv('text');
       cursor: pointer;
       &:hover {
-        color: cv("cerise", "active");
+        color: cv('text', 'link');
       }
       &.children-active {
         font-weight: bold;
       }
       &.router-link-active {
         font-weight: bold;
-        color: cv("cerise", "active");
+        color: cv('text', 'link');
       }
       > span.text-holder {
         margin-left: 20px;

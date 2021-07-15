@@ -1,13 +1,6 @@
 .selector-tile{
-  border: 2px solid #1F3B54;
-  border-radius: 15px;
-  color: white;
   width: 100%;
-  background: linear-gradient(rgba(22,39,47,1) 66%, rgba(26,49,66,1) 84%);
-  height: 430px;
   box-sizing: border-box;
-  overflow: hidden;
-  box-shadow: 2px 33px 30px -26px rgba(18,30,36,1);
   @include media("<=bootstrap-xl"){
     margin-bottom: 30px;
   }
@@ -16,27 +9,27 @@
   }
 
   &--header{
-    font-size: 18px;
-    padding: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 0 20px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    color: #DFEAF1;
-    &:visited,&:active{
-        color: #DFEAF1;
-    }
+    color: cv('text', 'darker');
+    margin-bottom: 20px;
     >i,span{
       display: block;
     }
     >i{
-      color: #bac1c6;
+      color: cv('text', 'darker');
+      font-size: 10px;
     }
-    &:hover{
-      color: white;
-      >i{
-        color: white;
-      }
+    &:hover {
+      color: cv('text', 'darker');
+    }
+    &:visited,&:active,&:focus{
+      color: cv('text', 'darker');
     }
   }
   &--data{
@@ -45,16 +38,9 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 20px;
-      background-color: #1a3142;
-      // border-image-slice: 1;
-      // border-image-source: linear-gradient(to right,rgba(42,70,94,1) 66%, rgba(29,53,71,1) 84%);
-      // border-top: 0px solid;
-      // border-left: 0px solid;
-      // border-right: 0px solid;
-      border-bottom: 1px solid #334c61;
-      color: #bcc2c5;
+      padding: 10px 0;
       text-decoration: none;
+      color: cv('text', 'darker');
 
       @include media("<=tablet") {
         &:last-child {
@@ -63,13 +49,13 @@
       }
 
       &:visited,&:active,&:focus{
-        color: #DFEAF1;
-        text-decoration: none;
+        color: cv('text', 'darker');
       }
+
       >img{
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
+        width: 15px;
+        height: 15px;
         display: block;
       }
       >span{
@@ -84,16 +70,13 @@
       >i{
         display: block;
         font-weight: 100;
-        color: #bac1c6;
+        font-size: 10px;
+        color: cv('text', 'border');
       }
       &:hover{
-        background-color: #1D374A;
-        color: white;
-        >span{
-          color: white;
-        }
-        >i{
-          color: white;
+        color: cv('text', 'darker');
+        span {
+          text-decoration: underline;
         }
       }
     }

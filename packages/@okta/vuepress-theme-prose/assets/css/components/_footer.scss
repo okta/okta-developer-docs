@@ -5,7 +5,7 @@ $redesign_footer_border: #1F3B54;
   position: relative;
   background-color: cv('header');
   border-top: 1px solid $redesign_footer_border;
-  padding: 80px 96px 80px 126px;
+  padding: 100px 60px;
 
   @include media('<tablet') {
     padding: 46px;
@@ -31,12 +31,11 @@ $redesign_footer_border: #1F3B54;
       flex: 0 0 150px;
 
       .column--header {
-        font-weight: bold;
-        font-size: 14px;
+        font-weight: 600;
+        font-size: 20px;
         line-height: 1.3em;
         letter-spacing: 1.5px;
         color: $redesign_white;
-        text-transform: uppercase;
         margin-bottom: 30px;
 
         @include media('<tablet') {

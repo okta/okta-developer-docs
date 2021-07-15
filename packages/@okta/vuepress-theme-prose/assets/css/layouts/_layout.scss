@@ -4,15 +4,19 @@ body {
     sans-serif;
   font-style: normal;
   font-weight: 400;
+  font-size: 16px;
   line-height: 1.5;
   font-feature-settings: "lnum", "pnum";
-  background-color: cv("brand", "dark");
+  background-color: cv("body");
 }
 
 .flex {
   display: flex;
 }
-
+.align-items-center {
+  display: flex;
+  align-items: center;
+}
 .flex-row {
   flex-direction: row;
 }

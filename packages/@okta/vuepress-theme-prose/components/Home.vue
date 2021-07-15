@@ -7,79 +7,38 @@
         <Sidebar/>
       </div> 
       <div class="width-adjuster col-xl-10 col-lg-10 col-md-12 col-sm-12">
-        <div class="okta-game-banner row">
-          <div class="col-11 okta-game-banner-wrapper">
-            <div class="okta-game-banner--logo">
-              <img src="/img/okta-game/okta-game-logo.svg" />
-            </div>
-            <div class="okta-game-banner--image">
-              <img src="/img/okta-game/okta-game-image.svg" />
-            </div>
-            <div class="okta-game-banner--details">
-              <p>Can you turn this small business into a global powerhouse?</p>
-              <div class="okta-game-banner--details-buttons">
-                <SmartLink
-                  :item="{ link: 'https://codetycoongame.com/' }"
-                  classes="play-now-btn"
-                >
-                  Play Now
-                </SmartLink>
-                <SmartLink
-                  :item="{ link: 'https://youtu.be/aO5QTNjUQ6o' }"
-                  classes="learn-more"
-                >
-                  Learn More
-                </SmartLink>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="row justify-content-center">
           <div class="col-11 homepage--elevated">
-            <div class="row">
-              <div class="col-12">
-                <h1 class="homepage--main-heading homepage--color-main">
-                  Okta Developer Portal
-                </h1>
+            <div class="homepage--top-section">
+              <div class="row align-items-center">
+                <div class="col-6">
+                  <h1 class="homepage--main-heading homepage--color-main">
+                    Okta Developer Portal
+                  </h1>
+                </div>
+                <div class="col-6">
+                  <p>
+                    Quickly deploy auth that protects your apps, APIs, and infrastructure.
+                  </p>
+                </div>
               </div>
-            </div>
+              
+              <div class="row">
+                <div class="col-12">
+                  <h2 class="homepage--sub-heading homepage--color-main homepage--heading-with-border">
+                    Get Started
+                  </h2>
+                </div>
+              </div>
 
-            <div class="row">
-              <div class="col-12">
-                <h2 class="homepage--sub-heading homepage--color-main">
-                  Auth for All
-                </h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <p class="homepage--sub-heading-disclaimer homepage--color-main">
-                  Quickly deploy auth that protects your apps, APIs, and infrastructure.                    </p>
-              </div> 
-            </div>
-            
-            <div class="row">
-              <div class="col-12">
-                <h2 class="homepage--sub-heading homepage--color-main">
-                  Let's get started
-                </h2>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <p class="homepage--sub-heading-disclaimer homepage--color-sub">
-                  Authenticate up to 15,000 users per month for free
-                </p>
-              </div>
-            </div>
-
-            <div class="row homepage--selector-block-margin ">
-              <div
-                class="col-xl-3 col-lg-6 col-md-6"
-                v-for="(tile, index) in $page.frontmatter.tiles"
-                :key="index"
-              >
-                <SelectorTile :tileData="tile" />
+              <div class="row homepage--selector-block-margin ">
+                <div
+                  class="col-xl-3 col-lg-6 col-md-6"
+                  v-for="(tile, index) in $page.frontmatter.tiles"
+                  :key="index"
+                >
+                  <SelectorTile :tileData="tile" />
+                </div>
               </div>
             </div>
             <div
@@ -162,41 +121,9 @@
               </div>
             </div>
 
-            <div class="homepage--okta-game">
-              <div class="homepage--okta-game-description">
-                <h3>Code Tycoon - A Game from Okta</h3>
-                <p>
-                  As the junior developer at a small company, it’s up to you to
-                  transform a small business into a global powerhouse while
-                  grappling with endless meetings, bumbling co-workers, denial
-                  of service attacks, and aggressive competitors.
-                </p>
-                <SmartLink
-                  :item="{ link: 'https://codetycoongame.com/' }"
-                  classes="play-now-btn"
-                >
-                  play now
-                </SmartLink>
-              </div>
-              <div class="homepage--okta-game-video">
-                <iframe
-                  src="https://www.youtube-nocookie.com/embed/aO5QTNjUQ6o"
-                  title="YouTube video player"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-                ></iframe>
-              </div>
-            </div>
-
             <div class="homepage--partners-block-margin">
               <CompanyLogos />
             </div>
-          </div>
-
-          <div class="homepage--shapes">
-            <img src="/img/home-curves.svg" class="homepage--shapes-curves" />
-            <div class="homepage--shapes-fill"></div>
           </div>
         </div>
       </div>

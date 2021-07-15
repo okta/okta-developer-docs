@@ -8,8 +8,8 @@ header.page-header {
   align-items: center;
   justify-content: space-between;
   background-color: cv('header');
-  height: 70px;
-  padding: 0 50px 0 28px;
+  height: 87px;
+  padding: 0 50px;
 
   .header--logo {
     flex-shrink: 0;
@@ -32,16 +32,16 @@ header.page-header {
   }
 
   .search--slideout {
-    flex: 1 1 354px;
-    max-width: 354px;
-    margin-left: 40px;
+    flex: 1 1 260px;
+    max-width: 260px;
+    margin-left: 47px;
   }
 
   .header--links {
     flex: 1 0 auto;
     display: flex;
     justify-content: space-between;
-    padding: 0 42px;
+    padding: 0 29px;
 
     ul.menu--items + ul.menu--items {
       margin-left: 42px;
@@ -53,7 +53,7 @@ header.page-header {
     display: flex;
     align-items: center;
     height: 38px;
-    padding: 7px 12px;
+    padding: 7px 16px;
     background: cv('header');
     border: 1px solid $redesign_white;
     border-radius: 4px;
@@ -80,10 +80,11 @@ header.page-header {
   }
 
   .link {
-    font-size: inherit;
+    font-size: 16px;
     line-height: 1.3em;
     color: $redesign_white;
     cursor: pointer;
+    letter-spacing: 0.04em;
 
     &:hover {
       text-decoration: underline;
@@ -93,10 +94,6 @@ header.page-header {
       color: $redesign_black;
     }
 
-    &--small {
-      font-size: 14px;
-    }
-
     &--semi-bold {
       font-weight: 600;
     }
@@ -104,11 +101,12 @@ header.page-header {
     &[target="_blank"]:not([href^="mailto:"])::after {
       content: "";
       display: inline-block;
-      width: 1em;
-      height: 1em;
+      width: 11px;
+      height: 11px;
       margin-left: 0.5em;
       background-image: url("/img/icons/external--white.svg");
       background-repeat: no-repeat;
+      background-size: cover;
       vertical-align: middle;
       opacity: 0.5;
     }
