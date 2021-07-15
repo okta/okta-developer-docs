@@ -227,6 +227,9 @@ module.exports = ctx => ({
       { text: 'Languages & SDKs', link: '/code/' }
     ],
     footer_nav: {
+      need_support: {
+        heading: 'Need support?'
+      },
       social: {
         heading: 'Social',
         items: [
@@ -249,11 +252,10 @@ module.exports = ctx => ({
       more: {
         heading: 'More Info',
         items: [
-          { text: 'Pricing', link: 'https://www.okta.com/pricing/#customer-identity-products' },
+          { text: 'Pricing', link: 'https://www.okta.com/pricing/#customer-identity-products', target: '_self' },
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Change log', link: '/docs/release-notes/' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
-          { text: 'Auth0 platform', link: 'https://auth0.com/developers' },
         ]
       },
       websites: {

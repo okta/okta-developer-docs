@@ -1,15 +1,17 @@
 <template>
   <footer class="app-footer">
-    <p class="app-footer--need-support">
-      <span class="italic">Need support?</span> Ask on the
-      <SmartLink
-        :item="{ link: config.forum_url, target: '_self' }"
-        classes="link link--red"
-      >
-        forum.
-      </SmartLink>
-    </p>
     <div class="footer--columns">
+      <div class="footer--column need-support">
+        <h4 class="column--header">{{ config.footer_nav.need_support.heading }}</h4> 
+        <p>
+          You can reach us directly at developers@okta.com or you can also ask us on the 
+          <SmartLink
+            :item="{ link: config.forum_url, target: '_self' }"
+            classes="link"
+          >
+            forum</SmartLink>.
+        </p>
+      </div>
       <div class="footer--column social">
         <h4 class="column--header">
           {{ config.footer_nav.social.heading }}
@@ -71,13 +73,10 @@
         >
           <SmartLink
             :item="item"
-            classes="link link--red link--small link--bold link--uppercase link--spacing-large"
+            classes="link link--small link--bold link--uppercase link--spacing-large link--with-chevron-right"
           />
           <span class="description">{{ item.description }}</span>
         </div>
-      </div>
-      <div class="footer--column copyright">
-        <span>{{ config.copyright_text }}</span>
       </div>
     </div>
   </footer>
