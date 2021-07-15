@@ -31,8 +31,6 @@ idx:
 
 ### Option 2: Environment variables
 
-> **Note:** Environment variables are currently not supported.
-
 Add the values as environment variables with the following naming convention:
 
 * `OKTA_IDX_ISSUER`
