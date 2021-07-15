@@ -29,7 +29,7 @@ Depending on [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob
 
 #### Success status
 
-For a successful sign-in response (`AuthenticationStatus.Success`), use [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java)'s `getTokenResponse` method to retrieve the token and proceed to process the authenticated user in the app.
+For a successful sign-in response (`AuthenticationStatus.Success`), use the [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java)'s `getTokenResponse` method to retrieve the token and then process the authenticated user in the app.
 
 For example:
 
