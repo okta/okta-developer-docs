@@ -49,7 +49,10 @@ These rate limits apply to all new Okta organizations. For orgs created before 2
 
 ### End-user rate limits
 
-Okta limits the number of requests from the Admin Console and End-User Dashboard to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other and from other API requests in the system.
+Okta limits the number of requests:
+* From the Admin Console and the End-User Dashboard, to 40 requests per user per 10 seconds per endpoint. This rate limit protects users from each other and from other API requests in the system.
+
+* To the Identity Engine, to 20 requests per user per 5 seconds and 10 requests per state token per 5 seconds. <ApiLifecycle access="ie" />
 
 If a user exceeds this limit, they receive an HTTP 429 error response without affecting other users in your org. A message is written to the System Log that indicates that the end-user rate limit was encountered.
 
@@ -100,6 +103,11 @@ API endpoints that take username and password credentials, including the [Authen
   * `/api/v1/authn/factors`
   * `/api/v1/users/{userId}/factors`
 
+  **Identity Engine endpoints**<br>
+  <ApiLifecycle access="ie" />
+  * `/idp/idx/challenge`
+  * `/idp/idx/credential/enroll`
+
 ### Workforce license rate limit multiplier
 
 Workforce orgs that are created after January 7, 2021 have increased default rate limits. This increase is for [specific endpoints](#list-of-endpoints) and depends on a Workforce org's license count (Universal Directory or Single-Sign On).
@@ -131,6 +139,9 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/app/office365{appType}/{key}/sso/wsfed/active`
 * `/app/office365{appType}/{key}/sso/wsfed/passive`
 * `/app/template_saml_2_0/{key}/sso/saml`
+* `/idp/idx/introspect` <ApiLifecycle access="ie" />
+* `/idp/idx/identify` <ApiLifecycle access="ie" />
+* Identity Engine App Intent <ApiLifecycle access="ie" />
 
 [Single User/Group/App operations (GET, UPDATE, and DELETE)](/docs/reference/rl-dynamic-scale/)
 
