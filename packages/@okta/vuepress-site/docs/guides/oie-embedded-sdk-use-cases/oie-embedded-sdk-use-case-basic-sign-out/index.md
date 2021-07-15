@@ -5,6 +5,7 @@ title: User sign-out (local app)
 <div class="oie-embedded-sdk">
 
 <ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
 
 <StackSelector class="cleaner-selector"/>
 

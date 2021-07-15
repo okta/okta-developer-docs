@@ -5,6 +5,7 @@ title: Basic sign-in using the Widget
 <div class="oie-embedded-sdk">
 
 <ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
 
 <StackSelector class="cleaner-selector"/>
 

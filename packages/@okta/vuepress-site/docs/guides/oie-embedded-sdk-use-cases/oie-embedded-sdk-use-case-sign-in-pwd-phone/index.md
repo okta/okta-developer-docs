@@ -5,6 +5,8 @@ title: Sign in with password and phone factors
 <div class="oie-embedded-sdk">
 
 <ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
+
 
 <StackSelector class="cleaner-selector"/>
 

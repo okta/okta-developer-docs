@@ -5,6 +5,7 @@ title: Sign in with password and email factors
 <div class="oie-embedded-sdk">
 
 <ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
 
 <StackSelector class="cleaner-selector"/>
 

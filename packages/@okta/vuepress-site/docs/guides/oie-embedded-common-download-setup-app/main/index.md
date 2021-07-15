@@ -4,6 +4,7 @@ title: Download and set up the SDK, Sign-In Widget, and sample app
 <div class="oie-embedded-sdk">
 
 <ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
 
 <StackSelector class="cleaner-selector"/>
 
