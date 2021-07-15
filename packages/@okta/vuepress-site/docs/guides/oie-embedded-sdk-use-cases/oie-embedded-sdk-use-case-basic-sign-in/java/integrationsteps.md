@@ -2,7 +2,7 @@
 
 ### Step 1: Build a sign-in page on the client
 
-Build a sign-in page that captures both the user's name and password.
+Build a sign-in page that captures both the username and password.
 
 For example:
 
@@ -16,7 +16,7 @@ For example:
 ### Step 2: Authenticate user credentials
 
 When the user initiates the sign-in process, your app needs to create an [AuthenticationOptions](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationOptions.java) object and set its `username` and `password` properties to the values entered by the user. Send this object to the
-[IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `authenticate` method.
+[IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `authenticate` method to authenticate the user.
 
 ```java
 AuthenticationResponse authenticationResponse =
@@ -29,7 +29,7 @@ Depending on [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob
 
 #### Success status
 
-For a successful user sign in (`AuthenticationStatus.Success`), use [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java)'s `getTokenResponse` method to retrieve the token and proceed to process the authenticated user request.
+For a successful sign-in response (`AuthenticationStatus.Success`), use [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java)'s `getTokenResponse` method to retrieve the token and proceed to process the authenticated user in the app.
 
 For example:
 
@@ -85,5 +85,4 @@ For example:
 
 ### Step 4: Get user profile information-optional
 
-Optionally, you can obtain basic user information after a successful user
-sign in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo).
+Optionally, you can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo).

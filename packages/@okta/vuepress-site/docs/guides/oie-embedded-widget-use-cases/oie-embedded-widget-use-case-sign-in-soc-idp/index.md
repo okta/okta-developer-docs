@@ -16,7 +16,7 @@ This use case skips the factor requirements since it uses the Facebook identity 
 
 ### Step 1:  Complete steps in the widget setup
 
-If not already done, complete the steps that are described in [download and set up the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/). These steps guide you to the appropriate repo and location of the embedded widget sample app, identify the NuGet packages to install, and describe the additional changes that need to be made to the Okta org as required by the widget.
+If not already done, complete the steps that are described in [download and set up the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/). The steps guide you to the appropriate repository and location of the embedded Sign-In Widget sample app, identify the packages to install, and describe additional changes to the Okta org that are required for the widget app.
 
 ### Step 2: Set up your Okta org (for social identity providers)
 
