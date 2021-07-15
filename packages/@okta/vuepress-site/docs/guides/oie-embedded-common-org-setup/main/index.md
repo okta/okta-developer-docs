@@ -171,7 +171,7 @@ The steps to enable these factors are as follows:
 
 ## Set up your Okta org for social Identity Providers
 
-This section describes how to set up your org to use Facebook as an Identity Provider. This use case requires the following setup:
+This section describes how to set up your org to use Facebook as an Identity Provider. These use cases require the following setup:
 
 **Widget**
 

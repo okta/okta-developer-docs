@@ -3,7 +3,7 @@
 1. If not already done, set up your Okta org by completing these steps: [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 1. If not already done,
    [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
-1. Using xCode, locate and open the `okta-idx.xcworkspace` file in the following path: `okta-idx-swift/`
+1. Using Xcode, locate and open the `okta-idx.xcworkspace` file in the following path: `okta-idx-swift/`
 1. Optionally, open the `Okta.plist` file and configure it with the settings from your org. See
    the [Okta.plist](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#okta-plist) section for more information.
 1. Click **Run** to launch the application in the iOS simulator.

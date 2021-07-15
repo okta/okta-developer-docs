@@ -26,8 +26,8 @@ Access the screen from the **Configure** link on the startup screen.
 
 ### SDK
 
-Before initializing the SDK with the `start` method, create
-`IDXClient` `Configuration` and pass in the configuration values.
+The SDK is initialized with the configuration settings by creating
+`IDXClient` `Configuration` and passing in the configuration values.
 
 Example
 
@@ -40,5 +40,5 @@ let configuration = IDXClient.Configuration(
     redirectUri: "<#redirectUri#>") // Must match the redirect uri in client app settings/console
 ```
 
-For more details about configuring and the available methods see the SDK's
+For more details about different configuration options, see the SDK's
 [readme](https://github.com/okta/okta-idx-swift#readme).
