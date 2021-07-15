@@ -191,7 +191,8 @@ module.exports = ctx => ({
       { text: 'Guides', link: '/docs/guides/' },
       { text: 'Concepts', link: '/docs/concepts/' },
       { text: 'Reference', link: '/docs/reference/' },
-      { text: 'Languages & SDKs', link: '/code/' }
+      { text: 'Languages & SDKs', link: '/code/' },
+      { text: 'Release Notes', link: '/docs/release-notes/' }
     ],
     footer_nav: {
       social: {
