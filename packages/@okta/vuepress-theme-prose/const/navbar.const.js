@@ -453,6 +453,10 @@ export const guides = [
             },
           ]
           },
+          {
+            title: "Okta Identity Engine Limitations",
+            path: "/docs/guides/ie-limitations/"
+          },
         ]
       },
     ]

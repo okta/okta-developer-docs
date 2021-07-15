@@ -7,6 +7,7 @@ layout: Guides
 <div class="oie-embedded-sdk">
 
 <ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
 
 ## Passwordless sign in using magic links is not supported
 

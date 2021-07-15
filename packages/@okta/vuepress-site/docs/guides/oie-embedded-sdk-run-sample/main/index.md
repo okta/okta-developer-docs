@@ -4,6 +4,7 @@ title: Run the SDK sample app
 <div class="oie-embedded-sdk">
 
 <ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
 
 <StackSelector class="cleaner-selector"/>
 

@@ -3,8 +3,6 @@ title: Okta Identity Engine Limitations
 excerpt: The Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features.
 ---
 
-## Okta Identity Engine Limitations
-
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
@@ -37,7 +35,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 #### Help Support number
 
-**What Changed:** In Okta Identity Engine, if the user is unable to use an authenticator, rather than providing a Help Support number, the Authenticator list page appears that enables the user to select another way to authenticate.
+**What Changed:** In Okta Identity Engine, if the user is unable to use an Authenticator, the Help Support number is no longer provided. The only support available is the Authenticator list page that provides alternative ways for the user to authenticate.
 
 ***
 
@@ -45,13 +43,13 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 **What Changed:** Not supported
 
-**Further Information:** [Add a Smart Card IdP](https://help.okta.com/en/prod/Content/Topics/Security/idp-smart-card-workflow.htm)
+**Further Information:** [Learn more about PIV](https://help.okta.com/en/prod/Content/Topics/Security/idp-smart-card-workflow.htm)
 
 ***
 
 #### Sessions APIs
 
-**What Changed:** Some Sessions APIs aren't supported in Okta Identity Engine.
+**What Changed:** Some Sessions APIs aren't supported in Okta Identity Engine. However, your existing application could continue to work as long as session management and application interactions are fully contained within the `v1/sessions` APIs.
 
 **Further Information:** APIs not supported on Okta Identity Engine sessions:
 
@@ -127,13 +125,15 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 The following Okta Identity Engine features aren't supported using the Factor APIs.
 
-* Enroll in multiple Okta Verify factors using the [Factors API](https://developer.okta.com/docs/reference/api/factors/#enroll-okta-verify-totp-factor). You can only use the Factors API to enroll the first Okta Verify factor.
+* Enroll in multiple Okta Verify factors using the [Factors API](/docs/reference/api/factors/#enroll-okta-verify-totp-factor). You can only use the Factors API to enroll the first Okta Verify factor.
 * Okta Verify authenticator settings aren't enforced when enrolling using the Factors API:
 
   * The FIPS compliance requirement for enrollments
   * The User Verification requirement for enrollments
   * New Okta Verify enrollments that are created with the Factors API aren't mapped to a device.
   * WebAuthN authenticator User Verification settings aren't enforced when enrolling using the Factors API.
+
+See the [SDK uses cases](/docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-overview/) in our Embedded SDK guides for more information on profile enrollment.
 
 ***
 

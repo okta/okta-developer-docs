@@ -5,6 +5,7 @@ title: Basic sign out
 <div class="oie-embedded-sdk">
 
 <ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
 
 <StackSelector class="cleaner-selector"/>
 
