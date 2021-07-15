@@ -105,39 +105,6 @@ module.exports = ctx => ({
       test: '6LcgkzYaAAAAAAgXBo2cLdct9D-kUtyCOgcyd5WW',
     },
 
-    /**
-     * Primary Nav: Array of MenuItem components to iterate over within TopNavigation component
-     */
-    primary_nav: [
-      { text: 'Docs', link: '/docs/', active: true,
-        children: [
-          { text: 'Get Started', link: '/docs/' },
-          { text: 'Concepts', link: '/docs/concepts/' },
-          { text: 'Guides', link: '/docs/guides/' },
-          { text: 'Reference', link: '/docs/reference/' }
-        ]
-      },
-      { text: 'Use Cases', link: '/product/',
-        children: [
-          { text: 'Embed auth into your app' },
-          { text: 'Overview', link: '/product/' },
-          { text: 'Authentication', link: '/product/authentication/' },
-          { text: 'Authorization', link: '/product/authorization/' },
-          { text: 'User Management', link: '/product/user-management/' },
-          { type: 'divider' },
-          { text: 'Publish an integration' },
-          { text: 'Overview', link: '/okta-integration-network/' },
-        ]
-      },
-      { text: 'Pricing', link: 'https://www.okta.com/pricing/#customer-identity-products' },
-      { text: 'Blog', link: 'https://developer.okta.com/blog/' },
-      { text: 'Support', link: 'https://www.okta.com/contact/',
-        children: [
-          { text: 'Okta Developer Forum', link: 'https://devforum.okta.com/' },
-          { text: 'developers@okta.com', link: 'mailto:developers@okta.com' },
-        ]
-      }
-    ],
     quickstarts: {
       clients: [
         { name: 'okta-sign-in-page', label: 'Okta Sign-In Page', serverExampleType: 'auth-code', default: true },
