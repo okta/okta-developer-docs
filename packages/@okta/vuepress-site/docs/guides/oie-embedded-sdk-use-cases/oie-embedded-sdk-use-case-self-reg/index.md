@@ -75,10 +75,6 @@ If not already done, complete the steps in [Set up your Okta org (for multi-fact
    * Set **Phone Authentication** to **Optional**.
 1. Click **Update Policy**.
 
-## Summary of steps
-
-The sequence of steps for self-service registration is described in the following sequence diagrams:
-
 <StackSelector snippet="summaryofsteps" noSelector />
 
 <StackSelector snippet="integrationsteps" noSelector />

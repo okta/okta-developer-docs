@@ -38,10 +38,6 @@ If you completed the steps in [Set up your Okta org (for multi-factor use cases)
 1. In the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** field and change the value to **Password** if it is not already set to that value.
 1. Click **Save**.
 
-## Summary of steps
-
-The following shows the sequence of steps for the Facebook sign-in flow.
-
 <StackSelector snippet="summaryofsteps" noSelector />
 
 <StackSelector snippet="integrationsteps" noSelector />

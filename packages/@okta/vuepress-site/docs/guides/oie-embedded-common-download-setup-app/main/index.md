@@ -66,7 +66,7 @@ Select your app, and then on the **General** tab copy the **Client ID**.
 
 <StackSelector snippet="clientsecret" noSelector /><br>
 
-#### Redirect URI
+### Redirect URI
 
 <StackSelector snippet="redirecturi" noSelector /><br>
 

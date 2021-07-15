@@ -1,4 +1,4 @@
-You have several options for setting the configuration values:
+You have several options for setting the configuration values in the SDK:
 
 ### Option 1: Configuration file
 
@@ -30,8 +30,6 @@ idx:
 ```
 
 ### Option 2: Environment variables
-
-> **Note:** Environment variables are currently not supported.
 
 Add the values as environment variables with the following naming convention:
 

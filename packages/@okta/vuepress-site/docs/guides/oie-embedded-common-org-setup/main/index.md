@@ -33,10 +33,7 @@ After you complete setting up the Okta org, [download and set up the SDK, Widget
 
 The first step is to create an Okta account, if you haven't already.
 
-1. Sign up for an Okta account using one of the following links:
-   * **Before July 20th, 2021 (Preview only):**
-   [Sign up](https://developer.okta.com/signup/oie-preview.html) for an Okta account.
-   * **After July 20th, 2021:** [Sign up](https://developer.okta.com/signup/oie.html) for an Okta account. **Only use this link after the listed date.**
+1. [Sign up](https://developer.okta.com/signup/oie.html) for an Okta account.
 
    After you sign up, Okta sends you a verify email with the email address that
    you provided.
@@ -174,7 +171,7 @@ The steps to enable these factors are as follows:
 
 ## Set up your Okta org for social Identity Providers
 
-This section describes how to set up your org to use Facebook as an Identity Provider. This use case requires the following setup:
+This section describes how to set up your org to use Facebook as an Identity Provider. These use cases require the following setup:
 
 **Widget**
 
