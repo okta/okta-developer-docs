@@ -11,7 +11,7 @@ dependencies: [
 
 #### Step 2: Import OktaIdx namespace
 
-Import the `OktaIdx` namespace.
+Import the `OktaIdx` framework.
 
 ```swift
 import OktaIdx
