@@ -1,10 +1,12 @@
 <template>
-  <div class="homepage container-fluid">
-    <div class="row">
-      <div class="col-xl-2 col-lg-2 d-none d-lg-block homepage--col-no-padding">
-        <HomeSidebar />
-      </div>
-      <div class="col-xl-10 col-lg-10 col-md-12 col-sm-12">
+  <div class="homepage content">
+    <div class="content--container">
+       <div
+        class="sidebar-area" 
+      >
+        <Sidebar/>
+      </div> 
+      <div class="width-adjuster col-xl-10 col-lg-10 col-md-12 col-sm-12">
         <div class="okta-game-banner row">
           <div class="col-11 okta-game-banner-wrapper">
             <div class="okta-game-banner--logo">
@@ -203,14 +205,12 @@
 </template>
 
 <script>
-import CompanyLogos from "./CompanyLogos.vue";
-
 const SIDE_BY_SIDE_BREAKPOINT = 1200;
 
 export default {
   name: "Home",
   components: {
-    HomeSidebar: () => import("../components/HomeSidebar"),
+    Sidebar: () => import("../components/Sidebar"),
     SelectorTile: () => import("../components/SelectorTile"),
     AssuranceItem: () => import("../components/AssuranceItem"),
     FrontPageWidget: () => import("../components/FrontPageWidget"),

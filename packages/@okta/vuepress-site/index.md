@@ -27,6 +27,9 @@ tiles:
       - name: PHP
         link: /docs/guides/sign-into-web-app/php/before-you-begin/
         image: /img/homepage/stackselectors/php.png
+      - name: Python
+        link: /docs/guides/sign-into-web-app/python/before-you-begin/
+        image: /img/homepage/stackselectors/python.png
   - name: Single-page App
     link: /docs/guides/sign-into-spa/
     items:
@@ -72,6 +75,9 @@ tiles:
       - name: PHP
         link: /docs/guides/protect-your-api/php/before-you-begin/
         image: /img/homepage/stackselectors/php.png
+      - name: Python
+        link: /docs/guides/protect-your-api/python/before-you-begin/
+        image: /img/homepage/stackselectors/python.png
 
 assurances:
   - title: Compliant Out of the Box

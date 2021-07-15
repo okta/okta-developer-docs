@@ -30,8 +30,6 @@ Email templates use common and unique [Expression Language (EL) variables](https
 
 ### Test Custom Email Templates
 
-> **Note:** This is an <ApiLifecycle access="ea" /> feature.
-
 You can send yourself a test email to see how a custom email template looks and functions. This can help you validate macro attributes and translations in the customized template as well as see how the template renders in different email environments. This eliminates the need to create a real end-to-end workflow to test customization. The test email is sent to the primary email address of the admin that initiates the test email.
 
 1. Click the email icon to the right of the email template that you have customized. The Send test email dialog box appears and lists who the email is sent to and from what sender the email is coming from.

@@ -15,7 +15,7 @@ This page provides reference documentation for:
 
 This information is specific to the User Import Inline Hook, one type of Inline Hook supported by Okta.
 
-## See Also
+## See also
 
 For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concepts/inline-hooks/).
 
@@ -31,7 +31,7 @@ You can resolve conflicts in user name or other profile attributes, modify value
 
 The hook is invoked for each user being imported, at the point immediately after any applicable profile attribute mappings have been applied, and any potential matches with existing users have been found, but before the Okta user profile is created.
 
-## Objects in the Request from Okta
+## Objects in the request from Okta
 
 The outbound call from Okta to your external service will include the following objects in its JSON payload:
 
@@ -51,8 +51,8 @@ You can change the values of the attributes by means of the `commands` object yo
 
 The current default action that Okta will take in the case of the user being imported. The two possible values are:
 
- - `CREATE_USER`: A new Okta user profile will be created for the user.
- - `LINK_USER`: The user will be treated as a match for the existing Okta user identified by the value of `data.user.id`.
+- `CREATE_USER`: A new Okta user profile will be created for the user.
+- `LINK_USER`: The user will be treated as a match for the existing Okta user identified by the value of `data.user.id`.
 
  You can change the action that will be taken by means of the `commands` object you return.
 
@@ -60,13 +60,13 @@ The current default action that Okta will take in the case of the user being imp
 
 This object contains a number of sub-objects, each of which provides some type of contextual information. You cannot affect these objects by means of the commands you return. The following sub-objects are included:
 
- - `data.context.conflicts`: List of user profile attributes that are in conflict.
- - `data.context.application`: Details of the app from which the user is being imported.
- - `data.context.job`: Details of the import job being run.
- - `data.context.matches`: List of Okta users currently matched to the app user based on import matching. There can be more than one match.
- - `data.context.policy`: List of any Policies that apply to the import matching.
+- `data.context.conflicts`: List of user profile attributes that are in conflict.
+- `data.context.application`: Details of the app from which the user is being imported.
+- `data.context.job`: Details of the running import job.
+- `data.context.matches`: List of Okta users currently matched to the app user based on import matching. There can be more than one match.
+- `data.context.policy`: List of any Policies that apply to the import matching.
 
-## Objects in Response You Send
+## Objects in response you send
 
 The `commands` and `error` objects that you can return in the JSON payload of your response are defined as follows:
 
@@ -79,7 +79,7 @@ The `commands` object is where you can provide commands to Okta. It is an array,
 | type     | One of the [supported commands](#supported-commands). | String          |
 | value    | The parameter to pass to the command.                 | [value](#value) |
 
-#### Supported Commands
+#### Supported commands
 
 The following commands are supported for the User Import Inline Hook type:
 
@@ -120,7 +120,7 @@ In the case of the `com.okta.action.update` command, the parameter should be a `
 }
 ```
 
-#### Specifying that the User is a Match
+#### Specifying that the user is a match
 
 When using the `com.okta.action.update` command to specify that the user should be treated as a match, you need to also provide a `com.okta.user.update` command that sets the `id` of the Okta user, for example:
 
@@ -139,6 +139,7 @@ When using the `com.okta.action.update` command to specify that the user should 
   }]
 }
 ```
+
 ### error
 
 When you return an error object, it should contain an `errorSummary` sub-object:
@@ -149,7 +150,13 @@ When you return an error object, it should contain an `errorSummary` sub-object:
 
 Returning an error object will cause Okta to record a failure event in the Okta System Log. The string you supplied in the `errorSummary` property of the `error` object will be recorded in the System Log event.
 
-## Sample JSON Payload of Request from Okta to Your External Service
+>**Note:** If a response to the Import Inline Hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta import process continues and the user is created.
+
+## Timeout behavior
+
+If the external service times out after receiving an Okta request, the Okta process flow continues and the user is created.
+
+## Sample JSON payload of request from Okta to your external service
 
 ```json
 {
@@ -230,7 +237,7 @@ Returning an error object will cause Okta to record a failure event in the Okta 
 }
 ```
 
-## Sample JSON Payloads of Responses from Your External Service to Okta
+## Sample JSON payloads of responses from your external service to Okta
 
 ```json
 {
@@ -295,5 +302,3 @@ You then need to associate the registered Inline Hook with an app by completing 
 1. Click **Save**.
 
 > **Note:** The above procedure for associating a User Import Inline Hook with an app using Admin Console cannot be used with AD or LDAP.
-
-

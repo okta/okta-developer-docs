@@ -41,7 +41,7 @@ Creates a new user in your Okta organization with or without credentials
 | provider      | Indicates whether to create a user with a specified authentication provider                                                                                                | Query        | Boolean                                      | FALSE      | FALSE   |
 | profile       | Profile properties for user                                                                                                                                                | Body         | [Profile object](#profile-object)            | TRUE       |         |
 | credentials   | Credentials for user                                                                                                                                                       | Body         | [Credentials object](#credentials-object)    | FALSE      |         |
-| groupIds      | Ids of groups that user will be immediately added to at time of creation                                                                                                   | Body         | Array of Group Ids                           | FALSE      |         |
+| groupIds      | Ids of groups that user will be added to at time of creation                                                                                                   | Body         | Array of Group Ids                           | FALSE      |         |
 | nextLogin     | With `activate=true`, if `nextLogin=changePassword`, a user is created, activated, and the password is set to `EXPIRED`, so user must change it the next time they log in. | Query        | String                                       | FALSE      | FALSE   |
 
 ##### Response Parameters
@@ -211,7 +211,7 @@ curl -v -X POST \
 
 Creates a user without a [recovery question & answer](#recovery-question-object)
 
-The new user is able to sign in immediately after activation with the assigned password.
+The new user is able to sign in after activation with the assigned password.
 This flow is common when developing a custom user registration experience.
 
 > Important: Do not generate or send a one-time activation token when activating users with an assigned password.  Users should sign in with their assigned password.
@@ -281,7 +281,7 @@ curl -v -X POST \
 
 Creates a user with a specified [hashed password](#hashed-password-object).
 
-The new user is able to sign in immediately after activation with the specified password.
+The new user is able to sign in after activation with the specified password.
 This flow is common when migrating users from another data store in cases where we want to allow the users to retain their current passwords.
 
 > Important: Do not generate or send a one-time activation token when activating users with an imported password.  Users should login with their imported password.
@@ -360,7 +360,7 @@ Creates a user with a [Password Hook](#password-hook-object) object specifying t
 
 The Password Inline Hook is triggered to handle verification of the end user's password the first time the user tries to sign in, with Okta calling the Password Inline Hook to check that the password the user supplied is valid. If the password is valid, Okta stores the hash of the password that was provided and can authenticate the user independently from then on. See [Password Import Inline Hook](/docs/reference/password-hook/) for more details.
 
-The new user is able to sign in immediately after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
+The new user is able to sign in after activation with the valid password. This flow supports migrating users from another data store in cases where we wish to allow the users to retain their current passwords.
 
 > Important: Do not generate or send a one-time activation token when activating users with an Password Inline Hook.  Users should sign in with their existing password to be imported using the Password Import Inline Hook.
 
@@ -430,7 +430,7 @@ curl -v -X POST \
 
 Creates a new user with a [password](#password-object) and [recovery question & answer](#recovery-question-object)
 
-The new user is able to log in with the assigned password immediately after activation.
+The new user is able to log in with the assigned password after activation.
 This flow is common when developing a custom user-registration experience.
 
 > Important: Don't generate or send a one-time activation token when activating users with an assigned password.  Users should login with their assigned password.
@@ -582,7 +582,7 @@ curl -v -X POST \
 #### Create User in Group
 
 
-Creates a user that is immediately added to the specified groups upon creation
+Creates a user that is added to the specified groups upon creation
 
 Use this in conjunction with other create operations for a Group Administrator that is scoped to create users only in specified groups.  The request may specify up to 20 group ids.  (This limit applies only when creating a user.  The user may later be added to more groups.)
 
@@ -759,7 +759,7 @@ Fetch a user by `id`, `login`, or `login shortname` if the short name is unambig
 
 | Parameter | Description                                                        | Param Type | DataType | Required |
 | --------- | ------------------------------------------------------------------ | ---------- | -------- | -------- |
-| id        | `id`, `login`, or *login shortname* (as long as it is unambiguous) | URL        | String   | TRUE     |
+| id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) | URL        | String   | TRUE     |
 
 > When fetching a user by `login` or `login shortname`, you should [URL encode](http://en.wikipedia.org/wiki/Percent-encoding) the request parameter to ensure special characters are escaped properly.  Logins with a `/` or `?`  character can only be fetched by `id` due to URL issues with escaping the `/` and `?` characters.
 
@@ -2044,7 +2044,7 @@ Fetches appLinks for all direct or indirect (via group membership) assigned appl
 
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
-| id        | `id` of user | URL        | String   | TRUE     |
+| id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) of user | URL        | String   | TRUE     |
 
 ##### Response Parameters
 
@@ -2130,7 +2130,7 @@ Fetches the groups of which the user is a member
 
 | Parameter | Description  | Param Type | DataType | Required |
 | --------- | ------------ | ---------- | -------- | -------- |
-| id        | `id` of user | URL        | String   | TRUE     |
+| id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) of user | URL        | String   | TRUE     |
 
 ##### Response Parameters
 
@@ -2250,7 +2250,7 @@ Users that don't have a password must complete the flow by completing [Reset Pas
 
 | Parameter | Description                                                                | Param Type | DataType | Required |
 | --------- | -------------------------------------------------------------------------- | ---------- | -------- | -------- |
-| id        | `id` of user                                                               | URL        | String   | TRUE     |
+| id        | `id`, `login`, or `login shortname` (as long as it is unambiguous) of user                                                               | URL        | String   | TRUE     |
 | sendEmail | Sends an activation email to the user if `true`. Default value is `false`. | Query      | Boolean  | FALSE    |
 
 ##### Response Parameters

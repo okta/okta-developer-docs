@@ -1,21 +1,21 @@
 ---
-title: Upgrade to Identity engine
+title: Upgrade to Identity Engine
 meta:
   - name: description
-    content: Our guide shows how to upgrade your organization and clients to Identity engine
+    content: Our guide shows how to upgrade your organization and clients to Identity Engine
 layout: Guides
 ---
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
-## Enable Identity engine for your organization
+## Enable Identity Engine for your organization
 
-To upgrade to Identity engine, contact your account manager. If you do not have an account manager, email <oie@okta.com> for more information.
+To upgrade to Identity Engine, contact your account manager. If you do not have an account manager, email <oie@okta.com> for more information.
 
 ## Enable interaction code grant
 
-After the Identity engine feature is enabled for your org, it should become active for Okta-hosted sign-in flows that don't involve an OAuth application. Enabling the `interaction_code` grant type allows OAuth applications to use Identity engine.
+After the Identity Engine feature is enabled for your org, it should become active for Okta-hosted sign-in flows that don't involve an OAuth application. Enabling the `interaction_code` grant type allows OAuth applications to use Identity Engine.
 
 ### Enable interaction code grant on an authorization server
 
@@ -37,13 +37,13 @@ After the Identity engine feature is enabled for your org, it should become acti
 
 ### Okta-hosted sign-in page (default)
 
-For most authentication flows that involve redirecting to Okta, there should be no other changes needed. After the feature is enabled, Identity engine will be used automatically, by default.
+For most authentication flows that involve redirecting to Okta, there should be no other changes needed. After the feature is enabled, Identity Engine will be used automatically, by default.
 
 ### Customized sign-in page / custom domain
 
-For most users of the [custom domain](/docs/guides/custom-url-domain/overview/) feature, there are no other changes needed. The default template detects and uses Identity engine automatically.
+For most users of the [custom domain](/docs/guides/custom-url-domain/overview/) feature, there are no other changes needed. The default template detects and uses Identity Engine automatically.
 
-However, if you have [modified the template](/docs/guides/style-the-widget/style-okta-hosted/) in certain ways (such as to perform redirects or set cookies), these modifications may not be compatible with Identity engine. In particular, these methods and objects won't work with Identity engine:
+However, if you have [modified the template](/docs/guides/style-the-widget/style-okta-hosted/) in certain ways (such as to perform redirects or set cookies), these modifications may not be compatible with Identity Engine. In particular, these methods and objects won't work with Identity Engine:
 
 - `setCookieAndRedirect`
 - `sessionToken`
@@ -97,7 +97,7 @@ For reference, here is the default template:
 
 > **Note:** "Embedded" means the Sign-In Widget is included directly in your application through npm module or script tag. The `@okta/okta-signin-widget` version 5.2.0 or above is needed to enable the interaction code flow.
 
-Set the option `useInteractionCodeFlow` to `true` on the object passed to the Sign-In Widget constructor. This enables Identity engine for the Widget. Both the authorization server and the application must have the [interaction code](#enable-interaction-code-grant) grant type enabled.
+Set the option `useInteractionCodeFlow` to `true` on the object passed to the Sign-In Widget constructor. This enables Identity Engine for the Widget. Both the authorization server and the application must have the [interaction code](#enable-interaction-code-grant) grant type enabled.
 
 > **Note:** Your code may break if it is calling the `renderEl` method and expects `sessionToken` or `session.setCookieAndRedirect` on the response object. Instead of `renderEl`, we recommend calling the `showSignInToGetTokens` method. This method receives and returns tokens without any browser redirect.
 
@@ -129,7 +129,7 @@ signIn.showSignInToGetTokens({
 })
 ```
 
-### Direct authentication
+### Embedded authentication
 
 Javascript clients that do not wish to use the Sign-in Widget can use the [okta-idx-js](https://github.com/okta/okta-idx-js) and [okta-auth-js](https://github.com/okta/okta-auth-js) SDKs to authenticate using the interaction code flow.
 

@@ -70,6 +70,7 @@ The Okta JWT Verifier is available for the following languages:
 - [Golang](https://github.com/okta/okta-jwt-verifier-golang)
 - [Java](https://github.com/okta/okta-jwt-verifier-java)
 - [PHP](https://github.com/okta/okta-jwt-verifier-php)
+- [Python](https://github.com/okta/okta-jwt-verifier-python)
 
 ## Support
 

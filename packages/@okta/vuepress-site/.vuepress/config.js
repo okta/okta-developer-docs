@@ -8,10 +8,33 @@ const signInWidgetMajorVersion = 5;
 const projectRootDir = Path.resolve(__dirname, '../../../../');
 const outputDir = Path.resolve(__dirname, '../dist/');
 
-
 const WIDGET_VERSION = findLatestWidgetVersion(signInWidgetMajorVersion);
 
-module.exports = {
+function configUris() {
+  switch (process.env.DEPLOY_ENV) {
+    case 'prod':
+      return {
+        baseUri: 'https://okta-devok12.okta.com',
+        registrationPolicyId: 'reg405abrRAkn0TRf5d6',
+        idps: {
+          github: '0oayfl0lW6xetjKjD5d5',
+          google: '0oay75bnynuF2YStd5d5',
+        }
+      }
+    case 'test':
+    default:
+      return {
+        baseUri: 'https://okta-dev-parent.trexcloud.com',
+        registrationPolicyId: 'reg3kwstakmbOrIly0g7',
+        idps: {
+          github: '0oa3jobx2bBlylNft0g7',
+          google: '0oa3jaktbqkiwCthn0g7',
+        }
+      }
+  }
+}
+
+module.exports = ctx => ({
   dest: 'dist',
   theme: "@okta/vuepress-theme-prose",
   /**
@@ -72,22 +95,7 @@ module.exports = {
     /**
      * URI config
      */
-    uris: {
-      baseUri: 'https://okta-devok12.okta.com',
-      registrationPolicyId: 'reg405abrRAkn0TRf5d6',
-      idps: {
-        github: '0oayfl0lW6xetjKjD5d5',
-        google: '0oay75bnynuF2YStd5d5',
-      },
-      /* Trex values:
-      baseUri: 'https://okta-dev-parent.trexcloud.com',
-      registrationPolicyId: 'reg3kwstakmbOrIly0g7',
-      idps: {
-        github: '0oa3jobx2bBlylNft0g7',
-        google: '0oa3jaktbqkiwCthn0g7',
-      },
-      */
-    },
+    uris: configUris(),
 
     /**
      * CAPTCHA config
@@ -97,39 +105,6 @@ module.exports = {
       test: '6LcgkzYaAAAAAAgXBo2cLdct9D-kUtyCOgcyd5WW',
     },
 
-    /**
-     * Primary Nav: Array of MenuItem components to iterate over within TopNavigation component
-     */
-    primary_nav: [
-      { text: 'Docs', link: '/docs/', active: true,
-        children: [
-          { text: 'Get Started', link: '/docs/' },
-          { text: 'Concepts', link: '/docs/concepts/' },
-          { text: 'Guides', link: '/docs/guides/' },
-          { text: 'Reference', link: '/docs/reference/' }
-        ]
-      },
-      { text: 'Use Cases', link: '/product/',
-        children: [
-          { text: 'Embed auth into your app' },
-          { text: 'Overview', link: '/product/' },
-          { text: 'Authentication', link: '/product/authentication/' },
-          { text: 'Authorization', link: '/product/authorization/' },
-          { text: 'User Management', link: '/product/user-management/' },
-          { type: 'divider' },
-          { text: 'Publish an integration' },
-          { text: 'Overview', link: '/okta-integration-network/' },
-        ]
-      },
-      { text: 'Pricing', link: '/pricing/' },
-      { text: 'Blog', link: '/blog/' },
-      { text: 'Support', link: 'https://www.okta.com/contact/',
-        children: [
-          { text: 'Okta Developer Forum', link: 'https://devforum.okta.com/' },
-          { text: 'developers@okta.com', link: 'mailto:developers@okta.com' },
-        ]
-      }
-    ],
     quickstarts: {
       clients: [
         { name: 'okta-sign-in-page', label: 'Okta Sign-In Page', serverExampleType: 'auth-code', default: true },
@@ -193,7 +168,6 @@ module.exports = {
       { text: 'Community',
         children: [
           { text: 'Forum', link: 'https://devforum.okta.com' },
-          { text: 'Blog', link: 'https://developer.okta.com/blog/' },
           { text: 'Toolkit', link: 'https://toolkit.okta.com/' },
           { text: 'Developer Day', link: 'https://www.okta.com/developerday/' },
           { type: 'divider' },
@@ -206,7 +180,8 @@ module.exports = {
           }
         ]
       },
-      { text: 'Pricing', link: '/pricing/' },
+      { text: 'Blog', link: 'https://developer.okta.com/blog/' },
+      { text: 'Pricing', link: 'https://www.okta.com/pricing/#customer-identity-products' },
     ],
     primary_right_nav: [
       { text: 'Okta.com', target: '_blank', link: 'https://www.okta.com/' },
@@ -216,7 +191,8 @@ module.exports = {
       { text: 'Guides', link: '/docs/guides/' },
       { text: 'Concepts', link: '/docs/concepts/' },
       { text: 'Reference', link: '/docs/reference/' },
-      { text: 'Languages & SDKs', link: '/code/' }
+      { text: 'Languages & SDKs', link: '/code/' },
+      { text: 'Release Notes', link: '/docs/release-notes/' }
     ],
     footer_nav: {
       social: {
@@ -241,7 +217,7 @@ module.exports = {
       more: {
         heading: 'More Info',
         items: [
-          { text: 'Pricing', link: '/pricing/' },
+          { text: 'Pricing', link: 'https://www.okta.com/pricing/#customer-identity-products' },
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Change log', link: '/docs/release-notes/' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
@@ -378,4 +354,16 @@ module.exports = {
       }
     }
   },
-}
+  async ready() {
+    if (process.env.DEPLOY_ENV && process.env.DEPLOY_ENV === 'test') {
+      ctx.pages.forEach((page) => {
+        // We adding meta tag `robots` for all non-prod versions of the site
+        // to be able to exclude test envs from browser search.
+        if (!page.frontmatter['meta']) {
+          page.frontmatter['meta'] = []
+        }
+        page.frontmatter['meta'].push({ name: 'robots', content:'noindex,nofollow'});
+      });
+    }
+  },
+})

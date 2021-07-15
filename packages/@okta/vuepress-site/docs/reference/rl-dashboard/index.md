@@ -28,7 +28,13 @@ The dashboard enables you to view an endpoint, the current rate limit for each e
 
 You can investigate high use of a rate limit or a rate limit violation. After you know the issue, you can take the appropriate corrective action. For example, if the issue is high traffic, you may want to increase the rate limits. In cases where the issue is a rogue app or bad script, you can disable the app, or block that traffic. Whatever the issue is, you can remediate the issue through self-service. In cases where a higher rate limit is required, you can create a support case, by sending a request to the correct team for a rate limit increase.
 
+## Enable the dashboard
+
+The dashboard is available in Self-Service Early Access (EA). You can enable it by going into your org's **Settings** > **Features**. In the **Early Access** section, scroll to the **Rate Limit Investigation Dashboard** setting, and click the toggle button to enable this feature.
+
 ## Access the dashboard
+
+The dashboard is an optimized tool that helps you investigate warnings and violations, and therefore, access to the dashboard is available when you receive a rate limit violation for an endpoint.
 
 When a rate limit violation occurs, you're notified in the following ways and can access the rate limits dashboard from the link in the notification:
 

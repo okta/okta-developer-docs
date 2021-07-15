@@ -395,7 +395,7 @@ Content-Type: text/json;charset=UTF-8
 
 >**Note:**
 >
-> * For any new OIN app integrations, all updates to a User object are handled using a PUT method request, except as noted in [Update a specific User (PATCH)](#update-a-specific-user-profile-patch).
+> * For any new OIN app integrations, all updates to a User object are handled using a PUT method request, except as noted in [Update a specific User (PATCH)](#update-a-specific-user-patch).
 > * For any custom app integrations created using the App Integration Wizard (AIW), all updates to a User object are handled using a PUT method request.
 
 After the User object is retrieved from the SCIM server, Okta modifies the attributes that were changed and runs a PUT method request with the new body to the `/Users/${userID}` endpoint:
@@ -821,7 +821,7 @@ Okta administrators can remove pushed groups from the Okta Admin Console, under 
 
 On the **Push Groups** tab, click **Active** then click **Unlink pushed group**. In the dialog box that appears, you can choose whether you want to **Delete the group in the target app** or **Leave the group in the target app** on the SCIM server.
 
-When the admin clicks **Unlink**, Okta sends a DELETE method request:
+When you select the **Delete the group in the target app** option and click **Unlink**, Okta sends a DELETE method request:
 
 ```http
 DELETE /scim/v1/Groups/74094a55-c9ee-47ae-9fd4-9137deb43497 HTTP/1.1

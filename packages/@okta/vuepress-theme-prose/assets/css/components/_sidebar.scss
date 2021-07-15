@@ -1,118 +1,63 @@
-.landing-navigation {
-  padding-left: 1.5rem;
-  padding-right: 2rem;
-  flex: 0 0 auto;
-  border-right: 1px solid cv("gray", "100");
-  color: cv("action");
-  position: sticky;
-  overflow-y: auto;
-  top: 155px;
+.tree-nav {
+  width: 100%;
+  min-height: 100%;
+  padding: 3rem 1rem 3rem 0;
+  background: #16272f;
 
-  @include media(">=tablet") {
-    top: 150px;
+  @include media(">=desktop") {
+    flex-grow: 0;
+    flex-shrink: 0;
   }
 
-  .children-active {
-    font-weight: bold;
+  @include media("<tablet") {
+    flex-basis: 0;
+    width: 100%;
+    padding: 1rem 0 0 0;
   }
-
-  .blank-divider {
-    color: #6e6f78;
-    cursor: default;
-    margin-top: 12px;
-  }
-
-  .router-link-active {
-    font-weight: bold;
-    border-left: 0.2rem solid cv("gray", "900");
-    margin-left: -1.2rem;
-    padding-left: 1rem;
-    padding-right: 0.65rem;
-    color: cv("gray", "900");
-  }
-
-  .subnav > .link-wrap > .router-link-exact-active {
-    border-left: none;
-    padding-left: 1.2rem;
-    color: inherit;
-  }
-
-  .overview > .router-link-active {
-    font-weight: normal;
-  }
-
-  .overview > .router-link-exact-active {
-    font-weight: bold;
-  }
-
-  ul,
-  li {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  li {
-    margin-bottom: 0.5rem;
-
-    &.subnav.open > .link-wrap > a {
-      padding-bottom: 0.4rem;
-    }
-
-    .link-wrap {
-      display: flex;
-
-      .item-collapsable {
-        display: flex;
-        align-items: center;
-
-        svg {
-          flex-shrink: 0;
-          margin-right: 0.5em;
-          fill: currentColor;
-          height: 1em;
-          margin-left: -1.2rem;
-          &.open {
-            margin-top: -0.5rem;
-          }
-        }
-      }
-    }
-
-    .open > a {
-      font-weight: bold;
-    }
-  }
-
-  a {
-    color: cv("action");
-    font-size: 1em;
-    text-decoration: none;
-    display: block;
-    padding-right: 1.3rem;
-  }
-
   .sections {
     margin-left: 1.5rem;
-
-    .section {
-      color: cv("gray", "600");
-      font-size: 0.85rem;
+    .link-wrap {
+      margin-top: 1rem;
+      .blank-divider {
+        color: cv("gray", "300");
+        cursor: default;
+        margin-top: 12px;
+      }
     }
-
-    .active {
-      font-weight: bold;
-
-      .highlight {
-        $indent: 20px;
-        border-bottom: 2px solid black;
-        background-color: #e5edfb;
-        margin-left: -0.5em;
-        padding-left: 0.5em;
+    .subnav-active {
+      .tree-nav-link {
+        color: #ffffff;
+      }
+    }
+    .tree-nav-link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: flex-start;
+      font-size: 1em;
+      text-decoration: none;
+      color: #b7bcc0;
+      cursor: pointer;
+      &:hover {
+        color: cv("cerise", "active");
+      }
+      &.children-active {
+        font-weight: bold;
+      }
+      &.router-link-active {
+        font-weight: bold;
+        color: cv("cerise", "active");
+      }
+      > span.text-holder {
+        margin-left: 20px;
+      }
+      > i.fa {
+        position: absolute;
+        left: 0;
+        top: 4px;
       }
     }
   }
-
   .hidden {
     display: none;
   }

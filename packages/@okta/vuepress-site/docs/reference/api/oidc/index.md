@@ -573,9 +573,6 @@ Any of the two or three keys listed are used to sign tokens. The order of keys i
 
 These keys can be used to locally validate JWTs returned by Okta. Standard open-source libraries are available for every major language to perform [JWS](https://tools.ietf.org/html/rfc7515) signature validation.
 
-> **Note:** Okta strongly recommends retrieving keys dynamically with the JWKS published in the discovery document.<p>
-Okta also recommends caching or persisting these keys to improve performance. If you cache signing keys and automatic key rotation is enabled, be aware that verification fails when Okta rotates the keys automatically. Clients that cache keys should periodically check the JWKS for updated signing keys.
-
 > **Note:** The information returned from this endpoint could lag slightly, but will eventually be up-to-date.
 
 #### Request parameters
@@ -652,6 +649,18 @@ Key rotation behaves differently with Custom Authorization Servers. For more inf
 
 You can use an [introspection request](#introspect) for validation.
 
+#### Best practices
+
+Okta strongly recommends retrieving keys dynamically with the JWKS published in the discovery document. Okta also recommends caching or persisting these keys to improve performance. If you cache signing keys, and automatic key rotation is enabled, be aware that verification fails when Okta rotates the keys automatically. Clients that cache keys should periodically check the JWKS for updated signing keys.
+
+Okta recommends a background process that regularly caches the `/keys` endpoint. This process can be completed once a day or more infrequently, for example, once per week. This ensures that you always have an up-to-date set of keys for validation even when we generate the next key or rotate automatically at the 45 or 90 day mark respectively. 
+
+Under almost all circumstances, the above would be sufficient except in cases where keys were rotated or generated outside the usual timespans. An example of this would be if Okta or a customer had a need to perform this operation for security reasons. You should augment the above approach with a failsafe for circumstances where keys are quickly regenerated and rotated.
+
+Why not just use the second approach? There's potential for the caching of stale data since there is no guarantee that the `/keys` endpoint is up-to-date. For example, the keys are rotated but the `/keys` endpoint hasn't yet been updated, which results in a period of time where failures occur.
+
+Given that possibility, we recommend the blended approach of regularly scheduled caching and just-in-time checking to ensure that all possible scenarios are covered.
+
 ### /userinfo
 
 <ApiOperation method="get" url="${baseUrl}/v1/userinfo" />
@@ -665,7 +674,7 @@ You must include an access token (returned from the [authorization endpoint](#au
 #### Request example
 
 ```bash
-curl -v -X POST \
+curl -X GET \
 -H "Authorization: Bearer ${access_token}" \
 "https://{baseUrl}/userinfo"
 ```
@@ -1201,14 +1210,12 @@ The payload includes the following reserved claims:
 
 | Property | Description                                                                                                            | DataType |
 | -------- | ---------------------------------------------------------------------------------------------------------------------- | -------- |
-| aud      | Identifies the audience (resource URI or server) that this access token is intended for.                               | String   |
 | cid      | Client ID of the client that requested the access token.                                                               | String   |
 | exp      | The time the access token expires, represented in Unix time (seconds).                                                 | Integer  |
 | iat      | The time the access token was issued, represented in Unix time (seconds).                                              | Integer  |
 | iss      | The Issuer Identifier of the response. This value is the unique identifier for the Authorization Server instance.      | String   |
 | jti      | A unique identifier for this access token for debugging and revocation purposes.                                       | String   |
 | scp      | Array of scopes that are granted to this access token.                                                                 | Array    |
-| sub      | The subject. A name for the user or a unique identifier for the client.                                                | String   |
 | uid      | A unique identifier for the user. It isn't included in the access token if there is no user bound to it.               | String   |
 | ver      | The semantic version of the access token.                                                                              | Integer  |
 
