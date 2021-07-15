@@ -732,10 +732,6 @@ export const reference = [
         path: "/docs/reference/okta-expression-language-in-identity-engine/"
       },
       {
-        title: 'Okta Identity Engine Limitations',
-        path: "/docs/reference/ie-limitations/"
-      },
-      {
         title: 'Release Life Cycle',
         path: "/docs/reference/releases-at-okta/"
       },
