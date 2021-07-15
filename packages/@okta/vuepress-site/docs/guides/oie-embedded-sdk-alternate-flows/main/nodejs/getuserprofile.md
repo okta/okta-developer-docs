@@ -1,5 +1,5 @@
 
-After obtaining the appropriate tokens, make a request to the `/v1/userinfo` endpoint by calling the following function in the `userContext.js` file:
+After obtaining the appropriate tokens, make a request to the `/v1/userinfo` endpoint, as shown in the sample application by calling the following function in the `userContext.js` file:
 
 ```javascript
 const { getAuthClient } = require('../utils');
