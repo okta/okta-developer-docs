@@ -1,1 +1,3 @@
-Swift documentation for self service registration is coming soon.
+## Sample code
+
+Swift sample code for self service registration is coming soon.

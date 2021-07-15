@@ -1,1 +1,3 @@
-Swfit documentation for password recovery is coming soon.
+## Sample code
+
+Swift sample code for password recovery is coming soon.

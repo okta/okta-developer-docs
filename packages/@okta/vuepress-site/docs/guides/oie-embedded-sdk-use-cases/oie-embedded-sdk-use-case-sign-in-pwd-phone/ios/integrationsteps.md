@@ -1,1 +1,3 @@
-Swift documentation for sign in with password and phone is coming soon.
+## Sample code
+
+Swift sample code for sign in with password and phone is coming soon.

@@ -1,1 +1,3 @@
-Swift documentation for social Idp sign in is coming soon.
+## Sample code
+
+Swift sample code for social Idp sign in is coming soon.
