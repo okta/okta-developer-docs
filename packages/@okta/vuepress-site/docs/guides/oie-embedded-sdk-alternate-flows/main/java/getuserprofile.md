@@ -24,4 +24,4 @@ try {
 }
 ```
 
-See [`/v1/userinfo` endpoint](/docs/reference/api/oidc/#userinfo) for more response details.
+See the [`/v1/userinfo` endpoint](/docs/reference/api/oidc/#userinfo) for more response details.

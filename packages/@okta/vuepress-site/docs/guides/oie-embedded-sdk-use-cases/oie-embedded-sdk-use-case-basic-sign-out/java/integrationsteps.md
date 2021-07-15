@@ -13,7 +13,7 @@ The first step is to create a link, button, or other similar UI element that all
 
 ### Step 2: Revoke access token
 
-When the sign out is initiated, create the following flow:
+When the sign-out request is initiated, create the following flow:
 
 1. Obtain the access token from the active session state.
 
@@ -46,4 +46,4 @@ When the sign out is initiated, create the following flow:
 
 ### Step 3: Send user to the signed out page
 
-After the token is revoked and the session is no longer valid, redirect the user to the desired signed out page.
+After the access token is revoked and the session is no longer valid, redirect the user to the signed-out page.
