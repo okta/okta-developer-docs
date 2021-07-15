@@ -63,6 +63,8 @@ node_modules
 # direnv users
 
 .envrc
+.npmrc
+.yarnrc
 
 # netlify local usage
 
