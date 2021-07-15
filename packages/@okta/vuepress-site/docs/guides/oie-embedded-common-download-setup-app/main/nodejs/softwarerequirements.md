@@ -1,3 +1,3 @@
 
-* Node.js v12.13.0 or above (do we have a minimum version?)
-* Express Framework 14.17.1 or above
+* Node.js as defined by the `.npmrc ` version.
+* Installed module dependencies from the `package.json` file. See [Install module dependencies](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#install-module-dependencies).
