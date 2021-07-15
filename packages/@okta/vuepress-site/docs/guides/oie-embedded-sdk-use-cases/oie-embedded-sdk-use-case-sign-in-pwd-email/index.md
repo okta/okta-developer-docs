@@ -52,10 +52,6 @@ If not already done, complete the steps in [Set up your Okta org (for multi-fact
    1. Set **Phone Authentication** to **Disabled**.
 1. Click **Update Policy**.
 
-## Summary of steps
-
-The following shows the sequence of steps for the Facebook sign-in flow.
-
 <StackSelector snippet="summaryofsteps" noSelector />
 
 <StackSelector snippet="integrationsteps" noSelector />

@@ -52,10 +52,6 @@ If not already done, complete the steps described in [Set up your Okta org (for 
    1. Set **Phone Authentication** to Optional.
 1. Click **Update Policy** if a value has changed.
 
-## Summary of steps
-
-The following shows the sequence of steps for the Facebook sign-in flow.
-
 <StackSelector snippet="summaryofsteps" noSelector />
 
 <StackSelector snippet="integrationsteps" noSelector />
