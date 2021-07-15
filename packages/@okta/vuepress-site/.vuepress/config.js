@@ -213,7 +213,7 @@ module.exports = ctx => ({
           }
         ]
       },
-      { text: 'Blog', link: '/blog/' },
+      { text: 'Blog', link: 'https://developer.okta.com/blog/' },
       { text: 'Pricing', link: 'https://www.okta.com/pricing/#customer-identity-products' },
     ],
     primary_right_nav: [
