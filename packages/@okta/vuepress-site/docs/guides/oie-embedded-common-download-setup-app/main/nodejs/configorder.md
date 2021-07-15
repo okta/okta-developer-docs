@@ -1,4 +1,4 @@
-The sample app uses configuration values from `config.js`, and the `config.js` loads information from environment variables (`process.env`). You can add environment variables by either exporting from shell or using the `testenv` file.
+The sample app uses configuration values from `config.js`, and the `config.js` loads information from environment variables (`process.env`). You can set environment variables by either using the shell command or the `testenv` file.
 
 When multiple configurations options are used simultaneously, the SDK chooses
 the option based on the following order:
