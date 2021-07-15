@@ -1,6 +1,6 @@
 ### Client secret
 
-For the sample app, use the **Client secret** for the app integration that you've created in
+For the sample app, use the **Client secret** for the app integration that you created in
 [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application). To find this value:
 1. Navigate to **Applications** > **Applications** in the Admin Console.
 1. Select your app, and then from the **General** tab, copy the **Client secret** value.<br>
