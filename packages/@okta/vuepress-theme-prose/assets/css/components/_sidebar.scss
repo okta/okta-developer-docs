@@ -1,7 +1,7 @@
 .tree-nav {
   width: 100%;
   min-height: 100%;
-  padding: 3rem 1rem 3rem 0;
+  padding: 100px 1rem 3rem 0;
   background: cv('body');
 
   @include media(">=desktop") {
@@ -15,9 +15,12 @@
     padding: 1rem 0 0 0;
   }
   .sections {
-    margin-left: 1.5rem;
+    margin-left: 82px;
+    .sections {
+      margin-left: 20px;
+    }
     .link-wrap {
-      margin-top: 1rem;
+      margin-top: 10px;
       .blank-divider {
         color: cv("gray", "300");
         cursor: default;
@@ -35,6 +38,7 @@
       align-items: center;
       justify-content: flex-start;
       font-size: 1em;
+      font-weight: bold;
       text-decoration: none;
       color: cv('text');
       cursor: pointer;
@@ -49,12 +53,18 @@
         color: cv('text', 'link');
       }
       > span.text-holder {
-        margin-left: 20px;
+        margin-left: 0px;
       }
       > i.fa {
-        position: absolute;
+        position: relative;
         left: 0;
-        top: 4px;
+        top: 0px;
+        font-size: 12px;
+        padding-right: 5px;
+
+        &.fa-chevron-right {
+          display: none;
+        }
       }
     }
   }

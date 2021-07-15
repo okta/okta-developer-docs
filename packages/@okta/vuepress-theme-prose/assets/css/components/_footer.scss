@@ -31,12 +31,13 @@ $redesign_footer_border: #1F3B54;
       flex: 0 0 150px;
 
       .column--header {
-        font-weight: 600;
-        font-size: 20px;
+        font-weight: bold;
+        font-size: 14px;
         line-height: 1.3em;
         letter-spacing: 1.5px;
         color: $redesign_white;
-        margin-bottom: 30px;
+        text-transform: uppercase;
+        margin-bottom: 35px;
 
         @include media('<tablet') {
           font-size: 12px;
@@ -114,7 +115,7 @@ $redesign_footer_border: #1F3B54;
         flex-direction: column;
 
         & + .website {
-          margin-top: 40px;
+          margin-top: 25px;
         }
 
         .description {
@@ -128,7 +129,22 @@ $redesign_footer_border: #1F3B54;
     }
 
     .need-support {
-      flex: 0 0 220px;
+      flex: 0 0 255px;
+
+      .column--header {
+        font-weight: 400;
+        font-size: 20px;
+        text-transform: none;
+        margin-bottom: 17px;
+
+        @include media('<tablet') {
+          font-size: 18px;
+        }
+      }
+
+      p {
+        line-height: 2.5em;
+      }
 
       @include media('<desktop') {
         flex: 1 0 100%;
@@ -190,7 +206,7 @@ $redesign_footer_border: #1F3B54;
     padding-inline-start: 0;
 
     li.link-list--item {
-      margin-top: 12px;
+      margin-top: 20px;
 
       a.link-list--link {
         font-size: 16px;

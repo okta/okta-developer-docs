@@ -65,10 +65,11 @@
   }
 
   .sidebar-area {
-    width: 22%;
+    width: 253px;
     position: sticky;
     top: 70px;
     overflow: auto;
+    border-right: 1px solid cv('body', 'sidebar-border');
     @include media("<=bootstrap-lg") {
       width: 32%;
     }
