@@ -442,6 +442,10 @@ export const guides = [
                   }
                 ]
               },
+              {
+                title: "Refresh access and ID tokens",
+                guideName: "oie-embedded-common-refresh-tokens",
+              },
             ]
             },
           {
@@ -624,6 +628,7 @@ export const reference = [
           { title: "Apps", path: "/docs/reference/api/apps/" },
           { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
+          { title: "CAPTCHAs", path: "/docs/reference/api/captchas/"},
           { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/"},
           { title: "Event Types", path: "/docs/reference/api/event-types/" },
           { title: "Factors", path: "/docs/reference/api/factors/" },
