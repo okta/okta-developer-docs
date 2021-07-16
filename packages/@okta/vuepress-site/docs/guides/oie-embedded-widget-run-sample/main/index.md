@@ -1,5 +1,5 @@
 ---
-title: Run the Widget sample app
+title: Run the widget sample app
 excerpt: Run the Widget sample app
 layout: Guides
 ---
