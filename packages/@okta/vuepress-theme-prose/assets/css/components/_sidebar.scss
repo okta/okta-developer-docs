@@ -43,6 +43,15 @@
       &.router-link-active {
         font-weight: bold;
         color: cv('text', 'link');
+        &::before {
+          position: relative;
+          color: cv('text', 'link');
+          content: '\f054';
+          padding-right: 7px;
+          font: 10px FontAwesome;
+          display: inline;
+          top: -1px;
+        }
       }
       > span.text-holder {
         margin-left: 0px;
@@ -50,7 +59,7 @@
       > i.fa {
         position: relative;
         left: 0;
-        top: 0px;
+        top: -2px;
         font-size: 12px;
         padding-right: 5px;
 

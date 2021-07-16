@@ -47,6 +47,7 @@ $redesign_footer_border: #1F3B54;
     }
 
     .social {
+      flex: 0 0 110px;
       @include media('<desktop') {
         flex: 1 0 100%;
         margin-bottom: 46px;

@@ -6,9 +6,15 @@ $oktaGameButtonColor: #ffdd53;
   font-family: $font-family;
   min-height: 100vh;
   color: cv('text');
+
+  .content--container {
+    @include media("<=tablet") {
+      padding: 0;
+    }
+  }
+
   .width-adjuster {
     flex: 4 0 78%;
-    background: url('/img/homepage/homepage-bg.svg') repeat-x left top;
     @include media("<=bootstrap-lg") {
       flex: 4 0 68%;
     }
@@ -27,9 +33,15 @@ $oktaGameButtonColor: #ffdd53;
     flex-wrap: nowrap;
   }
 
+  &--section-margins {
+    padding-left: 148px;
+    padding-right: 148px;
+  }
+
   &--top-section {
-    height: 760px;
-    margin-top: 49px;
+    padding-top: 49px;
+    padding-bottom: 50px;
+    background: #fff url('/img/homepage/white-to-gray-bg.svg') repeat-x left bottom;
     @include media("<=tablet") {
       height: auto;
     }
@@ -43,24 +55,39 @@ $oktaGameButtonColor: #ffdd53;
   }
 
   &--assurance-block-margin {
-    margin-top: 41px;
-    margin-bottom: 180px;
+    padding-top: 86px;
+    padding-bottom: 150px;
+    background: cv('body') url('/img/homepage/gray-to-white-bg.svg') repeat-x left bottom;
     @include media("<=tablet") {
-      margin-bottom: 50px;
+      padding-bottom: 100px;
     }
   }
 
   &--partners-block-margin {
-    margin-bottom: 50px;
+    margin-bottom: 53px;
     @include media("<=bootstrap-xl") {
-      margin-bottom: 0px;
+      margin-bottom: 30px;
     }
   }
 
-  &--customize-your-app-margin.row {
-    margin-bottom: 80px;
+  &--customize-your-app-margin {
+    margin-bottom: 75px;
     min-height: 600px;
-    padding-top: 10px;
+    padding-top: 52px;
+    position: relative;
+    * {
+      z-index: 1;
+    }
+    &::before {
+      content: '';
+      z-index: 0;
+      position: absolute;
+      background: #fff url('/img/homepage/white-to-gray-bg.svg') repeat-x left bottom;
+      width: 100%;
+      height: 485px;
+      top: 0;
+      left: 0;
+    }
   }
 
   &--color-main {
@@ -76,6 +103,14 @@ $oktaGameButtonColor: #ffdd53;
     margin-bottom: 60px;
     @include media("<=tablet") {
       text-align: center;
+      margin-bottom: 30px;
+    }
+  }
+  &--section-description {
+    max-width: 100%;
+    @include media("<=tablet") {
+      text-align: center;
+      padding-bottom: 30px;
     }
   }
 
@@ -109,15 +144,27 @@ $oktaGameButtonColor: #ffdd53;
       margin-bottom: 30px;
     }
   }
+  &--examples {
+    padding-top: 28px;
+  }
   &--code-example {
     height: 368px;
     background-color: cv("text", "darker");
     border: 1.5px solid #2a4c63;
     border-radius: 10px;
-    width: 100%;
     box-shadow: 0px 9px 25px rgba(0, 0, 0, 0.24);
     overflow: hidden;
-    margin-left: -10%;
+    margin-left: -74px;
+    margin-bottom: 30px;
+    min-width: 563px;
+    @include media("<=bootstrap-xl") {
+      margin-left: 0;
+      margin-bottom: 50px;
+    }
+    @include media("<=tablet") {
+      min-width: 0;
+      width: 100%;
+    }
     &--header {
       height: 50px;
       background: #192e3a;
@@ -142,8 +189,8 @@ $oktaGameButtonColor: #ffdd53;
     border: 1px solid #cecece;
     border-radius: 10px;
     width: 334px;
-    box-shadow: 2px 33px 30px -26px rgba(18, 30, 36, 1);
-    margin-bottom: 0;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.10);
+    margin-bottom: 30px;
     overflow: hidden;
 
     #okta-sign-in {
@@ -170,15 +217,24 @@ $oktaGameButtonColor: #ffdd53;
       .o-form-fieldset {
         margin-bottom: 13px;
       }
-      .o-form .custom-checkbox label {
-        font-size: 11px;
+      .o-form {
+        .input-fix, .textarea-fix {
+          height: 34px;
+        }
+        .custom-checkbox label {
+          font-size: 11px;
+        }
       }
       .auth-footer {
         font-size: 11px;
       }
+      .o-form-button-bar {
+        padding-bottom: 15px;
+      }
       &.main-page-widget-wrapper .button.button-primary {
         background: #1662DD;
         border: none;
+        text-transform: uppercase;
       }
       &.main-page-widget-wrapper .okta-form-label.o-form-label {
         display: none;

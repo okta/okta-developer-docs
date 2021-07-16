@@ -1,12 +1,42 @@
+.selector-tiles {
+  &> .col-xl-3 {
+    &:first-child {
+      .selector-tile{
+        margin-left: 0;
+      }
+    }
+    &:last-child {
+      .selector-tile{
+        margin-right: 0;
+      }
+    }
+    @include media("<=bootstrap-xl"){
+      &:nth-child(2n) {
+        .selector-tile{
+          margin-right: 0;
+        }
+      }
+      &:nth-child(2n+1) {
+        .selector-tile{
+          margin-left: 0;
+        }
+      }
+    }
+  }
+}
 .selector-tile{
   width: 89%;
-  margin: 0;
+  margin: 0 auto;
   box-sizing: border-box;
+
   @include media("<=bootstrap-xl"){
     margin-bottom: 30px;
   }
   @include media("<=tablet"){
     height: auto;
+    margin-right: 0;
+    margin-left: 0;
+    width: 100%;
   }
 
   &--header{
