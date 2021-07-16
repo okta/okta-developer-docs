@@ -1,5 +1,5 @@
 ---
-title: Basic sign-in using the Widget
+title: Basic sign-in using the widget
 ---
 
 <div class="oie-embedded-sdk">
