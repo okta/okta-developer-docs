@@ -40,7 +40,7 @@ The sample app is located here: `okta-auth-js/samples/generated/express-embedded
 * If the widget doesn't load or hangs, check to make sure you have properly set up your local
    configurations. Follow the steps in [Configuration Settings](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#where-to-place-the-configurations).
 
-* If the Widget does not load and instead displays the following error:
+* If the widget doesn't load and instead displays the following error:
    “There was an unexpected internal error. Please try again.”,
    make sure CORS is enabled. Follow the steps in
    [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#step-3-add-a-trusted-origin-and-enable-cors)
