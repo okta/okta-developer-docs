@@ -28,12 +28,12 @@ Email templates use common and unique [Expression Language (EL) variables](https
 
 > **Note:** Some templates listed in the [variables tables](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-expression-language) may not appear in your org. To obtain these templates, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
 
-### Customize your org's templates by using Velocity Templating Language (VTL)
+### Enhanced email macros
 <ApiLifecycle access="ea" />
 
 #### Overview of what this EA feature enables
 
-This Early Access (EA) feature provides customers with the functionality to customize the email templates, which Okta provides, that allows them to send email notifications to their end users. It changes the underlying email templating engine to Velocity so that you can use the syntax of the Velocity Templating Language (VTL) to customize your org's email templates. In addition to the new syntax, which provides enhanced conditional logic, some org attributes and access are provided to all attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object).
+This Early Access (EA) feature provides customers with the functionality to customize the email templates, which Okta provides, that allows them to send email notifications to their end users. It changes the underlying email templating engine to Velocity so that you can use the syntax of the [Velocity Templating Language (VTL)](https://velocity.apache.org/) to customize your org's email templates. In addition to the new Velocity syntax, which provides enhanced conditional logic, You can now use all the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object) as well as some of the org attributes.
 
 ##### What this EA feature doesn't enable
 
@@ -45,8 +45,8 @@ However, when you disable the feature flag, your old customized templates will r
 
 To access this EA feature, you need the following prerequisites:
 
-* Requires an Okta preview org (`example.oktapreview.com`) and Okta production org (`example.okta.com`)
-* Requires the self-service feature flag, `ENHANCED_EMAIL_MACROS`, to be enabled for the org
+* Requires you to enable the self-service feature flag, `ENHANCED_EMAIL_MACROS`, for the org
+* Requires you to disable `FREE_TRIAL_PHISHING_WARNING` for 
 
 > **Note:** This feature is supported in Okta Identity Engine. <ApiLifecycle access="ie" />
 
