@@ -41,7 +41,7 @@ Okta will not perform any automated migration of previously customized email tem
 
 However, when you disable the feature flag, your old customized templates will return. If you choose to disable the feature flag, you will lose access to the customizations done while the EA was enabled.
 
-##### EA Feature requirements
+##### EA feature requirements
 
 To access this EA feature, you need the following prerequisites:
 
