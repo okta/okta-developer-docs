@@ -28,16 +28,12 @@ Email templates use common and unique [Expression Language (EL) variables](https
 
 > **Note:** Some templates listed in the [variables tables](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-expression-language) may not appear in your org. To obtain these templates, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
 
-### Advanced Email Templates Customization - Velocity Templating Language
+### Customize your org's templates by using Velocity Templating Language (VTL)
 <ApiLifecycle access="ea" />
 
-#### Overview of the advanced email template customization feature
+#### Overview of what this EA feature enables
 
-This Early Access (EA) feature provides customers with the functionality to customize the email templates that Okta provides that allows them to send email notifications to their end users.
-
-##### What this EA feature enables
-
-This EA feature changes the underlying email templating engine to Velocity so that you can use the syntax of the Velocity Templating Language (VTL) to customize your org's email templates. In addition to the new syntax, which provides enhanced conditional logic, some org attributes and access are provided to all attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object).
+This Early Access (EA) feature provides customers with the functionality to customize the email templates, which Okta provides, that allows them to send email notifications to their end users. It changes the underlying email templating engine to Velocity so that you can use the syntax of the Velocity Templating Language (VTL) to customize your org's email templates. In addition to the new syntax, which provides enhanced conditional logic, some org attributes and access are provided to all attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object).
 
 ##### What this EA feature doesn't enable
 
@@ -47,27 +43,89 @@ However, when you disable the feature flag, your old customized templates will r
 
 ##### EA Feature requirements
 
-To access this EA functionality, you need the following prerequisites:
-An Okta preview org (example.oktapreview.com) and Okta production org (example.okta.com)
-Self Service Feature Flag ENHANCED_EMAIL_MACROS enabled for the org.	
-Note: This feature is OIE compatible
+To access this EA feature, you need the following prerequisites:
 
-#### New Templating Syntax
+* Requires an Okta preview org (`example.oktapreview.com`) and Okta production org (`example.okta.com`)
+* Requires the self-service feature flag, `ENHANCED_EMAIL_MACROS`, to be enabled for the org
 
-##### Variable Syntax Change Example
+> **Note:** This feature is supported in Okta Identity Engine. <ApiLifecycle access="ie" />
 
-##### Functions Suntax Change Exmaple
+#### Velocity Templating syntax
+
+The templating syntax that is used in enhanced email customization is the Velocity Templating Language (VTL). Variables that are to be interpolated in the content of the template are preceded by a dollar sign. Dot notation is used to reference sub-objects.
+
+The new templating syntax is different from the EL expression-based Okta email templating syntax that was previously used. You no longer need to use curly braces around the variable name.
+
+All template variables that were previously available in the email templating feature are still available in the new feature, but you need to use the new syntax to reference variables.
+
+##### Variable syntax change example
+
+Previously with EL syntax, you could reference the first name of the user by using `${user.firstName}`. Now with the Velocity Templating syntax, you would use `$user.profile.firstName`.
+
+The previously available template variables are listed in [Customization Variables](https://help.okta.com/en/prod/Content/Topics/Settings/Settings_Email.htm).
+
+##### Function syntax change example
+
+This EA feature supports the use of functions within email templates, but how you call the function's syntax is different. For example, instead of calling functions in the EL templating syntax like this:
+
+`${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}`
+
+You would call functions in the Velocity Templating syntax like this:
+
+`$f.formatTimeDiffHoursNowInUserLocale($org.activationTokenExpirationHours)`
 
 #### Access to all User Profile attributes
 
-##### Example of User Attributes
+You can now reference any attribute in a user's Okta User Profile in your email templates. The notation is `$user.profile.attributeName`. For example, to reference the displayName attribute of the user's Okta user profile, you would use `$user.profile.displayName`.
 
-#### Access to Org Attributes
+See [Profile object](/docs/api/resources/users#profile-object) for more information on the available user profile attributes.
 
-#### Support for Conditional Logic
+##### Example of user attributes
+
+###### Registration: Email verification with customer's preferred language
+Trigger an email in your end-users' preferred language by using the conditional logic and calling the `preferredLanguage` attribute.
+
+###### Activation department specific email
+If a customer wants to specify a department such as Engineering in an Activation Email, they are able to call the user attribute `department`.
+
+#### Access to org attributes
+
+You can also reference some org-level attributes:
+
+* `$org.name`
+* `$org.locale`
+* `$org.subDomain`
+
+#### Support for conditional logic
+
+All conditional logic that is supported by the Velocity Templating Engine, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
 
 #### List of Customizable Templates
 
+The following email templates are available for customization:
+
+* Account Lockout
+* Email Verification
+* Change Email Confirmation
+* Email Challenge
+* MFA Factor Enrolled
+* MFA Factor Reset
+* Forgot Password
+* Forgot Password Denied
+* Active Directory Password Reset
+* Active Directory Password Reset Denied
+* LDAP Forgot Password
+* Send Push Verify Activation Link
+* Registration - Activation
+* Registration - Email Verification
+* New Device Notification
+* Password Reset by Admin
+* Self-Service Unlock Account
+* Active Directory Self-Service Unlock Account
+* Self-Service Unlock when Account is not Locked
+* User Activation
+* Active Directory User Activation
+* LDAP User Activation
 
 ### Test Custom Email Templates
 
