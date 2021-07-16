@@ -30,7 +30,7 @@ public async Task<ActionResult> Index()
 
 > **Note:** In the preceding MVC setup, the response's `SignInWidgetConfiguration` property is passed to the view as a model.
 
-The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response object. The `SignInWidgetConfiguration`  property of this response object contains information that needs to be passed into the sign-in widget when the widget is initialized on the page. The following example shows the object structure in JSON format.
+The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response object. The `SignInWidgetConfiguration`  property of this response object contains information that needs to be passed to the Sign-In Widget when the widget is initialized on the page. The following example shows the object structure in JSON format.
 
 ```json
 {
