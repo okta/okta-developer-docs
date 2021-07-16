@@ -7,7 +7,7 @@ title: Overview
 
 <div class="oie-embedded-sdk">
 
-This document describes how to integrate other user sign-in features into your app by using Okta's embedded widget. Most of the code samples in this guide are derived from the sample application that is provided with the Widget.
+This document describes how to integrate other user sign-in features into your app by using Okta's embedded Sign-In Widget. Most of the code samples in this guide are derived from the sample application that is provided with the widget.
 
 ## Why use the embedded widget?
 
