@@ -46,7 +46,7 @@ You will have to decode the access token, which is in JWT format.  This involves
 - Verify the Claims
 
 Okta provides libraries to perform these steps for you:
-<StackSelector snippet="accesstoken"/>
+<StackSnippet snippet="accesstoken"/>
 
 ## Validating A Token Remotely With Okta
 

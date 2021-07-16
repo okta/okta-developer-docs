@@ -13,7 +13,7 @@ Signing out of Okta requires the app to open a browser and navigate to the [end 
 1. On the **General** tab, click **Edit** in the **General Settings** section.
 1. In the **Sign-out redirect URIs** section, add the base URI of your application.
 
-    <StackSelector snippet="addbaseuri"/>
+    <StackSnippet snippet="addbaseuri"/>
 1. Click **Save** to confirm your changes.
 
 <NextSectionLink/>

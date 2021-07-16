@@ -33,7 +33,7 @@ Build the example app as-is, or use it as a template for modifying your own app.
 
 #### Tell Okta about the app
 
-<StackSelector snippet="register-app" />
+<StackSnippet snippet="register-app" />
 
 <!--- 
 #### Get values from Okta to set in the app

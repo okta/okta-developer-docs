@@ -8,6 +8,6 @@ The Event Hook and Inline Hook examples in this section use Glitch projects to c
 
 Start with a new Node.js project built on the Express framework or a Node.js SQLite database application and use the code snippets in the following examples to implement the example hooks. Copy (**Remix on Glitch**) the Glitch projects for each hook in the following sections to have a working code sample.
 
-<StackSelector snippet="setup"/>
+<StackSnippet snippet="setup"/>
 
 <NextSectionLink/>

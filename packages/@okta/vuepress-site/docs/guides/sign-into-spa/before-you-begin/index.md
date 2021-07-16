@@ -13,7 +13,7 @@ This guide assumes that you:
 
 If you don't have an existing app, or are new to building apps, start with this documentation:
 
-<StackSelector snippet="create-app"/>
+<StackSnippet snippet="create-app"/>
 
 ## Refresh tokens and SPAs
 

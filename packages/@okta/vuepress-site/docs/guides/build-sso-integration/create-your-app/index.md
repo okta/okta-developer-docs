@@ -12,6 +12,6 @@ If you don't have an Okta developer account, begin by signing up for one at <htt
 1. In the Admin Console, go to  **Applications** > **Applications**.
 1. Click **Create App Integration**.
 
-<StackSelector snippet="create" />
+<StackSnippet snippet="create" />
 
 <NextSectionLink/>

@@ -8,7 +8,7 @@ The steps required to end the app session vary depending on the type of app that
 
 <!-- Future content: and discarding the tokens Okta created when the user signed in. -->
 
-<StackSelector snippet="localsignout"/>
+<StackSnippet snippet="localsignout"/>
 
 
 <NextSectionLink>Next steps</NextSectionLink>

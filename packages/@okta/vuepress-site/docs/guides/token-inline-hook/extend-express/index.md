@@ -14,6 +14,6 @@ To extend the local sample Node.js Express application, you need to update the `
 
 This extension renders the [ID token](/docs/reference/api/oidc/#id-token), and if it contains the claim added by the Token Inline Hook, adds this claim to the attributes array. This array displays claims on the user's My Profile page.
 
-<StackSelector snippet="extend-application"/>
+<StackSnippet snippet="extend-application"/>
 
 <NextSectionLink/>

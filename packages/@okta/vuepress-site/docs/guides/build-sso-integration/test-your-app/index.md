@@ -20,6 +20,6 @@ First you must assign your integration to one or more test users in your org:
 1. Sign in to the Okta End-User Dashboard as the regular user that was assigned the integration.
 1. In your dashboard, click the Okta tile for the integration and confirm that the user is signed in to your application.
 
-<StackSelector snippet="test" />
+<StackSnippet snippet="test" />
 
 <NextSectionLink>Next Steps</NextSectionLink>

@@ -5,6 +5,6 @@ You need to add the Okta SDK to your application.
 
 ### Install the SDK
 
-<StackSelector snippet="installsdk"/>
+<StackSnippet snippet="installsdk"/>
 
 <NextSectionLink/>

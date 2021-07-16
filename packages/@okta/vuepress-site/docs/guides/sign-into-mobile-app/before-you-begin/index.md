@@ -11,7 +11,7 @@ This guide assumes that you:
 * Know the basics of building mobile apps.
 * Have a project or app that you want to add authentication to.
 
-<StackSelector snippet="sample"/>
+<StackSnippet snippet="sample"/>
 
 ## Support
 

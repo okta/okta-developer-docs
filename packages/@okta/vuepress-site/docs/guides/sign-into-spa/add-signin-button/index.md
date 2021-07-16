@@ -5,6 +5,6 @@ In your application, you want to provide a button to sign the user in. When the 
 
 > **Note:** To customize this sign-in page, see the [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
 
-<StackSelector snippet="login-redirect"/>
+<StackSnippet snippet="login-redirect"/>
 
 <NextSectionLink/>

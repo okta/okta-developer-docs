@@ -10,7 +10,7 @@ An org is free, and you can use it to handle authentication for up to 1,000 user
 
 #### Create your org
 
-<StackSelector snippet="create-org" />
+<StackSnippet snippet="create-org" />
 
 #### Next steps
 

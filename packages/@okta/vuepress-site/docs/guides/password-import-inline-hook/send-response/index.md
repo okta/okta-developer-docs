@@ -8,7 +8,7 @@ If you return an empty HTTPS response with an HTTP 204 "No content success" stat
 
 Here, based on the results of the credential check, we return either a command telling Okta to accept the credentials, or an empty response, which results in Okta rejecting the credentials.
 
-<StackSelector snippet="send-response"/>
+<StackSnippet snippet="send-response"/>
 
 >**Note:** Using an empty response to reject the credentials is based on the assumption that Okta is set to do that as the default action. In the request from Okta, the property `data.action.credential` specifies the default action. It is currently always set to `UNVERIFIED`, meaning that the default is to reject.
 

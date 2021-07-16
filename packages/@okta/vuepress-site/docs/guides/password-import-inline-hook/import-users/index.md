@@ -6,6 +6,6 @@ Upload some users into your Okta org using the [Password Import Inline Hook API]
 
 The example below uses sample data from the data store in the `users.js` file of your project.
 
-<StackSelector snippet="password-import-api"/>
+<StackSnippet snippet="password-import-api"/>
 
 <NextSectionLink/>

@@ -11,6 +11,6 @@ Authorization: Bearer {token}
 
 Your API must check for valid tokens in incoming requests. To learn how to protect your API endpoints and require token authentication, see [Protect your API endpoints](/docs/guides/protect-your-api/).
 
-<StackSelector snippet="usetoken"/>
+<StackSnippet snippet="usetoken"/>
 
 <NextSectionLink>Next steps</NextSectionLink>

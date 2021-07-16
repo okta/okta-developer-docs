@@ -13,6 +13,6 @@ For example, multiple screens could handle:
 * multi-factor verification
 
 
-<StackSelector snippet="primaryauth" />
+<StackSnippet snippet="primaryauth" />
 
 <NextSectionLink/>

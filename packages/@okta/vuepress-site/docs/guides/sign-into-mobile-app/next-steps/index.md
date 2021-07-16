@@ -11,4 +11,4 @@ To learn how to protect the API endpoints that your mobile app calls, see [Prote
 
 We publish full sample applications on GitHub. If you want to see everything working together, clone or download one of our samples and try it out.
 
-<StackSelector snippet="samples"/>
+<StackSnippet snippet="samples"/>

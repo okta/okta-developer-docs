@@ -9,6 +9,6 @@ Single Sign-On (SSO) allows users to authenticate once and access multiple resou
 
 The difference between persistent SSO and session SSO is that persistent SSO can be maintained across different sessions. Persistent SSO is disabled by default in Okta. To share a sign-in session with native mobile apps, you need to enable persistent SSO. 
 
-<StackSelector snippet="enablesso" />
+<StackSnippet snippet="enablesso" />
 
 <NextSectionLink/>

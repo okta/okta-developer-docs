@@ -3,7 +3,7 @@ title: Add and configure packages
 ---
 Next you need to add an Okta SDK to your application.
 
-<StackSelector snippet="addconfigpkg"/>
+<StackSnippet snippet="addconfigpkg"/>
 
 ### Configure the package
 
@@ -21,6 +21,6 @@ You can use the [default Custom Authorization Server](/docs/concepts/auth-server
 
 You can configure the properties of your application with configuration files, environment variables, or other framework specific techniques.
 
-<StackSelector snippet="configmid"/>
+<StackSnippet snippet="configmid"/>
 
 <NextSectionLink/>

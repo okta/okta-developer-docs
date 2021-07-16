@@ -5,6 +5,6 @@ When a user is deactivated in the Okta org, your external service receives the E
 
 In this example, after parsing the Event Hook request, the code simply displays the deactivated user to the console, and then replies to Okta with an empty, successful response (200).
 
-<StackSelector snippet="parse-request"/>
+<StackSnippet snippet="parse-request"/>
 
 <NextSectionLink/>

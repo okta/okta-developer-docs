@@ -8,6 +8,6 @@ The external service in this scenario requires code to handle the Token Inline H
 
 From the Token Inline Hook request, the following code retrieves the value of the user name from the `data.identity` object.
 
-<StackSelector snippet="request"/>
+<StackSnippet snippet="request"/>
 
 <NextSectionLink/>

@@ -7,6 +7,6 @@ You should already have added and configured packages when you walked through th
 
 Then, you need to install one additional package: the Okta Authentication SDK. This SDK works together with the OpenID Connect SDK that you already installed to make authentication requests to Okta from your own views.
 
-<StackSelector snippet="installoktaauthsdk" />
+<StackSnippet snippet="installoktaauthsdk" />
 
 <NextSectionLink/>

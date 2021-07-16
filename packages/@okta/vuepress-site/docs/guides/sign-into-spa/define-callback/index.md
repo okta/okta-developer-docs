@@ -7,7 +7,7 @@ The first thing that you need to define is how Okta calls your app after a user 
 
 The callback route is not seen by the user, and it's not the user's final destination. It's just one step in the authentication redirect flow.
 
-<StackSelector snippet="define-route"/>
+<StackSnippet snippet="define-route"/>
 
 &nbsp;
 > **Note:** It's important that the full URL of your callback route represents a real URL (in other words, it should serve your single-page app even after a "hard" browser reload). Most router components do this by default.

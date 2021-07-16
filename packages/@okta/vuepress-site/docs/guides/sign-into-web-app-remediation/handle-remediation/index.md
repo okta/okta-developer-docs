@@ -6,7 +6,7 @@ Next you will need to handle the back-and-forth remediation process between your
 
 The end result of this process is an interaction code, which in the <GuideLink link="../get-tokens">next step</GuideLink> is exchanged for access and ID tokens.
 
-<StackSelector snippet="remediation"/>
+<StackSnippet snippet="remediation"/>
 
 
 

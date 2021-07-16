@@ -4,7 +4,7 @@ title: Prepare your integration
 
 After you have decided which protocol is right for your needs, you need to gather some information for your integration.
 
-<StackSelector snippet="prep" />
+<StackSnippet snippet="prep" />
 
 ## Support
 

@@ -5,7 +5,7 @@ First, install an Okta SDK for your framework to help validate incoming tokens.
 
 ### Include the dependency
 
-<StackSelector snippet="independ"/>
+<StackSnippet snippet="independ"/>
 
 ### Configure the middleware
 
@@ -19,6 +19,6 @@ You need to configure the Okta SDK with some information about your Okta domain.
 
 > **Note:** `https://${yourOktaDomain}` is different from your admin URL. Don't include `-admin` in the value. 
 
-<StackSelector snippet="configmid"/>
+<StackSnippet snippet="configmid"/>
 
 <NextSectionLink/>

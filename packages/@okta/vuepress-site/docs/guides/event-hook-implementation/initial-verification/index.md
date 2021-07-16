@@ -7,6 +7,6 @@ Add the following code to your external service to address this request.
 
 > **Note:** Also, make sure to have the required default code and packages in your project. See [Overview and considerations](/docs/guides/common-hook-set-up-steps/overview) for further information.
 
-<StackSelector snippet="verification"/>
+<StackSnippet snippet="verification"/>
 
 <NextSectionLink/>

@@ -10,4 +10,4 @@ Read more:
 
 ## SDKs
 
-<StackSelector snippet="samples"/>
+<StackSnippet snippet="samples"/>

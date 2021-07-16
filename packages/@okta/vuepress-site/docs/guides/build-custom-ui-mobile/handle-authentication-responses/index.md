@@ -5,6 +5,6 @@ Every authentication transaction starts with primary authentication, which valid
 
 > **Note:** Custom sign-in works only with [Org MFA](/docs/guides/mfa/sms/set-up-org/). This means that, before you exchange the session token for an access token, you must make sure the application has disabled [App-Level MFA](https://help.okta.com/en/prod/Content/Topics/Security/MFA_App_Level.htm). 
 
-<StackSelector snippet="handle-responses" />
+<StackSnippet snippet="handle-responses" />
 
 <NextSectionLink>Next steps</NextSectionLink>

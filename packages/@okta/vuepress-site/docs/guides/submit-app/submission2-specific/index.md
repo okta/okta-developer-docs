@@ -31,7 +31,7 @@ To get your Okta instance URL in your development org:
 
 Each of the supported protocols has different configuration settings for the remainder of the submission.
 
-<StackSelector snippet="submit" />
+<StackSnippet snippet="submit" />
 
 <br/>
 

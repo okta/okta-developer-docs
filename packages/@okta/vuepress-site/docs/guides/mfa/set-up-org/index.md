@@ -8,7 +8,7 @@ Before you begin, make sure to enable support for MFA in the Admin Console of yo
 
 You need to enable MFA from the Admin Console of your Okta org before you can use it with the Okta API. In this example, you can choose to see instructions for Google Authenticator or SMS.
 
-<StackSelector snippet="enablemfa" />
+<StackSnippet snippet="enablemfa" />
 
 <br/>
 

@@ -21,6 +21,6 @@ For example, the credential pair used in the Inline Hook examples is `admin:supe
 
 After including the `npm` packages, add the following code snippet in your project.
 
-<StackSelector snippet="auth"/>
+<StackSnippet snippet="auth"/>
 
 <NextSectionLink/>

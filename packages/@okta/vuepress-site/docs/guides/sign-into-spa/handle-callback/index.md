@@ -5,6 +5,6 @@ After Okta authenticates a user, they're redirected back to your application via
 
 Your application must parse this information, and if tokens are present, store the user's tokens. Our SDK does this for you.
 
-<StackSelector snippet="handle-callback"/>
+<StackSnippet snippet="handle-callback"/>
 
 <NextSectionLink/>

@@ -11,7 +11,7 @@ This guide assumes that:
 
 > **Note:** If the browser sign-in works for your application, we recommend using that since building a custom sign-in UI takes more effort and development time.
 
-<StackSelector snippet="sample" />
+<StackSnippet snippet="sample" />
 
 ## Support
 

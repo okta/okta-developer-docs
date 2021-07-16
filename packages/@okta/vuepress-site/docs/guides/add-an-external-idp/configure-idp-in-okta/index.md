@@ -11,13 +11,13 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 1. In the **Add an Identity Provider** dialog box, define the following:
 
-    <StackSelector snippet="appidpinokta" />
+    <StackSnippet snippet="appidpinokta" />
 
 1. Click **Add Identity Provider**. The Identity Providers page appears.
 
 1. Locate the Identity Provider that you just added and click the arrow next to the Identity Provider name to expand.
 
-    <StackSelector snippet="afterappidpinokta" />
+    <StackSnippet snippet="afterappidpinokta" />
 
 ## Social Identity Provider settings
 

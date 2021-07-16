@@ -11,6 +11,6 @@ The JSON body includes the properties accessed in this example, namely `target` 
 {url}/api/v1/logs?filter=eventType eq "user.lifecycle.deactivated"
 ```
 
-<StackSelector snippet="event-object"/>
+<StackSnippet snippet="event-object"/>
 
 <NextSectionLink/>

@@ -5,6 +5,6 @@ All of our JavaScript SDKs are hosted on [npmjs.com](https://www.npmjs.com). The
 
 Install the SDK and add it as a dependency to your project:
 
-<StackSelector snippet="installsdk"/>
+<StackSnippet snippet="installsdk"/>
 
 <NextSectionLink/>

@@ -5,7 +5,7 @@ Next you need to add Okta to your application by installing our SDK.
 
 ### Install the SDK
 
-<StackSelector snippet="installsdk"/>
+<StackSnippet snippet="installsdk"/>
 
 ### Configure the SDK
 
@@ -18,6 +18,6 @@ You need the following values from the Okta Application and the Admin Console th
 
 You'll also need the full redirect URI that you defined in <GuideLink link="../define-callback">Define a callback route</GuideLink>.
 
-<StackSelector snippet="configuremid"/>
+<StackSnippet snippet="configuremid"/>
 
 <NextSectionLink/>

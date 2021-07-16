@@ -6,6 +6,6 @@ In this scenario, a pre-populated static array of patient names and patient IDs 
 
 > **Note:** Modify this data store to make sure it contains one or more user names that are assigned to your application in your Okta org.
 
-<StackSelector snippet="check-patients"/>
+<StackSnippet snippet="check-patients"/>
 
 <NextSectionLink/>

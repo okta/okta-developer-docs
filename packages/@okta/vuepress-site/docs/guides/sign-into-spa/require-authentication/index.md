@@ -9,12 +9,12 @@ It's important to note that protecting routes in your SPA does not truly prevent
 
 If you want the user to only have access to a route if they are signed in, require authentication for just those routes.
 
-<StackSelector snippet="reqauthspecific"/>
+<StackSnippet snippet="reqauthspecific"/>
 
 ### Require authentication for everything
 
 For some applications, you may want to require the user to be authenticated for all routes.
 
-<StackSelector snippet="reqautheverything"/>
+<StackSnippet snippet="reqautheverything"/>
 
 <NextSectionLink/>

@@ -6,6 +6,6 @@ We need to get the values of `data.credential.username` and `data.credential.pas
 
 > **Note:** Make sure to have the required default code and packages in your project. See [Overview and considerations](/docs/guides/common-hook-set-up-steps)--> for further information.
 
-<StackSelector snippet="request"/>
+<StackSnippet snippet="request"/>
 
 <NextSectionLink/>

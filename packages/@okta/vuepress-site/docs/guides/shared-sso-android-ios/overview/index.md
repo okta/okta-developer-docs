@@ -12,7 +12,7 @@ This guide assumes that you:
 * Are using Xcode with a simulator for iOS testing
 * Downloaded the appropriate apps to use for testing purposes:
 
-    <StackSelector snippet="sampleapp" />
+    <StackSnippet snippet="sampleapp" />
 
 ## Support
 

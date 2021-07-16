@@ -25,6 +25,7 @@
           <div class="content-area">
             <PageTitle />
             <MobileOnThisPage />
+            <StackSelector noSnippet v-if="$page.hasStackContent"/>
             <ContentPage />
             <div class="edit-on-github">
               <span class="fa fa-github"></span>
