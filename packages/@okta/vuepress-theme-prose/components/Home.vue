@@ -8,7 +8,7 @@
       </div> 
       <div class="width-adjuster col-xl-10 col-lg-10 col-md-12 col-sm-12">
         <div class="row justify-content-center">
-          <div class="col-11 homepage--elevated">
+          <div class="col-10 homepage--elevated">
             <div class="homepage--top-section">
               <div class="row align-items-center">
                 <div class="col-6">
@@ -42,10 +42,10 @@
               </div>
             </div>
             <div
-              class="row justify-content-around align-items-center flex-lg-row-reverse flex-md-row-reverse homepage--assurance-block-margin"
+              class="row justify-content-around align-items-center homepage--assurance-block-margin"
             >
               <div
-                class="col-xl-4 col-lg-6 col-md-6 col-sm-12"
+                class="col-xl-6 col-lg-6 col-md-6 col-sm-12"
                 v-for="(assurance, index) in $page.frontmatter.assurances"
                 :key="index"
               >
@@ -53,23 +53,24 @@
               </div>
             </div>
             <div
-              class="row justify-content-around homepage--customize-your-app-margin "
+              class="row justify-content-around homepage--customize-your-app-margin align-items-center"
             >
-              <div class="col-12">
-                <h2
-                  class="homepage--sub-heading homepage--color-main homepage--centered-md"
-                >
-                  Customize your sign-in
+              <div class="col-6">
+                <h2 class="homepage--main-heading homepage--color-main">
+                  Try it out for your app:
                 </h2>
               </div>
+              <div class="col-6">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo suspendisse hendrerit nibh cpharetra eres
+                </p>
+              </div>
+            
               <div
                 v-if="!pseudoAuthorizedCodeBlock"
                 class="col-xl-7 col-md-12 col-sm-12"
               >
                 <div class="homepage--code-example">
-                  <div class="homepage--code-example--header">
-                    JavaScript
-                  </div>
                   <div class="homepage--code-example--cm-wrapper">
                     <FrontPageCodeMirror />
                   </div>

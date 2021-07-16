@@ -44,7 +44,7 @@
     p,
     ol,
     ul {
-      max-width: inherit;
+      // max-width: inherit;
     }
 
     h1,
@@ -65,7 +65,8 @@
   }
 
   .sidebar-area {
-    width: 253px;
+    width: 22%;
+    min-width: 253px;
     position: sticky;
     top: 70px;
     overflow: auto;

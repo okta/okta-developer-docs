@@ -1,5 +1,6 @@
 .selector-tile{
-  width: 100%;
+  width: 89%;
+  margin: 0;
   box-sizing: border-box;
   @include media("<=bootstrap-xl"){
     margin-bottom: 30px;
@@ -11,19 +12,19 @@
   &--header{
     font-size: 14px;
     font-weight: bold;
-    padding: 0 0 20px;
+    padding: 0 0 10px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     color: cv('text', 'darker');
-    margin-bottom: 20px;
+    margin-bottom: 19px;
     >i,span{
       display: block;
     }
     >i{
       color: cv('text', 'darker');
-      font-size: 10px;
+      font-size: 8px;
     }
     &:hover {
       color: cv('text', 'darker');
@@ -38,7 +39,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 0;
+      padding: 0 0 13px;
       text-decoration: none;
       color: cv('text', 'darker');
 
@@ -59,18 +60,16 @@
         display: block;
       }
       >span{
-        font-size: 11px;
-        letter-spacing: 1.5px;
+        font-size: 14px;
+        font-weight: bold;
         display: block;
-        font-weight: 800;
-        text-transform: uppercase;
         flex-grow: 1;
-        padding-left: 25px;
+        padding-left: 19px;
       }
       >i{
         display: block;
         font-weight: 100;
-        font-size: 10px;
+        font-size: 8px;
         color: cv('text', 'border');
       }
       &:hover{

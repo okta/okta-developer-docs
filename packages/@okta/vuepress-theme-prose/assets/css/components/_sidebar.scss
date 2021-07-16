@@ -15,10 +15,7 @@
     padding: 1rem 0 0 0;
   }
   .sections {
-    margin-left: 82px;
-    .sections {
-      margin-left: 20px;
-    }
+    margin-left: 24px;
     .link-wrap {
       margin-top: 10px;
       .blank-divider {
@@ -27,15 +24,10 @@
         margin-top: 12px;
       }
     }
-    .subnav-active {
-      .tree-nav-link {
-        color: cv('text', 'link');
-      }
-    }
     .tree-nav-link {
       position: relative;
       display: inline-flex;
-      align-items: center;
+      align-items: baseline;
       justify-content: flex-start;
       font-size: 1em;
       font-weight: bold;

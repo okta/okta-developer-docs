@@ -6,7 +6,7 @@ $oktaGameButtonColor: #ffdd53;
   font-family: $font-family;
   min-height: 100vh;
   color: cv('text');
-  .width-adjuster.col-xl-10.col-lg-10.col-md-12.col-sm-12 {
+  .width-adjuster {
     flex: 4 0 78%;
     background: url('/img/homepage/homepage-bg.svg') repeat-x left top;
     @include media("<=bootstrap-lg") {
@@ -29,19 +29,25 @@ $oktaGameButtonColor: #ffdd53;
 
   &--top-section {
     height: 760px;
+    margin-top: 49px;
     @include media("<=tablet") {
       height: auto;
     }
   }
   &--selector-block-margin {
     margin-bottom: 100px;
+    padding-top: 42px;
     @include media("<=bootstrap-xl") {
       margin-bottom: 30px;
     }
   }
 
   &--assurance-block-margin {
-    margin-bottom: 90px;
+    margin-top: 41px;
+    margin-bottom: 180px;
+    @include media("<=tablet") {
+      margin-bottom: 50px;
+    }
   }
 
   &--partners-block-margin {
@@ -54,6 +60,7 @@ $oktaGameButtonColor: #ffdd53;
   &--customize-your-app-margin.row {
     margin-bottom: 80px;
     min-height: 600px;
+    padding-top: 10px;
   }
 
   &--color-main {
@@ -74,9 +81,9 @@ $oktaGameButtonColor: #ffdd53;
 
   &--sub-heading {
     font-size: 22px;
-    margin-top: 0;
     margin-bottom: 20px;
     padding-bottom: 12px;
+    margin-top: 43px;
     @include media("<=tablet") {
       text-align: center;
     }
@@ -102,16 +109,15 @@ $oktaGameButtonColor: #ffdd53;
       margin-bottom: 30px;
     }
   }
-
   &--code-example {
-    height: 500px;
-    background-color: cv("brand", "dark");
+    height: 368px;
+    background-color: cv("text", "darker");
     border: 1.5px solid #2a4c63;
     border-radius: 10px;
     width: 100%;
-    box-shadow: 2px 33px 30px -26px rgba(18, 30, 36, 1);
-    margin-bottom: 30px;
+    box-shadow: 0px 9px 25px rgba(0, 0, 0, 0.24);
     overflow: hidden;
+    margin-left: -10%;
     &--header {
       height: 50px;
       background: #192e3a;
@@ -119,12 +125,14 @@ $oktaGameButtonColor: #ffdd53;
       font-size: 16px;
     }
     &--cm-wrapper {
-      height: 450px;
+      height: 100%;
       .vue-codemirror {
         height: 100%;
       }
       .CodeMirror {
         height: 100%;
+        background-color: cv("text", "darker");
+        color: #fff;
       }
     }
   }
@@ -133,11 +141,49 @@ $oktaGameButtonColor: #ffdd53;
     background-color: #f9f9f9;
     border: 1px solid #cecece;
     border-radius: 10px;
-    width: 100%;
+    width: 334px;
     box-shadow: 2px 33px 30px -26px rgba(18, 30, 36, 1);
-    margin-bottom: 60px;
+    margin-bottom: 0;
     overflow: hidden;
-    min-height: 500px;
+
+    #okta-sign-in {
+      .auth-header {
+        padding: 22px 90px 47px;
+      }
+      &.no-beacon .auth-header {
+        padding-bottom: 25px;
+      }
+      .auth-org-logo {
+        max-height: 35px;
+      }
+      .auth-content {
+        background: #fff;
+        padding: 60px 35px 20px;
+      }
+      &.no-beacon .auth-content {
+        padding-bottom: 17px;
+      }
+      .o-form-head {
+        font-size: 11px;
+        margin-bottom: 13px;
+      }
+      .o-form-fieldset {
+        margin-bottom: 13px;
+      }
+      .o-form .custom-checkbox label {
+        font-size: 11px;
+      }
+      .auth-footer {
+        font-size: 11px;
+      }
+      &.main-page-widget-wrapper .button.button-primary {
+        background: #1662DD;
+        border: none;
+      }
+      &.main-page-widget-wrapper .okta-form-label.o-form-label {
+        display: none;
+      }
+    }
   }
 
   &--welcome-leia {
@@ -201,8 +247,8 @@ $oktaGameButtonColor: #ffdd53;
       }
 
       &--cta.act-btn {
-        background: #e22866;
-        border-color: #e22866;
+        background: cv('header');
+        border-color: cv('header');
         color: white;
         &:hover {
           color: white;
@@ -210,11 +256,11 @@ $oktaGameButtonColor: #ffdd53;
       }
 
       &--docs.act-btn {
-        color: #e22866;
-        border-color: #e22866;
+        color: cv('header');
+        border-color: cv('header');
         &:hover {
-          background: #e22866;
-          border-color: #e22866;
+          background: cv('header');
+          border-color: cv('header');
           color: white;
         }
       }

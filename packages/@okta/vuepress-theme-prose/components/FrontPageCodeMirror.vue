@@ -9,7 +9,7 @@
 
 <script>
 import "codemirror/lib/codemirror.css";
-import "codemirror/theme/material.css";
+// import "components/codemirror.scss",
 
 export default {
   name: "FrontPageCodeMirror",
@@ -31,13 +31,10 @@ export default {
   data() {
     return {
       widgetCode: `
-// Uses okta-signin-widget version -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
-
 var widget = new OktaSignIn({
   baseUrl: "{{yourOktaDomain}}",
-  logo: "/alliance.png",
+  logo: "/sites/all/themes/developer/owb/alliance.png",
   i18n: {
-    // Overriding English properties
     en: {
       "primaryauth.title": "Alliance Authentication",
       "primaryauth.submit": "Sign In"
@@ -51,7 +48,6 @@ widget.renderEl({
       cmOptions: {
         lineNumbers: true,
         mode: "text/javascript",
-        theme: "material",
         styleActiveLine: true,
         readOnly: true,
       },

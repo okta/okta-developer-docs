@@ -1,0 +1,46 @@
+.CodeMirror.cm-s-default {
+  .cm-variable, .cm-punctuation, .cm-property, .cm-operator {
+    color: #fff;
+  }
+  .cm-keyword {
+    color: cv('code', 'keyword');
+  }
+  .cm-def {
+    color: cv('code', 'define');
+  }
+  .cm-property {
+    color: cv('code', 'property');
+  }
+  .cm-string {
+    color: cv('code', 'string');
+  }
+
+  .CodeMirror-gutters {
+    background: none;
+    border: none;
+  }
+  .CodeMirror-linenumber {
+    color: #737B7F;
+    opacity: 0.3;
+    margin-left: -15px;
+  }
+  .CodeMirror-code {
+    padding: 30px 20px;
+    line-height: 1.4em;
+  }
+
+  .CodeMirror-selected {
+    background: rgba(255,255,255,.1);
+  }
+  .CodeMirror-focused .CodeMirror-selected {
+    background: rgba(255,255,255,.1);
+  }
+  
+  .CodeMirror-line::selection,
+  .CodeMirror-line > span::selection,
+  .CodeMirror-line > span > span::selection {
+    background: transparent;
+    color: cv('code', 'string');
+  }
+  
+}
