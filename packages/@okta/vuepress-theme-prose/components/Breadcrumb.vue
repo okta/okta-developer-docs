@@ -2,7 +2,7 @@
 <div class="breadcrumb" v-if="showBreadcrumb">
   <div class="breadcrumb--container">
     <ol>
-      <li v-for="(crumb, index) in crumbs" :key="index">
+      <li v-for="(crumb, index) in crumbItems" :key="index">
         <router-link v-if="crumb.link" :to="crumb.link">{{crumb.title}}</router-link>
         <span v-else>{{crumb.title}}</span>
         <svg viewBox="0 0 256 512">
@@ -16,9 +16,15 @@
 </template>
 
 <script>
+  import SidebarItems from "../mixins/SidebarItems";
+
   export default {
     name: "Breadcrumb",
     inject: ['appContext'],
+    mixins: [SidebarItems],
+    data() {
+      return {crumbs: []};
+    },
     computed: {
       showHideContents() {
         if(this.appContext.isTreeNavMobileOpen) {
@@ -33,35 +39,10 @@
 
         return true;
       },
-      crumbs() {
-        let crumbs = [];
+      crumbItems() {
 
-        crumbs.push({'title': 'Docs'});
-
-        if(this.$page.path.startsWith('/code/')) {
-          crumbs.push({'link': '/code/', 'title': 'Languages & SDKs'});
-        }
-
-        if(this.$page.path.startsWith('/quickstart/')) {
-          crumbs.push({'link': '/quickstart/', 'title': 'Quickstart'});
-        }
-
-        if(this.$page.path.startsWith('/docs/reference/')) {
-          crumbs.push({'link': '/docs/reference/', 'title': 'Reference'});
-        }
-
-        if(this.$page.path.startsWith('/docs/concepts/')) {
-          crumbs.push({'link': '/docs/concepts/', 'title': 'Concepts'});
-        }
-
-        if(this.$page.path.startsWith('/docs/guides/')) {
-          crumbs.push({'link': '/docs/guides/', 'title': 'Guides'});
-        }
-
-        if(this.$page.path.startsWith('/docs/release-notes/')) {
-          crumbs.push({'link': '/docs/release-notes/', 'title': 'Release Notes'});
-        }
-
+        this.crumbs = [];
+        var crumbs = this.getCrumbs(this.getNavigation());
 
         return crumbs;
       }
@@ -69,6 +50,28 @@
     methods: {
       toggleTreeNav: function(value) {
         this.$parent.$emit('toggle-tree-nav', {treeNavOpen: !this.appContext.isTreeNavMobileOpen});
+      },
+
+      getCrumbs: function(menu, parent = null) {
+        for (const menuItem of menu) {
+          if (Array.isArray(menuItem)) {
+            this.getCrumbs(menuItem);
+          }
+
+          if(menuItem.path != undefined && menuItem.path != '/' && this.$page.path.startsWith(menuItem.path)) {
+ 
+            if (parent && parent.path == undefined) {
+              this.crumbs.push({'link': false, 'title': parent.title});
+            }
+            this.crumbs.push({'link': menuItem.path, 'title': menuItem.title});
+          }
+
+          if (menuItem.subLinks != undefined) {
+            this.getCrumbs(menuItem.subLinks, menuItem);
+          }
+        }
+
+        return this.crumbs;
       }
     }
   }

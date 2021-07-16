@@ -8,7 +8,6 @@
         'page-body': true,
       }"
     >
-      <Breadcrumb v-if="appContext.isInMobileViewport" />
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
@@ -23,6 +22,7 @@
             <Sidebar />
           </div>
           <div class="content-area">
+            <Breadcrumb />
             <PageTitle />
             <MobileOnThisPage />
             <ContentPage />

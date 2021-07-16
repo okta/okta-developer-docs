@@ -3,7 +3,7 @@
   width: 100%;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 45px;
+  margin-bottom: 49px;
   @include media("<=bootstrap-xl"){
     margin-bottom: 30px;
   }
@@ -36,6 +36,7 @@
       font-size: 18px;
       color: cv('text', 'darker');
       font-weight: bold;
+      margin-bottom: 12px;
     }
     &--description{
       color: cv('text');

@@ -1,13 +1,11 @@
 .breadcrumb {
-  padding: 0.6rem 1.5rem;
-  background-color: cv('gray', '000');
-  border-bottom: $border-default;
+  padding: 0 0 20px;
 
   &--container {
     padding: 0px;
 
     @include media(">=tablet") {
-      padding: 0rem 1.5rem;
+      padding: 0;
     }
 
     ol {

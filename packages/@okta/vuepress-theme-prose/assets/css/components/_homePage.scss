@@ -55,8 +55,8 @@ $oktaGameButtonColor: #ffdd53;
   }
 
   &--assurance-block-margin {
-    padding-top: 86px;
-    padding-bottom: 150px;
+    padding-top: 93px;
+    padding-bottom: 135px;
     background: cv('body') url('/img/homepage/gray-to-white-bg.svg') repeat-x left bottom;
     @include media("<=tablet") {
       padding-bottom: 100px;
@@ -145,7 +145,7 @@ $oktaGameButtonColor: #ffdd53;
     }
   }
   &--examples {
-    padding-top: 28px;
+    padding-top: 38px;
   }
   &--code-example {
     height: 368px;

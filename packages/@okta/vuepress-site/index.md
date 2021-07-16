@@ -80,11 +80,11 @@ tiles:
         image: /img/homepage/stackselectors/python.png
 
 assurances:
-  - title: Compliant Out of the Box
-    description: with HIPAA, FedRamp, and SOC environments available, we have you covered
+  - title: Compliant out of the Box
+    description: with HIPAA, FedRamp, SOC and more, we have you covered
     image: /img/homepage/compliance-out-of-box.svg
   - title: Open Standards
-    description: SAML, OpenID Connect, and OAuth 2.0 connect you to everything
+    description: SAML, OpenID Connect, and OAuth 2.0 connect you to everything else
     image: /img/homepage/standards.svg
   - title: 99.99% Uptime
     description: so your apps are working even when you’re not
