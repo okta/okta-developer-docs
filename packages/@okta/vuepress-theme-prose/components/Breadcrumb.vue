@@ -23,7 +23,10 @@
     inject: ['appContext'],
     mixins: [SidebarItems],
     data() {
-      return {crumbs: []};
+      return {
+        crumbs: [],
+        crumbParents: []
+      };
     },
     computed: {
       showHideContents() {
@@ -40,10 +43,9 @@
         return true;
       },
       crumbItems() {
-
         this.crumbs = [];
+        this.crumbParents = [];
         var crumbs = this.getCrumbs(this.getNavigation());
-
         return crumbs;
       }
     },
@@ -58,11 +60,45 @@
             this.getCrumbs(menuItem);
           }
 
-          if(menuItem.path != undefined && menuItem.path != '/' && this.$page.path.startsWith(menuItem.path)) {
- 
-            if (parent && parent.path == undefined) {
-              this.crumbs.push({'link': false, 'title': parent.title});
+          if(menuItem.path != undefined && this.$page.path.startsWith(menuItem.path)) {
+
+            if(menuItem.path == '/') {
+              continue;
             }
+
+            switch (menuItem.path) {
+              case '/code/':
+                this.crumbs.push({'link': '/code/', 'title': 'Languages & SDKs'});
+                continue;
+              case '/quickstart/':
+                this.crumbs.push({'link': '/quickstart/', 'title': 'Quickstart'});
+                continue;
+              case '/docs/reference/':
+                this.crumbs.push({'link': '/docs/reference/', 'title': 'Reference'});
+                continue;
+              case '/docs/concepts/':
+                this.crumbs.push({'link': '/docs/concepts/', 'title': 'Concepts'});
+                continue;
+              case '/docs/guides/':
+                this.crumbs.push({'link': '/docs/guides/', 'title': 'Guides'});
+                continue;
+              case '/docs/release-notes/':
+                this.crumbs.push({'link': '/docs/release-notes/', 'title': 'Release Notes'});
+                continue;
+            }
+// console.log(this.crumbParents, 'this.crumbParents')
+//             if (this.crumbParents.length > 0) {
+//               this.crumbParents.map((parent) => {
+//                 var parentCrumb = {'link': false, 'title': parent.title};
+// console.log(parent.path, 'parent.path')
+// console.log(this.crumbs.indexOf(parentCrumb), 'this.crumbs.indexOf(parentCrumb)')
+
+                var parentCrumb = {'link': false, 'title': parent.title};
+                if (parent && parent.path == undefined && !this.crumbItemExists(parentCrumb)) {
+                  this.crumbs.push(parentCrumb);
+                }
+              // })
+            // }
             this.crumbs.push({'link': menuItem.path, 'title': menuItem.title});
           }
 
@@ -72,6 +108,14 @@
         }
 
         return this.crumbs;
+      },
+      crumbItemExists: function (checkCrumb) {
+        for (const crumb of this.crumbs) {
+          if (crumb.title === checkCrumb.title) {
+            return true;
+          }
+        }
+        return false;
       }
     }
   }
