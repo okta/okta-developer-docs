@@ -21,7 +21,7 @@ Even when only the password factor is required for an Okta application, an email
 
 [Self-service registration (email and optional phone factor)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-self-reg/)
 
-### Setup
+### Set up
 
 In this scenario, the org is set up in the following manner:
 
@@ -30,12 +30,12 @@ In this scenario, the org is set up in the following manner:
 and
 
 [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases).
-1. The application's sign-on policy is updated for only the password factor. In
+2. The application's sign-on policy is updated for only the password factor. In
    the Admin Console, the **AND User must authenticate with** field is set to **Password**.
-1. The **Email verification** field in the profile enrollment's Default Policy
+3. The **Email verification** field in the profile enrollment's Default Policy
    is set to **Required before access is granted**. Profile enrollment configuration can
    be found by navigating to **Security** > **Profile Enrollment**.
-1. The **Initiate login URI** field is set to the sign-in URI in the application settings. By setting this
+4. The **Initiate login URI** field is set to the sign-in URI in the application settings. By setting this
    value, the email verification link for new user enrollment redirects the user
    to the URL provided in the **Initiate login URI** field.
 

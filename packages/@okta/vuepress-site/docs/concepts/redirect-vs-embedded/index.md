@@ -10,18 +10,18 @@ meta:
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-When you develop applications that require customer sign in and authentication, the user authentication deployment model is a critical design consideration that can broadly be divided into two approaches:
+When you develop applications that require the customer to sign-in and then to authentication, the user authentication deployment model is a critical design consideration that can broadly be divided into two approaches:
 
 - **Redirect authentication**: A user sign-in flow that grants authentication control to Okta by redirecting to an Okta hosted sign-in page using open protocols like OAuth 2.0 and SAML.
-- **Embedded authentication**: A user sign-in flow where the application retains authentication control, without redirection to Okta, using a client-hosted Sign-In Widget, Identity Engine SDKs, or directly with Okta’s proprietary Identity Engine authentication APIs.
+- **Embedded authentication**: A user sign-in flow where the application retains authentication control, without redirection to Okta, using a client-hosted Sign-In Widget, Identity Engine SDKs, or directly with Okta's proprietary Identity Engine authentication APIs.
 
 Identity Engine supports both these deployment and authentication models, and uses authentication protocols to communicate with the Identity Server, the entity that acts as the logical location for all identity-related services and resources.
 
 ## Redirect authentication
 
-Redirect authentication is the process of delegating authentication to your Okta org and externalizes this process from the client application. The user or system is redirected to Okta for credential verification by the Identity Engine and is then provided authenticated access to the client application and other Service Providers.
+Redirect authentication is the process of delegating authentication to your Okta org and externalizes this process from the client application. The user or system is redirected to Okta for credential verification by the Okta Identity Engine and is then provided authenticated access to the client application and other Service Providers.
 
-When a user signs-in to the client application, they are redirected to Okta using a protocol like SAML or OpenId Connect (OIDC). After the user signs in (based on policies that are configured in Okta), Okta redirects the user back to your application. The hosted Okta Sign-in Widget can also be customized, including the domain, to match your application's brand.
+When a user signs in to the client application, they are redirected to Okta using a protocol like SAML or OpenId Connect (OIDC). After the user signs in (based on policies that are configured in Okta), Okta redirects the user back to your application. The hosted Okta Sign-in Widget can also be customized, including the domain, to match your application's brand.
 
 Single Sign-on (SSO) is supported for this implementation. That is, Okta may create a session (based on the Okta policies, for example), and other integrated applications can use SSO to sign in users.
 

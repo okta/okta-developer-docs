@@ -11,7 +11,7 @@ Before using the SDK in your own app, you need to add the Okta Auth JS node depe
 npm install --save @okta/okta-auth-js
 ```
 
-See [Using the npm module](https://github.com/okta/okta-auth-js#using-the-npm-module) for more information
+See [Using the npm module](https://github.com/okta/okta-auth-js#using-the-npm-module) for more information.
 
 #### Step 3: Review the SDK Identity Engine methods
 
