@@ -5,84 +5,85 @@ The Java SDK integration steps for this use case are coming soon.
 ---
 ### Step 1: Create a sign-up link for new users
 
-The self-registration flow begins when the user clicks the **Sign up** link. On the sign-in page, create a **Sign up** link that links to the create account page you create in the next step.
-
-<div class="common-image-format">
-
-![Sign up](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-sign-up.png
- "Sign up")
-
-</div>
-
-> **Note:** The **Sign up** link appears in the following example under the **Continue** button.
+The self-registration flow begins when the user clicks the **Register** link on your app's sign-in page. You need to create an HTML page as a destination for this **Register** link to capture the new account parameters the next step.
 
 ### Step 2: Enter information in the create account page
 
-The next step is to enter basic information (for example, email, first, and last name). Create a page that accepts this information. The following shows an example of a create account page.
+The user to enters basic information (for example, email, first, and last name) in the new account page.
 
 <div class="common-image-format">
 
-![Create user](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-create.png
- "Create user")
+![Create user for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-create-java.png
+ "Create user for Java SDK")
 
 </div>
 
-### Step 3: Call RegisterAsync to register the new user
+The next step is to begin the authentication process by calling the [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `begin` method.
 
-When the user clicks **Register**, create a `UserProfile` object and set its properties with the user profile information captured from the Create account page. Pass this object into the `IdxClient RegisterAsync` method.
-
-```csharp
-var idxAuthClient = new IdxClient();
-
-var userProfile = new UserProfile();
-userProfile.SetProperty("firstName", model.FirstName);
-userProfile.SetProperty("lastName", model.LastName);
-userProfile.SetProperty("email", model.Email);
-
-var registerResponse = await idxAuthClient.RegisterAsync(userProfile);
+```java
+AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
 ```
 
-### Step 4: Handle the response from RegisterAsync
+After the authentication transaction begins, you need to get the proceed context:
 
-If the org's application is properly configured with multiple factors, `RegisterAsync` should return a response with an `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status indicates that there is a required authenticator that needs to be verified. If you completed the steps properly in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), the authenticator is the **password** factor that is stored in the `Authenticators` list property.
+```java
+ProceedContext beginProceedContext = beginResponse.getProceedContext();
 
-```csharp
-if (registerResponse.AuthenticationStatus == AuthenticationStatus.AwaitingAuthenticatorEnrollment)
-    {
-       Session["idxContext"] = registerResponse.IdxContext;
-       TempData["authenticators"] = ViewModelHelper.
-             ConvertToAuthenticatorViewModelList(registerResponse.Authenticators);
-       return RedirectToAction("SelectAuthenticator", "Manage");
-    }
+AuthenticationResponse newUserRegistrationResponse = idxAuthenticationWrapper.fetchSignUpFormValues(beginProceedContext);
 ```
 
-### Step 5: Build an authenticator list page
+Enroll the user with the basic profile information captured from the Create Account page.
 
-The next step is to build a page that shows a user the required factors that need to
-be verified. After the call to `RegisterAsync`, the user needs to see the
-password factor requirement and select it for verification.
+```java
+UserProfile userProfile = new UserProfile();
+userProfile.addAttribute("lastName", lastname);
+userProfile.addAttribute("firstName", firstname);
+userProfile.addAttribute("email", email);
+
+ProceedContext proceedContext = newUserRegistrationResponse.getProceedContext();
+
+AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.register(proceedContext, userProfile);
+```
+
+### Step 3: Handle the response from Okta
+
+If you configured your org and app with the [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases) instructions, `IDXAuthenticationWrapper` returns an [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) with the following:
+
+1. [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) = `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` <br>
+   This status indicates that there are required authenticators that needs to be verified.
+
+2. [Authenticators]() = List of Authenticators (in this case, there is only the `password` Authenticator). <br>
+
+   ```java
+   List<Authenticator> authenticators = (List<Authenticator>) session.getAttribute("authenticators");
+   ```
+
+After receiving `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of Authenticators, you need to provide the user with the required factors that need to be verified. Build a factors page that is generic to handle a list of authenticators returned from the SDK.
 
 <div class="common-image-format">
 
-![Verify password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-password.png
+![Verify password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-password-java.png
  "Verify password")
 
 </div>
 
-The page should be generic and should handle the list of authenticators that are returned from the various methods of the SDK. Use the `Authenticators` property in the returned response to build the list.
+```java
+for (Authenticator authenticator : authenticators) {
+   if (authenticatorType.equals(authenticator.getLabel())) {
+         foundAuthenticator = authenticator;
 
-```csharp
-var authenticators = (IList<AuthenticatorViewModel>)TempData["authenticators"];
-var viewModel = new SelectAuthenticatorViewModel
-  {
-     Authenticators = authenticators,
-     PasswordId = authenticators.FirstOrDefault(x => x.Name.ToLower() == "password")?.AuthenticatorId,
-     PhoneId = authenticators.FirstOrDefault(x => x.Name.ToLower() == "phone")?.AuthenticatorId,
-     CanSkip = TempData["canSkip"] != null && (bool)TempData["canSkip"]
-  };
-
-TempData["authenticators"] = viewModel.Authenticators;
-return View(viewModel);
+         if (foundAuthenticator.getFactors().size() == 1) {
+            authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
+         } else {
+            // user should select the factor in a separate view
+            ModelAndView modelAndView = new ModelAndView("select-factor");
+            modelAndView.addObject("title", "Select Factor");
+            modelAndView.addObject("authenticatorId", foundAuthenticator.getId());
+            modelAndView.addObject("factors", foundAuthenticator.getFactors());
+            return modelAndView;
+         }
+   }
+}
 ```
 
 ### Step 6: Call EnrollAuthenticatorAsync

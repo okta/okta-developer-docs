@@ -8,8 +8,8 @@ The following diagram illustrates the beginning of the registration process wher
 
 <div class="common-image-format">
 
-![Self-service registration start](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start.png
- "Self-service registration start")
+![Self-service registration start for Java](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start-java.png
+ "Self-service registration start for Java")
 
 </div>
 
