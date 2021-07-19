@@ -93,8 +93,6 @@ You can also reference these org-level attributes, such as:
 * `$org.locale`
 * `$org.subDomain`
 
-See [Customization variables for email and SMS templates](https://help.okta.com/en/prod/Content/Topics/Settings/settings-customization-variables.htm?cshid=ext-expression-language) for a the variables and properties that can be used in templates.
-
 #### Support for conditional logic
 
 All conditional logic that is supported by the Velocity Templating Engine, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
