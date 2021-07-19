@@ -6,7 +6,7 @@ The following sample code illustrates how to implement basic sign-in with userna
 prescriptive and explicit flow used in these examples. These examples are meant to be a
 learning tool to help you understand how to implement specific use cases using the SDK.
 Although, you can implement such examples in your own native application, you won't
-be able to reap the benefits of dynamic authentication such as a policy driven logic
+be able to reap the benefits of dynamic authentication such as a policy driven code
 that require no changes when policy configurations are changed.
 
 ### Executing code
