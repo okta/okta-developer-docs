@@ -72,6 +72,6 @@ AuthenticationResponse authenticationResponse =
 
 ```
 
-With the access token, you can obtain basic user information by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo).
+With the obtained access token, you can obtain basic user information by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo).
 
 The user is now successfully signed in and can be sent to the default sign-in page.
