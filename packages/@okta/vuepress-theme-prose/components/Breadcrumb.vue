@@ -3,10 +3,9 @@
   <div class="breadcrumb--container">
     <ol>
       <li v-for="(crumb, index) in crumbItems" :key="index">
-        <router-link v-if="crumb.link" :to="crumb.link">{{crumb.title}}</router-link>
-        <span v-else>{{crumb.title}}</span>
-        <svg viewBox="0 0 256 512">
-          <path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34z"/>
+        <span>{{crumb.title}}</span>
+        <svg v-if="(index+1)<crumbItems.length" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M1 9L5 5L1 1" stroke="#1D1D21"/>
         </svg>
       </li>
       <li class="crumb-show-contents" @click="toggleTreeNav" >{{showHideContents}}</li>
@@ -60,45 +59,17 @@
             this.getCrumbs(menuItem);
           }
 
-          if(menuItem.path != undefined && this.$page.path.startsWith(menuItem.path)) {
+          if (parent) {
+            menuItem.parents = _.union([parent], parent.parents)
+          }
 
-            if(menuItem.path == '/') {
-              continue;
-            }
+          if(menuItem.path != undefined && this.$page.path == menuItem.path) {
 
-            switch (menuItem.path) {
-              case '/code/':
-                this.crumbs.push({'link': '/code/', 'title': 'Languages & SDKs'});
-                continue;
-              case '/quickstart/':
-                this.crumbs.push({'link': '/quickstart/', 'title': 'Quickstart'});
-                continue;
-              case '/docs/reference/':
-                this.crumbs.push({'link': '/docs/reference/', 'title': 'Reference'});
-                continue;
-              case '/docs/concepts/':
-                this.crumbs.push({'link': '/docs/concepts/', 'title': 'Concepts'});
-                continue;
-              case '/docs/guides/':
-                this.crumbs.push({'link': '/docs/guides/', 'title': 'Guides'});
-                continue;
-              case '/docs/release-notes/':
-                this.crumbs.push({'link': '/docs/release-notes/', 'title': 'Release Notes'});
-                continue;
-            }
-// console.log(this.crumbParents, 'this.crumbParents')
-//             if (this.crumbParents.length > 0) {
-//               this.crumbParents.map((parent) => {
-//                 var parentCrumb = {'link': false, 'title': parent.title};
-// console.log(parent.path, 'parent.path')
-// console.log(this.crumbs.indexOf(parentCrumb), 'this.crumbs.indexOf(parentCrumb)')
+            //add parent crumbs           
+            menuItem.parents.reverse().map((parentCrumb) => {
+              this.crumbs.push({'link': parentCrumb.path, 'title': parentCrumb.title});
+            });
 
-                var parentCrumb = {'link': false, 'title': parent.title};
-                if (parent && parent.path == undefined && !this.crumbItemExists(parentCrumb)) {
-                  this.crumbs.push(parentCrumb);
-                }
-              // })
-            // }
             this.crumbs.push({'link': menuItem.path, 'title': menuItem.title});
           }
 
@@ -109,6 +80,7 @@
 
         return this.crumbs;
       },
+
       crumbItemExists: function (checkCrumb) {
         for (const crumb of this.crumbs) {
           if (crumb.title === checkCrumb.title) {

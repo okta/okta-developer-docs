@@ -1,6 +1,6 @@
 .authorization-layout {
   display: flex;
-  background: cv("brand", "base");
+  background: #fff;
   width: 100%;
   min-height: 100vh;
   flex-direction: column;
@@ -12,7 +12,7 @@
 
   .row {
     display: flex;
-    margin: 0 -24px 24px 0;
+    margin: 0 -24px 17px 0;
     @include media("<tablet") {
       margin: 0 0 24px 0;
     }
@@ -31,14 +31,14 @@
   input[type="button"],
   select {
     width: 100%;
-    color: cv("brand", "base");
+    color: cv("text");
     background-color: $white;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
-    border: none;
+    border: 1px solid cv('form', 'input-border');
     padding: 0 20px;
-    height: 45px;
+    height: 38px;
     border-radius: 3px;
     text-rendering: auto;
     letter-spacing: normal;
@@ -49,6 +49,7 @@
     display: inline-block;
     text-align: start;
     appearance: textfield;
+    margin: 5px 0 0;
     &:focus {
       outline: none;
     }
@@ -62,10 +63,10 @@
     opacity: 0.6;
   }
   select {
-    padding: 10px 20px;
+    padding: 0px 20px;
     cursor: pointer;
-    background-image: url("data:image/svg+xml,%3csvg width='9' height='5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M.4 0h8.2L4.5 5' fill='%235c6971'/%3e%3c/svg%3e");
-    background-position: calc(100% - 12px) center;
+    background-image: url('/img/icons/select-input-arrow.svg');
+    background-position: calc(100% - 22px) center;
     background-repeat: no-repeat;
     background-size: auto;
     -webkit-appearance: none;
@@ -76,7 +77,6 @@
     background: cv("cerise", "base");
     color: $white;
     font-family: inherit;
-    font-size: 15px;
     font-weight: 600;
     line-height: 16px;
     letter-spacing: 2px;
@@ -87,27 +87,48 @@
   }
 
   a.btn,
-  input.btn {
+  input.btn,
+  button.btn {
     font-family: inherit;
     font-weight: 600;
+    font-size: 16px;
     display: block;
-    background-color: cv("cerise", "base");
-    padding: 10px 20px 9px;
-    border: 2px solid cv("cerise", "base");
+    background-color: cv('header');
+    padding: 16px 20px;
+    border: 1px solid cv('header');
     border-radius: 3px;
     text-align: center;
     color: $white;
-    font-size: 15px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    height: auto;
     &:hover {
       text-decoration: none;
     }
   }
 
   a.social-btn,
-  input.social-btn {
+  input.social-btn,
+  button.social-btn {
     background-color: transparent;
+    color: cv('text', 'link-darker');
+    width: 100%;
+    padding: 18px 20px;
+
+    i.fa {
+      font-size: 37px;
+      color: #000;
+    }
+    span.google-logo {
+      background: url('/img/icons/google-logo-new.png') no-repeat center center;
+      width: 32px;
+      height: 32px;
+      background-size: contain;
+    }
+    span.google-logo, i.fa {
+      display: block;
+      position: absolute;
+      top: 12px;
+      left: 24px;
+    }
   }
 
   input[type="submit"],
@@ -117,11 +138,8 @@
 
   .authorization-layout--header {
     display: flex;
-    padding: 0 80px;
-    width: 100%;
     align-items: center;
-    height: 98px;
-    margin: 0 0 32px 0;
+    margin: 0 0 111px 0;
     @include media("<desktop") {
       margin: 0;
       padding: 46px;
@@ -133,12 +151,20 @@
   }
 
   .authorization-layout--content {
-    display: flex;
-    padding: 0 0 20px 0;
-    justify-content: center;
+    padding: 0 64px 98px;
+    max-width: 1440px;
+    margin: 0 auto;
     .logo-wrapper {
       width: 100%;
-      margin: 40px 0 0 0;
+      margin: 85px 0 0 0;
+
+      .company-logos--wrapper {
+        h4 {
+          font-size: 20px;
+          font-weight: normal;
+          color: cv('text', 'darker');
+        }
+      }
     }
   }
 

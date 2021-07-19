@@ -1,5 +1,5 @@
 .is-button-cerise-outline {
-  border-color: cv('cerise');
+  border-color: cv('header');
   background-color: transparent;
   color: cv('gray', '000');
   text-decoration: none;
@@ -11,28 +11,28 @@
   &:hover,
   &:visited,
   &.is-button-hover {
-    border-color: cv('cerise');
+    border-color: cv('header');
     background-color: transparent;
     color: cv('gray', '000');
   }
 
   &:focus,
   &.is-button-focus {
-    border-color: cv('cerise');
+    border-color: cv('header');
     background-color: transparent;
     color: cv('gray', '000');
   }
 
   &:disabled {
-    border-color: fauxpacity(cv('cerise'));
+    border-color: fauxpacity(cv('header'));
     background-color: transparent;
     color: fauxpacity(cv('gray', '000'));
   }
 }
 
 .is-button-cerise {
-  border-color: cv('cerise');
-  background-color: cv('cerise');
+  border-color: cv('header');
+  background-color: cv('header');
   color: cv('gray', '000');
   text-decoration: none;
   text-transform: uppercase;
@@ -44,21 +44,21 @@
   &:hover,
   &:visited,
   &.is-button-hover {
-    border-color: cv('cerise');
-    background-color: cv('cerise');
+    border-color: cv('header');
+    background-color: cv('header');
     color: cv('gray', '000');
   }
 
   &:focus,
   &.is-button-focus {
-    border-color: cv('cerise');
-    background-color: cv('cerise');
+    border-color: cv('header');
+    background-color: cv('header');
   }
 
   &:disabled {
-    border-color: fauxpacity(cv('cerise'));
-    background-color: cv('cerise');
-    color: fauxpacity(cv('cerise'));
+    border-color: fauxpacity(cv('header'));
+    background-color: cv('header');
+    color: fauxpacity(cv('header'));
   }
 }
 
@@ -274,8 +274,8 @@
 	&,
 	&:active,
 	&:hover {
-		background-color: cv('cerise');
-		border-color: cv('cerise');
+		background-color: cv('header');
+		border-color: cv('header');
 		color: cv('gray', '000');
 	}
 
@@ -291,7 +291,7 @@
 	&:active,
 	&:hover {
 		background-color: transparent;
-		border-color: cv('cerise');
+		border-color: cv('header');
 		color: cv('gray', '000');
 	}
 

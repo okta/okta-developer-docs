@@ -142,7 +142,7 @@
               >
             </label>
           </div>
-          <div class="row">
+          <div class="row signup--recaptcha">
             <label class="field-wrapper" for="recaptcha">
               <vue-recaptcha
                 ref="recaptcha"
@@ -162,17 +162,17 @@
           <div class="row error-color" v-if="error !== null">
             {{ error }}
           </div>
-          <div class="row">
+          <div class="row signup--submit">
             <label class="field-wrapper" for="signup" id="submitbutton">
-              <a class="btn red-button pending" v-if="isPending">
+              <a class="btn pending" v-if="isPending">
                 <img src="/img/ajax-loader-white.gif" />
               </a>
               <input
                 type="submit"
-                class="btn red-button"
+                class="btn"
                 :disabled="!validationService.isValidForm()"
                 id="signup"
-                value="sign up"
+                value="Sign up"
                 v-else
               />
             </label>
@@ -217,24 +217,24 @@
           </div>
           <div class="row">
             <div class="field-wrapper">
-              <input
-                type="button"
+              <button
                 id="continue-github"
-                value="continue with github"
                 class="btn social-btn"
                 @click="openTermsConditionsDialog(uris.github)"
-              />
+              >
+                <i class="fa fa-github"></i> Continue with GitHub
+              </button>
             </div>
           </div>
           <div class="row">
             <div class="field-wrapper">
-              <input
-                type="button"
+              <button
                 id="continue-google"
                 class="btn social-btn"
-                value="continue with google"
                 @click="openTermsConditionsDialog(uris.google)"
-              />
+              >
+                <span class="google-logo"></span> Continue with Google
+              </button>
             </div>
           </div>
           <TermsAndConditionsDialog

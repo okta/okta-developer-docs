@@ -1,7 +1,12 @@
+@mixin active-link {
+  color: cv('text', 'darker');
+  font-weight: 600;
+}
+
 .tree-nav {
   width: 100%;
   min-height: 100%;
-  padding: 100px 1rem 3rem 0;
+  padding: 100px 1rem 3rem 1rem;
   background: cv('body');
 
   @include media(">=desktop") {
@@ -16,12 +21,27 @@
   }
   .sections {
     margin-left: 24px;
+    &:first-child {
+      & > .link-wrap > .tree-nav-link {
+        &> .text-holder {
+          @include active-link;
+        }
+        &> i.fa {
+          color: cv('text', 'darker');
+        }
+        &.router-link-active {
+          &> .text-holder {
+            color: cv('text', 'link');
+          }
+        }
+      }
+    }
     .link-wrap {
       margin-top: 10px;
       .blank-divider {
-        color: cv("gray", "300");
         cursor: default;
         margin-top: 12px;
+        margin-left: -17px;
       }
     }
     .tree-nav-link {
@@ -30,7 +50,7 @@
       align-items: baseline;
       justify-content: flex-start;
       font-size: 1em;
-      font-weight: bold;
+      font-weight: normal;
       text-decoration: none;
       color: cv('text');
       cursor: pointer;
@@ -38,34 +58,31 @@
         color: cv('text', 'link');
       }
       &.children-active {
-        font-weight: bold;
+        @include active-link;
       }
       &.router-link-active {
-        font-weight: bold;
+        @include active-link;
         color: cv('text', 'link');
         &::before {
-          position: relative;
+          position: absolute;
           color: cv('text', 'link');
-          content: '\f054';
-          padding-right: 7px;
-          font: 10px FontAwesome;
-          display: inline;
-          top: -1px;
+          content: '';
+          background: url('/img/icons/active-menu-bg.svg') no-repeat left top;
+          left: -15px;
+          top: 4px;
+          width: 4px;
+          height: 16px;
         }
       }
       > span.text-holder {
         margin-left: 0px;
       }
       > i.fa {
-        position: relative;
-        left: 0;
-        top: -2px;
+        position: absolute;
+        left: -20px;
+        top: 5px;
         font-size: 12px;
         padding-right: 5px;
-
-        &.fa-chevron-right {
-          display: none;
-        }
       }
     }
   }

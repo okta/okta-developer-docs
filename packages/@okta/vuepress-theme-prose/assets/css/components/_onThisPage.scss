@@ -10,6 +10,7 @@
 
     @include media('>=tablet') {
       top: 150px;
+      display: none;
     }
   }
 

@@ -21,7 +21,7 @@
           <div class="sidebar-area">
             <Sidebar />
           </div>
-          <div class="content-area">
+          <div class="content-area col-xl-10 col-lg-10 col-md-12 col-sm-12">
             <Breadcrumb />
             <PageTitle />
             <MobileOnThisPage />
