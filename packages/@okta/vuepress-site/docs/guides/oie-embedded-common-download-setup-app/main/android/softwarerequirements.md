@@ -1,0 +1,1 @@
+* The latest version of Android Studio installed.
