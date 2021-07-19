@@ -11,6 +11,8 @@ For example:
 ![Sign in screenshot](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png
  "Sign in screenshot")
 
+ </div>
+
 ### Step 2: Authenticate user credentials
 
 When the user initiates the sign-in process, your app needs to create an `authClient` object as shown in the sample app `login.js` file, and set its `username` and `password` properties to the values entered by the user. Send this object to the `authClient.idx.authenticate` function to authenticate the user. See [idx.Authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) for more information.
