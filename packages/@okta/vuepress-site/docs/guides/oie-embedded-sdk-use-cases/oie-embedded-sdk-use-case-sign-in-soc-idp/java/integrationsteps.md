@@ -63,7 +63,7 @@ The **Valid OAuth Redirect URIs** for your Okta org is in the format: `https://{
 
 ### Step 5: Handle the callback from Okta
 
-Okta returns the Interaction code in the callback to the **Sign-in redirect URI** location specified in [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application). You need to handle the callback by exchanging the Interaction code for an access token.
+Okta returns the Interaction code in the callback to the **Sign-in redirect URI** location specified in [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application). You need to handle the callback by exchanging the Interaction code for token.
 
 ```java
 AuthenticationResponse authenticationResponse =
