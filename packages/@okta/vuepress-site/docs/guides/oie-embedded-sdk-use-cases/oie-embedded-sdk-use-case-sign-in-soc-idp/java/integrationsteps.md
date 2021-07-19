@@ -58,7 +58,7 @@ The following example displays the **Login with Facebook** button.
 
 If the user selects the **Login with Facebook** option, they are directed to the Facebook sign-in page.
 
-After the user signs in to Facebook successfully, Facebook routes the user to the location that you've specified in **Valid OAuth Redirect URIs** from the Facebook developer site. See [Step 1: Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/java/main/#step-1-create-a-facebook-app-in-facebook).
+After the user signs in to Facebook successfully, Facebook routes the user to the location that was specified in **Valid OAuth Redirect URIs** from the Facebook developer site. See [Step 1: Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/java/main/#step-1-create-a-facebook-app-in-facebook).
 
 The **Valid OAuth Redirect URIs** for your Okta org is in the format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`.
 
