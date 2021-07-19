@@ -17,31 +17,10 @@ List<Idp> idps = authenticationResponse.getIdps();
 You need to build the sign-in HTML view page with the social sign-in options available from the list of IdPs.
 
 ```javascript
-<!-- display the social login button(s), if the org is setup to support it -->
-<div th:if="${not #lists.isEmpty(idps)}" class="container" th:align="center">
-    <th:block th:each="idp: ${idps}">
-        <div th:switch="${idp.type}">
-            <div th:case="'GOOGLE'">
-                <a th:href="@{${idp.href}}" class="btn btn-lg btn-social btn-google">
-                    <i class="fa fa-google fa-fw"></i> Login with Google
-                </a>
-            </div>
-            <div th:case="'FACEBOOK'">
-                <a th:href="@{${idp.href}}" class="btn btn-lg btn-social btn-facebook" id="btn-facebook">
-                    <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-                </a>
-            </div>
-            <div th:case="'LINKEDIN'">
-                <a th:href="@{${idp.href}}" class="btn btn-lg btn-social btn-linkedin">
-                    <i class="fa fa-linkedin fa-fw"></i> Login with LinkedIn
-                </a>
-            </div>
-            <div th:case="'*'">
-                <br><a th:href="@{${idp.href}}" class="btn btn-primary">Login with [[${idp.type}]]</a><br>
-            </div>
-        </div>
-        <p/>
-    </th:block>
+<div th:case="'FACEBOOK'">
+    <a th:href="@{${idp.href}}" class="btn btn-lg btn-social btn-facebook" id="btn-facebook">
+        <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+    </a>
 </div>
 ```
 
@@ -72,6 +51,6 @@ AuthenticationResponse authenticationResponse =
 
 ```
 
-With the obtained access token, you can obtain basic user information by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo).
+With the obtained access token, you can retrieve basic user information by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo).
 
 The user is now successfully signed in and can be sent to the default sign-in page.
