@@ -2,7 +2,7 @@
 
 ### Step 1: Start the sign-in process
 
-Use [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) to start the sign-in process.
+Use [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) to start the sign-in process with Okta when the user goes to the sign-in page.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin()
@@ -10,7 +10,7 @@ AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin()
 
 ### Step 2: Get the available IdPs from your org
 
-Use the [AuthenticationResponse.getIdps()](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L91) function to return a list of social identity provider (IdP) options configured in your org's routing rule. See [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-social-identity-providers) for IdP configuration in your org.
+Use the [AuthenticationResponse.getIdps()](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L91) function to return a list of social Identity Provider (IdP) options configured in your org's routing rule. See [Set up your Okta org (for social Identity Providers)](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-social-identity-providers) for IdP configuration in your org.
 
 ```java
 ModelAndView modelAndView = new ModelAndView("login");
@@ -61,9 +61,9 @@ After the user signs in to Facebook successfully, Facebook routes the user to th
 
 The **Valid OAuth Redirect URIs** for your Okta org is in the format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`.
 
-### Step 4: Handle the callback from Okta
+### Step 5: Handle the callback from Okta
 
-Okta returns the Interaction code to the **Sign-in redirect URI** specified in the [create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application) step. You need to handle the callback by exchanging the Interaction code for an access token.
+Okta returns the Interaction code in the callback to the **Sign-in redirect URI** location specified in [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application). You need to handle the callback by exchanging the Interaction code for an access token.
 
 ```java
 AuthenticationResponse authenticationResponse =
@@ -71,5 +71,7 @@ AuthenticationResponse authenticationResponse =
 
 ```
 
-With the access token, route the user to the default signed-in home page.
+With the access token, you can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo).
 
+### Step 6: Send the user to the default home page
+The user is now successfully signed in and can be sent to the default sign-in page.
