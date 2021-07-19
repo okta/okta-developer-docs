@@ -22,7 +22,7 @@ return modelAndView;
 
 ### Step 3: Display the social sign-in options in your sign-in HTML page
 
-You need to build the sign-in HTML page with the social sign-in options available from the list of IdPs.
+You need to build the sign-in HTML view page with the social sign-in options available from the list of IdPs.
 
 ```javascript
 <!-- display the social login button(s), if the org is setup to support it -->
