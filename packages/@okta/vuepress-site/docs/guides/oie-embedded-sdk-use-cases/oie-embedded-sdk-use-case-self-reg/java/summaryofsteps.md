@@ -8,28 +8,25 @@ The following diagram illustrates the beginning of the registration process wher
 
 <div class="common-image-format">
 
-![Self-service registration start for Java](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start-java.png
- "Self-service registration start for Java")
+![Self-registration start for Java](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start-java.png "Sequence diagram for starting self-registration with password for Java SDK")
 
 </div>
 
 ### Diagram 2: Enroll and verify email factor
 
-The self-registration flow continues in this sequence.
+The self-registration flow continues with email and phone factors in this sequence.
 
 <div class="common-image-format">
 
-![Self-service registration enroll](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify.png
- "Self-service registration enroll")
+![Self-service registration enroll](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify-java.png "Sequence diagram for enrolling self-registration MFA with Java SDK")
 
 </div>
 
 ### Diagram 3, Option 1: Enroll and verify phone (SMS) factor
 
-After the password and email are verified, the user has the option to
-enroll in the phone factor.
+After the password and email factors are verified, the user has the option to enroll the phone factor.
 
-> **Note:** Based on the steps described in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), the Okta application is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional.
+> **Note:** Based on the configuration described in [Set up your Okta org for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), the Okta app is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional.
 
 The following flow describes the steps when the user enrolls in the optional phone SMS factor.
 
