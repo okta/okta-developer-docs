@@ -228,7 +228,7 @@ module.exports = ctx => ({
     ],
     footer_nav: {
       need_support: {
-        heading: 'Need support?'
+        heading: 'Need Support?'
       },
       social: {
         heading: 'Social',

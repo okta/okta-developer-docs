@@ -56,6 +56,10 @@ body {
 .page-body {
   padding-top: 87px;
   background-color: white;
+
+  @include media("<=desktop") {
+    padding-top: 70px;
+  }
 }
 
 a[target="_blank"]:not([href^="mailto:"])::after {

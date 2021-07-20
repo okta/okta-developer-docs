@@ -112,35 +112,47 @@ header.page-header {
     }
   }
 
-  @include media("<desktop") {
-    padding: 0 15px;
+  @include media("<=desktop") {
+    padding: 0 35px;
+    height: 70px;
 
     .header--logo > img {
       width: 101px;
       height: 13px;
     }
 
+    ul.menu--items > li + li {
+      margin-left: 23px;
+    }
+
     .search--slideout {
-      margin-left: 15px;
-      max-width: 160px;
+      margin-left: 24px;
+      max-width: 168px;
+    }
+
+    .search--wrapper .SearchBox .search--form .CoveoSearchButton {
+      display: none;
     }
 
     .header--links {
-      padding: 0 18px;
+      padding: 0 15px;
     }
 
     .sign-up--button {
-      padding: 20px;
-      font-size: 10px;
+      padding: 7px 10px;
+      font-size: 14px;
+      margin-left: 10px;
     }
 
     .link {
+      line-height: 2em;
+
       &--small {
         font-size: 12px;
       }
 
       &[target="_blank"]:not([href^="mailto:"])::after {
-        display: none;
+        //display: none;
       }
     }
   }

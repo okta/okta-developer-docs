@@ -19,9 +19,12 @@ $colors: (
   'text': (
     'darker': #1D1D21,
     'base': #585862,
-    'link': #1662DD,
-    'link-darker': #00297A,
     'border': #D7D7DC,
+  ),
+  'link': (
+    'base': #1662DD,
+    'darker': #00297A,
+    'footer': #B5D0DF,
   ),
   'code': (
     'keyword': #965ABE,

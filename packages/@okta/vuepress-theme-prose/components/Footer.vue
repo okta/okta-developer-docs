@@ -73,7 +73,7 @@
         >
           <SmartLink
             :item="item"
-            classes="link link--small link--bold link--uppercase link--spacing-large link--with-chevron-right"
+            classes="link link--small link--bold link--uppercase link--spacing-large link--with-chevron-right link--heading"
           />
           <span class="description">{{ item.description }}</span>
         </div>

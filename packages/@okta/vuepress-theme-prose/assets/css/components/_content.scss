@@ -29,7 +29,7 @@
 
   h1, h2, h3, h4, h5, h6 {
     color: cv('text', 'darker');
-    margin-top: 2rem;
+    margin-top: 3.125rem;
   }
   
   h1 {
@@ -60,14 +60,20 @@
     h3 {
       word-break: normal;
     }
-
+  }
+  @include media("<=desktop") {
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-      margin-top: 3.125rem;
+      margin-top: 2rem;
+      margin-bottom: 1.1rem;
+    }
+    h1 {
+      font-size: 2.25rem;
+      margin-top: 1rem;
     }
   }
 
@@ -79,12 +85,12 @@
     width: 22%;
     min-width: 253px;
     position: sticky;
-    top: 87px;
     overflow: auto;
     border-right: 1px solid cv('body', 'sidebar-border');
     background: cv('body');
-    @include media("<=bootstrap-lg") {
-      width: 32%;
+    top: 87px;
+    @include media("<=desktop") {
+      top: 70px;
     }
     @include media("<=tablet") {
       display: none;
@@ -93,12 +99,10 @@
 
   .content-area {
     flex: 4 0 78%;
-    max-width: 78%;
+    max-width: calc(100% - 253px);
     padding: 50px 148px;
-    @include media("<=bootstrap-lg") {
-      flex: 4 0 68%;
-      width: 68%;
-      padding: 50px 50px;
+    @include media("<=desktop") {
+      padding: 40px 57px;
     }
     @include media("<=tablet") {
       width: 100%;
@@ -195,7 +199,7 @@
       }
     }
     .mobile-on-this-page {
-      @include media(">=desktop") {
+      @include media(">=tablet") {
         display: none;
       }
     }

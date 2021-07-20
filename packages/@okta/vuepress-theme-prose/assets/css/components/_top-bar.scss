@@ -186,7 +186,7 @@ $gray-900: #2f3f4a;
       margin-left: auto;
       &--button{
         color: white;
-        border: 2px solid cv('text', 'link');
+        border: 2px solid cv('link');
         border-radius: 3px;
         padding: 0 45px;
         height: 41px;
@@ -266,7 +266,7 @@ $gray-900: #2f3f4a;
   
   
       svg.toggle {
-        fill: cv('text', 'link');
+        fill: cv('link');
         width: 1.4em;
       }
       svg.toggle-close {
