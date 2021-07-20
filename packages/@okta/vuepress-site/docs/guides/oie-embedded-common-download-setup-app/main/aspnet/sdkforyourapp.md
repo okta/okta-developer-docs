@@ -1,3 +1,5 @@
+After you run the sample app and explore its available use cases, you can begin to integrate the SDK and/or the widget into your own app. To get started follow these steps:
+
 #### Step 1: Set up your app for .Net 4.8 or greater
 
 The SDK and samples are built using .Net 4.8.

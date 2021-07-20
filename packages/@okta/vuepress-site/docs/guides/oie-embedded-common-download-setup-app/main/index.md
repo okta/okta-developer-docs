@@ -68,8 +68,6 @@ For the sample app, use the following scopes: `openid`, `profile`, `offline_acce
 
 <StackSelector snippet="configlocations" noSelector />
 
-## Order of configuration options
-
 <StackSelector snippet="configorder" noSelector />
 
 ## Project structure
@@ -80,14 +78,10 @@ For the sample app, use the following scopes: `openid`, `profile`, `offline_acce
 
 After you complete the configurations, run the sample app:
 
-* [Run the SDK sample app](/docs/guides/oie-embedded-sdk-run-sample/aspnet/main/)
-* [Run the Widget sample app](/docs/guides/oie-embedded-widget-run-sample/aspnet/main/)
+* [Run the SDK sample app](/docs/guides/oie-embedded-sdk-run-sample/-/main/)
+* [Run the Widget sample app](/docs/guides/oie-embedded-widget-run-sample/-/main/)
 
 ## Set up the SDK for your own app
-
-After you have run the sample app and explored its available use cases, you can begin
-to integrate the SDK and/or Widget into your own app. To get started follow
-these steps:
 
 <StackSelector snippet="sdkforyourapp" noSelector />
 
