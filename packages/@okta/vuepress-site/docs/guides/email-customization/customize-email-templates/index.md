@@ -75,7 +75,7 @@ You would call functions in the Velocity Templating syntax like this:
 
 You can now reference any attribute in a user's Okta User Profile in your email templates. The notation is `$user.profile.attributeName`. For example, to reference the displayName attribute of the user's Okta user profile, you would use `$user.profile.displayName`.
 
-See [Profile object](/docs/api/resources/users#profile-object) for more information on the available user profile attributes.
+See [Profile object](/docs/reference/api/users/#profile-object) for more information on the available user profile attributes.
 
 ##### Examples of user attributes
 
