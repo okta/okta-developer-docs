@@ -28,12 +28,12 @@ Email templates use common and unique [Expression Language (EL) variables](https
 
 > **Note:** Some templates listed in the [variables tables](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-expression-language) may not appear in your org. To obtain these templates, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
 
-### Enhanced email macros
+### Enhanced Email Macros
 <ApiLifecycle access="ea" />
 
 #### Overview of what this EA feature enables
 
-The Early Access (EA) enhanced email macros feature provides customers with the functionality to customize the email templates, which Okta provides, that allows them to send email notifications to their end users. It changes the underlying email templating engine to Velocity so that you can use the syntax of the [Velocity Templating Language (VTL)](https://velocity.apache.org/) to customize your org's email templates. In addition to the new Velocity syntax, which provides enhanced conditional logic, You can now use all the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object) as well as some of the org attributes.
+The Early Access (EA) Enhanced email Macros feature provides you with the functionality to customize the email templates with greater flexibility. It changes the underlying email templating engine from Expression Language varaibles to [Velocity Templating Language (VTL)](https://velocity.apache.org/), so that you can us enhanced conditional logic, as well as all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object). You can also use some of the org attributes in these macros as documented below.
 
 ##### What this EA feature doesn't enable
 
@@ -43,7 +43,7 @@ However, when you disable the feature flag, your old customized templates will r
 
 ##### EA feature requirements
 
-To access this self-serviced EA feature, you need to enable `ENHANCED_EMAIL_MACROS`in the feature flag. For free orgs, you can contact Okta support (`support@okta.com`) to request email customization.
+To access this self-serviced EA feature, you need to enable `ENHANCED_EMAIL_MACROS`in the feature flag. For free orgs, you will need to first contact Okta support (`support@okta.com`) to request email customization.
 
 > **Note:** The EA enhanced email macros feature is supported in Okta Identity Engine. <ApiLifecycle access="ie" />
 
