@@ -15,9 +15,7 @@ $oktaGameButtonColor: #ffdd53;
 
   .width-adjuster {
     flex: 4 0 78%;
-    @include media("<=bootstrap-lg") {
-      flex: 4 0 68%;
-    }
+    max-width: calc(100% - 253px);
   }
 
   .row {
@@ -36,6 +34,9 @@ $oktaGameButtonColor: #ffdd53;
   &--section-margins {
     padding-left: 148px;
     padding-right: 148px;
+    @include media("<=desktop") {
+      padding: 40px 57px;
+    }
   }
 
   &--top-section {
@@ -49,7 +50,7 @@ $oktaGameButtonColor: #ffdd53;
   &--selector-block-margin {
     margin-bottom: 100px;
     padding-top: 42px;
-    @include media("<=bootstrap-xl") {
+    @include media("<=desktop") {
       margin-bottom: 30px;
     }
   }
@@ -65,7 +66,7 @@ $oktaGameButtonColor: #ffdd53;
 
   &--partners-block-margin {
     margin-bottom: 53px;
-    @include media("<=bootstrap-xl") {
+    @include media("<=desktop") {
       margin-bottom: 30px;
     }
   }
@@ -87,6 +88,10 @@ $oktaGameButtonColor: #ffdd53;
       height: 485px;
       top: 0;
       left: 0;
+    }
+
+    @include media("<=desktop") {
+      margin-bottom: 0px;
     }
   }
 

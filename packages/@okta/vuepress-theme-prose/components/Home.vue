@@ -6,17 +6,17 @@
       >
         <Sidebar/>
       </div> 
-      <div class="width-adjuster col-xl-10 col-lg-10 col-md-12 col-sm-12">
-        <div class="row justify-content-center">
+      <div class="width-adjuster">
+        <div class="justify-content-center">
           <div class="homepage--elevated">
             <div class="homepage--top-section homepage--section-margins">
               <div class="row flex align-items-center">
-                <div class="col-md-6">
+                <div class="col-lg-6 col-md-12">
                   <h1 class="homepage--main-heading homepage--color-main">
                     Okta Developer Portal
                   </h1>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6 col-md-12">
                   <p class="homepage--section-description">
                     Quickly deploy auth that protects your apps, APIs, and infrastructure.
                   </p>
@@ -33,7 +33,7 @@
 
               <div class="row homepage--selector-block-margin selector-tiles">
                 <div
-                  class="col-xl-3 col-lg-6 col-md-6"
+                  class="col-xl-3 col-lg-6 col-md-6 col-sm-12"
                   v-for="(tile, index) in $page.frontmatter.tiles"
                   :key="index"
                 >
@@ -58,12 +58,12 @@
               <div
                 class="row flex justify-content-around align-items-center"
               >
-                <div class="col-md-6">
+                <div class="col-lg-6 col-md-12">
                   <h2 class="homepage--main-heading homepage--color-main">
                     Try it out for your app:
                   </h2>
                 </div>
-                <div class="col-md-6">
+                <div class="col-lg-6 col-md-12">
                   <p class="homepage--section-description">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo suspendisse hendrerit nibh cpharetra eres
                   </p>

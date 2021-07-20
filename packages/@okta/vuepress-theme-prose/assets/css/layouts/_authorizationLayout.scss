@@ -140,12 +140,11 @@
     display: flex;
     align-items: center;
     margin: 0 0 111px 0;
-    @include media("<desktop") {
-      margin: 0;
-      padding: 46px;
+    @include media("<=desktop") {
+      margin: 0 0 50px;
+      padding: 0 35px;
     }
-    @include media("<475px") {
-      margin: 0;
+    @include media("<=tablet") {
       padding: 10px;
     }
   }
@@ -166,6 +165,10 @@
           margin-bottom: 60px;
         }
       }
+    }
+
+    @include media("<=tablet") {
+      padding: 0 20px 50px;
     }
   }
 

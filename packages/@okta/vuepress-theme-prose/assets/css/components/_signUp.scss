@@ -33,11 +33,16 @@
   flex-wrap: wrap;
   font-size: 16px;
   color: cv('text', 'darker');
+    
+    @include media("<=desktop") {
+      justify-content: center;
+    }
 
     .signup--form {
       width: 100%;
+      width: 45%;
       max-width: 517px;
-      margin: 0 150px 0 0;
+      margin: 0;
       padding: 65px 32px;
       background-color: #fff;
       box-shadow: 0px 6px 18px rgba(65, 65, 75, 0.5);
@@ -114,12 +119,9 @@
         }
       }
 
-      @include media("<desktop") {
-        margin: 0;
-      }
-
-      @include media("<475px") {
-        padding: 10px;
+      @include media("<=desktop") {
+        width: 100%;
+        margin-bottom: 100px;
       }
 
       @include media("<=phone") {
@@ -159,9 +161,15 @@
   }
 
   .signup--description {
-    padding: 30px 0 0 0;
+    padding: 0;
     max-width: 604px;
+    width: 44%;
     color: cv('text','darker');
+
+    @include media("<=desktop") {
+      width: 100%;
+    }
+
     p, li {
       font-size: 20px;
       line-height: 1.7rem;
