@@ -6,6 +6,19 @@ $small-spacing: 0.75rem;
 .stack-selector {
   border: 1px solid $border-color;
   border-radius: 3px;
+  &.no-snippet {
+    border: none;
+    padding-left: 0;
+    padding-right: 1rem;
+    position: sticky;
+    top: 50px;
+   .selector-control{
+     display: flex;
+     flex-direction: column;
+     background: none;
+     border: none;
+   }
+  }
   .selector-control {
     display: flex;
     padding: $small-spacing;

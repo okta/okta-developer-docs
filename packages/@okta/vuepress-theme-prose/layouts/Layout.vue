@@ -16,7 +16,7 @@
         <div
           :class="{
             'content--container': true,
-            'navigation-only': appContext.isTreeNavMobileOpen
+            'navigation-only': appContext.isTreeNavMobileOpen,
           }"
         >
           <div class="sidebar-area">
@@ -25,7 +25,7 @@
           <div class="content-area">
             <PageTitle />
             <MobileOnThisPage />
-            <StackSelector noSnippet v-if="$page.hasStackContent"/>
+            <!-- <StackSelector noSnippet v-if="$page.hasStackContent" /> -->
             <ContentPage />
             <div class="edit-on-github">
               <span class="fa fa-github"></span>
@@ -43,6 +43,8 @@
             </div>
           </div>
           <div class="on-this-page">
+            <StackSelector noSnippet v-if="$page.hasStackContent" />
+
             <OnThisPage />
           </div>
         </div>
@@ -54,7 +56,7 @@
 
 <script>
 export const LAYOUT_CONSTANTS = {
-  HEADER_TO_CONTENT_GAP: 45 //px
+  HEADER_TO_CONTENT_GAP: 45, //px
 };
 const TABLET_BREAKPOINT = 767;
 
@@ -77,31 +79,31 @@ export default {
     Search: () => import("../components/Search.vue"),
     Home: () => import("../components/Home.vue"),
     Terms: () => import("../components/Terms.vue"),
-    LiveWidget: () => import('../components/LiveWidget.vue'),
+    LiveWidget: () => import("../components/LiveWidget.vue"),
     Errors: () => import("../components/Errors.vue"),
   },
   data() {
     return {
       appContext: {
         isTreeNavMobileOpen: false,
-        isInMobileViewport: false
+        isInMobileViewport: false,
       },
       stackSelectorData: {
-        to: '',
-        from: ''
-      }
+        to: "",
+        from: "",
+      },
     };
   },
   provide() {
     return {
       appContext: this.appContext,
-      stackSelectorData: this.stackSelectorData
+      stackSelectorData: this.stackSelectorData,
     };
   },
-  mounted: function() {
-    import('../util/pendo');
+  mounted: function () {
+    import("../util/pendo");
     let that = this;
-    this.$on("toggle-tree-nav", event => {
+    this.$on("toggle-tree-nav", (event) => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
     });
     this.onResize();
@@ -112,7 +114,7 @@ export default {
     $route(to, from) {
       this.appContext.isTreeNavMobileOpen = false;
       this.redirIfRequired();
-    }
+    },
   },
   computed: {
     editLink() {
@@ -124,7 +126,7 @@ export default {
         editLinks,
         docsDir = "",
         docsBranch = "master",
-        docsRepo = repo
+        docsRepo = repo,
       } = this.$site.themeConfig.editLink;
       if (docsRepo && editLinks && this.$page.relativePath) {
         return this.createEditLink(
@@ -138,7 +140,7 @@ export default {
     },
     editLinkText() {
       return this.$site.themeConfig.editLink.editLinkText || `Edit this page`;
-    }
+    },
   },
   methods: {
     redirIfRequired() {
@@ -164,11 +166,11 @@ export default {
         "/" +
         path
       );
-    }
+    },
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
-  }
+  },
 };
 </script>
 
