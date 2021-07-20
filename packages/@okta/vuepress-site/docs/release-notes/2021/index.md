@@ -13,7 +13,7 @@ title: Okta API Products Release Notes 2021
 | [Rate limit events for user and session user activity](#rate-limit-events-for-user-and-session-user-activity) | July 8, 2021 |
 | [Schemas API feature unique attributes is now GA in Preview](#schemas-api-feature-unique-attributes-is-now-ga-in-preview) | July 8, 2021 |
 | [The SAML 2.0 Assertion grant flow is now GA in Preview](#the-saml-2-0-assertion-grant-flow-is-now-ga-in-preview) | July 8, 2021 |
-| [Event hook preview tab is now GA in Preview](#event-hook-preview-tab-is-now-ga-in-preview) | July 8, 2021 |
+| [Event Hook preview tab is now GA in Preview](#event-hook-preview-tab-is-now-ga-in-preview) | July 8, 2021 |
 | [Bugs fixed in 2021.07.0](#bugs-fixed-in-2021-07-0) | July 8, 2021 |
 
 #### Support for Push Status using the Apps API is GA in Preview
