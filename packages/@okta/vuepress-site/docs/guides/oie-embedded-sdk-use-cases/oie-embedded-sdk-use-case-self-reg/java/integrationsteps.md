@@ -1,15 +1,10 @@
 ## Integration steps
 
-The Java SDK integration steps for this use case are coming soon.
-
----
 ### Step 1: Create a sign-up link for new users
 
-The self-registration flow begins when the user clicks the **Register** link on your app's sign-in page. You need to create an HTML page as a destination for this **Register** link to capture the new account parameters the next step.
+The self-registration flow begins when the user clicks the **Register** link on your app's sign-in page. You need to create an HTML page for the **Register** link to capture new account parameters.
 
-### Step 2: Enter information in the create account page
-
-The user to enters basic information (for example, email, first, and last name) in the new account page.
+For example, the user to enters their first name, last name, and email in the following Create Account page:
 
 <div class="common-image-format">
 
@@ -18,13 +13,15 @@ The user to enters basic information (for example, email, first, and last name) 
 
 </div>
 
+### Step 2: Register new user
+
 The next step is to begin the authentication process by calling the [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `begin` method.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
 ```
 
-After the authentication transaction begins, you need to get the proceed context:
+After the authentication transaction begins, you need to get the `ProceedContext`:
 
 ```java
 ProceedContext beginProceedContext = beginResponse.getProceedContext();
@@ -32,7 +29,7 @@ ProceedContext beginProceedContext = beginResponse.getProceedContext();
 AuthenticationResponse newUserRegistrationResponse = idxAuthenticationWrapper.fetchSignUpFormValues(beginProceedContext);
 ```
 
-Enroll the user with the basic profile information captured from the Create Account page.
+Enroll the user with basic profile information captured from the Create Account page by calling the `register` method.
 
 ```java
 UserProfile userProfile = new UserProfile();
@@ -50,15 +47,15 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.registe
 If you configured your org and app with the [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases) instructions, `IDXAuthenticationWrapper` returns an [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) with the following:
 
 1. [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) = `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` <br>
-   This status indicates that there are required authenticators that needs to be verified.
+   This status indicates that there are required Authenticators that needs to be verified.
 
-2. [Authenticators]() = List of Authenticators (in this case, there is only the `password` Authenticator). <br>
+2. [Authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) = List of Authenticators (in this case, there is only the `password` Authenticator). <br>
 
    ```java
    List<Authenticator> authenticators = (List<Authenticator>) session.getAttribute("authenticators");
    ```
 
-After receiving `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of Authenticators, you need to provide the user with the required factors that need to be verified. Build a factors page that is generic to handle a list of authenticators returned from the SDK.
+After receiving `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of Authenticators, you need to provide the user with the required factors that need to be verified. Build an Authentication list page that is generic to handle different lists returned from the SDK.
 
 <div class="common-image-format">
 
@@ -68,102 +65,85 @@ After receiving `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the lis
 </div>
 
 ```java
-for (Authenticator authenticator : authenticators) {
-   if (authenticatorType.equals(authenticator.getLabel())) {
-         foundAuthenticator = authenticator;
-
-         if (foundAuthenticator.getFactors().size() == 1) {
-            authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
-         } else {
-            // user should select the factor in a separate view
-            ModelAndView modelAndView = new ModelAndView("select-factor");
-            modelAndView.addObject("title", "Select Factor");
-            modelAndView.addObject("authenticatorId", foundAuthenticator.getId());
-            modelAndView.addObject("factors", foundAuthenticator.getFactors());
-            return modelAndView;
-         }
+List<String> factorMethods = new ArrayList<>();
+for (Authenticator authenticator : response.getAuthenticators()) {
+   for (Authenticator.Factor factor : authenticator.getFactors()) {
+         factorMethods.add(factor.getMethod());
    }
 }
 ```
 
-### Step 6: Call EnrollAuthenticatorAsync
+### Step 4: Enroll required Authenticator
 
-The next step is to call the `EnrollAuthenticatorAsync` method when the user
-selects the authenticator. In this use case, the `AuthenticatorId` for the
-**password** factor is passed.
+Pass the user-selected Authenticator (in this case, **Password**) to [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `selectAuthenticator` method.
 
-```csharp
-var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
-{
-     AuthenticatorId = model.AuthenticatorId,
-};
-
-var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
+```java
+authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
 ```
 
-### Step 7: Handle the response to EnrollAuthenticatorAsync
-
-The `EnrollAuthenticatorAsync` call returns an `AuthenticationStatus`. If the enrollment is successful, this property should return `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, the next step is to verify the authenticator. In this use case, the user needs to verify with the **password** authenticator.
-
-```csharp
-switch (enrollResponse?.AuthenticationStatus)
-{
-   case AuthenticationStatus.AwaitingAuthenticatorVerification:
-   if (model.IsPasswordSelected)
-   {
-      return RedirectToAction("ChangePassword", "Manage");
-   }
-
-   return RedirectToAction("VerifyAuthenticator", "Manage");
-
-case AuthenticationStatus.AwaitingAuthenticatorEnrollmentData:
-   return RedirectToAction("EnrollPhoneAuthenticator", "Manage");
-default:
-   return View("SelectAuthenticator", model);
-}
-```
-
-### Step 8: Build page to verify the new password authenticator
-
-After `AwaitingAuthenticatorVerification` is returned, the next step is to build a page that allows the user to verify the new password by supplying the password.
+This request returns an [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with  [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) = `AWAITING_AUTHENTICATOR_VERIFICATION`. You need to build a form to verify the required **Password** Authenticator.
 
 <div class="common-image-format">
 
-![Confirm password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-confirm-password.png
- "Confirm password")
+![Confirm password for Java](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-confirm-password-java.png
+ "Confirm password for Java")
 
 </div>
 
-### Step 9: Call VerifyAuthenticatorAsync to verify password
+### Step 5: Verify Authenticator and display additional factors
 
-When the user fills out the new password and clicks **Register**, a call to `VerifyAuthenticatorAsync` is made to verify (in this use case, to set the password for
-the new user). Use the `Code` property in the `VerifyAuthenticatorOptions` parameter
-to store the new password.
+After the user enters their new password, call [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `verifyAuthenticator` method with the new password.
 
-```csharp
-var idxAuthClient = new IdxClient(null);
-           var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
-           {
-               Code = code,
-           };
-
-var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
+```java
+VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(newPassword);
+AuthenticationResponse authenticationResponse =
+   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-### Step 10: Handle the response from VerifyAuthenticatorAsync
-
-If you completed the steps in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), which sets up multifactors for your application, `AuthenticationResponse.AuthenticationStatus` should return a status of `AwaitingAuthenticatorEnrollment`. 
-
-The `AwaitingAuthenticatorEnrollment` status is returned because the required **email** and optional **phone** factors await to be enrolled and verified. The user should be redirected to an authenticator list page.
+The response from this request is an [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` and `Authenticators` list containing required **email** and optional **phone**. Reuse the Authentication list page from [Step 3: Handle the response from Okta](#step-3-handle-the-response-from-okta) to display the list of factors to the user.
 
 <div class="common-image-format">
 
-![Authenticator list](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-email-phone.png
- "Authenticator List")
+![Authenticator list for Java](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-email-phone-java.png
+ "Authenticator List for Java")
 
 </div>
 
-> **Note:** In the previous screenshot, the **Skip** button is used to skip the authenticators. You can implement a **Skip** button on your authenticators list page when one of the authenticators is optional. Since the email factor is required but the phone is **optional**, the **Skip** button in this step is visible yet disabled. The **Skip** button is described in later steps.
+> **Note:** In the previous Authenticator list page, you can implement a **Skip** option for optional Authenticators. However, since **email** is required, this example did not implement a **Skip** option.
+
+### Step 6: User selects email Authenticator for verification
+
+In this use case, the user selects **Email** to verify the Authenticator. Pass this user-selected Authenticator to [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `selectAuthenticator` method. If this request is successful, a code is sent to the user's email and `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` is returned. You need to build a form to verify the email code.
+
+<div class="common-image-format">
+
+![Authenticator email verify for Java](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code-java.png
+ "Authenticator email verify for Java")
+
+</div>
+
+> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet
+supported. Accordingly, there are two recommended options to mitigate this limitation.
+See
+[Email verify email link does not work](/docs/guides/oie-embedded-sdk-limitations/main/#email-link-to-verify-email-address-not-working).
+
+When the user submits their email code, send the code to [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `verifyAuthenticator` method:
+
+```java
+VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);
+
+AuthenticationResponse authenticationResponse =
+   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+```
+---
+
+The `AwaitingAuthenticatorEnrollment` status is returned because the required **email** and optional **phone** factors await to be enrolled and verified.
+
+> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet
+supported. Accordingly, there are two recommended options to mitigate this limitation.
+See
+[Email verify email link does not work](/docs/guides/oie-embedded-sdk-limitations/main/#email-link-to-verify-email-address-not-working).
+
 
 The code snippet below shows how the response is handled. `AwaitingAuthenticatorEnrollment` identifies that there are additional factors (in this use case, email and optionally phone). The Authenticator list page is loaded again (the first time was for password) with the two additional
 factors.
@@ -195,12 +175,10 @@ var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
 var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-### Step 12: Update the Email Factor Verification email template (optional)
-
-The email sent to the user has a **Verify Email Address** link that isn't yet
+> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet
 supported. Accordingly, there are two recommended options to mitigate this limitation.
 See
-[Email verify email link does not work](/docs/guides/oie-embedded-sdk-limitations/main/#email-verify-email-link-does-not-work).
+[Email verify email link does not work](/docs/guides/oie-embedded-sdk-limitations/main/#email-link-to-verify-email-address-not-working).
 
 ### Step 13: Handle the response to EnrollAuthenticatorAsync
 
