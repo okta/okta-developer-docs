@@ -1,4 +1,12 @@
 export class SignUpPage {
+  visitSignUpPage() {
+
+  }
+
+  visitOieSignUpPage() {
+    cy.visit('/signup/oie.html');
+  }
+
   getEmailInput() {
     return cy.get('input[id="email"]');
   }

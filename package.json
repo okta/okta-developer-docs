@@ -17,7 +17,7 @@
     "cy:open": "cypress open",
     "cy:run": "cypress run",
     "test:unit": "jest tests/unit",
-    "test-only": "yarn test:unit && yarn test:update-web-driver && protractor tests/selenium/conf.js && yarn stop",
+    "test-only": "yarn test:unit && yarn test:update-web-driver && protractor tests/selenium/conf.js && yarn cy:run && yarn stop",
     "test:test-local": "yarn test:wait-on-local && yarn test-only || (yarn stop && exit 1)",
     "test:update-web-driver": "node ./scripts/update-se-drivers.js",
     "test:stop-web-driver": "yarn fkill -s $(pgrep -f 'webdriver-manager/selenium' || echo 99999999)",

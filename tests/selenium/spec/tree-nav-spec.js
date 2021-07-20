@@ -31,29 +31,28 @@ describe('tree nav panel(left section)', () => {
       }
     }));
 
-    describe('in mobile vieports', () => {
-      beforeEach(util.itHelper(async () => {
-        docsPage.navigate('/docs/concepts')
-        docsPage.resizeXXsmall();
-        docsPage.refresh();
-      }));
-      util.itNoHeadless("can be toggled via Breadcrumbs' 'Show Contents' link", util.itHelper(async () => {
-        try {
-          expect(await docsPage.isTreeNavVisible()).to.equal(false);
-          await docsPage.toggleTreeNavMobile();
-          expect(await docsPage.isTreeNavVisible()).to.equal(true);
-          await docsPage.toggleTreeNavMobile();
-          expect(await docsPage.isTreeNavVisible()).to.equal(false);
-          await docsPage.toggleTreeNavMobile();
-          let treeNavLink = await docsPage.getTreeNavLink('Authentication');
-          await treeNavLink.click();
-          expect(await docsPage.isTreeNavVisible()).to.equal(false);
-          treeNavLink = await (await docsPage.getTreeNavLink('Authentication')).getWebElement();
-          expect(await treeNavLink.getAttribute('class')).to.contain(activeLinkClass);
-        } catch (err) {
-          throw err;
-        }
-      }));
-    })
+    // describe('in mobile vieports', () => {
+    //   beforeEach(util.itHelper(async () => {
+    //     docsPage.navigate('/docs/concepts')
+    //     docsPage.resizeXXsmall();
+    //     docsPage.refresh();
+    //   }));
+    //   util.itNoHeadless("can be toggled via Breadcrumbs' 'Show Contents' link", util.itHelper(async () => {
+    //     try {
+    //       expect(await docsPage.isTreeNavVisible()).to.equal(false);
+    //       await docsPage.toggleTreeNavMobile();
+    //       expect(await docsPage.isTreeNavVisible()).to.equal(true);
+    //       await docsPage.toggleTreeNavMobile();
+    //       expect(await docsPage.isTreeNavVisible()).to.equal(false);
+    //       await docsPage.toggleTreeNavMobile();
+    //       let treeNavLink = await docsPage.getTreeNavLink('Authentication');
+    //       await treeNavLink.click();
+    //       expect(await docsPage.isTreeNavVisible()).to.equal(false);
+    //       treeNavLink = await (await docsPage.getTreeNavLink('Authentication')).getWebElement();
+    //       expect(await treeNavLink.getAttribute('class')).to.contain(activeLinkClass);
+    //     } catch (err) {
+    //       throw err;
+    //     }
+    //   }));
+    // })
   });
- 
