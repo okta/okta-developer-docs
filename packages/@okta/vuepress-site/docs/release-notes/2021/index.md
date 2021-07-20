@@ -13,6 +13,7 @@ title: Okta API Products Release Notes 2021
 | [Rate limit events for user and session user activity](#rate-limit-events-for-user-and-session-user-activity) | July 8, 2021 |
 | [Schemas API feature unique attributes is now GA in Preview](#schemas-api-feature-unique-attributes-is-now-ga-in-preview) | July 8, 2021 |
 | [The SAML 2.0 Assertion grant flow is now GA in Preview](#the-saml-2-0-assertion-grant-flow-is-now-ga-in-preview) | July 8, 2021 |
+| [Event hook preview tab is now GA in Preview](#event-hook-preview-tab-is-now-ga-in-preview) | July 8, 2021 |
 | [Bugs fixed in 2021.07.0](#bugs-fixed-in-2021-07-0) | July 8, 2021 |
 
 #### Support for Push Status using the Apps API is GA in Preview
@@ -41,6 +42,10 @@ The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#un
 #### The SAML 2.0 Assertion grant flow is now GA in Preview
 
 You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-saml2/overview/). <!--OKTA-406626-->
+
+#### Event Hook preview tab is now GA in Preview
+
+Event Hooks configured in the Admin Console or by [Event Hooks Management API](https://developer.okta.com/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/oie/en-us/Content/Topics/automation-hooks/event-hooks-preview.htm).
 
 #### Bugs fixed in 2021.07.0
 
