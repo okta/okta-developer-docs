@@ -26,11 +26,18 @@
         a, span {
           text-decoration: none;
           color: cv('text', 'darker');
-          font-size: 0.8em;
+          font-size: 14px;
           padding-right: 1em;
 
           @include media("<=desktop") {
             padding-right: 7px;
+          }
+        }
+        &:nth-last-child(2) {
+          svg {
+            @include media(">tablet") {
+              display: none;
+            }
           }
         }
       }
@@ -38,11 +45,11 @@
     }
 
     .crumb-show-contents {
-      font-size: 0.8em;
+      font-size: 14px;
       color: cv('action');
       cursor: pointer;
 
-      @include media('>=tablet') {
+      @include media('>tablet') {
         display: none;
       }
     }
@@ -51,6 +58,11 @@
 
   @include media("<=desktop") {
     padding-bottom: 0;
+  }
+  @include media("<=tablet") {
+    margin: 0 -20px;
+    padding: 9px 20px;
+    border-bottom: 1px solid cv('body', 'border');
   }
 
 }

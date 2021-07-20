@@ -1,9 +1,6 @@
 .content--container {
   display: flex;
   padding: 0;
-  @include media("<=tablet") {
-    padding: 0.5rem 1.5rem;
-  }
 
   a[href*="app.getpostman.com"] {
     display: block;
@@ -86,7 +83,7 @@
     min-width: 253px;
     position: sticky;
     overflow: auto;
-    border-right: 1px solid cv('body', 'sidebar-border');
+    border-right: 1px solid cv('body', 'border');
     background: cv('body');
     top: 87px;
     @include media("<=desktop") {
@@ -106,6 +103,8 @@
     }
     @include media("<=tablet") {
       width: 100%;
+      max-width: 100%;
+      padding: 0 20px 20px;
     }
     @include media(">=tablet") {
       a {
@@ -254,9 +253,7 @@
 
   .on-this-page {
     width: 18%;
-    @include media(">tablet") {
-      display: none;
-    }
+    display: none;
   }
   &.navigation-only {
     @include media("<=tablet") {
@@ -269,7 +266,7 @@
   }
 
   &.navigation-only .content-area {
-    @include media("<tablet") {
+    @include media("<=tablet") {
       display: none;
     }
   }

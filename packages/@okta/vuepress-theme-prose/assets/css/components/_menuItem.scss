@@ -1,10 +1,11 @@
-$redesign_light_pink: #f64882;
-
 ul.menu--items {
   display: flex;
 
   a.router-link-exact-active {
-    color: $redesign_light_pink;
+    color: cv('link');
+    &:visited, &:active, &:focus {
+      color: cv('link');
+    }
   }
 
   > li + li {

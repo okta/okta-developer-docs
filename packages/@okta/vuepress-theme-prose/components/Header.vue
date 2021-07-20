@@ -14,6 +14,11 @@
     <div :class="{ 'menu--slideout': true, opened: menuOpened }">
       <div class="header--links">
         <MenuItems
+          :items="$themeConfig.primary_home_link"
+          :itemCss="'link link--small link--semi-bold'"
+          :subItemCss="'link link--small link--semi-bold link--black'"
+        />
+        <MenuItems
           :items="$themeConfig.primary_left_nav"
           :itemCss="'link link--small link--semi-bold'"
           :subItemCss="'link link--small link--semi-bold link--black'"
@@ -29,18 +34,23 @@
           :subItemCss="'link link--small link--semi-bold link--black'"
         />
       </div>
+    </div>
+    <div class="flex align-items-center">
       <SmartLink :item="{ link: '/signup/' }" classes="sign-up--button">
         Sign Up
       </SmartLink>
-    </div>
-    <div class="mobile--toggles">
-      <div v-if="!isSearchPage" class="mobile--toggle" @click="toggleSearch()">
-        <img v-if="searchOpened" src="/img/icons/icon--search-cherry.svg" />
-        <img v-else src="/img/icons/icon--search-white.svg" />
-      </div>
-      <div class="mobile--toggle" @click="toggleMenu()">
-        <img v-if="menuOpened" src="/img/icons/icon--menu-cherry.svg" />
-        <img v-else src="/img/icons/icon--menu-white.svg" />
+      <div class="mobile--toggles">
+        <div 
+          :class="{
+            'mobile--toggle': true,
+            'is-opened': menuOpened,
+          }" 
+          @click="toggleMenu()"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
   </header>
