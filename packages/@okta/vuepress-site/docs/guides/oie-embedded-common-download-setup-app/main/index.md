@@ -78,7 +78,7 @@ For the sample app, use the following scopes: `openid`, `profile`, `offline_acce
 
 After you complete the configurations, run the sample app:
 
-* [Run the SDK sample app](/docs/guides/oie-embedded-sdk-run-sample/-/main/)
+* [Run the SDK sample app](/docs/guides/oie-embedded-sdk-run-sample/aspnet/main/)
 * [Run the Widget sample app](/docs/guides/oie-embedded-widget-run-sample/-/main/)
 
 ## Set up the SDK for your own app
