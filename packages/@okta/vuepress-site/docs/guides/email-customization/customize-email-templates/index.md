@@ -33,7 +33,7 @@ Email templates use common and unique [Expression Language (EL) variables](https
 
 #### Overview of what this EA feature enables
 
-The Early Access (EA) Enhanced email Macros feature provides you with the functionality to customize the email templates with greater flexibility. It changes the underlying email templating engine from Expression Language varaibles to [Velocity Templating Language (VTL)](https://velocity.apache.org/), so that you can us enhanced conditional logic, as well as all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object). You can also use some of the org attributes in these macros as documented below.
+The Early Access (EA) Enhanced email Macros feature provides you with the functionality to customize the email templates with greater flexibility. It changes the underlying email templating engine from Expression Language variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/), so that you can use enhanced conditional logic, all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object), as well as some of the org attributes in these macros as documented below.
 
 ##### What this EA feature doesn't enable
 
