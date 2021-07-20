@@ -13,7 +13,7 @@
         class="company-logos--icon"
         v-for="(logo, index) in $themeConfig.company_logos"
         :key="index"
-        :src="logo.icon"
+        :src="color ? logo[color] : logo.icon"
         :alt="logo.name"
       />
     </div>
