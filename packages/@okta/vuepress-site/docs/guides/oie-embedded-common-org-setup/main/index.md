@@ -163,13 +163,13 @@ listed below.
 
 1. Go to [Facebook for Developers](https://developers.facebook.com/) and click the **Login** link. If you don't have an account, then create one.
 1. Using these [instructions](https://developers.facebook.com/docs/apps/register) as a guide, create a Facebook app. Ensure that when you are creating the app, you select **None** as the app type.
-1. After creating the app, on the [Apps](https://developers.facebook.com/apps/) page select the App that you just created.
+1. After creating the app, on the [Apps](https://developers.facebook.com/apps/) page select the app that you just created.
 1. On the **App** page, scroll to the **Add a product** section.
 1. Click the **Set up** link in the **Facebook Login** tile.
 1. On the first set up page, select **Web** as the platform type.
 1. On the next page, set the value for **Site URL** to `https://{Okta org domain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save** and then **Continue**.
-1. Click through all the **Next** buttons until you run through all the sections.
+1. Click through all the **Next** buttons until you run through all of the sections.
 1. In the left navigation menu, click **Facebook Login** (under products) and then click **Settings**.
 1. On the **Settings** page and under **Client OAuth Settings**, add the following URLs for the **Valid OAuth Redirect URIs** field:
       `https://{Okta org domain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
@@ -177,7 +177,7 @@ listed below.
 
 ### Step 2: Copy the App ID and Secret
 
-After you finish creating the app, the next step is to copy the **App ID** and **App Secret** for the next step where you will set up the Facebook social provider in the Okta org.
+After you finish creating the app, the next step is to copy the **App ID** and **App Secret** for the next step where you set up the Facebook Identity Provider in the Okta org.
 
 1. In the left navigation menu, click **Settings** and then **Basic**.
 1. Copy the **App ID** and **App Secret** to an accessible place in preparation for the next step.
@@ -188,8 +188,7 @@ A test account is required to test the social media sign in in development mode.
 
 1. From the left navigation menu, click **Roles** and then **Test Users**.
 1. When the list of users appears, there should be one test user. Select **Edit** for the test user and select **Change the name or password for this test user**.
-1. In the Edit Test User dialog box, set a password for the **New Password** and
-   **Confirm New Password** fields.
+1. In the Edit Test User dialog box, set a password for the **New Password** and **Confirm New Password** fields.
 1. Click **Save**.
 1. Copy or note the test user's **email** and **password** for when you perform the social media use cases.
 
@@ -212,7 +211,7 @@ The next step is to create the Facebook Identity Provider in Okta.
 
 1. Select **Security** > **Identity Providers** from the left navigation menu.
 1. On the **Identity Providers** page, click **Add Identity Provider**.
-1. In the drop-down menu that appears, select **Add Facebook**.
+1. In the drop-down list that appears, select **Add Facebook**.
 1. On the **Add Identity Provider - Facebook** page, enter a name (for example, Facebook IdP).
 1. Keep **Idp Usage** set to the **SSO Only** default.
 1. Set the **Client ID** and **Client Secret** to the **App ID** and **App Secret** that you copied in the previous step.
@@ -232,8 +231,7 @@ The next step is to add a new routing rule.
       * Facebook Identity Provider (IdP)
 1. Click **Create Rule**.
 1. At the prompt, click **Activate**.
-1. Your new rule should appear above the **Default Rule** in the list to the
-   left. This top position signifies that the settings in your new rule override
+1. Your new rule should appear above the **Default Rule** in the list to the left. This top position signifies that the settings in your new rule override
    the **Default Rule**.
 
 </div>

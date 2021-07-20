@@ -1,5 +1,5 @@
 ---
-title: User sign-out (local app)
+title: User sign out (local app)
 ---
 
 <div class="oie-embedded-sdk">
@@ -9,7 +9,7 @@ title: User sign-out (local app)
 
 <StackSelector class="cleaner-selector"/>
 
-This use case describes how to sign out a user.
+This use case describes how to sign a user out.
 
 ## Factor setup
 
@@ -17,8 +17,7 @@ No additional factors are needed.
 
 ## Configuration updates
 
-There are no additional configuration changes needed to implement
-this use case.
+There are no additional configuration changes needed to implement this use case.
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
