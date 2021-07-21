@@ -42,7 +42,7 @@ $redesign_footer_border: #1F3B54;
         letter-spacing: 1.5px;
         color: $redesign_white;
         text-transform: uppercase;
-        margin-bottom: 35px;
+        margin: 0 0 35px;
 
         @include media('<=desktop') {
           margin-bottom: 20px;
