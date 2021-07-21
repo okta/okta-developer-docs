@@ -49,7 +49,7 @@ and must be identical. These locations are:
 
 For the sample application, the **RedirectURI** should be set to `http://localhost:8080/login/callback`
 
-Okta returns the interaction code to the **Sign-in redirect URI** specified in the [create new application step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#step-4-create-new-application) and is accessed in the sample app from `login.js`.
+Okta returns the interaction code to the **Sign-in redirect URI** that is specified in the [create new application step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application) and is accessed in the sample app from `login.js`.
 
 
 ```JavaScript

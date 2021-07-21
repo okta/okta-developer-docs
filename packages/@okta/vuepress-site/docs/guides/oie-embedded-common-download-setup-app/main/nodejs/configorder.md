@@ -1,3 +1,5 @@
+## Order of configuration options
+
 The sample app uses configuration values from `config.js`, and the `config.js` loads information from environment variables (`process.env`). You can set environment variables by either using the shell command or the `testenv` file.
 
 When multiple configurations options are used simultaneously, the SDK chooses
