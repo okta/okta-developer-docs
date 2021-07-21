@@ -2,13 +2,13 @@
 
 ### Step 1: Sign in with Facebook
 
-Use [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) to start the sign-in process with Okta when the user goes to the sign-in page.
+Use [`IDXAuthenticationWrapper`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) to start the sign-in process with Okta when the user goes to the sign-in page.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin()
 ```
 
-Use the [AuthenticationResponse.getIdps()](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L91) function to return a list of social Identity Provider (IdP) options configured in your org's routing rule.
+Use the [`AuthenticationResponse.getIdps()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L91) function to return a list of social Identity Provider (IdP) options configured in your org's routing rule.
 
 ```java
 List<Idp> idps = authenticationResponse.getIdps();
@@ -24,12 +24,11 @@ You need to build a generic sign-in view page with the social sign-in options av
 </div>
 ```
 
-The following example displays the **Login with Facebook** button.
+The previous code snippet is rendered as the **Login with Facebook** button, as shown in the following image:
 
 <div class="common-image-format">
 
-![Social sign-in screenshot for Java](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link-java.png
- "Social sign-in screenshot for Java")
+![Displays the Login with Facebook button in a sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link-java.png)
 
 </div>
 
@@ -39,13 +38,11 @@ When the user selects the **Login with Facebook** option, they are directed to t
 
 After the user signs in to Facebook successfully, Facebook routes the user to the location specified in **Valid OAuth Redirect URIs** from the Facebook developer site.
 
-The **Valid OAuth Redirect URIs** for your Okta org is in the format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`.
-
-> **Note:** See [Step 1: Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/java/main/#step-1-create-a-facebook-app-in-facebook) for details on configuring the **Valid OAuth Redirect URIs** value.
+> **Note:** The **Valid OAuth Redirect URIs** for your Okta org is in the format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`. See [Step 1: Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/java/main/#step-1-create-a-facebook-app-in-facebook) for details on configuring the **Valid OAuth Redirect URIs** value.
 
 ### Step 3: Handle the callback from Okta
 
-Okta returns the Interaction code in the callback to the **Sign-in redirect URI** location specified in the [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application) section. You need to handle the callback by exchanging the Interaction code for token.
+Okta returns the Interaction code in the callback to the **Sign-in redirect URI** location specified in the [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application) section. You need to handle the callback by exchanging the Interaction code for a token.
 
 ```java
 AuthenticationResponse authenticationResponse =
