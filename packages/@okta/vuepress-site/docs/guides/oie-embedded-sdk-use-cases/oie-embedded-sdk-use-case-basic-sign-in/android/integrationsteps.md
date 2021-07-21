@@ -105,6 +105,6 @@ For example:
     ...
 ```
 
-### Step 4: Get user profile information-optional
+### Step 4: Get user profile information (optional)
 
 Optionally, you can obtain basic user information after the user is authenticated by making a request to Okta's OpenID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/android/main/#getuserprofileinfo).
