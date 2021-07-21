@@ -27,7 +27,7 @@ You need to complete the following configurations before you continue with this 
 
 ### Step 1: Complete steps in Set up your Okta org for password factor only use cases
 
-If not already done, complete the steps described in the [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
+If not already done, complete the steps described in [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
 ### Step 2: Reconfigure application for password factor only
 
