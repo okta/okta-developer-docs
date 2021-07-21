@@ -292,11 +292,11 @@
 	&:hover {
 		background-color: transparent;
 		border-color: cv('header');
-		color: cv('gray', '000');
+		color: cv('header');
 	}
 
 	&:visited {
-		color: cv('gray', '000');
+		color: cv('header');
 	}
 }
 

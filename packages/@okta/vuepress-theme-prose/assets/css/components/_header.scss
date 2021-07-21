@@ -1,5 +1,5 @@
 $redesign_white: #ffffff;
-$redesign_black: #000000;
+$redesign_black: cv('text', 'darker');
 $redesign_slideout_background: #fff;
 
 header.page-header {
@@ -128,7 +128,7 @@ header.page-header {
     }
 
     &--black {
-      color: $redesign_black;
+      color: $redesign_black !important;
 
       &:visited, &:active, &:focus {
         color: $redesign_black;
