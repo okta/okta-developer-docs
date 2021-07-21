@@ -28,6 +28,6 @@ When the sign-out request is initiated, create the following flow:
     ...
 ```
 
-### Step 3: Send user to the signed out page
+### Step 3: Send user to the signed-out page
 
 After the access token is revoked and the session is no longer valid, redirect the user to the signed-out page.
