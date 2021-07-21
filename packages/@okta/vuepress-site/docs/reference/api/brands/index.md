@@ -1232,14 +1232,16 @@ The Theme object defines the following properties:
 | `primaryColorContrastHex`             | String   | (Optional) Primary color contrast hex code. Accepted values: `#000000`, `#ffffff`.                                         | `#000000`         |
 | `secondaryColorHex`                   | String   | Secondary color hex code.                                                                                                  | `#ebebed`         |
 | `secondaryColorContrastHex`           | String   | (Optional) Secondary color contrast hex code. Accepted values: `#000000`, `#ffffff`.                                       | `#000000`         |
-| `signInPageTouchPointVariant`         | Enum     | Variant for Sign In page touch point. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.   | `OKTA_DEFAULT`    |
-| `endUserDashboardTouchPointVariant`   | Enum     | Variant for End user dashboard touch point. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`.        | `OKTA_DEFAULT`    |
-| `errorPageTouchPointVariant`          | Enum     | Variant for Error page touch point. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.     | `OKTA_DEFAULT`    |
-| `emailTemplateTouchPointVariant`      | Enum     | Variant for Email templates touch point. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                    | `OKTA_DEFAULT`    |
+| `signInPageTouchPointVariant`         | Enum     | Variant for Sign-in page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.               | `OKTA_DEFAULT`    |
+| `endUserDashboardTouchPointVariant`   | Enum     | Variant for End user dashboard. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`.                    | `OKTA_DEFAULT`    |
+| `errorPageTouchPointVariant`          | Enum     | Variant for Error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
+| `emailTemplateTouchPointVariant`      | Enum     | Variant for Email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
 
-#### Theme Touch Point Variant Definitions
+#### Variant Definition
 
-##### Sign In Page Touch Point Variant:
+A theme can be published for a page or email template with different combinations of assets, and `variants` are preset combinations of those assets.
+
+#### Variants for Sign-in Page:
 
 > **Note:** For non `OKTA_DEFAULT` variant, `primaryColorHex` will be used for buttons background color and `primaryColorContrastHex` will be used to identify shade for button text
 
@@ -1249,7 +1251,7 @@ The Theme object defines the following properties:
 | `BACKGROUND_SECONDARY_COLOR`    | Use Logo from Theme with `secondaryColorHex` as background color for the sign in page.               |
 | `BACKGROUND_IMAGE`              | Use Logo and background image from Theme.                                                            |
 
-##### End User Dashboard Touch Point Variant:
+#### Variants for End User Dashboard:
 
 | Enum Value                      | Description                                                                                                             |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
@@ -1257,7 +1259,7 @@ The Theme object defines the following properties:
 | `WHITE_LOGO_BACKGROUND`         | Use Logo from Theme with white background color for logo and use `primaryColorHex` for side nav bar background color.   |
 | `FULL_THEME`                    | Use Logo from Theme and `primaryColorHex` for logo and side nav bar background color                                    |
 
-##### Error Page Touch Point Variant:
+#### Variants for Error Page:
 
 > **Note:** For non `OKTA_DEFAULT` variant, `primaryColorHex` will be used for buttons background color and `primaryColorContrastHex` will be used to identify shade for button text
 
@@ -1267,7 +1269,7 @@ The Theme object defines the following properties:
 | `BACKGROUND_SECONDARY_COLOR`    | Use Logo from Theme with `secondaryColorHex` as background color for the error page.                 |
 | `BACKGROUND_IMAGE`              | Use Logo and background image from Theme.                                                            |
 
-##### Email Templates Touch Point Variant:
+#### Variants for Email Templates:
 
 | Enum Value                      | Description                                                                     |
 | ------------------------------- | ------------------------------------------------------------------------------- |
@@ -1305,10 +1307,10 @@ The Theme Response object defines the following properties:
 | `primaryColorContrastHex`             | String                  | Primary color contrast hex code             |
 | `secondaryColorHex`                   | String                  | Secondary color hex code                    |
 | `secondaryColorContrastHex`           | String                  | Secondary color contrast hex code           |
-| `signInPageTouchPointVariant`         | Enum                    | Variant for Sign In page touch point        |
-| `endUserDashboardTouchPointVariant`   | Enum                    | Variant for End user dashboard touch point  |
-| `errorPageTouchPointVariant`          | Enum                    | Variant for Error page touch point          |
-| `emailTemplateTouchPointVariant`      | Enum                    | Variant for Email templates touch point     |
+| `signInPageTouchPointVariant`         | Enum                    | Variant for Sign In page                    |
+| `endUserDashboardTouchPointVariant`   | Enum                    | Variant for End user dashboard              |
+| `errorPageTouchPointVariant`          | Enum                    | Variant for Error page                      |
+| `emailTemplateTouchPointVariant`      | Enum                    | Variant for Email templates                 |
 | `_links`                              | [Links](#links-object)  | Link relations for this object              |
 
 ##### Theme Response Example
