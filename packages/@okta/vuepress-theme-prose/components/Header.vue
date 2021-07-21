@@ -3,20 +3,29 @@
     <SmartLink :item="{ link: '/' }" classes="header--logo">
       <img src="/img/icons/okta-developer.svg" alt="Okta Developer Logo" />
     </SmartLink>
-    <div
+    <!-- <div
       :class="{
         'search--slideout': true,
         opened: searchOpened || isSearchPage,
       }"
     >
       <SearchBar />
-    </div>
+    </div> -->
     <div :class="{ 'menu--slideout': true, opened: menuOpened }">
+      <div
+        :class="{
+          'search--slideout': true,
+          opened: true,
+        }"
+      >
+        <SearchBar />
+      </div>
       <div class="header--links">
         <MenuItems
           :items="$themeConfig.primary_home_link"
           :itemCss="'link link--small link--semi-bold'"
           :subItemCss="'link link--small link--semi-bold link--black'"
+          :menuClass="'menu--slideout-home'"
         />
         <MenuItems
           :items="$themeConfig.primary_left_nav"
@@ -28,11 +37,13 @@
           :itemCss="'link link--small link--semi-bold'"
           :subItemCss="'link link--small link--semi-bold link--black'"
         />
-        <MenuItems
-          :items="$themeConfig.primary_doc_nav"
-          :itemCss="'link link--small link--semi-bold'"
-          :subItemCss="'link link--small link--semi-bold link--black'"
-        />
+        <ul class="menu--items menu--from-sidebar">
+          <SidebarItem
+            v-for="link in navigation"
+            :key="link.title"
+            :link="link"
+          />
+        </ul>
       </div>
     </div>
     <div class="flex align-items-center">
@@ -57,12 +68,16 @@
 </template>
 
 <script>
+import SidebarItems from "../mixins/SidebarItems";
+
 export default {
+  mixins: [SidebarItems],
   components: {
     MenuItems: () => import("../components/MenuItems.vue"),
     MenuItem: () => import("../components/MenuItem.vue"),
     SearchBar: () => import("../components/SearchBar.vue"),
     SmartLink: () => import("../components/SmartLink.vue"),
+    SidebarItem: () => import("../components/SidebarItem.vue"),
   },
   data() {
     return {

@@ -15,6 +15,21 @@ export default {
       navigation: []
     };
   },
+  mounted() {
+    this.navigation = this.getNavigationData();
+  },
+  watch: {
+    $route(to, from) {
+      // On route change check if base path has changed.
+      // If true update `iHaveChildrenActive` parameter.
+      // In such way will be possible to indicate current active item without needs to re-render sidebar
+      if (from.path !== to.path) {
+        this.navigation.forEach((nav) => {
+          this.addStatesToLink(nav);
+        });
+      }
+    }
+  },
   methods: {
     getNavigation() {
       const homeLink = { title: "Home", path: "/" };
@@ -26,6 +41,29 @@ export default {
         ..._.cloneDeep(languagesSdk),
         ..._.cloneDeep(releaseNotes)
       ];
+    },
+    getNavigationData() {
+      return this.getNavigation().map(nav => {
+        this.addStatesToLink(nav);
+        return nav;
+      });
+    },
+    addStatesToLink(link) {
+      // Reset iHaveChildrenActive value.
+      link.iHaveChildrenActive = false;
+
+      if (link.path) {
+        // Add state to leaf link
+        link.iHaveChildrenActive = link.path === this.$page.regularPath;
+      }
+      if (link.subLinks) {
+        for (const subLink of link.subLinks) {
+          // Compute state to section link
+          link.iHaveChildrenActive =
+            link.iHaveChildrenActive || this.addStatesToLink(subLink);
+        }
+      }
+      return link.iHaveChildrenActive;
     },
     getGuides() {
       const pages = this.$site.pages;

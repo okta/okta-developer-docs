@@ -35,9 +35,7 @@
         }
         &:nth-last-child(2) {
           svg {
-            @include media(">tablet") {
-              display: none;
-            }
+            display: none;
           }
         }
       }
@@ -48,10 +46,7 @@
       font-size: 14px;
       color: cv('action');
       cursor: pointer;
-
-      @include media('>tablet') {
-        display: none;
-      }
+      display: none;
     }
 
   }

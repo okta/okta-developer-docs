@@ -28,7 +28,6 @@ export default {
     };
   },
   mounted() {
-    this.navigation = this.getNavigationData();
     if (!this.appContext.isInMobileViewport) {
       this.handleScroll();
       window.addEventListener("scroll", this.handleScroll);
@@ -37,25 +36,7 @@ export default {
   beforeDestroy() {
     window.removeEventListener("scroll", this.handleScroll);
   },
-  watch: {
-    $route(to, from) {
-      // On route change check if base path has changed.
-      // If true update `iHaveChildrenActive` parameter.
-      // In such way will be possible to indicate current active item without needs to re-render sidebar
-      if (from.path !== to.path) {
-        this.navigation.forEach((nav) => {
-          this.addStatesToLink(nav);
-        });
-      }
-    }
-  },
   methods: {
-    getNavigationData() {
-      return this.getNavigation().map(nav => {
-        this.addStatesToLink(nav);
-        return nav;
-      });
-    },
     toggleSubNav: function(event) {
       const parent = event.target.parentElement;
       const sections = parent.querySelector(".sections");
@@ -71,23 +52,6 @@ export default {
 
       document.querySelector(".sidebar-area").style.height =
         maxHeight + "px"; 
-    },
-    addStatesToLink(link) {
-      // Reset iHaveChildrenActive value.
-      link.iHaveChildrenActive = false;
-
-      if (link.path) {
-        // Add state to leaf link
-        link.iHaveChildrenActive = link.path === this.$page.regularPath;
-      }
-      if (link.subLinks) {
-        for (const subLink of link.subLinks) {
-          // Compute state to section link
-          link.iHaveChildrenActive =
-            link.iHaveChildrenActive || this.addStatesToLink(subLink);
-        }
-      }
-      return link.iHaveChildrenActive;
     },
   }
 };

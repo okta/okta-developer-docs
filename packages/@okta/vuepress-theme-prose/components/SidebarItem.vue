@@ -1,5 +1,10 @@
 <template>
-  <li :class="{'link-wrap': true, 'subnav-active': link.iHaveChildrenActive, hidden: hidden }">
+  <li :class="{
+    'link-wrap': true, 
+    'subnav-active': link.iHaveChildrenActive, 
+    'open': link.subLinks && sublinksExpanded,
+    'expandable': link.subLinks,
+    hidden: hidden }">
     <router-link
           v-if="entityType === types.link"
           :to="link.path"
@@ -9,7 +14,7 @@
           <a
             :href="href"
             @click="navigate"
-            :class="route.path === $route.path ? 'router-link-active' : ''"
+            :class="route.path === $route.path ? 'router-link-active link' : 'link'"
             :aria-current="route.path === $route.path && 'page'"
             >
             <slot>
@@ -39,7 +44,7 @@
             'fa-chevron-right': link.subLinks && !sublinksExpanded,
             'fa-chevron-down': link.subLinks && sublinksExpanded,
              }"></i>
-          <span class="text-holder">
+          <span class="text-holder link">
             {{ link.title }}
           </span>
     </div>

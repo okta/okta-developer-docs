@@ -92,7 +92,8 @@ ul.menu--items {
   }
 
   > li.expandable > a:after,
-  > li.expandable > span:after {
+  > li.expandable > span:after,
+  li.expandable > .tree-nav-link > span:after {
     content: "";
     position: absolute;
     right: 0;
@@ -101,5 +102,9 @@ ul.menu--items {
     background-repeat: no-repeat;
     width: 8px;
     height: 4px;
+
+    @include media("<=tablet") {
+      background-image: url('data:image/svg+xml;utf8,<svg width="8" height="4" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.471 3.833a.748.748 0 01-.942 0L.195.975a.516.516 0 010-.808.748.748 0 01.943 0L4 2.571 6.862.167a.748.748 0 01.943 0c.26.224.26.585 0 .808L4.47 3.833z" fill="%231D1D21"/></svg>');
+    }
   }
 }

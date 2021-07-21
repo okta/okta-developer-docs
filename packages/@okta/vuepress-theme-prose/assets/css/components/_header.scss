@@ -263,13 +263,19 @@ header.page-header {
           li {
             margin: 0;
 
+            .tree-nav-link {
+              position: relative;
+            }
+
             a.link,
             span.link {
-              font-size: 16px;
-              font-weight: normal;
-              line-height: 2em;
+              font-size: 14px;
+              font-weight: 600;
+              line-height: 2.2em;
+              position: relative;
+              display: block;
 
-              &:not(.router-link-exact-active) {
+              &:not(.router-link-exact-active, .subnav-active) {
                 color: cv('text', 'darker');
 
                 &:visited, &:active, &:focus {
@@ -279,12 +285,26 @@ header.page-header {
 
               &:after {
                 transform: rotate(-90deg);
+                transition: transform 300ms ease-in-out;
               }
+
+              &.tree-nav-link {
+                font-weight: 300;
+
+                &:after {
+                  display: none;
+                }
+              }
+            }
+
+            i.fa {
+              display: none;
             }
           }
 
-          > li.expandable {
+          li.expandable {
             cursor: pointer;
+            padding: 0;
 
             &:before {
               display: none;
@@ -295,7 +315,7 @@ header.page-header {
               box-shadow: none;
               max-height: 0;
               overflow: hidden;
-              padding: 0 16px;
+              padding: 0 0 0 16px;
               position: initial;
               transform: none;
               transition: max-height 300ms ease-in-out;
@@ -306,6 +326,10 @@ header.page-header {
 
               li {
                 margin: 0;
+
+                .link {
+                  font-weight: 300;
+                }
               }
 
               .menu--divider,
@@ -314,20 +338,27 @@ header.page-header {
               }
             }
 
-            span.link:after {
-              transform: rotate(-90deg);
-              transition: transform 300ms ease-in-out;
-            }
-
             &.open {
               > ul.submenu--items {
                 max-height: 100%;
               }
 
+              > .tree-nav-link > span.link:after,
               > span.link:after {
                 transform: rotate(0deg);
               }
             }
+          }
+
+          ul.sections {
+            padding: 0 0 0 16px;
+          }
+
+        }
+
+        .menu--from-sidebar {
+          > li.link-wrap:first-child {
+            display: none;
           }
         }
       }
@@ -342,16 +373,13 @@ header.page-header {
     }
 
     .search--slideout {
-      position: absolute;
-      top: 70px;
-      left: 0;
-      right: 0;
-      max-width: none;
-      height: 70px;
-      margin: 0;
+      max-width: 100%;
+      width: 100%;
+      margin: 20px 0 0;
       padding: 16px;
       background-color: $redesign_slideout_background;
-      z-index: -1;
+      flex: none;
+      z-index: 1;
 
       &.opened {
         display: block;

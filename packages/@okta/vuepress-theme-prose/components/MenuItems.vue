@@ -1,5 +1,5 @@
 <template>
-  <ul class="menu--items">
+  <ul v-bind:class="['menu--items', menuClass]">
     <MenuItem
       v-for="(item, index) in items"
       :key="index"
@@ -26,6 +26,10 @@
         default: ''
       },
       subItemCss: {
+        type: String,
+        default: ''
+      },
+      menuClass: {
         type: String,
         default: ''
       }
