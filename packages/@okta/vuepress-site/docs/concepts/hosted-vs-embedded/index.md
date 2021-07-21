@@ -12,7 +12,7 @@ Another difference is when you're using the Okta-hosted Sign-In widget, you're c
 
 ## Configure policies for app sign-in experiences
 
-For both Okta-hosted and Customer-hosted sign-in experiences, you can configure the policies in the Okta Admin console to determine how the app will behave. 
+For both Okta-hosted and customer-hosted sign-in experiences, you can configure policies in the Okta Admin Console to determine the behavior of the app. 
 
 1. Go to **Security** > **API**. 
 1. In the **Authorization Servers** tab, select an authorization server and click the edit icon beside it. 
