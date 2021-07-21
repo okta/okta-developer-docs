@@ -28,18 +28,6 @@ The Brands API has the following CRUD operations:
 
 List all the brands in your org
 
-#### Request path parameters
-
-N/A
-
-#### Request query parameters
-
-N/A
-
-#### Request body
-
-N/A
-
 #### Response body
 
 Array of the [Brand Response](#brand-response-object)
@@ -107,14 +95,6 @@ Fetches a brand by `brandId`
 | --------- | ----------- | ------------- |
 | `brandId` | String (URL)| ID of a Brand |
 
-#### Request query parameters
-
-N/A
-
-#### Request body
-
-N/A
-
 #### Response body
 
 The requested [Brand Response](#brand-response-object)
@@ -179,10 +159,6 @@ Updates a Brand by `brandId`
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
 | `brandId` | String (URL)| ID of a Brand |
-
-#### Request query parameters
-
-N/A
 
 #### Request body
 
@@ -389,14 +365,6 @@ List all the themes in your brand
 | --------- | ----------- | ------------- |
 | `brandId` | String (URL)| ID of a Brand |
 
-#### Request query parameters
-
-N/A
-
-#### Request body
-
-N/A
-
 #### Response body
 
 Array of the [Theme Response](#theme-response-object)
@@ -496,14 +464,6 @@ Fetches a Theme for a Brand
 | `brandId` | String (URL)| ID of a Brand |
 | `themeId` | String (URL)| ID of a Theme |
 
-#### Request query parameters
-
-N/A
-
-#### Request body
-
-N/A
-
 #### Response body
 
 The requested [Theme Response](#theme-response-object)
@@ -600,10 +560,6 @@ Updates a Theme for a Brand
 | --------- | ----------- | ------------- |
 | `brandId` | String (URL)| ID of a Brand |
 | `themeId` | String (URL)| ID of a Theme |
-
-#### Request query parameters
-
-N/A
 
 #### Request body
 
@@ -768,10 +724,6 @@ Updates the logo for your Theme
 | `brandId` | String (URL)| ID of a Brand |
 | `themeId` | String (URL)| ID of a Theme |
 
-#### Request query parameters
-
-N/A
-
 #### Request body
 
 | Property | Type | Description                                                                                                                                                                                               |
@@ -901,14 +853,6 @@ HTTP/1.1 204 No Content
 
 Updates the favicon for your theme
 
-#### Request path parameters
-
-N/A
-
-#### Request query parameters
-
-N/A
-
 #### Request body
 
 | Property | Type | Description                                                                                                                                                                                               |
@@ -1031,14 +975,6 @@ HTTP/1.1 204 No Content
 <ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/background-image" />
 
 Updates the background Image for your theme
-
-#### Request path parameters
-
-N/A
-
-#### Request query parameters
-
-N/A
 
 #### Request body
 
