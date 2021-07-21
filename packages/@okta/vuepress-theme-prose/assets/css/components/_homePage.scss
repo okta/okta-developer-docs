@@ -16,6 +16,10 @@ $oktaGameButtonColor: #ffdd53;
   .width-adjuster {
     flex: 4 0 78%;
     max-width: calc(100% - 253px);
+    @include media("<=tablet") {
+      flex-basis: 100%;
+      max-width: 100%;
+    }
   }
 
   .row {
