@@ -20,7 +20,7 @@ When the sign-out request is initiated, create the following flow:
 
 1. Invalidate the current session.
 
-```java
+```kotlin
    ...
     fun signOut() {
         transitionToForm(form = initialForm())

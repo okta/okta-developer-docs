@@ -18,7 +18,7 @@ For example:
 When the user initiates the sign-in process, your app needs to create an [AuthenticationOptions](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationOptions.java) object and set its `username` and `password` properties to the values entered by the user. Send this object to the
 [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) `authenticate` method to authenticate the user.
 
-```java
+```kotlin
     fun signIn() {
         if (!viewModel.isValid()) return
 
@@ -46,7 +46,7 @@ For a successful sign-in response (`AuthenticationStatus.Success`), use the [Aut
 
 For example:
 
-```java
+```kotlin
     ...
     {
         fun handleTerminalTransitions(response: AuthenticationResponse): ProceedTransition? {
@@ -70,7 +70,7 @@ You need to handle other returned [AuthenticationStatus](https://github.com/okta
 
 For example:
 
-```java
+```kotlin
     ...
        fun handleKnownTransitions(response: AuthenticationResponse): ProceedTransition {
             handleTerminalTransitions(response)?.let { return it }

@@ -5,7 +5,7 @@ Update the key/value pairs in the `okta.properties` file found in the `okta-idx-
 3. Add the following values and close the file when you finish:
 
     ```json
-    issuer=https://{example.okta.com}/oauth2/default
+    issuer=https://example.okta.com/oauth2/default
     clientId=clientID_from_client_app
     redirectUri=com.okta.sample.android:/login
     ```
