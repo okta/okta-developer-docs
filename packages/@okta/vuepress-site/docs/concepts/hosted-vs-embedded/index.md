@@ -16,7 +16,7 @@ For both Okta-hosted and Customer-hosted sign-in experiences, you can configure 
 
 1. Go to **Security** > **API**. 
 1. In the **Authorization Servers** tab, select an authorization server and click the edit icon beside it. 
-1. On the authorization server page, select the **Access Policies** tab and scroll down to the Rules
+1. On the authorization server page, select the **Access Policies** tab and scroll down to the Rules list.
 1. Click the edit icon beside the Rule you want to modify. The Edit Rule window appears where you can update the settings for the access policies.
 
 ## Okta-hosted widget
