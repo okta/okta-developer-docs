@@ -8,24 +8,22 @@ For example, the user to enters their first name, last name, and email in the fo
 
 <div class="common-image-format">
 
-![Create user for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-create-java.png
- "Create Account sample form  for Java SDK")
+![Displays Create Account page for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-create-java.png)
 
 </div>
 
 ### Step 2: User enters profile data
 
-Begin the authentication process by calling the [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `begin` method.
+Begin the authentication process by calling the [`IDXAuthenticationWrapper.begin`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
 ```
 
-After the authentication transaction begins, you need to get the `ProceedContext`:
+After the authentication transaction begins, you need to get the `ProceedContext` and call `IDXAuthenticationWrapper.fetchSignUpFormValues`:
 
 ```java
 ProceedContext beginProceedContext = beginResponse.getProceedContext();
-
 AuthenticationResponse newUserRegistrationResponse = idxAuthenticationWrapper.fetchSignUpFormValues(beginProceedContext);
 ```
 
@@ -48,12 +46,12 @@ If you configured your org and app with instructions from [Set up your Okta org 
 
 This step contains the request to enroll a password authenticator for the user.
 
-After the initial register request, `IDXAuthenticationWrapper` returns an [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) with the following:
+After the initial register request, `IDXAuthenticationWrapper` returns an [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with the following:
 
-1. [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) = `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` <br>
+1. [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) = `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` <br>
    This status indicates that there are required authenticators that needs to be verified.
 
-2. [Authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) = List of authenticators (in this case, there is only the password authenticator). <br>
+2. [`Authenticators`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) = List of authenticators (in this case, there is only the password authenticator). <br>
 
    ```java
    List<Authenticator> authenticators = (List<Authenticator>) session.getAttribute("authenticators");
@@ -209,25 +207,11 @@ You need to build a form to capture the user's phone number as well as a subsequ
 
 </div>
 
-> **Note:** Only SMS is currently supported as the phone authenticator method for the Java SDK.
-
 When the user enters their phone number and selects SMS to receive the verification code, capture this information and send it to [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `submitPhoneAuthenticator` method.
 
 For example, the following code snippet passes the `phone` and `mode` variables to `idxAuthenticationWrapper.submitPhoneAuthenticator`:
 
 ```java
-if (!Strings.hasText(phone)) {
-   ModelAndView mav = new ModelAndView("register-phone");
-   mav.addObject("errors", "Phone is required");
-   return mav;
-}
-
-if (!Strings.hasText(mode)) {
-   ModelAndView modelAndView = new ModelAndView("select-phone-factor");
-   modelAndView.addObject("phone", phone);
-   return modelAndView;
-}
-
 ProceedContext proceedContext = Util.getProceedContextFromSession(session);
 
 AuthenticationResponse authenticationResponse =
