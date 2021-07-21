@@ -26,14 +26,13 @@ The self-registration flow continues with email and phone factors in this sequen
 
 After the password and email factors are verified, the user has the option to enroll the phone factor.
 
-> **Note:** Based on the configuration described in [Set up your Okta org for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), the Okta app is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional.
+> **Note:** Based on the configuration described in [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), the Okta app is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional.
 
-The following flow describes the steps when the user enrolls in the optional phone SMS factor.
+The following flow describes the steps when the user enrolls the optional phone SMS factor.
 
 <div class="common-image-format">
 
-![Self-service registration enroll](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-phone.png
- "Self-service registration enroll")
+![Self-service registration enroll](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-phone-java.png "Displays the sequence diagram for enrolling an optional phone SMS factor with the Java SDK")
 
 </div>
 

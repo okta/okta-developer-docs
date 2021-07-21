@@ -44,7 +44,9 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.registe
 
 ### Step 3: Display enrollment factors
 
-If you configured your org and app with instructions from [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), your app is configured with **Password** authentication, and additional **Email** or **Phone** factors. This step contains the request to enroll a password authenticator.
+If you configured your org and app with instructions from [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), your app is configured with **Password** authentication, and additional **Email** or **Phone** factors. Authenticators are the factor credentials, owned or controlled by the user that can be verified during authentication.
+
+This step contains the request to enroll a password authenticator for the user.
 
 After the initial register request, `IDXAuthenticationWrapper` returns an [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) with the following:
 
@@ -186,42 +188,52 @@ In this use case option, the user selects the optional **Phone** factor as the a
 authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
 ```
 
-The response from this request is an [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that the user needs to provide additional authenticator information. In the case of the phone authenticator, the user needs to specify a phone number.
+The response from this request is an [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that the user needs to provide additional authenticator information. In the case of the phone authenticator, the user needs to specify a phone number, and whether they want to use SMS or voice as the verification method.
 
-You need to build a form to capture the user's phone number.
+### Step 9: User enters phone number and selects phone verify method
+
+You need to build a form to capture the user's phone number as well as a subsequent form for the user to select their phone verification method (either SMS or voice).
 
 <div class="common-image-format">
 
-![Enroll phone number](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num-java.png
- "Enroll phone number authenticator form for Java SDK")
+![Enroll phone number for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num-java.png
+ "Displays the enroll phone number authenticator form for Java SDK")
 
 </div>
 
 > **Note:** The Java SDK requires the following phone number format: `{+}{country-code}{area-code}{number}`. For example, `+15556667777`.
 
-### Step 18d, Option 1: Call EnrollAuthenticatorAsync (2nd time) to submit the phone number and send SMS
+<div class="common-image-format">
 
-When the user enters their phone number and clicks the send code using the SMS button, a call to `EnrollAuthenticatorAsync` is made and passes the following values:
+![Enroll phone method](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-mode-java.png
+ "Displays the enroll phone method (SMS or voice) form for Java SDK")
 
-* Authenticator ID
-* Phone number
-* Method type (only SMS is currently supported)
+</div>
 
 > **Note:** Only SMS is currently supported for the phone authenticator type.
 
-The above values are passed using the `EnrollPhoneAuthenticatorOptions` parameter. See the following code snippet for more details.
+When the user enters their phone number and selects SMS to receive the verification code, capture this information and send it to [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `submitPhoneAuthenticator` method.
 
-```csharp
- var enrollPhoneAuthenticatorOptions = new EnrollPhoneAuthenticatorOptions
-     {
-        AuthenticatorId = Session["phoneId"].ToString(),
-        PhoneNumber = model.PhoneNumber,
-        MethodType = AuthenticatorMethodType.Sms,
-     };
+For example:
 
-var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthenticatorOptions,
-      (IIdxContext)Session["IdxContext"]);
-      Session["IdxContext"] = enrollResponse.IdxContext;
+```java
+if (!Strings.hasText(phone)) {
+   ModelAndView mav = new ModelAndView("register-phone");
+   mav.addObject("errors", "Phone is required");
+   return mav;
+}
+
+if (!Strings.hasText(mode)) {
+   ModelAndView modelAndView = new ModelAndView("select-phone-factor");
+   modelAndView.addObject("phone", phone);
+   return modelAndView;
+}
+
+ProceedContext proceedContext = Util.getProceedContextFromSession(session);
+
+AuthenticationResponse authenticationResponse =
+   idxAuthenticationWrapper.submitPhoneAuthenticator(proceedContext,
+         phone, getFactorFromMethod(session, mode));
 ```
 
 ### Step 18e, Option 1: Handle the response to EnrollAuthenticatorAsync
@@ -229,17 +241,6 @@ var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthen
 If the call to `EnrollAuthenticatorAsync` is successful, it should return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, a code is sent to the phone number through SMS.
 
 In the following code snippet, the user is redirected to a reusable code verification page that handles the code for both email and SMS. Your implementation may vary.
-
-```csharp
-var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthenticatorOptions,
-    (IIdxContext)Session["IdxContext"]);
-    ...
-if (enrollResponse.AuthenticationStatus ==
-    AuthenticationStatus.AwaitingAuthenticatorVerification)
-    {
-       return RedirectToAction("VerifyAuthenticator", "Manage");
-    }
-```
 
 ### Step 18f, Option 1: Build or reuse a phone verification code page
 
