@@ -806,6 +806,9 @@ Content-Type: application/json
 }
 ```
 
+> **NOTE:** [/api/v1/org/logo endpoint](/docs/reference/api/org/#org-logo-operations) will still work but pages will use logo from theme if `THEME_BUILDER` feature is enabled.
+> Please refer to following [scenarios](#logo-scenarios)
+
 ### Delete Theme Logo
 
 <ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/logo" />
@@ -1177,6 +1180,8 @@ The Theme object defines the following properties:
 | `errorPageTouchPointVariant`          | Enum     | Variant for Error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for Email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
 
+> **Note:** For existing Orgs with customizations, please refer to following [table](#data-migration-from-existing-orgs) for different scenarios with initial variant values.
+
 #### Variant Definition
 
 A theme can be published for a page or email template with different combinations of assets, and `variants` are preset combinations of those assets.
@@ -1329,3 +1334,32 @@ The Image Upload Response object defines the following properties:
 ### Links object
 
 Specifies link relations (see [Web Linking](https://tools.ietf.org/html/rfc8288)) available for the current status of an application using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only.
+
+## Existing Org Scenarios
+
+### Data migration from existing Orgs
+
+Initial Theme variant values will be different for existing Orgs with customizations.
+
+| Property                              | Org Logo Uploaded     | Background Image Uploaded  | Initial Value                   |
+| ------------------------------------- | --------------------- | -------------------------- | ------------------------------- |
+| `signInPageTouchPointVariant`         | no                    | no                         | `OKTA_DEFAULT`                  |
+| `signInPageTouchPointVariant`         | yes                   | no                         | `BACKGROUND_SECONDARY_COLOR`    |
+| `signInPageTouchPointVariant`         | yes                   | yes                        | `BACKGROUND_IMAGE`              |
+| `errorPageTouchPointVariant`          | no                    | no                         | `OKTA_DEFAULT`                  |
+| `errorPageTouchPointVariant`          | yes                   | no                         | `BACKGROUND_SECONDARY_COLOR`    |
+| `errorPageTouchPointVariant`          | yes                   | yes                        | `BACKGROUND_IMAGE`              |
+
+### Logo Scenarios
+
+Following scenarios explains which logo will be used when based on `THEME_BUILDER` flag
+
+| `THEME_BUILDER` feature status        | Can Upload Org Logo | Can Upload Theme Logo  | Logo Used On Pages   |
+| ------------------------------------- | ------------------- | ---------------------- | -------------------- |
+| Enabled                               | yes                 | yes                    | Theme logo           |
+| Disabled                              | yes                 | no                     | Org logo             |
+
+> **NOTE:**
+> Enabling `THEME_BUILDER` feature will automatically update the Theme logo from Org. Org logo will still be stored.
+> Disabling `THEME_BUILDER` feature will use the logo configured for the Org.
+> Pages will use the logo from the source defined above based on feature status
