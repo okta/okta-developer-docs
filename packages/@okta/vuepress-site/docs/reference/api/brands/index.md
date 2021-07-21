@@ -1180,6 +1180,8 @@ The Theme object defines the following properties:
 | `errorPageTouchPointVariant`          | Enum     | Variant for Error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for Email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
 
+> **Note:** Contrast color will be used by pages to identify opacity of text color where primary or secondary color is used as background color.
+
 > **Note:** For existing Orgs with customizations, please refer to following [table](#data-migration-from-existing-orgs) for different scenarios with initial variant values.
 
 #### Variant Definition
