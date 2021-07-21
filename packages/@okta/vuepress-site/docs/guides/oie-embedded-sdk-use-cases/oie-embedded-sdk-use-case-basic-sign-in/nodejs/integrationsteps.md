@@ -15,7 +15,7 @@ For example:
 
 ### Step 2: Authenticate user credentials
 
-When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object, which in the SDK sample app's `login.js` file is `authClient`, and set its `username` and `password` properties to the values entered by the user. Send this object to the `idx.authenticate` function to authenticate the user. See [idx.Authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) for more information.
+When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object, which is `authClient` in the SDK sample app's `login.js` file , and set its `username` and `password` properties to the values entered by the user. Send this object to the `idx.authenticate` function to authenticate the user. See [idx.Authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) for more information.
 
 ```JavaScript
 router.post('/login', async (req, res, next) => {
@@ -31,7 +31,7 @@ router.post('/login', async (req, res, next) => {
 
 ### Step 3: Handle the response from the sign in
 
-The application handles the response from the authentication call using the `handleTransaction` function as shown in the SDK sample application `handleTransaction.js` file. The `transaction` parameter is the `IdxStatus` passed in through the response from Okta.
+The application handles the response from the authentication call by using the `handleTransaction` function as shown in the SDK sample application `handleTransaction.js` file. The `transaction` parameter is the `IdxStatus` value that is passed in through the response from Okta.
 
 ```JavaScript
 module.exports = function handleTransaction({
@@ -53,8 +53,8 @@ module.exports = function handleTransaction({
 
 #### Success status
 
-For a successful sign-in response, the `IdxStatus` field indicates a success `IdxStatus.SUCCESS` and retrieves the token and processes the authenticated user in the app. The SDK sample application
-saves the tokens to storage in the `handleTransaction.js` file and redirects back to the home page.
+For a successful sign-in response, the `IdxStatus` field indicates a success `IdxStatus.SUCCESS`, retrieves the token, and processes the authenticated user in the app. The SDK sample application
+saves the tokens to storage in the `handleTransaction.js` file and redirects you back to the home page.
 
 ```JavaScript
 case IdxStatus.SUCCESS:
@@ -106,6 +106,6 @@ You need to handle other returned `IdxStatus` cases if the user didn't sign in s
 
 ```
 
-### Step 4: Get user profile information-optional
+### Step 4: Get user profile information (optiona)
 
 Optionally, you can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo).

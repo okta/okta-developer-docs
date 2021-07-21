@@ -4,7 +4,7 @@ This use case entails building out a simple UI to capture the username, password
 
 <div class="common-image-format">
 
-![Basic sign in sequence diagram for Okta Auth JS SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-seq-nodejs.png
- "Basic sign in sequence diagram for Node.js SDK")
+![Basic sign-in sequence diagram for Okta Auth JS SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-seq-nodejs.png
+ "Basic sign-in sequence diagram for Node.js SDK")
 
 </div>
