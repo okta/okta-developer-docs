@@ -170,7 +170,7 @@ public ModelAndView selectAuthenticatorForm(AuthenticationResponse response, Str
 }
 ```
 
-Based on the configuration described in [Set up your Okta org for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), the app in this use case is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional. In this step, the `isSkipAuthenticatorPresent` function returns `TRUE` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone factor. If the user decides to skip the optional factor, they are authenticated since they have already verified the required factors. See [Skip optional remaining factors](#skip-optional-remaining-factors) for details.
+Based on the configuration described in [Set up your Okta org for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), the app in this use case is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional. In this step, the `isSkipAuthenticatorPresent` function returns `TRUE` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone factor. If the user decides to skip the optional factor, they are authenticated since they have already verified the required factors. See [Step 8b, Option 2: Skip phone factor](#step-8b-option-2-skip-phone-factor) for details.
 
 <div class="common-image-format">
 
@@ -179,10 +179,9 @@ Based on the configuration described in [Set up your Okta org for multifactor us
 
 </div>
 
----
-### Step 8: User selects phone authenticator
+### Step 8, Option 1: User selects phone authenticator
 
-In this use case option, the user selects the optional **Phone** factor as the authenticator to verify. Pass this selected authenticator to [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `selectAuthenticator` method.
+In this use case option, the user selects the optional **Phone** factor as the authenticator to verify. Pass this selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator` method.
 
 ```java
 authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
@@ -190,7 +189,7 @@ authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedCon
 
 The response from this request is an [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that the user needs to provide additional authenticator information. In the case of the phone authenticator, the user needs to specify a phone number, and whether they want to use SMS or voice as the verification method.
 
-### Step 9: User enters phone number and selects phone verify method
+### Step 9, Option 1: User enters phone number and selects phone verify method
 
 You need to build a form to capture the user's phone number as well as a subsequent form for the user to select their phone verification method (either SMS or voice).
 
@@ -210,11 +209,11 @@ You need to build a form to capture the user's phone number as well as a subsequ
 
 </div>
 
-> **Note:** Only SMS is currently supported for the phone authenticator type.
+> **Note:** Only SMS is currently supported as the phone authenticator method for the Java SDK.
 
 When the user enters their phone number and selects SMS to receive the verification code, capture this information and send it to [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `submitPhoneAuthenticator` method.
 
-For example:
+For example, the following code snippet passes the `phone` and `mode` variables to `idxAuthenticationWrapper.submitPhoneAuthenticator`:
 
 ```java
 if (!Strings.hasText(phone)) {
@@ -236,88 +235,38 @@ AuthenticationResponse authenticationResponse =
          phone, getFactorFromMethod(session, mode));
 ```
 
-### Step 18e, Option 1: Handle the response to EnrollAuthenticatorAsync
+The Java SDK sends the phone authenticator data to Okta. Otka processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION`. This status indicates that the user needs to provide the verification code for the phone authenticator.
 
-If the call to `EnrollAuthenticatorAsync` is successful, it should return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, a code is sent to the phone number through SMS.
+You need to build a form to capture the user's SMS verification code. You can reuse the verification code form similar to [Step 6: User selects email authenticator](#step-6-user-selects-email-authenticator).
 
-In the following code snippet, the user is redirected to a reusable code verification page that handles the code for both email and SMS. Your implementation may vary.
+### Step 10, Option 1: User submits SMS verification code
 
-### Step 18f, Option 1: Build or reuse a phone verification code page
+The user receives the verification code as an SMS on their phone and submits it in the verify code form. Send the code to [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `verifyAuthenticator` method:
 
-Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, the page can be the same page that verifies the email code or different. The sample app reuses the same page for both email and phone verification.
-
-<div class="common-image-format">
-
-![Enter code from phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png
- "Enter code from phone")
-
-</div>
-
-### Step 18g, Option 1: Call VerifyAuthenticatorAsync to verify phone code
-
-After the user enters the phone code and clicks verify, a call is made to `VerifyAuthenticatorAsync`. In the phone verification use case, the code that passes into `VerifyAuthenticatorAsync` is the code that was sent through SMS to the phone number.
-
-T)
-
-```csharp
-var idxAuthClient = new IdxClient(null);
-           var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
-           {
-               Code = code,
-           };
-
-var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
+```java
+VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);
+AuthenticationResponse authenticationResponse =
+   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-### Step 18h: Option 1, Handle response from VerifyAuthenticatorAsync
+If the request to verify the code is successful, the SDK returns an [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in.
 
-The next step is to handle the response from `VerifyAuthenticatorAsync`. If the phone SMS code was valid, the method should return an `AuthenticationStatus` of `Success`. This status signifies that no more factors (required or optional) are waiting to be enrolled and verified. 
+Use the `AuthenticationResponse.getTokenResponse` method to retrieve a token to access user profile data before redirecting the user to the default signed-in page. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#get-user-profile-information-after-sign-in) for details.
 
-If the steps described in[Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases) were properly followed, the user should now be registered with no more factors to be verified. The user should then be sent to the default page after they have successfully registered. In the sample application, the user is sent to the user profile page.
+### Step 8b, Option 2: Skip phone factor
 
-```csharp
-var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
-Session["idxContext"] = authnResponse.IdxContext;
+If the user decides to skip the phone factor enrollment, make a request to  `IDXAuthenticationWrapper.skipAuthenticatorEnrollment`. This method skips the authenticator enrollment.
 
-switch (authnResponse.AuthenticationStatus)
-{
-   ...
-   case AuthenticationStatus.Success:
-         ClaimsIdentity identity = await
-         AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration,
-         authnResponse.TokenInfo);
-         _authenticationManager.SignIn(new AuthenticationProperties(), identity);
-         return RedirectToAction("Index", "Home");
-   ...
+```java
+if ("skip".equals(action)) {
+   logger.info("Skipping {} authenticator", authenticatorType);
+   authenticationResponse = idxAuthenticationWrapper.skipAuthenticatorEnrollment(proceedContext);
+   return responseHandler.handleKnownTransitions(authenticationResponse, session);
 }
 ```
 
-### Step 19, Option 2: Call SkipAuthenticatorSelectionAsync
+> **Note:** Ensure that the `isSkipAuthenticatorPresent` is checked for the authenticator before `skipAuthenticatorEnrollment` is called.
 
-If the user opts to skip phone enrollment, a call to `SkipAuthenticatorSelectionAsync` needs to be made. This method skips phone enrollment and eliminates the need to verify the factor. See the following code snippet for more details.
+If the request to skip the optional enrollment is successful, the SDK returns an [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in.
 
-```csharp
-var skipSelectionResponse = await _idxClient.SkipAuthenticatorSelectionAsync((IIdxContext)Session["IdxContext"]);
-switch (skipSelectionResponse.AuthenticationStatus)
-    {
-         case AuthenticationStatus.Success:
-              ClaimsIdentity identity = await
-              AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration,
-              skipSelectionResponse.TokenInfo);
-              _authenticationManager.SignIn(new AuthenticationProperties(), identity);
-              return RedirectToAction("Index", "Home");
-         case AuthenticationStatus.Terminal:
-              TempData["MessageToUser"] = skipSelectionResponse.MessageToUser;
-              return RedirectToAction("Login", "Account");
-   }
-```
-
-The method `SkipAuthenticatorSelectionAsync` can return these different response statuses: `Success` or `Terminal`. For a `Success` status, the user is signed in, the response is stored in session, and the user is redirected to the default sign-in page. In the csample app, the default sign-in page is the user profile page.
-
-### Step 20: User is sent to the user profile page
-
-After the factor verifications are successful and there're no more authenticators to enroll and verify, the user is now successfully registered and can be sent to the default sign-in page. In the sample app, the default sign-in page is the user profile page. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more details on how to fetch user information.
-
-### Troubleshooting Tips
-
-When you test this use case, ensure that you use a new email for each time. If you have a gmail account, you can reuse the same email by adding a plus (+) and additional text (for example, `myemail+1@gmail.com`, `myemail+2@gmail.com`, and so on). Ensure that the password that you use meets the minimum security requirements. For example, passwords such as `test123` fail.
+Use the `AuthenticationResponse.getTokenResponse` method to retrieve a token to access user profile data before redirecting the user to the default signed-in page. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#get-user-profile-information-after-sign-in) for details.

@@ -8,7 +8,7 @@ The following diagram illustrates the beginning of the registration process wher
 
 <div class="common-image-format">
 
-![Self-registration start for Java](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start-java.png "Sequence diagram for starting self-registration with password for Java SDK")
+![Displays the sequence diagram for starting self-registration with password flow for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start-java.png)
 
 </div>
 
@@ -18,7 +18,7 @@ The self-registration flow continues with email and phone factors in this sequen
 
 <div class="common-image-format">
 
-![Self-service registration enroll](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify-java.png "Sequence diagram for enrolling self-registration MFA with Java SDK")
+![Displays sequence diagram for enrolling self-registration MFA flow with Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify-java.png)
 
 </div>
 
@@ -32,19 +32,16 @@ The following flow describes the steps when the user enrolls the optional phone 
 
 <div class="common-image-format">
 
-![Self-service registration enroll](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-phone-java.png "Displays the sequence diagram for enrolling an optional phone SMS factor with the Java SDK")
+![Displays the sequence diagram for enrolling an optional phone SMS factor flow with the Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-phone-java.png)
 
 </div>
 
 ### Diagram 4, Option 2: Skip optional remaining factors
 
-The user can also opt to skip the factors when all of the remaining
-factors are optional. In this case, the user opts to skip the phone
-(SMS) factor.
+The user can choose to skip the remaining factors if they are optional. In this flow, the user chooses to skip the phone factor.
 
 <div class="common-image-format">
 
-![Self-service registration skip phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-skip-phone.png
- "Self-service registration skip phone")
+![Displays the sequence diagram for skipping an optional phone factor flow with the Java SDK Self-service](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-skip-phone-java.png)
 
 </div>
