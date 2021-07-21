@@ -105,7 +105,7 @@ header.page-header {
             margin-bottom: 2px;
           }
           &:nth-last-child(2) {
-            transform: rotate(-45deg) scale(1.2, 1) translate(-3px, 10px);
+            transform: rotate(-45deg) scale(1.2, 1) translate(-4px, 10px);
           }
         }
       }
@@ -227,6 +227,7 @@ header.page-header {
       bottom: 0;
       max-width: none;
       margin: 0;
+      padding: 0 0 20px;
       background-color: $redesign_slideout_background;
       z-index: -1;
       overflow-y: auto;
@@ -353,12 +354,33 @@ header.page-header {
           ul.sections {
             padding: 0 0 0 16px;
           }
-
         }
 
         .menu--from-sidebar {
           > li.link-wrap:first-child {
             display: none;
+          }
+
+          .link {
+            font-weight: 300;
+          }
+
+          > li.expandable {
+            > .tree-nav-link {
+              > .link {
+                font-weight: 600;
+              }
+            }
+          }
+          li.expandable {
+            .link {
+              font-weight: 300;
+            }
+            &.open {
+              > .tree-nav-link > .link {
+                font-weight: 600;
+              }
+            }
           }
         }
       }

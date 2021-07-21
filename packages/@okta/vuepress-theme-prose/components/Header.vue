@@ -3,14 +3,6 @@
     <SmartLink :item="{ link: '/' }" classes="header--logo">
       <img src="/img/icons/okta-developer.svg" alt="Okta Developer Logo" />
     </SmartLink>
-    <!-- <div
-      :class="{
-        'search--slideout': true,
-        opened: searchOpened || isSearchPage,
-      }"
-    >
-      <SearchBar />
-    </div> -->
     <div :class="{ 'menu--slideout': true, opened: menuOpened }">
       <div
         :class="{
