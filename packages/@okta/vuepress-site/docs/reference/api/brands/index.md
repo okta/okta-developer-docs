@@ -755,7 +755,7 @@ Content-Type: application/json
 
 <ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/logo" />
 
-Updates the Logo for your Theme
+Updates the logo for your Theme
 
 #### Request path parameters
 
@@ -786,7 +786,7 @@ Passing an invalid `file` returns a `400 Bad Request` status code with error cod
 
 #### Use examples
 
-The following request updates the Theme Logo with the uploaded file.
+The following request updates the Theme logo with the uploaded file.
 
 ##### Request
 
@@ -811,7 +811,7 @@ Content-Type: application/json
 }
 ```
 
-The following request shows invalid Logo validations.
+The following request shows invalid logo validations.
 
 ##### Request
 
@@ -854,7 +854,7 @@ Content-Type: application/json
 
 <ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/logo" />
 
-Deletes a Theme Logo and org will use Okta default Logo.
+Deletes a Theme logo and org will use Okta default logo.
 
 #### Request path parameters
 
@@ -873,7 +873,7 @@ Passing an invalid `themeId` returns a `404 Not Found` status code with error co
 
 #### Use examples
 
-The following request removes the uploaded Theme Logo.
+The following request removes the uploaded Theme logo.
 
 ##### Request
 
@@ -1026,7 +1026,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/background-image" />
 
-Updates the Background Image for your theme
+Updates the background Image for your theme
 
 #### Request path parameters
 
@@ -1054,7 +1054,7 @@ Passing an invalid `file` returns a `400 Bad Request` status code with error cod
 
 #### Use examples
 
-The following request updates the Theme Background Image with the uploaded file.
+The following request updates the Theme background image with the uploaded file.
 
 ##### Request
 
@@ -1116,7 +1116,7 @@ Content-Type: application/json
 
 <ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/background-image" />
 
-Deletes a Theme Background Image.
+Deletes a Theme background image.
 
 #### Request path parameters
 
@@ -1135,7 +1135,7 @@ Passing an invalid `themeId` returns a `404 Not Found` status code with error co
 
 #### Use examples
 
-The following request removes the uploaded Theme Background Image.
+The following request removes the uploaded Theme background image.
 
 ##### Request
 
@@ -1247,17 +1247,17 @@ A theme can be published for a page or email template with different combination
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use Okta default Logo with no background image along with Okta default colors in the sign in page.   |
-| `BACKGROUND_SECONDARY_COLOR`    | Use Logo from Theme with `secondaryColorHex` as background color for the sign in page.               |
-| `BACKGROUND_IMAGE`              | Use Logo and background image from Theme.                                                            |
+| `OKTA_DEFAULT`                  | Use Okta default logo with no background image along with Okta default colors in the sign in page.   |
+| `BACKGROUND_SECONDARY_COLOR`    | Use logo from Theme with `secondaryColorHex` as background color for the sign in page.               |
+| `BACKGROUND_IMAGE`              | Use logo and background image from Theme.                                                            |
 
 #### Variants for End User Dashboard:
 
 | Enum Value                      | Description                                                                                                             |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use Okta default Logo with white background color for logo and side nav bar background color.                           |
-| `WHITE_LOGO_BACKGROUND`         | Use Logo from Theme with white background color for logo and use `primaryColorHex` for side nav bar background color.   |
-| `FULL_THEME`                    | Use Logo from Theme and `primaryColorHex` for logo and side nav bar background color                                    |
+| `OKTA_DEFAULT`                  | Use Okta default logo with white background color for logo and side nav bar background color.                           |
+| `WHITE_LOGO_BACKGROUND`         | Use logo from Theme with white background color for logo and use `primaryColorHex` for side nav bar background color.   |
+| `FULL_THEME`                    | Use logo from Theme and `primaryColorHex` for logo and side nav bar background color                                    |
 
 #### Variants for Error Page:
 
@@ -1265,16 +1265,16 @@ A theme can be published for a page or email template with different combination
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use Okta default Logo with no background image along with Okta default colors in the error page.     |
-| `BACKGROUND_SECONDARY_COLOR`    | Use Logo from Theme with `secondaryColorHex` as background color for the error page.                 |
-| `BACKGROUND_IMAGE`              | Use Logo and background image from Theme.                                                            |
+| `OKTA_DEFAULT`                  | Use Okta default logo along with Okta default background color.                                      |
+| `BACKGROUND_SECONDARY_COLOR`    | Use logo from Theme with `secondaryColorHex` as background color for the error page.                 |
+| `BACKGROUND_IMAGE`              | Use logo and background image from Theme.                                                            |
 
 #### Variants for Email Templates:
 
 | Enum Value                      | Description                                                                     |
 | ------------------------------- | ------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use Okta default Logo along with Okta default colors in the email templates.    |
-| `FULL_THEME`                    | Use Logo from Theme and `primaryColorHex` as background color for buttons.      |
+| `OKTA_DEFAULT`                  | Use Okta default logo along with Okta default colors in the email templates.    |
+| `FULL_THEME`                    | Use logo from Theme and `primaryColorHex` as background color for buttons.      |
 
 
 ##### Theme Example
@@ -1302,7 +1302,7 @@ The Theme Response object defines the following properties:
 | `id`                                  | String                  | Theme ID                                    |
 | `logo`                                | String                  | Logo URL                                    |
 | `favicon`                             | String                  | Favicon URL                                 |
-| `backgroundImage`                     | String                  | Background Image URL                        |
+| `backgroundImage`                     | String                  | Background image URL                        |
 | `primaryColorHex`                     | String                  | Primary color hex code                      |
 | `primaryColorContrastHex`             | String                  | Primary color contrast hex code             |
 | `secondaryColorHex`                   | String                  | Secondary color hex code                    |
