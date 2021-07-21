@@ -8,7 +8,7 @@ Okta offers multiple integration options when designing an authentication experi
 
 The difference between the two concepts is where the Sign-In Widget itself is hosted. See [Okta-hosted widget](/docs/concepts/hosted-vs-embedded/#okta-hosted-widget) and [Customer-hosted widget](/docs/concepts/hosted-vs-embedded/#customer-hosted-widget) for diagrams on where the Sign-In Widget is hosted.
 
-Another difference is when you're using the Okta-hosted Sign-In widget, you're communicating with Okta using OAuth and OIDC. When you're using the Customer-hosted Sign-In widget, you're using the Javascript SDK and communication with Okta is handled for you transparently.
+Another difference between the two options is the method of communication. When you're using the Okta-hosted Sign-In Widget, you're communicating with Okta using OAuth 2.0 and OIDC. When you're using the customer-hosted Sign-In Widget, you're using the Okta JavaScript SDK and communication with Okta is handled for you transparently.
 
 ## Configure policies for app sign-in experiences
 
