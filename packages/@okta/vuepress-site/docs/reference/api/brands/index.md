@@ -5,7 +5,11 @@ category: management
 
 # Brands API
 
-The Okta Brands API provides operations to manage branding for your organization.
+<ApiLifecycle access="ea" />
+
+The Okta Brands API allows customization of the look and feel of pages and templates; for example, the Okta-hosted sign-in page, error pages, email templates, and end-user dashboard.
+
+Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
 
 ## Getting Started
 
