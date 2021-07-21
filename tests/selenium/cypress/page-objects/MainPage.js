@@ -1,5 +1,8 @@
 const signUpButtonSelector = '.sign-up--button';
 class MainPage {
+  visit() {
+    cy.visit('/');
+  }
   getSignupButton() {
     return cy.get(signUpButtonSelector)
   };

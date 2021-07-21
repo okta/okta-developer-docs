@@ -67,3 +67,7 @@ node_modules
 # netlify local usage
 
 .netlify
+
+# cypress video and img records
+tests/selenium/cypress/videos
+tests/selenium/cypress/screenshots

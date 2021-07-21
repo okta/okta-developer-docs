@@ -3,6 +3,9 @@
   "integrationFolder": "tests/selenium/cypress/integration",
   "screenshotsFolder": "tests/selenium/cypress/screenshots",
   "videosFolder": "tests/selenium/cypress/videos",
+  "supportFile": "tests/selenium/cypress/support/index.js",
+  "fixturesFolder": "tests/selenium/cypress/fixtures",
+  "pluginsFile": "tests/selenium/cypress/plugins/index.js",
   "chromeWebSecurity": false,
   "retries": {
     "runMode": 2,

@@ -1,6 +1,6 @@
 import { SignUpPage } from "../page-objects/SignUpPage";
 
-describe('Sign up page check spec', () => {
+describe('Sign up oie page check spec', () => {
   const signUpPage = new SignUpPage();
 
   beforeEach(() => {
@@ -13,6 +13,8 @@ describe('Sign up page check spec', () => {
     signUpPage.getLastNameInput().should('exist');
     signUpPage.getCountrySelect().should('exist');
     signUpPage.getSignUpSubmitInput().should('exist');
+    signUpPage.getGithubButtonInput().should('not.exist');
+    signUpPage.getGoogleButtonInput().should('not.exist');
     signUpPage.getGoogleCaptcha().its('0.contentDocument').should('exist');
     signUpPage.getSignInLink().should('exist');
   });
