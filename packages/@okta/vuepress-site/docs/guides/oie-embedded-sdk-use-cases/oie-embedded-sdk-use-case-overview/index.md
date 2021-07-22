@@ -21,6 +21,6 @@ The supported use cases include:
 * [Sign in with password and email factor](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-email/)
 * [Sign in with password and phone factor](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-pwd-phone/)
 
-The above use cases are purposely ordered to start you off with simplier use cases before advancing to the more complex scenarios, so that you can test each one as you gradually move on.
+The above use cases are purposely ordered to start you off with simpler use cases before advancing to the more complex scenarios, so that you can test each one as you gradually move on.
 
 > **Note:** The code samples for each use case are based primarly off of the sample app that is provided with the SDK.
