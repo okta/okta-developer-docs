@@ -1,3 +1,6 @@
+## Get user profile information after sign in
+
+Depending on your requirements and what information you want to retrieve after the user successfully signs in, you can obtain basic user information by making a request to the authorization server.
 
 Using the [TokenResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/TokenResponse.java) obtained from [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `authenticate`
 method, make a request to the `/v1/userinfo` endpoint:
