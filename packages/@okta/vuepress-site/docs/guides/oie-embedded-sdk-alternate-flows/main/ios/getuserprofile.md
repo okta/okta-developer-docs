@@ -1,3 +1,6 @@
+## Get user profile information after sign in
+
+Depending on your requirements and what information you want to retrieve after the user successfully signs in, you can obtain basic user information by making a request to the authorization server.
 
 The following code shows a call to the `/userinfo` endpoint where the access
 token is passed in to the authorization header. Basic JSON parsing is executed

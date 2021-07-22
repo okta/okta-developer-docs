@@ -30,6 +30,4 @@ Okta returns the Interaction code in the callback to the **Sign-in redirect URI*
     val authenticationResponse = authenticationWrapper.fetchTokenWithInteractionCode(issuer, proceedContext, interactionCode)
 ```
 
-With the obtained access token, you can retrieve basic user information by making a request to Okta's OpenID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/android/main/#getuserprofileinfo) for details.
-
 The user is now successfully signed in and can be sent to the default sign-in page.
