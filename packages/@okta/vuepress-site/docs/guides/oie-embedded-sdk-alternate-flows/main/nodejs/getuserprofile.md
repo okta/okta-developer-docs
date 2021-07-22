@@ -1,3 +1,6 @@
+## Get user profile information after sign in
+
+Depending on your requirements and what information you want to retrieve after the user successfully signs in, you can obtain basic user information by making a request to the authorization server.
 
 After obtaining the appropriate tokens, make a request to the `/v1/userinfo` endpoint, as shown in the sample application by calling the following function in the `userContext.js` file:
 
