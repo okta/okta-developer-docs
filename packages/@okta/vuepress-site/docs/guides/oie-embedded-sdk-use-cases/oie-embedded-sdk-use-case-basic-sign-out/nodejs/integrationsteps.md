@@ -15,9 +15,9 @@ The first step is to create a link, button, or other similar UI element that all
 
 When the sign-out request is initiated, create the following flow:
 
-1. Obtain the access token from the active session state. For example, by calling `getAuthClient` from `getAuthClient.js` in the SDK sample application.
+1. Obtain the access token from the active session state. For example, obtain the access token by calling `getAuthClient` from `getAuthClient.js` in the SDK sample application.
 
-1. Call the `getSignOutRedirectURL` to close the Okta SSO session before revoking the token (`revokeAccessToken`) and invalidating the local session, as shown in the SDK sample application's `logout.js` file:
+1. Call `getSignOutRedirectURL` to close the Okta SSO session before you revoke the token (`revokeAccessToken`) and invalidate the local session, as shown in the SDK sample application's `logout.js` file:
 
 ```JavaScript
 router.post('/logout', async (req, res) => {
@@ -39,11 +39,11 @@ router.post('/logout', async (req, res) => {
 });
 ```
 
->**Note**: Revoking the refresh token is optional, as it requires `offline_access` in scopes.
+>**Note**: Revoking the refresh token is optional, as it requires that you request the `offline_access` scope.
 
 ### Step 3: Send user to the signed out page
 
-After the access token is revoked and the local app session is no longer valid, redirect the user to the signed-out page.
+After the access token is revoked and the local app session is no longer valid, redirect the user to the sign-out page.
 
 ```JavaScript
 // Clear okta session with logout redirect
