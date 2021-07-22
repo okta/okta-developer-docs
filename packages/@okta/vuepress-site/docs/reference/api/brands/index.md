@@ -222,7 +222,7 @@ Content-Type: application/json
 }
 ```
 
-The following example resets privacy policy URL to use to Okta default privacy policy URL.
+The following example resets a privacy policy URL to use the Okta default privacy policy URL.
 
 ##### Request
 
@@ -339,19 +339,19 @@ Content-Type: application/json
 }
 ```
 
-## Theme Operations
+## Themes operations
 
 The Themes API has the following CRUD operations:
 
 * [Get Themes](#get-themes)
 * [Get Theme](#get-theme)
 * [Update Theme](#update-theme)
-* [Upload Theme Logo](#upload-theme-logo)
-* [Delete Theme Logo](#delete-theme-logo)
-* [Upload Theme Favicon](#upload-theme-favicon)
-* [Delete Theme Favicon](#delete-theme-favicon)
-* [Upload Theme Background Image](#upload-theme-background-image)
-* [Delete Theme Background Image](#delete-theme-background-image)
+* [Upload Theme logo](#upload-theme-logo)
+* [Delete Theme logo](#delete-theme-logo)
+* [Upload Theme favicon](#upload-theme-favicon)
+* [Delete Theme favicon](#delete-theme-favicon)
+* [Upload Theme background image](#upload-theme-background-image)
+* [Delete Theme background image](#delete-theme-background-image)
 
 ### Get Themes
 
@@ -468,9 +468,8 @@ Fetches a Theme for a Brand
 
 The requested [Theme Response](#theme-response-object)
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
-Passing an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
 #### Use examples
 
@@ -554,7 +553,7 @@ Content-Type: application/json
 
 Updates a Theme for a Brand
 
-> **NOTE:** clear browser cache in order to see the new changes after updating the Theme
+> **NOTE:** Clear the browser cache to see the new changes after updating the Theme.
 
 #### Request path parameters
 
@@ -571,9 +570,8 @@ The [Theme](#theme-object)
 
 Returns an updated [Theme Response](#theme-response-object)
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
-Passing an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
 Passing invalid body parameters returns a `400 Bad Request` status code with error code `E0000001`.
 
@@ -736,11 +734,10 @@ Updates the logo for your Theme
 
 #### Response body
 
-Returns `201 Created` with [Logo URL](#image-upload-response-object)
+Returns `201 Created` with [logo URL](#image-upload-response-object)
 
 Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
 
-Passing an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
 Passing an invalid `file` returns a `400 Bad Request` status code with error code `E0000001`.
 
@@ -813,11 +810,11 @@ Content-Type: application/json
 > **NOTE:** [/api/v1/org/logo endpoint](/docs/reference/api/org/#org-logo-operations) will still work but pages will use logo from theme if `THEME_BUILDER` feature is enabled.
 > Please refer to following [scenarios](#logo-scenarios)
 
-### Delete Theme Logo
+### Delete Theme logo
 
 <ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/logo" />
 
-Deletes a Theme logo and org will use Okta default logo.
+Deletes a Theme logo. The org then uses the Okta default logo.
 
 #### Request path parameters
 
@@ -830,9 +827,8 @@ Deletes a Theme logo and org will use Okta default logo.
 
 None.
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
-Passing an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
 #### Use examples
 
@@ -864,21 +860,20 @@ Updates the favicon for your theme
 
 | Property | Type | Description                                                                                                                                                                                               |
 |----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`   | File | The file must be in PNG, or ICO format and must be in 1:1 ratio with maximum 512 x 512 dimensions |
+| `file`   | File | The file must be in PNG or ICO format and have a 1:1 ratio with a maximum dimension of 512 x 512. |
 
 #### Response body
 
-Returns `201 Created` with [Favicon URL](#image-upload-response-object)
+Returns `201 Created` with the [favicon URL](#image-upload-response-object)
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
-Passing an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
 Passing an invalid `file` returns a `400 Bad Request` status code with error code `E0000001`.
 
 #### Use examples
 
-The following request updates the Theme Favicon with the uploaded file.
+The following request updates the Theme favicon with the uploaded file.
 
 ##### Request
 
@@ -903,7 +898,7 @@ Content-Type: application/json
 }
 ```
 
-The following request shows invalid Favicon dimensions validations.
+The following request shows validations for invalid favicon dimensions.
 
 ##### Request
 
@@ -930,17 +925,17 @@ Content-Type: application/json
   "errorId": "oae-71S2vP_TWWqdCVEndqHCw",
   "errorCauses": [
     {
-      "errorSummary": "Your selected image should be in 1:1 ratio for width and height. found 199 x 200, it should be 199 x 199 or 200 x 200"
+      "errorSummary": "Your selected image should be in a 1:1 ratio for width and height. Found 199 x 200. The image should be 199 x 199 or 200 x 200."
     }
   ]
 }
 ```
 
-### Delete Theme Favicon
+### Delete Theme favicon
 
 <ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/favicon" />
 
-Deletes a Theme Favicon and org will use Okta default Favicon.
+Deletes a Theme favicon. The org then uses the Okta default favicon.
 
 #### Request path parameters
 
@@ -953,13 +948,12 @@ Deletes a Theme Favicon and org will use Okta default Favicon.
 
 None.
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
-Passing an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
 #### Use examples
 
-The following request removes the uploaded Theme Favicon.
+The following request removes the uploaded Theme favicon.
 
 ##### Request
 
@@ -977,25 +971,24 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-### Upload Theme Background Image
+### Upload Theme background image
 
 <ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/background-image" />
 
-Updates the background Image for your theme
+Updates the background image for your Theme
 
 #### Request body
 
 | Property | Type | Description                                                                                                                                                                                               |
 |----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`   | File | The image must be a png, jpg, or gif file, and be less than 2MB in size. |
+| `file`   | File | The image must be a png, jpg, or gif file and be less than 2MB in size. |
 
 #### Response body
 
-Returns `201 Created` with [Background Image URL](#image-upload-response-object)
+Returns `201 Created` with the [background image URL](#image-upload-response-object)
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
-Passing an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
 Passing an invalid `file` returns a `400 Bad Request` status code with error code `E0000001`.
 
@@ -1053,17 +1046,17 @@ Content-Type: application/json
   "errorId": "oae_eZ88QUzReSZcxI_e1H9Aw",
   "errorCauses": [
     {
-      "errorSummary": "Your selected image is 11,136 pixels high, which exceeds the 8,000 pixel limit"
+      "errorSummary": "Your selected image is 11,136 pixels high, which exceeds the 8,000 pixel limit."
     }
   ]
 }
 ```
 
-### Delete Theme Background Image
+### Delete Theme background image
 
 <ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/background-image" />
 
-Deletes a Theme background image.
+Deletes a Theme background image
 
 #### Request path parameters
 
@@ -1076,9 +1069,8 @@ Deletes a Theme background image.
 
 None.
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
-Passing an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
 #### Use examples
 
@@ -1102,19 +1094,19 @@ HTTP/1.1 204 No Content
 
 ## Brand API Objects
 
-### Brand Object
+### Brand object
 
 The Brand request object defines the following properties:
 
 | Property                      | Type                    | Description                                                                                         |
 | ----------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------- |
 | `agreeToCustomPrivacyPolicy`  | boolean                 | (Optional) Consent for updating the custom privacy policy URL. Not required when resetting the URL. |
-| `customPrivacyPolicyUrl`      | String                  | Custom privacy Policy URL. Default value: `null`                                                    |
+| `customPrivacyPolicyUrl`      | String                  | Custom privacy policy URL. Default value: `null`.                                                   |
 | `_links`                      | [Links](#links-object)  | Link relations for this object                                                                      |
 
 #### Brand example
 
-Updating custom privacy policy URL for a brand.
+Updates a custom privacy policy URL for a brand
 ```json
 {
   "agreeToCustomPrivacyPolicy": true,
@@ -1122,24 +1114,24 @@ Updating custom privacy policy URL for a brand.
 }
 ```
 
-Reset privacy policy URL.
+Resets a privacy policy URL
 ```json
 {
   "customPrivacyPolicyUrl": null
 }
 ```
 
-### Brand Response Object
+### Brand Response object
 
 The Brand Response object defines the following properties:
 
 | Property                  | Type                    | Description                     |
 | ------------------------- | ----------------------- | ------------------------------- |
-| `customPrivacyPolicyUrl`  | String                  | Custom privacy Policy URL       |
+| `customPrivacyPolicyUrl`  | String                  | Custom privacy policy URL       |
 | `id`                      | String                  | Brand ID                        |
 | `_links`                  | [Links](#links-object)  | Link relations for this object  |
 
-#### Brand Response example
+#### Brand response example
 
 ```json
 {
@@ -1167,68 +1159,68 @@ The Brand Response object defines the following properties:
 }
 ```
 
-## Theme API Objects
+## Theme API objects
 
-### Theme Object
+### Theme object
 
 The Theme object defines the following properties:
 
 | Property                              | Type     | Description                                                                                                                | Default Value     |
 | ------------------------------------- | -------- | -------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| `primaryColorHex`                     | String   | Primary color hex code.                                                                                                    | `#1662dd`         |
+| `primaryColorHex`                     | String   | Primary color hex code                                                                                                   | `#1662dd`         |
 | `primaryColorContrastHex`             | String   | (Optional) Primary color contrast hex code. Accepted values: `#000000`, `#ffffff`.                                         | `#000000`         |
-| `secondaryColorHex`                   | String   | Secondary color hex code.                                                                                                  | `#ebebed`         |
+| `secondaryColorHex`                   | String   | Secondary color hex code                                                                                                 | `#ebebed`         |
 | `secondaryColorContrastHex`           | String   | (Optional) Secondary color contrast hex code. Accepted values: `#000000`, `#ffffff`.                                       | `#000000`         |
-| `signInPageTouchPointVariant`         | Enum     | Variant for Sign-in page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.               | `OKTA_DEFAULT`    |
-| `endUserDashboardTouchPointVariant`   | Enum     | Variant for End user dashboard. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`.                    | `OKTA_DEFAULT`    |
-| `errorPageTouchPointVariant`          | Enum     | Variant for Error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
-| `emailTemplateTouchPointVariant`      | Enum     | Variant for Email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
+| `signInPageTouchPointVariant`         | Enum     | Variant for sign-in page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.               | `OKTA_DEFAULT`    |
+| `endUserDashboardTouchPointVariant`   | Enum     | Variant for the Okta End-User Dashboard. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`.                    | `OKTA_DEFAULT`    |
+| `errorPageTouchPointVariant`          | Enum     | Variant for the error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
+| `emailTemplateTouchPointVariant`      | Enum     | Variant for email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
 
-> **Note:** Contrast color will be used by pages to optimize the opacity of text color when primary or secondary color is used as the background.
+> **Note:** Contrast color is used by pages to optimize the opacity of text color when primary or secondary color is used as the background.
 
-> **Note:** For existing Orgs with customizations, please refer to following [table](#data-migration-from-existing-orgs) for different scenarios with initial variant values.
+> **Note:** For existing orgs with customizations, refer to following [table](#data-migration-from-existing-orgs) for different scenarios with initial variant values.
 
 #### Variant Definition
 
-A theme can be published for a page or email template with different combinations of assets, and `variants` are preset combinations of those assets.
+You can publish a theme for a page or email template with different combinations of assets, and `variants` are preset combinations of those assets.
 
-#### Variants for Sign-in Page:
+#### Variants for the Okta Sign-In Page:
 
-> **Note:** For non `OKTA_DEFAULT` variant, `primaryColorHex` will be used for buttons background color and `primaryColorContrastHex` will be used to optimize the opacity for button text
+> **Note:** For a non `OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use Okta default logo with no background image along with Okta default colors in the sign in page.   |
-| `BACKGROUND_SECONDARY_COLOR`    | Use logo from Theme with `secondaryColorHex` as background color for the sign in page.               |
-| `BACKGROUND_IMAGE`              | Use logo and background image from Theme.                                                            |
+| `OKTA_DEFAULT`                  | Use the Okta default logo with no background image and the Okta default colors on the Okta Sign-In Page.   |
+| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from Theme with the `secondaryColorHex` as the background color for the Okta Sign-In Page.  |
+| `BACKGROUND_IMAGE`              | Use the logo and background image from Theme.                                                            |
 
-#### Variants for End User Dashboard:
+#### Variants for the Okta End-User Dashboard:
 
 | Enum Value                      | Description                                                                                                             |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use Okta default logo with white background color for logo and side nav bar background color.                           |
-| `WHITE_LOGO_BACKGROUND`         | Use logo from Theme with white background color for logo and use `primaryColorHex` for side nav bar background color.   |
-| `FULL_THEME`                    | Use logo from Theme and `primaryColorHex` for logo and side nav bar background color                                    |
+| `OKTA_DEFAULT`                  | Use the Okta default logo with a white background color for the logo and the side navigation bar background color.                           |
+| `WHITE_LOGO_BACKGROUND`         | Use the logo from Theme with a white background color for the logo and use `primaryColorHex` for the side navigation bar background color.   |
+| `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` for the logo and the side navigatioin bar background color                                    |
 
 #### Variants for Error Page:
 
-> **Note:** For non `OKTA_DEFAULT` variant, `primaryColorHex` will be used for buttons background color and `primaryColorContrastHex` will be used to optimize the opacity for button text
+> **Note:** For non `OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use Okta default logo along with Okta default background color.                                      |
-| `BACKGROUND_SECONDARY_COLOR`    | Use logo from Theme with `secondaryColorHex` as background color for the error page.                 |
-| `BACKGROUND_IMAGE`              | Use logo and background image from Theme.                                                            |
+| `OKTA_DEFAULT`                  | Use the Okta default logo and the Okta default background color.                                      |
+| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from Theme with `secondaryColorHex` as the background color for the error page.                 |
+| `BACKGROUND_IMAGE`              | Use the logo and background image from Theme.                                                            |
 
 #### Variants for Email Templates:
 
 | Enum Value                      | Description                                                                     |
 | ------------------------------- | ------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use Okta default logo along with Okta default colors in the email templates.    |
-| `FULL_THEME`                    | Use logo from Theme and `primaryColorHex` as background color for buttons.      |
+| `OKTA_DEFAULT`                  | Use the Okta default logo and the Okta default colors in the email templates.    |
+| `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` as the background color for buttons.      |
 
 
-##### Theme Example
+##### Theme example
 
 ```json
 {
@@ -1242,9 +1234,9 @@ A theme can be published for a page or email template with different combination
 }
 ```
 
-### Theme Response Object
+### Theme Response object
 
-#### Theme Response Properties
+#### Theme Response properties
 
 The Theme Response object defines the following properties:
 
@@ -1258,13 +1250,13 @@ The Theme Response object defines the following properties:
 | `primaryColorContrastHex`             | String                  | Primary color contrast hex code             |
 | `secondaryColorHex`                   | String                  | Secondary color hex code                    |
 | `secondaryColorContrastHex`           | String                  | Secondary color contrast hex code           |
-| `signInPageTouchPointVariant`         | Enum                    | Variant for Sign In page                    |
-| `endUserDashboardTouchPointVariant`   | Enum                    | Variant for End user dashboard              |
-| `errorPageTouchPointVariant`          | Enum                    | Variant for Error page                      |
-| `emailTemplateTouchPointVariant`      | Enum                    | Variant for Email templates                 |
+| `signInPageTouchPointVariant`         | Enum                    | Variant for the Okta Sign-In Page                    |
+| `endUserDashboardTouchPointVariant`   | Enum                    | Variant for the Okta End-User Dashboard              |
+| `errorPageTouchPointVariant`          | Enum                    | Variant for the error page                      |
+| `emailTemplateTouchPointVariant`      | Enum                    | Variant for email templates                 |
 | `_links`                              | [Links](#links-object)  | Link relations for this object              |
 
-##### Theme Response Example
+##### Theme Response example
 
 ```json
 {
@@ -1321,7 +1313,7 @@ The Theme Response object defines the following properties:
 }
 ```
 
-### Image Upload Response Object
+### Image Upload Response object
 
 The Image Upload Response object defines the following properties:
 
@@ -1329,7 +1321,7 @@ The Image Upload Response object defines the following properties:
 |----------|------- |---------------------- |
 | `url`    | String | URL of uploaded image |
 
-#### Image Upload Response Example
+#### Image Upload Response example
 
 ```json
 {
@@ -1339,13 +1331,13 @@ The Image Upload Response object defines the following properties:
 
 ### Links object
 
-Specifies link relations (see [Web Linking](https://tools.ietf.org/html/rfc8288)) available for the current status of an application using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only.
+Specifies link relations available for the current status of an application using the [JSON Hypertext Application Language](https://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations. The Links object is read-only. See [Web Linking](https://tools.ietf.org/html/rfc8288)) for more information on link relations.
 
-## Existing Org Scenarios
+## Existing org scenarios
 
-### Data migration from existing Orgs
+### Data migration from existing orgs
 
-Initial Theme variant values will be different for existing Orgs with customizations.
+Initial Theme variant values are different for existing orgs with customizations.
 
 | Property                              | Org Logo Uploaded     | Background Image Uploaded  | Initial Value                   |
 | ------------------------------------- | --------------------- | -------------------------- | ------------------------------- |
@@ -1356,16 +1348,16 @@ Initial Theme variant values will be different for existing Orgs with customizat
 | `errorPageTouchPointVariant`          | yes                   | no                         | `BACKGROUND_SECONDARY_COLOR`    |
 | `errorPageTouchPointVariant`          | yes                   | yes                        | `BACKGROUND_IMAGE`              |
 
-### Logo Scenarios
+### Logo scenarios
 
-Following scenarios explains which logo will be used when based on `THEME_BUILDER` flag
+The following scenarios explains which logo is used when based on the `THEME_BUILDER` flag.
 
 | `THEME_BUILDER` feature status        | Can Upload Org Logo | Can Upload Theme Logo  | Logo Used On Pages   |
 | ------------------------------------- | ------------------- | ---------------------- | -------------------- |
 | Enabled                               | yes                 | yes                    | Theme logo           |
 | Disabled                              | yes                 | no                     | Org logo             |
 
-> **NOTE:**
-> Enabling `THEME_BUILDER` feature will automatically update the Theme logo from Org. Org logo will still be stored.
-> Disabling `THEME_BUILDER` feature will use the logo configured for the Org.
-> Pages will use the logo from the source defined above based on feature status
+> **Notes:**
+> Enabling the `THEME_BUILDER` feature automatically updates the Theme logo from Org. The Org logo is still stored.
+> Disabling the `THEME_BUILDER` feature uses the logo configured for the Org.
+> Pages use the logo from the source defined above based on feature status.
