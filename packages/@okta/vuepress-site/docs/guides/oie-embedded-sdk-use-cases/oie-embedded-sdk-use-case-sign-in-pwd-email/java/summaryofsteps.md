@@ -4,6 +4,6 @@ The following sequence of steps show the sign in with password and email flow.
 
 <div class="common-image-format">
 
-![Displays the sequence of steps for the Java SDK sign in with password and email flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email.png)
+![Displays the sequence of steps for the Java SDK sign in with password and email flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-java.png)
 
 </div>

@@ -1,132 +1,74 @@
 ## Integration steps
 
-### Step 1: Build a sign-in page on the client
+### Step 1: User goes to sign-in page
 
-Build a sign-in page that captures both the username and password. An example is shown below:
-
-<div class="common-image-format">
-
-![Displays the Java SDK sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
-
-</div>
-
-### Step 2: Authenticate user credentials
-
-When the user initiates the sign-in (for example, by clicking the **Continue** button), create an `AuthenticationOptions` object and set the `Username` and `Password` properties to the values entered in by the user. Send this object to the `AuthenticateAsync` method for the `IdxClient`.
-
-```csharp
- var idxAuthClient = new IdxClient();
- var authnOptions = new Okta.Idx.Sdk.AuthenticationOptions()
-      {
-          Username = model.UserName,
-          Password = model.Password,
-      };
-
-var authnResponse = await idxAuthClient.AuthenticateAsync(authnOptions).ConfigureAwait
-(false);
-```
-
-### Step 3: Handle the response from the sign-in
-
-If the username and password are valid, `AuthenticateAsync` should return an `AuthenticationStatus` of `AwaitingChallengeAuthenticatorSelection`. The `AwaitingChallengeAuthenticatorSelection` status indicates that an additional factor needs to be verified before the sign-in. In addition to the status, the `Authenticators` property should return the **email** factor.
-
-The user should be redirected to the authenticator list page that displays the email factor as an authenticator to be verified. See the following sample code for more details.
-
-```csharp
-var authnResponse = await _idxClient.AuthenticateAsync(authnOptions).ConfigureAwait(false);
-Session["idxContext"] = authnResponse.IdxContext;
-
-switch (authnResponse?.AuthenticationStatus)
-     {
-         ...
-         case AuthenticationStatus.AwaitingChallengeAuthenticatorSelection:
-              Session["authenticators"] =
-              ViewModelHelper.ConvertToAuthenticatorViewModelList(authnResponse.Authenticators);
-              Session["isChallengeFlow"] = true;
-              return RedirectToAction("SelectAuthenticator", "Manage");
-```
-
-### Step 4: Show email factor in authenticator list
-
-The next step is to show the email factor to the user in an authenticator list page. If not already done, this page needs to be built and display the list of authenticators from the previous step. In this use case, only the **email** factor is displayed, as shown in the following sample.
+Build a sign-in page for your app that captures both the username and password.
 
 <div class="common-image-format">
 
-![Email verify](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-screen-verify.png
- "Email verify")
+![Displays the Java SDK sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-java.png)
 
 </div>
 
-### Step 5: Call SelectChallengeAuthenticatorAsync
+### Step 2: User enters credentials
 
-When the user selects the **email** factor, a call to `SelectChallengeAuthenticatorAsync` is made that sends a verification code to the user's email. The method accepts a `SelectAuthenticatorOptions` parameter, which is used to pass in the email factor ID.
+Begin the authentication process by calling Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java). After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
 
-If the call is successful, the method should return `AwaitingAuthenticatorVerification`, which indicates that the SDK is ready for the verification code. The next step is to redirect the user to the email verification code page.
+```java
+AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
+ProceedContext proceedContext = beginResponse.getProceedContext();
 
-```csharp
-var selectAuthenticatorOptions = new SelectAuthenticatorOptions
-                       {
-                           AuthenticatorId = model.AuthenticatorId,
-                       };
-
-selectAuthenticatorResponse = await
-     _idxClient.SelectChallengeAuthenticatorAsync(selectAuthenticatorOptions,
-     (IIdxContext)Session["IdxContext"]);
-
-     Session["IdxContext"] = selectAuthenticatorResponse.IdxContext;
-
-switch (selectAuthenticatorResponse?.AuthenticationStatus)
-{
-...
-     case AuthenticationStatus.AwaitingAuthenticatorVerification:
-          return RedirectToAction("VerifyAuthenticator", "Manage");
+AuthenticationResponse authenticationResponse =
+     idxAuthenticationWrapper.authenticate(new AuthenticationOptions(username, password.toCharArray()), proceedContext);
 ```
 
-### Step 6: Show email verification code page
+If the password is validated, the `IDXAuthenticationWrapper.authenticate()` method returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with the following:
 
-If not already done, build the email verification code page that will accept the code from the email.
+1. `AuthenticationStatus` = `AWAITING_AUTHENTICATOR_SELECTION` <br>
+     This status indicates that there are required authenticators that need to be verified.
+
+2. `Authenticators` = List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) to be verified (in this case, there is only the email authenticator).
+
+> **Note:** Authenticators are the factor credentials, owned or controlled by the user that can be verified during authentication.
+
+After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of authenticators to be verified, provide the user with a form to select the authenticator to verify. In the following example, there is only one email authenticator:
 
 <div class="common-image-format">
 
-![Email verify](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code.png
- "Email verify")
+![Displays the verify email authenticator selection page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-screen-verify-java.png)
 
 </div>
 
-### Step 7: Call VerifyAuthenticatorAsync
+> **Tip:** Build a generic authenticator selection form to handle single or multiple authenticators returned from the SDK.
 
-The next step is to call `VerifyAuthenticatorAsync`. In the email verification use case, the code passed into `VerifyAuthenticatorAsync` will be the code found in the verification email.
+### Step 3: User selects email authenticator
 
-```csharp
-var idxAuthClient = new IdxClient(null);
-           var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
-           {
-               Code = code,
-           };
+In this use case, the user selects the **Email** factor as the authenticator to verify. Pass this user-selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
-var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
+```java
+authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
 ```
 
-### Step 8: Handle response from VerifyAuthenticatorAsync
+The Java SDK sends this selection to Okta. Okta sends a code to the user's email and the Java SDK returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION`. This status indicates that the authentication flow is waiting for an authenticator verification, in this case, an email verification code. You need to build a form to capture the code from the user.
 
-The next step is to handle the response from `VerifyAuthenticatorAsync`. If the email code was valid, the method should return an `AuthenticationStatus` of `Success`. This status signifies that there are no more factors waiting to be enrolled and verified. If the steps described in [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user has successfully signed in and should be sent to the default sign-in home page, which is the user profile page in the sample app.
+<div class="common-image-format">
 
-```csharp
-var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions,
-    (IIdxContext)Session["idxContext"]);
-    Session["idxContext"] = authnResponse.IdxContext;
-    switch (authnResponse.AuthenticationStatus)
-         {
-              ...
-              case AuthenticationStatus.Success:
-                   ClaimsIdentity identity = await
-                   AuthenticationHelper.GetIdentityFromTokenResponseAsync(
-                   _idxClient.Configuration, authnResponse.TokenInfo);
-                   _authenticationManager.SignIn(new AuthenticationProperties(), identity);
-                   return RedirectToAction("Index", "Home");
-         }
+![Displays the email verification code input form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code-java.png)
+
+</div>
+
+> **Note:** The email sent to the user has a **Sign In** link that isn't yet supported. Use the provided code instead. See [Limitations: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links) for more information.
+
+### Step 4: User submits email verification code
+
+The user receives the verification code in their email and submits it in the verify code form. Use [`VerifyAuthenticationOptions`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
+
+```java
+VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);
+AuthenticationResponse authenticationResponse =
+   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-### Step 9: Get user profile information (optional)
+If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in.
 
-Optionally, you can obtain basic user information after a successful sign-in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#get-user-profile-information-after-sign-in).
+Use the `AuthenticationResponse.getTokenResponse()` method to retrieve a token to access user profile data before redirecting the user to the default signed-in page. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#get-user-profile-information-after-sign-in) for details.
