@@ -1182,7 +1182,7 @@ The Theme object defines the following properties:
 | `errorPageTouchPointVariant`          | Enum     | Variant for Error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for Email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
 
-> **Note:** Contrast color will be used by pages to identify the shade of text color where primary or secondary color is used as background color.
+> **Note:** Contrast color will be used by pages to optimize the opacity of text color when primary or secondary color is used as the background.
 
 > **Note:** For existing Orgs with customizations, please refer to following [table](#data-migration-from-existing-orgs) for different scenarios with initial variant values.
 
@@ -1192,7 +1192,7 @@ A theme can be published for a page or email template with different combination
 
 #### Variants for Sign-in Page:
 
-> **Note:** For non `OKTA_DEFAULT` variant, `primaryColorHex` will be used for buttons background color and `primaryColorContrastHex` will be used to identify shade for button text
+> **Note:** For non `OKTA_DEFAULT` variant, `primaryColorHex` will be used for buttons background color and `primaryColorContrastHex` will be used to optimize the opacity for button text
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -1210,7 +1210,7 @@ A theme can be published for a page or email template with different combination
 
 #### Variants for Error Page:
 
-> **Note:** For non `OKTA_DEFAULT` variant, `primaryColorHex` will be used for buttons background color and `primaryColorContrastHex` will be used to identify shade for button text
+> **Note:** For non `OKTA_DEFAULT` variant, `primaryColorHex` will be used for buttons background color and `primaryColorContrastHex` will be used to optimize the opacity for button text
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
