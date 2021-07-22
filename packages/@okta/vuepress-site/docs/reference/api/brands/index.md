@@ -736,8 +736,7 @@ Updates the logo for your Theme
 
 Returns `201 Created` with [logo URL](#image-upload-response-object)
 
-Passing an invalid `brandId` returns a `404 Not Found` status code with error code `E0000007`.
-
+Passing an invalid `brandId` or an invalid `themeId` returns a `404 Not Found` status code with error code `E0000007`.
 
 Passing an invalid `file` returns a `400 Bad Request` status code with error code `E0000001`.
 
@@ -807,8 +806,9 @@ Content-Type: application/json
 }
 ```
 
-> **NOTE:** [/api/v1/org/logo endpoint](/docs/reference/api/org/#org-logo-operations) will still work but pages will use logo from theme if `THEME_BUILDER` feature is enabled.
-> Please refer to following [scenarios](#logo-scenarios)
+> **NOTE:** The [/api/v1/org/logo endpoint](/docs/reference/api/org/#org-logo-operations) still works, but pages use the logo from the Theme if the `THEME_BUILDER` feature is enabled.
+>
+> See [Logo scenarios](#logo-scenarios) for more information.
 
 ### Delete Theme logo
 
