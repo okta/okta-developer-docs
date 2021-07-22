@@ -69,6 +69,4 @@ AuthenticationResponse authenticationResponse =
    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in.
-
-Use the `AuthenticationResponse.getTokenResponse()` method to retrieve a token to access user profile data before redirecting the user to the default signed-in page. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#get-user-profile-information-after-sign-in) for details.
+If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
