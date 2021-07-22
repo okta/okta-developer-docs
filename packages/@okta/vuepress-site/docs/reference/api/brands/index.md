@@ -684,7 +684,9 @@ curl -v -X PUT \
 ```http
 HTTP/1.1 400 Bad Request
 Content-Type: application/json
+```
 
+```json
 {
     "errorCode": "E0000001",
     "errorSummary": "Api validation failed: primaryColorHex",
@@ -748,7 +750,7 @@ The following request updates the Theme logo with the uploaded file.
 
 ##### Request
 
-```
+```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
@@ -773,7 +775,7 @@ The following request shows invalid logo validations.
 
 ##### Request
 
-```
+```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
@@ -880,7 +882,7 @@ The following request updates the Theme Favicon with the uploaded file.
 
 ##### Request
 
-```
+```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
@@ -905,7 +907,7 @@ The following request shows invalid Favicon dimensions validations.
 
 ##### Request
 
-```
+```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
@@ -1003,7 +1005,7 @@ The following request updates the Theme background image with the uploaded file.
 
 ##### Request
 
-```
+```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
@@ -1028,7 +1030,7 @@ The following request shows background image validations.
 
 ##### Request
 
-```
+```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Authorization: SSWS ${api_token}" \
