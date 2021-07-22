@@ -1,12 +1,11 @@
-## Sample code
+## Example code
 
 Sign out the user by calling the `IDXClient.Token` `revoke` method.
 
-Example 1
+### Example 1
 
-The following code shows a call to the `revoke` method. Once the
-revoke is completed, the token should be removed from local
-storage.
+Sign out the user by calling the `revoke` method on the `token` object.
+Once the revoke is complete, remove the token from local storage.
 
 ```swift
 let token = ..
@@ -20,11 +19,11 @@ token.revoke { (success, error) in
 }
 ```
 
-Example 2
+### Example 2
 
 If you don't store the `IDXClient.Token` object, but instead store the string
-representations of the access and refresh tokens, you can revoke them using
-the following approach:
+representations of the access and refresh tokens, revoke them using
+the following code:
 
 ```swift
 IDXClient.Token.revoke(token: "access_token",

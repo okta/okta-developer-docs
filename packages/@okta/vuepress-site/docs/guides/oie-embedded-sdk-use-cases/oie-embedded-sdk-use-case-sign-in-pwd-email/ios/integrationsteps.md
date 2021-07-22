@@ -1,35 +1,29 @@
-## Sample code
+## Integration steps
 
-The following sample code illustrates how to implement sign-in with the password
-and email factors.
+### Summary
 
-> **Note:** The Swift SDK and sample app are dynamic in nature and do not follow a
-prescriptive and explicit flow used in these examples. These examples are meant to be a
-learning tool to help you understand how to implement specific use cases using the SDK.
-Although, you can implement such examples in your own native application, you won't
-be able to reap the benefits of dynamic authentication such as a policy driven code
-that require no changes when policy configurations are changed.
+There are many different ways to integrate the Swift SDK into your app. Using
+the sample code as a wrapper around the SDK, this guide describes the [steps](#steps)
+involved in integrating this use case into your application. Feel free to modify
+the sample code to fit your individual needs. The diagram below illustrates
+how the sample code and SDK fit into the overall integration.
 
-### Executing code
+<div class="common-image-format">
 
-#### Step 1: Step up the step handler
+ ![Diagram showing the integration flow of the sample app and Swift SDK](/img/oie-embedded-sdk/oie-embedded-sdk-swift-sample-code-overview.png
+ "Swift sample and sdk diagram")
 
-The first step is to initialize the `MultifactorLogin` suppling a `stephandler`
-function or code block. This `stephandler` allows you to interact with the
-authentication flow and gives you the ability to prompt the user for the
-email authenticator and subsequent verfication code.
+</div>
 
-In the following code, `stepHandler` is called after a sign in
-attempt to validate the user with an authenticator. It is here
-where you determine the `chooseFactor` value of  `step` and
-prompt the user to select the email authenticator. Once selected
-and the email is sent, `stephandler` is called again to allow
-you to prompt the user for the verification code.
+### Steps
 
-Note that this code is generic and supports different types of
-authenticator types. Disregard, the `.chooseMethod` step for this
-use case as it pertains to choosing the method type as it pertains
-to the phone autheneticator.
+#### Step 1: Initialize MultifactorLogin
+
+The first step is to initialize `MultifactorLogin` and pass in a
+`configuration` object and `stephandler` function or code block. This
+`stephandler` allows you to interact with the authentication flow and
+gives you the ability to prompt the user to choose the email authenticator
+and subsequent verification code.
 
  ```swift
 self.authHandler = MultifactorLogin(configuration: configuration)
@@ -57,21 +51,18 @@ self.authHandler = MultifactorLogin(configuration: configuration)
 }
 ```
 
-For more information on how to set the `configuration` parameter see
-[SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#SDK)
+For more information on how to set the `configuration` parameter, see
+[SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk)
 in
 [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
 
-#### Step 1: Call the login method
+#### Step 2: Call the login method
 
-Once, the `stephandler` is step up, the next step is
-to call the `login` method passing in the username
-and password. The completion handler supplied to the `login`
-function will be invoked once, either with a fatal error, or with
-a token.
-
-Example
+The next step is to call the `login` method passing in the username
+and password. The method can take a completion handler which
+will be invoked once, either with a fatal error, or success
+with a token.
 
 ```swift
  self.authHandler.login(username: "user@example.com",
@@ -86,7 +77,18 @@ Example
 }
 ```
 
-### Implementing code
+#### Step 3: Get user profile information (optional)
+
+Optionally, you can obtain basic user information after a successful sign-in by
+making a request to Okta's Open ID Connect authorization server. See
+[Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/ios/main/#get-user-profile-information-after-sign-in).
+
+## Sample code
+
+The following code can be used in conjuction with the SDK
+to enable user sign in with both password and email factors.
+See [Integration steps](#steps) to learn how to integrate this
+code into your app.
 
 ```swift
 public class MultifactorLogin {
