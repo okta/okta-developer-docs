@@ -554,6 +554,8 @@ Content-Type: application/json
 
 Updates a Theme for a Brand
 
+> **NOTE:** clear browser cache in order to see the new changes after updating the Theme
+
 #### Request path parameters
 
 | Parameter | Type        | Description   |
