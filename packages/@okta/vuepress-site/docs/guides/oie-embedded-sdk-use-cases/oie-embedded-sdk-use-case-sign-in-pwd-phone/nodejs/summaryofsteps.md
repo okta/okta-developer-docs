@@ -15,3 +15,5 @@
  "Sign in with email and phone 2")
 
 </div>
+
+>**NOTE:** The SDK sample application does not support this use case.
