@@ -7,9 +7,7 @@ title: Overview
 
 ## Start with a use case
 
-Using the sample app as your guide, walk through each of the use cases in
-this section to build your own app with the SDK. Each use case describes
-the steps required to integrate your app with the SDK.
+With the sample app as your guide, walk through each of the use cases in this section to build your own app with the SDK. Each use case describes the steps that are required to integrate your app with the SDK.
 
 The supported use cases include:
 

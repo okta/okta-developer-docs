@@ -1,6 +1,8 @@
+After you run the sample app and explore its available use cases, you can begin to integrate the SDK and/or the widget into your own app. To get started follow these steps:
+
 #### Step 1: Set up your app with prerequisites
 
-1. In your Okta Org, [create a new application integration](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application) for your app.
+1. In your Okta Org, [create a new application integration](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) for your app.
 1. Ensure that you have all the [software requirements](#software-requirements).
 1. Clone the [okta-idx-java](https://github.com/okta/okta-idx-java) repository.
 1. Ensure that you have set the Okta Identity Engine Java SDK [dependency](#software-requirements) for Apache Maven. Use the [latest released version](https://github.com/okta/okta-idx-java/releases).

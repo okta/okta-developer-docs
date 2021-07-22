@@ -13,9 +13,9 @@ The user signs in with the Sign-In Widget that was set up in the [Load the widge
 
 ### Step 2: Handle the callback from Okta
 
-Okta returns the Interaction code to the **Sign-in redirect URI** specified in the [create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application) step.
+Okta returns the Interaction code to the **Sign-in redirect URI** specified in the [create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) step.
 
-> **Note:** The redirect URI value used to start up the app (such as `OKTA_IDX_REDIRECTURI` environment variable), must be defined as one of the **Sign-in redirect URI** settings for the app integration created in the Admin console. See [create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application).
+> **Note:** The redirect URI value used to start up the app (such as `OKTA_IDX_REDIRECTURI` environment variable), must be defined as one of the **Sign-in redirect URI** settings for the app integration created in the Admin console. See [create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application).
 
 ```java
 String issuer = oktaOAuth2Properties.getIssuer();
