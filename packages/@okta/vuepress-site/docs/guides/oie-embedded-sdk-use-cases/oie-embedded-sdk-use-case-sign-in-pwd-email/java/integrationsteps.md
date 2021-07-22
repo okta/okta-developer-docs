@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: User goes to sign-in page
+### Step 1: User launches sign-in page
 
 Build a sign-in page for your app that captures both the username and password.
 
@@ -12,7 +12,7 @@ Build a sign-in page for your app that captures both the username and password.
 
 ### Step 2: User enters credentials
 
-Begin the authentication process by calling Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java). After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
+Begin the authentication process by calling Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object. After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
@@ -29,9 +29,9 @@ If the password is validated, the `IDXAuthenticationWrapper.authenticate()` meth
 
 2. `Authenticators` = List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) to be verified (in this case, there is only the email authenticator).
 
-> **Note:** Authenticators are the factor credentials, owned or controlled by the user that can be verified during authentication.
+> **Note:** Authenticators are the factor credentials that are owned or controlled by the user. These are verified during authentication.
 
-After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of authenticators to be verified, provide the user with a form to select the authenticator to verify. In the following example, there is only one email authenticator:
+After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of authenticators to be verified, provide the user with a form to select the authenticator to verify. In the following example, the email address is the only authenticator:
 
 <div class="common-image-format">
 
@@ -57,11 +57,11 @@ The Java SDK sends this selection to Okta. Okta sends a code to the user's email
 
 </div>
 
-> **Note:** The email sent to the user has a **Sign In** link that isn't yet supported. Use the provided code instead. See [Limitations: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links) for more information.
+> **Note:** The email sent to the user has a **Sign In** link that isn't yet supported. Use the provided code instead. See [Limitations: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links).
 
 ### Step 4: User submits email verification code
 
-The user receives the verification code in their email and submits it in the verify code form. Use [`VerifyAuthenticationOptions`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
+The user receives the verification code in their email and submits it through the verify code form. Use [`VerifyAuthenticationOptions`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 
 ```java
 VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);

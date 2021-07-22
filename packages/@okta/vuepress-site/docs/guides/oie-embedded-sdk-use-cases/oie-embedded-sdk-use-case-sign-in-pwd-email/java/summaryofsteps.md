@@ -1,6 +1,6 @@
 ## Summary of steps
 
-The following sequence of steps show the sign in with password and email flow.
+The following graphic shows the steps for the sign in with password and email flow:
 
 <div class="common-image-format">
 
