@@ -29,13 +29,8 @@
           :itemCss="'link link--small link--semi-bold'"
           :subItemCss="'link link--small link--semi-bold link--black'"
         />
-        <ul class="menu--items menu--from-sidebar">
-          <SidebarItem
-            v-for="link in navigation"
-            :key="link.title"
-            :link="link"
-          />
-        </ul>
+        <DocsMenuItems />
+        <SelectedSubMenu />
       </div>
     </div>
     <div class="flex align-items-center">
@@ -60,16 +55,15 @@
 </template>
 
 <script>
-import SidebarItems from "../mixins/SidebarItems";
 
 export default {
-  mixins: [SidebarItems],
   components: {
     MenuItems: () => import("../components/MenuItems.vue"),
     MenuItem: () => import("../components/MenuItem.vue"),
     SearchBar: () => import("../components/SearchBar.vue"),
     SmartLink: () => import("../components/SmartLink.vue"),
-    SidebarItem: () => import("../components/SidebarItem.vue"),
+    DocsMenuItems: () => import("../components/DocsMenuItems.vue"),
+    SelectedSubMenu: () => import("../components/SelectedSubMenu.vue"),
   },
   data() {
     return {

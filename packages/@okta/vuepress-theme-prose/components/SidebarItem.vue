@@ -1,9 +1,7 @@
 <template>
   <li :class="{
     'link-wrap': true, 
-    'subnav-active': link.iHaveChildrenActive, 
-    'open': link.subLinks && sublinksExpanded,
-    'expandable': link.subLinks,
+    'subnav-active': link.iHaveChildrenActive,
     hidden: hidden }">
     <router-link
           v-if="entityType === types.link"
@@ -68,7 +66,8 @@ export default {
   props: ["link"],
   inject: ["appContext", "stackSelectorData"],
   components: {
-    SidebarItem: () => import("../components/SidebarItem.vue")
+    SidebarItem: () => import("../components/SidebarItem.vue"),
+    SelectedSubMenu: () => import("../components/SelectedSubMenu.vue"),
   },
   data() {
     return {
@@ -144,6 +143,14 @@ export default {
     },
     setData: function() {
       this.sublinksExpanded = Boolean(this.link.iHaveChildrenActive);
+    },
+    isHeaderMenu: function() {
+      return (function loop(parent) {
+        if (parent.$parent == undefined) { return false; }
+        if (parent.$el.classList.contains('page-header')) { return true; }
+        return loop(parent.$parent);
+      }
+      )(this)
     }
 
   }

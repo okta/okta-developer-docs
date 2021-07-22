@@ -357,29 +357,14 @@ header.page-header {
         }
 
         .menu--from-sidebar {
-          > li.link-wrap:first-child {
+          li {
             display: none;
           }
+          > li {
+            display: block;
 
-          .link {
-            font-weight: 300;
-          }
-
-          > li.expandable {
-            > .tree-nav-link {
-              > .link {
-                font-weight: 600;
-              }
-            }
-          }
-          li.expandable {
-            .link {
-              font-weight: 300;
-            }
-            &.open {
-              > .tree-nav-link > .link {
-                font-weight: 600;
-              }
+            &:first-child {
+              display: none;
             }
           }
         }
