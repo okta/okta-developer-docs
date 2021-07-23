@@ -30,7 +30,6 @@
           :subItemCss="'link link--small link--semi-bold link--black'"
         />
         <DocsMenuItems />
-        <SelectedSubMenu />
       </div>
     </div>
     <div class="flex align-items-center">
@@ -63,7 +62,6 @@ export default {
     SearchBar: () => import("../components/SearchBar.vue"),
     SmartLink: () => import("../components/SmartLink.vue"),
     DocsMenuItems: () => import("../components/DocsMenuItems.vue"),
-    SelectedSubMenu: () => import("../components/SelectedSubMenu.vue"),
   },
   data() {
     return {

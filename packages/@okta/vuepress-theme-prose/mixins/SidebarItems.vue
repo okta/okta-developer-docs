@@ -12,7 +12,8 @@ import {
 export default {
   data() {
     return {
-      navigation: []
+      navigation: [],
+      link_id: 0,
     };
   },
   mounted() {
@@ -44,7 +45,7 @@ export default {
     },
     getNavigationData() {
       return this.getNavigation().map(nav => {
-        this.addStatesToLink(nav);
+        this.addStatesToLink(nav);     
         return nav;
       });
     },

@@ -349,23 +349,34 @@ header.page-header {
                 transform: rotate(0deg);
               }
             }
+
+            &.opened {
+              margin-left: -12px;
+              > span {
+                &::after {
+                  transform: rotate(90deg);
+                  transition: none;
+                  right: auto;
+                  left: -17px;
+                }
+              }
+            }
           }
 
           ul.sections {
             padding: 0 0 0 16px;
           }
+
+          &.expanded {
+            li {
+              padding-left: 27px;
+            }
+          }
         }
 
         .menu--from-sidebar {
           li {
-            display: none;
-          }
-          > li {
             display: block;
-
-            &:first-child {
-              display: none;
-            }
           }
         }
       }

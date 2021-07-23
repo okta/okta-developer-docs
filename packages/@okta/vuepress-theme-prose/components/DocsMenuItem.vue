@@ -1,7 +1,7 @@
 <template>
   <li :class="{
-      // 'open': link.subLinks && sublinksExpanded,
       'expandable': link.subLinks,
+      'opened': isOpened,
     }"
   >
     <router-link
@@ -24,27 +24,18 @@
           </a>
     </router-link>
 
-    <span v-if="!link.path && link.subLinks" class="link" @click="toggleSubMenu">{{link.title}}</span>
+    <span v-if="!link.path && link.subLinks" class="link" @click="handleChange">{{link.title}}</span>
 
-    <ul v-if="link.subLinks" class="sections"> 
-      <DocsMenuItem
-        v-for="(sublink, index) in link.subLinks"
-        :key="index"
-        :link="sublink"
-      />
-    </ul>
   </li>
 </template>
 
 <script>
 export default {
   name: "DocsMenuItem",
-  props: ["link"],
+  props: ["link", "isOpened"],
   methods: {
-    toggleSubMenu: function() {
-      this.$el.classList.toggle('parent-active');
-// TODO: call selected submenu with this element and his children
-console.log(this, 'this');
+    handleChange: function() {
+        this.$parent.handleChange(this.link);
     },
   },
 };

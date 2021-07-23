@@ -67,7 +67,6 @@ export default {
   inject: ["appContext", "stackSelectorData"],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue"),
-    SelectedSubMenu: () => import("../components/SelectedSubMenu.vue"),
   },
   data() {
     return {
