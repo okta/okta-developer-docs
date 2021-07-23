@@ -31,15 +31,15 @@ The next step is to show the email factor to the user in an authenticator list p
 
 </div>
 
-### Step 5: Call idx.register(email)
+### Step 5: Call idx.authenticate(email)
 
-When the user selects the **email** factor, call `idx.register` and pass in the authentication type '`('email')`. This call sends a verification code to the user's email.
+When the user selects the **email** factor, call `idx.authenticate` and pass in the authentication type '`('email')`. This call sends a verification code to the user's email.
 
 If the call is successful, the method should return an `Idx.Status` of `PENDING`, which indicates that the SDK is ready for the verification code. The next step is to redirect the user to the email verification code page.
 
 ### Step 6: Show email verification code page
 
-If not already done, build the email verification code page that will accept the code from the email.
+If not already done, build the email verification code page that accepts the code from the email.
 
 <div class="common-image-format">
 
