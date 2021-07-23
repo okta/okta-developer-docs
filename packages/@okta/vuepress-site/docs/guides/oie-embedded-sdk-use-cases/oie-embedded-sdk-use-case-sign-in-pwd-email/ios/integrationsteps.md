@@ -3,7 +3,7 @@
 ### Summary
 
 There are many different ways to integrate the Swift SDK into your app. Using
-the sample code as a wrapper around the SDK, this guide describes the [steps](#steps)
+the sample code as a wrapper around the SDK, this guide describes the steps
 involved in integrating this use case into your application. Feel free to modify
 the sample code to fit your individual needs. The diagram below illustrates
 how the sample code and SDK fit into the overall integration.
@@ -17,7 +17,7 @@ how the sample code and SDK fit into the overall integration.
 
 ### Steps
 
-#### Step 1: Initialize MultifactorLogin
+#### Step 1: Initiate user sign in
 
 The first step is to initialize `MultifactorLogin` and pass in a
 `configuration` object and `stephandler` function or code block. This

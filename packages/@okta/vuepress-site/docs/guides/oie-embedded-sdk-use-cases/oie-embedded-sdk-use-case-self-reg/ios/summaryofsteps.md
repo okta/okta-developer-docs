@@ -26,8 +26,7 @@ The following sequence diagram illustrates the flow of an application using the
 
 <div class="common-image-format">
 
-![A sequence diagram for the user registratin use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-register-1.png
- "User registraton diagram")
+![A sequence diagram for the user registratin use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-register-1.png)
 
 </div>
 

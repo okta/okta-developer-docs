@@ -26,7 +26,6 @@ The following sequence diagram illustrates the flow of an application using the
 
 <div class="common-image-format">
 
-![A sequence diagram for the sign in with passowrd and email use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-sign-in-pwd-email.png
- "Password and email diagram")
+![A sequence diagram for the sign in with passowrd and email use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-sign-in-pwd-email.png)
 
 </div>
