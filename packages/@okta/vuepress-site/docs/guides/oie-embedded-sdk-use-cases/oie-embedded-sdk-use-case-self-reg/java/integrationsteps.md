@@ -2,13 +2,19 @@
 
 ### Step 1: Register new users
 
-The self-registration flow begins when the user clicks the **Register** link on your app's sign-in page. You need to create a form for the **Register** link to capture new account parameters.
-
-For example, the user to enters their first name, last name, and email in the following Create Account page:
+The self-registration flow begins when the user clicks the **Sign up** link on your app's sign-in page. Create a **Sign up** link that directs the user to a create account form, such as the following example:
 
 <div class="common-image-format">
 
-![Displays Create Account page for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-create-java.png)
+![Displays the Sign-in form for Java SDK with a 'Sign up' link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-sign-up-java.png)
+
+</div>
+
+You need to create a form to capture the user's new account details, such as the following example:
+
+<div class="common-image-format">
+
+![Displays the Create Account form for Java SDK with first name, last name, and email fields](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-create-java.png)
 
 </div>
 
@@ -20,14 +26,16 @@ Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWr
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
 ```
 
-After the authentication transaction begins, you need to get the [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) and call `IDXAuthenticationWrapper.fetchSignUpFormValues()`:
+After the authentication transaction begins, you need to call `getProceedContext()` to get the [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object containing the current state of the authentication flow, and pass it as a parameter in an `IDXAuthenticationWrapper.fetchSignUpFormValues()` call to dynamically build the create account form:
 
 ```java
 ProceedContext beginProceedContext = beginResponse.getProceedContext();
 AuthenticationResponse newUserRegistrationResponse = idxAuthenticationWrapper.fetchSignUpFormValues(beginProceedContext);
 ```
 
-Enroll the user with basic profile information captured from the Create Account page by calling the `IDXAuthenticationWrapper.register()` method.
+> **Note:** `IDXAuthenticationWrapper.fetchSignUpFormValues()` allows you to build the create account form dynamically from the required form values.
+
+Enroll the user with basic profile information captured from the create account form by calling the [`IDXAuthenticationWrapper.register()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L249) method.
 
 ```java
 UserProfile userProfile = new UserProfile();
@@ -42,26 +50,28 @@ AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.registe
 
 ### Step 3: Display enrollment factors
 
-If you configured your org and app with instructions from [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), your app is configured with **Password** authentication, and additional **Email** or **Phone** factors. Authenticators are the factor credentials, owned or controlled by the user that can be verified during authentication.
+After you've configured your org and app with instructions from [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), your app is configured with **Password** authentication, and additional **Email** or **Phone** factors. Authenticators are the factor credentials, owned or controlled by the user, which can be verified during authentication.
 
 This step contains the request to enroll a password authenticator for the user.
 
-After the initial register request, `IDXAuthenticationWrapper` returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with the following properites:
+After the initial register request, `IDXAuthenticationWrapper.register()` returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object containing the following properties:
 
 1. `AuthenticationStatus` = `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` <br>
    This status indicates that there are required authenticators that need to be verified.
 
-2. `Authenticators` = List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) (in this case, there is only the password authenticator). <br>
+2. `Authenticators` = List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) (in this case, there is only the password authenticator).
 
-After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of authenticators, provide the user with a form to select the authenticator to enroll. In the following example, there is only one password authenticator to enroll:
+After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of authenticators, you need to provide the user with a form to select the authenticator to enroll. In the following example, there is only one password authenticator to enroll:
 
 <div class="common-image-format">
 
-![Displays the Java SDK authenticator enrollment form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-password-java.png)
+![Displays the Java SDK authenticator enrollment form with one 'Password' authenticator](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-password-java.png)
 
 </div>
 
 > **Tip:** Build a generic authenticator selection form to handle single or multiple authenticators returned from the SDK.
+
+For example, the previous form could be generated by using the following code snippet:
 
 ```java
 public ModelAndView selectAuthenticatorForm(AuthenticationResponse response, String title, HttpSession session) {
@@ -82,7 +92,7 @@ public ModelAndView selectAuthenticatorForm(AuthenticationResponse response, Str
 }
 ```
 
-### Step 4: Enroll required authenticator
+### Step 4: User selects authenticator to enroll
 
 Pass the user-selected authenticator (in this case, the password authenticator) to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
@@ -164,9 +174,10 @@ public ModelAndView selectAuthenticatorForm(AuthenticationResponse response, Str
 }
 ```
 
-Based on the configuration described in [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), the app in this use case is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional. In this step, the `isSkipAuthenticatorPresent()` function returns `TRUE` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone factor. 
+Based on the configuration described in [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), the app in this use case is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional. In this step, the `isSkipAuthenticatorPresent()` function returns `TRUE` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone factor.
 
-If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Step 8, Option 1: Skip phone factor](#step-8-option-1-skip-phone-factor) for the skip authenticator flow. See [Step 8, Option 2: User selects phone authenticator](#step-8-option-2-user-selects-phone-authenticator) for the optional phone authenticator flow.
+If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Step 8, Option 1: Skip phone factor](#step-8-option-1-skip-phone-factor) for the skip authenticator flow. If the user decides to select the optional factor, see [Step 8, Option 2: User selects phone authenticator](#step-8-option-2-user-selects-phone-authenticator) for the optional phone authenticator flow.
+
 <div class="common-image-format">
 
 ![Displays the Java SDK's phone authenticator enrollment form with Skip button](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-phone-java.png)
