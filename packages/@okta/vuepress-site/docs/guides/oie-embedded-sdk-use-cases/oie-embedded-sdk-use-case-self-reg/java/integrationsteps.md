@@ -18,8 +18,6 @@ You need to create a form to capture the user's new account details, such as the
 
 </div>
 
-### Step 2: User enters profile data
-
 Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method.
 
 ```java
@@ -34,6 +32,8 @@ AuthenticationResponse newUserRegistrationResponse = idxAuthenticationWrapper.fe
 ```
 
 > **Note:** `IDXAuthenticationWrapper.fetchSignUpFormValues()` allows you to build the create account form dynamically from the required form values.
+
+### Step 2: User enters profile data
 
 Enroll the user with basic profile information captured from the create account form by calling the [`IDXAuthenticationWrapper.register()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L249) method.
 
