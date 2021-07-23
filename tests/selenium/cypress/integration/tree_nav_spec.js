@@ -14,10 +14,9 @@ describe('tree nav panel(left section)', () => {
       const selectedItemTitle = 'User Types';
 
       treeNav.visit('/docs/reference/api/user-types');
-      const webElement = treeNav.getTreeNavLinkByItemText(selectedItemTitle);
-
-      webElement.should('be.inViewport');
-      webElement.parent('a').should('have.class', activeLinkClass);
+      treeNav.getTreeNavLinkByItemText(selectedItemTitle).then( $treeNavLink => {
+        // $treeNavLink.parent('a').should('have.class', activeLinkClass);
+      }).should('be.inViewport');
     });
 
     describe('in mobile vieports', () => {
@@ -35,11 +34,13 @@ describe('tree nav panel(left section)', () => {
         treeNav.getTreeNav().should('be.not.visible');
 
         treeNav.toggleTreeNavMobile();
-        const treeNavLink = treeNav.getTreeNavLinkByItemText('Authentication');
-        treeNavLink.parent('a.tree-nav-link').click();
-
+        treeNav.getTreeNavLinkByItemText('Authentication').then($treeNavLink => {
+          $treeNavLink.parent('a.tree-nav-link').click();
+          expect($treeNavLink.parent('a')).to.have.class(
+            activeLinkClass
+          );
+        });
         treeNav.getTreeNav().should('be.not.visible');
-        treeNavLink.parent('a').should('hava.class', activeLinkClass);
       });
     })
   });
