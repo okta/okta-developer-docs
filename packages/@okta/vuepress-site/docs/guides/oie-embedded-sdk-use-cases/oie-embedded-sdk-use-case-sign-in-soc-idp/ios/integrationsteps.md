@@ -61,6 +61,8 @@ sign in by making a request to Okta's Open ID Connect authorization server. See
 ## Sample code
 
 ```swift
+import AuthenticationServices
+
 public class SocialLogin {
     private let configuration: IDXClient.Configuration
     private weak var presentationContext: ASWebAuthenticationPresentationContextProviding?
@@ -73,10 +75,16 @@ public class SocialLogin {
         self.configuration = configuration
     }
 
-    public func login(service: IDXClient.Remediation.SocialAuth.Service, from presentationContext: ASWebAuthenticationPresentationContextProviding? = nil, completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void) {
+    // Public function used to initiate login using a given Social Authentication service. Optionally,
+    // a presentation context can be supplied when presenting the ASWebAuthenticationSession instance.
+    public func login(service: IDXClient.Remediation.SocialAuth.Service,
+                      from presentationContext: ASWebAuthenticationPresentationContextProviding? = nil,
+                      completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void)
+    {
         self.presentationContext = presentationContext
         self.completion = completion
 
+        // Initializes a new IDXClient with the supplied configuration.
         IDXClient.start(with: configuration) { (client, error) in
             guard let client = client else {
                 self.finish(with: error)
@@ -84,12 +92,15 @@ public class SocialLogin {
             }
 
             self.client = client
+
+            // Performs the first request to IDX to retrieve the first response.
             client.resume { (response, error) in
                 guard let response = response else {
                     self.finish(with: error)
                     return
                 }
 
+                // Find the Social IDP remediation that matches the requested social auth service.
                 guard let remediation = response.remediations.first(where: { remediation in
                     let socialRemediation = remediation as? IDXClient.Remediation.SocialAuth
                     return socialRemediation?.service == service
@@ -99,6 +110,7 @@ public class SocialLogin {
                     return
                 }
 
+                // Switch to the main queue to initiate the AuthenticationServices workflow.
                 DispatchQueue.main.async {
                     self.login(with: remediation)
                 }
@@ -107,6 +119,8 @@ public class SocialLogin {
     }
 
     func login(with remediation: IDXClient.Remediation.SocialAuth) {
+        // Retrieve the Redirect URL scheme from our configuration, to
+        // supply it to the ASWebAuthenticationSession instance.
         guard let client = client,
               let scheme = URL(string: client.context.configuration.redirectUri)?.scheme
         else {
@@ -114,9 +128,11 @@ public class SocialLogin {
             return
         }
 
+        // Create an ASWebAuthenticationSession to trigger the IDP OAuth2 flow.
         let session = ASWebAuthenticationSession(url: remediation.redirectUrl,
                                                  callbackURLScheme: scheme)
         { [weak self] (callbackURL, error) in
+            // Ensure no error occurred, and that the callback URL is valid.
             guard error == nil,
                   let callbackURL = callbackURL,
                   let client = self?.client
@@ -125,10 +141,14 @@ public class SocialLogin {
                 return
             }
 
+            // Ask the IDXClient for what the result of the social login was.
             let result = client.redirectResult(for: callbackURL)
 
             switch result {
             case .authenticated:
+                // When the social login result is `authenticated`, use the
+                // IDXClient to exchange the callback URL returned from
+                // ASWebAuthenticationSession with an Okta token.
                 client.exchangeCode(redirect: callbackURL) { (token, error) in
                     guard let token = token else {
                         self?.finish(with: error)
@@ -142,6 +162,7 @@ public class SocialLogin {
             }
         }
 
+        // Start and present the web authentication session.
         session.presentationContextProvider = presentationContext
         session.prefersEphemeralWebBrowserSession = true
         session.start()
