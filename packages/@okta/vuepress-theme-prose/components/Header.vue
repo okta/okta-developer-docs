@@ -12,25 +12,8 @@
       >
         <SearchBar />
       </div>
-      <div class="header--links">
-        <MenuItems
-          :items="$themeConfig.primary_home_link"
-          :itemCss="'link link--small link--semi-bold'"
-          :subItemCss="'link link--small link--semi-bold link--black'"
-          :menuClass="'menu--slideout-home'"
-        />
-        <MenuItems
-          :items="$themeConfig.primary_left_nav"
-          :itemCss="'link link--small link--semi-bold'"
-          :subItemCss="'link link--small link--semi-bold link--black'"
-        />
-        <MenuItems
-          :items="$themeConfig.primary_right_nav"
-          :itemCss="'link link--small link--semi-bold'"
-          :subItemCss="'link link--small link--semi-bold link--black'"
-        />
-        <DocsMenuItems />
-      </div>
+      
+      <HeaderMenu />
     </div>
     <div class="flex align-items-center">
       <SmartLink :item="{ link: '/signup/' }" classes="sign-up--button">
@@ -57,11 +40,9 @@
 
 export default {
   components: {
-    MenuItems: () => import("../components/MenuItems.vue"),
-    MenuItem: () => import("../components/MenuItem.vue"),
     SearchBar: () => import("../components/SearchBar.vue"),
     SmartLink: () => import("../components/SmartLink.vue"),
-    DocsMenuItems: () => import("../components/DocsMenuItems.vue"),
+    HeaderMenu: () => import("../components/HeaderMenu.vue"),
   },
   data() {
     return {

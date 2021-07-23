@@ -227,9 +227,6 @@ module.exports = ctx => ({
       { text: 'Languages & SDKs', link: '/code/' },
       { text: 'Release Notes', link: '/docs/release-notes/' },
     ],
-    primary_home_link: [
-      { text: 'Home', link: '/' },
-    ],
     footer_nav: {
       need_support: {
         heading: 'Need Support?'

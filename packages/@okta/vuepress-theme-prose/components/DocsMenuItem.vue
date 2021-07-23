@@ -2,6 +2,7 @@
   <li :class="{
       'expandable': link.subLinks,
       'opened': isOpened,
+      'is-home': link.path ? link.path === '/' : false
     }"
   >
     <router-link

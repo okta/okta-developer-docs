@@ -1,5 +1,5 @@
 <template>
-  <ul v-bind:class="['menu--items', menuClass]">
+  <ul class="menu--items">
     <MenuItem
       v-for="(item, index) in items"
       :key="index"
@@ -29,10 +29,6 @@
         type: String,
         default: ''
       },
-      menuClass: {
-        type: String,
-        default: ''
-      }
     },
   }
 </script>

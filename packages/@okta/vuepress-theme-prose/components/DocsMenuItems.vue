@@ -1,5 +1,5 @@
 <template>
-<ul :class="['menu--items', 'menu--from-sidebar', {'expanded': title_element && title_element.isOpened}]">
+<ul :class="['menu--items', 'menu--mobile', {'expanded': title_element && title_element.isOpened}]">
   
   <DocsMenuItem
     v-if="title_element" 
@@ -9,8 +9,8 @@
   />
 
   <DocsMenuItem
-    v-for="link in list"
-    :key="link.title"
+    v-for="(link, index) in list"
+    :key="index"
     :link="link"
   />
 </ul>
@@ -34,10 +34,9 @@ export default {
     }
   },
   mounted() {
-    this.list = this.navigation = this.getNavigation().map(nav => {
-      if (nav.path === "/") {
-        return false;
-      }
+    var navigation = this.$parent.getMenuItems();    
+    navigation = navigation.concat(this.getNavigation());
+    this.list = this.navigation = navigation.map(nav => {
       this.addIdToLink(nav, 0);
       return nav;
     });
