@@ -195,10 +195,6 @@ header.page-header {
       &--small {
         font-size: 12px;
       }
-
-      &[target="_blank"]:not([href^="mailto:"])::after {
-        //display: none;
-      }
     }
   }
 
@@ -269,6 +265,15 @@ header.page-header {
               order: -1;
             }
 
+            &.expandable {
+              cursor: pointer;
+              padding: 0;
+  
+              &:before {
+                display: none;
+              }
+            }
+
             .tree-nav-link {
               position: relative;
             }
@@ -307,33 +312,23 @@ header.page-header {
             }
           }
 
-          li.expandable {
-            cursor: pointer;
-            padding: 0;
-
-            &:before {
-              display: none;
-            }
-
-            &.opened {
-              margin-left: -12px;
-              > span {
-                font-weight: 600;
-                &::after {
-                  transform: rotate(90deg);
-                  transition: none;
-                  right: auto;
-                  left: -17px;
-                }
-              }
-            }
-          }
-
           &.expanded {
             li {
               padding-left: 27px;
-              a.link {
+              a.link, span.link {
                 font-weight: 300;
+              }
+              &.opened {
+                margin-left: -12px;
+                > span {
+                  font-weight: 600;
+                  &::after {
+                    transform: rotate(90deg);
+                    transition: none;
+                    right: auto;
+                    left: -17px;
+                  }
+                }
               }
             }
           }
