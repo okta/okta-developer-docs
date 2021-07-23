@@ -16,28 +16,28 @@ For example, the user to enters their first name, last name, and email in the fo
 
 Begin the authentication process by calling the Java SDK's [IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) `begin` method.
 
-```java
-AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
+```kotlin
+val beginResponse = idxAuthenticationWrapper.begin()
 ```
 
 After the authentication transaction begins, you need to get the [ProceedContext](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) and call `IDXAuthenticationWrapper.fetchSignUpFormValues`:
 
-```java
-ProceedContext beginProceedContext = beginResponse.getProceedContext();
-AuthenticationResponse newUserRegistrationResponse = idxAuthenticationWrapper.fetchSignUpFormValues(beginProceedContext);
+```kotlin
+val beginProceedContext = beginResponse.getProceedContext()
+val newUserRegistrationResponse = idxAuthenticationWrapper.fetchSignUpFormValues(beginProceedContext)
 ```
 
 Enroll the user with basic profile information captured from the Create Account page by calling the `IDXAuthenticationWrapper.register` method.
 
-```java
-UserProfile userProfile = new UserProfile();
-userProfile.addAttribute("lastName", lastname);
-userProfile.addAttribute("firstName", firstname);
-userProfile.addAttribute("email", email);
+```kotlin
+val userProfile = UserProfile()
+userProfile.addAttribute("lastName", lastname)
+userProfile.addAttribute("firstName", firstname)
+userProfile.addAttribute("email", email)
 
-ProceedContext proceedContext = newUserRegistrationResponse.getProceedContext();
+val proceedContext = newUserRegistrationResponse.getProceedContext()
 
-AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.register(proceedContext, userProfile);
+val authenticationResponse = idxAuthenticationWrapper.register(proceedContext, userProfile)
 ```
 
 ### Step 3: Display enrollment factors
@@ -53,8 +53,8 @@ After the initial register request, `IDXAuthenticationWrapper` returns an [Authe
 
 2. `Authenticators` = List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) (in this case, there is only the password authenticator). <br>
 
-   ```java
-   List<Authenticator> authenticators = (List<Authenticator>) session.getAttribute("authenticators");
+   ```kotlin
+   val authenticators = authenticationResponse.authenticators
    ```
 
 After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of authenticators, provide the user with a form to verify the required authenticators. You need to build a generic authenticator enrollment form to handle single or multiple authenticators returned from the SDK.
@@ -65,31 +65,12 @@ After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the
 
 </div>
 
-```java
-public ModelAndView selectAuthenticatorForm(AuthenticationResponse response, String title, HttpSession session) {
-   boolean canSkip = authenticationWrapper.isSkipAuthenticatorPresent(response.getProceedContext());
-   ModelAndView modelAndView = new ModelAndView("select-authenticator");
-   modelAndView.addObject("canSkip", canSkip);
-   List<String> factorMethods = new ArrayList<>();
-   for (Authenticator authenticator : response.getAuthenticators()) {
-      for (Authenticator.Factor factor : authenticator.getFactors()) {
-            factorMethods.add(factor.getMethod());
-      }
-   }
-   session.setAttribute("authenticators", response.getAuthenticators());
-   modelAndView.addObject("factorList", factorMethods);
-   modelAndView.addObject("authenticators", response.getAuthenticators());
-   modelAndView.addObject("title", title);
-   return modelAndView;
-}
-```
-
 ### Step 4: Enroll required authenticator
 
 Pass the user-selected authenticator (in this case, the password authenticator) to the `IDXAuthenticationWrapper.selectAuthenticator` method.
 
-```java
-authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
+```kotlin
+val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator)
 ```
 
 This request returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION`. You need to build a form for the user to enter their password in this authenticator verification step.
@@ -104,9 +85,9 @@ This request returns an `AuthenticationResponse` object with `AuthenticationStat
 
 After the user enters their new password, call the `IDXAuthenticationWrapper.verifyAuthenticator` method with the user's password.
 
-```java
-VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(newPassword);
-AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+```kotlin
+val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(newPassword)
+val authenticationResponse = idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
 
 The request returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and an `Authenticators` list containing the email and phone factors. Reuse the authenticator enrollment form from [Step 3: Display enrollment factors](#step-3-display-enrollment-factors) to display the list of authenticators to the user.
@@ -121,8 +102,8 @@ The request returns an `AuthenticationResponse` object with `AuthenticationStatu
 
 In this use case, the user selects the **Email** factor as the authenticator to verify. Pass this user-selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator` method.
 
-```java
-authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
+```kotlin
+val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator)
 ```
 
 If this request is successful, a code is sent to the user's email and `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` is returned. You need to build a form to capture the code for this verification step.
@@ -139,32 +120,13 @@ If this request is successful, a code is sent to the user's email and `Authentic
 
 The user receives the verification code in their email and submits it in the verify code form. Use [VerifyAuthenticationOptions](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator` method:
 
-```java
-VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);
-AuthenticationResponse authenticationResponse =
-   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+```kotlin
+val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(code)
+val authenticationResponse =
+    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
 
 If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and an `Authenticators` list containing the phone factor. Reuse the authenticator enrollment form from [Step 3: Display enrollment factors](#step-3-display-enrollment-factors) to display the list of authenticators to the user.
-
-```java
-public ModelAndView selectAuthenticatorForm(AuthenticationResponse response, String title, HttpSession session) {
-   boolean canSkip = authenticationWrapper.isSkipAuthenticatorPresent(response.getProceedContext());
-   ModelAndView modelAndView = new ModelAndView("select-authenticator");
-   modelAndView.addObject("canSkip", canSkip);
-   List<String> factorMethods = new ArrayList<>();
-   for (Authenticator authenticator : response.getAuthenticators()) {
-      for (Authenticator.Factor factor : authenticator.getFactors()) {
-            factorMethods.add(factor.getMethod());
-      }
-   }
-   session.setAttribute("authenticators", response.getAuthenticators());
-   modelAndView.addObject("factorList", factorMethods);
-   modelAndView.addObject("authenticators", response.getAuthenticators());
-   modelAndView.addObject("title", title);
-   return modelAndView;
-}
-```
 
 Based on the configuration described in [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), the app in this use case is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional. In this step, the `isSkipAuthenticatorPresent` function returns `TRUE` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone factor. If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Step 8b, Option 2: Skip phone factor](#step-8b-option-2-skip-phone-factor) for the skip authenticator flow.
 
@@ -178,8 +140,8 @@ Based on the configuration described in [Set up your Okta org for multifactor us
 
 In this use case option, the user selects the optional **Phone** factor as the authenticator to verify. Pass this selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator` method.
 
-```java
-authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
+```kotlin
+val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator)
 ```
 
 The response from this request is an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that the user needs to provide additional authenticator information. In the case of the phone authenticator, the user needs to specify a phone number, and whether they want to use SMS or voice as the verification method.
@@ -204,14 +166,11 @@ You need to build a form to capture the user's phone number as well as a subsequ
 
 When the user enters their phone number and selects SMS to receive the verification code, capture this information and send it to the `IDXAuthenticationWrapper.submitPhoneAuthenticator` method.
 
-For example, the following code snippet passes the `phone` and `mode` variables to `idxAuthenticationWrapper.submitPhoneAuthenticator`:
+For example, the following code snippet passes the `phone` and `factor` variables to `idxAuthenticationWrapper.submitPhoneAuthenticator`:
 
-```java
-ProceedContext proceedContext = Util.getProceedContextFromSession(session);
-
-AuthenticationResponse authenticationResponse =
-   idxAuthenticationWrapper.submitPhoneAuthenticator(proceedContext,
-         phone, getFactorFromMethod(session, mode));
+```kotlin
+val authenticationResponse =
+   idxAuthenticationWrapper.submitPhoneAuthenticator(proceedContext, phone, factor)
 ```
 
 The Java SDK sends the phone authenticator data to Okta. Otka processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION`. This status indicates that the user needs to provide the verification code for the phone authenticator.
@@ -222,10 +181,10 @@ You need to build a form to capture the user's SMS verification code. You can re
 
 The user receives the verification code as an SMS on their phone and submits it in the verify code form. Send this code to the `IDXAuthenticationWrapper.verifyAuthenticator` method:
 
-```java
-VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);
-AuthenticationResponse authenticationResponse =
-   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+```kotlin
+val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(code)
+val authenticationResponse =
+   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
 
 If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in.
@@ -236,12 +195,8 @@ Use the `AuthenticationResponse.getTokenResponse` method to retrieve a token to 
 
 If the user decides to skip the phone factor enrollment, make a request to  `IDXAuthenticationWrapper.skipAuthenticatorEnrollment`. This method skips the authenticator enrollment.
 
-```java
-if ("skip".equals(action)) {
-   logger.info("Skipping {} authenticator", authenticatorType);
-   authenticationResponse = idxAuthenticationWrapper.skipAuthenticatorEnrollment(proceedContext);
-   return responseHandler.handleKnownTransitions(authenticationResponse, session);
-}
+```kotlin
+val authenticationResponse = idxAuthenticationWrapper.skipAuthenticatorEnrollment(proceedContext)
 ```
 
 > **Note:** Ensure that the `isSkipAuthenticatorPresent=TRUE` for the authenticator before calling `skipAuthenticatorEnrollment`.
