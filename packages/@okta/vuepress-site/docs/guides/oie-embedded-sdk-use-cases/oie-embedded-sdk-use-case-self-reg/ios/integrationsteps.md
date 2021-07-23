@@ -2,11 +2,8 @@
 
 ### Summary
 
-There are many different ways to integrate the Swift SDK into your app. Using
-the sample code as a wrapper around the SDK, this guide describes the steps
-involved in integrating this use case into your application. Feel free to modify
-the sample code to fit your individual needs. The diagram below illustrates
-how the sample code and SDK fit into the overall integration.
+The following steps document how to use the sample code to integrate the
+SDK with your app.
 
 <div class="common-image-format">
 
@@ -16,13 +13,19 @@ how the sample code and SDK fit into the overall integration.
 
 ### Steps
 
-#### Step 1: Initiate user sign in
+#### Step 1: Launch app and initialize SDK
 
-The first step is to initialize `MultifactorLogin` and pass in a
-`configuration` object and `stephandler` function or code block.
-This `stephandler` allows you to interact with the authentication flow
-and gives you the ability to prompt the user to select, verify, and
-optionally skip the authenticators during the sign up process.
+The first step is to initialize the SDK when the user opens your app.
+This is done by creating an instance of `MultifactorLogin` and passing
+into it's initializer a`configuration` object and `stephandler` closure.
+The `stephandler` closure is called whenever application interaction is requested
+during the password recovery flow. In this case it's called for the following
+user interactions:
+
+1. Choose the email factor for authentication
+2. Verify the email verification code
+3. Choose phone factor method (for example SMS). Note method won't be called if
+   phone factor is skipped.
 
  ```swift
 self.authHandler = MultifactorLogin(configuration: configuration)
@@ -55,13 +58,12 @@ For more information on how to set the `configuration` parameter, see
 in
 [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
+#### Step 2: User initiates sign up
 
-#### Step 2: Call the register method
-
-The next step is to call the `register` method passing in the username
-and password. The method can take a completion handler which
-will be invoked once, either with a fatal error, or success
-with a token.
+When the user enters their username and password and initiates the new user
+registration flow, call the `register` method, passing in the username, password,
+and `completion` closure. This closure is invoked once when the sign in completes
+and returns either a fatal error or success with a token.
 
 ```swift
 self.authHandler.register(username: "user@example.com",
@@ -87,6 +89,9 @@ making a request to Okta's Open ID Connect authorization server. See
 [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/ios/main/#get-user-profile-information-after-sign-in).
 
 ## Sample code
+
+The following sample code is also located in Okta's
+[okta-idx-swift repository](https://github.com/okta/okta-idx-swift/blob/master/Samples/Signin%20Samples/BasicLogin.swift).
 
 ```swift
 public class MultifactorLogin {
@@ -170,7 +175,7 @@ public class MultifactorLogin {
         }
     }
 
-    // Method called by you to select an authentication factor method. This 
+    // Method called by you to select an authentication factor method. This
     // can be used in response to a `Step.chooseMethod` stepHandler call.
     //
     // Typically this is used to select either SMS or Voice when using a Phone factor.
@@ -201,7 +206,7 @@ public class MultifactorLogin {
         remediation.proceed(completion: nil)
     }
 
-    // Method used to verify a factor. When a factor is selected, the user will 
+    // Method used to verify a factor. When a factor is selected, the user will
     // receive a verification code. Once they receive it, you will use this method
     // to supply it back to Okta.
     public func verify(code: String) {
@@ -298,8 +303,8 @@ extension MultifactorLogin: IDXClientDelegate {
             remediation.credentials?.passcode?.value = password
             remediation.proceed(completion: nil)
 
-        // The challenge authenticator remediation is used to request a passcode 
-        // of some sort from the user, either the user's password, or an 
+        // The challenge authenticator remediation is used to request a passcode
+        // of some sort from the user, either the user's password, or an
         // authenticator verification code.
         case .enrollAuthenticator: fallthrough
         case .challengeAuthenticator:
@@ -309,9 +314,9 @@ extension MultifactorLogin: IDXClientDelegate {
             }
 
             switch authenticator.type {
-            // We may be requested to supply a password on a separate remediation 
-            // step, for example if the user can authenticate using a factor other 
-            // than password. In this case, if we have a password, we can immediately 
+            // We may be requested to supply a password on a separate remediation
+            // step, for example if the user can authenticate using a factor other
+            // than password. In this case, if we have a password, we can immediately
             // supply it.
             case .password:
                 if let password = password {

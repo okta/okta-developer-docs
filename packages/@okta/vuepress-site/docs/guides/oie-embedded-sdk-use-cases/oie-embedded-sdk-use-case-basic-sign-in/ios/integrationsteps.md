@@ -2,14 +2,8 @@
 
 ### Summary
 
-There are many different ways to integrate the Swift SDK into your app. The
-sample code provided in this guide acts as a wrapper
-
- Using
-the sample code as a wrapper around the SDK, this guide describes the steps
-involved in integrating this use case into your application. Feel free to modify
-the sample code to fit your individual needs. The diagram below illustrates
-how the integration code you write calls into the sample code and SDK.
+The following steps document how to use the sample code to integrate the
+SDK with your app.
 
 <div class="common-image-format">
 
@@ -19,12 +13,11 @@ how the integration code you write calls into the sample code and SDK.
 
 ### Steps
 
-#### Step 1: Initiate user sign in
+#### Step 1: Launch app and initialize SDK
 
-The first step is initialize the user sign in
-
-The first step is to initialize `BasicLogin` and pass in a
-`configuration` object.
+The first step is to initialize the SDK when the user opens your app.
+This is done by creating an instance of `BasicLogin` and passing into
+it's initializer a`configuration` object.
 
  ```swift
 self.authHandler = BasicLogin(configuration: configuration)
@@ -35,13 +28,12 @@ For more information on how to set the `configuration` parameter, see
 in
 [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
+#### Step 2: User initiates sign in
 
-#### Step 2: Call the login method
-
-The next step is to call the `login` method passing in the username
-and password. The method can take a completion handler which
-will be invoked once, either with a fatal error, or success
-with a token.
+When the user enters their credentials and initiates the sign in flow,
+call the `login()` method, passing in the username, password,
+and `completion` closure. This closure is invoked once when the sign in completes
+and returns either a fatal error or success with a token.
 
 ```swift
  self.authHandler.login(username: "user@example.com",
@@ -63,6 +55,9 @@ making a request to Okta's Open ID Connect authorization server. See
 [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/ios/main/#get-user-profile-information-after-sign-in).
 
 ## Sample code
+
+The following sample code is also located in Okta's
+[okta-idx-swift repository](https://github.com/okta/okta-idx-swift/blob/master/Samples/Signin%20Samples/BasicLogin.swift).
 
 ```swift
 public class BasicLogin {
@@ -92,7 +87,7 @@ public class BasicLogin {
 
             self.client = client
 
-            // Assign ourselves as the delegate receiver, to be notified 
+            // Assign ourselves as the delegate receiver, to be notified
             // when responses or errors are returned.
             client.delegate = self
 

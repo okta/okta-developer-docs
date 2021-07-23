@@ -1,7 +1,5 @@
 ## Example code
 
-Sign out the user by calling the `IDXClient.Token` `revoke` method.
-
 ### Example 1
 
 Sign out the user by calling the `revoke` method on the `token` object.

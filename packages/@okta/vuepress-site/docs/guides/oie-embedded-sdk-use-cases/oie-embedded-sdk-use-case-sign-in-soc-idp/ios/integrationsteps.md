@@ -2,11 +2,8 @@
 
 ### Summary
 
-There are many different ways to integrate the Swift SDK into your app. Using
-the sample code as a wrapper around the SDK, this guide describes the steps
-involved in integrating this use case into your application. Feel free to modify
-the sample code to fit your individual needs. The diagram below illustrates
-how the sample code and SDK fit into the overall integration of your app.
+The following steps document how to use the sample code to integrate the
+SDK with your app.
 
 <div class="common-image-format">
 
@@ -18,8 +15,11 @@ how the sample code and SDK fit into the overall integration of your app.
 
 #### Step 1: Initiate user sign in
 
-The first step is to initialize `SocialLogin` and pass in a
-`configuration` object.
+#### Step 1: Launch app and initialize SDK
+
+The first step is to initialize the SDK when the user opens your app.
+This is done by creating an instance of `SocialLogin` and passing
+into it's initializer a`configuration` object.
 
  ```swift
 self.authHandler = SocialLogin(configuration: configuration)
@@ -31,14 +31,12 @@ in
 [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
 
-#### Step 2: Call the login method
+#### Step 2: User initiates sign in
 
-The next step is to call the `login` method passing in the username
-and password. The method can take a completion handler which
-will be invoked once, either with a fatal error, or success
-with a token.
-
-Example
+When the user initiates a social login within your app, the next step
+is to call the `login()` method passing in the `facebook` service type
+and `completion` closure. This closure is invoked once when the sign in completes
+and returns either a fatal error or success with a token.
 
 ```swift
 self.authHandler?.login(service: .facebook)
@@ -59,6 +57,9 @@ sign in by making a request to Okta's Open ID Connect authorization server. See
 [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/ios/main/#get-user-profile-information-after-sign-in).
 
 ## Sample code
+
+The following sample code is also located in Okta's
+[okta-idx-swift repository](https://github.com/okta/okta-idx-swift/blob/master/Samples/Signin%20Samples/BasicLogin.swift).
 
 ```swift
 import AuthenticationServices
