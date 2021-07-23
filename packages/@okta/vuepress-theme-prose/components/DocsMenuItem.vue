@@ -5,8 +5,9 @@
       'is-home': link.path ? link.path === '/' : false
     }"
   >
+    <SmartLink v-if="link.link" :item="link" :class="'link'"/>
     <router-link
-          v-if="link.path"
+          v-else-if="link.path"
           :to="link.path"
           v-slot="{ route, href, navigate }"
           class="tree-nav-link"
@@ -34,6 +35,9 @@
 export default {
   name: "DocsMenuItem",
   props: ["link", "isOpened"],
+  components: {
+    SmartLink: () => import("./SmartLink.vue"),
+  },
   methods: {
     handleChange: function() {
         this.$parent.handleChange(this.link);

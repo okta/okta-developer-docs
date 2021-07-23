@@ -238,10 +238,6 @@ header.page-header {
         align-items: flex-start;
       }
 
-      .menu--items:nth-child(3) {
-        display: block;
-      }
-
       .header--links {
         order: 2;
         width: 100%;
@@ -255,6 +251,9 @@ header.page-header {
         }
 
         > ul.menu--items {
+          display: flex;
+          flex-direction: column;
+
           &:not(.menu--mobile) {
             display: none;
           }
@@ -266,6 +265,10 @@ header.page-header {
           li {
             margin: 0;
 
+            &.is-home {
+              order: -1;
+            }
+
             .tree-nav-link {
               position: relative;
             }
@@ -273,7 +276,7 @@ header.page-header {
             a.link,
             span.link {
               font-size: 14px;
-              font-weight: 600;
+              font-weight: 300;
               line-height: 2.2em;
               position: relative;
               display: block;
@@ -290,18 +293,17 @@ header.page-header {
                 transform: rotate(-90deg);
                 transition: transform 300ms ease-in-out;
               }
-
-              &.tree-nav-link {
-                font-weight: 300;
-
-                &:after {
-                  display: none;
-                }
-              }
             }
 
             i.fa {
               display: none;
+            }
+          }
+
+          > li {
+            > a.link,
+            > span.link {
+              font-weight: 600;
             }
           }
 
@@ -316,6 +318,7 @@ header.page-header {
             &.opened {
               margin-left: -12px;
               > span {
+                font-weight: 600;
                 &::after {
                   transform: rotate(90deg);
                   transition: none;
@@ -326,24 +329,11 @@ header.page-header {
             }
           }
 
-          ul.sections {
-            padding: 0 0 0 16px;
-          }
-
           &.expanded {
             li {
               padding-left: 27px;
-            }
-          }
-        
-
-          &.menu--mobile {
-            display: flex;
-            flex-direction: column;
-            li {
-              display: block;
-              &.is-home {
-                order: -1;
+              a.link {
+                font-weight: 300;
               }
             }
           }
