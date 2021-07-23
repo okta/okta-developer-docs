@@ -19,7 +19,7 @@ ProceedContext proceedContext = beginResponse.getProceedContext();
 
 ### Step 2: User enters credentials
 
- After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
+After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
 
 ```java
 AuthenticationResponse authenticationResponse =
