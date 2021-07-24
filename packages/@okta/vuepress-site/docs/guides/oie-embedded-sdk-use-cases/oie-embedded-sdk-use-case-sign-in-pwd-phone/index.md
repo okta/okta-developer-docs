@@ -10,7 +10,7 @@ title: Sign in with password and phone factors
 
 <StackSelector class="cleaner-selector"/>
 
-This use case describes a user sign in with the password and phone factors.
+This use case describes a user sign-in flow with the password and phone factors.
 
 ## Factor setup
 

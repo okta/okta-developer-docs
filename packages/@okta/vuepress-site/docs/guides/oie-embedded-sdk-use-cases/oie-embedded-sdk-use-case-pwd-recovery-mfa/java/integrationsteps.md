@@ -2,7 +2,7 @@
 
 ### Step 1: User clicks forgot password link
 
-The password recovery flow begins when the user clicks the **Forgot your password?** link on your app's sign-in page. Create a **Forgot your password?** link that directs the user to a reset password form, such as the following example:
+The password recovery flow begins when the user clicks the **Forgot your password?** link on your app's sign-in page. Create a **Forgot your password?** link that directs the user to a reset my password form, such as the following example:
 
 <div class="common-image-format">
 
@@ -10,7 +10,7 @@ The password recovery flow begins when the user clicks the **Forgot your passwor
 
 </div>
 
-You need to create a form to capture the user's email for password recovery, such as the following reset password example:
+You need to create a form to capture the user's email for password recovery, such as the following reset my password form:
 
 <div class="common-image-format">
 
@@ -25,7 +25,7 @@ AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
 ProceedContext proceedContext = beginResponse.getProceedContext();
 ```
 
-### Step 2: User enters email
+### Step 2: User enters their email
 
 After the user submits their email, call the [`IDXAuthenticationWrapper.recoverPassword()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L177) method, passing in the user's email.
 
@@ -34,120 +34,65 @@ After the user submits their email, call the [`IDXAuthenticationWrapper.recoverP
     idxAuthenticationWrapper.recoverPassword(username, proceedContext);
 ```
 
----
+If the email is for a valid and active user in the Okta directory, the `IDXAuthenticationWrapper.recoverPassword()` method returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with the following properties:
 
-## Integration steps
+1. `AuthenticationStatus` = `AWAITING_AUTHENTICATOR_SELECTION` <br>
+     This status indicates that there are required authenticators that need to be verified.
 
+2. `Authenticators` = List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) to be verified (in this case, there is only the email authenticator). <br>
+    Authenticators are the factor credentials that are owned or controlled by the user. These are verified during authentication.
 
-Upon the return of the `AwaitingAuthenticatorSelection` response status, redirect the user to an authenticators page that displays the authenticator that the user needs to use to initiate authentication verification. In this case, the email factor is configured.
-
-### Step 4: Create reset password authenticators page
-
-The next step is to create a page that shows the authenticator that is returned from
-the `RecoverPasswordAsync` method. For this use case, it shows the email authenticator.
-The page should include the name of the authenticator and the ability to select the
-authenticator to initiate the authentication verification process.
+After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of authenticators to be verified, provide the user with a form to select the authenticator to verify. In other words, provide the user with a list of recovery factors to use. In this use case, email is the only recovery factor available:
 
 <div class="common-image-format">
 
-![Select password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-choose-auth.png
- "Select password")
+![Displays the recovery factor list to use (only email for this use case)](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-choose-auth-java.png)
 
 </div>
 
-### Step 5: Make call to SelectRecoveryAuthenticatorAsync
+### Step 3: User selects email authenticator
 
-After the user selects the email authenticator, the next step is to call
-the `SelectRecoveryAuthenticatorAsync` method with the email `Authentication id`.
-The method should return an `AwaitingAuthenticatorVerification` status. This status indicates that the Okta platform has emailed the verification code to the user's email address and it's now awaiting verification.
+The user selects **Email** as the authenticator to recover their password. Pass the selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method:
 
-```csharp
-var applyAuthenticatorResponse = await _idxClient.SelectRecoveryAuthenticatorAsync(
-           new SelectAuthenticatorOptions { AuthenticatorId = model.AuthenticatorId },
-           (IIdxContext)Session["IdxContext"]);
-
-Session["IdxContext"] = applyAuthenticatorResponse.IdxContext;
- Session["isPasswordSelected"] = false;
-
-if (applyAuthenticatorResponse.AuthenticationStatus == AuthenticationStatus.AwaitingAuthenticatorVerification)
-{
-   return RedirectToAction("VerifyAuthenticator", "Manage");
-}
+```java
+authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
 ```
 
-### Step 6: Create code verification page
-
-After the call to `SelectRecoveryAuthenticatorAsync` has responded with
-`AwaitingAuthenticatorVerification`, the user should be redirected to a
-code verification page.
+This Java SDK method sends the email authenticator selection to Okta. Okta sends a code to the user's email and the Java SDK returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your client app. This status indicates that the authentication flow is waiting for an authenticator verification, in this case, an email verification code. You need to build a form to capture the code from the user.
 
 <div class="common-image-format">
 
-![Select password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-all-verify-email-code.png
- "Select password")
+![Displays the email verification code input form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-verify-code-java.png)
 
 </div>
 
-The page should display a field to enter a code and a button/link to send
-the code to Okta for the email verification.
+> **Note:** The email sent to the user has a **Reset Password** link that isn't yet supported. Use the provided code instead. See [Limitations: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links).
 
-### Step 7: Make call to VerifyAuthenticatorAsync
+### Step 4: User submits email verification code
 
-After the user checks their email for the code and enters the code into the field,
-they should click **Verify** to initiate the verification of the email.
-Call `VerifyAuthenticatorAsync` with the email verification code to verify the email
-address.
+The user receives the verification code in their email and submits it through the verify code form. Use [`VerifyAuthenticationOptions`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 
-```csharp
-var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions,
-        (IIdxContext)Session["idxContext"]);
-Session["idxContext"] = authnResponse.IdxContext;
-
-switch (authnResponse.AuthenticationStatus)
-{
-   case AuthenticationStatus.AwaitingPasswordReset:
-        return RedirectToAction("ChangePassword", "Manage");
-
-...
+```java
+VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);
+AuthenticationResponse authenticationResponse =
+   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-If the `VerifyAuthenticatorAsync` call is successful, it should return
-`AwaitingPasswordReset`. This status indicates that the user can now change their
-password. At this point, the user should be redirected to the change password page.
-
-### Step 8: Create change password page
-
-Create a change password page that allows the user to enter the
-new password and initiate the change password.
+If the request to verify the code is successful, the Java SDK returns an `AuthenticationResponse` object with the `AuthenticationStatus=AWAITING_PASSWORD_RESET` property. This status indicates that the recovery flow is waiting for an updated password for the user. You need to build a form for the user to enter their new password:
 
 <div class="common-image-format">
 
-![Select password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link.png
- "Select password")
+![Displays the Java SDK form to reset password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-reset-password-java.png)
 
 </div>
 
-### Step 9: Make call to ChangePasswordAsync
+### Step 5: User enters new password
 
-The final step is to make a call to `ChangePasswordAsync` to change the
-user's password. Pass `ChangePasswordOptions` into the method call with
-the `NewPassword` property set to the new password.
+After the user enters their new password, call the `IDXAuthenticationWrapper.verifyAuthenticator()` method with the user's new password value.
 
-```csharp
-var authnResponse = await idxAuthClient.ChangePasswordAsync(changePasswordOptions,
-       (IIdxContext)Session["idxContext"]).ConfigureAwait(false);
-Session["idxContext"] = authnResponse.IdxContext;
-
-switch (authnResponse.AuthenticationStatus)
-  {
-       case AuthenticationStatus.Success:
-            ClaimsIdentity identity = await
-            AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration,
-            authnResponse.TokenInfo);
-            _authenticationManager.SignIn(new AuthenticationProperties(), identity);
-            return RedirectToAction("Index", "Home");
-...
+```java
+VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(newPassword);
+AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-If the response's `AuthenticationStatus` returns `Success`, the change password flow has
-completed successfully and you can redirect the user to the default page.
+If the request to update the password is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in with an updated password. Use the [`AuthenticationResponse.getTokenResponse()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L43) method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.

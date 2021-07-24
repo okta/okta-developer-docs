@@ -31,7 +31,7 @@ Ensure your org is configured for the password factor by completing the steps in
 
 ### Step 2:  Set up your Okta org for multifactor use cases
 
-Ensure your org is configured for multifactor use cases by completing the steps in [Set up your Okta org for multi-factor use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases).
+Ensure your org is configured for a multifactor use case by completing the steps in [Set up your Okta org for multi-factor use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases).
 
 > **Note:** Ensure your app integration is configured to use **Password + Another factor** in the app integration's **Sign On Policy** rule section.
 

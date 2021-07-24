@@ -1,6 +1,6 @@
 ## Summary of steps
 
-The following graphic shows the steps for the sign in with password and phone flow:
+The following graphic shows the steps for the sign-in flow with password and phone factors:
 
 <div class="common-image-format">
 

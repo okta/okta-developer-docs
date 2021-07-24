@@ -48,7 +48,7 @@ After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the
 
 ### Step 3: User selects phone authenticator
 
-In this use case, the user selects **Phone** as the authenticator to enroll. Pass this user-selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
+In this use case, the user selects **Phone** as the authenticator to enroll. Pass this selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
 ```java
 authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
@@ -56,9 +56,7 @@ authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedCon
 
 The response from this request is an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that the user needs to provide additional authenticator information. In the case of the phone authenticator, the user needs to specify a phone number.
 
-> **Note:** Only SMS is currently supported for the phone authenticator method factor. In the future, if your org supports the voice factor, you will need to add a voice or an SMS factor selection form for your app. Then both the phone authenticator and the SMS factor needs to be passed to the [`IDXAuthenticationWrapper.submitPhoneAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L398) method.
-
-### Step 4: User enters phone number
+> **Note:** Only SMS is currently supported for the phone authenticator method factor. In the future, if your org supports the voice factor, you will need to add a voice or an SMS factor selection form for your app. Both the phone authenticator and the phone method factor needs to be passed to the [`IDXAuthenticationWrapper.submitPhoneAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L398) method.
 
 You need to build a form to capture the user's phone number in your app. For example:
 
@@ -70,7 +68,9 @@ You need to build a form to capture the user's phone number in your app. For exa
 
 > **Note:** The Java SDK requires the following phone number format: `{+}{country-code}{area-code}{number}`. For example, `+15556667777`.
 
-When the user submits their phone number, capture this information and pass it to the [`IDXAuthenticationWrapper.verifyAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L368) method. In the following example, the phone number is saved in the `code` variable:
+### Step 4: User enters phone number
+
+When the user submits their phone number, capture this information and pass it to the [`IDXAuthenticationWrapper.verifyAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L368) method. In the following code example, the phone number is saved in the `code` variable:
 
 ```java
 VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);
@@ -78,7 +78,7 @@ AuthenticationResponse authenticationResponse =
     idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-The Java SDK sends the phone authenticator data to Okta. Otka processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your app. This status indicates that the user needs to provide the verification code for the phone authenticator.
+The Java SDK sends the phone authenticator data to Okta. Otka processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your client app. This status indicates that the user needs to provide the verification code for the phone authenticator.
 
 You need to build a form to capture the user's SMS verification code. For example:
 
