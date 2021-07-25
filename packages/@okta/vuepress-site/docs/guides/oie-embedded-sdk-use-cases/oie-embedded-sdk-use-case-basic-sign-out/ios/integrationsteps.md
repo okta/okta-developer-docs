@@ -2,7 +2,7 @@
 
 ### Example 1
 
-Sign out the user by calling the `revoke` method on the `token` object.
+Sign out the user by calling the `revoke()` method on the `token` object.
 Once the revoke is complete, remove the token from local storage.
 
 ```swift

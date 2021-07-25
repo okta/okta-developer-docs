@@ -2,8 +2,13 @@
 
 ### Summary
 
-The following steps document how to use the sample code to integrate the
-SDK with your app.
+The following steps document how to integrate the sample code into your
+application. The sample code wraps the SDK's functionality using a more
+prescriptive and explicit interface. It converts the SDK's generic remediation
+interface into explicit authentication steps and automatically executes steps
+such as the code-to-token exchange. The diagram below illustrates this call flow
+from your applications's UI to the sample code, SDK, and API. Note the "Integrating code"
+component, which represents the code you write to call into the sample code's interface.
 
 <div class="common-image-format">
 
@@ -17,7 +22,7 @@ SDK with your app.
 
 The first step is to initialize the SDK when the user opens your app.
 This is done by creating an instance of `MultifactorLogin` and passing
-into it's initializer a`configuration` object and `stephandler` closure.
+into its initializer a`configuration` object and `stephandler` closure.
 The `stephandler` closure is called whenever application interaction is requested
 during the password recovery flow. In this case it's called for the following
 user interactions:
@@ -81,9 +86,10 @@ and returns either a fatal error or success with a token.
 #### Step 3: Send user to home screen after successful sign in
 
 The final integration step is to send the user to the default home page
-after success. Optionally, you can obtain basic user information after a
+after successful sign in. Optionally, you can obtain basic user information after a
 successful sign-in by making a request to Okta's Open ID Connect authorization server.
 See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/ios/main/#get-user-profile-information-after-sign-in).
+
 
 ## Sample code
 

@@ -1,4 +1,4 @@
-## The dynamic model of the SDK and sample application
+## The sample application's integration with the SDK
 
 Much like the Okta API it calls, the SDK uses a generic interface to handle
 each step of the user sign in flow. This interface enables calling applications
@@ -9,25 +9,23 @@ application's code. Such a feature becomes important for mobile devices where
 keeping applications updated is challenging. The
 [sample application](/docs/guides/oie-embedded-sdk-run-sample/ios/main/),
 provided in the SDK's Git Repository, uses the SDK to implement such dynamic policy
-driven behavior.
+driven behavior. See this sample application for more details on how to design
+a dynamic application using the SDK.
 
-## Working with the sample code
+## Integrating the SDK with the sample code
 
-The
+In contrast to the sample application, the
 [sample code](https://github.com/okta/okta-idx-swift/tree/master/Samples/Signin%20Samples)
-provided in this guide wraps the SDK with a more prescriptive and explicit interface
+provided in this step by step guide wraps the SDK with a more prescriptive and explicit interface
 that is purposely built to help facilitate understanding of how to use the SDK.
 It's meant to be a learning tool and although you can implement similar code in your
 app, you're advised to stick to the same best practice dynamic approach implemented
 in the sample application.
 
-The example integration used in this guide is a simple use case designed to
-explain the basics of calling the SDK.
-
 ## Summary of steps
 
-The following sequence diagram illustrates the flow of an application using the
-[sample code](#sample-code) to implement this use case.
+The following sequence diagram illustrates the authentication flow of an application using the
+sample code to implement this use case.
 
 <div class="common-image-format">
 
