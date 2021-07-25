@@ -24,8 +24,7 @@ in the sample application.
 
 ## Summary of steps
 
-The following sequence diagram illustrates the authentication flow of an application using the
-sample code to implement this use case.
+The following sequence diagram details each step in the authentication flow for this use case.
 
 <div class="common-image-format">
 
