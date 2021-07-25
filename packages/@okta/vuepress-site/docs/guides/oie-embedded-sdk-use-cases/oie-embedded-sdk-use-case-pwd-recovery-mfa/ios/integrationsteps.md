@@ -76,11 +76,12 @@ self.authHandler.resetPassword(username: "user@example.com")
 }
 ```
 
-#### Step 3: Get user profile information (optional)
+#### Step 3: Send user to home screen after successful sign in
 
-Optionally, you can obtain basic user information after a successful password recovery by
-making a request to Okta's Open ID Connect authorization server. See
-[Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/ios/main/#get-user-profile-information-after-sign-in).
+The final integration step is to send the user to the default home page
+after success. Optionally, you can obtain basic user information after a
+successful sign-in by making a request to Okta's Open ID Connect authorization server.
+See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/ios/main/#get-user-profile-information-after-sign-in).
 
 ## Sample code
 
