@@ -20,6 +20,7 @@
            cursor: pointer;
         }
     }
+    
     &--header-no-margin-large{
         margin-bottom: 0px;
         @include media('<=bootstrap-xl'){
