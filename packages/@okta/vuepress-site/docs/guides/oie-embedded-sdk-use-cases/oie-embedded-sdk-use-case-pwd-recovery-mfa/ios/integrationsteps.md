@@ -22,7 +22,7 @@ component, which represents the code you write to call into the sample code's in
 
 The first step is to initialize the SDK when the user opens your app.
 This is done by creating an instance of `MultifactorLogin` and passing
-into its initializer a`configuration` object and `stephandler` closure.
+into its initializer a `configuration` object and `stephandler` closure.
 The `stephandler` closure is called whenever application interaction is requested
 during the password recovery flow. In this case it's called for the following
 user interactions:
@@ -65,8 +65,8 @@ in
 #### Step 2: User initiates password reset
 
 When the user enters their username and initiates the password recovery flow,
-call the `resetPassword()` method, passing in the username, password,
-and `completion` closure. This closure is invoked once when the sign in completes
+call the `resetPassword` method, passing in the username, password,
+and `completion` closure. This closure is invoked once when the sign-in completes
 and returns either a fatal error or success with a token.
 
 ```swift
@@ -81,13 +81,12 @@ self.authHandler.resetPassword(username: "user@example.com")
 }
 ```
 
-#### Step 3: Send user to home screen after successful sign in
+#### Step 3: Send user to home screen after successful sign-in
 
 The final integration step is to send the user to the default home page
-after successful sign in. Optionally, you can obtain basic user information after a
+after successful sign-in. Optionally, you can obtain basic user information after a
 successful sign-in by making a request to Okta's Open ID Connect authorization server.
 See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/ios/main/#get-user-profile-information-after-sign-in).
-
 
 ## Sample code
 

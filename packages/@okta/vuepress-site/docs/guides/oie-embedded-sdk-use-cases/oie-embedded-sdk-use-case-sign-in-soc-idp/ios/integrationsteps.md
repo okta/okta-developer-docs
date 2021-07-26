@@ -22,7 +22,7 @@ component, which represents the code you write to call into the sample code's in
 
 The first step is to initialize the SDK when the user opens your app.
 This is done by creating an instance of `SocialLogin` and passing
-into its initializer a`configuration` object.
+into its initializer a `configuration` object.
 
  ```swift
 self.authHandler = SocialLogin(configuration: configuration)
@@ -34,11 +34,11 @@ in
 [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
 
-#### Step 2: User initiates sign in
+#### Step 2: User initiates sign-in
 
 When the user initiates a social login within your app, the next step
-is to call the `login()` method passing in the `facebook` service type
-and `completion` closure. This closure is invoked once when the sign in completes
+is to call the `login` method passing in the `facebook` service type
+and `completion` closure. This closure is invoked once when the sign-in completes
 and returns either a fatal error or success with a token.
 
 ```swift
@@ -53,12 +53,12 @@ self.authHandler?.login(service: .facebook)
 }
 ```
 
-#### Step 3: Send user to home screen after successful sign in
+#### Step 3: Send user to home screen after successful sign-in
 
 The final integration step is to send the user to the default home page
-after successful sign in. Optionally, you can obtain basic user information after a
+after successful sign-in. Optionally, you can obtain basic user information after a
 successful sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/ios/main/#get-user-profile-information-after-sign-in).
+See [Get user profile information after sign-in](/docs/guides/oie-embedded-sdk-alternate-flows/ios/main/#get-user-profile-information-after-sign-in).
 
 
 ## Sample code
