@@ -31,7 +31,7 @@ val beginProceedContext = beginResponse.getProceedContext()
 val newUserRegistrationResponse = idxAuthenticationWrapper.fetchSignUpFormValues(beginProceedContext)
 ```
 
-> **Note:** `IDXAuthenticationWrapper.fetchSignUpFormValues()` allows you to build the create account form dynamically from the required form values.
+> **Note:** `IDXAuthenticationWrapper.fetchSignUpFormValues()` allows you to build the create account form dynamically from the required form values using `AuthenticationResponse#getFormValues`.
 
 ### Step 2: User enters profile data
 

@@ -38,7 +38,7 @@ After the password and email factors are verified, the user has the option to en
 
 > **Note:** Based on the configuration described in [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), the Okta app is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional.
 
-The following flow describes the steps when the user enrolls the optional phone SMS factor.
+The following flow describes the steps when the user enrolls the optional phone factor.
 
 <div class="common-image-format">
 
