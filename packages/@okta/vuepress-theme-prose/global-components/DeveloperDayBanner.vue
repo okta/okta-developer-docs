@@ -8,7 +8,10 @@
       <div class="col-lg-11 col-xl-11 col-md-12 col-xs-12 homepage--elevated">
         <div class="d-flex align-items-center">
           <div
-            class="col-lg-8 col-xl-8 col-md-6 col-xs-6 offset-md-1 offset-xs-1"
+            class="
+              col-lg-8 col-xl-8 col-md-6 col-xs-6
+              offset-md-1 offset-xs-1 offset-xl-0 offset-lg-0
+            "
           >
             <h2
               class="
@@ -31,7 +34,7 @@
                 Join us for a day of celebrating developers around the world.
               </span>
               <span class="developer-day-banner--cta-small">
-                Join us for a day of celebrating developers around the world.
+                Join us virtually for Developer Day on August 24, 2021.
               </span>
               <a href="https://www.okta.com/developerday/">
                 Register

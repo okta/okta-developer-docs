@@ -42,6 +42,7 @@
         &-small{
             font-size: 14px;
             color: white;
+            display: block;
             @include media('>bootstrap-xl'){
                 display: none;
             }
