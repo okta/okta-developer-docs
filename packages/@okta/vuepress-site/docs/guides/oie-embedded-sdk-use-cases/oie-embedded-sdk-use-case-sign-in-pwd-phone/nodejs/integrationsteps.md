@@ -60,12 +60,11 @@ Build the phone number entry page that accepts the phone number that the user wi
 
 > **Note:** The SDK requires that the phone number follows the `+#######` format, which starts with a plus (+) sign. See [Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/nodejs/main/#phone-number).
 
-When the user enters a phone number and clicks the send code through the SMS button, a call to `idx.authenticate` is made that passes in the following values:
+When the user enters a phone number, send the user to another page that selects the phone verification method, either SMS or voice verification. After a user clicks the send code through the SMS button, a call to `idx.authenticate` is made that passes in the following values:
 
 * Authenticator (type): `({ authenticator: 'phone' })`
 * Phone number: `({ phone: '+#######' })`
-
-> **Note:** Only SMS is currently supported for the phone authenticator type.
+* Verification method: `([ method: 'SMS' }])`
 
 If the call to `idx.authenticate` is successful, it should return another status of `Idx.Status:PENDING`. When the status is returned, a code is sent to the phone number through SMS. The `nextStep` field requires the code as a verification input:
 
