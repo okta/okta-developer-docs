@@ -16,6 +16,7 @@ $base-spacing: 1.5rem;
     overflow: hidden;
   
     nav.tabs ul {
+      z-index: 1000;
       background: $gray-000;
       display: flex; /*fallback*/
       flex-wrap: wrap; /*fallback*/
