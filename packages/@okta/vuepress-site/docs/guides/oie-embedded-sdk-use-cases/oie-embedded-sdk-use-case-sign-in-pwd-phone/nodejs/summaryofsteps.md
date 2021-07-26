@@ -2,7 +2,7 @@
 
 <div class="common-image-format">
 
-![Sign in with email and phone 1](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-nodejs.seq-1.png
+![Sign in with email and phone 1](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-nodejs-seq-1.png
  "Sign in with email and phone 1")
 
 </div>
