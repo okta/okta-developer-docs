@@ -109,7 +109,7 @@ You need to build a form to capture the user's phone number as well as a subsequ
 
 </div>
 
-When the user enters their phone number and selects SMS to receive the verification code, capture this information and send it to the [`IDXAuthenticationWrapper.submitPhoneAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L398) method. For example:
+After the user enters their phone number and selects a method to receive the verification code, capture this information and send it to the [`IDXAuthenticationWrapper.submitPhoneAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L398) method. For example:
 
 ```java
 AuthenticationResponse authenticationResponse =
@@ -117,9 +117,9 @@ AuthenticationResponse authenticationResponse =
          phone, getFactorFromMethod(session, mode));
 ```
 
-The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your client app. This status indicates that the user needs to provide the verification code for the phone authenticator.
+The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends a code to the specified phone number. After the code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your client app. This status indicates that the user needs to provide the verification code for the phone authenticator.
 
-> **Note:** Alternatively, if the user selects **Voice** as the phone verification method, Okta sends an automated voice message with the verification code to the specified phone.
+> **Note:** If the user selects **Voice** as the phone verification method, Okta sends an automated voice message with the verification code to the specified phone.
 
 You need to build a form to capture the user's verification code.
 
