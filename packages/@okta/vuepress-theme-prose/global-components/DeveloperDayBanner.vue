@@ -5,7 +5,7 @@
       class="fa fa-times developer-day-banner--close"
     ></i>
     <div class="row justify-content-center">
-      <div class="col-lg-11 col-xl-11 col-md-12 col-xs-12 homepage--elevated">
+      <div class="col-lg-11 col-xl-11 col-md-12 col-xs-12">
         <div class="d-flex align-items-center">
           <div
             class="
@@ -72,6 +72,7 @@ export default {
   methods: {
     handleBannerClose() {
       this.bannerIsOpened = !this.bannerIsOpened;
+      console.log("Click");
     },
   },
 };

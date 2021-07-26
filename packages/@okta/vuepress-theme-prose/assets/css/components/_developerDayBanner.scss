@@ -4,7 +4,9 @@
     margin: 0;
     background-color: #233e4e;
     position: relative;
+  
     &--close{
+        z-index: 2;
         font-size: 20px;
         position: absolute;
         right: 20px;
