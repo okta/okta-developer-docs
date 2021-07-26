@@ -35,7 +35,7 @@ export const concepts = [
         path: "/docs/concepts/feature-lifecycle-management/"
       },
       {
-        title: "Role Assignment",
+        title: "Role assignment",
         path: "/docs/concepts/role-assignment/",
         hidden: true
       },
@@ -44,9 +44,13 @@ export const concepts = [
         path: "/docs/concepts/how-okta-works/"
       },
       {
-        title: "Identity engine",
-        path: "/docs/concepts/ie-intro/",
-        hidden: true
+        title: "Identity Engine",
+        subLinks: [
+          {
+            title: "Redirect vs. embedded authentication",
+            path: "/docs/concepts/redirect-vs-embedded"
+          },
+        ]
       },
       {
         title: "Inline Hooks",
@@ -369,9 +373,94 @@ export const guides = [
             guideName: "token-inline-hook"
           },
         ]
-      }
+      },
+      {
+        title: "Identity Engine",
+        subLinks: [
+          {
+            title: "Embedded authentication",
+            subLinks: [
+              {
+                title: "Overview",
+                guideName: "oie-embedded-overview",
+              },
+              {
+                title: "Create and set up your Okta org",
+                guideName: "oie-embedded-common-org-setup",
+              },
+              {
+                title: "Download and set up the sample app",
+                guideName: "oie-embedded-common-download-setup-app",
+              },
+              {
+                title: "Build with the embedded SDK",
+                subLinks: [
+                  {
+                    title: "Overview",
+                    guideName: "oie-embedded-sdk-overview",
+                  },
+                  {
+                    title: "Run the SDK sample app",
+                    guideName: "oie-embedded-sdk-run-sample",
+                  },
+                  {
+                    title: "Start with a use case",
+                    guideName: "oie-embedded-sdk-use-cases",
+                  },
+                  {
+                    title: "Alternate flows",
+                    guideName: "oie-embedded-sdk-alternate-flows",
+                  },
+                  {
+                    title: "Limitations",
+                    guideName: "oie-embedded-sdk-limitations",
+                  },
+                  {
+                    title: "Common",
+                    guideName: "oie-embedded-sdk-common",
+                  },
+                ]
+              },
+              {
+                title: "Build with the embedded Widget",
+                subLinks: [
+                  {
+                    title: "Overview",
+                    guideName: "oie-embedded-widget-overview",
+                  },
+                  {
+                    title: "Run the Widget sample app",
+                    guideName: "oie-embedded-widget-run-sample",
+                  },
+                  {
+                    title: "Start with a use case",
+                    guideName: "oie-embedded-widget-use-cases",
+                  }
+                ]
+              },
+              {
+                title: "Refresh access and ID tokens",
+                guideName: "oie-embedded-common-refresh-tokens",
+              },
+            ]
+            },
+          {
+          title: "Redirect authentication",
+          subLinks: [
+            {
+              title: "Use redirect auth with the sample apps",
+              guideName: "sampleapp-oie-redirectauth",
+            },
+          ]
+          },
+          {
+            title: "Okta Identity Engine Limitations",
+            path: "/docs/guides/ie-limitations/"
+          },
+        ]
+      },
     ]
-  }
+  },
 ];
 
 export const languagesSdk = [
@@ -471,7 +560,8 @@ export const languagesSdk = [
           { title: "Python", path: "/code/python/" },
           { title: "REST", path: "/code/rest/" }
         ]
-      }
+      },
+      { title: "Identity Engine SDKs & Samples", path: "/code/oie/" }
     ]
   }
 ];
@@ -540,7 +630,9 @@ export const reference = [
           { title: "Manage Okta Objects", path: null},
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
           { title: "Apps", path: "/docs/reference/api/apps/" },
+          { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
+          { title: "CAPTCHAs", path: "/docs/reference/api/captchas/"},
           { title: "Domains", path: "/docs/reference/api/domains/"},
           { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/"},
           { title: "Event Types", path: "/docs/reference/api/event-types/" },
@@ -636,6 +728,10 @@ export const reference = [
       {
         title: 'Okta Expression Language',
         path: "/docs/reference/okta-expression-language/"
+      },
+      {
+        title: "Okta Expression Language in Identity Engine",
+        path: "/docs/reference/okta-expression-language-in-identity-engine/"
       },
       {
         title: 'Release Life Cycle',

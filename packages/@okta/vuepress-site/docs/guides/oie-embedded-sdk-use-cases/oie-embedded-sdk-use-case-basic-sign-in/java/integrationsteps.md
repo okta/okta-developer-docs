@@ -1,0 +1,88 @@
+## Integration steps
+
+### Step 1: Build a sign-in page on the client
+
+Build a sign-in page that captures both the username and password.
+
+For example:
+
+<div class="common-image-format">
+
+![Sign in screenshot](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png
+ "Sign in screenshot")
+
+</div>
+
+### Step 2: Authenticate user credentials
+
+When the user initiates the sign-in process, your app needs to create an [AuthenticationOptions](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationOptions.java) object and set its `username` and `password` properties to the values entered by the user. Send this object to the
+[IDXAuthenticationWrapper](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java)'s `authenticate` method to authenticate the user.
+
+```java
+AuthenticationResponse authenticationResponse =
+                idxAuthenticationWrapper.authenticate(new AuthenticationOptions(username, password), beginResponse.getProceedContext());
+```
+
+### Step 3: Handle the response from the sign in
+
+Depending on [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java)'s [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) value, you need to handle the response accordingly:
+
+#### Success status
+
+For a successful sign-in response (`AuthenticationStatus.Success`), use the [AuthenticationResponse](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java)'s `getTokenResponse` method to retrieve the token and then process the authenticated user in the app.
+
+For example:
+
+```java
+    ...
+  public ModelAndView handleTerminalTransitions(AuthenticationResponse response, HttpSession session) {
+        Util.updateSession(session, response.getProceedContext());
+        if (response.getTokenResponse() != null) {
+            return homeHelper.proceedToHome(response.getTokenResponse(), session);
+        }
+
+        if (response.getAuthenticators() == null && response.getErrors().size() > 0) {
+            ModelAndView modelAndView = new ModelAndView("error");
+            modelAndView.addObject("errors", response.getErrors());
+            return modelAndView;
+        }
+
+        if (response.getAuthenticationStatus() == SKIP_COMPLETE) {
+            ModelAndView modelAndView = homeHelper.proceedToHome(response.getTokenResponse(), session);
+            modelAndView.addObject("info", response.getErrors());
+            return modelAndView;
+        }
+        return null;
+    }
+    ...
+```
+
+#### Other status
+
+You need to handle other returned [AuthenticationStatus](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) cases if the user didn't sign in successfully.
+
+For example:
+
+```java
+    ...
+        switch (response.getAuthenticationStatus()) {
+            case AWAITING_PASSWORD_RESET:
+                return registerPasswordForm("Reset Password");
+            case PASSWORD_EXPIRED:
+                return registerPasswordForm("Password Expired");
+            case AWAITING_AUTHENTICATOR_SELECTION:
+            case AWAITING_AUTHENTICATOR_VERIFICATION_DATA:
+                return selectAuthenticatorForm(response, "Select Authenticator", session);
+            case AWAITING_AUTHENTICATOR_VERIFICATION:
+                return verifyForm();
+            case AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION:
+                return selectAuthenticatorForm(response, "Enroll Authenticator", session);
+            default:
+                return unsupportedPolicy();
+        }
+    ...
+```
+
+### Step 4: Get user profile information-optional
+
+Optionally, you can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo).

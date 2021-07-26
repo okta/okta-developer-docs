@@ -1,0 +1,1 @@
+  If you are using the sample app use: `com.okta.sample.android:/login`. Otherwise, choose a URI that your app accepts.
