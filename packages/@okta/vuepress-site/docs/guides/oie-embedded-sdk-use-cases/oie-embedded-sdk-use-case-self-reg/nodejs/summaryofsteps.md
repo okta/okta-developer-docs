@@ -8,7 +8,7 @@ The following diagram illustrates the beginning of the registration process wher
 
 <div class="common-image-format">
 
-![Self-service registration start](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-start.png
+![Self-service registration start](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start-nodejs.png
  "Self-service registration start")
 
 </div>
@@ -19,7 +19,7 @@ The self-registration flow continues in this sequence.
 
 <div class="common-image-format">
 
-![Self-service registration enroll](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-enroll-verify.png
+![Self-service registration enroll](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify-nodejs.png
  "Self-service registration enroll")
 
 </div>
@@ -35,7 +35,7 @@ The following flow describes the steps when the user enrolls in the optional pho
 
 <div class="common-image-format">
 
-![Self-service registration enroll](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-phone.png
+![Self-service registration enroll](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-phone-nodejs.png
  "Self-service registration enroll")
 
 </div>
@@ -48,7 +48,7 @@ factors are optional. In this case, the user opts to skip the phone
 
 <div class="common-image-format">
 
-![Self-service registration skip phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-skip-phone.png
+![Self-service registration skip phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-skip-phone-nodejs.png
  "Self-service registration skip phone")
 
 </div>
