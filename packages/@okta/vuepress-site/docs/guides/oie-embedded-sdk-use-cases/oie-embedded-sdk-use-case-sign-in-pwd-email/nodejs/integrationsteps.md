@@ -1,7 +1,6 @@
 ### Step 1: Build a sign-in page on the client and authenticate user credentials
 
-Build a sign-in page that captures both the user’s name and
-password. An example is shown below:
+Build a sign-in page that captures both the user’s name and password, as shown in the following example:
 
 <div class="common-image-format">
 
@@ -10,9 +9,9 @@ password. An example is shown below:
 
 </div>
 
-When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object and set its `username` and `password` properties to the values entered by the user. Send this object to the `idx.authenticate` method to start the authentication process. See [idx.Authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) for more information. This call begins the multi-factor authentication flow. 
+When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object and set its `username` and `password` properties to the values entered by the user. Send this object to the [`idx.authenticate`](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) method to start the authentication process. This call begins the multi-factor authentication flow.
 
-If the username and password are valid, `idx.authenticate` should return a status of `Idx.Status:PENDING`. This status indicates that an additional factor needs to be verified before the sign in. In addition to the status, the `nextStep` field, included in the response, identifies the input parameters of the next step, in this case an authenticator of type email:
+If the username and password are valid, `idx.authenticate` should return a status of `Idx.Status:PENDING`. This status indicates that an additional factor needs to be verified before the sign-in. In addition to the status, the `nextStep` field that is included in the response identifies the input parameters of the next step, which is an authenticator of type email in this case:
 
 ```JavaScript
  status, // IdxStatus.PENDING
@@ -37,7 +36,7 @@ The next step is to show the email factor to the user in an authenticator list p
 
 When the user selects the **email** factor, call `idx.authenticate` and pass in the authentication email authentication type, `({ authenticator: 'email' })`. With this call, Okta sends a verification code to the user's email.
 
-If the call is successful, the method should return a status of `Idx.Status:PENDING`, which indicates that the SDK is ready for the verification code. The `nextStep` field identifies the input parameter of the next step, in this case a verification code:
+If the call is successful, the method should return a status of `Idx.Status:PENDING`, which indicates that the SDK is ready for the verification code. The `nextStep` field identifies the input parameter of the next step, which is a verification code in this case:
 
 ```JavaScript
 status, // IdxStatus.PENDING
@@ -59,7 +58,7 @@ If not already done, build the email verification code page that accepts the cod
 
 </div>
 
-The next step is to call `idx.authenticate` and pass in the email verification code `({ verificationCode: 'xxx' })`. The next step is to handle the response from the call. If the email code was valid, the method should return a status of `Idx.Status:SUCCESS` and tokens. This status signifies that there are no more factors waiting to be enrolled and verified. If the steps described in [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user has successfully signed in and should be sent to the default sign-in home page.
+The next step is to call `idx.authenticate` and pass in the email verification code `({ verificationCode: 'xxx' })`. The next step is to handle the response from the call. If the email code is valid, the method should return a status of `Idx.Status:SUCCESS` and tokens. This status signifies that there are no more factors that are waiting to be enrolled and verified. If the steps in [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user has successfully signed in and should be sent to the default sign-in home page.
 
 #### Get user profile information (optional)
 
