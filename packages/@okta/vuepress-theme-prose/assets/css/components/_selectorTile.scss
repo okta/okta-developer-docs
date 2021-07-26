@@ -49,12 +49,21 @@
     align-items: center;
     color: cv('text', 'darker');
     margin-bottom: 19px;
+
+    @include media("<=tablet"){
+      font-size: 21px;
+      font-weight: 500;
+    }
+
     >i,span{
       display: block;
     }
     >i{
       color: cv('text', 'darker');
       font-size: 8px;
+      @include media("<=tablet"){
+        font-size: 16px;
+      }
     }
     &:hover {
       color: cv('text', 'darker');
@@ -74,6 +83,7 @@
       color: cv('text', 'darker');
 
       @include media("<=tablet") {
+        padding-bottom: 16px;
         &:last-child {
           border-bottom: none;
         }
@@ -88,19 +98,29 @@
         width: 15px;
         height: 15px;
         display: block;
+        @include media("<=tablet"){
+          width: 20px;
+          height: 20px;
+        }
       }
       >span{
         font-size: 14px;
-        font-weight: bold;
+        font-weight: 500;
         display: block;
         flex-grow: 1;
         padding-left: 19px;
+        @include media("<=tablet"){
+          font-size: 18px;
+        }
       }
       >i{
         display: block;
         font-weight: 100;
         font-size: 8px;
         color: cv('text', 'lighter');
+        @include media("<=tablet"){
+          font-size: 16px;
+        }
       }
       &:hover{
         color: cv('text', 'darker');

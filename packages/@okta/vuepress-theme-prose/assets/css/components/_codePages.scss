@@ -27,6 +27,10 @@
 .language-ctas {
   display: flex;
 
+  @include media("<=tablet") {
+    flex-wrap: wrap;
+  }
+
   li {
     margin-right: 2rem;
     margin-bottom: 1rem;

@@ -60,6 +60,9 @@ body {
   @include media("<=desktop") {
     padding-top: 70px;
   }
+  @include media("<=phone") {
+    padding-top: 60px;
+  }
 }
 
 a[target="_blank"]:not([href^="mailto:"])::after {

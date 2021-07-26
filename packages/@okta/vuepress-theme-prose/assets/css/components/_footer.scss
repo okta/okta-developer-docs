@@ -109,6 +109,7 @@ $redesign_footer_border: #1F3B54;
 
       @include media('<phone') {
         flex: 1 0 100%;
+        padding-left: 0;
       }
     }
 

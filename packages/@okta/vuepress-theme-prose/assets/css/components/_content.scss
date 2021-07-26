@@ -88,6 +88,12 @@
       }
     }
 
+    .content__default {
+      @include media("<=tablet") {
+        margin-top: 20px;
+      }
+    }
+
     a {
       text-decoration: underline;
       word-break: break-word;

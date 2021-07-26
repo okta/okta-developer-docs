@@ -7,6 +7,10 @@
   @include media("<=bootstrap-xl"){
     margin-bottom: 30px;
   }
+  @include media("<=tablet"){
+    align-items: center;
+    margin-bottom: 60px;
+  }
   &--rounded{
     background-color: #fff;
     display: flex;
@@ -26,6 +30,9 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    @include media("<=tablet"){
+      text-align: center;
+    }
     &--title{
       font-size: 18px;
       color: cv('text', 'darker');

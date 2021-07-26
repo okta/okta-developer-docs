@@ -35,6 +35,17 @@
           @include media("<=desktop") {
             padding-right: 7px;
           }
+          @include media("<=tablet") {
+            font-size: 14px;
+            color: cv('text');
+          }
+        }
+        svg {
+          path {
+            @include media("<=tablet") {
+              stroke: cv('text');
+            }
+          }
         }
         &:nth-last-child(2) {
           svg {
@@ -42,7 +53,7 @@
           }
         }
         &:nth-last-child(2) {
-          padding: 0;
+          margin-right: 0;
         }
       }
 

@@ -317,7 +317,7 @@ header.page-header {
             > li {
               > a.link,
               > span.link {
-                font-weight: 600;
+                font-weight: 500;
                 color: cv('text', 'darker');
               }
             }
@@ -328,7 +328,7 @@ header.page-header {
               &.opened {
                 margin-left: -12px;
                 > span {
-                  font-weight: 600;
+                  font-weight: 500;
                   color: cv('text', 'darker');
                   &::after {
                     transform: rotate(90deg);
@@ -364,6 +364,17 @@ header.page-header {
       &.opened {
         display: block;
       }
+    }
+  }
+  @include media("<=phone") {
+    height: 60px;
+
+    .menu--slideout {
+      top: 60px;
+    }
+
+    .sign-up--button {
+      display: none;
     }
   }
 }
