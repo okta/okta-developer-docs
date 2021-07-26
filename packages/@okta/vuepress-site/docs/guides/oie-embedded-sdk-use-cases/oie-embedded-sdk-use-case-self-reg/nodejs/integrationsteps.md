@@ -40,9 +40,9 @@ router.post('/register', async (req, res, next) => {
 });
 ```
 
-### Step 4: Handle the response from idx.register
+### Step 4: Handle the response from idx.register calls
 
-If the org's application is properly configured with multiple factors, `idx.register` should return a response with `Idx.Status:PENDING`. This status indicates that there is a required authenticator that needs to be verified. If you completed the steps properly in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), the authenticator is the **password** factor. The next steps, as shown in the SDK sample application, are handled by the `handleTransaction` page for the subsequent flows.
+If the org's application is properly configured with multiple factors, `idx.register` should return a response with `Idx.Status:PENDING`. This status indicates that there is a required authenticator that needs to be verified. If you completed the steps properly in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), the authenticator is the **password** factor. The next steps, as shown in the SDK sample application, are handled by the `handleTransaction.js` page for the subsequent flows.
 
 ```JavaScript
 // registration
