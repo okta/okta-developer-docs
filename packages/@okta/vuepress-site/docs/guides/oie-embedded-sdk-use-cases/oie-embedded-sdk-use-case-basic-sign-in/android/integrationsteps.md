@@ -14,7 +14,7 @@ Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWr
 
 ```kotlin
     val beginResponse = idxAuthenticationWrapper.begin()
-    val beginProceedContext = beginResponse.getProceedContext()
+    val beginProceedContext = beginResponse.proceedContext
 ```
 
 ### Step 2: Authenticate user credentials
@@ -112,10 +112,8 @@ For example:
 
 There is no explicit failed status from `AuthenticationStatus`. Check the response handler for an error in `AuthenticationResponse` for failed authentication and handle the flow accordingly. For example:
 
-```java
-if (responseHandler.needsToShowErrors(authenticationResponse)) {
-    ModelAndView modelAndView = new ModelAndView("redirect:/login");
-    modelAndView.addObject("errors", authenticationResponse.getErrors());
-    return modelAndView;
+```kotlin
+if (response.errors.isNotEmpty()) {
+    return ProceedTransition.ErrorTransition(response.errors)
 }
 ```
