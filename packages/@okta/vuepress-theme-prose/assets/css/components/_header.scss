@@ -33,7 +33,7 @@ header.page-header {
 
   .search--slideout {
     flex: 1 1 260px;
-    max-width: 260px;
+    max-width: 336px;
     margin-left: 47px;
   }
 
@@ -41,7 +41,7 @@ header.page-header {
     flex: 1 0 auto;
     display: flex;
     justify-content: space-between;
-    padding: 0 29px;
+    padding: 0 37px;
 
     ul.menu--items + ul.menu--items {
       margin-left: 42px;
@@ -57,11 +57,11 @@ header.page-header {
     display: flex;
     align-items: center;
     height: 38px;
-    padding: 7px 16px;
+    padding: 7px 12px;
     background: cv('header');
     border: 1px solid $redesign_white;
     border-radius: 4px;
-    font-weight: 600;
+    font-weight: 400;
     font-size: 14px;
     color: $redesign_white;
   }
@@ -121,7 +121,6 @@ header.page-header {
     line-height: 1.3em;
     color: $redesign_white;
     cursor: pointer;
-    letter-spacing: 0.04em;
 
     &:hover {
       text-decoration: underline;
@@ -136,7 +135,7 @@ header.page-header {
     }
 
     &--semi-bold {
-      font-weight: 600;
+      font-weight: 400;
     }
 
     &[target="_blank"]:not([href^="mailto:"])::after {
@@ -286,17 +285,26 @@ header.page-header {
               position: relative;
               display: block;
 
-              &:not(.router-link-exact-active, .subnav-active) {
-                color: cv('text', 'darker');
+              &:not(.router-link-exact-active, .router-link-active, .subnav-active) {
+                color: cv('text');
 
                 &:visited, &:active, &:focus {
-                  color: cv('text', 'darker');
+                  color: cv('text');
                 }
               }
 
               &:after {
                 transform: rotate(-90deg);
                 transition: transform 300ms ease-in-out;
+              }
+
+              &:hover {
+                text-decoration: none;
+                color: cv('text', 'darker');
+              }
+
+              &.router-link-active {
+                color: cv('link') !important;
               }
             }
 
@@ -305,23 +313,23 @@ header.page-header {
             }
           }
 
-          > li {
-            > a.link,
-            > span.link {
-              font-weight: 600;
+          &:not(.expanded) {
+            > li {
+              > a.link,
+              > span.link {
+                font-weight: 600;
+                color: cv('text', 'darker');
+              }
             }
           }
-
           &.expanded {
             li {
               padding-left: 27px;
-              a.link, span.link {
-                font-weight: 300;
-              }
               &.opened {
                 margin-left: -12px;
                 > span {
                   font-weight: 600;
+                  color: cv('text', 'darker');
                   &::after {
                     transform: rotate(90deg);
                     transition: none;

@@ -83,13 +83,10 @@ assurances:
   - title: Compliant out of the Box
     description: with HIPAA, FedRamp, SOC and more, we have you covered
     image: /img/homepage/compliance-out-of-box.svg
+  - title: 99.99% Uptime
+    description: so your apps are working even when you’re not
+    image: /img/homepage/4th-value.svg
   - title: Open Standards
     description: SAML, OpenID Connect, and OAuth 2.0 connect you to everything else
     image: /img/homepage/standards.svg
-  - title: 99.99% Uptime
-    description: so your apps are working even when you’re not
-    image: /img/homepage/uptime.svg
-  - title: 4th Value Prop
-    description: this is example text for a potential fourth and final value prop
-    image: /img/homepage/4th-value.svg
 ---

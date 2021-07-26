@@ -75,7 +75,7 @@
     max-width: calc(100% - 253px);
     padding: 50px 148px;
     @include media("<=desktop") {
-      padding: 40px 57px;
+      padding: 30px 57px;
     }
     @include media("<=tablet") {
       width: 100%;

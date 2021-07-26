@@ -28,7 +28,8 @@
         a, span {
           text-decoration: none;
           color: cv('text', 'darker');
-          font-size: 14px;
+          font-size: 12px;
+          font-weight: 500;
           padding-right: 1em;
 
           @include media("<=desktop") {

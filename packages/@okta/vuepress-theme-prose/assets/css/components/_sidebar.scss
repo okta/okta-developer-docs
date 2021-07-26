@@ -1,6 +1,6 @@
 @mixin active-link {
   color: cv('text', 'darker');
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .tree-nav {
@@ -57,7 +57,7 @@
       align-items: baseline;
       justify-content: flex-start;
       font-size: 1em;
-      font-weight: normal;
+      font-weight: 300;
       text-decoration: none;
       color: cv('text');
       cursor: pointer;

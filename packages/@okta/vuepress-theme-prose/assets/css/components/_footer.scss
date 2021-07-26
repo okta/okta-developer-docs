@@ -5,7 +5,7 @@ $redesign_footer_border: #1F3B54;
   position: relative;
   background-color: cv('header');
   border-top: 1px solid $redesign_footer_border;
-  padding: 100px 60px;
+  padding: 100px 64px;
 
   @include media('<=desktop') {
     padding: 60px 0;
@@ -33,10 +33,10 @@ $redesign_footer_border: #1F3B54;
     }
 
     .footer--column {
-      flex: 0 0 150px;
+      flex: 0 0 170px;
 
       .column--header {
-        font-weight: bold;
+        font-weight: 400;
         font-size: 14px;
         line-height: 1.3em;
         letter-spacing: 1.5px;
@@ -51,7 +51,7 @@ $redesign_footer_border: #1F3B54;
     }
 
     .social {
-      flex: 0 0 110px;
+      flex: 0 0 120px;
       @include media('<=desktop') {
         flex: 1 0 100%;
         margin-bottom: 0;
@@ -87,6 +87,7 @@ $redesign_footer_border: #1F3B54;
     }
 
     .contact {
+      flex: 0 0 170px;
       @include media('<=desktop') {
         flex: 1 0 50%;
         margin-bottom: 46px;
@@ -130,7 +131,7 @@ $redesign_footer_border: #1F3B54;
     }
 
     .websites {
-      flex: 0 0 280px;
+      flex: 0 0 300px;
 
       @include media('<=desktop') {
         flex: 1 0 40%;
@@ -156,25 +157,22 @@ $redesign_footer_border: #1F3B54;
           font-size: 16px;
           line-height: 1.7em;
           letter-spacing: 0.01em;
-          color: $redesign_white;
+          color: cv('text', 'lighter');
           margin-top: 6px;
-
-          @include media('<=desktop') {
-            color: cv('link', 'footer');
-          }
         }
       }
     }
 
     .need-support {
-      flex: 0 0 255px;
+      flex: 0 0 245px;
       position: relative;
 
       .column--header {
-        font-weight: 600;
+        font-weight: 400;
         font-size: 20px;
         text-transform: none;
         margin-bottom: 17px;
+        letter-spacing: .5px;
 
         @include media('<=desktop') {
           margin-bottom: 16px;
@@ -183,13 +181,12 @@ $redesign_footer_border: #1F3B54;
 
       p {
         line-height: 2.5em;
-        color: #B5D0DF;
+        color: $redesign_white;
+        a {
+          color: $redesign_white;
+        }
         @include media('<=desktop') {
           line-height: 1.6rem;
-
-          a {
-            color: $redesign_white;
-          }
         }
       }
     }
@@ -198,10 +195,7 @@ $redesign_footer_border: #1F3B54;
   a.link {
     font-size: inherit;
     line-height: 1.3em;
-    color: $redesign_white;
-    @include media('<=desktop') {
-      color: cv('link', 'footer');
-    }
+    color: cv('text', 'lighter');
 
     &:hover {
       text-decoration: underline;
@@ -212,7 +206,7 @@ $redesign_footer_border: #1F3B54;
     }
 
     &--bold {
-      font-weight: bold;
+      font-weight: 400;
     }
 
     &--uppercase {
@@ -237,7 +231,7 @@ $redesign_footer_border: #1F3B54;
         display: inline-block;
         width: 1em;
         height: 1em;
-        margin-left: 0.2em;
+        margin-left: 12px;
         background-image: url('/img/icons/external--cherry.svg');
         background-repeat: no-repeat;
         vertical-align: middle;

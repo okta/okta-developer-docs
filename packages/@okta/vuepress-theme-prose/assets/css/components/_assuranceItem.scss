@@ -1,17 +1,11 @@
 .assurance-item{
   display: flex;
+  flex-direction: column;
   width: 100%;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-start;
   margin-bottom: 49px;
   @include media("<=bootstrap-xl"){
     margin-bottom: 30px;
-  }
-  @include media("<=bootstrap-lg"){
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
   }
   &--rounded{
     background-color: #fff;
@@ -20,14 +14,14 @@
     justify-content: center;
     height: 100%;
     width: 112px;
-    flex-basis: 112x;
     height: 112px;
     flex-grow: 0;
     flex-shrink: 0;
     border-radius: 50%;
   }
   &--content{
-    padding: 0 0 0 30px;
+    margin: 30px 0 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -36,7 +30,7 @@
       font-size: 18px;
       color: cv('text', 'darker');
       font-weight: bold;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
     &--description{
       color: cv('text');
