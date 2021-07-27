@@ -50,6 +50,7 @@ widget.renderEl({
         mode: "text/javascript",
         styleActiveLine: true,
         readOnly: true,
+        indentUnit: 4,
       },
     };
   },

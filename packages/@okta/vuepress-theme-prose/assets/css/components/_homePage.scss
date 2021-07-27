@@ -76,7 +76,8 @@ $oktaGameButtonColor: #ffdd53;
   &--partners-block-margin {
     margin-bottom: 53px;
     @include media("<=desktop") {
-      margin-bottom: 30px;
+      padding-top: 0;
+      padding-bottom: 0;
     }
   }
 
@@ -118,6 +119,7 @@ $oktaGameButtonColor: #ffdd53;
     font-weight: normal;
     margin-top: 60px;
     margin-bottom: 60px;
+    position: relative;
     @include media("<=tablet") {
       text-align: center;
       margin-bottom: 12px;
@@ -168,6 +170,15 @@ $oktaGameButtonColor: #ffdd53;
   }
   &--examples {
     padding-top: 38px;
+    margin: 0 -70px;
+    justify-content: center;
+    @include media("<=desktop") {
+      flex-direction: column;
+      margin: 0;
+    }
+    @include media("<=tablet") {
+      padding-top: 77px;
+    }
   }
   &--code-example {
     height: 368px;
@@ -176,16 +187,17 @@ $oktaGameButtonColor: #ffdd53;
     border-radius: 10px;
     box-shadow: 0px 9px 25px rgba(0, 0, 0, 0.24);
     overflow: hidden;
-    margin-left: -74px;
     margin-bottom: 30px;
+    margin-right: 37px;
     min-width: 563px;
-    @include media("<=bootstrap-xl") {
-      margin-left: 0;
-      margin-bottom: 50px;
+    @include media("<=desktop") {
+      margin-bottom: 25px;
+      margin-right: 0;
     }
     @include media("<=tablet") {
       min-width: 0;
       width: 100%;
+      height: auto;
     }
     &--header {
       height: 50px;
@@ -202,6 +214,13 @@ $oktaGameButtonColor: #ffdd53;
         height: 100%;
         background-color: cv("text", "darker");
         color: #fff;
+
+        pre.CodeMirror-line, .CodeMirror pre.CodeMirror-line-like {
+          @include media("<=tablet") {
+            white-space: break-spaces;
+            word-break: break-word;
+          }
+        }
       }
     }
   }
@@ -211,11 +230,16 @@ $oktaGameButtonColor: #ffdd53;
     border: 1px solid #cecece;
     border-radius: 10px;
     width: 334px;
+    max-width: 334px;
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.10);
     margin-bottom: 30px;
     overflow: hidden;
+    @include media("<=phone") {
+      max-width: 100%;
+    }
 
     #okta-sign-in {
+      min-width: 210px;
       .auth-header {
         padding: 22px 90px 47px;
       }

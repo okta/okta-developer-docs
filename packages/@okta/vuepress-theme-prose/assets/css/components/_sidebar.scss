@@ -62,7 +62,7 @@
       color: cv('text');
       cursor: pointer;
       &:hover {
-        color: cv('link');
+        color: cv('text', 'darker');
       }
       &.children-active {
         @include active-link;

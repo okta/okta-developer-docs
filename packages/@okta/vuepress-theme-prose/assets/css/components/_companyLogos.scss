@@ -36,8 +36,7 @@
     @include media("<tablet") {
       justify-content: center;
       .company-logos--icon {
-        margin-left: 20px;
-        margin-right: 20px;
+        margin: 0 20px 20px;
       }
     }
   }

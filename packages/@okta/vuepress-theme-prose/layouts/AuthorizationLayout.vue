@@ -1,14 +1,14 @@
 <template>
   <div class="authorization-layout">
-    <header class="authorization-layout--header page-header">
-      <SmartLink :item="{ link: '/' }" class="header--logo">
-        <img src="/img/icons/okta-developer.svg" />
-      </SmartLink>
-    </header>
+    <div class="fixed-header">
+      <Header />
+    </div>
 
-    <section class="authorization-layout--content">
-      <Content />
-    </section>
+    <div class="page-body">
+      <section class="authorization-layout--content">
+        <Content />
+      </section>
+    </div>
 
     <div class="authorization-layout--footer">
       <Footer />
@@ -21,6 +21,7 @@
 export default {
   components: {
     Footer: () => import("../components/Footer"),
+    Header: () => import("../components/Header"),
     SmartLink: () => import("../components/SmartLink"),
   },
   mounted: function() {

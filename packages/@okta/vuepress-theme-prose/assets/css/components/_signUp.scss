@@ -26,12 +26,13 @@
 
   .signup--content {
   width: 100%;
-  max-width: 1272px;
+  max-width: 1195px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   font-size: 16px;
+  margin: 0 auto;
   color: cv('text', 'darker');
     
     @include media("<=desktop") {
@@ -46,6 +47,15 @@
       padding: 65px 32px;
       background-color: #fff;
       box-shadow: 0px 6px 18px rgba(65, 65, 75, 0.5);
+
+      @include media("<=desktop") {
+        width: 100%;
+        margin-bottom: 100px;
+      }
+
+      @include media("<=phone") {
+        padding: 10px;
+      }
 
       .user-name {
         display: flex;
@@ -119,15 +129,6 @@
         }
       }
 
-      @include media("<=desktop") {
-        width: 100%;
-        margin-bottom: 100px;
-      }
-
-      @include media("<=phone") {
-        padding: 0;
-      }
-
       .splitter {
         display: flex;
         height: 20px;
@@ -176,7 +177,6 @@
     }
     p {
       margin-bottom: 28px;
-      line-height: 1.6rem;
     }
     ul {
       li {
@@ -189,8 +189,12 @@
 
     h1 {
       font-size: 48px;
-      font-weight: normal;
+      font-weight: 300;
       margin-bottom: 35px;
+
+      @include media("<=tablet") {
+        font-size: 36px;
+      }
     }
     h2, h3, h4, h5 {
       margin-bottom: 2rem;

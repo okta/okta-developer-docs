@@ -55,22 +55,11 @@
               </div>
             </div>
             <div class="homepage--customize-your-app-margin homepage--section-margins">
+              <h2 class="homepage--main-heading homepage--color-main text-center">
+                Try it out for your app:
+              </h2>
               <div
-                class="row flex justify-content-around align-items-center"
-              >
-                <div class="col-lg-6 col-md-12">
-                  <h2 class="homepage--main-heading homepage--color-main">
-                    Try it out for your app:
-                  </h2>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                  <p class="homepage--section-description">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Leo suspendisse hendrerit nibh cpharetra eres
-                  </p>
-                </div>
-              </div>
-              <div
-                class="row flex justify-content-around align-items-center homepage--examples"
+                class="flex align-items-center homepage--examples"
               >
                 <div v-if="!pseudoAuthorizedCodeBlock" class="homepage--code-example">
                   <div class="homepage--code-example--cm-wrapper">
