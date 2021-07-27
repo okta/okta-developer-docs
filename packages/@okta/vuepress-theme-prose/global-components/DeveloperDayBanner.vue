@@ -37,8 +37,7 @@
                 Join us virtually for Developer Day on August 24, 2021.
               </span>
               <a href="https://www.okta.com/developerday/">
-                Register
-                <i class="fa fa-chevron-right"></i>
+                Register&nbsp;<i class="fa fa-chevron-right"></i>
               </a>
             </div>
           </div>
