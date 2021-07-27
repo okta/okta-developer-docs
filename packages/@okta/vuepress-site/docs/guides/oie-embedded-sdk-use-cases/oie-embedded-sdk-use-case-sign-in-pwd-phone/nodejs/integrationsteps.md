@@ -35,7 +35,7 @@ When the user selects the **phone** factor, call `idx.authenticate` and pass in 
 status, // IdxStatus.PENDING
   nextStep: {
     inputs, // [{ phone: '+#######', ... }]
-  }
+}
 ```
 
 The next step is to redirect the user to a page to enter in the phone number.
@@ -67,7 +67,7 @@ Build a page that accepts the code sent to your phone number through SMS. Depend
 
 The next step is to call `idx.authenticate` passing in the verification code `{ verification: 'xxx'}`.
 
-The next step is to handle the response from `idx.authenticate`. If the phone code was valid, the method should return a status of `Idx.Status:SUCCESS` with tokens. This status signifies that there are no more factors waiting to be enrolled and verified. If the steps described in [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user has successfully signed in and should be sent to the default sign-in home page.
+Then, handle the response from `idx.authenticate`. If the phone code was valid, the method should return a status of `Idx.Status:SUCCESS` with tokens. This status signifies that there are no more factors waiting to be enrolled and verified. If the steps described in [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user has successfully signed in and should be sent to the default sign-in home page.
 
 #### Get user profile information (optional)
 
