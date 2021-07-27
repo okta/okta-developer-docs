@@ -6,8 +6,7 @@ Build a sign-in page that captures the username and password, as shown in the fo
 
 <div class="common-image-format">
 
-![Sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png
- "Sign-in page screenshot where user enters username and password for authentication.")
+![Sign-in page screenshot where user enters username and password for authentication.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
 
 </div>
 
@@ -67,7 +66,7 @@ Build a page that accepts the code sent to the user's phone number through SMS. 
 
 The next step is to call `idx.authenticate` passing in the verification code `{ verification: 'xxx'}`.
 
-Then, handle the response from `idx.authenticate`. If the phone code was valid, the method returns a status of `Idx.Status:SUCCESS` with tokens. This status signifies that there are no more factors waiting to be enrolled and verified. If the steps described in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user has successfully signed in and should be sent to the default sign-in home page.
+Then, handle the response from `idx.authenticate`. If the phone code was valid, the method returns a status of `Idx.Status:SUCCESS` with tokens. This status signifies that there are no more factors waiting to be enrolled and verified. If the steps described in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user has successfully signed in and is sent to the default sign-in home page.
 
 #### Get user profile information (optional)
 

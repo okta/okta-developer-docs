@@ -2,8 +2,7 @@
 
 <div class="common-image-format">
 
-![Sign in with email and phone 1](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-nodejs-seq-1.png
- "Sign in with email and phone 1")
+![Displays part 1 of the sign in with email and phone flow sequence steps.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-nodejs-seq-1.png)
 
 </div>
 
@@ -11,7 +10,6 @@
 
 <div class="common-image-format">
 
-![Sign in with email and phone 2](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-nodejs-seq-2.png
- "Sign in with email and phone 2")
+![Displays part 2 of the sign in with email and phone flow sequence steps.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-nodejs-seq-2.png)
 
 </div>
