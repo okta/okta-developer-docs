@@ -2,7 +2,7 @@
 
 ### Step 1: Add forgot password link to sign-in page
 
-The first step is to create a forgot password link on the sign-in page. This link points to the "Reset your password" page.
+The first step is to create a forgot password link on the sign-in page, as in the following example. This link points to the "Reset your password" page.
 
 <div class="common-image-format">
 
