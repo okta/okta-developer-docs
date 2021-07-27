@@ -54,11 +54,11 @@
         >span{
             margin-right: 20px;
         }
-        
         >a{
             color: #35eddc;
             border-bottom: 1px solid #35eddc;
             letter-spacing: 1.5px;
+            white-space: nowrap;
             font-size: 20px;
             @include media('<=bootstrap-xl'){
                 display: inline-block;
