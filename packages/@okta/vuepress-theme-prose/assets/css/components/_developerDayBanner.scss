@@ -13,14 +13,14 @@
         top: 20px;
         color: grey;
         @include media('<=bootstrap-xl'){
-            color: white;
+            font-size: 14px;
         }
         &:hover{
            color: white; 
            cursor: pointer;
         }
     }
-    
+
     &--header-no-margin-large{
         margin-bottom: 0px;
         @include media('<=bootstrap-xl'){
@@ -54,7 +54,7 @@
             margin-right: 20px;
         }
         >a{
-            color: white;
+            color: #35eddc;
             border-bottom: 1px solid white;
             letter-spacing: 1.5px;
             font-size: 20px;
