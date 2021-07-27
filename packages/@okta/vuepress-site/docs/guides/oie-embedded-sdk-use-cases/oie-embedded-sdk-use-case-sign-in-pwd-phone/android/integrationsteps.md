@@ -12,18 +12,18 @@ Build a sign-in form for your app that captures both the username and password.
 
 Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
 
-```java
-AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
-ProceedContext proceedContext = beginResponse.getProceedContext();
+```kotlin
+val beginResponse = idxAuthenticationWrapper.begin()
+val proceedContext = beginResponse.proceedContext
 ```
 
 ### Step 2: User enters their credentials
 
 After the user enters their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
 
-```java
-AuthenticationResponse authenticationResponse =
-     idxAuthenticationWrapper.authenticate(new AuthenticationOptions(username, password.toCharArray()), proceedContext);
+```kotlin
+val authenticationResponse =
+     idxAuthenticationWrapper.authenticate(AuthenticationOptions(username, password), proceedContext)
 ```
 
 If the password is validated, the `IDXAuthenticationWrapper.authenticate()` method returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with the following properties:
@@ -49,8 +49,8 @@ After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the
 
 In this use case, the user selects **Phone** as the authenticator to enroll. Pass this selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
-```java
-authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
+```kotlin
+val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator)
 ```
 
 The response from this request is an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that the user needs to provide additional authenticator information. In the case of the phone authenticator, the user needs to specify a phone number.
@@ -73,9 +73,9 @@ This step assumes that the voice feature isn't enabled in your org. The phone ve
 
 When the user submits their phone number, capture this information and pass it to the [`IDXAuthenticationWrapper.verifyAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L368) method. In the following code example, the user phone number is encapsulated in the `verifyAuthenticatorOptions` object:
 
-```java
-AuthenticationResponse authenticationResponse =
-    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+```kotlin
+val authenticationResponse =
+    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
 
 The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your client app. This status indicates that the user needs to provide the verification code for the phone authenticator.
@@ -110,10 +110,9 @@ You need to build a form to capture the user's phone number as well as a subsequ
 
 After the user enters their phone number and selects a method to receive the verification code, capture this information and send it to the [`IDXAuthenticationWrapper.submitPhoneAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L398) method. For example:
 
-```java
-AuthenticationResponse authenticationResponse =
-   idxAuthenticationWrapper.submitPhoneAuthenticator(proceedContext,
-         phone, getFactorFromMethod(session, mode));
+```kotlin
+val authenticationResponse =
+   idxAuthenticationWrapper.submitPhoneAuthenticator(proceedContext, phone, factor)
 ```
 
 The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends a code to the specified phone number. After the code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your client app. This status indicates that the user needs to provide the verification code for the phone authenticator.
@@ -126,10 +125,10 @@ You need to build a form to capture the user's verification code.
 
 The user receives the code on their phone and submits it in the verification code form. Send this code to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 
-```java
-VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);
-AuthenticationResponse authenticationResponse =
-   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+```kotlin
+val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(code)
+val authenticationResponse =
+   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
 
 If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS`, and the user is successfully signed in. Use the [`AuthenticationResponse.getTokenResponse()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L43) method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
