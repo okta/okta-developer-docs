@@ -168,7 +168,30 @@ val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(procee
 
 The response from this request is an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that the user needs to provide additional authenticator information. In the case of the phone authenticator, the user needs to specify a phone number and whether they want to use SMS or voice as the verification method.
 
-### Step 9: User enters phone number and selects SMS verify method
+### Step 9, Option 1: User enters phone number and SMS verify method is sent automatically
+
+This step assumes that the voice feature isn't enabled in your org. The phone verification code is sent through SMS automatically.
+
+When the user submits their phone number, capture this information and pass it to the [`IDXAuthenticationWrapper.verifyAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L368) method. In the following code example, the user phone number is encapsulated in the `verifyAuthenticatorOptions` object:
+
+```java
+AuthenticationResponse authenticationResponse =
+    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+```
+
+The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your client app. This status indicates that the user needs to provide the verification code for the phone authenticator.
+
+You need to build a form to capture the user's SMS verification code. For example:
+
+<div class="common-image-format">
+
+![Displays the verification code input form for the Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-in-pwd-phone-verify-email-code-java.png)
+
+</div>
+
+### Step 9, Option 2: User enters phone number and selects either the SMS or voice verify method
+
+This step assumes that your org is enabled with the voice feature.
 
 You need to build a form to capture the user's phone number as well as a subsequent form for the user to select their phone verification method (either SMS or voice).
 
@@ -186,14 +209,18 @@ You need to build a form to capture the user's phone number as well as a subsequ
 
 </div>
 
-When the user enters their phone number and selects SMS to receive the verification code, capture this information and send it to the [`IDXAuthenticationWrapper.submitPhoneAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L398) method.
+When the user enters their phone number and selects a method to receive the verification code, capture this information and send it to the [`IDXAuthenticationWrapper.submitPhoneAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L398) method.
 
 ```kotlin
 val authenticationResponse =
    idxAuthenticationWrapper.submitPhoneAuthenticator(proceedContext, phone, factor)
 ```
 
-The Java SDK sends the phone authenticator data to Okta. Otka processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK that returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your app. This status indicates that the user needs to provide the verification code for the phone authenticator. You need to build a form to capture the user's SMS verification code.
+The Java SDK sends the phone authenticator data to Okta. Otka processes the request and sends a code to the specified phone number. After the code is sent, Okta sends a response to the SDK that returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your app. This status indicates that the user needs to provide the verification code for the phone authenticator.
+
+> **Note:** If the user selects **Voice** as the phone verification method, Okta sends an automated voice message with the verification code to the specified phone.
+
+You need to build a form to capture the user's verification code.
 
 ### Step 10: User submits SMS verification code
 
