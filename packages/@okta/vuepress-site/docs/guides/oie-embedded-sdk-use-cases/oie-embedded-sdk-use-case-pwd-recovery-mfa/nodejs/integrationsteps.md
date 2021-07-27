@@ -24,7 +24,7 @@ Create a "Reset your password" page that initiates the reset password flow. The 
 
 After the user clicks **Submit** to start the reset flow, the next step is to call `idx.recoverPassword` and pass in the email address captured from the **Username** field. This starts the password recovery flow and returns a status of `Idx.Status:PENDING` and a `nextStep` field with inputs for an authenticator.
 
-The cal is shown in the SDK sample application's `recover-password.js` file.
+The call is shown in the SDK sample application's `recover-password.js` file.
 
 ```JavaScript
 router.post('/recover-password', async (req, res, next) => {
@@ -46,18 +46,11 @@ The `handleTransaction` response, in the `handleTransaction.js` page, directs th
       return true;
 ```
 
->**NOTE:** Review the full use of the `idx.recoverPassword` method in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxrecoverpassword). Other uses are documented in the following steps.
+>**NOTE:** Review the full use of `idx.recoverPassword` in the [Okta Auth JS SDK](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxrecoverpassword). Other uses are documented in the following steps.
 
 ### Step 3: Create reset password authenticators page
 
 The next step is to create a page that shows the authenticator that is returned from the `handleTransaction` method. For this use case, it shows the email authenticator. The page should include the name of the authenticator and the ability to select the authenticator to initiate the authentication verification process.
-
-<div class="common-image-format">
-
-![Select password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-choose-auth.png
- "Select password")
-
-</div>
 
 After the user selects the email authenticator, the next step is to call `idx.recoverPassword` with the authenticator type, as shown in the `authenticator.js` file of the SDK sample application. The method returns a status of `Idx.Status:PENDING`. This status indicates that the Okta platform has emailed the verification code to the user's email address and it's now awaiting verification. The `nextStep` field, also returned, requires an input parameter of an email verification code.
 
@@ -101,13 +94,6 @@ If the `idx.recoverPassword` call is successful, it should return a status of `I
 ### Step 5: Create change password page
 
 Create a change password page that allows the user to enter the new password and initiate the change password.
-
-<div class="common-image-format">
-
-![Select password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link.png
- "Select password")
-
-</div>
 
 The final step is to make a call to `idx.recoverPassword`, passing in the value of the password, input by the user, as shown in the `recover-password.js` file of the SDK sample application. This call will reset the user's password.
 
