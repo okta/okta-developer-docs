@@ -1227,6 +1227,7 @@ You can publish a theme for a page or email template with different combinations
   "primaryColorHex": "#1662dd",
   "primaryColorContrastHex": "#ffffff",
   "secondaryColorHex": "#ebebed",
+  "secondaryColorContrastHex": "#ffffff",
   "signInPageTouchPointVariant": "OKTA_DEFAULT",
   "endUserDashboardTouchPointVariant": "OKTA_DEFAULT",
   "errorPageTouchPointVariant": "OKTA_DEFAULT",
