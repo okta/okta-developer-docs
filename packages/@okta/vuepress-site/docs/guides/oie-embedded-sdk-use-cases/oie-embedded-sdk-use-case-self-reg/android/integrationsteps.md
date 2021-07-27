@@ -175,7 +175,7 @@ This step assumes that the voice feature isn't enabled in your org. The phone ve
 When the user submits their phone number, capture this information and pass it to the [`IDXAuthenticationWrapper.verifyAuthenticator()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L368) method. In the following code example, the user phone number is encapsulated in the `verifyAuthenticatorOptions` object:
 
 ```java
-AuthenticationResponse authenticationResponse =
+val authenticationResponse =
     idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
