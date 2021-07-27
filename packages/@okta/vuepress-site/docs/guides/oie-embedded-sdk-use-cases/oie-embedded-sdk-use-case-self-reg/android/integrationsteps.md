@@ -211,34 +211,6 @@ If the request to verify the code is successful, the SDK returns an `Authenticat
 
 Sometimes the user needs to have the code resent. To implement that functionality, use the following:
 
-@param proceedContext the ProceedContext
-@return the Authentication response
-
 ```kotlin
-    public AuthenticationResponse resend(ProceedContext proceedContext) {
-        try {
-            return AuthenticationTransaction.proceed(client, proceedContext, () -> {
-                SkipAuthenticatorEnrollmentRequest skipAuthenticatorEnrollmentRequest =
-                        SkipAuthenticatorEnrollmentRequestBuilder.builder()
-                                .withStateHandle(proceedContext.getStateHandle())
-                                .build();
-                return client.skip(skipAuthenticatorEnrollmentRequest, proceedContext.getResendHref());
-            }).asAuthenticationResponse();
-        } catch (ProcessingException e) {
-            return handleProcessingException(e);
-        } catch (IllegalArgumentException e) {
-            return handleIllegalArgumentException(e);
-        }
-    }
+ val response = authenticationWrapper.resend(proceedContext)
 ```
-
-### Step 11: User enters phone number and phone factor method
-
-If your org is enabled with the voice feature, you need to add an additional form to select the voice or SMS factor as the phone verification method. 
-
-This step assumes that your org is enabled with the voice feature.
-
-You need to build a form to capture the user's phone number as well as a subsequent form for the user to select their phone verification method (either SMS or voice).
-
-
-
