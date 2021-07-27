@@ -50,7 +50,7 @@ You need to build a generic sign-in view page with the social sign-in options av
 </div>
 ```
 
-The previous code snippet is rendered as the **Login with Facebook** button, as shown in the following image:
+The previous code snippet is rendered as the **Login with Facebook** button, similar to the following image:
 
 <div class="common-image-format">
 
