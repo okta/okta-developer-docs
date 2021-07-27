@@ -26,4 +26,13 @@ export class BasePage {
   getH2HeadingById(id) {
     return cy.get(`h2#${id}`);
   }
+
+  getH5HeadingById(id) {
+    return cy.get(`h5#${id}`);
+  }
+
+  getOnThisPageItem(hash) {
+    const onThisPageSidebarSelector = '.on-this-page-navigation';
+    return cy.get(`${onThisPageSidebarSelector} a[href="${hash}"]`);
+  }
 }
