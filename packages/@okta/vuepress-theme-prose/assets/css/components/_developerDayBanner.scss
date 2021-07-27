@@ -4,23 +4,24 @@
     margin: 0;
     background-color: #233e4e;
     position: relative;
-  
+    >.row.justify-content-center{
+        z-index: 1;
+    }
     &--close{
         z-index: 2;
         font-size: 20px;
         position: absolute;
         right: 20px;
         top: 20px;
-        color: grey;
+        color: #808080;
         @include media('<=bootstrap-xl'){
             font-size: 14px;
         }
         &:hover{
-           color: white; 
+           color: #f2f3f4; 
            cursor: pointer;
         }
     }
-
     &--header-no-margin-large{
         margin-bottom: 0px;
         @include media('<=bootstrap-xl'){
@@ -53,10 +54,9 @@
         >span{
             margin-right: 20px;
         }
-        
         >a{
             color: #35eddc;
-            border-bottom: 1px solid white;
+            border-bottom: 1px solid #35eddc;
             letter-spacing: 1.5px;
             font-size: 20px;
             @include media('<=bootstrap-xl'){
