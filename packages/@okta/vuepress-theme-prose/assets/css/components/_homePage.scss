@@ -74,7 +74,7 @@ $oktaGameButtonColor: #ffdd53;
   }
 
   &--partners-block-margin {
-    margin-bottom: 53px;
+    margin-bottom: 67px;
     @include media("<=desktop") {
       padding-top: 0;
       padding-bottom: 0;
@@ -84,7 +84,7 @@ $oktaGameButtonColor: #ffdd53;
   &--customize-your-app-margin {
     margin-bottom: 75px;
     min-height: 600px;
-    padding-top: 52px;
+    padding-top: 42px;
     position: relative;
     * {
       z-index: 1;
@@ -116,7 +116,7 @@ $oktaGameButtonColor: #ffdd53;
   }
   &--main-heading {
     font-size: 32px;
-    font-weight: normal;
+    font-weight: 300;
     margin-top: 60px;
     margin-bottom: 60px;
     position: relative;
