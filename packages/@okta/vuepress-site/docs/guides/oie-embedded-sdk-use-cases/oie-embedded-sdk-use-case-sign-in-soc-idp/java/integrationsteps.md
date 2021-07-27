@@ -33,6 +33,8 @@ The previous code snippet is rendered as the **Login with Facebook** button, as 
 
 </div>
 
+> **Note:** There is a 5 minute timeout after the `IDXAuthenticationWrapper.begin()` method is called and the next authentication request. For the social sign-in use case, if you call `authenticationResponse.getIdps()` shortly after calling `IDXAuthenticationWrapper.begin()`, you should not trigger this timeout, as the time to generate the social sign-in form is in the milliseconds. However, for other non-social sign-in use cases, you should wait until the user enters their credentials and clicks **Sign in** before calling the `IDXAuthenticationWrapper.begin()` method to avoid the timeout.
+
 ### Step 2: User signs in with Facebook
 
 When the user selects the **Login with Facebook** option, they are directed to the Facebook sign-in page.
