@@ -110,7 +110,9 @@ For example:
 
 #### Failed authentication
 
-There is no explicit failed status from `AuthenticationStatus`. Check the response handler for an error in `AuthenticationResponse` for failed authentication and handle the flow accordingly. For example:
+There is no explicit failed status from `AuthenticationStatus`. Check the response handler for an error in `AuthenticationResponse` for failed authentication and handle the flow accordingly.
+
+For example:
 
 ```kotlin
 if (response.errors.isNotEmpty()) {
