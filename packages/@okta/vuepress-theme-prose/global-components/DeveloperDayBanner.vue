@@ -31,7 +31,7 @@
             </h2>
             <div class="developer-day-banner--cta">
               <span class="developer-day-banner--cta-large">
-                Join us for a day of celebrating developers around the world.
+                Join us virtually for Developer Day on August 24, 2021.
               </span>
               <span class="developer-day-banner--cta-small">
                 Join us virtually for Developer Day on August 24, 2021.
