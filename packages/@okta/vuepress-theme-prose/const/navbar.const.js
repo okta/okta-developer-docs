@@ -228,8 +228,8 @@ export const guides = [
             guideName: "implement-auth-code-pkce"
           },
           {
-            title: "Create an Authorization Server",
-            guideName: "customize-authz-server"
+            title: "Configure SSO for Native apps",
+            guideName: "configure-native-sso"
           },
           {
             title: "Implement the Client Credentials flow",
