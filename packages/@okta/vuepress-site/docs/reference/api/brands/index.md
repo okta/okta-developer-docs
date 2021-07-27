@@ -11,11 +11,11 @@ The Okta Brands API allows you to customize the look and feel of pages and templ
 
 Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
 
-## Getting Started
+## Get started
 
 Explore the Brands API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb)
 
-## Brand Operations
+## Brand operations
 
 The Brands API has the following CRUD operations:
 * [Get Brands](#get-brands)
@@ -553,7 +553,7 @@ Content-Type: application/json
 
 Updates a Theme for a Brand
 
-> **NOTE:** Clear the browser cache to see the new changes after updating the Theme.
+> **Note:** Clear the browser cache to see the new changes after updating the Theme.
 
 #### Request path parameters
 
@@ -806,7 +806,7 @@ Content-Type: application/json
 }
 ```
 
-> **NOTE:** The [/api/v1/org/logo endpoint](/docs/reference/api/org/#org-logo-operations) still works, but pages use the logo from the Theme if the `THEME_BUILDER` feature is enabled.
+> **Note:** The [/api/v1/org/logo endpoint](/docs/reference/api/org/#org-logo-operations) still works, but pages use the logo from the Theme if the `THEME_BUILDER` feature is enabled.
 >
 > See [Logo scenarios](#logo-scenarios) for more information.
 
@@ -981,7 +981,7 @@ Updates the background image for your Theme
 
 | Property | Type | Description                                                                                                                                                                                               |
 |----------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `file`   | File | The image must be a png, jpg, or gif file and be less than 2MB in size. |
+| `file`   | File | The image must be a PNG, JPG, or GIF file and be less than 2MB in size. |
 
 #### Response body
 
@@ -1178,7 +1178,7 @@ The Theme object defines the following properties:
 
 > **Note:** Contrast color is used by pages to optimize the opacity of text color when primary or secondary color is used as the background.
 
-> **Note:** For existing orgs with customizations, refer to following [table](#data-migration-from-existing-orgs) for different scenarios with initial variant values.
+> **Note:** For existing orgs with customizations, refer to the following [table](#data-migration-from-existing-orgs) for different scenarios with initial variant values.
 
 #### Variant Definition
 
@@ -1204,7 +1204,7 @@ You can publish a theme for a page or email template with different combinations
 
 #### Variants for Error Page:
 
-> **Note:** For non `OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
+> **Note:** For the non `OKTA_DEFAULT` variant, `primaryColorHex` is used for button background color and `primaryColorContrastHex` is used to optimize the opacity for button text.
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
@@ -1350,7 +1350,7 @@ Initial Theme variant values are different for existing orgs with customizations
 
 ### Logo scenarios
 
-The following scenarios explains which logo is used when based on the `THEME_BUILDER` flag.
+The following scenarios explain which logo is used when based on the `THEME_BUILDER` flag.
 
 | `THEME_BUILDER` feature status        | Can Upload Org Logo | Can Upload Theme Logo  | Logo Used On Pages   |
 | ------------------------------------- | ------------------- | ---------------------- | -------------------- |
