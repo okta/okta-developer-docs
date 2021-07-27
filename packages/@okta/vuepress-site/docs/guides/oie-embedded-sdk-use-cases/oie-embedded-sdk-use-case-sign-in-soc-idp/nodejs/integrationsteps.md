@@ -2,7 +2,7 @@
 
 ### Step 1: Sign in with Facebook
 
-As part of the `/login` entry point, call the `idx.startTransaction` method to render social Identity Providers on the user sign-in page, as shown in the `login.js` page of the SDK sample application.
+As part of the `/login` entry point, call `idx.startTransaction` to render social Identity Providers on the user sign-in page, as shown in the `login.js` page of the SDK sample application.
 
 ```JavaScript
 // entry route
@@ -82,6 +82,6 @@ try {
 }
 ```
 
-With the obtained access token, you can retrieve basic user information by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/node.js/main/#getuserprofileinfo) for details.
+With the obtained access token, you can retrieve basic user information by making a request to Okta's OpenID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/node.js/main/#getuserprofileinfo) for details.
 
 The user is now successfully signed in and can be sent to the default sign-in page.

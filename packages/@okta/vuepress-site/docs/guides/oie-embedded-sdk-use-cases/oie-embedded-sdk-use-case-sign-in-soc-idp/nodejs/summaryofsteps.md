@@ -8,4 +8,3 @@ The following diagram shows the sequence of steps for the Facebook sign-in flow.
 
 </div>
 
->**NOTE:** The SDK sample application does not support this use case.
