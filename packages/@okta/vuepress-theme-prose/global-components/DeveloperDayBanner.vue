@@ -71,7 +71,6 @@ export default {
   methods: {
     handleBannerClose() {
       this.bannerIsOpened = !this.bannerIsOpened;
-      console.log("Click");
     },
   },
 };
