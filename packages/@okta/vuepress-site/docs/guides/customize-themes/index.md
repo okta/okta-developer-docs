@@ -55,7 +55,7 @@ This returns an array of [brand response objects](/docs/reference/api/brands/#br
 
 You can also return a specific brand by running the **Get brand** request. Before you run the request, you'll need to set the `brandId` variable in Postman, which is used in the request, as seen below.
 
-  > **Tip:** The easiest way to set a variable in Postman is to highlight the value you want to assign to the variable (for example you can find the ID of a specific brand in the brand response object returned by `GET /api/v1/brands`), right/Ctrl + click on the value, and select **Set: _your-environment-name_ > _your-variable-name_**.
+  > **Tip:** The easiest way to set a variable in Postman is to highlight the value that you want to assign to the variable (for example, you can find the ID of a specific brand in the brand response object returned by `GET /api/v1/brands`), right/Ctrl + click on the value, and select **Set: _your-environment-name_ > _your-variable-name_**.
 
 <ApiOperation method="get" url="/api/v1/brands/{brandId}" />
 
