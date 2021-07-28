@@ -1,6 +1,6 @@
 ### Step 1: Create a sign-up link for new users
 
-The self-registration flow begins when the user clicks a **Sign up** link. On the sign-in page, create a **Sign up** link that links to the create account page you create in the next step,  as shown in the following example.
+The self-registration flow begins when the user clicks a **Sign up** link. On the sign-in page, create a **Sign up** link that links to the create account page that you create in the next step,  as shown in the following example.
 
 
 <div class="common-image-format">
@@ -115,4 +115,4 @@ case IdxStatus.SUCCESS:
       return;
 ```
 
-The user is signed-in and sent to the default sign-in page.
+The user is signed in and sent to the default sign-in page.

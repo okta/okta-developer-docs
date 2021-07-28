@@ -4,7 +4,7 @@ The sequence of steps for self-service registration is described in the followin
 
 ### Diagram 1: Start new user registration with password factor
 
-The following diagram illustrates the beginning of the registration process where the user initiates their sign-in and enters their password.
+The following diagram illustrates the beginning of the registration process where the user initiates the sign-in process and enters their password.
 
 <div class="common-image-format">
 
