@@ -69,5 +69,5 @@ node_modules
 .netlify
 
 # cypress video and img records
-tests/selenium/cypress/videos
-tests/selenium/cypress/screenshots
+tests/cypress/videos
+tests/cypress/screenshots

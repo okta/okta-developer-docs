@@ -1,11 +1,11 @@
 {
   "baseUrl": "http://localhost:8080/",
-  "integrationFolder": "tests/selenium/cypress/integration",
-  "screenshotsFolder": "tests/selenium/cypress/screenshots",
-  "videosFolder": "tests/selenium/cypress/videos",
-  "supportFile": "tests/selenium/cypress/support/index.js",
-  "fixturesFolder": "tests/selenium/cypress/fixtures",
-  "pluginsFile": "tests/selenium/cypress/plugins/index.js",
+  "integrationFolder": "tests/cypress/integration",
+  "screenshotsFolder": "tests/cypress/screenshots",
+  "videosFolder": "tests/cypress/videos",
+  "supportFile": "tests/cypress/support/index.js",
+  "fixturesFolder": "tests/cypress/fixtures",
+  "pluginsFile": "tests/cypress/plugins/index.js",
   "chromeWebSecurity": false,
   "retries": {
     "runMode": 2,

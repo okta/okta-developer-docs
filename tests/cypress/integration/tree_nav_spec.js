@@ -36,10 +36,7 @@ describe("tree nav panel(left section)", () => {
       treeNav.getTreeNav().should("be.not.visible");
 
       treeNav.toggleTreeNavMobile();
-      // treeNav.getTreeNavLinkByItemText("Authentication").then($treeNavLink => {
-      //   $treeNavLink.parent("a.tree-nav-link").click();
-      //   expect($treeNavLink.parent("a")).to.have.class(activeLinkClass);
-      // });
+
       treeNav.getTreeNavLinkByItemText("Authentication").click();
       treeNav.getTreeNavLinkByItemText("Authentication").parent().should('have.class', activeLinkClass);
       treeNav.getTreeNav().should("be.not.visible");
