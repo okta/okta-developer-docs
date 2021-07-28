@@ -30,7 +30,7 @@ router.post('/register', async (req, res, next) => {
 });
 ```
 
-If the org's application is properly configured with multiple factors, `idx.register` returns a response with `Idx.Status:PENDING` and a `nextStep` field requiring an authenticator that needs to be verified. If you completed the steps properly in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), the authenticator is the **password** factor. The next steps, as shown in the SDK sample application, are handled by the `handleTransaction.js` page for the subsequent flows.
+If the org's application is properly configured with multiple factors, `idx.register` returns a response with `Idx.Status:PENDING` and a `nextStep` field requiring an authenticator that needs to be verified. If you completed the steps properly in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), the authenticator is the **password** factor. The next steps, as shown in the SDK sample application, are handled by `handleTransaction.js` for the subsequent flows.
 
 ```JavaScript
 // registration
@@ -92,13 +92,11 @@ If the request to skip the optional authenticator is successful, the SDK returns
 
 After the user selects the phone authenticator value, and `idx.register` is called with this value, the response returns a status of `Idx.Status:PENDING` and a `nextStep` field requiring phone registration data, including phone number and verification method: SMS or voice. The user is directed to a page to enroll phone data, as shown in the SDK sample application route to `/phone-enrollment-data`.
 
-### Step 8, Option 2: User enters phone number and selects SMS verify method
+### Step 8, Option 2: User selects SMS verify method
 
-When the user enters their phone number and selects SMS to receive the verification code, capture this information and send it to`idx.authenticate`.
+The user can selects SMS or voice verification to receive the phone verification code. Capture this information and send it to`idx.authenticate`. In this use case, use SMS.
 
 The Auth JS SDK sends the phone authenticator data to Okta. Otka processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `Idx.Status:PENDING` and the `nextStep` field requiring verification. This status indicates that the user needs to provide the verification code for the phone authenticator, as shown in the SDK sample application route to `/authenticator`.
-
-> **Note:** The Auth JS SDK requires the following phone number format: `{+}{country-code}{area-code}{number}`. For example, `+15556667777`.
 
 ### Step 9, Option 2: User submits SMS verification code
 
