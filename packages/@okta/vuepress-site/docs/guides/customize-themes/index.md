@@ -43,7 +43,7 @@ So for example, if you make changes to the sign-in page code using the editor re
 
 At the top level, Your Okta organization contains a brand, which contains a default theme. The default brand is applied to your organization's subdomain/[custom domain](https://developer.okta.com/docs/guides/custom-url-domain/overview/) if you have specified one.
 
-  > **Note:** At the time of writing each org can only contain one brand and one theme, however we are working on a plan to allow multiple themes and multiple brands per org, so stay tuned!
+  > **Note:** Currently, each org can contain only one brand and one theme. However, we are working on a plan to allow multiple themes and multiple brands per org, so stay tuned!
 
 ### Get brands
 
