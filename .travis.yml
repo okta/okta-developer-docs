@@ -4,6 +4,7 @@ node_js:
 addons:
   chrome: stable
 install: yarn install
+before_script: "source scripts/helpers.sh"
 script:
   - "fold yarn_check_links travis_wait yarn check-links"
   - "fold yarn_dev yarn dev &"
