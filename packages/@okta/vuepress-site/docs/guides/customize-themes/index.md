@@ -127,7 +127,7 @@ You can upload a logo, favicon, and background image for use in your theme (on y
 <ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/favicon" />
 <ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/background-image" />
 
-The request body needs to be form-data, with a file property containing a file to upload. Guidelines are as follows:
+The request body needs to be form data with a file property that contains a file to upload. Guidelines are as follows:
 
 * Logos must be in PNG, JPG, or GIF format and less than 1 MB in size. The file dimensions should be less than 3840 x 2160 px. For best results use landscape orientation, a transparent background, and a minimum size of 420px by 120px to prevent upscaling.
 * Favicons must be in PNG or ICO format and must be in 1:1 ratio with a maximum dimension of 512 x 512 px.
