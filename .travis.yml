@@ -5,10 +5,10 @@ addons:
   chrome: stable
 install: yarn install
 script:
-  - "yarn check-links"
-  - "yarn dev"
-  - "travis_wait ./scripts/travis.sh"
-  - "yarn stop-all"
+  - "fold yarn_check_links travis_wait yarn check-links"
+  - "fold yarn_dev yarn dev &"
+  - "./scripts/travis.sh"
+  - "fold yarn_dev_stop yarn stop-all"
 dist: xenial
 env:
   global:

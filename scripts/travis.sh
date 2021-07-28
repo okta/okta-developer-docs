@@ -15,7 +15,7 @@ export CHROME_HEADLESS=true
 #fold yarn_check_links yarn check-links
 
 # Build site and Run tests
-fold yarn_test yarn test
+fold yarn_test yarn test:test-local
 
 # Will run the netlify deploy if:
 # - NETLIFY_SITE_ID and NETLIFY_AUTH_TOKEN is present (will not be true on forks)
