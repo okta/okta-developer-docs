@@ -121,7 +121,7 @@ A successful request will result in an updated [Theme response object](/docs/ref
 
 ### Update and delete theme logos and images
 
-You can upload a logo, favicon, and background image to be used in your theme (on your email templates, your End-User Dashboard, etc.) with the following requests (**Upload logo**, **Upload favicon**, and **Upload background image** in Postman):
+You can upload a logo, favicon, and background image for use in your theme (on your email templates, your Okta End-User Dashboard, and so on) with the following requests (**Upload logo**, **Upload favicon**, and **Upload background image** in Postman):
 
 <ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/logo" />
 <ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/favicon" />
