@@ -3,9 +3,12 @@ node_js:
 - '12'
 addons:
   chrome: stable
-before_install:
-- yarn install
-script: "./scripts/travis.sh"
+install: yarn install
+script:
+  - "yarn check-links"
+  - "yarn dev"
+  - "travis_wait ./scripts/travis.sh"
+  - "yarn stop-all"
 dist: xenial
 env:
   global:
