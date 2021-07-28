@@ -1,12 +1,12 @@
 ## Integration steps
 
-### Step 1: User clicks forgot password link
+### Step 1: User clicks the forgot password link
 
 The password recovery flow begins when the user clicks the **Forgot your password?** link on your app's sign-in page.
 
 <div class="common-image-format">
 
-![Displays the Sign-in form for Java SDK with a 'Forgot your password?' link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-forgot-java.png)
+![Displays the sign-in form for Java SDK with a 'Forgot your password?' link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-forgot-java.png)
 
 </div>
 
@@ -18,20 +18,19 @@ You need to create a form to capture the user's email for password recovery, suc
 
 </div>
 
-### Step 2: User enters their email
-
 Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
 
-```java
-AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
-ProceedContext proceedContext = beginResponse.getProceedContext();
+```kotlin
+val beginResponse = idxAuthenticationWrapper.begin()
+val proceedContext = beginResponse.proceedContext
 ```
 
-After the user submits their email, call the [`IDXAuthenticationWrapper.recoverPassword()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L177) method, passing in the user's email as the `username`.
+### Step 2: User enters their email
 
-```java
- AuthenticationResponse authenticationResponse =
-    idxAuthenticationWrapper.recoverPassword(username, proceedContext);
+After the user enters their email, call the [`IDXAuthenticationWrapper.recoverPassword()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L177) method, passing in the user's email as the `username`.
+
+```kotlin
+val authenticationResponse = idxAuthenticationWrapper.recoverPassword(username, proceedContext)
 ```
 
 If the email is for a valid and active user in the Okta directory, the `IDXAuthenticationWrapper.recoverPassword()` method returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with the following properties:
@@ -53,8 +52,8 @@ After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of au
 
 The user selects **Email** as the authenticator to recover their password. Pass the selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method:
 
-```java
-authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
+```kotlin
+val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator)
 ```
 
 This Java SDK method sends the email authenticator selection to Okta. Okta sends a code to the user's email and the Java SDK returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your client app. This status indicates that the authentication flow is waiting for an authenticator verification, in this case, an email verification code. You need to build a form to capture the code from the user.
@@ -71,27 +70,27 @@ This Java SDK method sends the email authenticator selection to Okta. Okta sends
 
 The user receives the verification code in their email and submits it through the **Verify Code** form. Use [`VerifyAuthenticationOptions`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 
-```java
-VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);
-AuthenticationResponse authenticationResponse =
-   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+```kotlin
+val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(code)
+val authenticationResponse =
+   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
 
 If the request to verify the code is successful, the Java SDK returns an `AuthenticationResponse` object with the `AuthenticationStatus=AWAITING_PASSWORD_RESET` property. This status indicates that the recovery flow is waiting for an updated password for the user. You need to build a form for the user to enter their new password:
 
 <div class="common-image-format">
 
-![Displays the Java SDK form to reset password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-reset-password-java.png)
+![Displays the Java SDK form to reset the password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-reset-password-java.png)
 
 </div>
 
-### Step 5: User enters new password
+### Step 5: User enters the new password
 
 After the user enters their new password, call the `IDXAuthenticationWrapper.verifyAuthenticator()` method with the user's new password value.
 
-```java
-VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(newPassword);
-AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+```val
+val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(newPassword)
+val authenticationResponse = idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
 
 If the request to update the password is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in with an updated password. Use the [`AuthenticationResponse.getTokenResponse()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L43) method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
