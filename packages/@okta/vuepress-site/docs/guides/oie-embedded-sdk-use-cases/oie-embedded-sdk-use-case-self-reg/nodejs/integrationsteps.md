@@ -61,13 +61,13 @@ See [idx.register](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#
 
 ### Step 5: User selects email authenticator
 
-In this use case, the user selects the **Email** factor as the authenticator to verify. Pass this user-selected authenticator to `idx.authenticate`.
+In this use case, the user selects the **Email** factor as the authenticator to verify. Pass this user-selected authenticator to `idx.register`.
 
  If the call is successful, the method returns a status of `Idx.Status:PENDING` and a `nextStep` field requiring verification, which indicates that the SDK is ready for the email verification code. The next step is to redirect the user to the email verification code page, as shown in the SDK sample application route to `/authenticator`.
 
 ### Step 6: User submits email verification code
 
-The next step is to call `idx.authenticate` again passing in the verification code. In the email verification use case, the code passed into the method is the code found in the verification email.
+The next step is to call `idx.register` again passing in the verification code. In the email verification use case, the code passed into the method is the code found in the verification email.
 
 Based on the configuration described in [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), the app in this use case is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional. In this step, the `nextStep` field can include `canSkip` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone factor.
 
@@ -75,7 +75,7 @@ If the user decides to skip the optional factor, they are considered signed in s
 
 ### Step 7, Option 1: Skip phone factor
 
-If the user decides to skip the phone factor enrollment, make a call to `idx.register` passing in the value `skip=true`. This method skips the authenticator enrollment, as shown on the `Authenticator.js` page from the SDK sample application.
+If the user decides to skip the phone factor enrollment, make a call to `idx.register` passing in the value `{skip: true}`. This method skips the authenticator enrollment, as shown on the `Authenticator.js` from the SDK sample application.
 
 ```JavaScript
 router.post('/select-authenticator/skip', async (req, res, next) => {
@@ -94,15 +94,15 @@ After the user selects the phone authenticator value, and `idx.register` is call
 
 ### Step 8, Option 2: User selects SMS verify method
 
-The user can selects SMS or voice verification to receive the phone verification code. Capture this information and send it to`idx.authenticate`. In this use case, use SMS.
+The user can selects SMS or voice verification to receive the phone verification code. Capture this information and send it to`idx.register`. In this use case, use SMS.
 
 The Auth JS SDK sends the phone authenticator data to Okta. Otka processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `Idx.Status:PENDING` and the `nextStep` field requiring verification. This status indicates that the user needs to provide the verification code for the phone authenticator, as shown in the SDK sample application route to `/authenticator`.
 
 ### Step 9, Option 2: User submits SMS verification code
 
-The user receives the verification code as an SMS on their phone and submits it in the verify code form. Send this code to `idx.authenticate`.
+The user receives the verification code as an SMS on their phone and submits it in the verify code form. Send this code to `idx.register`.
 
-If the request to verify the code is successful, the SDK returns a status of `Idx.Status:SUCCESS` and saves tokens to storage, as shown on the `handleTransaction.js` page of the SDK sample application.
+If the request to verify the code is successful, the SDK returns a status of `Idx.Status:SUCCESS` and saves tokens to storage, as shown on `handleTransaction.js` of the SDK sample application.
 
 ```JavaScript
 case IdxStatus.SUCCESS:
