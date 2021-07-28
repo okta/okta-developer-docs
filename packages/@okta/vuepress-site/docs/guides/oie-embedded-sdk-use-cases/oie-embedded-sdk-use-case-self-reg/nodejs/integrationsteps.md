@@ -100,7 +100,7 @@ The Auth JS SDK sends the phone authenticator data to Okta. Otka processes the r
 
 > **Note:** The Auth JS SDK requires the following phone number format: `{+}{country-code}{area-code}{number}`. For example, `+15556667777`.
 
-### Step 19, Option 2: User submits SMS verification code
+### Step 9, Option 2: User submits SMS verification code
 
 The user receives the verification code as an SMS on their phone and submits it in the verify code form. Send this code to `idx.authenticate`.
 
