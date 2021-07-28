@@ -1,5 +1,7 @@
+import { BasePage } from "./BasePage";
+
 const signUpButtonSelector = '.sign-up--button';
-class MainPage {
+class MainPage extends BasePage {
   visit() {
     cy.visit('/');
   }
@@ -14,6 +16,17 @@ class MainPage {
   }
   getFooterPricingLink() {
     return cy.get('footer ul.link-list a[href="https://www.okta.com/pricing/#customer-identity-products"]');
+  }
+  getSearchBarInput() {
+    return cy.get('header .search--slideout').find('input');
+  }
+  submitSearch() {
+    this.getSearchBarInput()
+          .should('be.visible')
+          .type('{enter}');
+  }
+  getSearchResults() {
+    return cy.get('.CoveoResultList .coveo-result-list-container > .coveo-list-layout.CoveoResult')
   }
 }
 
