@@ -2,10 +2,11 @@
 
 ### Step 1: Sign in with Facebook
 
-Use [`IDXAuthenticationWrapper`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) to start the sign-in process with Okta when the user goes to the sign-in page.
+Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
 
 ```java
-AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin()
+AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
+ProceedContext proceedContext = beginResponse.getProceedContext();
 ```
 
 Use the [`AuthenticationResponse.getIdps()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L91) function to return a list of social Identity Provider (IdP) options configured in your org's routing rule.
@@ -14,7 +15,7 @@ Use the [`AuthenticationResponse.getIdps()`](https://github.com/okta/okta-idx-ja
 List<Idp> idps = authenticationResponse.getIdps();
 ```
 
-You need to build a generic sign-in view page with the social sign-in options available from the list of IdPs returned. However, in this use case, Facebook is the only configured IdP in the list.
+You need to build a generic sign-in form with the social sign-in options available from the list of IdPs returned. In this use case, Facebook is the only configured IdP returned in the list.
 
 ```html
 <div th:case="'FACEBOOK'">
@@ -28,7 +29,7 @@ The previous code snippet is rendered as the **Login with Facebook** button, as 
 
 <div class="common-image-format">
 
-![Displays the Login with Facebook button in a sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link-java.png)
+![Displays the 'Login with Facebook' button in a sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link-java.png)
 
 </div>
 
@@ -42,13 +43,13 @@ After the user signs in to Facebook successfully, Facebook routes the user to th
 
 ### Step 3: Handle the callback from Okta
 
-Okta returns the Interaction code in the callback to the **Sign-in redirect URI** location specified in the [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application) section. You need to handle the callback by exchanging the Interaction code for a token.
+Okta returns the Interaction code in the callback to the **Sign-in redirect URI** location specified in the [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application) section. You need to handle the callback by exchanging the Interaction code for the required tokens (access, refresh, ID).
 
 ```java
 AuthenticationResponse authenticationResponse =
     authenticationWrapper.fetchTokenWithInteractionCode(issuer, proceedContext, interactionCode);
 ```
 
-With the obtained access token, you can retrieve basic user information by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo) for details.
+With the obtained access token, the user is successfully signed in, and can be sent to the default sign-in page.
 
-The user is now successfully signed in and can be sent to the default sign-in page.
+> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo) for details.
