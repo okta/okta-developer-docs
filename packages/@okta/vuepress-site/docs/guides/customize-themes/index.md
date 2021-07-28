@@ -133,7 +133,7 @@ The request body needs to be form data with a file property that contains a file
 * Favicons must be in PNG or ICO format and must be in 1:1 ratio with a maximum dimension of 512 x 512 px.
 * Background images must be a PNG, JPG, or GIF file, and be less than 2MB in size.
 
-A successful response will result in a JSON object containing the `url` of the uploaded image, e.g.:
+A successful response results in a JSON object that contains the `url` of the uploaded image, such as:
 
 ``` json
 {
