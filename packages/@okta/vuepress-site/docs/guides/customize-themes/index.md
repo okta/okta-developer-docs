@@ -22,7 +22,7 @@ The [Brands API](/docs/reference/api/brands/) allows you to set all of the follo
 
 ## Before you begin
 
-You need to make sure you have an [Okta organization](/docs/guides/quickstart/cli/create-org/) set up to test this functionality, and you need to request access to the Brands API from [Okta support](https://support.okta.com/help).
+You need to make sure that you have an [Okta organization](/docs/guides/quickstart/cli/create-org/) set up to test this functionality, and you need to request access to the Brands API from [Okta support](https://support.okta.com/help).
 
 It is up to you how you make requests to the API to update your branding; we will be demonstrating the required API calls using a Postman collection to demonstrate them in a language/platform neutral way. To run the API calls:
 
