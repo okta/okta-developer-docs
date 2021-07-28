@@ -37,7 +37,7 @@ It is up to you how you make requests to the API to update your branding. In thi
 
 You can customize individual parts of your Okta org experience using the various code editors we've made available in the Okta Admin Console (for example, **Settings** > **Customizations** > **Custom Sign-in** to customize the Okta-hosted sign-in page). Note that when you use the Brands API, your custom brand settings won't apply to the places where you've customized the theme settings.
 
-So for example, if you make changes to the sign-in page code using the editor referenced above and change the background image or logo setting, your customizations will override the Brands API settings. To get your Brands API settings back, you will have to reset the code editors to the default code again.
+So for example, if you make changes to the sign-in page code using the editor referenced above and change the background image or logo setting, your customizations override the Brands API settings. To get your Brands API settings back, reset the code editors to the default code again.
 
 ## Top-level overview: Brands and themes
 
