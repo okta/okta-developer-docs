@@ -40,6 +40,7 @@ guides:
  - deploy-your-app
  - protect-your-api
  - quickstart
+ - sampleapp-oie-redirectauth
  - refresh-tokens
  - registration-inline-hook
  - request-user-consent
@@ -52,7 +53,6 @@ guides:
  - sign-into-mobile-app
  - sign-into-spa
  - sign-into-web-app
- - sign-into-web-app-remediation
  - sign-users-out
  - sign-your-own-saml-csr
  - style-the-widget
@@ -62,7 +62,19 @@ guides:
  - updating-saml-cert
  - validate-access-tokens
  - validate-id-tokens
-
+ - oie-embedded-sdk-use-cases
+ - oie-embedded-sdk-run-sample
+ - oie-embedded-sdk-overview
+ - oie-embedded-sdk-alternate-flows
+ - oie-embedded-sdk-limitations
+ - oie-embedded-sdk-common
+ - oie-embedded-widget-run-sample
+ - oie-embedded-widget-use-cases
+ - oie-embedded-widget-overview
+ - oie-embedded-overview
+ - oie-embedded-common-org-setup
+ - oie-embedded-common-download-setup-app
+ - oie-embedded-common-refresh-tokens
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

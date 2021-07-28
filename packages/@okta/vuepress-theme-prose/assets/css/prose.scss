@@ -65,6 +65,8 @@
 @import "components/dialogWindow";
 @import "components/termsAndConditionsDialog";
 @import "components/nutritionFacts";
+@import "components/developerDayBanner";
 
 //Pages
 @import "okta/pages/multi-tenancy";
+@import 'okta/pages/oie-embedded-sdk';

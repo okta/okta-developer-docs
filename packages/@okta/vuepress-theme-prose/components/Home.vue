@@ -131,13 +131,14 @@ export default {
     FrontPageWidget: () => import("../components/FrontPageWidget"),
     FrontPageCodeMirror: () => import("../components/FrontPageCodeMirror"),
     CompanyLogos: () => import("../components/CompanyLogos"),
-    SmartLink: () => import("../components/SmartLink")
+    SmartLink: () => import("../components/SmartLink"),
+    DeveloperDayBanner: () => import("../global-components/DeveloperDayBanner"),
   },
 
   data() {
     return {
       pseudoAuthorized: false,
-      pseudoAuthorizedCodeBlock: false
+      pseudoAuthorizedCodeBlock: false,
     };
   },
   mounted() {
@@ -155,10 +156,10 @@ export default {
         this.pseudoAuthorized = !this.pseudoAuthorized;
         this.pseudoAuthorizedCodeBlock = !this.pseudoAuthorizedCodeBlock;
       }
-    }
+    },
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);
-  }
+  },
 };
 </script>
