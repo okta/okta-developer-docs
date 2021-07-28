@@ -56,10 +56,9 @@ This step contains the request to enroll a password authenticator for the user.
 
 After the initial register request, `IDXAuthenticationWrapper.register()` returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object containing the following properties:
 
-1. `AuthenticationStatus` = `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` <br>
-   This status indicates that there are required authenticators that need to be verified.
+* `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` &mdash; This status indicates that there are required authenticators that need to be verified.
 
-2. `Authenticators` = List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) (in this case, there is only the password authenticator).
+* `Authenticators` &mdash; List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) (in this case, there is only the password authenticator).
 
 After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of authenticators, you need to provide the user with a form to select the authenticator to enroll. In the following example, there is only one password authenticator to enroll:
 
@@ -239,6 +238,8 @@ AuthenticationResponse authenticationResponse =
    idxAuthenticationWrapper.submitPhoneAuthenticator(proceedContext,
          phone, getFactorFromMethod(session, mode));
 ```
+
+> **Note:** The option to select voice or SMS verification method is supported only if your org is enabled with the voice feature. See [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-cases/java/oie-embedded-sdk-use-case-sign-in-pwd-phone/) for the alternative use case where the voice feature isn't enabled in an org.
 
 The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your app. This status indicates that the user needs to provide the verification code for the phone authenticator.
 
