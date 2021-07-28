@@ -10,7 +10,7 @@ This article explains how to use the Brands API to rapidly customize the theme o
 
 ## Overview
 
-Okta provides you with a lot of power to authenticate your users, and using the [Okta-hosted sign-in Widget](/docs/concepts/hosted-vs-embedded/#okta-hosted-widget) you get up and running quickly, without having to write much custom code or host the sign-in functionality yourself. However, the trade off is that your [customization options](/docs/guides/style-the-widget/before-you-begin/) are more limited, and potentially tricky to administer (with the existing functionality you tend to need to set colors, icons, etc. in multiple places).
+Okta provides you with a lot of power to authenticate your users, and using the [Okta-hosted Sign-In Widget](/docs/concepts/hosted-vs-embedded/#okta-hosted-widget) gets you up and running quickly, without having to write much custom code or host the sign-in functionality yourself. However, the trade off is that your [customization options](/docs/guides/style-the-widget/before-you-begin/) are more limited, and potentially tricky to administer (with the existing functionality you tend to need to set colors, icons, and so on, in multiple places).
 
 The [Brands API](/docs/reference/api/brands/) allows you to set all of the following items across your Okta-hosted sign-in widget, error pages, email templates, and End-User Dashboard all at once:
 
