@@ -33,8 +33,6 @@ The previous code snippet is rendered as the **Login with Facebook** button, as 
 
 </div>
 
-> **Note:** There is a 5 minute timeout after the `IDXAuthenticationWrapper.begin()` method is called and the next authentication request. For the social sign-in use case, if you call `authenticationResponse.getIdps()` shortly after calling `IDXAuthenticationWrapper.begin()`, you should not trigger this timeout, as the time to generate the social sign-in form is in the milliseconds. However, for other non-social sign-in use cases, you should wait until the user enters their credentials and clicks **Sign in** before calling the `IDXAuthenticationWrapper.begin()` method to avoid the timeout.
-
 ### Step 2: User signs in with Facebook
 
 When the user selects the **Login with Facebook** option, they are directed to the Facebook sign-in page.
@@ -54,4 +52,4 @@ AuthenticationResponse authenticationResponse =
 
 With the obtained access token, the user is successfully signed in, and can be sent to the default sign-in page.
 
-> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo) for details.
+> **Note:** There is a five minute inactivity timeout between the start of the authentication transaction and the next authentication request in Okta. This inactivity counter starts when the `IDXAuthenticationWrapper.begin()` method is invoked in the SDK. For non-social sign-in use cases, we recommend delaying the call to `IDXAuthenticationWrapper.begin()` until the user submits their credentials. However, for the social sign-in use case, you need to call `IDXAuthenticationWrapper.begin()` to start building the sign-in form, and the timeout counter does not end until the redirect callback is sent from Okta. This poses a potential inactivity timeout if the IdP sign-in process takes longer than five minutes.
