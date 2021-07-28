@@ -52,4 +52,4 @@ AuthenticationResponse authenticationResponse =
 
 With the obtained access token, the user is successfully signed in, and can be sent to the default sign-in page.
 
-> **Note:** There is a five minute inactivity timeout between the start of the authentication transaction and the next authentication request in Okta. This inactivity counter starts when the `IDXAuthenticationWrapper.begin()` method is invoked in the SDK. For non-social sign-in use cases, we recommend delaying the call to `IDXAuthenticationWrapper.begin()` until the user submits their credentials. However, for the social sign-in use case, you need to call `IDXAuthenticationWrapper.begin()` to start building the sign-in form, and the timeout counter does not end until the redirect callback is sent from Okta. This poses a potential inactivity timeout if the IdP sign-in process takes longer than five minutes.
+> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo) for details.
