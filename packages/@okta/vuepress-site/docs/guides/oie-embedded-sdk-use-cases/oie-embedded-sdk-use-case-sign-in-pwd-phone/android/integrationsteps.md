@@ -100,8 +100,6 @@ You need to build a form to capture the user's phone number as well as a subsequ
 
 </div>
 
-> **Note:** The Java SDK requires the following phone number format: `{+}{country-code}{area-code}{number}`. For example, `+15556667777`.
-
 <div class="common-image-format">
 
 ![Displays the Java SDK's phone factor (SMS or voice) form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-mode-java.png)
