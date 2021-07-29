@@ -37,7 +37,7 @@ Note the parameters that are being passed:
 - `client_id` matches the Client ID of your Okta OAuth application that you created in the [Set up your app](#set-up-your-app) section.
 - `response_type` is `code`, indicating that we are using the authorization code grant type.
 - `scope` is `openid`, which means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
-- `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This must match one of the **Sign-in redirect URIs** that you specified when you were creating your Okta application in the [Set up your app](#set-up-your-app) section.
+- `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This must match one of the **Sign-in redirect URIs** that you specified when you created your Okta application in the [Set up your app](#set-up-your-app) section.
 - `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
 - `code_challenge_method` is the hash method used to generate the challenge, which is always `S256`.
 - `code_challenge` is the code challenge used for PKCE.
