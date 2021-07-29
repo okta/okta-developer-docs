@@ -14,7 +14,7 @@ autonumber "<b>#."
 client -> okta: Authorization Code Request to /authorize
 okta -> user: 302 redirect to authentication prompt
 user -> okta: Authentication & consent
-okta -> client: Authorization Code Response
+okta -> client: Authorization Code response
 client -> okta: Send authorization code + client secret to /token
 okta -> client: Access token (and optionally Refresh Token)
 client -> app: Request with access token
