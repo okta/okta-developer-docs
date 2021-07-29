@@ -28,7 +28,7 @@ You need to register your app so that Okta can accept the authorization request.
 
 3. User authenticates with the Auth Server (Okta) and provides consent. <br>
 For Okta to authenticate the user credentials, Okta needs user profile data.
-See [Add a user using Console](/docs/guides/quickstart/cli/add-user/), [Import Users](/docs/guides/password-import-inline-hook/nodejs/import-users/), and the [Users API](/docs/reference/api/users/). Alternatively, you can [Set up Self-service registration](/docs/guides/set-up-self-service-registration/) to allow users to register their membership with the app.
+See [Add a user using Console](/docs/guides/quickstart/cli/add-user/), [Import Users](/docs/guides/password-import-inline-hook/nodejs/import-users/), and the [Users API](/docs/reference/api/users/). Alternatively, you can [set up self-service registration](/docs/guides/set-up-self-service-registration/) to allow users to register their membership with the app.
 
 4. Okta redirects the browser back to the specified redirect URI, along with access and ID tokens as a hash fragment in the URI.
 
