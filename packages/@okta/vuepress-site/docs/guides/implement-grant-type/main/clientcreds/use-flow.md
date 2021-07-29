@@ -44,7 +44,7 @@ Use this section to Base64 encode the client ID and secret. When you finish enco
 
 1. Sign in to your Okta organization with your administrator account.
 1. In the Admin Console, go to **Applications** > **Applications**.
-1. Select the application that you want to use, and then on the **General** tab, copy the **Client ID** and **Client Secret**.
+1. Select the application that you want to use, and then on the **General** tab, copy the **Client ID** and **Client secret**.
 1. Launch your preferred text editor and then paste the client ID and secret into a new file.
 1. Place the client ID and secret on the same line and insert a colon between them: `clientid:clientsecret`
 1. Copy the `clientid:clientsecret` line.
