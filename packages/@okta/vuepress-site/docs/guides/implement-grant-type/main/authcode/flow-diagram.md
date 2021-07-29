@@ -11,7 +11,7 @@ participant "Authorization Server (Okta) " as okta
 participant "Resource Server (Your App) " as app
 
 autonumber "<b>#."
-client -> okta: Authorization Code Request to /authorize
+client -> okta: Authorization Code request to /authorize
 okta -> user: 302 redirect to authentication prompt
 user -> okta: Authentication & consent
 okta -> client: Authorization Code response
