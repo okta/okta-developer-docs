@@ -1,6 +1,6 @@
 ### Examples
 
-The following native and single-page application examples show the Authorization Code with PKCE flow, as it would be implemented by an application that needs to authenticate a user. These are complete example applications that show the entire experience.
+The following native and single-page application examples show the Authorization Code with PKCE flow as it would be implemented by an application that needs to authenticate a user. These are complete example applications that show the entire experience.
 
 |                                        | Environment | Example Repository                                 |
 | :------------------------------------: | ----------- | -------------------------------------------------- |
