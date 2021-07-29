@@ -6,9 +6,9 @@ layout: Guides
 
 <ApiLifecycle access="ea" /><br>
 
-The Device Authorization feature is an OAuth 2.0 grant type. It allows you <!-- allows users --> to sign in to input constrained devices and also to devices that lack support to web browsers natively <!-- how about saying....and also to devices with no browser rather than "that lack support to web browsers natively". Also, give an example, like smart TVs, digital picture frames, and printers-->. The OAuth 2.0 grant <!-- be sure to just call this what it is and be specific - it's the Device Authorization grant type (which IS an OAuth 2.0 grant type, but it is specifically called the Device Authorization grant type) --> enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
+The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input constrained devices and also to devices with no browser, such as smart TVs, digital picture frames, and printers. The Device Authorization grant type enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
 
-The Device Authorization feature can be accessed in your Okta preview and prod environment. <!-- don't need to say this - the EA flag and the announcement in the release notes is where that type of info goes --> It is available through the Okta Identity Engine and Okta Classic pipeline. You can enable the feature on your Okta org in the Admin Console. <!-- The Device Authorization feature is available for both Okta Classic and Okta Identity Engine orgs. You can enable this feature yourself in your org. Tell them how to do that here with a few bulleted steps. Hint: info is also in the Native SSO guide.... -->
+The Device Authorization feature is available for both Okta Classic and Okta Identity Engine orgs. You can enable this feature yourself in your org. <!-- Tell them how to do that here with a few bulleted steps. Hint: info is also in the Native SSO guide.... -->
 
 <!-- are you doing nutritional facts for this guide? If not, then you need to include this section:
 
