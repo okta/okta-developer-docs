@@ -88,7 +88,7 @@ Once you've set the `themeId` variable to a specific theme ID, you can return a 
 
 <ApiOperation method="get" url="/api/v1/brands/{brandId}/themes/{themeId}" />
 
-This will return a [theme response object](/docs/reference/api/brands/#theme-response-object), which contains all the details of your theme, including logo, favicon, colors, and background image.
+This returns a [theme response object](/docs/reference/api/brands/#theme-response-object) that contains all the details of your theme, including logo, favicon, colors, and background image.
 
 ## Updating your theme
 
