@@ -65,7 +65,7 @@ curl --request POST \
   --data 'grant_type=authorization_code&client_id=0oabygpxgk9lXaMgF0h7&redirect_uri=yourApp%3A%2Fcallback&code=CKA9Utz2GkWlsrmnqehz&code_verifier=M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
 
-> **Important:** Unlike the regular <GuideLink link="../../authcode/main/">authorization code flow</GuideLink>, this call doesn't require the Authorization header with the Client ID and secret. That is why this version of the Authorization Code flow is appropriate for native apps.
+> **Important:** Unlike the regular <GuideLink link="../../authcode/main/">Authorization Code flow</GuideLink>, this call doesn't require the Authorization header with the Client ID and secret. That is why this version of the Authorization Code flow is appropriate for native apps.
 
 Note the parameters that are being passed:
 
