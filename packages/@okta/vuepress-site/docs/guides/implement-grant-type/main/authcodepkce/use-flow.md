@@ -2,7 +2,7 @@ Okta recommends using our framework SDKs to quickly implement your authorization
 
 The following sections outline the main processes required to implement the Authorization Code with PKCE flow using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/).
 
-### Create the proof key for code exchange
+### Create the Proof Key for Code Exchange
 
 Just like with the regular <GuideLink link="../../authcode/main/">authorization code flow</GuideLink>, your app starts by redirecting the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. However, in this instance you also have to pass along a code challenge.
 
