@@ -1,4 +1,4 @@
-The following sections outline the main processes required to implement the Resource Owner Password flow, using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/).
+The following sections outline the main processes required to implement the Resource Owner Password flow using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/).
 
 ### Request for tokens
 
