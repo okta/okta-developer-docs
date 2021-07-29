@@ -92,7 +92,7 @@ This returns a [theme response object](/docs/reference/api/brands/#theme-respons
 
 ## Update your theme
 
-In this section we'll look at how we can update all of the different facets of your theme.
+In this section we look at how we can update all of the different facets of your theme.
 
 ### Update theme colors and asset placement
 
