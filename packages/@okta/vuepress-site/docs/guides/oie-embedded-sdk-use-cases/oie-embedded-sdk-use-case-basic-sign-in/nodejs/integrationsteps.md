@@ -8,7 +8,7 @@ For example:
 
 <div class="common-image-format">
 
-![Display of a screenshot showing a simple sign-in page with fields for username and password; a login button submits the credentials.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+![Display of a screenshot showing a simple sign-in page with fields for username and password. A login button submits the credentials.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
  </div>
 
