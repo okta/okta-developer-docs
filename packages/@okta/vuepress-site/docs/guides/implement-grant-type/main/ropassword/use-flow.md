@@ -13,7 +13,7 @@ curl --request POST \
   --data 'grant_type=password&username=testuser1%40example.com&password=%7CmCovrlnU9oZU4qWGrhQSM%3Dyd&scope=openid'
 ```
 
-> **Important:** The call to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the client ID and secret. You can find the client ID and secret on your application's **General** tab. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
+> **Important:** The call to your [authorization server's](/docs/concepts/auth-servers/) `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the client ID and secret. You can find the client ID and secret on your application's **General** tab. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
