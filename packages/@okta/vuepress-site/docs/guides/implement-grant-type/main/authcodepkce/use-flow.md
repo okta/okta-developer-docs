@@ -8,7 +8,7 @@ Just like with the regular <GuideLink link="../../authcode/main/">authorization 
 
 Your first step is to generate a code verifier and challenge:
 
-* Code verifier: Random URL-safe string with a minimum length of 43 characters.
+* Code verifier: Random URL-safe string with a minimum length of 43 characters
 * Code challenge: Base64 URL-encoded SHA-256 hash of the code verifier.
 
 You need to add code in your native app to create the code verifier and code challenge.
