@@ -23,5 +23,5 @@ app -> client: Response
 At a high-level, this flow has the following steps:
 
 - Your client application collects a user's credentials.
-- Your application sends these credentials to your Authorization Server.
+- Your application sends these credentials to your authorization server.
 - If the credentials are accurate, Okta responds with the requested tokens.
