@@ -90,7 +90,7 @@ Once you've set the `themeId` variable to a specific theme ID, you can return a 
 
 This returns a [theme response object](/docs/reference/api/brands/#theme-response-object) that contains all the details of your theme, including logo, favicon, colors, and background image.
 
-## Updating your theme
+## Update your theme
 
 In this section we'll look at how we can update all of the different facets of your theme.
 
