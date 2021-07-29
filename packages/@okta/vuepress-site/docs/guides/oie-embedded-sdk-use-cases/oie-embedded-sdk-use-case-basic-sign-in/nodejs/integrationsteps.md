@@ -106,6 +106,6 @@ You need to handle other returned `IdxStatus` cases if the user didn't sign in s
 
 ```
 
-### Step 4: Get user profile information (optiona)
+### Step 4: Get user profile information (optional)
 
 Optionally, you can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo).
