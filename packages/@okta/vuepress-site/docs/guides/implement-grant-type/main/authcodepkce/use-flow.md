@@ -1,6 +1,6 @@
 Okta recommends using our framework SDKs to quickly implement your authorization flow. You can download Okta sample apps to see how the SDKs are used in your app's framework. See [Examples](#examples) for a list of sample apps.
 
-The following sections outline the main processes required to implement the Authorization Code with PKCE flow, using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/).
+The following sections outline the main processes required to implement the Authorization Code with PKCE flow using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/).
 
 ### Create the proof key for code exchange
 
