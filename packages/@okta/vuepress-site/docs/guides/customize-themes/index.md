@@ -100,7 +100,7 @@ You can update your theme colors and the settings that dictate where your assets
 
 <ApiOperation method="put" url="/api/v1/brands/{brandId}/themes/{themeId}" />
 
-The request body needs to contain a JSON object along these lines:
+The request body needs to contain a JSON object:
 
 ``` json
 {
