@@ -5163,11 +5163,7 @@ HTTP/1.1 204 No Content
 
 ## Application OAuth 2.0 token operations
 
-<ApiLifecycle access="ea" />
-
 ### List OAuth 2.0 tokens for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens" />
 
@@ -5246,8 +5242,6 @@ curl -v -X GET \
 ```
 
 ### Get OAuth 2.0 token for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
 
@@ -5347,8 +5341,6 @@ curl -v -X GET \
 
 ### Revoke OAuth 2.0 tokens for application
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}/tokens" />
 
 Revokes all tokens for the specified application
@@ -5376,8 +5368,6 @@ HTTP/1.1 204 No Content
 ```
 
 ### Revoke OAuth 2.0 token for applications
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
 
