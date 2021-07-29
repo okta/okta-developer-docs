@@ -317,7 +317,7 @@ The authorization server response includes the `device_secret`, as well as the `
 }
 ```
 
-> **Note:** Store the `device_secret` in a secure location on the device, such as the iOS keychain. Ensure that only authorized applications have access to the device secret. 
+> **Note:** Store the `device_secret` in a secure location on the device, such as the iOS keychain. Ensure that only authorized applications have access to the device secret.
 
 ### Exchange existing tokens from client 1 for new tokens for client 2
 
