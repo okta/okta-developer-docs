@@ -271,7 +271,7 @@ The following parameters can be posted as a part of the URL-encoded form values 
 
 | Parameter               | Description                                                                                                                                                                                                                                                                                                                        | Type   |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
-| client_id               | Obtained during either manual client registration or through the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/). It identifies the client and must match the value preregistered in Okta.                                                                                                                       | String |
+| client_id               | Obtained during either manual client registration or through the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/). It identifies the client and must match the value that is preregistered in Okta.                                                                                                                       | String |
 | scope                   | A list of scopes that the client wants included in the access token. See [scopes](#access-token-scopes-and-claims).                                                                                                                                                                                                 | String |
 
 #### Response properties
@@ -280,12 +280,12 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 
 | Property                  | Description                                                                                    | Type    |
 | :------------------------ | :--------------------------------------------------------------------------------------------- | :------ |
-| verification_uri          | The URI that the end-user visits to verify.                                                    | String  |
-| verification_uri_complete | A URI that includes the `user_code` that the end-user alternatively visits to verify.          | String  |
-| device_code               | The device verification code.                                                                  | String  |
-| user_code                 | The verification code for the end-user.                                                        | String  |
-| interval                  | The minimum amount of time in seconds that the client should wait between polling requests to the token endpoint.     | Integer |
-| expires_in                | The expiration time of the `device_code` and `user_code` in seconds.                               | Integer |
+| verification_uri          | The URI that the end user visits to verify                                                    | String  |
+| verification_uri_complete | The URI that includes the `user_code` that the end-user alternatively visits to verify          | String  |
+| device_code               | The device verification code                                                                  | String  |
+| user_code                 | The verification code for the end user                                                        | String  |
+| interval                  | The minimum amount of time in seconds that the client should wait between polling requests to the token endpoint     | Integer |
+| expires_in                | The expiration time of the `device_code` and `user_code` in seconds                               | Integer |
 
 #### List of errors
 
@@ -553,7 +553,7 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | Parameter               | Description                                                                                       | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------ | :-----        |
 | token                   | An access or refresh token.                                                                       | String        |
-| token_type_hint         | A hint of the type of `token`. Valid values are `access_token`, `refresh_token`, and `device_secret`<ApiLifecycle access="ea" />.               | String (Enum) |
+| token_type_hint         | A hint of the type of `token`. Valid values: `access_token`, `refresh_token`, and `device_secret`<ApiLifecycle access="ea" />               | String (Enum) |
 
 #### Response properties
 
@@ -1142,7 +1142,7 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 | address          | Requests access to the `address` claim.                                                                         | No             |
 | groups           | Requests access to the `groups` claim.                                                                          | No             |
 | offline_access   | Requests a refresh token used to obtain more access tokens without re-prompting the user for authentication.   | No             |
-| device_sso <ApiLifecycle access="ea" />   | Requests a device secret used to obtain a new set of tokens without re-prompting the user for authentication. See *link*  | No             |
+| device_sso <ApiLifecycle access="ea" />   | Requests a device secret used to obtain a new set of tokens without re-prompting the user for authentication. See [Native SSO](/docs/guides/native-sso/main/)  | No             |
 
 ### Scope values
 
@@ -1150,7 +1150,7 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 * `profile` requests access to these default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`,`locale`, and `updated_at`.
 * `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored.
 * For more information about `offline_access`, see the [OIDC spec](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess).
-* For more information about `device_sso`<ApiLifecycle access="ea" />, see *link*.
+* For more information about `device_sso`<ApiLifecycle access="ea" />, see [Native SSO](/docs/guides/native-sso/main/).
 
 ### Scope properties
 
@@ -1282,7 +1282,7 @@ Okta defines a number of reserved scopes and claims that can't be overridden.
 
 `openid`, `profile`, `email`, `address`, `phone`, `offline_access`, and `groups` are available to ID tokens and access tokens, using either the Okta Org Authorization Server or a Custom Authorization Server. For details, see [Scopes](#access-token-scopes-and-claims). All of these scopes except `groups` are defined in the OpenID Connect specification.
 
-Additionally, we have reserved the scope `device_sso`<ApiLifecycle access="ea" /> as is has a particular meaning in the Native SSO flow.
+Additionally, we reserved the scope `device_sso`<ApiLifecycle access="ea" /> as it has a particular meaning in the Native SSO flow.
 
 ###### Reserved claims in the header section
 
