@@ -1,4 +1,4 @@
-If you are building a native application, then the Authorization Code flow with a Proof Key for Code Exchange (PKCE) is the recommended method for controlling the access between your application and a resource server. The Authorization Code flow with PKCE is the standard code flow with an extra step at the beginning and an extra verification at the end.
+If you are building a native application, then the Authorization Code flow with a Proof Key for Code Exchange (PKCE) is the recommended method for controlling the access between your application and a resource server. The Authorization Code flow with PKCE is similar to the standard <GuideLink link="../../authcode/main/">Authorization Code flow</GuideLink> with an extra step at the beginning and an extra verification at the end.
 
 See [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/#authorization-code-with-pkce-flow) for more information on the Authorization Code with PKCE flow, including why to use it.
 
