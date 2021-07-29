@@ -259,7 +259,7 @@ https://www.example.com/#error=invalid_scope&error_description=The+requested+sco
 
 <ApiOperation method="post" url="${baseUrl}/v1/device/authorize" /><ApiLifecycle access="ea" />
 
-This endpoint returns user code, device code, activation link and a qr code activation link.
+This endpoint returns user code, device code, activation link, and a QR code activation link.
 
 >  **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. For more information, see [Composing your base URL](#composing-your-base-url).
 
@@ -271,8 +271,8 @@ The following parameters can be posted as a part of the URL-encoded form values 
 
 | Parameter               | Description                                                                                                                                                                                                                                                                                                                        | Type   |
 | :---------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----- |
-| client_id               | Obtained during either manual client registration or via the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/). It identifies the client and must match the value preregistered in Okta.                                                                                                                       | String |
-| scope                   | This is a list of scopes that the client wants to be included in the access token. See [scopes](#access-token-scopes-and-claims) for details.                                                                                                                                                                                                 | String |
+| client_id               | Obtained during either manual client registration or through the [Dynamic Client Registration API](/docs/reference/api/oauth-clients/). It identifies the client and must match the value preregistered in Okta.                                                                                                                       | String |
+| scope                   | A list of scopes that the client wants included in the access token. See [scopes](#access-token-scopes-and-claims).                                                                                                                                                                                                 | String |
 
 #### Response properties
 
@@ -280,8 +280,8 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 
 | Property                  | Description                                                                                    | Type    |
 | :------------------------ | :--------------------------------------------------------------------------------------------- | :------ |
-| verification_uri          | The verification uri the resource owner must visit to authenticate.                            | String  |
-| verification_uri_complete | The complete verification uri the resource owner can alternatively visit to authenticate.      | String  |
+| verification_uri          | The verification URI that the resource owner must visit to authenticate.                            | String  |
+| verification_uri_complete | The complete verification URI that the resource owner can alternatively visit to authenticate.      | String  |
 | device_code               | The device code to be kept hidden from the resource owner.                                     | String  |
 | user_code                 | The user code to be shown to the resource owner.                                               | String  |
 | interval                  | The interval time the client should wait until it can poll the /token endpoint in seconds.     | Integer |
@@ -332,7 +332,7 @@ Content-Type: application/json;charset=UTF-8
 
 <ApiOperation method="post" url="${baseUrl}/v1/token" />
 
-This endpoint returns access tokens, ID tokens, and refresh tokens, depending on the request parameters. For [password](/docs/guides/implement-password/), [client credentials](/docs/guides/implement-client-creds/), [saml2 assertion](/docs/guides/implement-saml2/overview/)<ApiLifecycle access="ea" />, and [refresh token](/docs/guides/refresh-tokens/) flows, calling `/token` is the only step of the flow. For the [authorization code](/docs/guides/implement-auth-code/) flow, calling `/token` is the second step of the flow.
+This endpoint returns access tokens, ID tokens, and refresh tokens depending on the request parameters. For [password](/docs/guides/implement-password/), [client credentials](/docs/guides/implement-client-creds/), [saml2 assertion](/docs/guides/implement-saml2/overview/)<ApiLifecycle access="ea" />, and [refresh token](/docs/guides/refresh-tokens/) flows, calling `/token` is the only step of the flow. For the [authorization code](/docs/guides/implement-auth-code/) flow, calling `/token` is the second step of the flow.
 
 >  **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. For more information, see [Composing your base URL](#composing-your-base-url).
 
@@ -435,7 +435,7 @@ Content-Type: application/json;charset=UTF-8
 
 > **Note:** This endpoint's base URL varies depending on whether you are using a Custom Authorization Server. For more information, see [Composing your base URL](#composing-your-base-url).
 
-This endpoint takes an access token, ID token, refresh token, or device secret<ApiLifecycle access="ea" /> and returns a boolean that indicates whether it is active or not.
+This endpoint takes an access token, ID token, refresh token, or device secret<ApiLifecycle access="ea" /> and returns a boolean that indicates whether it is active.
 If the token is active, additional data about the token is also returned. If the token is invalid, expired, or revoked, it is considered inactive.
 
 Be sure that you are using the `/introspect` endpoint of the same authorization server that you used to create the token.
@@ -451,8 +451,8 @@ The following parameters can be posted as a part of the URL-encoded form values 
 
 | Parameter               | Description                                                                                                    | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------------------- | :-----        |
-| token                   | An access token, ID token, refresh token or device secret<ApiLifecycle access="ea" />.                                                                   | String        |
-| token_type_hint         | Indicates the type of `token` being passed. Valid values are `access_token`, `id_token`, `refresh_token` and `device_secret`<ApiLifecycle access="ea" />.   | String (Enum) |
+| token                   | An access token, ID token, refresh token, or device secret<ApiLifecycle access="ea" />.                                                                   | String        |
+| token_type_hint         | Indicates the type of `token` being passed. Valid values: `access_token`, `id_token`, `refresh_token`, and `device_secret`<ApiLifecycle access="ea" />.   | String (Enum) |
 
 #### Response properties
 
@@ -1003,6 +1003,8 @@ curl -X GET \
 
 #### Response example (success)
 
+> **Note:** The scope `device_sso` is [Early Access](/docs/reference/releases-at-okta/#early-access-ea).
+
 ```json
 {
     "issuer": "https://${yourOktaDomain}",
@@ -1045,8 +1047,7 @@ curl -X GET \
         "phone",
         "offline_access",
         "groups",
-        "online_access", [Early Access](/docs/reference/releases-at-okta/#early-access-ea)
-        "device_sso" [Early Access](/docs/reference/releases-at-okta/#early-access-ea)
+        "device_sso"
     ],
     "token_endpoint_auth_methods_supported": [
         "client_secret_basic",
@@ -1140,8 +1141,7 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 | address          | Requests access to the `address` claim.                                                                         | No             |
 | groups           | Requests access to the `groups` claim.                                                                          | No             |
 | offline_access   | Requests a refresh token used to obtain more access tokens without re-prompting the user for authentication.   | No             |
-| online_access <ApiLifecycle access="ea" />    | Requests a refresh token used to obtain more access tokens without re-prompting the user for authentication. The refresh token and the id token will be bound to the browser session. See *link*.   | No             |
-| device_sso <ApiLifecycle access="ea" />   | Requests a device secret used to obtain new set of tokens without re-prompting the user for authentication. See *link*  | No             |
+| device_sso <ApiLifecycle access="ea" />   | Requests a device secret used to obtain a new set of tokens without re-prompting the user for authentication. See *link*  | No             |
 
 ### Scope values
 
@@ -1149,7 +1149,6 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 * `profile` requests access to these default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`,`locale`, and `updated_at`.
 * `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored.
 * For more information about `offline_access`, see the [OIDC spec](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess).
-* For more information about `online_access`<ApiLifecycle access="ea" />, see *link*.
 * For more information about `device_sso`<ApiLifecycle access="ea" />, see *link*.
 
 ### Scope properties
@@ -1282,7 +1281,7 @@ Okta defines a number of reserved scopes and claims that can't be overridden.
 
 `openid`, `profile`, `email`, `address`, `phone`, `offline_access`, and `groups` are available to ID tokens and access tokens, using either the Okta Org Authorization Server or a Custom Authorization Server. For details, see [Scopes](#access-token-scopes-and-claims). All of these scopes except `groups` are defined in the OpenID Connect specification.
 
-Additionally, we have reserved the scopes `online_access`<ApiLifecycle access="ea" /> and `device_sso`<ApiLifecycle access="ea" /> as they have a particular meaning in their respective flows.
+Additionally, we have reserved the scope `device_sso`<ApiLifecycle access="ea" /> as is has a particular meaning in the Native SSO flow.
 
 ###### Reserved claims in the header section
 
