@@ -35,7 +35,7 @@ https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabygpxgk9lXaMg
 Note the parameters that are being passed:
 
 - `client_id` matches the Client ID of your Okta OAuth application that you created in the [Set up your app](#set-up-your-app) section.
-- `response_type` is `code`, indicating that we are using the authorization code grant type.
+- `response_type` is `code`, indicating that we are using the Authorization Code grant type.
 - `scope` is `openid`, which means that the `/token` endpoint returns an ID token. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
 - `redirect_uri` is the callback location where the user agent is directed to along with the `code`. This must match one of the **Sign-in redirect URIs** that you specified when you created your Okta application in the [Set up your app](#set-up-your-app) section.
 - `state` is an arbitrary alphanumeric string that the authorization server reproduces when redirecting the user agent back to the client. This is used to help prevent cross-site request forgery.
