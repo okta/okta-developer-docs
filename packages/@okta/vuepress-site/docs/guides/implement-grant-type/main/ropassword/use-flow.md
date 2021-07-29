@@ -1,4 +1,4 @@
-The following sections outline the main processes required to implement the Resource Owner Password flow using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/).
+If implementing the Resource Owner Password flow is your only option, you need to make direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/). See the following section for requests required in the flow.
 
 ### Request for tokens
 
@@ -26,7 +26,7 @@ For more information on these parameters, see the [OAuth 2.0 API reference](/doc
 
 If the credentials are valid, your application receives back access and ID tokens:
 
-```
+```json
 {
     "access_token": "eyJhb[...]56Rg",
     "expires_in": 3600,
@@ -36,6 +36,6 @@ If the credentials are valid, your application receives back access and ID token
 }
 ```
 
-### Validate access tokens
+### Validate access token
 
 When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).

@@ -29,6 +29,6 @@ http://${yourOktaDomain}/#access_token=eyJhb[...]erw&token_type=Bearer&expires_i
 
 Your application must now extract the token(s) from the URI and store them.
 
-### Validate access tokens
+### Validate access token
 
 When your application passes a request with an access token, the resource server needs to validate it. See [Validate access tokens](/docs/guides/validate-access-tokens/).

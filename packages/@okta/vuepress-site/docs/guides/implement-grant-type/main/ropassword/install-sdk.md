@@ -1,1 +1,1 @@
-Refer to [Add and configure packages](/docs/guides/sign-into-web-app/-/configure-packages) for instructions on how to install and use Okta back-end framework SDKs.
+Okta doesn't have SDKs that support the Resource Owner Password flow. This flow is generally not the recommended approach to implement authorization.

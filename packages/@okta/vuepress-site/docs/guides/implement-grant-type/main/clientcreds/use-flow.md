@@ -1,3 +1,5 @@
+Okta recommends using our framework SDKs to quickly implement your Client Credentials flow. Use the `/token` methods in the Okta SDKs for this particular flow.
+
 The following sections outline the main processes required to implement the Client Credentials flow, using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/).
 
 ### Create custom scopes

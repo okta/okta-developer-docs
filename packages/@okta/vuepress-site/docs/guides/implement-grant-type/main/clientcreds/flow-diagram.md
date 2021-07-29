@@ -20,5 +20,10 @@ app -> client: Response
 -->
 At a high-level, this flow has the following steps:
 
-- Your application passes its client credentials to your Okta Authorization Server.
-- If the credentials are accurate, Okta responds with an access token.
+1. Your client application (app) passes its client credentials to your Okta Authorization Server.
+
+2. If the credentials are accurate, Okta responds with an access token.
+
+3. Your app uses the access token to make authorized requests to the resource server.
+
+4. The resource server validates the token before responding to the request. See [Validate access token](#validate-access-token).

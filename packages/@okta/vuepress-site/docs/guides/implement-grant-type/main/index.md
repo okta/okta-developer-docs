@@ -28,11 +28,7 @@ Before you can implement authorization, you need to register your app in Okta by
 
 ## Install an Okta SDK
 
-Okta provides an array of language and framework SDKs to quickly implement authorization with Okta. See [Languages & SDKs overivew](/code/) for a list of SDKs that you can download to start using with your app.
-
 <StackSnippet snippet="install-sdk" />
-
-<!-- "Redirect to Auth Server" , "Flow usage" , "Exchange authorization code for token", "Scopes", "Get access token" grant-specific content -->
 
 ## Implement flow
 

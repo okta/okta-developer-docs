@@ -5,4 +5,4 @@
 8. On the **General** tab, click **Edit** in the the **Client Credentials** section.
 9. Select **Use Client Authentication**, then click **Save**.
 
-From the **General** tab of your app integration, save the generated **Client ID** and **Client Secret** values to implement your authorization flow.
+From the **General** tab of your app integration, save the generated **Client ID** and **Client secret** values to implement your authorization flow.
