@@ -13,7 +13,7 @@ participant "Resource Server (Your App)" as app
 
 autonumber "<b>#."
 client -> client: Generate PKCE code verifier & challenge
-client -> okta: Authorization Code Request + code_challenge to /authorize
+client -> okta: Authorization Code request + code_challenge to /authorize
 okta -> user: 302 redirect to authentication prompt
 user -> okta: Authentication & consent
 okta -> client: Authorization Code Response
