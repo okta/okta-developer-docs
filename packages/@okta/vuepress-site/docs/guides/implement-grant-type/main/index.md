@@ -4,7 +4,7 @@ excerpt: How to implement authorization flows by grant type with Okta
 layout: Guides
 ---
 
-This document guides you through implementing OAuth 2.0 authorization flow for your application by grant types with Okta.
+This document guides you through implementing an OAuth 2.0 authorization flow for your application by grant type with Okta.
 
 Select the authorization grant-type flow to implement: <StackSelector />
 
