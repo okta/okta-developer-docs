@@ -24,7 +24,7 @@ app -> client: Response
 At a high-level, this flow has the following steps:
 
 1. Your application (app) directs the browser to the Okta sign-in page.<br>
-Before implementing this redirect request to the Auth Server (Okta), you need to [Set up your app](#set-up-your-app) in Okta to obtain a client ID to embed in your request. See [Request an authorization code](#request-an-authorization-code).
+Before implementing this redirect request to the Auth Server (Okta), you need to [set up your app](#set-up-your-app) in Okta to obtain a client ID to embed in your request. See [Request an authorization code](#request-an-authorization-code).
 2. Okta redirects the authentication prompt (Okta sign-in page) to the user.
 3. The user authenticates.
 4. After the user is authenticated, the browser receives an authorization code from the Auth Server (Okta). The authorization code is passed to your app.
