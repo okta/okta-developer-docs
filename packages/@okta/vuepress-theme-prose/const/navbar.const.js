@@ -246,7 +246,7 @@ export const guides = [
           },
           { title: "Implement the SAML 2.0 Assertion flow", guideName: "implement-saml2"},
           {
-            title: "Device Authorization Grant",
+            title: "Configure Device Authorization",
             guideName: "device-authorization-grant"
           },
           {

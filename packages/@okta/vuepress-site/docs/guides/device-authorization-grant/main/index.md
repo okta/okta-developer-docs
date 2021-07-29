@@ -1,5 +1,5 @@
 ---
-title: Device Authorization
+title: Configure Device Authorization
 excerpt: Learn how to use a secondary device to complete sign-in to applications
 layout: Guides
 ---
@@ -10,22 +10,16 @@ The Device Authorization feature is an OAuth 2.0 grant type. It allows users to 
 
 The Device Authorization feature is available for both Okta Classic and Okta Identity Engine orgs. You can enable this feature yourself in your org. <!-- Tell them how to do that here with a few bulleted steps. Hint: info is also in the Native SSO guide.... -->
 
-<!-- are you doing nutritional facts for this guide? If not, then you need to include this section:
-
 This guide assumes that you:
 
-- Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-- Have enabled the Device Authorization feature for your org.-->
-
-<!-- need a section that defines what they're going to do - because it's a lot:
+- Have an Okta Developer Edition organization. If you don't have one, [create one for free](https://developer.okta.com/signup).
+- Have enabled the Device Authorization feature for your org.
 
 To use the Device Authorization Grant, you need to:
 
-* Configure an application to use the Device Authorization Grant
-* Configure the Authorization Server policy rule for the Device Authorization grant type
-* Configure the smart device
--->
-
+* Configure an application to use the Device Authorization Grant.
+* Configure the Authorization Server policy rule for the Device Authorization grant type.
+* Configure the smart device.
 
 If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
