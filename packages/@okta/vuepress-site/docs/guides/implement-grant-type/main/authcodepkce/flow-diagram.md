@@ -16,7 +16,7 @@ client -> client: Generate PKCE code verifier & challenge
 client -> okta: Authorization Code request + code_challenge to /authorize
 okta -> user: 302 redirect to authentication prompt
 user -> okta: Authentication & consent
-okta -> client: Authorization Code Response
+okta -> client: Authorization Code response
 client -> okta: Send authorization code + code_verifier to /token
 okta -> okta: Evaluates PKCE code
 okta -> client: Access token (and optionally Refresh Token)
