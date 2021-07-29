@@ -46,7 +46,7 @@ curl --request POST \
 
 Note the parameters that are being passed:
 
-- `grant_type` is `authorization_code`, indicating that we are using the authorization code grant type.
+- `grant_type` is `authorization_code`, indicating that we are using the Authorization Code grant type.
 - `redirect_uri` must match the URI that was used to get the authorization code.
 - `code` is the authorization code that you got from the `/authorize` endpoint.
 
