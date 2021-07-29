@@ -115,7 +115,7 @@ The request body needs to contain a JSON object:
 
   > **Note:** The different properties are explained in the [Theme object reference](/docs/reference/api/brands/#theme-object).
 
-  > **Note:** To see your custom colors and image assets being used on your Okta org, you need to set the `...Variant` properties to non-`OKTA_DEFAULT` values when you update your theme. See [Variant Definition](/docs/reference/api/brands/#variant-definition) for explanations of the available variant values.
+  > **Note:** To see your custom colors and image assets being used on your Okta org, you need to set the `...Variant` properties to non-`OKTA_DEFAULT` values when you update your theme. See [Variant definition](/docs/reference/api/brands/#variant-definition) for explanations of the available variant values.
 
 A successful request will result in an updated [Theme response object](/docs/reference/api/brands/#theme-response-object).
 
