@@ -280,19 +280,19 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 
 | Property                  | Description                                                                                    | Type    |
 | :------------------------ | :--------------------------------------------------------------------------------------------- | :------ |
-| verification_uri          | The verification URI that the resource owner must visit to authenticate.                            | String  |
-| verification_uri_complete | The complete verification URI that the resource owner can alternatively visit to authenticate.      | String  |
-| device_code               | The device code to be kept hidden from the resource owner.                                     | String  |
-| user_code                 | The user code to be shown to the resource owner.                                               | String  |
-| interval                  | The interval time the client should wait until it can poll the /token endpoint in seconds.     | Integer |
-| expires_in                | The expiration time of the device code and user code in seconds.                               | Integer |
+| verification_uri          | The URI that the end-user visits to verify.                                                    | String  |
+| verification_uri_complete | A URI that includes the `user_code` that the end-user alternatively visits to verify.          | String  |
+| device_code               | The device verification code.                                                                  | String  |
+| user_code                 | The verification code for the end-user.                                                        | String  |
+| interval                  | The minimum amount of time in seconds that the client should wait between polling requests to the token endpoint.     | Integer |
+| expires_in                | The expiration time of the `device_code` and `user_code` in seconds.                               | Integer |
 
 #### List of errors
 
 | Error Id                 | Details                                                                                                                                                                                                    |
 | :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | invalid_client           | The specified `client_id` isn't found.                                                                                                                                                                      |
-| invalid_request          | The request structure is invalid. For example, the basic authentication header is malformed, both header and form parameters are used for authentication, no authentication information is provided, or the request contains duplicate parameters. |
+| invalid_request          | The request is missing a necessary parameter, the parameter has an invalid value, or the request contains duplicate parameters. |
 | invalid_scope            | The scopes list contains an invalid or unsupported value.                                                                                                                                                  |
 
 #### Request example
@@ -371,6 +371,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 | scope           | The scopes contained in the access token.                                               | String  |
 | refresh_token   | An opaque refresh token. This is returned if the `offline_access` scope is granted.     | String  |
 | id_token        | An [ID token](#id-token). This is returned if the `openid` scope is granted.            | String  |
+| device_secret   | An opaque device secret. This is returned if the `device_sso`<ApiLifecycle access="ea" /> scope is granted.         | String  |
 
 #### List of errors
 
@@ -479,7 +480,7 @@ Based on the type of token and whether it is active, the returned JSON contains 
 
 | Error Id          | Details                                                                                                  |
 | :---------------- | :------------------------------------------------------------------------------------------------------- |
-| invalid_client    | The specified `client_id` isn't found.                                                                  |
+| invalid_client    | The specified client ID is invalid.                                                                  |
 | invalid_request   | The request structure is invalid. For example, the basic authentication header is malformed, both header and form parameters are used for authentication, no authentication information is provided, or the request contains duplicate parameters. |
 
 #### Response example (success, access token)
@@ -552,7 +553,7 @@ The following parameters can be posted as a part of the URL-encoded form values 
 | Parameter               | Description                                                                                       | Type          |
 | :---------------------- | :------------------------------------------------------------------------------------------------ | :-----        |
 | token                   | An access or refresh token.                                                                       | String        |
-| token_type_hint         | A hint of the type of `token`. Valid values are `access_token` and `refresh_token`.               | String (Enum) |
+| token_type_hint         | A hint of the type of `token`. Valid values are `access_token`, `refresh_token`, and `device_secret`<ApiLifecycle access="ea" />.               | String (Enum) |
 
 #### Response properties
 
