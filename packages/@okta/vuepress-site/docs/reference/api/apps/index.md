@@ -4891,13 +4891,9 @@ curl -v -X GET \
 
 ## Application OAuth 2.0 scope consent grant operations
 
-<ApiLifecycle access="ea" />
-
 A scope consent grant represents an application's permission to request to include a specific Okta scope in OAuth 2.0 Bearer tokens. If the application does not have this grant, token requests that contain this Okta scope are denied.
 
 ### Grant consent to scope for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/grants" />
 
@@ -4969,8 +4965,6 @@ curl -v -X POST \
 ```
 
 ### List scope consent grants for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/grants" />
 
@@ -5070,8 +5064,6 @@ curl -v -X GET \
 
 ### Get scope consent grant for application
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/grants/${grantId}" />
 
 Fetches a single scope consent grant for the application
@@ -5140,8 +5132,6 @@ curl -v -X GET \
 ```
 
 ### Revoke scope consent grant for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}/grants/${grantId}" />
 
