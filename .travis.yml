@@ -7,7 +7,7 @@ addons:
 install: yarn install
 before_script: "source scripts/helpers.sh"
 script:
-  - "fold yarn_check_links travis_wait yarn check-links"
+  - "fold yarn_check_links travis_wait 30 yarn check-links"
   - "fold yarn_dev yarn dev &"
   - "./scripts/travis.sh"
   - "fold yarn_dev_stop yarn stop-all"
