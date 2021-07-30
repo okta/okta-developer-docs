@@ -26,7 +26,7 @@ After this response, you need to redirect the user to an authenticator list page
 
 ### Step 2: Select the phone factor in the authenticator list
 
-In this use case, only the **phone** factor will be displayed in the list of authenticators, as shown in the following example page:
+In this use case, only the **phone** factor is displayed in the list of authenticators, as shown in the following example page:
 
 <div class="common-image-format">
 
@@ -47,9 +47,15 @@ status, // IdxStatus.PENDING
 
 The next step is to redirect the user to a page to enter in the phone verification field.
 
-### Step 3: Build the phone verification entry page
+### Step 3: Build the phone verification method entry page
 
 Build the phone verification method entry page that accepts either SMS or voice verification that that is used for authentication.
+
+<div class="common-image-format">
+
+![Displays a screenshot of a Verify using phone authenticator page that includes a SMS option and a Next button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-phone-method-nodejs.png)
+
+</div>
 
 When the user enters a phone verification method, either SMS or voice verification, and clicks **Submit**, a call to `idx.authenticate` is made that passes in the following values:
 
