@@ -18,7 +18,7 @@ tiles:
       - name: Java
         link: /docs/guides/sign-into-web-app/springboot/before-you-begin/
         image: /img/homepage/stackselectors/java.png
-      - name: .net
+      - name: .NET
         link: /docs/guides/sign-into-web-app/aspnet/before-you-begin/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
@@ -66,7 +66,7 @@ tiles:
       - name: Java
         link: /docs/guides/protect-your-api/springboot/before-you-begin/
         image: /img/homepage/stackselectors/java.png
-      - name: .net
+      - name: .NET
         link: /docs/guides/protect-your-api/aspnet/before-you-begin/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js

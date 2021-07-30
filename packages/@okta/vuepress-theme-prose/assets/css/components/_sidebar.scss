@@ -10,27 +10,20 @@
   font-size: 14px;
   background: cv('body');
 
-  @include media(">=desktop") {
-    flex-grow: 0;
-    flex-shrink: 0;
-    font-size: 1rem;
-    padding: 100px 1rem 3rem 1rem;
-  }
-
   @include media("<tablet") {
     flex-basis: 0;
     width: 100%;
     padding: 1rem 0 0 0;
   }
   .sections {
-    margin-left: 24px;
+    margin-left: 17px;
     &:first-child {
       & > .link-wrap > .tree-nav-link {
         &> .text-holder {
           @include active-link;
         }
         &> i.fa {
-          color: cv('text', 'darker');
+          color: cv('text');
         }
         &.router-link-active {
           &> .text-holder {
@@ -40,15 +33,11 @@
       }
     }
     .link-wrap {
-      margin-top: 10px;
+      margin-top: 9px;
       .blank-divider {
         cursor: default;
         margin-top: 12px;
         margin-left: -17px;
-      }
-
-      @include media("<=desktop") {
-        margin-top: 9px;
       }
     }
     .tree-nav-link {
@@ -72,13 +61,12 @@
         color: cv('link');
         &::before {
           position: absolute;
-          color: cv('link');
           content: '';
-          background: url('/img/icons/active-menu-bg.svg') no-repeat left top;
+          background: cv('link');
           left: -15px;
-          top: 4px;
-          width: 4px;
-          height: 16px;
+          top: 6px;
+          width: 2px;
+          height: 9px;
         }
       }
       > span.text-holder {
@@ -86,20 +74,11 @@
       }
       > i.fa {
         position: absolute;
-        left: -20px;
+        left: -17px;
         top: 5px;
-        font-size: 12px;
+        font-size: 9px;
         padding-right: 5px;
-
-        @include media("<=desktop") {
-          font-size: 10px;
-          left: -17px;
-        }
       }
-    }
-
-    @include media("<=desktop") {
-      margin-left: 17px;
     }
   }
   .hidden {

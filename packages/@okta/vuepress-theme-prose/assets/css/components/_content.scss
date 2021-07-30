@@ -57,6 +57,7 @@
   .sidebar-area {
     width: 22%;
     min-width: 253px;
+    max-width: 380px;
     position: sticky;
     overflow: auto;
     border-right: 1px solid cv('body', 'border');
