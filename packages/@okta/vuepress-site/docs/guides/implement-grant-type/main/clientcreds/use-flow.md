@@ -1,6 +1,6 @@
-Okta recommends using our framework SDKs to quickly implement your Client Credentials flow. Use the `/token` methods in the Okta SDKs for this particular flow.
+Before implementing the flow, you must first [create custom scopes](#create-custom-scopes) for the [Custom Authorization Server](/docs/guides/customize-authz-server/overview/) used to authenticate your app from the Okta Admin Console.
 
-The following sections outline the main processes required to implement the Client Credentials flow, using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/).
+Okta recommends using our Authentication SDKs to quickly implement your authentication flow by using existing libraries and helper methods. Without using the SDKs, the main direct call to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) is through the `/token` endpoint. See [Request for token](#request-for-token) in the next section.
 
 ### Create custom scopes
 

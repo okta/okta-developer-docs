@@ -1,3 +1,5 @@
+Okta recommends using our Authentication SDKs to quickly implement your authentication flow by using existing libraries and helper methods. Without using the SDKs, the main direct call to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) is through the `/authorize` endpoint. See [Request for tokens](#request-for-tokens) in the next section.
+
 ### Request for tokens
 
 Using this flow is very similar to the <GuideLink link="../../authcode/main/">authorization code flow</GuideLink>
