@@ -9,7 +9,7 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+ 
 
 After you have [created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/) and [downloaded and set up the SDK configurations](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/), the next step is to test the widget sample app.
 

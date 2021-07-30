@@ -7,7 +7,7 @@ title: Load the widget
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+ 
 
 ## Factor setup
 

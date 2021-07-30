@@ -7,7 +7,7 @@ title: Sign in with password and email factors
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+ 
 
 This use case describes a user sign-in with password and email factors.
 

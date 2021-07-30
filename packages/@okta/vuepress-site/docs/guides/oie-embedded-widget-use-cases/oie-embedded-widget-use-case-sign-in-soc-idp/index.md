@@ -7,7 +7,7 @@ title: Sign in with Facebook
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+ 
 
 ## Factor setup
 

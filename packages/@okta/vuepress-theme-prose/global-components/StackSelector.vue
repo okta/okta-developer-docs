@@ -2,9 +2,7 @@
   <div
     :class="{
       'stack-selector': !noSelector,
-      'no-selector': noSelector,
-      'no-snippet': !snippet,
-      'display-inline': inline,
+      'for-mobile-view-only': forMobileViewOnly,
     }"
     v-if="options.length"
   >
@@ -35,7 +33,6 @@
       <Content v-if="snippetComponentKey" :pageKey="snippetComponentKey" />
     </aside>
   </div>
-  <div v-else class="no-stack-content">No code snippets defined</div>
 </template>
 
 <script>
@@ -53,6 +50,10 @@ export default {
       default: false,
     },
     inline: {
+      type: Boolean,
+      default: false,
+    },
+    forMobileViewOnly: {
       type: Boolean,
       default: false,
     },

@@ -7,7 +7,7 @@ title: User sign out (local app)
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+ c
 
 This use case describes how to sign a user out.
 

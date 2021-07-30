@@ -6,7 +6,7 @@ title: Refresh access and ID tokens
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+ 
 
 ## Summary
 

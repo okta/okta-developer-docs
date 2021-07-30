@@ -7,7 +7,7 @@ title: User password recovery
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+ 
 
 This use case describes how a user would reset their forgotten password using the email factor.
 

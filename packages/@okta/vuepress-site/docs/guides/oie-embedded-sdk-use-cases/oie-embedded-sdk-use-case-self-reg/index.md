@@ -7,7 +7,7 @@ title: Self registration
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+ 
 
 Self-service registration allows users to sign up for the app themselves. In this use case, the user must register with a password and email or SMS factors.
 

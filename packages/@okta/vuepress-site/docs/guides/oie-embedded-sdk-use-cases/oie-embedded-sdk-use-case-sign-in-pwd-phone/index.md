@@ -8,7 +8,7 @@ title: Sign in with password and phone factors
 <ApiLifecycle access="Limited GA" /><br>
 
 
-<StackSelector class="cleaner-selector"/>
+ 
 
 This use case describes a user sign-in with the password and phone factors.
 

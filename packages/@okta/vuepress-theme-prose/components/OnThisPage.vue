@@ -1,6 +1,6 @@
 <template>
   <aside class="on-this-page-navigation">
-    <StackSelector noSnippet v-if="$page.hasStackContent" />
+    <StackSelector v-if="$page.hasStackContent" />
     <div v-show="showOnthisPage">
       <div class="title">On This Page</div>
       <div>
@@ -35,6 +35,7 @@ export default {
   inject: ["appContext"],
   components: {
     OnThisPageItem: () => import("../components/OnThisPageItem.vue"),
+    StackSelector: () => import("../global-components/StackSelector.vue"),
   },
   props: ["items"],
   data() {

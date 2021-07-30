@@ -7,7 +7,7 @@ title: Create and set up your Okta org
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+ 
 
 ## Overview
 

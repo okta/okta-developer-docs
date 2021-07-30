@@ -7,7 +7,7 @@ title: Basic user sign in (password factor only)
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+ 
 
 The basic user sign-in request is the simplest of all use cases and is the first use case that you should execute after installation of the SDK.
 

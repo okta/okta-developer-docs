@@ -23,6 +23,7 @@
             <Sidebar />
           </div>
           <div class="content-area">
+            <StackSelector forMobileViewOnly v-if="$page.hasStackContent" />
             <PageTitle />
             <MobileOnThisPage />
             <!-- <StackSelector noSnippet v-if="$page.hasStackContent" /> -->
