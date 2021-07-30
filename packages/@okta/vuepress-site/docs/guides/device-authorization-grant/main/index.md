@@ -8,7 +8,13 @@ layout: Guides
 
 The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input constrained devices and also to devices with no browser, such as smart TVs, digital picture frames, and printers. The Device Authorization grant type enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
 
-The Device Authorization feature is available for both Okta Classic and Okta Identity Engine orgs. You can enable this feature yourself in your org. <!-- Tell them how to do that here with a few bulleted steps. Hint: info is also in the Native SSO guide.... -->
+The Device Authorization feature is available for both Okta Classic and Okta Identity Engine orgs. You can enable this feature yourself in your org:
+
+1. From the left navigation pane in the Admin Console, go to **Settings** > **Features**.
+1. Select **Auto-enroll in all future Early Access features**.
+1. In the Enroll in all Early Access features dialog box, select the check box to acknowledge, and click **Enable**.
+
+ <!-- Tell them how to do that here with a few bulleted steps. Hint: info is also in the Native SSO guide.... -->
 
 This guide assumes that you:
 
