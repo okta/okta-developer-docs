@@ -1,32 +1,46 @@
 import { BasePage } from "./BasePage";
 
-const signUpButtonSelector = '.sign-up--button';
+const signUpButtonSelector = ".sign-up--button";
 class MainPage extends BasePage {
-  visit() {
-    cy.visit('/');
+  constructor() {
+    super();
+  }
+
+  visit(path) {
+    path ? super.visit(path) : cy.visit("/");
   }
   getSignupButton() {
-    return cy.get(signUpButtonSelector)
-  };
+    return cy.get(signUpButtonSelector);
+  }
   getHeaderLink(link) {
     return cy.get(`header .header--links a[href="${link}"]`);
-  };
+  }
   getCommunityLink() {
     return cy.get(`header .header--links li.expandable span.link`);
   }
   getFooterPricingLink() {
-    return cy.get('footer ul.link-list a[href="https://www.okta.com/pricing/#customer-identity-products"]');
+    return cy.get(
+      'footer ul.link-list a[href="https://www.okta.com/pricing/#customer-identity-products"]'
+    );
   }
   getSearchBarInput() {
-    return cy.get('header .search--slideout').find('input');
+    return cy.get("header .search--slideout").find("input");
   }
   submitSearch() {
     this.getSearchBarInput()
-          .should('be.visible')
-          .type('{enter}');
+      .should("be.visible")
+      .type("{enter}");
   }
   getSearchResults() {
-    return cy.get('.CoveoResultList .coveo-result-list-container > .coveo-list-layout.CoveoResult')
+    return cy.get(
+      ".CoveoResultList .coveo-result-list-container > .coveo-list-layout.CoveoResult"
+    );
+  }
+  getHeadrMobileMenuIcon() {
+    return cy.get(`header .mobile--toggles .hamburger-icon-wrapper`);
+  }
+  getMobileMenu() {
+    return cy.get('header .menu--slideout');
   }
 }
 
