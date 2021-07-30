@@ -55,7 +55,7 @@ If not already done, build the email verification code page that accepts the cod
 
 </div>
 
-The next step is to call `idx.authenticate` and pass in the email verification code `({ verificationCode: '1213' })` and handle the response from the call. If the email code is valid, the method returns a status of `Idx.Status:SUCCESS` and tokens. This status signifies that there are no more factors that are waiting to be enrolled and verified. If the steps in [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user has successfully signed in and should be sent to the default sign-in home page.
+The next step is to call `idx.authenticate` and pass in the email verification code (for example,`({ verificationCode: '1213' })`) and handle the response from the call. If the email code is valid, the method returns a status of `Idx.Status:SUCCESS` and tokens. This status signifies that there are no more factors waiting to be enrolled and verified. If the steps in [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user has successfully signed in and should be sent to the default sign-in home page.
 
 #### Get user profile information (optional)
 
