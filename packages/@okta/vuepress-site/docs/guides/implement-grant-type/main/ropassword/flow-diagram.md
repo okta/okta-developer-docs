@@ -24,7 +24,9 @@ At a high-level, this flow has the following steps:
 
 1. User authenticates with your client application (app) - providing their user credentials.
 
-2. Your app sends its client ID and secret plus these credentials your authorization server. See [Request for tokens](#request-for-tokens) to implement this request.
+2. Your app sends these credentials to the Okta authorization server with its client ID and secret in the request header.
+
+    You need to register your app so that Okta can accept the authorization request. See [Set up your app](#set-up-your-app) to register and configure your app with Okta. After registration, your app can make an authorization request to Okta. See [Request for tokens](#request-for-tokens).
 
 3. If the credentials are accurate, Okta responds with the requested tokens.
 
