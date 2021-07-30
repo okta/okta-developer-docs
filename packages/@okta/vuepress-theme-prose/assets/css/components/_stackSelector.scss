@@ -11,6 +11,8 @@ $small-spacing: 0.75rem;
       padding-right: 0;
   }
 
+
+  
   &.for-mobile-view-only{
     @include media(">=desktop"){
       display: none;
