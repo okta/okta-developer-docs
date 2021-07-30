@@ -1,8 +1,8 @@
 ## Integration steps
 
-### Step 1: User launches sign-in page
+### Step 1: User launches the sign-in page
 
-Build a sign-in page for your app that captures both the username and password.
+Build a sign-in page for your app that captures both the username and the password.
 
 <div class="common-image-format">
 
@@ -10,20 +10,20 @@ Build a sign-in page for your app that captures both the username and password.
 
 </div>
 
-### Step 2: User enters credentials
-
 Begin the authentication process by calling Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
 
-```java
-AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
-ProceedContext proceedContext = beginResponse.getProceedContext();
+```kotlin
+val beginResponse = idxAuthenticationWrapper.begin()
+val proceedContext = beginResponse.proceedContext
 ```
 
- After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
+### Step 2: User enters their credentials
 
-```java
-AuthenticationResponse authenticationResponse =
-     idxAuthenticationWrapper.authenticate(new AuthenticationOptions(username, password.toCharArray()), proceedContext);
+After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
+
+```kotlin
+val authenticationResponse =
+     idxAuthenticationWrapper.authenticate(AuthenticationOptions(username, password)), proceedContext)
 ```
 
 If the password is validated, the `IDXAuthenticationWrapper.authenticate()` method returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with the following:
@@ -45,12 +45,12 @@ After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of au
 
 > **Tip:** Build a generic authenticator selection form to handle single or multiple authenticators returned from the SDK.
 
-### Step 3: User selects email authenticator
+### Step 3: User selects the email authenticator
 
 In this use case, the user selects the **Email** factor as the authenticator to verify. Pass this user-selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
-```java
-authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
+```kotlin
+val authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator)
 ```
 
 The Java SDK sends this selection to Okta. Okta sends a code to the user's email and the Java SDK returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION`. This status indicates that the authentication flow is waiting for an authenticator verification, in this case, an email verification code. You need to build a form to capture the code from the user.
@@ -63,14 +63,14 @@ The Java SDK sends this selection to Okta. Okta sends a code to the user's email
 
 > **Note:** The email sent to the user has a **Sign In** link that isn't yet supported. Use the provided code instead. See [Limitations: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links).
 
-### Step 4: User submits email verification code
+### Step 4: User submits the email verification code
 
 The user receives the verification code in their email and submits it through the verify code form. Use [`VerifyAuthenticationOptions`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 
-```java
-VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);
-AuthenticationResponse authenticationResponse =
-   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+```kotlin
+val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(code)
+val authenticationResponse =
+   idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
 
 If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the [`AuthenticationResponse.getTokenResponse()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L43) method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.

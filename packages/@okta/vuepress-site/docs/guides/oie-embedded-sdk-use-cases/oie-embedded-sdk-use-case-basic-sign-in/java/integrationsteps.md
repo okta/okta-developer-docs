@@ -10,14 +10,14 @@ Build a sign-in form that captures both the username and password. For example:
 
 </div>
 
+### Step 2: Authenticate user credentials
+
 Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
 ProceedContext proceedContext = beginResponse.getProceedContext();
 ```
-
-### Step 2: Authenticate user credentials
 
 After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
 

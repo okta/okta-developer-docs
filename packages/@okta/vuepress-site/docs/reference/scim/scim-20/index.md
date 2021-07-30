@@ -505,7 +505,7 @@ Content-Type: text/json;charset=UTF-8
 
 Okta doesn't perform DELETE operations on User objects in your SCIM application.
 
-If a user is suspended, deactivated, or removed from your integration inside Okta, then Okta sends a request to your SCIM application to set the `active` attribute to `false`.
+If a user is deactivated or removed from your integration inside Okta, then Okta sends a request to your SCIM application to set the `active` attribute to `false`. There is no deprovisioning event sent for users that are suspended inside Okta.
 
 * For all new OIN app integrations, this request to update a User object is sent through a PATCH method request.
 * For any custom app integrations created using the AIW, this request is sent through a PUT method request.
