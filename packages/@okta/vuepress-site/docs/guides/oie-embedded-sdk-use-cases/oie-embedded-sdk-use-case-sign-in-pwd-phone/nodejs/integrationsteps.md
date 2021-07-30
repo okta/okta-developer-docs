@@ -49,7 +49,7 @@ The next step is to redirect the user to a page to enter in the phone verificati
 
 ### Step 3: Build the phone verification method entry page
 
-Build the phone verification method entry page that accepts either SMS or voice verification that that is used for authentication.
+Build the phone verification method entry page that accepts either SMS or voice verification that is used for authentication.
 
 <div class="common-image-format">
 
