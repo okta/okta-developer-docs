@@ -6,13 +6,6 @@ layout: Guides
 
 <ApiLifecycle access="ea" /><br>
 
-## Before you begin
-
-This guide assumes that you:
-
-* Have an Okta Developer Edition organiztion. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Have the Native SSO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Native SSO slider, and slide to enable.
-
 ## Overview
 
 Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. SSO between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. Okta offers a token-based approach to achieve SSO between native applications.
@@ -20,6 +13,13 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 This guide provides a high-level overview of the Native SSO feature in Okta and describes how to configure your org to use this feature.
 
 If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
+
+# Before you begin
+
+This guide assumes that you:
+
+* Have an Okta Developer Edition organiztion. Don't have one? [Create one for free](https://developer.okta.com/signup).
+* Have the Native SSO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Native SSO slider, and slide to enable.
 
 ## Native SSO flow
 
