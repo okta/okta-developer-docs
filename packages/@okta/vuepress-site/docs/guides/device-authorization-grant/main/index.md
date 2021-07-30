@@ -6,37 +6,20 @@ layout: Guides
 
 <ApiLifecycle access="ea" /><br>
 
+## Overview
+
+The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input constrained devices, such as smart TVs, digital picture frames, and printers, as well as devices with no browser. The Device Authorization grant type enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
+
+The Device Authorization feature is available for both Okta Classic and Okta Identity Engine orgs.
+
+If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
+
 ## Before you begin
 
 This guide assumes that you:
 
 * Have an Okta Developer Edition organiztion. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * Have the Native SSO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Native SSO slider, and slide to enable.
-
-## Overview
-
-The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input constrained devices, such as smart TVs, digital picture frames, and printers, as well as devices with no browser. The Device Authorization grant type enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
-
-The Device Authorization feature is available for both Okta Classic and Okta Identity Engine orgs. You can enable this feature yourself in your org:
-
-1. From the left navigation pane in the Admin Console, go to **Settings** > **Features**.
-1. Select **Auto-enroll in all future Early Access features**.
-1. In the Enroll in all Early Access features dialog box, select the check box to acknowledge, and click **Enable**.
-
- <!-- Tell them how to do that here with a few bulleted steps. Hint: info is also in the Native SSO guide.... -->
-
-This guide assumes that you:
-
-- Have an Okta Developer Edition organization. If you don't have one, [create one for free](https://developer.okta.com/signup).
-- Have enabled the Device Authorization feature for your org.
-
-To use the Device Authorization Grant, you need to:
-
-* Configure an application to use the Device Authorization Grant.
-* Configure the Authorization Server policy rule for the Device Authorization grant type.
-* Configure the smart device.
-
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
 ## Configure an application to use the Device Authorization Grant
 
