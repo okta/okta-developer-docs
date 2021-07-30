@@ -1,12 +1,10 @@
-Okta recommends using our framework SDKs to quickly implement your authorization flow. You can download Okta sample apps to see how the SDKs are used in your app's framework. See [Examples](#examples) for a list of sample apps.
-
-The following sections outline the main processes required to implement the Authorization Code flow using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/).
+The following sections outline the main requests required to implement the Authorization Code flow using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/). Typically, you don't need to make calls to the [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) if you are using one of Okta's SDKs.
 
 ### Request an authorization code
 
 To get an authorization code, your app redirects the user to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the default Custom Authorization Server, then your request URL would look something like this:
 
-```
+```bash
 https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabucvy
 c38HLL1ef0h7&response_type=code&scope=openid&redirect_uri=https%3A%2F%2Fexample.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601'
 ```
@@ -23,7 +21,7 @@ See [the OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more 
 
 If the user doesn't have an existing session, making this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, they arrive at the specified `redirect_uri` along with a `code`:
 
-```
+```bash
 http://localhost:8080/?code=P5I7mdxxdv13_JfXrCSq&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601
 ```
 
@@ -33,7 +31,7 @@ This code remains valid for 300 seconds, during which it can be exchanged for to
 
 To exchange this code for access and ID tokens, you pass it to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint. If you are using the default Custom Authorization Server, then your request would look something like this:
 
-```
+```bash
 curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/token \
   --header 'accept: application/json' \

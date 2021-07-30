@@ -1,4 +1,4 @@
-Okta recommends using our Authentication SDKs to quickly implement your authentication flow by using existing libraries and helper methods. Without using the SDKs, the main direct call to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) is through the `/authorize` endpoint. See [Request for tokens](#request-for-tokens) in the next section.
+Without using existing libraries, you can make a direct request to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) through the `/authorize` endpoint.
 
 ### Request for tokens
 
@@ -7,7 +7,7 @@ except that the `response_type` is `token` and/or `id_token` instead of `code`.
 
 Your application redirects the user's browser to your [Authorization Server's](/docs/concepts/auth-servers/) `/authorize` endpoint. If you are using the default Custom Authorization Server, then your request URL would look something like this:
 
-```
+```html
 https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabv6kx4qq6h1U5l0h7&response_type=token&scope=openid&redirect_uri=&redirect_uri=https%3A%2F%2Fexample.com&state=state-296bc9a0-a2a2-4a57-be1a-d0e2fd9bb601&nonce=foo'
 ```
 

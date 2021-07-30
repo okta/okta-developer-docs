@@ -1,6 +1,6 @@
 Before implementing the flow, you must first [create custom scopes](#create-custom-scopes) for the [Custom Authorization Server](/docs/guides/customize-authz-server/overview/) used to authenticate your app from the Okta Admin Console.
 
-Okta recommends using our Authentication SDKs to quickly implement your authentication flow by using existing libraries and helper methods. Without using the SDKs, the main direct call to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) is through the `/token` endpoint. See [Request for token](#request-for-token) in the next section.
+If you are not using existing libraries, you can make a direct request to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) through the `/token` endpoint. See [Request for token](#request-for-token) in the next section.
 
 ### Create custom scopes
 

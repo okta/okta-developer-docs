@@ -26,17 +26,13 @@ Before you can implement authorization, you need to register your app in Okta by
 
 <StackSnippet snippet="setup-app" />
 
-## Install an Okta SDK
+## Use an SDK
 
 <StackSnippet snippet="install-sdk" />
 
-## Implement flow
+## Flow specifics
 
 <StackSnippet snippet="use-flow" />
-
-<!-- ### Exchange authorization code for token -->
-
-<!-- ### Get access token -->
 
 <StackSnippet snippet="examples" />
 

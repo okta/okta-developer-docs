@@ -1,3 +1,1 @@
-Okta provides an array of language and framework SDKs to quickly implement authorization with Okta. See [Languages & SDKs overivew](/code/) for a list of SDKs that you can download to start using with your app.
-
-Refer to [Add and configure packages](/docs/guides/sign-into-web-app/-/configure-packages) for instructions on how to install and use Okta back-end framework SDKs.
+Okta recommends using existing libraries and OAuth 2.0 helper methods to implement your authentication flow. You can use one of Okta's SDKs or an open-source library if an appropriate Okta SDK is not available. See [Languages & SDKs overivew](/code/) for a list of Okta SDKs that you can download to start using with your app.
