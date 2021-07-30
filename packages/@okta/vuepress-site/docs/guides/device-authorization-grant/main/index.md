@@ -15,7 +15,7 @@ This guide assumes that you:
 
 ## Overview
 
-The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input constrained devices and also to devices with no browser, such as smart TVs, digital picture frames, and printers. The Device Authorization grant type enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
+The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input constrained devices, such as smart TVs, digital picture frames, and printers, as well as devices with no browser. The Device Authorization grant type enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
 
 The Device Authorization feature is available for both Okta Classic and Okta Identity Engine orgs. You can enable this feature yourself in your org:
 
@@ -40,50 +40,14 @@ If you need help or have an issue, post a question on the [Okta Developer Forum]
 
 ## Configure an application to use the Device Authorization Grant
 
-To create a Native OIDC application and then configure it to support the Device Authorization Grant type:
+To create a Native OpenID Connect application and then configure it to support the Device Authorization Grant type:
 
-1. In Admin Console, go to **Applications** > **Applications**.
+1. In the left navigation pane of the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. On the Create a new app integration page, select **OIDC - OpenID Connect** as the **Sign-in method**, and then pick **Native Application**.
-1. On your Native application page, fill in the application settings. Ensure that you select **Device Authorization** as the allowed **Grant type** in the General Settings.
+1. On your native application page, fill in the application settings. Ensure that you select **Device Authorization** as the allowed **Grant type** in the General Settings.
 
 > **Note:** The Device Authorization Grant is only supported for use with a native application.
-
-Alternatively, you can use the `/apps` or `/clients` API to add the Device Authorization grant type to your application. To do this, update your client and include `urn:ietf:params:oauth:grant-type:device_code` as the grant type. The following example is using the `/clients` endpoint.
-
-Example request
-
-```json
-  curl --request PUT \
-  --url https://${yourOktaDomain}/oauth2/v1/clients/{clientID} \
-  --header 'Accept: application/json' \
-  --header 'Content-Type: application/json' \
-  --header 'Authorization: SSWS <apiKey>'
-  --data-raw '{
-     "client_id": {client_id},
-     "client_secret_expires_at": 0,
-     "client_name": {client_name},
-     "client_uri": null,
-     "logo_uri": null,
-     "redirect_uris": [
-       "https://uri.com/",
-    ],
-     "response_types": [
-       "code",
-       "token"
-     ],
-     "grant_types": [
-       "password",
-       "authorization_code",
-       "urn:ietf:params:oauth:grant-type:saml2-bearer",
-       "implicit",
-       "urn:ietf:params:oauth:grant-type:device_code",
-       "refresh_token"
-     ],
-     "token_endpoint_auth_method": "none",
-     "application_type": "native"
-  }'
-```
 
 ## Configure the Authorization Server policy rule for the Device Authorization grant type
 
@@ -102,7 +66,7 @@ To check that the Device Authorization grant type is enabled:
 
 The smart device first needs to call the `/device/authorize` endpoint to obtain the unique verification code.
 
-Request example
+**Request example**
 
 ```bash
   curl --request POST \
@@ -117,7 +81,7 @@ The POST request passes the following parameters:
 * `client_id`, which matches the Client ID of the OAuth 2.0 application that you created
 * `scope` to specify which access privileges are being requested for access tokens. See [Scopes](https://developer.okta.com/docs/reference/api/oidc/#scopes) for a list of supported scopes.
 
-Response example
+**Response example**
 
 ```json
 {
@@ -145,11 +109,11 @@ The `user_code` and `verification_uri` must appear on the smart device for the u
 
 ![Verification on the smart device:](/img/device-auth-grant2.png)
 
-### Request for user access, ID and Refresh tokens <!-- serial comma and lower case r-->
+### Request for user access, ID, and refresh tokens
 
 To retrieve tokens for the user, the smart device needs to make a request to the `/token` endpoint.
 
-Request example
+**Request example**
 
 ```bash
   curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
@@ -161,10 +125,11 @@ Request example
 ```
 
 Note the paramters that are being passed:
+
 * `grant_type`: Identifies the mechanism that Okta uses to retrieve the tokens. Value: `urn:ietf:params:oauth:grant-type:device_code`
 * `device_code`: The string that the device uses to exchange for an access token. Use the `device_code` value from the device verification response.
 
-Response example
+**Response example**
 
 Okta returns a pending response if the user doesn't complete the authentication.
 
@@ -203,27 +168,25 @@ To revoke the tokens, the smart device must make a request to the `/revoke` endp
   --header 'Content-Type: application/x-www-form-urlencoded' \
   ``--data-urlencode ``'token=refresh_token' \
   --data-urlencode 'token_type_hint=refresh_token' \
-  --data-urlencode 'client_id={client #1 id}' \
+  --data-urlencode 'client_id={client_id}' \
 ```
-The example request to the `/revoke` endpoint shows client 1 revoking their refresh tokens. However, other clients that are registered applicaitons can also revoke their refresh tokens.
 
-## Request single logout
+## Request Single Logout
 
-When the user signs out from an application, the application sends a `/logout` request to the Okta authorizataion server, which revokes the device secret.
+When the user signs out of an application, the application sends a `/logout` request to the Okta Authorizataion Server, which revokes the device secret.
 
 ```bash
-  url --location --request GET `https://${yourOktaDomain}/oauth2/default/v1/logout
-  ` \
+  url --location --request GET `https://${yourOktaDomain}/oauth2/default/v1/logout` \
   --data-urlencode `id_token_hint={id_token}` \
   --data-urlencode `device_secret={device_secret}` \
   --data-urlencode `post_logout_redirect_uri=https%3A%2F%2Fclient1.example.${yourOktaDomain}%2Flogout` \
   --data-urlencode `state=2OwvFrEMTJg` \
 ```
 
-The Okta authorization server invalidates the ID tokens and refresh tokens that are issued for the `sid` and `device_secret`. If any of the invalidated refresh tokens are used to renew tokens, they will fail. The existing access tokens are not revoked and are valid until they naturally expire.
+The Authorization Server invalidates the ID token and refresh token that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails. The existing access token isn't revoked and is valid until it naturally expires.
 
 Okta returns a response to the `post_logout_redirect_uri`.
 
-```
-https://client1.example.org/logout&state=2OwvFrEMTJg
+```bash
+  https://{configured_post_logout_redirect_uri}/logout&state=2OwvFrEMTJg
 ```
