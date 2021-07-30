@@ -287,7 +287,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 | interval                  | The minimum amount of time in seconds that the client should wait between polling requests to the token endpoint     | Integer |
 | expires_in                | The expiration time of the `device_code` and `user_code` in seconds                               | Integer |
 
-#### List of errors
+#### Possible errors
 
 | Error Id                 | Details                                                                                                                                                                                                    |
 | :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -373,7 +373,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 | id_token        | An [ID token](#id-token). This is returned if the `openid` scope is granted.            | String  |
 | device_secret   | An opaque device secret. This is returned if the `device_sso`<ApiLifecycle access="ea" /> scope is granted.         | String  |
 
-#### List of errors
+#### Possible errors
 
 | Error Id                 | Details                                                                                                                                                                                                    |
 | :----------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -476,7 +476,7 @@ Based on the type of token and whether it is active, the returned JSON contains 
 | uid          | The user ID. This parameter is returned only if the token is an access token and the subject is an end user.   | String  |
 | username     | The username associated with the token.                                                                        | String  |
 
-#### List of errors
+#### Possible errors
 
 | Error Id          | Details                                                                                                  |
 | :---------------- | :------------------------------------------------------------------------------------------------------- |
@@ -559,7 +559,7 @@ The following parameters can be posted as a part of the URL-encoded form values 
 
 A successful revocation is denoted by an HTTP 200 OK response. Note that revoking an invalid, expired, or revoked token is still considered a success so as to not leak information.
 
-#### List of errors
+#### Possible errors
 
 | Error Id          | Details                                                                                                                                                       |
 | :---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1142,7 +1142,7 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 | address          | Requests access to the `address` claim.                                                                         | No             |
 | groups           | Requests access to the `groups` claim.                                                                          | No             |
 | offline_access   | Requests a refresh token used to obtain more access tokens without re-prompting the user for authentication.   | No             |
-| device_sso <ApiLifecycle access="ea" />   | Requests a device secret used to obtain a new set of tokens without re-prompting the user for authentication. See [Native SSO](/docs/guides/native-sso/main/)  | No             |
+| device_sso <ApiLifecycle access="ea" />   | Requests a device secret used to obtain a new set of tokens without re-prompting the user for authentication. See [Native SSO](/docs/guides/configure-native-sso/main/)  | No             |
 
 ### Scope values
 
@@ -1150,7 +1150,7 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 * `profile` requests access to these default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`,`locale`, and `updated_at`.
 * `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored.
 * For more information about `offline_access`, see the [OIDC spec](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess).
-* For more information about `device_sso`<ApiLifecycle access="ea" />, see [Native SSO](/docs/guides/native-sso/main/).
+* For more information about `device_sso`<ApiLifecycle access="ea" />, see [Native SSO](/docs/guides/configure-native-sso/main/).
 
 ### Scope properties
 
