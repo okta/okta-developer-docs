@@ -6,8 +6,7 @@ The first step is to create a link, button, or other similar UI element that all
 
 <div class="common-image-format">
 
-![Sign out link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-out-link.png
- "Sign out link")
+![Displays a screenshot of a logout button that signs a user out of the application.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-out-link-nodejs.png)
 
 </div>
 
