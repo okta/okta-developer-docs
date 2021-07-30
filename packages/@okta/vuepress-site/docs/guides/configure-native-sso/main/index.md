@@ -63,11 +63,9 @@ To use the Native SSO functionality, you need to:
 
 This feature is based on the [OpenID Connect Native SSO for Mobile Apps](https://openid.net/specs/openid-connect-native-sso-1_0.html) draft specification.
 
-To configure Native SSO, start by setting up your application. To walk through this use case example, you need to set up two separate Native applications.
-
 ## Set up your application
 
-Set up your OpenID Connect application using the Okta Admin Console:
+To configure Native SSO, start by setting up your application. To walk through this use case example, you need to set up two separate native applications to represent client 1 and client 2.
 
 1. From the left navigation pane in the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
@@ -91,7 +89,7 @@ Configure Native SSO for your org by updating the authorization server policy ru
 
 Make a request to obtain the policy ID for the policy that you just created in the "Configure Native SSO for your Okta org" section. In this use case example, we are using the "default" Custom Authorization Server, so the `{authorizationServerID}` is `default`.
 
-Request example
+**Request example**
 
 ```bash
   curl --location --request GET 'https://${yourOktaDomain}/api/v1/authorizationServers/default/policies' \
@@ -106,7 +104,7 @@ In the response, locate the "id" for the policy that you created in the "Configu
 
 Make a request to obtain the rule ID of the policy that you just created in the "Configure Native SSO for your Okta org" section. In this use case example we are using the "default" Custom Authorization Server, so the `{authorizationServerID}` is `default`.
 
-Request example
+**Request example**
 
 ```bash
   curl --location --request GET 'https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/{policyId}/rules' \
@@ -135,7 +133,7 @@ Next, configure the token exchange grant type for the client that is using the A
 
 > **Note:** The `*` value in `scopes` means any scope is valid here.
 
-Update example
+**Update example**
 
 ```json
 curl --location --request PUT
@@ -192,9 +190,9 @@ curl --location --request PUT
 
 ## Configure the token exchange grant type for client 2
 
-In this request, use the client ID that you obtained in the "Set up the application" section. The response that is returned from this request is used in the next step.
+In this request, use the client ID for client 2 that you created in the "Set up the application" section. Copy the response that is returned from this request for use in the next step.
 
-Request example
+**Request example**
 
 ```bash
   curl --request GET \
@@ -206,7 +204,7 @@ Request example
 
 ### Update client 2 with the token exchange grant
 
-In this request, update client 2 with the token exchange grant that you obtained from the previous step. You need to update the `grantTypes` parameter by adding the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type for the client.
+In this request, update client 2 with the token exchange grant. Use the response from the last step to create your UPDATE request. You need to update the `grantTypes` parameter by adding the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type for the client.
 
 > **Note:** Only the registered applications require the token exchange grant to be enabled. The first client doesn't require the token exchange grant type to be enabled.
 
@@ -248,13 +246,7 @@ To generate a new set of tokens:
 
 * Use Auth Code with PKCE to obtain the authorization code for the first client.
 * Exchange the code for tokens.
-* Exchange the existing tokens from client 1 for new tokens for client 2
-
-The device secret assumes the lifetime of the first refresh token that it was minted with. The device secret has the same idle time and maximum time according to the Authorization Server policy through which it was minted.
-
-From there, device secret and refresh token idle lifetimes are independent of each other. All other refresh tokens (and other tokens) that are minted by using device secret are mandated by the Authorization Server policy through which these tokens are generated.
-
-When a device secret is used to generate a new set of tokens, the device secret's idle lifetime or maximum lifetime is still governed by the original Authorization Server policy through which the device secret was minted, and it is updated accordingly.
+* Exchange the existing tokens from client 1 for new tokens for client 2.
 
 In this example, you want to SSO to multiple apps that are created by the same company. Each client represents one app, and you can register multiple clients for SSO. When a user signs in to one app, all the other apps that are registered are also automatically signed in.
 
@@ -262,7 +254,7 @@ In this example, you want to SSO to multiple apps that are created by the same c
 
 Provide the `device_sso`, `openid`, and `offline_access` scopes in the first request to the `/authorize` endpoint using the Authorization Code with PKCE flow. See [Use the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/use-flow/) for information on the parameters that are being passed in this request.
 
-Example Authorization Code with PKCE request
+**Example Authorization Code with PKCE request**
 
 ```
   https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oa10sqibtVca6tme1d7&response_type=code&scope=openid device_sso offline_access&redirect_uri={configured_redirect_uri}&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
@@ -270,7 +262,7 @@ Example Authorization Code with PKCE request
 
 The user is prompted to provide their credentials. After the authorization server verifies those credentials, the authorization code is sent to the `redirect_uri` that you specified. The following is an example of the authorization code returned.
 
-Example response
+**Example response**
 
 ```
   https://{configured_redirect_uri}/?code=S_NuB0TNeDMXD_5SKZO6FuXFOi_J9XB-sHAk0Dc0txQ&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9
@@ -278,9 +270,9 @@ Example response
 
 ### Exchange the code for tokens
 
-To exchange the authorization code for tokens, pass the code to your authorization server's `/token` endpoint along with the code_verifier that was generated. See [Exchange the code for tokens](/docs/guides/implement-auth-code-pkce/exchange-code-token/) for information on the parameters that are being passed in this request.
+To exchange the authorization code for tokens, pass the code to your authorization server's `/token` endpoint along with the `code_verifier` that was generated. See [Exchange the code for tokens](/docs/guides/implement-auth-code-pkce/exchange-code-token/) for information on the parameters that are being passed in this request.
 
-Example request
+**Example request**
 
 ```bash
 curl --location --request POST \
@@ -291,7 +283,7 @@ curl --location --request POST \
   --data 'grant_type=authorization_code&client_id={clientId}&redirect_uri=yourApp%3A%2Fcallback&code=CKA9Utz2GkWlsrmnqehz&code_verifier=M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
 
-Example response
+**Example response**
 
 The authorization server response includes the `device_secret`, as well as the `id_token`, `access_token`, and `refresh_token`:
 
@@ -313,7 +305,7 @@ The authorization server response includes the `device_secret`, as well as the `
 
 When you make a token exchange request, the response returns the tokens that you need to use for client 2.
 
-Example request
+**Example request**
 
 ```bash
   curl --location --request POST \
@@ -345,7 +337,7 @@ If the request is successful, the response returned includes the following token
 
 > **Note:** You can pass an expired ID token as part of the token exchange grant as long as the `device_secret` (`sid`) that the `id_token` is associated with is still valid.
 
-Response example
+**Response example**
 
 ```JSON
 {
@@ -362,7 +354,7 @@ Response example
 
 Occasionally you may want to verify that the device secret is still valid by using the `/introspect` endpoint.
 
-Example introspect request
+**Example introspect request**
 
 ```bash
   curl --request POST \
@@ -380,7 +372,7 @@ The `/introspect` endpoint returns the `sid` that it's tied to. The same value i
 
 Sometimes you have to end a user's desktop session. When you do that, you are signing the user out of one app as well as all of the other registered apps. To end a desktop session, you must revoke the device secret. The revoke request signs the user out from all of the apps that are a part of the Native SSO flow.
 
-Example request
+**Example request**
 
 ```bash
 curl --location --request POST \
