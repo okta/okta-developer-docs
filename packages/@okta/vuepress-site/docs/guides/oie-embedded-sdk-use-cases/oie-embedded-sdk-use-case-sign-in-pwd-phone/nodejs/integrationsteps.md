@@ -57,7 +57,7 @@ Build the phone verification method entry page that accepts either SMS or voice 
 
 </div>
 
-When the user enters a phone verification method, either SMS or voice verification, and clicks **Next**, a call to `idx.authenticate` is made that passes in the following values:
+When the user enters a phone verification method (either SMS or voice verification) and clicks **Next**, a call to `idx.authenticate` is made that passes in the following values:
 
 * Authenticator (type): `{ authenticator: 'phone' }`
 * Verification method: `{ name: 'SMS' }`
