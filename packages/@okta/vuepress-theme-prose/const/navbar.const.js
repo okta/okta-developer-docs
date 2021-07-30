@@ -632,6 +632,7 @@ export const reference = [
           { title: "Apps", path: "/docs/reference/api/apps/" },
           { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
+          { title: "Brands", path: "/docs/reference/api/brands/"},
           { title: "CAPTCHAs", path: "/docs/reference/api/captchas/"},
           { title: "Domains", path: "/docs/reference/api/domains/"},
           { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/"},
