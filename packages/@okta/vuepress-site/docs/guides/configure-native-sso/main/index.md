@@ -6,6 +6,15 @@ layout: Guides
 
 <ApiLifecycle access="ea" /><br>
 
+## Before you begin
+
+This guide assumes that you:
+
+* Have an Okta Developer Edition organiztion. Don't have one? [Create one for free](https://developer.okta.com/signup).
+* Have the Native SSO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Native SSO slider, and slide to enable.
+
+## Overview
+
 Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. SSO between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. Okta offers a token-based approach to achieve SSO between native applications.
 
 This guide provides a high-level overview of the Native SSO feature in Okta and describes how to configure your org to use this feature.
@@ -77,7 +86,7 @@ To configure Native SSO, start by setting up your application. To walk through t
 
 Configure Native SSO for your org by updating the authorization server policy rule to allow the token exchange grant. In this use case example, we are using the "default" Custom Authorization Server.
 
-1. In left navigation pane of the Admin Console, go to **Security** > **API** to view your authorization servers.
+1. From the left navigation pane in the Admin Console, go to **Security** > **API** to view your authorization servers.
 1. On the **Authorization Servers** tab, click the **edit** pencil icon for the "default" Custom Authorization Server.
 1. On the **Scopes** tab, verify that `offline_access`, `device_sso`, and `openid` appear in the scopes table.
 1. Ensure that an authorization server policy and a rule are set up to allow the scopes that you need. See [Create access policies](/docs/guides/customize-authz-server/create-access-policies/) and [Create rules for each access policy](/docs/guides/customize-authz-server/create-rules-for-policy/).
@@ -206,7 +215,7 @@ In this request, use the client ID for client 2 that you created in the "Set up 
 
 In this request, update client 2 with the token exchange grant. Use the response from the last step to create your UPDATE request. You need to update the `grantTypes` parameter by adding the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type for the client.
 
-> **Note:** Only the registered applications require the token exchange grant to be enabled. The first client doesn't require the token exchange grant type to be enabled.
+> **Note:** Only the registered applications require the token exchange grant to be enabled.
 
 ```json
   curl --location --request PUT \
