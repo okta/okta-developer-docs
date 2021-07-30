@@ -90,7 +90,7 @@ The `user_code` and `verification_uri` must appear on the smart device for the u
 
 #### Example of the display on the smart device
 
-![Verification on the smart device:](/img/device-auth-grant2.png)
+![Verification on the smart device:](/img/DeviceAuthGrant2.png)
 
 ### Request for user access, ID, and refresh tokens
 
