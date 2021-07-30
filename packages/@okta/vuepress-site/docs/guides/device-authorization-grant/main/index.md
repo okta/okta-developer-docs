@@ -6,6 +6,15 @@ layout: Guides
 
 <ApiLifecycle access="ea" /><br>
 
+## Before you begin
+
+This guide assumes that you:
+
+* Have an Okta Developer Edition organiztion. Don't have one? [Create one for free](https://developer.okta.com/signup).
+* Have the Native SSO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Native SSO slider, and slide to enable.
+
+## Overview
+
 The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input constrained devices and also to devices with no browser, such as smart TVs, digital picture frames, and printers. The Device Authorization grant type enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
 
 The Device Authorization feature is available for both Okta Classic and Okta Identity Engine orgs. You can enable this feature yourself in your org:
