@@ -21,8 +21,6 @@ The Domains API has the following CRUD operations:
 * [Get all Domains](#get-all-domains)
 * [Delete Domain](#delete-domain)
 
-
-
 ### Create Domain
 
 <ApiOperation method="post" url="/api/v1/domains" />
@@ -65,6 +63,7 @@ curl -v -X POST \
 {
     "id": "OcDz6iRyjkaCTXkdo0g3",
     "domain": "login.example.com",
+    "certificateSourceType": "MANUAL",
     "validationStatus": "NOT_STARTED",
     "dnsRecords": [
         {
@@ -103,6 +102,7 @@ curl -v -X POST \
     }
 }
 ```
+
 ### Verify Domain
 
 <ApiOperation method="post" url="/api/v1/domains/{id}/verify" />
@@ -117,7 +117,6 @@ Verifies the Domain by the given `id`
 | --------- | ------------ | ---------- |
 | `id `       | URL        | Required. ID of the Domain. String. |
 
-
 #### Request query parameters
 N/A
 
@@ -127,7 +126,6 @@ N/A
 #### Response body
 
 The [DomainResponse](#domainresponse-object)
-
 
 #### Use examples
 
@@ -142,10 +140,12 @@ curl -v -X POST \
 ```
 
 ##### Response
+
 ```json
 {
     "id": "OcDz6iRyjkaCTXkdo0g3",
     "domain": "login.example.com",
+    "certificateSourceType": "MANUAL",
     "validationStatus": "VERIFIED",
     "dnsRecords": [
         {
@@ -184,6 +184,7 @@ curl -v -X POST \
    }
 }
 ```
+
 ### Create Certificate
 
 <ApiOperation method="put" url="/api/v1/domains/{id}/certificate" />
@@ -268,7 +269,6 @@ Fetches the Domain by ID
 | --------- | ------------ | ---------- |
 | `id`        | URL        | Required. ID of the Domain. String.  |
 
-
 #### Request query parameters
 N/A
 
@@ -297,6 +297,7 @@ curl -v -X GET \
 {
     "id": "OcDz6iRyjkaCTXkdo0g3",
     "domain": "login.example.com",
+    "certificateSourceType": "MANUAL",
     "validationStatus": "COMPLETED",
     "dnsRecords": [
         {
@@ -405,6 +406,7 @@ curl -v -X GET \
         {
             "id": "OcDz6iRyjkaCTXkdo0g3",
             "domain": "login.example.com",
+            "certificateSourceType": "MANUAL",
             "validationStatus": "COMPLETED",
             "_links": {
                 "self": {
@@ -434,7 +436,6 @@ Deletes a Domain by ID
 | Parameter  | Type | Description |
 | --------- | ------------ | ---------- |
 | `id`        | URL        | Required. ID of the Domain. String.   |
-
 
 #### Request query parameters
 N/A
@@ -479,18 +480,12 @@ Content-Type: application/json
 
 ### Domain object
 
-#### Domain properties
-
 The Domain object defines the following properties:
-
 
 | Property                | Type          | Description |
 | ----------------------- | -------------------- | ---------------------------------------------------------------------------------------------------------- |
 | `certificateSourcetype` | `MANUAL`             | Required. Certificate source type that indicates whether the Certificate is provided by the user. Accepted value: `MANUAL`|
 | `domain`                | String              | Required. Custom Domain name                                                                                      |
-
-
-
 
 #### Domain example
 
@@ -500,22 +495,20 @@ The Domain object defines the following properties:
     "certificateSourceType": "MANUAL"
 }
 ```
-### DomainResponse object
 
-#### DomainResponse properties
+### DomainResponse object
 
 The DomainResponse object defines the following properties:
 
-
 | Property                  | Type                                                           | Description                                                                               |
 | ------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `dnsRecords`              | [DNSRecords](#dnsrecords-object)                               | TXT and CNAME records to be registered for the Domain                                     |
+| `certificateSourceType`   | `MANUAL`                                                       | Certificate source type that indicates whether the Certificate is provided by the user. Accepted value: `MANUAL`|
+| `dnsRecords`              | Array of [DNSRecord](#dnsrecord-object)                        | TXT and CNAME records to be registered for the Domain                                     |
 | `domain`                  | String                                                         | Domain name                                                                               |
 | `id`                      | String                                                         | Domain ID                                                                                 |
 | `_links`                  | [Links](#links-object)                                         | Link relations for this object                                                            |
 | `publicCertificate`       | [CertificateMetadata](#certificatemetadata-object)             | (Optional) Certificate metadata for the Domain                                           |
 | `validationStatus`        | String                                                         | Status of the domain. Accepted values: `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED` |
-
 
 #### DomainResponse example
 
@@ -523,6 +516,7 @@ The DomainResponse object defines the following properties:
 {
     "id": "OcDz6iRyjkaCTXkdo0g3",
     "domain": "login.example.com",
+    "certificateSourceType": "MANUAL",
     "validationStatus": "COMPLETED",
     "dnsRecords": [
         {
@@ -535,7 +529,7 @@ The DomainResponse object defines the following properties:
         {
             "fqdn": "login.example.com",
             "values": [
-                "https://${yourOktaDomain}.customdomains.okta1.com"
+                "${yourOktaDomain}.customdomains.okta1.com"
             ],
             "recordType": "CNAME"
         }
@@ -576,26 +570,21 @@ The DomainResponse object defines the following properties:
 
 ### DomainListResponse object
 
-#### DomainListResponse properties
-
-The DomainListResponse object defines several properties:
-
+The DomainListResponse object defines list of domains with a subset of the properties for each domain:
 
 | Property                  | Type                                                           | Description                                                                               |
 | ------------------------- | -------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| `domain`                  | String                                                         | Domain name                                                                               |
-| `id`                      | String                                                         | Domain ID                                                                                 |
-| `_links`                  | [Links](#links-object)                                         | Link relations for this object                                                            |
-| `validationStatus`        | String                                                         | Status of the Domain. Accepted values: `NOT_STARTED`, `IN_PROGRESS`, `VERIFIED`, `COMPLETED` |
-
+| `domains`                  | Array of [DomainResponse](#domainresponse-object)             | Describes the domains       |
 
 #### DomainListResponse example
+
 ```json
 {
     "domains": [
         {
             "id": "OcDz6iRyjkaCTXkdo0g3",
             "domain": "login.example.com",
+            "certificateSourceType": "MANUAL",
             "validationStatus": "COMPLETED",
             "_links": {
                 "self": {
@@ -623,37 +612,30 @@ Specifies link relations (see [Web Linking](http://tools.ietf.org/html/rfc8288))
 | self               | The actual Domain                                                                               |
 | verify             | [Verifies the Domain](#verify-domain) and transitions the Domain status to `VERIFIED`    |
 
-### DNSRecords object
+### DNSRecord object
 
-The DNSRecords object defines the following properties:
-
-#### DNSRecords properties
+The DNSRecord object defines the following properties:
 
 | Property                | Type                                   | Description                           |
 |-------------------------|----------------------------------------|---------------------------------------|
+| `expiration`            | String                                 | (Optional) TXT record expiration               |
 | `fqdn`                  | String                                 | DNS record name                       |
 | `recordType`            | `TXT`, `CNAME`                         | Record type can be `TXT` or `CNAME`   |
-| `values`                | Array                    | DNS verification value                |
+| `values`                | Array                             | DNS verification value                |
 
 ### CertificateMetadata object
 
 The CertificateMetadata object defines the following properties:
 
-#### CertificateMetadata properties
-
 | Property                | Type                                                           | Description                                 |
 |-------------------------|----------------------------------------------------------------|---------------------------------------------|
-| `expiration`            | String                                               | Certificate expiration                      |
+| `expiration`            | String                                                         | Certificate expiration                      |
 | `fingerprint`           | String                                                         | Certificate fingerprint                     |
 | `subject`               | String                                                         | Certificate subject                         |
-
-
 
 ### Certificate object
 
 The Certificate object defines the following properties:
-
-#### Certificate properties
 
 | Property                | Type                                                           | Description                                 |
 | ----------------------- | -------------------------------------------------------------- | ------------------------------------------ |

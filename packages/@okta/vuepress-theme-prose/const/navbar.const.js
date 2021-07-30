@@ -35,7 +35,7 @@ export const concepts = [
         path: "/docs/concepts/feature-lifecycle-management/"
       },
       {
-        title: "Role Assignment",
+        title: "Role assignment",
         path: "/docs/concepts/role-assignment/",
         hidden: true
       },
@@ -44,9 +44,13 @@ export const concepts = [
         path: "/docs/concepts/how-okta-works/"
       },
       {
-        title: "Identity engine",
-        path: "/docs/concepts/ie-intro/",
-        hidden: true
+        title: "Identity Engine",
+        subLinks: [
+          {
+            title: "Redirect vs. embedded authentication",
+            path: "/docs/concepts/redirect-vs-embedded"
+          },
+        ]
       },
       {
         title: "Inline Hooks",
@@ -373,9 +377,94 @@ export const guides = [
             guideName: "token-inline-hook"
           },
         ]
-      }
+      },
+      {
+        title: "Identity Engine",
+        subLinks: [
+          {
+            title: "Embedded authentication",
+            subLinks: [
+              {
+                title: "Overview",
+                guideName: "oie-embedded-overview",
+              },
+              {
+                title: "Create and set up your Okta org",
+                guideName: "oie-embedded-common-org-setup",
+              },
+              {
+                title: "Download and set up the sample app",
+                guideName: "oie-embedded-common-download-setup-app",
+              },
+              {
+                title: "Build with the embedded SDK",
+                subLinks: [
+                  {
+                    title: "Overview",
+                    guideName: "oie-embedded-sdk-overview",
+                  },
+                  {
+                    title: "Run the SDK sample app",
+                    guideName: "oie-embedded-sdk-run-sample",
+                  },
+                  {
+                    title: "Start with a use case",
+                    guideName: "oie-embedded-sdk-use-cases",
+                  },
+                  {
+                    title: "Alternate flows",
+                    guideName: "oie-embedded-sdk-alternate-flows",
+                  },
+                  {
+                    title: "Limitations",
+                    guideName: "oie-embedded-sdk-limitations",
+                  },
+                  {
+                    title: "Common",
+                    guideName: "oie-embedded-sdk-common",
+                  },
+                ]
+              },
+              {
+                title: "Build with the embedded Widget",
+                subLinks: [
+                  {
+                    title: "Overview",
+                    guideName: "oie-embedded-widget-overview",
+                  },
+                  {
+                    title: "Run the Widget sample app",
+                    guideName: "oie-embedded-widget-run-sample",
+                  },
+                  {
+                    title: "Start with a use case",
+                    guideName: "oie-embedded-widget-use-cases",
+                  }
+                ]
+              },
+              {
+                title: "Refresh access and ID tokens",
+                guideName: "oie-embedded-common-refresh-tokens",
+              },
+            ]
+            },
+          {
+          title: "Redirect authentication",
+          subLinks: [
+            {
+              title: "Use redirect auth with the sample apps",
+              guideName: "sampleapp-oie-redirectauth",
+            },
+          ]
+          },
+          {
+            title: "Okta Identity Engine Limitations",
+            path: "/docs/guides/ie-limitations/"
+          },
+        ]
+      },
     ]
-  }
+  },
 ];
 
 export const languagesSdk = [
@@ -475,7 +564,8 @@ export const languagesSdk = [
           { title: "Python", path: "/code/python/" },
           { title: "REST", path: "/code/rest/" }
         ]
-      }
+      },
+      { title: "Identity Engine SDKs & Samples", path: "/code/oie/" }
     ]
   }
 ];
@@ -544,7 +634,10 @@ export const reference = [
           { title: "Manage Okta Objects", path: null},
           { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
           { title: "Apps", path: "/docs/reference/api/apps/" },
+          { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
+          { title: "CAPTCHAs", path: "/docs/reference/api/captchas/"},
+          { title: "Domains", path: "/docs/reference/api/domains/"},
           { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/"},
           { title: "Event Types", path: "/docs/reference/api/event-types/" },
           { title: "Factors", path: "/docs/reference/api/factors/" },
@@ -623,25 +716,26 @@ export const reference = [
       {
         title: 'Hooks',
         subLinks: [
-          { title: "Event Hooks", path: "/docs/reference/api/event-hooks/" },
-          { title: "Inline Hooks", path: "/docs/reference/api/inline-hooks/" },
-          { title: "Hooks best practices", path: "/docs/reference/hooks-best-practices/"},
-          {
-            title: 'Inline Hook Types',
+          { title: "Event Hooks Management API", path: "/docs/reference/api/event-hooks/" },
+          { title: "Inline Hooks Management API", path: "/docs/reference/api/inline-hooks/" },
+          { title: "Inline Hook Types",
             subLinks: [
-              { title: "Token Hook", path: "/docs/reference/token-hook/" },
-              { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-              { title: "Password Import Hook", path: "/docs/reference/password-hook/" },
-              { title: "User Import Hook", path: "/docs/reference/import-hook/"},
-              { title: "Registration Hook", path: "/docs/reference/registration-hook/" },
-
-            ]
-          }
+            { title: "Token Hook", path: "/docs/reference/token-hook/" },
+            { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
+            { title: "Password Import Hook", path: "/docs/reference/password-hook/" },
+            { title: "User Import Hook", path: "/docs/reference/import-hook/"},
+            { title: "Registration Hook", path: "/docs/reference/registration-hook/" }
+          ]},
+          { title: "Hooks best practices", path: "/docs/reference/hooks-best-practices/"},
         ]
       },
       {
         title: 'Okta Expression Language',
         path: "/docs/reference/okta-expression-language/"
+      },
+      {
+        title: "Okta Expression Language in Identity Engine",
+        path: "/docs/reference/okta-expression-language-in-identity-engine/"
       },
       {
         title: 'Release Life Cycle',
@@ -650,201 +744,6 @@ export const reference = [
     ]
   }
 ]
-
-export const referenceOld = [
-  {
-    title: "Reference",
-    subLinks: [
-      { title: "Reference Overview", path: "/docs/reference/" },
-      { title: "API Overview", path: "/docs/reference/api-overview/" },
-      {
-        title: "Sign in Your Users",
-        subLinks: [
-          {
-            title: "OpenID Connect & OAuth 2.0 API",
-            path: "/docs/reference/api/oidc/"
-          },
-          { title: "Authentication", path: "/docs/reference/api/authn/" }
-        ]
-      },
-      {
-        title: "Manage Okta Objects",
-        subLinks: [
-          { title: "Administrator Roles", path: "/docs/reference/api/roles/" },
-          { title: "Administrator Roles", path: "/docs/reference/api/iam-roles/", hidden: true },
-          { title: "Apps", path: "/docs/reference/api/apps/" },
-          {
-            title: "Authorization Servers",
-            path: "/docs/reference/api/authorization-servers/"
-          },
-          {
-            title: "Domains",
-            path: "/docs/reference/api/domains/"
-          },
-          {
-            title: "Dynamic Client Registration",
-            path: "/docs/reference/api/oauth-clients/"
-          },
-          { title: "Event Hooks", path: "/docs/reference/api/event-hooks/" },
-          { title: "Event Types", path: "/docs/reference/api/event-types/" },
-          { title: "Factors", path: "/docs/reference/api/factors/" },
-          { title: "Features", path: "/docs/reference/api/features/" },
-          { title: "Groups", path: "/docs/reference/api/groups/" },
-          { title: "Identity Providers", path: "/docs/reference/api/idps/" },
-          { title: "Inline Hooks", path: "/docs/reference/api/inline-hooks/" },
-          { title: "Linked Objects", path: "/docs/reference/api/linked-objects/"},
-          { title: "Mappings", path: "/docs/reference/api/mappings/" },
-          { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
-          { title: "Org", path: "/docs/reference/api/org/" },
-          { title: "Policy", path: "/docs/reference/api/policy/" },
-          { title: "Schemas", path: "/docs/reference/api/schemas/" },
-          { title: "Sessions", path: "/docs/reference/api/sessions/" },
-          { title: "System Log", path: "/docs/reference/api/system-log/" },
-          { title: "Templates", path: "/docs/reference/api/templates/" },
-          {
-            title: "ThreatInsight",
-            path: "/docs/reference/api/threat-insight/"
-          },
-          {
-            title: "Trusted Origins",
-            path: "/docs/reference/api/trusted-origins/"
-          },
-          { title: "User Types", path: "/docs/reference/api/user-types/" },
-          { title: "Users", path: "/docs/reference/api/users/" },
-          { title: "Zones", path: "/docs/reference/api/zones/" }
-        ]
-      },
-      {
-        title: "Rate Limits",
-        subLinks: [
-          {
-            title: "Rate limits overview",
-            path: "/docs/reference/rate-limits/"
-          },
-          {
-            title: "Rate limit dashboard",
-            path: "/docs/reference/rl-dashboard/"
-          },
-          {
-            title: "Authentication/End-user rate limits",
-            path: "/docs/reference/rl-global-enduser/"
-          },
-          {
-            title: "Management rate limits",
-            path: "/docs/reference/rl-global-mgmt/"
-          },
-          {
-            title: "Other endpoint rate limits",
-            path: "/docs/reference/rl-global-other-endpoints/"
-          },
-          {
-            title: "Additional limits",
-            path: "/docs/reference/rl-additional-limits/"
-          },
-          {
-            title: "Rate limit best practices",
-            path: "/docs/reference/rl-best-practices/"
-          },
-          {
-            title: "Client-based rate limits",
-            path: "/docs/reference/rl-clientbased/"
-          },
-          { title: "DynamicScale", path: "/docs/reference/rl-dynamic-scale/" },
-          {
-            title: "Previous rate limits",
-            path: "/docs/reference/rl-previous/"
-          },
-          {
-            title: "System Log events for rate limits",
-            path: "/docs/reference/rl-system-log-events/"
-          }
-        ]
-      },
-      { title: "Error Codes", path: "/docs/reference/error-codes/" },
-
-      { title: "Import Hook", path: "/docs/reference/import-hook/" },
-      {
-        title: "Okta Expression Language",
-        path: "/docs/reference/okta-expression-language/"
-      },
-      {
-        title: "Okta Expression Language in Identity Engine",
-        path: "/docs/reference/okta-expression-language-in-identity-engine/",
-        hidden: true
-      },
-      { title: "Password Hook", path: "/docs/reference/password-hook/" },
-      {
-        title: "Postman Collections",
-        path: "/docs/reference/postman-collections/"
-      },
-      {
-        title: "Registration Hook",
-        path: "/docs/reference/registration-hook/"
-      },
-      {
-        title: "Release Life Cycle",
-        path: "/docs/reference/releases-at-okta/"
-      },
-      { title: "SAML Hook", path: "/docs/reference/saml-hook/" },
-      {
-        title: "SCIM Protocol",
-        subLinks: [
-          {
-            title: "SCIM overview",
-            path: "/docs/reference/scim/"
-          },
-          {
-            title: "SCIM V2.0",
-            path: "/docs/reference/scim/scim-20/"
-          },
-          {
-            title: "SCIM V1.1",
-            path: "/docs/reference/scim/scim-11/"
-          }
-        ]
-      },
-      {
-        title: "Social IdP Settings",
-        path: "/docs/reference/social-settings/"
-      },
-      { title: "Token Hook", path: "/docs/reference/token-hook/" },
-      { title: "WebFinger", path: "/docs/reference/api/webfinger/" },
-      {
-        title: "Advanced Server Access",
-        subLinks: [
-          {
-            title: "Introduction to the Advanced Server Access API",
-            path: "/docs/reference/api/asa/introduction/"
-          },
-          {
-            title: "ASA Attributes API",
-            path: "/docs/reference/api/asa/attributes/"
-          },
-          { title: "ASA Audits API", path: "/docs/reference/api/asa/audits/" },
-          {
-            title: "ASA Clients API",
-            path: "/docs/reference/api/asa/clients/"
-          },
-          {
-            title: "ASA Entitlements API",
-            path: "/docs/reference/api/asa/entitlements/"
-          },
-          { title: "ASA Groups API", path: "/docs/reference/api/asa/groups/" },
-          {
-            title: "ASA Projects API",
-            path: "/docs/reference/api/asa/projects/"
-          },
-          {
-            title: "ASA Service Users API",
-            path: "/docs/reference/api/asa/service-users/"
-          },
-          { title: "ASA Teams API", path: "/docs/reference/api/asa/teams/" },
-          { title: "ASA Users API", path: "/docs/reference/api/asa/users/" }
-        ]
-      }
-    ]
-  }
-];
 
 export const releaseNotes = [
   {

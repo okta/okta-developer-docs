@@ -164,7 +164,11 @@ In the case of the Registration Inline Hook, the `error` object provides a way o
 
 If you do not return any value for that `errorCauses` object, but deny the user's registration attempt via the `commands` object in your response to Okta, the following generic message is displayed to the end user: "Registration cannot be completed at this time".
 
-> **Note:** If you include an error object in your response, or if the request times out without a response, no commands will be executed and the registration will fail. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
+> **Note:** If you include an error object in your response, no commands will be executed and the registration will fail. This holds true even if the top-level `errorSummary` and the `errorCauses` objects are omitted.
+
+## Timeout behavior
+
+If there is a response timeout after receiving the Okta request, the Okta process flow stops and registration is denied. The following message appears: "There was an error creating your account. Please try registering again".
 
 ## Sample JSON Payload of Request
 

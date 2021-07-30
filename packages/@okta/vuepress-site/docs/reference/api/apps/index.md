@@ -1332,15 +1332,13 @@ Adds an OAuth 2.0 client application. This application is only available to the 
 
 * At least one redirect URI and response type is required for all client types, with exceptions: if the client uses the [Resource Owner Password](https://tools.ietf.org/html/rfc6749#section-4.3) flow (if `grant_types` contains the value `password`) or [Client Credentials](https://tools.ietf.org/html/rfc6749#section-4.4) flow (if `grant_types` contains the value `client_credentials`) then no redirect URI or response type is necessary. In these cases you can pass either null or an empty array for these attributes.
 
-* If `wildcard_redirect` is `DISABLED`, all redirect URIs must be absolute URIs and must not include a fragment component.
+* If `wildcard_redirect` <ApiLifecycle access="ea" /> is `DISABLED`, all redirect URIs must be absolute URIs and must not include a fragment component. If `wildcard_redirect` is `SUBDOMAIN`, then any configured redirect URIs may contain a single `*` character in the lowest-level domain (for example, `https://redirect-*-domain.example.com/oidc/redirect`) to act as a wildcard. The wildcard subdomain must have at least one subdomain between it and the top level domain.
 
-* If `wildcard_redirect` is `SUBDOMAIN`, then configured redirect URIs may contain a single `*` character in the lowest-level domain to act as a wildcard. The wildcard subdomain must have at least one subdomain between it and the top level domain.
+  * The wildcard can match any valid hostname characters, but can't span more than one domain. For example, if `https://redirect-*-domain.example.com/oidc/redirect` is configured as a redirect URI, then `https://redirect-1-domain.example.com/oidc/redirect` and `https://redirect-sub-domain.example.com/oidc/redirect` match, but `https://redirect-1.sub-domain.example.com/oidc/redirect` doesn't match.
 
-* The wildcard can match any valid hostname characters and can't span more than one domain. As an example, if `https://redirect-*-domain.example.com/oidc/redirect` is configured as a redirect URI, then `https://redirect-1-domain.example.com/oidc/redirect` and `https://redirect-sub-domain.example.com/oidc/redirect` match, but `https://redirect-1.sub-domain.example.com/oidc/redirect` won't match.
+  * Only the `https` URI scheme can use wildcard redirect URIs.
 
-* Only the `https` URI scheme can use wildcard redirect URIs.
-
-> **Caution:** The use of wildcard subdomains is discouraged as an insecure practice, since it may allow malicious actors to have tokens or authorization codes sent to unexpected or attacker-controlled pages. Exercise great caution if you decide to include a wildcard redirect URI in your configuration.
+  > **Caution:** The use of wildcard subdomains is discouraged as an insecure practice, since it may allow malicious actors to have tokens or authorization codes sent to unexpected or attacker-controlled pages. Exercise great caution if you decide to include a wildcard redirect URI in your configuration.
 
 * When you create an app using the App Wizard in the UI, and you specify an app logo for the **Application logo** property, that value is stored as the `logo_uri` value and used as the logo on the application's tile for the dashboard as well as the client consent dialog box during the client consent flow. If you add or modify a `logo_uri` value later, that value is used only on the client consent dialog box during the client consent flow.
 
@@ -5420,11 +5418,7 @@ HTTP/1.1 204 No Content
 
 ## Application logo operations
 
-<ApiLifecycle access="ea" />
-
 ### Update logo for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/logo" />
 
@@ -5460,13 +5454,9 @@ Location: https://${yourOktaDomain}/bc/image/fileStoreRecord?id=fs01hfslJH2m3qUO
 
 ## Application Provisioning Connection operations
 
-<ApiLifecycle access="ea" />
-
 > **Note:** The only currently supported application is Okta Org2Org.
 
 ### Get default Provisioning Connection for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/connections/default" />
 
@@ -5521,8 +5511,6 @@ curl -v -X GET \
 ```
 
 ### Set default Provisioning Connection for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/default" />
 
@@ -5585,8 +5573,6 @@ curl -v -X POST \
 
 ### Activate default Provisioning Connection for application
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/default/lifecycle/activate" />
 
 Activates the default Provisioning Connection for an application.
@@ -5614,8 +5600,6 @@ HTTP/1.1 204 No Content
 ```
 
 ### Deactivate default Provisioning Connection for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/connections/lifecycle/deactivate" />
 
@@ -5645,13 +5629,9 @@ HTTP/1.1 204 No Content
 
 ## Application Feature operations
 
-<ApiLifecycle access="ea" />
-
 > **Note:** The only currently supported application is Okta Org2Org.
 
 ### List Features for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/features" />
 
@@ -5725,8 +5705,6 @@ curl -v -X GET \
 
 ### Get Feature for application
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/features/${name}" />
 
 Fetches a Feature object for an application.
@@ -5793,8 +5771,6 @@ curl -v -X GET \
 ```
 
 ### Update Feature for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="put" url="/api/v1/apps/${applicationId}/features/${featureName}" />
 
@@ -6359,7 +6335,7 @@ Applications have the following properties:
 | credentials        | Credentials for the specified `signOnMode`     | [Application Credentials object](#application-credentials-object)    | TRUE         | FALSE      | FALSE        |               |             |
 | features           | Enabled app features                           | [Features](#features)                                                | TRUE         | FALSE      | FALSE        |               |             |
 | id                 | Unique key for app                             | String                                                               | FALSE        | TRUE       | TRUE         |               |             |
-| label              | Unique user-defined display name for app       | String                                                               | FALSE        | TRUE       | FALSE        | 1             | 100         |
+| label              | User-defined display name for app              | String                                                               | FALSE        | FALSE      | FALSE        | 1             | 100         |
 | lastUpdated        | Timestamp when app was last updated            | Date                                                                 | FALSE        | FALSE      | TRUE         |               |             |
 | name               | Unique key for app definition                  | String ([App Names](#app-names))                | FALSE        | TRUE       | TRUE         | 1             | 255         |
 | profile            | Valid JSON schema for specifying properties    | [JSON](#profile-object)                                              | TRUE         | FALSE      | FALSE        |               |             |
@@ -6403,8 +6379,6 @@ Each application has a schema that defines the required and optional settings fo
 Currently, the catalog isn't exposed via an API. The current solution is to manually configure the desired application using the Okta Admin Dashboard and a preview (sandbox) Okta org. You can then view the application details using the [Get Application](#get-application) API.
 
 ###### Notes object
-
-<ApiLifecycle access="ea" />
 
 An additional `notes` object can be passed within the `settings` object. The `notes` object contains the following:
 
@@ -6485,7 +6459,7 @@ Specifies visibility settings for the application
 | Property          | Description                                        | DataType                            | Nullable | Default | MinLength | MaxLength | Validation |
 | ----------------- | -------------------------------------------------- | ----------------------------------- | -------- | ------- | --------- | --------- | ---------- |
 | appLinks          | Displays specific appLinks for the app             | [AppLinks object](#applinks-object) | FALSE    |         |           |           |            |
-| <ApiLifecycle access="ea" /> autoLaunch  |  Automatically signs in to the app when user signs into Okta.            | Boolean | FALSE   | FALSE    |           |           |            |
+| autoLaunch        |  Automatically signs in to the app when user signs into Okta.            | Boolean | FALSE   | FALSE    |           |           |            |
 | autoSubmitToolbar | Automatically sign in when user lands on the sign-in page | Boolean                             | FALSE    | FALSE   |           |           |            |
 | hide              | Hides this app for specific end-user apps          | [Hide object](#hide-object)         | FALSE    | FALSE   |           |           |            |
 
@@ -6570,8 +6544,9 @@ Specifies the template used to generate a user's username when the application i
 | template   | mapping expression for username         | String                           | TRUE     | `${source.login}` |           | 1024       |            |
 | type       | type of mapping expression              | `NONE`,  `BUILT_IN`, or `CUSTOM` | FALSE    | BUILT_IN          |           |            |            |
 | userSuffix | suffix for built-in mapping expressions | String                           | TRUE     | NULL              |           |            |            |
+| pushStatus | push username on update                 | `PUSH`, `DONT_PUSH`              | TRUE     | `DONT_PUSH` for `CUSTOM` type |           |            |            |
 
-> **Note:** You must use the `CUSTOM` type when defining your own expression that is not built-in.
+> **Note:** You must use the `CUSTOM` type when defining your own expression that is not built-in. The `pushStatus` parameter is effective only for the `CUSTOM` type.
 
 ```json
 {

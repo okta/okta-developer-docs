@@ -15,9 +15,14 @@ Use these steps to create a Groups claim for an OpenID Connect client applicatio
 
 To test the full authentication flow that returns an ID token, build your request URL. The scopes that you need to include as query parameters are `openid` and `groups`. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see <GuideLink link="../request-token-claim">Request a token that contains the custom claim</GuideLink>.
 
-> **Note:** In this example, the user signing in to your app is assigned to a group called "IT" as well as being a part of the "Everyone" group.
+> **Note:** The examples in this guide use the [Implicit flow](/docs/concepts/oauth-openid/#implicit-flow) for quick testing. In the following example we are requesting only `id_token` as the `response_type` value. This means that the requests are for a [fat ID token](/docs/concepts/api-access-management/#tokens-and-scopes), and the ID token is the only token included in the response. The ID token contains any groups assigned to the user that signs in when you include the `groups` scope in the request.
+>
+>If you make a request to the Org Authorization Server for both the ID token and the access token, that is considered a [thin ID token](/docs/concepts/api-access-management/#tokens-and-scopes) and contains only base claims. Profile attributes and Groups aren't returned, even if those scopes are included in the request. You can use the access token to get the Groups claim from the `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo).
+>
 
 The resulting URL looks something like this:
+
+> **Note:** In this example, the user signing in to your app is assigned to a group called "IT" as well as being a part of the "Everyone" group.
 
 ```bash
 curl -X GET

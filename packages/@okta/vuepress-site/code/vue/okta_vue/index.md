@@ -16,7 +16,7 @@ This guide will walk you through integrating authentication into a Vue app with 
 - [Conclusion](#conclusion)
 - [Support](#support)
 
-> This guide is for `@okta/okta-auth-js` >= v4.1.0 and < 5.0.0.
+> This guide is for `@okta/okta-auth-js` >= v5.0.0 and < 6.0.0, `vue` 3.
 
 ## Prerequisites
 If you do not already have a **Developer Edition Account**, you can create one at <https://developer.okta.com/signup/>.
@@ -42,7 +42,7 @@ To quickly create a Vue app, we recommend the Vue CLI. Follow [their guide](http
 ```
 npm install -g @vue/cli
 vue create okta-vue-auth-example
-# Manually select features: choose defaults + Router
+# Manually select features: choose defaults + Router, Vue.js v3
 # Choose history mode for router
 cd okta-vue-auth-example
 ```
@@ -82,7 +82,12 @@ Create a `src/auth.js` file:
 
 ```js
 const OktaAuth = require('@okta/okta-auth-js').OktaAuth
-const authClient = new OktaAuth({issuer: 'https://{yourOktaDomain}'})
+const authClient = new OktaAuth({
+  issuer: 'https://{yourOktaDomain}',
+  clientId: '{clientId}',
+  scopes: ['openid', 'email', 'profile'],
+  redirectUri: window.location.origin + '/login/callback'
+})
 
 export default {
   login (email, pass, cb) {
@@ -98,11 +103,8 @@ export default {
     }).then(transaction => {
       if (transaction.status === 'SUCCESS') {
         return authClient.token.getWithoutPrompt({
-          clientId: '{clientId}',
           responseType: ['id_token', 'token'],
-          scopes: ['openid', 'email', 'profile'],
           sessionToken: transaction.sessionToken,
-          redirectUri: window.location.origin + '/login/callback'
         }).then(response => {
           localStorage.token = response.tokens.accessToken
           localStorage.idToken = response.tokens.idToken
@@ -259,16 +261,19 @@ Add a `src/components/Login.vue` to render your sign-in form:
 </style>
 ```
 
-To make the `v-focus` directive on the email field work, add the following to `src/main.js` (before `new Vue({...})`).
+To make the `v-focus` directive on the email field work, modify app creation code in `src/main.js` as follows:
 
 ```js
-Vue.directive('focus', {
+createApp(App)
+.directive('focus', {
   // When the bound element is inserted into the DOM...
-  inserted: function (el) {
+  mounted: function (el) {
     // Focus the element
     el.focus()
   }
 })
+.use(router)
+.mount('#app')
 ```
 
 ## Create Routes
@@ -284,18 +289,14 @@ Some routes require authentication in order to render. Let's take a look at what
 Create `src/router/index.js` with the following code.
 
 ```js
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import auth from '@/auth'
 import About from '@/components/About.vue'
 import Dashboard from '@/components/Dashboard.vue'
 import Login from '@/components/Login.vue'
 
-Vue.use(VueRouter)
-
-export default new VueRouter({
-  mode: 'history',
-  base: __dirname,
+const router = createRouter({
+  history: createWebHistory(__dirname),
   routes: [
     { path: '/about', component: About },
     { path: '/dashboard', component: Dashboard, beforeEnter: requireAuth },
@@ -319,6 +320,8 @@ function requireAuth (to, from, next) {
     next()
   }
 }
+
+export default router;
 ```
 
 ## Start your app

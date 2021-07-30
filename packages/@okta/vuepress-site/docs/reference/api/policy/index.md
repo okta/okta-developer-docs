@@ -477,6 +477,10 @@ Different Policy types control settings for different operations. All Policy typ
 
 [OAuth Authorization Policy](/docs/reference/api/authorization-servers/#policy-object)
 
+[App Sign-On Policy](#app-sign-on-policy) <ApiLifecycle access="ie" /><br>
+
+[Profile Enrollment Policy](#profile-enrollment-policy) <ApiLifecycle access="ie" /><br>
+
 ### Policy priority and defaults
 
 ### Default Policies
@@ -560,7 +564,7 @@ The Policy object defines several attributes:
 | Parameter   | Description                                                                                                                                          | Data Type                                         | Required | Default                |
 | ---------   | -----------                                                                                                                                          | ---------                                         | -------- | -------                |
 | id          | Identifier of the Policy                                                                                                                             | String                                            | No       | Assigned               |
-| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, `IDP_DISCOVERY` | String                                            | Yes      |                        |
+| type        | Specifies the [type of Policy](#policy-types). Valid values: `OKTA_SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `OAUTH_AUTHORIZATION_POLICY`, or `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`.<br> [Contact support](mailto:dev-inquiries@okta.com) for more information on Identity Engine.  | String                                            | Yes      |                        |
 | name        | Name of the Policy                                                                                                                                   | String                                            | Yes      |                        |
 | system      | This is set to `true` on system policies, which cannot be deleted.                                                                                   | Boolean                                           | No       | `false`                |
 | description | Description of the Policy.                                                                                                                           | String                                            | No       | Null                   |
@@ -676,7 +680,7 @@ The Rules object defines several attributes:
 | Parameter     | Description                                                        | Data Type                                      | Required   | Default                |
 | :------------ | :----------------------------------------------------------------- | :--------------------------------------------- | :--------- | :--------------------- |
 | id            | Identifier of the Rule                                             | String                                         | No         | Assigned               |
-| type          | Rule type. Valid values: `SIGN_ON` or `PASSWORD` or `MFA_ENROLL`   | String (Enum)                                  | Yes        |                        |
+| type          | Rule type. Valid values: `SIGN_ON`, `PASSWORD`, `MFA_ENROLL`, `IDP_DISCOVERY`.<br><br> <ApiLifecycle access="ie" /><br>**Note:** The following policy types are available only with Identity Engine: `ACCESS_POLICY` or `PROFILE_ENROLLMENT`. <br>[Contact support](mailto:dev-inquiries@okta.com) for more information on Identity Engine.| String (Enum)                                  | Yes        |                        |
 | name          | Name of the Rule                                                   | String                                         | Yes        |                        |
 | status        | Status of the Rule: `ACTIVE` or `INACTIVE`                         | String (Enum)                                  | No         | ACTIVE                 |
 | priority      | Priority of the Rule                                               | Integer                                        | No         | Last / Lowest Priority |
@@ -713,8 +717,8 @@ The People Condition identifies Users and Groups that are used together. For Pol
 
 | Parameter | Description          | Data Type                                         | Required |
 | ---       | ---                  | ---                                               | ---      |
-| groups    | The Groups condition | [User Condition object](#user-condition-object)   | Yes      |
-| users     | The Users condition  | [Group Condition object](#group-condition-object) | Yes      |
+| groups    | The Groups condition | [Group Condition object](#group-condition-object) | Yes      |
+| users     | The Users condition  | [User Condition object](#user-condition-object) | Yes      |
 
 ##### User Condition object
 
@@ -748,6 +752,32 @@ Specifies a set of Groups whose Users are to be included or excluded
         "00go6lU1wxnmPisNp0g3"
       ]
     }
+  }
+```
+#### UserType Condition object
+
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
+
+> **Note:** This feature is only available as a part of the Okta Identity Engine. Contact [Support](mailto:dev-inquiries@okta.com) for more information.
+
+Specifies which [User Types](/docs/reference/api/user-types/#user-type-object) to include and/or exclude. You can use the [User Types API](/docs/reference/api/user-types/) to manage User Types.
+
+| Parameter | Description                  | Data Type | Required |
+| ---       | ---                          | ---       | ---      |
+| include   | The User Types to be included | Array     | Yes      |
+| exclude   | The User Types to be excluded | Array     | Yes      |
+
+#### UserType Condition object example
+
+```json
+  "userType": {
+    "include": [
+      "oty1q0xE6xRC1rYS30g4"
+    ],
+    "exclude": [
+      "oty1q0xE6xRC1rYS30g4"
+    ]
   }
 ```
 
@@ -964,6 +994,50 @@ Specifies a particular platform or device to match on
 }
 ```
 
+#### Device Condition object
+
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
+
+> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+
+Specifies the device condition to match on
+
+| Parameter | Description              | Data Type | Required |
+| ---       | ---                      | ---       | ---      |
+| registered   | If the device is registered. A device is registered if the User enrolls with Okta Verify that is installed on the device. | Boolean     | No      |
+| managed   | If the device is managed. A device is managed if it's managed by a device management system.| Boolean     | No      |
+
+> **Note:** When `managed` is passed, `registered` must also be included and must be set to `true`.
+
+For details on integration with a device management system, see
+ - [Configure Device Trust on Identity Engine for desktop devices](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/config-desktop.htm)
+ - [Configure Device Trust on Identity Engine for mobile devices](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/config-mobile.htm)
+#### Device Condition object example
+
+```json
+"device": {
+  "registered": true,
+  "managed": true
+}
+```
+
+#### Risk Score Condition object
+
+Specifies a particular level of risk to match on
+
+| Parameter | Description              | Data Type | Required |
+| ---       | ---                      | ---       | ---      |
+| level     | The level to match       | `ANY`, `LOW`, `MEDIUM`, or `HIGH`     | Yes      |
+
+#### Risk Score Condition object example
+
+```json
+"riskScore": {
+  "level": "MEDIUM"
+}
+```
+
 ## Type-Specific Policy data structures
 
 ## Okta Sign On Policy
@@ -1032,6 +1106,8 @@ The following conditions may be applied to the Rules associated with Okta Sign O
 * [Network Condition](#network-condition-object)
 
 * [AuthContext Condition](#authcontext-condition-object)
+
+* [Risk Score Condition](#risk-score-condition-object)
 
 ## Multifactor (MFA) Enrollment Policy
 
@@ -1285,6 +1361,9 @@ Specifies how lookups for weak passwords are done. Designed to be extensible wit
 
 #### Recovery object
 
+The Password Policy object contains the factors used for password recovery and account unlock.
+However, if you are using Okta Identity Engine, it is recommended to set recovery factors in the Password Policy Rule as shown in the examples under [Password Rules Action Data](#password-actions-example).
+
 | Property | Description                                            | Data Type                                           | Required |
 | ---      | ---                                                    | ---                                                 | ---      |
 | factors  | Settings for the Factors that may be used for recovery | [Recovery Factors object](#recovery-factors-object) | No       |
@@ -1322,7 +1401,7 @@ Specifies how lookups for weak passwords are done. Designed to be extensible wit
 | Property   | Description                                                     | Data Type                                                         | Required |
 | ---        | ---                                                             | ---                                                               | ---      |
 | status     | Indicates if the Factor is enabled. This property is read-only | `ACTIVE`                                                          | Yes      |
-| properties | Configuration settings for the Okta Email Factor                    | [Email Factor Properties object](#email-factor-properties-object) | No       |
+| properties | Configuration settings for the Okta Email Factor                   | [Email Factor Properties object](#email-factor-properties-object) | No       |
 
 ###### Email Factor Properties object
 
@@ -1386,6 +1465,100 @@ The following conditions may be applied to Password Policy:
   },
 ```
 
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
+
+With Okta Identity Engine, Recovery Factors can be specified inside the Password Policy Rule object instead of in the Policy Settings object. Recovery Factors for the rule are defined inside the `selfServicePasswordReset` Action.
+
+The following three examples demonstrate how Recovery Factors are configured in the Rule based on admin requirements.
+
+In this example, the requirement is that end users verify with just one Authenticator before they can recover their password. Email, SMS, Voice, or Okta Verify Push can be used by end users to initiate recovery. We know that only one Authenticator is required because there are no step up Authenticators specified as can be seen by the `stepUp` object having the `required` attribute set as `false`.
+
+```json
+"actions": {
+      "passwordChange": {
+        "access": "ALLOW"
+      },
+      "selfServicePasswordReset": {
+        "access": "ALLOW",
+        "requirement": {
+          "primary": {
+            "methods": [
+              "EMAIL",
+              "SMS",
+              "VOICE",
+              "PUSH"
+            ]
+          },
+          "stepUp": {
+            "required": false
+          }
+        }
+      },
+      "selfServiceUnlock": {
+        "access": "ALLOW"
+      }
+}
+```
+
+In this example, the requirement is that end users verify two Authenticators before they can recover their password. Only email or Okta Verify Push can be used by end users to initiate recovery. A security question is required as a step up.
+
+
+```json
+"actions": {
+      "passwordChange": {
+        "access": "ALLOW"
+      },
+      "selfServicePasswordReset": {
+        "access": "ALLOW",
+        "requirement": {
+          "primary": {
+            "methods": [
+              "EMAIL",
+              "PUSH"
+            ]
+          },
+          "stepUp": {
+            "required": true,
+            "methods": [
+              "SECURITY_QUESTION"
+            ]
+          }
+        }
+      },
+      "selfServiceUnlock": {
+        "access": "ALLOW"
+      }
+}
+```
+
+In the final example, end users are required to verify two Authenticators before they can recover their password. Only Okta Verify Push can be used by end users to initiate recovery. A step-up verification is required for which they can use any enrolled Authenticator that can be used for sign-on. This is indicated by the `stepUp` object that contains only the `required` attribute set as `true` but without the `methods` array attribute.
+
+
+```json
+"actions": {
+      "passwordChange": {
+        "access": "ALLOW"
+      },
+      "selfServicePasswordReset": {
+        "access": "ALLOW",
+        "requirement": {
+          "primary": {
+            "methods": [
+              "PUSH"
+            ]
+          },
+          "stepUp": {
+            "required": true
+          }
+        }
+      },
+      "selfServiceUnlock": {
+        "access": "ALLOW"
+      }
+}
+```
+
 #### Password Action object
 
 | Property                 | Description                                                                      | Data Type                                                                        | Required |
@@ -1402,9 +1575,16 @@ The following conditions may be applied to Password Policy:
 
 ##### Self Service Password Reset Action object
 
-| Property | Description                          | Data Type       | Required | Default |
-| ---      | ---                                  | ---             | ---      | ---     |
-| access   | Indicates if the action is permitted | `ALLOW`, `DENY` | No       | `DENY`  |
+> **Note:** The following indicated objects and properties are only available as a part of Okta Identity Engine. Please contact support for further information.
+
+| Property                                                       | Data Type   | Description                                                                                 | Supported Values                | Required | Default
+| ---                                                            | ---         | ---                                                                                         | ---                             | ---      | ---
+| `access`                                                       | String      | Indicates if the action is permitted                                                        | `ALLOW`, `DENY`                 | No       | `DENY`
+| `requirement` <ApiLifecycle access="ie" />                     | Object      | JSON object that contains Authenticator methods required to be verified if `access` is `ALLOW`. If access is `ALLOW` and `requirement` isn't specified, `recovery.factors` from the parent policy object is used to determine recovery factors.                             | No       |
+| `requirement.primary.methods` <ApiLifecycle access="ie" />     | Array       | Authenticator methods that can be used by the End User to initiate a password recovery            | `EMAIL`, `SMS`, `VOICE`, `PUSH` | Yes |
+| `requirement.stepUp.required` <ApiLifecycle access="ie" />     | Boolean     | Indicates if any step-up verification is required to recover a password that follows a primary methods verification | `true`, `false` | Yes |
+| `requirement.stepUp.methods`  <ApiLifecycle access="ie" />     | Array       | If `requirement.stepUp.required` is `true`, a JSON object that contains Authenticator methods is required to be verified as a step up. If not specified, any enrolled Authenticator methods allowed for sign-on can be used as step up. | `null` or an array containing`SECURITY_QUESTION` | No
+
 
 ##### Self Service Unlock Action object
 
@@ -1422,13 +1602,13 @@ The following conditions may be applied to the Rules associated with Password Po
 
 ## IdP Discovery Policy
 
-The IdP Discovery Policy determines where to route Users when they are attempting to sign in to your org. Users can be routed to a variety of identity providers (`SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`) based on multiple conditions. For an introduction to the topic, see [IdP Discovery](/docs/concepts/identity-providers/#idp-discovery).
+The IdP Discovery Policy determines where to route Users when they are attempting to sign in to your org. Users can be routed to a variety of Identity Providers (`SAML2`, `IWA`, `AgentlessDSSO`, `X509`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`, `OIDC`) based on multiple conditions. For more information, see [IdP Discovery](/docs/concepts/identity-providers/#idp-discovery).
 
-All Okta orgs contain one and only one IdP Discovery Policy, with an immutable default Rule routing to your org's sign-in page.
+All Okta orgs contain only one IdP Discovery Policy with an immutable default Rule routing to your org's sign-in page.
 
 ### Policy conditions
 
-The following conditions may be applied to IdP Discovery Policy:
+You can apply the following conditions to the IdP Discovery Policy:
 
 * [Network Condition](#network-condition-object)
 
@@ -1444,13 +1624,14 @@ The following conditions may be applied to IdP Discovery Policy:
 
 | Property  | Description                                                          | Data Type | Required |
 | ---       | ---                                                                  | ---       | ---      |
-| providers | List of configured identity providers that a given Rule can route to | array     | Yes      |
+| providers | List of configured Identity Providers that a given Rule can route to | array     | Yes      |
 
-> **Note:** Currently, this `providers` list only supports one value. IdP types `OKTA`, `AgentlessDSSO`, and `IWA` don't require an `id`.
+> **Note:** Ability to define multiple providers is a part of Okta Identity Engine.
+> Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
-#### Policy Action Example
+> **Note:** IdP types of `OKTA`, `AgentlessDSSO`, and `IWA` don't require an `id`.
 
-> **Note:** The `providers` parameter supports only one value.
+#### Policy Action example
 
 ```json
   "actions": {
@@ -1464,3 +1645,361 @@ The following conditions may be applied to IdP Discovery Policy:
     }
   }
 ```
+
+#### Policy Action with multiple IdP instances
+
+<ApiLifecycle access="ie" />
+<ApiLifecycle access="Limited GA" /><br>
+
+> **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
+
+You can define multiple IdP instances in a single Policy Action. This allows users to choose a Provider when they sign in.
+
+##### Provider object
+
+> **Note:** IdP types `OKTA`, `AgentlessDSSO`, and `IWA` don't require an `id`.
+
+| Property                           | Description             | Data Type | Required |
+| ---                                | ---                     | ---       | ---      |
+| id                                 | Provider `id` in Okta   | String    | Yes      |
+| type                               | Provider type. Possible values: `OKTA`, `AgentlessDSSO`, `IWA`, `X509`, `SAML2`, `OIDC`, `APPLE`, `FACEBOOK`, `GOOGLE`, `LINKEDIN`, `MICROSOFT`           | String | Yes |
+| name <ApiLifecycle access="ie" />  | Provider `name` in Okta | String    | No       |
+
+##### Limitations
+
+* You can add up to 10 providers to a single `idp` Policy Action.
+
+* You can define only one `provider` for the following IdP types: `AgentlessDSSO`, `IWA`, `X509`.
+
+* If a [User Identifier Condition](#user-identifier-condition-object) is defined together with an `OKTA` provider, sign-in requests are handled by Okta exclusively.
+
+##### Example
+
+```json
+  "actions": {
+    "idp": {
+      "providers": [
+        {
+          "type": "OKTA"
+        },
+        {
+          "type": "SAML2",
+          "id": "0oaoz0zUsohjfrWZ80g3",
+          "name": "Other IdP"
+        },
+        {
+          "type": "OIDC",
+          "id": "0oaFz3WUgotjUKank5z8",
+          "name": "External Identity Provider"
+        }
+      ]
+    }
+  }
+```
+
+## App sign-on policy
+
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
+
+> **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
+
+The app sign-on policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. Okta Identity Engine always evaluates both the Okta sign-on policy and the sign-on policy for the app. The resulting user experience is the union of both policies. App sign-on policies have the type `ACCESS_POLICY`.
+
+> **Note:** You can have a maximum of 5000 app sign-on policies in an org.
+> There is a max limit of 100 rules allowed per policy.
+> When you create an app sign-on policy, you automatically also create a default policy rule with the lowest priority of `99`.
+> The highest priority that an app sign-on policy rule can be set to is `0`.
+
+#### App sign-on policy example
+
+```json
+    {
+        "type": "ACCESS_POLICY",
+        "name": "Web Cart App Sign On Policy",
+        "description": "Standard policy for Web Cart application"
+    }
+```
+
+### Policy conditions
+
+Policy conditions aren't supported. Conditions are applied at the rule level for these types of policies.
+
+### Policy Rules conditions
+
+You can apply the following conditions to the rules associated with an app sign-on policy:
+
+* [People Condition](#people-condition-object)
+
+* [Network Condition](#network-condition-object)
+
+* [Device Condition](#device-condition-object)
+
+* [Platform Condition](#platform-condition-object)
+
+* [Expression Language Condition](#el-condition-object)
+
+* [Office365Client Condition](#office365Client-condition-object)
+
+* [Risk Score Condition](#risk-score-condition-object)
+
+* [User Type Condition](#usertype-condition-object)
+
+#### App Sign On Action default example
+
+```json
+  "actions": {
+        "appSignOn": {
+            "access": "DENY",
+            "verificationMethod": {
+                "factorMode": "1FA",
+                "type": "ASSURANCE",
+                "reauthenticateIn": "PT43800H"
+            }
+        }
+    }
+```
+
+#### App Sign On Action object
+
+| Property                | Description              | Data Type                                       | Required                      | Default |
+| ---                     | ---------------          | ---                                             | ---                           | ---     |
+| `access`                  | `ALLOW` or      | `ALLOW` or `DENY`                               | Yes                           | N/A     |
+| `verificationMethod`      | Describes the method to verify the user. The only supported method type is `ASSURANCE`.    | [Verification Method Object](#verification-method-object)  | Yes  | [Default](#app-sign-on-action-default-example)        |
+
+### Verification Method object
+
+The Verification Method ensures that a user is verified. The only supported type is `ASSURANCE`.
+
+Assurance is the degree of confidence that the end user signing in to an application or service is the same end user who previously enrolled or signed in to the application or service.
+
+Authenticators can be broadly classified into three kinds of Factors. A Factor represents the mechanism by which an end user owns or controls the Authenticator. The three classifications are:
+
+* Knowledge: something you know, such as a password
+* Possession: something you have, such as a phone
+* Inherence: something you are, such as a fingerprint or other biometric scan
+
+Multifactor Authentication (MFA) is the use of more than one Factor. MFA is the most common way to increase assurance. Authenticators also have other characteristics that may raise or lower assurance. For example, possession Factors may be implemented in software or hardware, with hardware being able to provide greater protection when storing shared secrets or private keys, and thus providing higher assurance.
+
+| Property            | Data Type              | Description                                                                                                             | Supported Values                                                                                  |
+| -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| `factorMode`         | String            | The number of factors required to satisfy this assurance level                                                         | `1FA`, `2FA`                                                                                      |
+| `type`         | String            | The Verification Method type                                                         | `ASSURANCE`     |
+| `constraints`        | Array of [Constraint Object](#constraints)           | A JSON array that contains nested Authenticator Constraint objects that are organized by the Authenticator class        | [Constraint Object](#constraints) that consists of a `POSSESSION` constraint, a `KNOWLEDGE` constraint, or both. See [Verification Method JSON Examples](#verification-method-json-examples).  |
+| `reauthenticateIn`   | String (ISO 8601) | The duration after which the end user must re-authenticate, regardless of user activity. Use the ISO 8601 Period format for recurring time intervals.                                  | N/A                                                                                              |
+| `inactivityPeriod`   | String (ISO 8601) | The inactivity duration after which the end user must re-authenticate. Use the ISO 8601 Period format for recurring time intervals.                                               | N/A                                                                                               |
+
+#### Constraints
+
+The Constraints are logically evaluated such that only one Constraint object needs to be satisfied, but within a Constraint object, each Constraint property must be satisfied.
+
+##### Constraints default example
+
+```json
+"constraints": [
+  { // object 1
+    "knowledge": {  // 1A
+      "types": [
+        "password"
+      ],
+      "reauthenticateIn": "PTOS"
+    },
+    "possession": { // 1B
+      "userPresence": "OPTIONAL"
+    }
+  },
+  { // object 2
+    "knowledge": {  // 2A
+      "types": [
+        "password"
+      ],
+    },
+    "possession": { // 2B
+      "phishingResistant": "REQUIRED"
+    }
+  }
+]
+```
+
+In the preceding example, the Assurance policy is satisfied if Constraint object 1 (password factor with re-authentication on every sign-in attempt and a possession factor) or Constraint object 2 (password factor and a possession factor that is a phishing-resistant, such as WebAuthn ) is satisfied.
+
+This can be read logically as: `( (1A && 1B) || (2A && 2B) )`
+
+The number of Authenticator class constraints in each Constraint object must be less than or equal to the value of `factorMode`. If the value of `factorMode` is less, there are no constraints on any additional Factors.
+
+| Property            | Data Type              | Description                                                                                                             | Supported Values                                  | Default |
+| -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |-----------|
+| `types`              | Array  of Authenticator types           | The Authenticator types that are permitted                                                                           | [ `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`, `APP`, `FEDERATED` ]                         |  N/A|
+| `methods`            | Array of Authenticator methods           | The Authenticator methods that are permitted                                                                          | [ `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2`, `PUSH`, `SIGNED_NONCE`, `OTP`, `WEBAUTHN`, `DUO`, `IDP` ] |  N/A|
+| `hardwareProtection` | String            | Indicates if any secrets or private keys that are used during authentication must be hardware protected and not exportable. This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`     |   `OPTIONAL`|
+| `deviceBound` | String            | Indicates if device-bound Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
+| `phishingResistant` | String            | Indicates if phishing-resistant Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
+| `userPresence` | String            | Indicates if the user needs to approve an Okta Verify prompt or provide biometrics (meets NIST AAL2 requirements). This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`                                                                            |`REQUIRED`|
+| `reauthenticateIn`   | String (ISO 8601) | The duration after which the end user must re-authenticate regardless of user activity. Use the ISO 8601 Period format for recurring time intervals.                            | N/A                                                                                               | N/A|
+
+#### Verification Method JSON examples
+
+##### Any single Factor
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "1FA",
+  "constraints": [],
+  "reauthenticateIn": "PT4H"
+}
+```
+
+##### Password + any Factor
+
+```json
+{
+    "type": "ASSURANCE",
+    "factorMode": "2FA",
+    "constraints": [
+      {
+         "knowledge": {
+             "types": [ "PASSWORD" ]
+          }
+      }
+   ],
+   "reauthenticateIn": "PT4H"
+}
+```
+
+##### Password + SMS
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "2FA",
+  "constraints": [
+    {
+      "knowledge": {
+        "types": [
+          "PASSWORD"
+        ]
+      },
+      "possession": {
+        "types": [
+          "SMS"
+        ]
+      }
+    }
+  ],
+  "reauthenticateIn": "PT4H"
+}
+```
+
+##### Any hardware-protected key-based Authenticator
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "1FA",
+  "constraints": [
+    {
+      "possession": {
+        "methods": [
+          "FIDO2"
+        ],
+        "hardwareProtection": "REQUIRED"
+      }
+    }
+  ],
+  "reauthenticateIn": "PT4H"
+}
+```
+
+##### Any 2 Factors with 1 being a hardware-protected key-based Authenticator
+
+```json
+{
+  "type": "ASSURANCE",
+  "factorMode": "2FA",
+  "constraints": [
+    {
+      "possession": {
+        "methods": [
+          "FIDO2"
+        ],
+        "hardwareProtection": "REQUIRED"
+      }
+    }
+  ],
+  "reauthenticateIn": "PT4H"
+}
+```
+
+## Profile Enrollment policy
+
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
+
+> **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
+
+Profile Enrollemnt policies specify which profile attributes are required for creating new Users through self-service registration, and also can be used for progressive profiling. The type is specified as `PROFILE_ENROLLMENT`.
+
+> **Note:** You can have a maximum of 500 profile enrollment policies in an org.
+> A Profile Enrollment policy can only have one rule associated with it. Adding more rules isn't allowed.
+
+
+#### Profile Enrollment Policy example
+
+```json
+    {
+        "type": "PROFILE_ENROLLMENT",
+        "name": "User Profile Policy",
+        "description": "Standard policy for profile enrollment"
+    }
+```
+
+### Policy conditions
+
+Policy conditions aren't supported for this policy.
+
+### Policy Rules conditions
+
+Policy Rule conditions aren't supported for this policy.
+
+#### Profile Enrollment Action default example
+
+```json
+        "actions": {
+            "profileEnrollment": {
+                "access": "ALLOW",
+                "preRegistrationInlineHooks": null,
+                "profileAttributes": [
+                    {
+                        "name": "email",
+                        "label": "Email",
+                        "required": true
+                    },
+                    {
+                        "name": "fax",
+                        "label": "Fax",
+                        "required": true
+                    }
+                ],
+                "targetGroupIds": null,
+                "unknownUserAction": "DENY",
+                "activationRequirements": {
+                    "emailVerification": true
+                }
+            }
+        }
+```
+
+#### Profile Enrollment Action object
+
+| Property                | Description                                                                                                                                                               | Data Type                                       | Required                      | Default |
+| ---                     | ---                                                                                                                                                                       | ---                                             | ---                           | ---     |
+| `access`                  | `ALLOW` or `DENY`                                                                                                                                                         | `ALLOW` or `DENY`                               | Yes                           | N/A     |
+| `activationRequirements`  | Contains a single Boolean property that indicates whether `emailVerification` should occur (`true`) or not (`false`, default)       | Object | Yes |        `false`                                                                                                                                                                                                              |
+| `preRegistrationInlineHooks` | (Optional) The `id` of at most one Registration Inline Hook                                                                       | Array   | No | N/A                                                                                                                                                                                                                        |
+| `profileAttributes.label`    | A display-friendly label for this property                                                                                       | String  |  Required | N/A                                                                                                                                                                                                                      |
+| `profileAttributes.name`     | The name of a User Profile property. Can be an existing User Profile property.                                                   | String  |  Required | N/A                                                                                                                                                                                                                          |
+| `profileAttributes.required` | (Optional, default `FALSE`) Indicates if this property is required for enrollment                                                 | Boolean | Required | `FALSE`                                                                                                                                                                                                                        |
+| `profileAttributes` | A list of attributes to prompt the user during registration or progressive profiling. Where defined on the User schema, these attributes are persisted in the User profile. Non-schema attributes may also be added, which aren't persisted to the User's profile, but are included in requests to the Registration Inline Hook. A maximum of 10 Profile properties is supported.                                                         | Array | Required | N/A                                                                                                                                                                                                                        |
+| `targetGroupIds`             | (Optional, max 1 entry) The `id` of a Group that this User should be added to                                                     | Array   | No | N/A                                                                                                                                                                                                                         |
+| `unknownUserAction`          | Which action should be taken if this User is new (Valid values: `DENY`, `REGISTER`)                                               | String  | YES | N/A                                                                                                                                                                                                                        |

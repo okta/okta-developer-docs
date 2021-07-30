@@ -183,22 +183,18 @@ Pagination links are included in the [Link header](http://tools.ietf.org/html/rf
 
 ``` http
 HTTP/1.1 200 OK
-Link: <https://${yourOktaDomain}/api/v1/users?after=00ubfjQEMYBLRUWIEDKK>; rel="next",
-  <https://${yourOktaDomain}/api/v1/users?after=00ub4tTFYKXCCZJSGFKM>; rel="self"
+link: <https://${yourOktaDomain}/api/v1/logs?limit=20>; rel="self"
+link: <https://${yourOktaDomain}/api/v1/logs?limit=20&after=1627500044869_1>; rel="next"
 ```
 
 The possible `rel` values are:
 
 | Link relation type | Description                                              |
 | ------------------ | ------------                                             |
-| `next`             | Specifies the URL of the immediate next page of results |
 | `self`             | Specifies the URL of the current page of results         |
+| `next`             | Specifies the URL of the immediate next page of results |
 
-When you first make an API call and get a cursor-paged list of objects, the end of the list is the point at which you don't receive another `next` link value with the response. This holds true for all but two cases:
-
-1. [Events API](/docs/reference/api/events): The `next` link always exists, since the [Events API](/docs/reference/api/events/) is like a stream of data with a cursor.
-
-2. [System Log API](/docs/reference/api/system-log/): The `next` link always exists in polling queries in the [System Log API](/docs/reference/api/system-log/). A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter. Like in the [Events API](/docs/reference/api/events/), the polling query is a stream of data.
+When you first make an API call and get a cursor-paged list of objects, the end of the list is the point at which you don't receive another `next` link value with the response. This holds true for all cases, except for the [System Log API](/docs/reference/api/system-log/), where the `next` link always exists in [System Log](/docs/reference/api/system-log/#list-events) polling queries. A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter, providing a stream of data.
 
 ## Filter
 
@@ -233,7 +229,7 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 
 > **Note:** Some objects don't support all the listed operators.
 
-> **Note:** The `ne` (not equal) attribute isn't supported for some objects, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
+> **Note:** The `ne` (not equal) operator isn't supported for some objects, but you can obtain the same result by using `lt ... or ... gt`. For example, to see all user agents except for "iOS", use `(client.userAgent.os lt "iOS" or client.userAgent.os gt "iOS")`.
 
 > **Note:** All `Date` values use the ISO 8601 format `YYYY-MM-DDTHH:mm:ss.SSSZ`.
 

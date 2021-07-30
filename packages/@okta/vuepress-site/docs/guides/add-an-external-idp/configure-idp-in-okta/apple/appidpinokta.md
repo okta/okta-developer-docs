@@ -9,4 +9,4 @@ In the **General Settings** section:
 
     By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory. For Just In Time (JIT) provisioning, Okta also requires the `firstName` and `lastName` attributes for a user. Include the `name` scope if the Identity Provider needs to support JIT.
 
-> **Note:** For more information about these settings as well as the **Advanced Settings**, see [Social Identity Provider Settings](/docs/reference/social-settings/).
+> **Note:** See [Social Identity Provider Settings](#social-identity-provider-settings) for more information on these settings and the **Advanced Settings**.

@@ -73,7 +73,7 @@ First, create `src/app/app.service.ts` as an authorization utility file and use 
 import { Observable, Observer } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { OktaAuth } from '@okta/okta-auth-js';
+import { OktaAuth, IDToken, AccessToken } from '@okta/okta-auth-js';
 
 @Injectable({providedIn: 'root'})
 export class OktaAuthService {
@@ -96,7 +96,7 @@ export class OktaAuthService {
   });
 
   $isAuthenticated: Observable<boolean>;
-  private observer: Observer<boolean>;
+  private observer?: Observer<boolean>;
   constructor(private router: Router) {
     this.$isAuthenticated = new Observable((observer: Observer<boolean>) => {
       this.observer = observer;
@@ -111,7 +111,7 @@ export class OktaAuthService {
     return !!(await this.oktaAuth.tokenManager.get('accessToken'));
   }
 
-  login(originalUrl) {
+  login(originalUrl: string) {
     // Save current URL before redirect
     sessionStorage.setItem('okta-app-url', originalUrl || this.router.url);
 
@@ -124,15 +124,15 @@ export class OktaAuthService {
   async handleAuthentication() {
     const tokenContainer = await this.oktaAuth.token.parseFromUrl();
 
-    this.oktaAuth.tokenManager.add('idToken', tokenContainer.tokens.idToken);
-    this.oktaAuth.tokenManager.add('accessToken', tokenContainer.tokens.accessToken);
+    this.oktaAuth.tokenManager.add('idToken', tokenContainer.tokens.idToken as IDToken);
+    this.oktaAuth.tokenManager.add('accessToken', tokenContainer.tokens.accessToken as AccessToken);
 
     if (await this.isAuthenticated()) {
-      this.observer.next(true);
+      this.observer?.next(true);
     }
 
     // Retrieve the saved URL and navigate back
-    const url = sessionStorage.getItem('okta-app-url');
+    const url = sessionStorage.getItem('okta-app-url') as string;
     this.router.navigateByUrl(url);
   }
 
@@ -195,7 +195,7 @@ import { OktaAuthService } from './app.service';
 })
 export class AppComponent implements OnInit {
   title = 'okta-app';
-  isAuthenticated: boolean;
+  isAuthenticated: boolean = false;
   constructor(public oktaAuth: OktaAuthService) {}
 
   ngOnInit(): void {

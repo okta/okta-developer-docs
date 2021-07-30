@@ -14,7 +14,7 @@ This guide will walk you through integrating authentication into a React app wit
 - [Config](#config)
 - [Create a Widget Wrapper](#create-a-widget-wrapper)
 - [Create Routes](#create-routes)
-  - [`/`](#)
+  - [`/`](#index-page)
   - [`/protected`](#protected)
   - [`/login`](#login)
   - [`/login/callback`](#logincallback)
@@ -23,7 +23,7 @@ This guide will walk you through integrating authentication into a React app wit
 - [Conclusion](#conclusion)
 - [Support](#support)
 
-> This guide is for `@okta/okta-signin-widget` v5.5.0, `@okta/okta-react` v5.0.0 and `okta-auth-js` v4.8.0.
+> This guide is for `@okta/okta-signin-widget` v5.7.3, `@okta/okta-react` v6.0.0 and `@okta/okta-auth-js` v5.1.1.
 
 ## Prerequisites
 
@@ -140,7 +140,7 @@ Some routes require authentication in order to render. Defining those routes is 
 * `/login`: Show the sign-in page.
 * `/login/callback`: A route to parse tokens after a redirect.
 
-### `/`
+### `/ - index page`
 
 First, create `src/Home.js` to provide links to navigate our app:
 
@@ -154,7 +154,7 @@ const Home = () => {
   const history = useHistory();
   const { oktaAuth, authState } = useOktaAuth();
 
-  if (authState.isPending) return null;
+  if (!authState) return null;
 
   const login = async () => history.push('/login');
   
@@ -211,7 +211,7 @@ const Login = ({ config }) => {
     console.log('error logging in', err);
   };
 
-  if (authState.isPending) return null;
+  if (!authState) return null;
 
   return authState.isAuthenticated ?
     <Redirect to={{ pathname: '/' }}/> :

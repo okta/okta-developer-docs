@@ -22,7 +22,7 @@ const Home = () => {
   const { authState, oktaAuth } = useOktaAuth();
   const login = () => oktaAuth.signInWithRedirect({originalUri: '/profile'});
 
-  if( authState.isPending ) {
+  if( !authState ) {
     return (
       <div>Loading authentication...</div>
     );
@@ -54,7 +54,7 @@ export default withOktaAuth(class Home extends Component {
   }
 
   render() {
-    if( this.props.authState.isPending ) {
+    if( !this.props.authState ) {
       return (
         <div>Loading authentication...</div>
       );

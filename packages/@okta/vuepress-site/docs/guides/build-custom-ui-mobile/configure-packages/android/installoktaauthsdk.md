@@ -2,7 +2,7 @@ Add the following to your `build.gradle` file:
 
 ```groovy
 dependencies {
-    implementation 'com.okta.android:oidc-androidx:1.0.18'
+    implementation 'com.okta.android:okta-oidc-android:1.0.19'
     implementation 'com.okta.authn.sdk:okta-authn-sdk-api:2.0.0'
     implementation('com.okta.authn.sdk:okta-authn-sdk-impl:2.0.0') {
         exclude group: 'com.okta.sdk', module: 'okta-sdk-httpclient'
