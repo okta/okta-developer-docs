@@ -24,7 +24,7 @@ for token refresh, auto-renewal, and storage.  Minimally,
 all the SDKs allow you to obtain the refresh token and call the authorization
 server's token endpoint to renew the access token.
 
-<StackSelector snippet="refreshusingthesdk" noSelector />
+<StackSnippet snippet="refreshusingthesdk" noSelector />
 
 ## Option 2: Refresh using the OAuth token endpoint
 
@@ -36,7 +36,7 @@ obtain the refresh token from the SDK and ensure that you have included
 access token refresh with this endpoint, see
 [Use a refresh token](/docs/guides/refresh-tokens/use-refresh-token/).
 
-<StackSelector snippet="refreshendpointrequest" noSelector />
+<StackSnippet snippet="refreshendpointrequest" noSelector />
 
 ### Native and SPA applications
 
@@ -79,7 +79,7 @@ they have expired, use the
 [`/introspect`](https://developer.okta.com/docs/reference/api/oidc/#introspect)
 endpoint.
 
-<StackSelector snippet="introspectendpointrequest" noSelector />
+<StackSnippet snippet="introspectendpointrequest" noSelector />
 
 ### Native and SPA applications
 

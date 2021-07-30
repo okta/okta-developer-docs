@@ -74,7 +74,7 @@ The next step is to set up your Okta org so that you can connect your sample app
 1. In the **Edit Rule** dialog box, select **Not required** in the **AND Additional verification is** section.
 1. Click **Update Rule**.
 
-<StackSelector snippet="appsbaseurl" noSelector />
+<StackSnippet snippet="appsbaseurl" noSelector />
 
 ### Create a new application
 
@@ -84,13 +84,13 @@ The next step is to set up your Okta org so that you can connect your sample app
 1. In the **Create New Application Integration** dialog box:
 
     * Select **OIDC - OpenID Connect** as the **Sign-on method**.
-    * <StackSelector snippet="applicationtype" noSelector />
+    * <StackSnippet snippet="applicationtype" noSelector />
 
-1. <StackSelector snippet="newapp" noSelector />
+1. <StackSnippet snippet="newapp" noSelector />
    * Enter an application name.
    * Select the **Interaction Code** checkbox if not already selected.
    * Select the **Refresh Token** checkbox.
-   * Set **Sign-in redirect URIs** to: <StackSelector snippet="redirecturi" noSelector />
+   * Set **Sign-in redirect URIs** to: <StackSnippet snippet="redirecturi" noSelector />
    * Click **Save**.
 1. Select the **Sign On** tab, and in the **Sign On Policy** section make note of the **Available Authenticators**. The value should be **1 factor** that is **Password**. (If you are coming back to this step after completing [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases), then set this value to **Password**. Currently, if there are multiple factors defined in the Okta org but the application uses only one factor, the value must be **Password**.)
 

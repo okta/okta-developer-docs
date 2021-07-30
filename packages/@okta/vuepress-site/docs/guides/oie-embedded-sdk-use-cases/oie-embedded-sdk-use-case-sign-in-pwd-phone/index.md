@@ -54,8 +54,8 @@ If not already done, complete the steps described in [Set up your Okta org (for 
    1. Set **Phone Authentication** to Optional.
 1. Click **Update Policy** if a value has changed.
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" noSelector />
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" noSelector />
 
 </div>

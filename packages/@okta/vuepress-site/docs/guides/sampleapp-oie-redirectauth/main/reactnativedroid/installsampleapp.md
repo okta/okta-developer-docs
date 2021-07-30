@@ -27,4 +27,4 @@
 
 > **Note:** Make sure that this value is consistent with the redirect URI that you added to the `samples.config.js` file. For example, if your redirect URI is `com.okta.example:/callback`, then the `appAuthRedirectScheme` should be `com.okta.example`.
 
-You have now created your App in Okta and installed the Okta <StackSelector snippet="applang" noSelector inline /> app.
+You have now created your App in Okta and installed the Okta <StackSnippet snippet="applang" noSelector inline /> app.

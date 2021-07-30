@@ -28,4 +28,4 @@
 
 5. Verify that the correct Okta OIDC Library is defined: `implementation 'com.okta.android:oidc-androidx:1.0.18`
 
-You have now created your App in Okta and installed the Okta <StackSelector snippet="applang" noSelector inline /> sample app.
+You have now created your App in Okta and installed the Okta <StackSnippet snippet="applang" noSelector inline /> sample app.

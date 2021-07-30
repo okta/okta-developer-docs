@@ -43,8 +43,6 @@
             </div>
           </div>
           <div class="on-this-page">
-            <StackSelector noSnippet v-if="$page.hasStackContent" />
-
             <OnThisPage />
           </div>
         </div>

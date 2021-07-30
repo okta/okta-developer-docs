@@ -22,7 +22,7 @@ Select your sample app language.
 
 ## Initial set up
 
-To get started, you need to create an Okta OAuth app to represent the <StackSelector snippet="applang" noSelector inline /> app and then install the <StackSelector snippet="applang" noSelector inline /> sample app.
+To get started, you need to create an Okta OAuth app to represent the <StackSnippet snippet="applang" noSelector inline /> app and then install the <StackSnippet snippet="applang" noSelector inline /> sample app.
 
 <StackSnippet snippet="toolnote" />
 

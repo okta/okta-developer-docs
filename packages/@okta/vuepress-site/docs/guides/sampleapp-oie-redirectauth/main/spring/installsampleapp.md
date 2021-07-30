@@ -8,4 +8,4 @@
 
     > **Note:** This example is only for testing. Don't put client secrets on the command line in production environments. Instead, we recommend that you store them as environment variables.
 
-You have now created your App in Okta and installed the Okta <StackSelector snippet="applang" noSelector inline /> sample app.
+You have now created your App in Okta and installed the Okta <StackSnippet snippet="applang" noSelector inline /> sample app.

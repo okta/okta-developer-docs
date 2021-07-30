@@ -38,8 +38,8 @@ If you completed the steps in [Set up your Okta org (for multifactor use cases)]
 1. In the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** field and change the value to **Password** if it isn't already set to that value.
 1. Click **Save**.
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" noSelector />
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" noSelector />
 
 </div>

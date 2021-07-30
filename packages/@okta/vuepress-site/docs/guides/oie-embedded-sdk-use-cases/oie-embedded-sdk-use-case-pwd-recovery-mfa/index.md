@@ -70,9 +70,9 @@ you have set up your application for multiple factors. Ensure that the applicati
    * **Email**: Selected
 1. Click **Update Rule** if you change any values.
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" noSelector />
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" noSelector />
 
 ## Troubleshooting Tips
 

@@ -1,5 +1,6 @@
 <template>
   <aside class="on-this-page-navigation">
+    <StackSelector noSnippet v-if="$page.hasStackContent" />
     <div v-show="showOnthisPage">
       <div class="title">On This Page</div>
       <div>
@@ -33,24 +34,24 @@ export default {
   mixins: [AnchorHistory],
   inject: ["appContext"],
   components: {
-    OnThisPageItem: () => import("../components/OnThisPageItem.vue")
+    OnThisPageItem: () => import("../components/OnThisPageItem.vue"),
   },
   props: ["items"],
   data() {
     return {
       anchors: [],
       activeAnchor: null,
-      paddedHeaderHeight: 0
+      paddedHeaderHeight: 0,
     };
   },
   computed: {
-    showOnthisPage: function() {
+    showOnthisPage: function () {
       return (
         this.items ||
         (this.$page.fullHeaders[0].children &&
           this.$page.fullHeaders[0].children.length > 0)
       );
-    }
+    },
   },
   mounted() {
     this.paddedHeaderHeight =
@@ -73,14 +74,14 @@ export default {
   watch: {
     $page(to, from) {
       if (from.title !== to.title) {
-        this.$nextTick(function() {
+        this.$nextTick(function () {
           this.anchors = this.getOnThisPageAnchors();
         });
       }
-    }
+    },
   },
   methods: {
-    setAlwaysOnViewPosition: _.debounce(function() {
+    setAlwaysOnViewPosition: _.debounce(function () {
       let maxHeight =
         document.querySelector(".on-this-page").clientHeight - window.scrollY;
       if (maxHeight > window.innerHeight) {
@@ -93,7 +94,7 @@ export default {
         maxHeight + "px";
     }, 200),
 
-    setActiveAnchor: _.debounce(function() {
+    setActiveAnchor: _.debounce(function () {
       const onThisPageActiveAnchor = this.getActiveAnchor();
       this.activeAnchor = onThisPageActiveAnchor
         ? onThisPageActiveAnchor.hash
@@ -105,10 +106,10 @@ export default {
         document.querySelectorAll(".on-this-page-link")
       );
       const anchors = Array.from(document.querySelectorAll(".header-anchor"));
-      return anchors.filter(anchor =>
-        onThisPageLinks.some(sidebarLink => sidebarLink.hash === anchor.hash)
+      return anchors.filter((anchor) =>
+        onThisPageLinks.some((sidebarLink) => sidebarLink.hash === anchor.hash)
       );
-    }
-  }
+    },
+  },
 };
 </script>

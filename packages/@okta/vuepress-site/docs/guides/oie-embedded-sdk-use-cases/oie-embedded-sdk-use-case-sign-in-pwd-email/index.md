@@ -46,8 +46,8 @@ Ensure your org is configured for multifactor use cases by completing the steps 
    * Set **Phone Authentication** to **Disabled**.
 1. Click **Update Policy**.
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" noSelector />
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" noSelector />
 
 </div>

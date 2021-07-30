@@ -19,8 +19,8 @@ No additional factors are needed.
 
 There are no additional configuration changes needed to implement this use case.
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" noSelector />
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" noSelector />
 
 </div>

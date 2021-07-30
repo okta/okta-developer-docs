@@ -6,19 +6,17 @@ title: Download and set up the SDK, Sign-In Widget, and sample app
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
-
 After you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/), the next step is to download the GitHub repository that contains the SDK, Widget, and accompanying sample apps.
 
 ## Software requirements
 
 Before you download the SDK, Widget, and sample apps, you need the following:
 
-<StackSelector snippet="softwarerequirements" noSelector />
+<StackSnippet snippet="softwarerequirements" noSelector />
 
 ### Download from Github
 
-<StackSelector snippet="githubinstructions" noSelector />
+<StackSnippet snippet="githubinstructions" noSelector />
 
 ## Configure the SDK, Sign-In Widget, and sample app
 
@@ -52,11 +50,11 @@ For more information about the authorization server types available:
 
 For the sample app, use the **Client ID** for the application that you created in [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Client ID**.
 
-<StackSelector snippet="clientsecret" noSelector /><br>
+<StackSnippet snippet="clientsecret" noSelector /><br>
 
 ### Redirect URI
 
-<StackSelector snippet="redirecturi" noSelector /><br>
+<StackSnippet snippet="redirecturi" noSelector /><br>
 
 This is the same value as the **Redirect URI** for the application that you created in [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Sign-in redirect URI**.
 
@@ -66,13 +64,13 @@ For the sample app, use the following scopes: `openid`, `profile`, `offline_acce
 
 ## Where to place the configurations
 
-<StackSelector snippet="configlocations" noSelector />
+<StackSnippet snippet="configlocations" noSelector />
 
-<StackSelector snippet="configorder" noSelector />
+<StackSnippet snippet="configorder" noSelector />
 
 ## Project structure
 
-<StackSelector snippet="projectstructure" noSelector />
+<StackSnippet snippet="projectstructure" noSelector />
 
 ## Run the sample app
 
@@ -83,6 +81,6 @@ After you complete the configurations, run the sample app:
 
 ## Set up the SDK for your own app
 
-<StackSelector snippet="sdkforyourapp" noSelector />
+<StackSnippet snippet="sdkforyourapp" noSelector />
 
 </div>

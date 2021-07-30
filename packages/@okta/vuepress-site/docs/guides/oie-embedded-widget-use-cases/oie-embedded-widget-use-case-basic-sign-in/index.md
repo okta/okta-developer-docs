@@ -24,8 +24,8 @@ This use case requires the **password** factor.
 
 If not already done, complete the steps that are described in [download and set up the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/). The steps guide you to the appropriate repository and location of the embedded Sign-In Widget sample app, identify the packages to install, and describe additional changes to the Okta org that are required for the widget app.
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" noSelector />
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" noSelector />
 
 </div>

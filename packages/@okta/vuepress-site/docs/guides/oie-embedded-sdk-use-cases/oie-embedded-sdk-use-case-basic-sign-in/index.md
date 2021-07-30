@@ -41,8 +41,8 @@ If you completed the steps in
 1. In the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** field and change its value to **Password**.
 1. Click **Save**.
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" noSelector />
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" noSelector />
 
 </div>

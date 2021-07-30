@@ -76,8 +76,8 @@ If not already done, complete the steps in [Set up your Okta org (for multi-fact
    * Set **Phone Authentication** to **Optional**.
 1. Click **Update Policy**.
 
-<StackSelector snippet="summaryofsteps" noSelector />
+<StackSnippet snippet="summaryofsteps" noSelector />
 
-<StackSelector snippet="integrationsteps" noSelector />
+<StackSnippet snippet="integrationsteps" noSelector />
 
 </div>

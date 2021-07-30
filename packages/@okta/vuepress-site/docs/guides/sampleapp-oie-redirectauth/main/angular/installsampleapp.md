@@ -7,4 +7,4 @@
         CLIENT_ID={yourAppClientId}
     ```
 
-You have now created your SPA in Okta and installed the Okta <StackSelector snippet="applang" noSelector inline /> sample app.
+You have now created your SPA in Okta and installed the Okta <StackSnippet snippet="applang" noSelector inline /> sample app.

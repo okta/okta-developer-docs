@@ -19,4 +19,4 @@
 
     > **Note:** The `discovery_uri` is the issuer URL that you built in a previous step.
 
-You have now created your App in Okta and installed the Okta <StackSelector snippet="applang" noSelector inline /> app.
+You have now created your App in Okta and installed the Okta <StackSnippet snippet="applang" noSelector inline /> app.

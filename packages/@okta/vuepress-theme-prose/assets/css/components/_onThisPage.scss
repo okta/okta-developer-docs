@@ -6,11 +6,7 @@
     color: cv('action');
     position: sticky;
     overflow-y: auto;
-    top: 155px;
-
-    @include media('>=tablet') {
-      top: 170px;
-    }
+    top: 95px;
   }
 
   a:visited {
