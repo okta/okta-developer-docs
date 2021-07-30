@@ -2,11 +2,13 @@
 set -e
 
 source "${0%/*}/helpers.sh"
+
 export CHROME_HEADLESS=true
-export NODE_OPTIONS="--max_old_space_size=3584" # 3.5gb
 
 # Check the links
-fold yarn_check_links yarn check-links
+# Note: yarn build should already have been run in before_script travis step
+# so we don't have to run it again here
+fold yarn_check_links yarn broken-link-checker:internal
 
 # Build site and Run tests
 fold yarn_test yarn test
