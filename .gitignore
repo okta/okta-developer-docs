@@ -63,11 +63,14 @@ node_modules
 # direnv users
 
 .envrc
+.npmrc
+.yarnrc
 
 # netlify local usage
 
 .netlify
 
 # cypress video and img records
+
 tests/cypress/videos
 tests/cypress/screenshots
