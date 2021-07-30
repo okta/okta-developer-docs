@@ -4,13 +4,11 @@ node_js:
 - '12'
 addons:
   chrome: stable
+before_install: "source scripts/helpers.sh"
 install: yarn install
-before_script: "source scripts/helpers.sh"
+before_script: "yarn build"
 script:
-  - "travis_wait 30 fold yarn_check_links yarn check-links"
-  - "fold yarn_dev yarn dev &"
   - "./scripts/travis.sh"
-  - "fold yarn_dev_stop yarn stop-all"
 dist: xenial
 env:
   global:
