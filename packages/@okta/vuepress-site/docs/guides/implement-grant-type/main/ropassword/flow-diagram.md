@@ -22,7 +22,7 @@ app -> client: Response
 -->
 At a high-level, this flow has the following steps:
 
-1. User authenticates with your client application (app) - providing their user credentials.
+1. User authenticates with your client application (app), providing their user credentials.
 
 2. Your app sends these credentials to the Okta authorization server with its client ID and secret in the request header.
 
