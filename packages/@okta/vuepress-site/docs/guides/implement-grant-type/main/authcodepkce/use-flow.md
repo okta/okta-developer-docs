@@ -13,7 +13,7 @@ You need to add code in your native app to create the code verifier and code cha
 
 The PKCE generator code creates output like this:
 
-```
+```json
 {
   "code_verifier":"M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag",
   "code_challenge":"qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es"
@@ -26,7 +26,7 @@ The `code_challenge` is a Base64 URL-encoded SHA256 hash of the `code_verifier`.
 
 If you are using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), then your request URL would look something like this:
 
-```
+```bash
 https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oabygpxgk9lXaMgF0h7&response_type=code&scope=openid&redirect_uri=yourApp%3A%2Fcallback&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
 ```
 
@@ -44,7 +44,7 @@ See [the OAuth 2.0 API reference](/docs/reference/api/oidc/#authorize) for more 
 
 If the user doesn't have an existing session, this request opens the Okta sign-in page. If they have an existing session, or after they authenticate, the user arrives at the specified `redirect_uri` along with an authorization `code`:
 
-```
+```bash
 yourApp:/callback?code=BdLDvZvO3ZfSwg-asLNk&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9
 ```
 
@@ -54,7 +54,7 @@ This code can only be used once, and remains valid for 300 seconds, during which
 
 To exchange the authorization code for access and ID tokens, you pass it to your [Authorization Server's](/docs/concepts/auth-servers/) `/token` endpoint along with the `code_verifier` that was generated at the beginning:
 
-```
+```bash
 curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/token \
   --header 'accept: application/json' \

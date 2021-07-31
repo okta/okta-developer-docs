@@ -12,7 +12,7 @@ The Client Credentials flow is intended for server-side (confidential) client ap
 
 [Base64 encode](#base64-encode-the-client-ID-and-client-secret) the client ID and secret and then pass through [Basic Authentication](https://tools.ietf.org/html/rfc7617) in the request to your [Custom Authorization Server's](/docs/concepts/auth-servers/#custom-authorization-server) `/token` endpoint:
 
-```
+```bash
 curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/token \
   --header 'accept: application/json' \
