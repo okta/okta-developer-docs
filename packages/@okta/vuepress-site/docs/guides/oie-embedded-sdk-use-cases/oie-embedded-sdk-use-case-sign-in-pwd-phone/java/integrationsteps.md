@@ -10,14 +10,14 @@ Build a sign-in form for your app that captures both the username and password.
 
 </div>
 
+### Step 2: User enters credentials
+
 Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
 ProceedContext proceedContext = beginResponse.getProceedContext();
 ```
-
-### Step 2: User enters credentials
 
 After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
 
@@ -54,7 +54,6 @@ authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedCon
 ```
 
 The response from this request is an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that the user needs to provide additional authenticator information. In the case of the phone authenticator, the user needs to specify a phone number.
-
 
 You need to build a form to capture the user's phone number in your app. For example:
 

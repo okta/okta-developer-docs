@@ -3,6 +3,16 @@ title: Okta API Products Release Notes 2021
 ---
 ## July
 
+### Weekly Release 2021.07.2
+
+| Change                                                                         | Expected in Preview Orgs |
+|--------------------------------------------------------------------------------|--------------------------|
+| [Bug fixed in 2021.07.2](#bug-fixed-in-2021-07-2)                            | July 28, 2021            |
+
+#### Bug fixed in 2021.07.2
+
+Authentication responses didn't include the Provider ID (`IdP.id`) or Provider Type (`IdP.type`) properties for some Okta-sourced users. (OKTA-410677)
+
 ### Weekly Release 2021.07.1
 
 | Change                                                                         | Expected in Preview Orgs |

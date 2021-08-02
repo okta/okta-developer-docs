@@ -35,9 +35,9 @@ Before you can build the self-registration flow in your app, you must configure 
 
 If not already done, complete the steps in [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
-### Step 2: Set up your Okta org (for multi-factor use cases)
+### Step 2: Set up your Okta org (for multifactor use cases)
 
-If not already done, complete the steps in [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases).
+If not already done, complete the steps in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases).
 
 ### Step 3: Update the profile enrollment default policy
 
