@@ -78,7 +78,7 @@ parentPort.once('message', async payload => {
       filePaths.push(filePath)
       pagesRendered++
 
-      if (pagesRendered % 50 === 0) {
+      if (pagesRendered % 25 === 0) {
         parentPort.postMessage({
           complete: false,
           message: `Worker #${payload.workerNumber} has rendered ${pagesRendered} of ${pages.length} pages`,
