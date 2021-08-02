@@ -14,7 +14,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 ### Caveats
 
-* Your custom domain must be a [subdomain](https://en.wikipedia.org/wiki/Subdomain).
+* Most custom domains are configured using one of your [subdomains](https://en.wikipedia.org/wiki/Subdomain). However, there are no restrictions on using a [top-level domain](https://en.wikipedia.org/wiki/Top-level_domain) if that indeed fits your use-case for your sign-in page taking it over.
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
