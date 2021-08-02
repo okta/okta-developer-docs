@@ -50,7 +50,7 @@
     },
     methods: {
       toggleTreeNav: function(value) {
-        this.$parent.$emit('toggle-tree-nav', {treeNavOpen: !this.appContext.isTreeNavMobileOpen});
+        document.querySelector('.mobile--toggle').click();
       },
 
       getCrumbs: function(menu, parent = null) {

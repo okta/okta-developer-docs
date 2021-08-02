@@ -25,7 +25,7 @@
           margin-right: 7px;
         }
 
-        a, span {
+        a, span, &.crumb-show-contents {
           text-decoration: none;
           color: cv('text', 'darker');
           font-size: 12px;
@@ -50,20 +50,23 @@
         &:nth-last-child(2) {
           svg {
             display: none;
+            @include media("<=tablet") {
+              display: block;
+            }
           }
         }
-        &:nth-last-child(2) {
-          margin-right: 0;
+        
+        &.crumb-show-contents {
+          font-size: 14px;
+          color: cv('link');
+          cursor: pointer;
+          display: none;
+          @include media("<=tablet") {
+            display: block;
+          }
         }
       }
 
-    }
-
-    .crumb-show-contents {
-      font-size: 14px;
-      color: cv('action');
-      cursor: pointer;
-      display: none;
     }
 
   }

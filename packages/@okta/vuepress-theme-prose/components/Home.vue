@@ -10,23 +10,25 @@
         <div class="justify-content-center">
           <div class="homepage--elevated">
             <div class="homepage--top-section homepage--section-margins">
-              <div class="row flex align-items-center homepage--heading-with-border">
-                <div class="col-lg-6 col-md-12">
-                  <h1 class="homepage--main-heading homepage--color-main">
-                    Okta Developer Portal
-                  </h1>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                  <h6 class="homepage--section-description">Auth for All</h6>
-                  <p class="homepage--section-description">
-                    Quickly deploy auth that protects your apps, APIs, and infrastructure
-                  </p>
+              <div class="homepage--heading-with-border">
+                <div class="row flex align-items-center homepage--intro-heading">
+                  <div class="col-lg-6 col-md-12">
+                    <h1 class="homepage--main-heading homepage--color-main">
+                      Okta Developer Portal
+                    </h1>
+                  </div>
+                  <div class="col-lg-6 col-md-12">
+                    <h6 class="homepage--section-description">Auth for All</h6>
+                    <p class="homepage--section-description">
+                      Quickly deploy auth that protects your apps, APIs, and infrastructure
+                    </p>
+                  </div>
                 </div>
               </div>
               
               <div class="row">
-                <div class="col-12">
-                  <h2 class="homepage--sub-heading homepage--color-main">
+                <div class="col-12 homepage--sub-heading">
+                  <h2 class="homepage--color-main">
                     Let’s get started
                   </h2>
                   <p>
@@ -35,9 +37,9 @@
                 </div>
               </div>
 
-              <div class="row homepage--selector-block-margin selector-tiles">
+              <div class="homepage--selector-block-margin selector-tiles">
                 <div
-                  class="col-xl-3 col-lg-6 col-md-6 col-sm-12"
+                  class="selector-tile-item"
                   v-for="(tile, index) in $page.frontmatter.tiles"
                   :key="index"
                 >
@@ -47,7 +49,7 @@
             </div>
             <div class="homepage--assurance-block-margin homepage--section-margins">
               <div
-                class="row flex justify-content-around align-items-center"
+                class="row flex justify-content-around"
               >
                 <div
                   class="col-xl-4 col-lg-4 col-md-4 col-sm-12"
@@ -60,7 +62,7 @@
             </div>
             <div class="homepage--customize-your-app-margin homepage--section-margins">
               <h2 class="homepage--main-heading homepage--color-main text-center">
-                Try it out for your app:
+                Customize your sign-in
               </h2>
               <div
                 class="flex align-items-center homepage--examples"

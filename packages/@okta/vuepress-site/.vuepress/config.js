@@ -236,11 +236,11 @@ module.exports = ctx => ({
     },
 
     company_logos: [
-      { name: 'Major League Baseball', icon: '/img/logos/baseball.svg', blue: '/img/logos/blue/baseball.svg' },
-      { name: 'Splunk', icon: '/img/logos/splunk.svg', blue: '/img/logos/blue/splunk.svg' },
-      { name: 'Adobe', icon: '/img/logos/adobe.svg', blue: '/img/logos/blue/adobe.svg' },
-      { name: 'JetBlue', icon: '/img/logos/jetblue.svg', blue: '/img/logos/blue/jetblue.svg' },
-      { name: 'Experian', icon: '/img/logos/experian.svg', blue: '/img/logos/blue/experian.svg' },
+      { name: 'Major League Baseball', icon: '/img/logos/baseball.svg' },
+      { name: 'Splunk', icon: '/img/logos/splunk.svg' },
+      { name: 'Adobe', icon: '/img/logos/adobe.svg' },
+      { name: 'JetBlue', icon: '/img/logos/jetblue.svg' },
+      { name: 'Experian', icon: '/img/logos/experian.svg' },
     ],
 
     forum_url: 'https://devforum.okta.com/',

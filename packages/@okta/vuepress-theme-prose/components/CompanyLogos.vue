@@ -13,7 +13,7 @@
         class="company-logos--icon"
         v-for="(logo, index) in $themeConfig.company_logos"
         :key="index"
-        :src="color ? logo[color] : logo.icon"
+        :src="logo.icon"
         :alt="logo.name"
       />
     </div>
@@ -35,10 +35,6 @@ export default {
     small: {
       type: Boolean,
       default: false
-    },
-    color: {
-      type: String,
-      default: ''
     }
   }
 };

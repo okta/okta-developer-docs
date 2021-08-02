@@ -1,38 +1,27 @@
 .selector-tiles {
-  &> .col-xl-3 {
-    &:first-child {
-      .selector-tile{
-        margin-left: 0;
-      }
-    }
+  display: flex;
+  justify-content: space-between;
+
+  @include media("<=desktop") {
+    flex-wrap: wrap;
+  }
+
+  .selector-tile-item {
+    width: 100%;
+    margin: 0 36px 0 0;
+
     &:last-child {
-      .selector-tile{
-        margin-right: 0;
-      }
-    }
-    @include media("<=bootstrap-xl"){
-      &:nth-child(2n) {
-        .selector-tile{
-          margin-right: 0;
-        }
-      }
-      &:nth-child(2n+1) {
-        .selector-tile{
-          margin-left: 0;
-        }
-      }
+      margin-right: 0;
     }
   }
 }
 .selector-tile{
-  width: 89%;
-  margin: 0 auto;
   box-sizing: border-box;
 
-  @include media("<=bootstrap-xl"){
+  @include media("<=desktop") {
     margin-bottom: 30px;
   }
-  @include media("<=tablet"){
+  @include media("<=tablet") {
     height: auto;
     margin-right: 0;
     margin-left: 0;
@@ -40,15 +29,15 @@
   }
 
   &--header{
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 500;
-    padding: 0 0 8px;
+    padding: 0 0 9px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     color: cv('text', 'darker');
-    margin-bottom: 19px;
+    margin-bottom: 21px;
 
     @include media("<=tablet"){
       font-size: 21px;
@@ -78,7 +67,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding: 0 0 13px;
+      padding: 0 0 12px;
       text-decoration: none;
       color: cv('text', 'darker');
 
@@ -95,8 +84,8 @@
 
       >img{
         border-radius: 50%;
-        width: 15px;
-        height: 15px;
+        width: 18px;
+        height: 18px;
         display: block;
         @include media("<=tablet"){
           width: 20px;
@@ -108,7 +97,7 @@
         font-weight: 500;
         display: block;
         flex-grow: 1;
-        padding-left: 19px;
+        padding-left: 13px;
         @include media("<=tablet"){
           font-size: 18px;
         }
@@ -123,9 +112,9 @@
         }
       }
       &:hover{
-        color: cv('text', 'darker');
-        span {
-          text-decoration: underline;
+        color: cv('link', 'tile');
+        >i {
+          color: cv('link', 'tile');
         }
       }
     }

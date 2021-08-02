@@ -27,7 +27,7 @@ Code and resources for your platform.
 <Cards>
   <Card href="/code/go/" :showHeaderIcon=true headerIcon="code-go" :showFooter=false>Go</Card>
   <Card href="/code/java/" :showHeaderIcon=true headerIcon="code-java" :showFooter=false>Java</Card>
-  <Card href="/code/dotnet/aspnetcore/" :showHeaderIcon=true headerIcon="code-dotnet" :showFooter=false>.Net</Card>
+  <Card href="/code/dotnet/aspnetcore/" :showHeaderIcon=true headerIcon="code-dotnet" :showFooter=false>.NET</Card>
   <Card href="/code/nodejs/" :showHeaderIcon=true headerIcon="code-nodejs" :showFooter=false>Node.js</Card>
   <Card href="/code/php/" :showHeaderIcon=true headerIcon="code-php" :showFooter=false>PHP</Card>
   <Card href="/code/python/" :showHeaderIcon=true headerIcon="code-python" :showFooter=false>Python</Card>

@@ -251,7 +251,7 @@
       <div class="signup--description">
         <Content slot-key="signup-description" />
         <div class="logo-wrapper" v-if="!isOie">
-          <CompanyLogos withHeading small v-bind:centered="false" v-bind:color="'blue'" />
+          <CompanyLogos withHeading small v-bind:centered="false" />
         </div>
       </div>
     </div>
