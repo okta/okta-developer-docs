@@ -107,7 +107,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Implement the Authorization Code flow](/docs/guides/implement-auth-code/overview/)
     * [Implement the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/overview/)
     * [Implement the Client Credentials flow](/docs/guides/implement-client-creds/overview/)
-    * [Configure SSO for Native Apps](/docs/guides/configure-NativeSSO/main/)
+    * [Configure SSO for native apps](/docs/guides/configure-native-sso/main/)
     * [Refresh access tokens](/docs/guides/refresh-tokens/overview/)
     * [Validate access tokens](/docs/guides/validate-access-tokens/go/overview/)
     * [Validate ID tokens](/docs/guides/validate-id-tokens/overview/)
