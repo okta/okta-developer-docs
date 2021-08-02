@@ -217,6 +217,11 @@ export default {
 </script>
 
 <style scoped lang="scss">
+@import '../assets/css/abstracts/_colors.scss';
+
+$redesign_border: map-get(map-get($colors, 'form'), 'input-border');
+$redesign_link: map-get(map-get($colors, 'link'), 'base');
+
 .error-codes {
   .PageContent-main {
     padding-right: 0;
@@ -258,13 +263,13 @@ export default {
 
   select {
     height: 45px;
-    border: 2px solid #d2d2d6;
+    border: 2px solid $redesign_border;
   }
 
   #error-code-search {
     flex: 1;
     margin-right: 10px;
-    border: 2px solid #d2d2d6;
+    border: 2px solid $redesign_border;
     font-size: 18px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -272,7 +277,7 @@ export default {
   }
 
   #error-code-search::placeholder {
-    color: #d2d2d6;
+    color: $redesign_border;
   }
 
   #error-code-release {
@@ -292,8 +297,8 @@ export default {
       padding: 6px 10px;
       clear: left;
       overflow: hidden;
-      border-left: 3px solid #007dc1;
-      color: #007dc1;
+      border-left: 3px solid $redesign_link;
+      color: $redesign_link;
       text-overflow: ellipsis;
       white-space: nowrap;
     }
@@ -318,7 +323,7 @@ export default {
     }
 
     .toggleErrorExample {
-      color: #007dc1;
+      color: $redesign_link;
       cursor: pointer;
 
       .underline:hover {

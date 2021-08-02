@@ -180,12 +180,7 @@
         }
       }
     }
-    .mobile-on-this-page {
-      @include media(">=tablet") {
-        display: none;
-      }
-    }
-
+    
     a.header-link svg {
       width: 1rem;
       display: none;
