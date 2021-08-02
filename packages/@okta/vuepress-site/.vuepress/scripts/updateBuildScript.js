@@ -5,7 +5,7 @@ const webpack = require('webpack')
 const readline = require('readline')
 const { Worker } = require('worker_threads')
 
-const workerThreads = 6
+const workerThreads = 10
 
 const {
   chalk,

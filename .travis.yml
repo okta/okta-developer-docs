@@ -1,3 +1,5 @@
+vm:
+  size: large
 os: linux
 language: node_js
 node_js:
