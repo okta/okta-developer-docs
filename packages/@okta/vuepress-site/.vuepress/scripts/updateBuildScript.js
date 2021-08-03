@@ -96,21 +96,22 @@ module.exports = class Build extends EventEmitter {
     logger.wait('Rendering static HTML...')
 
     let activeWorkers = 0
-    const pagePaths = []
-    const pagesPerThread = this.context.pages.length / workerThreads
+    let pagePaths = []
+    const pagesPerThread = 100;//this.context.pages.length / workerThreads
+    let pagesRemaining = this.context.pages.length;
 
     for (let workerNumber = 0; workerNumber < workerThreads; workerNumber++) {
-      const startIndex = workerNumber * pagesPerThread
-      const pageData = this.context.pages.slice(
+      let startIndex = this.context.pages.length - pagesRemaining;//workerNumber * pagesPerThread
+      let pageData = this.context.pages.slice(
         startIndex,
         startIndex + pagesPerThread
       )
-      const pages = pageData.map(p => ({
+      let pages = pageData.map(p => ({
         path: p.path,
         frontmatter: JSON.stringify(p.frontmatter)
       }))
 
-      const payload = {
+      let payload = {
         clientManifest: JSON.stringify(clientManifest),
         outDir: this.outDir,
         pages: Buffer.from(JSON.stringify(pages)),
@@ -121,26 +122,23 @@ module.exports = class Build extends EventEmitter {
         logLevel: logger.options.logLevel
       }
 
-      const worker = new Worker(path.join(__dirname, './worker.js'))
-      worker.postMessage(payload)
-      activeWorkers++
-      worker.on('message', response => {
+      const messageCallback = response => {
         if (response.complete) {
-          pagePaths.concat(response.filePaths)
+          pagePaths = pagePaths.concat(response.filePaths)
         }
         if (response.message) {
           logger.wait(response.message)
         }
-      })
-      worker.on('error', error => {
+      };
+      const errorCallback = error => {
         console.error(
           logger.error(
             chalk.red(`Worker #${workerNumber} sent error: ${error}\n\n${error.stack}`),
             false
           )
         )
-      })
-      worker.on('exit', code => {
+      };
+      const exitCallback = code => {
         activeWorkers--
         if (code === 0) {
           logger.success(`Worker ${workerNumber} completed successfully.`)
@@ -149,6 +147,31 @@ module.exports = class Build extends EventEmitter {
             chalk.red(`Worker #${workerNumber} sent exit code: ${code}`),
             false
           )
+        }
+        if (activeWorkers < workerThreads && pagesRemaining > 0) {
+      startIndex = this.context.pages.length - pagesRemaining;//workerNumber * pagesPerThread
+      pageData = this.context.pages.slice(
+        startIndex,
+        startIndex + pagesPerThread
+      )
+      pages = pageData.map(p => ({
+        path: p.path,
+        frontmatter: JSON.stringify(p.frontmatter)
+      }))
+
+      payload = {
+        clientManifest: JSON.stringify(clientManifest),
+        outDir: this.outDir,
+        pages: Buffer.from(JSON.stringify(pages)),
+        serverBundle: JSON.stringify(serverBundle),
+        siteConfig: JSON.stringify(this.context.siteConfig),
+        ssrTemplate: JSON.stringify(this.context.ssrTemplate),
+        workerNumber,
+        logLevel: logger.options.logLevel
+      }
+          this.triggerWorker({ payload, messageCallback, errorCallback, exitCallback });
+          pagesRemaining = pagesRemaining - pagesPerThread;
+          activeWorkers++
         }
         if (activeWorkers === 0) {
           // DONE.
@@ -165,11 +188,30 @@ module.exports = class Build extends EventEmitter {
             )} to run the ${chalk.cyan('vuepress build')}.`
           )
           console.log()
+    const uniqPaths = new Set(pagePaths);
+    logger.success(
+      `Generated ${uniqPaths.size} pages`
+    );
+          console.log()
+
         }
-      })
+      };
+
+      this.triggerWorker({ payload, messageCallback, errorCallback, exitCallback });
+      pagesRemaining = pagesRemaining - pagesPerThread;
+      activeWorkers++
     }
 
     await this.context.pluginAPI.applyAsyncOption('generated', pagePaths)
+  }
+
+  triggerWorker({ payload, messageCallback, errorCallback, exitCallback }) {
+      const worker = new Worker(path.join(__dirname, './worker.js'))
+      worker.postMessage(payload)
+
+      worker.on('message', messageCallback);
+      worker.on('error', errorCallback);
+      worker.on('exit', exitCallback);
   }
 
   /**
