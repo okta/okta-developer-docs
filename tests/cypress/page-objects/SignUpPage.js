@@ -1,6 +1,6 @@
 export class SignUpPage {
   visitSignUpPage() {
-
+    cy.visit('signup/');
   }
 
   visitOieSignUpPage() {

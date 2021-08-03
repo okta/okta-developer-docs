@@ -6,7 +6,7 @@ describe('Sign up page check spec', () => {
   const dialogWindow = new DialogWindow();
 
   beforeEach(() => {
-    cy.visit('signup/');
+    signUpPage.visitSignUpPage();
   });
 
   it('should show all the fields and buttons', () => {
