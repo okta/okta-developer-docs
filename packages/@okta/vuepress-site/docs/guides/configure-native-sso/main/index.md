@@ -46,7 +46,7 @@ okta -> app2: 8. Returns an `access_token` and `refresh_token`
 
 -->
 
-1. Native app 1 starts by redirecting the user's browser to the [authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint.
+1. Native app 1 starts by redirecting the user's browser to the [authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint and requests for the `device_sso` scope.
 1. The user is prompted to authenticate.
 1. The user enters their credentials to allow the application to access resources protected by scopes.
 1. The authorization server returns the authorization code for Native app 1.
@@ -197,9 +197,9 @@ curl --location --request PUT
 }'
 ```
 
-## Configure the token exchange grant type for client 2
+## Configure your client to participate in Native SSO
 
-In this request, use the client ID for client 2 that you created in the "Set up the application" section. Copy the response that is returned from this request for use in the next step.
+This is applicable for all clients participating in Native SSO (for example, client 1 and client 2). In this request, use the client ID for the client that you created in the "Set up the application" section. Copy the response that is returned from this request for use in the next step.
 
 **Request example**
 
@@ -211,9 +211,9 @@ In this request, use the client ID for client 2 that you created in the "Set up 
   --header 'Authorization: SSWS <apiKey>'
 ```
 
-### Update client 2 with the token exchange grant
+### Update the client with the token exchange grant
 
-In this request, update client 2 with the token exchange grant. Use the response from the last step to create your UPDATE request. You need to update the `grantTypes` parameter by adding the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type for the client.
+In this request, update the client with the token exchange grant. Use the response from the last step to create your UPDATE request. You need to update the `grantTypes` parameter by adding the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type for the client.
 
 > **Note:** All clients that want to leverage Native SSO and SLO must be configured with this grant type.
 
@@ -245,9 +245,9 @@ In this request, update client 2 with the token exchange grant. Use the response
 }'
 ```
 
-## Create a Native desktop session lifetime
+## Native SSO desktop session lifetime
 
-With Native SSO, you can create a separate forked session and associate it with the device secret. The device secret assumes the lifetime of the first refresh token that it was minted with. The device secret has the same idle time and maximum time according to the authorization server policy through which it was minted. From there, the device secret and refresh token idle lifetimes are independent of each other.
+The device secret assumes the lifetime of the first refresh token that it was minted with. The device secret has the same idle time and maximum time according to the authorization server policy through which it was minted. From there, the device secret and refresh token idle lifetimes are independent of each other.
 
 Other refresh tokens (and other tokens) that are minted by using the device secret are mandated by the authorization server policy through which these tokens are generated. Whenever a device secret is used to generate a new set of tokens, the device secret's idle lifetime or the maximum lifetime is still governed by the original authorization server policy through which the device secret was minted, and it is updated accordingly.
 
@@ -346,16 +346,16 @@ If the request is successful, the response returned includes the following token
 
 > **Note:** You can pass an expired ID token as part of the token exchange grant as long as the `device_secret` (`sid`) that the `id_token` is associated with is still valid.
 
-**Response example**
+**Example response**
 
 ```JSON
 {
-   "token_type": "Bearer",
-   "expires_in": 3600,
-   "access_token": "eyJraW...TbvY9A",
-   "scope": "openid",
-   "id_token": "eyJraW...5aCZrA",
-   "issued_token_type": "urn:ietf:params:oauth:token-type:access_token"
+    "token_type": "Bearer",
+    "expires_in": 3600,
+    "access_token": "eyJraWQiOiJZQlRCZUNBOThRa3pSUGdBQzZSS3BaM0J5ZlRwTXRMMHRITkp1LTQ4VVVFIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULnhtbDhfRlBDTFhlOHpoX2ZFLWhkZWZPcm5jbHAzVng4WDRrRVpJTXcxZk0iLCJpc3MiOiJodHRwczovL2NocmlzdGluZWNob3ktb3AyLm9rdGFwcmV2aWV3LmNvbS9vYXV0aDIvZGVmYXVsdCIsImF1ZCI6ImFwaTovL2RlZmF1bHQiLCJpYXQiOjE2MjgwMzI5MzAsImV4cCI6MTYyODAzNjUzMCwiY2lkIjoiMG9hMWpncWxxbXJiT01zR3AweDciLCJ1aWQiOiIwMHV5MjcyZ2RkTFVER2pGYTB4NiIsInNjcCI6WyJvcGVuaWQiLCJkZXZpY2Vfc3NvIl0sInN1YiI6ImNocmlzdGluZS5jaG95QG9rdGEuY29tIn0.LnenHhDWnaDDxf-0_NjXV93OAuG9pxAcEnee00KLeR1LB1X3mPwtN1C-yykMd3sbkUfOhHLEBD1lPfN2nNsYffu4peO-CFXu4viuihdZbyfrKw1-a6OM4AU8jw5HV31dElDz1yT2HVPv5vV0j3W9JKBm-A-PCuYZmzaEDsw3uMtFfIH6QOghRzOUjMzhaQ3QKERyles0nTfOOp_5KempYdwnDPq-_7kRCUykYDHg_YGJ_FCvTEVc6E5blRy2EJ28IViPbHLw0-dqt1S8OEU6Ez3dLGgPHmbEqX1ZxTX_1bRr76kZmgjMnfm4eEwRd3FIRnkm_xh8AkLnmQ2F6hEVUw",
+    "scope": "openid device_sso",
+    "id_token": "eyJraWQiOiJZQlRCZUNBOThRa3pSUGdBQzZSS3BaM0J5ZlRwTXRMMHRITkp1LTQ4VVVFIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwMHV5MjcyZ2RkTFVER2pGYTB4NiIsInZlciI6MSwiaXNzIjoiaHR0cHM6Ly9jaHJpc3RpbmVjaG95LW9wMi5va3RhcHJldmlldy5jb20vb2F1dGgyL2RlZmF1bHQiLCJhdWQiOiIwb2ExamdxbHFtcmJPTXNHcDB4NyIsImlhdCI6MTYyODAzMjkzMCwiZXhwIjoxNjI4MDM2NTMwLCJqdGkiOiJJRC55VDFjVFZVdkV0STZmenBETzRYZkVadk5xdjVlVUhwT0IwUC1mMmVPcERBIiwiYW1yIjpbInB3ZCJdLCJpZHAiOiIwMG95MjcyY3NhR0NNamRPVjB4NiIsInNpZCI6IjEwMm9SZ0VXeDVsUlRXSGlsRW9HZmVkNHciLCJhdXRoX3RpbWUiOjE2MjgwMjcxMzcsImF0X2hhc2giOiJGVy1ZclFoXzhQOThmQ1NqUEQxQW1BIiwiZHNfaGFzaCI6IjN0Z3AtUFVuX213MUtkZHdGay1TYUEifQ.lHclmmSNV1ns2GGJCxEBRZpMCp_xAePqAZQvnwJ5207Gr5ohbmPkXYmgI6zA9STTyfPgiMVotJG0Iir2Ir9Ke9PBvcd6fvUTZPZTzg3McMBfRoaF2ORYO-1qoUIIEGUDtYqiUosmc_OR27U-AS6TZfnMo4Ed7KIAIHlPgzJDlAFCCa1vx-ImUCt0czP8eehEqSDE1nB1oPj3uvGpjsJxj4wwFvGXqGemHpWDbvTDvwNv5dGm05q6LNYZjJACyegtIagvKgFv5mZquR-tlXIS6SEynFNsNP_YEf-gNZ36I1y-wk6tjmTgYijcZPcvVl9PvE4giokjXVjPsjP3WGQWgA",
+    "device_secret": "kyLmBvfjMPnMGHtBhW9nKz0tLgJc5xbLay1ujkvOQIk="
 }
 ```
 
@@ -372,7 +372,17 @@ Occasionally you may want to verify that the device secret is still valid by usi
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id={client #1 id}' \
   --data-urlencode 'token={device_secret}' \
-  --data-urlencode 'token_type_hint={device_secret}'
+  --data-urlencode 'token_type_hint=device_secret'
+```
+
+**Example introspect response**
+
+```json
+{
+    "active": true,
+    "sid": "102oRgEWx5lRTWHilEoGfed4w",
+    "token_type": "urn:x-oath:params:oauth:token-type:device-secret"
+}
 ```
 
 The `/introspect` endpoint returns the `sid` that it's tied to. The same value is present in the ID token. By doing this, you can correlate and identify the ID tokens that are minted with the same device secret.
@@ -392,6 +402,13 @@ curl --location --request POST \
 --data-urlencode 'client_id={client #1 id}' \
 ```
 
+**Example response**
+
+```
+HTTP/1.1 200 OK
+Content-Type: application/json
+```
+
 After you've revoked the device secret, the corresponding access, refresh, and ID tokens are also revoked for that device. You can verify that the revoke was successful by making a request to the `/introspect` endpoint again for that client. You should receive the following response:
 
 ```json
@@ -401,3 +418,23 @@ After you've revoked the device secret, the corresponding access, refresh, and I
 ```
 
 To verify that the tokens are also automatically revoked for other clients, repeat the `/introspect` request using those client IDs.
+
+## Request Logout
+
+When the user signs out of an application, the application sends a `/logout` request to the Okta Authorizataion Server, which revokes the device secret.
+
+```bash
+  curl --location --request GET `https://${yourOktaDomain}/oauth2/default/v1/logout` \
+  --data-urlencode `id_token_hint={id_token}` \
+  --data-urlencode `device_secret={device_secret}` \
+  --data-urlencode `post_logout_redirect_uri=https%3A%2F%2Fclient1.example.${yourOktaDomain}%2Flogout` \
+  --data-urlencode `state=2OwvFrEMTJg` \
+```
+
+The Authorization Server invalidates the ID token and refresh token that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails. The existing access token isn't revoked and is valid until it naturally expires.
+
+Okta returns a response to the `post_logout_redirect_uri`.
+
+```bash
+  https://{configured_post_logout_redirect_uri}/logout&state=2OwvFrEMTJg
+```
