@@ -1,0 +1,458 @@
+{
+	"info": {
+		"_postman_id": "a8948bd0-5501-4f54-990b-b1a3297197b0",
+		"name": "Brands (Okta API)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Brand operations",
+			"item": [
+				{
+					"name": "Get brands",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"brandId\", jsonData[0].id)"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get brand",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"brandSetting\", jsonData.settings);",
+									""
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update brand",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"customPrivacyPolicyUrl\": \"https://www.someHost.com/privacy-policy\",\n \"agreeToCustomPrivacyPolicy\": true\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Theme operations",
+			"item": [
+				{
+					"name": "Get themes",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);",
+									"postman.setEnvironmentVariable(\"themeId\", jsonData[0].id)"
+								]
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/themes",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"themes"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get theme",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/themes/{{themeId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"themes",
+								"{{themeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update theme",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"primaryColorHex\": \"#1662dd\",\n    \"secondaryColorHex\": \"#ebebed\",\n    \"signInPageTouchPointVariant\": \"OKTA_DEFAULT\",\n    \"endUserDashboardTouchPointVariant\": \"OKTA_DEFAULT\",\n    \"errorPageTouchPointVariant\": \"OKTA_DEFAULT\",\n    \"emailTemplateTouchPointVariant\": \"OKTA_DEFAULT\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/themes/{{themeId}}",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"themes",
+								"{{themeId}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload logo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/themes/{{themeId}}/logo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"themes",
+								"{{themeId}}",
+								"logo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete logo",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/themes/{{themeId}}/logo",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"themes",
+								"{{themeId}}",
+								"logo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload background image",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/themes/{{themeId}}/background-image",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"themes",
+								"{{themeId}}",
+								"background-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete background image",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/themes/{{themeId}}/background-image",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"themes",
+								"{{themeId}}",
+								"background-image"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload favicon",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/themes/{{themeId}}/favicon",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"themes",
+								"{{themeId}}",
+								"favicon"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete favicon",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "SSWS {{apikey}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{url}}/api/v1/brands/{{brandId}}/themes/{{themeId}}/favicon",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"brands",
+								"{{brandId}}",
+								"themes",
+								"{{themeId}}",
+								"favicon"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

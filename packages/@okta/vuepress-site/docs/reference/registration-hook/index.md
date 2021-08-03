@@ -1,11 +1,9 @@
 ---
 title: Registration Inline Hook Reference
-excerpt: Customize handling of user registration requests in Self-Service Registration
+excerpt: Customize handling of user registration requests in Profile Enrollment
 ---
 
 # Registration Inline Hook Reference
-
-<ApiLifecycle access="ea" />
 
 This page provides reference documentation for:
 
@@ -21,18 +19,20 @@ For a general introduction to Okta Inline Hooks, see [Inline Hooks](/docs/concep
 
 For information on the API for registering external service endpoints with Okta, see [Inline Hooks Management API](/docs/reference/api/inline-hooks/).
 
-For steps to enable this Inline Hook, see below, [Enabling a Registration Inline Hook](#enabling-a-registration-inline-hook-for-self-service-registration).
+For steps to enable this Inline Hook, see below, [Enabling a Registration Inline Hook](#enabling-a-registration-inline-hook-for-profile-enrollment). <ApiLifecycle access="ie" /><br>
+
+For steps to enable this Inline Hook in Okta classic, see below, [Enabling a Registration Inline Hook in Okta Classic](#enabling-a-registration-inline-hook-for-self-service-registration-in-okta-classic).
 
 For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook).
 
 ## About
 
-The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Self-Service Registration](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Self_Service_Registration) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
+The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
 
 - Set or override the values that will be populated in attributes of the user's Okta profile
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted
 
-> **Note:** Self-service registration and Registration Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 2.9 or later.
+> **Note:** Profile Enrollment and Registration Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
 
 ## Objects in the Request from Okta
 
@@ -40,7 +40,7 @@ The outbound call from Okta to your external service includes the following obje
 
 ### data.userProfile
 
-This object contains name-value pairs for each attribute supplied by the user in the Self-Service Registration form, except for the following:
+This object contains name-value pairs for each attribute supplied by the user in the Profile Enrollment form, except for the following:
 
 - the `password` field
 - any fields corresponding to user profile attributes marked as sensitive in your Okta user schema
@@ -94,7 +94,7 @@ To explicitly allow or deny registration to the user, supply a type property set
 
 Commands are applied in the order in which they appear in the array. Within a single `com.okta.user.profile.update` command, attributes are updated in the order in which they appear in the `value` object.
 
-You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password that are designated sensitive in your Okta user schema. Note, however, that the values of those sensitive attributes, if included as fields in the Self-Service Registration form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
+You can never use a command to update the user's password, but you are allowed to set the values of attributes other than password that are designated sensitive in your Okta user schema. Note, however, that the values of those sensitive attributes, if included as fields in the Profile Enrollment form, are not included in the `data.userProfile` object sent to your external service by Okta. See [data.userProfile](#data-userProfile) above.
 
 #### value
 
@@ -160,7 +160,7 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 See [error](/docs/concepts/inline-hooks/) for general information on the structure to use for the `error` object.
 
-In the case of the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Self-Service Registration, and have not customized its error handling behavior, only the `errorSummary` of the first `ErrorCause` object that your external service returns is displayed to the end user.
+In the case of the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Profile Enrollment, and have not customized its error handling behavior, only the `errorSummary` of the first `ErrorCause` object that your external service returns is displayed to the end user.
 
 If you do not return any value for that `errorCauses` object, but deny the user's registration attempt via the `commands` object in your response to Okta, the following generic message is displayed to the end user: "Registration cannot be completed at this time".
 
@@ -233,7 +233,36 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 }
 ```
 
-## Enabling a Registration Inline Hook for Self-Service Registration
+## Enabling a Registration Inline Hook for Profile Enrollment
+
+<ApiLifecycle access="ie" /><br>
+
+> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+
+To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
+
+You then need to associate the registered Inline Hook with your Profile Enrollment policy. (For information on configuring a Profile Enrollment policy, see [Enable and configure a profile enrollment policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).)
+
+1. Go to **Security > Profile Enrollment**
+
+1. Click the pencil icon to edit the policy and associate it with your Registration Inline Hook.
+
+1. In **Enrollment Settings**, click the More Options icon and then select **Edit**. If not already selected, click **Allowed** in the **For new users** section.
+
+1. Select your hook from the drop-down menu for **Use the following inline hook** under the options for **For new users**. If you have created multiple Registration Inline Hooks, you should see all of them displayed here.
+
+1. Click **Save**.
+
+Your Registration Inline Hook is now configured for Profile Enrollment.
+
+> **Note:** Only one Inline Hook can be associated with your Profile Enrollment policy at a time.
+
+
+## Enabling a Registration Inline Hook for Self-Service Registration In Okta Classic
+
+<ApiLifecycle access="ea" />
+
+> **Note:** Self-Service Registration only exists in Okta Classic. For Okta Identity Engine, please see instructions for Profile Enrollment above.
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
@@ -247,6 +276,6 @@ You then need to associate the registered Inline Hook with your Self-Service Reg
 
 1. Click **Save**.
 
-Your Registration Inline Hook is now configured.
+Your Registration Inline Hook is now configured for Self-Service Registration.
 
 > **Note:** Only one Inline Hook can be associated with your Self-Service Registration policy at a time.
