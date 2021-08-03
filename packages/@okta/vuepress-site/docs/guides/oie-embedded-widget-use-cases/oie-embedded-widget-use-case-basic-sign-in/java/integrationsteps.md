@@ -6,8 +6,7 @@ The user signs in with the Sign-In Widget that was set up in the [Load the widge
 
 <div class="common-image-format">
 
-![Widget sign in screen for Java](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-screen-java.png
- "Widget sign in screen for Java")
+![Displays the Okta Sign-In Widget](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-screen-java.png)
 
 </div>
 

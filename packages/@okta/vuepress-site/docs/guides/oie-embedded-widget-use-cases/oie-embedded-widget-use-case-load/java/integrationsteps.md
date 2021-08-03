@@ -54,7 +54,6 @@ configured, then the Okta Sign-In Widget displays in your sign-in page:
 
 <div class="common-image-format">
 
-![Widget load signin for Java](/img/oie-embedded-sdk/oie-embedded-widget-use-case-load-screen-signin-java.png
- "Widget load signin for Java")
+![Displays the Okta Sign-In Widget](/img/oie-embedded-sdk/oie-embedded-widget-use-case-load-screen-signin-java.png)
 
 </div>
