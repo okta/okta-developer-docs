@@ -16,6 +16,8 @@ Select the authorization grant-type flow to implement: <StackSelector />
 
 <StackSnippet snippet="flow-diagram"/>
 
+<StackSnippet snippet="configuration"/>
+
 ## Set up your app
 
 Before you can implement authorization, you need to register your app in Okta by creating an app integration from the Admin Console.

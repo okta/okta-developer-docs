@@ -2,10 +2,6 @@ Before implementing the flow, you must first [create custom scopes](#create-cust
 
 If you are not using existing libraries, you can make a direct request to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) through the `/token` endpoint. See [Request for token](#request-for-token) in the next section.
 
-### Create custom scopes
-
-The Client Credentials flow never has a user context, so you can't request OpenID scopes. Instead, you must create a custom scope. See the **Scopes** section of the [Create a Custom Authorization Server](/docs/guides/customize-authz-server/create-scopes/) guide for more information on creating custom scopes.
-
 ### Request for token
 
 The Client Credentials flow is intended for server-side (confidential) client applications with no end user, which normally describes machine-to-machine communication. Your client application needs to have its client ID and secret stored in a secure manner. You can find the client ID and secret on the **General** tab for your app integration.
