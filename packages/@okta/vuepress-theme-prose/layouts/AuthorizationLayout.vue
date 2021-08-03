@@ -1,5 +1,5 @@
 <template>
-  <div class="authorization-layout">
+  <div class="authorization-layout layout">
     <div class="fixed-header">
       <Header />
     </div>
