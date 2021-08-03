@@ -36,7 +36,7 @@ To create a Native OpenID Connect application and then configure it to support t
 
 Both Org and Custom Authorization Servers support the Device Authorization grant type. Ensure that the Device Authorization grant type is enabled at the policy rule level if you're using a Custom Authorization Server.
 
-To check that the Device Authorization grant type is enabled:
+To check that the Device Authorization grant type is enabled for a Custom Authorization Server:
 
 1. In the left navigation pane of the Admin Console, go to **Security** > **API** and select the "default" Custom Authorization Server. Note that the examples in this guide use the "default" Custom Authorization Server.
 1. On the **Access Policies** tab, select the access policy that you want to configure Device Authorization for.
