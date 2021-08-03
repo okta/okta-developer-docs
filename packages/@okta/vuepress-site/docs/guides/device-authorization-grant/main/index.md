@@ -1,5 +1,5 @@
 ---
-title: Configure Device Authorization
+title: Configure Device Authorization Grant Flow
 excerpt: Learn how to use a secondary device to complete sign-in to applications
 layout: Guides
 ---
@@ -8,7 +8,7 @@ layout: Guides
 
 ## Overview
 
-The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input constrained devices, such as smart TVs, digital picture frames, and printers, as well as devices with no browser. The Device Authorization grant type enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
+The Device Authorization feature is an OAuth 2.0 grant type. It allows users to sign in to input constrained devices, such as smart TVs, digital picture frames, and printers, as well as devices with no browser. Device Authorization enables you to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices.
 
 The Device Authorization feature is available for both Okta Classic and Okta Identity Engine orgs.
 
@@ -23,20 +23,20 @@ This guide assumes that you:
 
 ## Configure an application to use the Device Authorization Grant
 
-To create a Native OpenID Connect application and then configure it to support the Device Authorization Grant type:
+To create a Native OpenID Connect application and then configure it to support Device Authorization:
 
 1. In the left navigation pane of the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
 1. On the Create a new app integration page, select **OIDC - OpenID Connect** as the **Sign-in method**, and then pick **Native Application**.
 1. On your native application page, fill in the application settings. Ensure that you select **Device Authorization** as the allowed **Grant type** in the General Settings.
 
-> **Note:** The Device Authorization Grant is only supported for use with a native application.
+> **Note:** Device Authorization is only supported for use with a native application.
 
-## Configure the Authorization Server policy rule for the Device Authorization grant type
+## Configure the Authorization Server policy rule for Device Authorization
 
-Both Org and Custom Authorization Servers support the Device Authorization grant type. Ensure that the Device Authorization grant type is enabled at the policy rule level.
+Both Org and Custom Authorization Servers support Device Authorization. Ensure that Device Authorization is enabled at the policy rule level.
 
-To check that the Device Authorization grant type is enabled:
+To check that Device Authorization is enabled:
 
 1. In the left navigation pane of the Admin Console, go to **Security** > **API** and select the "default" Custom Authorization Server. Note that the examples in this guide use the "default" Custom Authorization Server.
 1. On the **Access Policies** tab, select the access policy that you want to configure Device Authorization for.
@@ -102,7 +102,6 @@ To retrieve tokens for the user, the smart device needs to make a request to the
   curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id={clientId}' \
-  --data-urlencode 'scope=openid profile' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:device_code' \
   --data-urlencode 'device_code={deviceCode)' \
 ```
@@ -152,24 +151,4 @@ To revoke the tokens, the smart device must make a request to the `/revoke` endp
   ``--data-urlencode ``'token=refresh_token' \
   --data-urlencode 'token_type_hint=refresh_token' \
   --data-urlencode 'client_id={client_id}' \
-```
-
-## Request Single Logout
-
-When the user signs out of an application, the application sends a `/logout` request to the Okta Authorizataion Server, which revokes the device secret.
-
-```bash
-  url --location --request GET `https://${yourOktaDomain}/oauth2/default/v1/logout` \
-  --data-urlencode `id_token_hint={id_token}` \
-  --data-urlencode `device_secret={device_secret}` \
-  --data-urlencode `post_logout_redirect_uri=https%3A%2F%2Fclient1.example.${yourOktaDomain}%2Flogout` \
-  --data-urlencode `state=2OwvFrEMTJg` \
-```
-
-The Authorization Server invalidates the ID token and refresh token that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails. The existing access token isn't revoked and is valid until it naturally expires.
-
-Okta returns a response to the `post_logout_redirect_uri`.
-
-```bash
-  https://{configured_post_logout_redirect_uri}/logout&state=2OwvFrEMTJg
 ```
