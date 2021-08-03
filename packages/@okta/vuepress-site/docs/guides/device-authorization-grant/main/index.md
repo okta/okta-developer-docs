@@ -34,9 +34,15 @@ To create a Native OpenID Connect application and then configure it to support D
 
 ## Configure the Authorization Server policy rule for Device Authorization
 
+<<<<<<< HEAD
 Both Org and Custom Authorization Servers support Device Authorization. Ensure that Device Authorization is enabled at the policy rule level.
 
 To check that Device Authorization is enabled:
+=======
+Both Org and Custom Authorization Servers support the Device Authorization grant type. Ensure that the Device Authorization grant type is enabled at the policy rule level if you're using a Custom Authorization Server.
+
+To check that the Device Authorization grant type is enabled for a Custom Authorization Server:
+>>>>>>> 81a2ab6435faed193403cfd19b3656d2041eed26
 
 1. In the left navigation pane of the Admin Console, go to **Security** > **API** and select the "default" Custom Authorization Server. Note that the examples in this guide use the "default" Custom Authorization Server.
 1. On the **Access Policies** tab, select the access policy that you want to configure Device Authorization for.
@@ -148,7 +154,7 @@ To revoke the tokens, the smart device must make a request to the `/revoke` endp
   curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/revoke' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  ``--data-urlencode ``'token=refresh_token' \
+  --data-urlencode 'token=refresh_token' \
   --data-urlencode 'token_type_hint=refresh_token' \
   --data-urlencode 'client_id={client_id}' \
 ```
