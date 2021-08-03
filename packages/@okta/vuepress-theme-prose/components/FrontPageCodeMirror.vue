@@ -31,6 +31,8 @@ export default {
   data() {
     return {
       widgetCode: `
+// Uses okta-signin-widget version -=OKTA_REPLACE_WITH_WIDGET_VERSION=-
+
 var widget = new OktaSignIn({
   baseUrl: "{{yourOktaDomain}}",
   logo: "/sites/all/themes/developer/owb/alliance.png",

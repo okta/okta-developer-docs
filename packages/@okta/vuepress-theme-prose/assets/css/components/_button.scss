@@ -3,7 +3,6 @@
   background-color: transparent;
   color: cv('gray', '000');
   text-decoration: none;
-  text-transform: uppercase;
   letter-spacing: 0.2em;
   font-weight: 400;
   padding: 1em 3em;
@@ -35,9 +34,7 @@
   background-color: cv('header');
   color: cv('gray', '000');
   text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-weight: 400;
+  font-weight: 500;
   padding: 1em 3em;
   cursor: pointer;
 
@@ -66,7 +63,7 @@
 	@include font-size('button');
 	@include font-weight('button');
 	@include transition(normal background, normal border, normal color);
-	border: 2px solid transparent;
+	border: 1px solid transparent;
 	border-radius: 3px;
 	cursor: pointer;
 	display: inline-block;
@@ -93,17 +90,17 @@
 
 .Button {
 	@extend %Button;
-	border-color: cv('cerise', 'base');
-	color: cv('cerise', 'base');
+	border-color: cv('header', 'base');
+	color: cv('header', 'base');
 
 	&:active,
 	&:hover {
-		border-color: mix(cv('cerise', 'base'), cv('gray', '000'), 75%);
-		color: mix(cv('cerise', 'base'), cv('gray', '000'), 75%);
+		border-color: mix(cv('header', 'base'), cv('gray', '000'), 75%);
+		color: mix(cv('header', 'base'), cv('gray', '000'), 75%);
 	}
 
 	&:visited {
-		color: cv('cerise', 'base');
+		color: cv('header', 'base');
 	}
 }
 
@@ -161,7 +158,6 @@
 	border-color: cv('blue', '900');
 	color: cv('blue', '900');
 
-	text-transform: uppercase;
 	letter-spacing: .1em;
 	white-space: nowrap;
 

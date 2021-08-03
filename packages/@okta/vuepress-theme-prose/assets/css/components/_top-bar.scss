@@ -198,7 +198,7 @@ $gray-900: #2f3f4a;
         margin-left: 30px;
         letter-spacing: 2px;
         &.red{
-          background: cv(cerise);
+          background: cv('header');
           color: white;
         }
         @include media("<desktop"){

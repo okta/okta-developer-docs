@@ -138,6 +138,7 @@
     color: cv("link");
     font-weight: 500;
     text-decoration: none;
+    background: none;
   }
   .coveo-pager-list {
     display: flex;
@@ -264,6 +265,7 @@
   .CoveoFieldValue {
     @extend .proxima;
     .highlight {
+      background: cv('body');
       border-radius: 4px;
       color: cv("text", "darker");
       font-size: 16px;

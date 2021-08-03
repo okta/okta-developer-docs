@@ -38,7 +38,7 @@
       span:nth-child(3) {
         height: 0;
         flex-grow: 1;
-        border: 2px solid cv("brand", "base");
+        border: 2px solid cv("header");
         display: none;
       }
     }

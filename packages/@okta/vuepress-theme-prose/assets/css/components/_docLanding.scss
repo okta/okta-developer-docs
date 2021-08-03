@@ -31,7 +31,7 @@
       margin: 2rem 0 0;
       font-size: 1.8em;
       font-weight: 400;
-      color: cv('gray', '800');
+      color: cv('text');
     }
 
     p {
@@ -86,7 +86,7 @@
         }
 
         h2 {
-          color: cv('gray', '800');
+          color: cv('text', 'darker');
 
           a {
             text-decoration: none;
@@ -123,13 +123,13 @@
     max-width: 50rem;
     margin: 2rem auto;
     padding-top: 2.5rem;
-    border-top: 1px solid cv('gray', '300');
+    border-top: 1px solid cv('body', 'border');
     text-align: center;
 
     padding: 1.5rem 5rem;
     
     a {
-      color: cv('action');
+      color: cv('link');
       font-size: 18px;
       text-decoration: none;
 
@@ -138,14 +138,14 @@
         display: inline-block;
 
         &:before {
-          color: cv('action');
+          color: cv('link');
         }
       }
     }
   }
 
   &--elsewhere {
-    background-color: cv('brand', 'lightest');
+    background-color: cv('header');
     color: cv('gray', '000');
 
     &--container {
