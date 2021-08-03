@@ -1,4 +1,4 @@
-The following sections outline the main components required to implement the Authorization Code with PKCE flow using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/). Typically, you don't need to make calls to the [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) if you are using one of Okta's SDKs.
+The following sections outline the main components required to implement the Authorization Code with PKCE flow using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/). Typically, you don't need to make direct calls to the [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) if you're using one of Okta's SDKs.
 
 ### Create the Proof Key for Code Exchange
 

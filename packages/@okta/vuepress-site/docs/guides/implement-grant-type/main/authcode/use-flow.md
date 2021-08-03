@@ -1,4 +1,4 @@
-The following sections outline the main requests required to implement the Authorization Code flow using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/). Typically, you don't need to make calls to the [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) if you are using one of Okta's SDKs.
+The following sections outline the main requests required to implement the Authorization Code flow using direct calls to Okta's [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/). Typically, you don't need to make direct calls to the [OIDC & OAuth 2.0 API](/docs/reference/api/oidc/) if you're using one of Okta's SDKs.
 
 ### Request an authorization code
 
