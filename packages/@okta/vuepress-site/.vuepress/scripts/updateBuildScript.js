@@ -5,8 +5,6 @@ const webpack = require('webpack')
 const readline = require('readline')
 const { Worker } = require('worker_threads')
 
-const workerThreads = 6
-
 const {
   chalk,
   fs,
@@ -19,6 +17,9 @@ const createClientConfig = require('../webpack/createClientConfig')
 const createServerConfig = require('../webpack/createServerConfig')
 const { applyUserWebpackConfig } = require('../util/index')
 
+const MAX_WORKER_THREADS = 6;
+const PAGES_PER_THREAD = 100;
+
 /**
  * Expose Build Process Class.
  */
@@ -26,8 +27,13 @@ const { applyUserWebpackConfig } = require('../util/index')
 module.exports = class Build extends EventEmitter {
   constructor (context) {
     super()
-    this.context = context
-    this.outDir = this.context.outDir
+    this.context = context;
+    this.outDir = this.context.outDir;
+    this.pagesRemaining = this.context.pages.length;
+    this.activeWorkers = 0;
+    this.pagePaths = [];
+    this.serverBundle = null;
+    this.clientManifest = null;
   }
 
   /**
@@ -62,11 +68,12 @@ module.exports = class Build extends EventEmitter {
     // compile!
     performance.start()
     const stats = await compile([this.clientConfig, this.serverConfig])
-    const serverBundle = require(path.resolve(
+
+    this.serverBundle = require(path.resolve(
       this.outDir,
       'manifest/server.json'
     ))
-    const clientManifest = require(path.resolve(
+    this.clientManifest = require(path.resolve(
       this.outDir,
       'manifest/client.json'
     ))
@@ -95,123 +102,102 @@ module.exports = class Build extends EventEmitter {
     // render pages
     logger.wait('Rendering static HTML...')
 
-    let activeWorkers = 0
-    let pagePaths = []
-    const pagesPerThread = 100;//this.context.pages.length / workerThreads
-    let pagesRemaining = this.context.pages.length;
-
-    for (let workerNumber = 0; workerNumber < workerThreads; workerNumber++) {
-      let startIndex = this.context.pages.length - pagesRemaining;//workerNumber * pagesPerThread
-      let pageData = this.context.pages.slice(
-        startIndex,
-        startIndex + pagesPerThread
-      )
-      let pages = pageData.map(p => ({
-        path: p.path,
-        frontmatter: JSON.stringify(p.frontmatter)
-      }))
-
-      let payload = {
-        clientManifest: JSON.stringify(clientManifest),
-        outDir: this.outDir,
-        pages: Buffer.from(JSON.stringify(pages)),
-        serverBundle: JSON.stringify(serverBundle),
-        siteConfig: JSON.stringify(this.context.siteConfig),
-        ssrTemplate: JSON.stringify(this.context.ssrTemplate),
-        workerNumber,
-        logLevel: logger.options.logLevel
+    for (let workerNumber = 0; workerNumber < MAX_WORKER_THREADS; workerNumber++) {
+      // Kick off up to MAX_WORKER_THREADS threads.
+      // Each thread will kick off new threads on completion if there
+      // are more pages left to render.
+      if (this.activeWorkers < MAX_WORKER_THREADS && this.pagesRemaining > 0) {
+        this.triggerWorker(workerNumber);
       }
-
-      const messageCallback = response => {
-        if (response.complete) {
-          pagePaths = pagePaths.concat(response.filePaths)
-        }
-        if (response.message) {
-          logger.wait(response.message)
-        }
-      };
-      const errorCallback = error => {
-        console.error(
-          logger.error(
-            chalk.red(`Worker #${workerNumber} sent error: ${error}\n\n${error.stack}`),
-            false
-          )
-        )
-      };
-      const exitCallback = code => {
-        activeWorkers--
-        if (code === 0) {
-          logger.success(`Worker ${workerNumber} completed successfully.`)
-        } else {
-          logger.error(
-            chalk.red(`Worker #${workerNumber} sent exit code: ${code}`),
-            false
-          )
-        }
-        if (activeWorkers < workerThreads && pagesRemaining > 0) {
-      startIndex = this.context.pages.length - pagesRemaining;//workerNumber * pagesPerThread
-      pageData = this.context.pages.slice(
-        startIndex,
-        startIndex + pagesPerThread
-      )
-      pages = pageData.map(p => ({
-        path: p.path,
-        frontmatter: JSON.stringify(p.frontmatter)
-      }))
-
-      payload = {
-        clientManifest: JSON.stringify(clientManifest),
-        outDir: this.outDir,
-        pages: Buffer.from(JSON.stringify(pages)),
-        serverBundle: JSON.stringify(serverBundle),
-        siteConfig: JSON.stringify(this.context.siteConfig),
-        ssrTemplate: JSON.stringify(this.context.ssrTemplate),
-        workerNumber,
-        logLevel: logger.options.logLevel
-      }
-          this.triggerWorker({ payload, messageCallback, errorCallback, exitCallback });
-          pagesRemaining = pagesRemaining - pagesPerThread;
-          activeWorkers++
-        }
-        if (activeWorkers === 0) {
-          // DONE.
-          readline.clearLine(process.stdout, 0)
-          readline.cursorTo(process.stdout, 0)
-          const relativeDir = path.relative(this.context.cwd, this.outDir)
-          logger.success(
-            `Generated static files in ${chalk.cyan(relativeDir)}.`
-          )
-          const { duration } = performance.stop()
-          logger.success(
-            `It took a total of ${chalk.cyan(
-              `${duration}ms`
-            )} to run the ${chalk.cyan('vuepress build')}.`
-          )
-          console.log()
-    const uniqPaths = new Set(pagePaths);
-    logger.success(
-      `Generated ${uniqPaths.size} pages`
-    );
-          console.log()
-
-        }
-      };
-
-      this.triggerWorker({ payload, messageCallback, errorCallback, exitCallback });
-      pagesRemaining = pagesRemaining - pagesPerThread;
-      activeWorkers++
     }
 
-    await this.context.pluginAPI.applyAsyncOption('generated', pagePaths)
+    await this.context.pluginAPI.applyAsyncOption('generated', this.pagePaths)
   }
 
-  triggerWorker({ payload, messageCallback, errorCallback, exitCallback }) {
-      const worker = new Worker(path.join(__dirname, './worker.js'))
-      worker.postMessage(payload)
+  messageCallback(response) {
+    if (response.complete) {
+      this.pagePaths = this.pagePaths.concat(response.filePaths);
+    }
+    if (response.message) {
+      logger.wait(response.message)
+    }
+  }
 
-      worker.on('message', messageCallback);
-      worker.on('error', errorCallback);
-      worker.on('exit', exitCallback);
+  errorCallback(error) {
+    console.error(
+      logger.error(
+        chalk.red(`Worker #${workerNumber} sent error: ${error}\n\n${error.stack}`),
+        false
+      )
+    )
+  }
+
+  triggerWorker(workerNumber) {
+    const startIndex = this.context.pages.length - this.pagesRemaining;
+    const pageData = this.context.pages.slice(
+      startIndex,
+      startIndex + PAGES_PER_THREAD,
+    )
+    const pages = pageData.map(p => ({
+      path: p.path,
+      frontmatter: JSON.stringify(p.frontmatter)
+    }))
+
+    const payload = {
+      clientManifest: JSON.stringify(this.clientManifest),
+      outDir: this.outDir,
+      pages: Buffer.from(JSON.stringify(pages)),
+      serverBundle: JSON.stringify(this.serverBundle),
+      siteConfig: JSON.stringify(this.context.siteConfig),
+      ssrTemplate: JSON.stringify(this.context.ssrTemplate),
+      workerNumber,
+      logLevel: logger.options.logLevel
+    }
+
+    const worker = new Worker(path.join(__dirname, './worker.js'))
+
+    this.activeWorkers++;
+
+    this.pagesRemaining = this.pagesRemaining - PAGES_PER_THREAD;
+
+    worker.postMessage(payload)
+
+    worker.on('message', this.messageCallback.bind(this));
+    worker.on('error', this.errorCallback.bind(this));
+    worker.on('exit', code => {
+      this.activeWorkers--;
+      if (code === 0) {
+        logger.success(`Worker ${workerNumber} completed successfully.`)
+      } else {
+        logger.error(
+          chalk.red(`Worker #${workerNumber} sent exit code: ${code}`),
+          false
+        )
+      }
+
+      if (this.activeWorkers < MAX_WORKER_THREADS && this.pagesRemaining > 0) {
+        // Kick off another worker thread
+        this.triggerWorker(workerNumber);
+      }
+
+      if (this.activeWorkers === 0) {
+        // DONE.
+        readline.clearLine(process.stdout, 0)
+        readline.cursorTo(process.stdout, 0)
+        const relativeDir = path.relative(this.context.cwd, this.outDir)
+        const uniqPaths = new Set(this.pagePaths);
+        logger.success(
+          `Generated ${chalk.cyan(uniqPaths.size)} static files in ${chalk.cyan(relativeDir)}.`
+        )
+        const { duration } = performance.stop()
+        logger.success(
+          `It took a total of ${chalk.cyan(
+            `${duration}ms`
+          )} to run the ${chalk.cyan('vuepress build')}.`
+        )
+        console.log()
+      }
+    });
   }
 
   /**
