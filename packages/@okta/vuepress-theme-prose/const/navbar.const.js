@@ -341,6 +341,10 @@ export const guides = [
           {
             title: "Configure an access policy",
             guideName: "configure-access-policy"
+          },
+          {
+            title: "Integrate Third-Party Risk",
+            guideName: "third-party-risk-integration"
           }
         ]
       },
@@ -645,6 +649,8 @@ export const reference = [
           { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
           { title: "Org", path: "/docs/reference/api/org/" },
           { title: "Policy", path: "/docs/reference/api/policy/" },
+          { title: "Risk Events", path: "/docs/reference/api/risk-events/" },
+          { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
           { title: "Schemas", path: "/docs/reference/api/schemas/" },
           { title: "Sessions", path: "/docs/reference/api/sessions/" },
           { title: "System Log", path: "/docs/reference/api/system-log/" },
