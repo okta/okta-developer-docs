@@ -33,7 +33,7 @@
   }
   p {
     max-width: 100%;
-    font-size: 16px;
+    font-size: 14px;
   }
   .dialog--header,
   .dialog--body {
@@ -45,9 +45,11 @@
     color: cv('text', 'darker');
   }
   .dialog--body {
-    font-size: 16px;
+    font-size: 14px;
   }
   .dialog--footer {
     padding: 0 32px 0 32px;
   }
+
+  @import '../components/form';
 }

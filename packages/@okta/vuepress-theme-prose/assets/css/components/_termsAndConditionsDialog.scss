@@ -1,9 +1,6 @@
 .dialog-text {
-  font-size: 16px;
-  label {
-    font-size: 16px;
-    display: block;
-  }
+  font-size: 14px;
+
   .marketing-c {
     display: flex;
     flex-direction: column;
@@ -57,7 +54,7 @@
       vertical-align: middle;
       height: 32px;
       padding: 0 15px;
-      border: 1px solid color("link", "darker");
+      border: 1px solid cv("link", "darker");
       font-size: 14px;
     }
   }
