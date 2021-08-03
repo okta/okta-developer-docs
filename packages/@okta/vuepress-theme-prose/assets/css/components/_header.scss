@@ -258,7 +258,7 @@ header.page-header {
           }
 
           li {
-            margin: 0;
+            margin: 0 0 9px;
 
             &.is-home {
               order: -1;
@@ -281,7 +281,7 @@ header.page-header {
             span.link {
               font-size: 14px;
               font-weight: 300;
-              line-height: 2.2em;
+              line-height: 1.5em;
               position: relative;
               display: block;
 

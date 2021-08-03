@@ -185,7 +185,7 @@ module.exports = ctx => ({
     ],
     primary_right_nav: [
       { text: 'Okta.com', target: '_blank', link: 'https://www.okta.com/' },
-      { text: 'Admin Console', target: '_blank', link: '/login/' },
+      { text: 'Sign in to Okta', target: '_blank', link: '/login/' },
     ],
     primary_doc_nav: [
       { text: 'Guides', link: '/docs/guides/' },
@@ -224,6 +224,7 @@ module.exports = ctx => ({
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Change log', link: '/docs/release-notes/' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },
+          { text: 'Auth0 platform', link: 'https://auth0.com/developers' },
         ]
       },
       websites: {

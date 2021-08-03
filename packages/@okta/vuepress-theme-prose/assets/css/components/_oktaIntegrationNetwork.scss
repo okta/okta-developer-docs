@@ -23,6 +23,7 @@ $magenta: #e22866;
     margin: 0 auto;
     text-align: center;
     padding: 128px 0 180px;
+    max-width: 640px;
   }
 
   h1.oin--title {
@@ -125,6 +126,10 @@ $magenta: #e22866;
           img {
             height: 50px;
             margin-bottom: 30px;
+          }
+
+          h3 {
+            margin-top: 0;
           }
 
           &.empty {

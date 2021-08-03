@@ -5,7 +5,7 @@ $redesign_footer_border: #1F3B54;
   position: relative;
   background-color: cv('header');
   border-top: 1px solid $redesign_footer_border;
-  padding: 100px 64px;
+  padding: 100px 64px 30px;
 
   @include media('<=desktop') {
     padding: 60px 0;
@@ -172,7 +172,7 @@ $redesign_footer_border: #1F3B54;
         font-weight: 400;
         font-size: 20px;
         text-transform: none;
-        margin-bottom: 17px;
+        margin-bottom: 20px;
         letter-spacing: .5px;
 
         @include media('<=desktop') {
@@ -181,7 +181,7 @@ $redesign_footer_border: #1F3B54;
       }
 
       p {
-        line-height: 2.5em;
+        line-height: 1.8em;
         color: $redesign_white;
         a {
           color: $redesign_white;
@@ -227,16 +227,6 @@ $redesign_footer_border: #1F3B54;
     }
 
     &[target='_blank']:not([href^='mailto:']) {
-      &::after {
-        content: '';
-        display: inline-block;
-        width: 1em;
-        height: 1em;
-        margin-left: 12px;
-        background-image: url('/img/icons/external--cherry.svg');
-        background-repeat: no-repeat;
-        vertical-align: middle;
-      }
       &.link--with-chevron-right {
         &::after {
           background-image: url('/img/icons/chevron-right.svg');
@@ -283,5 +273,13 @@ $redesign_footer_border: #1F3B54;
         margin-left: 16px;
       }
     }
+  }
+
+  .copyright {
+    color: cv('text', 'lighter');
+    font-size: 0.8em;
+    clear: both;
+    margin: 70px 0 0;
+    text-align: right;
   }
 }

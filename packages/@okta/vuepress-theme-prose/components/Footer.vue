@@ -79,6 +79,9 @@
         </div>
       </div>
     </div>
+    <div class="copyright">
+      <span>{{ config.copyright_text }}</span>
+    </div>
   </footer>
 </template>
 
