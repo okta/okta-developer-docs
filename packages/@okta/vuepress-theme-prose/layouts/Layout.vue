@@ -25,8 +25,8 @@
           <div class="content-area">
             <StackSelector forMobileViewOnly v-if="$page.hasStackContent" />
             <PageTitle />
+            <StackSelector v-if="$page.hasStackContent" />
             <MobileOnThisPage />
-            <!-- <StackSelector noSnippet v-if="$page.hasStackContent" /> -->
             <ContentPage />
             <div class="edit-on-github">
               <span class="fa fa-github"></span>

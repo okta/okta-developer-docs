@@ -5,14 +5,8 @@ $small-spacing: 0.75rem;
 
 .stack-selector {
   padding-left: 0;
-  padding-right: 1rem;
   z-index: 10;
-  @include media("<=desktop"){
-      padding-right: 0;
-  }
 
-
-  
   &.for-mobile-view-only{
     @include media(">=desktop"){
       display: none;

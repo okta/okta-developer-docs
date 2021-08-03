@@ -1,6 +1,6 @@
 <template>
   <aside class="on-this-page-navigation">
-    <StackSelector v-if="$page.hasStackContent" />
+    <!-- <StackSelector v-if="$page.hasStackContent" /> -->
     <div v-show="showOnthisPage">
       <div class="title">On This Page</div>
       <div>
