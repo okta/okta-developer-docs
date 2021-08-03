@@ -10,7 +10,6 @@
 
     @include media('>=tablet') {
       top: 150px;
-      display: none;
     }
   }
 
@@ -27,7 +26,7 @@
   }
 
   .links {
-    border-left: 3px solid cv('gray', '100');
+    border-left: 1px solid cv('body', 'border');
     padding-left: 1rem;
   }
 
@@ -70,11 +69,16 @@
     }
 
   }
-
+  @include media('<=tablet') {
+    display: none;
+  }
 }
 
 .mobile-on-this-page {
   margin-bottom: $base-spacing;
+  @include media('>=tablet') {
+    display: none;
+  }
   h3{
     &.mobile-header{
     font-size: 14px;
