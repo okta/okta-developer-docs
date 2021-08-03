@@ -2,7 +2,7 @@
 
 ### Step 1: Add forgot password link to sign-in page
 
-The first step is to create a forgot password link on the sign-in page, as in the following example. This link points to a **Recover password** page (`/recover-password)`.
+The first step is to create a forgot your password link on the sign-in page, as in the following example. This link points to a **Recover password** page (`/recover-password)`.
 
 <div class="common-image-format">
 
@@ -90,7 +90,7 @@ router.post('/challenge-authenticator/email', async (req, res, next) => {
 
 If the `idx.recoverPassword` call is successful, it returns a status of `Idx.Status:PENDING` and the `nextStep` field indicates an input of a password value parameter. This status indicates that the user can now change their password. At this point, the user is redirected to a change password page.
 
-### Step 5: Create change password page
+### Step 5: Create reset password page
 
 Create a reset password page that allows the user to enter the new password, confirm it, and initiate the update.
 
