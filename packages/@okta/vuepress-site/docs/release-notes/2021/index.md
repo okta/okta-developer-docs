@@ -21,7 +21,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### Brands API is Self-Service EA
 
-The Okta [Brands API](/docs/reference/api/brands/) allows customization of the look and feel of pages and templates. It allows you to upload your own brand assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to the Okta-hosted Sign-In Page, error pages, email templates, and the Okta End-User dashboard. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes/). <!-- 414350-->
+The Okta [Brands API](/docs/reference/api/brands/) allows customization of the look and feel of pages and templates. It allows you to upload your own brand assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to the Okta-hosted Sign-In Page, error pages, email templates, and the Okta End-User Dashboard. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes/). <!-- 414350-->
 
 #### Risk Providers API is EA
 
@@ -37,15 +37,15 @@ Developers can use the [`pushStatus` parameter](/docs/reference/api/apps/#userna
 
 #### The Device Authorization grant type is Self-Service EA
 
-Advancements in internet technology has seen an explosion of smart devices and the Internet of Things. Consumers need to sign in to applications that run on these devices, but the devices either lack support for a web browser or have limited ability for input, such as smart TVs, car consoles, and thermostats. As a result, users resort to insecure authentication solutions that are error-prone and time consuming.
+Advancements in internet technology have seen an explosion of smart devices and the Internet of Things. Consumers need to sign in to applications that run on these devices, but the devices either lack support for a web browser or have limited ability for input, such as smart TVs, car consoles, and thermostats. As a result, users resort to insecure authentication solutions that are error-prone and time-consuming.
 
-The [Device Authorization grant](/docs/reference/api/oidc/#device-authorize) feature is an OAuth 2.0 grant type that allows users to sign in to input constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/). <!-- OKTA-411412 -->
+The [Device Authorization grant](/docs/reference/api/oidc/#device-authorize) feature is an OAuth 2.0 grant type that allows users to sign in to input-constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/). <!-- OKTA-411412 -->
 
 #### Token-based SSO between native apps is Self-Service EA
 
 Single-Sign On (SSO) between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to [achieve SSO between native applications](/docs/reference/api/oidc/#scopes).
 
-Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/). <!-- OKTA-411335 -->
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/). <!-- OKTA-411335 -->
 
 ## July
 
