@@ -4,7 +4,7 @@ title: Style the Okta-hosted Sign-In Widget
 
 You can add any HTML, CSS, or JavaScript to the sign-in page and also customize the sign-in page <GuideLink link="../customization-examples/#per-application-customization">per application</GuideLink> and with multiple brands. This page covers what you can change when you are using the Okta-hosted Sign-In Widget, how to use the macros and request context, and also how to bypass the custom sign-in page.
 
-> **Note:** Before you can get started customizing the Okta-hosted sign-in page, you must have already customized your [Okta URL domain](/docs/guides/custom-url-domain/).
+> **Note:** Before you can get started customizing the Okta-hosted sign-in page, you must have already customized your [Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](/docs/guides/customize-themes) as mentioned below.
 
 ### Edit the sign-in page
 
@@ -38,6 +38,10 @@ If you are familiar with using HTML and want to change the page layout, colors, 
 4. Click **Save and Publish** when you finish.
 
 > **Note:** See the <GuideLink link="../customization-examples">Customization examples</GuideLink> section for examples that you can alter and use on your hosted sign-in page.
+
+### Use the Brands API
+
+The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to set icons, images, and colors across your Okta-hosted sign-in widget, error pages, email templates, and End-User Dashboard all at once, without needing to set a customized Okta URL domain. To find out more about this feature and how to use it, see [Customize your Okta experience with the Brands API](/docs/guides/customize-themes).
 
 ### Bypass the Custom Sign-In Page
 

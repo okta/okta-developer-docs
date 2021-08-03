@@ -302,6 +302,10 @@ export const guides = [
           {
             title: "Customize email notifications and email domains",
             guideName: "email-customization"
+          },
+          {
+            title: "Customize themes",
+            path: "/docs/guides/customize-themes/"
           }
         ]
       },
