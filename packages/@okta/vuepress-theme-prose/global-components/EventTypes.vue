@@ -127,8 +127,8 @@
 <style scoped lang="scss">
   @import '../assets/css/abstracts/_colors.scss';
 
-  $redesign_border: map-get(map-get($colors, 'form'), 'input-border');
-  $redesign_link: map-get(map-get($colors, 'link'), 'base');
+  $border_color: map-get(map-get($colors, 'form'), 'input-border');
+  $link_color: map-get(map-get($colors, 'link'), 'base');
 
   .event-types {
     .PageContent-main {
@@ -139,11 +139,11 @@
       width: 100%;
       font-size: 1em;
       padding: 0.5rem 0.3rem;
-      border: 2px solid $redesign_border;
+      border: 2px solid $border_color;
     }
 
     #event-type-search::placeholder {
-      color: $redesign_border;
+      color: $border_color;
     }
 
     #event-type-release {
@@ -162,8 +162,8 @@
         padding: 6px 10px;
         clear: left;
         overflow: hidden;
-        border-left: 3px solid $redesign_link;
-        color: $redesign_link;
+        border-left: 3px solid $link_color;
+        color: $link_color;
         text-overflow: ellipsis;
         white-space: nowrap;
       }

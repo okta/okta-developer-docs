@@ -1,10 +1,6 @@
-$redesign_white: #FFFFFF;
-$redesign_footer_border: #1F3B54;
-
 .app-footer {
   position: relative;
   background-color: cv('header');
-  border-top: 1px solid $redesign_footer_border;
   padding: 100px 64px 30px;
 
   @include media('<=desktop') {
@@ -12,7 +8,7 @@ $redesign_footer_border: #1F3B54;
   }
 
   p {
-    color: $redesign_white;
+    color: cv('body', 'white');
     a {
       text-decoration: underline;
     }
@@ -40,7 +36,7 @@ $redesign_footer_border: #1F3B54;
         font-size: 14px;
         line-height: 1.3em;
         letter-spacing: 1.5px;
-        color: $redesign_white;
+        color: cv('body', 'white');
         text-transform: uppercase;
         margin: 0 0 35px;
 
@@ -182,9 +178,9 @@ $redesign_footer_border: #1F3B54;
 
       p {
         line-height: 1.8em;
-        color: $redesign_white;
+        color: cv('body', 'white');
         a {
-          color: $redesign_white;
+          color: cv('body', 'white');
         }
         @include media('<=desktop') {
           line-height: 1.6rem;
@@ -223,7 +219,7 @@ $redesign_footer_border: #1F3B54;
     }
 
     &--heading {
-      color: $redesign_white;
+      color: cv('body', 'white');
     }
 
     &[target='_blank']:not([href^='mailto:']) {
@@ -262,9 +258,9 @@ $redesign_footer_border: #1F3B54;
         svg {
           width: 1.2em;
           height: 1.2em;
-          fill: $redesign_white;
+          fill: cv('body', 'white');
           path {
-            fill: $redesign_white;
+            fill: cv('body', 'white');
           }
         }
       }
