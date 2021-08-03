@@ -9,7 +9,6 @@
 
 <script>
 import "codemirror/lib/codemirror.css";
-// import "components/codemirror.scss",
 
 export default {
   name: "FrontPageCodeMirror",

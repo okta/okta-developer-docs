@@ -12,7 +12,10 @@
           <a
             :href="href"
             @click="navigate"
-            :class="route.path === $route.path ? 'router-link-active link' : 'link'"
+            :class="{
+              'router-link-active': route.path === $route.path,
+              'link': true,
+            }"
             :aria-current="route.path === $route.path && 'page'"
             >
             <slot>

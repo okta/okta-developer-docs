@@ -24,7 +24,6 @@ export default {
   data() {
     return {
       usingFile: false,
-      // navigation: []
     };
   },
   mounted() {

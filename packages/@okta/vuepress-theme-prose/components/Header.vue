@@ -4,12 +4,7 @@
       <img src="/img/icons/okta-developer.svg" alt="Okta Developer Logo" />
     </SmartLink>
     <div :class="{ 'menu--slideout': true, opened: menuOpened }">
-      <div
-        :class="{
-          'search--slideout': true,
-          opened: true,
-        }"
-      >
+      <div class="search--slideout opened">
         <SearchBar />
       </div>
       
