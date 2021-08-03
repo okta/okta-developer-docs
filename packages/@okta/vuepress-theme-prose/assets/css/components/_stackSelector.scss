@@ -7,6 +7,7 @@ $small-spacing: 0.75rem;
   padding-left: 0;
   z-index: 10;
 
+  
   &.for-mobile-view-only{
     @include media(">=desktop"){
       display: none;
