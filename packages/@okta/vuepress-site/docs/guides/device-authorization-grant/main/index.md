@@ -34,7 +34,7 @@ To create a Native OpenID Connect application and then configure it to support t
 
 ## Configure the Authorization Server policy rule for the Device Authorization grant type
 
-Both Org and Custom Authorization Servers support the Device Authorization grant type. Ensure that the Device Authorization grant type is enabled at the policy rule level.
+Both Org and Custom Authorization Servers support the Device Authorization grant type. Ensure that the Device Authorization grant type is enabled at the policy rule level if you're using a Custom Authorization Server.
 
 To check that the Device Authorization grant type is enabled:
 
