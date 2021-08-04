@@ -266,7 +266,7 @@ Provide the `device_sso`, `openid`, and `offline_access` scopes in the first req
 **Example Authorization Code with PKCE request**
 
 ```
-  https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=0oa10sqibtVca6tme1d7&response_type=code&scope=openid device_sso offline_access&redirect_uri={configured_redirect_uri}&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
+  https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}&response_type=code&scope=openid device_sso offline_access&redirect_uri={configured_redirect_uri}&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
 ```
 
 The user is prompted to provide their credentials. After the authorization server verifies those credentials, the authorization code is sent to the `redirect_uri` that you specified. The following is an example of the authorization code returned.
@@ -352,10 +352,9 @@ If the request is successful, the response returned includes the following token
 {
     "token_type": "Bearer",
     "expires_in": 3600,
-    "access_token": "eyJraWQiOiJZQlRCZUNBOThRa3pSUGdBQzZSS3BaM0J5ZlRwTXRMMHRITkp1LTQ4VVVFIiwiYWxnIjoiUlMyNTYifQ.eyJ2ZXIiOjEsImp0aSI6IkFULnhtbDhfRlBDTFhlOHpoX2ZFLWhkZWZPcm5jbHAzVng4WDRrRVpJTXcxZk0iLCJpc3MiOiJodHRwczovL2NocmlzdGluZWNob3ktb3AyLm9rdGFwcmV2aWV3LmNvbS9vYXV0aDIvZGVmYXVsdCIsImF1ZCI6ImFwaTovL2RlZmF1bHQiLCJpYXQiOjE2MjgwMzI5MzAsImV4cCI6MTYyODAzNjUzMCwiY2lkIjoiMG9hMWpncWxxbXJiT01zR3AweDciLCJ1aWQiOiIwMHV5MjcyZ2RkTFVER2pGYTB4NiIsInNjcCI6WyJvcGVuaWQiLCJkZXZpY2Vfc3NvIl0sInN1YiI6ImNocmlzdGluZS5jaG95QG9rdGEuY29tIn0.LnenHhDWnaDDxf-0_NjXV93OAuG9pxAcEnee00KLeR1LB1X3mPwtN1C-yykMd3sbkUfOhHLEBD1lPfN2nNsYffu4peO-CFXu4viuihdZbyfrKw1-a6OM4AU8jw5HV31dElDz1yT2HVPv5vV0j3W9JKBm-A-PCuYZmzaEDsw3uMtFfIH6QOghRzOUjMzhaQ3QKERyles0nTfOOp_5KempYdwnDPq-_7kRCUykYDHg_YGJ_FCvTEVc6E5blRy2EJ28IViPbHLw0-dqt1S8OEU6Ez3dLGgPHmbEqX1ZxTX_1bRr76kZmgjMnfm4eEwRd3FIRnkm_xh8AkLnmQ2F6hEVUw",
-    "scope": "openid device_sso",
-    "id_token": "eyJraWQiOiJZQlRCZUNBOThRa3pSUGdBQzZSS3BaM0J5ZlRwTXRMMHRITkp1LTQ4VVVFIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiIwMHV5MjcyZ2RkTFVER2pGYTB4NiIsInZlciI6MSwiaXNzIjoiaHR0cHM6Ly9jaHJpc3RpbmVjaG95LW9wMi5va3RhcHJldmlldy5jb20vb2F1dGgyL2RlZmF1bHQiLCJhdWQiOiIwb2ExamdxbHFtcmJPTXNHcDB4NyIsImlhdCI6MTYyODAzMjkzMCwiZXhwIjoxNjI4MDM2NTMwLCJqdGkiOiJJRC55VDFjVFZVdkV0STZmenBETzRYZkVadk5xdjVlVUhwT0IwUC1mMmVPcERBIiwiYW1yIjpbInB3ZCJdLCJpZHAiOiIwMG95MjcyY3NhR0NNamRPVjB4NiIsInNpZCI6IjEwMm9SZ0VXeDVsUlRXSGlsRW9HZmVkNHciLCJhdXRoX3RpbWUiOjE2MjgwMjcxMzcsImF0X2hhc2giOiJGVy1ZclFoXzhQOThmQ1NqUEQxQW1BIiwiZHNfaGFzaCI6IjN0Z3AtUFVuX213MUtkZHdGay1TYUEifQ.lHclmmSNV1ns2GGJCxEBRZpMCp_xAePqAZQvnwJ5207Gr5ohbmPkXYmgI6zA9STTyfPgiMVotJG0Iir2Ir9Ke9PBvcd6fvUTZPZTzg3McMBfRoaF2ORYO-1qoUIIEGUDtYqiUosmc_OR27U-AS6TZfnMo4Ed7KIAIHlPgzJDlAFCCa1vx-ImUCt0czP8eehEqSDE1nB1oPj3uvGpjsJxj4wwFvGXqGemHpWDbvTDvwNv5dGm05q6LNYZjJACyegtIagvKgFv5mZquR-tlXIS6SEynFNsNP_YEf-gNZ36I1y-wk6tjmTgYijcZPcvVl9PvE4giokjXVjPsjP3WGQWgA",
-    "device_secret": "kyLmBvfjMPnMGHtBhW9nKz0tLgJc5xbLay1ujkvOQIk="
+    "access_token": "eyJraWQiOiJ...LnmQ2F6hEVUw",
+    "scope": "openid offline_access",
+    "id_token": "eyJraWQiOiJ...PsjP3WGQWgA",
 }
 ```
 
@@ -406,7 +405,6 @@ curl --location --request POST \
 
 ```
 HTTP/1.1 200 OK
-Content-Type: application/json
 ```
 
 After you've revoked the device secret, the corresponding access, refresh, and ID tokens are also revoked for that device. You can verify that the revoke was successful by making a request to the `/introspect` endpoint again for that client. You should receive the following response:
