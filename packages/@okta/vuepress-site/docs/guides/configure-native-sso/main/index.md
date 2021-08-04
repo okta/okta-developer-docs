@@ -46,27 +46,27 @@ okta -> app2: 8. Returns an `access_token` and `refresh_token`
 
 -->
 
-1. Native app 1 starts by redirecting the user's browser to the [authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint and requests for the `device_sso` scope.
+1. Native app 1 starts by redirecting the user's browser to the [authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint and requests the `device_sso` scope.
 1. The user is prompted to authenticate.
 1. The user enters their credentials to allow the application to access resources protected by scopes.
 1. The authorization server returns the authorization code for Native app 1.
-1. The client sends the authorization code in the request for tokens.
+1. The client exchanges the authorization code for tokens.
 1. The authorization server returns the tokens (`id_token`, `refresh_token`, and `access_token`) and the `device_secret` in the response.
 1. Native app 2 makes a request for a `refresh_token` and `access_token`. The request contains the `id_token` and the `device_secret`.
 
-	For Native app 2, each client can use the `id_token` and the `device_secret` obtained from the first client that authenticated (see the following diagram). To sign in automatically, each client can use the `id_token` and `device_secret` in their `/token` request.
+	Native app 2, and any other client that participates in the Native SSO flow, can use the `id_token` and the `device_secret` obtained from the initial client that authenticated (see the following diagram). To sign in automatically, the clients can use the `id_token` and `device_secret` and exchange them for tokens by making a `/token` request.
 
 	![ID token and device secret use](/img/nativeSSO_flow2.png)
 
-8. The authorization server returns the refresh and access tokens for Native app 2. This key part in the Native SSO flow enables a user to be automatically signed in without requiring any user action.
+8. The authorization server returns a new set of refresh and access tokens specifically for Native app 2. This key part in the Native SSO flow enables a user to be automatically signed in without requiring any user action.
 
 To use the Native SSO functionality, you need to:
 
 * Configure Native SSO for your Okta org
-* Configure the Token Exchange grant type for client 2
+* Configure the Token Exchange grant type for all clients participating in the Native SSO flow
 * Use Authorization Code with PKCE to obtain the authorization code for client 1
 * Exchange the code for tokens
-* Exchange existing tokens from client 1 for new tokens for client 2
+* Exchange existing tokens that are obtained from client 1 for a new set of tokens for client 2
 * Validate the device secret
 * Revoke the device secret to end a desktop session
 
@@ -84,7 +84,7 @@ To configure Native SSO, start by setting up your application. To walk through t
 
 ## Configure Native SSO for your Okta org
 
-Configure Native SSO for your org by updating the authorization server policy rule to allow the token exchange grant. In this use case example, we are using the "default" Custom Authorization Server.
+Configure Native SSO for your org by updating the authorization server policy rule to allow the token exchange grant. In this use case example, we are using the "default" Custom Authorization Server. Org Authorization Server is not supported with this feature.
 
 1. From the left navigation pane in the Admin Console, go to **Security** > **API** to view your authorization servers.
 1. On the **Authorization Servers** tab, click the **edit** pencil icon for the "default" Custom Authorization Server.
@@ -96,7 +96,7 @@ Configure Native SSO for your org by updating the authorization server policy ru
 
 ### Obtain the policy ID
 
-Make a request to obtain the policy ID for the policy that you just created in the "Configure Native SSO for your Okta org" section. In this use case example, we are using the "default" Custom Authorization Server, so the `{authorizationServerID}` is `default`.
+Make a request to obtain the policy ID for the policy that you just created in the "Configure Native SSO for your Okta org" section. In this example, we are using the "default" Custom Authorization Server, so the `{authorizationServerID}` is `default`.
 
 **Request example**
 
@@ -146,54 +146,54 @@ Next, configure the token exchange grant type for the client that is using the A
 
 ```json
 curl --location --request PUT
---url https://${yourOktaDomain}/api/v1/authorizationServers/{AuthorizationServerId}/policies/{policyId}/rules/{ruleId} \
+--url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/{policyId}/rules/{ruleId} \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: SSWS <apiKey>' \
 -d '{
-	"id": "0pr3erdfwAnLPICrw0g4",
-	"status": "ACTIVE",
-	"name": "allow token exchange",
-	"priority": 1,
-	"created": "2021-04-14T17:47:42.000Z",
-	"lastUpdated": "2021-04-14T17:47:42.000Z",
-	"system": false,
-	"conditions": {
-    	"people": {
-        	"users": {
-            	"include": [],
-            	"exclude": []
-        	},
-        	"groups": {
-            	"include": [
-                	"EVERYONE"
-            	],
-            	"exclude": []
-        	}
-    	},
-    	"grantTypes": {
-        	"include": [
-            	"implicit",
-            	"password",
-				"client_credentials",
-            	"authorization_code",
-            	"urn:ietf:params:oauth:grant-type:token-exchange"
-        	]
-    	},
-    	"scopes": {
-        	"include": [
-            	"*"
-        	]
-    	}
-	},
-	"actions": {
-    	"token": {
-        	"accessTokenLifetimeMinutes": 60,
-        	"refreshTokenLifetimeMinutes": 0,
-        	"refreshTokenWindowMinutes": 10080
-    	}
-	},
-	"type": "RESOURCE_ACCESS"
+  "id": "0pr3erdfwAnLPICrw0g4",
+  "status": "ACTIVE",
+  "name": "allow token exchange",
+  "priority": 1,
+  "created": "2021-04-14T17:47:42.000Z",
+  "lastUpdated": "2021-04-14T17:47:42.000Z",
+  "system": false,
+  "conditions": {
+    "people": {
+      "users": {
+        "include": [],
+        "exclude": []
+      },
+      "groups": {
+        "include": [
+          "EVERYONE"
+        ],
+        "exclude": []
+      }
+    },
+    "grantTypes": {
+      "include": [
+        "implicit",
+        "password",
+        "client_credentials",
+        "authorization_code",
+        "urn:ietf:params:oauth:grant-type:token-exchange"
+      ]
+    },
+    "scopes": {
+      "include": [
+        "*"
+      ]
+    }
+  },
+  "actions": {
+    "token": {
+      "accessTokenLifetimeMinutes": 60,
+      "refreshTokenLifetimeMinutes": 0,
+      "refreshTokenWindowMinutes": 10080
+    }
+  },
+  "type": "RESOURCE_ACCESS"
 }'
 ```
 
@@ -213,7 +213,7 @@ This is applicable for all clients participating in Native SSO (for example, cli
 
 ### Update the client with the token exchange grant
 
-In this request, update the client with the token exchange grant. Use the response from the last step to create your UPDATE request. You need to update the `grantTypes` parameter by adding the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type for the client.
+In this request, update the client with the token exchange grant. Use the response from the last step to create your UPDATE request. You need to update the `grant_types` parameter by adding the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type for the client.
 
 > **Note:** All clients that want to leverage Native SSO and SLO must be configured with this grant type.
 
@@ -247,7 +247,7 @@ In this request, update the client with the token exchange grant. Use the respon
 
 ## Native SSO desktop session lifetime
 
-The device secret assumes the lifetime of the first refresh token that it was minted with. The device secret has the same idle time and maximum time according to the authorization server policy through which it was minted. From there, the device secret and refresh token idle lifetimes are independent of each other.
+The device secret assumes the lifetime of the first refresh token that it was minted with. The device secret has the same idle time and maximum time as the refresh token according to the authorization server policy through which it was minted. From there, the device secret and refresh token idle lifetimes are independent of each other.
 
 Other refresh tokens (and other tokens) that are minted by using the device secret are mandated by the authorization server policy through which these tokens are generated. Whenever a device secret is used to generate a new set of tokens, the device secret's idle lifetime or the maximum lifetime is still governed by the original authorization server policy through which the device secret was minted, and it is updated accordingly.
 
@@ -312,13 +312,13 @@ The authorization server response includes the `device_secret`, as well as the `
 
 ### Exchange existing tokens from client 1 for new tokens for client 2
 
-When you make a token exchange request, the response returns the tokens that you need to use for client 2.
+Client 2 makes a token exchange request, and the response returns the tokens applicable for client 2.
 
 **Example request**
 
 ```bash
   curl --location --request POST \
-  --url https://${yourOktaDomain}/oauth2/{authorizationServerId}/v1/token \
+  --url https://${yourOktaDomain}/oauth2/default/v1/token \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id={client #2 id}' \
@@ -366,7 +366,7 @@ Occasionally you may want to verify that the device secret is still valid by usi
 
 ```bash
   curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/introspect \
+  --url https://${yourOktaDomain}/oauth2/default/v1/introspect \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id={client #1 id}' \
@@ -384,7 +384,7 @@ Occasionally you may want to verify that the device secret is still valid by usi
 }
 ```
 
-The `/introspect` endpoint returns the `sid` that it's tied to. The same value is present in the ID token. By doing this, you can correlate and identify the ID tokens that are minted with the same device secret.
+The `/introspect` endpoint returns the `sid` that the device secret is tied to. The same value is present in the ID token. By doing this, you can correlate and identify the ID tokens that are minted with the same device secret.
 
 ## Revoke the device secret to end a desktop session
 
@@ -394,7 +394,7 @@ Sometimes you have to end a user's desktop session. When you do that, you are si
 
 ```bash
 curl --location --request POST \
---url https://${yourOktaDomain}/oauth2/{authorizationServerId}/v1/revoke \
+--url https://${yourOktaDomain}/oauth2/default/v1/revoke \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'token={device_secret}' \
@@ -407,7 +407,7 @@ curl --location --request POST \
 HTTP/1.1 200 OK
 ```
 
-After you've revoked the device secret, the corresponding access, refresh, and ID tokens are also revoked for that device. You can verify that the revoke was successful by making a request to the `/introspect` endpoint again for that client. You should receive the following response:
+After you've revoked the device secret, the corresponding access and refresh tokens are invalidated for that device. You can verify that the revoke was successful by introspecting the device secret again for that client. You should receive the following response:
 
 ```json
 {
@@ -415,7 +415,7 @@ After you've revoked the device secret, the corresponding access, refresh, and I
 }
 ```
 
-To verify that the tokens are also automatically revoked for other clients, repeat the `/introspect` request using those client IDs.
+To verify that the refresh and access tokens are also automatically invalidated for other clients, repeat the `/introspect` request for those tokens by using the corresponding client IDs.
 
 ## Request Logout
 
@@ -429,7 +429,7 @@ When the user signs out of an application, the application sends a `/logout` req
   --data-urlencode `state=2OwvFrEMTJg` \
 ```
 
-The Authorization Server invalidates the ID token and refresh token that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails. The existing access token isn't revoked and is valid until it naturally expires.
+The Authorization Server invalidates the access and refresh tokens that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails.
 
 Okta returns a response to the `post_logout_redirect_uri`.
 
