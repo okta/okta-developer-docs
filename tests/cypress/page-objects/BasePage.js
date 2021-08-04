@@ -7,16 +7,15 @@ export class BasePage {
     cy.reload();
   }
 
+  // See css breakpoints section from packages/@okta/vuepress-theme-prose/assets/css/abstracts/_breakpoints.scss
   resizeMedium() {
-    cy.viewport(1024, 640);
+    cy.viewport(1023, 640);
   }
-
   resizeXXsmall() {
-    cy.viewport(480, 640);
+    cy.viewport(320, 640);
   }
-
   resizeXLarge() {
-    cy.viewport(1400, 840);
+    cy.viewport(1920, 840);
   }
 
   getInPageLink(hash) {
@@ -29,10 +28,5 @@ export class BasePage {
 
   getH5HeadingById(id) {
     return cy.get(`h5#${id}`);
-  }
-
-  getOnThisPageItem(hash) {
-    const onThisPageSidebarSelector = '.on-this-page-navigation';
-    return cy.get(`${onThisPageSidebarSelector} a[href="${hash}"]`);
   }
 }

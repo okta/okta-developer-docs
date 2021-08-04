@@ -22,9 +22,7 @@ describe("content section", () => {
   it('preserves correct scroll-to-heading behavior on page change', () => {
     const id = "factors-that-require-only-a-verification-operation";
 
-    basePage.visit('/docs/reference/api/groups');
-
-    treeNavPage.getTreeNavLinkByItemText('Factors').parent('a').click();
+    basePage.visit('/docs/reference/api/factors');
     basePage.getH2HeadingById(id).should('be.not.inViewport');
 
     basePage.getInPageLink(`/docs/reference/api/factors/#${id}`).click();

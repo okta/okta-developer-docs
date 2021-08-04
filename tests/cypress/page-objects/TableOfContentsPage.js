@@ -1,6 +1,6 @@
-import { BasePage } from "./BasePage";
+import { DocsPage } from "./DocsPage";
 
-export class TableOfContentsPage extends BasePage {
+export class TableOfContentsPage extends DocsPage {
   getLastSectionHeading() {
     return cy.get('#last-section');
   }
