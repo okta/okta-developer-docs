@@ -92,7 +92,7 @@ The `user_code` and `verification_uri` must appear on the smart device for the u
 
 ![Verification on the smart device:](/img/DeviceAuthGrant2.png)
 
-### Request for user access, ID, and refresh tokens
+### Request access, ID, and refresh tokens
 
 To retrieve tokens for the user, the smart device needs to make a request to the `/token` endpoint.
 
