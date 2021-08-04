@@ -278,7 +278,7 @@ The user is prompted to provide their credentials. After the authorization serve
 **Example response**
 
 ```
-  https://{configured_redirect_uri}/?code=S_NuB0TNeDMXD_5SKZO6FuXFOi_J9XB-sHAk0Dc0txQ&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9
+  https://{configuredRedirectUri}/?code=S_NuB0TNeDMXD_5SKZO6FuXFOi_J9XB-sHAk0Dc0txQ&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9
 ```
 
 ### Exchange the code for tokens
