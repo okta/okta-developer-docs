@@ -1,7 +1,9 @@
 ---
-title: CAPTCHAs
+title: CAPTCHAS
 category: management
 ---
+
+# CAPTCHAS API
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
