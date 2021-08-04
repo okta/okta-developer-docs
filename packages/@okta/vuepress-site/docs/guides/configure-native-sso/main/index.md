@@ -152,7 +152,7 @@ curl --location --request PUT
 --header 'Accept: application/json' \
 --header 'Authorization: SSWS {apiKey}' \
 -d '{
-  "id": "0pr3erdfwAnLPICrw0g4",
+  "id": "{ruleId}",
   "status": "ACTIVE",
   "name": "allow token exchange",
   "priority": 1,
