@@ -431,7 +431,7 @@ When the user signs out of an application, the application sends a `/logout` req
   --data-urlencode `state=2OwvFrEMTJg` \
 ```
 
-The Authorization Server invalidates the ID token and refresh token that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails. The existing access token isn't revoked and is valid until it naturally expires.
+The Authorization Server invalidates the access and refresh tokens that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails.
 
 Okta returns a response to the `post_logout_redirect_uri`.
 
