@@ -19,7 +19,7 @@ If you need help or have an issue, post a question on the [Okta Developer Forum]
 This guide assumes that you:
 
 * Have an Okta Developer Edition organiztion. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Have the Device Authorization Grant feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Device Authorization Grant slider, and slide to enable.
+* Have the Device Authorization feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Device Authorization Grant slider, and slide to enable.
 
 ## Configure an application to use the Device Authorization Grant
 
