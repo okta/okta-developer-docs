@@ -26,6 +26,15 @@ if err != nil {
 
 ```
 
-### Step 3: Send user to the signed out page
+### Step 3: Remove tokens from server
+
+The next step is to revoke the tokens on the server. Use the
+[revoke endpoint](/docs/guides/revoke-tokens/revokeatrt/)
+to remove the tokens from the server and clear it from use from any location.
+
+<!-- The goland SDK and sample app do not have code to revoke a token. It's a bug and a JIRA ticket
+has been opened. In the meantime, a reference to manually revoke the token using the endpoints is used. -->
+
+### Step 4: Send user to the signed out page
 
 After the user is signed out, send them to the default page after a sign-out.

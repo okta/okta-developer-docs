@@ -1,9 +1,11 @@
 ## Summary of steps
 
-This use case signs a user out of the local app by removing  The sequence of steps is shown below:
+This use case signs a user out of the local app by revoking
+their session tokens. The sequence of steps is shown below:
 
 <div class="common-image-format">
 
-![Diagram showing the sequence of steps a Golang application takes to sign out a user.](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-simple-sign-out-seq.png)
+![Basic sign out sequence diagram](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-out-seq.png
+ "Basic sign out sequence diagram]")
 
-</div>
+ </div>
