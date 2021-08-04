@@ -66,7 +66,7 @@ To use the Native SSO functionality, you need to:
 * Configure the Token Exchange grant type for all clients participating in the Native SSO flow
 * Use Authorization Code with PKCE to obtain the authorization code for client 1
 * Exchange the code for tokens
-* Exchange existing tokens from client 1 for new tokens for client 2
+* Exchange existing tokens that are obtained from client 1 for a new set of tokens for client 2
 * Validate the device secret
 * Revoke the device secret to end a desktop session
 
