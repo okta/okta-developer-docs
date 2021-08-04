@@ -146,7 +146,7 @@ Next, configure the token exchange grant type for the client that is using the A
 
 ```json
 curl --location --request PUT
---url https://${yourOktaDomain}/api/v1/authorizationServers/{AuthorizationServerId}/policies/{policyId}/rules/{ruleId} \
+--url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/{policyId}/rules/{ruleId} \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
 --header 'Authorization: SSWS <apiKey>' \
