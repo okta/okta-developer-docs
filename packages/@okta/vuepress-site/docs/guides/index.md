@@ -15,6 +15,7 @@ guides:
  - customize-tokens-dynamic
  - customize-tokens-static
  - customize-tokens-groups-claim
+ - device-authorization-grant
  - email-customization
  - enable-cors
  - event-hook-implementation
