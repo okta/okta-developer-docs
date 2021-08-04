@@ -54,7 +54,7 @@ okta -> app2: 8. Returns an `access_token` and `refresh_token`
 1. The authorization server returns the tokens (`id_token`, `refresh_token`, and `access_token`) and the `device_secret` in the response.
 1. Native app 2 makes a request for a `refresh_token` and `access_token`. The request contains the `id_token` and the `device_secret`.
 
-	For Native app 2, each client can use the `id_token` and the `device_secret` obtained from the first client that authenticated (see the following diagram). To sign in automatically, each client can use the `id_token` and `device_secret` in their `/token` request.
+	Native app 2, and any other client that participates in the Native SSO flow, can use the `id_token` and the `device_secret` obtained from the initial client that authenticated (see the following diagram). To sign in automatically, the clients can use the `id_token` and `device_secret` and exchange them for tokens by making a `/token` request.
 
 	![ID token and device secret use](/img/nativeSSO_flow2.png)
 
