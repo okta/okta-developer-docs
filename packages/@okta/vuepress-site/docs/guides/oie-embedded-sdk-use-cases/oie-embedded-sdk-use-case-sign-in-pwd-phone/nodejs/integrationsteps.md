@@ -6,7 +6,7 @@ Build a sign-in page that captures the username and password, as shown in the fo
 
 <div class="common-image-format">
 
-![Sign-in page screenshot where user enters username and password for authentication.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
+![Sign-in page screenshot where user enters username and password for authentication.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
 </div>
 
@@ -26,30 +26,41 @@ After this response, you need to redirect the user to an authenticator list page
 
 ### Step 2: Select the phone factor in the authenticator list
 
-In this use case, only the **phone** factor will be displayed in the list of authenticators.
+In this use case, only the **phone** factor is displayed in the list of authenticators, as shown in the following example page:
 
-When the user selects the **phone** factor, call `idx.authenticate` and pass in the authentication phone type, `{ authenticator: 'phone' }`. If the call is successful, the method returns a status of `Idx.Status:PENDING`, indicating that the SDK needs a phone number in order to send the verification code. The `nextStep` field includes the input for the phone number.
+<div class="common-image-format">
+
+![Displays a screenshot of a Select Authenticator page that includes a phone option and a Select button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-nodejs.png)
+
+</div>
+
+>**Note:** For the SDK sample application, each user must set up a phone number for phone verification to see this authenticator option in the page.
+
+When the user selects the **phone** factor, call `idx.authenticate` and pass in the authentication phone type, `{ authenticator: 'phone' }`. If the call is successful, the method returns a status of `Idx.Status:PENDING`, which indicates that the SDK needs a phone verification method in order to send the verification code. The `nextStep` field includes the input for this method.
 
 ```JavaScript
 status, // IdxStatus.PENDING
   nextStep: {
-    inputs, // [{ phone: '+#######', ... }]
+    inputs, // [{ phoneFactor: 'SMS', ... }]
 }
 ```
 
-The next step is to redirect the user to a page to enter in the phone number.
+The next step is to redirect the user to a page to enter in the phone verification field.
 
-### Step 3: Build the phone number entry page
+### Step 3: Build the phone verification method entry page
 
-Build the phone number entry page that accepts the phone number and phone verification method that the user will use for enrollment.
+Build the phone verification method entry page that accepts either SMS or voice verification that is used for authentication.
 
->**Note:** The SDK requires that the phone number follows the `+#######` format, which starts with a plus (+) sign. See [Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/nodejs/main/#phone-number).
+<div class="common-image-format">
 
-When the user enters a phone number and a phone verification method, either SMS or voice verification, and clicks **Submit**, a call to `idx.authenticate` is made that passes in the following values:
+![Displays a screenshot of a Verify using phone authenticator page that includes a SMS option and a Next button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-phone-method-nodejs.png)
+
+</div>
+
+When the user enters a phone verification method (either SMS or voice verification) and clicks **Next**, a call to `idx.authenticate` is made that passes in the following values:
 
 * Authenticator (type): `{ authenticator: 'phone' }`
-* Phone number: `{ phone: '+#######' }`
-* Verification method: `[ method: 'SMS' }]`
+* Verification method: `{ name: 'SMS' }`
 
 If the call to `idx.authenticate` is successful, the SDK returns another status of `Idx.Status:PENDING`. When this status is returned, it indicates that Okta has sent a code to the phone number through SMS. The `nextStep` field requires the code as a verification input:
 
@@ -64,9 +75,15 @@ status, // IdxStatus.PENDING
 
 Build a page that accepts the code sent to the user's phone number through SMS. Depending on your implementation, this page can be the same page that verifies the email code or a different page.
 
-The next step is to call `idx.authenticate` passing in the verification code `{ verification: 'xxx'}`.
+<div class="common-image-format">
 
-Then, handle the response from `idx.authenticate`. If the phone code was valid, the method returns a status of `Idx.Status:SUCCESS` with tokens. This status signifies that there are no more factors waiting to be enrolled and verified. If the steps described in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user has successfully signed in and is sent to the default sign-in home page.
+![Displays a screenshot of a Challenge Authenticator page that includes a field for the code and a Verifiy button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-in-pwd-phone-verify-phone-code-nodejs.png)
+
+</div>
+
+The next step is to call `idx.authenticate` passing in the verification code `{ verification: '123'}`.
+
+Then, handle the response from `idx.authenticate`. If the phone code was valid, the method returns a status of `Idx.Status:SUCCESS` with tokens. This status signifies that there are no more factors that are waiting to be enrolled and verified. If the steps described in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user is successfully signed in and is sent to the default sign-in home page.
 
 #### Get user profile information (optional)
 

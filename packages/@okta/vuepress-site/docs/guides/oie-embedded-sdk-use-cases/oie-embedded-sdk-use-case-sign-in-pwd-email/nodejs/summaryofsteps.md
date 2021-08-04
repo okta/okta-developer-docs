@@ -1,12 +1,9 @@
 ## Summary of steps
 
-The following shows the sequence of steps for the sign-in with password and email flow.
+The following diagram shows the sequence of steps for the sign in with password and email flow.
 
 <div class="common-image-format">
 
-![Sign in with email and password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-nodejs.png
- "Sign in with email and password")
+![Displays a flow diagram for the sign in with email and password use case.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-nodejs.png)
 
 </div>
-
->**NOTE:** The SDK sample application does not support this use case.
