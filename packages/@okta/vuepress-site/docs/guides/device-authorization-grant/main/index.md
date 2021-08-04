@@ -49,7 +49,7 @@ To check that Device Authorization is enabled:
 
 The smart device first needs to call the `/device/authorize` endpoint to obtain the unique verification code.
 
-**Request example**
+**Example request**
 
 ```bash
   curl --request POST \
@@ -64,7 +64,7 @@ The device authorization request passes the following parameters:
 * `client_id`, which matches the Client ID of the OAuth 2.0 application that you created
 * `scope` to specify which access privileges are being requested for access tokens. See [Scopes](https://developer.okta.com/docs/reference/api/oidc/#scopes) for a list of supported scopes.
 
-**Response example**
+**Example response**
 
 ```json
 {
@@ -111,7 +111,7 @@ Note the paramters that are being passed:
 * `grant_type`: Identifies the mechanism that Okta uses to retrieve the tokens. Value: `urn:ietf:params:oauth:grant-type:device_code`
 * `device_code`: The string that the device uses to exchange for an access token. Use the `device_code` value from the device verification response.
 
-**Response example**
+**Example response**
 
 Okta returns a pending response if the user doesn't complete the authentication.
 
@@ -128,8 +128,7 @@ After the user visits the `/activate` URL, follows the instructions on their dev
  {
    "token_type": "Bearer",
    "expires_in": 3600,
-   "access_token":
-      "eyJraWQ...JQuDJh8g",
+   "access_token": "eyJraWQ...JQuDJh8g",
    "scope": "offline_access openid profile",
    "refresh_token": "zcLdr1FBXwtI9ej98VVVwtjDd-SmaoL06qr_UcY2tNA",
    "id_token": "eyJraWQ...WI6KR0aQ"
@@ -151,4 +150,10 @@ To revoke the tokens, the smart device must make a request to the `/revoke` endp
   --data-urlencode 'token=refresh_token' \
   --data-urlencode 'token_type_hint=refresh_token' \
   --data-urlencode 'client_id={client_id}' \
+```
+
+**Example response**
+
+```
+HTTP/1.1 200 OK
 ```
