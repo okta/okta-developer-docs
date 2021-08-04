@@ -84,7 +84,7 @@ To configure Native SSO, start by setting up your application. To walk through t
 
 ## Configure Native SSO for your Okta org
 
-Configure Native SSO for your org by updating the authorization server policy rule to allow the token exchange grant. In this use case example, we are using the "default" Custom Authorization Server.
+Configure Native SSO for your org by updating the authorization server policy rule to allow the token exchange grant. In this use case example, we are using the "default" Custom Authorization Server. Org Authorization Server is not supported with this feature.
 
 1. From the left navigation pane in the Admin Console, go to **Security** > **API** to view your authorization servers.
 1. On the **Authorization Servers** tab, click the **edit** pencil icon for the "default" Custom Authorization Server.
