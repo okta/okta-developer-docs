@@ -375,7 +375,7 @@ Occasionally you may want to verify that the device secret is still valid by usi
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id={client #1 id}' \
-  --data-urlencode 'token={device_secret}' \
+  --data-urlencode 'token={deviceSecret}' \
   --data-urlencode 'token_type_hint=device_secret'
 ```
 
