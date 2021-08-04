@@ -337,7 +337,7 @@ Client 2 makes a token exchange request, and the response returns the tokens app
 
 Note the parameters that are being passed:
 
-* `client_id`: Identifies the new client (for example, client #2) and matches the Client ID of the OAuth 2.0 application that you created.
+* `client_id`: Identifies the new client (for example, client 2) and matches the Client ID of the OAuth 2.0 application that you created.
 * `grant_type`: Identifies the mechanism that Okta uses to authorize the creation of the tokens. Value: `urn:ietf:params:oauth:grant-type:token-exchange`
 * `actor_token`: Identifies the `device_secret` that was returned in response to the authorization code request.
 * `actor_token_type`: Identifies the type of token in the `actor_token` parameter.
