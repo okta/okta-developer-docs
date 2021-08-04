@@ -114,6 +114,12 @@ module.exports = class Build extends EventEmitter {
     await this.context.pluginAPI.applyAsyncOption('generated', this.pagePaths)
   }
 
+  /**
+   * Spawn a worker thread to render pages.
+   *
+   * @param {Number} workerNumber
+   */
+
   triggerWorker(workerNumber) {
     const startIndex = this.context.pages.length - this.pagesRemaining;
     const pageData = this.context.pages.slice(
