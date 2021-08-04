@@ -229,8 +229,8 @@ In this request, update the client with the token exchange grant. Use the respon
       "client_name": "Target Client",
       "client_uri": null,
       "logo_uri": null,
-      "redirect_uris": [
-        "https://httpbin.org/get"
+      "post_logout_redirect_uris": [
+        "yourApp:/callback"
     ],
     "response_types": [
        "code"
@@ -352,9 +352,10 @@ If the request is successful, the response returned includes the following token
 {
     "token_type": "Bearer",
     "expires_in": 3600,
-    "access_token": "eyJraWQiOiJ...LnmQ2F6hEVUw",
-    "scope": "openid offline_access",
-    "id_token": "eyJraWQiOiJ...PsjP3WGQWgA",
+    "access_token": "eyJraWQiOiJZQ...VNL3SttonAlV4NYMQ",
+    "scope": "offline_access openid device_sso",
+    "refresh_token": "dd1LXWH5qug6tHAZDhYBOHbqg5TxxbXvwpsIR5qjZRw",
+    "id_token": "eyJraWQiOiJZQ...woMh1u6jHMQTI0fA",
 }
 ```
 
@@ -425,7 +426,7 @@ When the user signs out of an application, the application sends a `/logout` req
   curl --location --request GET `https://${yourOktaDomain}/oauth2/default/v1/logout` \
   --data-urlencode `id_token_hint={id_token}` \
   --data-urlencode `device_secret={device_secret}` \
-  --data-urlencode `post_logout_redirect_uri=https%3A%2F%2Fclient1.example.${yourOktaDomain}%2Flogout` \
+  --data-urlencode `post_logout_redirect_uris=https%3A%2F%2Fclient1.example.${yourOktaDomain}%2Flogout` \
   --data-urlencode `state=2OwvFrEMTJg` \
 ```
 
