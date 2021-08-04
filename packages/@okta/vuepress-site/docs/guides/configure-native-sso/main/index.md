@@ -223,7 +223,7 @@ In this request, update the client with the token exchange grant. Use the respon
   --url https://${yourOktaDomain}/oauth2/v1/clients/{clientId} \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
-  --header 'Authorization: SSWS <apiKey>' \
+  --header 'Authorization: SSWS {apiKey}' \
   -d '{
       "client_id": "{clientId}",
       "client_id_issued_at": 1618351934,
