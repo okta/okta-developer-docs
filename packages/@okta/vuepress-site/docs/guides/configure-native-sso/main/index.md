@@ -305,7 +305,7 @@ The authorization server response includes the `device_secret`, as well as the `
     "token_type": "Bearer",
     "expires_in": 3600,
     "access_token": "eyJra....3pcxrrhSAw",
-    "scope": "offline_access openid device_sso",
+    "scope": "openid device_sso offline_access",
     "refresh_token": "FOxRzDPAGtOapDzap-rNBOSWznClz3p-zypbZ157W6c",
     "id_token": "eyJraWQiOi....VQT8GGmg",
     "device_secret": "+oUXe6pnhkDOTTjR5ZGFQoZGVBrQPiDsUWIk27ioyhM="
