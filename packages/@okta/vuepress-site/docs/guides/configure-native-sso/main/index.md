@@ -131,7 +131,7 @@ Use the `policyId` and `ruleId` that you obtained in the previous section to obt
 
 ```bash
   curl --request GET \
-  --url https://${yourOktaDomain}/api/v1/authorizationServers/{AuthorizationServerId}/policies/{policyId}/rules/{ruleId} \
+  --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/{policyId}/rules/{ruleId} \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --header 'Authorization: SSWS {apiKey}'
@@ -139,7 +139,7 @@ Use the `policyId` and `ruleId` that you obtained in the previous section to obt
 
 ### Add the token exchange grant type to the policy
 
-Next, configure the token exchange grant type for the client that is using the API. You need to update the `grantTypes` parameter by adding the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type in the policy rule.
+Next, configure the token exchange grant type for the client that is using the API. You need to update the `grantTypes` property by including the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type in the policy rule.
 
 > **Note:** The `*` value in `scopes` means any scope is valid here.
 
