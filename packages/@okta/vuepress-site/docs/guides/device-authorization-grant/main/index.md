@@ -92,7 +92,7 @@ The `user_code` and `verification_uri` must appear on the smart device for the u
 
 ![Verification on the smart device:](/img/DeviceAuthGrant2.png)
 
-### Request for user access, ID, and refresh tokens
+### Request access, ID, and refresh tokens
 
 To retrieve tokens for the user, the smart device needs to make a request to the `/token` endpoint.
 
@@ -129,7 +129,7 @@ After the user visits the `/activate` URL, follows the instructions on their dev
    "token_type": "Bearer",
    "expires_in": 3600,
    "access_token": "eyJraWQ...JQuDJh8g",
-   "scope": "offline_access openid profile",
+   "scope": "openid profile offline_access",
    "refresh_token": "zcLdr1FBXwtI9ej98VVVwtjDd-SmaoL06qr_UcY2tNA",
    "id_token": "eyJraWQ...WI6KR0aQ"
  }
@@ -147,9 +147,9 @@ To revoke the tokens, the smart device must make a request to the `/revoke` endp
   curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/revoke' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'token=refresh_token' \
+  --data-urlencode 'token={refreshToken}' \
   --data-urlencode 'token_type_hint=refresh_token' \
-  --data-urlencode 'client_id={client_id}' \
+  --data-urlencode 'client_id={clientId}' \
 ```
 
 **Example response**
