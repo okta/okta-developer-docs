@@ -62,8 +62,9 @@ okta -> app2: 8. Returns an `access_token` and `refresh_token`
 
 To use the Native SSO functionality, you need to:
 
+* Set up your application
 * Configure Native SSO for your Okta org
-* Configure the Token Exchange grant type for all clients participating in the Native SSO flow
+* Configure your client to participate in Native SSO
 * Use Authorization Code with PKCE to obtain the authorization code for client 1
 * Exchange the code for tokens
 * Exchange existing tokens that are obtained from client 1 for a new set of tokens for client 2
