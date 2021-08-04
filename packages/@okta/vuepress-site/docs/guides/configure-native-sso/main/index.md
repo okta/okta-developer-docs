@@ -150,9 +150,9 @@ curl --location --request PUT
 --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/{policyId}/rules/{ruleId} \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'Authorization: SSWS <apiKey>' \
+--header 'Authorization: SSWS {apiKey}' \
 -d '{
-  "id": "0pr3erdfwAnLPICrw0g4",
+  "id": "{ruleId}",
   "status": "ACTIVE",
   "name": "allow token exchange",
   "priority": 1,
@@ -209,7 +209,7 @@ This is applicable for all clients participating in Native SSO (for example, cli
   --url https://${yourOktaDomain}/oauth2/v1/clients/{clientId}' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
-  --header 'Authorization: SSWS <apiKey>'
+  --header 'Authorization: SSWS {apiKey}'
 ```
 
 ### Update the client with the token exchange grant
@@ -230,20 +230,23 @@ In this request, update the client with the token exchange grant. Use the respon
       "client_name": "Target Client",
       "client_uri": null,
       "logo_uri": null,
-      "post_logout_redirect_uris": [
+      "redirect_uris": [
         "yourApp:/callback"
-    ],
-    "response_types": [
-       "code"
-    ],
-    "grant_types": [
-        "authorization_code",
-        "refresh_token",
-        "urn:ietf:params:oauth:grant-type:token-exchange"
-    ],
-    "token_endpoint_auth_method": "none",
-    "application_type": "native"
-}'
+      ],
+      "post_logout_redirect_uris": [
+        "yourApp:/logout/callback"
+      ],
+      "response_types": [
+         "code"
+      ],
+      "grant_types": [
+          "authorization_code",
+          "refresh_token",
+          "urn:ietf:params:oauth:grant-type:token-exchange"
+      ],
+      "token_endpoint_auth_method": "none",
+      "application_type": "native"
+    }'
 ```
 
 ## Native SSO desktop session lifetime
@@ -262,12 +265,12 @@ In this example, you want to SSO to multiple apps that are created by the same c
 
 ### Use Authorization Code with PKCE to obtain the authorization code for client 1
 
-Provide the `device_sso`, `openid`, and `offline_access` scopes in the first request to the `/authorize` endpoint using the Authorization Code with PKCE flow. See [Use the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/use-flow/) for information on the parameters that are being passed in this request.
+Provide the `device_sso`, `openid`, and `offline_access` scopes in the first request to the `/authorize` endpoint using the Authorization Code with PKCE flow. All three scopes are required in the request. You must use `device_sso` with `openid` and `offline_access`. See [Use the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/use-flow/) for information on the parameters that are being passed in this request.
 
 **Example Authorization Code with PKCE request**
 
 ```
-  https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}&response_type=code&scope=openid device_sso offline_access&redirect_uri={configured_redirect_uri}&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
+  https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}&response_type=code&scope=openid device_sso offline_access&redirect_uri={configuredRedirectUri}&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
 ```
 
 The user is prompted to provide their credentials. After the authorization server verifies those credentials, the authorization code is sent to the `redirect_uri` that you specified. The following is an example of the authorization code returned.
@@ -275,7 +278,7 @@ The user is prompted to provide their credentials. After the authorization serve
 **Example response**
 
 ```
-  https://{configured_redirect_uri}/?code=S_NuB0TNeDMXD_5SKZO6FuXFOi_J9XB-sHAk0Dc0txQ&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9
+  https://{configuredRedirectUri}/?code=S_NuB0TNeDMXD_5SKZO6FuXFOi_J9XB-sHAk0Dc0txQ&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9
 ```
 
 ### Exchange the code for tokens
@@ -290,7 +293,7 @@ curl --location --request POST \
   --header 'accept: application/json' \
   --header 'cache-control: no-cache' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'grant_type=authorization_code&client_id={clientId}&redirect_uri=yourApp%3A%2Fcallback&code=CKA9Utz2GkWlsrmnqehz&code_verifier=M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
+  --data 'grant_type=authorization_code&client_id={clientId}&redirect_uri={configuredRedirectUri}&code=CKA9Utz2GkWlsrmnqehz&code_verifier=M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
 
 **Example response**
@@ -302,7 +305,7 @@ The authorization server response includes the `device_secret`, as well as the `
     "token_type": "Bearer",
     "expires_in": 3600,
     "access_token": "eyJra....3pcxrrhSAw",
-    "scope": "offline_access openid device_sso",
+    "scope": "openid device_sso offline_access",
     "refresh_token": "FOxRzDPAGtOapDzap-rNBOSWznClz3p-zypbZ157W6c",
     "id_token": "eyJraWQiOi....VQT8GGmg",
     "device_secret": "+oUXe6pnhkDOTTjR5ZGFQoZGVBrQPiDsUWIk27ioyhM="
@@ -324,9 +327,9 @@ Client 2 makes a token exchange request, and the response returns the tokens app
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id={client #2 id}' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
-  --data-urlencode 'actor_token={device_secret}' \
+  --data-urlencode 'actor_token={deviceSecret}' \
   --data-urlencode 'actor_token_type=urn:x-oath:params:oauth:token-type:device-secret' \
-  --data-urlencode 'subject_token={id_token}' \
+  --data-urlencode 'subject_token={idToken}' \
   --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:id_token' \
   --data-urlencode 'scope=openid offline_access' \
   --data-urlencode 'audience={audience}'
@@ -354,7 +357,7 @@ If the request is successful, the response returned includes the following token
     "token_type": "Bearer",
     "expires_in": 3600,
     "access_token": "eyJraWQiOiJZQ...VNL3SttonAlV4NYMQ",
-    "scope": "offline_access openid device_sso",
+    "scope": "openid offline_access",
     "refresh_token": "dd1LXWH5qug6tHAZDhYBOHbqg5TxxbXvwpsIR5qjZRw",
     "id_token": "eyJraWQiOiJZQ...woMh1u6jHMQTI0fA",
 }
@@ -372,7 +375,7 @@ Occasionally you may want to verify that the device secret is still valid by usi
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id={client #1 id}' \
-  --data-urlencode 'token={device_secret}' \
+  --data-urlencode 'token={deviceSecret}' \
   --data-urlencode 'token_type_hint=device_secret'
 ```
 
@@ -399,7 +402,7 @@ curl --location --request POST \
 --url https://${yourOktaDomain}/oauth2/default/v1/revoke \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'token={device_secret}' \
+--data-urlencode 'token={deviceSecret}' \
 --data-urlencode 'client_id={client #1 id}' \
 ```
 
@@ -425,9 +428,9 @@ When the user signs out of an application, the application sends a `/logout` req
 
 ```bash
   curl --location --request GET `https://${yourOktaDomain}/oauth2/default/v1/logout` \
-  --data-urlencode `id_token_hint={id_token}` \
-  --data-urlencode `device_secret={device_secret}` \
-  --data-urlencode `post_logout_redirect_uris=https%3A%2F%2Fclient1.example.${yourOktaDomain}%2Flogout` \
+  --data-urlencode `id_token_hint={idToken}` \
+  --data-urlencode `device_secret={deviceSecret}` \
+  --data-urlencode `post_logout_redirect_uris={configuredPostLogoutRedirectUri}` \
   --data-urlencode `state=2OwvFrEMTJg` \
 ```
 
@@ -436,5 +439,5 @@ The Authorization Server invalidates the access and refresh tokens that are issu
 Okta returns a response to the `post_logout_redirect_uri`.
 
 ```bash
-  https://{configured_post_logout_redirect_uri}/logout&state=2OwvFrEMTJg
+  https://{configuredPostLogoutRedirectUri}/logout&state=2OwvFrEMTJg
 ```
