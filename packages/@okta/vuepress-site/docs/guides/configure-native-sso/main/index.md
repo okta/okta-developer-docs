@@ -150,7 +150,7 @@ curl --location --request PUT
 --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/{policyId}/rules/{ruleId} \
 --header 'Content-Type: application/json' \
 --header 'Accept: application/json' \
---header 'Authorization: SSWS <apiKey>' \
+--header 'Authorization: SSWS {apiKey}' \
 -d '{
   "id": "0pr3erdfwAnLPICrw0g4",
   "status": "ACTIVE",
