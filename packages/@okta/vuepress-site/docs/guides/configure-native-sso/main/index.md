@@ -96,7 +96,7 @@ Configure Native SSO for your org by updating the authorization server policy ru
 
 ### Obtain the policy ID
 
-Make a request to obtain the policy ID for the policy that you just created in the "Configure Native SSO for your Okta org" section. In this use case example, we are using the "default" Custom Authorization Server, so the `{authorizationServerID}` is `default`.
+Make a request to obtain the policy ID for the policy that you just created in the "Configure Native SSO for your Okta org" section. In this example, we are using the "default" Custom Authorization Server, so the `{authorizationServerID}` is `default`.
 
 **Request example**
 
