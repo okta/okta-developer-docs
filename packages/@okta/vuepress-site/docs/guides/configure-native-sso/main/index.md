@@ -213,7 +213,7 @@ This is applicable for all clients participating in Native SSO (for example, cli
 
 ### Update the client with the token exchange grant
 
-In this request, update the client with the token exchange grant. Use the response from the last step to create your UPDATE request. You need to update the `grantTypes` parameter by adding the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type for the client.
+In this request, update the client with the token exchange grant. Use the response from the last step to create your UPDATE request. You need to update the `grant_types` parameter by adding the value `urn:ietf:params:oauth:grant-type:token-exchange` so that the token exchange is an allowed grant type for the client.
 
 > **Note:** All clients that want to leverage Native SSO and SLO must be configured with this grant type.
 
