@@ -59,7 +59,7 @@ The smart device first needs to call the `/device/authorize` endpoint to obtain 
   --data-urlencode 'scope=openid profile offline_access'
 ```
 
-The POST request passes the following parameters:
+The device authorization request passes the following parameters:
 
 * `client_id`, which matches the Client ID of the OAuth 2.0 application that you created
 * `scope` to specify which access privileges are being requested for access tokens. See [Scopes](https://developer.okta.com/docs/reference/api/oidc/#scopes) for a list of supported scopes.
