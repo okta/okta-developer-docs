@@ -357,7 +357,7 @@ If the request is successful, the response returned includes the following token
     "token_type": "Bearer",
     "expires_in": 3600,
     "access_token": "eyJraWQiOiJZQ...VNL3SttonAlV4NYMQ",
-    "scope": "offline_access openid device_sso",
+    "scope": "openid offline_access",
     "refresh_token": "dd1LXWH5qug6tHAZDhYBOHbqg5TxxbXvwpsIR5qjZRw",
     "id_token": "eyJraWQiOiJZQ...woMh1u6jHMQTI0fA",
 }
