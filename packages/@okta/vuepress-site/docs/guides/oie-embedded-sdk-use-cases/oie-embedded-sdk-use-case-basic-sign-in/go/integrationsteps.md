@@ -72,7 +72,7 @@ if err != nil {
 }
 ```
 
-### Step 4: Handle the response from the sign-in
+### Step 4: Store tokens in session and redirect user to default sign-in page
 
 The `Identity` method returns a `LoginResponse` and `error`
 object. Use the `error` object to determine if there were errors in the
@@ -105,5 +105,5 @@ if lr.Token() != nil {
 ### Step 5 (Optional): Get user profile information
 
 Optionally, you can obtain basic user information after a successful user
-sign in by making a request to Okta's Open ID Connect authorization server.
+sign-in by making a request to Okta's Open ID Connect authorization server.
 See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo).
