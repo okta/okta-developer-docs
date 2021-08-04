@@ -327,7 +327,7 @@ Client 2 makes a token exchange request, and the response returns the tokens app
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id={client #2 id}' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
-  --data-urlencode 'actor_token={device_secret}' \
+  --data-urlencode 'actor_token={deviceSecret}' \
   --data-urlencode 'actor_token_type=urn:x-oath:params:oauth:token-type:device-secret' \
   --data-urlencode 'subject_token={id_token}' \
   --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:id_token' \
