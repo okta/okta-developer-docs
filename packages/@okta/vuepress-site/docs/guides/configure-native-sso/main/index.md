@@ -58,7 +58,7 @@ okta -> app2: 8. Returns an `access_token` and `refresh_token`
 
 	![ID token and device secret use](/img/nativeSSO_flow2.png)
 
-8. The authorization server returns the refresh and access tokens for Native app 2. This key part in the Native SSO flow enables a user to be automatically signed in without requiring any user action.
+8. The authorization server returns a new set of refresh and access tokens specifically for Native app 2. This key part in the Native SSO flow enables a user to be automatically signed in without requiring any user action.
 
 To use the Native SSO functionality, you need to:
 
