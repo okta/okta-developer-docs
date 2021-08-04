@@ -367,7 +367,7 @@ Occasionally you may want to verify that the device secret is still valid by usi
 
 ```bash
   curl --request POST \
-  --url https://${yourOktaDomain}/oauth2/v1/introspect \
+  --url https://${yourOktaDomain}/oauth2/default/v1/introspect \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id={client #1 id}' \
