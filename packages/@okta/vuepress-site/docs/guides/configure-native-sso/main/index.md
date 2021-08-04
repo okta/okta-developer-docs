@@ -318,7 +318,7 @@ Client 2 makes a token exchange request, and the response returns the tokens app
 
 ```bash
   curl --location --request POST \
-  --url https://${yourOktaDomain}/oauth2/{authorizationServerId}/v1/token \
+  --url https://${yourOktaDomain}/oauth2/default/v1/token \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id={client #2 id}' \
