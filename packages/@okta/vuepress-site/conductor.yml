@@ -878,7 +878,7 @@ redirects:
   - from: /guides/implement-client-creds/-/create-scopes/index.html
     to: /docs/guides/implement-grant-type/clientcreds/main/#create-custom-scopes
   - from: /guides/implement-client-creds/-/next-steps/index.html
-    to: /docs/guides/implement-grant-type/clientcreds/main/#next-steps
+    to: /docs/guides/implement-grant-type/clientcreds/main/#nextsteps
   - from: /guides/implement-client-creds/-/overview/index.html
     to: /docs/guides/implement-grant-type/clientcreds/main/#overview
   - from: /guides/implement-client-creds/-/setup-app/index.html
@@ -1660,7 +1660,7 @@ redirects:
   - from: /docs/guides/oan_guidance.html
     to: https://www.okta.com/integrate/documentation/oin-faq/
   - from: /authentication-guide/implementing-authentication/auth-code.html
-    to: /docs/guides/implement-grant-type/authcode/main/#overview
+    to: /docs/guides/implement-grant-type/authcode/main/
   - from: /authentication-guide/implementing-authentication/client-creds.html
     to: /docs/guides/implement-grant-type/clientcreds/main/
   - from: /docs/sdk/opp/javadoc/index.html
