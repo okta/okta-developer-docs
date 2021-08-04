@@ -62,7 +62,7 @@ The smart device first needs to call the `/device/authorize` endpoint to obtain 
 The device authorization request passes the following parameters:
 
 * `client_id` &mdash; matches the Client ID of the OAuth 2.0 application that you created
-* `scope` to specify which access privileges are being requested for access tokens. See [Scopes](https://developer.okta.com/docs/reference/api/oidc/#scopes) for a list of supported scopes.
+* `scope` &mdash; specifies which access privileges are being requested for access tokens. See [Scopes](/docs/reference/api/oidc/#scopes) for a list of supported scopes.
 
 **Example response**
 
