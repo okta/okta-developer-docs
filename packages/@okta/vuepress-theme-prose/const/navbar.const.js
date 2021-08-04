@@ -220,7 +220,7 @@ export const guides = [
         title: "Authorization",
         subLinks: [
           {
-            title: "Implement Authorization by grant type",
+            title: "Implement authorization by grant type",
             guideName: "implement-grant-type"
           },
           {
