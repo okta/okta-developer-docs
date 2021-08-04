@@ -270,7 +270,7 @@ Provide the `device_sso`, `openid`, and `offline_access` scopes in the first req
 **Example Authorization Code with PKCE request**
 
 ```
-  https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}&response_type=code&scope=openid device_sso offline_access&redirect_uri={configured_redirect_uri}&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
+  https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}&response_type=code&scope=openid device_sso offline_access&redirect_uri={configuredRedirectUri}&state=state-8600b31f-52d1-4dca-987c-386e3d8967e9&code_challenge_method=S256&code_challenge=qjrzSW9gMiUgpUvqgEPE4_-8swvyCtfOVvg55o5S_es
 ```
 
 The user is prompted to provide their credentials. After the authorization server verifies those credentials, the authorization code is sent to the `redirect_uri` that you specified. The following is an example of the authorization code returned.
