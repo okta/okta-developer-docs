@@ -439,5 +439,5 @@ The Authorization Server invalidates the access and refresh tokens that are issu
 Okta returns a response to the `post_logout_redirect_uri`.
 
 ```bash
-  https://{configured_post_logout_redirect_uri}/logout&state=2OwvFrEMTJg
+  https://{configuredPostLogoutRedirectUri}/logout&state=2OwvFrEMTJg
 ```
