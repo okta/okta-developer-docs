@@ -122,7 +122,7 @@ Okta returns a pending response if the user doesn't complete the authentication.
   }
 ```
 
-After the user completes the authentication process by visiting the `/activate` URL and follow the instructions on their device to get an activation code, the token is returned in the response from the `/token` endpoint.
+After the user visits the `/activate` URL, follows the instructions on their device to input the activation code, and completes the authentication and authorization, the tokens are returned in the response from the `/token` endpoint.
 
 ```json
  {
