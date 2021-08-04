@@ -34,7 +34,7 @@ To create a Native OpenID Connect application and then configure it to support D
 
 ## Configure the Authorization Server policy rule for Device Authorization
 
-Both Org and Custom Authorization Servers support Device Authorization. Ensure that Device Authorization is enabled at the policy rule level.
+Both Org and Custom Authorization Servers support Device Authorization. Ensure that Device Authorization is enabled at the policy rule level if you're planning to use a Custom Authorization Server. Note that if you're planning to use the Org Authorization Server, you can skip this step.
 
 To check that Device Authorization is enabled:
 
