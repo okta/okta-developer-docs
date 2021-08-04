@@ -329,7 +329,7 @@ Client 2 makes a token exchange request, and the response returns the tokens app
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:token-exchange' \
   --data-urlencode 'actor_token={deviceSecret}' \
   --data-urlencode 'actor_token_type=urn:x-oath:params:oauth:token-type:device-secret' \
-  --data-urlencode 'subject_token={id_token}' \
+  --data-urlencode 'subject_token={idToken}' \
   --data-urlencode 'subject_token_type=urn:ietf:params:oauth:token-type:id_token' \
   --data-urlencode 'scope=openid offline_access' \
   --data-urlencode 'audience={audience}'
