@@ -1,1 +1,1 @@
-Okta doesn't have SDKs that support the Resource Owner Password flow. This flow is generally not the recommended approach to implement authorization.
+<!-- Okta doesn't have SDKs that support the Resource Owner Password flow. This flow is generally not the recommended approach to implement authorization. -->

@@ -28,8 +28,6 @@ Before you can implement authorization, you need to register your app in Okta by
 
 <StackSnippet snippet="setup-app" />
 
-## Use an SDK
-
 <StackSnippet snippet="install-sdk" />
 
 ## Flow specifics
