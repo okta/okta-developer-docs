@@ -402,7 +402,7 @@ curl --location --request POST \
 --url https://${yourOktaDomain}/oauth2/default/v1/revoke \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'token={device_secret}' \
+--data-urlencode 'token={deviceSecret}' \
 --data-urlencode 'client_id={client #1 id}' \
 ```
 
