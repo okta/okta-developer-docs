@@ -114,24 +114,6 @@ module.exports = class Build extends EventEmitter {
     await this.context.pluginAPI.applyAsyncOption('generated', this.pagePaths)
   }
 
-  messageCallback(response) {
-    if (response.complete) {
-      this.pagePaths = this.pagePaths.concat(response.filePaths);
-    }
-    if (response.message) {
-      logger.wait(response.message)
-    }
-  }
-
-  errorCallback(error) {
-    console.error(
-      logger.error(
-        chalk.red(`Worker #${workerNumber} sent error: ${error}\n\n${error.stack}`),
-        false
-      )
-    )
-  }
-
   triggerWorker(workerNumber) {
     const startIndex = this.context.pages.length - this.pagesRemaining;
     const pageData = this.context.pages.slice(
@@ -162,8 +144,24 @@ module.exports = class Build extends EventEmitter {
 
     worker.postMessage(payload)
 
-    worker.on('message', this.messageCallback.bind(this));
-    worker.on('error', this.errorCallback.bind(this));
+    worker.on('message', response => {
+      if (response.complete) {
+        this.pagePaths = this.pagePaths.concat(response.filePaths);
+      }
+      if (response.message) {
+        logger.wait(response.message)
+      }
+    });
+
+    worker.on('error', error => {
+      console.error(
+        logger.error(
+          chalk.red(`Worker #${workerNumber} sent error: ${error}\n\n${error.stack}`),
+          false
+        )
+      );
+    });
+
     worker.on('exit', code => {
       this.activeWorkers--;
       if (code === 0) {
