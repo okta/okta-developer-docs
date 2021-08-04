@@ -16,7 +16,7 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/toke
 --data-urlencode 'assertion=<Base64-encoded assertion>'
 ```
 
-> **Note:** The call to your authorization server's `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and secret. You made note of these during <GuideLink link="../setup-app">app setup</GuideLink>. See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
+> **Note:** The call to your authorization server's `/token` endpoint requires authentication. In this case, it is a Basic Auth digest of the Client ID and secret. You made note of these during [set up your app](#set-up-your-app). See [Client Authentication Methods](/docs/reference/api/oidc/#client-authentication-methods).
 
 Note the parameters that are being passed:
 
