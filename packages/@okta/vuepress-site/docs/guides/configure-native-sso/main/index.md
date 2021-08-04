@@ -131,7 +131,7 @@ Use the `policyId` and `ruleId` that you obtained in the previous section to obt
 
 ```bash
   curl --request GET \
-  --url https://${yourOktaDomain}/api/v1/authorizationServers/{AuthorizationServerId}/policies/{policyId}/rules/{ruleId} \
+  --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/{policyId}/rules/{ruleId} \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --header 'Authorization: SSWS {apiKey}'
