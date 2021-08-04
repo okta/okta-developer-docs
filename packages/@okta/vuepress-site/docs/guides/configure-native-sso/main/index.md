@@ -50,7 +50,7 @@ okta -> app2: 8. Returns an `access_token` and `refresh_token`
 1. The user is prompted to authenticate.
 1. The user enters their credentials to allow the application to access resources protected by scopes.
 1. The authorization server returns the authorization code for Native app 1.
-1. The client sends the authorization code in the request for tokens.
+1. The client exchanges the authorization code for tokens.
 1. The authorization server returns the tokens (`id_token`, `refresh_token`, and `access_token`) and the `device_secret` in the response.
 1. Native app 2 makes a request for a `refresh_token` and `access_token`. The request contains the `id_token` and the `device_secret`.
 
