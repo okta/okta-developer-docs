@@ -409,7 +409,7 @@ HTTP/1.1 200 OK
 Content-Type: application/json
 ```
 
-After you've revoked the device secret, the corresponding access, refresh, and ID tokens are also revoked for that device. You can verify that the revoke was successful by making a request to the `/introspect` endpoint again for that client. You should receive the following response:
+After you've revoked the device secret, the corresponding access and refresh tokens are invalidated for that device. You can verify that the revoke was successful by introspecting the device secret again for that client. You should receive the following response:
 
 ```json
 {
