@@ -430,7 +430,7 @@ When the user signs out of an application, the application sends a `/logout` req
   curl --location --request GET `https://${yourOktaDomain}/oauth2/default/v1/logout` \
   --data-urlencode `id_token_hint={idToken}` \
   --data-urlencode `device_secret={deviceSecret}` \
-  --data-urlencode `post_logout_redirect_uris=https%3A%2F%2Fclient1.example.${yourOktaDomain}%2Flogout` \
+  --data-urlencode `post_logout_redirect_uris={configuredPostLogoutRedirectUri}` \
   --data-urlencode `state=2OwvFrEMTJg` \
 ```
 
