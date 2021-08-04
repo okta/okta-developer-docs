@@ -4,7 +4,7 @@ This section discusses the steps required to add an external SAML Identity Provi
 
 ### Configure a SAML Identity Provider
 
-Use one of the following existing procedure to configure the SAML Identity Provider:
+Use one of the following existing procedures to configure the SAML Identity Provider:
 
 * [Admin Console](/docs/guides/add-an-external-idp/saml2/configure-idp-in-okta/)
 * [Identity Providers API](/docs/reference/api/idps/#add-saml-2-0-identity-provider)
