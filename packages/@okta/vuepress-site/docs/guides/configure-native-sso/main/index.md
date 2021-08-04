@@ -265,7 +265,7 @@ In this example, you want to SSO to multiple apps that are created by the same c
 
 ### Use Authorization Code with PKCE to obtain the authorization code for client 1
 
-Provide the `device_sso`, `openid`, and `offline_access` scopes in the first request to the `/authorize` endpoint using the Authorization Code with PKCE flow. See [Use the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/use-flow/) for information on the parameters that are being passed in this request.
+Provide the `device_sso`, `openid`, and `offline_access` scopes in the first request to the `/authorize` endpoint using the Authorization Code with PKCE flow. All three scopes are required in the request. You must use `device_sso` with `openid` and `offline_access`. See [Use the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/use-flow/) for information on the parameters that are being passed in this request.
 
 **Example Authorization Code with PKCE request**
 
