@@ -395,7 +395,7 @@ Sometimes you have to end a user's desktop session. When you do that, you are si
 
 ```bash
 curl --location --request POST \
---url https://${yourOktaDomain}/oauth2/{authorizationServerId}/v1/revoke \
+--url https://${yourOktaDomain}/oauth2/default/v1/revoke \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'token={device_secret}' \
