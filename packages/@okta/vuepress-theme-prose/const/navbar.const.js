@@ -232,6 +232,10 @@ export const guides = [
             guideName: "customize-authz-server"
           },
           {
+            title: "Configure SSO for Native apps",
+            guideName: "configure-native-sso"
+          },
+          {
             title: "Implement the Client Credentials flow",
             guideName: "implement-client-creds"
           },
