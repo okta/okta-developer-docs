@@ -247,7 +247,7 @@ In this request, update the client with the token exchange grant. Use the respon
 
 ## Native SSO desktop session lifetime
 
-The device secret assumes the lifetime of the first refresh token that it was minted with. The device secret has the same idle time and maximum time according to the authorization server policy through which it was minted. From there, the device secret and refresh token idle lifetimes are independent of each other.
+The device secret assumes the lifetime of the first refresh token that it was minted with. The device secret has the same idle time and maximum time as the refresh token according to the authorization server policy through which it was minted. From there, the device secret and refresh token idle lifetimes are independent of each other.
 
 Other refresh tokens (and other tokens) that are minted by using the device secret are mandated by the authorization server policy through which these tokens are generated. Whenever a device secret is used to generate a new set of tokens, the device secret's idle lifetime or the maximum lifetime is still governed by the original authorization server policy through which the device secret was minted, and it is updated accordingly.
 
