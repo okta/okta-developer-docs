@@ -60,7 +60,7 @@ const COMMON_NAME_TO_FANCY_NAME = {
   implicit: 'Implicit',
   clientcreds: 'Client Credentials',
   ropassword: 'Resource Owner Password',
-  saml2: 'SAML 2.0 Assertion',
+  saml2assert: 'SAML 2.0 Assertion',
 };
 
 const COMMON_NAME_TO_ICON_NAME = {
