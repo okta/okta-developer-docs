@@ -209,7 +209,7 @@ This is applicable for all clients participating in Native SSO (for example, cli
   --url https://${yourOktaDomain}/oauth2/v1/clients/{clientId}' \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
-  --header 'Authorization: SSWS <apiKey>'
+  --header 'Authorization: SSWS {apiKey}'
 ```
 
 ### Update the client with the token exchange grant
