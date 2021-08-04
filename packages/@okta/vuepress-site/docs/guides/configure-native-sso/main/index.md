@@ -151,49 +151,49 @@ curl --location --request PUT
 --header 'Accept: application/json' \
 --header 'Authorization: SSWS <apiKey>' \
 -d '{
-	"id": "0pr3erdfwAnLPICrw0g4",
-	"status": "ACTIVE",
-	"name": "allow token exchange",
-	"priority": 1,
-	"created": "2021-04-14T17:47:42.000Z",
-	"lastUpdated": "2021-04-14T17:47:42.000Z",
-	"system": false,
-	"conditions": {
-    	"people": {
-        	"users": {
-            	"include": [],
-            	"exclude": []
-        	},
-        	"groups": {
-            	"include": [
-                	"EVERYONE"
-            	],
-            	"exclude": []
-        	}
-    	},
-    	"grantTypes": {
-        	"include": [
-            	"implicit",
-            	"password",
-				"client_credentials",
-            	"authorization_code",
-            	"urn:ietf:params:oauth:grant-type:token-exchange"
-        	]
-    	},
-    	"scopes": {
-        	"include": [
-            	"*"
-        	]
-    	}
-	},
-	"actions": {
-    	"token": {
-        	"accessTokenLifetimeMinutes": 60,
-        	"refreshTokenLifetimeMinutes": 0,
-        	"refreshTokenWindowMinutes": 10080
-    	}
-	},
-	"type": "RESOURCE_ACCESS"
+  "id": "0pr3erdfwAnLPICrw0g4",
+  "status": "ACTIVE",
+  "name": "allow token exchange",
+  "priority": 1,
+  "created": "2021-04-14T17:47:42.000Z",
+  "lastUpdated": "2021-04-14T17:47:42.000Z",
+  "system": false,
+  "conditions": {
+    "people": {
+      "users": {
+        "include": [],
+        "exclude": []
+      },
+      "groups": {
+        "include": [
+          "EVERYONE"
+        ],
+        "exclude": []
+      }
+    },
+    "grantTypes": {
+      "include": [
+        "implicit",
+        "password",
+        "client_credentials",
+        "authorization_code",
+        "urn:ietf:params:oauth:grant-type:token-exchange"
+      ]
+    },
+    "scopes": {
+      "include": [
+        "*"
+      ]
+    }
+  },
+  "actions": {
+    "token": {
+      "accessTokenLifetimeMinutes": 60,
+      "refreshTokenLifetimeMinutes": 0,
+      "refreshTokenWindowMinutes": 10080
+    }
+  },
+  "type": "RESOURCE_ACCESS"
 }'
 ```
 
