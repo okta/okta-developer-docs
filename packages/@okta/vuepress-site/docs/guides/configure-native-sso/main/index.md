@@ -417,7 +417,7 @@ After you've revoked the device secret, the corresponding access, refresh, and I
 }
 ```
 
-To verify that the tokens are also automatically revoked for other clients, repeat the `/introspect` request using those client IDs.
+To verify that the refresh and access tokens are also automatically invalidated for other clients, repeat the `/introspect` request for those tokens by using the corresponding client IDs.
 
 ## Request Logout
 
