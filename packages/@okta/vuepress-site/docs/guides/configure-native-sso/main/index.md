@@ -385,7 +385,7 @@ Occasionally you may want to verify that the device secret is still valid by usi
 }
 ```
 
-The `/introspect` endpoint returns the `sid` that it's tied to. The same value is present in the ID token. By doing this, you can correlate and identify the ID tokens that are minted with the same device secret.
+The `/introspect` endpoint returns the `sid` that the device secret is tied to. The same value is present in the ID token. By doing this, you can correlate and identify the ID tokens that are minted with the same device secret.
 
 ## Revoke the device secret to end a desktop session
 
