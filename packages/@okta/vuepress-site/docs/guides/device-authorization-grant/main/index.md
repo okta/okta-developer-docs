@@ -129,7 +129,7 @@ After the user visits the `/activate` URL, follows the instructions on their dev
    "token_type": "Bearer",
    "expires_in": 3600,
    "access_token": "eyJraWQ...JQuDJh8g",
-   "scope": "offline_access openid profile",
+   "scope": "openid profile offline_access",
    "refresh_token": "zcLdr1FBXwtI9ej98VVVwtjDd-SmaoL06qr_UcY2tNA",
    "id_token": "eyJraWQ...WI6KR0aQ"
  }
