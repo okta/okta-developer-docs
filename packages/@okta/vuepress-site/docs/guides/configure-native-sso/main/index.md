@@ -230,20 +230,23 @@ In this request, update the client with the token exchange grant. Use the respon
       "client_name": "Target Client",
       "client_uri": null,
       "logo_uri": null,
-      "post_logout_redirect_uris": [
+      "redirect_uris": [
         "yourApp:/callback"
-    ],
-    "response_types": [
-       "code"
-    ],
-    "grant_types": [
-        "authorization_code",
-        "refresh_token",
-        "urn:ietf:params:oauth:grant-type:token-exchange"
-    ],
-    "token_endpoint_auth_method": "none",
-    "application_type": "native"
-}'
+      ],
+      "post_logout_redirect_uris": [
+        "yourApp:/logout/callback"
+      ],
+      "response_types": [
+         "code"
+      ],
+      "grant_types": [
+          "authorization_code",
+          "refresh_token",
+          "urn:ietf:params:oauth:grant-type:token-exchange"
+      ],
+      "token_endpoint_auth_method": "none",
+      "application_type": "native"
+    }'
 ```
 
 ## Native SSO desktop session lifetime
