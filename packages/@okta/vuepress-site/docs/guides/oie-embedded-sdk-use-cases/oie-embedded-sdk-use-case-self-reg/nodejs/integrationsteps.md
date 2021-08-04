@@ -1,11 +1,10 @@
 ### Step 1: Create a sign-up link for new users
 
-The self-registration flow begins when the user clicks a **Sign up** link. On the sign-in page, create a **Sign up** link that links to the create account page that you create in the next step,  as shown in the following example.
-
+The self-registration flow begins when the user clicks the **Sign Up** link (or **Register** from the SDK sample application home page). On the sign-in page, create a **Sign Up** link that links to the create account page that you create in the next step,  as shown in the following example.
 
 <div class="common-image-format">
 
-![Displays a sign-up link screenshot that directs to a sign-up page. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-sign-up.png)
+![Displays a sign-up link screenshot that directs to a sign-up page. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
 </div>
 
@@ -13,7 +12,13 @@ The self-registration flow begins when the user clicks a **Sign up** link. On th
 
 ### Step 2: Enter information in the create account page
 
-The next step is to enter basic information (for example, email, first, and last name). Create a page that accepts this information. The following shows an example of a create account page.
+The next step is to enter basic information (for example, email, first, and last name). Create a page that accepts this information. The following image shows an example of a create account page.
+
+<div class="common-image-format">
+
+![Displays a Self-Service Registration page screenshot that includes fields for the first name, last name and email address. A Register button starts the self-registration flow. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+
+</div>
 
 When the user clicks **Register**, pass the user profile data captured from the Create account page into the `idx.register` method, as shown in the `register.js` page of the SDK sample application:
 
