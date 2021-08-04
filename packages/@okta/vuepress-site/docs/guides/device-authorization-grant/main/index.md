@@ -149,7 +149,7 @@ To revoke the tokens, the smart device must make a request to the `/revoke` endp
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'token={refreshToken}' \
   --data-urlencode 'token_type_hint=refresh_token' \
-  --data-urlencode 'client_id={client_id}' \
+  --data-urlencode 'client_id={clientId}' \
 ```
 
 **Example response**
