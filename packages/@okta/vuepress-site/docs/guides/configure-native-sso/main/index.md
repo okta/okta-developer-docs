@@ -46,7 +46,7 @@ okta -> app2: 8. Returns an `access_token` and `refresh_token`
 
 -->
 
-1. Native app 1 starts by redirecting the user's browser to the [authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint and requests for the `device_sso` scope.
+1. Native app 1 starts by redirecting the user's browser to the [authorization server](/docs/concepts/auth-servers/) `/authorize` endpoint and requests the `device_sso` scope.
 1. The user is prompted to authenticate.
 1. The user enters their credentials to allow the application to access resources protected by scopes.
 1. The authorization server returns the authorization code for Native app 1.
