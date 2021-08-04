@@ -86,7 +86,7 @@ The properties in the response are:
 
 The `user_code` and `verification_uri` must appear on the smart device for the user.
 
-> **Note:** A QR code compliant verification uri is coming soon.
+> **Note:** A QR code compliant verification URI is coming soon.
 
 #### Example of the display on the smart device
 
