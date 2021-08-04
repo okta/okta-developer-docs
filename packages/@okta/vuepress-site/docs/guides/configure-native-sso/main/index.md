@@ -312,7 +312,7 @@ The authorization server response includes the `device_secret`, as well as the `
 
 ### Exchange existing tokens from client 1 for new tokens for client 2
 
-When you make a token exchange request, the response returns the tokens that you need to use for client 2.
+Client 2 makes a token exchange request, and the response returns the tokens applicable for client 2.
 
 **Example request**
 
