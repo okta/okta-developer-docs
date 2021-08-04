@@ -55,7 +55,7 @@ The smart device first needs to call the `/device/authorize` endpoint to obtain 
   curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/device/authorize \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id={clientId}' \
+  --data-urlencode 'client_id=${clientId}' \
   --data-urlencode 'scope=openid profile offline_access'
 ```
 
@@ -101,9 +101,9 @@ To retrieve tokens for the user, the smart device needs to make a request to the
 ```bash
   curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'client_id={clientId}' \
+  --data-urlencode 'client_id=${clientId}' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:device_code' \
-  --data-urlencode 'device_code={deviceCode)' \
+  --data-urlencode 'device_code=${deviceCode)' \
 ```
 
 Note the paramters that are being passed:
@@ -147,13 +147,13 @@ To revoke the tokens, the smart device must make a request to the `/revoke` endp
   curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/revoke' \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
-  --data-urlencode 'token={refreshToken}' \
+  --data-urlencode 'token=${refreshToken}' \
   --data-urlencode 'token_type_hint=refresh_token' \
-  --data-urlencode 'client_id={clientId}' \
+  --data-urlencode 'client_id=${clientId}' \
 ```
 
 **Example response**
 
-```
-HTTP/1.1 200 OK
+```bash
+  HTTP/1.1 200 OK
 ```
