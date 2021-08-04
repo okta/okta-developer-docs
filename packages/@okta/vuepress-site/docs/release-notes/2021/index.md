@@ -61,7 +61,7 @@ The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#un
 
 #### The SAML 2.0 Assertion grant flow is now GA in Preview
 
-You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-saml2/overview/). <!--OKTA-406626-->
+You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-grant-type/saml2assert/main/). <!--OKTA-406626-->
 
 #### Event Hook preview tab is now GA in Preview
 
@@ -148,7 +148,7 @@ The [Domains API](/docs/reference/api/domains/) is now Generally Available in Pr
 
 #### Flexible Consent is GA in Preview
 
-Flexible Consent is now Generally Available in Preview. Customers are unable to request consent-enabled scopes when using the [Client Credential grant flow](/docs/guides/implement-client-creds/overview/). Since the Client Credential grant flow doesn't involve an end user, consent shouldn't be required for these flows. The authorization server should understand that this flow doesn't involve a user, ignore the consent for these scopes, and include the scope in the response. However, the authorization server returns an error. This causes customers to design separate scopes when using the Client Credentials grant flow.
+Flexible Consent is now Generally Available in Preview. Customers are unable to request consent-enabled scopes when using the [Client Credential grant flow](/docs/guides/implement-grant-type/clientcreds/main/). Since the Client Credential grant flow doesn't involve an end user, consent shouldn't be required for these flows. The authorization server should understand that this flow doesn't involve a user, ignore the consent for these scopes, and include the scope in the response. However, the authorization server returns an error. This causes customers to design separate scopes when using the Client Credentials grant flow.
 
 The new Flexible Consent setting allows customers to use a single set of scopes in both 3-legged and 2-legged OAuth flows. When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This allows customers to use the same scopes for both user and service-based OAuth flows. <!--OKTA-392294-->
 
@@ -209,7 +209,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 * When [OIDC apps](/docs/reference/api/oauth-clients/#register-new-client) were created concurrently, some apps were created in a deactivated state. (OKTA-384407)
 
-* The [Client Credentials Flow](/docs/guides/implement-client-creds/overview/) could not implement a custom claim named `scope`. (OKTA-389874)
+* The [Client Credentials Flow](/docs/guides/implement-grant-type/clientcreds/main/) could not implement a custom claim named `scope`. (OKTA-389874)
 
 ### Weekly Release 2021.05.1
 
@@ -414,7 +414,7 @@ When an OAuth2 request was made with an access token instead of a required ID to
 
 #### The SAML 2.0 Assertion grant flow is now Self-Service Early Access (EA)
 
-The SAML 2.0 Assertion grant flow is now Self-Service EA. You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-saml2/overview/).<!--OKTA-373421-->
+The SAML 2.0 Assertion grant flow is now Self-Service EA. You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-grant-type/saml2assert/main/).<!--OKTA-373421-->
 
 #### The Okta Org API is now GA
 

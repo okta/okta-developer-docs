@@ -224,31 +224,10 @@ export const guides = [
             guideName: "implement-grant-type"
           },
           {
-            title: "Implement the Authorization Code flow",
-            guideName: "implement-auth-code"
-          },
-          {
-            title: "Implement the Authorization Code flow with PKCE",
-            guideName: "implement-auth-code-pkce"
-          },
-          {
             title: "Create an Authorization Server",
             guideName: "customize-authz-server"
           },
-          {
-            title: "Implement the Client Credentials flow",
-            guideName: "implement-client-creds"
-          },
-          {
-            title: "Implement the Implicit flow",
-            guideName: "implement-implicit"
-          },
           { title: "Request user consent", guideName: "request-user-consent" },
-          {
-            title: "Implement the Resource Owner Password flow",
-            guideName: "implement-password"
-          },
-          { title: "Implement the SAML 2.0 Assertion flow", guideName: "implement-saml2"},
           {
             title: "Tokens",
             subLinks: [
