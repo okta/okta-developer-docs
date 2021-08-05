@@ -20,7 +20,7 @@ The next step is to enter basic information (for example, email, first name, and
 
 </div>
 
-When the user clicks **Register**, pass the user profile data captured from the Create account page into the `idx.register` method, as shown in `register.js` of the SDK sample application:
+When the user clicks **Register**, pass the user profile data that is captured from the Create account page into the `idx.register` method, as shown in `register.js` of the SDK sample application:
 
 ```JavaScript
 router.post('/register', async (req, res, next) => {
