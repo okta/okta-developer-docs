@@ -43,7 +43,7 @@ The Authorization Code flow depends on Okta and your SaaS back end systems being
 
 To support the potentially large numbers of Okta orgs accessing it through the OIN, an OIDC integration can't use a custom authorization server, including the `default` server. You can only use the [Org Authorization Server](https://developer.okta.com/docs/concepts/auth-servers/#available-authorization-server-types).
 
-Another general outline of the Authorization Code flow is in our Okta developer guide: [Implement the Authorization Code flow](/docs/guides/implement-auth-code/overview/)
+Another general outline of the Authorization Code flow is in our Okta developer guide: [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 
 Also, if you have used SAML for SSO in the past, it’s important to realize that the OIDC flow is different. The OIDC protocol doesn't just provide an assertion to exchange between Okta and your SaaS back end, but uses a long-term token that you can use for callback into Okta at any point as long as the token is valid.
 
@@ -89,7 +89,7 @@ The Authorization Code flow with PKCE looks like this for an OIN app:
   * Optional. `refresh_token` &mdash; returned if the `offline_access` scope is granted. You can exchange this token for a new access token if the previous access token is expired
 * The access token is then used by your application to retrieve the protected resources and information requested at the Resource Server for the end user.
 
-Another general outline of the Authorization Code flow with PKCE can be found in our Okta developer guide: [Implement the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/overview/).
+Another general outline of the Authorization Code flow with PKCE can be found in our Okta developer guide: [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/).
 
 ### Scopes
 

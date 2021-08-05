@@ -2,7 +2,7 @@
 title: Set up the sample Express app
 ---
 
-The sample Node.js Express application is designed to demonstrate the [Authorization Code flow](/docs/guides/implement-auth-code/overview), and includes an Okta-Hosted Login sample used in this Token Inline Hook example. Access the code from the following Github repository:
+The sample Node.js Express application is designed to demonstrate the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/), and includes an Okta-Hosted Login sample used in this Token Inline Hook example. Access the code from the following Github repository:
 
 * [https://github.com/okta/samples-nodejs-express-4](https://github.com/okta/samples-nodejs-express-4)
 

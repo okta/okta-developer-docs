@@ -12,5 +12,5 @@ To add another Identity Provider:
 For more information about topics mentioned in this guide:
 
 * [Concepts: External Identity Providers](/docs/concepts/identity-providers/)
-* [Implement the Implicit flow](/docs/guides/implement-implicit/overview/)
-* [Implement the Authorization Code flow](/docs/guides/implement-auth-code/overview/)
+* [Implement the Implicit flow](/docs/guides/implement-grant-type/implicit/main/)
+* [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)

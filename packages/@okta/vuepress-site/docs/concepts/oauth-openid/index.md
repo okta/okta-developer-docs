@@ -82,11 +82,11 @@ The table shows you which OAuth 2.0 flow to use for the type of application that
 
 | Type of Application     | OAuth 2.0 flow                                      |
 | ----------------------- | --------------------------------------------------- |
-| Server-side (AKA Web)   | [Authorization Code flow](/docs/guides/implement-auth-code/)                |
-| Single-Page Application | [Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/) or [Implicit flow](/docs/guides/implement-implicit/) when the SPA that you are building runs in older browsers that don't support Web Crypto for PKCE |
-| Native                  | [Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/) |
-| Trusted                 | [Resource Owner Password flow](/docs/guides/implement-password/)            |
-| Service                 | [Client Credentials](/docs/guides/implement-client-creds/)                  |
+| Server-side (AKA Web)   | [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)                |
+| Single-Page Application | [Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) or [Implicit flow](/docs/guides/implement-grant-type/implicit/main/) when the SPA that you are building runs in older browsers that don't support Web Crypto for PKCE |
+| Native                  | [Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) |
+| Trusted                 | [Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/)            |
+| Service                 | [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/)                  |
 
 ### Does your application need an ID token?
 
@@ -153,7 +153,7 @@ app -> client: Response
 
 -->
 
-For information on how to set up your application to use this flow, see [Implement the Authorization Code flow](/docs/guides/implement-auth-code/).
+For information on how to set up your application to use this flow, see [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/).
 
 ### Authorization Code flow with PKCE
 
@@ -195,7 +195,7 @@ app -> client: Response
 
 -->
 
-For information on how to set up your application to use this flow, see [Implement the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/).
+For information on how to set up your application to use this flow, see [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/).
 
 ### Implicit flow
 
@@ -224,7 +224,7 @@ client -> app: Request with access token
 app -> client: Response
 -->
 
-For information on how to set up your application to use this flow, see [Implement the Implicit flow](/docs/guides/implement-implicit/).
+For information on how to set up your application to use this flow, see [Implement the Implicit flow](/docs/guides/implement-grant-type/implicit/main/).
 
 ### Resource Owner Password flow
 
@@ -249,7 +249,7 @@ app -> client: Response
 
 -->
 
-For information on how to set up your application to use this flow, see [Implement the Resource Owner Password flow](/docs/guides/implement-password/).
+For information on how to set up your application to use this flow, see [Implement the Resource Owner Password flow](/docs/guides/implement-grant-type/ropassword/main/).
 
 ### Client Credentials flow
 
@@ -274,7 +274,7 @@ app -> client: Response
 
 -->
 
-For information on how to set up your application to use this flow, see [Implement the Client Credentials flow](/docs/guides/implement-client-creds/).
+For information on how to set up your application to use this flow, see [Implement the Client Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/).
 
 ### SAML 2.0 Assertion flow
 
@@ -301,4 +301,4 @@ OClient -> rs: Makes a resource request with the access token to the resource se
 
 -->
 
-For information on how to set up your application to use this flow, see [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-saml2/overview).
+For information on how to set up your application to use this flow, see [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-grant-type/saml2assert/main/).

@@ -20,11 +20,11 @@ The only flows that support refresh tokens are the authorization code flow and t
 
 In the case of the authorization code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then use the `authorization_code` grant with this code in a request to the `/token` endpoint to get an access token and a refresh token.
 
-See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#authorize) and [Implementing the authorization code flow](/docs/guides/implement-auth-code/) for more information on the `/authorize` endpoint and the authorization code flow.
+See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#authorize) and [Implementing the authorization code flow](/docs/guides/implement-grant-type/authcode/main/) for more information on the `/authorize` endpoint and the authorization code flow.
 
 ### Example request for an authorization code and refresh token
 
-The following is an example request to the `/authorize` endpoint for an [authorization code](/docs/guides/implement-auth-code/overview/) and includes the `offline_access` scope.
+The following is an example request to the `/authorize` endpoint for an [authorization code](/docs/guides/implement-grant-type/authcode/main/) flow and includes the `offline_access` scope.
 
 ```bash
 GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
@@ -34,7 +34,7 @@ GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
  &state=237c671a-29d7-11eb-adc1-0242ac120002
 ```
 
-The following is an example request to the `/authorize` endpoint for an [authorization code with PKCE](/docs/guides/implement-auth-code-pkce/overview/) and includes the `offline_access` scope.
+The following is an example request to the `/authorize` endpoint for an [authorization code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flow and includes the `offline_access` scope.
 
 ```bash
 https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
@@ -48,7 +48,7 @@ https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
 
 ### Example request for an access token, ID token, and refresh token
 
-The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code flow](/docs/guides/implement-auth-code/overview/). The value for `code` is the authorization code that you receive in the response from the request to the `/authorize` endpoint.
+The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/). The value for `code` is the authorization code that you receive in the response from the request to the `/authorize` endpoint.
 
 ```bash
 POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code
@@ -58,7 +58,7 @@ POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_
 &scope=openid%20offline_access
 ```
 
-The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-auth-code-pkce/overview/). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
+The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
 
 ```bash
 POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code
@@ -88,7 +88,7 @@ POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_
 
 For the resource owner password flow, you use the authorization server's `/token` endpoint directly.
 
-See [Request a token](/docs/reference/api/oidc/#token) and [Implementing the resource owner password flow](/docs/guides/implement-password/) for more information on the `/token` endpoint and the resource owner password flow.
+See [Request a token](/docs/reference/api/oidc/#token) and [Implementing the resource owner password flow](/docs/guides/implement-grant-type/ropassword/main/) for more information on the `/token` endpoint and the resource owner password flow.
 
 ### Example request
 
