@@ -60,7 +60,7 @@ Create a page that displays an authenticator enrollment selection. In this examp
 
 <div class="common-image-format">
 
-![Displays a Select authenticator page screenshot that includes a selection for password. A Select button continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-pwd-auth-nodejs.png)
+![Displays a Select authenticator page screenshot that includes a selection for the password. A Select button continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-pwd-auth-nodejs.png)
 
 </div>
 
