@@ -227,7 +227,15 @@ export const guides = [
             title: "Create an Authorization Server",
             guideName: "customize-authz-server"
           },
+          {
+            title: "Configure SSO for Native apps",
+            guideName: "configure-native-sso"
+          },
           { title: "Request user consent", guideName: "request-user-consent" },
+          {
+            title: "Configure Device Authorization Grant Flow",
+            guideName: "device-authorization-grant"
+          },
           {
             title: "Tokens",
             subLinks: [
@@ -285,6 +293,10 @@ export const guides = [
           {
             title: "Customize email notifications and email domains",
             guideName: "email-customization"
+          },
+          {
+            title: "Customize themes",
+            path: "/docs/guides/customize-themes/"
           }
         ]
       },
@@ -324,6 +336,10 @@ export const guides = [
           {
             title: "Configure an access policy",
             guideName: "configure-access-policy"
+          },
+          {
+            title: "Integrate Third-Party Risk",
+            guideName: "third-party-risk-integration"
           }
         ]
       },
@@ -615,6 +631,7 @@ export const reference = [
           { title: "Apps", path: "/docs/reference/api/apps/" },
           { title: "Authenticators Admin", path: "/docs/reference/api/authenticators-admin/" },
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
+          { title: "Brands", path: "/docs/reference/api/brands/"},
           { title: "CAPTCHAs", path: "/docs/reference/api/captchas/"},
           { title: "Domains", path: "/docs/reference/api/domains/"},
           { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/"},
@@ -627,6 +644,8 @@ export const reference = [
           { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
           { title: "Org", path: "/docs/reference/api/org/" },
           { title: "Policy", path: "/docs/reference/api/policy/" },
+          { title: "Risk Events", path: "/docs/reference/api/risk-events/" },
+          { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
           { title: "Schemas", path: "/docs/reference/api/schemas/" },
           { title: "Sessions", path: "/docs/reference/api/sessions/" },
           { title: "System Log", path: "/docs/reference/api/system-log/" },

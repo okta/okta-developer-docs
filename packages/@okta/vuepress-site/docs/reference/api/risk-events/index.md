@@ -1,11 +1,10 @@
 ---
 title: Risk Events
-category: beta
 ---
 
 # Risk Events API
 
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ea" />
 
 The Okta Risk Events API provides the ability for third-party Risk Providers to send Risk Events to Okta.
 

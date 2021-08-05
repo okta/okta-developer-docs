@@ -2,10 +2,11 @@
 
 ### Step 1: Sign in with Facebook
 
-Use [`IDXAuthenticationWrapper`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) to start the sign-in process with Okta when the user goes to the sign-in page.
+Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) method and getting a new `ProceedContext` object.
 
 ```kotlin
     val beginResponse = idxAuthenticationWrapper.begin()
+    val beginProceedContext = beginResponse.proceedContext
 ```
 
 Use the [`AuthenticationResponse.getIdps()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L91) function to return a list of social Identity Provider (IdP) options configured in your org's routing rule.
@@ -24,10 +25,10 @@ After the user signs in to Facebook successfully, Facebook routes the user to th
 
 ### Step 3: Handle the callback from Okta
 
-Okta returns the Interaction code in the callback to the **Sign-in redirect URI** location specified in the [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application) section. You need to handle the callback by exchanging the Interaction code for a token.
+Okta returns the Interaction code in the callback to the **Sign-in redirect URI** location specified in the [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#step-4-create-new-application) section. You need to handle the callback by exchanging the Interaction code for the required tokens (access, refresh, ID).
 
 ```kotlin
     val authenticationResponse = authenticationWrapper.fetchTokenWithInteractionCode(issuer, proceedContext, interactionCode)
 ```
 
-The user is now successfully signed in and can be sent to the default sign-in page.
+With the obtained access token, the user is successfully signed in and can be sent to the default sign-in page.

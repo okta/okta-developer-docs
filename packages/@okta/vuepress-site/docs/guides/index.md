@@ -6,6 +6,7 @@ guides:
  - build-self-signed-jwt
  - common-hook-set-up-steps
  - configure-access-policy
+ - configure-native-sso
  - configure-signon-policy
  - create-an-api-token
  - custom-error-pages
@@ -15,6 +16,7 @@ guides:
  - customize-tokens-dynamic
  - customize-tokens-static
  - customize-tokens-groups-claim
+ - device-authorization-grant
  - email-customization
  - enable-cors
  - event-hook-implementation
@@ -99,6 +101,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 3. Authorize
 
     * [Implement authorization by grant type](/docs/guides/implement-grant-type/-/main/)
+    * [Configure SSO for native apps](/docs/guides/configure-native-sso/main/)
     * [Refresh access tokens](/docs/guides/refresh-tokens/overview/)
     * [Validate access tokens](/docs/guides/validate-access-tokens/go/overview/)
     * [Validate ID tokens](/docs/guides/validate-id-tokens/overview/)

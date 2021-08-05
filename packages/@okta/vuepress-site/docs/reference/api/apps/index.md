@@ -4891,13 +4891,9 @@ curl -v -X GET \
 
 ## Application OAuth 2.0 scope consent grant operations
 
-<ApiLifecycle access="ea" />
-
 A scope consent grant represents an application's permission to request to include a specific Okta scope in OAuth 2.0 Bearer tokens. If the application does not have this grant, token requests that contain this Okta scope are denied.
 
 ### Grant consent to scope for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/apps/${applicationId}/grants" />
 
@@ -4969,8 +4965,6 @@ curl -v -X POST \
 ```
 
 ### List scope consent grants for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/grants" />
 
@@ -5070,8 +5064,6 @@ curl -v -X GET \
 
 ### Get scope consent grant for application
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/grants/${grantId}" />
 
 Fetches a single scope consent grant for the application
@@ -5141,8 +5133,6 @@ curl -v -X GET \
 
 ### Revoke scope consent grant for application
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}/grants/${grantId}" />
 
 Revokes permission for the application to request the given scope
@@ -5173,11 +5163,7 @@ HTTP/1.1 204 No Content
 
 ## Application OAuth 2.0 token operations
 
-<ApiLifecycle access="ea" />
-
 ### List OAuth 2.0 tokens for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens" />
 
@@ -5256,8 +5242,6 @@ curl -v -X GET \
 ```
 
 ### Get OAuth 2.0 token for application
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
 
@@ -5357,8 +5341,6 @@ curl -v -X GET \
 
 ### Revoke OAuth 2.0 tokens for application
 
-<ApiLifecycle access="ea" />
-
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}/tokens" />
 
 Revokes all tokens for the specified application
@@ -5386,8 +5368,6 @@ HTTP/1.1 204 No Content
 ```
 
 ### Revoke OAuth 2.0 token for applications
-
-<ApiLifecycle access="ea" />
 
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}/tokens/${tokenId}" />
 
