@@ -137,7 +137,7 @@ After the user selects the phone authenticator value, and `idx.register` is call
 
 ### Step 8, Option 2: User selects SMS verify method and enters phone number
 
-The user can selects SMS or voice verification to receive the phone verification code. Capture this information and send it to`idx.register`. In this use case, use SMS. The user then enters the phone number where the SMS code is sent.
+The user can select SMS or voice verification to receive the phone verification code. Capture this information and send it to`idx.register`. In this use case, use SMS. The user then enters the phone number where the SMS code is sent.
 
 >**Note:** The SDK requires that the phone number follows the `+########` format, which starts with a (+) sign. See [Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/nodejs/main/#phone-number).
 
