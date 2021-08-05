@@ -3,7 +3,7 @@ After you satisfy the software requirements, clone the
 repo in a local directory on your computer.
 
 ```console
-git clone github https://github.com/okta/okta-auth-js.git
+git clone https://github.com/okta/okta-auth-js.git
 cd okta-auth-js/samples/generated/express-embedded-sign-in-widget
 ```
 
