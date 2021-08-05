@@ -2,7 +2,7 @@
 title: Third-party risk provider integration overview
 ---
 
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ea" />
 
 The Okta Risk Engine evaluates authentication attempts by reviewing the risk score of the sign-in based on context and historical data. Using Okta Risk APIs, third-party risk providers can integrate with the Okta Risk Engine using a standard Okta service application. The third-party risk provider can send risk events, which can be used when calculating the authentication risk based on the risk policy configured in the Okta org. The risk events are additionally logged as part of the System Log.
 
