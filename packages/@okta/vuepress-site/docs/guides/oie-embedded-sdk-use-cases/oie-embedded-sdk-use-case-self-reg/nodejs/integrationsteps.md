@@ -56,7 +56,7 @@ If the org's application is properly configured with multiple factors, `idx.regi
 
 ### Step 3: User enters password authenticator and password
 
-Create a page that displays an authenticator enrollment selection. In this example, password is configured.
+Create a page that displays an authenticator enrollment selection. In this example, the password is configured.
 
 <div class="common-image-format">
 
