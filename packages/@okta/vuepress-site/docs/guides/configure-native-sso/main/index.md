@@ -265,7 +265,7 @@ In this example, you want to SSO to multiple apps that are created by the same c
 
 ### Use Authorization Code with PKCE to obtain the authorization code for client 1
 
-Provide the `device_sso`, `openid`, and `offline_access` scopes in the first request to the `/authorize` endpoint using the Authorization Code with PKCE flow. All three scopes are required in the request. You must use `device_sso` with `openid` and `offline_access`. See [Use the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/use-flow/) for information on the parameters that are being passed in this request.
+Provide the `device_sso`, `openid`, and `offline_access` scopes in the first request to the `/authorize` endpoint using the Authorization Code with PKCE flow. All three scopes are required in the request. You must use `device_sso` with `openid` and `offline_access`. See [Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics) for information on the parameters that are being passed in this request.
 
 **Example Authorization Code with PKCE request**
 
@@ -283,7 +283,7 @@ The user is prompted to provide their credentials. After the authorization serve
 
 ### Exchange the code for tokens
 
-To exchange the authorization code for tokens, pass the code to your authorization server's `/token` endpoint along with the `code_verifier` that was generated. See [Exchange the code for tokens](/docs/guides/implement-auth-code-pkce/exchange-code-token/) for information on the parameters that are being passed in this request.
+To exchange the authorization code for tokens, pass the code to your authorization server's `/token` endpoint along with the `code_verifier` that was generated. See [Exchange the code for tokens](/docs/guides/implement-grant-type/authcodepkce/main/#exchange-the-code-for-tokens) for information on the parameters that are being passed in this request.
 
 **Example request**
 
@@ -424,7 +424,7 @@ To verify that the refresh and access tokens are also automatically invalidated 
 
 ## Request Logout
 
-When the user signs out of an application, the application sends a `/logout` request to the Okta Authorizataion Server, which revokes the device secret.
+When the user signs out of an application, the application sends a `/logout` request to the Okta Authorization Server, which revokes the device secret.
 
 ```bash
   curl --location --request GET `https://${yourOktaDomain}/oauth2/default/v1/logout` \
