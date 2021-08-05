@@ -92,7 +92,7 @@ In this use case, the user selects the **Email** factor as the authenticator to 
 
 <div class="common-image-format">
 
-![Displays an Enroll email authenticator page screenshot that includes field for the email verification code. A Verify button continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-email-verify-nodejs.png)
+![Displays an Enroll email authenticator page screenshot that includes the field for the email verification code. A Verify button continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-email-verify-nodejs.png)
 
 </div>
 
