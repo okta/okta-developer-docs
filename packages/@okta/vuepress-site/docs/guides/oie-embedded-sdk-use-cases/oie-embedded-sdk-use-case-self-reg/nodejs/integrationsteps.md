@@ -88,7 +88,7 @@ See [idx.register](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#
 
 In this use case, the user selects the **Email** factor as the authenticator to verify. Pass this user-selected authenticator to `idx.register`.
 
- If the call is successful, the method returns a status of `Idx.Status:PENDING` and a `nextStep` field requiring verification, which indicates that the SDK is ready for the email verification code. The next step is to redirect the user to the email verification code page, as shown in the SDK sample application route to `/enroll-authenticator`.
+ If the call is successful, the method returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires verification, which indicates that the SDK is ready for the email verification code. The next step is to redirect the user to the email verification code page, as shown in the SDK sample application route to `/enroll-authenticator`.
 
 <div class="common-image-format">
 
