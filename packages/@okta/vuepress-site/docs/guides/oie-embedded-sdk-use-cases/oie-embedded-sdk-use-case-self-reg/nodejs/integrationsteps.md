@@ -64,7 +64,7 @@ Create a page that displays an authenticator enrollment selection. In this examp
 
 </div>
 
-After the user enters the password authenticator value, and `idx.register` is called with this value, the response returns a status of `Idx.Status:PENDING` and a `nextStep` field requiring the user to enter a password value. The user is directed to a page to set up a password value, as shown in the SDK sample application route to `/enroll-authenticator`.
+After the user enters the password authenticator value, and `idx.register` is called with this value, the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires the user to enter a password value. The user is directed to a page to set up a password value, as shown in the SDK sample application route to `/enroll-authenticator`.
 
 <div class="common-image-format">
 
