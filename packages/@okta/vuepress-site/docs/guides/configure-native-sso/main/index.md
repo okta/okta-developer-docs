@@ -283,7 +283,7 @@ The user is prompted to provide their credentials. After the authorization serve
 
 ### Exchange the code for tokens
 
-To exchange the authorization code for tokens, pass the code to your authorization server's `/token` endpoint along with the `code_verifier` that was generated. See [Exchange the code for tokens](/docs/guides/implement-grant-type/authcodepkce/main/#exchange-the-code-for-tokens) for information on the parameters that are being passed in this request.
+To exchange the authorization code for tokens, pass the code to your authorization server's `/token` endpoint along with the `code_verifier` that was generated. See [Exchange the code for tokens](/docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics) for information on the parameters that are being passed in this request.
 
 **Example request**
 
