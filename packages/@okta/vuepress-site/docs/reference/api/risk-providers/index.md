@@ -1,11 +1,10 @@
 ---
 title: Risk Providers
-category: beta
 ---
 
 # Risk Providers API
 
-<ApiLifecycle access="beta" />
+<ApiLifecycle access="ea" />
 
 The Okta Risk Providers API provides the ability to manage the Risk Providers within Okta.
 

@@ -16,9 +16,13 @@ The error page appears when a critical error occurs or an application is misconf
 
 You can add any HTML, CSS, or JavaScript you want to the page.
 
+## Use the Brands API
+
+The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to set icons, images, and colors across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once, without needing to set a customized Okta URL domain. To find out more about this feature and how to use it, see [Customize your Okta experience with the Brands API](/docs/guides/customize-themes).
+
 ## Before you begin
 
-Before you can get started customizing error pages, you must have already [customized your Okta URL domain](/docs/guides/custom-url-domain/).
+Before you can get started customizing error pages, you must have already [customized your Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the Brands API as mentioned above.
 
 A custom error page appears only when an application connects to Okta using your custom domain. Otherwise, the default Okta error page appears.
 

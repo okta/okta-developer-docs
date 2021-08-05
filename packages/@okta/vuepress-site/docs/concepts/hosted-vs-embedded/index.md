@@ -47,7 +47,7 @@ Okta organizations host pages on subdomains such as `example.okta.com`. Using th
 
 ## Most should use Okta-hosted
 
-* Easy to maintain with no updates to install.
+* Easy to use with no maintenance and no updates.
 * Hosted and secured by Okta.
 * [XSS](https://developer.okta.com/books/api-security/sanitizing/common-attacks/#xss-cross-site-scripting) (cross-site scripting) attacks on your application will not affect the sign-in experience.
 * Easy to integrate manually or with a generic OpenID Connect client.
