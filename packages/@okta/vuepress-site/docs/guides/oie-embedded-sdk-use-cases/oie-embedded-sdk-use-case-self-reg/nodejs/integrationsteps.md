@@ -145,7 +145,7 @@ The SDK sends the phone authenticator data to Okta, processes the request, and s
 
 <div class="common-image-format">
 
-![Displays an Enroll phone authenticator page screenshot that includes a field to enter phone (SMS) verification code. A Verify button continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-phone-verify-nodejs.png)
+![Displays an Enroll phone authenticator page screenshot that includes a field to enter the phone (SMS) verification code. A Verify button continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-phone-verify-nodejs.png)
 
 </div>
 
