@@ -12,7 +12,7 @@ The self-registration flow begins when the user clicks the **Sign Up** link (or 
 
 ### Step 2: Enter information in the create account page
 
-The next step is to enter basic information (for example, email, first, and last name). Create a page that accepts this information. The following image shows an example of a create account page.
+The next step is to enter basic information (for example, email, first name, and last name). Create a page that accepts this information. The following example shows a create account page.
 
 <div class="common-image-format">
 
