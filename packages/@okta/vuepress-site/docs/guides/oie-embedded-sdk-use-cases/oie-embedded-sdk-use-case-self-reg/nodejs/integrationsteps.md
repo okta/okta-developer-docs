@@ -1,6 +1,6 @@
 ### Step 1: Create a sign-up link for new users
 
-The self-registration flow begins when the user clicks the **Sign Up** link (or **Register** from the SDK sample application home page). On the sign-in page, create a **Sign Up** link that links to the create account page that you create in the next step,  as shown in the following example.
+The self-registration flow begins when the user clicks the **Sign Up** link (or **Register** from the SDK sample application home page). On the sign-in page, create a **Sign Up** link that links to the create account page that you create in the next step, as shown in the following example.
 
 <div class="common-image-format">
 
