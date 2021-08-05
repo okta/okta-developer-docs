@@ -549,7 +549,15 @@ redirects:
     to: /docs/guides/sign-in-with-linkedin/
   - from: /authentication-guide/social-login/microsoft/index.html
     to: /docs/guides/sign-in-with-microsoft/
-  - from: /docs/guides/implement-auth-code/
+  - from: /docs/guides/implement-auth-code/overview
+    to: /docs/guides/implement-grant-type/authcode/main/
+  - from: /docs/guides/implement-auth-code/setup-app
+    to: /docs/guides/implement-grant-type/authcode/main/
+  - from: /docs/guides/implement-auth-code/use-flow
+    to: /docs/guides/implement-grant-type/authcode/main/
+  - from: /docs/guides/implement-auth-code/exchange-code-token
+    to: /docs/guides/implement-grant-type/authcode/main/
+  - from: /docs/guides/implement-auth-code/next-steps
     to: /docs/guides/implement-grant-type/authcode/main/
   - from: /docs/guides/implement-auth-code-pkce/
     to: /docs/guides/implement-grant-type/authcodepkce/main/
