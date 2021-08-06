@@ -6,6 +6,6 @@ The following is the sequence of steps to sign in to the app using the embedded 
 
 <div class="common-image-format">
 
-![Displays the basic sign-in sequence steps for the Java SDK Sign-In Widget flow](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-java.png)
+![Displays basic sign-in sequence steps for the Java SDK Sign-In Widget flow](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-java.png)
 
 </div>

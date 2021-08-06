@@ -1,36 +1,34 @@
 ## Integration steps
 
-###  Step 1: User signs in with Facebook link
+###  Step 1: User signs in with Facebook
 
 After you have completed the steps in [Configuration Updates](#configuration-updates), and have configured your app to [load the Sign-In Widget](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/), then the **Sign in with Facebook** option is available on the widget. No coding is required to have the **Sign in with Facebook** option.
 
-When the user selects **Sign in with Facebook** from the widget, they are directed to the Facebook sign-in screen.
-
-### Step 2: User signs in to Facebook
-
-The user enters their Facebook credentials (email and password) on the Facebook sign-in screen.
-
 <div class="common-image-format">
 
-![Displays the Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
+![Displays the Sign-In Widget with the 'Sign in with Facebook' button](/img/oie-embedded-sdk/oie-embedded-widget-use-case-social-sign-in-screen-java.png)
 
 </div>
 
+When the user selects **Sign in with Facebook** from the widget, they are directed to the Facebook sign-in screen.
+
+The user enters their Facebook credentials (email and password) on the Facebook sign-in screen, which is hosted by the Facebook platform.
+
 > **Note:** You can use the Facebook test user account that you've created in [Step 3: Set up and copy test user information](/docs/guides/oie-embedded-common-org-setup/java/main/#step-3-set-up-and-copy-test-user-information).
 
-### Step 3: Facebook redirects to your Okta org
+### Step 2: Facebook redirects to your Okta org
 
-After the user signs in to Facebook successfully, Facebook routes the user to the location that you've specified in **Valid OAuth Redirect URIs** from the Facebook developer site. See [Step 1: Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/java/main/#step-1-create-a-facebook-app-in-facebook).
+After the user signs in to Facebook successfully, Facebook routes the user to the location that you've specified in **Valid OAuth Redirect URIs** from the Facebook developer site.
 
-The **Valid OAuth Redirect URIs** for your Okta org is in the format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`.
+> **Note:** The **Valid OAuth Redirect URIs** for your Okta org is in the format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`. See [Step 1: Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/java/main/#step-1-create-a-facebook-app-in-facebook) for details on configuring the **Valid OAuth Redirect URIs** value.
 
-### Step 4: Okta org redirects to your app through sign-in redirect URIs
+### Step 3: Okta org redirects to your app through sign-in redirect URIs
 
 After your Okta org receives a successful Facebook sign-in request, your org redirects the request to your app's **Sign-in redirect URIs** setting.
 
-> **Note:** For the Java embedded authentication sample apps, the **Sign-in redirect URIs** is set to `http://localhost:8080`.
+> **Note:** For the Java SDK embedded authentication sample apps, the **Sign-in redirect URIs** is set to `http://localhost:8080`.
 
-### Step 5: Handle the callback from Okta
+### Step 4: Handle the callback from Okta
 
 Okta returns the Interaction code to the **Sign-in redirect URI** that is specified in the [create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) step.
 
@@ -60,11 +58,11 @@ mav.addObject(ISSUER_URI, issuer);
 session.setAttribute(CODE_VERIFIER, idxClientContext.getCodeVerifier());
 ```
 
-### Step 6: Request tokens from Okta
+### Step 5: Request tokens from Okta
 
-The Spring security framework doesn't understand Okta’s Interaction code flow. Therefore, your app needs to intercept Spring’s OAuth authentication code flow, exchange the interaction code obtained from Okta for an access token, populate the user profile attributes, and construct [OAuth2AuthenticationToken.java](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) before handing over the authentication flow back to Spring.
+The Spring security framework doesn't understand Okta’s Interaction code flow. Therefore, your app needs to intercept Spring’s OAuth authentication code flow, exchange the Interaction code obtained from Okta for an access token, populate the user profile attributes, and construct [`OAuth2AuthenticationToken.java`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) before handing over the authentication flow back to Spring.
 
-In the following example, the helper function [exchangeCodeForToken()](https://github.com/okta/okta-idx-java/blob/master/samples/embedded-sign-in-widget/src/main/java/com/okta/spring/example/HelperUtil.java#L80) is used to obtain the access and refresh tokens.
+In the following example, the helper function [`exchangeCodeForToken()`](https://github.com/okta/okta-idx-java/blob/master/samples/embedded-sign-in-widget/src/main/java/com/okta/spring/example/HelperUtil.java#L80) is used to obtain the access and refresh tokens.
 
 ```java
 final JsonNode jsonNode = helperUtil.exchangeCodeForToken(interactionCode, codeVerifier);
@@ -72,9 +70,9 @@ final OAuth2AccessToken oAuth2AccessToken = helperUtil.buildOAuth2AccessToken(js
 final OAuth2RefreshToken oAuth2RefreshToken = helperUtil.buildOAuth2RefreshToken(jsonNode);
 ```
 
-### Step 7: Retrieve user profile
+### Step 6: Retrieve user profile
 
-Retrieve the user profile attributes with the access token object and populate Spring framework’s [OAuth2AuthenticationToken](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java)  object reference for Spring to continue with the rest of the authentication flow. See helper class method [getUserAttributes()](https://github.com/okta/okta-idx-java/blob/master/samples/embedded-sign-in-widget/src/main/java/com/okta/spring/example/HelperUtil.java#L67) for details.
+Retrieve the user profile attributes with the access token object and populate Spring framework’s [`OAuth2AuthenticationToken`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java)  object reference for Spring to continue with the rest of the authentication flow. See helper class method [`getUserAttributes()`](https://github.com/okta/okta-idx-java/blob/master/samples/embedded-sign-in-widget/src/main/java/com/okta/spring/example/HelperUtil.java#L67) for details.
 
 ```java
 final Map<String, Object> userAttributes =

@@ -2,7 +2,7 @@
 
 ### Step 1: Source the Sign-In Widget to your sign-in page
 
-Add the Sign-In Widget source to your JavaScript sign-in page by referencing the Okta CDN.
+Add the Sign-In Widget source to your JavaScript sign-in page by referencing the Okta content delivery network (CDN).
 
 ```javascript
 <script src="https://global.oktacdn.com/okta-signin-widget/5.8.2/js/okta-sign-in.min.js" type="text/javascript"></script>
@@ -45,12 +45,11 @@ Initialize the widget in the sign-in page, similar to the following snippet:
 </script>
 ```
 
-The Okta Sign-In Widget renders in the sign-in (or `login`) page when your app's sign-in page controller is triggered.
+The Okta Sign-In Widget renders in the sign-in page when your app's sign-in page controller is triggered.
 
 ### Step 3: Run your app
 
-The final step is to run your app. If the widget and your Okta org are correctly
-configured, then the Okta Sign-In Widget displays in your sign-in page:
+The final step is to run your app. If the widget and your Okta org are properly configured, then the Okta Sign-In Widget displays in your sign-in page:
 
 <div class="common-image-format">
 
