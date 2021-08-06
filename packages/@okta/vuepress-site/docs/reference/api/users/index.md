@@ -1125,8 +1125,8 @@ The first three parameters in the table below correspond to different types of l
 | Parameter   | Description                                                                                                                                    | Param Type   | DataType   | Required |
 | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
 | q           | Finds a user that matches `firstName`, `lastName`, and `email` properties                                                                      | Query        | String     | FALSE    |
-| filter      | [Filters](/docs/reference/api-overview/#filtering) users with a supported expression for a subset of properties                  | Query        | String     | FALSE    |
-| search      | Searches for users with a supported [filtering](/docs/reference/api-overview/#filtering) expression for most properties          | Query        | String     | FALSE    |
+| filter      | [Filters](/docs/reference/api-overview/#filter) users with a supported expression for a subset of properties                  | Query        | String     | FALSE    |
+| search      | Searches for users with a supported [filtering](/docs/reference/api-overview/#filter) expression for most properties          | Query        | String     | FALSE    |
 | limit       | Specifies the number of results returned (maximum 200)                                                                                         | Query        | Number     | FALSE    |
 | after       | Specifies the pagination cursor for the next page of users                                                                                     | Query        | String     | FALSE    |
 | sortBy      | Specifies field to sort by (for search queries only)                                                                                           | Search query | String     | FALSE    |
