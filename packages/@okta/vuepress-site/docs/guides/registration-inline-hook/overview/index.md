@@ -4,7 +4,11 @@ title: Overview
 
 This guide provides example code for an external service to respond to calls from a Registration Inline Hook.
 
-You must enable [self-service registration (SSR)](/docs/guides/set-up-self-service-registration/before-you-begin/) to implement a Registration Inline Hook.
+If you have an Okta Identity Engine org, you must [Enable and configure a profile enrollment policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) to implement a Registration Inline Hook. <ApiLifecycle access="ie" />
+
+> **Note:** Profile Enrollment and Registration Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
+
+If you have an Okta Classic org, you must enable [self-service registration (SSR)](/docs/guides/set-up-self-service-registration/before-you-begin/) to implement a Registration Inline Hook.
 
 > **Note:** Self-service registration and Registration Inline Hooks only work with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 2.9 or later.
 
@@ -17,7 +21,7 @@ At a high-level, the following workflow occurs:
 - The external service evaluates the Okta call to make sure the user is from domain "example.com".
 - The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
-This guide uses the website Glitch.com to act as an external service and to implement the Registration Inline Hook with an Okta org. See the following Glitch project to copy a working code example that implements the Registration Inline Hook or build your own using the code snippets:
+This guide uses the website Glitch.com to act as an external service and to implement the Registration Inline Hook with an Okta org. See the following Glitch project to copy a working code example that implements the Registration Inline Hook. Or, build your own using the code snippets:
 
 - [Okta Registration Inline Hook Example](https://glitch.com/~okta-inlinehook-registrationhook)
 

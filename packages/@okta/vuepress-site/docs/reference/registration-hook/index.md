@@ -243,13 +243,13 @@ To activate the Inline Hook, you first need to register your external service en
 
 You then need to associate the registered Inline Hook with your Profile Enrollment policy. (For information on configuring a Profile Enrollment policy, see [Enable and configure a profile enrollment policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).)
 
-1. Go to **Security > Profile Enrollment**
+1. Go to **Security > Profile Enrollment**.
 
 1. Click the pencil icon to edit the policy and associate it with your Registration Inline Hook.
 
 1. In **Enrollment Settings**, click the More Options icon and then select **Edit**. If not already selected, click **Allowed** in the **For new users** section.
 
-1. Select your hook from the drop-down menu for **Use the following inline hook** under the options for **For new users**. If you have created multiple Registration Inline Hooks, you should see all of them displayed here.
+1. Select your hook from the drop-down menu for **Use the following inline hook** under the options for **For new users**. If you have created multiple Registration Inline Hooks, you can see all of them displayed here.
 
 1. Click **Save**.
 
