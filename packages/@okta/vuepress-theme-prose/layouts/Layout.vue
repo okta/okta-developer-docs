@@ -23,10 +23,13 @@
             <Sidebar />
           </div>
           <div class="content-area">
-            <StackSelector forMobileViewOnly v-if="$page.hasStackContent" />
-            <PageTitle />
-            <StackSelector v-if="$page.hasStackContent" />
-            <MobileOnThisPage />
+            <div class="sticky-content">
+              <StackSelector forMobileViewOnly v-if="$page.hasStackContent" />
+              <PageTitle />
+              <StackSelector v-if="$page.hasStackContent" />
+              <MobileOnThisPage />
+            </div>
+
             <ContentPage />
             <div class="edit-on-github">
               <span class="fa fa-github"></span>
