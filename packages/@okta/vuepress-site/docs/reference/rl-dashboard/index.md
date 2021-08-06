@@ -67,7 +67,7 @@ The Overview pane provides a summary of the data use for the specified endpoint.
 
 A customer can additionally purchase the rate limit multiplier, which is an add-on feature that allows the customer to multiply an existing rate limit. For example, three times the current rate limit.
 
-![Displays the line graph, bar graph, and timeline graph](/img/RLDashboard4.png)
+![Displays the line graph, bar graph, and timeline graph of the rate limit utilization over time pane](/img/RLDashboard4.png)
 
 The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected use would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the Overview pane indicates which tier was purchased, and the graphs in the [Rate limit utilization over time pane] reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
 
