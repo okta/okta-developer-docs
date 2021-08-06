@@ -105,7 +105,6 @@ Make a request to obtain the policy ID for the policy that you just created in t
 curl --request GET \
   --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies \
   --header 'Accept: application/json' \
-  --header 'Content-Type: application/json' \
   --header 'Authorization: SSWS ${apiKey}'
 ```
 
@@ -121,7 +120,6 @@ Make a request to obtain the rule ID of the policy that you just created in the 
 curl --request GET \
   --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/${policyId}/rules \
   --header 'Accept: application/json' \
-  --header 'Content-Type: application/json' \
   --header 'Authorization: SSWS ${apiKey}'
 ```
 
@@ -134,7 +132,6 @@ Use the `policyId` and `ruleId` that you obtained in the previous section to obt
 ```bash
 curl --request GET \
   --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/${policyId}/rules/${ruleId} \
-  --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --header 'Authorization: SSWS ${apiKey}'
 ```
@@ -209,7 +206,6 @@ This is applicable for all clients participating in Native SSO (for example, cli
 ```bash
 curl --request GET \
   --url https://${yourOktaDomain}/oauth2/v1/clients/${clientId} \
-  --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --header 'Authorization: SSWS ${apiKey}'
 ```
@@ -293,9 +289,12 @@ To exchange the authorization code for tokens, pass the code to your authorizati
 curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/token \
   --header 'accept: application/json' \
-  --header 'cache-control: no-cache' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'grant_type=authorization_code&client_id=${clientId}&redirect_uri=${configuredRedirectUri}&code=CKA9Utz2GkWlsrmnqehz&code_verifier=M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
+  --data-urlencode 'grant_type=authorization_code' \
+  --data-urlencode 'client_id=${clientId}' \
+  --data-urlencode 'redirect_uri=${configuredRedirectUri}' \
+  --data-urlencode 'code=CKA9Utz2GkWlsrmnqehz' \
+  --data-urlencode 'code_verifier=M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
 
 **Example response**
@@ -431,11 +430,7 @@ When the user signs out of an application, the application sends a `/logout` req
 
 ```bash
 curl --request GET \
-  --url https://${yourOktaDomain}/oauth2/default/v1/logout \
-  --data-urlencode 'id_token_hint=${idToken}' \
-  --data-urlencode 'device_secret=${deviceSecret}' \
-  --data-urlencode 'post_logout_redirect_uris=${configuredPostLogoutRedirectUri}' \
-  --data-urlencode 'state=2OwvFrEMTJg'
+  --url https://${yourOktaDomain}/oauth2/default/v1/logout?id_token_hint=${idToken}&device_secret=${deviceSecret}&post_logout_redirect_uris=${configuredPostLogoutRedirectUri}&state=2OwvFrEMTJg
 ```
 
 The Authorization Server invalidates the access and refresh tokens that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails.

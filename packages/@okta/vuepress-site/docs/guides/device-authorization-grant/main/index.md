@@ -52,7 +52,7 @@ The smart device first needs to call the `/device/authorize` endpoint to obtain 
 **Example request**
 
 ```bash
-  curl --request POST \
+curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/device/authorize \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id=${clientId}' \
@@ -99,11 +99,12 @@ To retrieve tokens for the user, the smart device needs to make a request to the
 **Request example**
 
 ```bash
-  curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
+curl --request POST \
+  --url https://${yourOktaDomain}/oauth2/default/v1/token \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id=${clientId}' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:device_code' \
-  --data-urlencode 'device_code=${deviceCode)' \
+  --data-urlencode 'device_code=${deviceCode)'
 ```
 
 Note the paramters that are being passed:
@@ -116,23 +117,23 @@ Note the paramters that are being passed:
 Okta returns a pending response if the user doesn't complete the authentication.
 
 ```json
-  {
-     "error": "authorization_pending",
-     "error_description": "The device authorization is pending. Please try again later."
-  }
+{
+  "error": "authorization_pending",
+  "error_description": "The device authorization is pending. Please try again later."
+}
 ```
 
 After the user visits the `/activate` URL, follows the instructions on their device to input the activation code, and completes the authentication and authorization, the tokens are returned in the response from the `/token` endpoint.
 
 ```json
- {
-   "token_type": "Bearer",
-   "expires_in": 3600,
-   "access_token": "eyJraWQ...JQuDJh8g",
-   "scope": "openid profile offline_access",
-   "refresh_token": "zcLdr1FBXwtI9ej98VVVwtjDd-SmaoL06qr_UcY2tNA",
-   "id_token": "eyJraWQ...WI6KR0aQ"
- }
+{
+  "token_type": "Bearer",
+  "expires_in": 3600,
+  "access_token": "eyJraWQ...JQuDJh8g",
+  "scope": "openid profile offline_access",
+  "refresh_token": "zcLdr1FBXwtI9ej98VVVwtjDd-SmaoL06qr_UcY2tNA",
+  "id_token": "eyJraWQ...WI6KR0aQ"
+}
 ```
 
 If you need a refresh token, ensure that you've initially requested the `offline_access` scope through the `/device/authorize` endpoint. To renew access tokens in the future, you can use the refresh token.
@@ -144,12 +145,13 @@ If you need a refresh token, ensure that you've initially requested the `offline
 To revoke the tokens, the smart device must make a request to the `/revoke` endpoint.
 
 ```bash
-  curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/revoke' \
+curl --request POST \
+  --url https://${yourOktaDomain}/oauth2/default/v1/revoke \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'token=${refreshToken}' \
   --data-urlencode 'token_type_hint=refresh_token' \
-  --data-urlencode 'client_id=${clientId}' \
+  --data-urlencode 'client_id=${clientId}'
 ```
 
 **Example response**
