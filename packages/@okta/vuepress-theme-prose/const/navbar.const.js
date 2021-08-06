@@ -35,9 +35,8 @@ export const concepts = [
         path: "/docs/concepts/feature-lifecycle-management/"
       },
       {
-        title: "Role assignment",
-        path: "/docs/concepts/role-assignment/",
-        hidden: true
+        title: "Role Assignment",
+        path: "/docs/concepts/role-assignment/"
       },
       {
         title: "How Okta works",
