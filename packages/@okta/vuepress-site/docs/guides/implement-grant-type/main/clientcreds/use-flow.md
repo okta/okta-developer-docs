@@ -64,15 +64,15 @@ To encode the client ID and secret using the command line on Mac or Linux:
 To encode the client ID and secret using the command line on Windows:
 
 1. Follow steps 1 through 3 above.
-1. Save the file to `C:\temp` and name the file appCreds.txt.
+1. Save the file to `C:\temp` and name the file `appCreds.txt`.
 1. In Windows Explorer, right-click `C:\temp`, and then select **CMD Prompt Here** from the context menu.
 1. Enter the following command to encode the client ID and client secret:
 
     `copycertutil -encode appCreds.txt appbase64Creds.txt`
 
-1. Locate and open appbase64Creds.txt in `C:\temp`, copy its contents, and then close the file.
+1. Locate and open `appbase64Creds.txt` in `C:\temp`, copy its contents, and then close the file.
 
-> **Note:** Delete the appCreds.txt and the appbase64Creds.txt files after you finish.
+> **Note:** Delete the `appCreds.txt` and the `appbase64Creds.txt` files after you finish.
 
 ### Validate access token
 
