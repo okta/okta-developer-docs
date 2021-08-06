@@ -551,7 +551,7 @@ redirects:
     to: /docs/guides/sign-in-with-microsoft/
   - from: /docs/guides/implement-auth-code
     to: /docs/guides/implement-grant-type/authcode/main/
-    - from: /docs/guides/implement-auth-code/index.html
+  - from: /docs/guides/implement-auth-code/index.html
     to: /docs/guides/implement-grant-type/authcode/main/
   - from: /docs/guides/implement-auth-code/overview
     to: /docs/guides/implement-grant-type/authcode/main/
@@ -575,7 +575,7 @@ redirects:
     to: /docs/guides/implement-grant-type/authcode/main/#next-steps
   - from: /docs/guides/implement-auth-code-pkce
     to: /docs/guides/implement-grant-type/authcodepkce/main/
-     - from: /docs/guides/implement-auth-code-pkce/index.html
+  - from: /docs/guides/implement-auth-code-pkce/index.html
     to: /docs/guides/implement-grant-type/authcodepkce/main/
   - from: /docs/guides/implement-auth-code-pkce/overview
     to: /docs/guides/implement-grant-type/authcodepkce/main/
@@ -661,10 +661,34 @@ redirects:
     to: /docs/guides/implement-grant-type/ropassword/main/#next-steps
   - from: /docs/guides/implement-password/next-steps/index.html
     to: /docs/guides/implement-grant-type/ropassword/main/#next-steps
-
-  - from: /docs/guides/implement-saml2/
+  - from: /docs/guides/implement-saml2
     to: /docs/guides/implement-grant-type/saml2assert/main/
-    
+  - from: /docs/guides/implement-saml2/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/
+  - from: /docs/guides/implement-saml2/overview
+    to: /docs/guides/implement-grant-type/saml2assert/main/
+  - from: /docs/guides/implement-saml2/overview/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/
+  - from: /docs/guides/implement-saml2/configuration
+    to: /docs/guides/implement-grant-type/saml2assert/main/#identity-provider-and-service-provider-configuration
+  - from: /docs/guides/implement-saml2/configuration/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/#identity-provider-and-service-provider-configuration
+  - from: /docs/guides/implement-saml2/setup-app
+    to: /docs/guides/implement-grant-type/saml2assert/main/#set-up-your-app
+  - from: /docs/guides/implement-saml2/setup-app/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/#set-up-your-app
+  - from: /docs/guides/implement-saml2/configure-policy-as
+    to: /docs/guides/implement-grant-type/saml2assert/main/#set-up-your-app
+  - from: /docs/guides/implement-saml2/configure-policy-as/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/#set-up-your-app
+  - from: /docs/guides/implement-saml2/use-flow
+    to: /docs/guides/implement-grant-type/saml2assert/main/#flow-specifics
+  - from: /docs/guides/implement-saml2/use-flow/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/#flow-specifics
+  - from: /docs/guides/implement-saml2/next-steps
+    to: /docs/guides/implement-grant-type/saml2assert/main/#next-steps
+  - from: /docs/guides/implement-saml2/next-steps/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/#next-steps
   - from: /authentication-guide/implementing-authentication/auth-code/index.html
     to: /docs/guides/implement-grant-type/authcode/main/
   - from: /authentication-guide/implementing-authentication/auth-code
