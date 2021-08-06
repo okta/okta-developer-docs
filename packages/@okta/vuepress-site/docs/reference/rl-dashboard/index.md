@@ -40,15 +40,15 @@ When a rate limit violation occurs, you're notified in the following ways and ca
 
 * You receive a rate limit email that informs you that you've hit a rate limit for an endpoint. Click **View utilization history** in the email to navigate to the rate limits dashboard and System Log for that particular endpoint.
 
-![Access the dashboard by email notification](/img/RLDashboard1.png)
+![Displays the email notification of a rate limit violation with the link to the endpoint's rate limit dashboard](/img/RLDashboard1.png)
 
 * You've hit a rate limit when you're in the Admin Console, and a banner appears to inform you. Click **utilization history** in the banner to open the rate limits dashboard for that particular endpoint or **syslog** to open the System Log.
 
-![Access the dashboard by link in the banner](/img/RLDashboard2.png)
+![Displays the banner in the dashboard that notifies you of a rate limit violation with the link to the endpoint's rate limit dashboard](/img/RLDashboard2.png)
 
 * You've hit a rate limit warning or violation, and a rate limit event (violation or warning) is created in the System Log from where you can click **View Utilization** under **Event info** to go to the rate limits dashboard. All the rate limit events in the System Log (violations and warnings) have a link to the rate limit dashboard.
 
-![Access the dashboard by link in the System Log](/img/RLDashboard3.png)
+![Displays the event in the System Log that notifies you of a rate limit violation with the link to the endpoint's rate limit dashboard](/img/RLDashboard3.png)
 
 ## Key components of the dashboard
 
@@ -67,7 +67,7 @@ The Overview pane provides a summary of the data use for the specified endpoint.
 
 A customer can additionally purchase the rate limit multiplier, which is an add-on feature that allows the customer to multiply an existing rate limit. For example, three times the current rate limit.
 
-![Summary of the rate limit utilization over time pane](/img/RLDashboard4.png)
+![Displays the line graph, bar graph, and timeline graph](/img/RLDashboard4.png)
 
 The key benefit of purchasing the rate limit multiplier, therefore getting an increased rate limit, isn't to stop end users from using an application. The rate limit multiplier is based on the customer's org and what the expected use would be. If a customer has dynamic scale, the info icon beside **Rate Limit** in the Overview pane indicates which tier was purchased, and the graphs in the [Rate limit utilization over time pane] reflect the applied rate limit multiplier. To purchase the rate limit multiplier, either create a support ticket or contact your customer support representative.
 
@@ -75,7 +75,7 @@ The key benefit of purchasing the rate limit multiplier, therefore getting an in
 
 The Rate limit utilization over time pane comprises the line graph, bar graph, and timeline graph.
 
-![Summary of the rate limit utilization over time pane](/img/RLDashboard5.png)
+![Displays the line graph, bar graph, and timeline graph](/img/RLDashboard5.png)
 
 #### Line graph
 
