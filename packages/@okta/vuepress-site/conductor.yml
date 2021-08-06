@@ -630,9 +630,9 @@ redirects:
   - from: /docs/guides/implement-client-creds/setup-app/index.html
     to: /docs/guides/implement-grant-type/clientcreds/main/#set-up-your-app
   - from: /docs/guides/implement-client-creds/create-scopes
-    to: /docs/guides/implement-grant-type/clientcreds/main/#set-up-your-app
+    to: /docs/guides/implement-grant-type/clientcreds/main/#create-custom-scopes
   - from: /docs/guides/implement-client-creds/create-scopes/index.html
-    to: /docs/guides/implement-grant-type/clientcreds/main/#set-up-your-app
+    to: /docs/guides/implement-grant-type/clientcreds/main/#create-custom-scopes
   - from: /docs/guides/implement-client-creds/use-flow
     to: /docs/guides/implement-grant-type/clientcreds/main/#flow-specifics
   - from: /docs/guides/implement-client-creds/use-flow/index.html
@@ -678,9 +678,9 @@ redirects:
   - from: /docs/guides/implement-saml2/setup-app/index.html
     to: /docs/guides/implement-grant-type/saml2assert/main/#set-up-your-app
   - from: /docs/guides/implement-saml2/configure-policy-as
-    to: /docs/guides/implement-grant-type/saml2assert/main/#set-up-your-app
+    to: /docs/guides/implement-grant-type/saml2assert/main/#configure-the-authorization-server-policy
   - from: /docs/guides/implement-saml2/configure-policy-as/index.html
-    to: /docs/guides/implement-grant-type/saml2assert/main/#set-up-your-app
+    to: /docs/guides/implement-grant-type/saml2assert/main/#configure-the-authorization-server-policy
   - from: /docs/guides/implement-saml2/use-flow
     to: /docs/guides/implement-grant-type/saml2assert/main/#flow-specifics
   - from: /docs/guides/implement-saml2/use-flow/index.html
