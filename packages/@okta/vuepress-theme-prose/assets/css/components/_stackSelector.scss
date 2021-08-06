@@ -10,7 +10,7 @@ $small-spacing: 0.75rem;
   @include media("<=desktop"){
       display: none;
   }
-
+  
   &.for-mobile-view-only{
     margin-bottom: 1.5rem;
     display: block;
