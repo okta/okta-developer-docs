@@ -23,7 +23,7 @@ if err != nil {
 
 Build a sign-in page that captures both the user's name and password.
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="common-image-format">
 
 ![A basic sign in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
 
@@ -189,7 +189,7 @@ The next step is to build the code verification page. After the user chooses the
 to validate their identity, a page is shown that allows the user to enter the verification code
 sent to their phone.
 
-<div class="common-image-format">
+<div class="common-image-format common-image-format-vertical-margin">
 
 ![Screenshot showing an option to choose verification through the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-code-verify-page.png)
 
