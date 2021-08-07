@@ -1,6 +1,3 @@
-
-
-
 ## Summary of steps
 
 The sequence of steps for the self registration flow.

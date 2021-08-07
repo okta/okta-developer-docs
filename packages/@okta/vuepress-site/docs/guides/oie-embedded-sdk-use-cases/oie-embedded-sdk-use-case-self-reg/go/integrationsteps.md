@@ -248,6 +248,12 @@ if enrollResponse.HasStep(idx.EnrollmentStepEmailVerification) {
 }
 ```
 
+<div class="common-image-format common-image-format-vertical-margin">
+
+![A screenshot of the phone factor with skip buttin in the Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-phone-factor-skip.png)
+
+</div>
+
 ### Step 10: Skip phone factor
 
 Assuming the user skips the phone factor and completes the registration with only the email,
