@@ -54,6 +54,7 @@ The smart device first needs to call the `/device/authorize` endpoint to obtain 
 ```bash
 curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/device/authorize \
+  --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id=${clientId}' \
   --data-urlencode 'scope=openid profile offline_access'
@@ -101,6 +102,7 @@ To retrieve tokens for the user, the smart device needs to make a request to the
 ```bash
 curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/token \
+  --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id=${clientId}' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:device_code' \
