@@ -19,7 +19,7 @@ if err != nil {
 }
 ```
 
-### Step 2: Build sign-in page and intialize client object
+### Step 2: Build sign-in page and initialize client object
 
 Build a sign-in page that captures both the user's name and password.
 
