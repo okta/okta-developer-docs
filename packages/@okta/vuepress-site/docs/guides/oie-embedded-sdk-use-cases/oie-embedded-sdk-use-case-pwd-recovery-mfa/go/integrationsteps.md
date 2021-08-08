@@ -2,18 +2,16 @@
 
 ### Step 1: Create the SDK client on application load
 
-The first step is to create the SDK client when the user navigates to
-the home page and the application loads. Create a new SDK Client by
-calling the `NewClient` method that returns an object of type
-`Client`.
+When the user navigates to the home page and the application loads, create a new
+SDK Client object by calling the `NewClient` method.
 
 ```go
 idx, err := idx.NewClient(
-        idx.WithClientID(c.Okta.IDX.ClientID),
-        idx.WithClientSecret(c.Okta.IDX.ClientSecret),
-        idx.WithIssuer(c.Okta.IDX.Issuer),
-        idx.WithScopes(c.Okta.IDX.Scopes),
-        idx.WithRedirectURI(c.Okta.IDX.RedirectURI))
+      c.Okta.IDX.ClientID,
+      c.Okta.IDX.ClientSecret,
+      c.Okta.IDX.Issuer,
+      c.Okta.IDX.Scopes,
+      c.Okta.IDX.RedirectURI)
 if err != nil {
     log.Fatalf("new client error: %+v", err)
 }
@@ -33,11 +31,10 @@ recovery flow.
 
 ### Step 3: Call InitPasswordReset and VerifyEmail when user submits email
 
-When the user submits their email to start the password recovery flow the following steps need
-to be performed:
+After the user submits their email to start the password recovery, perform the following steps:
 
-1.  Call the `Client's` `InitPasswordReset` method by passing in
-`IdentifyRequest` object with it's `Identifier` property set to the email. Calling this method
+1.  Call the `Client's` `InitPasswordReset` method by passing in a
+`IdentifyRequest` object with it's `Identifier` property set to the user's email. Calling this method
 validates the email and returns a list of additional steps needed to complete the recovery.
 
 ```go
@@ -58,7 +55,7 @@ if !rpr.HasStep(idx.ResetPasswordStepEmailVerification) {
 }
 ```
 
-1. The second step is to call `VerifyEmail`, which will send a verification code
+2. The second step is to call `VerifyEmail`, which sends a verification code
 to the provided email. The method returns a `ResetPasswordResponse` object.
 
 ```go
@@ -124,7 +121,7 @@ to a page that allows them to enter their new password.
 
 Once the user enters their password and submits, call the `ResetPasswordResponse's`
 `SetNewPassword` method to change their password to the new password. If successful
-this method should return the sign tokens.
+this method should return the sign-in tokens.
 
 ```go
 rpr := tmp.(*idx.ResetPasswordResponse)
@@ -141,8 +138,8 @@ if !rpr.HasStep(idx.ResetPasswordStepSuccess) {
 
 ### Step 8: Store tokens in session
 
-Store the tokens from the `ResetPasswordResponse` in session to be used for
-additional calls. Once the tokens are stored, redirect the user to the
+Store the tokens from the `ResetPasswordResponse` into session
+for later use. Once the tokens are stored, redirect the user to the
 default signed-in home page.
 
 ```go
@@ -167,4 +164,4 @@ return
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo).
+See [Get user profile information after sign-in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more information.

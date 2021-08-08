@@ -2,18 +2,16 @@
 
 ### Step 1: Create the SDK client on application load
 
-The first step is to create the SDK client when the user navigates to
-the home page and the application loads. Create a new SDK Client by
-calling the `NewClient` method that returns an object of type
-`Client`.
+When the user navigates to the home page and the application loads, create a new
+SDK Client object by calling the `NewClient` method.
 
 ```go
 idx, err := idx.NewClient(
-        idx.WithClientID(c.Okta.IDX.ClientID),
-        idx.WithClientSecret(c.Okta.IDX.ClientSecret),
-        idx.WithIssuer(c.Okta.IDX.Issuer),
-        idx.WithScopes(c.Okta.IDX.Scopes),
-        idx.WithRedirectURI(c.Okta.IDX.RedirectURI))
+      c.Okta.IDX.ClientID,
+      c.Okta.IDX.ClientSecret,
+      c.Okta.IDX.Issuer,
+      c.Okta.IDX.Scopes,
+      c.Okta.IDX.RedirectURI)
 if err != nil {
     log.Fatalf("new client error: %+v", err)
 }
@@ -30,9 +28,9 @@ Build a sign-in page that captures both the user's name and password.
 </div>
 
 During page load, call the `Client's` `InitLogin` method. This method returns an object of type
-`LoginResponse` that is used to initate the sign in process with Okta in the subsquent steps.  The object
+`LoginResponse` that is used to initate the sign in process with Okta.  The object
 also contains a list of available social identity providers (IdPs) that is discussed in more detail in the
-[Sign in with Facebook](docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp/)
+[Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp)
 use case.
 
 ```go
@@ -108,8 +106,8 @@ to continue the authentication flow.
 
 </div>
 
-On page load display the email factor option when the `LoginResponse's` `HasStep` returns
-`true` when the `LoginStepEmailVerification` constant is passed.
+When the page is loaded display the email factor option when the `LoginResponse's` `HasStep` returns
+`true` using the `LoginStepEmailVerification` constant.
 
 ```go
 clr, _ := s.cache.Get("loginResponse")
@@ -144,8 +142,7 @@ if !ok || !invCode.(bool) {
 ### Step 7: Show email code verification page
 
 The next step is to build the code verification page. After the user chooses the email factor
-to validate their identity, a page is shown that allows the user to enter the verification code
-from their email.
+to validate their identity, the user needs to enter the verification code from their email.
 
 <div class="common-image-format">
 
@@ -155,9 +152,8 @@ from their email.
 
 ### Step 8: Call ConfirmEmail when user submits the verification code
 
-Once the user checks their email for the code and submits it in the verification code
-page, call the `LoginResponse's` `ConfirmEmail` method to verify the code. For this use case
-the method should return tokens signifying a successful sign in.
+Once the user checks their email for the code and submits it, call the `LoginResponse's` `ConfirmEmail`
+method to verify the code. For this use case the method should return tokens signifying a successful sign-in.
 
 ```go
 //Get LoginResponse from session
@@ -211,4 +207,4 @@ if lr.Token() != nil {
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo).
+See [Get user profile information after sign-in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more information.

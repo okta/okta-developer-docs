@@ -2,18 +2,16 @@
 
 ### Step 1: Create the SDK client on application load
 
-The first step is to create the SDK client when the user navigates to
-the home page and the application loads. Create a new SDK Client by
-calling the `NewClient` method that returns an object of type
-`Client`.
+When the user navigates to the home page and the application loads, create a new
+SDK Client object by calling the `NewClient` method.
 
 ```go
 idx, err := idx.NewClient(
-        idx.WithClientID(c.Okta.IDX.ClientID),
-        idx.WithClientSecret(c.Okta.IDX.ClientSecret),
-        idx.WithIssuer(c.Okta.IDX.Issuer),
-        idx.WithScopes(c.Okta.IDX.Scopes),
-        idx.WithRedirectURI(c.Okta.IDX.RedirectURI))
+      c.Okta.IDX.ClientID,
+      c.Okta.IDX.ClientSecret,
+      c.Okta.IDX.Issuer,
+      c.Okta.IDX.Scopes,
+      c.Okta.IDX.RedirectURI)
 if err != nil {
     log.Fatalf("new client error: %+v", err)
 }
@@ -30,9 +28,9 @@ Build a sign-in page that captures both the user's name and password.
 </div>
 
 During page load, call the `Client's` `InitLogin` method. This method returns an object of type
-`LoginResponse` that is used to initate the sign in process with Okta in the subsquent steps.  The object
-also contains a list of available social identity providers (IdPs) that is discussed in more detail in the
-[Sign in with Facebook](docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp/)
+`LoginResponse` that is used to initate the sign in process with Okta. This object
+also contains a list of available social identity providers (IdPs) that are discussed in more detail in the
+[Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp)
 use case.
 
 ```go
@@ -59,8 +57,7 @@ sign-in form.
 
 Next, using the `LoginResponse` object obtained from
 [Step 2](#step-2-reconfigure-application-for-password-factor-only),
-call its `Identify` method passing in the `IdentifyRequest` created
-in the previous step.
+call its `Identify` method passing in this new `IdentifyRequest` object.
 
 ```go
 lr, err = lr.Identify(context.TODO(), ir)
@@ -106,4 +103,4 @@ if lr.Token() != nil {
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo).
+See [Get user profile information after sign-in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more information.

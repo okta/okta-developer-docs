@@ -1,7 +1,6 @@
 ## Summary of steps
 
-This use case entails building out a simple UI to capture the username and password
-and authenticating the credentials with Okta using the SDK. See sequence diagram below:
+The sequence of steps for the basic sign use case is shown below.
 
 <div class="common-image-format">
 

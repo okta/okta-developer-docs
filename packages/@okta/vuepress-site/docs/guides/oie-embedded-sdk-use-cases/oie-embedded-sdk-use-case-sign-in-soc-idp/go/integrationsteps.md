@@ -2,18 +2,16 @@
 
 ### Step 1: Create the SDK client on application load
 
-The first step is to create the SDK client when the user navigates to
-the home page and the application loads. Create a new SDK Client by
-calling the `NewClient` method that returns an object of type
-`Client`.
+When the user navigates to the home page and the application loads, create a new
+SDK Client object by calling the `NewClient` method.
 
 ```go
 idx, err := idx.NewClient(
-        idx.WithClientID(c.Okta.IDX.ClientID),
-        idx.WithClientSecret(c.Okta.IDX.ClientSecret),
-        idx.WithIssuer(c.Okta.IDX.Issuer),
-        idx.WithScopes(c.Okta.IDX.Scopes),
-        idx.WithRedirectURI(c.Okta.IDX.RedirectURI))
+      c.Okta.IDX.ClientID,
+      c.Okta.IDX.ClientSecret,
+      c.Okta.IDX.Issuer,
+      c.Okta.IDX.Scopes,
+      c.Okta.IDX.RedirectURI)
 if err != nil {
     log.Fatalf("new client error: %+v", err)
 }
@@ -30,10 +28,9 @@ Build a sign-in page that captures both the user's name and password.
 </div>
 
 During page load, call the `Client's` `InitLogin` method. This method returns an object of type
-`LoginResponse` that is used to initate the sign-in process with Okta in the subsquent steps.  The object
-also contains a list of available social identity providers (IdPs) that is discussed in more detail in the
-[Sign in with Facebook](docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp/)
-use case.
+`LoginResponse` that is used to initate the sign-in process with Okta.  The object
+also contains a list of available social identity providers (IdPs) that is discussed in more detail in
+the next step.
 
 ```go
 lr, err := s.idxClient.InitLogin(context.TODO())
@@ -47,7 +44,7 @@ if err != nil {
 #### Get list of identity providers
 
 Using the `LoginReponse` returned from `InitLogin`, get the available identity providers
-from its `IdentityProviders` property.
+from its `IdentityProviders()` property.
 
 ```go
 idps := lr.IdentityProviders()
@@ -60,8 +57,8 @@ s.ViewData["IdpCount"] = func() int {
 #### Build list of indentity providers on sign-in page
 
 Use this array of `IdentityProvider` objects to show a list of available identity providers on the
-sign-in page. The code below from the sample application shows how the page builds out links for
-each available identity provider.
+sign-in page. The code snippet below shows how the sample application builds out links for each available
+identity provider.
 
 ```go
 {{ range .IDPs }}
@@ -92,22 +89,23 @@ providers.
 
 ### Step 4: User clicks on the Facebook IdP link
 
-The user clicks the sign-in link, which sends them initially to the Okta org. The `HRef` property contains a URL that's linked to the Okta org. From the org, the request gets routed to Facebook for user sign-in. You don't need to implement additional code changes to perform this step.
+When the user clicks the Facebook IdP link, initially they are sent to the Okta org using the link provided in the
+`IdentityProvider's` `HRef` property. At the Org, the request gets routed to Facebook for user sign-in. You don't need to implement additional code changes to perform this step.
 
 ### Step 5: User signs in to Facebook
 
 After the user clicks on the sign-in link, the browswer should redirect to a sign-in page hosted by Facebook. The credentials
-you enter originates from a test user that you configured in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers). You don't need to mae any code changes in your app to perform this step.
+you enter originates from a test user that you configured in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers). You don't need to make any code changes in your app to perform this step.
 
 <div class="common-image-format">
 
-![Screenshot of a facebook sign-in page(/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-social-fb-sign-in.png)
+![Screenshot of a facebook sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-social-fb-sign-in.png)
 
 </div>
 
 ### Step 6: Facebook redirects to your Okta org
 
-If the Facebook login is successful, Facebook routes the user to the URL that you entered in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
+If the Facebook login is successful, Facebook routes the user to the Org URL that you entered in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
 ### Step 7: Okta org redirects to your app through the sign-in redirect URIs
 
@@ -115,17 +113,14 @@ After Facebook sends the success login request to your Okta org, the org redirec
 
 The value for the sample app is `http://localhost:8000/login/callback`.
 
-The callback to your app contains the sign-in tokens that need to be stored in session state.
-
-The code that wires up the URL to the function that will fetch the tokens returned from the
-successful sign-in:
+The following code wires up the callback URL to a `handleLoginCallaback` function.
 
 ```go
 r.HandleFunc("/login/callback", s.handleLoginCallback).Methods("GET")
 ```
 
-The function is called when the Okta org redirects the user after a successful
-sign-in. It fetches and stores the tokens into session for later use.
+The `handleLoginCallaback` function handles the callback and stores the incoming tokens
+into session state.
 
 ```go
 func (s *Server) handleLoginCallback(w http.ResponseWriter, r *http.Request) {
@@ -165,4 +160,4 @@ func (s *Server) handleLoginCallback(w http.ResponseWriter, r *http.Request) {
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information after sign-in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo).
+See [Get user profile information after sign-in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more information.

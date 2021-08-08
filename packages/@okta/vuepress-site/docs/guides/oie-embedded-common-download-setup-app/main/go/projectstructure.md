@@ -12,9 +12,9 @@ They are:
   by the embedded SDK.
 
     * **`samples-golang/identity-engine/embedded-auth-with-sdk`**
-      Sample application that uses the embedded Sign-in Widget to authenticate
-      the user.
-
-    * **`samples-golang/identity-engine/embedded-sign-in-widget`**
       Sample application that uses the embedded SDK to authenticate the
       user.
+
+    * **`samples-golang/identity-engine/embedded-sign-in-widget`**
+      Sample application that uses the embedded Sign-in Widget to authenticate
+      the user.

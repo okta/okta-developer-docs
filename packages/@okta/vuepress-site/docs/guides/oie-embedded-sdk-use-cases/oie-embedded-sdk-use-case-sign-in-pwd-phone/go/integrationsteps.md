@@ -2,18 +2,16 @@
 
 ### Step 1: Create the SDK client on application load
 
-The first step is to create the SDK client when the user navigates to
-the home page and the application loads. Create a new SDK Client by
-calling the `NewClient` method that returns an object of type
-`Client`.
+When the user navigates to the home page and the application loads, create a new
+SDK Client object by calling the `NewClient` method.
 
 ```go
 idx, err := idx.NewClient(
-        idx.WithClientID(c.Okta.IDX.ClientID),
-        idx.WithClientSecret(c.Okta.IDX.ClientSecret),
-        idx.WithIssuer(c.Okta.IDX.Issuer),
-        idx.WithScopes(c.Okta.IDX.Scopes),
-        idx.WithRedirectURI(c.Okta.IDX.RedirectURI))
+      c.Okta.IDX.ClientID,
+      c.Okta.IDX.ClientSecret,
+      c.Okta.IDX.Issuer,
+      c.Okta.IDX.Scopes,
+      c.Okta.IDX.RedirectURI)
 if err != nil {
     log.Fatalf("new client error: %+v", err)
 }
@@ -30,9 +28,9 @@ Build a sign-in page that captures both the user's name and password.
 </div>
 
 During page load, call the `Client's` `InitLogin` method. This method returns an object of type
-`LoginResponse` that is used to initate the sign in process with Okta in the subsquent steps.  The object
+`LoginResponse` that is used to initate the sign in process with Okta.  The object
 also contains a list of available social identity providers (IdPs) that is discussed in more detail in the
-[Sign in with Facebook](docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp/)
+[Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp)
 use case.
 
 ```go
@@ -58,7 +56,7 @@ sign-in form.
 ```
 
 Next, using the `LoginResponse` object obtained from
-[Step 2](#step-2-reconfigure-application-for-password-factor-only),
+[Step 2](#step-2-build-sign-in-page-and-initialize-client-object),
 call its `Identify` method passing in the `IdentifyRequest` created
 in the previous step.
 
@@ -102,7 +100,7 @@ return
 The next step is to build a page that allows the user to choose a factor
 to continue the authentication flow.
 
-<div class="common-image-format">
+<div class="common-image-format common-image-format-vertical-margin">
 
 ![Screenshot showing an option to choose verification through the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-verify-page.png)
 
@@ -125,7 +123,7 @@ if lr.HasStep(idx.LoginStepPhoneVerification) || lr.HasStep(idx.LoginStepPhoneIn
 ### Step 6: Show phone verification method and optional phone number field
 
 Once the user chooses the phone factor, the next step is for them to choose a phone method type and
-optionally phone number. Currently, SMS is the only supported method type but voice is planned for
+optional phone number. Currently, SMS is the only supported method type but voice is planned for
 a future release. The phone number field should be displayed only when the user has not yet setup
 their phone number within the Okta org. In this case, `LoginResponse's` `HasStep` method returns
 true when `LoginStepPhoneInitialVerification` is passed in.
@@ -157,7 +155,7 @@ This flag is then used in a template to decide whether or not to display the fie
 {{end}}
 ```
 
-The following page from the sample applicatino shows the phone number field and phone method type options.
+The following page from the sample application shows the phone number field and phone method type options.
 
 <div class="common-image-format">
 
@@ -185,9 +183,9 @@ if lr.HasStep(idx.LoginStepPhoneInitialVerification) {
 
 ### Step 8: Show phone code verification page
 
-The next step is to build the code verification page. After the user chooses the phone factor
-to validate their identity, a page is shown that allows the user to enter the verification code
-sent to their phone.
+The next step is to build the code verification page. After the user chooses the method type
+and optional phone number to validate their identity, the user needs to enter the verification code
+from their phone.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
@@ -251,4 +249,4 @@ if lr.Token() != nil {
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo).
+See [Get user profile information after sign-in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more information.

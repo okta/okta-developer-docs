@@ -2,18 +2,16 @@
 
 ### Step 1: Create the SDK client on application load
 
-The first step is to create the SDK client when the user navigates to
-the home page and the application loads. Create a new SDK Client by
-calling the `NewClient` method that returns an object of type
-`Client`.
+When the user navigates to the home page and the application loads, create a new
+SDK Client object by calling the `NewClient` method.
 
 ```go
 idx, err := idx.NewClient(
-        idx.WithClientID(c.Okta.IDX.ClientID),
-        idx.WithClientSecret(c.Okta.IDX.ClientSecret),
-        idx.WithIssuer(c.Okta.IDX.Issuer),
-        idx.WithScopes(c.Okta.IDX.Scopes),
-        idx.WithRedirectURI(c.Okta.IDX.RedirectURI))
+      c.Okta.IDX.ClientID,
+      c.Okta.IDX.ClientSecret,
+      c.Okta.IDX.Issuer,
+      c.Okta.IDX.Scopes,
+      c.Okta.IDX.RedirectURI)
 if err != nil {
     log.Fatalf("new client error: %+v", err)
 }
@@ -161,7 +159,7 @@ factor display and skip option.
   {{end}}
 ```
 
-An example of the page from sample application is shown below:
+An example of the page from the sample application is shown below:
 
 <div class="common-image-format common-image-format-vertical-margin">
 
@@ -172,7 +170,7 @@ An example of the page from sample application is shown below:
 ### Step 7: Call VerifyEmail and create a page that accepts the email confirmation code
 
 Assuming the user selected the email factor and clicked continue, the next step is to
-call `EnrollmentResponse's` `VerifyEmail` method.
+call the `EnrollmentResponse's` `VerifyEmail` method.
 
 ```go
 cer, _ := s.cache.Get("enrollResponse")
@@ -202,10 +200,10 @@ email confirmation code.
 ### Step 8: Call ConfirmEmail when user submits verfication code
 
 Once the submits the verfication code from their email, call `EnrollmentResponse's`
-`ConfirmEmail` method passing in the verification code. Assuming the verfication was
-successful call the `WhereAmI` method on the `EnrollmentResponse` object returned from
-`ConfirmEmail`. `WhereAmI` returns an `EnrollmentResponse` object with information about
-how to proceed with this self registration flow.
+`ConfirmEmail` method passing in the verification code. Assuming the verification was
+successful, call the `WhereAmI` method on the returned `EnrollmentResponse` object.
+`WhereAmI` returns an `EnrollmentResponse` object with information about
+how to proceed.
 
 ```go
 cer, _ := s.cache.Get("enrollResponse")
@@ -230,7 +228,7 @@ http.Redirect(w, r, "/enrollFactor", http.StatusFound)
 The next step is to show a list of available factors using the same page created in
 Step 6. Based on how you configured the Okta org for this use case, only the phone
 factor should be displayed. The `EnrollmentResponse's` `HasStep` method you called in
-Step 6 is used to toggle the visibility of the skip button and email and phone factors.
+[Step 6](#step-6-create-a-page-to-display-the-available-factors-for-enrollment) is used to toggle the visibility of the skip button and email and phone factors.
 In this step, the skip button and phone factor option should be visible.
 
 
@@ -275,7 +273,7 @@ to verify a sign in with the phone factor, see
 ### Step 11: Retrieve sign-in tokens and send user signed-in home page
 
 The `EnrollmentResponse` object returned from the `Skip` method should return tokens
-indicating the register and sign in was successful. Send the user to their
+indicating the register and sign-in was successful. Send the user to their
 signed-in home page.
 
 ```go
@@ -293,4 +291,4 @@ if enrollResponse.Token() != nil {
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo).
+See [Get user profile information after sign-in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more information.
