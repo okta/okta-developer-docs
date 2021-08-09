@@ -59,17 +59,6 @@ Previously with EL syntax, you could reference the first name of the user by usi
 
 The previously available template variables are listed in [Customization Variables](https://help.okta.com/en/prod/Content/Topics/Settings/Settings_Email.htm).
 
-<!---
-##### Function syntax change example
-
-This EA feature supports the use of functions within email templates, but how you call the function's syntax is different. For example, instead of calling functions in the EL templating syntax like this:
-
-`${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}`
-
-You would call functions in the Velocity Templating syntax like this:
-
-`$f.formatTimeDiffHoursNowInUserLocale($org.activationTokenExpirationHours)`
--->
 
 #### Access to all User Profile attributes
 
@@ -83,9 +72,13 @@ In addition to customizing your emails with variables, you can use the following
 
 Although you can use each variable within any function, the variable must match the data type of the function. For example, you can't use a string variable under the formatTimeDiffHourNow() function because the data must be an integer.
 
-> **Note:** Functions must have the prefix `$f:.` 
-> For example, in VTL: `$f.formatTimeDiffHoursNowInUserLocale($org.activationTokenExpirationHours)`
-> In EL - `${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}`
+The syntax for calling functions is slightly different with Velocity templating syntax. For example, instead of calling functions in the EL templating syntax like this:
+
+`${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}`
+
+You would call functions in the Velocity Templating syntax like this:
+
+`$f.formatTimeDiffHoursNowInUserLocale($org.activationTokenExpirationHours)`
 
 | Expression                                                    | Definition                                                                                                          |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
