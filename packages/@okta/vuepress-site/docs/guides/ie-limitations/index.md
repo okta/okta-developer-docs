@@ -85,7 +85,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 * **Okta-hosted Sign-In Widget:** The **Help title** link in the **Customized Help Links** section of the Customization page has been removed and isn't supported.
 * **Self-hosted Sign-In Widget:** The **Need help signing in** string has been removed and isn't supported.
 
-**Further Information:** [Help title](https://github.com/okta/okta-signin-widget/#help-links)
+**Further Information:** [Okta Sign-in Widget Help](https://github.com/okta/okta-signin-widget/#help-links)
 
 ***
 
