@@ -10,6 +10,10 @@
     width: 100%;
     margin: 0 36px 0 0;
 
+    @include media("<=tablet") {
+      margin-right: 0;
+    }
+
     &:last-child {
       margin-right: 0;
     }
@@ -25,6 +29,7 @@
     height: auto;
     margin-right: 0;
     margin-left: 0;
+    margin-bottom: 48px;
     width: 100%;
   }
 
@@ -43,6 +48,8 @@
     @include media("<=tablet"){
       font-size: 21px;
       font-weight: 500;
+      padding: 0 0 8px;
+      border-bottom-width: 1px;
     }
 
     >i,span{
@@ -74,10 +81,8 @@
       border-bottom: 1px solid cv('text', 'lighter');
 
       @include media("<=tablet") {
-        padding-bottom: 16px;
-        &:last-child {
-          border-bottom: none;
-        }
+        padding-left: 0;
+        padding-right: 0;
       }
 
       &:visited,&:active,&:focus{

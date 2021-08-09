@@ -1,6 +1,13 @@
-$oktaGameSectionMainColor: #122a34;
-$oktaGameButtonColor: #ffdd53;
-
+@mixin mobile-separator {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 22px;
+  height: 1px;
+  transform: translateX(-50%);
+  background: cv('text', 'lighter');
+}
 
 .homepage {
   background-color: cv('body');
@@ -53,7 +60,8 @@ $oktaGameButtonColor: #ffdd53;
     background: #fff url('/img/homepage/white-to-gray-bg.svg') repeat-x left bottom;
     @include media("<=tablet") {
       height: auto;
-      padding-bottom: 138px;
+      padding-bottom: 103px;
+      padding-top: 47px;
     }
   }
   &--selector-block-margin {
@@ -61,6 +69,7 @@ $oktaGameButtonColor: #ffdd53;
     padding-top: 42px;
     @include media("<=desktop") {
       margin-bottom: 30px;
+      padding-top: 54px;
     }
   }
 
@@ -69,7 +78,8 @@ $oktaGameButtonColor: #ffdd53;
     padding-bottom: 105px;
     background: cv('body') url('/img/homepage/gray-to-white-bg.svg') repeat-x left bottom;
     @include media("<=tablet") {
-      padding-bottom: 170px;
+      padding-bottom: 165px;
+      padding-top: 91px;
     }
   }
 
@@ -104,7 +114,7 @@ $oktaGameButtonColor: #ffdd53;
       margin-bottom: 0px;
     }
     @include media("<=tablet") {
-      padding-top: 90px;
+      padding-top: 40px;
     }
   }
 
@@ -117,12 +127,39 @@ $oktaGameButtonColor: #ffdd53;
   &--intro-heading {
     margin-bottom: 15px;
     padding-bottom: 21px;
+    border-bottom: 1px solid cv('text', 'lighter');
+
+    @include media('<=tablet') {
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
     h6 {
       font-size: 1em;
       font-weight: 500;
       margin: 9px 0;
+      position: relative;
+
+      @include media('<=tablet') {
+        font-size: 21px;
+        padding: 0 0 16px;
+        margin-bottom: 21px;
+
+        &::after {
+          @include mobile-separator();
+        }
+      }
+    }
+    p {
+      @include media('<=tablet') {
+        line-height: 1.45rem;
+        br {
+          display: none;
+        }
+      }
     }
   }
+
   &--main-heading {
     font-size: 32px;
     font-weight: 300;
@@ -131,7 +168,7 @@ $oktaGameButtonColor: #ffdd53;
     position: relative;
     @include media("<=tablet") {
       text-align: center;
-      margin-bottom: 12px;
+      margin-bottom: 49px;
       margin-top: 25px;
       font-size: 28px;
     }
@@ -154,19 +191,24 @@ $oktaGameButtonColor: #ffdd53;
       margin-top: 71px;
       @include media("<=tablet") {
         text-align: center;
-        font-size: 24px;
-        font-weight: 500;
-        margin-top: 36px;
+        font-size: 21px;
+        margin: 2px 0 21px;
+        padding-bottom: 16px;
+        position: relative;
+        &::after {
+          @include mobile-separator();
+        }
       }
     }
 
     p {
       font-size: 18px;
+      @include media("<=tablet") {
+        font-size: 16px;
+        text-align: center;
+        line-height: 1.45rem;
+      }
     }
-  }
-
-  &--heading-with-border {
-    border-bottom: 1px solid cv('text', 'lighter');
   }
 
   &--centered-md {
@@ -194,7 +236,7 @@ $oktaGameButtonColor: #ffdd53;
       margin: 0;
     }
     @include media("<=tablet") {
-      padding-top: 77px;
+      padding-top: 41px;
     }
   }
   &--code-example {

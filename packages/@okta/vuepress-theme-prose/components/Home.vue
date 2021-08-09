@@ -10,19 +10,17 @@
         <div class="justify-content-center">
           <div class="homepage--elevated">
             <div class="homepage--top-section homepage--section-margins">
-              <div class="homepage--heading-with-border">
-                <div class="row flex align-items-center homepage--intro-heading">
-                  <div class="col-lg-6 col-md-12">
-                    <h1 class="homepage--main-heading homepage--color-main">
-                      Okta Developer Portal
-                    </h1>
-                  </div>
-                  <div class="col-lg-6 col-md-12">
-                    <h6 class="homepage--section-description">Auth for All</h6>
-                    <p class="homepage--section-description">
-                      Quickly deploy auth that protects your apps,<br/> APIs, and infrastructure
-                    </p>
-                  </div>
+              <div class="row flex align-items-center homepage--intro-heading">
+                <div class="col-lg-6 col-md-12">
+                  <h1 class="homepage--main-heading homepage--color-main">
+                    Okta Developer Portal
+                  </h1>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                  <h6 class="homepage--section-description">Auth for All</h6>
+                  <p class="homepage--section-description">
+                    Quickly deploy auth that protects your apps,<br/> APIs, and infrastructure
+                  </p>
                 </div>
               </div>
               
