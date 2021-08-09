@@ -49,9 +49,7 @@
   }
 
   .sidebar-area {
-    width: 22%;
-    min-width: 253px;
-    max-width: 380px;
+    width: 266px;
     position: sticky;
     overflow: auto;
     border-right: 1px solid cv('body', 'border');
@@ -67,7 +65,7 @@
 
   .content-area {
     flex: 1;
-    max-width: calc(100% - 253px);
+    max-width: calc(100% - 266px);
     padding: 50px 148px;
     @include media("<=desktop") {
       padding: 30px 57px;

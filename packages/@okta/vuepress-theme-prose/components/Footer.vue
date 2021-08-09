@@ -78,9 +78,9 @@
           <span class="description">{{ item.description }}</span>
         </div>
       </div>
-    </div>
-    <div class="copyright">
-      <span>{{ config.copyright_text }}</span>
+      <div class="copyright">
+        <span>{{ config.copyright_text }}</span>
+      </div>
     </div>
   </footer>
 </template>

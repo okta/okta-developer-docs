@@ -31,13 +31,14 @@
   &--header{
     font-size: 14px;
     font-weight: 500;
-    padding: 0 0 9px;
+    padding: 0 10px 7px 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     color: cv('text', 'darker');
-    margin-bottom: 21px;
+    margin-bottom: 0;
+    border-bottom: 2px solid cv('text', 'darker');
 
     @include media("<=tablet"){
       font-size: 21px;
@@ -67,9 +68,10 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding: 0 0 12px;
+      padding: 11px 10px;
       text-decoration: none;
       color: cv('text', 'darker');
+      border-bottom: 1px solid cv('text', 'lighter');
 
       @include media("<=tablet") {
         padding-bottom: 16px;
@@ -84,8 +86,8 @@
 
       >img{
         border-radius: 50%;
-        width: 18px;
-        height: 18px;
+        width: 20px;
+        height: 20px;
         display: block;
         @include media("<=tablet"){
           width: 20px;
@@ -106,15 +108,16 @@
         display: block;
         font-weight: 100;
         font-size: 8px;
-        color: cv('text', 'lighter');
+        color: cv('tile', 'angle');
         @include media("<=tablet"){
           font-size: 16px;
         }
       }
       &:hover{
-        color: cv('link', 'tile');
+        color: cv('link', 'darker');
+        background: cv('blue', '000');
         >i {
-          color: cv('link', 'tile');
+          color: cv('link', 'darker');
         }
       }
     }

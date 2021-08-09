@@ -20,7 +20,7 @@
                   <div class="col-lg-6 col-md-12">
                     <h6 class="homepage--section-description">Auth for All</h6>
                     <p class="homepage--section-description">
-                      Quickly deploy auth that protects your apps, APIs, and infrastructure
+                      Quickly deploy auth that protects your apps,<br/> APIs, and infrastructure
                     </p>
                   </div>
                 </div>

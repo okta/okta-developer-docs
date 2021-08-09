@@ -1,6 +1,6 @@
 <template>
   <div class="selector-tile">
-      <router-link :to='tileData.link' class="selector-tile--header homepage--heading-with-border">
+      <router-link :to='tileData.link' class="selector-tile--header">
         <span>
           {{tileData.name}}
         </span>

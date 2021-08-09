@@ -37,8 +37,8 @@ $oktaGameButtonColor: #ffdd53;
   }
 
   &--section-margins {
-    padding-left: 148px;
-    padding-right: 148px;
+    padding-left: 135px;
+    padding-right: 135px;
     @include media("<=desktop") {
       padding: 40px 57px;
     }
@@ -48,7 +48,7 @@ $oktaGameButtonColor: #ffdd53;
   }
 
   &--top-section {
-    padding-top: 49px;
+    padding-top: 38px;
     padding-bottom: 50px;
     background: #fff url('/img/homepage/white-to-gray-bg.svg') repeat-x left bottom;
     @include media("<=tablet") {
@@ -57,7 +57,7 @@ $oktaGameButtonColor: #ffdd53;
     }
   }
   &--selector-block-margin {
-    margin-bottom: 127px;
+    margin-bottom: 150px;
     padding-top: 42px;
     @include media("<=desktop") {
       margin-bottom: 30px;
@@ -74,7 +74,7 @@ $oktaGameButtonColor: #ffdd53;
   }
 
   &--partners-block-margin {
-    margin-bottom: 67px;
+    margin-bottom: 58px;
     @include media("<=desktop") {
       padding-top: 0;
       padding-bottom: 0;
@@ -84,7 +84,7 @@ $oktaGameButtonColor: #ffdd53;
   &--customize-your-app-margin {
     margin-bottom: 75px;
     min-height: 600px;
-    padding-top: 79px;
+    padding-top: 20px;
     position: relative;
     * {
       z-index: 1;
@@ -116,6 +116,7 @@ $oktaGameButtonColor: #ffdd53;
   }
   &--intro-heading {
     margin-bottom: 15px;
+    padding-bottom: 21px;
     h6 {
       font-size: 1em;
       font-weight: 500;
@@ -144,11 +145,11 @@ $oktaGameButtonColor: #ffdd53;
   }
 
   &--sub-heading {
-    margin-bottom: 45px;
+    margin-bottom: 28px;
 
     h2 {
       font-size: 24px;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
       padding-bottom: 0px;
       margin-top: 71px;
       @include media("<=tablet") {
@@ -185,7 +186,7 @@ $oktaGameButtonColor: #ffdd53;
     }
   }
   &--examples {
-    padding-top: 25px;
+    padding-top: 36px;
     margin: 0 -70px;
     justify-content: center;
     @include media("<=desktop") {
