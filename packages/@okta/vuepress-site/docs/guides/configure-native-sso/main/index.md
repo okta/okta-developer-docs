@@ -102,10 +102,10 @@ Make a request to obtain the policy ID for the policy that you just created in t
 **Request example**
 
 ```bash
-  curl --location --request GET 'https://${yourOktaDomain}/api/v1/authorizationServers/default/policies' \
+curl --request GET \
+  --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies \
   --header 'Accept: application/json' \
-  --header 'Content-Type: application/json' \
-  --header 'Authorization: SSWS ${apiKey}' \
+  --header 'Authorization: SSWS ${apiKey}'
 ```
 
 In the response, locate the "id" for the policy that you created in the "Configure Native SSO for your Okta org" section and save it somewhere.
@@ -117,10 +117,10 @@ Make a request to obtain the rule ID of the policy that you just created in the 
 **Request example**
 
 ```bash
-  curl --location --request GET 'https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/${policyId}/rules' \
+curl --request GET \
+  --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/${policyId}/rules \
   --header 'Accept: application/json' \
-  --header 'Content-Type: application/json' \
-  --header 'Authorization: SSWS ${apiKey}' \
+  --header 'Authorization: SSWS ${apiKey}'
 ```
 
 In the response, locate the ID of the rule and save it somewhere.
@@ -130,9 +130,8 @@ In the response, locate the ID of the rule and save it somewhere.
 Use the `policyId` and `ruleId` that you obtained in the previous section to obtain the current access policy rule.
 
 ```bash
-  curl --request GET \
+curl --request GET \
   --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/${policyId}/rules/${ruleId} \
-  --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
   --header 'Authorization: SSWS ${apiKey}'
 ```
@@ -145,57 +144,57 @@ Next, configure the token exchange grant type for the client that is using the A
 
 **Update example**
 
-```json
-curl --location --request PUT
---url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/${policyId}/rules/${ruleId} \
---header 'Content-Type: application/json' \
---header 'Accept: application/json' \
---header 'Authorization: SSWS ${apiKey}' \
--d '{
-  "id": "${ruleId}",
-  "status": "ACTIVE",
-  "name": "allow token exchange",
-  "priority": 1,
-  "created": "2021-04-14T17:47:42.000Z",
-  "lastUpdated": "2021-04-14T17:47:42.000Z",
-  "system": false,
-  "conditions": {
-    "people": {
-      "users": {
-        "include": [],
-        "exclude": []
+```bash
+curl --request PUT \
+  --url https://${yourOktaDomain}/api/v1/authorizationServers/default/policies/${policyId}/rules/${ruleId} \
+  --header 'Content-Type: application/json' \
+  --header 'Accept: application/json' \
+  --header 'Authorization: SSWS ${apiKey}' \
+  -d '{
+    "id": "${ruleId}",
+    "status": "ACTIVE",
+    "name": "allow token exchange",
+    "priority": 1,
+    "created": "2021-04-14T17:47:42.000Z",
+    "lastUpdated": "2021-04-14T17:47:42.000Z",
+    "system": false,
+    "conditions": {
+      "people": {
+        "users": {
+          "include": [],
+          "exclude": []
+        },
+        "groups": {
+          "include": [
+            "EVERYONE"
+          ],
+          "exclude": []
+        }
       },
-      "groups": {
+      "grantTypes": {
         "include": [
-          "EVERYONE"
-        ],
-        "exclude": []
+          "implicit",
+          "password",
+          "client_credentials",
+          "authorization_code",
+          "urn:ietf:params:oauth:grant-type:token-exchange"
+        ]
+      },
+      "scopes": {
+        "include": [
+          "*"
+        ]
       }
     },
-    "grantTypes": {
-      "include": [
-        "implicit",
-        "password",
-        "client_credentials",
-        "authorization_code",
-        "urn:ietf:params:oauth:grant-type:token-exchange"
-      ]
+    "actions": {
+      "token": {
+        "accessTokenLifetimeMinutes": 60,
+        "refreshTokenLifetimeMinutes": 0,
+        "refreshTokenWindowMinutes": 10080
+      }
     },
-    "scopes": {
-      "include": [
-        "*"
-      ]
-    }
-  },
-  "actions": {
-    "token": {
-      "accessTokenLifetimeMinutes": 60,
-      "refreshTokenLifetimeMinutes": 0,
-      "refreshTokenWindowMinutes": 10080
-    }
-  },
-  "type": "RESOURCE_ACCESS"
-}'
+    "type": "RESOURCE_ACCESS"
+  }'
 ```
 
 ## Configure your client to participate in Native SSO
@@ -205,9 +204,8 @@ This is applicable for all clients participating in Native SSO (for example, cli
 **Request example**
 
 ```bash
-  curl --request GET \
-  --url https://${yourOktaDomain}/oauth2/v1/clients/${clientId}' \
-  --header 'Content-Type: application/json' \
+curl --request GET \
+  --url https://${yourOktaDomain}/oauth2/v1/clients/${clientId} \
   --header 'Accept: application/json' \
   --header 'Authorization: SSWS ${apiKey}'
 ```
@@ -218,8 +216,8 @@ In this request, update the client with the token exchange grant. Use the respon
 
 > **Note:** All clients that want to leverage Native SSO and SLO must be configured with this grant type.
 
-```json
-  curl --location --request PUT \
+```bash
+curl --request PUT \
   --url https://${yourOktaDomain}/oauth2/v1/clients/${clientId} \
   --header 'Content-Type: application/json' \
   --header 'Accept: application/json' \
@@ -288,12 +286,15 @@ To exchange the authorization code for tokens, pass the code to your authorizati
 **Example request**
 
 ```bash
-curl --location --request POST \
+curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/token \
   --header 'accept: application/json' \
-  --header 'cache-control: no-cache' \
   --header 'content-type: application/x-www-form-urlencoded' \
-  --data 'grant_type=authorization_code&client_id=${clientId}&redirect_uri=${configuredRedirectUri}&code=CKA9Utz2GkWlsrmnqehz&code_verifier=M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
+  --data-urlencode 'grant_type=authorization_code' \
+  --data-urlencode 'client_id=${clientId}' \
+  --data-urlencode 'redirect_uri=${configuredRedirectUri}' \
+  --data-urlencode 'code=CKA9Utz2GkWlsrmnqehz' \
+  --data-urlencode 'code_verifier=M25iVXpKU3puUjFaYWg3T1NDTDQtcW1ROUY5YXlwalNoc0hhakxifmZHag'
 ```
 
 **Example response**
@@ -321,7 +322,7 @@ Client 2 makes a token exchange request, and the response returns the tokens app
 **Example request**
 
 ```bash
-  curl --location --request POST \
+curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/token \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -359,7 +360,7 @@ If the request is successful, the response returned includes the following token
     "access_token": "eyJraWQiOiJZQ...VNL3SttonAlV4NYMQ",
     "scope": "openid offline_access",
     "refresh_token": "dd1LXWH5qug6tHAZDhYBOHbqg5TxxbXvwpsIR5qjZRw",
-    "id_token": "eyJraWQiOiJZQ...woMh1u6jHMQTI0fA",
+    "id_token": "eyJraWQiOiJZQ...woMh1u6jHMQTI0fA"
 }
 ```
 
@@ -370,7 +371,7 @@ Occasionally you may want to verify that the device secret is still valid by usi
 **Example introspect request**
 
 ```bash
-  curl --request POST \
+curl --request POST \
   --url https://${yourOktaDomain}/oauth2/default/v1/introspect \
   --header 'Accept: application/json' \
   --header 'Content-Type: application/x-www-form-urlencoded' \
@@ -385,7 +386,8 @@ Occasionally you may want to verify that the device secret is still valid by usi
 {
     "active": true,
     "sid": "102oRgEWx5lRTWHilEoGfed4w",
-    "token_type": "urn:x-oath:params:oauth:token-type:device-secret"
+    "token_type": "urn:x-oath:params:oauth:token-type:device-secret",
+    "exp": 1628886628
 }
 ```
 
@@ -398,12 +400,12 @@ Sometimes you have to end a user's desktop session. When you do that, you are si
 **Example request**
 
 ```bash
-curl --location --request POST \
---url https://${yourOktaDomain}/oauth2/default/v1/revoke \
---header 'Accept: application/json' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'token=${deviceSecret}' \
---data-urlencode 'client_id=${client 1 ID}' \
+curl --request POST \
+  --url https://${yourOktaDomain}/oauth2/default/v1/revoke \
+  --header 'Accept: application/json' \
+  --header 'Content-Type: application/x-www-form-urlencoded' \
+  --data-urlencode 'token=${deviceSecret}' \
+  --data-urlencode 'client_id=${client 1 ID}'
 ```
 
 **Example response**
@@ -427,11 +429,8 @@ To verify that the refresh and access tokens are also automatically invalidated 
 When the user signs out of an application, the application sends a `/logout` request to the Okta Authorizataion Server, which revokes the device secret.
 
 ```bash
-  curl --location --request GET `https://${yourOktaDomain}/oauth2/default/v1/logout` \
-  --data-urlencode `id_token_hint=${idToken}` \
-  --data-urlencode `device_secret=${deviceSecret}` \
-  --data-urlencode `post_logout_redirect_uris=${configuredPostLogoutRedirectUri}` \
-  --data-urlencode `state=2OwvFrEMTJg` \
+curl --request GET \
+  --url https://${yourOktaDomain}/oauth2/default/v1/logout?id_token_hint=${idToken}&device_secret=${deviceSecret}&post_logout_redirect_uris=${configuredPostLogoutRedirectUri}&state=2OwvFrEMTJg
 ```
 
 The Authorization Server invalidates the access and refresh tokens that are issued for the `sid` and `device_secret`. If the invalidated refresh token is used to renew tokens, the request fails.
