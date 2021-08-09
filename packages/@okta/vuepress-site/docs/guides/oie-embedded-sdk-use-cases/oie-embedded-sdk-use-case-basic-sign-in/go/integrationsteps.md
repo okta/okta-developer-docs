@@ -23,12 +23,12 @@ Build a sign-in page that captures both the user's name and password.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![A basic sign in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+![A basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
 
 </div>
 
 During page load, call the `Client's` `InitLogin` method. This method returns an object of type
-`LoginResponse` that is used to initate the sign in process with Okta. This object
+`LoginResponse` that is used to initate the sign-in process with Okta. This object
 also contains a list of available social identity providers (IdPs) that are discussed in more detail in the
 [Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp)
 use case.
@@ -42,7 +42,7 @@ if err != nil {
 
 ### Step 3: Submit credentials when user signs in
 
-After the user enters their credentials and submits their sign in request,
+After the user enters their credentials and submits their sign-in request,
 create an `IdentityRequest` object passing in the username and password from the
 sign-in form.
 

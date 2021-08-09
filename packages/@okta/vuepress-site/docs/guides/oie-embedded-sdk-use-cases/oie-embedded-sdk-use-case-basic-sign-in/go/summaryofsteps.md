@@ -1,6 +1,6 @@
 ## Summary of steps
 
-The sequence of steps for the basic sign use case is shown below.
+The sequence of steps for the basic sign-in use case is shown below.
 
 <div class="common-image-format">
 

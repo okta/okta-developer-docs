@@ -119,8 +119,8 @@ to a page that allows them to enter their new password.
 
 ### Step 7: Call SetNewPassword on new password submission
 
-Once the user enters their password and submits, call the `ResetPasswordResponse's`
-`SetNewPassword` method to change their password to the new password. If successful
+After the user enters their password and submits, call the `ResetPasswordResponse's`
+`SetNewPassword` method to change their password to the new password. If successful,
 this method should return the sign-in tokens.
 
 ```go
@@ -139,7 +139,7 @@ if !rpr.HasStep(idx.ResetPasswordStepSuccess) {
 ### Step 8: Store tokens in session
 
 Store the tokens from the `ResetPasswordResponse` into session
-for later use. Once the tokens are stored, redirect the user to the
+for later use. After the tokens are stored, redirect the user to the
 default signed-in home page.
 
 ```go

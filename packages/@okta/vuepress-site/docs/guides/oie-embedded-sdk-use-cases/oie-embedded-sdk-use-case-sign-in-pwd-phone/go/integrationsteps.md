@@ -21,14 +21,14 @@ if err != nil {
 
 Build a sign-in page that captures both the user's name and password.
 
-<div class="common-image-format">
+<div class="common-image-format common-image-format-vertical-margin">
 
-![A basic sign in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+![A basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
 
 </div>
 
 During page load, call the `Client's` `InitLogin` method. This method returns an object of type
-`LoginResponse` that is used to initate the sign in process with Okta.  The object
+`LoginResponse` that is used to initate the sign-in process with Okta.  The object
 also contains a list of available social identity providers (IdPs) that is discussed in more detail in the
 [Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp)
 use case.
@@ -42,7 +42,7 @@ if err != nil {
 
 ### Step 3: Submit credentials when user signs in
 
-After the user enters their credentials and submits their sign in request,
+After the user enters their credentials and submits their sign-in request,
 create an `IdentityRequest` object passing in the username and password from the
 sign-in form.
 
@@ -106,7 +106,7 @@ to continue the authentication flow.
 
 </div>
 
-When the page loads call the `LoginResponse's` `HasStep`method once for the `LoginStepPhoneVerification` and `LoginStepPhoneInitialVerification` constants. If the method returns `true` for either constants show the
+When the page loads call the `LoginResponse's` `HasStep`method once for the `LoginStepPhoneVerification` and `LoginStepPhoneInitialVerification` constants. If the method returns `true` for either constants, show the
 phone factor option.
 
 ```go
@@ -122,7 +122,7 @@ if lr.HasStep(idx.LoginStepPhoneVerification) || lr.HasStep(idx.LoginStepPhoneIn
 
 ### Step 6: Show phone verification method and optional phone number field
 
-Once the user chooses the phone factor, the next step is for them to choose a phone method type and
+After the user chooses the phone factor, the next step is for them to choose a phone method type and
 optional phone number. Currently, SMS is the only supported method type but voice is planned for
 a future release. The phone number field should be displayed only when the user has not yet setup
 their phone number within the Okta org. In this case, `LoginResponse's` `HasStep` method returns
@@ -183,9 +183,8 @@ if lr.HasStep(idx.LoginStepPhoneInitialVerification) {
 
 ### Step 8: Show phone code verification page
 
-The next step is to build the code verification page. After the user chooses the method type
-and optional phone number to validate their identity, the user needs to enter the verification code
-from their phone.
+The next step is to build the code verification page. After the user submits the method type
+and optional phone number, they need to enter the verification code from their phone.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
@@ -195,9 +194,9 @@ from their phone.
 
 ### Step 9: Call ConfirmPhone when user submits the verification code
 
-Once the user checks their phone for the code and submits it in the verification code
-page, call the `LoginResponse's` `ConfirmPhone` method to verify the code. For this use case
-the method should return tokens signifying a successful sign in.
+After the user checks their phone for the code and submits it, call the
+`LoginResponse's` `ConfirmPhone` method to verify the code. For this use case
+the method should return tokens signifying a successful sign-in.
 
 ```go
 //Get LoginResponse from session
@@ -220,9 +219,8 @@ http.Redirect(w, r, "/login/factors", http.StatusFound)
 
 ### Step 10: Store tokens in session
 
-Store the tokens from the `LoginResponse` in session to be used for
-additional calls. Once the tokens are stored, redirect the user to the
-default signed-in home page.
+Store the tokens in session to be used for additional calls. After the tokens
+are stored, redirect the user to the default signed-in home page.
 
 ```go
 // If we have tokens we have success, so lets store tokens

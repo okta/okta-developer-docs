@@ -13,7 +13,7 @@ element that allows the user to sign out of the app.
 
 ### Step 2: Remove tokens from session state
 
-Remove the tokens, which were stored in session during sign in, from session state.
+Remove the tokens, which were stored in session during sign-in, from session state.
 
 ```go
 session, err := sessionStore.Get(r, "okta-custom-login-session-store")

@@ -94,7 +94,7 @@ When the user clicks the Facebook IdP link, initially they are sent to the Okta 
 
 ### Step 5: User signs in to Facebook
 
-After the user clicks on the sign-in link, the browswer should redirect to a sign-in page hosted by Facebook. The credentials
+After the user clicks on the sign-in link, the browser should redirect to a sign-in page hosted by Facebook. The credentials
 you enter originates from a test user that you configured in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers). You don't need to make any code changes in your app to perform this step.
 
 <div class="common-image-format">

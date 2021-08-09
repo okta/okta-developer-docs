@@ -104,8 +104,7 @@ remaining factors. The constants used are:
 * `EnrollmentStepPhoneVerification`
 * `EnrollmentStepEmailVerification`
 
-The code below shows the logic used to display the factors page in the sample
-applicaiton.
+The sample application's code below shows the logic used to display the factors page.
 
 ```go
 cer, _ := s.cache.Get("enrollResponse")
@@ -199,7 +198,7 @@ email confirmation code.
 
 ### Step 8: Call ConfirmEmail when user submits verfication code
 
-Once the submits the verfication code from their email, call `EnrollmentResponse's`
+After the user submits the verfication code from their email, call `EnrollmentResponse's`
 `ConfirmEmail` method passing in the verification code. Assuming the verification was
 successful, call the `WhereAmI` method on the returned `EnrollmentResponse` object.
 `WhereAmI` returns an `EnrollmentResponse` object with information about
@@ -228,8 +227,7 @@ http.Redirect(w, r, "/enrollFactor", http.StatusFound)
 The next step is to show a list of available factors using the same page created in
 Step 6. Based on how you configured the Okta org for this use case, only the phone
 factor should be displayed. The `EnrollmentResponse's` `HasStep` method you called in
-[Step 6](#step-6-create-a-page-to-display-the-available-factors-for-enrollment) is used to toggle the visibility of the skip button and email and phone factors.
-In this step, the skip button and phone factor option should be visible.
+[Step 6](#step-6-create-a-page-to-display-the-available-factors-for-enrollment) is used to toggle the visibility of the skip button and show the avaiable factors. In this step, the skip button and phone factor option should be visible.
 
 
 ```go
@@ -267,7 +265,7 @@ func (s *Server) transitionToProfile(er *idx.EnrollmentResponse, w http.Response
 ```
 
 For more details about enrolling the phone factor see the sample application. For details on how
-to verify a sign in with the phone factor, see
+to verify a sign-in with the phone factor, see
 [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-pwd-phone/).
 
 ### Step 11: Retrieve sign-in tokens and send user signed-in home page

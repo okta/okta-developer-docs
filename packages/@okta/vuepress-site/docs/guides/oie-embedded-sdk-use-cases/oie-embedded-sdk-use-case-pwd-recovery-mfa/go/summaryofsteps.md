@@ -1,6 +1,6 @@
 ## Summary of steps
 
-The sequence of steps for the password recovery use case.
+The sequence of steps for the password recovery use case is shown below.
 
 <div class="common-image-format">
 

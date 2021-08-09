@@ -23,12 +23,12 @@ Build a sign-in page that captures both the user's name and password.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![A basic sign in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+![A basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
 
 </div>
 
 During page load, call the `Client's` `InitLogin` method. This method returns an object of type
-`LoginResponse` that is used to initate the sign in process with Okta.  The object
+`LoginResponse` that is used to initate the sign-in process with Okta.  The object
 also contains a list of available social identity providers (IdPs) that is discussed in more detail in the
 [Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp)
 use case.
@@ -42,7 +42,7 @@ if err != nil {
 
 ### Step 3: Submit credentials when user signs in
 
-After the user enters their credentials and submits their sign in request,
+After the user enters their credentials and submits their sign-in request,
 create an `IdentityRequest` object passing in the username and password from the
 sign-in form.
 
@@ -106,8 +106,9 @@ to continue the authentication flow.
 
 </div>
 
-When the page is loaded display the email factor option when the `LoginResponse's` `HasStep` returns
-`true` using the `LoginStepEmailVerification` constant.
+During page load, call `LoginResponse's` `HasStep` method passing in the
+ `LoginStepEmailVerification` constant. If the method returns `true`, display
+ the email factor option.
 
 ```go
 clr, _ := s.cache.Get("loginResponse")
@@ -152,7 +153,7 @@ to validate their identity, the user needs to enter the verification code from t
 
 ### Step 8: Call ConfirmEmail when user submits the verification code
 
-Once the user checks their email for the code and submits it, call the `LoginResponse's` `ConfirmEmail`
+After the user checks their email for the code and submits it, call the `LoginResponse's` `ConfirmEmail`
 method to verify the code. For this use case the method should return tokens signifying a successful sign-in.
 
 ```go
@@ -180,7 +181,7 @@ s.ViewData["InvalidEmailCode"] = false
 ### Step 9: Store tokens in session
 
 Store the tokens from the `LoginResponse` in session to be used for
-additional calls. Once the tokens are stored, redirect the user to the
+additional calls. After the tokens are stored, redirect the user to the
 default signed-in home page.
 
 ```go
