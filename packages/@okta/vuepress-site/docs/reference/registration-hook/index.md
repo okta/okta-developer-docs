@@ -160,7 +160,7 @@ Registrations are allowed by default, so setting a value of `ALLOW` for the `act
 
 See [error](/docs/concepts/inline-hooks/) for general information on the structure to use for the `error` object.
 
-In the case of the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Profile Enrollment, and have not customized its error handling behavior, only the `errorSummary` of the first `ErrorCause` object that your external service returns is displayed to the end user.
+In the case of the Registration Inline Hook, the `error` object provides a way of displaying an error message to the end user who is trying to register. If you're using the Okta Sign-In Widget for Profile Enrollment, and have not customized its error handling behavior, only the `errorSummary` of the first `errorCauses` object that your external service returns is displayed to the end user.
 
 If you do not return any value for that `errorCauses` object, but deny the user's registration attempt via the `commands` object in your response to Okta, the following generic message is displayed to the end user: "Registration cannot be completed at this time".
 
@@ -233,7 +233,7 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 }
 ```
 
-## Enabling a Registration Inline Hook for Profile Enrollment
+## Enabling a Registration Inline Hook for Profile Enrollment in Okta Identity Engine
 
 <ApiLifecycle access="ie" /><br>
 
@@ -258,7 +258,7 @@ Your Registration Inline Hook is now configured for Profile Enrollment.
 > **Note:** Only one Inline Hook can be associated with your Profile Enrollment policy at a time.
 
 
-## Enabling a Registration Inline Hook for Self-Service Registration In Okta Classic
+## Enabling a Registration Inline Hook for Self-Service Registration in Okta Classic
 
 <ApiLifecycle access="ea" />
 
