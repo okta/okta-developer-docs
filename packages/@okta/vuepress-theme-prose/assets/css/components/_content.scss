@@ -66,7 +66,7 @@
   .content-area {
     flex: 1;
     max-width: calc(100% - 266px);
-    padding: 50px 148px;
+    padding: 23px 95px;
     @include media("<=desktop") {
       padding: 30px 57px;
     }
@@ -221,9 +221,6 @@
     }
   }
 
-  .on-this-page {
-    width: 18%;
-  }
   &.navigation-only {
     @include media("<=tablet") {
       padding: 0;

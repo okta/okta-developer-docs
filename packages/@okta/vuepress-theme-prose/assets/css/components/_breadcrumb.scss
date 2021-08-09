@@ -1,5 +1,5 @@
 .breadcrumb {
-  padding: 0 0 20px;
+  padding: 0;
 
   &--container {
     padding: 0px;
@@ -25,12 +25,12 @@
           margin-right: 7px;
         }
 
-        a, span, &.crumb-show-contents {
+        a, span {
           text-decoration: none !important;
           color: cv('text', 'darker');
           font-size: 12px;
           font-weight: 500;
-          padding-right: 1em;
+          padding-right: 7px;
 
           @include media("<=desktop") {
             padding-right: 7px;
@@ -47,22 +47,9 @@
             }
           }
         }
-        &:nth-last-child(2) {
+        &:last-child {
           svg {
             display: none;
-            @include media("<=tablet") {
-              display: block;
-            }
-          }
-        }
-        
-        &.crumb-show-contents {
-          font-size: 14px;
-          color: cv('link');
-          cursor: pointer;
-          display: none;
-          @include media("<=tablet") {
-            display: block;
           }
         }
       }

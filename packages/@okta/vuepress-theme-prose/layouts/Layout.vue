@@ -23,8 +23,8 @@
           </div>
           <div class="content-area col-xl-10 col-lg-10 col-md-12 col-sm-12">
             <Breadcrumb />
-            <PageTitle />
             <MobileOnThisPage />
+            <PageTitle />
             <ContentPage />
             <div class="edit-on-github">
               <span class="fa fa-github"></span>
@@ -40,9 +40,6 @@
                 >
               </span>
             </div>
-          </div>
-          <div class="on-this-page">
-            <OnThisPage />
           </div>
         </div>
       </div>
@@ -62,7 +59,6 @@ export default {
   components: {
     Header: () => import("../components/Header.vue"),
     Sidebar: () => import("../components/Sidebar.vue"),
-    OnThisPage: () => import("../components/OnThisPage.vue"),
     MobileOnThisPage: () => import("../components/MobileOnThisPage.vue"),
     PageTitle: () => import("../components/PageTitle.vue"),
     Breadcrumb: () => import("../components/Breadcrumb.vue"),

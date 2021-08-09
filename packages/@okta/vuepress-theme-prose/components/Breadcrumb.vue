@@ -9,7 +9,6 @@
           <path d="M1 9L5 5L1 1" stroke="#1D1D21"/>
         </svg>
       </li>
-      <li class="crumb-show-contents" @click="toggleTreeNav" >{{showHideContents}}</li>
     </ol>
   </div>
 </div>
