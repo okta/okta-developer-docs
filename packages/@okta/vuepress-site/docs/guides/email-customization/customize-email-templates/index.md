@@ -77,6 +77,31 @@ You can now reference any attribute in a user's Okta User Profile in your email 
 
 See [Profile object](/docs/reference/api/users/#profile-object) for more information on the available user profile attributes.
 
+#### Functions for email templates
+
+In addition to customizing your emails with variables, you can use the following functions in each of the email templates. Functions are useful to normalize the dynamic output of variables, such as lowercasing a string, or producing a localized date for the email's recipient user. 
+
+Although you can use each variable within any function, the variable must match the data type of the function. For example, you can't use a string variable under the formatTimeDiffHourNow() function because the data must be an integer.
+
+> **Note:** Functions must have the prefix f:. 
+> In VTL - $f.formatTimeDiffHoursNowInUserLocale($org.activationTokenExpirationHours)
+> > In EL - ${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}
+
+| Expression                                                    | Definition                                                                                                          |
+|---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| replace(String input, String matchString, String replacement) | Replaces all occurrences of the match string with the replacement string.                                           |
+| substringAfter(String input, String matchString)              | Returns the substring after the given match string, or an empty string if the matchString doesn't match the input.  |
+| substringBefore(String input, String matchString)             | Returns the substring before the given match string, or an empty string if the matchString doesn't match the input. |
+| toLowerCase(String input)                                     | Converts the given input string to all lowercase.                                                                   |
+| toUpperCase(String input)                                     | Converts the given input string to all uppercase.                                                                   |
+| substring(String input, int startIndex, int endIndex)         | Extracts a range of characters from the given input string.                                                         |
+| formatTimeDiffHoursNow(int hours)                             | Produces a formatted duration string for the given number of hours.                                                 |
+| formatTimeDiffHoursNowInUserLocale(int hours)                 | Produces a localized formatted duration string for the given number of hours.                                       |
+| formatTimeDiffDateNow(Date date)                              | Produces a formatted duration string for the given date.                                                            |
+| formatTimeDiffDateNowInUserLocale(Date date)                  | Produces a localized formatted duration string for the given date.                                                  |
+| escapeHtml(String html)                                       | Escapes the characters in a String using HTML entities.                                                             |
+| escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes.                                                                            |
+
 ##### Examples of user attributes
 
 ###### Registration: Email verification with customer's preferred language
