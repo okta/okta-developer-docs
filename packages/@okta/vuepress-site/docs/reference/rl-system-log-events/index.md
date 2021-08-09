@@ -414,3 +414,10 @@ The following table includes the available `Subtypes` for operation rate limits.
 | `Voice call`      | The user exceeded their limit for sending voice-call messages.       |
 | `AD agent` <ApiLifecycle access="ie" />      | The user exceeded their limit for profile reload through the AD agent.       |
 | `LDAP agent` <ApiLifecycle access="ie" />     | The user exceeded their limit for profile reload through the LDAP agent.     |
+
+### OAuth client rate limits
+
+The following client-based System Log event is fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. The event that fires depends on the client-based rate limit mode that is set:
+
+* [`app.oauth2.client_id_rate_limit_warning`](/docs/reference/api/event-types/?q=app.oauth2.client_id_rate_limit_warning)<br>
+This event is fired when requests from a single client id has consumed majority of an org's rate limit on the OAuth2 endpoint. This event can be used by admins to discover and deactivate a rogue client. 
