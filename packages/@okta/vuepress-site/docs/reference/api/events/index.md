@@ -30,7 +30,7 @@ Fetches a list of events from your Okta organization system log
 | :---------- | :-------------------------------------------------------------------------------------------- | :----------- | :--------- | :--------- | :------ |
 | limit       | Specifies the number of results to page                                                       | Query        | Number     | FALSE      | 1000    |
 | startDate   | Specifies the timestamp to list events after                                                  | Query        | Date       | FALSE      |         |
-| filter      | [Filter expression](/docs/reference/api-overview/#filtering) for events         | Query        | String     | FALSE      |         |
+| filter      | [Filter expression](/docs/reference/api-overview/#filter) for events         | Query        | String     | FALSE      |         |
 | after       | Specifies the pagination cursor for the next page of events                                   | Query        | String     | FALSE      |         |
 
 Parameter Details
@@ -69,7 +69,7 @@ The following expressions are supported for events with the `filter` query param
 | `published eq "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Events published updated at a specific datetime                                      |
 | `published gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Events published updated after a specific datetime                                   |
 
-See [Filtering](/docs/reference/api-overview/#filtering) for more information on expressions.
+See [Filtering](/docs/reference/api-overview/#filter) for more information on expressions.
 
 >Note: All filters must be [URL encoded](http://en.wikipedia.org/wiki/Percent-encoding) where `filter=published gt "2017-10-01T00:00:00.000Z"` is encoded as `filter=published%20gt%20%222017-10-01T00:00:00.000Z%22`.
 
