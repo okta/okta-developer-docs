@@ -139,7 +139,7 @@ To specify Binding Members, use the REST URL of the corresponding Okta API:
     * Custom Roles granted through group membership
 
     As a result, if an admin was granted a standard Role that is limited to a single Group, and at the same time received group management privileges on all Groups in the org through a Custom Role, the ultimate outcome is group management on all Groups.
-3. <ApiLifecycle access="ea" />You can't assign a Custom Role without a Resource Set, hence always being applicable only to a subset of resources. Standard Roles on the other hand, are always initially granted to the entire org. They are only scoped to specific resources by subsequent invoking of the [target operations](/docs/reference/api/roles/#role-target-operations).
+2. <ApiLifecycle access="ea" />You can't assign a Custom Role without a Resource Set, hence always being applicable only to a subset of resources. Standard Roles on the other hand, are always initially granted to the entire org. They are only scoped to specific resources by subsequent invoking of the [target operations](/docs/reference/api/roles/#role-target-operations).
 
 ### Permission types
 <ApiLifecycle access="ea" />
