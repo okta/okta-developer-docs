@@ -9,7 +9,6 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
 
 This section discusses the alternate flows that can occur within your app based on how your factors and policies are configured.
 

@@ -162,7 +162,7 @@ export default {
     createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
       return (
         `https://github.com/${docsRepo}` +
-        `/edit` +
+        `/edit ` +
         `/${docsBranch}/` +
         (docsDir ? docsDir.replace(endingSlashRE, "") : "") +
         "/" +
