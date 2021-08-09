@@ -83,9 +83,9 @@ In addition to customizing your emails with variables, you can use the following
 
 Although you can use each variable within any function, the variable must match the data type of the function. For example, you can't use a string variable under the formatTimeDiffHourNow() function because the data must be an integer.
 
-> **Note:** Functions must have the prefix f:. 
-> In VTL - $f.formatTimeDiffHoursNowInUserLocale($org.activationTokenExpirationHours)
-> > In EL - ${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}
+> **Note:** Functions must have the prefix `$f:.` 
+> For example, in VTL: `$f.formatTimeDiffHoursNowInUserLocale($org.activationTokenExpirationHours)`
+> In EL - `${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}`
 
 | Expression                                                    | Definition                                                                                                          |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
