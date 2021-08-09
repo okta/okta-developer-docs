@@ -80,7 +80,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 #### Self-Service Registration
 
-**What Changed:** The Self-Service Registration feature is not available. Self-service registration is now accomplished through a profile enrollment policy. In a profile enrollment policy, admins select the attributes they want to collect when a new end user clicks Sign up. By the time the end user has authenticated into the app, their profile is complete and they’ve been provisioned to the appropriate groups.
+**What Changed:** The Self-Service Registration feature isn't supported. Self-service registration is now accomplished through a profile enrollment policy. In a profile enrollment policy, admins select the attributes they want to collect when a new end user clicks **Sign up**. After the end user is authenticated into the app, their profile is complete and they are provisioned to the appropriate groups.
 
 Further information: [Manage Profile Enrollment policies](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm)
 
