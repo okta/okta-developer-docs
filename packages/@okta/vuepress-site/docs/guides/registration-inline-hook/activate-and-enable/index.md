@@ -24,7 +24,7 @@ The Registration Inline Hook is now set up with a status of active.
 
 The procedure to enable the Registration Inline Hook is dependent on the type of org you are using: Okta Identity Engine or Okta Classic. Follow the procedure for your specific org.
 
-After your enable the Registration Hook, you are ready to preview and test the example.
+After you enable the Registration Hook, you are ready to preview and test the example.
 
 #### Enabling the Registration Inline Hook in Okta Identity Engine
 
@@ -66,6 +66,6 @@ To enable the Registration Inline Hook on the self-service registration page:
 
 1. Click **Save**.
 
-The Registration Inline Hook is now enabled for self-service registration. For a high-level overview of enabling the Registration Inline hook, see [Registration Inline Hook Reference](/docs/reference/registration-hook/).
+The Registration Inline Hook is now enabled for self-service registration.
 
 <NextSectionLink/>
