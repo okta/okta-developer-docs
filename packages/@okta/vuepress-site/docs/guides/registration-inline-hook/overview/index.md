@@ -8,10 +8,10 @@ In the following example, the external service code parses requests from Okta an
 
 At a high-level, the following workflow occurs:
 
-- A user attempts to self-register for your Okta org.
-- A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
-- The external service evaluates the Okta call to make sure the user is from domain "example.com".
-- The external service responds to Okta with a command to allow or deny the registration based on the email domain.
+1. A user attempts to self-register for your Okta org.
+1. A Registration Inline Hook fires during this process and sends a call to the external service with the user's data.
+1. The external service evaluates the Okta call to make sure the user is from domain "example.com".
+1. The external service responds to Okta with a command to allow or deny the registration based on the email domain.
 
 This guide uses the website Glitch.com to act as an external service and to implement the Registration Inline Hook with an Okta org. See the following Glitch project to copy a working code example that implements the Registration Inline Hook, or build your own using the code snippets:
 
