@@ -20,7 +20,7 @@ The Registration Inline Hook is now set up with a status of active.
 
 > **Note:** You can also setup an inline hook using an API. See [Inline Hooks Management API](/docs/reference/api/inline-hooks/#create-inline-hook) for further information.
 
-### Enabling the Registration Inline Hook
+### Enable the Registration Inline Hook
 
 The procedure to enable the Registration Inline Hook is dependent on the type of org you are using: Okta Identity Engine or Okta Classic. Follow the procedure for your specific org.
 
