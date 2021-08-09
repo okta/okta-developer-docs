@@ -1,11 +1,14 @@
+os: linux
 language: node_js
 node_js:
 - '12'
 addons:
   chrome: stable
-before_install:
-- yarn install
-script: "./scripts/travis.sh"
+before_install: "source scripts/helpers.sh"
+install: yarn install
+before_script: "yarn build"
+script:
+  - "./scripts/travis.sh"
 dist: xenial
 env:
   global:

@@ -6,7 +6,6 @@ The following is the sequence of steps to sign in to the app using the embedded 
 
 <div class="common-image-format">
 
-![Embedded widget social sign-in for Java](/img/oie-embedded-sdk/oie-embedded-widget-use-case-social-sign-in-java.png
- "Embedded widget social sign-in for Java")
+![Displays the social sign-in sequence steps for the Java SDK embedded Sign-In Widget flow](/img/oie-embedded-sdk/oie-embedded-widget-use-case-social-sign-in-java.png)
 
 </div>

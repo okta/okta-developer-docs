@@ -4,6 +4,6 @@ This use case explains how to build a simple UI to capture the username and pass
 
 <div class="common-image-format">
 
-![Basic sign in sequence diagram for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-seq-java.png "Basic sign in sequence diagram for Java SDK")
+![Displays the basic sign-in flow sequence diagram for Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-seq-java.png)
 
 </div>
