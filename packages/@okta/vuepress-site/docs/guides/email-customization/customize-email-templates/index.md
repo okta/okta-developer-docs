@@ -62,7 +62,7 @@ The previously available template variables are listed in [Customization Variabl
 
 #### Access to all User Profile attributes
 
-You can now reference any attribute in a user's Okta User Profile in your email templates. The notation is `$user.profile.attributeName`. For example, to reference the displayName attribute of the user's Okta user profile, you would use `$user.profile.displayName`.
+You can reference any Okta User Profile attribute in your email templates. The reference notation is `$user.profile.attributeName`, where `attributeName` is an attribute from the Okta User Profile. For example, use `$user.profile.displayName` to reference the User Profile `displayName` attribute.
 
 See [Profile object](/docs/reference/api/users/#profile-object) for more information on the available user profile attributes.
 
