@@ -87,15 +87,15 @@ VTL syntax:
 | replace(String input, String matchString, String replacement) | Replaces all occurrences of the match string with the replacement string                                           |
 | substringAfter(String input, String matchString)              | Returns the input substring after the occurrence of a given match string, or an empty string if there isn't |
 | substringBefore(String input, String matchString)             | Returns the input substring before the occurrence of a given match string, or an empty string if no occurrence of match string exists in input string |
-| toLowerCase(String input)                                     | Converts the given input string to all lowercase.                                                                   |
-| toUpperCase(String input)                                     | Converts the given input string to all uppercase.                                                                   |
-| substring(String input, int startIndex, int endIndex)         | Extracts a range of characters from the given input string.                                                         |
-| formatTimeDiffHoursNow(int hours)                             | Produces a formatted duration string for the given number of hours.                                                 |
-| formatTimeDiffHoursNowInUserLocale(int hours)                 | Produces a localized formatted duration string for the given number of hours.                                       |
-| formatTimeDiffDateNow(Date date)                              | Produces a formatted duration string for the given date.                                                            |
-| formatTimeDiffDateNowInUserLocale(Date date)                  | Produces a localized formatted duration string for the given date.                                                  |
+| toLowerCase(String input)                                     | Converts the given input string to all lowercase                                                                   |
+| toUpperCase(String input)                                     | Converts the given input string to all uppercase                                                                   |
+| substring(String input, int startIndex, int endIndex)         | Extracts a range of characters from the given input string                                                         |
+| formatTimeDiffHoursNow(int hours)                             | Produces a formatted duration string from the current time to the given number of hours.                                                 |
+| formatTimeDiffHoursNowInUserLocale(int hours)                 | Produces a localized formatted duration string for the given number of hours                                       |
+| formatTimeDiffDateNow(Date date)                              | Produces a formatted duration string for the given date                                                            |
+| formatTimeDiffDateNowInUserLocale(Date date)                  | Produces a localized formatted duration string for the given date                                                  |
 | escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
-| escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes.                                                                            |
+| escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
 
 ##### Examples of user attributes
 
