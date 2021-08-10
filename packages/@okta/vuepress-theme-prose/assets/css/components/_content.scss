@@ -55,10 +55,10 @@
     border-right: 1px solid cv('body', 'border');
     background: cv('body');
     top: 87px;
-    @include media("<=desktop") {
+    @include media("<desktop-xl") {
       top: 70px;
     }
-    @include media("<=tablet") {
+    @include media("<desktop") {
       display: none;
     }
   }
@@ -67,13 +67,13 @@
     flex: 1;
     max-width: calc(100% - 266px);
     padding: 23px 95px;
-    @include media("<=desktop") {
+    @include media("<desktop-xl") {
       padding: 30px 57px;
     }
-    @include media("<=tablet") {
+    @include media("<desktop") {
       width: 100%;
       max-width: 100%;
-      padding: 0 20px 40px;
+      padding: 30px 20px 40px;
     }
     @include media(">=tablet") {
       a {
@@ -82,7 +82,7 @@
     }
 
     .content__default {
-      @include media("<=tablet") {
+      @include media("<desktop") {
         margin-top: 20px;
       }
     }
@@ -148,7 +148,7 @@
         }
       }
 
-      @include media("<=tablet") {
+      @include media("<desktop") {
         &:hover {
           .dropdown-button-options {
             display: none;
@@ -222,7 +222,7 @@
   }
 
   &.navigation-only {
-    @include media("<=tablet") {
+    @include media("<desktop") {
       padding: 0;
       .sidebar-area {
         display: block;
@@ -232,7 +232,7 @@
   }
 
   &.navigation-only .content-area {
-    @include media("<=tablet") {
+    @include media("<desktop") {
       display: none;
     }
   }

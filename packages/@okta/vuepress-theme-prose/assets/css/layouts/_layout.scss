@@ -64,10 +64,10 @@ body {
   background-color: white;
   flex: 1 0 auto;
 
-  @include media("<=desktop") {
+  @include media("<desktop-xl") {
     padding-top: 70px;
   }
-  @include media("<=phone") {
+  @include media("<tablet") {
     padding-top: 60px;
   }
 }

@@ -7,7 +7,7 @@
   @include media("<=bootstrap-xl"){
     margin-bottom: 30px;
   }
-  @include media("<=tablet"){
+  @include media("<desktop"){
     align-items: center;
     margin-bottom: 60px;
   }
@@ -30,7 +30,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-    @include media("<=tablet"){
+    @include media("<desktop"){
       text-align: center;
     }
     &--title{

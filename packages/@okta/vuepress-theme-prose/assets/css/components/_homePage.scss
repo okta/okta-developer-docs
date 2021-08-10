@@ -16,7 +16,7 @@
   color: cv('text');
 
   .content--container {
-    @include media("<=tablet") {
+    @include media("<desktop") {
       padding: 0;
     }
   }
@@ -24,7 +24,7 @@
   .width-adjuster {
     flex: 4 0 78%;
     max-width: calc(100% - 253px);
-    @include media("<=tablet") {
+    @include media("<desktop") {
       flex-basis: 100%;
       max-width: 100%;
     }
@@ -46,10 +46,10 @@
   &--section-margins {
     padding-left: 135px;
     padding-right: 135px;
-    @include media("<=desktop") {
+    @include media("<desktop-xl") {
       padding: 40px 57px;
     }
-    @include media("<=tablet") {
+    @include media("<desktop") {
       padding: 40px 33px;
     }
   }
@@ -58,7 +58,7 @@
     padding-top: 38px;
     padding-bottom: 50px;
     background: #fff url('/img/homepage/white-to-gray-bg.svg') repeat-x left bottom;
-    @include media("<=tablet") {
+    @include media("<desktop") {
       height: auto;
       padding-bottom: 103px;
       padding-top: 47px;
@@ -67,7 +67,7 @@
   &--selector-block-margin {
     margin-bottom: 150px;
     padding-top: 42px;
-    @include media("<=desktop") {
+    @include media("<desktop-xl") {
       margin-bottom: 30px;
       padding-top: 54px;
     }
@@ -77,7 +77,7 @@
     padding-top: 54px;
     padding-bottom: 105px;
     background: cv('body') url('/img/homepage/gray-to-white-bg.svg') repeat-x left bottom;
-    @include media("<=tablet") {
+    @include media("<desktop") {
       padding-bottom: 165px;
       padding-top: 91px;
     }
@@ -85,7 +85,7 @@
 
   &--partners-block-margin {
     margin-bottom: 58px;
-    @include media("<=desktop") {
+    @include media("<desktop-xl") {
       padding-top: 0;
       padding-bottom: 0;
     }
@@ -110,10 +110,10 @@
       left: 0;
     }
 
-    @include media("<=desktop") {
+    @include media("<desktop-xl") {
       margin-bottom: 0px;
     }
-    @include media("<=tablet") {
+    @include media("<desktop") {
       padding-top: 40px;
     }
   }
@@ -125,11 +125,11 @@
     color: cv('text');
   }
   &--intro-heading {
-    margin-bottom: 15px;
-    padding-bottom: 21px;
+    margin-bottom: 0;
+    padding-bottom: 36px;
     border-bottom: 1px solid cv('text', 'lighter');
 
-    @include media('<=tablet') {
+    @include media("<desktop") {
       border-bottom: none;
       margin-bottom: 0;
     }
@@ -140,7 +140,8 @@
       margin: 9px 0;
       position: relative;
 
-      @include media('<=tablet') {
+      @include media("<desktop") {
+        text-align: center;
         font-size: 21px;
         padding: 0 0 16px;
         margin-bottom: 21px;
@@ -151,7 +152,7 @@
       }
     }
     p {
-      @include media('<=tablet') {
+      @include media("<desktop") {
         line-height: 1.45rem;
         br {
           display: none;
@@ -166,7 +167,7 @@
     margin-top: 60px;
     margin-bottom: 60px;
     position: relative;
-    @include media("<=tablet") {
+    @include media("<desktop") {
       text-align: center;
       margin-bottom: 49px;
       margin-top: 25px;
@@ -175,7 +176,7 @@
   }
   &--section-description {
     max-width: 100%;
-    @include media("<=tablet") {
+    @include media("<desktop") {
       text-align: center;
       padding-bottom: 30px;
     }
@@ -189,7 +190,7 @@
       margin-bottom: 8px;
       padding-bottom: 0px;
       margin-top: 71px;
-      @include media("<=tablet") {
+      @include media("<desktop") {
         text-align: center;
         font-size: 21px;
         margin: 2px 0 21px;
@@ -203,7 +204,7 @@
 
     p {
       font-size: 18px;
-      @include media("<=tablet") {
+      @include media("<desktop") {
         font-size: 16px;
         text-align: center;
         line-height: 1.45rem;
@@ -220,7 +221,7 @@
   &--sub-heading-disclaimer {
     font-size: 18px;
     margin-bottom: 30px;
-    @include media("<=tablet") {
+    @include media("<desktop") {
       text-align: center;
     }
     &:last-child {
@@ -231,11 +232,11 @@
     padding-top: 36px;
     margin: 0 -70px;
     justify-content: center;
-    @include media("<=desktop") {
+    @include media("<desktop-xl") {
       flex-direction: column;
       margin: 0;
     }
-    @include media("<=tablet") {
+    @include media("<desktop") {
       padding-top: 41px;
     }
   }
@@ -249,11 +250,11 @@
     margin-bottom: 30px;
     margin-right: 37px;
     min-width: 563px;
-    @include media("<=desktop") {
+    @include media("<desktop-xl") {
       margin-bottom: 25px;
       margin-right: 0;
     }
-    @include media("<=tablet") {
+    @include media("<desktop") {
       min-width: 0;
       width: 100%;
       height: auto;
@@ -275,7 +276,7 @@
         color: #fff;
 
         pre.CodeMirror-line, .CodeMirror pre.CodeMirror-line-like {
-          @include media("<=tablet") {
+          @include media("<desktop") {
             white-space: break-spaces;
             word-break: break-word;
           }
@@ -293,7 +294,7 @@
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.10);
     margin-bottom: 30px;
     overflow: hidden;
-    @include media("<=phone") {
+    @include media("<tablet") {
       max-width: 100%;
     }
 
@@ -360,7 +361,7 @@
     height: 500px;
     padding: 10% 15%;
 
-    @include media("<=tablet") {
+    @include media("<desktop") {
       padding: 10px;
     }
 
@@ -381,7 +382,7 @@
       display: flex;
       flex-direction: row;
 
-      @include media("<=tablet") {
+      @include media("<desktop") {
         flex-direction: column;
       }
 

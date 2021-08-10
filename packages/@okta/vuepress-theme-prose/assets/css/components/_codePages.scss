@@ -27,7 +27,7 @@
 .language-ctas {
   display: flex;
 
-  @include media("<=tablet") {
+  @include media("<desktop") {
     flex-wrap: wrap;
   }
 

@@ -3,7 +3,7 @@
   height: 45px;
   width: 85%;
   max-width: 710px;
-  @include media("<=tablet") {
+  @include media("<desktop") {
     max-width: 100%;
     width: 100%;
   }
@@ -101,7 +101,7 @@
             top: 13px;
             color: cv('header');
 
-            @include media("<=tablet") {
+            @include media("<desktop") {
               color: cv('text', 'darker');
             }
           }
@@ -155,7 +155,7 @@
     }
   }
 
-  @include media("<=tablet") {
+  @include media("<desktop") {
     border: 1px solid cv('body', 'border');
     border-radius: 4px;
     height: 40px;

@@ -69,13 +69,13 @@
     }
 
   }
-  @include media('<=tablet') {
+  @include media("<desktop") {
     display: none;
   }
 }
 
 .mobile-on-this-page {
-  margin-bottom: $base-spacing;
+  margin-bottom: 0;
   h3{
     &.mobile-header{
     font-size: 14px;

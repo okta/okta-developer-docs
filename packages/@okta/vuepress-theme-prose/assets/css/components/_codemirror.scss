@@ -23,7 +23,7 @@
     color: #737B7F;
     opacity: 0.3;
     margin-left: -15px;
-    @include media("<=tablet") {
+    @include media("<desktop") {
       margin-left: -10px;
     }
   }
@@ -32,14 +32,14 @@
     margin: 30px 0;
     line-height: 1.53em;
     font-size: 15px;
-    @include media("<=tablet") {
+    @include media("<desktop") {
       padding: 0 15px;
       margin: 20px 0;
     }
   }
   .CodeMirror-sizer {
     border-right-width: 0 !important;
-    @include media("<=tablet") {
+    @include media("<desktop") {
       max-width: 100%;
       min-width: 0 !important;
     }

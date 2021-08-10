@@ -91,7 +91,7 @@ button.social-btn {
     top: 12px;
     left: 24px;
 
-    @include media("<=phone") {
+    @include media("<tablet") {
       display: none;
     }
   }

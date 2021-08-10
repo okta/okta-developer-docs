@@ -103,7 +103,7 @@ ul.menu--items {
     width: 8px;
     height: 4px;
 
-    @include media("<=tablet") {
+    @include media("<desktop") {
       background-image: url('/img/icons/chevron-down-gray.svg');
     }
   }

@@ -1,6 +1,6 @@
 .category--links {
 
-  @include media("<=tablet") {
+  @include media("<desktop") {
     margin: 20px 0;
   }
 

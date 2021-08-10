@@ -4,10 +4,6 @@
   &--container {
     padding: 0px;
 
-    @include media(">=tablet") {
-      padding: 0;
-    }
-
     ol {
       list-style: none;
       display: flex;
@@ -21,8 +17,11 @@
         margin: 0em 1em 0em 0em;
         padding: 9px 0 0;
 
-        @include media("<=desktop") {
+        @include media("<desktop-xl") {
           margin-right: 7px;
+        }
+        @include media("<tablet") {
+          padding-top: 4px;
         }
 
         a, span {
@@ -32,20 +31,12 @@
           font-weight: 500;
           padding-right: 7px;
 
-          @include media("<=desktop") {
+          @include media("<desktop-xl") {
             padding-right: 7px;
           }
-          @include media("<=tablet") {
-            font-size: 14px;
-            color: cv('text');
-          }
         }
-        svg {
-          path {
-            @include media("<=tablet") {
-              stroke: cv('text');
-            }
-          }
+        a {
+          color: cv('link');
         }
         &:last-child {
           svg {
@@ -58,13 +49,8 @@
 
   }
 
-  @include media("<=desktop") {
+  @include media("<desktop-xl") {
     padding-bottom: 0;
-  }
-  @include media("<=tablet") {
-    margin: 0 -20px;
-    padding: 0 20px;
-    border-bottom: 1px solid cv('body', 'border');
   }
 
 }

@@ -23,7 +23,7 @@
   padding: 94px 64px;
   flex-shrink: 0;
 
-  @include media('<=desktop') {
+  @include media("<desktop-xl") {
     padding: 60px 0;
   }
 
@@ -43,7 +43,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
 
-    @include media('<=desktop') {
+    @include media("<desktop-xl") {
       width: 83%;
       margin: 0 auto;
     }
@@ -60,7 +60,7 @@
         text-transform: uppercase;
         margin: 0 0 35px;
 
-        @include media('<=desktop') {
+        @include media("<desktop-xl") {
           margin-bottom: 20px;
         }
       }
@@ -68,7 +68,7 @@
 
     .social {
       flex: 0 0 120px;
-      @include media('<=desktop') {
+      @include media("<desktop-xl") {
         flex: 1 0 100%;
         margin-bottom: 0;
         padding-top: 19px;
@@ -98,7 +98,7 @@
 
     .contact {
       flex: 0 0 170px;
-      @include media('<=desktop') {
+      @include media("<desktop-xl") {
         flex: 1 0 50%;
         margin-bottom: 46px;
         order: 3;
@@ -110,7 +110,7 @@
     }
 
     .more {
-      @include media('<=desktop') {
+      @include media("<desktop-xl") {
         flex: 1 0 50%;
         margin-bottom: 32px;
         padding-left: 18px;
@@ -124,7 +124,7 @@
     }
 
     .need-support, .websites {
-      @include media('<=desktop') {
+      @include media("<desktop-xl") {
         flex: 1 0 100% !important;
         justify-content: center;
         padding-bottom: 68px;
@@ -138,7 +138,7 @@
     .websites {
       flex: 0 0 300px;
 
-      @include media('<=desktop') {
+      @include media("<desktop-xl") {
         flex: 1 0 40%;
         margin-bottom: 0;
         order: 2;
@@ -156,7 +156,7 @@
 
         & + .website {
           margin-top: 37px;
-          @include media('<=desktop') {
+          @include media("<desktop-xl") {
             margin-top: 25px;
           }
         }
@@ -182,7 +182,7 @@
         margin-bottom: 20px;
         letter-spacing: .5px;
 
-        @include media('<=desktop') {
+        @include media("<desktop-xl") {
           margin-bottom: 16px;
         }
       }
@@ -193,7 +193,7 @@
         a {
           color: cv('body', 'white');
         }
-        @include media('<=desktop') {
+        @include media("<desktop-xl") {
           line-height: 1.6rem;
         }
       }
@@ -214,7 +214,7 @@
         @include separator;
         top: 0;
       }
-      @include media('<=desktop') {
+      @include media("<desktop-xl") {
         position: relative;
         bottom: auto;
         order: 6;
@@ -278,7 +278,7 @@
     li.link-list--item {
       margin-top: 20px;
 
-      @include media('<=desktop') {
+      @include media("<desktop-xl") {
         margin-top: 8px;
       }
 

@@ -115,7 +115,7 @@ blockquote {
   padding: 1.5rem 1.5rem 1.5rem calc(1.5rem + 3px);
 }
 
-@include media("<=desktop") {
+@include media("<desktop-xl") {
   h1,
   h2,
   h3,

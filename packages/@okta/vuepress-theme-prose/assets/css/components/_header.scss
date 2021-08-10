@@ -153,7 +153,7 @@ header.page-header {
     }
   }
 
-  @include media("<=desktop") {
+  @include media("<desktop-xl") {
     padding: 0 35px;
     height: 70px;
 
@@ -194,7 +194,7 @@ header.page-header {
     }
   }
 
-  @include media("<=tablet") {
+  @include media("<desktop") {
     padding: 0 16px;
 
     .header--logo > img {
@@ -363,7 +363,7 @@ header.page-header {
       }
     }
   }
-  @include media("<=phone") {
+  @include media("<tablet") {
     height: 60px;
 
     .menu--slideout {

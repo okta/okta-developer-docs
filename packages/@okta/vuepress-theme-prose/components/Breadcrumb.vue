@@ -74,7 +74,7 @@
           }
 
           if (menuItem.subLinks != undefined) {
-            menuItem = this.addMainLinks(menuItem);
+            // menuItem = this.addMainLinks(menuItem);
             this.getCrumbs(menuItem.subLinks, menuItem);
           }
         }
@@ -82,7 +82,7 @@
         return this.crumbs;
       },
 
-      addMainLinks: function(menuItem) {      
+      addMainLinks: function(menuItem) {   
         if(menuItem.title === 'Guides' && this.$page.path.startsWith('/docs/guides/')) {
           menuItem.path = '/docs/guides/';
         }       
