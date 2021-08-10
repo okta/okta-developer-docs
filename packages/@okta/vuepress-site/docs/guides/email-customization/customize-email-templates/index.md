@@ -70,7 +70,7 @@ See [Profile object](/docs/reference/api/users/#profile-object) for more informa
 
 In addition to customizing your emails with variables, you can use the following functions in each of the email templates. Functions are useful to normalize the dynamic output of variables, such as lowercasing a string, or producing a localized date for the email's recipient user. 
 
-Although you can use each variable within any function, the variable must match the data type of the function. For example, you can't use a string variable under the formatTimeDiffHourNow() function because the data must be an integer.
+Variables used for function parameters must match the function data type. For example, you can't use a string variable with the `formatTimeDiffHourNow()` function because the parameter data must be an integer.
 
 The syntax for calling functions is slightly different with Velocity templating syntax. For example, instead of calling functions in the EL templating syntax like this:
 
