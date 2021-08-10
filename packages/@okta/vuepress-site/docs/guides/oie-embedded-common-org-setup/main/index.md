@@ -81,7 +81,7 @@ The next step is to set up your Okta org so that you can connect your sample app
 1. Select **Applications** > **Applications** from the left navigation menu.
 1. On the **Applications** page, click **Create App Integration**.
 1. From the **Add Applications** page, click **Create New App**.
-1. In the **Create New Application Integration** dialog box:
+1. In the **Create a new application integration** dialog box:
 
     * Select **OIDC - OpenID Connect** as the **Sign-on method**.
     * <StackSnippet snippet="applicationtype" noSelector />

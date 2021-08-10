@@ -1,6 +1,6 @@
 {
-  "release" : "2021.07.1",
-  "build" : "2021.07.1-begin-64-gb7f5e2c62280",
+  "release" : "2021.08.1",
+  "build" : "2021.08.1-begin-97-ge2560149c65f",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -5621,7 +5621,7 @@
     }, {
       "id" : "device.enrollment.create",
       "category" : "device-platform",
-      "description" : "Fired during Okta Device Authenticator enrollment when the device used to enroll is unknown. This can be used by any admin to monitor when a new device is registered successfully for Okta Verify. The user must have below the max allowed devices and a valid device state (not suspended or deactivated).The targets field contains key details of the enrolled device including name, status, serialNumber, imei, meid, osVersion, osPlatform. which may be useful for identifying the device, tracking  which device platforms and OS versions that enrolled in Okta Device Authenticator.",
+      "description" : "Enroll new device. This can be used by any admin to monitor when a new device is registered successfully for Okta Verify. The user must have below the max allowed devices and a valid device status (not suspended or deactivated).The targets field contains key details of the enrolled device including name, status, serialNumber, imei, meid, osVersion, osPlatform. which may be useful for identifying the device, tracking  which device platforms and OS versions that enrolled in Okta Device Authenticator.",
       "info" : {
         "created" : "2020-09-29",
         "release" : "2020.10.4"
@@ -5634,6 +5634,176 @@
         "debugData" : "SystemDebugData",
         "actor" : null,
         "targets" : [ "DeviceIdentityResourceDetails" ]
+      }
+    }, {
+      "id" : "device.lifecycle.activate",
+      "category" : "device-platform",
+      "description" : "Activate device. You can use the event to audit device status change. When triggered, the device can be suspended or deactivated. Also, a user can access protected resources from an active device if permitted by the App Sign-On policies applied to the resources.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "event-hook-eligible", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "device.lifecycle.deactivate",
+      "category" : "device-platform",
+      "description" : "Deactivate device. You can use the event to audit device status change. When a device is deactivated, it can not be associated with any Okta Verify factor in the future.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "event-hook-eligible", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "device.lifecycle.delete",
+      "category" : "device-platform",
+      "description" : "Delete device. You can use the event to audit device status change. When triggered, the device no longer appears in the Admin Console.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "event-hook-eligible", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "device.lifecycle.suspend",
+      "category" : "device-platform",
+      "description" : "Suspend device. You can use the event to audit device status change. When triggered, access to the device is temporarily paused for users such as contractors or employees who take a leave of absence. Only active devices can be suspended. If a device suspension fails, the cause may be that the device was not active and therefore cannot be suspended.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "event-hook-eligible", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "device.lifecycle.unsuspend",
+      "category" : "device-platform",
+      "description" : "Unsuspend device. You can use the event to audit device status change. When triggered, all Okta Verify factors associated with the device are unsuspended, and users can access protected resources from the device.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "event-hook-eligible", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "device.platform.add",
+      "category" : "device-platform",
+      "description" : "Triggered when an admin adds a device management platform. You can use the event to audit device management platform status change. When triggered, the device management platform  will be available to the org.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OktaCAMobilePlatformResourceDetails" ]
+      }
+    }, {
+      "id" : "device.platform.delete",
+      "category" : "device-platform",
+      "description" : "Triggered when an admin deletes a device management platform. You can use the event to audit device management platform status change. When triggered, the device management platform no longer appears in the Admin Console.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OktaCAMobilePlatformResourceDetails" ]
+      }
+    }, {
+      "id" : "device.platform.update",
+      "category" : "device-platform",
+      "description" : "Triggered when an admin updates a device management platform configuration. You can use the event to audit device management platform configuration change. An admin can only update some fields in the device management platform configuration.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OktaCAMobilePlatformResourceDetails" ]
+      }
+    }, {
+      "id" : "device.user.add",
+      "category" : "device-platform",
+      "description" : "Add device to user. You can use the event to audit device user association activity. The event is triggered when a user adds a new account in Okta Verify.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "event-hook-eligible", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "device.user.remove",
+      "category" : "device-platform",
+      "description" : "Remove device from user. You can use the event to audit device user association activity. The device remains in the Universal Directory after the user is removed.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "event-hook-eligible", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
       }
     }, {
       "id" : "directory.app_user_profile.bootstrap",
@@ -7149,6 +7319,57 @@
         "targets" : null
       }
     }, {
+      "id" : "pki.ca.add",
+      "category" : "device-platform",
+      "description" : "Triggered when an admin uploads a 3rd party certificate chain. You can use the event to audit the 3rd party certificate authority status change. When triggered, the 3rd party certificate authority will appear in the Admin Console.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OktaCAResourceDetails" ]
+      }
+    }, {
+      "id" : "pki.ca.delete",
+      "category" : "device-platform",
+      "description" : "Triggered when an admin deletes a 3rd party certificate chain. You can use the event to audit the 3rd party certificate authority status change. When triggered, the 3rd party certificate authority is no longer available to the org.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.07.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "OktaCAResourceDetails" ]
+      }
+    }, {
+      "id" : "pki.cert.bind",
+      "category" : "device-platform",
+      "description" : "Triggered when a certificate is bound to a device. You can use the event to audit certificate device binding relationship. When triggered, the device appears in the Admin Console as managed device.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.08.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "pki.cert.issue",
       "category" : "desktop-device-trust",
       "description" : "Device Trust certificate issuance.",
@@ -7164,6 +7385,91 @@
         "debugData" : "DeviceTrustDebugData",
         "actor" : null,
         "targets" : [ "DeviceTrustResourceDetails" ]
+      }
+    }, {
+      "id" : "pki.cert.lifecycle.activate",
+      "category" : "device-platform",
+      "description" : "Triggered when a certificate marked as hold is removed from the CRL. You can use the event to audit certificate lifecycle change. When an admin activates/unsuspends a device, the certificate associated with the device is activated when used in Okta Verify flow next time.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.08.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pki.cert.lifecycle.delete",
+      "category" : "device-platform",
+      "description" : "Triggered when a certificate is deleted as a result of an admin deleting the binding device. You can use the event to audit certificate lifecycle change. When triggered, the certificate no longer appears in the Admin Console.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.08.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pki.cert.lifecycle.hold",
+      "category" : "device-platform",
+      "description" : "Triggered when a certificate is temporarily on hold and appears on CRL. You can use the event to audit certificate lifecycle change. A certificate on hold can be activated after it is removed from CRL.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.08.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pki.cert.lifecycle.revoke",
+      "category" : "device-platform",
+      "description" : "Triggered when a certificate is revoked and appears on CRL. You can use the event to audit certificate lifecycle change. Once revoked, a certificates can not be activated.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.08.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
+      "id" : "pki.cert.lifecycle.suspend",
+      "category" : "device-platform",
+      "description" : "Triggered when a certificate is suspended as a result of an admin deactivating the binding device. You can use the event to audit certificate lifecycle change. When triggered, the certificate can not be used to send the management hint.",
+      "info" : {
+        "created" : "2021-06-24",
+        "release" : "2021.08.1"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "device-identity", "oie-only", "user" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
       }
     }, {
       "id" : "pki.cert.renew",
@@ -8643,6 +8949,23 @@
         "debugData" : null,
         "actor" : null,
         "targets" : null
+      }
+    }, {
+      "id" : "system.brand.update",
+      "category" : "developer-platform",
+      "description" : "This event is fired when the brand resource is updated. Developer and org admins can use this event to identify when the brand resource was updated. The event contains information regarding specific updates made to brand like \"customPrivacyPolicyUrl\".",
+      "info" : {
+        "created" : "2021-07-14",
+        "release" : "2021.08.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "BrandResourceDetails" ]
       }
     }, {
       "id" : "system.captcha.create",
@@ -10564,6 +10887,23 @@
         "debugData" : "SmsDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.theme.update",
+      "category" : "developer-platform",
+      "description" : "This event is fired when the theme resource is updated. Developer and org admins can use this event to identify when and how the theme resource was updated. Event details can be used to identify changes made to theme assets including updates to theme hex codes, logo, background image, and favicon. This event also tracks which combination of theme assets was applied to end users pages such as the sign-in page, error pages, and email templates.",
+      "info" : {
+        "created" : "2021-07-14",
+        "release" : "2021.08.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "admin" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "SystemDebugData",
+        "actor" : null,
+        "targets" : [ "ThemeResourceDetails" ]
       }
     }, {
       "id" : "system.voice.receive_status",
@@ -24607,6 +24947,35 @@
           }
         }
       },
+      "BrandResourceDetails" : {
+        "name" : "BrandResourceDetails",
+        "properties" : {
+          "custom_privacy_policy_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "https://www.foo.com/privacy/policy" ]
+          },
+          "remove_powered_by_okta" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "brand_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:brandId",
+            "examples" : [ "bnd118g5DODhVRiER0g4" ]
+          }
+        }
+      },
       "CaptchaResourceDetails" : {
         "name" : "CaptchaResourceDetails",
         "properties" : {
@@ -25229,6 +25598,80 @@
           }
         }
       },
+      "OktaCAMobilePlatformResourceDetails" : {
+        "name" : "OktaCAMobilePlatformResourceDetails",
+        "properties" : {
+          "enrollment_url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "url",
+            "examples" : [ "https://okta.com" ]
+          },
+          "provider" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "Okta CA" ]
+          },
+          "platform" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "WINDOWS", "MACOS", "ANDROID", "IOS" ]
+          }
+        }
+      },
+      "OktaCAResourceDetails" : {
+        "name" : "OktaCAResourceDetails",
+        "properties" : {
+          "not_after" : {
+            "type" : "Date",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "epochMillis",
+            "examples" : [ "1598319102000" ]
+          },
+          "not_before" : {
+            "type" : "Date",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "epochMillis",
+            "examples" : [ "1596700841000" ]
+          },
+          "cert_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "VALID", "PENDING", "EXPIRED", "REVOKED", "SUSPENDED" ]
+          },
+          "cert_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "DigiCert SHA2 High Assurance Server CA" ]
+          },
+          "issuer_name" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "name",
+            "examples" : [ "CN=DigiCert High Assurance EV Root CA, OU=www.digicert.com, O=DigiCert Inc, C=US" ]
+          }
+        }
+      },
       "OrgCaptchaActivateResourceDetails" : {
         "name" : "OrgCaptchaActivateResourceDetails",
         "properties" : {
@@ -25412,6 +25855,99 @@
             "customer" : false,
             "format" : "cronExpression",
             "examples" : [ "8 1 * * *" ]
+          }
+        }
+      },
+      "ThemeResourceDetails" : {
+        "name" : "ThemeResourceDetails",
+        "properties" : {
+          "email_template_touch_point_variant" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OKTA_DEFAULT", "FULL_THEME" ]
+          },
+          "error_page_touch_point_variant" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OKTA_DEFAULT", "BACKGROUND_SECONDARY_COLOR", "BACKGROUND_IMAGE" ]
+          },
+          "end_user_dashboard_touch_point_variant" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OKTA_DEFAULT", "WHITE_LOGO_BACKGROUND", "FULL_THEME" ]
+          },
+          "sign_in_page_touch_point_variant" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "OKTA_DEFAULT", "BACKGROUND_SECONDARY_COLOR", "BACKGROUND_IMAGE" ]
+          },
+          "secondary_color_contrast_hex" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "hex",
+            "examples" : [ "#000000", "#FFFFFF" ]
+          },
+          "secondary_color_hex" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "hex",
+            "examples" : [ "#000000", "#FFFFFF" ]
+          },
+          "primary_color_contrast_hex" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "hex",
+            "examples" : [ "#000000", "#FFFFFF" ]
+          },
+          "primary_color_hex" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "hex",
+            "examples" : [ "#000000", "#FFFFFF" ]
+          },
+          "theme_resource" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "LOGO", "BACKGROUND_IMAGE", "FAVICON" ]
+          },
+          "action" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "ADD", "REMOVE" ]
+          },
+          "theme_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "okta:themeId",
+            "examples" : [ "the118hjWWSWVEC7F0g4" ]
           }
         }
       },

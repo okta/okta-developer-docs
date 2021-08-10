@@ -1,43 +1,72 @@
-## Sample code
+## Integration steps
 
-The following sample code illustrates how to implement basic sign-in with username and password.
+### Summary
 
-> **Note:** The Swift SDK and sample app are dynamic in nature and do not follow a
-prescriptive and explicit flow used in these examples. These examples are meant to be a
-learning tool to help you understand how to implement specific use cases using the SDK.
-Although, you can implement such examples in your own native application, you won't
-be able to reap the benefits of dynamic authentication such as a policy driven logic
-that require no changes when policy configurations are changed.
+The following steps document how to integrate the sample code into your
+application. The sample code wraps the SDK's functionality using a more
+prescriptive and explicit interface. It converts the SDK's generic remediation
+interface into explicit authentication steps and automatically executes steps
+such as the code-to-token exchange. The diagram below illustrates this call flow
+from your applications's UI to the sample code, SDK, and API. Note the "Integrating code"
+component, which represents the code you write to call into the sample code's interface.
 
-### Executing code
+<div class="common-image-format">
 
-The following example shows how to execute the basic login code described in
-[Implementing code](#implementing-code). Note that the completion handler supplied
-to the `login` function will be invoked once, either with a fatal error, or with
-a token.
+ ![Diagram showing the integration flow of the sample app and Swift SDK](/img/oie-embedded-sdk/oie-embedded-sdk-swift-sample-code-overview.png)
+
+</div>
+
+### Steps
+
+#### Step 1: Launch app and initialize SDK
+
+The first step is to initialize the SDK when the user opens your app.
+This is done by creating an instance of `BasicLogin` and passing into
+its initializer a `configuration` object.
 
  ```swift
- self.authHandler = BasicLogin(configuration: configuration)
- self.authHandler?.login(username: "user@example.com",
-                         password: "secretPassword")
- { result in
-     switch result {
-     case .success(let token):
-         print(token)
-     case .failure(let error):
-         print(error)
-     }
- }
+self.authHandler = BasicLogin(configuration: configuration)
 ```
 
-### Implementing code
+For more information on how to set the `configuration` parameter, see
+[SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk)
+in
+[Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
-The following code implements the basic login functionality.
+#### Step 2: User initiates sign-in
+
+When the user enters their credentials and initiates the sign-in flow,
+call the `login` method, passing in the username, password,
+and `completion` closure. This closure is invoked once when the sign-in completes
+and returns either a fatal error or success with a token.
 
 ```swift
-import Foundation
-import OktaIdx
+ self.authHandler.login(username: "user@example.com",
+                       password: "secretPassword")
+{ result in
+    switch result {
+    case .success(let token):
+        print(token)
+    case .failure(let error):
+        print(error)
+    }
+}
+```
 
+#### Step 3: Send user to home screen after successful sign-in
+
+The final integration step is to send the user to the default home page
+after successful sign-in. Optionally, you can obtain basic user information after a
+successful sign-in by making a request to Okta's Open ID Connect authorization server.
+See [Get user profile information after sign-in](/docs/guides/oie-embedded-sdk-alternate-flows/ios/main/#get-user-profile-information-after-sign-in).
+
+
+## Sample code
+
+The following sample code is also located in Okta's
+[okta-idx-swift repository](https://github.com/okta/okta-idx-swift/blob/master/Samples/Signin%20Samples/BasicLogin.swift).
+
+```swift
 public class BasicLogin {
     let configuration: IDXClient.Configuration
     var username: String?
@@ -50,11 +79,13 @@ public class BasicLogin {
         self.configuration = configuration
     }
 
+    // Public method that initiates the login flow.
     public func login(username: String, password: String, completion: @escaping (Result<IDXClient.Token, LoginError>) -> Void) {
         self.username = username
         self.password = password
         self.completion = completion
 
+        // Initiates the creation of an IDX client.
         IDXClient.start(with: configuration) { (client, error) in
             guard let client = client else {
                 self.finish(with: error)
@@ -62,7 +93,12 @@ public class BasicLogin {
             }
 
             self.client = client
+
+            // Assign ourselves as the delegate receiver, to be notified
+            // when responses or errors are returned.
             client.delegate = self
+
+            // Calls the IDX API to receive the first IDX response.
             client.resume(completion: nil)
         }
     }
@@ -78,14 +114,18 @@ public class BasicLogin {
 
 /// Implementation details of performing basic username/password authentication.
 extension BasicLogin: IDXClientDelegate {
+    // Delegate method sent when an error occurs.
     public func idx(client: IDXClient, didReceive error: Error) {
         finish(with: error)
     }
 
+    // Delegate method sent when a token is successfully exchanged.
     public func idx(client: IDXClient, didReceive token: IDXClient.Token) {
         finish(with: token)
     }
 
+    // Delegate method invoked whenever an IDX response is received, regardless
+    // of what action or remediation is called.
     public func idx(client: IDXClient, didReceive response: IDXClient.Response) {
         // If a response is successful, immediately exchange it for a token.
         guard !response.isLoginSuccessful else {

@@ -549,20 +549,160 @@ redirects:
     to: /docs/guides/sign-in-with-linkedin/
   - from: /authentication-guide/social-login/microsoft/index.html
     to: /docs/guides/sign-in-with-microsoft/
+  - from: /docs/guides/implement-auth-code
+    to: /docs/guides/implement-grant-type/authcode/main/
+  - from: /docs/guides/implement-auth-code/index.html
+    to: /docs/guides/implement-grant-type/authcode/main/
+  - from: /docs/guides/implement-auth-code/overview
+    to: /docs/guides/implement-grant-type/authcode/main/
+  - from: /docs/guides/implement-auth-code/overview/index.html
+    to: /docs/guides/implement-grant-type/authcode/main/
+  - from: /docs/guides/implement-auth-code/setup-app
+    to: /docs/guides/implement-grant-type/authcode/main/#set-up-your-app
+  - from: /docs/guides/implement-auth-code/setup-app/index.html
+    to: /docs/guides/implement-grant-type/authcode/main/#set-up-your-app
+  - from: /docs/guides/implement-auth-code/use-flow
+    to: /docs/guides/implement-grant-type/authcode/main/#flow-specifics
+  - from: /docs/guides/implement-auth-code/use-flow/index.html
+    to: /docs/guides/implement-grant-type/authcode/main/#flow-specifics
+  - from: /docs/guides/implement-auth-code/exchange-code-token
+    to: /docs/guides/implement-grant-type/authcode/main/#flow-specifics
+  - from: /docs/guides/implement-auth-code/exchange-code-token/index.html
+    to: /docs/guides/implement-grant-type/authcode/main/#flow-specifics
+  - from: /docs/guides/implement-auth-code/next-steps
+    to: /docs/guides/implement-grant-type/authcode/main/#next-steps
+  - from: /docs/guides/implement-auth-code/next-steps/index.html
+    to: /docs/guides/implement-grant-type/authcode/main/#next-steps
+  - from: /docs/guides/implement-auth-code-pkce
+    to: /docs/guides/implement-grant-type/authcodepkce/main/
+  - from: /docs/guides/implement-auth-code-pkce/index.html
+    to: /docs/guides/implement-grant-type/authcodepkce/main/
+  - from: /docs/guides/implement-auth-code-pkce/overview
+    to: /docs/guides/implement-grant-type/authcodepkce/main/
+  - from: /docs/guides/implement-auth-code-pkce/overview/index.html
+    to: /docs/guides/implement-grant-type/authcodepkce/main/
+  - from: /docs/guides/implement-auth-code-pkce/setup-app
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#set-up-your-app
+  - from: /docs/guides/implement-auth-code-pkce/setup-app/index.html
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#set-up-your-app
+  - from: /docs/guides/implement-auth-code-pkce/use-flow
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics
+  - from: /docs/guides/implement-auth-code-pkce/use-flow/index.html
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics
+  - from: /docs/guides/implement-auth-code-pkce/exchange-code-token
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics
+  - from: /docs/guides/implement-auth-code-pkce/exchange-code-token/index.html
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics
+  - from: /docs/guides/implement-auth-code-pkce/next-steps
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#next-steps
+  - from: /docs/guides/implement-auth-code-pkce/next-steps/index.html
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#next-steps
+  - from: /docs/guides/implement-implicit
+    to: /docs/guides/implement-grant-type/implicit/main/
+  - from: /docs/guides/implement-implicit/index.html
+    to: /docs/guides/implement-grant-type/implicit/main/
+  - from: /docs/guides/implement-implicit/overview
+    to: /docs/guides/implement-grant-type/implicit/main/
+  - from: /docs/guides/implement-implicit/overview/index.html
+    to: /docs/guides/implement-grant-type/implicit/main/
+  - from: /docs/guides/implement-implicit/setup-app
+    to: /docs/guides/implement-grant-type/implicit/main/#set-up-your-app
+  - from: /docs/guides/implement-implicit/setup-app/index.html
+    to: /docs/guides/implement-grant-type/implicit/main/#set-up-your-app
+  - from: /docs/guides/implement-implicit/use-flow
+    to: /docs/guides/implement-grant-type/implicit/main/#flow-specifics
+  - from: /docs/guides/implement-implicit/use-flow/index.html
+    to: /docs/guides/implement-grant-type/implicit/main/#flow-specifics
+  - from: /docs/guides/implement-implicit/next-steps
+    to: /docs/guides/implement-grant-type/implicit/main/#next-steps
+  - from: /docs/guides/implement-implicit/next-steps/index.html
+    to: /docs/guides/implement-grant-type/implicit/main/#next-steps
+  - from: /docs/guides/implement-client-creds
+    to: /docs/guides/implement-grant-type/clientcreds/main/
+  - from: /docs/guides/implement-client-creds/index.html
+    to: /docs/guides/implement-grant-type/clientcreds/main/
+  - from: /docs/guides/implement-client-creds/overview
+    to: /docs/guides/implement-grant-type/clientcreds/main/
+  - from: /docs/guides/implement-client-creds/overview/index.html
+    to: /docs/guides/implement-grant-type/clientcreds/main/
+  - from: /docs/guides/implement-client-creds/setup-app
+    to: /docs/guides/implement-grant-type/clientcreds/main/#set-up-your-app
+  - from: /docs/guides/implement-client-creds/setup-app/index.html
+    to: /docs/guides/implement-grant-type/clientcreds/main/#set-up-your-app
+  - from: /docs/guides/implement-client-creds/create-scopes
+    to: /docs/guides/implement-grant-type/clientcreds/main/#create-custom-scopes
+  - from: /docs/guides/implement-client-creds/create-scopes/index.html
+    to: /docs/guides/implement-grant-type/clientcreds/main/#create-custom-scopes
+  - from: /docs/guides/implement-client-creds/use-flow
+    to: /docs/guides/implement-grant-type/clientcreds/main/#flow-specifics
+  - from: /docs/guides/implement-client-creds/use-flow/index.html
+    to: /docs/guides/implement-grant-type/clientcreds/main/#flow-specifics
+  - from: /docs/guides/implement-client-creds/next-steps
+    to: /docs/guides/implement-grant-type/clientcreds/main/#next-steps
+  - from: /docs/guides/implement-client-creds/next-steps/index.html
+    to: /docs/guides/implement-grant-type/clientcreds/main/#next-steps
+  - from: /docs/guides/implement-password
+    to: /docs/guides/implement-grant-type/ropassword/main/
+  - from: /docs/guides/implement-password/index.html
+    to: /docs/guides/implement-grant-type/ropassword/main/
+  - from: /docs/guides/implement-password/overview
+    to: /docs/guides/implement-grant-type/ropassword/main/
+  - from: /docs/guides/implement-password/overview/index.html
+    to: /docs/guides/implement-grant-type/ropassword/main/
+  - from: /docs/guides/implement-password/setup-app
+    to: /docs/guides/implement-grant-type/ropassword/main/#set-up-your-app
+  - from: /docs/guides/implement-password/setup-app/index.html
+    to: /docs/guides/implement-grant-type/ropassword/main/#set-up-your-app
+  - from: /docs/guides/implement-password/use-flow
+    to: /docs/guides/implement-grant-type/ropassword/main/#flow-specifics
+  - from: /docs/guides/implement-password/use-flow/index.html
+    to: /docs/guides/implement-grant-type/ropassword/main/#flow-specifics
+  - from: /docs/guides/implement-password/next-steps
+    to: /docs/guides/implement-grant-type/ropassword/main/#next-steps
+  - from: /docs/guides/implement-password/next-steps/index.html
+    to: /docs/guides/implement-grant-type/ropassword/main/#next-steps
+  - from: /docs/guides/implement-saml2
+    to: /docs/guides/implement-grant-type/saml2assert/main/
+  - from: /docs/guides/implement-saml2/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/
+  - from: /docs/guides/implement-saml2/overview
+    to: /docs/guides/implement-grant-type/saml2assert/main/
+  - from: /docs/guides/implement-saml2/overview/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/
+  - from: /docs/guides/implement-saml2/configuration
+    to: /docs/guides/implement-grant-type/saml2assert/main/#identity-provider-and-service-provider-configuration
+  - from: /docs/guides/implement-saml2/configuration/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/#identity-provider-and-service-provider-configuration
+  - from: /docs/guides/implement-saml2/setup-app
+    to: /docs/guides/implement-grant-type/saml2assert/main/#set-up-your-app
+  - from: /docs/guides/implement-saml2/setup-app/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/#set-up-your-app
+  - from: /docs/guides/implement-saml2/configure-policy-as
+    to: /docs/guides/implement-grant-type/saml2assert/main/#configure-the-authorization-server-policy
+  - from: /docs/guides/implement-saml2/configure-policy-as/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/#configure-the-authorization-server-policy
+  - from: /docs/guides/implement-saml2/use-flow
+    to: /docs/guides/implement-grant-type/saml2assert/main/#flow-specifics
+  - from: /docs/guides/implement-saml2/use-flow/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/#flow-specifics
+  - from: /docs/guides/implement-saml2/next-steps
+    to: /docs/guides/implement-grant-type/saml2assert/main/#next-steps
+  - from: /docs/guides/implement-saml2/next-steps/index.html
+    to: /docs/guides/implement-grant-type/saml2assert/main/#next-steps
   - from: /authentication-guide/implementing-authentication/auth-code/index.html
-    to: /docs/guides/implement-auth-code/
+    to: /docs/guides/implement-grant-type/authcode/main/
   - from: /authentication-guide/implementing-authentication/auth-code
-    to: /docs/guides/implement-auth-code/
+    to: /docs/guides/implement-grant-type/authcode/main/
   - from: /authentication-guide/implementing-authentication/auth-code-pkce/index.html
-    to: /docs/guides/implement-auth-code-pkce/
+    to: /docs/guides/implement-grant-type/authcodepkce/main/
   - from: /authentication-guide/implementing-authentication/client-creds/index.html
-    to: /docs/guides/implement-client-creds/
+    to: /docs/guides/implement-grant-type/clientcreds/main/
   - from: /authentication-guide/implementing-authentication/client-creds
-    to: /docs/guides/implement-client-creds/
+    to: /docs/guides/implement-grant-type/clientcreds/main/
   - from: /authentication-guide/implementing-authentication/implicit/index.html
-    to: /docs/guides/implement-implicit/
+    to: /docs/guides/implement-grant-type/implicit/main/
   - from: /authentication-guide/implementing-authentication/password/index.html
-    to: /docs/guides/implement-password/
+    to: /docs/guides/implement-grant-type/ropassword/main/
   - from: /docs/api/resources/users.html
     to: /docs/reference/api/users/
   - from: /docs/api/resources/sessions.html
@@ -718,11 +858,11 @@ redirects:
   - from: /authentication-guide/social-login/microsoft
     to: /docs/guides/sign-in-with-microsoft/
   - from: /authentication-guide/implementing-authentication/auth-code-pkce
-    to: /docs/guides/implement-auth-code-pkce/
+    to: /docs/guides/implement-grant-type/authcodepkce/main/
   - from: /authentication-guide/implementing-authentication/implicit
-    to: /docs/guides/implement-implicit/
+    to: /docs/guides/implement-grant-type/implicit/main/
   - from: /authentication-guide/implementing-authentication/password
-    to: /docs/guides/implement-password/
+    to: /docs/guides/implement-grant-type/ropassword/main/
   - from: /docs/api/resources/authn.html
     to: /docs/reference/api/authn/
   - from: /docs/api/resources/oidc.html
@@ -844,51 +984,51 @@ redirects:
   - from: /guides/find-your-domain/-/overview/index.html
     to: /docs/guides/find-your-domain/-/overview/
   - from: /guides/implement-auth-code-pkce/-/exchange-code-token/index.html
-    to: /docs/guides/implement-auth-code-pkce/-/exchange-code-token/
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics
   - from: /guides/implement-auth-code-pkce/-/next-steps/index.html
-    to: /docs/guides/implement-auth-code-pkce/-/next-steps/
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#next-steps
   - from: /guides/implement-auth-code-pkce/-/overview/index.html
-    to: /docs/guides/implement-auth-code-pkce/-/overview/
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#overview
   - from: /guides/implement-auth-code-pkce/-/setup-app/index.html
-    to: /docs/guides/implement-auth-code-pkce/-/setup-app/
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#set-up-your-app
   - from: /guides/implement-auth-code-pkce/-/use-flow/index.html
-    to: /docs/guides/implement-auth-code-pkce/-/use-flow/
+    to: /docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics
   - from: /guides/implement-auth-code/-/exchange-code-token/index.html
-    to: /docs/guides/implement-auth-code/-/exchange-code-token/
+    to: /docs/guides/implement-grant-type/authcode/main/#flow-specifics
   - from: /guides/implement-auth-code/-/next-steps/index.html
-    to: /docs/guides/implement-auth-code/-/next-steps/
+    to: /docs/guides/implement-grant-type/authcode/main/#next-steps
   - from: /guides/implement-auth-code/-/overview/index.html
-    to: /docs/guides/implement-auth-code/-/overview/
+    to: /docs/guides/implement-grant-type/authcode/main/#overview
   - from: /guides/implement-auth-code/-/setup-app/index.html
-    to: /docs/guides/implement-auth-code/-/setup-app/
+    to: /docs/guides/implement-grant-type/authcode/main/#set-up-your-app
   - from: /guides/implement-auth-code/-/use-flow/index.html
-    to: /docs/guides/implement-auth-code/-/use-flow/
+    to: /docs/guides/implement-grant-type/authcode/main/#flow-specifics
   - from: /guides/implement-client-creds/-/create-scopes/index.html
-    to: /docs/guides/implement-client-creds/-/create-scopes/
+    to: /docs/guides/implement-grant-type/clientcreds/main/#create-custom-scopes
   - from: /guides/implement-client-creds/-/next-steps/index.html
-    to: /docs/guides/implement-client-creds/-/next-steps/
+    to: /docs/guides/implement-grant-type/clientcreds/main/#next-steps
   - from: /guides/implement-client-creds/-/overview/index.html
-    to: /docs/guides/implement-client-creds/-/overview/
+    to: /docs/guides/implement-grant-type/clientcreds/main/#overview
   - from: /guides/implement-client-creds/-/setup-app/index.html
-    to: /docs/guides/implement-client-creds/-/setup-app/
+    to: /docs/guides/implement-grant-type/clientcreds/main/#set-up-your-app
   - from: /guides/implement-client-creds/-/use-flow/index.html
-    to: /docs/guides/implement-client-creds/-/use-flow/
+    to: /docs/guides/implement-grant-type/clientcreds/main/#flow-specifics
   - from: /guides/implement-implicit/-/next-steps/index.html
-    to: /docs/guides/implement-implicit/-/next-steps/
+    to: /docs/guides/implement-grant-type/implicit/main/#next-steps
   - from: /guides/implement-implicit/-/overview/index.html
-    to: /docs/guides/implement-implicit/-/overview/
+    to: /docs/guides/implement-grant-type/implicit/main/#overview
   - from: /guides/implement-implicit/-/setup-app/index.html
-    to: /docs/guides/implement-implicit/-/setup-app/
+    to: /docs/guides/implement-grant-type/implicit/main/#set-up-your-app
   - from: /guides/implement-implicit/-/use-flow/index.html
-    to: /docs/guides/implement-implicit/-/use-flow/
+    to: /docs/guides/implement-grant-type/implicit/main/#flow-specifics
   - from: /guides/implement-password/-/next-steps/index.html
-    to: /docs/guides/implement-password/-/next-steps/
+    to: /docs/guides/implement-grant-type/ropassword/main/#next-steps
   - from: /guides/implement-password/-/overview/index.html
-    to: /docs/guides/implement-password/-/overview/
+    to: /docs/guides/implement-grant-type/ropassword/main/#overview
   - from: /guides/implement-password/-/setup-app/index.html
-    to: /docs/guides/implement-password/-/setup-app/
+    to: /docs/guides/implement-grant-type/ropassword/main/#set-up-your-app
   - from: /guides/implement-password/-/use-flow/index.html
-    to: /docs/guides/implement-password/-/use-flow/
+    to: /docs/guides/implement-grant-type/ropassword/main/#flow-specifics
   - from: /guides/mfa/-/add-factor/index.html
     to: /docs/guides/mfa/-/add-factor/
   - from: /guides/mfa/-/create-test-user/index.html
@@ -1452,15 +1592,15 @@ redirects:
   - from: /guides/find-your-domain/index.html
     to: /docs/guides/find-your-domain/
   - from: /guides/implement-auth-code/index.html
-    to: /docs/guides/implement-auth-code/
+    to: /docs/guides/implement-grant-type/authcode/main/
   - from: /guides/implement-auth-code-pkce/index.html
-    to: /docs/guides/implement-auth-code-pkce/
+    to: /docs/guides/implement-grant-type/authcodepkce/main/
   - from: /guides/implement-client-creds/index.html
-    to: /docs/guides/implement-client-creds/
+    to: /docs/guides/implement-grant-type/clientcreds/main/
   - from: /guides/implement-implicit/index.html
-    to: /docs/guides/implement-implicit/
+    to: /docs/guides/implement-grant-type/implicit/main/
   - from: /guides/implement-password/index.html
-    to: /docs/guides/implement-password/
+    to: /docs/guides/implement-grant-type/ropassword/main/
   - from: /guides/mfa/index.html
     to: /docs/guides/mfa/
   - from: /guides/protect-your-api/index.html
@@ -1648,9 +1788,9 @@ redirects:
   - from: /docs/guides/oan_guidance.html
     to: https://www.okta.com/integrate/documentation/oin-faq/
   - from: /authentication-guide/implementing-authentication/auth-code.html
-    to: /docs/guides/implement-auth-code/overview/
+    to: /docs/guides/implement-grant-type/authcode/main/
   - from: /authentication-guide/implementing-authentication/client-creds.html
-    to: /docs/guides/implement-client-creds/overview/
+    to: /docs/guides/implement-grant-type/clientcreds/main/
   - from: /docs/sdk/opp/javadoc/index.html
     to: /okta-sdk-java/
   - from: /code/react/okta_react.html
