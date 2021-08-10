@@ -749,6 +749,7 @@ export const releaseNotes = [
     subLinks: [
       { title: "Overview", path: "/docs/release-notes/" },
       { title: "2021", path: "/docs/release-notes/2021/" },
+      { title: "2021 - Okta Identity Engine", path: "/docs/release-notes/2021-okta-identity-engine/" },
       { title: "2020", path: "/docs/release-notes/2020/" },
       { title: "2019", path: "/docs/release-notes/2019/" },
       { title: "2018", path: "/docs/release-notes/2018/" },

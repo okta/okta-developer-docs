@@ -7,16 +7,16 @@ meta:
 
 # Okta API Products Release Notes
 
-These release notes list customer-visible changes to API Products by release number.
+These release notes list customer-visible changes to API Products by release number. Additionally, separate Okta Identity Engine API release notes are provided that list customer-visible changes to Okta Identity Engine API Products by release number.
 
-The release notes are organized by year in descending order. In the left-side navigation bar, select the year of the release note you want to view. The page for the release year opens where you can select the month and release note from the right-side navigation bar.
+The release notes are organized by year in descending order. In the left-side navigation bar, select the year of the release note that you want to view. The page for the release year opens where you can select the month and release note from the right-side navigation bar.
 
-We release first to preview orgs and then production orgs. Dates for preview release are the earliest possible release date. Always check your org to verify the release for your org.
+We release first to preview orgs and then production orgs. Dates for preview releases are the earliest possible release date. Always check your org to verify the release for your org.
 
-To verify the current release for an org, check the footer of the administrator UI. If necessary, click the **Admin** button to navigate to your administrator UI.<br>
+To verify the current release for an org, check the footer of the Admin Console. If necessary, click **Admin** to navigate to your Admin Console.<br>
 ![Release Number in Footer](/img/release_notes/version_footer.png)
 
-> **Note:** Changes to Okta unrelated to API Products are published in the [Okta Release Notes](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_okta_relnotes).
+> **Note:** Changes to Okta unrelated to API Products are published in the [Okta Release Notes](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_okta_relnotes) for admins. See [Okta Identity Engine Release Notes](https://help.okta.com/oie/en-us/Content/Topics/ReleaseNotes/oie-relnotes.htm) for changes to Okta Identity Engine that are unrelated to Okta Identity Engine API Products.
 
 <div class="next-section">
   <RouterLink to='/docs/release-notes/2021'>
