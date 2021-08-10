@@ -10,7 +10,7 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 | Change                                                                     | Expected in Preview Orgs |
 |----------------------------------------------------------------------------|--------------------------|
-| [Bug fixed in 2021.08.1](#bugs-fixed-in-2021-08-1)                          | August 11, 2021          |
+| [Bug fixed in 2021.08.1](#bug-fixed-in-2021-08-1)                          | August 11, 2021          |
 
 #### Bug fixed in 2021.08.1
 
