@@ -38,7 +38,7 @@ This event is fired when the framework is turned on in **Log per client** mode a
 
 ### OAuth client rate limit
 
-The following OAuth clent System Log event is fired when requests from a single client ID has consumed the majority of an org's rate limit on the OAuth endpoint:
+The following OAuth 2.0 client System Log event is fired when requests from a single client ID has consumed the majority of an org's rate limit on the OAuth endpoint:
 
 * [`app.oauth2.client_id_rate_limit_warning`](/docs/reference/api/event-types/?q=app.oauth2.client_id_rate_limit_warning)<br>
 This event type is fired when a single client ID consumes 90% of an org's OAuth2 rate limit. (Note that this threshold is subject to change.) This event contains information about the responsible client ID, which can be used by admins to discover and deactivate a rogue client.
