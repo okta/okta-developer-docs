@@ -94,7 +94,7 @@ You would call functions in the Velocity Templating syntax like this:
 | formatTimeDiffHoursNowInUserLocale(int hours)                 | Produces a localized formatted duration string for the given number of hours.                                       |
 | formatTimeDiffDateNow(Date date)                              | Produces a formatted duration string for the given date.                                                            |
 | formatTimeDiffDateNowInUserLocale(Date date)                  | Produces a localized formatted duration string for the given date.                                                  |
-| escapeHtml(String html)                                       | Escapes the characters in a String using HTML entities.                                                             |
+| escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
 | escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes.                                                                            |
 
 ##### Examples of user attributes
