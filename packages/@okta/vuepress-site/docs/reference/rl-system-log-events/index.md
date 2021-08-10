@@ -36,7 +36,7 @@ This event is fired when the framework is in **Log per client** mode and a speci
 * [`system.client.concurrency_rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.concurrency_rate_limit.notification)<br>
 This event is fired when the framework is turned on in **Log per client** mode and a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user won't see a rate limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
 
-### OAuth client rate limit
+### OAuth <span class="x x-first x-last">2.0 </span>client rate limit
 
 The following OAuth 2.0 client System Log event is fired when requests from a single client ID has consumed the majority of an org's rate limit on the OAuth endpoint:
 
