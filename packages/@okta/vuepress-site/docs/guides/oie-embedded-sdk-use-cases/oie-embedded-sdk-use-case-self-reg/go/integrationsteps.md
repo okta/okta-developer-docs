@@ -55,7 +55,7 @@ if enrollResponse.HasStep(idx.EnrollmentStepPasswordSetup) {
 The `InitProfileEnroll` method returns an `EnrollmentResponse` object. Execute the `HasStep` method
 on this object, passing in the `EnrollmentStepPasswordSetup` constant. If
 the Okta configuration is set up correctly, `HasStep` should return `true`. At this point, the
-user should enter in their password.
+user should enter their password.
 
 ### Step 4: Show the password page
 
@@ -226,7 +226,7 @@ http.Redirect(w, r, "/enrollFactor", http.StatusFound)
 
 The next step is to show a list of available factors using the same page created in
 Step 6. Based on how you configured the Okta org for this use case, only the phone
-factor should be displayed. The `EnrollmentResponse` object `HasStep` method you called in
+factor should be displayed. The `EnrollmentResponse` object's `HasStep` method you called in
 [Step 6](#step-6-build-a-list-of-available-factors-to-display-to-user) is used to toggle the visibility of the skip button and show the avaiable factors. In this step, the skip button and phone factor option should be visible.
 
 
@@ -244,7 +244,7 @@ if enrollResponse.HasStep(idx.EnrollmentStepEmailVerification) {
 }
 ```
 
-<div class="common-image-format common-image-format-vertical-margin">
+<div class="common-image-format">
 
 ![A screenshot of the phone factor with skip buttin in the Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-phone-factor-skip.png)
 

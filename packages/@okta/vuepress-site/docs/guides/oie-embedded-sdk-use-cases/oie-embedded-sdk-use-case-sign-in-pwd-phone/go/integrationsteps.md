@@ -56,7 +56,7 @@ sign-in form.
 ```
 
 Next, call the `Identify` method of the `LoginResponse` object obtained
-in Step 2, passing in the `IdentifyRequest` created in the previous step.
+in [Step 2](#step-2-navigate-to-the-sign-in-page), passing in the `IdentifyRequest` created in the previous step.
 
 ```go
 lr, err = lr.Identify(context.TODO(), ir)
@@ -104,7 +104,7 @@ to continue the authentication flow.
 
 </div>
 
-When the page loads call the `LoginResponse` objet's `HasStep`method once for the `LoginStepPhoneVerification` and `LoginStepPhoneInitialVerification` constants. If the method returns `true` for either constants, show the
+When the page loads call the `LoginResponse` object's `HasStep`method once for the `LoginStepPhoneVerification` and `LoginStepPhoneInitialVerification` constants. If the method returns `true` for either constants, show the
 phone factor option.
 
 ```go

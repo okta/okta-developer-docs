@@ -29,7 +29,7 @@ recovery flow.
 
 </div>
 
-### Step 3: Enter email and initiate password recovery
+### Step 3: Enter the email and initiate the password recovery
 
 After the user submits their email to start the password recovery, perform the following steps:
 
