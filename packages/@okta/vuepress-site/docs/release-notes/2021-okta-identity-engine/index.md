@@ -14,4 +14,4 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 #### Bug fixed in 2021.08.1
 
-- When SSO into an IdP included a `fromURI` parameter, an HTTP 500 error was returned. (OKTA-407425)
+- When Single Sign-On (SSO) was used with an IdP that included a `fromURI` parameter, an HTTP 500 error was returned. (OKTA-407425)
