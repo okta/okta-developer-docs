@@ -36,7 +36,14 @@ This event is fired when the framework is in **Log per client** mode and a speci
 * [`system.client.concurrency_rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.concurrency_rate_limit.notification)<br>
 This event is fired when the framework is turned on in **Log per client** mode and a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user won't see a rate limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
 
-### Operation rate limits
+### OAuth client rate limit
+
+The following OAuth clent System Log event is fired when requests from a single client ID has consumed the majority of an org's rate limit on the OAuth endpoint:
+
+* [`app.oauth2.client_id_rate_limit_warning`](/docs/reference/api/event-types/?q=app.oauth2.client_id_rate_limit_warning)<br>
+This event type is fired when a single client ID consumes 90% of an org's OAuth2 rate limit. (Note that this threshold is subject to change.) This event contains information about the responsible client ID, which can be used by admins to discover and deactivate a rogue client.
+
+### Operation rate limit
 
 Some rate limits are enforced on specific actions within Okta, regardless of which API is called to invoke the action. For example, though there are multiple ways to initiate an SMS to a user, there may be a limit on how many are sent out, regardless of which API requests has been made to initiate the messages. The following event types may appear in these varying cases:
 
@@ -49,11 +56,11 @@ This event type may be sent once per rate limit period as a warning that some si
 * `system.operation.rate_limit.notification`<br>
 This event type can provide additional information about rate limit decisions. For example, this event might indicate that a violation event would have been emitted for a specific client rather than for a broader scope if you had chosen a different configuration.
 
-#### DebugContext object for operation rate limits
+#### DebugContext object for operation rate limit
 
 For some event types, the fields provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the [DebugContext](/docs/reference/api/system-log/#debugcontext-object) object provides a way to store additional information.
 
-#### DebugContext object properties for operation rate limits
+#### DebugContext object properties for operation rate limit
 
 The following table describes the rate limit information that is returned in the DebugContext object.
 
@@ -80,7 +87,7 @@ The following table describes the rate limit information that is returned in the
 > The event might include the threshold % that is being used to trigger the warning<br>
 >
 
-#### DebugContext object examples for operation rate limits
+#### DebugContext object examples for operation rate limit
 
 The following is an example System Log rate limit event where too many enrollment attempts for the SMS factor were made.
 
