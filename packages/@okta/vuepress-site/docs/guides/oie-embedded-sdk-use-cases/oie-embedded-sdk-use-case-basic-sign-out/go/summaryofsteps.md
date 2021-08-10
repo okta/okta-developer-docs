@@ -1,6 +1,6 @@
 ## Summary of steps
 
-This use case signs a user out of the local app by removing  The sequence of steps is shown below:
+The sequence of steps for the sign-out use case is shown below.
 
 <div class="common-image-format">
 

@@ -8,9 +8,9 @@ Create a YAML file named `okta.yaml` in one of the following three available dir
   * **Unix/Linux**:    `~/.okta/okta.yaml`
   * **Windows**:       `%userprofile%\.okta\okta.yaml`
 
-* Application or project's root directory
+* Application or project root directory
 
-The file format is shown below:
+Add your configuration values to the file, using the following format:
 
 ```yaml
 okta:
@@ -26,7 +26,7 @@ idx:
 
 ### Option 2: Environment variables
 
-Add the values as environment variables with the following naming convention:
+Add the values as environment variables with the following naming conventions:
 
 * `OKTA_IDX_ISSUER`
 * `OKTA_IDX_CLIENTID`
@@ -36,7 +36,7 @@ Add the values as environment variables with the following naming convention:
 
 ### Option 3: Add parameter to the SDK's client constructor
 
-Add the values as parameters to the constructor for the `IdxClient`.
+Add the values as parameters to the constructor for the `IdxClient`:
 
 ```go
 idx, err := idx.NewClient(

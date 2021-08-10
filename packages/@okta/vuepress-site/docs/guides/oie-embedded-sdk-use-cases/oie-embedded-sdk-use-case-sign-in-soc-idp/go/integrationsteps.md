@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: Create the SDK client on application load
+### Step 1: Navigate to the homepage
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -17,7 +17,7 @@ if err != nil {
 }
 ```
 
-### Step 2: Build sign-in page and initialize client object
+### Step 2: Navigate to the sign-in page
 
 Build a sign-in page that captures both the user's name and password.
 
@@ -27,7 +27,7 @@ Build a sign-in page that captures both the user's name and password.
 
 </div>
 
-During page load, call the `Client's` `InitLogin` method. This method returns an object of type
+During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
 `LoginResponse` that is used to initate the sign-in process with Okta.  The object
 also contains a list of available social identity providers (IdPs) that is discussed in more detail in
 the next step.
@@ -39,12 +39,12 @@ if err != nil {
 }
 ```
 
-### Step 3: Get available identity providers to show on sign-in page
+### Step 3: Get the available list of identity providers
 
-#### Get list of identity providers
+#### Get the list of identity providers
 
-Using the `LoginReponse` returned from `InitLogin`, get the available identity providers
-from its `IdentityProviders()` property.
+Using the `LoginResponse` object returned from `InitLogin`, get the available identity providers
+from its `IdentityProviders` property.
 
 ```go
 idps := lr.IdentityProviders()
@@ -54,7 +54,7 @@ s.ViewData["IdpCount"] = func() int {
 }
 ```
 
-#### Build list of indentity providers on sign-in page
+#### Build the list of indentity providers on sign-in page
 
 Use this array of `IdentityProvider` objects to show a list of available identity providers on the
 sign-in page. The code snippet below shows how the sample application builds out links for each available
@@ -87,12 +87,12 @@ providers.
 
 </div>
 
-### Step 4: User clicks on the Facebook IdP link
+### Step 4: Click on the sign-in with Facebook link
 
 When the user clicks the Facebook IdP link, initially they are sent to the Okta org using the link provided in the
-`IdentityProvider's` `HRef` property. At the Org, the request gets routed to Facebook for user sign-in. You don't need to implement additional code changes to perform this step.
+`IdentityProvider` object's `HRef` property. At the Org, the request gets routed to Facebook for user sign-in. You don't need to implement additional code changes to perform this step.
 
-### Step 5: User signs in to Facebook
+### Step 5: Sign in with Facebook
 
 After the user clicks on the sign-in link, the browser should redirect to a sign-in page hosted by Facebook. The credentials
 you enter originates from a test user that you configured in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers). You don't need to make any code changes in your app to perform this step.
@@ -107,7 +107,7 @@ you enter originates from a test user that you configured in [Set up your Okta o
 
 If the Facebook login is successful, Facebook routes the user to the Org URL that you entered in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
-### Step 7: Okta org redirects to your app through the sign-in redirect URIs
+### Step 7: Store the tokens when Okta redirects to your application
 
 After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the application's **Sign-in redirect URIs** field, which was configured in [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
@@ -128,35 +128,34 @@ func (s *Server) handleLoginCallback(w http.ResponseWriter, r *http.Request) {
   s.cache.Delete("loginResponse")
   lr := clr.(*idx.LoginResponse)
 
-  // Get session store so we can store our tokens
+ //Get session store so we can store our tokens
   session, err := sessionStore.Get(r, "direct-auth")
   if err != nil {
-    //Error condition
+ //Error condition
   }
 
   lr, err = lr.WhereAmI(context.TODO())
   if err != nil {
-    //Error condition
+ //Error condition
   }
 
-  // If we have tokens we have success, so lets store tokens
+ //If we have tokens we have success, so lets store tokens
   if lr.Token() != nil {
     session.Values["access_token"] = lr.Token().AccessToken
     session.Values["id_token"] = lr.Token().IDToken
     err = session.Save(r, w)
     if err != nil {
-      //Error condition
+ //Error condition
     }
   } else {
-    //Error condition
+ //Error condition
   }
-
-  // redirect the user to /profile
+ //Redirect the user to /profile
   http.Redirect(w, r, "/", http.StatusFound)
 }
 ```
 
-### Step 8 (Optional): Get user profile information
+### Step 8 (Optional) Retrieve user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.

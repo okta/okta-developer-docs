@@ -2,7 +2,7 @@
 ## Get user profile information after sign in
 
 You can obtain basic user information by making a request to the authorization server. Make a call to the
-`/v1/userinfo` endpoint using the tokens obtained from the `LoginResponse's` `Token` property.
+`/v1/userinfo` endpoint using the tokens obtained from the `LoginResponse` object's `Token` property.
 
 ```go
 func getProfileData(r *http.Request) map[string]string {

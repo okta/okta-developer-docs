@@ -1,4 +1,4 @@
-### Client secret
+#### Client secret
 
 The Swift SDK includes a reference to the client secret because it can
 potentially be used on some server-to-server use cases. The sample app

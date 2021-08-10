@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: Create the SDK client on application load
+### Step 1: Navigate to the homepage
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -17,9 +17,9 @@ if err != nil {
 }
 ```
 
-### Step 2: Build sign-in page and initialize client object
+### Step 2: Navigate to the sign-in page
 
-Build a sign-in page that captures both the user's name and password.
+Build a sign-in page that captures the user's name and password.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
@@ -27,7 +27,7 @@ Build a sign-in page that captures both the user's name and password.
 
 </div>
 
-During page load, call the `Client's` `InitLogin` method. This method returns an object of type
+During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
 `LoginResponse` that is used to initate the sign-in process with Okta.  The object
 also contains a list of available social identity providers (IdPs) that is discussed in more detail in the
 [Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp)
@@ -40,10 +40,10 @@ if err != nil {
 }
 ```
 
-### Step 3: Submit credentials when user signs in
+### Step 3: Submit the credentials
 
 After the user enters their credentials and submits their sign-in request,
-create an `IdentityRequest` object passing in the username and password from the
+create an `IdentityRequest` object, passing in the username and password from the
 sign-in form.
 
 ```go
@@ -55,10 +55,9 @@ sign-in form.
     }
 ```
 
-Next, using the `LoginResponse` object obtained from
-[Step 2](#step-2-reconfigure-application-for-password-factor-only),
-call its `Identify` method passing in the `IdentifyRequest` created
-in the previous step.
+Next, call the `Identify` method of the `LoginResponse` object obtained in
+[Step 2](#step-2-navigate-to-the-sign-in-page), passing in the `IdentifyRequest`
+created in the previous step.
 
 ```go
 lr, err = lr.Identify(context.TODO(), ir)
@@ -70,11 +69,11 @@ if err != nil {
 }
 ```
 
-### Step 4: Determine that additional factors are required
+### Step 4: Determine whether additional factors are required
 
-The `Identity` method returns a `LoginResponse` and `error`
-object. Use the `error` object to determine if there were errors in the
-user sign-in. If the `error` object is `nil` and `LoginResponse's`
+The `Identity` method returns `LoginResponse` and `error`
+objects. Use the `error` object to determine if there were errors in the
+user sign-in. If the `error` object is `nil` and `LoginResponse` object's
 `Token` property is equal to `nil`, the user needs to confirm their identity
 with additional factors. The following code from the sample application shows
 a redirect to a factors page when there are no errors or tokens in the `LoginResponse`.
@@ -82,20 +81,20 @@ a redirect to a factors page when there are no errors or tokens in the `LoginRes
 ```go
 lr, err = lr.Identify(context.TODO(), ir)
 if err != nil {
-    //Error handling code
+ //Error handling code
 }
 
 if lr.Token() != nil {
-    //Login completion code
+ //Login completion code
 }
 
-// Additional factors required -  redirect to factors page
+ //Additional factors required -  redirect to factors page
 s.cache.Set("loginResponse", lr, time.Minute*5)
 http.Redirect(w, r, "/login/factors", http.StatusFound)
 return
 ```
 
-### Step 5: Show user option to choose the email factor
+### Step 5: Show an option to choose the email factor
 
 The next step is to build a page that allows the user to choose a factor
 to continue the authentication flow.
@@ -106,7 +105,7 @@ to continue the authentication flow.
 
 </div>
 
-During page load, call `LoginResponse's` `HasStep` method passing in the
+During page load, call `LoginResponse` object's `HasStep` method, passing in the
  `LoginStepEmailVerification` constant. If the method returns `true`, display
  the email factor option.
 
@@ -121,11 +120,11 @@ if lr.HasStep(idx.LoginStepEmailVerification) {
 }
 ```
 
-### Step 6: Call VerifyEmail when user submits email factor
+### Step 6: Submit the email factor to verify the identity
 
-When the user selects the email factor and clicks submit, call the `LoginResponse's`
+When the user selects the email factor and clicks submit, call the `LoginResponse` object's
 `VerifyEmail` method. Calling this method instructs the Okta org server to send an
-email to the email address the user provided in [Step 3](#step-3-submit-credentials-when-user-signs-in).
+email to the email address the user provided in [Step 3](#step-3-submit-the-credentials).
 
 ```go
 if !ok || !invCode.(bool) {
@@ -140,7 +139,7 @@ if !ok || !invCode.(bool) {
 
 ```
 
-### Step 7: Show email code verification page
+### Step 7: Show the email code verification page
 
 The next step is to build the code verification page. After the user chooses the email factor
 to validate their identity, the user needs to enter the verification code from their email.
@@ -151,13 +150,13 @@ to validate their identity, the user needs to enter the verification code from t
 
 </div>
 
-### Step 8: Call ConfirmEmail when user submits the verification code
+### Step 8: Submit the verification code
 
-After the user checks their email for the code and submits it, call the `LoginResponse's` `ConfirmEmail`
+After the user checks their email for the code and submits it, call the `LoginResponse` object's `ConfirmEmail`
 method to verify the code. For this use case the method should return tokens signifying a successful sign-in.
 
 ```go
-//Get LoginResponse from session
+ //Get LoginResponse from session
 clr, _ := s.cache.Get("loginResponse")
 lr := clr.(*idx.LoginResponse)
 
@@ -166,26 +165,26 @@ if err != nil {
   log.Fatalf("could not get store: %s", err)
 }
 
-//Call ConfirmEmail
+ //Call ConfirmEmail
 lr, err = lr.ConfirmEmail(r.Context(), r.FormValue("code"))
 if err != nil {
-  //Error handling code
+ //Error handling code
 }
 
-//Set returned LoginResopnse in session
+ //Set returned LoginResponse in session
 s.cache.Set("loginResponse", lr, time.Minute*5)
 s.ViewData["InvalidEmailCode"] = false
 
 ```
 
-### Step 9: Store tokens in session
+### Step 9: Store the tokens in a session
 
-Store the tokens from the `LoginResponse` in session to be used for
+Store the tokens from the `LoginResponse` object in session to be used for
 additional calls. After the tokens are stored, redirect the user to the
 default signed-in home page.
 
 ```go
-// If we have tokens we have success, so lets store tokens
+ //If we have tokens we have success, so lets store tokens
 if lr.Token() != nil {
   session, err := sessionStore.Get(r, "direct-auth")
   if err != nil {
@@ -198,13 +197,13 @@ if lr.Token() != nil {
   if err != nil {
     log.Fatalf("could not save access token: %s", err)
   }
-  // redirect the user to /profile
+ //Redirect the user to /profile
   http.Redirect(w, r, "/", http.StatusFound)
   return
 }
 ```
 
-### Step 10 (Optional): Get user profile information
+### Step 10 (Optional) Retrieve user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.

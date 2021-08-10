@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: Create the SDK client on application load
+### Step 1: Navigate to the homepage
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -17,7 +17,7 @@ if err != nil {
 }
 ```
 
-### Step 2: Build sign-in page and initialize client object
+### Step 2: Navigate to the sign-in page
 
 Build a sign-in page that captures both the user's name and password.
 
@@ -27,7 +27,7 @@ Build a sign-in page that captures both the user's name and password.
 
 </div>
 
-During page load, call the `Client's` `InitLogin` method. This method returns an object of type
+During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
 `LoginResponse` that is used to initate the sign-in process with Okta.  The object
 also contains a list of available social identity providers (IdPs) that is discussed in more detail in the
 [Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp)
@@ -40,10 +40,10 @@ if err != nil {
 }
 ```
 
-### Step 3: Submit credentials when user signs in
+### Step 3: Submit the credentials
 
 After the user enters their credentials and submits their sign-in request,
-create an `IdentityRequest` object passing in the username and password from the
+create an `IdentityRequest` object, passing in the username and password from the
 sign-in form.
 
 ```go
@@ -55,10 +55,8 @@ sign-in form.
     }
 ```
 
-Next, using the `LoginResponse` object obtained from
-[Step 2](#step-2-build-sign-in-page-and-initialize-client-object),
-call its `Identify` method passing in the `IdentifyRequest` created
-in the previous step.
+Next, call the `Identify` method of the `LoginResponse` object obtained
+in Step 2, passing in the `IdentifyRequest` created in the previous step.
 
 ```go
 lr, err = lr.Identify(context.TODO(), ir)
@@ -70,11 +68,11 @@ if err != nil {
 }
 ```
 
-### Step 4: Determine that additional factors are required
+### Step 4: Determine whether additional factors are required
 
-The `Identity` method returns a `LoginResponse` and `error`
-object. Use the `error` object to determine if there were errors in the
-user sign-in. If the `error` object is `nil` and `LoginResponse's`
+The `Identity` method returns `LoginResponse` and `error`
+objects. Use the `error` object to determine if there were errors in the
+user sign-in. If the `error` object is `nil` and `LoginResponse` object's
 `Token` property is equal to `nil`, the user needs to confirm their identity
 with additional factors. The following code from the sample application shows
 a redirect to a factors page when there are no errors or tokens in the `LoginResponse`.
@@ -82,20 +80,20 @@ a redirect to a factors page when there are no errors or tokens in the `LoginRes
 ```go
 lr, err = lr.Identify(context.TODO(), ir)
 if err != nil {
-    //Error handling code
+ //Error handling code
 }
 
 if lr.Token() != nil {
-    //Login completion code
+ //Login completion code
 }
 
-// Additional factors required -  redirect to factors page
+ //Additional factors required -  redirect to factors page
 s.cache.Set("loginResponse", lr, time.Minute*5)
 http.Redirect(w, r, "/login/factors", http.StatusFound)
 return
 ```
 
-### Step 5: Show option to choose the phone factor
+### Step 5: Show an option to choose the phone factor
 
 The next step is to build a page that allows the user to choose a factor
 to continue the authentication flow.
@@ -106,7 +104,7 @@ to continue the authentication flow.
 
 </div>
 
-When the page loads call the `LoginResponse's` `HasStep`method once for the `LoginStepPhoneVerification` and `LoginStepPhoneInitialVerification` constants. If the method returns `true` for either constants, show the
+When the page loads call the `LoginResponse` objet's `HasStep`method once for the `LoginStepPhoneVerification` and `LoginStepPhoneInitialVerification` constants. If the method returns `true` for either constants, show the
 phone factor option.
 
 ```go
@@ -120,12 +118,11 @@ if lr.HasStep(idx.LoginStepPhoneVerification) || lr.HasStep(idx.LoginStepPhoneIn
 }
 ```
 
-### Step 6: Show phone verification method and optional phone number field
+### Step 6: Submit the phone factor to verify the identity
 
 After the user chooses the phone factor, the next step is for them to choose a phone method type and
-optional phone number. Currently, SMS is the only supported method type but voice is planned for
-a future release. The phone number field should be displayed only when the user has not yet setup
-their phone number within the Okta org. In this case, `LoginResponse's` `HasStep` method returns
+optional phone number. The phone number field should be displayed only when the user has not yet set up
+their phone number within the Okta org. In this case, `LoginResponse` object's `HasStep` method returns
 true when `LoginStepPhoneInitialVerification` is passed in.
 
 The sample application toggles the display of phone number field by first setting the
@@ -163,9 +160,9 @@ The following page from the sample application shows the phone number field and 
 
 </div>
 
-### Step 7: Call VerifyPhone when user submits phone factor details
+### Step 7: Submit phone factor details
 
-After the user submits their phone factor details, call the `LoginResponse's` `VerifyPhoneInitial`
+After the user submits their phone factor details, call the `LoginResponse` object's `VerifyPhoneInitial`
 if the user has not enrolled their phone number, else use `VerifyPhone`. Calling either method instructs
 the Okta server to send a message to the user's phone with the verification code.
 
@@ -181,7 +178,7 @@ if lr.HasStep(idx.LoginStepPhoneInitialVerification) {
 > **Note:** Only the SMS method type is currently supported. Voice will be supported in a future
 > release.
 
-### Step 8: Show phone code verification page
+### Step 8: Show the phone code verification page
 
 The next step is to build the code verification page. After the user submits the method type
 and optional phone number, they need to enter the verification code from their phone.
@@ -192,14 +189,14 @@ and optional phone number, they need to enter the verification code from their p
 
 </div>
 
-### Step 9: Call ConfirmPhone when user submits the verification code
+### Step 9: Submit the verification code
 
 After the user checks their phone for the code and submits it, call the
-`LoginResponse's` `ConfirmPhone` method to verify the code. For this use case
+`LoginResponse` object's `ConfirmPhone` method to verify the code. For this use case
 the method should return tokens signifying a successful sign-in.
 
 ```go
-//Get LoginResponse from session
+ //Get LoginResponse from session
 clr, _ := s.cache.Get("loginResponse")
 lr := clr.(*idx.LoginResponse)
 
@@ -210,20 +207,20 @@ if err != nil {
 
 lr, err = lr.ConfirmPhone(r.Context(), r.FormValue("code"))
 if err != nil {
-  //Error handling code
+ //Error handling code
 }
 
 s.cache.Set("loginResponse", lr, time.Minute*5)
 http.Redirect(w, r, "/login/factors", http.StatusFound)
 ```
 
-### Step 10: Store tokens in session
+### Step 10: Store the tokens in a session
 
 Store the tokens in session to be used for additional calls. After the tokens
 are stored, redirect the user to the default signed-in home page.
 
 ```go
-// If we have tokens we have success, so lets store tokens
+ //If we have tokens we have success, so lets store tokens
 if lr.Token() != nil {
   session, err := sessionStore.Get(r, "direct-auth")
   if err != nil {
@@ -237,13 +234,13 @@ if lr.Token() != nil {
   if err != nil {
     log.Fatalf("could not save access token: %s", err)
   }
-  // redirect the user to /profile
+ //Redirect the user to /profile
   http.Redirect(w, r, "/", http.StatusFound)
   return
 }
 ```
 
-### Step 11 (Optional): Get user profile information
+### Step 11 (Optional) Retrieve user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.

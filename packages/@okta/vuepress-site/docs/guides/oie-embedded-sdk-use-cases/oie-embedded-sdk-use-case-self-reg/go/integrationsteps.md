@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: Create the SDK client on application load
+### Step 1: Navigate to the homepage
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -17,7 +17,7 @@ if err != nil {
 }
 ```
 
-### Step 2: Build sign-up registration page to enable users to sign-up
+### Step 2: Navigate to the sign-up page
 
 Build a sign-in page that captures the user's first name, last name, and email.
 
@@ -27,11 +27,11 @@ Build a sign-in page that captures the user's first name, last name, and email.
 
 </div>
 
-### Step 3: Call InitProfileEnroll on user sign-up submit
+### Step 3: Submit sign-up information
 
 When the user submits their sign-up information, create a `UserProfile` object and set its
 `FirstName`, `LastName`, and `Email` to the values they entered on the page. Call the
-`Client's` `InitProfileEnroll` method passing in this object.
+`Client` object's `InitProfileEnroll` method, passing in this object.
 
 ```go
 profile := &idx.UserProfile{
@@ -42,7 +42,7 @@ profile := &idx.UserProfile{
 
 enrollResponse, err := s.idxClient.InitProfileEnroll(context.TODO(), profile)
 if err != nil {
-  //Error handling
+ //Error handling
 }
 
 s.cache.Set("enrollResponse", enrollResponse, time.Minute*5)
@@ -52,12 +52,12 @@ if enrollResponse.HasStep(idx.EnrollmentStepPasswordSetup) {
 }
 ```
 
-The `InitProfileEnroll` returns an `EnrollmentResponse` object. Execute the `HasStep` method
-on this object passing in the `EnrollmentStepPasswordSetup` constant. If
-the Okta configuration is setup correctly, `HasStep` should return `true`. At this point, the
-user should enter in the password.
+The `InitProfileEnroll` method returns an `EnrollmentResponse` object. Execute the `HasStep` method
+on this object, passing in the `EnrollmentStepPasswordSetup` constant. If
+the Okta configuration is set up correctly, `HasStep` should return `true`. At this point, the
+user should enter in their password.
 
-### Step 4: Create a page for the user to enter their password
+### Step 4: Show the password page
 
 Create a page for the user to enter their password.
 
@@ -67,9 +67,9 @@ Create a page for the user to enter their password.
 
 </div>
 
-### Step 5: When user submits password call SetNewPassword
+### Step 5: Submit the password
 
-When the user submits their password, call the `EnrollmentResponse's` `SetNewPassword` method
+When the user submits their password, call the `EnrollmentResponse` object's `SetNewPassword` method,
 passing in the password the user entered on the page. The method returns an `EnrollmentResponse`
 object. Call the `HasStep` method on this object and pass in the `EnrollmentStepSuccess` constant.
 The method should return `true`, which indicates the next phase is the factor enrollment.
@@ -83,7 +83,7 @@ confirmPassword := r.FormValue("confirmPassword")
 
 enrollResponse, err = enrollResponse.SetNewPassword(context.TODO(), r.FormValue("newPassword"))
 if err != nil {
-  //Error Handling
+ //Error Handling
 }
 
 if !enrollResponse.HasStep(idx.EnrollmentStepSuccess) {
@@ -92,11 +92,11 @@ if !enrollResponse.HasStep(idx.EnrollmentStepSuccess) {
 }
 ```
 
-### Step 6: Create a page to display the available factors for enrollment
+### Step 6: Build a list of available factors to display to user
 
 The next step is to build a page to display the list of available factors
 that the user can enroll into. In this use case it will be the email and phone
-factors. Use the `EnrollmentResponse's` `HasStep` method
+factors. Use the `EnrollmentResponse` object's `HasStep` method
 to identify which factors can be displayed and whether the user can skip the
 remaining factors. The constants used are:
 
@@ -166,10 +166,10 @@ An example of the page from the sample application is shown below:
 
 </div>
 
-### Step 7: Call VerifyEmail and create a page that accepts the email confirmation code
+### Step 7: Submit the email factor for verification
 
 Assuming the user selected the email factor and clicked continue, the next step is to
-call the `EnrollmentResponse's` `VerifyEmail` method.
+call the `EnrollmentResponse` object's `VerifyEmail` method.
 
 ```go
 cer, _ := s.cache.Get("enrollResponse")
@@ -196,10 +196,10 @@ email confirmation code.
 
 </div>
 
-### Step 8: Call ConfirmEmail when user submits verfication code
+### Step 8: Submit the verification code
 
-After the user submits the verfication code from their email, call `EnrollmentResponse's`
-`ConfirmEmail` method passing in the verification code. Assuming the verification was
+After the user submits the verfication code from their email, call the `EnrollmentResponse`
+object's `ConfirmEmail` method, passing in the verification code. Assuming the verification was
 successful, call the `WhereAmI` method on the returned `EnrollmentResponse` object.
 `WhereAmI` returns an `EnrollmentResponse` object with information about
 how to proceed.
@@ -209,38 +209,38 @@ cer, _ := s.cache.Get("enrollResponse")
 enrollResponse := cer.(*idx.EnrollmentResponse)
 
 if enrollResponse.Token() != nil {
-  //Since the phone factor is available in this use case, tokens won't exist until the
-  //user skips the phone factor in the next step
+ //Since the phone factor is available in this use case, tokens won't exist until the
+ //user skips the phone factor in the next step
 }
 
 enrollResponse, err = enrollResponse.ConfirmEmail(r.Context(), r.FormValue("code"))
 
-//Identify what is next to proceed with the register
+ //Identify what is next to proceed with the register
 enrollResponse, err = enrollResponse.WhereAmI(r.Context())
 
 s.cache.Set("enrollResponse", enrollResponse, time.Minute*5)
 http.Redirect(w, r, "/enrollFactor", http.StatusFound)
 ```
 
-### Step 9: Show list again with available factors to enroll
+### Step 9: Again show the list containing the available factors to enroll
 
 The next step is to show a list of available factors using the same page created in
 Step 6. Based on how you configured the Okta org for this use case, only the phone
-factor should be displayed. The `EnrollmentResponse's` `HasStep` method you called in
-[Step 6](#step-6-create-a-page-to-display-the-available-factors-for-enrollment) is used to toggle the visibility of the skip button and show the avaiable factors. In this step, the skip button and phone factor option should be visible.
+factor should be displayed. The `EnrollmentResponse` object `HasStep` method you called in
+[Step 6](#step-6-build-a-list-of-available-factors-to-display-to-user) is used to toggle the visibility of the skip button and show the avaiable factors. In this step, the skip button and phone factor option should be visible.
 
 
 ```go
 if enrollResponse.HasStep(idx.EnrollmentStepSkip) {
-  //This method should return true
+ //This method should return true
 }
 
 if enrollResponse.HasStep(idx.EnrollmentStepPhoneVerification) {
-  //This call should return true
+ //This call should return true
 }
 
 if enrollResponse.HasStep(idx.EnrollmentStepEmailVerification) {
-  //This call should return false because the email was already enrolled
+ //This call should return false because the email was already enrolled
 }
 ```
 
@@ -250,10 +250,10 @@ if enrollResponse.HasStep(idx.EnrollmentStepEmailVerification) {
 
 </div>
 
-### Step 10: Skip phone factor
+### Step 10: Skip the phone factor
 
 Assuming the user skips the phone factor and completes the registration with only the email,
-call the `EnrollmentResponses's` `Skip` method.
+call the `EnrollmentResponses` object's `Skip` method.
 
 ```go
 func (s *Server) transitionToProfile(er *idx.EnrollmentResponse, w http.ResponseWriter, r *http.Request) {
@@ -268,7 +268,7 @@ For more details about enrolling the phone factor see the sample application. Fo
 to verify a sign-in with the phone factor, see
 [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-pwd-phone/).
 
-### Step 11: Retrieve sign-in tokens and send user signed-in home page
+### Step 11: Store the tokens in session and go to the signed-in home page
 
 The `EnrollmentResponse` object returned from the `Skip` method should return tokens
 indicating the register and sign-in was successful. Send the user to their
@@ -285,7 +285,7 @@ if enrollResponse.Token() != nil {
 }
 ```
 
-### Step 12 (Optional): Get user profile information
+### Step 12 (Optional) Retrieve the user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
