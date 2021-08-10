@@ -54,7 +54,7 @@ s.ViewData["IdpCount"] = func() int {
 }
 ```
 
-#### Build the list of indentity providers on sign-in page
+#### Build the list of indentity providers on the sign-in page
 
 Use this array of `IdentityProvider` objects to show a list of available identity providers on the
 sign-in page. The code snippet below shows how the sample application builds out links for each available
@@ -95,7 +95,7 @@ When the user clicks the Facebook IdP link, initially they are sent to the Okta 
 ### Step 5: Sign in with Facebook
 
 After the user clicks on the sign-in link, the browser should redirect to a sign-in page hosted by Facebook. The credentials
-you enter originates from a test user that you configured in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers). You don't need to make any code changes in your app to perform this step.
+you enter originate from a test user that you configured in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers). You don't need to make any code changes in your app to perform this step.
 
 <div class="common-image-format">
 
@@ -113,13 +113,13 @@ After Facebook sends the success login request to your Okta org, the org redirec
 
 The value for the sample app is `http://localhost:8000/login/callback`.
 
-The following code wires up the callback URL to a `handleLoginCallaback` function.
+The following code wires up the callback URL to a `handleLoginCallback` function.
 
 ```go
 r.HandleFunc("/login/callback", s.handleLoginCallback).Methods("GET")
 ```
 
-The `handleLoginCallaback` function handles the callback and stores the incoming tokens
+The `handleLoginCallback` function handles the callback and stores the incoming tokens
 into session state.
 
 ```go
