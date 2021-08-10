@@ -72,7 +72,9 @@ In addition to customizing your emails with variables, you can use the following
 
 Variables used for function parameters must match the function data type. For example, you can't use a string variable with the `formatTimeDiffHourNow()` function because the parameter data must be an integer.
 
-The syntax for calling functions is slightly different with Velocity templating syntax. For example, instead of calling functions in the EL templating syntax like this:
+There are slight differences between EL templating syntax and VTL syntax. For example, the following EL and VTL syntax call the same function.
+
+EL templating syntax:
 
 `${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}`
 
