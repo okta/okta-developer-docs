@@ -78,7 +78,7 @@ EL templating syntax:
 
 `${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}`
 
-You would call functions in the Velocity Templating syntax like this:
+VTL syntax:
 
 `$f.formatTimeDiffHoursNowInUserLocale($org.activationTokenExpirationHours)`
 
