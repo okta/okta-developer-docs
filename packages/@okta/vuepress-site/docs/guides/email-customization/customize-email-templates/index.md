@@ -84,7 +84,7 @@ VTL syntax:
 
 | Expression                                                    | Definition                                                                                                          |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
-| replace(String input, String matchString, String replacement) | Replaces all occurrences of the match string with the replacement string.                                           |
+| replace(String input, String matchString, String replacement) | Replaces all occurrences of the match string with the replacement string                                           |
 | substringAfter(String input, String matchString)              | Returns the substring after the given match string, or an empty string if the matchString doesn't match the input.  |
 | substringBefore(String input, String matchString)             | Returns the substring before the given match string, or an empty string if the matchString doesn't match the input. |
 | toLowerCase(String input)                                     | Converts the given input string to all lowercase.                                                                   |
