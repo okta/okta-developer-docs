@@ -11,11 +11,9 @@ title: Okta API Products Release Notes 2021
 
 #### Bugs fixed in 2021.08.1
 
-- When an [IDPS API](/docs/reference/api/idps/) SSO call was created that included a `fromURI` parameter, an HTTP 500 error was returned. (OKTA-407425)
-
 - When a native SSO [token exchange](/docs/reference/api/oidc/#token) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
 
-- Registration Inline Hooks didn’t correctly display an error message to the end-user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
+- Registration Inline Hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
 
 ### Monthly Release 2021.08.0
 
