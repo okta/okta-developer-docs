@@ -87,7 +87,7 @@ The properties in the response are:
 * `expires_in`: The number of seconds that this set of values is valid. After the device code and user code expire, the user has to start the device verification process over.
 * `interval`: The number of seconds that the device should wait between polling to see if the user has finished signing in.
 
-The `user_code` and `verification_uri` must appear on the smart device for the user. To display the QR code, the client generates the code using the `verificatio_uri_complete` value returned in the response and displays it on the device for the user to scan.
+The `user_code` and `verification_uri` must appear on the smart device for the user. To display the QR code, the client generates the code using the `verification_uri_complete` value returned in the response and displays it on the device for the user to scan.
 
 #### Example of the display on a smart device
 
