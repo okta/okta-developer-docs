@@ -85,8 +85,8 @@ VTL syntax:
 | Expression                                                    | Definition                                                                                                          |
 |---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
 | replace(String input, String matchString, String replacement) | Replaces all occurrences of the match string with the replacement string                                           |
-| substringAfter(String input, String matchString)              | Returns the input substring after the occurrence of a given match string, or an empty string if there isn't |
-| substringBefore(String input, String matchString)             | Returns the input substring before the occurrence of a given match string, or an empty string if no occurrence of match string exists in input string |
+| substringAfter(String input, String matchString)              | Returns the input substring after the occurrence of a given match string, or an empty string if no occurrence of the match string exists in the input string. |
+| substringBefore(String input, String matchString)             | Returns the input substring before the occurrence of a given match string, or an empty string if no occurrence of the match string exists in input string |
 | toLowerCase(String input)                                     | Converts the given input string to all lowercase                                                                   |
 | toUpperCase(String input)                                     | Converts the given input string to all uppercase                                                                   |
 | substring(String input, int startIndex, int endIndex)         | Extracts a range of characters from the given input string                                                         |
