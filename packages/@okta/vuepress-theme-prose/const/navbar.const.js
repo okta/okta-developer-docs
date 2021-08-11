@@ -220,31 +220,22 @@ export const guides = [
         title: "Authorization",
         subLinks: [
           {
-            title: "Implement the Authorization Code flow",
-            guideName: "implement-auth-code"
-          },
-          {
-            title: "Implement the Authorization Code flow with PKCE",
-            guideName: "implement-auth-code-pkce"
+            title: "Implement authorization by grant type",
+            guideName: "implement-grant-type"
           },
           {
             title: "Create an Authorization Server",
             guideName: "customize-authz-server"
           },
           {
-            title: "Implement the Client Credentials flow",
-            guideName: "implement-client-creds"
-          },
-          {
-            title: "Implement the Implicit flow",
-            guideName: "implement-implicit"
+            title: "Configure SSO for Native apps",
+            guideName: "configure-native-sso"
           },
           { title: "Request user consent", guideName: "request-user-consent" },
           {
-            title: "Implement the Resource Owner Password flow",
-            guideName: "implement-password"
+            title: "Configure Device Authorization Grant Flow",
+            guideName: "device-authorization-grant"
           },
-          { title: "Implement the SAML 2.0 Assertion flow", guideName: "implement-saml2"},
           {
             title: "Tokens",
             subLinks: [
@@ -302,6 +293,10 @@ export const guides = [
           {
             title: "Customize email notifications and email domains",
             guideName: "email-customization"
+          },
+          {
+            title: "Customize themes",
+            path: "/docs/guides/customize-themes/"
           }
         ]
       },
@@ -341,6 +336,10 @@ export const guides = [
           {
             title: "Configure an access policy",
             guideName: "configure-access-policy"
+          },
+          {
+            title: "Integrate Third-Party Risk",
+            guideName: "third-party-risk-integration"
           }
         ]
       },
@@ -645,6 +644,8 @@ export const reference = [
           { title: "MyAccount", path: "/docs/reference/api/myaccount/" },
           { title: "Org", path: "/docs/reference/api/org/" },
           { title: "Policy", path: "/docs/reference/api/policy/" },
+          { title: "Risk Events", path: "/docs/reference/api/risk-events/" },
+          { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
           { title: "Schemas", path: "/docs/reference/api/schemas/" },
           { title: "Sessions", path: "/docs/reference/api/sessions/" },
           { title: "System Log", path: "/docs/reference/api/system-log/" },

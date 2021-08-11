@@ -13,7 +13,7 @@ Guidance on what endpoints need to be implemented can be found in our [SCIM Refe
 
 **Q: How should I be managing authentication to my SCIM API?**
 
-Okta recommends using the [OAuth 2.0 Authorization Code grant flow](/docs/guides/implement-auth-code/). Okta doesn't support the Client Credentials or Resource Owner Password Credentials Authorization grant flows for SCIM. The Authorization Code grant flow is more common in SaaS and cloud integrations and is also more secure.
+Okta recommends using the [OAuth 2.0 Authorization Code grant flow](/docs/guides/implement-grant-type/authcode/main/). Okta doesn't support the Client Credentials or Resource Owner Password Credentials Authorization grant flows for SCIM. The Authorization Code grant flow is more common in SaaS and cloud integrations and is also more secure.
 
 In addition to OAuth, Okta also supports connections with basic auth and header token auth options.
 

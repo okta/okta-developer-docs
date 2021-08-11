@@ -6,6 +6,7 @@ guides:
  - build-self-signed-jwt
  - common-hook-set-up-steps
  - configure-access-policy
+ - configure-native-sso
  - configure-signon-policy
  - create-an-api-token
  - custom-error-pages
@@ -15,20 +16,16 @@ guides:
  - customize-tokens-dynamic
  - customize-tokens-static
  - customize-tokens-groups-claim
+ - device-authorization-grant
  - email-customization
  - enable-cors
  - event-hook-implementation
  - find-your-app-credentials
  - find-your-domain
  - password-import-inline-hook
- - implement-auth-code
- - implement-auth-code-pkce
- - implement-client-creds
- - implement-implicit
  - implement-oauth-for-okta
  - implement-oauth-for-okta-serviceapp
- - implement-password
- - implement-saml2
+ - implement-grant-type
  - mfa
  - migrate-to-okta
  - oin-oidc-guide
@@ -103,9 +100,8 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 3. Authorize
 
-    * [Implement the Authorization Code flow](/docs/guides/implement-auth-code/overview/)
-    * [Implement the Authorization Code flow with PKCE](/docs/guides/implement-auth-code-pkce/overview/)
-    * [Implement the Client Credentials flow](/docs/guides/implement-client-creds/overview/)
+    * [Implement authorization by grant type](/docs/guides/implement-grant-type/-/main/)
+    * [Configure SSO for native apps](/docs/guides/configure-native-sso/main/)
     * [Refresh access tokens](/docs/guides/refresh-tokens/overview/)
     * [Validate access tokens](/docs/guides/validate-access-tokens/go/overview/)
     * [Validate ID tokens](/docs/guides/validate-id-tokens/overview/)

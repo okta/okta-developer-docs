@@ -1,6 +1,52 @@
 ---
 title: Okta API Products Release Notes 2021
 ---
+## August
+
+### Monthly Release 2021.08.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Okta Sign-In Widget, version 5.9.1](#okta-sign-in-widget-version-5-9-1) | August 4, 2021 |
+| [Brands API is Self-Service EA](#brands-api-is-self-service-ea)              | August 4, 2021 |
+| [Risk Providers and Risk Events APIs are EA](#risk-providers-and-risk-events-apis-are-ea) | August 4, 2021 |
+| [SAML parameter SessionNotOnOrAfter is GA in Preview](#saml-parameter-sessionnotonorafter-is-ga-in-preview)| August 4, 2021 |
+| [Support for Push Status using the Apps API is GA in Production](#support-for-push-status-using-the-apps-api-is-ga-in-production)| August 4, 2021 |
+| [The Device Authorization grant type is Self-Service EA](#the-device-authorization-grant-type-is-self-service-ea) | August 4, 2021 |
+| [Token-based SSO between native apps is Self-Service EA](#token-based-sso-between-native-apps-is-self-service-ea) | August 4, 2021 |
+
+#### Okta Sign-In Widget, version 5.9.1
+
+For details about this release, see the Okta [Sign-In Widget Release Notes](https://github.com/okta/okta-signin-widget/releases/tag/okta-signin-widget-5.9.1). For more information about the Widget, see the Okta [Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/). <!--OKTA-416419-->
+
+#### Brands API is Self-Service EA
+
+The Okta [Brands API](/docs/reference/api/brands/) allows customization of the look and feel of pages and templates. It allows you to upload your own brand assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to the Okta-hosted Sign-In Page, error pages, email templates, and the Okta End-User Dashboard. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes/). <!-- 414350-->
+
+#### Risk Providers and Risk Events APIs are EA
+
+The Okta [Risk Providers API](/docs/reference/api/risk-providers/) enables security teams to integrate IP-based risk signals to analyze and orchestrate risk-based access using the authentication layer. Practitioners can step up, reduce friction, or block the user based on risk signals across the customer's security stack. Apart from improving security efficacy, this feature also enhances the user experience by reducing friction for good users based on positive user signals. The Okta [Risk Events API](/docs/reference/api/risk-events/) provides the ability for third-party Risk Providers to send Risk Events to Okta. See [Third-party risk provider integration](/docs/guides/third-party-risk-integration/overview/). <!-- OKTA-415574 -->
+
+#### SAML parameter SessionNotOnOrAfter is GA in Preview
+
+The SAML parameter `SessionNotOnOrAfter` for SAML assertions is available for use with Okta's [SAML Inline Hooks](/docs/reference/saml-hook/). This optional parameter specifies the session lifetime, in seconds, and is included in the SAML assertion. The `SessionNotOnOrAfter` parameter allows the Identity Provider to control the session of the Service Provider. Most SAML applications manage their own sessions. However, some SAML applications require this parameter from the Identity Provider for session management. <!--OKTA-406633-->
+
+#### Support for Push Status using the Apps API is GA in Production
+
+Developers can use the `pushStatus` [parameter](/docs/reference/api/apps/#username-template-object) to handle a username update to an app integration. Previously, this option wasn't available through the Apps API, which caused inconsistent behavior between app integrations configured using the Okta Admin Console and those configured through the API. <!--OKTA-413817-->
+
+#### The Device Authorization grant type is Self-Service EA
+
+Advancements in internet technology have seen an explosion of smart devices and the Internet of Things. Consumers need to sign in to applications that run on these devices, but the devices either lack support for a web browser or have limited ability for input, such as smart TVs, car consoles, and thermostats. As a result, users resort to insecure authentication solutions that are error-prone and time-consuming.
+
+The [Device Authorization grant](/docs/reference/api/oidc/#device-authorize) feature is an OAuth 2.0 grant type that allows users to sign in to input-constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/). <!-- OKTA-411412 -->
+
+#### Token-based SSO between native apps is Self-Service EA
+
+Single-Sign On (SSO) between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to [achieve SSO between native applications](/docs/reference/api/oidc/#scopes).
+
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/). <!-- OKTA-411335 -->
+
 ## July
 
 ### Weekly Release 2021.07.2
@@ -61,7 +107,7 @@ The Schemas API now includes [unique attributes](/docs/reference/api/schemas/#un
 
 #### The SAML 2.0 Assertion grant flow is now GA in Preview
 
-You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-saml2/overview/). <!--OKTA-406626-->
+You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-grant-type/saml2assert/main/). <!--OKTA-406626-->
 
 #### Event Hook preview tab is now GA in Preview
 
@@ -148,7 +194,7 @@ The [Domains API](/docs/reference/api/domains/) is now Generally Available in Pr
 
 #### Flexible Consent is GA in Preview
 
-Flexible Consent is now Generally Available in Preview. Customers are unable to request consent-enabled scopes when using the [Client Credential grant flow](/docs/guides/implement-client-creds/overview/). Since the Client Credential grant flow doesn't involve an end user, consent shouldn't be required for these flows. The authorization server should understand that this flow doesn't involve a user, ignore the consent for these scopes, and include the scope in the response. However, the authorization server returns an error. This causes customers to design separate scopes when using the Client Credentials grant flow.
+Flexible Consent is now Generally Available in Preview. Customers are unable to request consent-enabled scopes when using the [Client Credential grant flow](/docs/guides/implement-grant-type/clientcreds/main/). Since the Client Credential grant flow doesn't involve an end user, consent shouldn't be required for these flows. The authorization server should understand that this flow doesn't involve a user, ignore the consent for these scopes, and include the scope in the response. However, the authorization server returns an error. This causes customers to design separate scopes when using the Client Credentials grant flow.
 
 The new Flexible Consent setting allows customers to use a single set of scopes in both 3-legged and 2-legged OAuth flows. When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This allows customers to use the same scopes for both user and service-based OAuth flows. <!--OKTA-392294-->
 
@@ -209,7 +255,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 * When [OIDC apps](/docs/reference/api/oauth-clients/#register-new-client) were created concurrently, some apps were created in a deactivated state. (OKTA-384407)
 
-* The [Client Credentials Flow](/docs/guides/implement-client-creds/overview/) could not implement a custom claim named `scope`. (OKTA-389874)
+* The [Client Credentials Flow](/docs/guides/implement-grant-type/clientcreds/main/) could not implement a custom claim named `scope`. (OKTA-389874)
 
 ### Weekly Release 2021.05.1
 
@@ -414,7 +460,7 @@ When an OAuth2 request was made with an access token instead of a required ID to
 
 #### The SAML 2.0 Assertion grant flow is now Self-Service Early Access (EA)
 
-The SAML 2.0 Assertion grant flow is now Self-Service EA. You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-saml2/overview/).<!--OKTA-373421-->
+The SAML 2.0 Assertion grant flow is now Self-Service EA. You can use the SAML 2.0 Assertion flow to request an access token when you want to use an existing trust relationship without a direct user approval step at the authorization server. The flow enables a client app to reuse an authorization by supplying a valid, signed SAML assertion to the authorization server in exchange for an access token. This flow is often used in migration scenarios from legacy Identity Providers that don't support OAuth. See [Implement the SAML 2.0 Assertion flow](/docs/guides/implement-grant-type/saml2assert/main/).<!--OKTA-373421-->
 
 #### The Okta Org API is now GA
 
