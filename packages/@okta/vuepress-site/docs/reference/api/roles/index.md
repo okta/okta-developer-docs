@@ -3082,7 +3082,7 @@ User permissions are only effective with respect to the Group(s) to which the ad
 | :--------------- | :---------------------------------- | :--------------------------------------------- | :--------- | :------- | :-------- |
 | `label`            | Type of permissions                | String                                         | FALSE      | FALSE     | TRUE     |
 | `created`      | The date and time the Permission was added to the role | Timestamp | FALSE      | FALSE    | TRUE     |
-| `lastUpdated`      | The date and time the permission's association with the role was last updated | Timestamp | FALSE      | FALSE    | TRUE     |
+| `lastUpdated`      | The date and time the Permission's association with the role was last updated | Timestamp | FALSE      | FALSE    | TRUE     |
 | `_links`           | Discoverable resources related to the Permission      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                | TRUE       | FALSE    | TRUE     |
 
 
