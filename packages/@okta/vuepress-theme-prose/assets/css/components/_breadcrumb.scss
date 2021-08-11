@@ -14,7 +14,7 @@
       li {
         display: flex;
         align-items: center;
-        margin: 0em 1em 0em 0em;
+        margin: 0 9px 0 0;
         padding: 9px 0 0;
 
         @include media("<desktop-xl") {
