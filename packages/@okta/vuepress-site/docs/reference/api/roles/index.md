@@ -10,7 +10,7 @@ meta:
 
 The Okta Administrator Roles API provides operations to manage administrative Role assignments for a User.
 
-Role listing APIs provide a union of both standard and custom Roles assigned to a User or Group. We are, therefore, providing both groups of APIs and their intersections in this single doc, which will eventually replace the contents of the existing docs.
+Role listing APIs provide a union of both standard and custom Roles assigned to a User or Group. We are, therefore, providing both groups of APIs and their intersections in this single doc.
 
 ## Get started
 
