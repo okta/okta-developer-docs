@@ -1036,7 +1036,7 @@ curl -v -X POST \
 
 <ApiOperation method="patch" url="/api/v1/iam/resource-sets/${resourceSetId}/bindings/${roleId}/members" />
 
-Adds more Members to a Role Binding already created in a Resource Set
+Adds more Members to a Role Binding that is already created in a Resource Set
 
 #### Request parameters
 
