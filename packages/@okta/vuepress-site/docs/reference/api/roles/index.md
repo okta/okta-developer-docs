@@ -1231,7 +1231,7 @@ Deletes a Member of a Role in a Resource Set
 | `memberId`       | ID of the Member in the Binding                                 | URL          | String         | TRUE     |
 
 
-`memberId` is the ID obtained when [Members are listed in a Binding](#list-members-in-a-binding). For example, if the Member object was:
+`memberId` is the ID that is obtained when [Members are listed in a Binding](#list-members-in-a-binding). For example, if the Member object was:
 
 ```json
 {
