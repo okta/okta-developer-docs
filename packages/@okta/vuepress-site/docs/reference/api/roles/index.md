@@ -2941,7 +2941,7 @@ Note that the following fields are different compared to those for [a Group assi
 * The `_links` field has three new fields:
   * `resource-set` is the `GET` link to the Resource Set to which this assignment is granted.
   * `role` is the `GET` link to the Role to which this assignment is granted.
-  * `permissions` is the `GET` link to the permissions to which this assignment is granted.
+  * `permissions` is the `GET` link to the Permissions to which this assignment is granted.
 
 ```json
 {
