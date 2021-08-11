@@ -701,7 +701,7 @@ Updates the label and description of a Resource Set
 | :------------ | :---------------------------------------- | :----------- | :----------- | :------- |
 | `resourceSetId` | Unique ID of the Resource Set             | URL          | String       | TRUE     |
 | `label`         | New unique name given to the Resource Set | Body         | String       | TRUE     |
-| `description`   | New description of the the Resource Set   | Body         | String       | TRUE     |
+| `description`   | New description of the Resource Set   | Body         | String       | TRUE     |
 
 #### Response parameters
 
