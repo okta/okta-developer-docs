@@ -160,7 +160,7 @@ http.Redirect(w, r, "/", http.StatusFound)
 return
 ```
 
-### Step 9 (Optional) Retrieve user profile information
+### Step 9 (Optional): Retrieve user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.

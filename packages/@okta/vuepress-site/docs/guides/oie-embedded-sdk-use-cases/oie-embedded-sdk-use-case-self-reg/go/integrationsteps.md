@@ -285,7 +285,7 @@ if enrollResponse.Token() != nil {
 }
 ```
 
-### Step 12 (Optional) Retrieve the user profile information
+### Step 12 (Optional): Retrieve the user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.

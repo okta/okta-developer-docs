@@ -203,7 +203,7 @@ if lr.Token() != nil {
 }
 ```
 
-### Step 10 (Optional) Retrieve user profile information
+### Step 10 (Optional): Retrieve user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.

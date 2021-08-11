@@ -155,7 +155,7 @@ func (s *Server) handleLoginCallback(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-### Step 8 (Optional) Retrieve user profile information
+### Step 8 (Optional): Retrieve user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.

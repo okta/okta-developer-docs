@@ -122,7 +122,7 @@ if lr.HasStep(idx.LoginStepPhoneVerification) || lr.HasStep(idx.LoginStepPhoneIn
 
 After the user chooses the phone factor, the next step is for them to choose a phone method type and
 optional phone number. The phone number field should be displayed only when the user has not yet set up
-their phone number within the Okta org. In this case, `LoginResponse` object's `HasStep` method returns
+their phone number within the Okta org. In this case, the `LoginResponse` object's `HasStep` method returns
 true when `LoginStepPhoneInitialVerification` is passed in.
 
 The sample application toggles the display of phone number field by first setting the
@@ -163,7 +163,7 @@ The following page from the sample application shows the phone number field and 
 ### Step 7: Submit phone factor details
 
 After the user submits their phone factor details, call the `LoginResponse` object's `VerifyPhoneInitial`
-if the user has not enrolled their phone number, else use `VerifyPhone`. Calling either method instructs
+method if the user has not enrolled their phone number, else use `VerifyPhone`. Calling either method instructs
 the Okta server to send a message to the user's phone with the verification code.
 
 ```go
@@ -240,7 +240,7 @@ if lr.Token() != nil {
 }
 ```
 
-### Step 11 (Optional) Retrieve user profile information
+### Step 11 (Optional): Retrieve user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.

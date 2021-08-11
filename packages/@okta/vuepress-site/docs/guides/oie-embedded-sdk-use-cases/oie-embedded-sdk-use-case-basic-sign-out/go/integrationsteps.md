@@ -2,7 +2,7 @@
 
 ### Step 1: Click the sign-out link
 
-The first step is to create a element that allows the user to sign out of the app.
+The first step is to create an element that allows the user to sign out of the app.
 
 <div class="common-image-format">
 
