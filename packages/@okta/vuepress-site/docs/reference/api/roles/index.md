@@ -928,7 +928,7 @@ Removes a resource from a Resource Set
 | `resourceSetId`  | ID of the Resource Set                  | URL          | String       | TRUE     |
 | `resourceId`     | ID of the resource within the Resource Set  | URL          | String       | TRUE     |
 
-`resourceId` is the ID obtained when [resources are listed within the Resource Set](#list-resources). For example, if the resource object is:
+`resourceId` is the ID that is obtained when [resources are listed within the Resource Set](#list-resources). For example, if the resource object is:
 
 ```json
     {
