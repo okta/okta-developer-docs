@@ -3046,7 +3046,7 @@ A Custom Role is a custom set of [Permissions](#permission-types). A Custom Role
 | `id`               | Unique key for the Role             | String                                         | FALSE      | TRUE     | TRUE      |
 | `label`            | Display name of Role                | String                                         | FALSE      | TRUE     | FALSE     |
 | `created`      | The date and time the Role was created | Timestamp | FALSE      | FALSE    | TRUE     |
-| `lastUpdated`      | The date and time the Role's label or description were last updated | Timestamp | FALSE      | FALSE    | TRUE     |
+| `lastUpdated`      | The date and time that the Role's label or description were last updated | Timestamp | FALSE      | FALSE    | TRUE     |
 | `_links`           | Discoverable resources related to the Role      | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06)                                                | TRUE       | FALSE    | TRUE     |
 
 
