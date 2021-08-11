@@ -80,7 +80,7 @@ This request needs to contain a [brand object](/docs/reference/api/brands/#brand
 
 You can return the themes contained in a brand with the following request (**Get themes** in postman):
 
-<ApiOperation method="put" url="/api/v1/brands/{brandId}/themes" />
+<ApiOperation method="get" url="/api/v1/brands/{brandId}/themes" />
 
 This returns an array of [theme response objects](/docs/reference/api/brands/#theme-response-object).
 
