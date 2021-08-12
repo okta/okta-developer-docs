@@ -3,7 +3,7 @@
 ### Step 1: User signs in
 
 After the Widget
-[loads](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/),
+[loads](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-load/),
 the user enters their credentials through the Widget and clicks the **Sign in**. The sign-in
 request is sent to Okta, which will return a response identifying the next steps that need to
  be taken in the sign-in flow.
