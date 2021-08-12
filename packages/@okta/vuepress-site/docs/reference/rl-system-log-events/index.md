@@ -7,7 +7,7 @@ category: rate limits
 
 ## System Log event types
 
-### Web request rate limit (org level)
+### Web request rate limits (org level)
 
 The following org-based System Log events record system events related to your organization to provide an audit trail that you can use to understand platform activity and to diagnose problems.
 
@@ -20,7 +20,7 @@ This event is sent when an endpoint is exceeding its rate limit.
 * [`core.concurrency.org.limit.violation`](/docs/reference/api/event-types/?q=core.concurrency.org.limit.violation)<br>
 This event is sent when a request is exceeding the org's allotted concurrent limit.
 
-### Web request rate limit (client level)
+### Web request rate limits (client level)
 
 The following client-based System Log events are fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. The event that fires depends on the client-based rate limit mode that is set:
 
@@ -38,12 +38,12 @@ This event is fired when the framework is turned on in **Log per client** mode a
 
 ### OAuth 2.0 client rate limit
 
-The following OAuth 2.0 client System Log event is fired when requests from a single client ID has consumed the majority of an org's rate limit on the `/oauth2` endpoint:
+The following System Log event is fired when OAuth 2.0 requests from a single client ID have consumed the majority of the applicable rate limit for the org:
 
 * [`app.oauth2.client_id_rate_limit_warning`](/docs/reference/api/event-types/?q=app.oauth2.client_id_rate_limit_warning)<br>
-This event type is fired when a single client ID consumes 90% of an org's OAuth 2.0 rate limit. (Note that this threshold is subject to change.) This event contains information about the responsible client ID, which can be used by admins to discover and deactivate a rogue client.
+This event contains information about the responsible client ID, which can be used by admins to discover and deactivate or reconfigure the client if necessary.
 
-### Operation rate limit
+### Operation rate limits
 
 Some rate limits are enforced on specific actions within Okta, regardless of which API is called to invoke the action. For example, though there are multiple ways to initiate an SMS to a user, there may be a limit on how many are sent out, regardless of which API requests has been made to initiate the messages. The following event types may appear in these varying cases:
 
@@ -56,11 +56,11 @@ This event type may be sent once per rate limit period as a warning that some si
 * `system.operation.rate_limit.notification`<br>
 This event type can provide additional information about rate limit decisions. For example, this event might indicate that a violation event would have been emitted for a specific client rather than for a broader scope if you had chosen a different configuration.
 
-#### DebugContext object for operation rate limit
+#### DebugContext object for operation rate limits
 
 For some event types, the fields provided in other response objects aren't sufficient to adequately describe the operations that the event has performed. In such cases, the [DebugContext](/docs/reference/api/system-log/#debugcontext-object) object provides a way to store additional information.
 
-#### DebugContext object properties for operation rate limit
+#### DebugContext object properties for operation rate limits
 
 The following table describes the rate limit information that is returned in the DebugContext object.
 
@@ -87,7 +87,7 @@ The following table describes the rate limit information that is returned in the
 > The event might include the threshold % that is being used to trigger the warning<br>
 >
 
-#### DebugContext object examples for operation rate limit
+#### DebugContext object examples for operation rate limits
 
 The following is an example System Log rate limit event where too many enrollment attempts for the SMS factor were made.
 
