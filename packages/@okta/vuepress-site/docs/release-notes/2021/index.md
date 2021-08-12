@@ -3,6 +3,18 @@ title: Okta API Products Release Notes 2021
 ---
 ## August
 
+### Weekly Release 2021.08.1
+
+| Change                                                                     | Expected in Preview Orgs |
+|----------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2021.08.1](#bugs-fixed-in-2021-08-1)                          | August 11, 2021          |
+
+#### Bugs fixed in 2021.08.1
+
+- When a native SSO [token exchange](/docs/reference/api/oidc/#token) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
+
+- Registration Inline Hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
+
 ### Monthly Release 2021.08.0
 
 | Change                                                                   | Expected in Preview Orgs |
