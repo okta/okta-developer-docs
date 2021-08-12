@@ -20,6 +20,7 @@ guides:
  - email-customization
  - enable-cors
  - event-hook-implementation
+ - event-hook-ngrok
  - find-your-app-credentials
  - find-your-domain
  - password-import-inline-hook
