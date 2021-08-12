@@ -152,7 +152,7 @@ export default {
     },
     onResize() {
       this.appContext.isInMobileViewport =
-        window.innerWidth < TABLET_BREAKPOINT;
+        window.innerWidth <= TABLET_BREAKPOINT;
     },
     createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
       return (

@@ -2,6 +2,7 @@
 import { LAYOUT_CONSTANTS } from "../layouts/Layout";
 
 export default {
+  inject: ['appContext'],
   data() {
     return {
       paddedHeaderHeight: 0
@@ -58,6 +59,10 @@ export default {
     },
 
     historyReplaceAnchor: function(anchor) {
+      // If mobile tree nav opened don't make router changes while scroll.
+      // It will cause of mobile menu closing.
+      if (this.appContext.isTreeNavMobileOpen) return;
+
       if (decodeURIComponent(this.$route.hash) !== decodeURIComponent(anchor)) {
         this.$vuepress.$set("disableScrollBehavior", true);
         this.$router.replace(anchor, () => {
