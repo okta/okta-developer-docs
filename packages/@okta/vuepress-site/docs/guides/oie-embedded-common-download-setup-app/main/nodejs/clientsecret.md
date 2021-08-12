@@ -1,4 +1,4 @@
-### Client secret
+#### Client secret
 
 For the sample app, use the **Client secret** for the application that you created in
 [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application).

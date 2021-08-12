@@ -70,7 +70,7 @@ The Okta Sign-In Widget renders in the sign-in page when the `router.get('/login
 
 ### Step 3: Run your app
 
-The final step is to run your app. If the widget and your Okta org are property configured, then the Okta Sign-In Widget displays in your sign-in page:
+The final step is to run your app. If the widget and your Okta org are properly configured, then the Okta Sign-In Widget displays in your sign-in page:
 
 <div class="common-image-format">
 
