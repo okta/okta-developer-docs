@@ -26,7 +26,7 @@ describe("tree nav panel(left section)", () => {
       treeNav.visit("/docs/concepts");
       treeNav.resizeXXsmall();
     });
-    // remove .skip method after this test stop failing
+    
     it('can be toggled via Breadcrumbs "Show Contents" link', () => {
       treeNav.getTreeNav().should("be.not.visible");
 
