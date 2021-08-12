@@ -57,7 +57,7 @@ The new templating syntax is different from the EL expression-based Okta email t
 
 Previously with EL syntax, you could reference the first name of the user by using `${user.firstName}`. Now with the Velocity Templating syntax, you would use `$user.profile.firstName`.
 
-The previously available template variables are listed in [Customization Variables](https://help.okta.com/en/prod/Content/Topics/Settings/settings-customization-variables.htm).
+The previously available template variables are listed in [Customization Variables](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_ref_email_variables).
 
 
 #### Access to all User Profile attributes
