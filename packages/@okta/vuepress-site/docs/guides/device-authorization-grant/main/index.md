@@ -72,7 +72,7 @@ The device authorization request passes the following parameters:
     "device_code": "4ebdb4de-1f8b-4497-be01-ddfaf83c4e9c",
     "user_code": "MHXTFRPK",
     "verification_uri": "https://atko-demo.oktapreview.com/activate",
-    "verification_uri_complete": "https://atko-demo.oktapreview.com/activate?user_code=MHXTFRPK",
+    "verification_uri_complete": "https://${yourOktaDomain}/activate?user_code=MHXTFRPK",
     "expires_in": 600,
     "interval": 5
 }
@@ -106,7 +106,7 @@ curl --request POST \
   --header 'Content-Type: application/x-www-form-urlencoded' \
   --data-urlencode 'client_id=${clientId}' \
   --data-urlencode 'grant_type=urn:ietf:params:oauth:grant-type:device_code' \
-  --data-urlencode 'device_code=${deviceCode)'
+  --data-urlencode 'device_code=${deviceCode}'
 ```
 
 Note the parameters that are being passed:
