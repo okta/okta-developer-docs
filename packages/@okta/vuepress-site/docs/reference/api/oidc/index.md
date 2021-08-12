@@ -1368,7 +1368,7 @@ The ID token consists of three period-separated, Base64 URL-encoded JSON segment
 {
   "ver": 1,
   "sub": "00uid4BxXw6I6TV4m0g3",
-  "iss": "https://{yourOktaDomain.com}",
+  "iss": "https://${yourOktaDomain.com}",
   "aud": "uAaunofWkaDJxukCFeBx",
   "iat": 1449624026,
   "exp": 1449627626,
