@@ -1,5 +1,5 @@
 ---
-title: Basic sign in using the password factor
+title: Basic sign-in flow using the password factor
 ---
 
 <div class="oie-embedded-sdk">
@@ -15,7 +15,7 @@ This use case requires the Password factor.
 
 <div class="common-image-format">
 
-![Password Factor Only](/img/oie-embedded-sdk/factor-password-only.png "Password Factor")
+![Password factor only indicator](/img/oie-embedded-sdk/factor-password-only.png "Password Factor Logo")
 
 </div>
 
