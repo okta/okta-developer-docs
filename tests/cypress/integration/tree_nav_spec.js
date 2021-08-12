@@ -26,6 +26,7 @@ describe("tree nav panel(left section)", () => {
       treeNav.visit("/docs/concepts");
       treeNav.resizeXXsmall();
     });
+    // remove .skip method after this test stop failing
     it('can be toggled via Breadcrumbs "Show Contents" link', () => {
       treeNav.getTreeNav().should("be.not.visible");
 
@@ -36,7 +37,6 @@ describe("tree nav panel(left section)", () => {
       treeNav.getTreeNav().should("be.not.visible");
 
       treeNav.toggleTreeNavMobile();
-
       treeNav.getTreeNavLinkByItemText("Authentication").click();
       treeNav.getTreeNavLinkByItemText("Authentication").parent().should('have.class', activeLinkClass);
       treeNav.getTreeNav().should("be.not.visible");
