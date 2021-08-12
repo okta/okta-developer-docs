@@ -1,10 +1,8 @@
 ---
-title: Demonstrate Event Hooks with ngrok
+title: Event Hooks with ngrok
 excerpt: How to demonstrate Event Hooks using ngrok to expose a local app to the public internet.
 layout: Guides
 ---
-
-# Demonstrate Event Hooks with ngrok
 
 Intro text
 
