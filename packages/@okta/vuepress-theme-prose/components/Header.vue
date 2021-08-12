@@ -38,7 +38,7 @@
         <img v-if="searchOpened" src="/img/icons/icon--search-cherry.svg" />
         <img v-else src="/img/icons/icon--search-white.svg" />
       </div>
-      <div class="mobile--toggle" @click="toggleMenu()">
+      <div class="mobile--toggle hamburger-icon-wrapper" @click="toggleMenu()">
         <img v-if="menuOpened" src="/img/icons/icon--menu-cherry.svg" />
         <img v-else src="/img/icons/icon--menu-white.svg" />
       </div>
