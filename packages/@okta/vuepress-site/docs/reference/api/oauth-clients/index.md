@@ -63,7 +63,8 @@ curl -v -X POST \
   ],
   "grant_types": [
      "authorization_code",
-     "refresh_token"
+     "refresh_token",
+     "implicit"
   ],
   "token_endpoint_auth_method": "client_secret_post",
   "initiate_login_uri": "https://www.example-application.com/oauth2/login"
