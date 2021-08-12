@@ -1,5 +1,3 @@
-## Integration steps
-
 ### Step 1: Build a sign-in form
 
 Build a sign-in form that captures both the username and password. For example:

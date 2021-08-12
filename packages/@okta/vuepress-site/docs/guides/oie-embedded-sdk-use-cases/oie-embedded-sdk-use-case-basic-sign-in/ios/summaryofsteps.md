@@ -1,4 +1,4 @@
-## The sample application's integration with the SDK
+### The sample application's integration with the SDK
 
 Much like the Okta API it calls, the SDK uses a generic interface to handle
 each step of the user sign-in flow. This interface enables calling applications
@@ -12,7 +12,7 @@ provided in the SDK's Git Repository, uses the SDK to implement such dynamic pol
 driven behavior. See this sample application for more details on how to design
 a dynamic application using the SDK.
 
-## Integrating the SDK with the sample code
+### Integrating the SDK with the sample code
 
 In contrast to the sample application, the
 [sample code](https://github.com/okta/okta-idx-swift/tree/master/Samples/Signin%20Samples)
@@ -22,7 +22,7 @@ It's meant to be a learning tool and although you can implement similar code in 
 app, you're advised to stick to the same best practice dynamic approach implemented
 in the sample application.
 
-## Summary of steps
+### Summary of steps
 
 The following sequence diagram details each step in the authentication flow for this use case.
 
