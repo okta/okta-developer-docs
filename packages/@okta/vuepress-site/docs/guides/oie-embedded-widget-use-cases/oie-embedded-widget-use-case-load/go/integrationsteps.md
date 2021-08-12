@@ -6,23 +6,18 @@ this link is named **Login** and located on the top rightcorner of the page.
 
 ### Step 2: Get widget initialization data
 
-When the sign-in page loads, obtain the datapoints required for the widget to load. These
-datapoints are as followed:
+When the sign-in page loads, aquire the parameters required for the widget to load. Source these
+paramters using mulitple methods. The main parameters include:
 
-* Base URL
-* Client ID
-* Interaction Handle
-* Use interaction handle code flow flag
-* Code challenge
-* Code challenge method
-* State
-* Debug flag
-* Issuer
-* Scopes
+* **Client ID, issuer, scopes:** source from the [configuration](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
+* **Interaction Handle**: obtain from the `/interact` endpoint
+* **PCKE parameters, state and nonce:** generate values
+* **Base URL:** derive from issuer URL
 
-These settings need to be passed to the widget as it loads on the page. Where you obtain these
+These parameters are passed to the widget as it loads on the page. Where you set these
 values depends on the application. The sample application sets most of these values on the server
-before the page is loaded in the `LoginCallbackHandler`. See a condensed version of the code below:
+before the page is loaded in the `LoginCallbackHandler` method. An abridged version of this method is
+shown below:
 
 ```go
 func (s *Server) LoginCallbackHandler(w http.ResponseWriter, r *http.Request) {
@@ -86,14 +81,15 @@ The next step is to build the page that will host the widget. First add the the 
 <script src="https://global.oktacdn.com/okta-signin-widget/5.8.1/js/okta-sign-in.min.js" type="text/javascript"></script>
 <link href="https://global.oktacdn.com/okta-signin-widget/5.8.1/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
-Next, a div tag that will host the widget.
+
+Next, add a div tag that will host the widget.
 
 ```html
 <div id="okta-signin-widget-container"></div>
 ```
 
-Finally, add the javascript that sets loads the widget into the `div` tag. Note the datapoints set in
-[step 2]() are being used to initialize the `OktaSignIn` object.
+Finally, add the javascript that loads the widget into the `div` tag. Note the parameters set in
+[step 2](#step-2-get-widget-initialization-data) are being used to initialize the `OktaSignIn` object.
 
 ```javascript
 <script type="text/javascript">
@@ -124,7 +120,8 @@ Finally, add the javascript that sets loads the widget into the `div` tag. Note 
 
 ### Step 4: Complete loading of Sign-in page
 
-When the page loads successfuly, the Sign-in Widget will display similar to the following screenshot.
+When the page loads successfuly, the Sign-in Widget will display a sign-in form
+similar to the following screenshot:
 
 <div class="common-image-format">
 
