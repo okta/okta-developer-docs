@@ -11,7 +11,7 @@ title: Load the widget
 
 ## Factor setup
 
-This use case does not require any additional factors. It only requires you to load the widget.
+This use case does not require any additional factors. It only requires you to load the Sign-in Widget.
 
 ## Configuration updates
 

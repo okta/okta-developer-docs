@@ -1,0 +1,101 @@
+## Integration steps
+
+### Step 1: User signs in
+
+After the Widget
+[loads](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/),
+the user enters their credentials through the Widget and clicks the **Sign in**. The sign-in
+request is sent to Okta, which will return a response identifying the next steps that need to
+ be taken in the sign-in flow.
+
+### Step 2: Handle callback from Okta
+
+The sign-in response is sent to the URL defined in the **Sign-in redirect URIs** field
+you configured in [Create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/go/main/).
+As shown in the following code snippet, wire this URL to a function in your application:
+
+```go
+r.HandleFunc("/login/callback", s.LoginCallbackHandler).Methods("GET")
+```
+
+### Step 3: Get tokens, store them, and redirect to default sign-in page
+
+The next step is to get the tokens from the `/token` endpoint using the
+returned `interaction_code` and the PCKE parameters. After the tokens are fetched,
+store them in session for later use. The following code snippet details
+how to fetch and store these tokens.
+
+```go
+func (s *Server) LoginCallbackHandler(w http.ResponseWriter, r *http.Request) {
+
+  //Create request to get tokens
+  q := r.URL.Query()
+  q.Del("state")
+
+  q.Add("grant_type", "interaction_code")
+  q.Set("interaction_code", r.URL.Query().Get("interaction_code"))
+  q.Add("client_id", s.config.Okta.IDX.ClientID)
+  q.Add("client_secret", s.config.Okta.IDX.ClientSecret)
+  q.Add("code_verifier", session.Values["pkce_code_verifier"].(string))
+
+  var url string
+  url = s.config.Okta.IDX.Issuer + "/oauth2/v1/token?" + q.Encode()
+
+  req, _ := http.NewRequest("POST", url, bytes.NewReader([]byte("")))
+  req.Header.Add("Content-Type", "application/x-www-form-urlencoded")
+
+  client := &http.Client{}
+
+  // Make request
+  resp, err := client.Do(req)
+  body, err := ioutil.ReadAll(resp.Body)
+
+  defer resp.Body.Close()
+
+  var exchange Exchange
+  err = json.Unmarshal(body, &exchange)
+
+  //Verify returned tokens
+  _, verificationError := s.verifyToken(exchange.IdToken)
+
+  //Place tokens in session state
+  s.cache.Add(fmt.Sprintf("%s-id_token", session.ID), exchange.IdToken, time.Hour)
+  s.cache.Add(fmt.Sprintf("%s-access_token", session.ID), exchange.AccessToken, time.Hour)
+
+  http.Redirect(w, r, "/", http.StatusFound)
+}
+
+```
+
+### Step 4 (Optional): Retrieve user profile information
+
+You can obtain basic user information by making a request to the authorization server.
+Make a call to the `/v1/userinfo` endpoint using the tokens obtained from the `LoginResponse`
+object's `Token` property.
+
+```go
+func getProfileData(r *http.Request) map[string]string {
+  m := make(map[string]string)
+
+  session, err := sessionStore.Get(r, "okta-custom-login-session-store")
+
+  if err != nil || session.Values["access_token"] == nil || session.Values["access_token"] == "" {
+    return m
+  }
+
+  reqUrl := os.Getenv("ISSUER") + "/v1/userinfo"
+
+  req, _ := http.NewRequest("GET", reqUrl, bytes.NewReader([]byte("")))
+  h := req.Header
+  h.Add("Authorization", "Bearer "+session.Values["access_token"].(string))
+  h.Add("Accept", "application/json")
+
+  client := &http.Client{}
+  resp, _ := client.Do(req)
+  body, _ := ioutil.ReadAll(resp.Body)
+  defer resp.Body.Close()
+  json.Unmarshal(body, &m)
+
+  return m
+}
+```
