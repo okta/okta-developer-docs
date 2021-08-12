@@ -12,7 +12,7 @@ Using the sample app as your guide, walk through each of the use cases in this s
 The supported use cases are as follows:
 
 * [Load the widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-load/)
-* [Basic sign-in](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-basic-sign-in/)
+* [Basic sign in](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-basic-sign-in/)
 * [Sign in with Facebook](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-sign-in-soc-idp/)
 
 These use cases are enable you to start with simple use cases before you advance to more complex scenarios.

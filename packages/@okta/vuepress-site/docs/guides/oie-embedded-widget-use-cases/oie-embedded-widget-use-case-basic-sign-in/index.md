@@ -1,5 +1,5 @@
 ---
-title: Basic sign-in using the widget
+title: Basic sign in using the widget
 ---
 
 <div class="oie-embedded-sdk">
@@ -11,7 +11,7 @@ title: Basic sign-in using the widget
 
 ## Factor setup
 
-This use case requires the **password** factor.
+This use case requires the Password factor.
 
 <div class="common-image-format">
 
@@ -22,7 +22,7 @@ This use case requires the **password** factor.
 
 ## Configuration Updates
 
-If not already done, complete the steps that are described in [download and set up the SDK, widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/). The steps guide you to the appropriate repository and location of the embedded Sign-In Widget sample app, identify the packages to install, and describe additional changes to the Okta org that are required for the widget app.
+Ensure that you have completed the steps that are described in the [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/) topic. These steps guide you to the appropriate repository and location of the embedded Sign-In Widget sample app, identify the packages to install, and describe additional changes to the Okta org that are required for the widget app.
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
