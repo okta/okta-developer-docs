@@ -1,46 +1,60 @@
 ---
-title: Okta Identity Engine
+title: Okta Identity Engine Overview
 meta:
   - name: description
     content: Okta Identity Engine offers customizable building blocks that can support dynamic, app-based user journeys. Find out more about Okta Identity Engine, why you would use it, and how to upgrade your org.
 ---
-
-# Identity Engine
-
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
 ## About Okta Identity Engine
 
-The Okta Identity Engine is a platform service that powers flexible and customizable access experiences, which allows enterprises to build access experiences tailored to their organizational needs. Just one of the many goals of Okta Identity Engine is to no longer bind customers to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, they can customize and extend each of these steps, which delivers more flexible and customizable access experiences for Okta's access management products &mdash; Authentication (Customer Identity), Single Sign-On, and Multifactor Authentication.
+Okta Identity Engine is a platform service that allows enterprises to build access experiences tailored to their organizational needs. With [Okta Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie), you are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, you can customize and extend each of these steps.
 
+The Okta Identity Engine user authentication deployment model can be divided into two approaches:
 
+* **Redirect authentication:** A user sign-in flow that grants authentication control to Okta by redirecting to an Okta hosted sign-in page using open protocols like OAuth 2.0 and SAML. This approach is recommended for most developers, as it is easier to build and maintain.
 
+* **Embedded authentication:** A user sign-in flow where the application retains authentication control, without redirection to Okta, using a client-hosted Sign-In Widget, Okta Identity Engine SDKs, or directly with Okta's proprietary Identity Engine authentication APIs.
 
-To take advantage of these new features and for a better development experience, use the Okta Identity Engine SDKs to manage authentication in your apps. These new SDKs are recommended for orgs using Okta Identity Engine.
+See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for a full list of reasons for using these authentication approaches and a complete overview of the different deployment models.
 
-Experiment with sample apps that showcase Okta Identity Engine using the following authentication approaches:
+## Okta Identity Engine SDKs
 
-- Redirect: These sample apps demonstrate how to redirect users to an Okta-hosted sign-in page, and then receive users redirected back from Okta after users sign in. This approach is recommended for most developers, as it is easier to build and maintain.
+To take advantage of these new features and for a better development experience, use the [Okta Identity Engine SDKs](https://developer.okta.com/code/oie/) to manage authentication in your apps.
 
-- Embedded: These sample apps demonstrate how to embed the Okta Sign-In Widget in an app as a package dependency.
+### Redirect authentication sample apps
 
-Learn how to implement each approach with these Okta Identity Engine SDKs and sample apps in the Redirect authentication guide, Embedded authentication with SDK guide, and Embedded authentication with Sign-In Widget guide.
+The redirect authentication sample apps demonstrate how to redirect users to an Okta-hosted sign-in page, and then receive users redirected back from Okta after users sign in. Implement redirect authentication when you:
 
-Orgs using Okta Identity Engine can also continue to use current SDKs and tools. You can find those SDKs for your stack from the Languages & SDKs overview.
+* Have multiple applications or use third-party applications and need Single Sign-On
+* Want Okta to control the authentication flows through policy configuration
+* Want Okta to control upgrades to take advantage of new functionality
+* Have an application that already uses an OAuth 2.0 or SAML provider to sign users in
 
+Learn how to implement this approach with the [Redirect authentication guide](/docs/guides/sampleapp-oie-redirectauth/).
 
+### Embedded authentication sample apps
 
+The embedded authentication sample apps demonstrate how to embed the Okta Sign-In Widget in an app as a package dependency. Okta provides two embedded identity solutions:
 
+**Embedded SDK only**: A highly customizable solution that provides native language support for a variety of identity use cases. Choose the embedded SDK when you want to build out your identity solution that includes the ability to:
 
+* Provide a fully customized user experience
+* Code against a high-level SDK interface
+* Provide greater flexibility to solve your specific branding requirements
 
+Learn how to implement this approach with the [Embedded authentication with the SDK guide](/docs/guides/oie-embedded-sdk-overview/).
 
+**Embedded Widget + SDK**: A quick and easy to set up solution that moves most of the the heavy lifting to Okta. Although the amount of code that you need to write is small, many of the most advanced identity use cases (for example, social sign in, multifactor authentication) are supported out of the box. Use the embedded Widget when you need:
 
+* Quick and easy integration
+* Features that are ready out of the box
+* Simple configuration changes with no additional code for most functionalities, such as multifactor authentication
 
+Learn how to implement this approach with the [Embedded authentication with the Sign-In Widget guide](/docs/guides/oie-embedded-widget-overview/).
 
-
-
-## Why use Identity Engine?
+## Why use Okta Identity Engine?
 
 Okta Identity Engine provides:
 
@@ -60,40 +74,10 @@ Okta Identity Engine provides:
 
   With MFA enrollment policies, you can create and enforce policies and rules for specific MFA factors and assign groups accordingly. Sign-on policies determine the types of authentication challenges end users experience when they sign in to their account. MFA enrollment policies are based on a variety of factors, such as location, group definitions, and authentication type. See [Create an MFA enrollment policy](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-mfa-policy.htm).
 
-## New concepts and terminology
-
-Okta Identity Engine introduces new concepts and terminology.
-
-* Assurance
-
-  Assurance is the degree of confidence that an end user signing in to an application is the same end user who previously signed in to the application, and the use of one or more authenticators (see below) and its characteristics determine an assurance level. For example, an end user who authenticates with a knowledge factor and a possession factor has a higher assurance level than one who can only authenticate with one factor.
-
-  Assurance is enforced by sign-on policies. Okta Identity Engine requires that the assurance specified in the Okta and app sign-on policies are satisfied before it allows the end user to access an app. This is a change from the traditional model of authentication, which evaluates one policy depending on whether the user signs in to the org or directly through the app.
-
-* Authenticators
-
-  Authenticators are credentials owned or controlled by an end user that can be verified by an application or service. Passwords, answers to security questions, phones (SMS or voice), and authentication apps like Okta Verify are examples of authenticators.
-
-* Factor types
-
-  Okta is changing its definition of authenticators and factors to provide an industry-standard differentiation:
-
-  * Factors are different categories that define how authentication takes place and the means in which they are controlled by end users.
-  * Authenticators are used to verify one or more multiple factors such as Knowledge (for example, passwords and security questions), Possession (for example, Email, SMS, Okta Verify, and hardware tokens), and Inherence/Biometrics (for example, fingerprints and facial recognition).
-  * A sign-on policy with two-factor authentication requires two distinct factors. Two authenticators of the same factor (Knowledge, Possession, or Inherence) isn't accepted.
-
-* Okta Sign-On Policies
-
-  Okta Sign-On Policies are globally applied to all applications in the tenant, and specify actions to take, such as allowing access, prompting for a challenge, setting the time before prompting for another challenge, and expiring a session. See [Okta Sign-On Policies](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/about-okta-sign-on-policies.htm).
-
-* App sign-on policies
-
-  App sign-on policies enforce authentication when an end user attempts to access an application. Each application is assigned one app sign-on policy (with multiple rules that you can order). See [App sign-on policies](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/about-app-sign-on-policies.htm).
-
 ## Enable Okta Identity Engine for your organization
 
 To upgrade to Okta Identity Engine, reach out to your account manager. If you don't have an account manager, reach out to oie@okta.com for more information.
 
 * The v1 API continues to work as before until you're ready to use new Okta Identity Engine functionality.
-* The existing Okta-hosted widget continues to work after upgrading your org.
+* The existing Okta-hosted Widget continues to work after upgrading your org.
 * Upgrade your SDK as you would normally do with other SDK updates.
