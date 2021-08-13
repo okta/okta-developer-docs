@@ -18,7 +18,7 @@ If you already have ngrok installed, move on to the next step! If not, follow th
 
 Some installation notes:
 
-- You do not need to have an account to install and run ngrok, but creating an account provides more features as well as basic authentication.
+- You do not need to have an account to install and run ngrok, but creating a free account provides more features as well as basic authentication.
 - You can install ngrok directly in your project folder, as documented from the ngrok download page. Or you can install on your system's path directory to be able to run ngrok from any folder. Alternatively, you can install the executable in your favorite local folder, but you'll need the folder path when referencing the tool.
 
 #### Run ngrok
@@ -29,13 +29,21 @@ After installing ngrok, ensure that it's running by creating a "tunnel" into a l
 > ./ngrok http 8082
 ```
 
+or if you installed in your system path:
+
+```terminal
+> ngrok http 8082
+```
+
+or if you used your favorite folder:
+
+```terminal
+> ~/applications/ngrok http 8082
+```
+
 If you see the following content in your terminal, ngrok is running successfully:
 
-<div class="common-image-format">
-
-![A screen shot of a terminal that displays an ngrok session status, with online in green. The session status contains urls that tunnel into the local port.](/img/ngrok-and-event-hooks-session-status.png")
-
-</div>
+![A screen shot of a terminal that displays an ngrok session status, with online in green. The session status contains urls that tunnel into the local port.](/img/ngrok-and-event-hooks-session-status.png)
 
 See [ngrok](https://ngrok.com) or their [documentation](https://ngrok.com/docs) for further information.
 
