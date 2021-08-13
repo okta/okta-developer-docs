@@ -4,7 +4,7 @@
 
 When the user navigates to the sign-in page, the Widget
 [loads](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/)
-and automatically displays the **Sign in with Facebook** button. If the Facebook button does not appear,
+and automatically displays the **Sign in with Facebook** button. If the Facebook button doesn't appear,
 make sure that you have completed all the steps in [Configuration Updates](#configuration-updates).
 Notice the Facebook button in the following screenshot:
 
@@ -16,7 +16,7 @@ Notice the Facebook button in the following screenshot:
 
 ### Step 2: Click on Facebook link
 
-When the user opts for a Facebook sign-in and clicks the **Sign in with Facebook** button, they are redirected to
+When the user chooses a Facebook sign-in and clicks **Sign in with Facebook**, they are redirected to
 the Facebook sign-in page.
 
 <div class="common-image-format">
@@ -27,9 +27,9 @@ the Facebook sign-in page.
 
 ### Step 3: Sign in using Facebook sign-in page
 
-Once the user enters their credentials in the Facebook sign-in page, Facebook validates the sign-in
-request and if successful redirects the request to the Okta org URL you entered for
-**Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers).
+Once the user enters their credentials in the Facebook sign-in page, Facebook first validates the sign-in
+request. If the sign-in is successful, Facebook redirects the request to the Okta org URL you entered in the
+**Valid OAuth Redirect URIs** and **Site URL** fields described in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers).
 The value takes on the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback`, for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`.
 
 
@@ -37,8 +37,8 @@ The value takes on the following format: `https://{Okta org domain}/oauth2/v1/au
 
 After Facebook sends the success login request to your Okta org, the org redirects the request
 to your app through the Application's **Sign-in redirect URIs** field. This field was set up in
-[Create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/go/main/). The code
-that wires up the callback URL to a function is idential to the code described in
+[Create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/go/main/). The application
+code that wires up the callback URL to a function is identical to the code described in
 [step 2](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/#step-2-handle-callback-from-okta) in
 [Basic sign-in using the widget](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/).
 See that guide for more details.
@@ -49,7 +49,7 @@ The next step is to get the tokens from the `/token` endpoint using the
 returned `interaction_code` and the PCKE parameters. After the tokens are fetched,
 store them in session for later use. The code that fetches and stores these tokens
 is identical to the code in described in
-[step 3](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/#step-3-get-tokens-store-them-and-redirect-to-default-sign-in-page) in Basic sign-in using the widget.
+[step 3](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/#step-3-get-tokens-store-them-and-redirect-to-default-sign-in-page) in [Basic sign-in using the widget](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/).
 See that guide for more details.
 
 ### Step 6 (Optional): Retrieve user profile information

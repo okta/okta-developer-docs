@@ -2,7 +2,7 @@ The sample app is located here: `samples-golang/identity-engine/embedded-sign-in
 
 ## Steps to test the sample app
 
-1. If not already done, set up your Okta org by completing these steps: [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
+1. If not already done, set up your Okta org by completing the steps at [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 1. If not already done, [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/go/main/).
 1. Open the embedded widget sample application directory using Visual Studio Code or
    your preferred IDE. The directory path to the sample application directory is: `samples-golang/identity-engine/embedded-sign-in-widget`.

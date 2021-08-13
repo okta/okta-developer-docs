@@ -20,9 +20,9 @@ r.HandleFunc("/login/callback", s.LoginCallbackHandler).Methods("GET")
 
 ### Step 3: Get tokens, store them, and redirect to default sign-in page
 
-The next step is to get the tokens from the `/token` endpoint using the
+The next step is to get the tokens from the `/token` endpoint, passing in the
 returned `interaction_code` and the PCKE parameters. After the tokens are fetched,
-store them in session for later use. The following code snippet details
+store them in a session for later use. The following code snippet details
 how to fetch and store these tokens.
 
 ```go

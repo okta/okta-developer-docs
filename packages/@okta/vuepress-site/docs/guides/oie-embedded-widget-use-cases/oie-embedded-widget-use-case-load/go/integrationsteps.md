@@ -1,13 +1,13 @@
 ### Step 1: Click on the sign-in page link
 
-The first step in the flow occurs when the user clicks on the sign-in link. This link
-points to the sign-in page where the Widget is embedded. On the sample app's homepage,
-this link is named **Login** and located on the top rightcorner of the page.
+The user clicks on the sign-in link is the first step. This link
+points to the sign-in page where the Widget is embedded. On the sample application's homepage,
+this link is named **Login** and located on the top right corner of the page.
 
 ### Step 2: Get Widget initialization data
 
-When the sign-in page loads, aquire the parameters required for the Widget to load. Source these
-paramters using mulitple methods. The main parameters include:
+When the sign-in page loads, obtain the parameters required for the Widget to load. Source these
+parameters using multiple methods. The main parameters include:
 
 * **Client ID, issuer, scopes:** source from the [configuration](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
 * **Interaction Handle**: obtain from the `/interact` endpoint
@@ -16,11 +16,11 @@ paramters using mulitple methods. The main parameters include:
 
 These parameters are passed to the Widget as it loads on the page. Where you set these
 values depends on the application. The sample application sets most of these values on the server
-before the page is loaded in the `LoginCallbackHandler` method. See the following code for more
+before the page is loaded in the `LoginHandler` method. See the following code for more
 details:
 
 ```go
-func (s *Server) LoginCallbackHandler(w http.ResponseWriter, r *http.Request) {
+func (s *Server) LoginHandler(w http.ResponseWriter, r *http.Request) {
   type customData struct {
     IsAuthenticated   bool
     BaseUrl           string
@@ -75,7 +75,7 @@ For more information on how to set these values, see the sample application.
 
 ### Step 3: Display Widget using initialization data
 
-The next step is to build the page that will host the Widget. First add the the following Okta javascript and css files:
+The next step is to build the page that will host the Widget. First, add the the following Okta javascript and css files:
 
 ```html
 <script src="https://global.oktacdn.com/okta-signin-widget/5.8.1/js/okta-sign-in.min.js" type="text/javascript"></script>
