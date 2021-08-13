@@ -1,4 +1,4 @@
-## Get user profile information after sign in
+## Get user profile information
 
 Depending on your requirements and what information you want to retrieve after the user successfully signs in, you can obtain basic user information by making a request to the authorization server.
 

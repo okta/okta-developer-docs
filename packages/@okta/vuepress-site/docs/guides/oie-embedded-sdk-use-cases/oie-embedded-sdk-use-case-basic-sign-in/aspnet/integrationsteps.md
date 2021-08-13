@@ -41,7 +41,7 @@ For a successful user sign in
    subsequent calls to the SDK. The sample code uses
   `Microsoft.Owin.Security.IAuthenticationManager.SignIn` to persist these
    tokens.
-1. Optional. Using the tokens returned from `AuthenticateAsync`, pull the user's basic profile information. See [Get user profile information after sign in](#get-user-profile-information-after-sign-in).
+1. Optional. Using the tokens returned from `AuthenticateAsync`, pull the user's basic profile information. See [Get user profile information](#get-user-profile-information).
 1. After the tokens are stored, send the user to the default home page.
 
 ```csharp
@@ -74,4 +74,4 @@ switch (authnResponse?.AuthenticationStatus)
 
 In the code sample above, the
 `AuthenticationHelper.GetIdentityFromAuthResponseAsync` gets the user profile information. Optionally, you can obtain basic user information after a successful user
-sign in by making a request to Okta's Open ID Connect authorization server. See the next section, [Get user profile information after sign in](#get-user-profile-information-after-sign-in).
+sign in by making a request to Okta's Open ID Connect authorization server (see the next section).
