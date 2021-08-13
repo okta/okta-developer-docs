@@ -4,7 +4,7 @@
 
 After the Widget
 [loads](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-load/),
-the user enters their credentials through the Widget and clicks the **Sign in**. The sign-in
+the user enters their credentials through the Widget and clicks **Sign in**. The sign-in
 request is sent to Okta, which will return a response identifying the next steps that need to
  be taken in the sign-in flow.
 
@@ -20,10 +20,9 @@ r.HandleFunc("/login/callback", s.LoginCallbackHandler).Methods("GET")
 
 ### Step 3: Get tokens, store them, and redirect to default sign-in page
 
-The next step is to get the tokens from the `/token` endpoint, passing in the
-returned `interaction_code` and the PCKE parameters. After the tokens are fetched,
-store them in a session for later use. The following code snippet details
-how to fetch and store these tokens.
+Next, call the `/token` endpoint and pass in the returned `interaction_code` and the
+PCKE parameters. After the tokens are fetched, store them in a session for later use.
+The following code snippet details how to fetch and store these tokens.
 
 ```go
 func (s *Server) LoginCallbackHandler(w http.ResponseWriter, r *http.Request) {

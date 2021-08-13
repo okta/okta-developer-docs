@@ -1,6 +1,6 @@
 ### Step 1: Click on the sign-in page link
 
-The user clicks on the sign-in link is the first step. This link
+The first step occurs when the user clicks on the sign-in link. This link
 points to the sign-in page where the Widget is embedded. On the sample application's homepage,
 this link is named **Login** and located on the top right corner of the page.
 

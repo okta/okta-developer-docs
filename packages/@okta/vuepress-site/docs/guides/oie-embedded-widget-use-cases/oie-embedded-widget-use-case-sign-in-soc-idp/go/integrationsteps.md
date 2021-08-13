@@ -6,7 +6,7 @@ When the user navigates to the sign-in page, the Widget
 [loads](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/)
 and automatically displays the **Sign in with Facebook** button. If the Facebook button doesn't appear,
 make sure that you have completed all the steps in [Configuration Updates](#configuration-updates).
-Notice the Facebook button in the following screenshot:
+Note the Facebook button in the following screenshot:
 
 <div class="common-image-format">
 
@@ -29,8 +29,7 @@ the Facebook sign-in page.
 
 Once the user enters their credentials in the Facebook sign-in page, Facebook first validates the sign-in
 request. If the sign-in is successful, Facebook redirects the request to the Okta org URL you entered in the
-**Valid OAuth Redirect URIs** and **Site URL** fields described in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers).
-The value takes on the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback`, for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`.
+**Valid OAuth Redirect URIs** and **Site URL** fields. The values, described in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers), take on the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback`, for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`.
 
 
 ### Step 4: Handle callback from Okta
