@@ -1,7 +1,7 @@
 export const countriesList = [
   { name: "United States", value: "United States" },
   { name: "Canada", value: "Canada" },
-    { name: "United Kingdom", value: "United Kingdom" },
+  { name: "United Kingdom", value: "United Kingdom" },
   { name: "Afghanistan", value: "Afghanistan" },
   { name: "Aland Islands", value: "Aland Islands" },
   { name: "Albania", value: "Albania" },
