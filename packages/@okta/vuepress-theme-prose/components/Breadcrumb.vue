@@ -15,12 +15,11 @@
 </template>
 
 <script>
-  import SidebarItems from "../mixins/SidebarItems";
+  //import SidebarItems from "../mixins/SidebarItems";
 
   export default {
     name: "Breadcrumb",
-    inject: ['appContext'],
-    mixins: [SidebarItems],
+    inject: ['appContext','treeNavDocs'],
     data() {
       return {
         crumbs: [],
@@ -44,7 +43,7 @@
       crumbItems() {
         this.crumbs = [];
         this.crumbParents = [];
-        let crumbs = this.getCrumbs(this.getNavigation());
+        let crumbs = this.getCrumbs(this.treeNavDocs);
         return crumbs;
       }
     },

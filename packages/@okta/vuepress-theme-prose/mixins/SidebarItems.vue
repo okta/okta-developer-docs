@@ -16,9 +16,6 @@ export default {
       link_id: 0,
     };
   },
-  mounted() {
-    this.navigation = this.getNavigationData();
-  },
   watch: {
     $route(to, from) {
       // On route change check if base path has changed.
@@ -44,10 +41,11 @@ export default {
       ];
     },
     getNavigationData() {
-      return this.getNavigation().map(nav => {
+      this.navigation = this.getNavigation().map(nav => {
         this.addStatesToLink(nav);     
         return nav;
       });
+      return this.navigation
     },
     addStatesToLink(link) {
       // Reset iHaveChildrenActive value.

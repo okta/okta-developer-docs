@@ -17,10 +17,9 @@
 </template>
 
 <script>
-import SidebarItems from "../mixins/SidebarItems";
 
 export default {
-  mixins: [SidebarItems],
+  inject: ['treeNavDocs'],
   components: {
     DocsMenuItem: () => import("../components/DocsMenuItem.vue"),
   },
@@ -35,7 +34,7 @@ export default {
   },
   mounted() {
     var navigation = this.$parent.getMenuItems();    
-    navigation = navigation.concat(this.getNavigation());
+    navigation = navigation.concat(this.treeNavDocs);
     this.list = this.navigation = navigation.map(nav => {
       this.addIdToLink(nav, 0);
       return nav;

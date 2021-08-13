@@ -2,7 +2,7 @@
   <aside class="tree-nav">
       <ul class="sections">
         <SidebarItem
-          v-for="link in navigation"
+          v-for="link in treeNavDocs"
           :key="link.title"
           :link="link"
         />
@@ -11,13 +11,10 @@
 </template>
 
 <script>
-import SidebarItems from "../mixins/SidebarItems";
-
 
 export default {
   name: "Sidebar",
-  inject: ["appContext"],
-  mixins: [SidebarItems],
+  inject: ["appContext",'treeNavDocs'],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },

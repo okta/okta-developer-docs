@@ -54,6 +54,8 @@ export const LAYOUT_CONSTANTS = {
 };
 const TABLET_BREAKPOINT = 767;
 
+import SidebarItems from "../mixins/SidebarItems";
+
 export const endingSlashRE = /\/$/;
 export default {
   components: {
@@ -75,6 +77,7 @@ export default {
     LiveWidget: () => import('../components/LiveWidget.vue'),
     Errors: () => import("../components/Errors.vue"),
   },
+  mixins: [SidebarItems],
   data() {
     return {
       appContext: {
@@ -84,13 +87,15 @@ export default {
       stackSelectorData: {
         to: '',
         from: ''
-      }
+      },
+      treeNavDocs: [],
     };
   },
   provide() {
     return {
       appContext: this.appContext,
-      stackSelectorData: this.stackSelectorData
+      stackSelectorData: this.stackSelectorData,
+      treeNavDocs: this.getTreeNavDocs(),
     };
   },
   mounted: function() {
@@ -159,7 +164,11 @@ export default {
         "/" +
         path
       );
-    }
+    },
+    getTreeNavDocs() {
+      this.treeNavDocs = this.treeNavDocs.length > 0 ? this.treeNavDocs : this.getNavigationData();
+      return this.treeNavDocs;
+    },
   },
   beforeDestroy() {
     window.removeEventListener("resize", this.onResize);

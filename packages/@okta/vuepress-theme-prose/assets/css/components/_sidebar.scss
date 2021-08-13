@@ -1,15 +1,26 @@
 @mixin active-link {
   color: cv('text', 'darker');
   font-weight: 500;
+
+  &> i.parent {
+    svg {
+      path {
+        fill: cv('text', 'darker');
+      }
+    }
+  }
 }
 
 .tree-nav {
   width: 100%;
   min-height: 100%;
-  padding: 29px 1rem 3rem 16px;
+  padding: 29px 1rem 3rem 26px;
   font-size: 14px;
   background: cv('body');
 
+  @include media("<desktop-xl") {
+    padding-left: 16px;
+  }
   @include media("<tablet") {
     flex-basis: 0;
     width: 100%;
@@ -21,9 +32,6 @@
       & > .link-wrap > .tree-nav-link {
         &> .text-holder {
           @include active-link;
-        }
-        &> i.fa {
-          color: cv('text');
         }
         &.router-link-active {
           &> .text-holder {
@@ -72,12 +80,23 @@
       > span.text-holder {
         margin-left: 0px;
       }
-      > i.fa {
+      > i.parent {
         position: absolute;
-        left: -17px;
-        top: 5px;
+        left: -19px;
+        top: 4px;
         font-size: 9px;
         padding-right: 5px;
+        @include media("<desktop-xl") {
+          left: -14px;
+        }
+        &.opened {
+          transform: rotate(90deg);
+          top: 7px;
+          left: -22px;
+          @include media("<desktop-xl") {
+            left: -17px;
+          }
+        }
       }
     }
   }
