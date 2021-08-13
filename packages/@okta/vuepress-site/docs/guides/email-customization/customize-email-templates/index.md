@@ -57,25 +57,45 @@ The new templating syntax is different from the EL expression-based Okta email t
 
 Previously with EL syntax, you could reference the first name of the user by using `${user.firstName}`. Now with the Velocity Templating syntax, you would use `$user.profile.firstName`.
 
-The previously available template variables are listed in [Customization Variables](https://help.okta.com/en/prod/Content/Topics/Settings/Settings_Email.htm).
+The previously available template variables are listed in [Customization Variables](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_ref_email_variables).
 
-<!---
-##### Function syntax change example
-
-This EA feature supports the use of functions within email templates, but how you call the function's syntax is different. For example, instead of calling functions in the EL templating syntax like this:
-
-`${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}`
-
-You would call functions in the Velocity Templating syntax like this:
-
-`$f.formatTimeDiffHoursNowInUserLocale($org.activationTokenExpirationHours)`
--->
 
 #### Access to all User Profile attributes
 
-You can now reference any attribute in a user's Okta User Profile in your email templates. The notation is `$user.profile.attributeName`. For example, to reference the displayName attribute of the user's Okta user profile, you would use `$user.profile.displayName`.
+You can reference any Okta User Profile attribute in your email templates. The reference notation is `$user.profile.attributeName`, where `attributeName` is an attribute from the Okta User Profile. For example, use `$user.profile.displayName` to reference the User Profile `displayName` attribute.
 
-See [Profile object](/docs/reference/api/users/#profile-object) for more information on the available user profile attributes.
+See [Profile object](/docs/reference/api/users/#profile-object) for more information on the available User Profile attributes.
+
+#### Functions for email templates
+
+In addition to customizing your emails with variables, you can use the following functions in each of the email templates. Functions are useful to normalize the dynamic output of variables, such as lowercasing a string, or producing a localized date for the email's recipient user. 
+
+Variables used for function parameters must match the function data type. For example, you can't use a string variable with the `formatTimeDiffHourNow()` function because the parameter data must be an integer.
+
+There are slight differences between EL templating syntax and VTL syntax. For example, the following EL and VTL syntax call the same function.
+
+EL templating syntax:
+
+`${f:formatTimeDiffHoursNowInUserLocale(org.activationTokenExpirationHours)}`
+
+VTL syntax:
+
+`$f.formatTimeDiffHoursNowInUserLocale($org.activationTokenExpirationHours)`
+
+| Expression                                                    | Definition                                                                                                          |
+|---------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------|
+| replace(String input, String matchString, String replacement) | Replaces all occurrences of the match string with the replacement string                                           |
+| substringAfter(String input, String matchString)              | Returns the input substring after the occurrence of a given match string, or an empty string if no occurrence of the match string exists in the input string |
+| substringBefore(String input, String matchString)             | Returns the input substring before the occurrence of a given match string, or an empty string if no occurrence of the match string exists in the input string |
+| toLowerCase(String input)                                     | Converts the given input string to all lowercase                                                                   |
+| toUpperCase(String input)                                     | Converts the given input string to all uppercase                                                                   |
+| substring(String input, int startIndex, int endIndex)         | Extracts a range of characters from the given input string                                                         |
+| formatTimeDiffHoursNow(int hours)                             | Produces a formatted duration string from the current time to the given number of hours                                                 |
+| formatTimeDiffHoursNowInUserLocale(int hours)                 | Produces a localized formatted duration string for the given number of hours                                       |
+| formatTimeDiffDateNow(Date date)                              | Produces a formatted duration string for the given date                                                            |
+| formatTimeDiffDateNowInUserLocale(Date date)                  | Produces a localized formatted duration string for the given date                                                  |
+| escapeHtml(String html)                                       | Escapes the characters in the provided string using HTML entities                                                             |
+| escapeHtmlAttr(String html)                                   | Encodes data for use in HTML attributes                                                                           |
 
 ##### Examples of user attributes
 
