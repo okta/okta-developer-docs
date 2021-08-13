@@ -49,6 +49,6 @@ the following email template: **Registration - Activation**.
 The user clicks the link in the activation email and is redirected to the
 sample app's home page.
 
-<StackSnippet snippet="getuserprofile" />
+<!-- StackSnippet snippet="getuserprofile" / -->
 
 </div>

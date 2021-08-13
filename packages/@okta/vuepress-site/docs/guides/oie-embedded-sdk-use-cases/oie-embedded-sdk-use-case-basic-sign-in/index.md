@@ -21,7 +21,7 @@ This use case requires the Password factor.
 
 ## Configuration updates
 
-Ensure your org is configured for the password factor by completing the steps in [Set up your Okta org for password factor only use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
+Before you build a basic sign-in flow, ensure your org is configured for the password factor by completing the steps in [Set up your Okta org for password factor only use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
 If your org is configured with multiple factors, you need to set your app's sign-on policy to use only the password factor for this use case. To configure your app with only the password factor, perform the following steps:
 
