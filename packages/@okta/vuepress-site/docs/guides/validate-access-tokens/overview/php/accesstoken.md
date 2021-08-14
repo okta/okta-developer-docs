@@ -34,8 +34,8 @@ For any access token to be valid, the following are asserted:
 $jwtVerifier = (new \Okta\JwtVerifier\JwtVerifierBuilder())
     ->setAdaptor(new \Okta\JwtVerifier\Adaptors\FirebasePhpJwt)
     ->setAudience('api://default')
-    ->setClientId('{clientId}')
-    ->setIssuer('https://{yourOktaDomain}.com/oauth2/default')
+    ->setClientId('${clientId}')
+    ->setIssuer('https://${yourOktaDomain}.com/oauth2/default')
     ->build();
 
 $jwt = $jwtVerifier->verify($jwt);

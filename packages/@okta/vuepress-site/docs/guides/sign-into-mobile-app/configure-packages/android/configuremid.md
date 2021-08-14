@@ -2,9 +2,9 @@ Create a configuration object in code:
 
 ```java
 config = new OIDCConfig.Builder()
-    .clientId("{clientId}")
-    .redirectUri("{redirectUri}")
-    .endSessionRedirectUri("{endSessionUri}")
+    .clientId("${clientId}")
+    .redirectUri("${redirectUri}")
+    .endSessionRedirectUri("${endSessionUri}")
     .scopes("openid", "profile", "offline_access")
     .discoveryUri("https://${yourOktaDomain}")
     .create();
@@ -14,9 +14,9 @@ Or, create a new `okta_oidc_config.json` file in your application's `res/raw` wi
 
 ```json
 {
-  "client_id": "{clientId}",
-  "redirect_uri": "{redirectUri}",
-  "end_session_redirect_uri": "{endSessionUri}",
+  "client_id": "${clientId}",
+  "redirect_uri": "${redirectUri}",
+  "end_session_redirect_uri": "${endSessionUri}",
   "scopes": [
     "openid",
     "profile",

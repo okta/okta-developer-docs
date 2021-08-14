@@ -3,13 +3,13 @@ Add the file `client_secrets.json` to the folder with your application that incl
 
 ```bash
 {
-  "auth_uri": "https://{{OKTA_DOMAIN}}/oauth2/default/v1/authorize",
-  "client_id": "{{CLIENT_ID}}",
-  "client_secret": "{{CLIENT_SECRET}}",
+  "auth_uri": "https://${yourOktaDomain}/oauth2/default/v1/authorize",
+  "client_id": "${CLIENT_ID}",
+  "client_secret": "${CLIENT_SECRET}",
   "redirect_uri": "http://localhost:8080/authorization-code/callback",
-  "issuer": "https://{{OKTA_DOMAIN}}/oauth2/default",
-  "token_uri": "https://{{OKTA_DOMAIN}}/oauth2/default/v1/token",
-  "userinfo_uri": "https://{{OKTA_DOMAIN}}/oauth2/default/v1/userinfo"
+  "issuer": "https://${yourOktaDomain}/oauth2/default",
+  "token_uri": "https://${yourOktaDomain}/oauth2/default/v1/token",
+  "userinfo_uri": "https://${yourOktaDomain}/oauth2/default/v1/userinfo"
 }
 ```
 

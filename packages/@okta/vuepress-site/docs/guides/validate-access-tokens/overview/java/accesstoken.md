@@ -29,7 +29,7 @@ Create the Okta JWT Verifier using the `JwtVerifiers` class:
 
 ```java
 AccessTokenVerifier jwtVerifier = JwtVerifiers.accessTokenVerifierBuilder()
-    .setIssuer("https://{yourOktaDomain}/oauth2/default")
+    .setIssuer("https://${yourOktaDomain}/oauth2/default")
     .setAudience("api://default")                // defaults to 'api://default'
     .setConnectionTimeout(Duration.ofSeconds(1)) // defaults to 1s
     .setReadTimeout(Duration.ofSeconds(1))       // defaults to 1s

@@ -3,10 +3,10 @@
 3. Open the `web.config` file and, in the `configuration.appSettings` section, add the information that you copied in previous steps:
 
 ```
-    <add key="okta:ClientId" value="{ClientID}" />
-    <add key="okta:ClientSecret" value="{ClientSecret}" />
+    <add key="okta:ClientId" value="${ClientID}" />
+    <add key="okta:ClientSecret" value="${ClientSecret}" />
     <add key="okta:OktaDomain" value="${yourOktaDomain}" />
-    <add key="okta:AuthorizationServerId" value="{authServerId}" />
+    <add key="okta:AuthorizationServerId" value="${authServerId}" />
     <add key="okta:RedirectUri" value="https://localhost:44314/authorization-code/callback" />
     <add key="okta:PostLogoutRedirectUri" value="https://localhost:44314/" />
 ```
