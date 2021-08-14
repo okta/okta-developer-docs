@@ -207,4 +207,4 @@ if lr.Token() != nil {
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information after sign-in](/docs/guides/oie-embedded-sdk-alternate-flows/go/main/#getuserprofileinfo) for more information.
+See [Get user profile information after sign-in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more information.
