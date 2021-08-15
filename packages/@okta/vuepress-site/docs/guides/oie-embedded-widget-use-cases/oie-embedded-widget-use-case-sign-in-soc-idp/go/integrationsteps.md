@@ -3,7 +3,7 @@
 ### Step 1: Navigate to sign-in page
 
 When the user navigates to the sign-in page, the Widget
-[loads](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/)
+[loads](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-load/)
 and automatically displays the **Sign in with Facebook** button. If the Facebook button doesn't appear,
 make sure that you have completed all the steps in [Configuration Updates](#configuration-updates).
 Note the Facebook button in the following screenshot:
@@ -38,7 +38,7 @@ After Facebook sends the success login request to your Okta org, the org redirec
 to your app through the Application's **Sign-in redirect URIs** field. This field was set up in
 [Create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/go/main/). The application
 code that wires up the callback URL to a function is identical to the code described in
-[step 2](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/#step-2-handle-callback-from-okta) in
+[step 2](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/#step-2-handle-the-callback-from-okta) in
 [Basic sign-in using the widget](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/).
 See that guide for more details.
 
@@ -54,8 +54,8 @@ See that guide for more details.
 ### Step 6 (Optional): Retrieve user profile information
 
 You can obtain basic user information by making a request to the authorization server.
-Make a call to the `/v1/userinfo` endpoint using the tokens obtained from the `LoginResponse`
-object's `Token` property.
+Make a call to the  [`/v1/userinfo`](/docs/reference/api/oidc/#userinfo) endpoint using the tokens
+obtained from the `LoginResponse` object's `Token` property.
 
 ```go
 func getProfileData(r *http.Request) map[string]string {

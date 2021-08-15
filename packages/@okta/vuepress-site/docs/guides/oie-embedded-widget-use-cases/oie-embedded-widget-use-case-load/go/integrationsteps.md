@@ -1,23 +1,21 @@
 ### Step 1: Click on the sign-in page link
 
-The first step occurs when the user clicks on the sign-in link. This link
-points to the sign-in page where the Widget is embedded. On the sample application's homepage,
-this link is named **Login** and located on the top right corner of the page.
+The first step occurs when the user selects on the sign-in link. This link
+directs the user to the sign-in page where the Widget is embedded. On the sample application's
+landing page, this link is labelled **Login** and located on the top right corner of the page.
 
-### Step 2: Get Widget initialization data
+### Step 2: Get data to initialize the Widget
 
-When the sign-in page loads, obtain the parameters required for the Widget to load. Source these
-parameters using multiple methods. The main parameters include:
+Obtain the parameters required to display the Widget when the sign-in page loads. Source these
+parameters using different methods. The main parameters include:
 
 * **Client ID, issuer, scopes:** source from the [configuration](/docs/guides/oie-embedded-common-download-setup-app/go/main/#configuration-settings)
 * **Interaction Handle**: obtain from the `/interact` endpoint
 * **PCKE parameters, state and nonce:** generate values
 * **Base URL:** derive from issuer URL
 
-These parameters are passed to the Widget as it loads on the page. Where you set these
-values depends on the application. The sample application sets most of these values on the server
-before the page is loaded in the `LoginHandler` method. See the following code for more
-details:
+These parameter are passed to the Widget during page load. The sample application sets most
+of these values in the `LoginHandler` method.
 
 ```go
 func (s *Server) LoginHandler(w http.ResponseWriter, r *http.Request) {
@@ -71,25 +69,23 @@ func (s *Server) LoginHandler(w http.ResponseWriter, r *http.Request) {
  }
 ```
 
-For more information on how to set these values, see the sample application.
+### Step 3: Display the Widget using initialization data
 
-### Step 3: Display Widget using initialization data
-
-The next step is to build the page that will host the Widget. First, add the the following Okta javascript and css files:
+Add the the following Okta javascript and css files to the page with the embedded Widget.
 
 ```html
 <script src="https://global.oktacdn.com/okta-signin-widget/5.8.1/js/okta-sign-in.min.js" type="text/javascript"></script>
 <link href="https://global.oktacdn.com/okta-signin-widget/5.8.1/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-Next, add a div tag that will host the Widget.
+Next, add a div tag that's the container for the Widget.
 
 ```html
 <div id="okta-signin-widget-container"></div>
 ```
 
-Finally, add the javascript that loads the Widget into the `div` tag. Note the parameters set in
-[step 2](#step-2-get-widget-initialization-data) are being used to initialize the `OktaSignIn` object.
+Finally, add the javascript that loads the Widget into the `div` tag. The parameters set in
+[step 2](#step-2-get-data-to-initialize-the-widget) are being used to initialize the `OktaSignIn` object.
 
 ```javascript
 <script type="text/javascript">
@@ -118,13 +114,12 @@ Finally, add the javascript that loads the Widget into the `div` tag. Note the p
 </script>
 ```
 
-### Step 4: Complete loading of Sign-in page
+### Step 4: Complete loading of the Sign-in page
 
-When the page loads successfuly, the Widget will display a sign-in form
-similar to the following screenshot:
+After the sign-in page is successfully loaded, the embedded Sign-In Widget is displayed:
 
 <div class="common-image-format">
 
-![A screenshot of the sign-in widget showing the username and password](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-sign-in-page.png)
+![A screenshot of the Sign-in Widget showing the username and password](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-sign-in-page.png)
 
 </div>
