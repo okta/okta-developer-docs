@@ -6,7 +6,7 @@ to use a dynamic model when responding to policy changes within Okta. Specifical
 it enables a pure policy-driven design that accepts new functionality,
 such as adding additional sign-in factors, without the need to update your
 application's code. Such a feature becomes important for mobile devices where
-keeping applications updated is challenging. The
+keeping applications updated is a challenge. The
 [sample application](/docs/guides/oie-embedded-sdk-run-sample/ios/main/),
 provided in the SDK's Git Repository, uses the SDK to implement such dynamic policy
 driven behavior. See this sample application for more details on how to design
