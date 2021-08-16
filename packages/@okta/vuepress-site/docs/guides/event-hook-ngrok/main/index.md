@@ -49,114 +49,7 @@ See [ngrok](https://ngrok.com) or their [documentation](https://ngrok.com/docs) 
 
 ### Create a local application
 
-With ngrok installed, a local application can now function as an external service, and demonstrate the Okta Event Hook (or any Okta Inline Hook). To get you up-and-running quickly, follow the steps below to build a very basic Express Node.js application. This application simply serves up a web page and responds to an Okta Event Hook.
-
-The Event Hook use-case is a simple response to the deactivation of an Okta user, which is also presented in [Event Hook Guide](/docs/guides/event-hook-implementation/overview).
-
-#### Create a folder and initialize the project
-
-1. Create a local folder to hold your sample application and open it. In this example, `sample-app`.
-
-    ```bash
-    >sample-app
-    ```
-
-1. Initialize a default package to create a `package.json` file.
-
-    ```bash
-    >node init --yes
-    ```
-
-1. Install the package dependencies, `express`, `express-basic-auth`, and `body-parser`.
-
-    ```bash
-    >npm install express
-    >npm install express-basic-auth
-    >npm install body-parser
-    ```
-
-#### Create the index and web server code
-
-1. In the same `sample-app` directory, create an index page as follows, `index.html`, which will be served when running the application:
-
-    ```HTML
-    <head>
-    <meta charset="utf-8" />
-    <title>Simple Test Application</title>
-    </head>
-    <body>
-    <h1>Congratulations, your simple test application is working.</h1>
-    <p>See the following links for more information:
-    <ul>
-        <li><a href="https://developer.okta.com/docs/concepts/event-hooks">Event Hook Concepts</a></li>
-        <li><a href="https://developer.okta.com/docs/guides/event-hook-implementation/nodejs/overview/">Event Hook Guides</a></li>
-    </ul>
-    </p>
-    </body>
-    </html>
-    ```
-
-2. Add the server page, `server.js`, that contains the simple application code and an endpoint for the Okta Event Hook:
-
-    ```JavaScript
-    var express = require('express');
-    var app = express();
-
-    var bodyParser = require("body-parser");
-    app.use(bodyParser.json());
-
-
-    app.get('/', function (request, response) {
-        response.sendFile(__dirname + '/index.html');
-    });
-
-    //Basic Auth
-    var basicAuth = require('express-basic-auth');
-    app.use(basicAuth({
-    users: { 'admin': 'supersecret' },
-    unauthorizedResponse: req => 'Unauthorized'
-    }));
-
-
-    // Event Hook Initial Verification
-    // Extract header 'x-okta-verification-challenge' from Okta request
-    // Return value as JSON object verification
-    app.get("/userDeactivated", (request, response) => {
-        var returnValue = {
-        "verification": request.headers['x-okta-verification-challenge'],
-        };
-        response.json(returnValue);
-    });
-
-    //userDeactivated Event request, POST from Okta
-
-    app.post("/userDeactivated", (request, response) => {
-        console.log(" ");
-        console.log('The user ' + request.body.data.events[0].target[0]["displayName"] + " has been deactivated on the Okta org!");
-        response.sendStatus(200);
-        }
-    );
-
-    var server = app.listen(8082, function () {
-        console.log('Node server is running on http://localhost:8082');
-    });
-    ```
-
-### Run the sample application
-
-1. From the project directory:
-
-    ```bash
-    >node server.js
-    ```
-
-1. Navigate to your local port to see the `index.html` page. In this example, `8082`:
-
-    `http://localhost:8082`
-
-If your web page deploys, the simple application is working, and ready for your Event Hook set up.
-
-![A screen shot of the simple application web page that includes a welcome message and links to the Okta Developer documentation.](/img/ngrok-and-event-hooks-simple-app.png)
+<StackSelector snippet="sample-app"/>
 
 ### Create an Okta Event Hook
 
@@ -172,9 +65,9 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 4. In the **Name** field, add a unique name for the Hook (in this example, "Deactivated User Event Hook").
 
-5. In the **URL** field, add your external service URL, including endpoint. For this example, use the code endpoint, `/userDeactivated` with the `https://` URL from the ngrok session. For example, your URL should appear similar to: `https://28333dd3ddf3.ngrok.io/userDeactivated`.
+5. In the **URL** field, add your external service URL, including endpoint. For this example, use the code endpoint, `/userDeactivated` from `server.js` with the `https://` URL from the ngrok session. For example, your URL should appear similar to: `https://28333dd3ddf3.ngrok.io/userDeactivated`.
 
-6. Include authentication field and secret. In this example, our code uses Basic Authentication:
+6. Include authentication field and secret. In this example, our `server.js` code uses Basic Authentication:
 
     - **Authentication field** = `authorization`
 
@@ -203,3 +96,49 @@ The Event Hook is now set up with a status of **VERIFIED** and is ready to send 
 >**Note:** A successful Event Hook verification also indicates your local application is working with the ngrok session! Review the ngrok terminal for details on the the first `GET` call to your local application.
 
 ### Preview, test, and review the Event Hook
+
+With your local application now exposed externally through an ngrok session, you can preview and test Okta Event Hook calls, as well as review details of the calls using the ngrok dashboard. The Okta org is also set up to call your local application when an event is triggered. In this example, the event is triggered when a user is deactivated in the Okta org.
+
+### Preview
+
+To run a preview call of your Event Hook, sign in to your Okta org as the super admin.
+
+1. In the Admin Console, go to **Workflow** > **Event Hooks**.
+2. Locate the Event Hook you created during the set-up step. In this example, select `Deactivated User Event Hook` or the name you gave the Event Hook.
+3. Click the **Actions** menu for this hook, and select **Preview**.
+4. In the **Configure Event Hook request** section, select an event from the **Event Type** drop-down menu. In this example, there is only one: `User deactivated (user.lifecycle.deactivate)`.
+5. Select a previous recent event (in this case, a user deactivation) from the **System Log Event** drop-down menu. The **Preview & Deliver Event Hook** section populates the JSON body of the Event Hook. If no event is available, the JSON body populates with sample data.
+6. Optionally, click **Edit** to modify the JSON body call. For example, you can change the `target` object's property, `displayName`, to `John Doe`.
+7. Ensure that both your ngrok session and local sample application are running.
+
+    >**Note:** If you start a new ngrok session at any time, make sure to update the Event Hook URL.
+
+8. Click **Deliver Request**. The Event Hook Preview displays the status request as either successful or a failure. Check your local application console. The following message displays if successful:
+
+     `The user John Doe has been deactivated on the Okta org!`
+
+9. Check your ngrok terminal session. Each call recorded by ngrok appears in the terminal.
+
+### Test
+
+To run a test of your Event Hook:
+
+1. Ensure that both your ngrok session and local sample application are running.
+2. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
+    - Go to **Directory** > **People**, and click **Add Person**.
+    - As an example, add the user John Doe as seen from the [Event Object sample code](/docs/guides/event-hook-implementation/event-object).
+3. For this user, select the User's profile by clicking John Doe's name.
+4. Click the **More Actions** drop-down menu, and select **Deactivate**.
+5. Confirm the deactivation.
+6. Navigate back to your local application's console. You should see the following output to the console:
+
+    `The user John Doe has been deactivated on the Okta org!`
+7. Check your ngrok terminal session. Each call recorded by ngrok appears in the terminal.
+
+### Review ngrok dashboard
+
+The ngrok inspection interface provides an opportunity to review all calls to your local application. See [ngrok documentation](https://ngrok.com/docs#inspect-requests) for details on using this interface. With the ngrok utility running, open the following URL in a browser: `http://localhot:4040`.
+
+Each call to your local application appears in the interface and includes the response body, header, and other details:
+
+![A screen shot of the simple application web page that includes a welcome message and links to the Okta Developer documentation.](/img/ngrok-and-event-hooks-simple-app.png)
