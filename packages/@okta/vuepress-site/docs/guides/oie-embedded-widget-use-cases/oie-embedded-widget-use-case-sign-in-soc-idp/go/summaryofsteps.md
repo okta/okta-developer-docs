@@ -1,10 +1,10 @@
 
 ## Summary of steps
 
-The sequence of steps for the social sign-in with the Widget is shown below.
+The following diagram is a sequence of steps for the social sign-in flow with the Widget.
 
 <div class="common-image-format">
 
-![A diagram showing the message flow of the Sign-in Widget social sign-in](/img/oie-embedded-sdk/oie-embedded-widget-go-use-case-social-sign-in.png)
+![A diagram showing the social sign-in message flow using the Sign-In Widget](/img/oie-embedded-sdk/oie-embedded-widget-go-use-case-social-sign-in.png)
 
 </div>
