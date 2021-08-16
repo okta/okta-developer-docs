@@ -8,7 +8,7 @@ such as adding additional sign-in factors, without the need to update your
 application's code. Such a feature becomes important for mobile devices where
 keeping applications updated is a challenge. The
 [sample application](/docs/guides/oie-embedded-sdk-run-sample/ios/main/),
-provided in the SDK's Git Repository, uses the SDK to implement such dynamic policy
+provided in the SDK's Git repository, uses the SDK to implement such dynamic policy-driven
 driven behavior. See this sample application for more details on how to design
 a dynamic application using the SDK.
 
