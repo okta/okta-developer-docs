@@ -9,9 +9,9 @@ title: Basic sign-in flow using the password factor
 
 <StackSelector class="cleaner-selector"/>
 
-The basic user sign-in request is the simplest of all use cases and is the first use case that you should execute after installation of the SDK.
+The basic user sign-in request is the simplest of all use cases and is the first use case that you should try after installation of the SDK.
 
-This use case requires the Password factor.
+This use case requires the password factor.
 
 <div class="common-image-format">
 

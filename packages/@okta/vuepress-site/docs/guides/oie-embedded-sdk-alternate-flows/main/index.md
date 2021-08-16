@@ -9,8 +9,6 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector />
-
 This section discusses the alternate flows that can occur within your app based on how your factors and policies are configured.
 
 ## Confirmation email sent during new user registration with only password factor required
@@ -48,6 +46,5 @@ the following email template: **Registration - Activation**.
 
 The user clicks the link in the activation email and is redirected to the
 sample app's home page.
-
 
 </div>

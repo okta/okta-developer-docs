@@ -1,3 +1,27 @@
+### The sample application's integration with the SDK
+
+Much like the Okta API it calls, the SDK uses a generic interface to handle
+each step of the user sign-in flow. This interface enables calling applications
+to use a dynamic model when responding to policy changes within Okta. Specifically,
+it enables a pure policy-driven design which accepts new functionality,
+such as adding additional sign-in factors, without the need to update your
+application's code. Such a feature becomes important for mobile devices where
+keeping applications updated is challenging. The
+[sample application](/docs/guides/oie-embedded-sdk-run-sample/ios/main/),
+provided in the SDK's Git Repository, uses the SDK to implement such dynamic policy
+driven behavior. See this sample application for more details on how to design
+a dynamic application using the SDK.
+
+### Integrating the SDK with the sample code
+
+In contrast to the sample application, the
+[sample code](https://github.com/okta/okta-idx-swift/tree/master/Samples/Signin%20Samples)
+provided in this step by step guide wraps the SDK with a more prescriptive and explicit interface
+that is purposely built to help facilitate understanding of how to use the SDK.
+It's meant to be a learning tool and although you can implement similar code in your
+app, you're advised to stick to the same best practice dynamic approach implemented
+in the sample application.
+
 The following steps document how to integrate the sample code into your
 application. The sample code wraps the SDK's functionality using a more
 prescriptive and explicit interface. It converts the SDK's generic remediation
@@ -27,7 +51,7 @@ For more information on how to set the `configuration` parameter, see
 in
 [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
-### Step 2: User initiates sign in
+### Step 2: User initiates the sign-in flow
 
 When the user enters their credentials and initiates the sign-in flow,
 call the `login` method, passing in the username, password,
@@ -47,14 +71,14 @@ and returns either a fatal error or success with a token.
 }
 ```
 
-### Step 3: Send user to home screen after successful sign in
+### Step 3: Send user to the default home page
 
 The final integration step is to send the user to the default home page
 after successful sign-in. Optionally, you can obtain basic user information after a
 successful sign-in by making a request to Okta's Open ID Connect authorization server.
 See [Get user profile information](#get-user-profile-information).
 
-### Sample code
+#### Sample code
 
 The following sample code is also located in Okta's
 [okta-idx-swift repository](https://github.com/okta/okta-idx-swift/blob/master/Samples/Signin%20Samples/BasicLogin.swift).
