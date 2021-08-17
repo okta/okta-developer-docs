@@ -1190,17 +1190,17 @@ You can publish a theme for a page or email template with different combinations
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use the Okta default logo with no background image and the Okta default colors on the Okta Sign-In Page.   |
-| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from Theme with the `secondaryColorHex` as the background color for the Okta Sign-In Page.  |
-| `BACKGROUND_IMAGE`              | Use the logo and background image from Theme.                                                            |
+| `OKTA_DEFAULT`                  | Use the Okta default logo and Okta favicon with no background image and the Okta default colors on the Okta Sign-In Page.   |
+| `BACKGROUND_SECONDARY_COLOR`    | Use the logo and favicon from Theme with the `secondaryColorHex` as the background color for the Okta Sign-In Page.  |
+| `BACKGROUND_IMAGE`              | Use the logo, favicon, and background image from Theme.                                                            |
 
 #### Variants for the Okta End-User Dashboard:
 
 | Enum Value                      | Description                                                                                                             |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use the Okta default logo with a white background color for the logo and the side navigation bar background color.                           |
-| `WHITE_LOGO_BACKGROUND`         | Use the logo from Theme with a white background color for the logo and use `primaryColorHex` for the side navigation bar background color.   |
-| `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` for the logo and the side navigatioin bar background color                                    |
+| `OKTA_DEFAULT`                  | Use the Okta default logo and Okta favicon with a white background color for the logo and the side navigation bar background color.                           |
+| `WHITE_LOGO_BACKGROUND`         | Use the logo from Theme with a white background color for the logo, use and favicon from Theme, and use `primaryColorHex` for the side navigation bar background color.   |
+| `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` for the logo and the side naviation bar background color, and use favicon from Theme                                    |
 
 #### Variants for Error Page:
 
@@ -1208,9 +1208,9 @@ You can publish a theme for a page or email template with different combinations
 
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `OKTA_DEFAULT`                  | Use the Okta default logo and the Okta default background color.                                      |
-| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from Theme with `secondaryColorHex` as the background color for the error page.                 |
-| `BACKGROUND_IMAGE`              | Use the logo and background image from Theme.                                                            |
+| `OKTA_DEFAULT`                  | Use the Okta default logo, Okta favicon, and the Okta default background color.                                      |
+| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from Theme with `secondaryColorHex` as the background color for the error page, and use favicon from Theme.                 |
+| `BACKGROUND_IMAGE`              | Use the logo, favicon, and background image from Theme.                                                            |
 
 #### Variants for Email Templates:
 
