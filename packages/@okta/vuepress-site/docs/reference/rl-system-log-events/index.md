@@ -7,7 +7,7 @@ category: rate limits
 
 ## System Log event types
 
-### Web request rate limit (org level)
+### Web request rate limits (org level)
 
 The following org-based System Log events record system events related to your organization to provide an audit trail that you can use to understand platform activity and to diagnose problems.
 
@@ -20,7 +20,7 @@ This event is sent when an endpoint is exceeding its rate limit.
 * [`core.concurrency.org.limit.violation`](/docs/reference/api/event-types/?q=core.concurrency.org.limit.violation)<br>
 This event is sent when a request is exceeding the org's allotted concurrent limit.
 
-### Web request rate limit (client level)
+### Web request rate limits (client level)
 
 The following client-based System Log events are fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. The event that fires depends on the client-based rate limit mode that is set:
 
@@ -35,6 +35,13 @@ This event is fired when the framework is in **Log per client** mode and a speci
 
 * [`system.client.concurrency_rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.concurrency_rate_limit.notification)<br>
 This event is fired when the framework is turned on in **Log per client** mode and a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user won't see a rate limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
+
+### OAuth 2.0 client rate limit
+
+The following System Log event is fired when OAuth 2.0 requests from a single client ID have consumed the majority of the applicable rate limit for the org:
+
+* [`app.oauth2.client_id_rate_limit_warning`](/docs/reference/api/event-types/?q=app.oauth2.client_id_rate_limit_warning)<br>
+This event contains information about the responsible client ID, which can be used by admins to discover and deactivate or reconfigure the client if necessary.
 
 ### Operation rate limits
 

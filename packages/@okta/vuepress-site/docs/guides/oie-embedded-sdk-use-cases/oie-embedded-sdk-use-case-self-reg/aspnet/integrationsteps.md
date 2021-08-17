@@ -426,7 +426,7 @@ The method `SkipAuthenticatorSelectionAsync` can return these different response
 
 ### Step 20: User is sent to the user profile page
 
-After the factor verifications are successful and there're no more authenticators to enroll and verify, the user is now successfully registered and can be sent to the default sign-in page. In the sample app, the default sign-in page is the user profile page. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo) for more details on how to fetch user information.
+After the factor verifications are successful and there are no more authenticators to enroll and verify, the user is successfully registered and can be sent to the default sign-in page. In the sample app, the default sign-in page is the user profile page. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more details on how to fetch user information.
 
 ### Troubleshooting Tips
 

@@ -62,7 +62,7 @@ In addition to referencing user attributes, you can also reference App propertie
 
 | Syntax           | Definitions                                                             | Examples     |
 | --------         | ----------                                                              | ------------ |
-| `org.$attribute` | `org` reference to Okta org<br>`$attribute` the attribute variable name | org.name<br>org.subdomain   |
+| `org.$attribute` | `org` reference to Okta org<br>`$attribute` the attribute variable name | org.name<br>org.subDomain   |
 
 ## Referencing Session Properties
 
