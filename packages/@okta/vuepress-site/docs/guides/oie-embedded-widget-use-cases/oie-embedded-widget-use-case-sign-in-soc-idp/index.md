@@ -13,11 +13,11 @@ title: Sign in with Facebook
 
 This use case skips the factor requirements since it uses the Facebook Identity Provider.
 
-## Configuration Updates
+## Configuration updates
 
 ### Step 1:  Download and configure the Widget app
 
-Ensure that you have completed the steps that are described in the [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/) topic. These steps guide you to the appropriate repository and location of the embedded Sign-In Widget sample app, identify the packages to install, and describe additional changes to the Okta org that are required for the widget app.
+Ensure that you've completed the steps to [download and configure the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/). These steps guide you to the appropriate repository and location of the embedded Sign-In Widget sample app, identify the packages to install, and describe additional changes to the Okta org that are required for the Widget.
 
 ### Step 2: Set up your Okta org for social Identity Providers
 
