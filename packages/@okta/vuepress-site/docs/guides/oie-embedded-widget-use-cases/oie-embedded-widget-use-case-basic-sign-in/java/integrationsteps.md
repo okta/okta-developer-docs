@@ -2,19 +2,13 @@
 
 ### Step 1: User signs in
 
-The user signs in with the Sign-In Widget that was set up in the [Load the widget](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/) use case. After the user enters their credentials and clicks **Sign in**, the widget sends an identify request to Okta.
-
-<div class="common-image-format">
-
-![Displays the Okta Sign-In Widget](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-screen-java.png)
-
-</div>
+The user signs in with the Sign-In Widget that was set up in the [Load the widget](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/) use case. After the user enters their credentials and clicks **Sign in**, the Widget sends an identify request to Okta.
 
 ### Step 2: Handle the callback from Okta
 
-Okta returns the Interaction code to the **Sign-in redirect URI** specified in the [Create a new application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) section.
+Okta returns an Interaction code to the **Sign-in redirect URI** specified in your [Okta app integration](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application).
 
-> **Note:** The redirect URI value that is used to start up the app (such as `OKTA_IDX_REDIRECTURI` environment variable), must be defined as one of the **Sign-in redirect URI** settings for the app integration created in the Admin console. See [Create a new application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application).
+> **Note:** The redirect URI value that is used to start up the app (such as the `OKTA_IDX_REDIRECTURI` environment variable), must be defined as one of the **Sign-in redirect URI** settings for the app integration created in the Admin console. See [Create a new application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application).
 
 ```java
 String issuer = oktaOAuth2Properties.getIssuer();

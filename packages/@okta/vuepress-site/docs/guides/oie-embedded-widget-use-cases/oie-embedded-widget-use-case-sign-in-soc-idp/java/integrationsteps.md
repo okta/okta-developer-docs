@@ -2,7 +2,7 @@
 
 ###  Step 1: User signs in with Facebook
 
-After you have completed the steps in [Configuration Updates](#configuration-updates), and have configured your app to [load the Sign-In Widget](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/), then the **Sign in with Facebook** option is available on the widget. No coding is required to have the **Sign in with Facebook** option.
+After you've completed the steps in [Configuration Updates](#configuration-updates), and have configured your app to [load the Sign-In Widget](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/), then the **Sign in with Facebook** option is available in the embedded Widget. No coding is required to have the **Sign in with Facebook** option.
 
 <div class="common-image-format">
 
@@ -10,7 +10,7 @@ After you have completed the steps in [Configuration Updates](#configuration-upd
 
 </div>
 
-When the user selects **Sign in with Facebook** from the widget, they are directed to the Facebook sign-in screen.
+When the user selects **Sign in with Facebook** from the Widget, they are directed to the Facebook sign-in screen.
 
 The user enters their Facebook credentials (email and password) on the Facebook sign-in screen, which is hosted by the Facebook platform.
 
@@ -18,19 +18,19 @@ The user enters their Facebook credentials (email and password) on the Facebook 
 
 ### Step 2: Facebook redirects to your Okta org
 
-After the user signs in to Facebook successfully, Facebook routes the user to the location that you've specified in **Valid OAuth Redirect URIs** from the Facebook developer site.
+After the user signs in to Facebook successfully, Facebook routes the user to the location that you've specified in the **Valid OAuth Redirect URIs** field from the Facebook developer site.
 
-> **Note:** The **Valid OAuth Redirect URIs** for your Okta org is in the format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`. See [Step 1: Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/java/main/#step-1-create-a-facebook-app-in-facebook) for details on configuring the **Valid OAuth Redirect URIs** value.
+> **Note:** The **Valid OAuth Redirect URIs** value for your Okta org is in the format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`. See [Step 1: Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/java/main/#step-1-create-a-facebook-app-in-facebook) for details on configuring the **Valid OAuth Redirect URIs** value.
 
 ### Step 3: Okta org redirects to your app through sign-in redirect URIs
 
 After your Okta org receives a successful Facebook sign-in request, your org redirects the request to your app's **Sign-in redirect URIs** setting.
 
-> **Note:** For the Java SDK embedded authentication sample apps, the **Sign-in redirect URIs** is set to `http://localhost:8080`.
+> **Note:** For the Java SDK embedded authentication sample app, the **Sign-in redirect URIs** is set to `http://localhost:8080`.
 
 ### Step 4: Handle the callback from Okta
 
-Okta returns the Interaction code to the **Sign-in redirect URI** that is specified in the [create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) step.
+Okta returns the Interaction code to the **Sign-in redirect URI** that is specified in the [created new application step](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application).
 
 ```java
 String issuer = oktaOAuth2Properties.getIssuer();

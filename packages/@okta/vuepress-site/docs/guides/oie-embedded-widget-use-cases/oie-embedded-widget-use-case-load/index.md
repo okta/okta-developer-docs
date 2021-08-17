@@ -1,5 +1,5 @@
 ---
-title: Load the widget
+title: Load the Widget
 ---
 
 <div class="oie-embedded-sdk">
@@ -11,7 +11,7 @@ title: Load the widget
 
 ## Factor setup
 
-This use case does not require any additional factors. It only requires you to load the widget.
+This use case does not require any additional factors. It only requires you to load the Widget.
 
 ## Configuration updates
 
