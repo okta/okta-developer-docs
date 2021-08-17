@@ -8,7 +8,7 @@ import {
   reference,
   releaseNotes
 } from "../const/navbar.const";
-
+      
 export default {
   data() {
     return {
@@ -57,11 +57,15 @@ export default {
       }
       if (link.subLinks) {
         for (const subLink of link.subLinks) {
-          // Compute state to section link
-          link.iHaveChildrenActive =
-            link.iHaveChildrenActive || this.addStatesToLink(subLink);
+          // if link has active children - continue with the rest of its sublinks
+          if (link.iHaveChildrenActive) {
+            this.addStatesToLink(subLink);
+          } else {
+            link.iHaveChildrenActive = this.addStatesToLink(subLink);
+          }
         }
       }
+
       return link.iHaveChildrenActive;
     },
     getGuides() {

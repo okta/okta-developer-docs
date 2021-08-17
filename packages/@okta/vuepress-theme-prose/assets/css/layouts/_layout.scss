@@ -78,6 +78,8 @@ a[target="_blank"]:not([href^="mailto:"])::after {
 }
 ol:not([class]), ul:not([class]) {
   max-width: 100%;
+  list-style-position: inside;
+  padding-left: 0;
 }
 p {
   max-width: 100%;
