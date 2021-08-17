@@ -11,7 +11,7 @@ title: Load the Widget
 
 ## Factor setup
 
-This use case does not require any additional factors. It only requires you to load the Widget.
+This use case does not require any additional factors. It only requires that you to load the Widget.
 
 ## Configuration updates
 
