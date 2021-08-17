@@ -30,7 +30,7 @@ After your Okta org receives a successful Facebook sign-in request, your org red
 
 ### Step 4: Handle the callback from Okta
 
-Okta returns the Interaction code to the **Sign-in redirect URI** that is specified in the [created new application step](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application).
+Okta returns the Interaction code to the **Sign-in redirect URI** that is specified during the [create new application step](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application).
 
 ```java
 String issuer = oktaOAuth2Properties.getIssuer();
