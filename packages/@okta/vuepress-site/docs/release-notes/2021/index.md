@@ -3,6 +3,23 @@ title: Okta API Products Release Notes 2021
 ---
 ## August
 
+### Weekly Release 2021.08.2
+
+| Change                                                                     | Expected in Preview Orgs |
+|----------------------------------------------------------------------------|--------------------------|
+| [Custom Administrator Roles is Self-Service EA](#custom-administrator-roles-is-self-service-ea) | August 18, 2021 |
+| [Bugs fixed in 2021.08.2](#bugs-fixed-in-2021-08-2)                          | August 18, 2021          |
+
+#### Custom Administrator Roles is Self-Service EA
+
+The [Custom Administrator Roles](/docs/reference/api/roles/index.md) feature is now enabled as Self-Service Early Access. The Okta Custom Administrator Roles API provides operations so that you can create customized roles and assign them to a user or a group. <!--OKTA-419528-->
+
+#### Bugs fixed in 2021.08.2
+
+- The QR code functionality was missing in the [Device Authorization flow](/docs/guides/device-authorization-grant/main/). (OKTA-410341)
+
+- When the `/introspect` endpoint was used to [validate the device secret](/docs/guides/configure-native-sso/-/main/#validate-the-device-secret), the introspect response didn't include the expiration (`exp`) property. (OKTA-415291)
+
 ### Weekly Release 2021.08.1
 
 | Change                                                                     | Expected in Preview Orgs |
@@ -13,7 +30,7 @@ title: Okta API Products Release Notes 2021
 
 - When a native SSO [token exchange](/docs/reference/api/oidc/#token) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
 
-- Registration Inline Hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
+- Registration Inline Hooks didn't correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
 
 ### Monthly Release 2021.08.0
 
@@ -157,7 +174,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 * When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/-/create-app-profile-attribute/) were not allowed. (OKTA-403289)
 
-* If an app’s sign-in policy required an MFA prompt every time and the [`prompt=login` parameter](/docs/guides/shared-sso-android-ios/-/optional-settings/#always-prompt-for-sign-in-regardless-of-session) was present in the `/authorize` request, the MFA prompt didn’t appear for federated users. (OKTA-394991)
+* If an app’s sign-in policy required an MFA prompt every time and the [`prompt=login` parameter](/docs/guides/shared-sso-android-ios/-/optional-settings/#always-prompt-for-sign-in-regardless-of-session) was present in the `/authorize` request, the MFA prompt didn't appear for federated users. (OKTA-394991)
 
 ### Weekly Release 2021.06.2
 
@@ -395,9 +412,9 @@ The OAuth 2.0 authorization code lifetime has increased from one minute to five 
 
 #### Bugs fixed in 2021.04.1
 
-* A sign-in hint wasn’t passed to a SAML identity provider in an Org2Org configuration if the request contained a `login_hint` and an `idp` parameter. (OKTA-379879)
+* A sign-in hint wasn't passed to a SAML identity provider in an Org2Org configuration if the request contained a `login_hint` and an `idp` parameter. (OKTA-379879)
 
-* When a call was made to the [User API](/docs/reference/api/users/) without permission to update a user profile’s property that was marked as [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm), two error messages were returned. One of the error messages contained information about the sensitive property. (OKTA-380344)
+* When a call was made to the [User API](/docs/reference/api/users/) without permission to update a user profile's property that was marked as [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm), two error messages were returned. One of the error messages contained information about the sensitive property. (OKTA-380344)
 
 ### Monthly Release 2021.04.0
 
