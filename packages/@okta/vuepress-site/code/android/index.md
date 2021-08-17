@@ -63,6 +63,7 @@ The [Okta OIDC Android SDK](https://github.com/okta/okta-oidc-android#requiremen
 ## Related Blog Posts
 
 
+- [Build an Android Application (Kotlin) with Authentication](/blog/2020/04/20/android-authentication)
 - [Create a Basic Android App without an IDE](/blog/2018/08/10/basic-android-without-an-ide)
 - [Tutorial: Develop a Mobile App With Ionic and Spring Boot](/blog/2017/05/17/develop-a-mobile-app-with-ionic-and-spring-boot)
 - [Build an Ionic App with User Authentication](/blog/2017/08/22/build-an-ionic-app-with-user-authentication)
