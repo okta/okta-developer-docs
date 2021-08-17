@@ -16,7 +16,7 @@ The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API pr
 
 #### Bugs fixed in 2021.08.2
 
-- The QR code functionality was missing in the [Device Authorization flow](/docs/guides/device-authorization-grant/main/). (OKTA-410341)
+- The QR code functionality was missing from the [Device Authorization feature](/docs/guides/device-authorization-grant/main/). (OKTA-410341)
 
 - When the `/introspect` endpoint was used to [validate the device secret](/docs/guides/configure-native-sso/-/main/#validate-the-device-secret), the introspect response didn't include the expiration (`exp`) property. (OKTA-415291)
 
