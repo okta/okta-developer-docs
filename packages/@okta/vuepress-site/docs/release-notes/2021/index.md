@@ -12,7 +12,7 @@ title: Okta API Products Release Notes 2021
 
 #### Custom Administrator Roles is Self-Service EA
 
-The [Custom Administrator Roles](/docs/reference/api/roles/index.md) feature is now enabled as Self-Service Early Access. The Okta Custom Administrator Roles API provides operations so that you can create customized roles and assign them to a user or a group. <!--OKTA-419528-->
+The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API provides operations so that you can create customized roles and assign them to a user or a group. <!--OKTA-419528-->
 
 #### Bugs fixed in 2021.08.2
 
