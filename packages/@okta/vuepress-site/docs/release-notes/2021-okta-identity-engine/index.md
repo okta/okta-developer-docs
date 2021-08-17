@@ -14,7 +14,7 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 #### Bugs fixed in 2021.08.2
 
-- In the [Device Authorization flow](/docs/guides/device-authorization-grant/main/), the URI link that was used in a QR Code was missing if the org wasn't on the Identity Engine. (OKTA-413425)
+- In the [Device Authorization grant flow](/docs/guides/device-authorization-grant/main/), the URI link that was used in a QR Code was missing if the org wasn't on Okta Identity Engine. (OKTA-413425)
 
 - When using the `/token` endpoint, OAuth 2.0 refreshed the [access and ID tokens](/docs/guides/refresh-tokens/overview/) for all application users, which included deactivated users instead of just active users. (OKTA-417991)
 
