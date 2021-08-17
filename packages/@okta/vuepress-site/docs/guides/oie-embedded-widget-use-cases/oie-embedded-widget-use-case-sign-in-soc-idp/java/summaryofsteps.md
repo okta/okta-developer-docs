@@ -2,7 +2,7 @@
 
 > **Note:** The Okta Java SDK uses the Spring Boot framework to handle the OAuth 2.0 authentication flow. See [Spring Boot Getting Started](https://spring.io/guides/gs/spring-boot/).
 
-The following diagram shows the sequence of steps to sign in to an app using the embedded Sign-In Widget and the Facebook sign-in option:
+The following diagram shows the sequence of steps to sign in to an app by using the embedded Sign-In Widget and the Facebook sign-in option:
 
 <div class="common-image-format">
 
