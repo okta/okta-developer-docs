@@ -1200,7 +1200,7 @@ You can publish a theme for a page or email template with different combinations
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------- |
 | `OKTA_DEFAULT`                  | Use the Okta default logo and Okta favicon with a white background color for the logo and the side navigation bar background color.                           |
 | `WHITE_LOGO_BACKGROUND`         | Use the logo from Theme with a white background color for the logo, use and favicon from Theme, and use `primaryColorHex` for the side navigation bar background color.   |
-| `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` for the logo and the side naviation bar background color, and use favicon from Theme                                    |
+| `FULL_THEME`                    | Use the logo from Theme and `primaryColorHex` for the logo and the side navigation bar background color, and use favicon from Theme                                    |
 
 #### Variants for Error Page:
 
