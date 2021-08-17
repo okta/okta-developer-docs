@@ -46,7 +46,7 @@ The embedded authentication sample apps demonstrate how to embed the Okta Sign-I
 
 Learn how to implement this approach with the [Embedded authentication with the SDK guide](/docs/guides/oie-embedded-sdk-overview/).
 
-**Embedded Widget + SDK**: A quick and easy to set up solution that moves most of the the heavy lifting to Okta. Although the amount of code that you need to write is small, many of the most advanced identity use cases (for example, social sign in, multifactor authentication) are supported out of the box. Use the embedded Widget when you need:
+**Embedded Widget + SDK**: A quick and easy-to-set-up solution that moves most of the the heavy lifting to Okta. Although the amount of code that you need to write is small, many of the most advanced identity use cases (for example, social sign in, multifactor authentication) are supported out of the box. Use the embedded Widget when you need:
 
 * Quick and easy integration
 * Features that are ready out of the box
