@@ -1,5 +1,5 @@
 
-## Get user profile information after sign in
+## Get user profile information
 
 You can obtain basic user information by making a request to the authorization server. Make a call to the
 `/v1/userinfo` endpoint using the tokens obtained from the `LoginResponse` object's `Token` property.

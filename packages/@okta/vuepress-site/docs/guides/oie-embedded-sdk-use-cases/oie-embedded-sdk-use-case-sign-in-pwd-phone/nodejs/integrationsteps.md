@@ -85,6 +85,6 @@ The next step is to call `idx.authenticate` passing in the verification code `{ 
 
 Then, handle the response from `idx.authenticate`. If the phone code was valid, the method returns a status of `Idx.Status:SUCCESS` with tokens. This status signifies that there are no more factors that are waiting to be enrolled and verified. If the steps described in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user is successfully signed in and is sent to the default sign-in home page.
 
-#### Get user profile information (optional)
+### Get user profile information (optional)
 
-Optionally, you can obtain basic user information after a successful sign in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/nodejs/main/#get-user-profile-information-after-sign-in) for more details.
+Optionally, you can obtain basic user information after a successful sign in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/nodejs/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more details.
