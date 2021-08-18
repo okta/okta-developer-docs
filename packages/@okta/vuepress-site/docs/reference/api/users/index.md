@@ -1125,16 +1125,16 @@ The first three parameters in the table below correspond to different types of l
 | Parameter   | Description                                                                                                                                    | Param Type   | DataType   | Required |
 | :---------- | :--------------------------------------------------------------------------------------------------------------------------------------------- | :----------- | :--------- | :------- |
 | q           | Finds a user that matches `firstName`, `lastName`, and `email` properties                                                                      | Query        | String     | FALSE    |
-| filter      | [Filters](/docs/reference/api-overview/#filter) users with a supported expression for a subset of properties                  | Query        | String     | FALSE    |
-| search      | Searches for users with a supported [filtering](/docs/reference/api-overview/#filter) expression for most properties          | Query        | String     | FALSE    |
+| filter      | [Filters](/docs/reference/core-okta-api/#filter) users with a supported expression for a subset of properties                  | Query        | String     | FALSE    |
+| search      | Searches for users with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties          | Query        | String     | FALSE    |
 | limit       | Specifies the number of results returned (maximum 200)                                                                                         | Query        | Number     | FALSE    |
 | after       | Specifies the pagination cursor for the next page of users                                                                                     | Query        | String     | FALSE    |
 | sortBy      | Specifies field to sort by (for search queries only)                                                                                           | Search query | String     | FALSE    |
 | sortOrder   | Specifies sort order asc or desc (for search queries only)                                                                                     | Search query | String     | FALSE    |
 
   * If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
-  * An HTTP 500 status code usually indicates that you have exceeded the request timeout.  Retry your request with a smaller limit and paginate the results. For more information, see [Pagination](/docs/reference/api-overview/#pagination).
-  * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
+  * An HTTP 500 status code usually indicates that you have exceeded the request timeout.  Retry your request with a smaller limit and paginate the results. For more information, see [Pagination](/docs/reference/core-okta-api/#pagination).
+  * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response Parameters
 
@@ -1336,7 +1336,7 @@ Examples use cURL-style escaping instead of URL encoding to make them easier to 
 
 > Hint: If filtering by `email`, `lastName`, or `firstName`, it may be easier to use `q` instead of `filter`.
 
-See [Filtering](/docs/reference/api-overview/#filter) for more information about the expressions used in filtering.
+See [Filtering](/docs/reference/core-okta-api/#filter) for more information about the expressions used in filtering.
 
 ##### Filter Examples
 
@@ -1476,7 +1476,7 @@ Property names in the search parameter are case sensitive, whereas operators (`e
 
 This operation:
 
-* Supports [pagination](/docs/reference/api-overview/#pagination).
+* Supports [pagination](/docs/reference/core-okta-api/#pagination).
 * Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
 For example, `search=profile.department eq "Engineering"` is encoded as `search=profile.department%20eq%20%22Engineering%22`.
 Examples use cURL-style escaping instead of URL encoding to make them easier to read.
@@ -3150,7 +3150,7 @@ Lists all grants for the specified user
 | limit       | The number of grants to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of grants                                    | Query        | String     | FALSE      |         |
 
-> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
+> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
 
 
 #### Request Example
@@ -3506,7 +3506,7 @@ Lists all refresh tokens issued for the specified User and Client.
 | limit       | The number of tokens to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of tokens                                    | Query        | String     | FALSE      |         |
 
-> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
+> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
 
 
 #### Request Example
@@ -3592,7 +3592,7 @@ Gets a refresh token issued for the specified User and Client.
 | limit       | The number of grants to return (maximum 200)                                                   | Query        | Number     | FALSE      | 20      |
 | after       | Specifies the pagination cursor for the next page of grants                                    | Query        | String     | FALSE      |         |
 
-> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/api-overview/#pagination).
+> **Note:** `after` should be treated as a cursor (an opaque value) and obtained through [the next link relation](/docs/reference/core-okta-api/#pagination).
 
 
 #### Request Example

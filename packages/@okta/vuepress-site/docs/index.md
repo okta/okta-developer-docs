@@ -87,7 +87,7 @@ sections:
     description: Details on parameters, requests, and responses for Okta's API endpoints.
     links:
       - title: API Overview
-        link: /docs/reference/api-overview/
+        link: /docs/reference/core-okta-api/
       - title: OpenID Connect API
         link: /docs/reference/api/oidc/
       - title: Users API

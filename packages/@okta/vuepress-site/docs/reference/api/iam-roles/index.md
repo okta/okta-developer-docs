@@ -2018,7 +2018,7 @@ Lists all Group targets for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to
 | `roleId`      | ID of a Role                                                 | URL          | String     | TRUE     |
 | `userId`      | ID of a User                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
+Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ###### Response parameters
 
@@ -2091,7 +2091,7 @@ Lists all Group targets for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to
 | `limit`           | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
 | `roleId`          | ID of a Role                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ###### Response parameters
 
@@ -2335,7 +2335,7 @@ Lists all the App targets for an `APP_ADMIN` Role assigned to a User
 | `roleId`      | ID of a Role                                                 | URL          | String     | TRUE     |
 | `userId`      | ID of a User                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ###### Response parameters
 
@@ -2467,7 +2467,7 @@ Lists all the App targets for an `APP_ADMIN` Role assigned to a Group
 | `limit`       | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
 | `roleId`      | ID of a Role                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ###### Response parameters
 
