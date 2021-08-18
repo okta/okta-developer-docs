@@ -36,7 +36,7 @@ Learn how to implement this approach with the [Redirect authentication guide](/d
 
 ### Embedded authentication sample apps
 
-The embedded authentication sample apps demonstrate how to embed the Okta Sign-In Widget in an app as a package dependency. Okta provides two embedded identity solutions:
+The embedded authentication sample apps demonstrate how to embed authentication in an app with Okta package dependencies. Okta provides two embedded identity solutions:
 
 **Embedded SDK only**: A highly customizable solution that provides native language support for a variety of identity use cases. Choose the embedded SDK when you want to build out your identity solution that includes the ability to:
 
