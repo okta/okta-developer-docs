@@ -18,7 +18,7 @@ You would typically choose the embedded SDK to enable you to build out your iden
 * Code against a high-level SDK interface
 * Provide greater flexibility to solve your specific branding requirements
 
-See [Embedded vs redirect authentication](/docs/concepts/hosted-vs-embedded/#okta-hosted-vs-customer-hosted) for a full list of reasons for using the embedded SDK and a complete overview of the different deployment models.
+See [Redirect vs embedded authentication](/docs/concepts/redirect-vs-embedded/) for a full list of reasons for using the embedded SDK and a complete overview of the different deployment models.
 
 ## The SDK flow
 

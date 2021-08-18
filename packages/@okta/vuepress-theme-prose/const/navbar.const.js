@@ -377,6 +377,15 @@ export const guides = [
         title: "Identity Engine",
         subLinks: [
           {
+            title: "Redirect authentication",
+            subLinks: [
+              {
+                title: "Use redirect auth with the sample apps",
+                guideName: "sampleapp-oie-redirectauth",
+              },
+            ]
+          },
+          {
             title: "Embedded authentication",
             subLinks: [
               {
@@ -443,15 +452,6 @@ export const guides = [
               },
             ]
             },
-          {
-          title: "Redirect authentication",
-          subLinks: [
-            {
-              title: "Use redirect auth with the sample apps",
-              guideName: "sampleapp-oie-redirectauth",
-            },
-          ]
-          },
           {
             title: "Okta Identity Engine Limitations",
             path: "/docs/guides/ie-limitations/"
