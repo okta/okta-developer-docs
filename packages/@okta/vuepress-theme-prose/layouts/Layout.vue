@@ -68,7 +68,6 @@ export default {
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
     ContentPage: () => import("../components/ContentPage.vue"),
     Footer: () => import("../components/Footer.vue"),
-    Documentation: () => import("../components/Documentation.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),
     OktaIntegrationNetwork: () =>
