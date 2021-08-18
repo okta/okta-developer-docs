@@ -22,7 +22,7 @@ Before you can sign a user in, you need to create an Okta app integration that r
     See the parameter [Details](/docs/reference/api/apps/#details) section on the Apps API Reference page for configuration guidance on the use of wildcard subdomains.
 
 1. Add the **Base URI** of your application during local development, such as `http://localhost:3000`. Also, add any base URIs where your application runs in production, such as `https://app.example.com`.
-1. Assign the group that you want (if you set Group Assignments for your app) or leave the **Everyone** default. See the [Assign app integrations](https://help.okta.com/en/prod/Content/Topics/Apps/apps-assign-applications.htm?cshid=ext_Apps_Apps_Page-assign) topic in the Okta product documentation for instructions on how to assign the app integration to individual users and groups.
+1. Assign the group that you want (if you set Group Assignments for your app) or leave the **Everyone** default. See the [Assign app integrations](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page-assign) topic in the Okta product documentation for instructions on how to assign the app integration to individual users and groups.
 1. Click **Save** to finish creating the Okta app integration.
 1. On the **General** tab, the **Client Credentials** section shows the client ID and client secret values for your app integration.
 1. Copy the **Client ID** and **Client secret** values using the **Copy to Clipboard** button beside each text field.
