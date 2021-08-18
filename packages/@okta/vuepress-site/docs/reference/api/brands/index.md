@@ -1209,7 +1209,7 @@ You can publish a theme for a page or email template with different combinations
 | Enum Value                      | Description                                                                                          |
 | ------------------------------- | ---------------------------------------------------------------------------------------------------- |
 | `OKTA_DEFAULT`                  | Use the Okta logo, Okta favicon, and the Okta background color.                                      |
-| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from Theme with `secondaryColorHex` as the background color for the error page, and use favicon from Theme.                 |
+| `BACKGROUND_SECONDARY_COLOR`    | Use the logo from Theme with `secondaryColorHex` as the background color for the error page and use favicon from Theme.                 |
 | `BACKGROUND_IMAGE`              | Use the logo, favicon, and background image from Theme.                                                            |
 
 #### Variants for Email Templates:
