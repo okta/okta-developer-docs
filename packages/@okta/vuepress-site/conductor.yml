@@ -2285,3 +2285,5 @@ redirects:
     to: /docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-overview/
   - from: /pricing/index.html
     to: https://www.okta.com/pricing/#customer-identity-products
+  - from: /docs/index.html
+    to: /
