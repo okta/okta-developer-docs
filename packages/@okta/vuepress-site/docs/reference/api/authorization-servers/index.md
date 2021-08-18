@@ -149,19 +149,21 @@ When you use these API endpoints to create or modify an Authorization Server res
 | credentials                             | Keys and settings used to sign tokens.                                                                                                                              | [Credentials object](#credentials-object)                                 | False                         |
 | description                             | The description of a Custom Authorization Server                                                                                                                    | String                                                                    | True                          |
 | issuer                                  | The complete URL for a Custom Authorization Server. This becomes the `iss` claim in an access token.                                                                | String                                                                    | False                         |
-| issuerMode <ApiLifecycle access="ea" /> | Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL. | String                                                                    | False                         |
+| issuerMode                              | Indicates which value is specified in the issuer of the tokens that a Custom Authorization Server returns: the original Okta org domain URL or a custom domain URL. | String                                                                    | False                         |
 | name                                    | The name of a Custom Authorization Server                                                                                                                           | String                                                                    | True                          |
 | status                                  | Indicates whether a Custom Authorization Server is `ACTIVE` or `INACTIVE`.                                                                                          | Enum                                                                      | False                         |
 
 ##### Property details
 
-`issuerMode` is visible if you have the Custom URL Domain feature enabled. If the feature is enabled, you can set a custom domain URL in a Custom Authorization Server, and this property is returned in the appropriate responses. To enable the Custom URL Domain feature, contact [Support](https://support.okta.com/help/open_case).
+`issuerMode` is visible if you have a custom URL domain configured or the Dynamic Issuer Mode feature enabled. If you have a custom URL domain configured, you can set a custom domain URL in a Custom Authorization Server, and this property is returned in the appropriate responses.
 
 * If set to `ORG_URL`, then in responses, `issuer` is the Okta org's original domain URL: `https://${yourOktaDomain}`.
 
 * If set to `CUSTOM_URL`, then in responses, `issuer` is the custom domain URL configured in the administration user interface.
 
-After you enable the Custom URL Domain feature, all new Custom Authorization Servers use `CUSTOM_URL` by default. All existing Custom Authorization Servers continue to use `ORG_URL` until changed using the Admin Console or the API, so that existing integrations with client and resource server continue to work after the feature is enabled.
+* <ApiLifecycle access="ea" />If set to `DYNAMIC`, then in responses, `issuer` is the custom domain URL if the OAuth 2.0 request was sent to the custom domain or is the Okta org's domain URL if the OAuth 2.0 request was sent to the original Okta org domain. To enable the Dynamic Issuer Mode feature, contact [Support](https://support.okta.com/help/open_case).
+
+After you configure a custom URL domain, all new Custom Authorization Servers use `CUSTOM_URL` by default. If the Dynamic Issuer Mode feature is enabled, then all new Custom Authorization Servers use `DYNAMIC` by default.  All existing Custom Authorization Servers continue to use the original value until changed using the Admin Console or the API, so that existing integrations with the client and resource server continue to work after the feature is enabled.
 
 #### Create Authorization Server
 
