@@ -1,4 +1,4 @@
-### Step 1: Call StartWidgetSigninAsync
+### Step 1: Navigate to sign-in page
 
 #### Summary
 
@@ -54,9 +54,9 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
 }
 ```
 
-### Step 2: Integrate the widget into your page
+### Step 2: Load the Widget
 
-#### Step 2a: Setup page
+#### Step 2a: Add namespaces and model
 
 If using an MVC setup (as in the sample), the namespaces and model need to be defined in the page.
 
@@ -114,7 +114,7 @@ The final step is to add a `div` tag with the `id` (for example, `okta-signin-wi
 <div id="okta-signin-widget-container"></div>
 ```
 
-### Step 3: Run your app
+### Step 3: Display the widget
 
 The final step is to run your app. If the widget and Okta org are property configured, the widget should load and you should see the Sign In screen similar to the following screen.
 
