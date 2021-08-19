@@ -1,4 +1,4 @@
-### Step 1: User navigates to sign-in page
+### Step 1: Navigate to sign-in page
 
 The first step is make a call to `GetIdentityProvidersAsync` when the sign in page loads. This method retrieves all the identity providers that were added to the routing rule (**Use this identity provider** field) in the [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers).
 

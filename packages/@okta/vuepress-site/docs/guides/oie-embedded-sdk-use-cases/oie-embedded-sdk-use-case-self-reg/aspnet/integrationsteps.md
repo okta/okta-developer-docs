@@ -197,7 +197,7 @@ supported. Accordingly, there are two recommended options to mitigate this limit
 See
 [Email verify email link does not work](/docs/guides/oie-embedded-sdk-limitations/main/#email-verify-email-link-does-not-work).
 
-### Step 13: Handle the response to the submit
+### Step 13: Handle the submit response
 
 If the call to `EnrollAuthenticatorAsync` was successful, it should return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, a code is sent to the user's email, and the user needs to verify this code.
 
@@ -239,7 +239,7 @@ var idxAuthClient = new IdxClient(null);
 var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
 ```
 
-### Step 16: Handle the response from the submit
+### Step 16: Handle the submit response
 
 The next step is to handle the response from `VerifyAuthenticatorAsync`. If the email code was valid, the method should return `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status signifies that there is another factor (required or optional) waiting to be enrolled and verified. If the steps described in [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user should be sent back to the Authenticator list page that shows only the **phone** authenticator.
 
@@ -335,7 +335,7 @@ var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthen
       Session["IdxContext"] = enrollResponse.IdxContext;
 ```
 
-### Step 18e, Option 1: Handle the response from the submit
+### Step 18e, Option 1: Handle the submit response
 
 If the call to `EnrollAuthenticatorAsync` is successful, it should return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, a code is sent to the phone number through SMS.
 
