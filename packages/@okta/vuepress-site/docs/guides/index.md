@@ -72,6 +72,14 @@ guides:
  - oie-embedded-common-org-setup
  - oie-embedded-common-download-setup-app
  - oie-embedded-common-refresh-tokens
+ - oie-embedded-sdk-use-case-basic-sign-in
+ - oie-embedded-sdk-use-case-basic-sign-out
+ - oie-embedded-sdk-use-case-pwd-recovery-mfa
+ - oie-embedded-sdk-use-case-self-reg
+ - oie-embedded-sdk-use-case-sign-in-pwd-email
+ - oie-embedded-sdk-use-case-sign-in-pwd-phone
+ - oie-embedded-sdk-use-case-sign-in-soc-idp
+ - oie-embedded-sdk-use-cases
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
