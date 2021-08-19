@@ -1,4 +1,4 @@
-.proxima {
+.brand_font {
   font-family: $font-family;
   font-style: normal;
   font-weight: 300;
@@ -42,7 +42,7 @@
     }
   }
   .coveo-facet-header {
-    @extend .proxima;
+    @extend .brand_font;
     color: cv("text", "darker");
     background: none;
     padding-top: 0;
@@ -56,7 +56,7 @@
   }
   .CoveoQuerySummary,
   .coveo-summary-section {
-    @extend .proxima;
+    @extend .brand_font;
     color: cv("text");
     font-weight: 300;
     .coveo-highlight {
@@ -133,7 +133,7 @@
   .coveo-pager-list-item-text,
   .coveo-pager-anchor,
   .coveo-active {
-    @extend .proxima;
+    @extend .brand_font;
     border: none;
     color: cv("link");
     font-weight: 500;
@@ -145,7 +145,7 @@
     margin-left: -5px;
   }
   .coveo-pager-list-item {
-    @extend .proxima;
+    @extend .brand_font;
     font-weight: 500;
     font-size: 16px;
     width: 36px;
@@ -196,14 +196,14 @@
   .CoveoSearchInterface {
     &,
     * {
-      @extend .proxima;
+      @extend .brand_font;
     }
   }
   .CoveoResultList {
     margin-top: 0;
   }
   .CoveoResultLink {
-    @extend .proxima;
+    @extend .brand_font;
     &,
     &:visited {
       color: cv("link");
@@ -241,7 +241,7 @@
     padding-right: calc(#{$icon-size} + 5px);
   }
   .CoveoExcerpt {
-    @extend .proxima;
+    @extend .brand_font;
     color: cv("text");
     font-size: 16px;
     line-height: 1.5;
@@ -250,20 +250,20 @@
     padding: 0;
   }
   .CoveoResult {
-    @extend .proxima;
+    @extend .brand_font;
     border: none;
     color: cv("text");
     padding: 5px 0;
   }
   .CoveoFacet {
-    @extend .proxima;
+    @extend .brand_font;
     border: none;
     background: none;
     font-weight: bold;
     margin-top: 0;
   }
   .CoveoFieldValue {
-    @extend .proxima;
+    @extend .brand_font;
     .highlight {
       background: cv('body');
       border-radius: 4px;
@@ -290,14 +290,14 @@
   .coveo-dropdown-header-wrapper {
     justify-content: flex-start;
     .coveo-facet-dropdown-header {
-      @extend .proxima;
+      @extend .brand_font;
       display: flex;
       justify-content: center;
       align-items: center;
       width: 50%;
       margin-bottom: 20px;
       > p {
-        @extend .proxima;
+        @extend .brand_font;
         font-weight: 400;
       }
     }
@@ -310,12 +310,12 @@
     }
   }
   .CoveoBreadcrumb {
-    @extend .proxima;
+    @extend .brand_font;
     border-color: cv("text");
     padding: 5px 0;
   }
   .coveo-facet-column-heading {
-    @extend .proxima;
+    @extend .brand_font;
     color: cv("text", "darker");
     font-weight: 500;
     font-size: 18px;
@@ -325,7 +325,7 @@
   .coveo-facet-help {
     padding-right: 60px;
     p {
-      @extend .proxima;
+      @extend .brand_font;
       visibility: visible;
       color: cv("text", "darker");
     }

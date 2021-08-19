@@ -67,7 +67,7 @@
   &--selector-block-margin {
     margin-bottom: 150px;
     padding-top: 42px;
-    @include media("<desktop-xl") {
+    @include media("<desktop") {
       margin-bottom: 30px;
       padding-top: 54px;
     }
@@ -300,6 +300,7 @@
     }
 
     #okta-sign-in {
+      font-family: $font-family;
       min-width: 210px;
       .auth-header {
         padding: 22px 90px 47px;
@@ -341,7 +342,7 @@
       &.main-page-widget-wrapper .button.button-primary {
         background: #1662DD;
         border: none;
-        text-transform: uppercase;
+        text-transform: none;
       }
       &.main-page-widget-wrapper .okta-form-label.o-form-label {
         display: none;
@@ -350,7 +351,6 @@
   }
 
   &--welcome-leia {
-    font-family: "Montserrat";
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -389,10 +389,7 @@
 
       .act-btn {
         display: block;
-        font-size: 13px;
         margin-right: 10px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
         padding: 0;
         color: inherit;
         display: block;

@@ -5,7 +5,7 @@ export default {
   omniboxConfig: {
     enableQueryExtensionAddon: true,
     enableQuerySyntax: true,
-    placeholder: "Search dev.okta.com",
+    placeholder: "Search our content...",
     triggerQueryOnClear: true
   },
   searchboxConfig: {

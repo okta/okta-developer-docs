@@ -83,7 +83,7 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
-      padding: 11px 10px;
+      padding: 11px 10px 12px;
       text-decoration: none;
       color: cv('text', 'darker');
       border-bottom: 1px solid cv('text', 'lighter');
@@ -113,6 +113,8 @@
         display: block;
         flex-grow: 1;
         padding-left: 13px;
+        padding-right: 10px;
+        line-height: 1rem;
         @include media("<desktop"){
           font-size: 18px;
         }

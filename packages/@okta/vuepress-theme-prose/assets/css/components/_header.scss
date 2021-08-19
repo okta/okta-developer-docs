@@ -171,8 +171,13 @@ header.page-header {
       max-width: 168px;
     }
 
-    .search--wrapper .SearchBox .search--form .CoveoSearchButton {
-      display: none;
+    .search--wrapper .SearchBox {
+      .CoveoOmnibox.magic-box .magic-box-input input {
+        padding-left: 30px;
+      }
+      .search--form .CoveoSearchButton {
+        display: none;
+      }
     }
 
     .header--links {
