@@ -82,7 +82,7 @@
     }
 
     .content__default {
-      @include media("<desktop") {
+      @include media("<desktop-xl") {
         margin-top: 20px;
       }
     }

@@ -15,7 +15,9 @@
 
   a {
     color: cv('text');
-    line-height: 1.6rem;
+    line-height: 1.2rem;
+    padding: 3px 0;
+
     &:visited {
       color: cv('text');
     }
@@ -55,7 +57,8 @@
       }
 
       ul {
-        margin-top: 1rem;
+        margin-top: 0;
+        padding-left: 1rem;
 
         li {
 
