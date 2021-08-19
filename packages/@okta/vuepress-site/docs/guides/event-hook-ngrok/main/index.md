@@ -4,15 +4,26 @@ excerpt: How to demonstrate Event Hooks using ngrok to expose a local app to the
 layout: Guides
 ---
 
-Intro text
+This guide demonstrates how to develop and test Okta Event Hooks with the ngrok utility.
 
-- process?
-- process?
-- process?
+Event Hooks are outbound calls from Okta that can be used to notify your own software systems of events occurring in your Okta org. See [Event Hooks](/docs/concepts/event-hooks/) for an overview.
 
-### Install ngrok
+The ngrok utility exposes local web servers to the internet, and can enable the testing of Okta Event Hooks using a local application, rather than an internet-based production or test external service.
 
-The ngrok utility exposes local web servers to the internet, and enables the testing of Okta Event Hooks using a local application, rather than an internet-based production or test external service.
+To use this guide, you need the following:
+
+- An Okta developer org. [Create an org for free](https://developer.okta.com/signup/).
+- A local application. Or use the one provided in the following guide.
+- The ngrok utility. Installation details are provided in the following guide.
+
+With those prerequisites satisfied, use the following steps to get up-and-running:
+
+1. [Install ngrok](/#install-ngrok)
+1. [Create a local sample app](/#create-a-local-application)
+1. [Set up an Event Hook](/#create-an-okta-event-hook)
+1. [Preview and test](/#preview-test-and-review-the-event-hook)
+
+## Install ngrok
 
 If you already have ngrok installed, move on to the next step! If not, follow the installation instructions at [https://ngrok.com/download](https://ngrok.com/download).
 
@@ -21,9 +32,9 @@ Some installation notes:
 - You do not need to have an account to install and run ngrok, but creating a free account provides more features as well as basic authentication.
 - You can install ngrok directly in your project folder, as documented from the ngrok download page. Or you can install on your system's path directory to be able to run ngrok from any folder. Alternatively, you can install the executable in your favorite local folder, but you'll need the folder path when referencing the tool.
 
-#### Run ngrok
+### Run ngrok
 
-After installing ngrok, ensure that it's running by creating a "tunnel" into a local port. If you installed directly into your project folder, run the following command in your terminal:
+After installing ngrok, ensure that it's running by creating a "tunnel" into a local port (8082 in this example). If you installed directly into your project folder, run the following command in your terminal:
 
 ```terminal
 > ./ngrok http 8082
@@ -47,15 +58,15 @@ If you see the following content in your terminal, ngrok is running successfully
 
 See [ngrok](https://ngrok.com) or their [documentation](https://ngrok.com/docs) for further information.
 
-### Create a local application
+## Create a local application
 
 <StackSelector snippet="sample-app"/>
 
-### Create an Okta Event Hook
+## Create an Okta Event Hook
 
 Create the Okta Event Hook to work with your local application, which can now be exposed externally. The Event Hook must be set up and verified within your Okta Admin Console.
 
-#### Set up the Event Hook
+### Set up the Event Hook
 
 1. Sign in to your [Okta org](https://login.okta.com/).
 
@@ -79,7 +90,7 @@ Create the Okta Event Hook to work with your local application, which can now be
 
 9. You can complete the one-time verification Okta call at this time or verify the Event Hook later. You need to have both your ngrok session and local application running to verify the initial Okta call.
 
-#### Verify the Event Hook
+### Verify the Event Hook
 
 You must verify the Event Hook to prove that your external service controls the endpoint. See [One-Time Verification Request](/docs/concepts/event-hooks/#one-time-verification-request) for further information on this process.
 
@@ -93,9 +104,9 @@ or
 
 The Event Hook is now set up with a status of **VERIFIED** and is ready to send Event Hook calls to your external service.
 
->**Note:** A successful Event Hook verification also indicates your local application is working with the ngrok session! Review the ngrok terminal for details on the the first `GET` call to your local application.
+>**Note:** A successful Event Hook verification also indicates your local application is working with the ngrok session! Review the ngrok terminal for details on the first `GET` call to your local application.
 
-### Preview, test, and review the Event Hook
+## Preview, test, and review the Event Hook
 
 With your local application now exposed externally through an ngrok session, you can preview and test Okta Event Hook calls, as well as review details of the calls using the ngrok dashboard. The Okta org is also set up to call your local application when an event is triggered. In this example, the event is triggered when a user is deactivated in the Okta org.
 
@@ -119,6 +130,8 @@ To run a preview call of your Event Hook, sign in to your Okta org as the super 
 
 9. Check your ngrok terminal session. Each call recorded by ngrok appears in the terminal.
 
+    ![A screen shot of the ngrok terminal that includes a simple line item of a call.](/img/ngrok-and-event-hooks-terminal-calls.png)
+
 ### Test
 
 To run a test of your Event Hook:
@@ -135,10 +148,12 @@ To run a test of your Event Hook:
     `The user John Doe has been deactivated on the Okta org!`
 7. Check your ngrok terminal session. Each call recorded by ngrok appears in the terminal.
 
+    ![A screen shot of the ngrok terminal that includes a simple line item of a call.](/img/ngrok-and-event-hooks-terminal-calls.png)
+
 ### Review ngrok dashboard
 
 The ngrok inspection interface provides an opportunity to review all calls to your local application. See [ngrok documentation](https://ngrok.com/docs#inspect-requests) for details on using this interface. With the ngrok utility running, open the following URL in a browser: `http://localhot:4040`.
 
 Each call to your local application appears in the interface and includes the response body, header, and other details:
 
-![A screen shot of the simple application web page that includes a welcome message and links to the Okta Developer documentation.](/img/ngrok-and-event-hooks-simple-app.png)
+![A screen shot of the ngrok web interface that includes the response body, header, and other details.](/img/ngrok-and-event-hooks-web-interface.png)

@@ -3,7 +3,7 @@ With ngrok installed, a local application can now function as an external servic
 
 The Event Hook use-case is a simple response to the deactivation of an Okta user, which is also presented in [Event Hook Guide](/docs/guides/event-hook-implementation/overview).
 
-#### Create a folder and initialize the project
+### Create a folder and initialize the project
 
 1. Create a local folder to hold your sample application and open it. In this example, `sample-app`.
 
@@ -25,9 +25,9 @@ The Event Hook use-case is a simple response to the deactivation of an Okta user
     >npm install body-parser
     ```
 
-#### Create the index and web server code
+### Create the index and web server code
 
-1. In the same `sample-app` directory, create an index page as follows, `index.html`, which will be served when running the application:
+1. In the same `sample-app` directory, create an index page, `index.html`, as follows, which will be served when running the application:
 
     ```HTML
     <head>
@@ -100,7 +100,7 @@ The Event Hook use-case is a simple response to the deactivation of an Okta user
     >node server.js
     ```
 
-1. Navigate to your local port to see the `index.html` page. In this example, `8082`:
+1. From your browser, navigate to your local port to see the `index.html` page. In this example, `8082`:
 
     `http://localhost:8082`
 
