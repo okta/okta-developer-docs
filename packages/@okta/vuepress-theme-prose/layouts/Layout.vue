@@ -41,6 +41,9 @@
               </span>
             </div>
           </div>
+          <div class="on-this-page">
+            <OnThisPage />
+          </div>
         </div>
       </div>
     </div>
@@ -61,6 +64,7 @@ export default {
   components: {
     Header: () => import("../components/Header.vue"),
     Sidebar: () => import("../components/Sidebar.vue"),
+    OnThisPage: () => import("../components/OnThisPage.vue"),
     MobileOnThisPage: () => import("../components/MobileOnThisPage.vue"),
     PageTitle: () => import("../components/PageTitle.vue"),
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
