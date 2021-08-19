@@ -68,7 +68,7 @@ To use the Native SSO functionality, you need to:
 * Exchange the code for tokens
 * Exchange existing tokens that are obtained from client 1 for a new set of tokens for client 2
 * Validate the device secret
-* Revoke the device secret to end a session
+* Revoke the device secret to end the session
 
 This feature is based on the [OpenID Connect Native SSO for Mobile Apps](https://openid.net/specs/openid-connect-native-sso-1_0.html) draft specification.
 
