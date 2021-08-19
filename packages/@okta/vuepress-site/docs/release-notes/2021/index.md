@@ -3,6 +3,23 @@ title: Okta API Products Release Notes 2021
 ---
 ## August
 
+### Weekly Release 2021.08.2
+
+| Change                                                                     | Expected in Preview Orgs |
+|----------------------------------------------------------------------------|--------------------------|
+| [Custom Administrator Roles is Self-Service EA](#custom-administrator-roles-is-self-service-ea) | August 18, 2021 |
+| [Bugs fixed in 2021.08.2](#bugs-fixed-in-2021-08-2)                          | August 18, 2021          |
+
+#### Custom Administrator Roles is Self-Service EA
+
+The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API provides operations that you can use to create customized roles and assign them to a user or a group. <!--OKTA-419528-->
+
+#### Bugs fixed in 2021.08.2
+
+- The QR code functionality was missing from the [Device Authorization feature](/docs/guides/device-authorization-grant/main/). (OKTA-410341)
+
+- When the `/introspect` endpoint was used to [validate the device secret](/docs/guides/configure-native-sso/-/main/#validate-the-device-secret), the introspect response didn't include the expiration (`exp`) property. (OKTA-415291)
+
 ### Weekly Release 2021.08.1
 
 | Change                                                                     | Expected in Preview Orgs |

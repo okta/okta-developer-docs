@@ -9,14 +9,6 @@ title: Overview
 
 This document describes how to integrate other user sign-in features into your app by using Okta's embedded Sign-In Widget. Most of the code samples in this guide are derived from the sample application that is provided with the widget.
 
-## Why use the embedded widget?
-
-You would most likely use the embedded widget primarily for these reasons:
-
-* Quick and easy integration
-* Most features are ready out of the box.
-* Most functionalities, such as multi-factor authentication, are merely a configuration change with no additional code.
-
 ## The widget flow
 
 In tandem with the embedded SDK, the widget integrates into your app by using a native language interface and communicates directly with the Okta APIs. The following summarizes the flow.
