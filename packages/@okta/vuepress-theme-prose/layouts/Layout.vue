@@ -70,7 +70,6 @@ export default {
     Breadcrumb: () => import("../components/Breadcrumb.vue"),
     ContentPage: () => import("../components/ContentPage.vue"),
     Footer: () => import("../components/Footer.vue"),
-    Documentation: () => import("../components/Documentation.vue"),
     Quickstart: () => import("../components/Quickstart.vue"),
     Pricing: () => import("../components/Pricing.vue"),
     OktaIntegrationNetwork: () =>
@@ -157,7 +156,7 @@ export default {
     },
     onResize() {
       this.appContext.isInMobileViewport =
-        window.innerWidth < TABLET_BREAKPOINT;
+        window.innerWidth <= TABLET_BREAKPOINT;
     },
     createEditLink(repo, docsRepo, docsDir, docsBranch, path) {
       return (

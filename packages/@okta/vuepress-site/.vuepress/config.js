@@ -317,8 +317,6 @@ module.exports = ctx => ({
               //'/docs/guides/third-party-risk-integration/test-integration/',
               //'/docs/reference/api/risk-providers/',
               //'/docs/reference/api/risk-events/',
-              '/docs/reference/api/iam-roles/',
-              '/docs/concepts/role-assignment/',
               '/docs/guides/migrate-to-oie/',
           ]
         }
