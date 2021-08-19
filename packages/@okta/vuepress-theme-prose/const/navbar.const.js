@@ -376,6 +376,10 @@ export const guides = [
         title: "Identity Engine",
         subLinks: [
           {
+            title: "Okta Identity Engine Overview",
+            path: "/docs/guides/oie-intro/"
+          },
+          {
             title: "Embedded authentication",
             subLinks: [
               {
