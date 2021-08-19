@@ -19,7 +19,7 @@ If you need help or have an issue, post a question on the [Okta Developer Forum]
 This guide assumes that you:
 
 * Have an Okta Developer Edition organiztion. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Have the Native SSO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the Native SSO slider, and slide to enable.
+* Have the Native SSO feature enabled for your org. From the left navigation pane in the Admin Console, go to **Settings** > **Features**, locate the **OpenID Connect Native SSO** slider, and slide to enable.
 
 ## Native SSO flow
 
@@ -69,7 +69,7 @@ To use the Native SSO functionality, you need to:
 * Exchange the code for tokens
 * Exchange existing tokens that are obtained from client 1 for a new set of tokens for client 2
 * Validate the device secret
-* Revoke the device secret to end a desktop session
+* Revoke the device secret to end a session
 
 This feature is based on the [OpenID Connect Native SSO for Mobile Apps](https://openid.net/specs/openid-connect-native-sso-1_0.html) draft specification.
 
@@ -79,21 +79,28 @@ To configure Native SSO, start by setting up your application. To walk through t
 
 1. From the left navigation pane in the Admin Console, go to **Applications** > **Applications**.
 1. Click **Create App Integration**.
-1. On the Create a new app integration page, select **OIDC - OpenID Connect** as the **Sign-in method** and then pick **Native Application** as the **Application type**. Click **Next**.
-1. Fill in the details for your app integration, and then click **Save**.
+1. On the Create a new app integration page, select **OIDC - OpenID Connect** as the **Sign-in method** and choose **Native Application** as the **Application type**. Click **Next**.
+1. Enter a name for your new app integration.
+1. Select **Token Exchange** in the **Grant type** section.
+1. In this example, we are granting everyone access to the application. In the **Assignments** section, select **Allow everyone in your organization to access**. Click **Save**.
 1. On the **General** tab, click the **Copy to clipboard** icon for the **Client ID** and save the ID somewhere.
 
 ## Configure Native SSO for your Okta org
 
-Configure Native SSO for your org by updating the authorization server policy rule to allow the token exchange grant. In this use case example, we are using the "default" Custom Authorization Server. Org Authorization Server is not supported with this feature.
+Configure Native SSO for your org by updating the authorization server policy rule to allow the token exchange grant. In this example, we are using the "default" Custom Authorization Server. The Org Authorization Server isn't supported.
+
+> **Note:** You must have an authorization server policy and a rule set up to allow the scopes that you need. See [Create access policies](/docs/guides/customize-authz-server/create-access-policies/) and [Create rules for each access policy](/docs/guides/customize-authz-server/create-rules-for-policy/).
+
+To update the authorization server policy rule:
 
 1. From the left navigation pane in the Admin Console, go to **Security** > **API** to view your authorization servers.
-1. On the **Authorization Servers** tab, click the **edit** pencil icon for the "default" Custom Authorization Server.
+1. On the **Authorization Servers** tab, click the pencil icon for the "default" Custom Authorization Server.
 1. On the **Scopes** tab, verify that `offline_access`, `device_sso`, and `openid` appear in the scopes table.
-1. Ensure that an authorization server policy and a rule are set up to allow the scopes that you need. See [Create access policies](/docs/guides/customize-authz-server/create-access-policies/) and [Create rules for each access policy](/docs/guides/customize-authz-server/create-rules-for-policy/).
-1. Use the following API requests to update the policy rule to allow the token exchange grant.
+1. In the Edit Rule dialog box, select **Token Exchange** as a grant type in the **IF Grant type is** section and click **Update Rule**.
 
-> **Note:** At this time, you must use the API to update the policy rule.
+
+
+
 
 ### Obtain the policy ID
 
