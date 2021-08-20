@@ -12,7 +12,7 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 **Authentication endpoints:**
 
 * `/api/v1/authn`
-* `/api/v1/authn/factors/{factorIdOrFactorType}/verify`
+* `/api/v1/authn/factors/${factorIdOrFactorType}/verify`
 * `/api/v1/sessions`
 * `/login/login.htm`
 * `/login/sessionCookieRedirect`
@@ -20,7 +20,7 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 
 **OAuth2 endpoints:**
 
-* `/oauth2/{authorizationServerId}/v1`
+* `/oauth2/${authorizationServerId}/v1`
 * `/oauth2/v1` except `/oauth2/v1/clients`
 * `/idp/idx/introspect` <ApiLifecycle access="ie" />
 * `/idp/idx/identify` <ApiLifecycle access="ie" />
@@ -28,14 +28,14 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 
 **SAML endpoints:**
 
-* `/app/template_saml_2_0/{key}/sso/saml`
-* `/app/{app}/{key}/sso/saml`
+* `/app/template_saml_2_0/${key}/sso/saml`
+* `/app/${app}/{key}/sso/saml`
 
 **Single User/Group/App operations (Get, Update, and Delete):**
 
-* `/api/v1/apps/{id}`&#160;
-* `/api/v1/groups/{id}`&#160;
-* `/api/v1/users/{idOrLogin}`&#160;
+* `/api/v1/apps/${id}`&#160;
+* `/api/v1/groups/${id}`&#160;
+* `/api/v1/users/${idOrLogin}`&#160;
 
 > **Notes:**
 >

@@ -314,7 +314,7 @@ The following is an example of a System Log rate limit event for too many profil
             "id": "00u1ngpFSRLFie7vT0g4",
             "type": "User",
             "alternateId": "john.smith@example.com",
-            "displayName": "John Smith",            
+            "displayName": "John Smith",
             "detailEntry": null
         },
         "client": {
