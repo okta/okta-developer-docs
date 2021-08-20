@@ -47,11 +47,9 @@ export default {
   watch: {
     $route(to, from) {
       // On route change check if base path has changed.
-      // If true re-render sidebar.
-      // This condition will check if it's 'real' route change or just on page scroll
-      // In porccess when the page scrolling happens,
-      // Route could change it hash fragment and it also will trigger sidebar re-rendering
-      // But it shouldn't happen because page remains the same
+      // If true, re-render sidebar.
+      // We want to check if it's a 'real' route change (re-render sidebar) or just a page scroll
+      // where the hash fragment changes (do nothing)
       if (from.path !== to.path) {
         // Preveusly we tried to remove re-render logic but seems it
         // caused additional bugs (https://oktainc.atlassian.net/browse/OKTA-419090, https://oktainc.atlassian.net/browse/OKTA-419134)
