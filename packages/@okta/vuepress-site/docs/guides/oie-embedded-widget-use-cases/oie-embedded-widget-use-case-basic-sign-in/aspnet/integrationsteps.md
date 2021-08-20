@@ -46,7 +46,7 @@ ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenRespons
 _authenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
 ```
 
-### 5: (Optional) Call user profile information
+### 5 (Optional): Call user profile information
 
 Depending on your implementation, you can choose to pull user information. When you use the tokens that are provided by the `RedeemInteractionCodeAsync` method, you can request the user profile information from the `v1/userinfo` endpoint. The following code from the sample app provides details for this call.
 

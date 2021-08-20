@@ -190,7 +190,7 @@ var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
 var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-### 12: (Optional) Update sent email template
+### 12 (Optional): Update sent email template
 
 The email sent to the user has a **Verify Email Address** link that isn't yet
 supported. Accordingly, there are two recommended options to mitigate this limitation.
@@ -273,11 +273,11 @@ The remaining authenticator should display the phone factor to the user. Since t
 
 The user can either enroll in the phone factor or skip the phone factor. Your code should handle both scenarios that will be described in the following steps.
 
-### 18a, Option 1, Select phone authenticator
+### 18a, Option 1: Select phone authenticator
 
 If the user selects the phone authenticator (instead of skipping it), the steps to enroll and verify are similar to the email factor verification flow in this section with subtle differences.
 
-### 18b: Option 1: Start phone verification
+### 18b, Option 1: Start phone verification
 
 If the user selects the **phone** authenticator, a call to `EnrollAuthenticatorAsync` is made passing in the **phone** `AuthenticatorId`. If successful, the method should return an `AwaitingAuthenticatorEnrollmentData` response. The `AwaitingAuthenticatorEnrollmentData `response indicates that the enrollment data is required before continuing to verification.
 
@@ -402,7 +402,7 @@ switch (authnResponse.AuthenticationStatus)
 }
 ```
 
-### 19, Option 2: Skip phone enrollment
+### 19a, Option 2: Skip phone enrollment
 
 If the user opts to skip phone enrollment, a call to `SkipAuthenticatorSelectionAsync` needs to be made. This method skips phone enrollment and eliminates the need to verify the factor. See the following code snippet for more details.
 
