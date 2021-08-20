@@ -30,7 +30,7 @@ In the General Settings page, you need to fill in the basic information about yo
 
 ## Customer support
 
-* **Public support contact** &mdash; include a public point of contact (support email or phone number) for users who need assistance with your integration. You can also include a link to a FAQ or troubleshooting guide to help with common issues. This information is shared with the customers in the OIN catalog description.
+* **Support contacts** &mdash; include a public point of contact (support email, URL, or phone number) for users who need assistance with your integration. You can also include a link to a FAQ or troubleshooting guide to help with common issues. This information is shared with the customers in the OIN catalog description.
 
 * **Escalation support contact** &mdash; this should be an email distribution list for Okta to use when contacting your company about your integration. It can be a phone number, but ideally when there is an issue with your integration, Okta wants to reach as many people as possible without creating any bottlenecks. Make sure that the contact provided here is not a generic contact such as `support@example.com` or a 1-800 number. The escalation contact should be a contact list that Okta can reach out to in any emergencies. This contact information is not shared with customers.
 
