@@ -35,7 +35,7 @@ Fetches a list of events from your Okta organization system log
 
 Parameter Details
 
-* Treat the `after` cursor as an opaque value as its contents are subject to change without notice. Obtain it through the `next` link relation. See [Pagination](/docs/reference/core-okta-api/#pagination) for more details on link relations.
+* Treat the `after` cursor as an opaque value as its contents are subject to change without notice. Obtain it through the `next` link relation. See [Pagination](/docs/reference/core-okta-api/#pagination) for more information on link relations.
 * `startDate` and `filter` query parameters are mutually exclusive and cannot be used together in the same request.
 * `startDate` and `after` query parameters are mutually exclusive and cannot be used together in the same request.
 * `startDate` defaults to 1 hour ago when `filter`, `after` and `startDate` query parameters are omitted.
