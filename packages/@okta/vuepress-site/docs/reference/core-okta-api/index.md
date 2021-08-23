@@ -91,7 +91,7 @@ Used for replacing objects or collections. For PUT requests with no `body` param
 
 Used for deleting objects
 
-> **Note:** Any PUT or POST request with no `Content-Length` header nor a body returns a 411 error. To get around this, include a `Content-Length: 0` header.
+> **Note:** Any PUT or POST request without a `Content-Length` header or a body returns a 411 error. To get around this, include a `Content-Length: 0` header.
 
 ### Client request context
 
