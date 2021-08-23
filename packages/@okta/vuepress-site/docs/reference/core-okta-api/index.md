@@ -190,7 +190,7 @@ You can now interact with Okta APIs that use scoped OAuth 2.0 access tokens for 
 
 Requests that return a list of objects may support pagination. Pagination is based on a cursor and not on page number. The cursor is opaque to the client and specified in either the `before` or `after` query parameter. For some objects, you can also set a custom page size with the `limit` parameter.
 
-Note that for technical reasons not all APIs respect pagination or the `before` and `limit` parameters, see the [Events API](/docs/reference/api/events/) for example.
+> **Note:** For technical reasons, not all APIs respect pagination or the `before` and `limit` parameters. See the [Events API](/docs/reference/api/events/) for an example.
 
 | Param    | Description                                                                             |
 | -------- | ------------                                                                            |
