@@ -33,21 +33,13 @@ export default {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
-    toggleSubNav: function(event) {
-      const parent = event.target.parentElement;
-      const sections = parent.querySelector(".sections");
-      if (!sections) {
-        return;
-      }
-      event.preventDefault();
-    },
     handleScroll: function(event) {
       let maxHeight =
         window.innerHeight -
         document.querySelector(".fixed-header").clientHeight ;
 
       document.querySelector(".sidebar-area").style.height =
-        maxHeight + "px"; 
+        maxHeight + "px";
     },
   }
 };
