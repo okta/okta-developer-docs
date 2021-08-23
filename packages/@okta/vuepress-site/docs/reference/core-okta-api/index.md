@@ -137,7 +137,7 @@ The public IP address of your application is automatically used as the client IP
 
 ### Accept Language
 
-The `Accept-Language` HTTP header advertises which languages the client is able to understand, for example `Accept-Language: en-US`. Include it if it is available.
+The `Accept-Language` HTTP header advertises which languages the client is able to understand, for example `Accept-Language: en-US`. Include the header if it is available.
 
 ### Device Fingerprint
 
