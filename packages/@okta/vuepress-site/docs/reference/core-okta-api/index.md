@@ -229,7 +229,7 @@ The attribute names are case-sensitive while attribute operators are case-insens
 
     filter=firstName eq "john"
 
-The filter and search parameters must contain at least one valid Boolean expression. Each expression must contain an attribute name followed by an attribute operator and optional value. Multiple expressions may be combined using the two logical operators. Furthermore, you can group expressions together using `()`.
+The filter and search parameters must contain at least one valid Boolean expression. Each expression must contain an attribute name followed by an attribute operator and optional value. Multiple expressions can be combined using two logical operators. Furthermore, you can group expressions together using `()`.
 
 > **Note:** Each object in the Okta API defines what attributes and operators are supported for the expression. See object-specific documentation for more information.
 
