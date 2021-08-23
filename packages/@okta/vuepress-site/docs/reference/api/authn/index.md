@@ -611,7 +611,7 @@ curl -v -X POST \
 
 #### Primary authentication with activation token
 
-Authenticates a user via a [trusted application](#trusted-application) or proxy that overrides the [client request context](/docs/reference/core-okta-api/#client-request-context)
+Authenticates a user through a [trusted application](#trusted-application) or proxy that overrides the [client request context](/docs/reference/core-okta-api/#client-request-context)
 
 **Notes:**
 
