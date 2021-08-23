@@ -147,7 +147,7 @@ The `X-Device-Fingerprint` HTTP header supplies the device fingerprint used in a
 
 > **Note:** JSON responses, including errors, may contain user input. To help prevent potential cross-site scripting attacks, ensure to properly escape all values before use in a browser or any HTML context.
 
-All requests on success return a 200 status if there is content to return or a 204 status if there is no content to return.
+All successful requests return a 200 status if there is content to return or a 204 status if there is no content to return.
 
 All requests that result in an error return the appropriate 4xx or 5xx error code with a custom JSON error object:
 
