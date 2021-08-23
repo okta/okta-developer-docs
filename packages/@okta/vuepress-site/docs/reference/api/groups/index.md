@@ -239,7 +239,7 @@ Reminders about the `limit` query parameter and query timeouts:
 * If you don't specify any value for `limit` and do specify a query, a maximum of 10 results are returned.
 * The maximum value for `limit` is 200 for most orgs.
 * Don't write code that depends on the default or maximum value, as it may change.
-* If you receive an HTTP 500 status code, you more than likely have exceeded the request timeout. Retry your request with a smaller `limit` and [page the results](/docs/reference/core-okta-api/#pagination).
+* If you receive an HTTP 500 status code, you have more than likely exceeded the request timeout. Retry your request with a smaller `limit` and [page the results](/docs/reference/core-okta-api/#pagination).
 
 ##### Request example
 
