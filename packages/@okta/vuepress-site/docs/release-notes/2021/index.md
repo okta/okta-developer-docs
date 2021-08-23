@@ -7,11 +7,11 @@ title: Okta API Products Release Notes 2021
 
 | Change                                                                     | Expected in Preview Orgs |
 |----------------------------------------------------------------------------|--------------------------|
-| [Bugs fixed in 2021.08.3](#bugs-fixed-in-2021-08-3)                          | August 11, 2021          |
+| [Bug fixed in 2021.08.3](#bug-fixed-in-2021-08-3)                          | August 25, 2021          |
 
-#### Bugs fixed in 2021.08.3
+#### Bug fixed in 2021.08.3
 
-- Requests for Native SSO [token exchange](/docs/guides/configure-native-sso/main/#exchange-the-code-for-tokens) failed intermittently with an `invalid actor token` error. (OKTA-421225)
+Requests for Native SSO [token exchange](/docs/guides/configure-native-sso/main/#exchange-the-code-for-tokens) failed intermittently with an `invalid actor token` error. (OKTA-421225)
 
 ### Weekly Release 2021.08.2
 
