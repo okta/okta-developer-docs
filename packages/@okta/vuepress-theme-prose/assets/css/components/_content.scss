@@ -64,9 +64,10 @@
 
   .content-area {
     flex: 1;
-    max-width: calc(100% - 266px);
+    max-width: calc(82% - 266px);
     padding: 23px 59px;
     @include media("<desktop-xl") {
+      max-width: calc(100% - 266px);
       padding: 30px 57px;
     }
     @include media("<desktop") {
