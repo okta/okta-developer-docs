@@ -43,7 +43,7 @@ Parameter Details
 
 ###### Reliable Ingestion
 
-The most reliable method to ingest all events from Okta is to use a [pagination](/docs/reference/core-okta-api/#pagination) cursor via the `after` parameter. This will ensure that events are not skipped or duplicated due to the lack of timestamp precision.
+The most reliable method to ingest all events from Okta is to use a [pagination](/docs/reference/core-okta-api/#pagination) cursor through the `after` parameter. This method ensures that events are not skipped or duplicated due to the lack of timestamp precision.
 
 The general sequence of steps to leverage the `after` parameter:
 
