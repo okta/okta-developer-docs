@@ -1133,7 +1133,7 @@ The first three parameters in the table below correspond to different types of l
 | sortOrder   | Specifies sort order asc or desc (for search queries only)                                                                                     | Search query | String     | FALSE    |
 
   * If you don't specify a value for `limit`, the maximum (200) is used as a default.  If you are using a `q` parameter, the default limit is 10.
-  * An HTTP 500 status code usually indicates that you have exceeded the request timeout.  Retry your request with a smaller limit and paginate the results. For more information, see [Pagination](/docs/reference/core-okta-api/#pagination).
+  * An HTTP 500 status code usually indicates that you have exceeded the request timeout. Retry your request with a smaller limit and [paginate](/docs/reference/core-okta-api/#pagination) the results.
   * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response Parameters
