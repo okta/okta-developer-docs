@@ -215,7 +215,7 @@ The possible `rel` values are:
 | `self`             | Specifies the URL of the current page of results         |
 | `next`             | Specifies the URL of the immediate next page of results |
 
-When you first make an API call and get a cursor-paged list of objects, the end of the list is the point at which you don't receive another `next` link value with the response. This holds true for all cases, except for the [System Log API](/docs/reference/api/system-log/), where the `next` link always exists in [System Log](/docs/reference/api/system-log/#list-events) polling queries. A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter, providing a stream of data.
+When you first make an API call and get a cursor-paged list of objects, the end of the list is the point where you don't receive another `next` link value with the response. This holds true for all cases, except for the [System Log API](/docs/reference/api/system-log/) where the `next` link always exists in [System Log](/docs/reference/api/system-log/#list-events) polling queries. A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter, providing a stream of data.
 
 ### Filter
 
