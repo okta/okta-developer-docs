@@ -266,7 +266,7 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 
 | Operator | Description         | Behavior                                |
 | -------- | -----------         | --------                                                                                   |
-| `()`       | Precedence grouping | Boolean expressions may be grouped using parentheses to change the standard order of operations: for example, evaluate OR logical operators before logical AND operators. |
+| `()`       | Precedence grouping | Boolean expressions may be grouped by using parentheses to change the standard order of operations, for example, evaluate OR logical operators before logical AND operators. |
 
 Filters must be evaluated using the standard order of operations. Attribute operators have the highest precedence, followed by the grouping operator (for example, parentheses), followed by the logical `AND` operator, followed by the logical `OR` operator.
 
