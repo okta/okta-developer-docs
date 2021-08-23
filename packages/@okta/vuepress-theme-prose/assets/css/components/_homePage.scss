@@ -10,7 +10,7 @@
 }
 
 .homepage {
-  background-color: cv('body');
+  background-color: cv('body', 'lighter');
   font-family: $font-family;
   min-height: 100vh;
   color: cv('text');
@@ -76,7 +76,8 @@
   &--assurance-block-margin {
     padding-top: 54px;
     padding-bottom: 105px;
-    background: cv('body') url('/img/homepage/gray-to-white-bg.svg') repeat-x left bottom;
+    background: cv('body', 'lighter') url('/img/homepage/gray-to-white-bg.svg') repeat-x left bottom;
+
     @include media("<desktop") {
       padding-bottom: 165px;
       padding-top: 91px;
@@ -316,7 +317,7 @@
         padding: 60px 35px 20px;
       }
       &.no-beacon .auth-content {
-        padding-bottom: 17px;
+        padding-bottom: 34px;
       }
       .o-form-head {
         font-size: 11px;
@@ -335,6 +336,7 @@
       }
       .auth-footer {
         font-size: 11px;
+        margin-top: 5px;
       }
       .o-form-button-bar {
         padding-bottom: 15px;

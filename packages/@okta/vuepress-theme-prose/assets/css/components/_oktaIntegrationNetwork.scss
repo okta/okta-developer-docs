@@ -38,7 +38,7 @@ $magenta: #e22866;
   }
 
   .oin-alt-bg {
-    background: cv('body') url('/img/homepage/gray-to-white-bg.svg') repeat-x left bottom;
+    background: cv('body', 'lighter') url('/img/homepage/gray-to-white-bg.svg') repeat-x left bottom;
   }
 
   .oin--background-curve {

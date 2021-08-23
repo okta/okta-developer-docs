@@ -52,7 +52,6 @@
     width: 266px;
     position: sticky;
     overflow: auto;
-    border-right: 1px solid cv('body', 'border');
     background: cv('body');
     top: 87px;
     @include media("<desktop-xl") {
