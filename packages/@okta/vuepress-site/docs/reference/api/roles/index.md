@@ -466,7 +466,7 @@ Lists all Group targets for a `USER_ADMIN` or `HELP_DESK_ADMIN` Role assigned to
 | limit           | Specifies the number of results for a page (default is 20)     | Query        | Number     | FALSE    |
 | roleId          | `id` of a Role                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ###### Response parameters
 
