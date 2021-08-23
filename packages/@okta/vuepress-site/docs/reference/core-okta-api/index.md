@@ -239,12 +239,12 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 
 | Operator | Description           | Behavior                                                                                                                                                                                                                                                                      |
 | -------- | -----------           | --------                                                                                                                                                                                                                                                                      |
-| `eq`       | equal                 | The attribute and operator values must be identical for a match.                                                                                                                                                                                                              |
-| `ge`       | greater than or equal | If the attribute value is greater than or equal to the operator value, there is a match. The actual comparison depends on the attribute type. `String` attribute types are a lexicographical comparison and `Date` types are a chronological comparison. |
-| `gt`       | greater than          | If the attribute value is greater than operator value, there is a match. The actual comparison depends on the attribute type. `String` attribute types are a lexicographical comparison and `Date` types are a chronological comparison.                 |
-| `le`       | less than or equal    | If the attribute value is less than or equal to the operator value, there is a match. The actual comparison depends on the attribute type. `String` attribute types are a lexicographical comparison and `Date` types are a chronological comparison.   |
-| `lt`       | less than             | If the attribute value is less than operator value, there is a match. The actual comparison depends on the attribute type. `String` attribute types are a lexicographical comparison and `Date` types are a chronological comparison.                    |
-| `ne`       | not equal             | If the attribute value does not match the operator value, there is a match. |
+| `eq`       | equal                 | The attribute and operand values must be identical for a match.                                                                                                                                                                                                              |
+| `ge`       | greater than or equal | If the attribute value is greater than or equal to the operand value, there is a match. The actual comparison depends on the attribute type. `String` attribute types are a lexicographical comparison and `Date` types are a chronological comparison. |
+| `gt`       | greater than          | If the attribute value is greater than operand value, there is a match. The actual comparison depends on the attribute type. `String` attribute types are a lexicographical comparison and `Date` types are a chronological comparison.                 |
+| `le`       | less than or equal    | If the attribute value is less than or equal to the operand value, there is a match. The actual comparison depends on the attribute type. `String` attribute types are a lexicographical comparison and `Date` types are a chronological comparison.   |
+| `lt`       | less than             | If the attribute value is less than operand value, there is a match. The actual comparison depends on the attribute type. `String` attribute types are a lexicographical comparison and `Date` types are a chronological comparison.                    |
+| `ne`       | not equal             | If the attribute value does not match the operand value, there is a match. |
 | `pr`       | present (has value)   | If the attribute has a non-empty value or if it contains a non-empty node for complex attributes, there is a match.                                                                                                                                                           |
 | `sw`       | starts with           | The entire operand value must be a substring of the attribute value that starts at the beginning of the attribute value. This criterion is satisfied if the two strings are identical.                                                                                         |
 
@@ -280,7 +280,7 @@ The Okta API incorporates [JSON Hypertext Application Language](http://tools.iet
 
 ### Links
 
-Object whose property names are link relation types (as defined by [RFC8288](http://tools.ietf.org/html/rfc8288)) and values are either a Link object or an array of Link objects.
+Objects with property names that are link relation types (as defined by [RFC8288](http://tools.ietf.org/html/rfc8288)) have values that are either a Link object or an array of Link objects. Link objects contain the following:
 
 - A target URI
 - The name of the link relation (`rel`)
