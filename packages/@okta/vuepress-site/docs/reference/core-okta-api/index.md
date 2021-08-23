@@ -339,7 +339,7 @@ In Okta, CORS allows JavaScript hosted on your websites to make an XHR to the Ok
 
 ### API support
 
-The Okta API supports CORS on an API by API basis. If you're building an application that needs CORS, please check that the specific operation supports CORS for your use case. APIs that support CORS are marked with the following icon: <SupportsCors />.
+The Okta API supports CORS on an API by API basis. If you're building an application that needs CORS, check that the specific operation supports CORS for your use case. APIs that support CORS are marked with the following icon: <SupportsCors />.
 
 ### Additional help
 
