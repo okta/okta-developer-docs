@@ -17,6 +17,7 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 * `/login/login.htm`
 * `/login/sessionCookieRedirect`
 * `/login/token/redirect`
+* `/login/step-up/redirect`
 
 **OAuth2 endpoints:**
 
