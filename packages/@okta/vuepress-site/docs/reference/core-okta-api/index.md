@@ -152,7 +152,7 @@ All successful requests return a 200 status if there is content to return or a 2
 All requests that result in an error return the appropriate 4xx or 5xx error code with a custom JSON error object:
 
 - `errorCode`: A code that is associated with this error type
-- `errorLink`: A link to documentation with a more detailed explanation of the error (Note: this has yet to be implemented and for the time being is the same value as the `errorCode`)
+- `errorLink`: A link to documentation with a more detailed explanation of the error (not yet implemented and is currently the same value as the `errorCode`)
 - `errorSummary`: A natural language explanation of the error
 - `errorId`: An ID that identifies this request. These IDs are mapped to the internal error on the server side to assist in troubleshooting.
 
