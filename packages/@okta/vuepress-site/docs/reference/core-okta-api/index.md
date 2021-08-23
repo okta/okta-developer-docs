@@ -26,7 +26,7 @@ REST endpoints to configure objects whenever you need. For example:
 - The [Policy API](/docs/reference/api/policy/) creates and manages settings such as a user's session lifetime.
 - The [Factors API](/docs/reference/api/factors/) is used to enroll, manage, and verify factors for multi-factor authentication (MFA).
 
-## Design Principles
+## Design principles
 
 ### Versioning
 
