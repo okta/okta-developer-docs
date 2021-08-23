@@ -113,7 +113,7 @@ We recommend that you use a template like the following to format the `User-Agen
 
 `User-Agent: Mozilla/5.0 (<system-information>) <platform> (<platform-details>) <extensions>`
 
-Okta recommends making test [authentication requests](/docs/reference/api/authn/#primary-authentication) and then checking for the related entries in the [System Log](/docs/reference/api/system-log/#useragent-object). Testing helps you make sure that Okta can parse both the `OS` and `Browser` fields from the `User-Agent` header that is passed by your application.
+Okta recommends making test [authentication requests](/docs/reference/api/authn/#primary-authentication) and then checking for the related entries in the [System Log](/docs/reference/api/system-log/#useragent-object). Testing helps you ensure that Okta can parse both the `OS` and `Browser` fields from the `User-Agent` header that is passed by your application.
 
 If the `OS` and/or `Browser` fields come back as `Unknown` in the System Log, make sure that certain string values (see below) are present in the `User-Agent` string so that the OS and Browser are detected:
 
