@@ -343,4 +343,4 @@ The Okta API supports CORS on an API by API basis. If you're building an applica
 
 ### Additional help
 
-In addition to all the information in this portal, you can view developer videos in our [YouTube channel](https://www.youtube.com/channel/UC5AMiWqFVFxF1q9Ya1FuZ_Q).
+In addition to all the information in this portal, you can view developer videos on our [YouTube channel](https://www.youtube.com/channel/UC5AMiWqFVFxF1q9Ya1FuZ_Q).
