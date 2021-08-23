@@ -30,14 +30,14 @@ Lists the Audits for a Team
 
 This endpoint requires one of the following roles: `access_user`, `access_admin`, or `reporting_user`.
 
-#### Request path parameters
+##### Request path parameters
 
 | Parameter | Type        | Description   |
 | --------- | ----------- | ------------- |
 | `team_name`   | string | The name of your Team |
 
 
-#### Request query parameters
+##### Request query parameters
 
 | Parameter | Type   | Description |
 | --------- | ------------- | -------- |
@@ -47,11 +47,11 @@ This endpoint requires one of the following roles: `access_user`, `access_admin`
 | `prev`   |  boolean | (Optional) The direction of paging |
 
 
-#### Request body
+##### Request body
 
 This endpoint has no request body.
 
-#### Response body
+##### Response body
 This endpoint returns a list of objects with the following fields and a `200` code on a successful call.
 | Properties | Type        | Description          |
 |----------|-------------|----------------------|
