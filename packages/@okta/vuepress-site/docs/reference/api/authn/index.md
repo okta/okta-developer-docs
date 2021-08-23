@@ -555,7 +555,7 @@ User is assigned to a **MFA Policy** that requires enrollment during sign-in and
 
 #### Primary authentication with trusted application
 
-Authenticates a user via a [trusted application](#trusted-application) or proxy that overrides [client request context](/docs/reference/core-okta-api/#client-request-context)
+Authenticates a user through a [trusted application](#trusted-application) or proxy that overrides the [client request context](/docs/reference/core-okta-api/#client-request-context)
 
 **Notes:**
 
