@@ -724,7 +724,7 @@ Lists all App targets for an `APP_ADMIN` Role assigned to a User
 | roleId      | `id` of a Role                                                 | URL          | String     | TRUE     |
 | userId      | `id` of a User                                                 | URL          | String     | TRUE     |
 
-Treat the page cursor as an opaque value: obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
+Treat the page cursor as an opaque value. You can obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ###### Response parameters
 
