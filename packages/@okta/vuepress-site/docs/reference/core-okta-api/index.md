@@ -49,7 +49,7 @@ Do not consume any Okta API unless it is documented on this site. All undocument
 - Existing properties cannot be removed from future versions of the response.
 - Properties with null values may be omitted by responses.
 
-### URL Namespace
+### URL namespace
 
 All URLs listed in the documentation should be preceded with your organization's subdomain (tenant) and API version: `https://${yourOktaDomain}.com/api/${apiversion}`
 The API version is currently `v1`.
