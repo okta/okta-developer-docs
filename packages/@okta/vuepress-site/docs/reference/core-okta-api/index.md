@@ -196,7 +196,7 @@ Requests that return a list of objects may support pagination. Pagination is bas
 | -------- | ------------                                                                            |
 | `before` | The cursor that points to the start of the page of data that has been returned. |
 | `after`  | The cursor that points to the end of the page of data that has been returned.   |
-| `limit`  | This is the number of individual objects that are returned in each page.                |
+| `limit`  | The number of individual objects that are returned in each page.                |
 
 ### Link header
 
