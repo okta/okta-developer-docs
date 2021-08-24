@@ -5,7 +5,7 @@ Add the file `client_secrets.json` to the folder with your application that incl
 {
   "auth_uri": "https://${yourOktaDomain}/oauth2/default/v1/authorize",
   "client_id": "${CLIENT_ID}",
-  "client_secret": "${CLIENT_SECRET}",
+  "client_secret": "${clientSecret}",
   "redirect_uri": "http://localhost:8080/authorization-code/callback",
   "issuer": "https://${yourOktaDomain}/oauth2/default",
   "token_uri": "https://${yourOktaDomain}/oauth2/default/v1/token",

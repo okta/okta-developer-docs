@@ -34,7 +34,7 @@ We recommend that you always use the Authorization Code grant flow. See [Impleme
     * **Access Token URL** &mdash; enter the token endpoint for your Org Authorization Server. For example: `https://${yourOktaDomain}/oauth2/v1/token`
     * **Code Challenge Method** &mdash; leave the default of `SHA-256` selected
     * **Code Verifier** &mdash; leave it empty so that Postman generates its own
-    * **Client ID** &mdash; use the `client_id` of your Okta OAuth application that you created in the <GuideLink link="../create-oauth-app">previous step</GuideLink>.
+    * **Client ID** &mdash; use the `client_id` of your Okta OAuth 2.0 application that you created in the <GuideLink link="../create-oauth-app">previous step</GuideLink>.
     * **Scope** &mdash; include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already exist in the application's grants collection and the user must have the permission to perform those actions. See <GuideLink link="../scopes">Scopes and supported endpoints</GuideLink> for more information.
     * **State** &mdash; use any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which your client can verify to help prevent cross-site request forgery attacks.
     * **Client Authentication** &mdash; set to **Send client credentials in body**.
