@@ -39,7 +39,7 @@ With the primary authentication flow (no MFA, no password management, and so on)
 
 If the user is authenticated, then the SDK returns the `OktaAuthStatusSuccess` status in the `onStatusChange` closure parameter.
 
-The following is an example of an `AuthFlowCoordinator` implementation. Let's assume that your `LoginViewController` has the `flowCoordinatorDelegate` property. The property is declared with the `AuthFlowCoordinatorProtocol` type and required for delegating status handling responsilbity to the `AuthFlowCoordinator` object.
+The following is an example of an `AuthFlowCoordinator` implementation. Let's assume that your `LoginViewController` has the `flowCoordinatorDelegate` property. The property is declared with the `AuthFlowCoordinatorProtocol` type and required for delegating status handling responsibility to the `AuthFlowCoordinator` object.
 
 **`AuthFlowCoordinatorProtocol`**
 
