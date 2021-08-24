@@ -71,10 +71,13 @@
           position: absolute;
           content: '';
           background: cv('link');
-          left: -15px;
+          left: -18px;
           top: 6px;
           width: 2px;
           height: 9px;
+          @include media("<desktop-xl") {
+            left: -13px;
+          }
         }
       }
       > span.text-holder {
