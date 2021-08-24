@@ -2,7 +2,7 @@ You could create a `callMessagesApi` function that makes an authenticated reques
 
 ```java
 private void callMessagesApi() {
-    Uri uri = Uri.parse("https://{resourceUrl}");
+    Uri uri = Uri.parse("https://${resourceUrl}");
     HashMap<String, String> properties = new HashMap<>();
     properties.put("queryparam", "queryparam");
     HashMap<String, String> postParameters = new HashMap<>();

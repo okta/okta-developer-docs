@@ -11,7 +11,7 @@ func AuthMiddleware(next http.Handler) http.Handler {
     bearerToken := tokenParts[1]
     toValidate := map[string]string{}
     toValidate["aud"] = "api://default"
-    toValidate["cid"] = "{CLIENT_ID}"
+    toValidate["cid"] = "${CLIENT_ID}"
     jwtVerifierSetup := jwtverifier.JwtVerifier{
             Issuer: "https://${yourOktaDomain}/oauth2/default",
             ClaimsToValidate: toValidate

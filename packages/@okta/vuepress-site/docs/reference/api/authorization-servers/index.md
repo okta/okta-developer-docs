@@ -91,7 +91,7 @@ When you use these API endpoints to create or modify an Authorization Server res
       }
     },
     "self": {
-      "href": "https:{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
       "hints": {
         "allow": [
           "GET",

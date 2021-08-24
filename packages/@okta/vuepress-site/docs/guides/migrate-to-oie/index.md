@@ -104,12 +104,12 @@ Set the option `useInteractionCodeFlow` to `true` on the object passed to the Si
 ```javascript
 var signIn = new OktaSignIn(
   {
-    baseUrl: 'https://{yourOktaDomain}',
+    baseUrl: 'https://${yourOktaDomain}',
     clientId: '{{clientId of your OIDC app}}'
     redirectUri: '{{redirectUri configured in OIDC app}}'
     useInteractionCodeFlow: true
     authParams: {
-      issuer: 'https://{yourOktaDomain}/oauth2/default'
+      issuer: 'https://${yourOktaDomain}/oauth2/default'
     }
     // other options...
   }
