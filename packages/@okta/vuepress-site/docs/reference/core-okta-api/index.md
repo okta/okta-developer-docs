@@ -9,14 +9,14 @@ meta:
 
 The Core Okta API is the primary way that apps and services interact with Okta. You can use it to implement basic auth functions such as signing in your users and programmatically managing your Okta objects.
 
-## Sign in Your Users
+## Sign in your users
 
 API endpoints to authenticate your users, challenge for factors, recover passwords, and more. For example:
 
 - The [Authentication API](/docs/reference/api/authn) controls user access to Okta.
 - The [OpenID Connect & OAuth 2.0 API](/docs/concepts/oauth-openid) controls users access to your applications.
 
-## Manage Okta Objects
+## Manage Okta objects
 
 REST endpoints to configure objects whenever you need. For example:
 
