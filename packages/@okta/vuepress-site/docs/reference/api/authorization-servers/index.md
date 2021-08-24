@@ -210,7 +210,7 @@ after     | Specifies the pagination cursor for the next page of Authorization S
 
 **Parameter details**
 
-* The `after` cursor should be treated as an opaque value and obtained through the next link relationship. See [Pagination](/docs/reference/api-overview/#pagination).
+* The `after` cursor should be treated as an opaque value and obtained through the next link relationship. See [Pagination](/docs/reference/core-okta-api/#pagination).
 * `limit` can be no larger than 200.
 
 ##### Request example

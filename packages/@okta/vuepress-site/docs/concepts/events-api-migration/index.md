@@ -340,7 +340,7 @@ When you first make an API call and get a cursor-paged list of objects, the end 
 1. [Events API](/docs/reference/api/events): The `next` link always exists, since the [Events API](/docs/reference/api/events/) is like a stream of data with a cursor.
 2. [System Log API](/docs/reference/api/system-log/): The `next` link always exists in polling queries in the [System Log API](/docs/reference/api/system-log/). A polling query is defined as an `ASCENDING` query with an empty or absent `until` parameter. Like in the [Events API](/docs/reference/api/events/), the polling query is a stream of data.
 
-See [Transferring Data to a Separate System](/docs/reference/api/system-log/#transferring-data-to-a-separate-system) and the general information on [Link Headers](/docs/reference/api-overview/#link-header) for additional details.
+See [Transferring Data to a Separate System](/docs/reference/api/system-log/#transferring-data-to-a-separate-system) and the general information on [Link Headers](/docs/reference/core-okta-api/#link-header) for more information.
 
 ## Event type mappings
 
