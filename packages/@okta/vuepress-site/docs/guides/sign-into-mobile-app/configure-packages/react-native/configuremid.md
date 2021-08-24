@@ -3,9 +3,9 @@ Call the `createConfig` function to create a configured client on the native mod
 
 ```javascript
 await createConfig({
-    clientId: "{clientId}",
-    redirectUri: "{redirectUri}",
-    endSessionRedirectUri: "{endSessionRedirectUri}",
+    clientId: "${clientId}",
+    redirectUri: "${redirectUri}",
+    endSessionRedirectUri: "${endSessionRedirectUri}",
     discoveryUri: "https://${yourOktaDomain}",
     scopes: ["openid", "profile", "offline_access"],
     requireHardwareBackedKeyStore: false

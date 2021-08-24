@@ -29,7 +29,7 @@ The Okta API is a versioned API. Okta reserves the right to add new parameters, 
 
 ## URL Namespace
 
-Precede all URLs listed in the documentation with your organization's subdomain (tenant) `https://{yourOktaDomain}.com/api/{apiversion}` and API version.
+Precede all URLs listed in the documentation with your organization's subdomain (tenant) `https://${yourOktaDomain}.com/api/${apiversion}` and API version.
 
 The `apiversion` is currently v1.
 

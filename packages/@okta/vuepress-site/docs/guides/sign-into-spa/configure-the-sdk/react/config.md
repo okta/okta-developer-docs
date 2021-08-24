@@ -3,7 +3,7 @@ In your application code, build a config object. This is used to initialize the 
 
 ```javascript
 const config = {
-  clientId: '{clientId}',
+  clientId: '${clientId}',
   issuer: 'https://${yourOktaDomain}/oauth2/default',
   redirectUri: 'http://localhost:8080/login/callback',
   scopes: ['openid', 'profile', 'email'],
