@@ -912,7 +912,7 @@ curl -v -X POST \
 -H 'X-Device-Fingerprint: ${device_fingerprint}' \
 -d '{
   "username": "${username}",
-  "password" : "${password}",
+  "password" : "${password}"
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
@@ -2219,7 +2219,7 @@ curl -v -X POST \
 -d '{
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "factorType": "email",
-  "provider": "OKTA",
+  "provider": "OKTA"
 }' "https://${yourOktaDomain}/api/v1/authn/factors"
 ```
 
@@ -2310,7 +2310,7 @@ curl -v -X POST \
 -d '{
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "factorType": "email",
-  "provider": "OKTA",
+  "provider": "OKTA"
 }' "https://${yourOktaDomain}/api/v1/authn/factors/clf198rKSEWOSKRIVIFT/lifecycle/resend"
 ```
 
@@ -5725,7 +5725,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "EMAIL",
+  "factorType": "EMAIL"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5758,7 +5758,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "SMS",
+  "factorType": "SMS"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5821,7 +5821,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "call",
+  "factorType": "call"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5885,7 +5885,7 @@ curl -v -X POST \
 -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36" \
 -H "X-Forwarded-For: 23.235.46.133" \
 -d '{
-  "username": "dade.murphy@example.com",
+  "username": "dade.murphy@example.com"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -6001,7 +6001,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "EMAIL",
+  "factorType": "EMAIL"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
@@ -6037,7 +6037,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "SMS",
+  "factorType": "SMS"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
@@ -6103,7 +6103,7 @@ curl -v -X POST \
 -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36" \
 -H "X-Forwarded-For: 23.235.46.133" \
 -d '{
-  "username": "dade.murphy@example.com",
+  "username": "dade.murphy@example.com"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
