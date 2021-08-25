@@ -73,9 +73,7 @@ Create an app integration representing the application you want to provide embed
 1. Click **Save**.
 1. Select the **Sign On** tab.
 
-   In the **Sign On Policy** section, verify that the **Available Authenticators** is appropriate for your app. For the simple non-multifactor use cases, the **1 factor** that is **Password**.
-
-   (If you are coming back to this step after completing [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases), then set this value to **Password**. Currently, if there are multiple factors defined in the Okta org but the application uses only one factor, the value must be **Password**.)
+   In the **Sign On Policy** section, verify that the **Available Authenticators** is appropriate for your app. For simple non-multifactor use cases, ensure that the **1 factor** authenticator is **Password**.
 
 > **Note:** From the **General** tab of your app integration, save the generated **Client ID** and **Client secret** values for your app.
 
