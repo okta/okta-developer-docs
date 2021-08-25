@@ -1,5 +1,5 @@
 ---
-title: Create and set up your Okta org
+title: Get set up
 ---
 
 <div class="oie-embedded-sdk">
@@ -7,37 +7,52 @@ title: Create and set up your Okta org
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
-
 ## Overview
 
-Before you can run the provided sample app or integrate the SDK or Widget into your own app, you need to do the following:
+Okta provides two embedded identity solutions:
 
-1. **Step 1:** [Create your Okta Account](#create-your-okta-account)
-1. **Step 2:** Set up your Okta org.
+* **Embedded SDK only**: A highly customizable solution that provides native language support for a variety of identity
+   use cases.
+* **Embedded Widget + SDK**: A quick and easy to set up solution that moves most of the the heavy lifting to Okta. Although the amount of code that you need to write is small, many of the most advanced identity use cases (for example, social sign-in, multifactor authentication) are supported out of the box.
 
-   * To load the SDK, Widget, and get started with the simple use cases
-      go to [Set up your Okta org for password factor only use cases](#set-up-your-okta-org-for-password-factor-only-use-cases)
+<div class="common-image-format">
 
-   * **Recommended for later:** After you've completed the basic use cases, advance to the more
-      complex use cases by performing the following:
+![Displays Okta embedded solution components: (SDK) and (Sign-In Widget + SDK)](/img/oie-embedded-sdk/embedded-solution-overview.png)
 
-      * [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases)
-      * [Set up your Okta org for social Identity Providers](#set-up-your-okta-org-for-social-identity-providers)
+</div>
 
-      > **Note:** We recommend that you skip the more advanced configurations until you have the basic use cases working.
+## Get set up
 
-After you complete setting up the Okta org, [download and set up the SDK, Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
+Sample apps are provided for each solution to show you exactly how to integrate the SDK and the Widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
 
-## Create your Okta account
+1. [Create your Okta Account](#create-your-okta-account)
+1. [Set up your Okta org for password factor only use cases](#set-up-your-okta-org-for-password-factor-only-use-cases)
+1. [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases)
+1. [Set up your Okta org for social Identity Providers](#set-up-your-okta-org-for-social-identity-providers)
+1. [Download and set up the SDK, Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/)
 
-The first step is to create an Okta account, if you haven't already.
+<StackSelector class="cleaner-selector"/>
+
+### Create your Okta account
+
+If you don't have an Okta Identity Engine org, you need sign up for an Okta account and an Identity Engine org.
 
 1. [Sign up](https://developer.okta.com/signup/oie.html) for an Okta account.
 
    After you sign up, Okta sends you a verify email with the email address that you provided.
 
-1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](https://developer.okta.com/docs/guides/quickstart/using-console/).
+1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](https://developer.okta.com/docs/guides/quickstart/using-console/) of your new Identity Engine org.
+
+### Update the default Custom Authorization Server
+
+You need to configure your default Custom Authorization Server to enable the Interaction code flow.
+
+1. From your Okta org's [Admin Console](/docs/guides/quickstart/using-console/), select **Security** > **API**.
+1. On the **Authorization Servers** tab, select the pencil icon for the **default** Custom Authorization Server.
+1. On the default Authorization Server page, select the **Access Policies** tab.
+1. Select the pencil icon from the **Actions** column for the **Default Policy Rule**.
+1. In the **Edit Rule** dialog box, select the **Interaction Code** check box.
+1. Click **Update Rule**.
 
 ## Set up your Okta org for password factor only use cases
 
@@ -57,14 +72,7 @@ The next step is to set up your Okta org so that you can connect your sample app
 * [User sign-out (local app)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-out/)
 * [Sign in with a social Identity Provider (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-soc-idp/)
 
-### Update the default Custom Authorization Server
 
-1. In the [Admin Console](/docs/guides/quickstart/using-console/) (for the Okta org that you set up in the previous step), select **Security** > **API** from the left navigation menu.
-1. On the **Authorization Servers** tab, click the **edit** pencil icon for the "default" Custom Authorization Server.
-1. On the default authorization server page, click the **Access Policies** tab and do the following:
-      * Click the pencil icon for the **Default Policy Rule**.
-      * In the **Edit Rule** dialog box, select the **Interaction Code** checkbox if not already selected.
-      * Click **Update Rule**.
 
 ### Update the authenticators for password factor only use cases
 
