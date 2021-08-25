@@ -37,7 +37,7 @@ B. Delete attributes from your attribute list
     ![Attribute Mappings - Profile Editor](/img/oin/scim_check-attributes-6.png "Attribute Mappings - Profile Editor")
 
   1. In the Profile Editor, scroll down to the attribute list.
-  
+
   1. Look for the attribute that you want to delete, and click **X**.
     ![Profile Editor - Remove Attribute](/img/oin/scim_check-attributes-7.png "Profile Editor - Remove Attribute")
 
@@ -84,7 +84,7 @@ B. Delete attributes from your attribute list
 1. Scroll to the **Attribute Mappings** section. Look for the attribute that you want to update and click **Edit**.
   ![Attributes - Edit Attribute](/img/oin/scim_check-attributes-16.png "Attributes - Edit Attribute")
 
-1. In the dialog that appears, there are two drop-down fields. In the first drop-down menu, select **Map from {App Name} App Profile**. In the second drop-down menu, choose the Okta profile attribute you would like to map the SCIM attribute to. Click **Save**.
+1. In the dialog that appears, there are two drop-down fields. In the first drop-down menu, select **Map from ${App Name} App Profile**. In the second drop-down menu, choose the Okta profile attribute you would like to map the SCIM attribute to. Click **Save**.
   ![Attribute Dialog - Map Attribute](/img/oin/scim_check-attributes-17.png "Attribute Dialog - Map Attribute")
 
 1. Repeat for all other SCIM attributes that you would like to modify the mapping (from your application to Okta).
@@ -105,7 +105,7 @@ You only want to include the attributes that you support in your current user sc
     1. You should see the list of Okta users for your org. Find the user you just imported and click that user's name.
     1. Once the user account is opened, click **Profile**. The Profile screen shows you that user's attributes. Check whether the values for the attributes you support were imported properly for this user.
     ![User Profile Attributes](/img/oin/scim_check-attributes-19.png "User attributes dialog")
-  
+
         Your Profile Mapping template can always be updated in the future.
 
         As mentioned in the adding and deleting attributes sections, you can set whether the attribute you are adding is set per user, or for both per user and group. This is set using the Scope attribute. If you want the attribute you are adding to be set strictly  per user, you need to check the **User personal** checkbox for the Scope attribute. If you want to give admins the ability to set the attribute both per user or per group, leave this check box empty.

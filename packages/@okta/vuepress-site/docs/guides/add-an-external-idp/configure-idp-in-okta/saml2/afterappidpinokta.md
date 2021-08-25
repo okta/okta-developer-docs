@@ -2,7 +2,7 @@
 
 * Save the **Audience URI** value.
 
-* Download the metadata by clicking **Download metadata**. The metadata URL is similar to this: `https://${yourOktaDomain}/api/v1/idps/{IdP_ID}/metadata.xml`.
+* Download the metadata by clicking **Download metadata**. The metadata URL is similar to this: `https://${yourOktaDomain}/api/v1/idps/${idpId}/metadata.xml`.
 
 ## Upload the metadata
 

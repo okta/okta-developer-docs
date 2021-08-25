@@ -5,9 +5,9 @@ const tokens = await refreshTokens();
 ```
 Reponse:
 ```json
-{ 
-  "access_token": "{accessToken}", 
-  "id_token": "{idToken}", 
-  "refresh_token": "{refreshToken}" 
+{
+  "access_token": "${accessToken}",
+  "id_token": "${idToken}",
+  "refresh_token": "${refreshToken}"
 }
 ```

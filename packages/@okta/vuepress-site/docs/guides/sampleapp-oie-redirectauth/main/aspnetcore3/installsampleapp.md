@@ -5,8 +5,8 @@
     ```json
     "Okta": {
     	"OktaDomain": "https://${yourOktaDomain}",
-    	"ClientId": "${ClientId}",
-    	"ClientSecret": "${ClientSecret}",
+    	"ClientId": "${clientId}",
+    	"ClientSecret": "${clientSecret}",
     	"AuthorizationServerId": "default"
          }
     ```

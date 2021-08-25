@@ -22,18 +22,18 @@ This page provides the API rate limits for authentication and end-user activitie
 | ---------------------------------------------------------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ---------------------: |
 | **Cumulative rate limit**                                                                                              | **1,700**        | **9,000**        | **9,000**| **11,200**| **13,900**            |
 | **Authenticate different end users:**<br>`/api/v1/authn`                                                               | 100              | 600              | 600     | 600        | 500                   |
-| **Verify a factor:**<br>`/api/v1/authn/factors/{factorIdOrFactorType}/verify` only                                     | 100              | 600              | 600     | 600        | 500                   |
+| **Verify a factor:**<br>`/api/v1/authn/factors/${factorIdOrFactorType}/verify` only                                     | 100              | 600              | 600     | 600        | 500                   |
 | **Get session information:**<br>`/api/v1/sessions`                                                                     | 100              | 600              | 600     | 600        | 750                   |
-| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/{authorizationServerId}/v1` except public metadata endpoints (see Note below)  | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
+| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/${authorizationServerId}/v1` except public metadata endpoints (see Note below)  | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
 | **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients` and public metadata endpoints (see Note below) | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
 | **All other OAuth2 requests:**<br>`/oauth2`                                                                            | 100              | 600              | 600     | 600        | 600                   |
-| `/app/{app}/{key}/sso/saml`                                                                                            | 100              | 600              | 600     | 600        | 750                   |
-| `/app/office365{appType}/{key}/sso/wsfed/active`                                                                       | N/A              | N/A              | N/A     | 2,000       | 1,000                  |
-| `/app/office365{appType}/{key}/sso/wsfed/passive`                                                                      | N/A              | N/A              | N/A     | 250        | 250                   |
-| `/app/template_saml_2_0/{key}/sso/saml`                                                                                | 100              | 600              | 600     | 600        | 2,500                  |
+| `/app/${app}/${key}/sso/saml`                                                                                            | 100              | 600              | 600     | 600        | 750                   |
+| `/app/office365${appType}/${key}/sso/wsfed/active`                                                                       | N/A              | N/A              | N/A     | 2,000       | 1,000                  |
+| `/app/office365${appType}/${key}/sso/wsfed/passive`                                                                      | N/A              | N/A              | N/A     | 250        | 250                   |
+| `/app/template_saml_2_0/${key}/sso/saml`                                                                                | 100              | 600              | 600     | 600        | 2,500                  |
 | `/login/login.htm`                                                                                                     | 100              | 600              | 600     | 600        | 850                   |
 | `/login/sso_iwa_auth`                                                                                                  | 100              | 600              | 600     | 600        | 500                   |
-| `/api/{apiVersion}/radius`                                                                                             | 100              | 600              | 600     | 600        | 600                   |
+| `/api/${apiVersion}/radius`                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 | `/idp/idx`                                                                                                             | 100              | 600              | 600     | 600        | 500                   |
 | `/login/token/redirect`                                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 | <ApiLifecycle access="ie" /> **Identity Engine APIs:**                                                                            |               |               |      |         |                    |
@@ -54,7 +54,7 @@ This page provides the API rate limits for authentication and end-user activitie
 > * `/.well-known/oauth-authorization-server`
 >
 > Public metadata endpoints for the Custom Authorization Servers are:
-> * `/oauth2/{authorizationServerId}/v1/keys`
-> * `/oauth2/{authorizationServerId}/.well-known/openid-configuration`
-> * `/oauth2/{authorizationServerId}/.well-known/oauth-authorization-server`
+> * `/oauth2/${authorizationServerId}/v1/keys`
+> * `/oauth2/${authorizationServerId}/.well-known/openid-configuration`
+> * `/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server`
 >

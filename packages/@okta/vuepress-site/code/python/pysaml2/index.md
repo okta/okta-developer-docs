@@ -100,16 +100,16 @@ the following steps, you will have a working example of connecting Okta to a sam
 
     ``` python
     metadata_url_for = {
-        'example-okta-com': '${metadata_url}'
+        'example-okta-com': '${metadataUrl}'
     }
     ```
 
-6.  Be sure to replace the contents of `${metdata_url}` with the link
+6.  Be sure to replace the contents of `${metadataUrl}` with the link
     that you copied in step \#10 of the
     "[Setting up a SAML application in Okta](/docs/guides/customize-authz-server/)"
     instructions that you followed above!
 
-    Note: The contents of `${metadata_url}` should look similar to: `https://${yourOktaDomain}/app/a0b1c2deFGHIJKLMNOPQ/sso/saml/metadata`
+    Note: The contents of `${metadataUrl}` should look similar to: `https://${yourOktaDomain}/app/a0b1c2deFGHIJKLMNOPQ/sso/saml/metadata`
 
 7.  Install the dependencies; for example, Python SAML SP:
 

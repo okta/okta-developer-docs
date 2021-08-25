@@ -27,7 +27,7 @@ See [Obtain an authorization grant from a User](/docs/reference/api/oidc/#author
 The following is an example request to the `/authorize` endpoint for an [authorization code](/docs/guides/implement-grant-type/authcode/main/) flow and includes the `offline_access` scope.
 
 ```bash
-GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
+GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}
  &response_type=code
  &scope=openid%20offline_access
  &redirect_uri=ourApp%3A%2Fcallback
@@ -37,7 +37,7 @@ GET https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
 The following is an example request to the `/authorize` endpoint for an [authorization code with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/) flow and includes the `offline_access` scope.
 
 ```bash
-https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id={clientId}
+https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}
 &response_type=code
 &scope=openid%20offline_access
 &redirect_uri=yourApp%3A%2Fcallback

@@ -41,7 +41,7 @@ There are two main types of authorization servers: **Org** and **Custom**:
 
       > **Note:** If you are just getting started and want to run the sample app, use the **default** Custom Authorization Server URI.
   * **Create your own**: You can also create your own Custom Authorization Server.<br>
-  **Example URI**: `https://dev-foo.okta.com/oauth2/${authServerId}`
+  **Example URI**: `https://dev-foo.okta.com/oauth2/${authorizationServerId}`
 
 For more information about the authorization server types available:
 

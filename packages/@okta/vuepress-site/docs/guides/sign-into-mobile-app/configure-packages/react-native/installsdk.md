@@ -21,6 +21,6 @@ pod install
 2. Add the redirect scheme in `android/app/build.gradle`, under `android` -> `defaultConfig`:
 ```
 manifestPlaceholders = [
-appAuthRedirectScheme: "{com.sampleapplication}"
+appAuthRedirectScheme: "${com.sampleapplication}"
 ]
 ```

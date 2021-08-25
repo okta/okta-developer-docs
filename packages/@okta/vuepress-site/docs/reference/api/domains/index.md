@@ -105,7 +105,7 @@ curl -v -X POST \
 
 ### Verify Domain
 
-<ApiOperation method="post" url="/api/v1/domains/{id}/verify" />
+<ApiOperation method="post" url="/api/v1/domains/${id}/verify" />
 
 Verifies the Domain.
 
@@ -187,7 +187,7 @@ curl -v -X POST \
 
 ### Create Certificate
 
-<ApiOperation method="put" url="/api/v1/domains/{id}/certificate" />
+<ApiOperation method="put" url="/api/v1/domains/${id}/certificate" />
 
 Creates the Certificate for the Domain
 
@@ -257,7 +257,7 @@ Content-Type: application/json
 ```
 ### Get Domain
 
-<ApiOperation method="get" url="/api/v1/domains/{id}" />
+<ApiOperation method="get" url="/api/v1/domains/${id}" />
 
 Fetches your Domain
 
@@ -425,7 +425,7 @@ curl -v -X GET \
 ```
 ### Delete Domain
 
-<ApiOperation method="delete" url="/api/v1/domains/{id}" />
+<ApiOperation method="delete" url="/api/v1/domains/${id}" />
 
 Deletes your Domain
 

@@ -10,8 +10,8 @@ public async Task<ActionResult> Index()
      var idxClient = new IdxClient(new IdxConfiguration()
      {
            Issuer = "https://dev-12345678.okta.com/oauth2/default",
-           ClientId = "{clientid}",
-           ClientSecret = "{clientsecret}",
+           ClientId = "${clientId}",
+           ClientSecret = "${clientSecret}",
            RedirectUri = "https://localhost:44314/interactioncode/callback/",
            Scopes = new List<string>{"openid","profile", "offline_access"}
      });
@@ -33,7 +33,7 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
    "interactionHandle":"epXgGYZHsYErPLfw8aLpCvWZOgVtYx25_OYCmQc0z2s",
    "version":"5.5.2",
    "baseUrl":"https://dev-12345678.okta.com",
-   "clientId":"{clientid}",
+   "clientId":"${clientId}",
    "redirectUri":"https://localhost:44314/interactioncode/callback/",
    "authParams":{
       "issuer":"https://dev-122345678.okta.com/oauth2/default",
@@ -44,8 +44,8 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
       ]
    },
    "useInteractionCodeFlow":true,
-   "state":"{state}",
-   "codeChallenge":"{codechallenge}",
+   "state":"${state}",
+   "codeChallenge":"${codechallenge}",
    "codeChallengeMethod":"S256"
 }
 ```
