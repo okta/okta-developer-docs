@@ -25,7 +25,8 @@ Okta provides two embedded identity solutions:
 
 Sample apps are provided for each solution to show you exactly how to integrate the SDK and the Widget into your own app. Before you can run the sample apps or integrate embedded authentication into your own app, you need to do the following:
 
-1. [Create your Okta Account](#create-your-okta-account)
+1. [Create your Okta account](#create-your-okta-account)
+1. [Update the default Custom Authorization Server](#update-the-default-custom-authorization-server)
 1. [Set up your Okta org for password factor only use cases](#set-up-your-okta-org-for-password-factor-only-use-cases)
 1. [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases)
 1. [Set up your Okta org for social Identity Providers](#set-up-your-okta-org-for-social-identity-providers)
@@ -49,10 +50,34 @@ You need to configure your default Custom Authorization Server to enable the Int
 
 1. From your Okta org's [Admin Console](/docs/guides/quickstart/using-console/), select **Security** > **API**.
 1. On the **Authorization Servers** tab, select the pencil icon for the **default** Custom Authorization Server.
-1. On the default Authorization Server page, select the **Access Policies** tab.
+1. Select the **Access Policies** tab.
 1. Select the pencil icon from the **Actions** column for the **Default Policy Rule**.
 1. In the **Edit Rule** dialog box, select the **Interaction Code** check box.
 1. Click **Update Rule**.
+
+### Create a new application
+
+Create an app integration representing the application you want to provide embedded authentication in Okta:
+
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. Click **Create App Integration**.
+1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
+1. <StackSelector snippet="applicationtype" noSelector />
+1. <StackSelector snippet="newapp" noSelector />
+
+   * Enter an application name.
+   * Ensure that the **Interaction Code** check box is selected.
+   * Select the **Refresh Token** check box.
+   * Set **Sign-in redirect URIs** to: <StackSelector snippet="redirecturi" noSelector />
+
+1. Click **Save**.
+1. Select the **Sign On** tab.
+
+   In the **Sign On Policy** section, verify that the **Available Authenticators** is appropriate for your app. For the simple non-multifactor use cases, the **1 factor** that is **Password**.
+
+   (If you are coming back to this step after completing [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases), then set this value to **Password**. Currently, if there are multiple factors defined in the Okta org but the application uses only one factor, the value must be **Password**.)
+
+> **Note:** From the **General** tab of your app integration, save the generated **Client ID** and **Client secret** values for your app.
 
 ## Set up your Okta org for password factor only use cases
 
@@ -84,23 +109,6 @@ The next step is to set up your Okta org so that you can connect your sample app
 
 <StackSelector snippet="appsbaseurl" noSelector />
 
-### Create a new application
-
-1. Select **Applications** > **Applications** from the left navigation menu.
-1. On the **Applications** page, click **Create App Integration**.
-1. From the **Add Applications** page, click **Create New App**.
-1. In the **Create a new application integration** dialog box:
-
-    * Select **OIDC - OpenID Connect** as the **Sign-in method**.
-    * <StackSelector snippet="applicationtype" noSelector />
-
-1. <StackSelector snippet="newapp" noSelector />
-   * Enter an application name.
-   * Select the **Interaction Code** checkbox if not already selected.
-   * Select the **Refresh Token** checkbox.
-   * Set **Sign-in redirect URIs** to: <StackSelector snippet="redirecturi" noSelector />
-   * Click **Save**.
-1. Select the **Sign On** tab, and in the **Sign On Policy** section make note of the **Available Authenticators**. The value should be **1 factor** that is **Password**. (If you are coming back to this step after completing [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases), then set this value to **Password**. Currently, if there are multiple factors defined in the Okta org but the application uses only one factor, the value must be **Password**.)
 
 ## Set up your Okta org for multifactor use cases
 
