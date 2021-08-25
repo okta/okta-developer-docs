@@ -308,7 +308,7 @@ Build the phone number entry page that accepts the phone number. The user uses t
 
 </div>
 
-> **Note:** The SDK requires that the phone number be in the following format: `+#######`, including the beginning plus (+) sign, for example, `+5551234567`.
+> **Note:** The SDK requires that the phone number be in the following format: `+##########`, including the beginning plus (+) sign, for example, `+5551234567`.
 
 ### 18d, Option 1: Submit phone number
 
