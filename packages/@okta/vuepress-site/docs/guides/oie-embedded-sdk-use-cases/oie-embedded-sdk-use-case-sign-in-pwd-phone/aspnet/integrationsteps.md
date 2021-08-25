@@ -91,7 +91,7 @@ Build the phone number entry page that accepts the phone number that the user wi
 
 </div>
 
-> **Note:** The SDK requires that the phone number follows the `+#######` format, which starts with a plus (+) sign. See [Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/aspnet/main/#phone-number).
+> **Note:** The SDK requires that the phone number follows the `+#######` format, which starts with a plus (+) sign, for example, `+5551234567`.
 
 ### Step 7: Call EnrollAuthenticatorAsync to submit phone number and send the SMS
 
