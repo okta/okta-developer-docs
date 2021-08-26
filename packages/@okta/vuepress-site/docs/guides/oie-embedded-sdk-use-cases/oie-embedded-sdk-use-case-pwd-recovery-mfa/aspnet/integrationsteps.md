@@ -6,8 +6,7 @@ The first step is to create a forgot password link on the sign-in page. This lin
 
 <div class="common-image-format">
 
-![Forgot password screenshot](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-forgot.png
- "Forgot password screenshot")
+![Displays an example Forgot password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-forgot.png)
 
 </div>
 
@@ -17,8 +16,7 @@ Create a "Reset your password" page that initiates the reset password flow. The 
 
 <div class="common-image-format">
 
-![Reset password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset.png
- "Reset password")
+![Displays an example Reset password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset.png)
 
 </div>
 
@@ -55,8 +53,7 @@ authenticator to initiate the authentication verification process.
 
 <div class="common-image-format">
 
-![Select password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-choose-auth.png
- "Select password")
+![Displays an example Select password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-choose-auth.png)
 
 </div>
 
@@ -88,8 +85,7 @@ code verification page.
 
 <div class="common-image-format">
 
-![Select password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-all-verify-email-code.png
- "Select password")
+![Displays an example select password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-all-verify-email-code.png)
 
 </div>
 
@@ -127,8 +123,7 @@ new password and initiate the change password.
 
 <div class="common-image-format">
 
-![Select password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link.png
- "Select password")
+![Displays an example change password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link.png)
 
 </div>
 

@@ -116,12 +116,11 @@ The final step is to add a `div` tag with the `id` (for example, `okta-signin-wi
 
 ### Step 3: Run your app
 
-The final step is to run your app. If the widget and Okta org are property configured, the widget should load and you should see the Sign In screen similar to the following screen.
+The final step is to run your app. If the widget and Okta org are property configured, the widget should load and you should see the Sign In page similar to the following image.
 
 <div class="common-image-format">
 
-![Widget load sign-in](/img/oie-embedded-sdk/oie-embedded-widget-use-case-load-screen-signin.png
- "Widget load sign-in")
+![Displays the Widget load and sign-in page](/img/oie-embedded-sdk/oie-embedded-widget-use-case-load-screen-signin.png)
 
 </div>
 

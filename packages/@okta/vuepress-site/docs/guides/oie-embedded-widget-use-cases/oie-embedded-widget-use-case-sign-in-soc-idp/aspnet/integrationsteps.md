@@ -11,8 +11,7 @@ The user enters their email and password, and clicks **Log In**. This page is ho
 
 <div class="common-image-format">
 
-![Facebook sign-in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png
- "Facebook sign-in")
+![Displays the Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 
 </div>
 

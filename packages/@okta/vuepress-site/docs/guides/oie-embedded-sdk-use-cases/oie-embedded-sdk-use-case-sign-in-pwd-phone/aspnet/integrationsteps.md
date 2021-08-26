@@ -6,8 +6,7 @@ Build a sign-in page that captures the user's name and password, as shown in the
 
 <div class="common-image-format">
 
-![Sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png
- "Sign-in page")
+![Displays an example sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
 
 </div>
 
@@ -55,8 +54,7 @@ The next step is to show the phone factor in an authenticator list page. If not 
 
 <div class="common-image-format">
 
-![Verify phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-phone.png
- "Verify phone")
+![Displays an example Verify phone form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-phone.png)
 
 </div>
 
@@ -86,8 +84,7 @@ Build the phone number entry page that accepts the phone number that the user wi
 
 <div class="common-image-format">
 
-![Verify phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png
- "Verify phone")
+![Displays an example enter phone number form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png)
 
 </div>
 
@@ -139,8 +136,7 @@ Build a page that accepts the code sent to your phone number through SMS. Depend
 
 <div class="common-image-format">
 
-![Verify phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png
- "Verify phone")
+![Displays an example verify phone form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png)
 
 </div>
 

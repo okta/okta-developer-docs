@@ -25,7 +25,7 @@ recovery flow.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![Screenshot of first page in the password recovery flow showing the email field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-first.png)
+![Displays the first page in the password recovery flow showing the email field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-first.png)
 
 </div>
 
@@ -78,7 +78,7 @@ Build a page that captures this code.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![Screenshot of second page in the password recovery flow showing the verification code field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-second.png)
+![Displays the second page in the password recovery flow showing the verification code field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-second.png)
 
 </div>
 
@@ -113,7 +113,7 @@ to a page that allows them to enter their new password.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![Screenshot of third page in the password recovery flow showing the password fields](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-third.png)
+![Displays the third page in the password recovery flow showing the password fields](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-third.png)
 
 </div>
 

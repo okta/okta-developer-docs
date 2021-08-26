@@ -16,8 +16,7 @@ The sample app is located here: `okta-idx-dotnet/samples/samples-aspnet/embedded
 
    <div class="common-image-format">
 
-    ![Sample app sign-in](/img/oie-embedded-sdk/oie-embedded-widget-sample-app-signin.png
-   "Sample app sign-in")
+    ![Displays an example app sign-in form](/img/oie-embedded-sdk/oie-embedded-widget-sample-app-signin.png)
 
    </div>
 
@@ -26,8 +25,7 @@ The sample app is located here: `okta-idx-dotnet/samples/samples-aspnet/embedded
 
    <div class="common-image-format">
 
-    ![User profile page](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-user-profile-page.png
-   "User profile page")
+    ![Displays an example user profile page](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-user-profile-page.png)
 
    </div>
 
@@ -36,5 +34,6 @@ The sample app is located here: `okta-idx-dotnet/samples/samples-aspnet/embedded
 * If you get a Null Reference exception when the `IDXClient` is instantiated, ensure that you have properly set up your local configurations. To troubleshoot the error, set the local configurations in the constructor for the `IdxClient` so that you can determine whether the issue originates from the SDK not being able to locate your configurations.
 
 * If the widget doesn't load and instead displays the following error, make sure CORS is enabled:
-"There was an unexpected internal error. Please try again." 
+"There was an unexpected internal error. Please try again."
+
 Follow the steps in [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#step-3-add-a-trusted-origin-and-enable-cors) to make sure CORS is enabled.

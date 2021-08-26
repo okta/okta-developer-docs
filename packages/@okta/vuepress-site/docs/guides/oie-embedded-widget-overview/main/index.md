@@ -15,8 +15,7 @@ In tandem with the embedded SDK, the widget integrates into your app by using a 
 
 <div class="common-image-format">
 
-![Embedded SDK overview](/img/oie-embedded-sdk/embedded-widget-overview.png
- "Embedded SDK overview")
+![Displays the Embedded SDK widget flow](/img/oie-embedded-sdk/embedded-widget-overview.png)
 
 </div>
 

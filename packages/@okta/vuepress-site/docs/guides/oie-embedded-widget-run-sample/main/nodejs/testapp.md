@@ -15,12 +15,11 @@ The sample app is located here: `okta-auth-js/samples/generated/express-embedded
    `http://localhost:8080`. After the app loads, click the **Sign In** button located on the home screen.
 1. On the Sign in page enter the username (email) and password you used in
    [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-your-okta-account).
-   A screenshot of the log in form is shown below:
+   An example sign-in form is shown below:
 
    <div class="common-image-format">
 
-    ![Sample app sign in](/img/oie-embedded-sdk/oie-embedded-widget-sample-app-signin.png
-   "Sample app sign in")
+    ![Displays an example app sign-in form](/img/oie-embedded-sdk/oie-embedded-widget-sample-app-signin.png)
 
    </div>
 

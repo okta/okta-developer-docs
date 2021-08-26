@@ -10,7 +10,7 @@ The following Sign-In Widget displays the Facebook button:
 
 <div class="common-image-format">
 
-![Displays the the Sign-In Widget showing the username, password, and Facebook button](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-idp-sign-in-page.png)
+![Displays the Sign-In Widget showing the username, password, and Facebook button](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-idp-sign-in-page.png)
 
 </div>
 

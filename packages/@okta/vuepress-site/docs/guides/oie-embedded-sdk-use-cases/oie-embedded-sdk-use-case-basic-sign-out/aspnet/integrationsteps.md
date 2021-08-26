@@ -7,8 +7,7 @@ element that allows the user to sign out of the app.
 
 <div class="common-image-format">
 
-![Sign out link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-out-link.png
- "Sign out link")
+![Sign out link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-out-link.png)
 
 </div>
 

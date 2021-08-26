@@ -12,8 +12,7 @@ component, which represents the code you write to call into the sample code's in
 
 <div class="common-image-format">
 
- ![Diagram showing the integration flow of the sample app and Swift SDK](/img/oie-embedded-sdk/oie-embedded-sdk-swift-sample-code-overview.png
- "Swift sample and sdk diagram")
+ ![Displays an integration flow diagram of the sample app and Swift SDK](/img/oie-embedded-sdk/oie-embedded-sdk-swift-sample-code-overview.png)
 
 </div>
 

@@ -16,8 +16,7 @@ The SDK integrates into your app by using a native language interface and commun
 
 <div class="common-image-format">
 
-![Embedded SDK overview](/img/oie-embedded-sdk/embedded-sdk-overview.png
- "Overview of the embedded SDK")
+![Embedded SDK overview diagram](/img/oie-embedded-sdk/embedded-sdk-overview.png)
 
 </div>
 

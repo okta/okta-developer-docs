@@ -23,7 +23,7 @@ Build a sign-in page that captures both the user's name and password.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![A basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
 
 </div>
 
@@ -100,7 +100,7 @@ to continue the authentication flow.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![Screenshot showing an option to choose verification through the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-verify-page.png)
+![Displays an option to choose verification through the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-verify-page.png)
 
 </div>
 
@@ -156,7 +156,7 @@ The following page from the sample application shows the phone number field and 
 
 <div class="common-image-format">
 
-![Screenshot showing an option to choose phone method for the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-method-page.png)
+![Display an option to choose the phone method for the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-method-page.png)
 
 </div>
 
@@ -185,7 +185,7 @@ and optional phone number, they need to enter the verification code from their p
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![Screenshot showing an option to choose verification through the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-code-verify-page.png)
+![Displays an option to choose verification through the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-code-verify-page.png)
 
 </div>
 

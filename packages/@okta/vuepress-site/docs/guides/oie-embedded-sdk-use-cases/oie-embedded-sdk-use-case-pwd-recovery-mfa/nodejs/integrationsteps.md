@@ -6,7 +6,7 @@ The first step is to create a forgot your password link on the sign-in page, as 
 
 <div class="common-image-format">
 
-![Displays the sign-in page with a 'Forgot password?' link where the user can click to reset their password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+![Displays the sign-in page with a 'Forgot password?' link that the user can click to reset their password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
 </div>
 

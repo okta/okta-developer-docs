@@ -23,7 +23,7 @@ Build a sign-in page that captures the user's first name, last name, and email.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![A screenshot of a sign up page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-page.png)
+![Displays the sign-up page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-page.png)
 
 </div>
 
@@ -63,7 +63,7 @@ Create a page for the user to enter their password.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![A screenshot of a password page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-pwd-page.png)
+![Displays a password page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-pwd-page.png)
 
 </div>
 
@@ -162,7 +162,7 @@ An example of the page from the sample application is shown below:
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![A screenshot of the factor list page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-factor-list-page.png)
+![Displays the factor list page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-factor-list-page.png)
 
 </div>
 
@@ -192,7 +192,7 @@ email confirmation code.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![A screenshot of the email verification page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-email-code-page.png)
+![Displays the email verification page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-email-code-page.png)
 
 </div>
 
@@ -246,7 +246,7 @@ if enrollResponse.HasStep(idx.EnrollmentStepEmailVerification) {
 
 <div class="common-image-format">
 
-![A screenshot of the phone factor with skip buttin in the Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-phone-factor-skip.png)
+![Displays the phone factor with Skip buttin in the Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-phone-factor-skip.png)
 
 </div>
 

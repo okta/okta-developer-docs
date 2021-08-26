@@ -20,8 +20,7 @@ you need to make in your app to support to this step.
 
 <div class="common-image-format">
 
-![Facebook sign in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png
- "Facebook sign in")
+![Displays the Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 
 </div>
 

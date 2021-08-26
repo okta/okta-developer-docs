@@ -18,7 +18,7 @@ After being shown the list of available authenticators, the customer continues t
 
 <div class="common-image-format">
 
-![Displays sequence diagram for enrolling self-registration MFA flow with Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify-java.png)
+![Displays the sequence diagram for enrolling self-registration MFA flow with Java SDK](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify-java.png)
 
 </div>
 

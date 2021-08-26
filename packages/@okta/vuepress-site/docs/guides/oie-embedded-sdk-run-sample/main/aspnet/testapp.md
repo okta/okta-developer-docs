@@ -13,8 +13,7 @@
 
    <div class="common-image-format">
 
-    ![Sample app sign-in](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-signin.png
-   "Sample app sign in")
+    ![Example sample app sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-signin.png)
 
    </div>
 
@@ -22,7 +21,6 @@
 
    <div class="common-image-format">
 
-    ![User profile page](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-user-profile-page.png
-   "User profile page")
+    ![Example user profile page](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-user-profile-page.png)
 
    </div>

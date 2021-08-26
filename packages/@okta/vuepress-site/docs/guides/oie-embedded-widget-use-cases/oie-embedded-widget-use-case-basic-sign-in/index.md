@@ -15,8 +15,7 @@ This use case requires the password factor.
 
 <div class="common-image-format">
 
-![Password factor only](/img/oie-embedded-sdk/factor-password-only.png
- "Password factor only")
+![Displays an image of the required Password factor only](/img/oie-embedded-sdk/factor-password-only.png)
 
 </div>
 
