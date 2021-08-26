@@ -61,17 +61,17 @@ The following endpoints are used by the Okta home page for authentication and us
 
 | Okta home page endpoints                                                | Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce Identity |
 | ----------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ------------------:|
-| `/app/${app}/${key}/sso/saml`                                             | 100               | 300               | *300     | *600        | 750                |
+| `/app/${app}/${key}/sso/saml`                                             | 100               | 300               | 300     | *600        | 750                |
 | `/app/office365/${key}/sso/wsfed/active`                                 | N/A               | N/A               | N/A      | 2000        | 1000               |
 | `/app/office365/${key}/sso/wsfed/passive`                                | N/A               | N/A               | N/A      | 250         | 250                |
-| `/app/template_saml_2_0/${key}/sso/saml`                                 | 100               | 300               | *300     | *600        | 2500               |
+| `/app/template_saml_2_0/${key}/sso/saml`                                 | 100               | 300               | 300     | *600        | 2500               |
 | `/login/do-login`                                                       | 100               | 300               | 300      | 600         | 200                |
 | `/login/login.htm`                                                      | 100               | 300               | 300      | 600         | 850                |
 | `/login/sso_iwa_auth`                                                   | 100               | 300               | 300      | 600         | 500                |
-| `/api/plugin/${protocolVersion}/form-cred/${appUserIds}/${formSiteOption}` | 100               | 300               | *300     | *600        | 650                |
+| `/api/plugin/${protocolVersion}/form-cred/${appUserIds}/${formSiteOption}` | 100               | 300               | 300     | *600        | 650                |
 | `/api/plugin/${protocolVersion}/sites`                                   | 20                | 50                | 50       | 100         | 150                |
-| `/bc/image/fileStoreRecord`                                             | 100               | 300               | *300     | *600        | 500                |
-| `/bc/globalFileStoreRecord`                                             | 100               | 300               | *300     | *600        | 500                |
+| `/bc/image/fileStoreRecord`                                             | 100               | 300               | 300     | *600        | 500                |
+| `/bc/globalFileStoreRecord`                                             | 100               | 300               | 300     | *600        | 500                |
 
 ### Okta-generated email message rate limits
 

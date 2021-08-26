@@ -136,7 +136,7 @@ The following is an example System Log rate limit event where too many enrollmen
     "result": "DENY",
     "reason": "Too many enrollment attempts for SMS factor"
   },
-  "published": "2020-12-10T04:46:12.033Z",
+  "published": "2021-02-10T04:46:12.033Z",
   "securityContext": {
     "asNumber": null,
     "asOrg": null,
@@ -249,7 +249,7 @@ The following is an example System Log rate limit event where too many OTP verif
     "result": "DENY",
     "reason": "Too many OTP verification attempts for Email factor"
   },
-  "published": "2020-12-09T19:13:41.976Z",
+  "published": "2021-02-09T19:13:41.976Z",
   "securityContext": {
     "asNumber": null,
     "asOrg": null,
