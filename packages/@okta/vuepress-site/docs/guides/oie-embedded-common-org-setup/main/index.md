@@ -27,6 +27,7 @@ Sample apps are provided for each solution to show you exactly how to integrate 
 
 1. [Create your Okta account](#create-your-okta-account)
 1. [Update the default Custom Authorization Server](#update-the-default-custom-authorization-server)
+1. [Create a new application](#create-a-new-application)
 1. [Set up your Okta org for password factor only use cases](#set-up-your-okta-org-for-password-factor-only-use-cases)
 1. [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases)
 1. [Set up your Okta org for social Identity Providers](#set-up-your-okta-org-for-social-identity-providers)
@@ -77,7 +78,11 @@ Create an app integration representing the application you want to provide embed
 
 > **Note:** From the **General** tab of your app integration, save the generated **Client ID** and **Client secret** values for your app.
 
-## Set up your Okta org for password factor only use cases
+<StackSelector snippet="appsbaseurl" noSelector />
+
+## Set up your Okta org for your use case
+
+### Set up your Okta org for password factor only use cases
 
 The next step is to set up your Okta org so that you can connect your sample app and any app that you're building, to the org. The setup includes creating a new org application, updating the default authorization server's settings, and defining new org policies.
 
@@ -96,7 +101,6 @@ The next step is to set up your Okta org so that you can connect your sample app
 * [Sign in with a social Identity Provider (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-soc-idp/)
 
 
-
 ### Update the authenticators for password factor only use cases
 
 1. Select **Security** > **Authenticators** from the left navigation menu.
@@ -104,8 +108,6 @@ The next step is to set up your Okta org so that you can connect your sample app
 1. On the **Password** page, scroll down to the rules section and click the pencil icon next to the **Default Rule**.
 1. In the **Edit Rule** dialog box, select **Not required** in the **AND Additional verification is** section.
 1. Click **Update Rule**.
-
-<StackSelector snippet="appsbaseurl" noSelector />
 
 
 ## Set up your Okta org for multifactor use cases
