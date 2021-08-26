@@ -25,7 +25,7 @@ recovery flow.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![Displays the first page in the password recovery flow showing the email field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-first.png)
+![Displays the first page in the password recovery flow that shows the email field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-first.png)
 
 </div>
 
