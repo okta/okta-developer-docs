@@ -113,7 +113,7 @@ to a page that allows them to enter their new password.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![Displays the third page in the password recovery flow showing the password fields](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-third.png)
+![Displays the third page in the password recovery flow that shows the password fields](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-third.png)
 
 </div>
 
