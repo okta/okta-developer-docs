@@ -78,7 +78,7 @@ Build a page that captures this code.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![Displays the second page in the password recovery flow showing the verification code field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-second.png)
+![Displays the second page in the password recovery flow that shows the verification code field](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-pwd-recover-page-second.png)
 
 </div>
 
