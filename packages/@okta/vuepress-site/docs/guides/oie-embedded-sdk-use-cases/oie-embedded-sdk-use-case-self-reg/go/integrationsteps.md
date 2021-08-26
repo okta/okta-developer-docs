@@ -246,7 +246,7 @@ if enrollResponse.HasStep(idx.EnrollmentStepEmailVerification) {
 
 <div class="common-image-format">
 
-![Displays the phone factor with Skip buttin in the Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-phone-factor-skip.png)
+![Displays the phone factor with a Skip button in the Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-self-reg-phone-factor-skip.png)
 
 </div>
 
