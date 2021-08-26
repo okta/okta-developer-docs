@@ -13,7 +13,7 @@ title: Okta API Products Release Notes 2021
 
 * Requests for Native SSO [token exchange](/docs/guides/configure-native-sso/main/#exchange-the-code-for-tokens) failed intermittently with an `invalid actor token` error. (OKTA-421225)
 
-* After modifying an OIDC app, admins sometimes encountered an HTTP 500 `Internal Server` error. (OKTA-OKTA-423145)
+* After modifying an OIDC app, admins sometimes encountered an HTTP 500 `Internal Server` error. (OKTA-423145)
 
 ### Weekly Release 2021.08.2
 
