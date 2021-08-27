@@ -116,7 +116,7 @@ The final step is to add a `div` tag with the `id` (for example, `okta-signin-wi
 
 ### Step 3: Run your app
 
-The final step is to run your app. If the widget and Okta org are property configured, the widget should load and you should see the Sign In page similar to the following image.
+The final step is to run your app. If the widget and Okta org are property configured, the widget loads and the Sign In page similar to the following image appears.
 
 <div class="common-image-format">
 
