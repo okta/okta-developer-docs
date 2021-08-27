@@ -6,8 +6,7 @@ The user signs in with the Sign-In Widget that was set up in the [Load the widge
 
 <div class="common-image-format">
 
-![Widget sign in screen](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-screen.png
- "Widget sign in screen")
+![Displays an example Widget sign-in page](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-screen.png)
 
 </div>
 

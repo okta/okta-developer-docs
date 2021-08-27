@@ -2287,6 +2287,34 @@ redirects:
     to: https://www.okta.com/pricing/#customer-identity-products
   - from: /docs/index.html
     to: /
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-basic-sign-in/index.html
+    to: /docs/guides/oie-embedded-sdk-use-case-basic-sign-in/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-basic-sign-in
+    to: /docs/guides/oie-embedded-sdk-use-case-basic-sign-in/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-sign-in-soc-idp/index.html
+    to: /docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-sign-in-soc-idp
+    to: /docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-pwd-recovery-mfa/index.html
+    to: /docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-pwd-recovery-mfa
+    to: /docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-self-reg/index.html
+    to: /docs/guides/oie-embedded-sdk-use-case-self-reg/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-self-reg
+    to: /docs/guides/oie-embedded-sdk-use-case-self-reg/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-sign-in-pwd-email/index.html
+    to: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-sign-in-pwd-email
+    to: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-sign-in-pwd-phone/index.html
+    to: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-sign-in-pwd-phone
+    to: /docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-basic-sign-out/index.html
+    to: /docs/guides/oie-embedded-sdk-use-case-basic-sign-out/-/main/
+  - from: /docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-basic-sign-out
+    to: /docs/guides/oie-embedded-sdk-use-case-basic-sign-out/-/main/
   - from: /signup/oie.html
     to: /signup/oie-preview.html
   - from: /docs/reference/api-overview

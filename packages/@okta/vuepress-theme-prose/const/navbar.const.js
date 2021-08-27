@@ -404,7 +404,7 @@ export const guides = [
                 guideName: "oie-embedded-common-download-setup-app",
               },
               {
-                title: "Build with the embedded SDK",
+                title: "Build a use case with the embedded SDK",
                 subLinks: [
                   {
                     title: "Overview",
@@ -415,8 +415,32 @@ export const guides = [
                     guideName: "oie-embedded-sdk-run-sample",
                   },
                   {
-                    title: "Start with a use case",
-                    guideName: "oie-embedded-sdk-use-cases",
+                    title: "Basic sign-in flow using the password factor",
+                    guideName: "oie-embedded-sdk-use-case-basic-sign-in",
+                  },
+                  {
+                    title: "Sign in with Facebook",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-soc-idp",
+                  },
+                  {
+                    title: "User password recovery",
+                    guideName: "oie-embedded-sdk-use-case-pwd-recovery-mfa",
+                  },
+                  {
+                    title: "Self-registration",
+                    guideName: "oie-embedded-sdk-use-case-self-reg",
+                  },
+                  {
+                    title: "Sign in with password and email factors",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
+                  },
+                  {
+                    title: "Sign in with password and phone factors",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
+                  },
+                  {
+                    title: "User sign out (local app)",
+                    guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
                   {
                     title: "Alternate flows",
@@ -425,11 +449,7 @@ export const guides = [
                   {
                     title: "Limitations",
                     guideName: "oie-embedded-sdk-limitations",
-                  },
-                  {
-                    title: "Common",
-                    guideName: "oie-embedded-sdk-common",
-                  },
+                  }
                 ]
               },
               {

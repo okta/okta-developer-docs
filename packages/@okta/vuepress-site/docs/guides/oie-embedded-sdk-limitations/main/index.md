@@ -21,8 +21,7 @@ In a passwordless sign-in with magic links, users submit only their email addres
 
 <div class="common-image-format">
 
-![Passwordless sign-in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-seq.png
- "Passwordless sign-in")
+![Sequence diagram for passwordless sign-in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-seq.png)
 
 </div>
 
@@ -32,8 +31,7 @@ The following image shows an example of the sign-in email's content.
 
 <div class="common-image-format">
 
-![Passwordless sign-in email link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-screen-email-signin.png
- "Passwordless sign-in email link")
+![Passwordless sign-in email link example](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-screen-email-signin.png")
 
 </div>
 
@@ -105,8 +103,7 @@ The Okta org that you created in [Create your Okta Account](/docs/guides/oie-emb
 
 <div class="common-image-format">
 
-![Remove link from email template](/img/oie-embedded-sdk/oie-embedded-sdk-email-template-remove-link.png
- "Remove link from email template")
+![Remove link from email template](/img/oie-embedded-sdk/oie-embedded-sdk-email-template-remove-link.png)
 
 </div>
 
