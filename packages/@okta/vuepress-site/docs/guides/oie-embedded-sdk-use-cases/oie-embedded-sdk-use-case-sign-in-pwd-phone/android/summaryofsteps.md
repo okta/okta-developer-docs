@@ -12,6 +12,6 @@ The following diagram shows an alternative step with the voice feature enabled i
 
 <div class="common-image-format">
 
-![Displays the voice-enabled alternative step for the Java SDK sign-in with password and phone flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-seq-2-java.png)
+![Displays the voice-enabled alternative step for the Java SDK sign-in with a password and phone flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-seq-2-java.png)
 
 </div>
