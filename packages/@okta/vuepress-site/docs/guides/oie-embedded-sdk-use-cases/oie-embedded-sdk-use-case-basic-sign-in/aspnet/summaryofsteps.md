@@ -3,7 +3,6 @@ and authenticating the credentials with Okta using the SDK. See sequence diagram
 
 <div class="common-image-format">
 
-![Basic sign-in sequence diagram](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-seq.png
- "Basic sign-in sequence diagram")
+![Basic sign-in sequence diagram](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-seq.png)
 
 </div>

@@ -22,8 +22,7 @@ This use case requires the password and either the email or the phone factor.
 
 <div class="common-image-format">
 
-![Password and email factors](/img/oie-embedded-sdk/factor-password-email-or-phone.png
- "Password and email factors")
+![Displays a diagram of the required password factor and the additional required email or phone factors](/img/oie-embedded-sdk/factor-password-email-or-phone.png)
 
 </div>
 

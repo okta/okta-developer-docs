@@ -6,8 +6,7 @@ Example:
 
 <div class="common-image-format">
 
-![Sign-in screenshot](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png
- "Sign-in screenshot")
+![Example sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
 
 </div>
 

@@ -44,8 +44,7 @@ The followng sample shows the button to sign in with Facebook.
 
 <div class="common-image-format">
 
-![Social sign-in screenshot](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link.png
- "Social sign-in screenshot")
+![Displays an example Social sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-link.png)
 
 </div>
 
@@ -59,8 +58,7 @@ Next, the user enters their email and password, and clicks **Log in**. This page
 
 <div class="common-image-format">
 
-![Facebook sign in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png
- "Facebook sign in")
+![Displays an example Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 
 </div>
 

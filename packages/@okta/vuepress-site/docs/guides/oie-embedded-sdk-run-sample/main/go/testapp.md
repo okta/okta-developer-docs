@@ -23,6 +23,6 @@ information:
 
    <div class="common-image-format">
 
-    ![The default user page showing the user profile information](/img/oie-embedded-sdk/oie-embedded-SDK-golang-sample-app-user-default-page.png)
+   ![The default user page that shows the user profile information](/img/oie-embedded-sdk/oie-embedded-SDK-golang-sample-app-user-default-page.png)
 
    </div>

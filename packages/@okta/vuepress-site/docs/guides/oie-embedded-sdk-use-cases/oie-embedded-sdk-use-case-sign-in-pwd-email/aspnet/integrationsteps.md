@@ -5,8 +5,7 @@ password. An example is shown below:
 
 <div class="common-image-format">
 
-![Sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png
- "Sign-in page")
+![Displays an example sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in.png)
 
 </div>
 
@@ -52,8 +51,7 @@ The next step is to show the email factor to the user in an authenticator list p
 
 <div class="common-image-format">
 
-![Email verify](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-screen-verify.png
- "Email verify")
+![Displays an example verify Email form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-email-screen-verify.png)
 
 </div>
 
@@ -88,8 +86,7 @@ If not already done, build the email verification code page that will accept the
 
 <div class="common-image-format">
 
-![Email verify](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code.png
- "Email verify")
+![Displays an example verify Email form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code.png)
 
 </div>
 

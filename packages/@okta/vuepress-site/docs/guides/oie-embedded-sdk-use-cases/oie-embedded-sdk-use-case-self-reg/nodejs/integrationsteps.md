@@ -4,7 +4,7 @@ The self-registration flow begins when the user clicks the **Sign Up** link (or 
 
 <div class="common-image-format">
 
-![Displays a sign-up link screenshot that directs to a sign-up page. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+![Displays a sign-up link that directs to a sign-up page. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
 </div>
 
@@ -16,7 +16,7 @@ The next step is to enter basic information (for example, email, first name, and
 
 <div class="common-image-format">
 
-![Displays a Self-Service Registration page screenshot that includes fields for the first name, last name and email address. A Register button starts the self-registration flow. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-user-nodejs.png)
+![Displays a Self-Service Registration page that includes fields for the first name, last name, and email address. Also displays a Register button that starts the self-registration flow. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-user-nodejs.png)
 
 </div>
 
@@ -60,7 +60,7 @@ Create a page that displays an authenticator enrollment selection. In this examp
 
 <div class="common-image-format">
 
-![Displays a Select authenticator page screenshot that includes a selection for the password. A Select button continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-pwd-auth-nodejs.png)
+![Displays a Select authenticator page that includes a selection for the password. Also displays a Select button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-pwd-auth-nodejs.png)
 
 </div>
 
@@ -68,7 +68,7 @@ After the user enters the password authenticator value, and `idx.register` is ca
 
 <div class="common-image-format">
 
-![Displays a Set up password page screenshot that includes fields for password and re-enter password. A Next button continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-set-up-pwd-nodejs.png)
+![Displays a Set up password page that includes fields for password and re-enter password. Also displays a Next button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-set-up-pwd-nodejs.png)
 
 </div>
 
@@ -80,7 +80,7 @@ See [idx.register](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#
 
 <div class="common-image-format">
 
-![Displays a Select authenticator page screenshot that includes a selection for email. A Select button continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-email-auth-nodejs.png)
+![Displays a Select authenticator page that includes a selection for email. Also displays a Select button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-email-auth-nodejs.png)
 
 </div>
 
@@ -92,7 +92,7 @@ In this use case, the user selects the **Email** factor as the authenticator to 
 
 <div class="common-image-format">
 
-![Displays an Enroll email authenticator page screenshot that includes the field for the email verification code. A Verify button continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-email-verify-nodejs.png)
+![Displays an Enroll email authenticator page that includes the field for the email verification code. Also displays a Verify button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-email-verify-nodejs.png)
 
 </div>
 
@@ -104,7 +104,7 @@ Based on the configuration described in [Set up your Okta org for multifactor us
 
 <div class="common-image-format">
 
-![Displays a Select authenticator page screenshot that includes a selection for Phone authentication. A Select button continues the flow. A Skip button skips the phone authentication flow. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-phone-auth-and-skip-nodejs.png)
+![Displays a Select authenticator page that includes a selection for Phone authentication. Also displays a Select button that continues the flow and a Skip button that skips the phone authentication flow. ](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-phone-auth-and-skip-nodejs.png)
 
 </div>
 
@@ -131,7 +131,7 @@ After the user selects the phone authenticator value, and `idx.register` is call
 
 <div class="common-image-format">
 
-![Displays an Enroll phone authenticator page screenshot that includes a selection for Phone verification method (SMS) and a field for the phone number. A Next button continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-phone-auth-nodejs.png)
+![Displays an Enroll phone authenticator page screenshot that includes a selection for Phone verification method (SMS) and a field for the phone number. Also displays a Next button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-phone-auth-nodejs.png)
 
 </div>
 
@@ -145,7 +145,7 @@ The SDK sends the phone authenticator data to Okta, processes the request, and s
 
 <div class="common-image-format">
 
-![Displays an Enroll phone authenticator page screenshot that includes a field to enter the phone (SMS) verification code. A Verify button continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-phone-verify-nodejs.png)
+![Displays an Enroll phone authenticator page screenshot that includes a field to enter the phone (SMS) verification code. Also displays a Verify button that continues the flow.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-enroll-phone-verify-nodejs.png)
 
 </div>
 

@@ -18,8 +18,7 @@ Okta provides two embedded identity solutions.
    identity use cases (for example, social sign in, multifactor authentication)
    are supported out of the box.
 
-![Widget icon](/img/oie-embedded-sdk/embedded-solution-overview.png
-"Widget icon")
+![Widget icon](/img/oie-embedded-sdk/embedded-solution-overview.png)
 
 ## Get started
 

@@ -17,8 +17,7 @@ screen.
 
 <div class="common-image-format">
 
-![Configuration setup](/img/oie-embedded-sdk/oie-embedded-sdk-widget-swift-configs.png
- "Configuration setup screen in the Swift sample app")
+![Displays the Configuration setup page in the Swift sample app](/img/oie-embedded-sdk/oie-embedded-sdk-widget-swift-configs.png)
 
 </div>
 

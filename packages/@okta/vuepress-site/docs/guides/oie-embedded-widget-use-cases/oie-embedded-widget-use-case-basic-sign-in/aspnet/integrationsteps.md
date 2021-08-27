@@ -6,8 +6,7 @@ After you complete the steps in [Use Case 1: Load the widget](/docs/guides/oie-e
 
 <div class="common-image-format">
 
-![Widget sign-in screen](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-screen.png
- "Widget sign-in screen")
+![Displays an example Widget sign-in page](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-screen.png)
 
 </div>
 

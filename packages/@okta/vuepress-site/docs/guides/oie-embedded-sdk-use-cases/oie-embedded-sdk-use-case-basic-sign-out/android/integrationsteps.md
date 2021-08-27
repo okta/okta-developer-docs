@@ -6,7 +6,7 @@ The first step is to create a link, button, or other similar UI element that all
 
 <div class="common-image-format">
 
-![Displays a 'Sign out' button](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-out-link.png)
+![Displays a Sign out button](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-out-link.png)
 
 </div>
 

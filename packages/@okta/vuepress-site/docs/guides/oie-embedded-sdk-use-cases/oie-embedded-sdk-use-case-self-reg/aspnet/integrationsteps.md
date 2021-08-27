@@ -2,11 +2,9 @@
 
 The self-registration flow begins when the user clicks the **Sign up** link. On the sign-in page, create a **Sign up** link that links to the create account page you create in the next step.
 
-
 <div class="common-image-format">
 
-![Sign up](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-sign-up.png
- "Sign up")
+![Displays an example 'Sign up' link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-sign-up.png)
 
 </div>
 
@@ -18,8 +16,7 @@ The next step is to enter basic information (for example, email, first, and last
 
 <div class="common-image-format">
 
-![Create user](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-create.png
- "Create user")
+![Displays an example 'Create your account' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-create.png)
 
 </div>
 
@@ -60,8 +57,7 @@ password factor requirement and select it for verification.
 
 <div class="common-image-format">
 
-![Verify password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-password.png
- "Verify password")
+![Displays an example 'Verify password' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-password.png)
 
 </div>
 
@@ -124,8 +120,7 @@ After `AwaitingAuthenticatorVerification` is returned, the next step is to build
 
 <div class="common-image-format">
 
-![Confirm password](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-confirm-password.png
- "Confirm password")
+![Displays an example 'Confirm password' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-confirm-password.png)
 
 </div>
 
@@ -153,8 +148,7 @@ The `AwaitingAuthenticatorEnrollment` status is returned because the required **
 
 <div class="common-image-format">
 
-![Authenticator list](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-email-phone.png
- "Authenticator List")
+![Displays an example 'Authenticator list' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-email-phone.png)
 
 </div>
 
@@ -220,8 +214,7 @@ Build the email verification code page that accepts the code from the email.
 
 <div class="common-image-format">
 
-![Authenticator list](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code.png
- "Authenticator List")
+![Displays an example 'Authenticator list' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-email-code.png)
 
 </div>
 
@@ -266,8 +259,7 @@ The remaining authenticator should display the phone factor to the user. Since t
 
 <div class="common-image-format">
 
-![Phone list](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-phone.png
- "Phone List")
+![Displays an example 'Phone list' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-auth-list-phone.png)
 
 </div>
 
@@ -303,8 +295,7 @@ Build the phone number entry page that accepts the phone number. The user uses t
 
 <div class="common-image-format">
 
-![Verify phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png
- "Verify phone")
+![Displays an example 'Verify phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png)
 
 </div>
 
@@ -358,8 +349,7 @@ Build a page that accepts the code sent to your phone number through SMS. Depend
 
 <div class="common-image-format">
 
-![Enter code from phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png
- "Enter code from phone")
+![Displays an example 'Enter code from phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png)
 
 </div>
 
