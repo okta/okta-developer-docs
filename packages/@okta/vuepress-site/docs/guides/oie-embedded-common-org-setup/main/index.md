@@ -72,6 +72,8 @@ Create an app integration representing the application you want to provide embed
    * Set **Sign-in redirect URIs** to: <StackSelector snippet="redirecturi" noSelector />
 
 1. Click **Save**.
+1. Select the **Sign On** tab.
+1. In the **Sign On Policy** section, verify that the **Available Authenticators** is appropriate for your app. For non-multifactor use cases, ensure that the **1 factor** authenticator is **Password**.
 
 > **Note:** From the **General** tab of your app integration, save the generated **Client ID** and **Client secret** values to be used later on in your embedded solution.
 
@@ -118,6 +120,8 @@ This section shows you how to set up your Okta org and app to support the multif
 1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator-for-authentication-and-recovery)
 1. [Add the phone authenticator for authentication and recovery](#add-the-phone-authenticator-for-authentication-and-recovery)
 1. [Update your app sign-on policy with multifactor authentication](#update-your-app-sign-on-policy-with-multifactor-authentication)
+
+> **Note:** This authentication use case implements the password, email, and phone factors. However, there are other supported factors that you can use in your embedded authentication app. See [Multifactor Authentication](https://help.okta.com/en/oie/okta_help_CSH.htm#csh-about-authenticators).
 
 #### Set up the email authenticator for authentication and recovery
 
