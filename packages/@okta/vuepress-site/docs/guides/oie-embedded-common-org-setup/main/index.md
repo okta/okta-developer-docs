@@ -83,7 +83,7 @@ After you've created your app integration in your Okta org, the next step is to 
 
 * For a basic password factor use case, see [Set up your Okta org for a password factor only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * For a multifactor use case, see [Set up your Okta org for a multifactor use case](#set-up-your-okta-org-for-a-multifactor-use-case)
-* For a social sign-in use case, see [Set up your Okta org for a social IdP use case](#c#set-up-your-okta-org-for-a-social-idp-use-case)
+* For a social sign-in use case, see [Set up your Okta org for a social IdP use case](#set-up-your-okta-org-for-a-social-idp-use-case)
 
 ### Set up your Okta org for a password factor only use case
 
@@ -113,7 +113,7 @@ For password only authentication, you need to update the password authenticator 
 
 ### Set up your Okta org for a multifactor use case
 
-This section shows you how to set up your Okta org and app to support the multifactor use cases available in this embedded authentication guide. The multifactor use cases presented in this guide use the email and phone factors, in addition to the password factor. Perform the following configuration after you've [created a new app](#create-a-new-application) to set up the email and phone factors in your Okta org:
+This section shows you how to set up your Okta org and app to support the multifactor use cases available in this embedded authentication guide. In addition to the password factor, the multifactor use cases presented in this guide use the email and phone factors. Perform the following configuration after you've [created a new app](#create-a-new-application) to set up the email and phone factors in your Okta org:
 
 1. [Set up the email authenticator for authentication and recovery](#set-up-the-email-authenticator-for-authentication-and-recovery)
 1. [Add the phone authenticator for authentication and recovery](#add-the-phone-authenticator-for-authentication-and-recovery)
@@ -142,96 +142,93 @@ If your org already has the phone authenticator added, ensure that the **Authent
 
 #### Update your app sign-on policy with multifactor authentication
 
-1. Select **Applications** > **Applications** from the left navigation menu.
-1. From the **Applications** page, select the application that you created
-   in [Set up your Okta org for password factor only use cases](#set-up-your-okta-org-for-password-factor-only-use-cases).
+1. In the Admin Console, go to **Applications** > **Applications**.
+1. From the **Applications** page, select the [application that you've created](#create-a-new-application).
 1. On the page for your application, select the **Sign On** tab.
-1. In the **Sign On Policy** section, select the **Actions** menu icon (⋮) beside the **ENABLED** flag for **Catch-all Rule** and select **Edit**.
-1. On the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** field and change it's value to **Password + Another Factor**.
-1. Ensure that no values are selected for the **AND Possession factor constraints are** field.
+1. In the **Sign On Policy** section, select the action menu icon (⋮) beside the **ENABLED** flag for **Catch-all Rule** and select **Edit**.
+1. On the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** drop-down menu and select **Password + Another Factor**.
+1. Ensure that no options are selected for the **AND Possession factor constraints are** field.
 1. Click **Save**.
 
 ### Set up your Okta org for a social IdP use case
 
-This section describes how to set up your org to use Facebook as an Identity Provider. 
+This section shows you how to set up your Okta org and app to support sign in with Facebook IdP use cases available in this embedded authentication guide. If you want to implement a use case with another social IdP, see [Add an external Identity Provider](/docs/guides/add-an-external-idp/apple/before-you-begin/) for the list of Okta supported social IdPs and instructions on how to configure them for social authentication with Okta.
 
-You can skip this section until you are ready to run through the above use case. Otherwise, the steps to add support for the Facebook social provider are
-listed below.
+Perform the following configurations after you've [created a new app](#create-a-new-application) to set up the Facebook IdP and your Okta org:
 
+1. [Create a Facebook app in Facebook](#create-a-facebook-app-in-facebook)
+1. [Set up the Facebook test user](#set-up-the-facebook-test-user)
+1. [Optional: Switch your Facebook app to Live mode](#optional-switch-your-facebook-app-to-live-mode) (this step is not required if you want to remain in Facebook Development mode)
+1. [Create the Facebook Identity Provider in Okta](#create-the-facebook-identity-provider-in-okta)
+1. [Add an Identity Provider routing rule in Okta](#add-an-identity-provider-routing-rule-in-okta)
 
-#### Step 1: Create a Facebook app in Facebook
+#### Create a Facebook app in Facebook
 
 1. Go to [Facebook for Developers](https://developers.facebook.com/) and click the **Login** link. If you don't have an account, then create one.
-1. Using these [instructions](https://developers.facebook.com/docs/apps/register) as a guide, create a Facebook app. Ensure that when you are creating the app, you select **None** as the app type.
-1. After creating the app, on the [Apps](https://developers.facebook.com/apps/) page select the app that you just created.
-1. On the **App** page, scroll to the **Add a product** section.
+1. Using these Facebook [instructions](https://developers.facebook.com/docs/apps/register) as a guide, create a Facebook app. When you create the Facebook app, ensure that you select **None** as the app type.
+1. From the Facebook [Apps](https://developers.facebook.com/apps/) page, select the app that you just created.
+1. On the App Dashboard page, scroll to the **Add a product** section.
 1. Click the **Set up** link in the **Facebook Login** tile.
 1. On the first set up page, select **Web** as the platform type.
 1. On the next page, set the value for **Site URL** to `https://${yourOktaDomain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save** and then **Continue**.
-1. Click through all the **Next** buttons until you run through all of the sections.
-1. In the left navigation menu, click **Facebook Login** (under products) and then click **Settings**.
-1. On the **Settings** page and under **Client OAuth Settings**, add the following URLs for the **Valid OAuth Redirect URIs** field:
-      `https://${yourOktaDomain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+1. Click **Next** in each presented section until you exit the wizard.
+1. In the left navigation menu, click **Facebook Login** (under Products) and then click **Settings**.
+1. On the **Settings** page and under **Client OAuth Settings**, add the following URLs for the **Valid OAuth Redirect URIs** field: `https://${yourOktaDomain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save Changes** at the bottom of the page.
+1. On the App Dashboard page, expand **Settings** on the left side of the page, and then click **Basic**.
+1. Save the **App ID** and the **App Secret** values so you can add them to your Okta org's Identity Provider settings.
 
-#### Step 2: Copy the App ID and Secret
+#### Set up the Facebook test user
 
-After you finish creating the app, the next step is to copy the **App ID** and **App Secret** for the next step where you set up the Facebook Identity Provider in the Okta org.
+A test account is required to test Facebook sign-in in Development mode. Facebook automatically creates one test user for you to use with the Facebook sign-in use cases. Perform the following steps to find, set the password, and save this user's information.
 
-1. In the left navigation menu, click **Settings** and then **Basic**.
-1. Copy the **App ID** and **App Secret** to an accessible place in preparation for the next step.
-
-#### Step 3: Set up and copy test user information
-
-A test account is required to test the social media sign in in development mode. Facebook automatically creates one test user that we can use for the Facebook use cases. Perform the following steps to find, set the password, and copy this user's information.
-
-1. From the left navigation menu, click **Roles** and then **Test Users**.
-1. When the list of users appears, there should be one test user. Select **Edit** for the test user and select **Change the name or password for this test user**.
-1. In the Edit Test User dialog box, set a password for the **New Password** and **Confirm New Password** fields.
+1. From the Facebook App Dashboard page, click **Roles** and then click **Test Users**.
+1. Click **Edit** for the test user and select **Change the name or password for this test user**.
+1. In the **Edit Test User** dialog box, set a password for the **New Password** and **Confirm New Password** fields.
 1. Click **Save**.
-1. Copy or note the test user's **email** and **password** for when you perform the social media use cases.
+1. Save the test user's **email** and **password** for testing social IdP sign-in use cases with Okta and Facebook.
 
-#### Step 4: Optional: Switch to live mode
+#### Optional: Switch your Facebook app to Live mode
 
-By default the Facebook app is in development mode and can only be used by the test users and the user that you used to sign in and create the Facebook app. As a result, when testing your social media use cases, you can only use these users to sign in to Facebook.
+By default, your Facebook app is in Development mode and can only be used by the test user and the user that you used to sign in and create the Facebook app. As a result, you can only use these users when you test your Facebook sign-in use cases.
 
-If you would like to use any public Facebook user, you need to set the app to live mode. To switch the app to live mode, do the following:
+If you would like to sign in any public Facebook user, you need to set the Facebook app to Live mode. To switch your Facebook app to Live mode, perform the following steps:
 
-1. From the left navigation menu, click **Settings** and then **Basic**.
-1. Set a value in the **Privacy Policy URL** field for your app. If you don't have one, you can temporarily use: `https://www.okta.com/privacy-policy/`.
+1. From the Facebook App Dashboard page, click **Settings** and then click **Basic**.
+1. Specify a value in the **Privacy Policy URL** field for your app. If you don't have a privacy URL, you can temporarily use: `https://www.okta.com/privacy-policy/`.
 1. Click **Save Changes** at the bottom of the page.
-1. At the top of the Dashboard page, select the **App Mode** slider and slide to switch the app from **Development** to
-   **Live** mode.
+1. At the top of the App Dashboard page, use the **App Mode** toggle to switch the app from **In development** to **Live** mode.
 1. In the **Switch to Live Mode** dialog box, click **Switch Mode**.
 
-#### Step 5: Create the Facebook Identity Provider in Okta
+#### Create the Facebook Identity Provider in Okta
 
-The next step is to create the Facebook Identity Provider in Okta.
+To connect your org to the Facebook, you need to add and configure the Facebook IdP in Okta. The following steps assume that you have already [created and configured your Facebook app](#create-a-facebook-app-in-facebook) and that you have the Facebook **App ID** and **App Secret** values available.
 
-1. Select **Security** > **Identity Providers** from the left navigation menu.
-1. On the **Identity Providers** page, click **Add Identity Provider**.
-1. In the drop-down list that appears, select **Add Facebook**.
+1. In the Admin Console, go to **Security** > **Identity Providers**.
+1. Click **Add Identity Provider** and then select **Add Facebook**.
 1. On the **Add Identity Provider - Facebook** page, enter a name (for example, Facebook IdP).
-1. Keep **Idp Usage** set to the **SSO Only** default.
-1. Set the **Client ID** and **Client Secret** to the **App ID** and **App Secret** that you copied in the previous step.
-1. Keep the **Scopes** values set to the default: **public_profile** and **email**.
+1. Keep the default **SSO Only** option for the **Idp Usage** field.
+1. Specify the Facebook **App ID** value as the **Client ID**.
+1. Specify the Facebook **App Secret** value as the **Client Secret**.
+1. Keep the default values, **public_profile** and **email**, in the **Scopes** field.
 1. Click **Add Identity Provider**.
 
-#### Step 6: Add routing rule
+#### Add an Identity Provider routing rule in Okta
 
-The next step is to add a new routing rule.
+The final step is to add the [created Facebook IdP](create-the-facebook-identity-provider-in-okta) to the routing rule.
 
-1. Select **Security** > **Identity Providers** from the left navigation menu.
-1. On the Identity Providers page, click **Routing Rules**.
+1. In the Admin Console, go to **Security** > **Identity Providers**.
+1. On the Identity Providers page, click the **Routing Rules** tab.
 1. Click **Add Routing Rule**.
-1. Enter the **Rule Name** (for example, FB and Okta Rule).
-1. From the **THEN Use this identity provider** drop-down list, select the Facebook Identity Provider that you just created. Since Okta is defaulted, the two values should be:
-      * Okta
-      * Facebook Identity Provider (IdP)
+1. Specify the **Rule Name** (for example, FB and Okta Rule).
+1. From the **THEN Use this identity provider** drop-down list, select the [Facebook Identity Provider that you've just created](#create-the-facebook-identity-provider-in-okta). Since Okta is the default IdP, the two values should be:
+
+   * Okta
+   * Facebook Identity Provider (IdP)
+
 1. Click **Create Rule**.
 1. At the prompt, click **Activate**.
-1. Your new rule should appear above the **Default Rule** in the list to the left. This top position signifies that the settings in your new rule override
-   the **Default Rule**.
+1. Your new rule appears above the **Default Rule** in the routing rule list. This top position signifies that the setting in your new rule overrides the **Default Rule**.
 
 </div>
