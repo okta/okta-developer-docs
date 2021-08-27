@@ -53,7 +53,7 @@ Build the phone verification method entry page that accepts either SMS or voice 
 
 <div class="common-image-format">
 
-![Displays a Verify using phone authenticator page that includes a SMS option and a Next button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-phone-method-nodejs.png)
+![Displays a Verify using phone authenticator page that includes an SMS option and a Next button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-in-pwd-phone-screen-verify-phone-method-nodejs.png)
 
 </div>
 
