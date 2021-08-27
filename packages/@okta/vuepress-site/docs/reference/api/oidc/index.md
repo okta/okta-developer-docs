@@ -301,7 +301,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
 "https://${yourOktaDomain}/oauth2/default/v1/device/authorize" \
--d "client_id={client_id}&client_secret={client_secret}&scope={scope}"
+-d "client_id=${client_id}&client_secret=${client_secret}&scope=${scope}"
 ```
 
 #### Response example (success)
@@ -389,7 +389,7 @@ Based on the scopes requested. Generally speaking, the scopes specified in a req
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
 "https://${yourOktaDomain}/oauth2/default/v1/token" \
--d "client_id={client_id}&client_secret={client_secret}&grant_type=authorization_code&redirect_uri={redirect_uri}&code={code}"
+-d "client_id=${client_id}&client_secret=${client_secret}&grant_type=authorization_code&redirect_uri=${redirect_uri}&code=${code}"
 ```
 
 #### Response example (success)
@@ -1009,11 +1009,11 @@ curl -X GET \
 ```json
 {
     "issuer": "https://${yourOktaDomain}",
-    "authorization_endpoint": "https://{baseUrl}/authorize",
-    "token_endpoint": "https://{baseUrl}/token",
-    "userinfo_endpoint": "https://{baseUrl}/userinfo",
-    "registration_endpoint": "https://{baseUrl}/clients",
-    "jwks_uri": "https://{baseUrl}/keys",
+    "authorization_endpoint": "https://${baseUrl}/authorize",
+    "token_endpoint": "https://${baseUrl}/token",
+    "userinfo_endpoint": "https://${baseUrl}/userinfo",
+    "registration_endpoint": "https://${baseUrl}/clients",
+    "jwks_uri": "https://${baseUrl}/keys",
     "response_types_supported": [
         "code",
         "code id_token",
@@ -1368,7 +1368,7 @@ The ID token consists of three period-separated, Base64 URL-encoded JSON segment
 {
   "ver": 1,
   "sub": "00uid4BxXw6I6TV4m0g3",
-  "iss": "https://{yourOktaDomain.com}",
+  "iss": "https://${yourOktaDomain.com}",
   "aud": "uAaunofWkaDJxukCFeBx",
   "iat": 1449624026,
   "exp": 1449627626,

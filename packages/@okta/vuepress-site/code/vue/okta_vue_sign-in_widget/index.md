@@ -85,20 +85,20 @@ import OktaSignIn from '@okta/okta-signin-widget'
 import { OktaAuth } from '@okta/okta-auth-js'
 
 const oktaSignIn = new OktaSignIn({
-  baseUrl: 'https://{yourOktaDomain}',
-  clientId: '{clientId}',
+  baseUrl: 'https://${yourOktaDomain}',
+  clientId: '${clientId}',
   redirectUri: 'http://localhost:8080/login/callback',
   authParams: {
     pkce: true,
-    issuer: 'https://{yourOktaDomain}/oauth2/default',
+    issuer: 'https://${yourOktaDomain}/oauth2/default',
     display: 'page',
     scopes: ['openid', 'profile', 'email']
   }
 });
 
 const oktaAuth = new OktaAuth({
-  issuer: 'https://{yourOktaDomain}/oauth2/default',
-  clientId: '{clientId}',
+  issuer: 'https://${yourOktaDomain}/oauth2/default',
+  clientId: '${clientId}',
   redirectUri: window.location.origin + '/login/callback',
   scopes: ['openid', 'profile', 'email']
 })

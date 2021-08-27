@@ -47,22 +47,18 @@ export default {
   watch: {
     $route(to, from) {
       // On route change check if base path has changed.
-      // If true update `iHaveChildrenActive` parameter.
-      // In such way will be possible to indicate current active item without needs to re-render sidebar
+      // If true, re-render sidebar.
+      // We want to check if it's a 'real' route change (re-render sidebar) or just a page scroll
+      // where the hash fragment changes (do nothing)
       if (from.path !== to.path) {
-        this.navigation.forEach((nav) => {
-          this.addStatesToLink(nav);
-        });
+        // Preveusly we tried to remove re-render logic but seems it
+        // caused additional bugs (https://oktainc.atlassian.net/browse/OKTA-419090, https://oktainc.atlassian.net/browse/OKTA-419134)
+        // See https://github.com/okta/okta-developer-docs/pull/2170 <-- PR that gets rid of re-render sidebar logic
+        this.navigation = this.getNavigationData();
       }
-    }
+    },
   },
   methods: {
-    getNavigationData() {
-      return this.getNavigation().map(nav => {
-        this.addStatesToLink(nav);
-        return nav;
-      });
-    },
     toggleSubNav: function(event) {
       const parent = event.target.parentElement;
       const sections = parent.querySelector(".sections");
@@ -71,13 +67,19 @@ export default {
       }
       event.preventDefault();
     },
+    getNavigationData() {
+      return this.getNavigation().map(nav => {
+        this.addStatesToLink(nav);
+        return nav;
+      });
+    },
     handleScroll: function(event) {
       let maxHeight =
         window.innerHeight -
         document.querySelector(".fixed-header").clientHeight ;
 
       document.querySelector(".sidebar-area").style.height =
-        maxHeight + "px"; 
+        maxHeight + "px";
     },
     addStatesToLink(link) {
       // Reset iHaveChildrenActive value.

@@ -91,7 +91,7 @@ When you use these API endpoints to create or modify an Authorization Server res
       }
     },
     "self": {
-      "href": "https:{yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
+      "href": "https://${yourOktaDomain}/api/v1/authorizationServers/ausain6z9zIedDCxB0h7",
       "hints": {
         "allow": [
           "GET",
@@ -210,7 +210,7 @@ after     | Specifies the pagination cursor for the next page of Authorization S
 
 **Parameter details**
 
-* The `after` cursor should be treated as an opaque value and obtained through the next link relationship. See [Pagination](/docs/reference/api-overview/#pagination).
+* The `after` cursor should be treated as an opaque value and obtained through the next link relationship. See [Pagination](/docs/reference/core-okta-api/#pagination).
 * `limit` can be no larger than 200.
 
 ##### Request example

@@ -26,6 +26,7 @@ you need to make in your app to support to this step.
 </div>
 
 ### Step 3: Facebook redirects to your Okta org
+
 If the user Facebook login is successful, facebook routes the user to the value you enter for **Valid OAuth Redirect URIs** and **Site URL** in
 [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-social-identity-providers).
 The value takes on the following format:  `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
@@ -50,7 +51,6 @@ and must be identical. These locations are:
 For the sample application, the **RedirectURI** should be set to `http://localhost:8080/login/callback`
 
 Okta returns the interaction code to the **Sign-in redirect URI** that is specified in the [create new application step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application) and is accessed in the sample app from `login.js`.
-
 
 ```JavaScript
 router.get('/login/callback', async (req, res, next) => {
@@ -92,7 +92,7 @@ Use the interaction code component of the `login.js` page to request tokens and 
   }
 ```
 
-### Step 4: Call user profile information (optional)
+### Step 6: Call user profile information (optional)
 
 Retrieve the user profile information, stored in the `attributes` variable, from the `home.js` file:
 

@@ -4,14 +4,14 @@
 
     ```JSON
     {
-    "client_id": "{clientId}",
-    "redirect_uri": "{SigninredirectUri}",
-    "end_session_redirect_uri": "{SignoutredirectUri}",
+    "client_id": "${clientId}",
+    "redirect_uri": "${SigninredirectUri}",
+    "end_session_redirect_uri": "${SignoutredirectUri}",
     "scopes": [
         "openid",
         "profile"
     ],
-    "Discovery_uri": "https://{yourOktaDomain}/oauth2/default/.well-known/openid-configuration"
+    "Discovery_uri": "https://${yourOktaDomain}/oauth2/default/.well-known/openid-configuration"
     }
     ```
 

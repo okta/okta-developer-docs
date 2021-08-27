@@ -21,9 +21,9 @@ public void ConfigureServices(IServiceCollection services)
     .AddOktaMvc(new OktaMvcOptions
     {
         // Replace these values with your Okta configuration
-        OktaDomain = "https://{yourOktaDomain}",
-        ClientId = "{clientId}",
-        ClientSecret = "{clientSecret}"
+        OktaDomain = "https://${yourOktaDomain}",
+        ClientId = "${clientId}",
+        ClientSecret = "${clientSecret}"
     });
 
     services.AddControllersWithViews();
@@ -45,9 +45,9 @@ public void ConfigureServices(IServiceCollection services)
     .AddOktaMvc(new OktaMvcOptions
     {
         // Replace these values with your Okta configuration
-        OktaDomain = "https://{yourOktaDomain}",
-        ClientId = "{clientId}",
-        ClientSecret = "{clientSecret}",
+        OktaDomain = "https://${yourOktaDomain}",
+        ClientId = "${clientId}",
+        ClientSecret = "${clientSecret}",
         AuthorizationServerId = "",
     });
 }
