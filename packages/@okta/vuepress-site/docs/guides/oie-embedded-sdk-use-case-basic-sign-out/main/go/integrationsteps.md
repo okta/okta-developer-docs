@@ -6,7 +6,7 @@ The first step is to create an element that allows the user to sign out of the a
 
 <div class="common-image-format">
 
-![Image of a sign out link that initiates the user sign out](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-simple-sign-out-link.png)
+![Displays a sign-out link that initiates the user sign-out flow](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-simple-sign-out-link.png)
 
 </div>
 

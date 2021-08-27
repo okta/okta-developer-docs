@@ -28,7 +28,7 @@ The following sequence diagram details each step in the authentication flow for 
 
 <div class="common-image-format">
 
-![A sequence diagram for the user registratin use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-register-1.png)
+![Displays the user registratin use case sequence diagram](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-register-1.png)
 
 </div>
 

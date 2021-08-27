@@ -15,7 +15,7 @@ This use case requires the password factor.
 
 <div class="common-image-format">
 
-![Password factor only indicator](/img/oie-embedded-sdk/factor-password-only.png "Password Factor Logo")
+![Password factor only indicator](/img/oie-embedded-sdk/factor-password-only.png)
 
 </div>
 

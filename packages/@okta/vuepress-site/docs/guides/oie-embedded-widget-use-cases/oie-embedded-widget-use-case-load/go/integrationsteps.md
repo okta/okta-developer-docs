@@ -116,10 +116,10 @@ Finally, add the javascript that loads the Widget into the `div` tag. The parame
 
 ### Step 4: Complete loading of the Sign-in page
 
-After the sign-in page is successfully loaded, the embedded Sign-In Widget is displayed:
+After the sign-in page is successfully loaded, the embedded Sign-In Widget appears:
 
 <div class="common-image-format">
 
-![A screenshot of the Sign-in Widget showing the username and password](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-sign-in-page.png)
+![Displays the Sign-in Widget with the username and password fields](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-sign-in-page.png)
 
 </div>

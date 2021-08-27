@@ -6,7 +6,7 @@ The first step is to create a forgot your password link on the sign-in page, as 
 
 <div class="common-image-format">
 
-![Displays the sign-in page with a 'Forgot password?' link where the user can click to reset their password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+![Displays the sign-in page with a 'Forgot password?' link that the user can click to reset their password.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
 </div>
 
@@ -54,6 +54,8 @@ The next step is to create a page that shows the authenticator returned from the
 
 </div>
 
+### Step 3: Select the email authenticator factor
+
 After the user selects the email authenticator, the next step is to call `idx.recoverPassword` with the authenticator type, as shown in the `authenticator.js` file of the SDK sample application. The method returns a status of `Idx.Status:PENDING`. This status indicates that the Okta platform has emailed the verification code to the user's email address and is now awaiting verification. The response also includes a `nextStep` field that requires an email verification code input parameter.
 
 ```JavaScript
@@ -66,7 +68,7 @@ router.post('/select-authenticator', async (req, res, next) => {
 });
 ```
 
-### Step 4: Create code verification page
+### Step 4: Create code verification page and reset password
 
 After the call to `idx.recoverPassword` has responded with a status of `Idx.Status:PENDING`, the user is redirected to a code verification page. The page must display a field to enter a code and a button or link to send the code to Okta for the email verification.
 
@@ -90,8 +92,6 @@ router.post('/challenge-authenticator/email', async (req, res, next) => {
 
 If the `idx.recoverPassword` call is successful, it returns a status of `Idx.Status:PENDING` and the `nextStep` field indicates an input of a password value parameter. This status indicates that the user can now change their password. At this point, the user is redirected to a change password page.
 
-### Step 5: Create reset password page
-
 Create a reset password page that allows the user to enter the new password, confirm it, and initiate the update.
 
 <div class="common-image-format">
@@ -99,6 +99,8 @@ Create a reset password page that allows the user to enter the new password, con
 ![Displays the Reset Password page that has a field to input your password and a field to confirm the password value.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-set-password-nodejs.png)
 
 </div>
+
+### Step 5: Add new password
 
 The final step is to make a call to `idx.recoverPassword`, passing in the value of the user input password, as shown in the `recover-password.js` file of the SDK sample application. This call resets the user's password.
 

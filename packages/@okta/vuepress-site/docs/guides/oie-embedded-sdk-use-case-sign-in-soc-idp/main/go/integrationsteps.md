@@ -23,7 +23,7 @@ Build a sign-in page that captures both the user's name and password.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![A basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
 
 </div>
 
@@ -83,7 +83,7 @@ providers.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![A screenshot of a sign-in page showing the available identity providers](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-social-sign-in.png)
+![Displays a sign-in page with the available Identity Providers](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-social-sign-in.png)
 
 </div>
 
@@ -99,7 +99,7 @@ you enter originate from a test user that you configured in [Set up your Okta or
 
 <div class="common-image-format">
 
-![Screenshot of a facebook sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-social-fb-sign-in.png)
+![Displays an example Facebook sign-in page](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-social-fb-sign-in.png)
 
 </div>
 

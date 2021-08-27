@@ -588,7 +588,7 @@ curl -v -X POST \
   },
   "_links": {
     "authorize": {
-      "href": "http://{yourOktaDomain}/oauth2/v1/authorize?idp=0oa18hsHsG3boVejU0g4&client_id={clientId}&response_type={responseType}&response_mode={responseMode}&scope={scopes}&redirect_uri={redirectUri}&state={state}&nonce={nonce}",
+      "href": "http://${yourOktaDomain}/oauth2/v1/authorize?idp=0oa18hsHsG3boVejU0g4&client_id=${clientId}&response_type=${responseType}&response_mode=${responseMode}&scope=${scopes}&redirect_uri=${redirectUri}&state=${state}&nonce=${nonce}",
       "templated": true,
       "hints": {
         "allow": [
@@ -597,7 +597,7 @@ curl -v -X POST \
       }
     },
     "clientRedirectUri": {
-      "href": "http://{yourOktaDomain}/oauth2/v1/authorize/callback",
+      "href": "http://${yourOktaDomain}/oauth2/v1/authorize/callback",
       "hints": {
         "allow": [
           "POST"
@@ -1449,7 +1449,7 @@ type      | Filters IdPs by `type`                                              
 
 **Parameter details**
 
-* Treat the `after` cursor as an opaque value and obtain it through the next link relationship. See [Pagination](/docs/reference/api-overview/#pagination).
+* Treat the `after` cursor as an opaque value. You can obtain it through the next link relationship. See [Pagination](/docs/reference/core-okta-api/#pagination).
 * Search currently performs a `startsWith` match, but it should be considered an implementation detail and may change without notice in the future.
 
 ##### Response parameters

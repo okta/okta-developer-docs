@@ -449,11 +449,7 @@ export const guides = [
                   {
                     title: "Limitations",
                     guideName: "oie-embedded-sdk-limitations",
-                  },
-                  {
-                    title: "Common",
-                    guideName: "oie-embedded-sdk-common",
-                  },
+                  }
                 ]
               },
               {

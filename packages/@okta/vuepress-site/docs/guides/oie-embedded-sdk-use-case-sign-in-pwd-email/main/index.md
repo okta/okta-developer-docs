@@ -17,8 +17,7 @@ This use case requires the **password** and **email** factors.
 
 <div class="common-image-format">
 
-![Password and email factors](/img/oie-embedded-sdk/factor-password-email.png
- "Password and email factors")
+![Displays a diagram of the required password and email factors](/img/oie-embedded-sdk/factor-password-email.png)
 
 </div>
 

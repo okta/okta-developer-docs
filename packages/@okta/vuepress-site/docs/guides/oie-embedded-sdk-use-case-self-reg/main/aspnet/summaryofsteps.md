@@ -8,8 +8,7 @@ The following diagram illustrates the beginning of the registration process wher
 
 <div class="common-image-format">
 
-![Self-service registration start](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start.png
- "Self-service registration start")
+![Displays a diagram that shows the beginning of self-service registration flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-start.png)
 
 </div>
 
@@ -19,8 +18,7 @@ The self-registration flow continues in this sequence.
 
 <div class="common-image-format">
 
-![Self-service registration enroll](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify.png
- "Self-service registration enroll")
+![Displays a diagram that continues from the last diagram and shows the self-service registration enrollment flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-enroll-verify.png)
 
 </div>
 
@@ -35,8 +33,7 @@ The following flow describes the steps when the user enrolls in the optional pho
 
 <div class="common-image-format">
 
-![Self-service registration enroll](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-phone.png
- "Self-service registration enroll")
+![Displays a diagram that continues from the last diagram and shows the self-service registration enroll flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-phone.png)
 
 </div>
 
@@ -48,7 +45,6 @@ factors are optional. In this case, the user opts to skip the phone
 
 <div class="common-image-format">
 
-![Self-service registration skip phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-skip-phone.png
- "Self-service registration skip phone")
+![Displays a diagram that contineus from the last diagram and shows the self-service registration skip phone flow](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-skip-phone.png)
 
 </div>

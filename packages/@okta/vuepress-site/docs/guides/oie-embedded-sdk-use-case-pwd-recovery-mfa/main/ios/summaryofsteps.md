@@ -28,6 +28,6 @@ The following sequence diagram details each step in the authentication flow for 
 
 <div class="common-image-format">
 
-![A sequence diagram for the password recovery use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-pwd-recovery.png)
+![Displays a sequence diagram for the password recovery use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-pwd-recovery.png)
 
 </div>

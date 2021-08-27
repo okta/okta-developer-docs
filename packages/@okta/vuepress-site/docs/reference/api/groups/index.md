@@ -175,13 +175,13 @@ Enumerates Groups in your organization with pagination. A subset of Groups can b
 | Parameter | Description                                                                                | ParamType | DataType | Required | Default |
 | --------- | ------------------------------------------------------------------------------------------ | --------- | -------- | -------- | ------- |
 | after     | Specifies the pagination cursor for the next page of Groups                                | Query     | String   | FALSE    |         |
-| filter    | [Filter expression](/docs/reference/api-overview/#filter) for Groups      | Query     | String   | FALSE    |         |
+| filter    | [Filter expression](/docs/reference/core-okta-api/#filter) for Groups      | Query     | String   | FALSE    |         |
 | limit     | Specifies the number of Group results in a page                                            | Query     | Number   | FALSE    | 10000   |
 | q         | Finds a group that matches the `name` property                                               | Query     | String   | FALSE    |         |
 | expand        | If specified, it causes additional metadata to be included in the response. Possible values are `stats` and/or `app`.                                             | Query     | String   | FALSE    |         |
-| search | Searches for groups with a supported [filtering](/docs/reference/api-overview/#filter) expression for all [attributes](#group-attributes) except for `_embedded`, `_links`, and `objectClass`  | Query     | String   | FALSE    |         |
+| search | Searches for groups with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for all [attributes](#group-attributes) except for `_embedded`, `_links`, and `objectClass`  | Query     | String   | FALSE    |         |
 
-> **Notes:** The `after` cursor should be treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).<br><br>
+> **Notes:** The `after` cursor should be treated as an opaque value and obtained through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).<br><br>
 Search currently performs a `startsWith` match but it should be considered an implementation detail and may change without notice in the future.
 
 ###### Filters
@@ -201,7 +201,7 @@ The following expressions are supported for Groups with the `filter` query param
 | `type eq "BUILT_IN"`                                    | Groups that have a `type` of `BUILT_IN`                             |
 | `type eq "OKTA_GROUP"`                                  | Groups that have a `type` of `OKTA_GROUP`                           |
 
-See [Filtering](/docs/reference/api-overview/#filter) for more information on expressions.
+See [Filtering](/docs/reference/core-okta-api/#filter) for more information on expressions.
 
 > **Note:** All filters must be [URL encoded](http://en.wikipedia.org/wiki/Percent-encoding) where `filter=lastUpdated gt "2013-06-01T00:00:00.000Z"` is encoded as `filter=lastUpdated%20gt%20%222013-06-01T00:00:00.000Z%22`.
 
@@ -239,7 +239,7 @@ Reminders about the `limit` query parameter and query timeouts:
 * If you don't specify any value for `limit` and do specify a query, a maximum of 10 results are returned.
 * The maximum value for `limit` is 200 for most orgs.
 * Don't write code that depends on the default or maximum value, as it may change.
-* If you receive an HTTP 500 status code, you more than likely have exceeded the request timeout. Retry your request with a smaller `limit` and [page the results](/docs/reference/api-overview/#pagination).
+* If you receive an HTTP 500 status code, you have more than likely exceeded the request timeout. Retry your request with a smaller `limit` and [page the results](/docs/reference/core-okta-api/#pagination).
 
 ##### Request example
 
@@ -731,7 +731,7 @@ Property names in the search parameter are case sensitive, whereas operators (`e
 
 This operation:
 
-* Supports [pagination](/docs/reference/api-overview/#pagination).
+* Supports [pagination](/docs/reference/core-okta-api/#pagination).
 * Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding).
 For example, `search=type eq "OKTA_GROUP"` is encoded as `search=type+eq+%22OKTA_GROUP%22`.
 Examples use cURL-style escaping instead of URL encoding to make them easier to read.
@@ -974,11 +974,11 @@ Enumerates all [users](/docs/reference/api/users/#user-object) that are a member
 | id        | ID of the Group                                          | URL       | String   | TRUE     |         |
 | limit     | Specifies the number of user results in a page             | Query     | Number   | FALSE    | 1000    |
 
-> **Note:** Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
+> **Note:** Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 The default user limit is set to a very high number due to historical reasons that are no longer valid for most organizations. This will change in a future version of this API. The recommended page limit is now `limit=200`.
 
-> **Note:** If you receive an HTTP 500 status code, you more than likely have exceeded the request timeout. Retry your request with a smaller `limit` and page the results. See [Pagination](/docs/reference/api-overview/#pagination).
+> **Note:** If you receive an HTTP 500 status code, you have more than likely exceeded the request timeout. Retry your request with a smaller `limit` and page the results. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response parameters
 
@@ -1635,7 +1635,7 @@ Enumerates all [Applications](/docs/reference/api/apps/#application-object) that
 | id        | ID of the Group                                           | URL       | String   | TRUE     |         |
 | limit     | Specifies the number of app results for a page            | Query     | Number   | FALSE    | 20      |
 
-> **Note:** Treat the page cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/api-overview/#pagination).
+> **Note:** Treat the page cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
 ##### Response parameters
 

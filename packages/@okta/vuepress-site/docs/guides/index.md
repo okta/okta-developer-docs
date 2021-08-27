@@ -64,7 +64,6 @@ guides:
  - oie-embedded-sdk-overview
  - oie-embedded-sdk-alternate-flows
  - oie-embedded-sdk-limitations
- - oie-embedded-sdk-common
  - oie-embedded-widget-run-sample
  - oie-embedded-widget-use-cases
  - oie-embedded-widget-overview
