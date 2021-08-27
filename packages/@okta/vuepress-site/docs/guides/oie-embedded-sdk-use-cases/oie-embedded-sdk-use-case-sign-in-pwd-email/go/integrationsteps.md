@@ -23,7 +23,7 @@ Build a sign-in page that captures the user's name and password.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![Dispalys a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
 
 </div>
 
