@@ -156,7 +156,7 @@ The following page from the sample application shows the phone number field and 
 
 <div class="common-image-format">
 
-![Display an option to choose the phone method for the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-method-page.png)
+![Displays an option to choose the phone method for the phone factor](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-phone-method-page.png)
 
 </div>
 
