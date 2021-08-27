@@ -4,7 +4,7 @@ Build a sign-in page that captures both the user’s name and password, as shown
 
 <div class="common-image-format">
 
-![Displays a sign-in page with the username and password fiels and a Login button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
+![Displays a sign-in page with the username and password fields and a Login button.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-sign-on-screenshot-sign-in-nodejs.png)
 
 </div>
 
