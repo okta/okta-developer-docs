@@ -24,7 +24,7 @@ The SDK integrates into your app by using a native language interface and commun
 
 To get started using the SDK:
 
-1. [Create your account and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/).
+1. [Create your account and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/).
 1. [Download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
 1. [Run the SDK sample app](/docs/guides/oie-embedded-sdk-run-sample/aspnet/main/).
 1. Integrate the SDK into your app (while using the sample app as your guide) by using the available [use cases](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-overview/).
