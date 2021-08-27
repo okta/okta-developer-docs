@@ -27,11 +27,11 @@ The Admin Console contains predefined reports, system log filters, and notificat
 ## Use the Admin Console to monitor events
 The Okta Admin Console provides a rich set of visuals and tools for you to monitor your Okta org.
 
-* Use the [Dashboard](https://help.okta.com/en/prod/Content/Topics/Dashboard/Dashboard.htm) to [view your org at a glance](https://help.okta.com/en/prod/Content/Topics/Dashboard/view-your-org.htm), including the number of active users, active groups, and active SSO apps. You can also view your [org agents' status](https://help.okta.com/en/prod/Content/Topics/Dashboard/view-org-agent-status.htm), [your tasks](https://help.okta.com/en/prod/Content/Topics/Dashboard/monitor-your-tasks.htm) list, recent org changes, as well as security tips.
+* Use the [Dashboard](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Dashboard) to [view your org at a glance](https://help.okta.com/en/prod/Content/Topics/Dashboard/view-your-org.htm), including the number of active users, active groups, and active SSO apps. You can also view your [org agents' status](https://help.okta.com/en/prod/Content/Topics/Dashboard/view-org-agent-status.htm), [your tasks](https://help.okta.com/en/prod/Content/Topics/Dashboard/monitor-your-tasks.htm) list, recent org changes, as well as security tips.
 * Use the [Reports](https://help.okta.com/en/prod/Content/Topics/Reports/report-types.htm) page to view predefined system log reports or visuals
-* Use the [System Logs](https://help.okta.com/en/prod/Content/Topics/Reports/Reports_SysLog.htm) page to filter for specific events and to view trends over time
-* Use [HealthInsight](https://help.okta.com/en/prod/Content/Topics/Security/healthinsight/healthinsight.htm) to view recommendations from a recent Okta org security audit
-* Use [ThreatInsight](https://help.okta.com/en/prod/Content/Topics/Security/threat-insight/ti-index.htm) to view IP addresses identified by the greater Okta community as threatening
+* Use the [System Logs](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports_SysLog ) page to filter for specific events and to view trends over time
+* Use [HealthInsight](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-healthinsight) to view recommendations from a recent Okta org security audit
+* Use [ThreatInsight](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_threatinsight) to view IP addresses identified by the greater Okta community as threatening
 
 ## Integrate with external monitoring tools
 
@@ -82,7 +82,7 @@ You can use the Admin Console to manually download CSV files of system log query
 
 ## Enable and configure Okta ThreatInsight
 
-The [Okta ThreatInsight](https://help.okta.com/en/prod/Content/Topics/Security/threat-insight/ti-index.htm)  feature aggregates data across Okta customers to detect malicious IP addresses that attempt credential-based attacks. You can enable ThreatInsight through the [Okta ThreatInsight Settings](https://help.okta.com/en/prod/Content/Topics/Security/threat-insight/configure-threatinsight.htm) in the Admin Console, or through the [ThreatInsight configuration API](/docs/reference/api/threat-insight/).
+The [Okta ThreatInsight](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_threatinsight) feature aggregates data across Okta customers to detect malicious IP addresses that attempt credential-based attacks. You can enable ThreatInsight through the [Okta ThreatInsight Settings](https://help.okta.com/en/prod/Content/Topics/Security/threat-insight/configure-threatinsight.htm) in the Admin Console, or through the [ThreatInsight configuration API](/docs/reference/api/threat-insight/).
 
 After ThreadInsight is enabled, Okta captures access attempts from malicious IPs in the system logs. You can also configure it to block access from the malicious IPs to your Okta org.
 
