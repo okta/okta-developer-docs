@@ -1,4 +1,4 @@
-## Option 1: Refresh using the Javascript SDK
+## Option 1: Refresh tokens using the Javascript SDK
 
 The Javascript SDK has built-in support for the auto-renewing of access and
 ID tokens. This behavior is enabled by default, but you can disable it by
@@ -31,6 +31,6 @@ information about these methods and events.
 * [`tokenManager` `renew` method](https://github.com/okta/okta-auth-js#tokenmanagerrenewkey)
 
 > **Note:** The direct approach using the
-[OAuth token endpoint](#refresh-using-the-oauth-token-endpoint) is also supported for
+[OAuth token endpoint](#refresh-the-token-using-the-oauth-token-endpoint) is also supported for
 refresh tokens. However, this approach is discouraged because it requires
 you to implement token storage, rotation, and other token refresh functionality.

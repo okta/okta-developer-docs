@@ -7,7 +7,7 @@ git clone https://github.com/okta/okta-auth-js.git
 cd okta-auth-js/samples/generated/express-embedded-sign-in-widget
 ```
 
-### Install module dependencies
+### Install the module dependencies
 
 The sample applications require the installation of the module dependencies listed in the `package.json` at the sample root.
 

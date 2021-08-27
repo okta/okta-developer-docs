@@ -1,4 +1,4 @@
-###  Add a trusted origin and enable CORS
+### Add a trusted origin and enable CORS
 
 1. Select **Security** > **API** from the left navigation menu.
 1. On the **API** page, click **Trusted Origins**.

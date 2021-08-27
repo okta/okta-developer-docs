@@ -1,4 +1,4 @@
-### Step 1: Build a sign-in page on the client
+### Step: Build a sign-in page on the client
 
 Build a sign-in page that captures both the username and password.
 
@@ -10,7 +10,7 @@ For example:
 
  </div>
 
-### Step 2: Authenticate user credentials
+### Step: Authenticate the user credentials
 
 When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object, which is `authClient` in the SDK sample app's `login.js` file , and set its `username` and `password` properties to the values entered by the user. Send this object to `idx.authenticate` to authenticate the user. See [idx.authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) for more information.
 
@@ -26,7 +26,7 @@ router.post('/login', async (req, res, next) => {
 });
 ```
 
-### Step 3: Handle the response from the sign in
+### Step: Handle the response from the user sign-in flow
 
 The application handles the response from the authentication call through the `handleTransaction` function as shown in the SDK sample application `handleTransaction.js` file. The `transaction` parameter is the `IdxStatus` value that is passed in through the response from Okta.
 
@@ -65,7 +65,7 @@ case IdxStatus.SUCCESS:
 
 ```
 
-#### Other status
+#### Other authentication statuses
 
 You need to handle other returned `IdxStatus` cases if the user didn't sign in successfully. For example, in the SDK application's `handleTransactions.js` file:
 
@@ -103,6 +103,6 @@ You need to handle other returned `IdxStatus` cases if the user didn't sign in s
 
 ```
 
-### Step 4: Get user profile information (optional)
+### Step (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server (see the next section).

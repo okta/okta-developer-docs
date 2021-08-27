@@ -1,4 +1,4 @@
-## Order of configuration options
+## Order of the configuration options
 
 > **Note:** To avoid confusion on how the configuration values are being
 set, we recommend that you only use one configuration option in your solution.

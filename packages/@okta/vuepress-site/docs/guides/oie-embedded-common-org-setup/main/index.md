@@ -92,6 +92,7 @@ The next step is to set up your Okta org so that you can connect your sample app
    * Select the **Refresh Token** checkbox.
    * Set **Sign-in redirect URIs** to: <StackSelector snippet="redirecturi" noSelector />
    * Click **Save**.
+
 1. Select the **Sign On** tab, and in the **Sign On Policy** section make note of the **Available Authenticators**. The value should be **1 factor** that is **Password**. (If you are coming back to this step after completing [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases), then set this value to **Password**. Currently, if there are multiple factors defined in the Okta org but the application uses only one factor, the value must be **Password**.)
 
 ## Set up your Okta org for multifactor use cases
@@ -112,14 +113,14 @@ If you have completed the basic use cases or simply want to move on to more comp
 
 The steps to enable these factors are as follows:
 
-### Step 1: Set up the email authenticator for authentication
+### Step: Set up the email authenticator for authentication
 
 1. In the Admin Console, select **Security** > **Authenticators** from the left navigation menu.
 1. From the **Authenticators page**, select **Edit** from the **Actions** menu on the **Email** authenticator row.
 1. In the **Used for** section, select the **Authentication and recovery** option for the **This authenticator can be used for** field.
 1. Click **Save**.
 
-### Step 2: Add the phone authenticator
+### Step: Add the phone authenticator
 
 1. From the **Authenticators page**, click **Add Authenticator**.
 1. On the **Add Authenticator** page, click **Add** for the **Phone** authenticator.
@@ -130,7 +131,7 @@ The steps to enable these factors are as follows:
 1. In the **Used for** section, select **Authentication and recovery** for the **This authenticator can be used for** field.
 1. Click **Add**.
 
-### Step 3: Update Application sign on policy for multiple factors
+### Step: Update the Application sign-on policy for multiple factors
 
 1. Select **Applications** > **Applications** from the left navigation menu.
 1. From the **Applications** page, select the application that you created
@@ -159,7 +160,7 @@ listed below.
 > **Note:** We recommend that you skip this step if you are just getting started with the sample app and like to run the basic use cases listed in
 [Set up your Okta org (for password factor only use cases)](#set-up-your-okta-org-for-password-factor-only-use-cases).
 
-### Step 1: Create a Facebook app in Facebook
+### Step: Create a Facebook app in Facebook
 
 1. Go to [Facebook for Developers](https://developers.facebook.com/) and click the **Login** link. If you don't have an account, then create one.
 1. Using these [instructions](https://developers.facebook.com/docs/apps/register) as a guide, create a Facebook app. Ensure that when you are creating the app, you select **None** as the app type.
@@ -175,14 +176,14 @@ listed below.
       `https://{Okta org domain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save Changes** at the bottom of the page.
 
-### Step 2: Copy the App ID and Secret
+### Step: Copy the App ID and Secret
 
 After you finish creating the app, the next step is to copy the **App ID** and **App Secret** for the next step where you set up the Facebook Identity Provider in the Okta org.
 
 1. In the left navigation menu, click **Settings** and then **Basic**.
 1. Copy the **App ID** and **App Secret** to an accessible place in preparation for the next step.
 
-### Step 3: Set up and copy test user information
+### Step: Set up and copy test user information
 
 A test account is required to test the social media sign in in development mode. Facebook automatically creates one test user that we can use for the Facebook use cases. Perform the following steps to find, set the password, and copy this user's information.
 
@@ -218,7 +219,7 @@ The next step is to create the Facebook Identity Provider in Okta.
 1. Keep the **Scopes** values set to the default: **public_profile** and **email**.
 1. Click **Add Identity Provider**.
 
-### Step 6: Add routing rule
+### Step: Add a routing rule
 
 The next step is to add a new routing rule.
 

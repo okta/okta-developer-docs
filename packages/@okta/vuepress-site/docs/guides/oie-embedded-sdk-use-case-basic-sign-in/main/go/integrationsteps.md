@@ -1,4 +1,4 @@
-### Step 1: Navigate to the homepage
+### Step: Navigate to the home page
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -15,7 +15,7 @@ if err != nil {
 }
 ```
 
-### Step 2: Navigate to the sign-in page
+### Step: Navigate to the sign-in page
 
 Build a sign-in page that captures the user's name and password.
 
@@ -67,7 +67,7 @@ if err != nil {
 }
 ```
 
-### Step 4: Save the tokens and redirect user to the default home page
+### Step: Save the tokens and redirect the user to the default home page
 
 The `Identity` method returns a `LoginResponse` and `error`
 object. Use the `error` object to determine if there were errors in the
@@ -97,7 +97,7 @@ if lr.Token() != nil {
 }
 ```
 
-### Step 5 (Optional): Retrieve user profile information
+### Step (Optional): Retrieve the user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
