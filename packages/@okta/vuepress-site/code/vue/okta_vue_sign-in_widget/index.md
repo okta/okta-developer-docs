@@ -106,7 +106,7 @@ const oktaAuth = new OktaAuth({
 export { oktaAuth, oktaSignIn };
 ```
 
-Make sure to replace the `{...}` placeholders with values from your OIDC app on Okta.
+Make sure to replace the `${...}` placeholders with values from your OIDC app on Okta.
 
 ## Create a Widget Wrapper
 

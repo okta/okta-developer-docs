@@ -492,7 +492,7 @@ curl -v -X GET \
         },
         "_links": {
             "self": {
-                "href": "http://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens/ykkwcx13nrDq8g4oy0g3",
+                "href": "https://${yourOktaDomain}/api/v1/org/factors/yubikey_token/tokens/ykkwcx13nrDq8g4oy0g3",
                 "hints": {
                     "allow": [
                         "GET",
@@ -1888,7 +1888,7 @@ curl -v -X POST \
     "lastUpdated": "2019-07-22T23:22:36.000Z",
     "_links": {
         "self": {
-            "href": "http://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4",
+            "href": "https://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -1897,7 +1897,7 @@ curl -v -X POST \
             }
         },
         "verify": {
-            "href": "http://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4/verify",
+            "href": "https://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3/factors/chf20l33Ks8U2Zjba0g4/verify",
             "hints": {
                 "allow": [
                     "POST"
@@ -1905,7 +1905,7 @@ curl -v -X POST \
             }
         },
         "user": {
-            "href": "http://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3",
+            "href": "https://${yourOktaDomain}/api/v1/users/00utf43LCCmTJVcsK0g3",
             "hints": {
                 "allow": [
                     "GET"

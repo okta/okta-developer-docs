@@ -85,7 +85,7 @@ Content-Type: application/json
 
 ### Get Brand
 
-<ApiOperation method="get" url="/api/v1/brands/{brandId}" />
+<ApiOperation method="get" url="/api/v1/brands/${brandId}" />
 
 Fetches a brand by `brandId`
 
@@ -150,7 +150,7 @@ Content-Type: application/json
 
 ### Update Brand
 
-<ApiOperation method="put" url="/api/v1/brands/{brandId}" />
+<ApiOperation method="put" url="/api/v1/brands/${brandId}" />
 
 Updates a Brand by `brandId`
 
@@ -355,7 +355,7 @@ The Themes API has the following CRUD operations:
 
 ### Get Themes
 
-<ApiOperation method="get" url="/api/v1/brands/{brandId}/themes" />
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/themes" />
 
 List all the themes in your brand
 
@@ -453,7 +453,7 @@ Content-Type: application/json
 
 ### Get Theme
 
-<ApiOperation method="get" url="/api/v1/brands/{brandId}/themes/{themeId}" />
+<ApiOperation method="get" url="/api/v1/brands/${brandId}/themes/${themeId}" />
 
 Fetches a Theme for a Brand
 
@@ -549,7 +549,7 @@ Content-Type: application/json
 
 ### Update Theme
 
-<ApiOperation method="put" url="/api/v1/brands/{brandId}/themes/{themeId}" />
+<ApiOperation method="put" url="/api/v1/brands/${brandId}/themes/${themeId}" />
 
 Updates a Theme for a Brand
 
@@ -715,7 +715,7 @@ Content-Type: application/json
 
 ### Upload Theme Logo
 
-<ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/logo" />
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/themes/${themeId}/logo" />
 
 Updates the logo for your Theme
 
@@ -812,7 +812,7 @@ Content-Type: application/json
 
 ### Delete Theme logo
 
-<ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/logo" />
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/logo" />
 
 Deletes a Theme logo. The org then uses the Okta default logo.
 
@@ -852,7 +852,7 @@ HTTP/1.1 204 No Content
 
 ### Upload Theme Favicon
 
-<ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/favicon" />
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/themes/${themeId}/favicon" />
 
 Updates the favicon for your theme
 
@@ -933,7 +933,7 @@ Content-Type: application/json
 
 ### Delete Theme favicon
 
-<ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/favicon" />
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/favicon" />
 
 Deletes a Theme favicon. The org then uses the Okta default favicon.
 
@@ -973,7 +973,7 @@ HTTP/1.1 204 No Content
 
 ### Upload Theme background image
 
-<ApiOperation method="post" url="/api/v1/brands/{brandId}/themes/{themeId}/background-image" />
+<ApiOperation method="post" url="/api/v1/brands/${brandId}/themes/${themeId}/background-image" />
 
 Updates the background image for your Theme
 
@@ -1054,7 +1054,7 @@ Content-Type: application/json
 
 ### Delete Theme background image
 
-<ApiOperation method="delete" url="/api/v1/brands/{brandId}/themes/{themeId}/background-image" />
+<ApiOperation method="delete" url="/api/v1/brands/${brandId}/themes/${themeId}/background-image" />
 
 Deletes a Theme background image
 

@@ -32,9 +32,9 @@ To add a custom claim:
 
 To confirm that your custom claim was successfully added, you can [retrieve a list of all claims](/docs/reference/api/authorization-servers/#get-all-claims) from your authorization server, including the custom ones, using the `/claims` endpoint:
 
-`https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}/claims`
+`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/claims`
 
-> **Note:** If you added the claim to the default Custom Authorization Server, the `${authServerId}` is `default`.
+> **Note:** If you added the claim to the default Custom Authorization Server, the `${authorizationServerId}` is `default`.
 
 ### Request a token that contains the custom claim
 
@@ -46,7 +46,7 @@ The resulting URL looks something like this:
 
 ```bash
 curl -X GET
-"https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+"https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
 &response_type=id_token
 &scope=openid
 &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
@@ -64,7 +64,7 @@ The decoded JWT looks something like this:
 {
   "sub": "00uixa271s6x7qt8I0h7",
   "ver": 1,
-  "iss": "https://${yourOktaDomain}/oauth2/${authServerId}",
+  "iss": "https://${yourOktaDomain}/oauth2/${authorizationServerId}",
   "aud": "0oaoesxtxmPf08QHk0h7",
   "iat": 1573762864,
   "exp": 1573766464,

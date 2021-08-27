@@ -15,13 +15,13 @@ The following is the required content format for the YAML file:
 ```yaml
 okta:
   idx:
-    issuer: "https://{yourOktaDomain}/oauth2/{authorizationServerId}"
-    clientId: "{clientId}"
-    clientSecret: "{clientSecret}"
+    issuer: "https://${yourOktaDomain}/oauth2/${authorizationServerId}"
+    clientId: "${clientId}"
+    clientSecret: "${clientSecret}"
     scopes:
-    - "{scope1}"
-    - "{scope2}"
-    redirectUri: "{redirectUri}"
+    - "${scope1}"
+    - "${scope2}"
+    redirectUri: "${redirectUri}"
 ```
 
 YAML configuration file example:
@@ -41,11 +41,11 @@ okta:
 
 Where
 
-* `{authorizationServerId}=default` (the default Custom Authorization Server)
-* `{yourOktaDomain}=dev-1234.okta.com`
-* `{clientId}=123xyz`
-* `{clientSecret}=123456abcxyz`
-* `{redirectUri}=http://localhost:8080`
+* `${authorizationServerId}=default` (the default Custom Authorization Server)
+* `${yourOktaDomain}=dev-1234.okta.com`
+* `${clientId}=123xyz`
+* `${clientSecret}=123456abcxyz`
+* `${redirectUri}=http://localhost:8080`
 * `openid`, `profile`, and `offline_access` scopes are used for the sample app
 
 ### Option 2: Environment variables
