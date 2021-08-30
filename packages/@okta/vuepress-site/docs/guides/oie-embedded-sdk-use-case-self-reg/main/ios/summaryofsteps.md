@@ -34,4 +34,4 @@ The following sequence diagram details each step in the authentication flow for 
 
 The above sequence diagram follows a path where the user skips the optional phone authenticator.
 To understand the authentication flow when the user selects the phone authenticator, see
-the [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-cases/ios/oie-embedded-sdk-use-case-sign-in-pwd-phone/).
+the [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/ios/main/).

@@ -2,8 +2,8 @@ The sample app is located here: [Embedded Sign-In Widget sample app](https://git
 
 ## Steps to test the sample app
 
-1. Ensure that you've configured your Okta org properly by completing the steps in [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
-1. Ensure you've completed the steps in [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/go/main/).
+1. Ensure that you've configured your Okta org properly by completing the steps in [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
+1. Ensure that you've completed the steps in [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/go/main/).
 1. Open the embedded Widget sample application directory using Visual Studio Code or
    your preferred IDE. The directory path to the sample application directory is: `samples-golang/identity-engine/embedded-sign-in-widget`.
 1. Add an `okta.yaml` configuration file. See [Option 1: YAML configuration file](/docs/guides/oie-embedded-common-download-setup-app/go/main/#option-1-configuration-file) for more information on how to configure and where to place the configuration file.
@@ -32,4 +32,4 @@ The sample app is located here: [Embedded Sign-In Widget sample app](https://git
 
 ## Troubleshooting
 
-* If you see the "There was an unexpected internal error. Please try again." message instead of the Sign-In Widget, then verify that CORS is enabled. Follow the steps in [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/go/main/#step-3-add-a-trusted-origin-and-enable-cors) to enable CORS.
+* If you see the "There was an unexpected internal error. Please try again." message instead of the Sign-In Widget, then verify that CORS is enabled. Follow the steps in [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/go/main/#add-a-trusted-origin-and-enable-cors) to enable CORS.

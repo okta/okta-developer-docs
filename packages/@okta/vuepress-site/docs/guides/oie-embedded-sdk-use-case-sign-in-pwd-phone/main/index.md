@@ -25,24 +25,16 @@ This use case requires the **password** and **phone** factors.
 
 ## Configuration updates
 
-Before you build a sign-in flow with password and phone factors, you need to configure the Okta org to accept both factors in your app:
+Before you build a sign-in flow with password and phone factors, you need to configure the Okta org to accept both factors in your app. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to configure your app and Okta org for this use case.
 
-### Step 1: Set up your Okta org for a password factor
+### Set phone as optional for authentication enrollment
 
-Ensure your org is configured for the password factor by completing the steps in [Update the authenticators for password factor only use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#update-the-authenticators-for-password-factor-only-use-cases).
-
-### Step 2: Set up your Okta org for multifactor use cases
-
-Ensure your org is configured for multifactor use cases by completing the steps in [Set up your Okta org for multi-factor use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases).
-
-> **Note:** Ensure your app integration is configured to use **Password + Another factor** in the app integration's **Sign On Policy** rule section.
-
-### Step 3: Set phone as optional for authentication enrollment
+The instructions in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) configures both email and phone factors as optional. For this use case, you only need the phone factor as optional.
 
 1. In the Admin console, go to **Security** > **Authenticators**.
 1. On the **Authenticators** page, select the **Enrollment** tab.
 1. In **Default Policy**, click **Edit**.
-1. In the **Edit Policy** dialog box, note the factors under **Effective Factors** and do the following:
+1. In the **Edit Policy** dialog box, under **Effective Factors**:
    * Set **Email Authentication** to **Disabled**.
    * Set **Phone Authentication** to **Optional**.
 1. Click **Update Policy** if a value has changed.
