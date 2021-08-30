@@ -121,7 +121,7 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 **What Changed:** The SMS Factor can no longer be activated or deactivated using the Factors Administrator API (`/api/v1/org/factors`).
 
-**Further Information:** [Factors Administration API](https://developer.okta.com/docs/reference/api/factor-admin)
+**Further Information:** [Factors Administration API](/docs/reference/api/factor-admin)
 
 ***
 
@@ -147,4 +147,4 @@ See the [SDK uses cases](/docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-
 
 Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in Okta Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Okta Classic Authentication APIs are denied recovery.
 
-**Further information:** [Recovery operations](https://developer.okta.com/docs/reference/api/authn/#recovery-operations) section of the Authentication API.
+**Further information:** [Recovery operations](/docs/reference/api/authn/#recovery-operations) section of the Authentication API.

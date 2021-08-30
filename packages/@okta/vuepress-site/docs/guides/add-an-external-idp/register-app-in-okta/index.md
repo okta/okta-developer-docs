@@ -7,7 +7,7 @@ You can use either an existing OpenID Connect (OIDC) app integration or create a
 1. Sign in to your Okta organization with your administrator account.
 1. In the Admin Console, go to **Applications** > **Applications**.
 
-> **Note:** If you need Okta to only authenticate users and not to redirect them to a particular OpenID Connect client, then the Identity Provider (IdP) configuration is complete. Add [routing rules](https://help.okta.com/en/prod/Content/Topics/Security/Identity_Provider_Discovery.htm) to redirect users from the Okta Sign-In Page to the IdP.
+> **Note:** If you need Okta to only authenticate users and not to redirect them to a particular OpenID Connect client, then the Identity Provider (IdP) configuration is complete. Add [routing rules](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Identity_Provider_Discovery) to redirect users from the Okta Sign-In Page to the IdP.
 
 If you want to add an existing OIDC app integration:
 

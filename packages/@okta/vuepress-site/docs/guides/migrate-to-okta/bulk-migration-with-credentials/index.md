@@ -4,7 +4,7 @@ title: Bulk Migration with Credentials
 
 ## Performing a migration using the Okta API
 
-As part of your plan and preparation to migrate your users to Okta, you gathered your source data into an intermediate staging area such as a secure local database or a CSV file. This guide shows you how to use that data to create users and groups in Okta using the [Okta Users API](https://developer.okta.com/docs/reference/api/users/) and the [Okta Groups API](https://developer.okta.com/docs/reference/api/groups/).
+As part of your plan and preparation to migrate your users to Okta, you gathered your source data into an intermediate staging area such as a secure local database or a CSV file. This guide shows you how to use that data to create users and groups in Okta using the [Okta Users API](/docs/reference/api/users/) and the [Okta Groups API](/docs/reference/api/groups/).
 
 ### Prerequisites
 
@@ -18,7 +18,7 @@ To use this guide, you need the following:
 
 ### Sample data
 
-The [Okta Users API](https://developer.okta.com/docs/reference/api/users/) provides several operations to create users. To keep it simple, we’ll use [Create User without Credentials](https://developer.okta.com/docs/reference/api/users/#create-user-without-credentials) in this guide.
+The [Okta Users API](/docs/reference/api/users/) provides several operations to create users. To keep it simple, we’ll use [Create User without Credentials](/docs/reference/api/users/#create-user-without-credentials) in this guide.
 
 This is the sample data we’ll use for one user:
 
@@ -31,7 +31,7 @@ It’s a good idea to use sample data that’s as close as possible to your real
 
 ### Create groups
 
-If your user data includes groups and you want to include those groups when you create your users in Okta, you’ll have to create equivalent Okta Groups first. You can create an Okta Group for the sample data we’re using (in this case, “All Employees”) using an [Add Group](https://developer.okta.com/docs/reference/api/groups/#add-group) request:
+If your user data includes groups and you want to include those groups when you create your users in Okta, you’ll have to create equivalent Okta Groups first. You can create an Okta Group for the sample data we’re using (in this case, “All Employees”) using an [Add Group](/docs/reference/api/groups/#add-group) request:
 
 ### Request example
 
@@ -197,8 +197,8 @@ curl -v -X POST \
 
 The user status in the response when you create a User is set to `STAGED`, which essentially means that the user has been created but not activated yet. You can activate users using the API or in your Okta Admin Console. For more information on account states and activation, see:
 
-* [User status values](https://developer.okta.com/docs/reference/api/users/#user-status) (API reference)
-* [Activate User request](https://developer.okta.com/docs/reference/api/users/#activate-user) (API reference)
+* [User status values](docs/reference/api/users/#user-status) (API reference)
+* [Activate User request](/docs/reference/api/users/#activate-user) (API reference)
 * [End user account states](https://help.okta.com/en/prod/Content/Topics/Directory/end-user-states.htm) (product documentation)
 * [Activate user accounts](https://help.okta.com/en/prod/Content/Topics/Directory/ad-agent-activate-user-accounts.htm) (product documentation)
 
