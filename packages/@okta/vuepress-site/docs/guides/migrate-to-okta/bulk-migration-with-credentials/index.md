@@ -199,27 +199,27 @@ The user status in the response when you create a User is set to `STAGED`, which
 
 * [User status values](docs/reference/api/users/#user-status) (API reference)
 * [Activate User request](/docs/reference/api/users/#activate-user) (API reference)
-* [End user account states](https://help.okta.com/en/prod/Content/Topics/Directory/end-user-states.htm) (product documentation)
-* [Activate user accounts](https://help.okta.com/en/prod/Content/Topics/Directory/ad-agent-activate-user-accounts.htm) (product documentation)
+* [End user account states](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_end_user_states) (product documentation)
+* [Activate user accounts](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_activate_user) (product documentation)
 
 ### Rate limits
 
-Remember that [rate limits](https://developer.okta.com/docs/reference/rate-limits/) apply to API requests when doing bulk/batch user migration, and the rate limits differ depending on the level of service you have purchased from Okta. [You can check your rate limits](https://developer.okta.com/docs/reference/rate-limits/#check-your-rate-limits-with-okta-s-rate-limit-headers) in your code using Okta’s Rate Limit Headers.
+Remember that [rate limits](/docs/reference/rate-limits/) apply to API requests when doing bulk/batch user migration, and the rate limits differ depending on the level of service you have purchased from Okta. [You can check your rate limits](/docs/reference/rate-limits/#check-your-rate-limits-with-okta-s-rate-limit-headers) in your code using Okta’s Rate Limit Headers.
 
 ### Next steps
 
 At this point, you should understand how to use the Okta API to migrate legacy users and groups to Okta.
 
-Your next step should be configuring the necessary integration and access to applications for your users. Be sure to read the product documentation for an [overview of application integration](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Apps.htm) and see the information about [The Applications Page](https://help.okta.com/en/prod/Content/Topics/Apps/Apps_Apps_Page.htm) for more on how to configure your applications.
+Your next step should be configuring the necessary integration and access to applications for your users. Be sure to read the product documentation for an [overview of application integration](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps) and see the information about [The Applications Page](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page) for more on how to configure your applications.
 
-### Reference 
+### Reference
 
 This is a collection of reference links that we covered in this guide, as well as links for further information:
 
 #### API reference pages
 
 * [Okta Users API](/docs/reference/api/users/)
-* [Okta Groups API](https://developer.okta.com/docs/reference/api/groups/)
+* [Okta Groups API](/docs/reference/api/groups/)
 * [API error codes](/docs/reference/error-codes/)
 * [Default user profile properties](/docs/reference/api/users/#default-profile-properties)
 * [Rate limits](/docs/reference/rate-limits/)
