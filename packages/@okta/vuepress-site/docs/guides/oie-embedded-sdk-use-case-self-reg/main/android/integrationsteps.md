@@ -50,7 +50,7 @@ val authenticationResponse = idxAuthenticationWrapper.register(proceedContext, u
 
 ### Step 3: Display enrollment factors
 
-After you've configured your org and app with instructions from [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), your app is configured with **Password** authentication, and additional **Email** or **Phone** factors. Authenticators are the factor credentials, owned or controlled by the user, that can be verified during authentication.
+After you've configured your org and app with instructions from [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/android/main/#set-up-your-okta-org-for-a-multifactor-use-case), your app is configured with **Password** authentication, and additional **Email** or **Phone** factors. Authenticators are the factor credentials, owned or controlled by the user, that can be verified during authentication.
 
 This step contains the request to enroll a password authenticator for the user.
 
@@ -136,7 +136,7 @@ val authenticationResponse =
 
 If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` property and an `Authenticators` list that contains the phone factor. Reuse the authenticator enrollment form from [Step 3: Display enrollment factors](#step-3-display-enrollment-factors) to display the list of authenticators to the user.
 
-Based on the configuration described in [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-multifactor-use-cases), the app in this use case is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional. In this step, the `isSkipAuthenticatorPresent()` function returns `TRUE` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone factor.
+Based on the configuration described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/android/main/#set-up-your-okta-org-for-a-multifactor-use-case), the app in this use case is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional. In this step, the `isSkipAuthenticatorPresent()` function returns `TRUE` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone factor.
 
 If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Step 8, Option 1: Skip phone factor](#step-8-option-1-skip-phone-factor) for the skip authenticator flow. If the user decides to select the optional factor, see [Step 8, Option 2: User selects phone authenticator](#step-8-option-2-user-selects-phone-authenticator) for the optional phone authenticator flow.
 

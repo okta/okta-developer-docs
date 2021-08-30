@@ -14,6 +14,6 @@ After you [create and set up your Okta org](/docs/guides/oie-embedded-common-org
 
 ## Work with the use cases
 
-After you have successfully run the sample app, you can build your own integration by using the sample app as your guide. See [Start with a use case overview](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-overview/) to explore the use cases that are available with the SDK.
+After you have successfully run the sample app, you can build your own integration by using the sample app as your guide. See [Build a use case with the embedded SDK](/docs/guides/oie-embedded-sdk-overview/) to explore the use cases that are available with the SDK.
 
 </div>
