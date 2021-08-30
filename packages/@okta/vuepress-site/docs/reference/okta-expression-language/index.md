@@ -186,7 +186,7 @@ For an example using group functions and for more information on using group fun
 >
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
 >
->See the Parameter Examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
+>See the Parameter examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
 
 ### Linked object function
 
@@ -338,7 +338,7 @@ To catch User attributes that are null or blank, use the following valid conditi
 If a Profile attribute has never been populated, catch it with the following expression:<br>
 `user.employeeNumber != null`
 
-If a Profile attribute was populated in the past but the content is removed, it is no longer `null` but an empty string. To catch these empty strings, use the following expression:<br>
+If a Profile attribute was populated in the past but the content is removed, it's no longer `null` but an empty string. To catch these empty strings, use the following expression:<br>
 `user.employeeNumber != ""`
 
 ## Popular expressions
