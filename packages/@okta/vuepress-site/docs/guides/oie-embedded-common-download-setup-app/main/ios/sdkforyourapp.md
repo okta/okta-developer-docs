@@ -1,6 +1,6 @@
 After you run the sample app and explore its available use cases, you can begin to integrate the SDK and/or the widget into your own app. To get started, follow these steps:
 
-#### Step: Add the package dependency
+#### 1: Add the package dependency
 
 Add the following code to the `dependencies` attribute defined in your `Package.swift` file.
 You can select the version using the `majorVersion` and `minor` parameters. For example:
@@ -11,7 +11,7 @@ dependencies: [
 ]
 ```
 
-#### Step: Import the OktaIdx namespace
+#### 2: Import the OktaIdx namespace
 
 Import the `OktaIdx` framework.
 
@@ -19,7 +19,7 @@ Import the `OktaIdx` framework.
 import OktaIdx
 ```
 
-#### Step: Initialize the IdxClient object
+#### 3: Initialize the IdxClient object
 
 Initialize the `IDXClient` with the`start` static method.
 

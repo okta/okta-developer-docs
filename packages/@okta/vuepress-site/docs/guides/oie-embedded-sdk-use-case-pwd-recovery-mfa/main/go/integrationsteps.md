@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step: Navigate to the homepage
+### 1: The user navigates to the home page
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -17,7 +17,7 @@ if err != nil {
 }
 ```
 
-### Step: Navigate to the password recovery page
+### 2: Navigate to the password recovery page
 
 When the user clicks on the **Recover password** link on your site, send the
 user to a page where they can enter their email and start the password
@@ -29,11 +29,11 @@ recovery flow.
 
 </div>
 
-### Step: Enter the email and initiate the password recovery
+### 3: The user enters their email and initiates password recovery
 
 After the user submits their email to start the password recovery, perform the following steps:
 
-1.  Call the `Client` object's `InitPasswordReset` method by passing in a
+1. Call the `Client` object's `InitPasswordReset` method by passing in a
 `IdentifyRequest` object with its `Identifier` property set to the user's email. Calling this method
 validates the email and returns a list of additional steps needed to complete the recovery.
 
@@ -71,7 +71,7 @@ if !rpr.HasStep(idx.ResetPasswordStepEmailConfirmation) {
 s.cache.Set("resetPasswordFlow", rpr, time.Minute*5)
 ```
 
-### Step: Show the code verification page
+### 4: Show the code verification page
 
 The next step is for the user to enter the verification code from their email.
 Build a page that captures this code.
@@ -82,7 +82,7 @@ Build a page that captures this code.
 
 </div>
 
-### Step: Submit the verification code
+### 5: Submit the verification code
 
 When the user submits the verification code, call the `ResetPasswordResponse` object's
 `ConfirmEmail` method, passing in the verification code.
@@ -106,7 +106,7 @@ http.Redirect(w, r, "/passwordRecovery/newPassword", http.StatusFound)
 return
 ```
 
-### Step: Show the new password page
+### 6: Show the new password page
 
 After the code has been confirmed, the next step is to send the user
 to a page that allows them to enter their new password.
@@ -117,7 +117,7 @@ to a page that allows them to enter their new password.
 
 </div>
 
-### Step: Submit the new password
+### 7: Submit the new password
 
 After the user enters their password and submits, call the `ResetPasswordResponse` object's
 `SetNewPassword` method to change their password to the new password. If successful,
@@ -136,7 +136,7 @@ if !rpr.HasStep(idx.ResetPasswordStepSuccess) {
 }
 ```
 
-### Step: Store the tokens in a session and redirect to the signed-in home page
+### 8: Store the tokens in a session and redirect the user to the signed-in home page
 
 Store the tokens from the `ResetPasswordResponse` into session
 for later use. After the tokens are stored, redirect the user to the
@@ -160,7 +160,7 @@ http.Redirect(w, r, "/", http.StatusFound)
 return
 ```
 
-### Step (Optional): Get the user profile information
+### 9 (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.

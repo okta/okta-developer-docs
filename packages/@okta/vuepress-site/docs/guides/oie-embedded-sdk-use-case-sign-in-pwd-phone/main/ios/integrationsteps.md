@@ -18,7 +18,7 @@ component, which represents the code you write to call into the sample code's in
 
 ### Steps
 
-#### Step: Launch the app and initialize the SDK
+#### 1: Launch the app and initialize the SDK
 
 The first step is to initialize the SDK when the user opens your app.
 This is done by creating an instance of `MultifactorLogin` and passing
@@ -62,7 +62,7 @@ For more information on how to set the `configuration` parameter, see
 in
 [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
-#### Step: The user initiates the sign-in flow
+#### 2: The user initiates the sign-in flow
 
 When the user enters their credentials and initiates the sign-in flow,
 call the `login` method passing in the username, password,
@@ -82,7 +82,7 @@ and returns either a fatal error or success with a token.
 }
 ```
 
-#### Step: Send the user to the home page after a successful sign-in flow
+#### 3: Send the user to the home page after a successful sign-in flow
 
 The final integration step is to send the user to the default home page
 after successful sign-in. Optionally, you can obtain basic user information after a

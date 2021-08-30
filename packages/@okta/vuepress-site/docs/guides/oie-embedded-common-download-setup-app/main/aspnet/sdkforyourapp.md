@@ -1,10 +1,10 @@
 After you run the sample app and explore its available use cases, you can begin to integrate the SDK and/or the widget into your own app. To get started follow these steps:
 
-#### Step: Set up your app for .Net 4.8 or greater
+#### 1: Set up your app for .Net 4.8 or greater
 
 The SDK and samples are built using .Net 4.8.
 
-#### Step: Add the Okta SDK Nuget packages
+#### 2: Add the Okta SDK Nuget packages
 
 Before using the SDK in your own app, you need to add the following
 Nuget packages to your project:
@@ -15,7 +15,7 @@ Nuget packages to your project:
 > **Note:** Nuget packages are pre-release. When you search for Nuget
 packages in Visual Studio, ensure that the pre-release check box is selected.
 
-#### Step: Initialize the IdxClient object
+#### 3: Initialize the IdxClient object
 
 All functionality in the SDK is accessed through the methods of the
 `IdxClient` object. After you add the Nuget packages, the next step

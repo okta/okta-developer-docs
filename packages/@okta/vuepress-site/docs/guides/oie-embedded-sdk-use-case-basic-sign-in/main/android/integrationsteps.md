@@ -1,4 +1,4 @@
-### Step: Build a sign-in form
+### 1: Build a sign-in form
 
 Build a sign-in form that captures both the username and password. For example:
 
@@ -8,7 +8,7 @@ Build a sign-in form that captures both the username and password. For example:
 
 </div>
 
-### Step: Authenticate the user credentials
+### 2: Authenticate the user credentials
 
 Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
 
@@ -36,7 +36,7 @@ After the user submits their credentials, call `IDXAuthenticationWrapper.authent
     }
 ```
 
-### Step: Handle the response from Okta and the SDK
+### 3: Handle the response from Okta and the SDK
 
 The `IDXAuthenticationWrapper.authenticate()` method returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java). Handle the returned `AuthenticationStatus` value accordingly:
 

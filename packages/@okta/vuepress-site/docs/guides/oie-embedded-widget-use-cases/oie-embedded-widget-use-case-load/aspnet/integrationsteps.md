@@ -1,4 +1,4 @@
-### 1: Navigate to sign-in page
+### 1: Navigate to the sign-in page
 
 The first step is to call the `StartWidgetSigninAsync` method when the page that contains the embedded widget is loaded. The `IdxClient` contains the configuration information (either from the `okta.yaml` file, env variables, or passed in from constructor) to establish a connection to the Okta org and application.
 
@@ -110,7 +110,7 @@ The final step is to add a `div` tag with the `id` (for example, `okta-signin-wi
 <div id="okta-signin-widget-container"></div>
 ```
 
-### 3: Display the widget
+### 3: Display the Widget
 
 The final step is to run your app. If the widget and Okta org are property configured, the widget loads and the Sign In page similar to the following image appears.
 

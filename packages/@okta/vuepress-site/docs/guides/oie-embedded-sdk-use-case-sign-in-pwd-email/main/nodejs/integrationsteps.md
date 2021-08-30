@@ -1,4 +1,4 @@
-### Step: Build a sign-in page on the client and authenticate the user credentials
+### 1: Build a sign-in page on the client and authenticate the user credentials
 
 Build a sign-in page that captures both the user’s name and password, as shown in the following example:
 
@@ -22,7 +22,7 @@ If the username and password are valid, `idx.authenticate` returns a status of `
 
 The user is redirected to an authenticator list page that displays the email factor as an authenticator to be verified.
 
-### Step: Show the email factor in the authenticator list
+### 2: Show the email factor in the authenticator list
 
 The next step is to show the email factor to the user in an authenticator list page. If not already done, this page needs to be built and display the list of authenticators from the previous step. In this use case, only the **email** factor is displayed, as shown in the following sample.
 
@@ -45,7 +45,7 @@ status, // IdxStatus.PENDING
 
 The next step is to redirect the user to the email verification code page.
 
-### Step: Show the email verification code page
+### 3: Show the email verification code page
 
 If not already done, build the email verification code page that accepts the code from the email.
 
@@ -57,6 +57,6 @@ If not already done, build the email verification code page that accepts the cod
 
 The next step is to call `idx.authenticate` and pass in the email verification code (for example,`({ verificationCode: '1213' })`) and handle the response from the call. If the email code is valid, the method returns a status of `Idx.Status:SUCCESS` and tokens. This status signifies that there are no more factors waiting to be enrolled and verified. If the steps in [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user has successfully signed in and should be sent to the default sign-in home page.
 
-### Step (Optional): Get the user profile information
+### 4 (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after a successful sign-in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/nodejs/oie-embedded-sdk-use-case-basic-sign-in/#get-the-user-profile-information).
