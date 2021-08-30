@@ -29,11 +29,7 @@ If your needs exceed Okta's default rate limits for the base product subscriptio
 **SAML endpoints:**
 
 * `/app/template_saml_2_0/${key}/sso/saml`
-<<<<<<< HEAD
 * `/app/${app}/${key}/sso/saml`
-=======
-* `/app/${app}/{key}/sso/saml`
->>>>>>> cc-okta416973-RLDocsRefresh
 
 **Single User/Group/App operations (Get, Update, and Delete):**
 

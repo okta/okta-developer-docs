@@ -19,11 +19,7 @@ The `/oauth2/v1/authorize` [endpoint](/docs/reference/api/oidc/#authorize) is th
 
 Currently, the client-based rate limits apply to the `/login/login.htm` endpoint and OAuth 2.0 `/oauth2/v1/authorize` endpoint on both the Okta Org Authorization Server and any Custom Authorization Server. All Custom Authorization Servers share a [rate limit](/docs/reference/rate-limits/). The Org Authorization Server has a separate rate limit.
 
-<<<<<<< HEAD
-Each valid request made by a user to this endpoint is counted as one request against the respective [authorization server](/docs/concepts/auth-servers/) rate limit bucket, for example, (`/oauth2/${authorizationServerId}/v1` (Custom Authorization Server) or `/oauth2/v1` (Okta Org Authorization Server). The per minute rate limits on these endpoints apply across an Okta tenant.
-=======
-Each valid request made by a user to this endpoint is counted as one request against the respective [authorization server](/docs/concepts/auth-servers/) rate limit bucket, for example, (`/oauth2/{authorizationServerId}/v1/authorize` (Custom Authorization Server) or `/oauth2/v1` (Okta Org Authorization Server). The per minute rate limits on these endpoints apply across an Okta tenant.
->>>>>>> cc-okta416973-RLDocsRefresh
+Each valid request made by a user to this endpoint is counted as one request against the respective [authorization server](/docs/concepts/auth-servers/) rate limit bucket, for example, `/oauth2/${authorizationServerId}/v1` (Custom Authorization Server) or `/oauth2/v1` (Okta Org Authorization Server). The per minute rate limits on these endpoints apply across an Okta tenant.
 
 Curently, you cannot update the per client rate limit. Every client ID/IP/device identifier combination (for the /authorize endpoint) or IP/device identifier combination (for the /login/login.htm endpoint) gets 60 total requests per minute and a maximum of two concurrent requests.
 
