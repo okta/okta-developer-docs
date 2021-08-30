@@ -48,7 +48,7 @@ The Okta Node.js SDK can be used in your server-side code to create and update u
 <ul class="language-libraries">
 	<li>
 		<i class='fa fa-github'></i>
-		<a href="https://github.com/okta/okta-oidc-js/tree/master/packages/jwt-verifier">
+		<a href="https://github.com/okta/okta-jwt-verifier-js">
 			<span>Okta JWT Verifier for Node.js</span>
 		</a>
 	</li>

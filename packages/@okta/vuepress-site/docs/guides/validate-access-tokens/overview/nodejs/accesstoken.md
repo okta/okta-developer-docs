@@ -1,4 +1,4 @@
-This code uses [the Okta JWT Verifier for NodeJS](https://github.com/okta/okta-oidc-js/tree/master/packages/jwt-verifier).
+This code uses [the Okta JWT Verifier for NodeJS](https://github.com/okta/okta-jwt-verifier-js).
 
 ```javascript
 const OktaJwtVerifier = require('@okta/jwt-verifier');
