@@ -11,7 +11,7 @@ be taken.
 ### Step 2: Handle the callback from Okta
 
 The sign-in response is sent to the URL defined in the **Sign-in redirect URIs** field
-you've configured in [Create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/go/main/).
+you've configured in [Create a new application](/docs/guides/oie-embedded-common-org-setup/go/main/#create-a-new-application).
 The response contains an `interaction_code`, that you'll use in the next step to retrieve
 the tokens. As shown in the following code snipet, provide a way to specify how requests to
 this URL should be handled:

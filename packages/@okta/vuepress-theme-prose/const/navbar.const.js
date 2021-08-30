@@ -392,11 +392,7 @@ export const guides = [
             title: "Embedded authentication",
             subLinks: [
               {
-                title: "Overview",
-                guideName: "oie-embedded-overview",
-              },
-              {
-                title: "Create and set up your Okta org",
+                title: "Get set up",
                 guideName: "oie-embedded-common-org-setup",
               },
               {
