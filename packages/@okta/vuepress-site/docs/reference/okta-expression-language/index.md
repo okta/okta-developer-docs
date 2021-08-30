@@ -7,7 +7,7 @@ meta:
 
 # Overview
 
-Expressions allow you to reference, transform, and combine attributes before you store them on a User Profile or before passing them to an application for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine `firstName` and `lastName` attributes into a single `displayName` attribute.
+Expressions allow you to reference, transform, and combine attributes before you store them on a User Profile or before passing them to an application for authentication or provisioning. For example, you might use a custom expression to create a username by stripping `@company.com` from an email address. Or, you might combine the `firstName` and `lastName` attributes into a single `displayName` attribute.
 
 This document details the features and syntax of the Okta Expression Language, which you can use throughout the Okta Admin Console and API. Okta updates this document over time as new capabilities are added to the language. The Okta Expression Language is based on [SpEL](http://docs.spring.io/spring/docs/3.0.x/reference/expressions.html) and uses a subset of functionalities offered by SpEL.
 
@@ -23,7 +23,7 @@ Every user has an Okta User Profile. The Okta User Profile is the central source
 | `user.$attribute` | `user` reference to the Okta User<br>`$attribute` the attribute variable name | user.firstName<br>user.lastName<br>user.login<br>user.email |
 
 ### Application User Profile
-In addition to an Okta User Profile, all Users have a separate Application User Profile for each of their applications. Application User Profiles store application-specific information about Users, such as application username or user role. To reference an Application User Profile attribute, specify the application variable and the attribute variable in the User Profile of the application. In specifying the application, you can either name the specific application you're referencing or use an implicit reference to an in-context application.
+In addition to an Okta User Profile, all Users have a separate Application User Profile for each of their applications. Application User Profiles store application-specific information about Users, such as the application `userName` or user `role`. To reference an Application User Profile attribute, specify the application variable and the attribute variable in the user profile of the application. In specifying the application, you can either name the specific application you're referencing or use an implicit reference to an in-context application.
 
 | Syntax                | Definitions                                                                                | examples                                                              |
 | --------              | ----------                                                                                 | ------------                                                          |
@@ -43,7 +43,7 @@ In addition to an Okta User Profile, some users have separate IdP User Profiles 
 | `idpuser.$attribute`   | `idpuser` implicit reference to in-context IdP<br>`$attribute` the attribute variable name   | idpuser.firstName |
 
 
-> In Universal Directory, the base Okta User Profile has about 30 attributes. You can add any number of custom attributes. All Application User Profiles have a username attribute and possibly others depending on the application. To find a full list of Okta User and App User attributes and their variable names, in the Okta Admin Console go to **People > Profile Editor**. If you're not using Universal Directory, contact your Support or Professional Services team.
+> In Universal Directory, the base Okta User Profile has about 30 attributes. You can add any number of custom attributes. All Application User Profiles have a username attribute and possibly others depending on the application. To find a full list of Okta User and App User attributes and their variable names, in the Okta Admin Console go to **People** > **Profile Editor**. If you're not using Universal Directory, contact your Support or Professional Services team.
 
 ## Referencing Application and Organization properties
 In addition to referencing user attributes, you can also reference Application properties and the properties of your Organization. To reference a particular attribute, just specify the appropriate binding and the attribute variable name. The binding for an Application is its name with `_app` appended. The App name can be found as described in [Application user profile attributes](#application-user-profile). Here are some examples:
