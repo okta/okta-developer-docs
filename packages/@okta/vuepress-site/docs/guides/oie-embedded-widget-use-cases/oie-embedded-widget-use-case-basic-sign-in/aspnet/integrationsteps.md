@@ -1,6 +1,6 @@
 ## Integration steps
 
-### 1: Sign in
+### Step: The user signs in
 
 After you complete the steps in [Use Case 1: Load the widget](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-load/) and the widget loads successfully, then the next step is for the user to sign in.  There is no additional code that needs to be added to your app for this step. The user enters their credentials, and clicks the **Next** or **Sign In** button.
 
@@ -10,7 +10,7 @@ After you complete the steps in [Use Case 1: Load the widget](/docs/guides/oie-e
 
 </div>
 
-### 2: Redirect to client
+### Step: Redirect to the client
 
 This step handles the callback from the widget that returns an `interaction_code`. This code is redeemed in the next step for tokens. The callback URL must be identical and is defined in the following locations:
 
@@ -28,7 +28,7 @@ public async Task<ActionResult> Callback(string state = null, string interaction
 }
 ```
 
-### 3: Get the tokens
+### Step: Get the tokens
 
 The next step is to call `RedeemInteractionCodeAsync` inside the callback function for the `IdxClient`. The interaction code is used to get the ID and access tokens, which you can subsequently use to pull user information.
 
@@ -36,7 +36,7 @@ The next step is to call `RedeemInteractionCodeAsync` inside the callback functi
 Okta.Idx.Sdk.TokenResponse tokens = await _idxClient.RedeemInteractionCodeAsync(idxContext, interaction_code);
 ```
 
-### 4: Persist the tokens in a session
+### Step: Persist the tokens in a session
 
 Persist the tokens in session for future use. The following code from the sample app uses `IAuthenticationManager` from `Microsoft.Owin.Security` to persist the tokens in session.
 
@@ -45,7 +45,7 @@ ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenRespons
 _authenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
 ```
 
-### 5 (Optional): Call user profile information
+### Step (Optional): Get the user profile information
 
 Depending on your implementation, you can choose to pull user information. When you use the tokens that are provided by the `RedeemInteractionCodeAsync` method, you can request the user profile information from the `v1/userinfo` endpoint. The following code from the sample app provides details for this call.
 

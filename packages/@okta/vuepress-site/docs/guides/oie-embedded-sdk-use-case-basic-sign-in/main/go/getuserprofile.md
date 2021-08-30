@@ -1,4 +1,3 @@
-
 ## Get the user profile information
 
 You can obtain basic user information by making a request to the authorization server. Make a call to the

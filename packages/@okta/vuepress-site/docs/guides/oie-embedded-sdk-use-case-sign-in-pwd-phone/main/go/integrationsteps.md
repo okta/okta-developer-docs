@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: Navigate to the homepage
+### Step: Navigate to the home page
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -17,7 +17,7 @@ if err != nil {
 }
 ```
 
-### Step 2: Navigate to the sign-in page
+### Step: Navigate to the sign-in page
 
 Build a sign-in page that captures both the user's name and password.
 
@@ -40,7 +40,7 @@ if err != nil {
 }
 ```
 
-### Step 3: Submit the credentials
+### Step: Submit the user credentials
 
 After the user enters their credentials and submits their sign-in request,
 create an `IdentityRequest` object, passing in the username and password from the
@@ -68,7 +68,7 @@ if err != nil {
 }
 ```
 
-### Step 4: Determine whether additional factors are required
+### Step: Determine whether additional factors are required
 
 The `Identity` method returns `LoginResponse` and `error`
 objects. Use the `error` object to determine if there were errors in the
@@ -93,7 +93,7 @@ http.Redirect(w, r, "/login/factors", http.StatusFound)
 return
 ```
 
-### Step 5: Show an option to choose the phone factor
+### Step: Show an option to choose the phone factor
 
 The next step is to build a page that allows the user to choose a factor
 to continue the authentication flow.
@@ -118,7 +118,7 @@ if lr.HasStep(idx.LoginStepPhoneVerification) || lr.HasStep(idx.LoginStepPhoneIn
 }
 ```
 
-### Step 6: Submit the phone factor to verify the identity
+### Step: Submit the phone factor to verify the user's identity
 
 After the user chooses the phone factor, the next step is for them to choose a phone method type and
 optional phone number. The phone number field should be displayed only when the user has not yet set up
@@ -160,7 +160,7 @@ The following page from the sample application shows the phone number field and 
 
 </div>
 
-### Step 7: Submit phone factor details
+### Step: Submit the phone factor details
 
 After the user submits their phone factor details, call the `LoginResponse` object's `VerifyPhoneInitial`
 method if the user has not enrolled their phone number, else use `VerifyPhone`. Calling either method instructs
@@ -178,7 +178,7 @@ if lr.HasStep(idx.LoginStepPhoneInitialVerification) {
 > **Note:** Only the SMS method type is currently supported. Voice will be supported in a future
 > release.
 
-### Step 8: Show the phone code verification page
+### Step: Show the phone code verification page
 
 The next step is to build the code verification page. After the user submits the method type
 and optional phone number, they need to enter the verification code from their phone.
@@ -189,7 +189,7 @@ and optional phone number, they need to enter the verification code from their p
 
 </div>
 
-### Step 9: Submit the verification code
+### Step: Submit the verification code
 
 After the user checks their phone for the code and submits it, call the
 `LoginResponse` object's `ConfirmPhone` method to verify the code. For this use case
@@ -214,7 +214,7 @@ s.cache.Set("loginResponse", lr, time.Minute*5)
 http.Redirect(w, r, "/login/factors", http.StatusFound)
 ```
 
-### Step 10: Store the tokens in a session
+### Step: Store the tokens in a session
 
 Store the tokens in session to be used for additional calls. After the tokens
 are stored, redirect the user to the default signed-in home page.
@@ -240,8 +240,8 @@ if lr.Token() != nil {
 }
 ```
 
-### Step 11 (Optional): Retrieve user profile information
+### Step (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more information.
+See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-basic-sign-in/#get-the-user-profile-information) for more information.

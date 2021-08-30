@@ -9,7 +9,7 @@ title: Overview
 
 This document describes how to integrate other user sign-in features into your app by using Okta's embedded Sign-In Widget. Most of the code samples in this guide are derived from the sample application that is provided with the widget.
 
-## The widget flow
+## The Widget flow
 
 In tandem with the embedded SDK, the widget integrates into your app by using a native language interface and communicates directly with the Okta APIs. The following summarizes the flow.
 
@@ -19,7 +19,7 @@ In tandem with the embedded SDK, the widget integrates into your app by using a 
 
 </div>
 
-## Get started on using the widget
+## Start using the Widget
 
 To start using the widget:
 

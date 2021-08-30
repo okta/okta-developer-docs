@@ -30,15 +30,15 @@ This use case requires the password and either the email or the phone factor.
 
 Before you can build the self-registration flow in your app, you must configure the Okta org to accept self-registration with the password, email, and/or phone factors.
 
-### Step 1: Set up your Okta org for password factor only use cases
+### Step: Set up your Okta org for password factor only use cases
 
 If not already done, complete the steps in [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
-### Step 2: Set up your Okta org (for multifactor use cases)
+### Step: Set up your Okta org for multifactor use cases
 
 If not already done, complete the steps in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases).
 
-### Step 3: Update the profile enrollment default policy
+### Step: Update the profile enrollment default policy
 
 1. In the Admin Console, select **Security** > **Profile Enrollment** from the left-hand navigation pane.
 1. On the **Profile Enrollment** page, click the pencil icon next to the Default Policy.
@@ -48,7 +48,7 @@ If not already done, complete the steps in [Set up your Okta org (for multifacto
 
 > **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm).
 
-### Step 4: Confirm that the org application is assigned to everyone
+### Step: Confirm that the org application is assigned to everyone
 
 1. In the Admin Console, select **Applications** > **Applications** from the left-hand navigation pane.
 1. On the **Applications** page, select your application.
@@ -56,7 +56,7 @@ If not already done, complete the steps in [Set up your Okta org (for multifacto
 1. From the left, click the **Groups** filter.
 1. Confirm that the **Everyone** group appears in the Assignment list.
 
-### Step 5: Reconfigure application for email and optional phone factors
+### Step: Reconfigure the application for the email and optional phone factors
 
 1. In the Admin Console, select **Applications** > **Applications** from the left-hand navigation pane.
 1. On the **Applications** page, select your application.
@@ -65,7 +65,7 @@ If not already done, complete the steps in [Set up your Okta org (for multifacto
 1. In the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** field and change the value to **Password + Another factor**.
 1. Click **Save**.
 
-### Step 6: Ensure both Email and Phone factors are set as optional for authentication enrollment
+### Step: Ensure that both email and phone factors are set as optional for authentication enrollment
 
 1. In the Admin console, select **Security** > **Authenticators** from the left-hand navigation pane.
 1. On the **Authenticators** page, click the **Enrollment** tab.

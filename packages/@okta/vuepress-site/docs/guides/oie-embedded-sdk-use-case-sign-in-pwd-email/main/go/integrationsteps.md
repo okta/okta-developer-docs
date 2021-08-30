@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: Navigate to the homepage
+### Step: Navigate to the home page
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -17,7 +17,7 @@ if err != nil {
 }
 ```
 
-### Step 2: Navigate to the sign-in page
+### Step: Navigate to the sign-in page
 
 Build a sign-in page that captures the user's name and password.
 
@@ -40,7 +40,7 @@ if err != nil {
 }
 ```
 
-### Step 3: Submit the credentials
+### Step: Submit the credentials
 
 After the user enters their credentials and submits their sign-in request,
 create an `IdentityRequest` object, passing in the username and password from the
@@ -69,7 +69,7 @@ if err != nil {
 }
 ```
 
-### Step 4: Determine whether additional factors are required
+### Step: Determine whether additional factors are required
 
 The `Identity` method returns `LoginResponse` and `error`
 objects. Use the `error` object to determine if there were errors in the
@@ -94,7 +94,7 @@ http.Redirect(w, r, "/login/factors", http.StatusFound)
 return
 ```
 
-### Step 5: Show an option to choose the email factor
+### Step: Show an option to choose the email factor
 
 The next step is to build a page that allows the user to choose a factor
 to continue the authentication flow.
@@ -120,7 +120,7 @@ if lr.HasStep(idx.LoginStepEmailVerification) {
 }
 ```
 
-### Step 6: Submit the email factor to verify the identity
+### Step: Submit the email factor to verify the identity
 
 When the user selects the email factor and clicks submit, call the `LoginResponse` object's
 `VerifyEmail` method. Calling this method instructs the Okta org server to send an
@@ -139,7 +139,7 @@ if !ok || !invCode.(bool) {
 
 ```
 
-### Step 7: Show the email code verification page
+### Step: Show the email code verification page
 
 The next step is to build the code verification page. After the user chooses the email factor
 to validate their identity, the user needs to enter the verification code from their email.
@@ -150,7 +150,7 @@ to validate their identity, the user needs to enter the verification code from t
 
 </div>
 
-### Step 8: Submit the verification code
+### Step: Submit the verification code
 
 After the user checks their email for the code and submits it, call the `LoginResponse` object's `ConfirmEmail`
 method to verify the code. For this use case the method should return tokens signifying a successful sign-in.
@@ -177,7 +177,7 @@ s.ViewData["InvalidEmailCode"] = false
 
 ```
 
-### Step 9: Store the tokens in a session
+### Step: Store the tokens in a session
 
 Store the tokens from the `LoginResponse` object in session to be used for
 additional calls. After the tokens are stored, redirect the user to the
@@ -203,8 +203,8 @@ if lr.Token() != nil {
 }
 ```
 
-### Step 10 (Optional): Retrieve user profile information
+### Step (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more information.
+See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-basic-sign-in/#get-the-user-profile-information) for more information.

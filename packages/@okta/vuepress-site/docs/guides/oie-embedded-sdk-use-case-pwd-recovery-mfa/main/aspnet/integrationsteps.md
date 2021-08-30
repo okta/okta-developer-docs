@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: Add forgot password link to sign-in page
+### Step: Add the forgot password link to the sign-in page
 
 The first step is to create a forgot password link on the sign-in page. This link points to the "Reset your password" page.
 
@@ -10,7 +10,7 @@ The first step is to create a forgot password link on the sign-in page. This lin
 
 </div>
 
-### Step 2: Create reset password page
+### Step: Create the reset password page
 
 Create a "Reset your password" page that initiates the reset password flow. The page should accept the user's email address and have a **Submit** button that starts the reset flow.
 
@@ -20,7 +20,7 @@ Create a "Reset your password" page that initiates the reset password flow. The 
 
 </div>
 
-### Step 3: Make call to RecoverPasswordAsync
+### Step: Make a call to the RecoverPasswordAsync method
 
 After the user clicks **Submit** to start the reset flow, the next step is to call the
 `RecoverPasswordAsync` method and pass in the email address captured from the **Username** field.
@@ -44,7 +44,7 @@ if (authnResponse.AuthenticationStatus == AuthenticationStatus.AwaitingAuthentic
 
 Upon the return of the `AwaitingAuthenticatorSelection` response status, redirect the user to an authenticators page that displays the authenticator that the user needs to use to initiate authentication verification. In this case, the email factor is configured.
 
-### Step 4: Create reset password authenticators page
+### Step: Create the reset password authenticators page
 
 The next step is to create a page that shows the authenticator that is returned from
 the `RecoverPasswordAsync` method. For this use case, it shows the email authenticator.
@@ -57,7 +57,7 @@ authenticator to initiate the authentication verification process.
 
 </div>
 
-### Step 5: Make call to SelectRecoveryAuthenticatorAsync
+### Step: Make a call to the SelectRecoveryAuthenticatorAsync method
 
 After the user selects the email authenticator, the next step is to call
 the `SelectRecoveryAuthenticatorAsync` method with the email `Authentication id`.
@@ -77,7 +77,7 @@ if (applyAuthenticatorResponse.AuthenticationStatus == AuthenticationStatus.Awai
 }
 ```
 
-### Step 6: Create code verification page
+### Step: Create the code verification page
 
 After the call to `SelectRecoveryAuthenticatorAsync` has responded with
 `AwaitingAuthenticatorVerification`, the user should be redirected to a
@@ -92,7 +92,7 @@ code verification page.
 The page should display a field to enter a code and a button/link to send
 the code to Okta for the email verification.
 
-### Step 7: Make call to VerifyAuthenticatorAsync
+### Step: Make a call to the VerifyAuthenticatorAsync method
 
 After the user checks their email for the code and enters the code into the field,
 they should click **Verify** to initiate the verification of the email.
@@ -116,7 +116,7 @@ If the `VerifyAuthenticatorAsync` call is successful, it should return
 `AwaitingPasswordReset`. This status indicates that the user can now change their
 password. At this point, the user should be redirected to the change password page.
 
-### Step 8: Create change password page
+### Step: Create the change password page
 
 Create a change password page that allows the user to enter the
 new password and initiate the change password.
@@ -127,7 +127,7 @@ new password and initiate the change password.
 
 </div>
 
-### Step 9: Make call to ChangePasswordAsync
+### Step: Make a call to the ChangePasswordAsync method
 
 The final step is to make a call to `ChangePasswordAsync` to change the
 user's password. Pass `ChangePasswordOptions` into the method call with

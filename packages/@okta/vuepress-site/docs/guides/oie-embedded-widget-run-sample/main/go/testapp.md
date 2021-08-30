@@ -30,6 +30,6 @@ The sample app is located here: [Embedded Sign-In Widget sample app](https://git
 
    </div>
 
-## Troubleshooting
+## Troubleshoot
 
 * If you see the "There was an unexpected internal error. Please try again." message instead of the Sign-In Widget, then verify that CORS is enabled. Follow the steps in [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/go/main/#step-3-add-a-trusted-origin-and-enable-cors) to enable CORS.

@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: Create a sign out UI element
+### Step: Create a sign-out UI element
 
 The first step is to create a link, button, or another similar UI
 element that allows the user to sign out of the app.
@@ -11,7 +11,7 @@ element that allows the user to sign out of the app.
 
 </div>
 
-### Step 2: Revoke access token
+### Step: Revoke the access token
 
 When the sign out is initiated, create the following flow:
 
@@ -31,6 +31,6 @@ var client = new IdxClient();
            return RedirectToAction("Login", "Account");
 ```
 
-### Step 3: Send user to the signed out page
+### Step: Send the user to the signed-out page
 
 After the user is signed out, send them to the desired page.

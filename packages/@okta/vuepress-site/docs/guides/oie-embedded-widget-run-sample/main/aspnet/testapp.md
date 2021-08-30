@@ -29,7 +29,7 @@ The sample app is located here: `okta-idx-dotnet/samples/samples-aspnet/embedded
 
    </div>
 
-## Troubleshooting
+## Troubleshoot
 
 * If you get a Null Reference exception when the `IDXClient` is instantiated, ensure that you have properly set up your local configurations. To troubleshoot the error, set the local configurations in the constructor for the `IdxClient` so that you can determine whether the issue originates from the SDK not being able to locate your configurations.
 

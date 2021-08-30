@@ -77,7 +77,7 @@ Use either of these two workarounds:
 * Create users through self registration.
 * Create users in the Okta org with the **Password** set to **Set by admin**.
 
-## Email link to verify the email address isn't working
+## The email link to verify the email address isn't working
 
 ### Description
 
@@ -119,6 +119,5 @@ Contact Okta support if the **Edit** button is disabled.
 #### Option 2: Inform users
 
 Inform your users to ignore the Verify Email Address link and continue the activation through the code flow.
-
 
 </div>

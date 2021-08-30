@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: Navigate to the homepage
+### Step: Navigate to the home page
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -17,7 +17,7 @@ if err != nil {
 }
 ```
 
-### Step 2: Navigate to the sign-in page
+### Step: Navigate to the sign-in page
 
 Build a sign-in page that captures both the user's name and password.
 
@@ -39,9 +39,7 @@ if err != nil {
 }
 ```
 
-### Step 3: Get the available list of identity providers
-
-#### Get the list of identity providers
+### Step: Get the available list of Identity Providers
 
 Using the `LoginResponse` object returned from `InitLogin`, get the available identity providers
 from its `IdentityProviders` property.
@@ -54,7 +52,7 @@ s.ViewData["IdpCount"] = func() int {
 }
 ```
 
-#### Build the list of indentity providers on the sign-in page
+#### Build the list of Identity Providers on the sign-in page
 
 Use this array of `IdentityProvider` objects to show a list of available identity providers on the
 sign-in page. The code snippet below shows how the sample application builds out links for each available
@@ -76,7 +74,7 @@ identity provider.
 {{ end }}
 ```
 
-#### Example of sign-in page with identity provider links
+#### Example of the sign-in page with Identity Provider links
 
 Screenshot from the sample application showing the Facebook and Google identity
 providers.
@@ -87,12 +85,12 @@ providers.
 
 </div>
 
-### Step 4: Click on the sign-in with Facebook link
+### Step: Select the sign-in with Facebook link
 
 When the user clicks the Facebook IdP link, initially they are sent to the Okta org using the link provided in the
 `IdentityProvider` object's `HRef` property. At the Org, the request gets routed to Facebook for user sign-in. You don't need to implement additional code changes to perform this step.
 
-### Step 5: Sign in with Facebook
+### Step: Sign in with Facebook
 
 After the user clicks on the sign-in link, the browser should redirect to a sign-in page hosted by Facebook. The credentials
 you enter originate from a test user that you configured in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers). You don't need to make any code changes in your app to perform this step.
@@ -103,11 +101,11 @@ you enter originate from a test user that you configured in [Set up your Okta or
 
 </div>
 
-### Step 6: Facebook redirects to your Okta org
+### Step: Facebook redirects the user to your Okta org
 
 If the Facebook login is successful, Facebook routes the user to the Org URL that you entered in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
-### Step 7: Store the tokens when Okta redirects to your application
+### Step: Store the tokens when Okta redirects the request to your application
 
 After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the application's **Sign-in redirect URIs** field, which was configured in [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
@@ -155,8 +153,8 @@ func (s *Server) handleLoginCallback(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-### Step 8 (Optional): Retrieve user profile information
+### Step (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more information.
+See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-basic-sign-in/#get-the-user-profile-information) for more information.

@@ -19,15 +19,15 @@ This use case skips the factor requirements since it uses the Facebook Identity 
 
 The following configurations need to be completed before you continue with this use case.
 
-### Step 1: Set up your Okta org for password factor only use cases
+### Step: Set up your Okta org for password factor only use cases
 
 If not already done, complete the steps described in [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers).
 
-### Step 2: Set up your Okta org (for social Identity Providers)
+### Step: Set up your Okta org for social Identity Providers
 
 If not already done, complete the steps described in [Set up your Okta org (for social Identity Providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers).
 
-### Step 3: Reconfigure the Okta application for password only
+### Step: Reconfigure the Okta application for password only
 
 If you completed the steps in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases), you've set up your application for multiple factors. Since this use case has no additional factors, the application's policy needs to be set up for password only. Perform the following steps to set the app up for password only.
 
