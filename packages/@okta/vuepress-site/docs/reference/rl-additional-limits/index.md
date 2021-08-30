@@ -21,13 +21,14 @@ These limits are part of the Okta [Rate limit](/docs/reference/rate-limits) poli
 > **Note:**
 >
 > * In addition to the rate limits listed on this page, Okta applies rate limits per API, divided into three categories. See the [Rate limit overview](/docs/reference/rate-limits).
+> * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to a variety of endpoints across different APIs for customers that purchased this add-on.
 > * To learn more about how to manage rate limits, see our [best practices](/docs/reference/rl-best-practices).
 > * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 >
 
 ## Concurrent rate limits
 
-To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from [the org-wide, per-minute API rate limits](/docs/reference/rate-limits/), which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.
+To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from [the org-wide, per-minute API rate limits](/docs/reference/rate-limits/), which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely require more than 10 simultaneous transactions.
 
 For concurrent rate limits, traffic is measured in three different areas. Counts in one area aren't included in counts for the other two:
 
@@ -42,8 +43,6 @@ For concurrent rate limits, traffic is measured in three different areas. Counts
 The first request to exceed the concurrent limit returns an HTTP 429 error, and the first error every 60 seconds is written to the log. Reporting concurrent rate limits once a minute keeps log volume manageable.
 
 > **Note:** Under normal circumstances, customers don't exceed the concurrency limits. Exceeding them may be an indication of a problem that requires investigation.
-
-These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/rl-previous/) still apply.
 
 > **Note:** For information on possible interaction between Inline Hooks and concurrent rate limits, see [Inline hooks and concurrent rate limits](/docs/concepts/inline-hooks/#inline-hooks-and-concurrent-rate-limits).
 
@@ -62,6 +61,7 @@ The following endpoints are used by the Okta home page for authentication and us
 
 | Okta home page endpoints                                                | Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce Identity |
 | ----------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ------------------:|
+<<<<<<< HEAD
 | `/app/${app}/${key}/sso/saml`                                             | 100               | 300               | *300     | *600        | 750                |
 | `/app/office365/${key}/sso/wsfed/active`                                 | N/A               | N/A               | N/A      | 2000        | 1000               |
 | `/app/office365/${key}/sso/wsfed/passive`                                | N/A               | N/A               | N/A      | 250         | 250                |
@@ -77,6 +77,19 @@ The following endpoints are used by the Okta home page for authentication and us
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/rl-previous/) still apply.
 
 The limits for these endpoints can be increased by purchasing the [High-capacity add-on](/docs/reference/rl-previous/#high-capacity-rate-limits).
+=======
+| `/app/${app}/${key}/sso/saml`                                             | 100               | 300               | 300     | *600        | 750                |
+| `/app/office365/${key}/sso/wsfed/active`                                 | N/A               | N/A               | N/A      | 2000        | 1000               |
+| `/app/office365/${key}/sso/wsfed/passive`                                | N/A               | N/A               | N/A      | 250         | 250                |
+| `/app/template_saml_2_0/${key}/sso/saml`                                 | 100               | 300               | 300     | *600        | 2500               |
+| `/login/do-login`                                                       | 100               | 300               | 300      | 600         | 200                |
+| `/login/login.htm`                                                      | 100               | 300               | 300      | 600         | 850                |
+| `/login/sso_iwa_auth`                                                   | 100               | 300               | 300      | 600         | 500                |
+| `/api/plugin/${protocolVersion}/form-cred/${appUserIds}/${formSiteOption}` | 100               | 300               | 300     | *600        | 650                |
+| `/api/plugin/${protocolVersion}/sites`                                   | 20                | 50                | 50       | 100         | 150                |
+| `/bc/image/fileStoreRecord`                                             | 100               | 300               | 300     | *600        | 500                |
+| `/bc/globalFileStoreRecord`                                             | 100               | 300               | 300     | *600        | 500                |
+>>>>>>> cc-okta416973-RLDocsRefresh
 
 ### Okta-generated email message rate limits
 

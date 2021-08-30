@@ -12,18 +12,22 @@ This page provides the API rate limits for authentication and end-user activitie
 > **Note:**
 >
 > * To learn more about rate limits, visit our [overview](/docs/reference/rate-limits) and [best practices](/docs/reference/rl-best-practices) pages.
+
 > * In addition to the rate limit per API, Okta implements limits on concurrent requests, Okta-generated email messages, end user requests, and home page endpoints. These limits are described on the [Additional limits](/docs/reference/rl-additional-limits/) page.
+> * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/) apply to a variety of endpoints across different APIs for customers that purchased this add-on.
 > * You can expand Okta rate limits upon request. To learn how, see [Request exceptions](/docs/reference/rl-best-practices/#request-exceptions) and [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/).
 >
-
-> We enforce limits at the individual API endpoint level **as requests per minute**.
 
 | Action and Okta API Endpoint                                                                                           | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ---------------------------------------------------------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ---------------------: |
 | **Cumulative rate limit**                                                                                              | **1,700**        | **9,000**        | **9,000**| **11,200**| **13,900**            |
 | **Authenticate different end users:**<br>`/api/v1/authn`                                                               | 100              | 600              | 600     | 600        | 500                   |
 | **Verify a factor:**<br>`/api/v1/authn/factors/${factorIdOrFactorType}/verify` only                                     | 100              | 600              | 600     | 600        | 500                   |
+<<<<<<< HEAD
 | **Get session information:**<br>`/api/v1/sessions`                                                                     | 100              | 600              | 600     | 600        | 750                   |
+=======
+| **Initiate or manage sessions:**<br>`/api/v1/sessions`                                                                     | 100              | 600              | 600     | 600        | 750                   |
+>>>>>>> cc-okta416973-RLDocsRefresh
 | **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/${authorizationServerId}/v1` except public metadata endpoints (see Note below)  | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
 | **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients` and public metadata endpoints (see Note below) | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
 | **All other OAuth2 requests:**<br>`/oauth2`                                                                            | 100              | 600              | 600     | 600        | 600                   |
