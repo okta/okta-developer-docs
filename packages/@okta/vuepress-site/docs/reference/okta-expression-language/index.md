@@ -186,7 +186,7 @@ For an example using group functions and for more information on using group fun
 >
 >Example: `getFilteredGroups({"00gml2xHE3RYRx7cM0g3"}, "group.name", 40) )`
 >
->See the Parameter Examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
+>See the Parameter examples section of [Use group functions for static group allow lists](/docs/guides/customize-tokens-static/static-allowlist/#use-group-functions-for-static-group-allow-lists) for more information on the parameters used in this Group function.
 
 ### Linked object function
 
