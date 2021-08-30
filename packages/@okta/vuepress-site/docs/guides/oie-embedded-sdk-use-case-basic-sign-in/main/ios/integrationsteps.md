@@ -71,10 +71,10 @@ and returns either a fatal error or success with a token.
 }
 ```
 
-### Step: Send the user to the default home page
+### Step: Send the user to the home page after a successful sign-in flow
 
 The final integration step is to send the user to the default home page
-after successful sign-in. Optionally, you can obtain basic user information after a
+after a successful sign-in flow. Optionally, you can obtain basic user information after a
 successful sign-in by making a request to Okta's Open ID Connect authorization server.
 See [Get user profile information](#get-user-profile-information).
 

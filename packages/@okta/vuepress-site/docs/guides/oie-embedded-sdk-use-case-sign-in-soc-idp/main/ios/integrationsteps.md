@@ -33,7 +33,6 @@ For more information on how to set the `configuration` parameter, see
 in
 [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
-
 #### Step: The user initiates the sign-in flow
 
 When the user initiates a social login within your app, the next step

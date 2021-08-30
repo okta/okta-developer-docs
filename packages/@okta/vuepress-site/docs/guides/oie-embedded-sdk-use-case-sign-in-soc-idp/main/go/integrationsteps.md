@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step: Navigate to the home page
+### Step: The user navigates to the home page
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -17,7 +17,7 @@ if err != nil {
 }
 ```
 
-### Step: Navigate to the sign-in page
+### Step: Present the user with the sign-in page
 
 Build a sign-in page that captures both the user's name and password.
 
@@ -85,12 +85,12 @@ providers.
 
 </div>
 
-### Step: Select the sign-in with Facebook link
+### Step: The user selects the sign-in with Facebook link
 
 When the user clicks the Facebook IdP link, initially they are sent to the Okta org using the link provided in the
 `IdentityProvider` object's `HRef` property. At the Org, the request gets routed to Facebook for user sign-in. You don't need to implement additional code changes to perform this step.
 
-### Step: Sign in with Facebook
+### Step: The user signs in with Facebook
 
 After the user clicks on the sign-in link, the browser should redirect to a sign-in page hosted by Facebook. The credentials
 you enter originate from a test user that you configured in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers). You don't need to make any code changes in your app to perform this step.
