@@ -23,11 +23,7 @@ This page provides the API rate limits for authentication and end-user activitie
 | **Cumulative rate limit**                                                                                              | **1,700**        | **9,000**        | **9,000**| **11,200**| **13,900**            |
 | **Authenticate different end users:**<br>`/api/v1/authn`                                                               | 100              | 600              | 600     | 600        | 500                   |
 | **Verify a factor:**<br>`/api/v1/authn/factors/${factorIdOrFactorType}/verify` only                                     | 100              | 600              | 600     | 600        | 500                   |
-<<<<<<< HEAD
 | **Get session information:**<br>`/api/v1/sessions`                                                                     | 100              | 600              | 600     | 600        | 750                   |
-=======
-| **Initiate or manage sessions:**<br>`/api/v1/sessions`                                                                     | 100              | 600              | 600     | 600        | 750                   |
->>>>>>> cc-okta416973-RLDocsRefresh
 | **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/${authorizationServerId}/v1` except public metadata endpoints (see Note below)  | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
 | **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients` and public metadata endpoints (see Note below) | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
 | **All other OAuth2 requests:**<br>`/oauth2`                                                                            | 100              | 600              | 600     | 600        | 600                   |
