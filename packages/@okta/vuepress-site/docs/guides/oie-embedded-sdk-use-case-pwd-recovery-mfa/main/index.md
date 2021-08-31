@@ -23,19 +23,11 @@ This use case requires the **password** and **email** factors.
 
 ## Configuration updates
 
-Before you build a password recovery flow with an email factor, you need to complete the following configuration:
+Before you build a password recovery flow with an email factor, ensure that your org is configured for a multifactor use case by completing the steps in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case).
 
-### Step 1:  Set up your Okta org for a password factor
+### Set email as the only factor enabled for password recovery
 
-Ensure your org is configured for the password factor by completing the steps in [Set up your Okta org for password factor only use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
-
-### Step 2:  Set up your Okta org for multifactor use cases
-
-Ensure your org is configured for a multifactor use case by completing the steps in [Set up your Okta org for multi-factor use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases).
-
-> **Note:** Ensure your app integration is configured to use **Password + Another factor** in the app integration's **Sign On Policy** rule section.
-
-### Step 3:  Set email as the only factor enabled for password recovery
+In addition to configuring your Okta org for the multifactor use case, you need to enable email as the only factor for password recovery.
 
 1. In the Admin Console, go to **Security** > **Authenticators**.
 1. On the **Authenticators** page, click **Actions** and then **Edit** for the **Password** authenticator.

@@ -23,9 +23,7 @@ Even when only the password factor is required for an Okta application, an email
 
 In this scenario, the org is set up in the following manner:
 
-1. The org is initially configured following the steps described in:
-[Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases)
-and [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases).
+1. The org is initially configured following the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case).
 2. The application's sign-on policy is updated for only the password factor. In
    the Admin Console, the **AND User must authenticate with** field is set to **Password**.
 

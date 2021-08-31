@@ -29,14 +29,13 @@ the Facebook sign-in page.
 
 Once the user enters their credentials in the Facebook sign-in page, Facebook first validates the sign-in
 request. If the sign-in is successful, Facebook redirects the request to the Okta org URL that you've entered in the
-**Valid OAuth Redirect URIs** and **Site URL** fields. These field values, described in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-social-identity-providers), have the following format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`, for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`.
-
+**Valid OAuth Redirect URIs** and **Site URL** fields. These field values, described in [Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/go/main/#_1-create-a-facebook-app-in-facebook), have the following format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`, for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`.
 
 ### Step 4: Handle the callback from Okta
 
 After Facebook sends the success login request to your Okta org, the org redirects the request
 to your app through the Application's **Sign-in redirect URIs** field. This field was set up in
-[Create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/go/main/). The application
+[Create a new application](/docs/guides/oie-embedded-common-org-setup/go/main/#create-a-new-application). The application
 code that connects the callback URL to a function is identical to the code described in
 [step 2](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/#step-2-handle-the-callback-from-okta) in
 [Basic sign-in using the widget](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/).

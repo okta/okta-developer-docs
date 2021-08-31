@@ -37,7 +37,7 @@ var registerResponse = await idxAuthClient.RegisterAsync(userProfile);
 
 ### 4: Handle the register response
 
-If the org's application is properly configured with multiple factors, `RegisterAsync` should return a response with an `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status indicates that there is a required authenticator that needs to be verified. If you completed the steps properly in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), the authenticator is the **password** factor that is stored in the `Authenticators` list property.
+If the org's application is properly configured with multiple factors, `RegisterAsync` should return a response with an `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status indicates that there is a required authenticator that needs to be verified. If you completed the steps properly in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case), the authenticator is the **password** factor that is stored in the `Authenticators` list property.
 
 ```csharp
 if (registerResponse.AuthenticationStatus == AuthenticationStatus.AwaitingAuthenticatorEnrollment)
@@ -142,7 +142,7 @@ var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthentic
 
 ### 10: Handle the submit response
 
-If you completed the steps in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases), which sets up multifactors for your application, `AuthenticationResponse.AuthenticationStatus` should return a status of `AwaitingAuthenticatorEnrollment`.
+If you completed the steps in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case), which sets up multifactors for your application, `AuthenticationResponse.AuthenticationStatus` should return a status of `AwaitingAuthenticatorEnrollment`.
 
 The `AwaitingAuthenticatorEnrollment` status is returned because the required **email** and optional **phone** factors await to be enrolled and verified. The user should be redirected to an authenticator list page.
 
@@ -189,7 +189,7 @@ var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenti
 The email sent to the user has a **Verify Email Address** link that isn't yet
 supported. Accordingly, there are two recommended options to mitigate this limitation.
 See
-[Email verify email link does not work](/docs/guides/oie-embedded-sdk-limitations/main/#email-verify-email-link-does-not-work).
+[Email link to verify email address not working](/docs/guides/oie-embedded-sdk-limitations/main/#email-link-to-verify-email-address-not-working).
 
 ### 13: Handle the submit response
 
@@ -234,7 +234,7 @@ var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthentic
 
 ### 16: Handle the submit response
 
-The next step is to handle the response from `VerifyAuthenticatorAsync`. If the email code was valid, the method should return `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status signifies that there is another factor (required or optional) waiting to be enrolled and verified. If the steps described in [Set up your Okta org (for multi-factor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases) were properly followed, the user should be sent back to the Authenticator list page that shows only the **phone** authenticator.
+The next step is to handle the response from `VerifyAuthenticatorAsync`. If the email code was valid, the method should return `AuthenticationStatus` of `AwaitingAuthenticatorEnrollment`. This status signifies that there is another factor (required or optional) waiting to be enrolled and verified. If the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user should be sent back to the Authenticator list page that shows only the **phone** authenticator.
 
 ```csharp
 var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions,
@@ -373,7 +373,7 @@ var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthentic
 
 The next step is to handle the response from `VerifyAuthenticatorAsync`. If the phone SMS code was valid, the method should return an `AuthenticationStatus` of `Success`. This status signifies that no more factors (required or optional) are waiting to be enrolled and verified.
 
-If the steps described in[Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases) were properly followed, the user should now be registered with no more factors to be verified. The user should then be sent to the default page after they have successfully registered. In the sample application, the user is sent to the user profile page.
+If the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user should now be registered with no more factors to be verified. The user should then be sent to the default page after they have successfully registered. In the sample application, the user is sent to the user profile page.
 
 ```csharp
 var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
@@ -416,7 +416,7 @@ The method `SkipAuthenticatorSelectionAsync` can return these different response
 
 ### 19b, Option 2: Complete authentication
 
-After the factor verifications are successful and there are no more authenticators to enroll and verify, the user is successfully registered and can be sent to the default sign-in page. In the sample app, the default sign-in page is the user profile page. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more details on how to fetch user information.
+After the factor verifications are successful and there are no more authenticators to enroll and verify, the user is successfully registered and can be sent to the default sign-in page. In the sample app, the default sign-in page is the user profile page. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-user-profile-information) for more details on how to fetch user information.
 
 ### Troubleshooting Tips
 

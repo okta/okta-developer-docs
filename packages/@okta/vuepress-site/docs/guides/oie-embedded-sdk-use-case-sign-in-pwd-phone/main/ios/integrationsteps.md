@@ -88,7 +88,7 @@ and returns either a fatal error or success with a token.
 The final integration step is to send the user to the default home page
 after successful sign-in. Optionally, you can obtain basic user information after a
 successful sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/ios/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information).
+See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-user-profile-information).
 
 ## Sample code
 
