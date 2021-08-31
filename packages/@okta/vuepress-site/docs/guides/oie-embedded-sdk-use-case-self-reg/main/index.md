@@ -58,7 +58,7 @@ You need to assign anyone to your application for new user registration.
 1. From the left, click the **Groups** filter.
 1. Confirm that the **Everyone** group appears in the Assignment list.
 
-### 3: Ensure both Email and Phone factors are set as optional for authentication enrollment
+### 3: Ensure that both email and phone factors are set as optional for authentication enrollment
 
 1. In the Admin console, go to **Security** > **Authenticators**.
 1. On the **Authenticators** page, click the **Enrollment** tab.
