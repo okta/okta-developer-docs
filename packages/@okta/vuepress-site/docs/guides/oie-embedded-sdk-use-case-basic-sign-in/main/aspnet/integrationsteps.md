@@ -1,4 +1,4 @@
-### Step 1: Build a sign-in page on the client
+### 1: Build a sign-in page on the client
 
 Build a sign-in page that captures both the user's name and password.
 
@@ -10,7 +10,7 @@ Example:
 
 </div>
 
-### Step 2: Authenticate user credentials
+### 2: Authenticate user credentials
 
 When the user initiates the sign in (for example, Continue button click), create
 an `AuthenticationOptions` object and set its `Username` and `Password`
@@ -29,7 +29,7 @@ var authnResponse = await idxAuthClient.AuthenticateAsync(authnOptions).Configur
 (false);
 ```
 
-### Step 3: Handle the response from the sign in
+### 3: Handle the response from the sign in
 
 Depending on the `AuthenticationResponse.AuthenticationStatus` value, you need to handle the response accordingly:
 

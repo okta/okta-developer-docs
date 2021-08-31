@@ -36,7 +36,7 @@ component, which represents the code you write to call into the sample code's in
 
 </div>
 
-### Step 1: Launch app and initialize SDK
+### 1: Launch app and initialize SDK
 
 The first step is to initialize the SDK when the user opens your app.
 This is done by creating an instance of `BasicLogin` and passing into
@@ -51,7 +51,7 @@ For more information on how to set the `configuration` parameter, see
 in
 [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
-### Step 2: User initiates the sign-in flow
+### 2: User initiates the sign-in flow
 
 When the user enters their credentials and initiates the sign-in flow,
 call the `login` method, passing in the username, password,
@@ -71,7 +71,7 @@ and returns either a fatal error or success with a token.
 }
 ```
 
-### Step 3: Send user to the default home page
+### 3: Send user to the default home page
 
 The final integration step is to send the user to the default home page
 after successful sign-in. Optionally, you can obtain basic user information after a
