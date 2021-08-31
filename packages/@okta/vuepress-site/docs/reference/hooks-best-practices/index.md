@@ -66,7 +66,7 @@ Your external service processing Hook requests must take into consideration that
 
 ## Troubleshoot your Hook implementations
 
-Developers and administrators can preview sample Okta calls and responses from your external service for all Event Hooks ([Event Hook preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/event-hooks-preview.htm)) and for SAML and Registration Inline Hooks ([Inline Hook preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/preview-inline-hooks.htm)).
+Developers and administrators can preview sample Okta calls and responses from your external service for all Event Hooks ([Event Hook preview](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-event-hooks-preview)) and for SAML and Registration Inline Hooks ([Inline Hook preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/preview-inline-hooks.htm)).
 
 Review the Admin Console System Log to troubleshoot your implementations, in addition to your external service's logging features. See the following sections to assist in troubleshooting your implementations:
 

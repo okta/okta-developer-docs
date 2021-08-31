@@ -1010,9 +1010,12 @@ Specifies the device condition to match on
 
 > **Note:** When `managed` is passed, `registered` must also be included and must be set to `true`.
 
-For details on integration with a device management system, see
- - [Configure Device Trust on Identity Engine for desktop devices](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/config-desktop.htm)
- - [Configure Device Trust on Identity Engine for mobile devices](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/config-mobile.htm)
+For details on integration with a device management system, see:
+
+* [Configure Device Trust on Identity Engine for desktop devices](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/config-desktop.htm)
+
+* [Configure Device Trust on Identity Engine for mobile devices](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/config-mobile.htm)
+
 #### Device Condition object example
 
 ```json

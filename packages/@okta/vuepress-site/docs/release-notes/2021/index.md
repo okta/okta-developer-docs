@@ -426,7 +426,7 @@ The OAuth 2.0 authorization code lifetime has increased from one minute to five 
 
 * A sign-in hint wasn’t passed to a SAML identity provider in an Org2Org configuration if the request contained a `login_hint` and an `idp` parameter. (OKTA-379879)
 
-* When a call was made to the [User API](/docs/reference/api/users/) without permission to update a user profile’s property that was marked as [sensitive](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-hide-sensitive-attributes.htm), two error messages were returned. One of the error messages contained information about the sensitive property. (OKTA-380344)
+* When a call was made to the [User API](/docs/reference/api/users/) without permission to update a user profile’s property that was marked as [sensitive](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-hide-sensitive-attributes), two error messages were returned. One of the error messages contained information about the sensitive property. (OKTA-380344)
 
 ### Monthly Release 2021.04.0
 
