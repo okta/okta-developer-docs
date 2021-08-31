@@ -1,27 +1,27 @@
 ---
 title: Okta Identity Engine Limitations
-excerpt: The Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features.
+excerpt: Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features.
 ---
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
-The Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features. Additionally, some of these changes result in Okta Identity Engine features not supported for use with Okta Classic Engine APIs.
+Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features. Additionally, some of these changes result in the Identity Engine features not supported for use with Okta Classic Engine APIs.
 
-> **Note:** This doc is designed for people who are familiar with Classic Engine. If you are new to Okta and Okta Identity Engine, see [Get started](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) with Okta Identity Engine.
+> **Note:** This doc is designed for people who are familiar with the Classic Engine. If you are new to Okta and the Identity Engine, see [Get started](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) with the Identity Engine.
 
-Are you an admin? See the Okta Identity Engine [Limitations](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-oie-limitations) doc for admins.
+Are you an admin? See the Identity Engine [Limitations](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-oie-limitations) doc for admins.
 
-### Classic Engine features not supported in Okta Identity Engine
+### Classic Engine features not supported in the Identity Engine
 
 #### Event Type availability for Event Hooks
 
-**What Changed:** The following Event Types aren't available in the Okta Identity Engine because Device Trust isn't currently supported:
+**What Changed:** The following Event Types aren't available in the Identity Engine because Device Trust isn't currently supported:
 
 * `user.authentication.authenticate`
 * `user.credential.enroll`
 
-The following Event Types are available only in the Okta Identity Engine and can't be used by Classic Engine customers:
+The following Event Types are available only in the Identity Engine and can't be used by Classic Engine customers:
 
 * `device.enrollment.create`
 * `user.mfa.factor.suspend`
@@ -35,7 +35,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 #### Help Support number
 
-**What Changed:** In Okta Identity Engine, if the user is unable to use an Authenticator, the Help Support number is no longer provided. The only support available is the Authenticator list page that provides alternative ways for the user to authenticate.
+**What Changed:** In the Identity Engine, if the user is unable to use an Authenticator, the Help Support number is no longer provided. The only support available is the Authenticator list page that provides alternative ways for the user to authenticate.
 
 ***
 
@@ -49,9 +49,9 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 #### Sessions APIs
 
-**What Changed:** Some Sessions APIs aren't supported in Okta Identity Engine. However, your existing application could continue to work as long as session management and application interactions are fully contained within the `v1/sessions` APIs.
+**What Changed:** Some Sessions APIs aren't supported in the Identity Engine. However, your existing application could continue to work as long as session management and application interactions are fully contained within the `v1/sessions` APIs.
 
-**Further Information:** APIs not supported on Okta Identity Engine sessions:
+**Further Information:** APIs not supported on the Identity Engine sessions:
 
 * `GET /api/v1/sessions/${sessionId}`
 * `POST /api/v1/sessions/${sessionId}/lifecycle/refresh`
@@ -125,11 +125,11 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 ***
 
-### Okta Identity Engine features not supported with Classic Engine APIs
+### Identity Engine features not supported with Classic Engine APIs
 
 #### Factor API enrollment limitations
 
-The following Okta Identity Engine features aren't supported using the Factor APIs.
+The following Identity Engine features aren't supported using the Factor APIs.
 
 * Enroll in multiple Okta Verify factors using the [Factors API](/docs/reference/api/factors/#enroll-okta-verify-totp-factor). You can only use the Factors API to enroll the first Okta Verify factor.
 * Okta Verify authenticator settings aren't enforced when enrolling using the Factors API:
@@ -145,6 +145,6 @@ See the [SDK uses cases](/docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-
 
 #### Password recovery limitations with the /authn API
 
-Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in Okta Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Classic Engine Authentication APIs are denied recovery.
+Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in the Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Classic Engine Authentication APIs are denied recovery.
 
 **Further information:** [Recovery operations](https://developer.okta.com/docs/reference/api/authn/#recovery-operations) section of the Authentication API.

@@ -9,17 +9,17 @@ title: Okta Identity Engine SDKs & Samples
 
 ## What's new
 
-[Okta Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) introduces new identity management capabilities with greater flexibility and customization. To take advantage of these new features and for a better development experience, use the Okta Identity Engine SDKs to manage authentication in your apps. These new SDKs are recommended for orgs using Okta Identity Engine.
+[Okta Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) introduces new identity management capabilities with greater flexibility and customization. To take advantage of these new features and for a better development experience, use the Identity Engine SDKs to manage authentication in your apps. These new SDKs are recommended for orgs using the Identity Engine.
 
-Experiment with sample apps that showcase Okta Identity Engine using the following [authentication approaches](/docs/concepts/redirect-vs-embedded/):
+Experiment with sample apps that showcase the Identity Engine using the following [authentication approaches](/docs/concepts/redirect-vs-embedded/):
 
 * **Redirect**: These sample apps demonstrate how to redirect users to an Okta-hosted sign-in page, and then receive users redirected back from Okta after users sign in. This approach is recommended for most developers, as it is easier to build and maintain.
 
 * **Embedded**: These sample apps demonstrate how to embed the Okta Sign-In Widget in an app as a package dependency.
 
-Learn how to implement each approach with these Okta Identity Engine SDKs and sample apps in the [Redirect authentication guide](/docs/guides/sampleapp-oie-redirectauth/), [Embedded authentication with SDK guide](/docs/guides/oie-embedded-sdk-overview/), and [Embedded authentication with Sign-In Widget guide](/docs/guides/oie-embedded-widget-overview/).
+Learn how to implement each approach with these Identity Engine SDKs and sample apps in the [Redirect authentication guide](/docs/guides/sampleapp-oie-redirectauth/), [Embedded authentication with SDK guide](/docs/guides/oie-embedded-sdk-overview/), and [Embedded authentication with Sign-In Widget guide](/docs/guides/oie-embedded-widget-overview/).
 
-Orgs using Okta Identity Engine can also continue to use current SDKs and tools. You can find those SDKs for your stack from the [Languages & SDKs overview](/code/).
+Orgs using the Identity Engine can also continue to use current SDKs and tools. You can find those SDKs for your stack from the [Languages & SDKs overview](/code/).
 
 ## Repository
 
@@ -27,13 +27,13 @@ Orgs using Okta Identity Engine can also continue to use current SDKs and tools.
 
 ##### Android
 
-* [Java Okta Identity Engine SDK](https://github.com/okta/okta-idx-java)
+* [Identity Engine Java SDK](https://github.com/okta/okta-idx-java)
 * [Android embedded authentication with SDK sample app](https://github.com/okta/okta-idx-android)
 * [Android redirect authentication sample app](https://github.com/okta/samples-android) &mdash; see [Browser Sign In](https://github.com/okta/samples-android/tree/master/browser-sign-in) for redirect configuration
 
 ##### iOS
 
-* [Swift Okta Identity Engine SDK](https://github.com/okta/okta-idx-swift)
+* [Identity Engine Swift SDK](https://github.com/okta/okta-idx-swift)
 * [iOS embedded authentication with SDK sample app](https://github.com/okta/okta-idx-swift/tree/master/Samples/EmbeddedAuthWithSDKs)
 * [iOS redirect authentication sample app](https://github.com/okta/samples-ios) &mdash; see [Browser Sign In](https://github.com/okta/samples-ios/tree/master/browser-sign-in) for redirect configuration
 
@@ -49,7 +49,7 @@ Orgs using Okta Identity Engine can also continue to use current SDKs and tools.
 
 #### JavaScript
 
-* [Okta JavaScript SDK](https://github.com/okta/okta-auth-js) &mdash; see the [Okta Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for Okta Identity Engine specific instructions
+* [Okta JavaScript SDK](https://github.com/okta/okta-auth-js) &mdash; see the [Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for Identity Engine specific instructions
 * [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/)
 
 ##### React
@@ -64,7 +64,7 @@ Orgs using Okta Identity Engine can also continue to use current SDKs and tools.
 
 ##### .NET
 
-* [.NET Okta Identity Engine SDK](https://github.com/okta/okta-idx-dotnet)
+* [Identity Engine .NET SDK](https://github.com/okta/okta-idx-dotnet)
 * [ASP.NET embedded authentication with SDK sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-auth-with-sdk)
 * [ASP.NET embedded Sign-In Widget sample app](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-sign-in-widget)
 * [ASP.NET redirect authentication sample app](https://github.com/okta/samples-aspnet) &mdash;  see [Okta-Hosted Login](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login) for redirect configuration
@@ -74,21 +74,21 @@ Orgs using Okta Identity Engine can also continue to use current SDKs and tools.
 
 ##### Express JS
 
-* [Okta JavaScript SDK](https://github.com/okta/okta-auth-js) &mdash; see the [Okta Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for Okta Identity Engine specific instructions
+* [Okta JavaScript SDK](https://github.com/okta/okta-auth-js) &mdash; see the [Identity Engine README](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md) for Identity Engine specific instructions
 * [Express JS embedded authentication with SDK sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/express-embedded-auth-with-sdk)
 * [Express JS embedded Sign-In Widget sample app](https://github.com/okta/okta-auth-js/tree/master/samples/generated/express-embedded-sign-in-widget)
 * [Express JS redirect authentication sample app](https://github.com/okta/samples-nodejs-express-4) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) for redirect configuration
 
 ##### Go
 
-* [Golang Okta Identity Engine SDK](https://github.com/okta/okta-idx-golang)
+* [Identity Engine Golang SDK](https://github.com/okta/okta-idx-golang)
 * [Golang embedded authentication with SDK sample app](https://github.com/okta/samples-golang/tree/master/identity-engine/embedded-auth-with-sdk)
 * [Golang embedded Sign-In Widget sample app](https://github.com/okta/samples-golang/tree/master/identity-engine/embedded-sign-in-widget)
 * [Golang redirect authentication sample app](https://github.com/okta/samples-golang) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) for redirect configuration
 
 ##### Java
 
-* [Java Okta Identity Engine SDK](https://github.com/okta/okta-idx-java)
+* [Identity Engine Java SDK](https://github.com/okta/okta-idx-java)
 * [Java embedded authentication with SDK sample app](https://github.com/okta/okta-idx-java/tree/master/samples/embedded-auth-with-sdk)
 * [Spring embedded Sign-In Widget sample app](https://github.com/okta/okta-idx-java/tree/master/samples/embedded-sign-in-widget)
 * [Spring redirect authentication sample app](https://github.com/okta/samples-java-spring) &mdash; see [Okta-Hosted Login](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) for redirect configuration
