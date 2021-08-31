@@ -1,4 +1,6 @@
-### 1: Sign in with Facebook
+## Integration steps
+
+### 1: The user navigates to the sign-in page
 
 Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) method and getting a new `ProceedContext` object.
 
@@ -13,7 +15,7 @@ Use the [`AuthenticationResponse.getIdps()`](https://github.com/okta/okta-idx-ja
     val idps = authenticationResponse.getIdps()
 ```
 
-### 2: User signs in with Facebook
+### 2: The user signs in with Facebook
 
 When the user selects the **Login with Facebook** option, they are directed to the Facebook sign-in page.
 

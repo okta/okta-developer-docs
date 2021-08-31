@@ -1,4 +1,6 @@
-### 1: Navigate to the homepage
+## Integration steps
+
+### 1: The user navigates to the home page
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -15,7 +17,7 @@ if err != nil {
 }
 ```
 
-### 2: Navigate to the sign-in page
+### 2: Capture credentials with the sign-in page
 
 Build a sign-in page that captures the user's name and password.
 
@@ -118,7 +120,7 @@ if lr.HasStep(idx.LoginStepEmailVerification) {
 }
 ```
 
-### 6: Submit the email factor to verify the identity
+### 6: Submit the email factor to verify the user's identity
 
 When the user selects the email factor and clicks submit, call the `LoginResponse` object's
 `VerifyEmail` method. Calling this method instructs the Okta org server to send an
@@ -201,8 +203,6 @@ if lr.Token() != nil {
 }
 ```
 
-### 10: (Optional) Retrieve user profile information
+### 10 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after a successful user
-sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-user-profile-information) for more information.
+Optionally, you can obtain basic user information after a successful user sign-in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-user-profile-information) for more information.

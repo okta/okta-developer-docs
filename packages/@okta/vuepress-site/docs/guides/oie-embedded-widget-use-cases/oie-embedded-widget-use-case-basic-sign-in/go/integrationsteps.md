@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: User signs in
+### 1: The user signs in
 
 After the Widget
 [loads](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-load/),
@@ -8,7 +8,7 @@ the user enters their credentials through the Widget and clicks **Sign in**. The
 request is sent to Okta, which returns a response identifying the next steps that need to
 be taken.
 
-### Step 2: Handle the callback from Okta
+### 2: Handle the callback from Okta
 
 The sign-in response is sent to the URL defined in the **Sign-in redirect URIs** field
 you've configured in [Create a new application](/docs/guides/oie-embedded-common-org-setup/go/main/#create-a-new-application).
@@ -20,7 +20,7 @@ this URL should be handled:
 r.HandleFunc("/login/callback", s.LoginCallbackHandler).Methods("GET")
 ```
 
-### Step 3: Get tokens, store them, and redirect to default sign-in page
+### 3: Get and store the tokens and redirect the request to the default sign-in page
 
 Next, call the `/token` endpoint and pass in the returned `interaction_code` and the
 PCKE parameters you created in
@@ -69,7 +69,7 @@ func (s *Server) LoginCallbackHandler(w http.ResponseWriter, r *http.Request) {
 
 ```
 
-### Step 4 (Optional): Retrieve user profile information
+### 4 (Optional): Get the user profile information
 
 You can obtain basic user information by making a request to the authorization server.
 Make a call to the [`/v1/userinfo`](/docs/reference/api/oidc/#userinfo) endpoint using the tokens obtained from the `LoginResponse`

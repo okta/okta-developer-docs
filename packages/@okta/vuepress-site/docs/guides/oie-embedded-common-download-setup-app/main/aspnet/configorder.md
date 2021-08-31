@@ -1,4 +1,4 @@
-## Order of configuration options
+## Order of the configuration options
 
 When multiple configurations options are used simultaneously, the SDK chooses
 the option based on the following order:

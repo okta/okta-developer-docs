@@ -25,6 +25,6 @@
 1. Enter the **Username** and **Password** for the user that you've created in
    [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/java/main/#create-your-okta-account).
 
-1. Click **Login**. <br>After you've successfully signed in, the app redirects you to a page that displays your basic user profile and security token information.
+1. Click **Login**. After you've successfully signed in, the app redirects you to a page that displays your basic user profile and security token information.
 
 1. Click **Logout** in the upper-right corner of the page to sign out of the sample app.

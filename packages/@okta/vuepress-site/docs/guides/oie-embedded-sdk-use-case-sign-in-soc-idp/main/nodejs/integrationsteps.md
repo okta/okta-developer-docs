@@ -1,4 +1,6 @@
-### 1: Sign in with Facebook
+## Integration steps
+
+### 1: The user navigates to the sign-in page
 
 As part of the `/login` entry point, call `idx.startTransaction` to render social Identity Providers on the user sign-in page, as shown in the `login.js` page of the SDK sample application.
 
@@ -56,7 +58,7 @@ The previous code snippet is rendered as the **Login with Facebook** button, sim
 
 </div>
 
-### 2: User signs in with Facebook
+### 2: The user signs in with Facebook
 
 When the user selects the **Login with Facebook** option, they are directed to the Facebook sign-in page.
 

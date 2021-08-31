@@ -1,4 +1,6 @@
-### Step 1: User initiates sign in
+## Integration steps
+
+### 1: The user initiates the sign-in flow
 
 Build a sign-in form for your app that captures both the username and password.
 
@@ -8,7 +10,7 @@ Build a sign-in form for your app that captures both the username and password.
 
 </div>
 
-### Step 2: User enters credentials
+### 2: The user enters their credentials
 
 Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
 
@@ -43,7 +45,7 @@ After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the
 
 > **Tip:** Build a generic authenticator selection form to handle single or multiple authenticators returned from the SDK.
 
-### Step 3: User selects phone authenticator
+### 3: The user selects the phone authenticator
 
 In this use case, the user selects **Phone** as the authenticator to enroll. Pass this selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
@@ -65,7 +67,7 @@ You need to build a form to capture the user's phone number in your app. For exa
 
 If your org is enabled with the voice feature, you will need to add an additional form to select voice or SMS factor as the phone verification method. See [Step 4 (voice feature alternative)](#step-4-voice-feature-alternative-user-enters-phone-number-and-phone-factor-method) for details.
 
-### Step 4: User enters phone number
+### 4: The user enters the phone number
 
 This step assumes that the voice feature isn't enabled in your org. The phone verification code is sent through SMS automatically.
 
@@ -86,7 +88,7 @@ You need to build a form to capture the user's SMS verification code. For exampl
 
 </div>
 
-### Step 4 (voice feature alternative): User enters phone number and phone factor method
+### 4 (voice feature alternative): The user enters the phone number and selects the phone factor method
 
 This step assumes that your org is enabled with the voice feature.
 
@@ -120,7 +122,7 @@ The Java SDK sends the phone authenticator data to Okta. Okta processes the requ
 
 You need to build a form to capture the user's verification code.
 
-### Step 5: User enters verification code
+### 5: The user enters the verification code
 
 The user receives the code on their phone and submits it in the verification code form. Send this code to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 

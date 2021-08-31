@@ -1,4 +1,6 @@
-### Step 1: Create a sign-out UI element
+## Integration steps
+
+### 1: Create a sign-out UI element
 
 The first step is to create a link, button, or other similar UI element that allows the user to sign out of the app.
 
@@ -8,7 +10,7 @@ The first step is to create a link, button, or other similar UI element that all
 
 </div>
 
-### Step 2: Revoke access token
+### 2: Revoke the access token
 
 When the sign-out request is initiated, create the following flow:
 
@@ -26,6 +28,6 @@ When the sign-out request is initiated, create the following flow:
     ...
 ```
 
-### Step 3: Send user to the signed-out page
+### 3: Send the user to the signed-out page
 
 After the access token is revoked and the session is no longer valid, redirect the user to the signed-out page.

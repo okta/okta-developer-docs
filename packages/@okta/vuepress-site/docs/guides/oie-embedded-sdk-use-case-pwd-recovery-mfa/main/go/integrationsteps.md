@@ -1,4 +1,6 @@
-### 1: Navigate to the homepage
+## Integration steps
+
+### 1: The user navigates to the home page
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -27,11 +29,11 @@ recovery flow.
 
 </div>
 
-### 3: Enter the email and initiate the password recovery
+### 3: The user enters their email and initiates password recovery
 
 After the user submits their email to start the password recovery, perform the following steps:
 
-1.  Call the `Client` object's `InitPasswordReset` method by passing in a
+1. Call the `Client` object's `InitPasswordReset` method by passing in a
 `IdentifyRequest` object with its `Identifier` property set to the user's email. Calling this method
 validates the email and returns a list of additional steps needed to complete the recovery.
 
@@ -134,7 +136,7 @@ if !rpr.HasStep(idx.ResetPasswordStepSuccess) {
 }
 ```
 
-### 8: Store the tokens in a session and redirect to the signed-in home page
+### 8: Store the tokens in a session and redirect the user to the signed-in home page
 
 Store the tokens from the `ResetPasswordResponse` into session
 for later use. After the tokens are stored, redirect the user to the
@@ -158,8 +160,8 @@ http.Redirect(w, r, "/", http.StatusFound)
 return
 ```
 
-### 9: (Optional) Retrieve user profile information
+### 9 (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-user-profile-information) for more information.
+See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-basic-sign-in/#get-the-user-profile-information) for more information.

@@ -36,7 +36,7 @@ component, which represents the code you write to call into the sample code's in
 
 </div>
 
-### 1: Launch app and initialize SDK
+### 1: Launch the app and initialize the SDK
 
 The first step is to initialize the SDK when the user opens your app.
 This is done by creating an instance of `BasicLogin` and passing into
@@ -51,7 +51,7 @@ For more information on how to set the `configuration` parameter, see
 in
 [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
-### 2: User initiates the sign-in flow
+### 2: The user initiates the sign-in flow
 
 When the user enters their credentials and initiates the sign-in flow,
 call the `login` method, passing in the username, password,
@@ -71,10 +71,10 @@ and returns either a fatal error or success with a token.
 }
 ```
 
-### 3: Send user to the default home page
+### 3: Send the user to the home page after a successful sign-in flow
 
 The final integration step is to send the user to the default home page
-after successful sign-in. Optionally, you can obtain basic user information after a
+after a successful sign-in flow. Optionally, you can obtain basic user information after a
 successful sign-in by making a request to Okta's Open ID Connect authorization server.
 See [Get user profile information](#get-user-profile-information).
 

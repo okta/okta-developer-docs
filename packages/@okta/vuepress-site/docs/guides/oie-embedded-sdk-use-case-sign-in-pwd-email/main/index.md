@@ -23,7 +23,17 @@ This use case requires the **password** and **email** factors.
 
 Before you build a sign-in flow with password and email factors, you need to configure the Okta org to accept both factors in your app. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to configure your app and Okta org for this use case.
 
-### Set email as optional for authentication enrollment
+### 1: Set up your Okta org for a password factor
+
+Ensure your org is configured for the password factor by completing the steps in [Update the authenticators for password factor only use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#update-the-authenticators-for-password-factor-only-use-cases).
+
+### 2: Set up your Okta org for multifactor use cases
+
+Ensure your org is configured for multifactor use cases by completing the steps in [Set up your Okta org for multi-factor use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases).
+
+> **Note:** Ensure your app integration is configured to use **Password + Another factor** in the app integration's **Sign On Policy** rule section.
+
+### 3: Set email as optional for authentication enrollment
 
  The instructions in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) enables both email and phone factors as optional for enrollment. For this use case, you need to enable the email factor as optional and disable the phone factor.
 

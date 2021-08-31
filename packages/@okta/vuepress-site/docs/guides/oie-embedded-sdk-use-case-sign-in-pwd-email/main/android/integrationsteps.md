@@ -1,4 +1,6 @@
-### 1: User launches the sign-in page
+## Integration steps
+
+### 1: The user launches the sign-in page
 
 Build a sign-in page for your app that captures both the username and the password.
 
@@ -15,7 +17,7 @@ val beginResponse = idxAuthenticationWrapper.begin()
 val proceedContext = beginResponse.proceedContext
 ```
 
-### 2: User enters their credentials
+### 2: The user enters their credentials
 
 After the user submits their credentials, call `IDXAuthenticationWrapper.authenticate()` with the credential values.
 
@@ -43,7 +45,7 @@ After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of au
 
 > **Tip:** Build a generic authenticator selection form to handle single or multiple authenticators returned from the SDK.
 
-### 3: User selects the email authenticator
+### 3: The user selects the email authenticator
 
 In this use case, the user selects the **Email** factor as the authenticator to verify. Pass this user-selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
@@ -61,7 +63,7 @@ The Java SDK sends this selection to Okta. Okta sends a code to the user's email
 
 > **Note:** The email sent to the user has a **Sign In** link that isn't yet supported. Use the provided code instead. See [Limitations: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links).
 
-### 4: User submits the email verification code
+### 4: The user submits the email verification code
 
 The user receives the verification code in their email and submits it through the verify code form. Use [`VerifyAuthenticationOptions`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 

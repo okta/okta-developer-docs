@@ -1,4 +1,6 @@
-### Step 1: Build a sign-in page on the client and authenticate user credentials
+## Integration steps
+
+### 1: Build a sign-in page on the client and authenticate the user credentials
 
 Build a sign-in page that captures the username and password, as shown in the following example.
 
@@ -22,7 +24,7 @@ status, // IdxStatus.PENDING
 
 After this response, you need to redirect the user to an authenticator list page that displays the phone factor as an authenticator to be verified.
 
-### Step 2: Select the phone factor in the authenticator list
+### 2: The user selects the phone factor from the authenticator list
 
 In this use case, only the **phone** factor is displayed in the list of authenticators, as shown in the following example page:
 
@@ -45,7 +47,7 @@ status, // IdxStatus.PENDING
 
 The next step is to redirect the user to a page to enter in the phone verification field.
 
-### Step 3: Build the phone verification method entry page
+### 3: Build the phone verification method entry page
 
 Build the phone verification method entry page that accepts either SMS or voice verification that is used for authentication.
 
@@ -69,7 +71,7 @@ status, // IdxStatus.PENDING
 }
 ```
 
-### Step 4: Build or reuse the phone verification code page
+### 4: Build or reuse the phone verification code page
 
 Build a page that accepts the code sent to the user's phone number through SMS. Depending on your implementation, this page can be the same page that verifies the email code or a different page.
 
@@ -83,6 +85,6 @@ The next step is to call `idx.authenticate` passing in the verification code `{ 
 
 Then, handle the response from `idx.authenticate`. If the phone code was valid, the method returns a status of `Idx.Status:SUCCESS` with tokens. This status signifies that there are no more factors that are waiting to be enrolled and verified. If the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user is successfully signed in and is sent to the default sign-in home page.
 
-### Get user profile information (optional)
+### 5 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after a successful sign in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/nodejs/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more details.
+Optionally, you can obtain basic user information after a successful sign in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/nodejs/oie-embedded-sdk-use-case-basic-sign-in/#get-the-user-profile-information) for more details.

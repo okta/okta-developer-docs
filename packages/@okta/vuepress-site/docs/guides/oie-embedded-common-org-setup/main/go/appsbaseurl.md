@@ -1,4 +1,4 @@
-###  Add a trusted origin and enable CORS
+### Add a trusted origin and enable CORS
 
 For web applications, you have to identify your app's URL as a trusted origin and enable [CORS](/docs/guides/enable-cors/overview/):
 
