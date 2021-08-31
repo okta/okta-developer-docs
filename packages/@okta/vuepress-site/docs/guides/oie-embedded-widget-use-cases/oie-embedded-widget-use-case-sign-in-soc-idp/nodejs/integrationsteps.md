@@ -10,7 +10,7 @@ When the user clicks this link they are send to the Facebook login screen.
 
 Next, the user enters their email and password and clicks login.
 This page is hosted by Facebook. The user information you enter originates
-from  a test user you configured in [Set up the Facebook test user](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-the-facebook-test-user). There are no code changes
+from  a test user you configured in [Set up the Facebook test user](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_2-set-up-the-facebook-test-user). There are no code changes
 you need to make in your app to support to this step.
 
 <div class="common-image-format">
@@ -21,7 +21,7 @@ you need to make in your app to support to this step.
 
 ### Step 3: Facebook redirects to your Okta org
 
-If the user Facebook login is successful, facebook routes the user to the value you enter for **Valid OAuth Redirect URIs** and **Site URL** in [Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-facebook-app-in-facebook).
+If the user Facebook login is successful, facebook routes the user to the value you enter for **Valid OAuth Redirect URIs** and **Site URL** in [Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_1-create-a-facebook-app-in-facebook).
 The value takes on the following format:  `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
 ### Step 4: Okta org redirects to your app via the Sign-in redirect URIs

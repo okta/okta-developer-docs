@@ -29,7 +29,7 @@ the Facebook sign-in page.
 
 Once the user enters their credentials in the Facebook sign-in page, Facebook first validates the sign-in
 request. If the sign-in is successful, Facebook redirects the request to the Okta org URL that you've entered in the
-**Valid OAuth Redirect URIs** and **Site URL** fields. These field values, described in [Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/go/main/#create-a-facebook-app-in-facebook), have the following format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`, for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`.
+**Valid OAuth Redirect URIs** and **Site URL** fields. These field values, described in [Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/go/main/#_1-create-a-facebook-app-in-facebook), have the following format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`, for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`.
 
 ### Step 4: Handle the callback from Okta
 

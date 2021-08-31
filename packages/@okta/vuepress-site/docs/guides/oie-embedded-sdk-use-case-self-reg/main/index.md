@@ -30,9 +30,15 @@ This use case requires the password and either the email or the phone factor.
 
 Before you can build the self-registration flow in your app, you must configure the Okta org to accept self-registration with the password, email, and/or phone factors. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to set up the password, email, and phone factors in your Okta org.
 
-### Update the profile enrollment default policy
+In addition to setting up the recovery factors, you also need to configure the following in your Okta org:
 
-In addition to setting up the recovery factors, you need to enable self-registration in the Profile Enrollment section:
+1. [Update the profile enrollment default policy](#_1-update-the-profile-enrollment-default-policy)
+1. [Confirm that the org application is assigned to everyone](#_2-confirm-that-the-org-application-is-assigned-to-everyone)
+1. [Ensure both Email and Phone factors are set as optional for authentication enrollment](#_3-ensure-both-email-and-phone-factors-are-set-as-optional-for-authentication-enrollment)
+
+### 1: Update the profile enrollment default policy
+
+Enable self-registration in your profile enrollment default policy:
 
 1. In the Admin Console, go to **Security** > **Profile Enrollment**.
 1. On the **Profile Enrollment** page, click the pencil icon next to the Default Policy.
@@ -42,7 +48,7 @@ In addition to setting up the recovery factors, you need to enable self-registra
 
 > **Note:** See [Manage Profile Enrollment policies](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment) for additional profile enrollment policy options.
 
-### Confirm that the org application is assigned to everyone
+### 2: Confirm that the org application is assigned to everyone
 
 You need to assign anyone to your application for new user registration.
 
@@ -52,7 +58,7 @@ You need to assign anyone to your application for new user registration.
 1. From the left, click the **Groups** filter.
 1. Confirm that the **Everyone** group appears in the Assignment list.
 
-### Ensure both Email and Phone factors are set as optional for authentication enrollment
+### 3: Ensure both Email and Phone factors are set as optional for authentication enrollment
 
 1. In the Admin console, go to **Security** > **Authenticators**.
 1. On the **Authenticators** page, click the **Enrollment** tab.

@@ -29,7 +29,7 @@ Before you build a sign-in flow with password and phone factors, you need to con
 
 ### Set phone as optional for authentication enrollment
 
-The instructions in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) configures both email and phone factors as optional. For this use case, you only need the phone factor as optional.
+The instructions in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) enables both email and phone factors as optional for enrollment. For this use case, you need to enable the phone factor as optional and disable the email factor.
 
 1. In the Admin console, go to **Security** > **Authenticators**.
 1. On the **Authenticators** page, select the **Enrollment** tab.
