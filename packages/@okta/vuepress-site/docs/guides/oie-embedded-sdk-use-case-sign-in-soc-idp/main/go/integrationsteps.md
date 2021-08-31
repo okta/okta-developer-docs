@@ -85,7 +85,7 @@ providers.
 
 </div>
 
-### 4: The user selects the sign-in with Facebook link
+### 4: The user selects the Facebook sign-in link
 
 When the user clicks the Facebook IdP link, initially they are sent to the Okta org using the link provided in the
 `IdentityProvider` object's `HRef` property. At the Org, the request gets routed to Facebook for user sign-in. You don't need to implement additional code changes to perform this step.

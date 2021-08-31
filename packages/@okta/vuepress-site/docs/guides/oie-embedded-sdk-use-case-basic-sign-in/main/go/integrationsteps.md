@@ -38,7 +38,7 @@ if err != nil {
 }
 ```
 
-### 3: The user nitiates the sign-in flow
+### 3: The user initiates the sign-in flow
 
 After the user enters their credentials and submits their sign-in request,
 create an `IdentityRequest` object, passing in the username and password from the
