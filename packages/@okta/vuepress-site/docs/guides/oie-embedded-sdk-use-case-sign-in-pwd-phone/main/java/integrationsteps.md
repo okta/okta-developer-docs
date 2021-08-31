@@ -88,7 +88,7 @@ You need to build a form to capture the user's SMS verification code. For exampl
 
 </div>
 
-### 5 (voice feature alternative): The user enters the phone number and selects the phone factor method
+### 4 (voice feature alternative): The user enters the phone number and selects the phone factor method
 
 This step assumes that your org is enabled with the voice feature.
 
@@ -122,7 +122,7 @@ The Java SDK sends the phone authenticator data to Okta. Okta processes the requ
 
 You need to build a form to capture the user's verification code.
 
-### 6: The user enters the verification code
+### 5: The user enters the verification code
 
 The user receives the code on their phone and submits it in the verification code form. Send this code to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 

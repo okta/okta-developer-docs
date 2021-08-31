@@ -104,7 +104,7 @@ var idxAuthClient = new IdxClient(null);
 var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
 ```
 
-### 8: Handle the response from the VerifyAuthenticatorAsync method
+### 8: Handle the response
 
 The next step is to handle the response from `VerifyAuthenticatorAsync`. If the email code was valid, the method should return an `AuthenticationStatus` of `Success`. This status signifies that there are no more factors waiting to be enrolled and verified. If the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user has successfully signed in and should be sent to the default sign-in home page, which is the user profile page in the sample app.
 

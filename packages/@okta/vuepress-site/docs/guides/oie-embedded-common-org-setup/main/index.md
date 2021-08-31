@@ -91,19 +91,8 @@ After you've created your app integration in your Okta org, the next step is to 
 
 This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor only without any additional factors (such as email or phone SMS). Perform the following configuration after you've [created a new app](#create-a-new-application) in your Okta org:
 
-<<<<<<< HEAD
-1. <StackSelector snippet="newapp" noSelector />
-   * Enter an application name.
-   * Select the **Interaction Code** checkbox if not already selected.
-   * Select the **Refresh Token** checkbox.
-   * Set **Sign-in redirect URIs** to: <StackSelector snippet="redirecturi" noSelector />
-   * Click **Save**.
-
-1. Select the **Sign On** tab, and in the **Sign On Policy** section make note of the **Available Authenticators**. The value should be **1 factor** that is **Password**. (If you are coming back to this step after completing [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases), then set this value to **Password**. Currently, if there are multiple factors defined in the Okta org but the application uses only one factor, the value must be **Password**.)
-=======
 1. [Update the password authenticator to password only](#_1-update-the-password-authenticator-to-password-only)
 2. [Update your app sign-on policy with password only authentication](#_2-update-your-app-sign-on-policy-with-password-only-authentication)
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 #### 1: Update the password authenticator to password only
 
@@ -128,13 +117,9 @@ For password only authentication, you need to update the password authenticator 
 
 This section shows you how to set up your Okta org and app to support the multifactor use cases available in this embedded authentication guide. In addition to the password factor, the multifactor use cases presented in this guide use the email and phone factors. Perform the following configuration after you've [created a new app](#create-a-new-application) to set up the email and phone factors in your Okta org:
 
-<<<<<<< HEAD
-### Step: Set up the email authenticator for authentication
-=======
 1. [Set up the email authenticator for authentication and recovery](#_1-set-up-the-email-authenticator-for-authentication-and-recovery)
 1. [Add the phone authenticator for authentication and recovery](#_2-add-the-phone-authenticator-for-authentication-and-recovery)
 1. [Update your app sign-on policy with multifactor authentication](#_3-update-your-app-sign-on-policy-with-multifactor-authentication)
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 > **Note:** The multifactor use cases in this guide implement the password, email, and phone factors. However, there are other supported factors that you can use in your embedded authentication app. See [Multifactor Authentication](https://help.okta.com/en/oie/okta_help_CSH.htm#csh-about-authenticators).
 
@@ -145,11 +130,7 @@ This section shows you how to set up your Okta org and app to support the multif
 1. In the **Used for** section, select the **Authentication and recovery** option for the **This authenticator can be used for** field.
 1. Click **Save**.
 
-<<<<<<< HEAD
-### Step: Add the phone authenticator
-=======
 #### 2: Add the phone authenticator for authentication and recovery
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 1. In the Admin Console, select **Security** > **Authenticators**.
 1. Click **Add Authenticator**.
@@ -161,11 +142,7 @@ This section shows you how to set up your Okta org and app to support the multif
 1. In the **Used for** section, select the **Authentication and recovery** option for the **This authenticator can be used for** field.
 1. Click **Add**.
 
-<<<<<<< HEAD
-### Step: Update the Application sign-on policy for multiple factors
-=======
 If your org already has the phone authenticator added, ensure that the **Authentication and recovery** option is selected for the **This authenticator can be used for** field for the phone authenticator.
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 #### 3: Update your app sign-on policy with multifactor authentication
 
@@ -189,19 +166,7 @@ Perform the following configurations after you've [created a new app](#create-a-
 1. [Create the Facebook Identity Provider in Okta](#_4-create-the-facebook-identity-provider-in-okta)
 1. [Add an Identity Provider routing rule in Okta](#_5-add-an-identity-provider-routing-rule-in-okta)
 
-<<<<<<< HEAD
-* [Sign in with Facebook (password factor only)](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-sign-in-soc-idp/)
-
-You can skip this section until you are ready to run through the above use case. Otherwise, the steps to add support for the Facebook social provider are
-listed below.
-
-> **Note:** We recommend that you skip this step if you are just getting started with the sample app and like to run the basic use cases listed in
-[Set up your Okta org (for password factor only use cases)](#set-up-your-okta-org-for-password-factor-only-use-cases).
-
-### Step: Create a Facebook app in Facebook
-=======
 #### 1: Create a Facebook app in Facebook
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 1. Go to [Facebook for Developers](https://developers.facebook.com/) and click the **Login** link. If you don't have an account, then create one.
 1. Using these Facebook [instructions](https://developers.facebook.com/docs/apps/register) as a guide, create a Facebook app. When you create the Facebook app, ensure that you select **None** as the app type.
@@ -218,20 +183,9 @@ listed below.
 1. On the App Dashboard page, expand **Settings** on the left side of the page, and then click **Basic**.
 1. Save the **App ID** and the **App Secret** values so you can add them to your Okta org's Identity Provider settings.
 
-<<<<<<< HEAD
-### Step: Copy the App ID and Secret
-
-After you finish creating the app, the next step is to copy the **App ID** and **App Secret** for the next step where you set up the Facebook Identity Provider in the Okta org.
-
-1. In the left navigation menu, click **Settings** and then **Basic**.
-1. Copy the **App ID** and **App Secret** to an accessible place in preparation for the next step.
-
-### Step: Set up and copy test user information
-=======
 #### 2: Set up the Facebook test user
 
 A test account is required to test Facebook sign-in in Development mode. Facebook automatically creates one test user for you to use with the Facebook sign-in use cases. Perform the following steps to find, set the password, and save this user's information.
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 1. From the Facebook App Dashboard page, click **Roles** and then click **Test Users**.
 1. Click **Edit** for the test user and select **Change the name or password for this test user**.
@@ -264,11 +218,7 @@ To connect your org to the Facebook, you need to add and configure the Facebook 
 1. Keep the default values, **public_profile** and **email**, in the **Scopes** field.
 1. Click **Add Identity Provider**.
 
-<<<<<<< HEAD
-### Step: Add a routing rule
-=======
 #### 5: Add an Identity Provider routing rule in Okta
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 The final step is to add the [created Facebook IdP](#_4-create-the-facebook-identity-provider-in-okta) to the routing rule.
 
