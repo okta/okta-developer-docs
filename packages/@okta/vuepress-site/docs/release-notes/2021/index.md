@@ -7,15 +7,10 @@ title: Okta API Products Release Notes 2021
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Decreased daily rate limit for org creation](#okta-sign-in-widget-version-5-9-1) | September 1, 2021 |
 | [SAML assertion preview populates with real data](#saml-assertion-preview-populates-with-real-data)              | September 1, 2021 |
 | [Dynamic Issuer Mode is EA in Preview](#dynamic-issuer-mode-is-ea-in-preview) | September 1, 2021 |
 | [The Subscriptions API is GA in Production](#the-subscriptions-api-is-ga-in-production)| September 1, 2021 |
 | [Rate limit updates](#rate-limit-updates)| September 1, 2021 |
-
-#### Decreased daily rate limit for org creation
-
-The [`/api/v1/orgs`](/docs/reference/api/org/) API now has a daily rate limit of 25 requests per minute that is enforced to customers with org creator API access. <!--OKTA-406663-->
 
 #### SAML assertion preview populates with real data
 
