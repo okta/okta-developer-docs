@@ -31,7 +31,7 @@ The following image shows an example of the sign-in email's content.
 
 <div class="common-image-format">
 
-![Passwordless sign-in email link example](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-screen-email-signin.png")
+![Passwordless sign-in email link example](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-screen-email-signin.png)
 
 </div>
 
@@ -99,7 +99,7 @@ Use either of these recommended options to mitigate the email verification link 
 
 > Email template customizations are not available for free developer orgs.
 
-The Okta org that you created in [Create your Okta Account](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-your-okta-account) contains a list of email templates that are used for correspondence with the users. The **Email Factor Verification** template is used during the new user registration process. The default template includes a Verify Email Address link. Since email verification through this link is not yet supported, we recommend that you delete this link in the email template.
+The Okta org that you created in [Create your Okta Account](/docs/guides/oie-embedded-common-org-setup/-/main/#create-your-okta-account) contains a list of email templates that are used for correspondence with the users. The **Email Factor Verification** template is used during the new user registration process. The default template includes a Verify Email Address link. Since email verification through this link is not yet supported, we recommend that you delete this link in the email template.
 
 <div class="common-image-format">
 

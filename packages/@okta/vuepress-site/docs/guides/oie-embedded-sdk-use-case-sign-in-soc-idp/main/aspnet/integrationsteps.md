@@ -1,6 +1,10 @@
 ### 1: The user navigates to the sign-in page
 
+<<<<<<< HEAD
 The first step is make a call to `GetIdentityProvidersAsync` when the sign in page loads. This method retrieves all the Identity Providers that were added to the routing rule (**Use this identity provider** field) in the [Set up your Okta org for social Identity Providers](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers).
+=======
+The first step is make a call to `GetIdentityProvidersAsync` when the sign in page loads. This method retrieves all the identity providers that were added to the routing rule (**Use this identity provider** field) in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case).
+>>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 ```csharp
 ViewBag.ReturnUrl = returnUrl;
@@ -54,7 +58,11 @@ The user clicks the sign-in link, which sends them initially to the Okta org. Th
 
 ### 4: The user signs in to Facebook
 
+<<<<<<< HEAD
 Next, the user enters their email and password, and clicks **Log in**. This page is hosted by Facebook. The user information that you enter originates from a test user that you configured in [Set up your Okta org (for social Identity Providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers). You don't need to make any code changes in your app to perform this step.
+=======
+Next, the user enters their email and password, and clicks **Log in**. This page is hosted by Facebook. The user information that you enter originates from a test user that you configured in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case). You don't need to make any code changes in your app to perform this step.
+>>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 <div class="common-image-format">
 
@@ -62,13 +70,18 @@ Next, the user enters their email and password, and clicks **Log in**. This page
 
 </div>
 
+<<<<<<< HEAD
 ### 5: Redirect the request to the Okta org
+=======
+### 5: Redirect request to the Okta org
+If the user's Facebook login is successful, Facebook routes the user to the values that you entered in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
+>>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 If the user's Facebook login is successful, Facebook routes the user to the values that you entered in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org (for social Identity Providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
 ### 6: Redirect the request to the client
 
-After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the Application's **Sign-in redirect URIs** field, which was configured in [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
+After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the Application's **Sign-in redirect URIs** field, which was configured in [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 
 The value for the sample app is `https://localhost:44314/interactioncode/callback`.
 

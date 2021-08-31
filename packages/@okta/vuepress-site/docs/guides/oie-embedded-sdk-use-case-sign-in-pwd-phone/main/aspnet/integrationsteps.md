@@ -179,4 +179,8 @@ switch (authnResponse.AuthenticationStatus)
 
 Optionally, you can obtain basic user information after a successful sign
 in by making a request to Okta's Open ID Connect authorization server.
+<<<<<<< HEAD
 See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/#get-the-user-profile-information) for more details.
+=======
+See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-user-profile-information) for more details.
+>>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603

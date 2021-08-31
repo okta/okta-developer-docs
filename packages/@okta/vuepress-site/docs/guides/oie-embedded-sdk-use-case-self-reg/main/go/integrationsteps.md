@@ -266,7 +266,7 @@ func (s *Server) transitionToProfile(er *idx.EnrollmentResponse, w http.Response
 
 For more details about enrolling the phone factor see the sample application. For details on how
 to verify a sign-in with the phone factor, see
-[Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-pwd-phone/).
+[Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/go/main/).
 
 ### Step 11: Store the tokens in session and go to the signed-in home page
 
@@ -289,4 +289,4 @@ if enrollResponse.Token() != nil {
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more information.
+See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-user-profile-information) for more information.

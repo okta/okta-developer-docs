@@ -8,7 +8,7 @@ title: Download and set up the SDK, Sign-In Widget, and sample app
 
 <StackSelector class="cleaner-selector"/>
 
-After you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/), the next step is to download the GitHub repository that contains the SDK, Widget, and accompanying sample apps.
+After you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/), the next step is to download the GitHub repository that contains the SDK, Widget, and accompanying sample apps.
 
 ## Software requirements
 
@@ -50,7 +50,7 @@ For more information about the authorization server types available:
 
 #### Client ID
 
-For the sample app, use the **Client ID** for the application that you created in [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Client ID**.
+For the sample app, use the **Client ID** for the application that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Client ID**.
 
 <StackSelector snippet="clientsecret" noSelector /><br>
 
@@ -58,7 +58,7 @@ For the sample app, use the **Client ID** for the application that you created i
 
 <StackSelector snippet="redirecturi" noSelector /><br>
 
-This is the same value as the **Redirect URI** for the application that you created in [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Sign-in redirect URI**.
+This is the same value as the **Redirect URI** for the application that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Sign-in redirect URI**.
 
 #### Scopes
 

@@ -2,7 +2,11 @@
 
 1. If you haven't already done so, set up your Okta org by completing these steps:
 
+<<<<<<< HEAD
     * [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
+=======
+    * [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/android/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
+>>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
     * [Download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/android/main/)
 
 1. Using Android Studio, open the `okta-idx-android` project.

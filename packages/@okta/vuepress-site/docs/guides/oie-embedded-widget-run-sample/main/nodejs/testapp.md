@@ -2,8 +2,7 @@ The sample app is located here: `okta-auth-js/samples/generated/express-embedded
 
 ## Steps to run the sample app
 
-1. If not already done, set up your Okta org by completing the steps located at
-   [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
+1. If not already done, set up your Okta org by completing the steps located at [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 1. If not already done,
    [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/).
 1. Locate the sample apps solution file in the following path:
@@ -42,5 +41,5 @@ The sample app is located here: `okta-auth-js/samples/generated/express-embedded
 * If the widget doesn't load and instead displays the following error:
    “There was an unexpected internal error. Please try again.”,
    make sure CORS is enabled. Follow the steps in
-   [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#step-3-add-a-trusted-origin-and-enable-cors)
+   [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#add-a-trusted-origin-and-enable-cors)
    to make sure CORS is enabled.

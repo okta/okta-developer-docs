@@ -23,7 +23,7 @@ In tandem with the embedded SDK, the widget integrates into your app by using a 
 
 To start using the widget:
 
-1. If not already done, [create your account and set up your okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/).
+1. If not already done, [create your account and set up your okta org](/docs/guides/oie-embedded-common-org-setup/).
 1. If not already done, [download and set up the SDK and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
 1. [Run the widget sample app](/docs/guides/oie-embedded-widget-run-sample/aspnet/main/).
 1. With the sample app as your guide, integrate the SDK into your app by using the available

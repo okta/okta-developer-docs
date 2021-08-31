@@ -67,7 +67,6 @@ guides:
  - oie-embedded-widget-run-sample
  - oie-embedded-widget-use-cases
  - oie-embedded-widget-overview
- - oie-embedded-overview
  - oie-embedded-common-org-setup
  - oie-embedded-common-download-setup-app
  - oie-embedded-common-refresh-tokens
