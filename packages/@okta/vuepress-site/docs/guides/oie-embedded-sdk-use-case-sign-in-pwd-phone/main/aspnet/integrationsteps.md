@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: Build a sign-in page on the client
+### 1: Build a sign-in page on the client
 
 Build a sign-in page that captures the user's name and password, as shown in the following example.
 
@@ -10,7 +10,7 @@ Build a sign-in page that captures the user's name and password, as shown in the
 
 </div>
 
-### Step 2: Authenticate user credentials
+### 2: Authenticate the user credentials
 
 When the user initiates the sign-in (for example, by clicking the **Continue** button),
 create an `AuthenticationOptions` object and set its `Username` and `Password` properties to the values entered in by the user. Send this object to the  `AuthenticateAsync` method for the `IdxClient`.
@@ -27,7 +27,7 @@ var authnResponse = await idxAuthClient.AuthenticateAsync(authnOptions).Configur
 (false);
 ```
 
-### Step 3: Handle the response from the sign-in
+### 3: Handle the response from the sign-in flow
 
 If the username and password are valid, `AuthenticateAsync` should return an `AuthenticationStatus` of `AwaitingChallengeAuthenticatorSelection`. This status indicates that there is an additional factor that needs to be verified before the sign-in. In addition to the status, the `Authenticators` property should return the **phone** factor.
 
@@ -48,7 +48,7 @@ switch (authnResponse?.AuthenticationStatus)
               return RedirectToAction("SelectAuthenticator", "Manage");
 ```
 
-### Step 4: Show the phone factor in the authenticator list
+### 4: Show the phone factor in the authenticator list
 
 The next step is to show the phone factor in an authenticator list page. If not already done, this page needs to be built out and display the list of authenticators from the previous step. In this use case, only the **phone** factor will be displayed, as shown in the following sample screenshot.
 
@@ -58,7 +58,7 @@ The next step is to show the phone factor in an authenticator list page. If not 
 
 </div>
 
-### Step 5: Select the phone factor by calling SelectChallengeAuthenticatorAsync
+### 5: Select the phone factor by calling the SelectChallengeAuthenticatorAsync method
 
 When the user selects the **phone** factor, a call to `SelectChallengeAuthenticatorAsync` is made, which sends a verification code to the user's phone through SMS. Note that the method accepts a `SelectAuthenticatorOptions` parameter, which is used to pass in the phone factor ID.
 
@@ -78,7 +78,7 @@ switch (enrollResponse?.AuthenticationStatus)
                  return RedirectToAction("EnrollPhoneAuthenticator", "Manage");
 ```
 
-### Step 6: Build the phone number entry page
+### 6: Build the phone number entry page
 
 Build the phone number entry page that accepts the phone number that the user will enroll and verify.
 
@@ -90,7 +90,7 @@ Build the phone number entry page that accepts the phone number that the user wi
 
 > **Note:** The SDK requires that the phone number be in the following format: `+##########`, including the beginning plus (+) sign, for example, `+5551234567`.
 
-### Step 7: Call EnrollAuthenticatorAsync to submit phone number and send the SMS
+### 7: Call the EnrollAuthenticatorAsync method to submit the phone number and send the SMS
 
 When the user enters a phone number and clicks the send code through the SMS button, a call to `EnrollAuthenticatorAsync` is made that passes in the following values:
 
@@ -113,7 +113,7 @@ var enrollPhoneAuthenticatorOptions = new EnrollPhoneAuthenticatorOptions
 var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-### Step 8: Handle the response to EnrollAuthenticatorAsync
+### 8: Handle the response from the EnrollAuthenticatorAsync method
 
 If the call to `EnrollAuthenticatorAsync` is successful, it should return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. When the status is returned, a code is sent to the phone number through SMS.
 
@@ -130,7 +130,7 @@ if (enrollResponse.AuthenticationStatus ==
     }
 ```
 
-### Step 9: Build or reuse the phone verification code page
+### 9: Build or reuse the phone verification code page
 
 Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, this page can be the same page that verifies the email code or a different page. The sample app reuses the same page for both the email and phone verifications.
 
@@ -140,7 +140,7 @@ Build a page that accepts the code sent to your phone number through SMS. Depend
 
 </div>
 
-### Step 10: Call VerifyAuthenticatorAsync to verify the phone code
+### 10: Call the VerifyAuthenticatorAsync method to verify the phone code
 
 The next step is to call `VerifyAuthenticatorAsync`. For phone verification, the code that is passed into `VerifyAuthenticatorAsync` is the code that was sent by SMS to the phone number.
 
@@ -154,7 +154,7 @@ var idxAuthClient = new IdxClient(null);
 var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
 ```
 
-### Step 11: Handle the response from VerifyAuthenticatorAsync (factor verifications completed)
+### 11: Handle the response from the VerifyAuthenticatorAsync method (factor verifications completed)
 
 The next step is to handle the response from `VerifyAuthenticatorAsync`. If the phone SMS code is valid, the method should return an `AuthenticationStatus` of `Success`. This status signifies that no factors (required or optional) are waiting to be enrolled and verified. The user should now be registered with no more factors to be verified and sent to the default page after they have successfully registered. In the sample app, the user is sent to the user profile page.
 
@@ -175,8 +175,7 @@ switch (authnResponse.AuthenticationStatus)
 }
 ```
 
-### Step 12: Get user profile information (optional)
+### 12 (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after a successful sign
-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-user-profile-information) for more details.
+in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-user-profile-information) for more details.

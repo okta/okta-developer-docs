@@ -9,5 +9,5 @@
 1. Click **Run** to launch the application in the iOS simulator.
 1. If you didn't didn't configure `Okta.plist`, you can add your org settings to the Configuration
    screen by tapping the **Configure** link on the startup screen. See the
-   [Configuration screen](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#configuration-screen) section for more information.
+   [Configuration screen](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#configuration-page) section for more information.
 1. Tap the **Sign In** button to start the authentication flow.

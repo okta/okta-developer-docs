@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: Register new users
+### 1: Register new users
 
 The self-registration flow begins when the user clicks the **Sign up** link on your app's sign-in page. Create a **Sign up** link that directs the user to a create account form, such as the following example:
 
@@ -33,7 +33,7 @@ val newUserRegistrationResponse = idxAuthenticationWrapper.fetchSignUpFormValues
 
 > **Note:** `IDXAuthenticationWrapper.fetchSignUpFormValues()` allows you to build the create account form dynamically from the required form values using `AuthenticationResponse#getFormValues`.
 
-### Step 2: User enters profile data
+### 2: The user enters profile data
 
 Enroll the user with basic profile information captured from the create account form by calling the [`IDXAuthenticationWrapper.register()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L249) method.
 
@@ -48,7 +48,7 @@ val proceedContext = newUserRegistrationResponse.getProceedContext()
 val authenticationResponse = idxAuthenticationWrapper.register(proceedContext, userProfile)
 ```
 
-### Step 3: Display enrollment factors
+### 3: Display the enrollment factors
 
 After you've configured your org and app with instructions from [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/android/main/#set-up-your-okta-org-for-a-multifactor-use-case), your app is configured with **Password** authentication, and additional **Email** or **Phone** factors. Authenticators are the factor credentials, owned or controlled by the user, that can be verified during authentication.
 
@@ -73,7 +73,7 @@ After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the
 
 </div>
 
-### Step 4: User selects authenticator to enroll
+### 4: The user selects the authenticator to enroll
 
 Pass the user-selected authenticator (in this case, the password authenticator) to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
@@ -89,7 +89,7 @@ This request returns an `AuthenticationResponse` object with `AuthenticationStat
 
 </div>
 
-### Step 5: Verify authenticator and display additional factors
+### 5: Verify the authenticator and display additional factors
 
 After the user enters their new password, call the `IDXAuthenticationWrapper.verifyAuthenticator()` method with the user's password.
 
@@ -106,7 +106,7 @@ The request returns an `AuthenticationResponse` object with `AuthenticationStatu
 
 </div>
 
-### Step 6: User selects email authenticator
+### 6: The user selects the email authenticator
 
 In this use case, the user selects the **Email** factor as the authenticator to verify. Pass this user-selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
@@ -122,9 +122,9 @@ If this request is successful, a code is sent to the user's email and `Authentic
 
 </div>
 
-> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet supported. There are two recommended options to mitigate this limitation. See [Email link to verify email address does not work](/docs/guides/oie-embedded-sdk-limitations/main/#email-link-to-verify-email-address-not-working) for details.
+> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet supported. There are two recommended options to mitigate this limitation. See [Email link to verify email address does not work](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-email-address-not-working) for details.
 
-### Step 7: User submits email verification code
+### 7: The user submits the email verification code
 
 The user receives the verification code in their email and submits it in the verify code form. Use [VerifyAuthenticationOptions](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 

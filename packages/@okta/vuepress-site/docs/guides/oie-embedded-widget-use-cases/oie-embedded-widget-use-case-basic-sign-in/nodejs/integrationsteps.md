@@ -1,6 +1,6 @@
 ## Integration steps
 
-###  Step 1: User signs in
+### 1: The user signs in
 
 The user signs in with the Sign-In Widget that was set up in the [Load the widget](/docs/guides/oie-embedded-widget-use-cases/nodejs/oie-embedded-widget-use-case-load/) use case. After the user enters their credentials and clicks Sign in, the widget sends an identify request to Okta.
 
@@ -10,7 +10,7 @@ The user signs in with the Sign-In Widget that was set up in the [Load the widge
 
 </div>
 
-### Step 2: Handle the callback from the widget
+### 2: Handle the callback from the Widget
 
 Okta returns the interaction code to the **Sign-in redirect URI** specified in the [create new application step](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application) and is accessed in the sample app from `login.js`.
 
@@ -35,7 +35,7 @@ router.get('/login/callback', async (req, res, next) => {
 });
 ```
 
-### Step 3: Request and store tokens from Okta
+### 3: Request and store the tokens from Okta
 
 Use the interaction code component of the `login.js` page to request tokens and store them in the SDK.
 
@@ -54,7 +54,7 @@ Use the interaction code component of the `login.js` page to request tokens and 
   }
 ```
 
-### Step 4: Call user profile information (optional)
+### 4 (Optional): Get the user profile information
 
 Retrieve the user profile information, stored in the `attributes` variable, from the `home.js` file:
 

@@ -39,7 +39,7 @@ The following image shows an example of the sign-in email's content.
 
 Use other means to sign in, such as by entering the password or through social identity providers.
 
-## Primary factor for the Okta Sign-on Policy rule
+## Primary factor for the Okta Sign-On Policy rule
 
 ### Description
 
@@ -77,7 +77,7 @@ Use either of these two workarounds:
 * Create users through self registration.
 * Create users in the Okta org with the **Password** set to **Set by admin**.
 
-## Email link to verify email address not working
+## The email link to verify the email address isn't working
 
 ### Description
 
@@ -119,6 +119,5 @@ Contact Okta support if the **Edit** button is disabled.
 #### Option 2: Inform users
 
 Inform your users to ignore the Verify Email Address link and continue the activation through the code flow.
-
 
 </div>

@@ -1,11 +1,11 @@
 
-###  1: Select the Facebook identity provider
+### 1: The user selects the Facebook Identity Provider
 
 After you complete the steps in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case), the **Sign in with Facebook** link should appear automatically on the widget. You don't need to make any code changes to make the link appear.
 
 When the user clicks this link, they are sent to the Facebook login screen.
 
-### 2: Sign in to Facebook
+### 2: The user signs in to Facebook
 
 The user enters their email and password, and clicks **Log In**. This page is hosted by Facebook. The user information that you enter originates from a test user that you configured in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case). You don't need to make any code changes in your app to support this step.
 
@@ -19,7 +19,7 @@ The user enters their email and password, and clicks **Log In**. This page is ho
 
 If the user's Facebook login is successful, Facebook routes the user to the value that you entered for **Valid OAuth Redirect URIs** and **Site URL** in [Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#_1-create-a-facebook-app-in-facebook). The value takes on the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback`, for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
-### 4: Redirect to the client
+### 4: Redirect the request to the client
 
 After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the Application's **Sign-in redirect URIs** field.
 

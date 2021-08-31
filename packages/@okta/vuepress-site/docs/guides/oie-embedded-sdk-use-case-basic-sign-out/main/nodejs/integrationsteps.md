@@ -1,6 +1,6 @@
 ## Integration steps
 
-### Step 1: Create a sign out UI element
+### 1: Create a sign-out UI element
 
 The first step is to create a link, button, or other similar UI element that allows the user to sign out of the app.
 
@@ -10,7 +10,7 @@ The first step is to create a link, button, or other similar UI element that all
 
 </div>
 
-### Step 2: Close Okta SSO session and revoke access token
+### 2: Close the Okta SSO session and revoke the access token
 
 When the sign-out request is initiated, create the following flow:
 
@@ -40,7 +40,7 @@ router.post('/logout', async (req, res) => {
 
 >**Note**: Revoking the refresh token is optional, as it requires that you request the `offline_access` scope.
 
-### Step 3: Send user to the signed out page
+### 3: Send the user to the signed-out page
 
 After the access token is revoked and the local app session is no longer valid, redirect the user to the sign-out page.
 

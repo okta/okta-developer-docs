@@ -1,4 +1,4 @@
-### Step 1: Build a sign-in form
+### 1: Build a sign-in form
 
 Build a sign-in form that captures both the username and password. For example:
 
@@ -8,7 +8,7 @@ Build a sign-in form that captures both the username and password. For example:
 
 </div>
 
-### Step 2: Authenticate user credentials
+### 2: Authenticate the user credentials
 
 Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
 
@@ -24,7 +24,7 @@ AuthenticationResponse authenticationResponse =
                 idxAuthenticationWrapper.authenticate(new AuthenticationOptions(username, password), beginResponse.getProceedContext());
 ```
 
-### Step 3: Handle response from Okta and the SDK
+### 3: Handle the response from Okta and the SDK
 
 The `IDXAuthenticationWrapper.authenticate()` method returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java). Handle the returned `AuthenticationStatus` value accordingly:
 
@@ -34,7 +34,7 @@ If the Java SDK returns an `AuthenticationResponse` object with `AuthenticationS
 
 > **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](#get-user-profile-information) for details.
 
-#### Other status
+#### Other authentication statuses
 
 You need to handle other returned [`AuthenticationStatus`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/AuthenticationStatus.java) cases if there are additional factors to verify.
 
