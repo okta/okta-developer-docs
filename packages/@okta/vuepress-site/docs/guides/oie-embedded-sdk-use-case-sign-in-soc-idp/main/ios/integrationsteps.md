@@ -1,5 +1,3 @@
-## Integration steps
-
 ### Summary
 
 The following steps document how to integrate the sample code into your
@@ -18,7 +16,7 @@ component, which represents the code you write to call into the sample code's in
 
 ### Steps
 
-#### Step 1: Launch app and initialize SDK
+#### 1: Launch app and initialize SDK
 
 The first step is to initialize the SDK when the user opens your app.
 This is done by creating an instance of `SocialLogin` and passing
@@ -33,8 +31,7 @@ For more information on how to set the `configuration` parameter, see
 in
 [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
-
-#### Step 2: User initiates sign-in
+#### 2: User initiates sign-in
 
 When the user initiates a social login within your app, the next step
 is to call the `login` method passing in the `facebook` service type
@@ -53,7 +50,7 @@ self.authHandler?.login(service: .facebook)
 }
 ```
 
-#### Step 3: Send user to home screen after successful sign-in
+#### 3: Send user to home screen after successful sign-in
 
 The final integration step is to send the user to the default home page
 after successful sign-in. Optionally, you can obtain basic user information after a

@@ -1,5 +1,3 @@
-## Summary of steps
-
 The following diagram shows the sequence of steps for the Facebook sign-in flow.
 
 <div class="common-image-format">

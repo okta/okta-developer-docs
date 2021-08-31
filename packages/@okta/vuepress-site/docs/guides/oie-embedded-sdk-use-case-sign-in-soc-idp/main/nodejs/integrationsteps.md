@@ -1,6 +1,4 @@
-## Integration steps
-
-### Step 1: Sign in with Facebook
+### 1: Sign in with Facebook
 
 As part of the `/login` entry point, call `idx.startTransaction` to render social Identity Providers on the user sign-in page, as shown in the `login.js` page of the SDK sample application.
 
@@ -58,7 +56,7 @@ The previous code snippet is rendered as the **Login with Facebook** button, sim
 
 </div>
 
-### Step 2: User signs in with Facebook
+### 2: User signs in with Facebook
 
 When the user selects the **Login with Facebook** option, they are directed to the Facebook sign-in page.
 
@@ -66,7 +64,7 @@ After the user signs in to Facebook successfully, Facebook routes the user to th
 
 > **Note:** The **Valid OAuth Redirect URIs** for your Okta org is in the format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`. See [Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_1-create-a-facebook-app-in-facebook) for details on configuring the **Valid OAuth Redirect URIs** value.
 
-### Step 3: Handle the callback from Okta
+### 3: Handle the callback from Okta
 
 Okta returns the Interaction code in the callback to the **Sign-in redirect URI** location specified in the [Create a new application](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application) section. You need to handle the callback by exchanging the Interaction code for an access token using `idx.handleInteractionCodeRedirect`.
 

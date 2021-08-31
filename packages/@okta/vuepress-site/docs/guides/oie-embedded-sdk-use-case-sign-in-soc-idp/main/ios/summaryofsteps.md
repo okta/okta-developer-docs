@@ -1,3 +1,12 @@
+
+The following sequence diagram details each step in the authentication flow for this use case.
+
+<div class="common-image-format">
+
+![Displays a sequence diagram for the social sign-in use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-social-sign-in.png)
+
+</div>
+
 ## The sample application's integration with the SDK
 
 Much like the Okta API it calls, the SDK uses a generic interface to handle
@@ -21,13 +30,3 @@ that is purposely built to help facilitate understanding of how to use the SDK.
 It's meant to be a learning tool and although you can implement similar code in your
 app, you're advised to stick to the same best practice dynamic approach implemented
 in the sample application.
-
-## Summary of steps
-
-The following sequence diagram details each step in the authentication flow for this use case.
-
-<div class="common-image-format">
-
-![Displays a sequence diagram for the social sign-in use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-social-sign-in.png)
-
-</div>

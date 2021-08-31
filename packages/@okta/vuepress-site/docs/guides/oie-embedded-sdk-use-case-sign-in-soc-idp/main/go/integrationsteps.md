@@ -1,6 +1,4 @@
-## Integration steps
-
-### Step 1: Navigate to the homepage
+### 1: Navigate to the homepage
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -17,7 +15,7 @@ if err != nil {
 }
 ```
 
-### Step 2: Navigate to the sign-in page
+### 2: Navigate to the sign-in page
 
 Build a sign-in page that captures both the user's name and password.
 
@@ -39,7 +37,7 @@ if err != nil {
 }
 ```
 
-### Step 3: Get the available list of identity providers
+### 3: Get the available list of identity providers
 
 #### Get the list of identity providers
 
@@ -87,12 +85,12 @@ providers.
 
 </div>
 
-### Step 4: Click on the sign-in with Facebook link
+### 4: Click on the sign-in with Facebook link
 
 When the user clicks the Facebook IdP link, initially they are sent to the Okta org using the link provided in the
 `IdentityProvider` object's `HRef` property. At the Org, the request gets routed to Facebook for user sign-in. You don't need to implement additional code changes to perform this step.
 
-### Step 5: Sign in with Facebook
+### 5: Sign in with Facebook
 
 After the user clicks on the sign-in link, the browser should redirect to a sign-in page hosted by Facebook. The credentials
 you enter originate from a test user that you configured in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case). You don't need to make any code changes in your app to perform this step.
@@ -103,13 +101,13 @@ you enter originate from a test user that you configured in [Set up your Okta or
 
 </div>
 
-### Step 6: Facebook redirects to your Okta org
+### 6: Facebook redirects to your Okta org
 
 If the Facebook login is successful, Facebook routes the user to the Org URL that you entered in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-social-idp-use-case). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
-### Step 7: Store the tokens when Okta redirects to your application
+### 7: Store the tokens when Okta redirects to your application
 
-After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the application's **Sign-in redirect URIs** field, which was configured in [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
+After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the application's **Sign-in redirect URIs** field, which was configured in [Create a new application](/docs/guides/oie-embedded-common-org-setup/go/main/#create-a-new-application).
 
 The value for the sample app is `http://localhost:8000/login/callback`.
 
@@ -155,7 +153,7 @@ func (s *Server) handleLoginCallback(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-### Step 8 (Optional): Retrieve user profile information
+### 8: (Optional) Retrieve user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.

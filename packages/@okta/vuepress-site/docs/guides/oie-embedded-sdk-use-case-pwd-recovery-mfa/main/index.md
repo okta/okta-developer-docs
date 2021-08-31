@@ -11,8 +11,6 @@ title: User password recovery
 
 This use case describes how to integrate a password recovery flow into your app using the SDK. The flow includes an email factor step that the user needs to verify before updating their password.
 
-## Factor setup
-
 This use case requires the **password** and **email** factors.
 
 <div class="common-image-format">
@@ -38,7 +36,11 @@ In addition to configuring your Okta org for the multifactor use case, you need 
    * **Email**: Selected
 1. Click **Update Rule** if you change any values.
 
+## Summary of steps
+
 <StackSelector snippet="summaryofsteps" noSelector />
+
+## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 
