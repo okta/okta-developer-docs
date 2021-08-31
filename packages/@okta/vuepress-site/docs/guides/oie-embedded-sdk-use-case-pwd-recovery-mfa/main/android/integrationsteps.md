@@ -1,4 +1,4 @@
-### Step 1: User clicks the forgot password link
+### 1: User clicks the forgot password link
 
 The password recovery flow begins when the user clicks the **Forgot your password?** link on your app's sign-in page.
 
@@ -23,7 +23,7 @@ val beginResponse = idxAuthenticationWrapper.begin()
 val proceedContext = beginResponse.proceedContext
 ```
 
-### Step 2: User enters their email
+### 2: User enters their email
 
 After the user enters their email, call the [`IDXAuthenticationWrapper.recoverPassword()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L177) method, passing in the user's email as the `username`.
 
@@ -46,7 +46,7 @@ After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of au
 
 </div>
 
-### Step 3: User selects email authenticator
+### 3: User selects email authenticator
 
 The user selects **Email** as the authenticator to recover their password. Pass the selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method:
 
@@ -64,7 +64,7 @@ This Java SDK method sends the email authenticator selection to Okta. Okta sends
 
 > **Note:** The email sent to the user has a **Reset Password** link that isn't yet supported. Use the provided code instead. See [Limitations: Passwordless sign-in with magic links](/docs/guides/oie-embedded-sdk-limitations/main/#passwordless-sign-in-with-magic-links).
 
-### Step 4: User submits email verification code
+### 4: User submits email verification code
 
 The user receives the verification code in their email and submits it through the **Verify Code** form. Use [`VerifyAuthenticationOptions`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 
@@ -82,7 +82,7 @@ If the request to verify the code is successful, the Java SDK returns an `Authen
 
 </div>
 
-### Step 5: User enters the new password
+### 5: User enters the new password
 
 After the user enters their new password, call the `IDXAuthenticationWrapper.verifyAuthenticator()` method with the user's new password value.
 
