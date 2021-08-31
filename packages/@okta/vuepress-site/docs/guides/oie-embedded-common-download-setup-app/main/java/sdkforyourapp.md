@@ -9,7 +9,7 @@ After you run the sample app and explore its available use cases, you can begin 
 
 #### Step 2: Import packages and add framework
 
-Both the embedded authentication with SDK and the embedded Sign-In Widget sample apps use the Spring Boot framework with the Okta Identity Engine Java SDK. Import the Okta API packages as well as any Spring Boot packages you need.
+Both the embedded authentication with SDK and the embedded Sign-In Widget sample apps use the Spring Boot framework with the Identity Engine Java SDK. Import the Okta API packages as well as any Spring Boot packages you need.
 
 ```java
 package com.okta.spring.example;

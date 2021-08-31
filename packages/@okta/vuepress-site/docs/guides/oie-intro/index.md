@@ -9,17 +9,17 @@ meta:
 
 ## About Okta Identity Engine
 
-Okta Identity Engine is a platform service that allows enterprises to build access experiences tailored to their organizational needs. With [Okta Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie), you are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, you can customize and extend each of these steps.
+Okta Identity Engine (Identity Engine) is a platform service that allows enterprises to build access experiences tailored to their organizational needs. With [Okta Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie), you are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, you can customize and extend each of these steps.
 
-The Okta Identity Engine user authentication deployment model can be divided into two approaches:
+The Identity Engine user authentication deployment model can be divided into two approaches:
 
 * **Redirect authentication:** A user sign-in flow that grants authentication control to Okta by redirecting to an Okta hosted sign-in page using open protocols like OAuth 2.0 and SAML. This approach is recommended for most developers, as it is easier to build and maintain.
 
-* **Embedded authentication:** A user sign-in flow where the application retains authentication control, without redirection to Okta, using a client-hosted Sign-In Widget, Okta Identity Engine SDKs, or directly with Okta's proprietary Identity Engine authentication APIs.
+* **Embedded authentication:** A user sign-in flow where the application retains authentication control, without redirection to Okta, using a client-hosted Sign-In Widget, Identity Engine SDKs, or directly with Okta's proprietary Identity Engine authentication APIs.
 
 See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for a full list of reasons for using these authentication approaches and a complete overview of the different deployment models.
 
-## Okta Identity Engine SDKs
+## Identity Engine SDKs
 
 To take advantage of these new features and for a better development experience, use the [Okta Identity Engine SDKs](https://developer.okta.com/code/oie/) to manage authentication in your apps.
 
@@ -54,9 +54,9 @@ Learn how to implement this approach with the [Embedded authentication with the 
 
 Learn how to implement this approach with the [Embedded authentication with the Sign-In Widget guide](/docs/guides/oie-embedded-widget-overview/).
 
-## Why use Okta Identity Engine?
+## Why use Identity Engine?
 
-Okta Identity Engine provides:
+Identity Engine provides:
 
 * Passwordless authentication
 
@@ -74,10 +74,10 @@ Okta Identity Engine provides:
 
   With MFA enrollment policies, you can create and enforce policies and rules for specific MFA factors and assign groups accordingly. Sign-on policies determine the types of authentication challenges end users experience when they sign in to their account. MFA enrollment policies are based on a variety of elements, such as location, group definitions, and authentication type. See [Create an MFA enrollment policy](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-mfa-policy).
 
-## Enable Okta Identity Engine for your organization
+## Enable Identity Engine for your organization
 
-To upgrade to Okta Identity Engine, reach out to your account manager. If you don't have an account manager, reach out to oie@okta.com for more information.
+To upgrade to Identity Engine, reach out to your account manager. If you don't have an account manager, reach out to oie@okta.com for more information.
 
-* The v1 API continues to work as before until you're ready to use new Okta Identity Engine functionality.
+* The v1 API continues to work as before until you're ready to use new Identity Engine functionality.
 * The existing Okta-hosted Widget continues to work after upgrading your org.
 * Upgrade your SDK as you would normally do with other SDK updates.

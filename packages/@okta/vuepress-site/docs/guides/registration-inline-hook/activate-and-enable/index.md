@@ -27,7 +27,7 @@ The procedure to enable the Registration Inline Hook is dependent on the type of
 #### Enable a Registration Inline Hook in Okta Identity Engine
 
 <ApiLifecycle access="ie" />
-If you have an Okta Identity Engine org, you must [enable and configure a profile enrollment policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) to implement a Registration Inline Hook.
+If you have an Identity Engine org, you must [enable and configure a profile enrollment policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) to implement a Registration Inline Hook.
 
 > **Note:** Profile Enrollment and Registration Inline Hooks are only supported with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 4.5 or later.
 
