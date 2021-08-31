@@ -1,5 +1,3 @@
-## Integration steps
-
 ### Step 1: Build a sign-in page on the client and authenticate user credentials
 
 Build a sign-in page that captures the username and password, as shown in the following example.

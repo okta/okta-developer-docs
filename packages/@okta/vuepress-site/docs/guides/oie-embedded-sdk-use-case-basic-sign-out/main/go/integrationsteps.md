@@ -1,5 +1,3 @@
-## Integration steps
-
 ### Step 1: Click the sign-out link
 
 The first step is to create an element that allows the user to sign out of the app.

@@ -11,15 +11,15 @@ title: User sign out (local app)
 
 This use case describes how to sign a user out.
 
-## Factor setup
-
-No additional factors are needed.
-
 ## Configuration updates
 
 There are no additional configuration changes needed to implement this use case.
 
+## Summary of steps
+
 <StackSelector snippet="summaryofsteps" noSelector />
+
+## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 

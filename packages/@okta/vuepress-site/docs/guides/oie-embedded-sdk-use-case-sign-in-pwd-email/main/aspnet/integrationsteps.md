@@ -1,4 +1,4 @@
-### Step 1: Build a sign-in page on the client
+### 1: Build a sign-in page on the client
 
 Build a sign-in page that captures both the user’s name and
 password. An example is shown below:
@@ -9,7 +9,7 @@ password. An example is shown below:
 
 </div>
 
-### Step 2: Authenticate user credentials
+### 2: Authenticate user credentials
 
 When the user initiates the sign-in (for example, by clicking the **Continue** button), create an `AuthenticationOptions` object and set the `Username` and `Password` properties to the values entered in by the user. Send this object to the `AuthenticateAsync` method for the `IdxClient`.
 
@@ -25,7 +25,7 @@ var authnResponse = await idxAuthClient.AuthenticateAsync(authnOptions).Configur
 (false);
 ```
 
-### Step 3: Handle the response from the sign-in
+### 3: Handle the response from the sign-in
 
 If the username and password are valid, `AuthenticateAsync` should return an `AuthenticationStatus` of `AwaitingChallengeAuthenticatorSelection`. The `AwaitingChallengeAuthenticatorSelection` status indicates that an additional factor needs to be verified before the sign-in. In addition to the status, the `Authenticators` property should return the **email** factor.
 
@@ -45,7 +45,7 @@ switch (authnResponse?.AuthenticationStatus)
               return RedirectToAction("SelectAuthenticator", "Manage");
 ```
 
-### Step 4: Show email factor in authenticator list
+### 4: Show email factor in authenticator list
 
 The next step is to show the email factor to the user in an authenticator list page. If not already done, this page needs to be built and display the list of authenticators from the previous step. In this use case, only the **email** factor is displayed, as shown in the following sample.
 
@@ -55,7 +55,7 @@ The next step is to show the email factor to the user in an authenticator list p
 
 </div>
 
-### Step 5: Call SelectChallengeAuthenticatorAsync
+### 5: Call SelectChallengeAuthenticatorAsync
 
 When the user selects the **email** factor, a call to `SelectChallengeAuthenticatorAsync` is made that sends a verification code to the user's email. The method accepts a `SelectAuthenticatorOptions` parameter, which is used to pass in the email factor ID.
 

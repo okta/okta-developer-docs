@@ -1,5 +1,3 @@
-## Integration steps
-
 ### Step 1: Navigate to the homepage
 
 When the user navigates to the home page and the application loads, create a new

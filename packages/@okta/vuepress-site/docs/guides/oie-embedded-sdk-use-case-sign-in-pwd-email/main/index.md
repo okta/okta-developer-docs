@@ -11,8 +11,6 @@ title: Sign in with password and email factors
 
 This use case describes a user sign-in with password and email factors.
 
-## Factor setup
-
 This use case requires the **password** and **email** factors.
 
 <div class="common-image-format">
@@ -37,7 +35,11 @@ Before you build a sign-in flow with password and email factors, you need to con
    * Set **Phone Authentication** to **Disabled**.
 1. Click **Update Policy**.
 
+## Summary of steps
+
 <StackSelector snippet="summaryofsteps" noSelector />
+
+## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 

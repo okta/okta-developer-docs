@@ -1,5 +1,3 @@
-## Integration steps
-
 ### Step 1: User launches sign-in page
 
 Build a sign-in page for your app that captures both the username and password.

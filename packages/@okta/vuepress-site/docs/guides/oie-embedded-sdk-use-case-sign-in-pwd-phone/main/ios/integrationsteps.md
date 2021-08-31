@@ -1,5 +1,3 @@
-## Integration steps
-
 ### Summary
 
 The following steps document how to integrate the sample code into your

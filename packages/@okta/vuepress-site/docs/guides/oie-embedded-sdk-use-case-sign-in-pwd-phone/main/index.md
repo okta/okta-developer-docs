@@ -12,8 +12,6 @@ title: Sign in with password and phone factors
 
 This use case describes a user sign-in flow with the password and phone factors.
 
-## Factor setup
-
 This use case requires the **password** and **phone** factors.
 
 <div class="common-image-format">
@@ -39,7 +37,11 @@ The instructions in [Set up your Okta org for a multifactor use case](/docs/guid
    * Set **Phone Authentication** to **Optional**.
 1. Click **Update Policy** if a value has changed.
 
+## Summary of steps
+
 <StackSelector snippet="summaryofsteps" noSelector />
+
+## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 
