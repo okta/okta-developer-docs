@@ -30,31 +30,17 @@ This use case requires the password and either the email or the phone factor.
 
 Before you can build the self-registration flow in your app, you must configure the Okta org to accept self-registration with the password, email, and/or phone factors. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to set up the password, email, and phone factors in your Okta org.
 
-<<<<<<< HEAD
-### Step: Set up your Okta org for password factor only use cases
-=======
 In addition to setting up the recovery factors, you also need to configure the following in your Okta org:
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 1. [Update the profile enrollment default policy](#_1-update-the-profile-enrollment-default-policy)
 1. [Confirm that the org application is assigned to everyone](#_2-confirm-that-the-org-application-is-assigned-to-everyone)
 1. [Ensure both Email and Phone factors are set as optional for authentication enrollment](#_3-ensure-both-email-and-phone-factors-are-set-as-optional-for-authentication-enrollment)
 
-<<<<<<< HEAD
-### Step: Set up your Okta org for multifactor use cases
-=======
 ### 1: Update the profile enrollment default policy
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 Enable self-registration in your profile enrollment default policy:
 
-<<<<<<< HEAD
-### Step: Update the profile enrollment default policy
-
-1. In the Admin Console, select **Security** > **Profile Enrollment** from the left-hand navigation pane.
-=======
 1. In the Admin Console, go to **Security** > **Profile Enrollment**.
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 1. On the **Profile Enrollment** page, click the pencil icon next to the Default Policy.
 1. On the **Default Policy** page, under **Enrollment Settings**, click the actions menu icon (⋮) beside the **ENABLED** flag for the rule and select **Edit**.
 1. In the **Edit Rule** dialog box, under the **For new users** section, select **Allowed** in the **Sign-up** field.
@@ -64,11 +50,7 @@ Enable self-registration in your profile enrollment default policy:
 
 ### 2: Confirm that the org application is assigned to everyone
 
-<<<<<<< HEAD
-### Step: Confirm that the org application is assigned to everyone
-=======
 You need to assign anyone to your application for new user registration.
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 1. In the Admin Console, go to **Applications** > **Applications**.
 1. On the **Applications** page, select your application.
@@ -76,20 +58,7 @@ You need to assign anyone to your application for new user registration.
 1. From the left, click the **Groups** filter.
 1. Confirm that the **Everyone** group appears in the Assignment list.
 
-<<<<<<< HEAD
-### Step: Reconfigure the application for the email and optional phone factors
-
-1. In the Admin Console, select **Applications** > **Applications** from the left-hand navigation pane.
-1. On the **Applications** page, select your application.
-1. On your application page, select the **Sign On** tab and scroll down to the **Sign On Policy** section.
-1. Click the actions menu icon (⋮) beside the **ENABLED** flag for the **Catch-all Rule** and select **Edit**.
-1. In the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** field and change the value to **Password + Another factor**.
-1. Click **Save**.
-
-### Step: Ensure that both email and phone factors are set as optional for authentication enrollment
-=======
 ### 3: Ensure both Email and Phone factors are set as optional for authentication enrollment
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 1. In the Admin console, go to **Security** > **Authenticators**.
 1. On the **Authenticators** page, click the **Enrollment** tab.

@@ -2,11 +2,7 @@
 
 ## Steps to test the sample app
 
-<<<<<<< HEAD
-1. Ensure that you've [set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
-=======
 1. [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 
 1. Obtain app-specific configuration values (such as `${clientId}`, `${clientSecret}`, `${yourOktaDomain}`) from the app integration you've created in [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application).
 

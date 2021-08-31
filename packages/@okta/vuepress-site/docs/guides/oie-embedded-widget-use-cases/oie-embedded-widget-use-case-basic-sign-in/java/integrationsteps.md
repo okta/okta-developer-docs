@@ -1,6 +1,6 @@
 ## Integration steps
 
-### 1: The user signs in
+### 1: The user initiates the sign-in flow
 
 The user signs in with the Sign-In Widget that was set up in the [Load the widget](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/) use case. After the user enters their credentials and clicks **Sign in**, the Widget sends an identify request to Okta.
 
@@ -36,7 +36,7 @@ mav.addObject(ISSUER_URI, issuer);
 session.setAttribute(CODE_VERIFIER, idxClientContext.getCodeVerifier());
 ```
 
-### 3: Request the tokens from Okta
+### 3: Request and store the tokens from Okta
 
 The Spring security framework doesn't understand Okta’s Interaction code flow. Therefore, your app needs to intercept Spring’s OAuth authentication code flow, exchange the Interaction code that is obtained from Okta for an access token, populate the user profile attributes, and construct [`OAuth2AuthenticationToken.java`](https://github.com/spring-projects/spring-security/blob/main/oauth2/oauth2-client/src/main/java/org/springframework/security/oauth2/client/authentication/OAuth2AuthenticationToken.java) before handing over the authentication flow back to Spring.
 

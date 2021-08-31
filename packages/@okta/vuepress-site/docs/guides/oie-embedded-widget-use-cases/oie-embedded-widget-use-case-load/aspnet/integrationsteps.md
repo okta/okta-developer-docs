@@ -75,7 +75,7 @@ To use the widget, you need to make a reference to the Okta CDN. In the followin
 }
 ```
 
-#### 2c: Add javascript to initialize and load the widget
+#### 2c: Add JavaScript to initialize and load the Widget
 
 The next step includes the following activities:
 

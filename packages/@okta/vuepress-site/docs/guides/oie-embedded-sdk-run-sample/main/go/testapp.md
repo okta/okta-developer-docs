@@ -1,10 +1,6 @@
 ## Steps to test the sample app
 
-<<<<<<< HEAD
-1. If not already done, set up your Okta org by completing these steps: [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
-=======
 1. If not already done, set up your Okta org by completing these steps: [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603
 1. If not already done, [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/go/main/).
 1. Open the embedded SDK sample application directory using Visual Studio Code or
    your preferred IDE. The directory path to the sample application directory is: `samples-golang/identity-engine/embedded-auth-with-sdk`.
