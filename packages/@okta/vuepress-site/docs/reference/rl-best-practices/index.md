@@ -32,7 +32,12 @@ The best way to be sure about org-wide rate limits is to check the relevant head
 
 Instead of the accumulated counts for time-based rate limits, when a request exceeds the limit for concurrent requests, `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Reset` report the concurrent values.
 
-The three headers behave a little differently for concurrent rate limits: when the number of unfinished requests is below the concurrent rate limit, request headers only report org-wide rate limits. When you exceed a concurrent rate limit threshold, the headers report that the limit has been exceeded. When you drop back down below the concurrent rate limit, the headers switch back to reporting the time-based rate limits. Additionally, the `X-Rate-Limit-Reset` time for concurrent rate limits is only an estimate. There's no guarantee that enough requests will complete to stop exceeding the concurrent rate limit at the time indicated.
+The three headers behave a little differently for concurrent rate limits:
+* When the number of unfinished requests is below the concurrent rate limit, request headers only report org-wide rate limits.
+* When you exceed a concurrent rate limit threshold, the headers report that the limit has been exceeded.
+* When you drop back down below the concurrent rate limit, the headers switch back to reporting the time-based rate limits.
+
+Additionally, the `X-Rate-Limit-Reset` time for concurrent rate limits is only an estimate. There's no guarantee that enough requests will complete to stop exceeding the concurrent rate limit at the time indicated.
 
 ### Example rate limit header with org-wide rate limit
 
