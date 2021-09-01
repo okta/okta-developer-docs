@@ -7,7 +7,7 @@ Follow these steps to integrate the SDK into your own app.
 
 #### Step 2: Import packages and add framework
 
-The embedded authentication with SDK sample apps use the Android framework with the Okta Identity Engine Java SDK. Import the Okta API packages as well as any Android packages that you need.
+The embedded authentication with SDK sample apps use the Android framework with the Identity Engine Java SDK. Import the Okta API packages as well as any Android packages that you need.
 
 ```java
 package com.okta.android.example;
