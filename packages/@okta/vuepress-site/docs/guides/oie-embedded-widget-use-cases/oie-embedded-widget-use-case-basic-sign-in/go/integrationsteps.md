@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: The user signs in
 
 After the Widget

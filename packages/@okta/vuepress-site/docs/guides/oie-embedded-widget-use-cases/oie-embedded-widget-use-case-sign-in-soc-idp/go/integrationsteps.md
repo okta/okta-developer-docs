@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: The user navigates to the sign-in page
 
 When the user navigates to the sign-in page, the Widget

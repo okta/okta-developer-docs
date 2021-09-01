@@ -1,5 +1,3 @@
-## Summary of steps
-
 The sequence of steps to sign into the widget is illustrated below:
 
 <div class="common-image-format">

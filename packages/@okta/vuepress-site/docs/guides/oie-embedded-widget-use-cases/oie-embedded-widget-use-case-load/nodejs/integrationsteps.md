@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: Source the Sign-In Widget to your sign-in page
 
 Add the Sign-In Widget source to your JavaScript sign-in page by referencing the Okta CDN.
