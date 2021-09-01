@@ -14,7 +14,7 @@ title: Okta API Products Release Notes 2021
 
 #### SAML assertion preview populates with real data
 
-After a developer creates a SAML App integration in the Okta Admin Console, the preview of a generated SAML assertion now uses real data instead of mock data. See [Create a SAML integration](/docs/guides/build-sso-integration/saml2/create-you). <!--OKTA-398842-->
+After a developer creates a SAML App integration in the Okta Admin Console, the preview of a generated SAML assertion now uses real data instead of mock data. See [Create a SAML integration](/docs/guides/build-sso-integration/saml2/create-your-app/). <!--OKTA-398842-->
 
 #### Dynamic Issuer Mode is EA in Preview
 
