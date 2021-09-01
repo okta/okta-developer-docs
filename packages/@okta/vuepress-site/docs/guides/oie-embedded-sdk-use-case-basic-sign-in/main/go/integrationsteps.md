@@ -54,7 +54,7 @@ ir := &idx.IdentifyRequest{
 ```
 
 Next, using the `LoginResponse` object obtained from
-[Step 2](#_2-navigate-to-the-sign-in-page), call its `Identify` method, passing in this new `IdentifyRequest` object.
+[Step 2](#_2-capture-credentials-with-the-sign-in-page), call its `Identify` method, passing in this new `IdentifyRequest` object.
 
 ```go
 lr, err = lr.Identify(context.TODO(), ir)

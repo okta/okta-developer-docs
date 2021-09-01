@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: The user initiates the sign-in flow
 
 Build a sign-in form for your app that captures both the username and password.
@@ -33,7 +31,7 @@ If the password is validated, the `IDXAuthenticationWrapper.authenticate()` meth
 * `Authenticators` &mdash; List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) to be enrolled (in this case, there is only the phone authenticator). <br>
     Authenticators are the factor credentials that are owned or controlled by the user. These are verified during authentication.
 
-> **Note:** If the user already has the phone authenticator enrolled, then `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` is returned (instead of `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION`) and the user does not have to enroll the phone authenticator with a phone number, bypassing steps [3](#step-3-user-selects-phone-authenticator), [4](#step-4-user-enters-phone-number), and [4 (voice feature alternative)](#step-4-voice-feature-alternative-user-enters-phone-number-and-phone-factor-method).
+> **Note:** If the user already has the phone authenticator enrolled, then `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` is returned (instead of `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION`) and the user does not have to enroll the phone authenticator with a phone number, bypassing steps [3](#_3-the-user-selects-the-phone-authenticator), [4](#_4-the-user-enters-the-phone-number), and [4 (voice feature alternative)](#_4-voice-feature-alternative-the-user-enters-the-phone-number-and-selects-the-phone-factor-method).
 
 After receiving the `AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` status and the list of authenticators to be enrolled, provide the user with a form to select the authenticator to enroll. In the following example, phone is the only authenticator:
 
@@ -65,7 +63,7 @@ You need to build a form to capture the user's phone number in your app. For exa
 
 > **Note:** The Java SDK requires the following phone number format: `{+}{country-code}{area-code}{number}`. For example, `+15556667777`.
 
-If your org is enabled with the voice feature, you will need to add an additional form to select voice or SMS factor as the phone verification method. See [Step 4 (voice feature alternative)](#step-4-voice-feature-alternative-user-enters-phone-number-and-phone-factor-method) for details.
+If your org is enabled with the voice feature, you will need to add an additional form to select voice or SMS factor as the phone verification method. See [Step 4 (voice feature alternative)](#_4-voice-feature-alternative-the-user-enters-the-phone-number-and-selects-the-phone-factor-method) for details.
 
 ### 4: The user enters the phone number
 

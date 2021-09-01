@@ -65,8 +65,6 @@ Next, the user enters their email and password, and clicks **Log in**. This page
 ### 5: Redirect the request to the Okta org
 If the user's Facebook login is successful, Facebook routes the user to the values that you entered in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
-If the user's Facebook login is successful, Facebook routes the user to the values that you entered in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org (for social Identity Providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
-
 ### 6: Redirect the request to the client
 
 After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the Application's **Sign-in redirect URIs** field, which was configured in [Create a new application](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-a-new-application).

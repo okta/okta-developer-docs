@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: Build a sign-in page on the client
 
 Build a sign-in page that captures the user's name and password, as shown in the following example.
@@ -178,4 +176,4 @@ switch (authnResponse.AuthenticationStatus)
 ### 12 (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after a successful sign
-in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-user-profile-information) for more details.
+in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-the-user-profile-information) for more details.

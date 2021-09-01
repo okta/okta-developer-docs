@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: The user navigates to the home page
 
 When the user navigates to the home page and the application loads, create a new
@@ -157,4 +155,4 @@ func (s *Server) handleLoginCallback(w http.ResponseWriter, r *http.Request) {
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-user-profile-information) for more information.
+See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information) for more information.

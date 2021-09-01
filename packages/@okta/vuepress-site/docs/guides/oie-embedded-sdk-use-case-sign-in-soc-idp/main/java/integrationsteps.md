@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: The user navigates to the sign-in page
 
 Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L603) method and getting a new [`ProceedContext`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/ProceedContext.java) object.
@@ -52,4 +50,4 @@ AuthenticationResponse authenticationResponse =
 
 With the obtained access token, the user is successfully signed in, and can be sent to the default sign-in page.
 
-> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/#get-user-profile-information) for details.
+> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/#get-the-user-profile-information) for details.
