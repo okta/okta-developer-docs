@@ -64,13 +64,13 @@ The requests and responses vary depending on the application type, and whether a
 As part of the authentication call either the username and password or the token parameter must be provided.
 
 | Parameter  | Description                                                                                                      | Param Type | DataType                          | Required | MaxLength |
-|------------|:-----------------------------------------------------------------------------------------------------------------|:-----------|:----------------------------------|:---------|:----------|
-| audience   | App ID of the target app the user is signing into                                                                | Body       | String                            | FALSE    |           |
-| context    | Provides additional context for the authentication transaction                                                   | Body       | [Context object](#context-object) | FALSE    |           |
-| options    | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |           |
-| password   | User's password credential                                                                                       | Body       | String                            | FALSE    |           |
-| token      | Token received as part of activation user request                                                                | Body       | String                            | FALSE    |           |
-| username   | User's non-qualified short-name (for example: dade.murphy) or unique fully-qualified sign in name (for example: dade.murphy@example.com) | Body       | String                            | FALSE    |           |
+|------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:-----------|:----------------------------------|:---------|:----------|
+| audience <ApiLifecycle access="deprecated" />  | App ID of the target app the user is signing into                                                                | Body       | String                            | FALSE    |           |
+| context                                        | Provides additional context for the authentication transaction                                                   | Body       | [Context object](#context-object) | FALSE    |           |
+| options                                        | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |           |
+| password                                       | User's password credential                                                                                       | Body       | String                            | FALSE    |           |
+| token                                          | Token received as part of activation user request                                                                | Body       | String                            | FALSE    |           |
+| username                                       | User's non-qualified short-name (for example: dade.murphy) or unique fully-qualified sign in name (for example: dade.murphy@example.com) | Body       | String                            | FALSE    |           |
 
 ##### Options object
 
@@ -1464,6 +1464,8 @@ Authenticates a user for signing in to the specified application
 * Only WS-Federation, SAML based apps are supported.
 * Pass the application instance ID of the app as ["audience"](#request-parameters-for-primary-authentication) along with the user credentials.
 
+> **Note:** `audience` is a <ApiLifecycle access="deprecated" /> property.
+
 > **Note:** Okta Sign-on Policy and the related App Sign-on Policy are evaluated after successful primary authentication.
 
 ##### Request example for IDP-initiated step-up authentication
@@ -1483,6 +1485,8 @@ curl -v -X POST \
   }
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
+
+> **Note:** `audience` is a <ApiLifecycle access="deprecated" /> property.
 
 ##### Response example when MFA isn't required
 
