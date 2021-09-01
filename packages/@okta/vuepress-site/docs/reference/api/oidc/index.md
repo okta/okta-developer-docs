@@ -1004,7 +1004,7 @@ curl -X GET \
 
 #### Response example (success)
 
-> **Note:** The scopes `device_sso` and `online_access` are [Early Access](/docs/reference/releases-at-okta/#early-access-ea).
+> **Note:** The scope `device_sso` is [Early Access](/docs/reference/releases-at-okta/#early-access-ea).
 
 ```json
 {
@@ -1047,7 +1047,6 @@ curl -X GET \
         "address",
         "phone",
         "offline_access",
-        "online_access",
         "groups",
         "device_sso"
     ],
@@ -1143,7 +1142,6 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 | address          | Requests access to the `address` claim.                                                                         | No             |
 | groups           | Requests access to the `groups` claim.                                                                          | No             |
 | offline_access   | Requests a refresh token used to obtain more access tokens without re-prompting the user for authentication.   | No             |
-| online_access <ApiLifecycle access="ea" /> | Requests a refresh token used to obtain more access tokens without re-prompting the user for authentication. The refresh token and the ID token are bound to the browser session. See *link*. | No |
 | device_sso <ApiLifecycle access="ea" />   | Requests a device secret used to obtain a new set of tokens without re-prompting the user for authentication. See [Native SSO](/docs/guides/configure-native-sso/main/)  | No             |
 
 ### Scope values
@@ -1152,7 +1150,6 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 * `profile` requests access to these default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`,`locale`, and `updated_at`.
 * `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored.
 * For more information about `offline_access`, see the [OIDC spec](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess).
-* For more information about `online_access`<ApiLifecycle access="ea" />, see *link*.
 * For more information about `device_sso`<ApiLifecycle access="ea" />, see [Native SSO](/docs/guides/configure-native-sso/main/).
 
 ### Scope properties
@@ -1285,7 +1282,7 @@ Okta defines a number of reserved scopes and claims that can't be overridden.
 
 `openid`, `profile`, `email`, `address`, `phone`, `offline_access`, and `groups` are available to ID tokens and access tokens, using either the Okta Org Authorization Server or a Custom Authorization Server. For details, see [Scopes](#access-token-scopes-and-claims). All of these scopes except `groups` are defined in the OpenID Connect specification.
 
-Additionally, we reserved the scopes `online_access`<ApiLifecycle access="ea" /> and `device_sso`<ApiLifecycle access="ea" /> as they have a particular meaning in the Online Access and Native SSO flow respectively.
+Additionally, we reserved the scope `device_sso`<ApiLifecycle access="ea" /> as it has a particular meaning in the Native SSO flow.
 
 ###### Reserved claims in the header section
 
