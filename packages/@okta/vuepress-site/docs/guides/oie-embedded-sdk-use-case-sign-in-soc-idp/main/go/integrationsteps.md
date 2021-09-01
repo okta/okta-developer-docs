@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: The user navigates to the home page
 
 When the user navigates to the home page and the application loads, create a new
@@ -107,7 +105,7 @@ If the Facebook login is successful, Facebook routes the user to the Org URL tha
 
 ### 7: Store the tokens when Okta redirects the request to your application
 
-After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the application's **Sign-in redirect URIs** field, which was configured in [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/go/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
+After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the application's **Sign-in redirect URIs** field, which was configured in [Create a new application](/docs/guides/oie-embedded-common-org-setup/go/main/#create-a-new-application).
 
 The value for the sample app is `http://localhost:8000/login/callback`.
 
@@ -157,4 +155,4 @@ func (s *Server) handleLoginCallback(w http.ResponseWriter, r *http.Request) {
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-user-profile-information) for more information.
+See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information) for more information.

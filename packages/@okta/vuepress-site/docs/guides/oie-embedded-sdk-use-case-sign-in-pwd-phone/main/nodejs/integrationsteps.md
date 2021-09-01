@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: Build a sign-in page on the client and authenticate the user credentials
 
 Build a sign-in page that captures the username and password, as shown in the following example.
@@ -87,4 +85,4 @@ Then, handle the response from `idx.authenticate`. If the phone code was valid, 
 
 ### 5 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after a successful sign in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/nodejs/oie-embedded-sdk-use-case-basic-sign-in/#get-the-user-profile-information) for more details.
+Optionally, you can obtain basic user information after a successful sign in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#get-the-user-profile-information) for more details.

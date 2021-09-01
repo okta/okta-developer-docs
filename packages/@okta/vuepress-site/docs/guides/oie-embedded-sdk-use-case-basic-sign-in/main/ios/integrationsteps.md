@@ -76,7 +76,7 @@ and returns either a fatal error or success with a token.
 The final integration step is to send the user to the default home page
 after a successful sign-in flow. Optionally, you can obtain basic user information after a
 successful sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](#get-user-profile-information).
+See [Get the user profile information](#get-the-user-profile-information).
 
 #### Sample code
 

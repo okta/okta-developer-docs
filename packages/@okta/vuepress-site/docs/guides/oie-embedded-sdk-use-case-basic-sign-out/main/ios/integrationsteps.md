@@ -1,4 +1,4 @@
-## Example code
+The following code examples show you how to implement the user sign-out flow.
 
 ### Example 1
 

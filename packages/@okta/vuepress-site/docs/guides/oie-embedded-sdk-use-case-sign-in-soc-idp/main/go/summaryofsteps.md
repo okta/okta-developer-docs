@@ -1,5 +1,3 @@
-## Summary of steps
-
 The sequence of steps for the sign-in with Facebook use case is shown below.
 
 <div class="common-image-format">
