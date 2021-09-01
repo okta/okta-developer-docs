@@ -56,7 +56,7 @@ Before you begin:
 1. In the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** field and change the value to **Password + Another factor**.
 1. Click **Save**.
 
-### 3: Verify that Email and Phone factors are set as optional enrollment factors
+### 3: Verify that Email and Phone authenticators are set as optional enrollment factors
 
 1. In the Admin console, select **Security** > **Authenticators** from the left-hand navigation pane.
 1. On the **Authenticators** page, click the **Enrollment** tab.
