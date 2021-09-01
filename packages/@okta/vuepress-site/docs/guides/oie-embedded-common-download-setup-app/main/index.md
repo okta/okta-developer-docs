@@ -22,31 +22,27 @@ Before you download the SDK, Widget, and sample apps, you need the following:
 
 ## Configure the SDK, Sign-In Widget, and sample app
 
-Before you integrate either the SDK or the widget into your app, you need to understand the configuration settings that you need to add to initialize the SDK and the widget (if you decide to also use the Sign-In Widget).
+Before you integrate either the SDK or the Widget into your app, you need to understand the configuration settings that you need to add to initialize the SDK and the widget (if you decide to also use the Sign-In Widget).
 
 ### Configuration settings
 
 #### Issuer
 
-Use the Issuer URI named "default" from your Custom Authorization Server. To find this value, go to **Security** > **API** in the Admin Console. On the **Authorization Servers** tab, the **default** Custom Authorization Server's Issuer URI appears in the list.
-
-Example URI: `https://dev-foo.okta.com/oauth2/default`
+Use the Issuer URI named "default" from your Custom Authorization Server. To find this value, go to **Security** > **API** in the Admin Console. On the **Authorization Servers** tab, the **default** Custom Authorization Server's Issuer URI appears in the list (for example, `https://${yourOktaDomain}/oauth2/default`).
 
 There are two main types of authorization servers: **Org** and **Custom**:
 
-* **Org**: If you want to use the Org Authorization Server, use the following URL: `https://dev-example.okta.com`.
+* **Org**: If you want to use the Org Authorization Server, use the following URL: `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
 * **Custom**: You can either use the **default** Custom Authorization Server or create your own.
   * **default**: The **default** Custom Authorization Server is predefined and automatically created when you created the org.<br>
-  **Example URI**: `https://dev-foo.okta.com/oauth2/default`
+  **URI format**: `https://${yourOktaDomain}/oauth2/default`
 
       > **Note:** If you are just getting started and want to run the sample app, use the **default** Custom Authorization Server URI.
+
   * **Create your own**: You can also create your own Custom Authorization Server.<br>
-  **Example URI**: `https://dev-foo.okta.com/oauth2/${authServerId}`
+  **URI format**: `https://${yourOktaDomain}/oauth2/${authServerId}`
 
-For more information about the authorization server types available:
-
-* [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types)
-* [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US)
+For more information on authorization server types, see [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) and [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US).
 
 #### Client ID
 

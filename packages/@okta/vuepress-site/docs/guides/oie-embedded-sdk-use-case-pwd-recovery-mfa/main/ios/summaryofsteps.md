@@ -1,3 +1,11 @@
+The following sequence diagram details each step in the password recovery flow.
+
+<div class="common-image-format">
+
+![Displays a sequence diagram for the password recovery use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-pwd-recovery.png)
+
+</div>
+
 ## The sample application's integration with the SDK
 
 Much like the Okta API it calls, the SDK uses a generic interface to handle
@@ -22,12 +30,3 @@ It's meant to be a learning tool and although you can implement similar code in 
 app, you're advised to stick to the same best practice dynamic approach implemented
 in the sample application.
 
-## Summary of steps
-
-The following sequence diagram details each step in the authentication flow for this use case.
-
-<div class="common-image-format">
-
-![Displays a sequence diagram for the password recovery use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-pwd-recovery.png)
-
-</div>

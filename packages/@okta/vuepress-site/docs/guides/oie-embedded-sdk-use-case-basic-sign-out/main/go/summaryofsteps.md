@@ -1,6 +1,4 @@
-## Summary of steps
-
-The sequence of steps for the sign-out use case is shown below.
+The following diagram shows the sequence of steps for the sign-out flow.
 
 <div class="common-image-format">
 

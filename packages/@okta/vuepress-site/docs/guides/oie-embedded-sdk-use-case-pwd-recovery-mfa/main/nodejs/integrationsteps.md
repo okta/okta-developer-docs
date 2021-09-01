@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: Add the forgot password link to the sign-in page
 
 The first step is to create a forgot your password link on the sign-in page, as in the following example. This link points to a **Recover password** page (`/recover-password)`.

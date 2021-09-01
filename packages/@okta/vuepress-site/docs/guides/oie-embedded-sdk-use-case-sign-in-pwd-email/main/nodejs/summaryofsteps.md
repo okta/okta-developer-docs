@@ -1,5 +1,3 @@
-## Summary of steps
-
 The following diagram shows the sequence of steps for the sign in with password and email flow.
 
 <div class="common-image-format">

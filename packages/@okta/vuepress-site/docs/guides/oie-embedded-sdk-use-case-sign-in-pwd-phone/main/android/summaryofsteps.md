@@ -1,5 +1,3 @@
-## Summary of steps
-
 The following graphic shows the steps for the sign-in flow with password and phone factors:
 
 <div class="common-image-format">

@@ -26,9 +26,9 @@ Build a sign-in page that captures the user's name and password.
 </div>
 
 During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
-`LoginResponse` that is used to initate the sign-in process with Okta. This object
+`LoginResponse` that is used to initiate the sign-in process with Okta. This object
 also contains a list of available social identity providers (IdPs) that are discussed in more detail in the
-[Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-cases/go/oie-embedded-sdk-use-case-sign-in-soc-idp)
+[Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main/)
 use case.
 
 ```go
@@ -54,8 +54,7 @@ ir := &idx.IdentifyRequest{
 ```
 
 Next, using the `LoginResponse` object obtained from
-[Step 2](#step-2-reconfigure-application-for-password-factor-only),
-call its `Identify` method, passing in this new `IdentifyRequest` object.
+[step 2](#_2-capture-credentials-with-the-sign-in-page), call its `Identify` method, passing in this new `IdentifyRequest` object.
 
 ```go
 lr, err = lr.Identify(context.TODO(), ir)
