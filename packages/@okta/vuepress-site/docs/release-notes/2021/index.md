@@ -3,6 +3,47 @@ title: Okta API Products Release Notes 2021
 ---
 ## August
 
+### Weekly Release 2021.08.3
+
+| Change                                                                     | Expected in Preview Orgs |
+|----------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2021.08.3](#bugs-fixed-in-2021-08-3)                          | August 25, 2021          |
+
+#### Bugs fixed in 2021.08.3
+
+* Requests for Native SSO [token exchange](/docs/guides/configure-native-sso/main/#exchange-the-code-for-tokens) failed intermittently with an `invalid actor token` error. (OKTA-421225)
+
+* Admins sometimes encountered an HTTP 500 `Internal Server` error after modifying an OIDC app in a Preview org. (OKTA-423145)
+
+### Weekly Release 2021.08.2
+
+| Change                                                                     | Expected in Preview Orgs |
+|----------------------------------------------------------------------------|--------------------------|
+| [Custom Administrator Roles is Self-Service EA](#custom-administrator-roles-is-self-service-ea) | August 18, 2021 |
+| [Bugs fixed in 2021.08.2](#bugs-fixed-in-2021-08-2)                          | August 18, 2021          |
+
+#### Custom Administrator Roles is Self-Service EA
+
+The Okta [Custom Administrator Roles](/docs/reference/api/roles/index.md) API provides operations that you can use to create customized roles and assign them to a user or a group. <!--OKTA-419528-->
+
+#### Bugs fixed in 2021.08.2
+
+- The QR code functionality was missing from the [Device Authorization feature](/docs/guides/device-authorization-grant/main/). (OKTA-410341)
+
+- When the `/introspect` endpoint was used to [validate the device secret](/docs/guides/configure-native-sso/-/main/#validate-the-device-secret), the introspect response didn't include the expiration (`exp`) property. (OKTA-415291)
+
+### Weekly Release 2021.08.1
+
+| Change                                                                     | Expected in Preview Orgs |
+|----------------------------------------------------------------------------|--------------------------|
+| [Bugs fixed in 2021.08.1](#bugs-fixed-in-2021-08-1)                          | August 11, 2021          |
+
+#### Bugs fixed in 2021.08.1
+
+- When a native SSO [token exchange](/docs/reference/api/oidc/#token) call was created, an invalid scope was accepted and tokens were returned. (OKTA-417808)
+
+- Registration Inline Hooks didn’t correctly display an error message to the end user when the response included the `errorCauses` object with an `error-summary` [parameter](/docs/reference/registration-hook/#error). (OKTA-409142)
+
 ### Monthly Release 2021.08.0
 
 | Change                                                                   | Expected in Preview Orgs |

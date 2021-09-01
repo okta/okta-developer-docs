@@ -1,5 +1,3 @@
-## Integration steps
-
 ### Step 1: Build a sign-in form
 
 Build a sign-in form that captures both the username and password. For example:
@@ -34,7 +32,7 @@ The `IDXAuthenticationWrapper.authenticate()` method returns an [`Authentication
 
 If the Java SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS`, then the user is successfully signed in. Use the [`AuthenticationResponse.getTokenResponse()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L43) method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
 
-> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/java/main/#getuserprofileinfo) for details.
+> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](#get-user-profile-information) for details.
 
 #### Other status
 

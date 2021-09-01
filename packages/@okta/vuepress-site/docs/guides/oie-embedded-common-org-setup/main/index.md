@@ -167,12 +167,12 @@ listed below.
 1. On the **App** page, scroll to the **Add a product** section.
 1. Click the **Set up** link in the **Facebook Login** tile.
 1. On the first set up page, select **Web** as the platform type.
-1. On the next page, set the value for **Site URL** to `https://{Okta org domain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+1. On the next page, set the value for **Site URL** to `https://${yourOktaDomain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save** and then **Continue**.
 1. Click through all the **Next** buttons until you run through all of the sections.
 1. In the left navigation menu, click **Facebook Login** (under products) and then click **Settings**.
 1. On the **Settings** page and under **Client OAuth Settings**, add the following URLs for the **Valid OAuth Redirect URIs** field:
-      `https://{Okta org domain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+      `https://${yourOktaDomain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save Changes** at the bottom of the page.
 
 ### Step 2: Copy the App ID and Secret

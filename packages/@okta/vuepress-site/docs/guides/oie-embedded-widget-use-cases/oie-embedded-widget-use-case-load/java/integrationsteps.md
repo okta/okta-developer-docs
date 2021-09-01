@@ -1,23 +1,22 @@
 ## Integration steps
 
-### Step 1: Source the Sign-In Widget to your sign-in page
+### Step 1: Source the Sign-In Widget in your sign-in page
 
-Add the Sign-In Widget source to your JavaScript sign-in page by referencing the Okta content delivery network (CDN).
+Add the Sign-In Widget source to your JavaScript sign-in page by referencing the Okta content delivery network (CDN):
 
 ```javascript
 <script src="https://global.oktacdn.com/okta-signin-widget/5.8.2/js/okta-sign-in.min.js" type="text/javascript"></script>
 <link href="https://global.oktacdn.com/okta-signin-widget/5.8.2/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-> **Note:** The previous snippet example uses Sign-In Widget, version `5.8.2`. Use the latest version of the Sign-In Widget found [here](https://github.com/okta/okta-signin-widget/releases/).
+> **Note:** The previous snippet example uses Sign-In Widget, version `5.8.2`. Use the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget in your app.
 
-### Step 2: Add JavaScript to initialize and load the widget
+### Step 2: Add JavaScript to initialize and load the Widget
 
-Initialize the widget in the sign-in page, similar to the following snippet:
+Initialize the Widget in the sign-in page, similar to the following snippet:
 
 ```javascript
 <script th:inline="javascript">
-    /*<![CDATA[*/
 
     var config = {};
 
@@ -41,7 +40,6 @@ Initialize the widget in the sign-in page, similar to the following snippet:
         { el: '#sign-in-widget' },
         function (res) {}
     );
-    /*]]>*/
 </script>
 ```
 
@@ -49,7 +47,7 @@ The Okta Sign-In Widget renders in the sign-in page when your app's sign-in page
 
 ### Step 3: Run your app
 
-The final step is to run your app. If the widget and your Okta org are properly configured, then the Okta Sign-In Widget displays in your sign-in page:
+The final step is to run your app. If the Widget and your Okta org are properly configured, then the Okta Sign-In Widget displays in your sign-in page:
 
 <div class="common-image-format">
 

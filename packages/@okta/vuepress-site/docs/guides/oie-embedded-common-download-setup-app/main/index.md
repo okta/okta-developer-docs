@@ -14,7 +14,7 @@ Before you download the SDK, Widget, and sample apps, you need the following:
 
 <StackSnippet snippet="softwarerequirements" noSelector />
 
-### Download from Github
+## Download from GitHub
 
 <StackSnippet snippet="githubinstructions" noSelector />
 
@@ -22,9 +22,9 @@ Before you download the SDK, Widget, and sample apps, you need the following:
 
 Before you integrate either the SDK or the widget into your app, you need to understand the configuration settings that you need to add to initialize the SDK and the widget (if you decide to also use the Sign-In Widget).
 
-## Configuration settings
+### Configuration settings
 
-### Issuer
+#### Issuer
 
 Use the Issuer URI named "default" from your Custom Authorization Server. To find this value, go to **Security** > **API** in the Admin Console. On the **Authorization Servers** tab, the **default** Custom Authorization Server's Issuer URI appears in the list.
 
@@ -39,30 +39,30 @@ There are two main types of authorization servers: **Org** and **Custom**:
 
       > **Note:** If you are just getting started and want to run the sample app, use the **default** Custom Authorization Server URI.
   * **Create your own**: You can also create your own Custom Authorization Server.<br>
-  **Example URI**: `https://dev-foo.okta.com/oauth2/${authServerId}`
+  **Example URI**: `https://dev-foo.okta.com/oauth2/${authorizationServerId}`
 
 For more information about the authorization server types available:
 
 * [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types)
 * [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US)
 
-### Client ID
+#### Client ID
 
 For the sample app, use the **Client ID** for the application that you created in [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Client ID**.
 
 <StackSnippet snippet="clientsecret" noSelector /><br>
 
-### Redirect URI
+#### Redirect URI
 
 <StackSnippet snippet="redirecturi" noSelector /><br>
 
 This is the same value as the **Redirect URI** for the application that you created in [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Sign-in redirect URI**.
 
-### Scopes
+#### Scopes
 
 For the sample app, use the following scopes: `openid`, `profile`, `offline_access`. See [OpenID Connect & OAuth 2.0 API](https://developer.okta.com/docs/reference/api/oidc/#scopes) for more information.
 
-## Where to place the configurations
+## Set the configuration values
 
 <StackSnippet snippet="configlocations" noSelector />
 

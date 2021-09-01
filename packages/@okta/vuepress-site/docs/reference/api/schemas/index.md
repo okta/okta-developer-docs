@@ -673,7 +673,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/meta/schemas/apps/{instanceId}/default"
+"https://${yourOktaDomain}/api/v1/meta/schemas/apps/${instanceId}/default"
 ```
 
 ##### Response example
@@ -771,7 +771,7 @@ curl -v -X POST \
       "required": []
     }
   }
-}' "https://${yourOktaDomain}/api/v1/meta/schemas/apps/{instanceId}/default"
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/apps/${instanceId}/default"
 ```
 
 ##### Response example
@@ -880,7 +880,7 @@ curl -v -X POST \
       "required": []
     }
   }
-}' "https://${yourOktaDomain}/api/v1/meta/schemas/apps/{instanceId}/default"
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/apps/${instanceId}/default"
 ```
 
 ##### Response example
@@ -984,7 +984,7 @@ curl -v -X POST \
       "required": []
     }
   }
-}' "https://${yourOktaDomain}/api/v1/meta/schemas/apps/{instanceId}/default"
+}' "https://${yourOktaDomain}/api/v1/meta/schemas/apps/${instanceId}/default"
 ```
 
 ##### Response example
@@ -1076,7 +1076,7 @@ curl -v -X GET \
   "$schema": "http://json-schema.org/draft-04/schema#",
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -1240,7 +1240,7 @@ The following response is only a subset of properties for brevity.
   "$schema": "http://json-schema.org/draft-04/schema#",
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -1363,7 +1363,7 @@ The following response is only a subset of properties for brevity.
   "$schema": "http://json-schema.org/draft-04/schema#",
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }
@@ -1473,7 +1473,7 @@ The following response is only a subset of properties for brevity.
   "$schema": "http://json-schema.org/draft-04/schema#",
   "_links": {
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/meta/schemas/group/default",
+      "href": "https://${yourOktaDomain}/api/v1/meta/schemas/group/default",
       "method": "GET",
       "rel": "self"
     }

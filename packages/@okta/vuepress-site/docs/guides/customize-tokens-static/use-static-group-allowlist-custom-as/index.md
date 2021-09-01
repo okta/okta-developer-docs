@@ -28,7 +28,7 @@ To obtain an access token with the configured Groups claim, send a request to th
 The resulting URL looks something like this:
 
 ```bash
-curl --location --request GET 'https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize?client_id=0oaiw2v8m6unWCvXM0h7
+curl --location --request GET 'https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=0oaiw2v8m6unWCvXM0h7
 &response_type=token
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2Fexample.com

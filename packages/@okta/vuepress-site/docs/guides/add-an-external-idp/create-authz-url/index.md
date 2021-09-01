@@ -5,7 +5,7 @@ The Okta Identity Provider that you created in the <GuideLink link="../configure
 
 > **Note:** Use this step to test your authorization URL as an HTML link. For information on using the Sign-in Widget, Okta Hosted Sign-in Page, or AuthJS, see the <GuideLink link="../use-idp-to-sign-in">next step</GuideLink>.
 
-In the URL, replace {yourOktaDomain} with your org's base URL, and then replace the following values:
+In the URL, replace ${yourOktaDomain} with your org's base URL, and then replace the following values:
 
 * `client_id` &mdash; use the `client_id` value that you obtained from the OpenID Connect client application in the <GuideLink link="../register-app-in-okta">previous section</GuideLink>. This is not the `client_id` from the Identity Provider.
 

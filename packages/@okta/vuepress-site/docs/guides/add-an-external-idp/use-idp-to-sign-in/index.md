@@ -24,7 +24,7 @@ After the user clicks the link, they are prompted to sign in with the Identity P
 
 ## Okta Sign-in Widget
 
-Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with {IdentityProviderName}** button by adding the following code to your Okta Sign-in Widget configuration:
+Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with ${IdentityProviderName}** button by adding the following code to your Okta Sign-in Widget configuration:
 
 ```js
 config.idps= [
@@ -37,7 +37,7 @@ You can find out more about the Okta Sign-in Widget [on GitHub](https://github.c
 
 ## Custom Okta-hosted Sign-in Page
 
-If you configured a [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/), you can add a **Sign in with {IdentityProviderName}** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
+If you configured a [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/), you can add a **Sign in with ${IdentityProviderName}** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
 
 ```js
 config.idps= [

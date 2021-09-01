@@ -38,7 +38,7 @@ Before you begin, be sure to:
     Or
 
     ```bash
-    https://${yourOktaDomain}/api/v1/policies/{{policyId}}/rules/{{ruleId}}
+    https://${yourOktaDomain}/api/v1/policies/${policyId}/rules/${ruleId}
     ```
 10. Select the **Body** tab of the request and add `"type": "SIGN_ON",` just below the `name` parameter.
 11. Replace the `actions` property with the `actions` property that you copied previously.

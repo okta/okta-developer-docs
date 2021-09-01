@@ -4,7 +4,7 @@
 
     ```ini
         ISSUER=https://${yourOktaDomain}/oauth2/default
-        CLIENT_ID={yourAppClientId}
+        CLIENT_ID=${yourAppClientId}
     ```
 
 You have now created your SPA in Okta and installed the Okta <StackSnippet snippet="applang" noSelector inline /> sample app.

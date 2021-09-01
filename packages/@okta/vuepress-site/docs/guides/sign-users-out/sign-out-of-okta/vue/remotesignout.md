@@ -15,7 +15,7 @@ After you perform a [local signout](/docs/guides/sign-users-out/vue/sign-out-of-
 <script>
 
 const POST_LOGOUT_REDIRECT_URI = '/'
-const ISSUER = 'https://{yourOktaDomain}/oauth2/default'
+const ISSUER = 'https://${yourOktaDomain}/oauth2/default'
 
 export default {
   name: 'home',

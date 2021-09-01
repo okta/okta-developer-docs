@@ -35,9 +35,8 @@ export const concepts = [
         path: "/docs/concepts/feature-lifecycle-management/"
       },
       {
-        title: "Role assignment",
-        path: "/docs/concepts/role-assignment/",
-        hidden: true
+        title: "Role Assignment",
+        path: "/docs/concepts/role-assignment/"
       },
       {
         title: "How Okta works",
@@ -377,6 +376,19 @@ export const guides = [
         title: "Identity Engine",
         subLinks: [
           {
+            title: "Okta Identity Engine Overview",
+            path: "/docs/guides/oie-intro/"
+          },
+          {
+            title: "Redirect authentication",
+            subLinks: [
+              {
+                title: "Use redirect auth with the sample apps",
+                guideName: "sampleapp-oie-redirectauth",
+              },
+            ]
+          },
+          {
             title: "Embedded authentication",
             subLinks: [
               {
@@ -443,15 +455,6 @@ export const guides = [
               },
             ]
             },
-          {
-          title: "Redirect authentication",
-          subLinks: [
-            {
-              title: "Use redirect auth with the sample apps",
-              guideName: "sampleapp-oie-redirectauth",
-            },
-          ]
-          },
           {
             title: "Okta Identity Engine Limitations",
             path: "/docs/guides/ie-limitations/"
@@ -749,6 +752,7 @@ export const releaseNotes = [
     subLinks: [
       { title: "Overview", path: "/docs/release-notes/" },
       { title: "2021", path: "/docs/release-notes/2021/" },
+      { title: "2021 - Okta Identity Engine", path: "/docs/release-notes/2021-okta-identity-engine/" },
       { title: "2020", path: "/docs/release-notes/2020/" },
       { title: "2019", path: "/docs/release-notes/2019/" },
       { title: "2018", path: "/docs/release-notes/2018/" },

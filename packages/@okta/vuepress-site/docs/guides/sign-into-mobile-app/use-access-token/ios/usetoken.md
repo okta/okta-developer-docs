@@ -13,7 +13,7 @@ var session = URLSession(configuration: sessionConfig,
 Then, make an authenticated request to your API endpoint or resource server and handle the response:
 
 ```swift
-let request = NSMutableURLRequest(url: URL(string: "https://{yourApiEndpoint}")!)
+let request = NSMutableURLRequest(url: URL(string: "https://${yourApiEndpoint}")!)
 request.httpMethod = "GET"
 let task = session.dataTask(with: request as URLRequest) {
     (data, response, error) in

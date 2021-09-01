@@ -1,4 +1,4 @@
-### Step 1: Make a call to GetIdentityProvidersAsync when user goes to the sign-in page
+### 1: Navigate to sign-in page
 
 The first step is make a call to `GetIdentityProvidersAsync` when the sign in page loads. This method retrieves all the identity providers that were added to the routing rule (**Use this identity provider** field) in the [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers).
 
@@ -19,7 +19,7 @@ return View(loginViewModel);
 
 The code calls `GetIdentityProvidersAsync`, which returns a list of identity providers. This list is sent to the view in a view model.
 
-### Step 2: Loop through Identity Providers (during sign-in page load)
+### 2: Display available identity providers
 
 The next step is to loop through the identity provider list and show links for each of the configured identity providers. In this use case, only the Facebook identity provider is shown.
 
@@ -49,11 +49,11 @@ The followng sample shows the button to sign in with Facebook.
 
 </div>
 
-### Step 3: Sign in with Facebook IdP link
+### 3: Select the Facebook identity provider
 
 The user clicks the sign-in link, which sends them initially to the Okta org. The `HRef` property contains a URL that's linked to the Okta org. From the org, the request gets routed to Facebook for user sign-in. You don't need to implement additional code changes to perform this step.
 
-### Step 4: User signs in to Facebook
+### 4: Sign in to Facebook
 
 Next, the user enters their email and password, and clicks **Log in**. This page is hosted by Facebook. The user information that you enter originates from a test user that you configured in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers). You don't need to make any code changes in your app to perform this step.
 
@@ -64,10 +64,10 @@ Next, the user enters their email and password, and clicks **Log in**. This page
 
 </div>
 
-### Step 5: Facebook redirects to your Okta org
-If the user's Facebook login is successful, Facebook routes the user to the values that you entered in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
+### 5: Redirect request to the Okta org
+If the user's Facebook login is successful, Facebook routes the user to the values that you entered in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-social-identity-providers). The values use the following format: `https://${yourOktaDomain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
-### Step 6: Okta org redirects to your app through the sign-in redirect URIs
+### 6: Redirect to client
 
 After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the Application's **Sign-in redirect URIs** field, which was configured in [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
@@ -93,5 +93,6 @@ public async Task<ActionResult> Callback(string state = null, string interaction
 }
 ```
 
-### Step 7: Send the user to the default home page
+### 7: Redirect to default home page
+
 The user is now successfully signed in and can be sent to the default sign-in page. In the sample application, the default sign-page is the user profile page.

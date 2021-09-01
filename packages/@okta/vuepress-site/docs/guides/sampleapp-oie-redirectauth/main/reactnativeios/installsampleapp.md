@@ -7,7 +7,7 @@
     ```javascript
     export default {
             oidc: {
-    	        clientId: `{yourAppClientId}`,
+    	        clientId: `${yourAppClientId}`,
     	        redirectUri: `com.okta.example:/callback`,
     	        endSessionRedirectUri: `com.okta.example:/logoutCallback`,
     	        discoveryUri: `https://${yourOktaDomain}/oauth2/default`,

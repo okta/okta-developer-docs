@@ -1,5 +1,3 @@
-## Summary of steps
-
 This use case explains how to build a simple UI to capture the username and password, and authenticate the credentials with Okta by using the SDK.
 
 <div class="common-image-format">

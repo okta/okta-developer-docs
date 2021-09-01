@@ -2,9 +2,9 @@
 2. From the command line, enter the `okta-hosted-login` directory and set the following dependencies with the information that you copied in a previous step:
 
     ```
-    `export OIDC_ISSUER_DOMAIN=https://{yourOktaDomain}`
-    `export OAUTH_CLIENT_ID={clientID}`
-    `export OAUTH_CLIENT_SECRET={clientSecret}`
+    `export OIDC_ISSUER_DOMAIN=https://${yourOktaDomain}`
+    `export OAUTH_CLIENT_ID=${clientId}`
+    `export OAUTH_CLIENT_SECRET=${clientSecret}`
     `export OIDC_ISSUER_AUTHSERVERID=default`
     ```
 

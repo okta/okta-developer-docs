@@ -1,5 +1,3 @@
-## Integration steps
-
 ### Step 1: Build a sign-in page on the client
 
 Build a sign-in page that captures both the user's name and password.
@@ -43,8 +41,7 @@ For a successful user sign in
    subsequent calls to the SDK. The sample code uses
   `Microsoft.Owin.Security.IAuthenticationManager.SignIn` to persist these
    tokens.
-1. Optional. Using the tokens returned from `AuthenticateAsync`, pull the user's basic profile information. See
-   [Step 4: Get user profile information (Optional)](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#get-user-profile-information-after-sign-in).
+1. Optional. Using the tokens returned from `AuthenticateAsync`, pull the user's basic profile information. See [Get user profile information](#get-user-profile-information).
 1. After the tokens are stored, send the user to the default home page.
 
 ```csharp
@@ -76,10 +73,5 @@ switch (authnResponse?.AuthenticationStatus)
 ```
 
 In the code sample above, the
-`AuthenticationHelper.GetIdentityFromAuthResponseAsync` gets the user profile information. See
-[Step 4: Get user profile information (Optional)](#step-4-get-user-profile-information-optional).
-
-### Step 4: Get user profile information-optional
-
-Optionally, you can obtain basic user information after a successful user
-sign in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information after sign in](/docs/guides/oie-embedded-sdk-alternate-flows/aspnet/main/#getuserprofileinfo).
+`AuthenticationHelper.GetIdentityFromAuthResponseAsync` gets the user profile information. Optionally, you can obtain basic user information after a successful user
+sign in by making a request to Okta's Open ID Connect authorization server (see the next section).

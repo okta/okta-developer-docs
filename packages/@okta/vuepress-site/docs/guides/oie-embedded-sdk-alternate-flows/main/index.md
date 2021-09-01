@@ -9,7 +9,6 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-
 This section discusses the alternate flows that can occur within your app based on how your factors and policies are configured.
 
 ## Confirmation email sent during new user registration with only password factor required
@@ -26,14 +25,14 @@ In this scenario, the org is set up in the following manner:
 
 1. The org is initially configured following the steps described in:
 [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases)
-and
-
-[Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases).
+and [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases).
 2. The application's sign-on policy is updated for only the password factor. In
    the Admin Console, the **AND User must authenticate with** field is set to **Password**.
+
 3. The **Email verification** field in the profile enrollment's Default Policy
    is set to **Required before access is granted**. Profile enrollment configuration can
    be found by navigating to **Security** > **Profile Enrollment**.
+
 4. The **Initiate login URI** field is set to the sign-in URI in the application settings. By setting this
    value, the email verification link for new user enrollment redirects the user
    to the URL provided in the **Initiate login URI** field.
@@ -47,7 +46,5 @@ the following email template: **Registration - Activation**.
 
 The user clicks the link in the activation email and is redirected to the
 sample app's home page.
-
-<StackSnippet snippet="getuserprofile" />
 
 </div>
