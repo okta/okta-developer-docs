@@ -1742,7 +1742,7 @@ When you create a new application, it's created with a new app sign-on policy by
     }
 ```
 
-In addition, there is no direct property to get the policy ID for an application. Instead, you need to retrieve the application object and use the reference to the policy ID that is a part of the application object.
+Additionally, there is no direct property to get the policy ID for an application. Instead, you need to retrieve the application object and use the reference to the policy ID that is a part of the application object.
 
 #### App sign-on policy reference in HAL link in Application API Object example
 
