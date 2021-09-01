@@ -102,7 +102,7 @@ The `div id` that you passed into the widget needs to match a `div` on the page 
 </script>
 ```
 
-#### 2d: Add div tag
+#### 2d: Add the div tag
 
 The final step is to add a `div` tag with the `id` (for example, `okta-signin-widget-container`). The `id` needs to match the `id` that you passed into the widget object in the previous step.
 

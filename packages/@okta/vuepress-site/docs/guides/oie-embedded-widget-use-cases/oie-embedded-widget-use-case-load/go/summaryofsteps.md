@@ -1,7 +1,5 @@
 
-## Summary of steps
-
-The following diagram is a sequence of steps for the Sign-in Widget load.
+The following diagram is a sequence of steps for the Sign-In Widget load.
 
 <div class="common-image-format">
 

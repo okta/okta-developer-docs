@@ -114,7 +114,7 @@ Finally, add the javascript that loads the Widget into the `div` tag. The parame
 </script>
 ```
 
-### 4: Complete the loading of the sign-in page
+### 4: Complete loading the sign-in page
 
 After the sign-in page is successfully loaded, the embedded Sign-In Widget appears:
 
