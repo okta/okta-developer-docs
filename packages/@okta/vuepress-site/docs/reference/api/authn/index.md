@@ -1046,7 +1046,7 @@ curl -v -X POST \
 
 Every step-up transaction starts with the user accessing an application. If step-up authentication is required, Okta redirects the user to the custom sign-in page with state token as a request parameter.
 
-For example, if the custom sign-in page is set as **https://login.example.com**, then Okta will redirect to **https://login.example.com?stateToken=**00BClWr4T-mnIqPV8dHkOQlwEIXxB4LLSfBVt7BxsM. To determine the next step, check the [state of the transaction](#get-transaction-state).
+For example, if the custom sign-in page is set as `https://login.example.com`, then Okta will redirect to `https://login.example.com?stateToken=<token>`. To determine the next step, check the [state of the transaction](#get-transaction-state).
 
 * [Step-up authentication without Okta session](#step-up-authentication-without-okta-session)
 * [Step-up authentication with Okta session](#step-up-authentication-with-okta-session)
