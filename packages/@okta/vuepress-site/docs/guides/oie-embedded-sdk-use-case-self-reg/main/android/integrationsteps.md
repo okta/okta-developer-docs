@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: Register new users
 
 The self-registration flow begins when the user clicks the **Sign up** link on your app's sign-in page. Create a **Sign up** link that directs the user to a create account form, such as the following example:

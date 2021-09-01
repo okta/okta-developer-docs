@@ -1,6 +1,4 @@
-## Integration steps
-
-### Step 1: Navigate to the homepage
+### 1: Navigate to the homepage
 
 When the user navigates to the home page and the application loads, create a new
 SDK Client object by calling the `NewClient` method.
@@ -17,7 +15,7 @@ if err != nil {
 }
 ```
 
-### Step 2: Navigate to the sign-up page
+### 2: Navigate to the sign-up page
 
 Build a sign-in page that captures the user's first name, last name, and email.
 
@@ -27,7 +25,7 @@ Build a sign-in page that captures the user's first name, last name, and email.
 
 </div>
 
-### Step 3: Submit sign-up information
+### 3: Submit the sign-up information
 
 When the user submits their sign-up information, create a `UserProfile` object and set its
 `FirstName`, `LastName`, and `Email` to the values they entered on the page. Call the
@@ -57,7 +55,7 @@ on this object, passing in the `EnrollmentStepPasswordSetup` constant. If
 the Okta configuration is set up correctly, `HasStep` should return `true`. At this point, the
 user should enter their password.
 
-### Step 4: Show the password page
+### 4: Show the password page
 
 Create a page for the user to enter their password.
 
@@ -67,7 +65,7 @@ Create a page for the user to enter their password.
 
 </div>
 
-### Step 5: Submit the password
+### 5: Submit the password
 
 When the user submits their password, call the `EnrollmentResponse` object's `SetNewPassword` method,
 passing in the password the user entered on the page. The method returns an `EnrollmentResponse`
@@ -92,7 +90,7 @@ if !enrollResponse.HasStep(idx.EnrollmentStepSuccess) {
 }
 ```
 
-### Step 6: Build a list of available factors to display to user
+### 6: Build a list of available factors to display to the user
 
 The next step is to build a page to display the list of available factors
 that the user can enroll into. In this use case it will be the email and phone
@@ -166,7 +164,7 @@ An example of the page from the sample application is shown below:
 
 </div>
 
-### Step 7: Submit the email factor for verification
+### 7: Submit the email factor for verification
 
 Assuming the user selected the email factor and clicked continue, the next step is to
 call the `EnrollmentResponse` object's `VerifyEmail` method.
@@ -196,7 +194,7 @@ email confirmation code.
 
 </div>
 
-### Step 8: Submit the verification code
+### 8: Submit the verification code
 
 After the user submits the verfication code from their email, call the `EnrollmentResponse`
 object's `ConfirmEmail` method, passing in the verification code. Assuming the verification was
@@ -222,7 +220,7 @@ s.cache.Set("enrollResponse", enrollResponse, time.Minute*5)
 http.Redirect(w, r, "/enrollFactor", http.StatusFound)
 ```
 
-### Step 9: Again show the list containing the available factors to enroll
+### 9: Again show the list that contains the available factors to enroll
 
 The next step is to show a list of available factors using the same page created in
 Step 6. Based on how you configured the Okta org for this use case, only the phone
@@ -250,7 +248,7 @@ if enrollResponse.HasStep(idx.EnrollmentStepEmailVerification) {
 
 </div>
 
-### Step 10: Skip the phone factor
+### 10: Skip the phone factor
 
 Assuming the user skips the phone factor and completes the registration with only the email,
 call the `EnrollmentResponses` object's `Skip` method.
@@ -268,7 +266,7 @@ For more details about enrolling the phone factor see the sample application. Fo
 to verify a sign-in with the phone factor, see
 [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/go/main/).
 
-### Step 11: Store the tokens in session and go to the signed-in home page
+### 11: Store the tokens in a session and go to the signed-in home page
 
 The `EnrollmentResponse` object returned from the `Skip` method should return tokens
 indicating the register and sign-in was successful. Send the user to their
@@ -285,7 +283,7 @@ if enrollResponse.Token() != nil {
 }
 ```
 
-### Step 12 (Optional): Retrieve the user profile information
+### 12 (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after a successful user
 sign-in by making a request to Okta's Open ID Connect authorization server.
