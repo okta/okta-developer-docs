@@ -110,7 +110,11 @@ Based on the configuration described in [Set up your Okta org for a multifactor 
 
 If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Step 8, Option 1: Skip phone factor](#step-8-option-1-skip-phone-factor) for the skip authenticator flow. If the user decides to select the optional factor, see [Step 8, Option 2: User selects phone authenticator](#step-8-option-2-user-selects-phone-authenticator) for the optional phone authenticator flow.
 
-### Step 7, Option 1: Skip phone factor
+### Step 7 Handle the phone options
+
+In this use case, the end user can choose to skip the phone factor or add the phone authenticator.
+
+#### Option 1: User skips the phone factor
 
 If the user decides to skip the phone factor enrollment, make a call to `idx.register` passing in the value `{skip: true}`. This method skips the authenticator enrollment, as shown in `Authenticator.js` from the SDK sample application.
 
@@ -125,7 +129,7 @@ router.post('/select-authenticator/skip', async (req, res, next) => {
 
 If the request to skip the optional authenticator is successful, the SDK returns `Idx.SUCCESS` and tokens. The user is successfully signed in.
 
-### Step 7, Option 2: User selects phone authenticator
+#### Option 2: User selects phone authenticator
 
 After the user selects the phone authenticator value, and `idx.register` is called with this value, the response returns a status of `Idx.Status:PENDING` and a `nextStep` field that requires phone registration data, which includes the phone number and verification method (SMS or voice). The user is directed to a page to enroll the phone data:
 
@@ -135,7 +139,7 @@ After the user selects the phone authenticator value, and `idx.register` is call
 
 </div>
 
-### Step 8, Option 2: User selects SMS verify method and enters phone number
+#### User selects SMS as the verify method and enters their phone number
 
 The user can select SMS or voice verification to receive the phone verification code. Capture this information and send it to`idx.register`. In this use case, use SMS. The user then enters the phone number where the SMS code is sent.
 
@@ -149,7 +153,7 @@ The SDK sends the phone authenticator data to Okta, processes the request, and s
 
 </div>
 
-### Step 9, Option 2: User submits SMS verification code
+#### User submits the SMS verification code
 
 The user receives the verification code as an SMS message on their phone and submits it in the verify code form. Send this code to `idx.register`.
 
