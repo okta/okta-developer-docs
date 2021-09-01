@@ -2,7 +2,7 @@
 
 The following sequence diagrams show the sequence of steps for self-service registration:
 
-### Start new user registration with password factor
+### Start a new user registration with the password authenticator
 
 The following diagram illustrates the beginning of the registration process where the user initiates the sign-in process and enters their password.
 
@@ -12,7 +12,7 @@ The following diagram illustrates the beginning of the registration process wher
 
 </div>
 
-### Enroll and verify email factor
+### Enroll and verify email the email authenticator
 
 The self-registration flow continues in this sequence.
 
@@ -22,11 +22,11 @@ The self-registration flow continues in this sequence.
 
 </div>
 
-### Option 1: Skip optional remaining factors
+### Option 1: Skip the optional remaining authenticators
 
-The user can also opt to skip the factors when all of the remaining
-factors are optional. In this case, the user opts to skip the phone
-(SMS) factor.
+The user can also opt to skip the authenticators when all of the remaining
+authenticators are optional. In this case, the user opts to skip the phone
+(SMS) authenticator.
 
 <div class="common-image-format">
 
@@ -34,17 +34,17 @@ factors are optional. In this case, the user opts to skip the phone
 
 </div>
 
-### Option 2: Enroll and verify phone (SMS) factor
+### Option 2: Enroll and verify the phone (SMS) authenticator
 
 After the password and email are verified, the user has the option to
-enroll in the phone factor.
+enroll in the phone authenticator.
 
-> **Note:** Based on the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the Okta application is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional.
+> **Note:** Based on the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-multifactor-use-case), the Okta application is set up to require one possession factor (either email or phone). After the email authenticator is verified, the phone authenticator becomes optional.
 
-The following flow describes the steps when the user enrolls in the optional phone SMS factor.
+The following flow describes the steps when the user enrolls in the optional phone SMS authenticator.
 
 <div class="common-image-format">
 
-![Displays the Self-service registration enroll flow diagram.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-phone.png)
+![Displays the self-service registration enroll flow diagram.](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-seq-nodejs-phone.png)
 
 </div>
