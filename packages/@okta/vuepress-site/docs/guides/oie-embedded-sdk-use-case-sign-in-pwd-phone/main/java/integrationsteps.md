@@ -63,7 +63,7 @@ You need to build a form to capture the user's phone number in your app. For exa
 
 > **Note:** The Java SDK requires the following phone number format: `{+}{country-code}{area-code}{number}`. For example, `+15556667777`.
 
-If your org is enabled with the voice feature, you will need to add an additional form to select voice or SMS factor as the phone verification method. See [Step 4 (voice feature alternative)](#_4-voice-feature-alternative-the-user-enters-the-phone-number-and-selects-the-phone-factor-method) for details.
+If your org is enabled with the voice feature, you will need to add an additional form to select voice or SMS factor as the phone verification method. See [4 (voice feature alternative)](#_4-voice-feature-alternative-the-user-enters-the-phone-number-and-selects-the-phone-factor-method) for details.
 
 ### 4: The user enters the phone number
 

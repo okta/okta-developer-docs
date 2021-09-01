@@ -24,7 +24,7 @@ r.HandleFunc("/login/callback", s.LoginCallbackHandler).Methods("GET")
 
 Next, call the `/token` endpoint and pass in the returned `interaction_code` and the
 PCKE parameters you created in
-[Step 2: Get data to initialize the Widget](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-load/#step-2-get-data-to-initialize-the-widget). After the tokens are fetched, store them in a
+[2: Get data to initialize the Widget](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-load/#_2-get-data-to-initialize-the-widget). After the tokens are fetched, store them in a
 session for later use. The following code snippet details how to fetch and store these tokens.
 
 ```go
