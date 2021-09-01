@@ -1969,7 +1969,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 
 > **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
-Profile Enrollment policies specify which profile attributes are required for creating new Users through self-service registration, and also can be used for progressive profiling. The type is specified as `PROFILE_ENROLLMENT`.
+Profile Enrollment policies specify which profile attributes are required for creating new Users through self-service registration and also can be used for progressive profiling. The type is specified as `PROFILE_ENROLLMENT`.
 
 When you create a new profile enrollment policy, a policy rule is created by default. This type of policy can only have one policy rule, so it's not possible to create other rules. Instead, consider editing the default one to meet your needs.
 
