@@ -19,7 +19,7 @@ Experiment with sample apps that showcase the Identity Engine using the followin
 
 Learn how to implement each approach with these Identity Engine SDKs and sample apps in the [Redirect authentication guide](/docs/guides/sampleapp-oie-redirectauth/), [Embedded authentication with SDK guide](/docs/guides/oie-embedded-sdk-overview/), and [Embedded authentication with Sign-In Widget guide](/docs/guides/oie-embedded-widget-overview/).
 
-Orgs using the Identity Engine can also continue to use current SDKs and tools. You can find those SDKs for your stack from the [Languages & SDKs overview](/code/).
+Orgs that use the Identity Engine can also continue to use current SDKs and tools. You can find those SDKs for your stack from the [Languages & SDKs overview](/code/).
 
 ## Repository
 
