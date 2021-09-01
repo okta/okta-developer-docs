@@ -1041,7 +1041,7 @@ Specifies a particular level of risk to match on
 #### Expression Language Condition object
 
 Use Okta Expression Language as a condition.
-For details please see [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/)
+See [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/)
 
 
 | Parameter | Description              | Data Type | Required |
