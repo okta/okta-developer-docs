@@ -9,4 +9,4 @@ The Okta Identity Engine Android sample app uses the Okta Identity Engine Java S
         implementation 'com.okta.idx.sdk: okta-idx-java-api:$okta_sdk_version'
     ```
 
-    where `${okta.sdk.version}` is the latest release version listed [here](https://github.com/okta/okta-idx-java#release-status).
+    where `${okta.sdk.version}` is the latest release version. See [Release Status](https://github.com/okta/okta-idx-java#release-status) for the latest Identity Engine Java SDK version.
