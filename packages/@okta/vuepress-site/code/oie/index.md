@@ -9,9 +9,9 @@ title: Okta Identity Engine SDKs & Samples
 
 ## What's new
 
-[Okta Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) introduces new identity management capabilities with greater flexibility and customization. To take advantage of these new features and for a better development experience, use Identity Engine SDKs to manage authentication in your apps. These new SDKs are recommended for orgs using Identity Engine.
+[Okta Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) introduces new identity management capabilities with greater flexibility and customization. To take advantage of these new features and for a better development experience, use the Identity Engine SDKs to manage authentication in your apps. These new SDKs are recommended for orgs using the Identity Engine.
 
-Experiment with sample apps that showcase Identity Engine using the following [authentication approaches](/docs/concepts/redirect-vs-embedded/):
+Experiment with sample apps that showcase the Identity Engine using the following [authentication approaches](/docs/concepts/redirect-vs-embedded/):
 
 * **Redirect**: These sample apps demonstrate how to redirect users to an Okta-hosted sign-in page, and then receive users redirected back from Okta after users sign in. This approach is recommended for most developers, as it is easier to build and maintain.
 
@@ -19,7 +19,7 @@ Experiment with sample apps that showcase Identity Engine using the following [a
 
 Learn how to implement each approach with these Identity Engine SDKs and sample apps in the [Redirect authentication guide](/docs/guides/sampleapp-oie-redirectauth/), [Embedded authentication with SDK guide](/docs/guides/oie-embedded-sdk-overview/), and [Embedded authentication with Sign-In Widget guide](/docs/guides/oie-embedded-widget-overview/).
 
-Orgs using Identity Engine can also continue to use current SDKs and tools. You can find those SDKs for your stack from the [Languages & SDKs overview](/code/).
+Orgs using the Identity Engine can also continue to use current SDKs and tools. You can find those SDKs for your stack from the [Languages & SDKs overview](/code/).
 
 ## Repository
 

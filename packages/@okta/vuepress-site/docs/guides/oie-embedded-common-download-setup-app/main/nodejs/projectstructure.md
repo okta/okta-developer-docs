@@ -1,6 +1,6 @@
-The source code from the sample app and SDK are located here:
+The source code from the sample app and SDK are located here: `.../okta-auth-js/`.
 
-`.../okta-auth-js/`. The project structure consists of the following:
+The project structure consists of the following:
 
 * `okta-auth-js/docs/idx.md`: Identity Engine introduction and reference
 * `okta-auth-js/samples/generated`: Samples directory

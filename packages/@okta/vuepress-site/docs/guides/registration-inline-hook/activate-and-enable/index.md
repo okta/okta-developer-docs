@@ -24,7 +24,7 @@ The Registration Inline Hook is now set up with a status of active.
 
 The procedure to enable the Registration Inline Hook is dependent on the type of org you are using: Okta Identity Engine or Okta Classic Engine. Follow the procedure for your specific org.
 
-#### Enable a Registration Inline Hook in Identity Engine
+#### Enable a Registration Inline Hook in the Identity Engine
 
 <ApiLifecycle access="ie" />
 If you have an Identity Engine org, you must [enable and configure a profile enrollment policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) to implement a Registration Inline Hook.

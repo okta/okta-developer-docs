@@ -6,22 +6,22 @@ excerpt: Okta Identity Engine introduces a lot of changes to the Okta platform. 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
-Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features. Additionally, some of these changes result in Identity Engine features not supported for use with Okta Classic Engine APIs.
+Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features. Additionally, some of these changes result in the Identity Engine features not supported for use with Okta Classic Engine APIs.
 
-> **Note:** This doc is designed for people who are familiar with the Classic Engine. If you are new to Okta and Identity Engine, see [Get started](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) with Identity Engine.
+> **Note:** This doc is designed for people who are familiar with the Classic Engine. If you are new to Okta and the Identity Engine, see [Get started](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) with the Identity Engine.
 
-Are you an admin? See Identity Engine [Limitations](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-oie-limitations) doc for admins.
+Are you an admin? See the Identity Engine [Limitations](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-oie-limitations) doc for admins.
 
-### Classic Engine features not supported in Identity Engine
+### Classic Engine features not supported in the Identity Engine
 
 #### Event Type availability for Event Hooks
 
-**What Changed:** The following Event Types aren't available in Identity Engine because Device Trust isn't currently supported:
+**What Changed:** The following Event Types aren't available in the Identity Engine because Device Trust isn't currently supported:
 
 * `user.authentication.authenticate`
 * `user.credential.enroll`
 
-The following Event Types are available only in Identity Engine and can't be used by Classic Engine customers:
+The following Event Types are available only in the Identity Engine and can't be used by Classic Engine customers:
 
 * `device.enrollment.create`
 * `user.mfa.factor.suspend`
@@ -35,7 +35,7 @@ The following Event Types are available only in Identity Engine and can't be use
 
 #### Help Support number
 
-**What Changed:** In Identity Engine, if the user is unable to use an Authenticator, the Help Support number is no longer provided. The only support available is the Authenticator list page that provides alternative ways for the user to authenticate.
+**What Changed:** In the Identity Engine, if the user is unable to use an Authenticator, the Help Support number is no longer provided. The only support available is the Authenticator list page that provides alternative ways for the user to authenticate.
 
 ***
 
@@ -49,9 +49,9 @@ The following Event Types are available only in Identity Engine and can't be use
 
 #### Sessions APIs
 
-**What Changed:** Some Sessions APIs aren't supported in Identity Engine. However, your existing application could continue to work as long as session management and application interactions are fully contained within the `v1/sessions` APIs.
+**What Changed:** Some Sessions APIs aren't supported in the Identity Engine. However, your existing application could continue to work as long as session management and application interactions are fully contained within the `v1/sessions` APIs.
 
-**Further Information:** APIs not supported on Identity Engine sessions:
+**Further Information:** APIs not supported on the Identity Engine sessions:
 
 * `GET /api/v1/sessions/${sessionId}`
 * `POST /api/v1/sessions/${sessionId}/lifecycle/refresh`
@@ -103,7 +103,7 @@ The following Event Types are available only in Identity Engine and can't be use
 
 #### Sign-In Widget customization - Registration Inline Hooks
 
-**What Changed:** Existing Registration Inline Hooks may experience compatibility issues after migrating to Identity Engine due to changes in the Okta Registration Inline Hook request. Your application may require code updates to consume the new request format properly.
+**What Changed:** Existing Registration Inline Hooks may experience compatibility issues after migrating to the Identity Engine due to changes in the Okta Registration Inline Hook request. Your application may require code updates to consume the new request format properly.
 
 In the Admin Console, the enablement of a Registration Inline Hook has changed from the former Self-Service Registration page (**Self-service Directory** > **Self-Service Registration**) to the Profile Enrollment Rules page (**Security** > **Profile Enrollment**). The creation of the Registration Inline Hook remains the same and can be completed in the Admin Console or by Inline Hook Management APIs.
 
@@ -113,7 +113,7 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 #### Sign-In Widget customization - Security image
 
-**What Changed:** The ability for end users to specify a security image when they first register for an account isn't supported with Identity Engine. Additionally, existing users who may have already registered a security image, won't see that image when they sign in.
+**What Changed:** The ability for end users to specify a security image when they first register for an account isn't supported with the Identity Engine. Additionally, existing users who may have already registered a security image, won't see that image when they sign in.
 
 ***
 
@@ -125,7 +125,7 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 ***
 
-### Identity Engine features not supported with Classic Engine APIs
+### Identity Engine features not supported with the Classic Engine APIs
 
 #### Factor API enrollment limitations
 
@@ -145,6 +145,6 @@ See the [SDK uses cases](/docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-
 
 #### Password recovery limitations with the /authn API
 
-Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Classic Engine Authentication APIs are denied recovery.
+Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in the Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Classic Engine Authentication APIs are denied recovery.
 
 **Further information:** [Recovery operations](https://developer.okta.com/docs/reference/api/authn/#recovery-operations) section of the Authentication API.

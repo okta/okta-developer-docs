@@ -21,7 +21,7 @@ For information on the API for registering external service endpoints with Okta,
 
 For steps to enable this Inline Hook, see below, [Enabling a Registration Inline Hook](#enable-a-registration-inline-hook-for-profile-enrollment-in-okta-identity-engine). <ApiLifecycle access="ie" /><br>
 
-For steps to enable this Inline Hook in Okta Classic Engine, see below, [Enabling a Registration Inline Hook in Classic Engine](#enable-a-registration-inline-hook-for-self-service-registration-in-classic-engine)
+For steps to enable this Inline Hook in Okta Classic Engine, see [Enabling a Registration Inline Hook in the Classic Engine].(#enable-a-registration-inline-hook-for-self-service-registration-in-classic-engine)
 
 For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook).
 
@@ -237,7 +237,7 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** This feature is only available as a part of Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of the Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
@@ -257,11 +257,11 @@ Your Registration Inline Hook is now configured for Profile Enrollment.
 
 > **Note:** Only one Inline Hook can be associated with your Profile Enrollment policy at a time.
 
-## Enable a Registration Inline Hook for Self-Service Registration in Classic Engine
+## Enable a Registration Inline Hook for Self-Service Registration in the Classic Engine
 
 <ApiLifecycle access="ea" />
 
-> **Note:** Self-Service Registration only exists in Classic Engine. For Identity Engine, please see instructions for Profile Enrollment above.
+> **Note:** Self-Service Registration only exists in the Classic Engine. For the Identity Engine, please see instructions for Profile Enrollment above.
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 

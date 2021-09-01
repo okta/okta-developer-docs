@@ -306,7 +306,7 @@ The following is an example System Log rate limit event where too many OTP verif
 The following is an example of a System Log rate limit event for too many profile reload attempts through Active Directory or LDAP agent.
 
 <ApiLifecycle access="ie" /><br>
-> **Note:** This event is valid for Identity Engine only.
+> **Note:** This event is valid for the Identity Engine only.
 
 ```json
 {
@@ -412,7 +412,7 @@ The following is an example of a System Log rate limit event for too many profil
 The following table includes the available `Subtypes` for operation rate limits.
 
 <ApiLifecycle access="ie" /><br>
-> **Note:** The `AD agent` and `LDAP agent` subtypes are only available for Identity Engine.
+> **Note:** The `AD agent` and `LDAP agent` subtypes are only available for the Identity Engine.
 
 | Subtype           | Description                                                         |
 | ----------------- | ------------------------------------------------------------------- |
