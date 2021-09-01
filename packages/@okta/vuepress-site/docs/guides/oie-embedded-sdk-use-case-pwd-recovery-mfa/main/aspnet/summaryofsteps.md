@@ -1,4 +1,4 @@
-The following are the sequence of steps for the password recovery use case.
+The following is the sequence of steps for the password recovery use case.
 
 <div class="common-image-format">
 

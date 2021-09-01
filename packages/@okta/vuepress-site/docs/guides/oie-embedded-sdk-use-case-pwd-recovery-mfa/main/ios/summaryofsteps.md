@@ -1,4 +1,4 @@
-The following sequence diagram details each step in the authentication flow for this use case.
+The following sequence diagram details each step in the password recovery flow.
 
 <div class="common-image-format">
 

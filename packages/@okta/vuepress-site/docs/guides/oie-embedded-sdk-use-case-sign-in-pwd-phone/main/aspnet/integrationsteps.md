@@ -10,7 +10,7 @@ Build a sign-in page that captures the user's name and password, as shown in the
 
 ### 2: Authenticate the user credentials
 
-When the user initiates the sign-in (for example, by clicking the **Continue** button),
+When the user initiates the sign-in flow (for example, by clicking the **Continue** button),
 create an `AuthenticationOptions` object and set its `Username` and `Password` properties to the values entered in by the user. Send this object to the  `AuthenticateAsync` method for the `IdxClient`.
 
 ```csharp
@@ -175,5 +175,5 @@ switch (authnResponse.AuthenticationStatus)
 
 ### 12 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after a successful sign
+Optionally, you can obtain basic user information after the user successfully signs
 in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-the-user-profile-information) for more details.
