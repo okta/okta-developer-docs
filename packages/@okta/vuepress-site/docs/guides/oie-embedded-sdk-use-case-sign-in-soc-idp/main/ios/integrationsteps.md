@@ -1,5 +1,3 @@
-## Integration steps
-
 ### Summary
 
 The following steps document how to integrate the sample code into your
@@ -57,7 +55,7 @@ self.authHandler?.login(service: .facebook)
 The final integration step is to send the user to the default home page
 after successful sign-in. Optionally, you can obtain basic user information after a
 successful sign-in by making a request to Okta's Open ID Connect authorization server.
-See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-user-profile-information).
+See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-the-user-profile-information).
 
 ## Sample code
 

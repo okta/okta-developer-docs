@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: The user selects the forgot password link
 
 The password recovery flow begins when the user clicks the **Forgot your password?** link on your app's sign-in page.

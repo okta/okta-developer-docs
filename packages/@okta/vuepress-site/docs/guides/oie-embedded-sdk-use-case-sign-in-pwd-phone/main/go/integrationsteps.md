@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: The user navigates to the home page
 
 When the user navigates to the home page and the application loads, create a new
@@ -56,7 +54,7 @@ sign-in form.
 ```
 
 Next, call the `Identify` method of the `LoginResponse` object obtained
-in [Step 2](#step-2-navigate-to-the-sign-in-page), passing in the `IdentifyRequest` created in the previous step.
+in [Step 2](#_2-capture-credentials-with-the-sign-in-page), passing in the `IdentifyRequest` created in the previous step.
 
 ```go
 lr, err = lr.Identify(context.TODO(), ir)
@@ -243,4 +241,4 @@ if lr.Token() != nil {
 ### 11 (Optional): Get the user profile information
 
 Optionally, you can obtain basic user information after a successful user
-sign-in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-user-profile-information) for more information.
+sign-in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information) for more information.

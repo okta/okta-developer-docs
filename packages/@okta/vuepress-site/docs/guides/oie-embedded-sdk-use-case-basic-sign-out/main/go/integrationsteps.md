@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: Create a sign-out UI element
 
 The first step is to create an element that allows the user to sign out of the app.

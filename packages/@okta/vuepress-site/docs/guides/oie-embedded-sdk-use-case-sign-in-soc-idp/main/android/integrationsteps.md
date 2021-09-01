@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: The user navigates to the sign-in page
 
 Begin the authentication process by calling the Java SDK's [`IDXAuthenticationWrapper.begin()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java) method and getting a new `ProceedContext` object.

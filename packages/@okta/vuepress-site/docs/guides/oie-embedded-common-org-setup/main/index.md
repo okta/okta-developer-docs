@@ -193,7 +193,7 @@ A test account is required to test Facebook sign-in in Development mode. Faceboo
 1. Click **Save**.
 1. Save the test user's **email** and **password** for testing social IdP sign-in use cases with Okta and Facebook.
 
-#### 3: (Optional) Switch your Facebook app to Live mode
+#### 3 (Optional): Switch your Facebook app to Live mode
 
 By default, your Facebook app is in Development mode and can only be used by the test user and the user that you used to sign in and create the Facebook app. As a result, you can only use these users when you test your Facebook sign-in use cases.
 

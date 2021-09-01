@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: The user navigates to the home page
 
 When the user navigates to the home page and the application loads, create a new
@@ -28,7 +26,7 @@ Build a sign-in page that captures the user's name and password.
 </div>
 
 During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
-`LoginResponse` that is used to initate the sign-in process with Okta.  The object
+`LoginResponse` that is used to initiate the sign-in process with Okta.  The object
 also contains a list of available social identity providers (IdPs) that is discussed in more detail in the
 [Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main/)
 use case.
@@ -56,7 +54,7 @@ sign-in form.
 ```
 
 Next, call the `Identify` method of the `LoginResponse` object obtained in
-[Step 2](#step-2-navigate-to-the-sign-in-page), passing in the `IdentifyRequest`
+[Step 2](#_2-capture-credentials-with-the-sign-in-page), passing in the `IdentifyRequest`
 created in the previous step.
 
 ```go
@@ -124,7 +122,7 @@ if lr.HasStep(idx.LoginStepEmailVerification) {
 
 When the user selects the email factor and clicks submit, call the `LoginResponse` object's
 `VerifyEmail` method. Calling this method instructs the Okta org server to send an
-email to the email address the user provided in [Step 3](#step-3-submit-the-credentials).
+email to the email address the user provided in [Step 3](#_3-submit-the-credentials).
 
 ```go
 if !ok || !invCode.(bool) {
@@ -205,4 +203,4 @@ if lr.Token() != nil {
 
 ### 10 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after a successful user sign-in by making a request to Okta's Open ID Connect authorization server. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-user-profile-information) for more information.
+Optionally, you can obtain basic user information after a successful user sign-in by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/#get-the-user-profile-information) for more information.

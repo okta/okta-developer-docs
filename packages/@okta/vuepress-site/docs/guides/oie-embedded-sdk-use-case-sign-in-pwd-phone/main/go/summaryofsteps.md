@@ -1,6 +1,4 @@
-## Summary of steps
-
-The sequence of steps for the sign-in with password and email flow is shown below.
+The following diagram shows the sequence of steps for the sign-in with password and email flow.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
