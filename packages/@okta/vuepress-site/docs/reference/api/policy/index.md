@@ -1038,6 +1038,25 @@ Specifies a particular level of risk to match on
 }
 ```
 
+#### Expression Language Condition object
+
+Use Okta Expression Language as a condition.
+For details please see [Okta Expression Language in Identity Engine](/docs/reference/okta-expression-language-in-identity-engine/)
+
+
+| Parameter | Description              | Data Type | Required |
+| ---       | ---                      | ---       | ---      |
+| condition     | expression to match       | String     | Yes      |
+
+#### Expression Language Condition object example
+
+```json
+"elCondition": {
+    "condition":"security.risk.level == 'HIGH'"
+}
+```
+
+
 ## Type-Specific Policy data structures
 
 ## Okta Sign On Policy
@@ -1706,6 +1725,8 @@ You can define multiple IdP instances in a single Policy Action. This allows use
 
 The app sign-on policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. Okta Identity Engine always evaluates both the Okta sign-on policy and the sign-on policy for the app. The resulting user experience is the union of both policies. App sign-on policies have the type `ACCESS_POLICY`.
 
+When you create a new application, it's created with a new app sign on policy by default. You can't create a new app sign on policy and assign it to the application. Instead, consider editing the default one to meet your needs.
+
 > **Note:** You can have a maximum of 5000 app sign-on policies in an org.
 > There is a max limit of 100 rules allowed per policy.
 > When you create an app sign-on policy, you automatically also create a default policy rule with the lowest priority of `99`.
@@ -1718,6 +1739,18 @@ The app sign-on policy determines the extra levels of authentication (if any) th
         "type": "ACCESS_POLICY",
         "name": "Web Cart App Sign On Policy",
         "description": "Standard policy for Web Cart application"
+    }
+```
+
+In addition, there is no direct property to get the policy ID for an application. Instead, you need to retrieve the application object and use the reference to the policy ID that is a part of the application object.
+
+#### App sign-on policy reference in HAL link in Application API Object example
+
+```json
+    {
+        "accessPolicy": {
+          "href": "https://demo.okta.com/api/v1/policies/rstn2baH9AACavHBO0g4"
+        }
     }
 ```
 
@@ -1737,9 +1770,7 @@ You can apply the following conditions to the rules associated with an app sign-
 
 * [Platform Condition](#platform-condition-object)
 
-* [Expression Language Condition](#el-condition-object)
-
-* [Office365Client Condition](#office365Client-condition-object)
+* [Expression Language Condition](#expression-language-condition-object)
 
 * [Risk Score Condition](#risk-score-condition-object)
 
@@ -1938,7 +1969,9 @@ The number of Authenticator class constraints in each Constraint object must be 
 
 > **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
-Profile Enrollemnt policies specify which profile attributes are required for creating new Users through self-service registration, and also can be used for progressive profiling. The type is specified as `PROFILE_ENROLLMENT`.
+Profile Enrollment policies specify which profile attributes are required for creating new Users through self-service registration, and also can be used for progressive profiling. The type is specified as `PROFILE_ENROLLMENT`.
+
+When you create a new profile enrollment policy, a policy rule is created by default. This type of policy can only have one policy rule, so it's not possible to create other rules. Instead, consider editing the default one to meet your needs.
 
 > **Note:** You can have a maximum of 500 profile enrollment policies in an org.
 > A Profile Enrollment policy can only have one rule associated with it. Adding more rules isn't allowed.
