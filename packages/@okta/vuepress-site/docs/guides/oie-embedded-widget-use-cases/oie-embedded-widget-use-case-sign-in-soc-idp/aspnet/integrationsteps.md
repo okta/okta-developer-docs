@@ -1,4 +1,3 @@
-
 ### 1: The user selects the Facebook Identity Provider
 
 After you complete the steps in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case), the **Sign in with Facebook** link should appear automatically on the widget. You don't need to make any code changes to make the link appear.

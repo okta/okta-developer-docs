@@ -9,13 +9,9 @@ title: Basic sign-in flow using the Widget
 
 <StackSelector class="cleaner-selector"/>
 
-## Factor setup
-
-This use case requires the password factor.
-
 <div class="common-image-format">
 
-![Displays an image of the required Password factor only](/img/oie-embedded-sdk/factor-password-only.png)
+![Displays an image of the required Password authenticator only](/img/oie-embedded-sdk/factor-password-only.png)
 
 </div>
 
