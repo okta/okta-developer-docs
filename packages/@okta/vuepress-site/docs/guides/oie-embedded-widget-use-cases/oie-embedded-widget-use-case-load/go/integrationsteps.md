@@ -4,7 +4,7 @@ The first step occurs when the user selects on the sign-in link. This link
 directs the user to the sign-in page where the Widget is embedded. On the sample application's
 landing page, this link is labelled **Login** and located on the top right corner of the page.
 
-### 2: Get data to initialize the Widget
+### 2: Get the data to initialize the Widget
 
 Obtain the parameters required to display the Widget when the sign-in page loads. Source these
 parameters using different methods. The main parameters include:
@@ -85,7 +85,7 @@ Next, add a div tag that's the container for the Widget.
 ```
 
 Finally, add the javascript that loads the Widget into the `div` tag. The parameters set in
-[step 2](#step-2-get-data-to-initialize-the-widget) are being used to initialize the `OktaSignIn` object.
+[step 2](#_2-get-the-data-to-initialize-the-widget) are being used to initialize the `OktaSignIn` object.
 
 ```javascript
 <script type="text/javascript">

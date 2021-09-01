@@ -96,7 +96,7 @@ val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(newPassword)
 val authenticationResponse = idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions)
 ```
 
-The request returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and an `Authenticators` list that contains the email and phone factors. Reuse the authenticator enrollment form from [Step 3: Display enrollment factors](#step-3-display-enrollment-factors) to display the list of authenticators to the user.
+The request returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` and an `Authenticators` list that contains the email and phone factors. Reuse the authenticator enrollment form from [3: Display enrollment factors](#_3-display-the-enrollment-factors) to display the list of authenticators to the user.
 
 <div class="common-image-format">
 

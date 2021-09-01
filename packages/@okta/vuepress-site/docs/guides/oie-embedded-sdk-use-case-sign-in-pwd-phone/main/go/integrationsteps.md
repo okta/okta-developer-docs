@@ -54,7 +54,7 @@ sign-in form.
 ```
 
 Next, call the `Identify` method of the `LoginResponse` object obtained
-in [Step 2](#_2-capture-credentials-with-the-sign-in-page), passing in the `IdentifyRequest` created in the previous step.
+in [step 2](#_2-capture-credentials-with-the-sign-in-page), passing in the `IdentifyRequest` created in the previous step.
 
 ```go
 lr, err = lr.Identify(context.TODO(), ir)

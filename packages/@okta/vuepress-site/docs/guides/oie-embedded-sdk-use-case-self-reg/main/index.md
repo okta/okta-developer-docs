@@ -20,8 +20,7 @@ This use case requires the password and either the email or the phone factor.
 
 <div class="common-image-format">
 
-![Password and email factors](/img/oie-embedded-sdk/factor-password-email-or-phone.png
- "Password and email factors")
+![Password and email factors](/img/oie-embedded-sdk/factor-password-email-or-phone.png)
 
 </div>
 
@@ -31,9 +30,9 @@ Before you can build the self-registration flow in your app, you must configure 
 
 Before you begin:
 
-* If not already done, complete the steps in [Set up your Okta org (for password factor only use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
+* If not already done, complete the steps in [Set up your Okta org for password factor only use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-password-factor-only-use-cases).
 
-* If not already done, complete the steps in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases).
+* If not already done, complete the steps in [Set up your Okta org for multifactor use cases](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multifactor-use-cases).
 
 ### 1: Update the profile enrollment default policy
 
