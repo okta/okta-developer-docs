@@ -16,4 +16,4 @@ See [Using the npm module](https://github.com/okta/okta-auth-js#using-the-npm-mo
 
 #### Step 3: Review the SDK Identity Engine methods
 
-Review the Identity Engine SDK methods for use with your application. See [Usage](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage) for further information.
+Review Identity Engine SDK methods for use with your application. See [Usage](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage) for further information.

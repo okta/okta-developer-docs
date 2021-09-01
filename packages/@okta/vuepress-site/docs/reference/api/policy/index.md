@@ -759,7 +759,7 @@ Specifies a set of Groups whose Users are to be included or excluded
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Contact [Support](mailto:dev-inquiries@okta.com) for more information.
+> **Note:** This feature is only available as a part of Okta Identity Engine. Contact [Support](mailto:dev-inquiries@okta.com) for more information.
 
 Specifies which [User Types](/docs/reference/api/user-types/#user-type-object) to include and/or exclude. You can use the [User Types API](/docs/reference/api/user-types/) to manage User Types.
 
@@ -999,7 +999,7 @@ Specifies a particular platform or device to match on
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
 Specifies the device condition to match on
 
@@ -1362,7 +1362,7 @@ Specifies how lookups for weak passwords are done. Designed to be extensible wit
 #### Recovery object
 
 The Password Policy object contains the factors used for password recovery and account unlock.
-However, if you are using Okta Identity Engine, it is recommended to set recovery factors in the Password Policy Rule as shown in the examples under [Password Rules Action Data](#password-actions-example).
+However, if you are using Identity Engine, it is recommended to set recovery factors in the Password Policy Rule as shown in the examples under [Password Rules Action Data](#password-actions-example).
 
 | Property | Description                                            | Data Type                                           | Required |
 | ---      | ---                                                    | ---                                                 | ---      |
@@ -1468,7 +1468,7 @@ The following conditions may be applied to Password Policy:
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-With Okta Identity Engine, Recovery Factors can be specified inside the Password Policy Rule object instead of in the Policy Settings object. Recovery Factors for the rule are defined inside the `selfServicePasswordReset` Action.
+With Identity Engine, Recovery Factors can be specified inside the Password Policy Rule object instead of in the Policy Settings object. Recovery Factors for the rule are defined inside the `selfServicePasswordReset` Action.
 
 The following three examples demonstrate how Recovery Factors are configured in the Rule based on admin requirements.
 
@@ -1575,7 +1575,7 @@ In the final example, end users are required to verify two Authenticators before
 
 ##### Self Service Password Reset Action object
 
-> **Note:** The following indicated objects and properties are only available as a part of Okta Identity Engine. Please contact support for further information.
+> **Note:** The following indicated objects and properties are only available as a part of Identity Engine. Please contact support for further information.
 
 | Property                                                       | Data Type   | Description                                                                                 | Supported Values                | Required | Default
 | ---                                                            | ---         | ---                                                                                         | ---                             | ---      | ---
@@ -1626,7 +1626,7 @@ You can apply the following conditions to the IdP Discovery Policy:
 | ---       | ---                                                                  | ---       | ---      |
 | providers | List of configured Identity Providers that a given Rule can route to | array     | Yes      |
 
-> **Note:** Ability to define multiple providers is a part of Okta Identity Engine.
+> **Note:** Ability to define multiple providers is a part of Identity Engine.
 > Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
 > **Note:** IdP types of `OKTA`, `AgentlessDSSO`, and `IWA` don't require an `id`.
@@ -1651,7 +1651,7 @@ You can apply the following conditions to the IdP Discovery Policy:
 <ApiLifecycle access="ie" />
 <ApiLifecycle access="Limited GA" /><br>
 
-> **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
 You can define multiple IdP instances in a single Policy Action. This allows users to choose a Provider when they sign in.
 
@@ -1702,9 +1702,9 @@ You can define multiple IdP instances in a single Policy Action. This allows use
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-> **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
-The app sign-on policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. Okta Identity Engine always evaluates both the Okta sign-on policy and the sign-on policy for the app. The resulting user experience is the union of both policies. App sign-on policies have the type `ACCESS_POLICY`.
+The app sign-on policy determines the extra levels of authentication (if any) that must be performed before you can invoke a specific Okta application. It is always associated with an app through a Mapping. Identity Engine always evaluates both the Okta sign-on policy and the sign-on policy for the app. The resulting user experience is the union of both policies. App sign-on policies have the type `ACCESS_POLICY`.
 
 > **Note:** You can have a maximum of 5000 app sign-on policies in an org.
 > There is a max limit of 100 rules allowed per policy.
@@ -1936,7 +1936,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-> **Note:** This feature is only available as a part of Okta Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of Identity Engine. [Contact support](mailto:dev-inquiries@okta.com) for further information.
 
 Profile Enrollemnt policies specify which profile attributes are required for creating new Users through self-service registration, and also can be used for progressive profiling. The type is specified as `PROFILE_ENROLLMENT`.
 

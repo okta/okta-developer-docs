@@ -1,4 +1,4 @@
-The Okta Identity Engine Android sample app uses the Identity Engine Java SDK. The Java SDK isn't Android specific, but works with Android.
+The Okta Identity Engine Android sample app uses the Identity Engine Java SDK. The Java SDK isn't Android-specific, but works with Android.
 
 * [Android Studio](https://developer.android.com/studio) 4.2.x or later
 * [JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html) or later

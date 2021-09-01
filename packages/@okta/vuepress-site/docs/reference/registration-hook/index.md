@@ -237,7 +237,7 @@ If there is a response timeout after receiving the Okta request, the Okta proces
 
 <ApiLifecycle access="ie" /><br>
 
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
@@ -261,7 +261,7 @@ Your Registration Inline Hook is now configured for Profile Enrollment.
 
 <ApiLifecycle access="ea" />
 
-> **Note:** Self-Service Registration only exists in Classic Engine. For Okta Identity Engine, please see instructions for Profile Enrollment above.
+> **Note:** Self-Service Registration only exists in Classic Engine. For Identity Engine, please see instructions for Profile Enrollment above.
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
