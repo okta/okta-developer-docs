@@ -63,7 +63,7 @@ The requests and responses vary depending on the application type, and whether a
 
 As part of the authentication call either the username and password or the token parameter must be provided.
 
-| Parameter  | Description                                                                                                      | Param Type | DataType                          | Required | MaxLength |
+| Parameter                                      | Description                                                                                                      | Param Type | DataType                          | Required | MaxLength |
 |------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:-----------|:----------------------------------|:---------|:----------|
 | audience <ApiLifecycle access="deprecated" />  | App ID of the target app the user is signing into                                                                | Body       | String                            | FALSE    |           |
 | context                                        | Provides additional context for the authentication transaction                                                   | Body       | [Context object](#context-object) | FALSE    |           |
