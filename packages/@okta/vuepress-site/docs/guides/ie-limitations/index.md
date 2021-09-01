@@ -125,6 +125,22 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 ***
 
+#### The ‘audience’ parameter in the Authentication API
+
+**What Changed:** Passing the `audience` parameter to the `/api/v1/authn` API isn't supported in Identity Engine because of the new flexible App Sign-On Policy that comes with Identity Engine. The Classic Engine pipeline doesn't support the flexible App Sign-On Policy.
+
+**Further information:** [IDP-initiated step-up authentication](/docs/reference/api/authn/#idp-initiated-step-up-authentication)
+
+***
+
+#### Custom sign-in page for embedded app links
+
+**What Changed:** Using a custom sign-in page for embedded app links isn't supported. Users who click an app embed link are now evaluated by their org's Okta sign-in policy. Admins can customize an Okta-hosted sign-in page or configure an IdP routing rule for the app.
+
+**Further information:** [Configure a custom Okta-hosted sign-in page](/docs/guides/style-the-widget/before-you-begin/) and [Configure routing rules](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Identity_Provider_Discovery)
+
+***
+
 ### Identity Engine features not supported with the Classic Engine APIs
 
 #### Factor API enrollment limitations
