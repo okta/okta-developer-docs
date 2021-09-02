@@ -14,7 +14,7 @@ The Okta API rate limits are divided into three categories: authentication/end u
 
 To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
 
-> We enforce **per-minute** limits at the individual API endpoint level.
+> We enforce the following **per-minute** limits.
 
 | Category                                                          | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ----------------------------------------------------------------- | ----------------:| ----------------:| -------:| ----------:| ---------------------:|
@@ -37,7 +37,7 @@ If any org-wide rate limit is exceeded, an HTTP 429 status code is returned. You
 
 * [Concurrent rate limits](/docs/reference/rl-additional-limits/#concurrent-rate-limits): To protect the service for all customers, Okta enforces concurrent rate limits, which is a limit on the number of simultaneous transactions. Concurrent rate limits are distinct from the org-wide, per-minute API rate limits, which measure the total number of transactions per minute. Transactions are typically very short-lived. Even very large bulk loads rarely use more than 10 simultaneous transactions at a time.
 
-* [Client-based rate limits](/docs/reference/rl-clientbased/): To provide granular isolation, client-based rate limiting uses a combination of the client ID/IP address/device identifier for requests made to the OAuth 2.0 `/authorize` endpoint or the IP address/device identifier for requests made to the `/login/login.htm` endpoint. This framework isolates rogue OAuth 2.0 clients and bad actors, thereby ensuring valid users and applications don't run into rate limit violations.
+* [Client-based rate limits](/docs/reference/rl-clientbased/): To provide granular isolation, client-based rate limiting uses a combination of the client ID/IP address/device identifier for requests made to the OAuth 2.0 `/authorize` endpoint or the IP address/device identifier for requests made to the `/login/login.htm` endpoint. This framework isolates OAuth 2.0 clients that are generating unexpected traffic, thereby it ensures valid users and applications don't run into rate limit violations.
 
 * [DynamicScale rate limits](/docs/reference/rl-dynamic-scale/): If your needs exceed Okta's default rate limits for the base product subscriptions (One App or Enterprise) that you've already purchased, the  DynamicScale add-on service grants you higher limits for a variety of endpoints across different APIs.
 

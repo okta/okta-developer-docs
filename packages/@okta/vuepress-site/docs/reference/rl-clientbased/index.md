@@ -38,7 +38,7 @@ The best way to describe how client-based rate limiting works is to provide some
 
 #### Client-based isolation for a unique IP address
 
-##### Example of using the /oauth2/v1/authorize request
+##### Example of using the OAuth 2.0 /authorize request
 
 Bob and Alice are working from home and have distinct IP addresses. Both Bob and Alice try to sign in to their company's portal application (clientID: portal123) at the same time. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate limit framework creates a unique per minute request quota for both Bob and Alice using their IP address and the OAuth 2.0 client ID that they are trying to access.
 
@@ -59,7 +59,7 @@ When Bob and Alice try to navigate to their application and land on the sign-in 
 
 If the request quota isn't set, Bob or Alice would have the ability to make the request enough times that the entire org bucket would hit rate limits that would affect the entire org.
 
-#### Client-based isolation for users accessing /oauth2/v1/authorize from a NAT IP
+#### Client-based isolation for users accessing OAuth 2.0 /authorize from a NAT IP
 
 Alice, Bob, and Lisa all work from the same office. Since they access Okta through a Network Address Translation (NAT) IP from their office network, everyone shares the same IP address. When they make the authorize request to `https://company.okta.com/oauth2/v1/default/authorize?clientId=portal123`, the client-based rate limit framework creates a unique per minute request quota from the combination of every user's IP address, OAuth 2.0 client ID of the application, and the device identifier set by Okta in each user's browser.
 
