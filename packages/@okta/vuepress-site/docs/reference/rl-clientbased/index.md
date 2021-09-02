@@ -158,7 +158,7 @@ No. Today every client ID/IP/device identifier combination (for the OAuth 2.0 `/
 
 Yes. When the cumulative total request or maximum concurrent requests from every unique client exceeds the org-wide rate limits, your Okta org experiences org-wide rate limit errors.
 
-**Q: Would the rate limit headers returned by Okta on the /oauth2/v1/authorize or /login/login.htm endpoint reflect client-specific rate limits?**
+**Q: Would the rate limit headers returned by Okta on the OAuth 2.0 /authorize or /login/login.htm endpoint reflect client-specific rate limits?**
 
 Yes. The header value is specific to a given client/IP/device combination (for the OAuth 2.0 `/authorize` endpoint) or IP/device identifier combination (for the `/login/login.htm` endpoint) rather than the org-wide rate limit values.
 
