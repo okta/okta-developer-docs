@@ -241,7 +241,7 @@ AuthenticationResponse authenticationResponse =
          phone, getFactorFromMethod(session, mode));
 ```
 
-> **Note:** The option to select the voice or SMS verification method is supported only if your org is enabled with the voice feature. See [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/java/main) for the alternative use case where the voice verification method is selected.
+> **Note:** The option to select the voice or SMS verification method is supported only if your org is enabled with the voice feature. This use case assumes that your org is enabled with the voice feature. See [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/java/main) for the alternate phone authenticator flow where the voice feature isn't enabled in an org.
 
 The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your app. This status indicates that the user needs to provide the verification code for the phone authenticator.
 
