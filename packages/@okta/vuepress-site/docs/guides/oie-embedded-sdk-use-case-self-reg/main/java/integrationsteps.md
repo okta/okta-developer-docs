@@ -1,4 +1,4 @@
-### Step 1: Register new users
+### 1: Register new users
 
 The self-registration flow begins when the user clicks the **Sign up** link on your app's sign-in page. Create a **Sign up** link that directs the user to a create account form, such as the following example:
 
@@ -31,7 +31,7 @@ AuthenticationResponse newUserRegistrationResponse = idxAuthenticationWrapper.fe
 
 > **Note:** `IDXAuthenticationWrapper.fetchSignUpFormValues()` allows you to build the create account form dynamically from the required form values.
 
-### Step 2: User enters profile data
+### 2: The user enters their profile data
 
 Enroll the user with basic profile information captured from the create account form by calling the [`IDXAuthenticationWrapper.register()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L249) method.
 
@@ -46,7 +46,7 @@ ProceedContext proceedContext = newUserRegistrationResponse.getProceedContext();
 AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.register(proceedContext, userProfile);
 ```
 
-### Step 3: Display enrollment factors
+### 3: Display the enrollment authenticators
 
 After you've configured your org and app with instructions from [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-multifactor-use-case), your app is configured with **Password** authentication, and additional **Email** or **Phone** factors. Authenticators are the factor credentials, owned or controlled by the user, which can be verified during authentication.
 
@@ -89,7 +89,7 @@ public ModelAndView selectAuthenticatorForm(AuthenticationResponse response, Str
 }
 ```
 
-### Step 4: User selects authenticator to enroll
+### 4: The user selects the authenticator to enroll
 
 Pass the user-selected authenticator (in this case, the password authenticator) to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
@@ -105,7 +105,7 @@ This request returns an `AuthenticationResponse` object with property `Authentic
 
 </div>
 
-### Step 5: Verify authenticator and display additional factors
+### 5: Verify the authenticator and display additional authenticators
 
 After the user enters their new password, call the `IDXAuthenticationWrapper.verifyAuthenticator()` method with the user's password.
 
@@ -114,7 +114,7 @@ VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorO
 AuthenticationResponse authenticationResponse = idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-The request returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` property and an `Authenticators` list containing the email and phone factors. Reuse the authenticator enrollment form from [Step 3: Display enrollment factors](#step-3-display-enrollment-factors) to display the list of authenticators to the user.
+The request returns an `AuthenticationResponse` object with the `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` property and an `Authenticators` list containing the email and phone factors. Reuse the authenticator enrollment form from step [3: Display the enrollment authenticators](#_3-display-the-enrollment-authenticators) to display the list of authenticators to the user.
 
 <div class="common-image-format">
 
@@ -122,7 +122,7 @@ The request returns an `AuthenticationResponse` object with `AuthenticationStatu
 
 </div>
 
-### Step 6: User selects email authenticator
+### 6: The user selects the email authenticator
 
 In this use case, the user selects the **Email** factor as the authenticator to verify. Pass this user-selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
@@ -138,9 +138,9 @@ If this request is successful, a code is sent to the user's email and `Authentic
 
 </div>
 
-> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet supported. There are two recommended options to mitigate this limitation. See [Email verify email link does not work](/docs/guides/oie-embedded-sdk-limitations/main/#email-link-to-verify-email-address-not-working) for details.
+> **Note:** The email sent to the user has a **Verify Email Address** link that isn't yet supported. There are two recommended options to mitigate this limitation. See [The email link to verify the email address isn't working](/docs/guides/oie-embedded-sdk-limitations/main/#the-email-link-to-verify-the-email-address-isnt-working) for details.
 
-### Step 7: User submits email verification code
+### 7: The user submits the email verification code
 
 The user receives the verification code in their email and submits it in the verify code form. Use [VerifyAuthenticationOptions](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 
@@ -150,7 +150,7 @@ AuthenticationResponse authenticationResponse =
    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` property and an `Authenticators` list containing the phone factor. Reuse the authenticator enrollment form from [Step 3: Display enrollment factors](#step-3-display-enrollment-factors) to display the list of authenticators to the user.
+If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with the `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` property and an `Authenticators` list containing the phone factor. Reuse the authenticator enrollment form from step [3: Display the enrollment authenticators](#_3-display-the-enrollment-authenticators) to display the list of authenticators to the user.
 
 ```java
 public ModelAndView selectAuthenticatorForm(AuthenticationResponse response, String title, HttpSession session) {
@@ -171,9 +171,9 @@ public ModelAndView selectAuthenticatorForm(AuthenticationResponse response, Str
 }
 ```
 
-Based on the configuration described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-multifactor-use-case), the app in this use case is set up to require one possession factor (either email or phone). After the email factor is verified, the phone factor becomes optional. In this step, the `isSkipAuthenticatorPresent()` function returns `TRUE` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone factor.
+Based on the configuration described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-multifactor-use-case), the app in this use case is set up to require one possession factor (either email or phone). In addition, your [org is configured with both email and phone enrollment factors set to optional](#_3-set-the-email-and-phone-authenticators-as-optional-enrollment-factors). Therefore, after the email factor is verified, the phone factor becomes optional. In this step, the `isSkipAuthenticatorPresent()` function returns `TRUE` for the phone authenticator. You can build a **Skip** button in your form to allow the user to skip the optional phone factor.
 
-If the user decides to skip the optional factor, they are considered signed in since they have already verified the required factors. See [Step 8, Option 1: Skip phone factor](#step-8-option-1-skip-phone-factor) for the skip authenticator flow. If the user decides to select the optional factor, see [Step 8, Option 2: User selects phone authenticator](#step-8-option-2-user-selects-phone-authenticator) for the optional phone authenticator flow.
+If the user decides to skip the optional factor, they are considered signed in since they've already verified the required factors. See step [8, Option 1: The user skips the phone authenticator](#option-1-the-user-skips-the-phone-authenticator) for the skip authenticator flow. If the user decides to select the optional factor, see step [8, Option 2: The user selects the phone authenticator](#option-2-the-user-selects-the-phone-authenticator) for the optional phone authenticator flow.
 
 <div class="common-image-format">
 
@@ -181,7 +181,9 @@ If the user decides to skip the optional factor, they are considered signed in s
 
 </div>
 
-### Step 8, Option 1: Skip phone factor
+### Step 8: Handle the phone authenticator options
+
+#### Option 1: The user skips the phone authenticator
 
 If the user decides to skip the phone factor enrollment, make a call to the  `IDXAuthenticationWrapper.skipAuthenticatorEnrollment()` method. This method skips the authenticator enrollment.
 
@@ -197,7 +199,7 @@ if ("skip".equals(action)) {
 
 If the request to skip the optional authenticator is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=SUCCESS` and the user is successfully signed in. Use the [`AuthenticationResponse.getTokenResponse()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java#L43) method to retrieve the required tokens (access, refresh, ID) for authenticated user activity.
 
-### Step 8, Option 2: User selects phone authenticator
+#### Option 2: The user selects the phone authenticator
 
 In this use case option, the user selects the optional **Phone** factor as the authenticator to verify. Pass this selected authenticator to the `IDXAuthenticationWrapper.selectAuthenticator()` method.
 
@@ -205,9 +207,11 @@ In this use case option, the user selects the optional **Phone** factor as the a
 authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
 ```
 
-The response from this request is an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`. This status indicates that the user needs to provide additional authenticator information. In the case of the phone authenticator, the user needs to specify a phone number, and whether they want to use SMS or voice as the verification method.
+The response from this request is an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_DATA`.
 
-### Step 9, Option 2: User enters phone number and selects SMS verify method
+This status indicates that the user needs to provide additional authenticator information. In the case of the phone authenticator, the user needs to specify a phone number, and whether they want to use SMS or voice as the verification method.
+
+##### The user enters their phone number and the SMS verify method
 
 You need to build a form to capture the user's phone number as well as a subsequent form for the user to select their phone verification method (either SMS or voice).
 
@@ -237,13 +241,13 @@ AuthenticationResponse authenticationResponse =
          phone, getFactorFromMethod(session, mode));
 ```
 
-> **Note:** The option to select the voice or SMS verification method is supported only if your org is enabled with the voice feature. See [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/java/main) for the alternative use case where the voice feature isn't enabled in an org.
+> **Note:** The option to select the voice or SMS verification method is supported only if your org is enabled with the voice feature. This use case assumes that your org is enabled with the voice feature. See [Sign in with password and phone factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-phone/java/main) for the alternate phone authenticator flow where the voice feature isn't enabled in an org.
 
 The Java SDK sends the phone authenticator data to Okta. Okta processes the request and sends an SMS code to the specified phone number. After the SMS code is sent, Okta sends a response to the SDK, which returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` to your app. This status indicates that the user needs to provide the verification code for the phone authenticator.
 
 You need to build a form to capture the user's SMS verification code.
 
-### Step 10, Option 2: User submits SMS verification code
+##### The user submits the SMS verification code
 
 The user receives the verification code as an SMS on their phone and submits it in the verify code form. Send this code to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 
