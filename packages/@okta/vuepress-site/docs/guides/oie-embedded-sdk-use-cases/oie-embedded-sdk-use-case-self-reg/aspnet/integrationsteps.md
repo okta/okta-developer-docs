@@ -432,9 +432,8 @@ catch (OktaException exception)
 }
 ```
 
-If the response's `AuthenticationStatus` returns `Success`, the registration is completed successfully.
-For unsuccessful registrations the `SkipAuthenticatorSelectionAsync` method can also throw exceptions such as
-the following:
+If `SkipAuthenticatorSelectionAsync` returns an `AuthenticationStatus` of `Success`, the registration is completed successfully.
+The method can also throw exceptions for unsuccessful registrations such as the following:
 
 * **`TerminalStateException`:** exception inherited from `OktaException` that's raised when an unexpected message
    is returned from the Okta API and no further remediation is possible.
