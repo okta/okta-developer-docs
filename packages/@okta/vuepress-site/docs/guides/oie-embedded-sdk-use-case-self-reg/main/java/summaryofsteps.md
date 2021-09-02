@@ -2,7 +2,7 @@ The sequence of steps for self-service registration is described in the followin
 
 ### Start a new user registration with the password authenticator
 
-The following diagram illustrates the beginning of the registration process where the user initiates the sign-in flow and enters their password.
+The following diagram illustrates the beginning of the registration process when the user initiates the sign-in flow and enters their password.
 
 <div class="common-image-format">
 
