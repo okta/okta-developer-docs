@@ -1,6 +1,3 @@
-
-## Summary of steps
-
 The following sequence diagram illustrates a simple sign-in flow with the Widget.
 
 <div class="common-image-format">

@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: The user selects the Facebook sign-in link
 
 If the the steps in [Configuration updates](#configuration-updates) were completed, the **Sign in with Facebook** link appears automatically on the Widget. No code change is required for the Facebook sign-in link to appear.

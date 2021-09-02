@@ -1,5 +1,3 @@
-## Integration steps
-
 ### 1: The user signs in with Facebook
 
 After you've completed the steps in [Configuration Updates](#configuration-updates), and have configured your app to [load the Sign-In Widget](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/), then the **Sign in with Facebook** option is available in the embedded Widget. No coding is required to have the **Sign in with Facebook** option.
