@@ -432,15 +432,17 @@ catch (OktaException exception)
 }
 ```
 
-If the response's `AuthenticationStatus` returns `Success`, the sign-in is completed successfully
-and you can store the returned tokens in a session for latter use. The `SkipAuthenticatorSelectionAsync` method
-can also throw exceptions such as the following:
+If the response's `AuthenticationStatus` returns `Success`, the registration is completed successfully.
+For unsuccessful registrations the `SkipAuthenticatorSelectionAsync` method can also throw exceptions such as
+the following:
 
 * **`TerminalStateException`:** exception inherited from `OktaException` that's raised when an unexpected message
    is returned from the Okta API and no further remediation is possible.
 * **`OktaException`:** general base exception that's raised when any Okta client and API exceptions are thrown.
 
-After the factor verifications are successful and there are no more authenticators to enroll and verify, the user is successfully registered and can be sent to the default sign-in page. In the sample app, the default sign-in page is the user profile page. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more details on how to fetch user information.
+After a successful registration, store the returned tokens in a session and send the user to the default signed-in page.
+In the sample app, this page is the user profile page. See
+[Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more details on how to fetch user information.
 
 ### Troubleshooting Tips
 
