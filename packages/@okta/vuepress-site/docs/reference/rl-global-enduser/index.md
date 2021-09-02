@@ -20,18 +20,20 @@ This page provides the API rate limits for authentication and end-user activitie
 
 | Action and Okta API Endpoint                                                                                           | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ---------------------------------------------------------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ---------------------: |
-| **Cumulative rate limit**                                                                                              | **1,700**        | **9,000**        | **9,000**| **11,200**| **13,900**            |
+| **Cumulative rate limit**                                                                                              | **2,100**        | **10,800**        | **10,800**| **13,000**| **18,250**            |
 | **Authenticate different end users:**<br>`/api/v1/authn`                                                               | 100              | 600              | 600     | 600        | 500                   |
 | **Verify a factor:**<br>`/api/v1/authn/factors/${factorIdOrFactorType}/verify` only                                     | 100              | 600              | 600     | 600        | 500                   |
 | **Get session information:**<br>`/api/v1/sessions`                                                                     | 100              | 600              | 600     | 600        | 750                   |
-| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/${authorizationServerId}/v1` except public metadata endpoints (see Note below)  | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
-| **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients` and public metadata endpoints (see Note below) | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
+| **OAuth2 requests for Custom Authorization Servers:**<br>`/oauth2/${authorizationServerId}/v1` except `/oauth2/${authorizationServerId}/v1/authorize` and public metadata endpoints (see Note below)  | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
+| `/oauth2/${authorizationServerId}/v1/authorize`                                                                         | 300              | 1200             | 1200    | 1200       | 2000
+| **OAuth2 requests for the Org Authorization Server:**<br>`/oauth2/v1` except `/oauth2/v1/clients`, `/oauth2/v1/authorize` and public metadata endpoints (see Note below) | 300 | 1,200 | 1,200     | 1,200       | 2,000                  |
+| `/oauth2/v1/authorize`                                                                                                 | 300              | 1200             | 1200    | 1200       | 2000
 | **All other OAuth2 requests:**<br>`/oauth2`                                                                            | 100              | 600              | 600     | 600        | 600                   |
 | `/app/${app}/${key}/sso/saml`                                                                                            | 100              | 600              | 600     | 600        | 750                   |
 | `/app/office365${appType}/${key}/sso/wsfed/active`                                                                       | N/A              | N/A              | N/A     | 2,000       | 1,000                  |
 | `/app/office365${appType}/${key}/sso/wsfed/passive`                                                                      | N/A              | N/A              | N/A     | 250        | 250                   |
 | `/app/template_saml_2_0/${key}/sso/saml`                                                                                | 100              | 600              | 600     | 600        | 2,500                  |
-| `/login/login.htm`                                                                                                     | 100              | 600              | 600     | 600        | 850                   |
+| `/login/login.htm`                                                                                                     | 200              | 1200              | 1200     | 1200        | 1200                   |
 | `/login/sso_iwa_auth`                                                                                                  | 100              | 600              | 600     | 600        | 500                   |
 | `/api/${apiVersion}/radius`                                                                                             | 100              | 600              | 600     | 600        | 600                   |
 | `/idp/idx`                                                                                                             | 100              | 600              | 600     | 600        | 500                   |

@@ -1,6 +1,45 @@
 ---
 title: Okta API Products Release Notes 2021
 ---
+# September
+
+### Monthly Release 2021.09.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [SAML assertion preview populates with real data](#saml-assertion-preview-populates-with-real-data)              | September 1, 2021 |
+| [Dynamic Issuer Mode is EA in Preview](#dynamic-issuer-mode-is-ea-in-preview) | September 1, 2021 |
+| [The Subscriptions API is GA in Production](#the-subscriptions-api-is-ga-in-production)| September 1, 2021 |
+| [Rate limit updates](#rate-limit-updates)| September 1, 2021 |
+
+#### SAML assertion preview populates with real data
+
+After a developer creates a SAML App integration in the Okta Admin Console, the preview of a generated SAML assertion now uses real data instead of mock data. See [Create a SAML integration](/docs/guides/build-sso-integration/saml2/create-your-app/). <!--OKTA-398842-->
+
+#### Dynamic Issuer Mode is EA in Preview
+
+An authorization server's issuer URL can be used to validate whether tokens are issued by the correct authorization server. You can configure the issuer URL to be either the Okta subdomain (such as `company.okta.com`) or a custom domain (such as `sso.company.com`). See [Property details](/docs/reference/api/authorization-servers/#authorization-server-properties).
+
+When there are applications that use Okta's subdomain and other applications that use the custom domain, the issuer validation breaks because the value is hard-coded to one domain or the other.
+
+With Dynamic Issuer Mode, the issuer value in minted tokens is dynamically updated based on the URL that is used to initiate the original authorize request. For example, if the authorize request is `https://sso.company.com/api/v1/authorize`, the issuer value is `https://sso.company.com`. See [Client application settings](/docs/reference/api/apps/#settings-10).
+
+Dynamic Issuer Mode helps with:
+* Split deployment use cases
+* Migration use cases when customers migrate from the Okta domain to a custom domain
+* Support with multiple custom domains <!--OKTA-411419-->
+
+#### The Subscriptions API is GA in Production
+
+The [Subscriptions API](/docs/reference/api/admin-notifications/) provides operations to manage email subscription settings for Okta administrator notifications.
+
+* Super Admins can manage the default admin notifications that each admin receives based on their role.
+* Individual admins can update their own notification preferences by subscribing or unsubscribing. <!--OKTA-411527-->
+
+#### Rate limit updates
+
+The default rate limit has increased for the [`/login/login.htm`](/docs/reference/rl-global-enduser/) endpoint. Also, the `/login/step-up/redirect` endpoint is added to [Dynamic Scale](/docs/reference/rl-dynamic-scale/) and the [Workforce Multiplier](/docs/reference/rl-additional-limits/#workforce-license-rate-limit-multiplier) list. <!--OKTA-417680-->
+
 ## August
 
 ### Weekly Release 2021.08.3
