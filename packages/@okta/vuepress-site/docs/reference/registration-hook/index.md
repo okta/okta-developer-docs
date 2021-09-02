@@ -21,7 +21,7 @@ For information on the API for registering external service endpoints with Okta,
 
 For steps to enable this Inline Hook, see below, [Enabling a Registration Inline Hook](#enable-a-registration-inline-hook-for-profile-enrollment-in-okta-identity-engine). <ApiLifecycle access="ie" /><br>
 
-For steps to enable this Inline Hook in Okta Classic Engine, see [Enabling a Registration Inline Hook in the Classic Engine](#enable-a-registration-inline-hook-for-self-service-registration-in-classic-engine).
+For steps to enable this Inline Hook in Okta Classic Engine, see [Enabling a Registration Inline Hook in the Classic Engine](#enable-a-registration-inline-hook-for-self-service-registration-in-the-classic-engine).
 
 For an example implementation of this Inline Hook, see [Registration Inline Hook](/docs/guides/registration-inline-hook).
 
