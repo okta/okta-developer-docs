@@ -150,7 +150,7 @@ AuthenticationResponse authenticationResponse =
    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
 ```
 
-If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` property and an `Authenticators` list containing the phone factor. Reuse the authenticator enrollment form from step [3: Display the enrollment authenticators](#_3-display-the-enrollment-authenticators) to display the list of authenticators to the user.
+If the request to verify the code is successful, the SDK returns an `AuthenticationResponse` object with the `AuthenticationStatus=AWAITING_AUTHENTICATOR_ENROLLMENT_SELECTION` property and an `Authenticators` list containing the phone factor. Reuse the authenticator enrollment form from step [3: Display the enrollment authenticators](#_3-display-the-enrollment-authenticators) to display the list of authenticators to the user.
 
 ```java
 public ModelAndView selectAuthenticatorForm(AuthenticationResponse response, String title, HttpSession session) {
