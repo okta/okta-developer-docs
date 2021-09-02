@@ -2,14 +2,14 @@
 title: Okta Identity Engine Overview
 meta:
   - name: description
-    content: Okta Identity Engine offers customizable building blocks that can support dynamic, app-based user journeys. Find out more about Identity Engine, why you would use it, and how to upgrade your org.
+    content: Okta Identity Engine offers customizable building blocks that can support dynamic, app-based user journeys. Find out more about the Identity Engine, why you would use it, and how to upgrade your org.
 ---
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
 ## About Okta Identity Engine
 
-The Identity Engine is a platform service that allows enterprises to build access experiences tailored to their organizational needs. With the [Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie), you are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, you can customize and extend each of these steps.
+Okta Identity Engine is a platform service that allows enterprises to build access experiences tailored to their organizational needs. With the [Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie), you are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, you can customize and extend each of these steps.
 
 The Identity Engine user authentication deployment model can be divided into two approaches:
 
