@@ -367,8 +367,6 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
    After the user enters the phone code and clicks verify, a call is made to `VerifyAuthenticatorAsync`. In the phone verification use case, the code that passes into `VerifyAuthenticatorAsync` is the code that was sent through SMS to the phone number.
 
-   T)
-
    ```csharp
    var idxAuthClient = new IdxClient(null);
             var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
@@ -383,7 +381,7 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
    The next step is to handle the response from `VerifyAuthenticatorAsync`. If the phone SMS code was valid, the method should return an `AuthenticationStatus` of `Success`. This status signifies that no more factors (required or optional) are waiting to be enrolled and verified.
 
-   If the steps described in[Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases) were properly followed, the user should now be registered with no more factors to be verified. The user should then be sent to the default page after they have successfully registered. In the sample application, the user is sent to the user profile page.
+   If the steps described in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases) were properly followed, the user should now be registered with no more factors to be verified. The user should then be sent to the default page after they have successfully registered. In the sample application, the user is sent to the user profile page.
 
    ```csharp
    var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
@@ -404,25 +402,43 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
 #### Option 2: Skip phone enrollment
 
-If the user opts to skip phone enrollment, a call to `SkipAuthenticatorSelectionAsync` needs to be made. This method skips phone enrollment and eliminates the need to verify the factor. See the following code snippet for more details.
+If the user opts to skip phone enrollment, a call to `SkipAuthenticatorSelectionAsync` needs to be made. This method skips phone enrollment and eliminates the need to verify the factor:
 
 ```csharp
-var skipSelectionResponse = await _idxClient.SkipAuthenticatorSelectionAsync((IIdxContext)Session["IdxContext"]);
-switch (skipSelectionResponse.AuthenticationStatus)
-    {
+try
+{
+      var skipSelectionResponse = await _idxClient.SkipAuthenticatorSelectionAsync
+      ((IIdxContext)Session["IdxContext"]);
+
+      switch (skipSelectionResponse.AuthenticationStatus)
+      {
          case AuthenticationStatus.Success:
-              ClaimsIdentity identity = await
-              AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration,
-              skipSelectionResponse.TokenInfo);
-              _authenticationManager.SignIn(new AuthenticationProperties(), identity);
-              return RedirectToAction("Index", "Home");
-         case AuthenticationStatus.Terminal:
-              TempData["MessageToUser"] = skipSelectionResponse.MessageToUser;
-              return RedirectToAction("Login", "Account");
-   }
+            ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenResponseAsync
+            (_idxClient.Configuration, skipSelectionResponse.TokenInfo);
+            _authenticationManager.SignIn(new AuthenticationProperties(), identity);
+            return RedirectToAction("Index", "Home");
+      }
+      return RedirectToAction("Index", "Home");
+}
+catch (TerminalStateException exception)
+{
+      TempData["TerminalStateMessage"] = exception.Message;
+      return RedirectToAction("Login", "Account");
+}
+catch (OktaException exception)
+{
+      ModelState.AddModelError(string.Empty, exception.Message);
+      return RedirectToAction("SelectAuthenticator");
+}
 ```
 
-The method `SkipAuthenticatorSelectionAsync` can return these different response statuses: `Success` or `Terminal`. For a `Success` status, the user is signed in, the response is stored in session, and the user is redirected to the default sign-in page. In the csample app, the default sign-in page is the user profile page.
+If the response's `AuthenticationStatus` returns `Success`, the sign-in is completed successfully
+and you can store the returned tokens in a session for latter use. The `SkipAuthenticatorSelectionAsync` method
+can also throw exceptions such as the following:
+
+* **`TerminalStateException`:** exception inherited from `OktaException` that's raised when an unexpected message
+   is returned from the Okta API and no further remediation is possible.
+* **`OktaException`:** general base exception that's raised when any Okta client and API exceptions are thrown.
 
 After the factor verifications are successful and there are no more authenticators to enroll and verify, the user is successfully registered and can be sent to the default sign-in page. In the sample app, the default sign-in page is the user profile page. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more details on how to fetch user information.
 
