@@ -14,6 +14,8 @@ The Okta API rate limits are divided into three categories: authentication/end u
 
 To access the individual API limits, visit a category page by clicking the appropriate category link in the table.
 
+> We enforce **per-minute** limits at the individual API endpoint level.
+
 | Category                                                          | Developer (free) | Developer (paid) | One App | Enterprise | Workforce Identity    |
 | ----------------------------------------------------------------- | ----------------:| ----------------:| -------:| ----------:| ---------------------:|
 | [Authentication/End user](/docs/reference/rl-global-enduser/)     | 1,700            | 9,000            | 9,000   | 11,200     | 13,900                |
