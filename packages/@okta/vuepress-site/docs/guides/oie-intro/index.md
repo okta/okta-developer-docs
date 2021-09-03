@@ -9,13 +9,13 @@ meta:
 
 ## About Okta Identity Engine
 
-The Identity Engine is a platform service that allows enterprises to build flexible access experiences that are tailored to their organizational needs. With the [Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie), you are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, you can customize and extend your access experiences, including passwordless sign-in, improved per app experiences, enhanced context for secure authentication, and more.
+Identity Engine is a platform service that allows enterprises to build flexible access experiences that are tailored to their organizational needs. With the [Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie), you are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, you can customize and extend your access experiences, including passwordless sign-in, improved per app experiences, enhanced context for secure authentication, and more.
 
-Similar to a major operating system update, Identity Engine is a free Okta upgrade that unlocks many new capabilities in Okta’s access management products, including Authentication (Customer Identity), Single Sign-On, and Multifactor Authentication.
+Identity Engine enables many new capabilities in Okta’s access management products, including Authentication (Customer Identity), Single Sign-On, and Multifactor Authentication.
 
 ## Why use the Identity Engine?
 
-The Identity Engine provides:
+Some of the new capabilities unlocked by Identity Engine include:
 
 * Passwordless authentication
 
@@ -45,7 +45,7 @@ See [Redirect authentication vs. embedded authentication](/docs/concepts/redirec
 
 ## Identity Engine SDKs
 
-To take advantage of these new features and for a better development experience, use the [Identity Engine SDKs](https://developer.okta.com/code/oie/) to manage authentication in your apps.
+To take advantage of the new Identity Engine features — and for a better development experience — use the [Identity Engine SDKs](https://developer.okta.com/code/oie/) to manage authentication in your apps.
 
 ### Redirect authentication sample apps
 
