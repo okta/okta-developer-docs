@@ -19,7 +19,7 @@
 <script>
 
 export default {
-  inject: ['treeNavDocs'],
+  inject: ['appContext'],
   components: {
     DocsMenuItem: () => import("../components/DocsMenuItem.vue"),
   },
@@ -32,18 +32,36 @@ export default {
       'parent': null,
     }
   },
+  watch: {
+    $route(to, from) {  
+      if (from.path !== to.path) {
+        this.navigateToSelected(to.path);
+      }
+    }
+  },
   mounted() {
-    var navigation = this.$parent.getMenuItems();    
-    navigation = navigation.concat(this.treeNavDocs);
+    let navigation = this.$parent.getMenuItems();    
+    navigation = navigation.concat(this.appContext.treeNavDocs);
     this.list = this.navigation = navigation.map(nav => {
       this.addIdToLink(nav, 0);
       return nav;
     });
+    this.navigateToSelected(this.$page.regularPath);
   },
   methods: {
-    handleChange: function(item) {
+    navigateToSelected: function(path) {
+        let item = this.getMenuItemByPath(path);
+        item.isOpened = false;      
+        this.handleChange(item, true);
+    },
 
-      this.toggleLinkState(item);
+    // Menu item was clicked
+    handleChange: function(item, isRedirect = false) {
+
+// TODO: check mobile nav when on the page
+      if (!isRedirect) {
+        this.toggleLinkState(item);
+      }
 
       // default root states
       this.list = this.navigation;
@@ -104,6 +122,22 @@ export default {
         }
       }
     },
+    getMenuItemByPath: function(path, items = this.navigation ) {
+      for (const link of items) {
+        if (link.path && link.path === path) {
+          return link;
+        }
+
+        if (link.subLinks) {
+          let item = this.getMenuItemByPath(path, link.subLinks)
+          if (item != null) {          
+            return item;
+          }
+        }
+      }
+
+      return null;
+    }
   }
 };
 </script>

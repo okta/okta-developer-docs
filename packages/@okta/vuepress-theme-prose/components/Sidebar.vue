@@ -2,7 +2,7 @@
   <aside class="tree-nav">
       <ul class="sections">
         <SidebarItem
-          v-for="link in treeNavDocs"
+          v-for="link in appContext.treeNavDocs"
           :key="link.title"
           :link="link"
         />
@@ -14,7 +14,7 @@
 
 export default {
   name: "Sidebar",
-  inject: ["appContext",'treeNavDocs'],
+  inject: ["appContext"],
   components: {
     SidebarItem: () => import("../components/SidebarItem.vue")
   },

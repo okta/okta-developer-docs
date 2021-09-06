@@ -19,7 +19,7 @@
 
   export default {
     name: "Breadcrumb",
-    inject: ['appContext','treeNavDocs'],
+    inject: ['appContext'],
     data() {
       return {
         crumbs: [],
@@ -43,7 +43,7 @@
       crumbItems() {
         this.crumbs = [];
         this.crumbParents = [];
-        let crumbs = this.getCrumbs(this.treeNavDocs);
+        let crumbs = this.getCrumbs(this.appContext.treeNavDocs);
         return crumbs;
       }
     },

@@ -16,18 +16,6 @@ export default {
       link_id: 0,
     };
   },
-  watch: {
-    $route(to, from) {
-      // On route change check if base path has changed.
-      // If true update `iHaveChildrenActive` parameter.
-      // In such way will be possible to indicate current active item without needs to re-render sidebar
-      if (from.path !== to.path) {
-        this.navigation.forEach((nav) => {
-          this.addStatesToLink(nav);
-        });
-      }
-    }
-  },
   methods: {
     getNavigation() {
       const homeLink = { title: "Home", path: "/" };

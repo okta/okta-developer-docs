@@ -85,25 +85,25 @@ export default {
     return {
       appContext: {
         isTreeNavMobileOpen: false,
-        isInMobileViewport: false
+        isInMobileViewport: false,
+        treeNavDocs: []
       },
       stackSelectorData: {
         to: '',
         from: ''
       },
-      treeNavDocs: [],
     };
   },
   provide() {
     return {
       appContext: this.appContext,
       stackSelectorData: this.stackSelectorData,
-      treeNavDocs: this.getTreeNavDocs(),
     };
   },
   mounted: function() {
     import('../util/pendo');
     let that = this;
+    that.appContext.treeNavDocs = this.getTreeNavDocs();
     this.$on("toggle-tree-nav", event => {
       that.appContext.isTreeNavMobileOpen = event.treeNavOpen;
     });
@@ -115,6 +115,17 @@ export default {
     $route(to, from) {
       this.appContext.isTreeNavMobileOpen = false;
       this.redirIfRequired();
+      
+      // On route change check if base path has changed.
+      // If true, re-render sidebar.
+      // We want to check if it's a 'real' route change (re-render sidebar) or just a page scroll
+      // where the hash fragment changes (do nothing)
+      if (from.path !== to.path) {
+        // Previously we tried to remove re-render logic but seems it
+        // caused additional bugs (https://oktainc.atlassian.net/browse/OKTA-419090, https://oktainc.atlassian.net/browse/OKTA-419134)
+        // See https://github.com/okta/okta-developer-docs/pull/2170 <-- PR that gets rid of re-render sidebar logic
+        this.appContext.treeNavDocs = this.getNavigationData();   
+      }
     }
   },
   computed: {
@@ -169,8 +180,8 @@ export default {
       );
     },
     getTreeNavDocs() {
-      this.treeNavDocs = this.treeNavDocs.length > 0 ? this.treeNavDocs : this.getNavigationData();
-      return this.treeNavDocs;
+      this.appContext.treeNavDocs = this.appContext.treeNavDocs.length > 0 ? this.appContext.treeNavDocs : this.getNavigationData();
+      return this.appContext.treeNavDocs;
     },
   },
   beforeDestroy() {
