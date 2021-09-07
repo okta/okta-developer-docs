@@ -17,6 +17,8 @@ The following table shows the scopes that are currently available:
 | `okta.clients.manage`    | Allows the app to manage all OAuth/OIDC clients and to create new clients| [Dynamic Client Registration API](/docs/reference/api/oauth-clients/)|
 | `okta.clients.read`      | Allows the app to read information for all OAuth/OIDC clients           | [Dynamic Client Registration API](/docs/reference/api/oauth-clients/)|
 | `okta.clients.register`  | Allows the app to register (create) new OAuth/OIDC clients (but not read information about existing clients)| [Dynamic Client Registration API](/docs/reference/api/oauth-clients/#register-new-client) |
+| `okta.devices.manage`		| Allows the app to manage any device's profile      | [Devices API](/docs/reference/api/devices) |
+| `okta.devices.read`		| Allows the app to read any device's profile      | [Devices API](/docs/reference/api/devices) |
 | `okta.domains.manage`  | Allows the app to create and manage Domains in your Okta organization| [Domains API](/docs/reference/api/domains/) |
 | `okta.domains.read`  | Allows the app to read information about Domains in your Okta organization| [Domains API](/docs/reference/api/domains/) |
 | `okta.eventHooks.manage` | Allows the app to create and manage Event Hooks in your Okta organization| [Event Hooks API](/docs/reference/api/event-hooks/)|
@@ -48,6 +50,7 @@ The following table shows the scopes that are currently available:
 | `okta.users.read.self`   | Allows the app to read the currently signed-in user's profile and credential information| [Users API](/docs/reference/api/users/#get-current-user) |
 | `okta.policies.manage`    | Allows the app to manage Policies in your Okta organization   | [Policy API](/docs/reference/api/policy/#policy-api-operations)|
 | `okta.policies.read`      | Allows the app to read information about Policies in your Okta organization| [Policy API](/docs/reference/api/policy/#policy-api-operations)|
+
 
 ## Scope Naming
 
