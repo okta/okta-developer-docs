@@ -32,11 +32,4 @@ To get the client credentials for your app integration:
 
 1. On the **General** tab, copy the **Client ID** from the **Client Credentials** section. You need this ID to complete the Authorize URL in the next section.
 
-> **Note:** For Sign in with Apple, you need to update your email sources within Apple's Developer Settings if you choose to [hide your email](https://support.apple.com/en-us/HT210425).
-
-1. Sign in to your [Apple Developer](https://developer.apple.com/) account.
-2. Go to **Certificates, Identifiers & Profiles** > **More**. Click **Configure** for **Sign in with Apple for Email communication**.
-3. Click the plus sign (+) next to **Email sources** and add `mailrelay.okta.com` for Domains and Subdomains. 
-4. Verify your changes by signing in to your Okta Admin Console, selecting **Sign in with Apple**, and verifying that a verification email is successfully sent to you.
-
 <NextSectionLink/>
