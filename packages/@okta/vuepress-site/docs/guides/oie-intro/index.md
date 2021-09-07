@@ -2,7 +2,7 @@
 title: Okta Identity Engine Overview
 meta:
   - name: description
-    content: Okta Identity Engine offers customizable building blocks that can support dynamic, app-based user journeys. Find out more about Identity Engine, why you would use it, and how to upgrade your org.
+    content: Okta Identity Engine offers customizable building blocks that can support dynamic, app-based user journeys. Find out more about the Identity Engine, why you would use it, and how to upgrade your org.
 ---
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />

@@ -47,7 +47,7 @@ Your Registration Inline Hook is now configured for Profile Enrollment. You are 
 
 > **Note:** Only one Inline Hook can be associated with your Profile Enrollment policy at a time.
 
-#### Enable the Registration Inline Hook in Classic Engine
+#### Enable the Registration Inline Hook in the Classic Engine
 
 <ApiLifecycle access="ea" />
 If you have a Classic Engine org, you must enable [self-service registration (SSR)](/docs/guides/set-up-self-service-registration/before-you-begin/) to implement a Registration Inline Hook.
