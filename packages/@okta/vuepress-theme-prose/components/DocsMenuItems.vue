@@ -50,18 +50,15 @@ export default {
   },
   methods: {
     navigateToSelected: function(path) {
-        let item = this.getMenuItemByPath(path);
-        item.isOpened = false;      
-        this.handleChange(item, true);
+        let item = this.getMenuItemByPath(path); 
+        item.isOpened = true;         
+        this.handleChange(item);
     },
 
     // Menu item was clicked
-    handleChange: function(item, isRedirect = false) {
+    handleChange: function(item) {
 
-// TODO: check mobile nav when on the page
-      if (!isRedirect) {
-        this.toggleLinkState(item);
-      }
+      this.toggleLinkState(item);
 
       // default root states
       this.list = this.navigation;
@@ -72,6 +69,7 @@ export default {
         parent = this.getParent(item);
         
         if (parent) {
+          parent.isOpened = true;
           this.list = parent.subLinks;
           this.title_element = parent;
         }
@@ -82,9 +80,11 @@ export default {
         this.title_element = item;
       }
     },
+
     toggleLinkState: function(item) {
       item.isOpened = !Boolean(item.isOpened);
     },
+
     addIdToLink(link, parent_id = 0) {
       this.link_id ++;
       link.id = this.link_id;
@@ -96,6 +96,7 @@ export default {
         }
       }
     },
+
     getParent: function(item) {
       this.parent = null;
       for (const link of this.navigation) {
@@ -106,6 +107,7 @@ export default {
 
       return this.parent;
     },
+
     checkIfParent: function(el, child) {
       if (this.parent || child.parent_id == 0) { 
         return false;
@@ -122,6 +124,7 @@ export default {
         }
       }
     },
+
     getMenuItemByPath: function(path, items = this.navigation ) {
       for (const link of items) {
         if (link.path && link.path === path) {
