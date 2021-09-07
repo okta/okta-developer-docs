@@ -16,7 +16,7 @@ Before you download the SDK, Widget, and sample apps, you need the following:
 
 <StackSelector snippet="softwarerequirements" noSelector />
 
-## Download from GitHub
+## Download the repository
 
 <StackSelector snippet="githubinstructions" noSelector />
 
@@ -65,10 +65,6 @@ The sample app uses the default scopes provided in the SDK, which include `openi
 <StackSelector snippet="configlocations" noSelector />
 
 <StackSelector snippet="configorder" noSelector />
-
-## Project structure
-
-<StackSelector snippet="projectstructure" noSelector />
 
 ## Run the sample app
 
