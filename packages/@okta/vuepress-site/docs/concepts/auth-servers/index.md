@@ -52,9 +52,9 @@ To use the `default` Custom Authorization Server, use `default` as the authoriza
 
 `https://${yourOktaDomian}/api/v1/authorizationServers/default`
 
-For Custom Authorization Servers that you create yourself, the `${authServerId}` is a random ID such as `aus9o8wzkhckw9TLa0h7z`.
+For Custom Authorization Servers that you create yourself, the `${authorizationServerId}` is a random ID such as `aus9o8wzkhckw9TLa0h7z`.
 
-`https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}`
+`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}`
 
 #### Custom Authorization Server discovery endpoints
 
@@ -62,9 +62,9 @@ The following endpoints return OpenID Connect or OAuth 2.0 metadata related to a
 
 The OpenID and OAuth discovery endpoints for a Custom Authorization Server are:
 
-**OpenID:** `https://${yourOktaDomain}/oauth2/<server id>/.well-known/openid-configuration`
+**OpenID:** `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/openid-configuration`
 
-**OAuth:** `https://${yourOktaDomain}/oauth2/<server id>/.well-known/oauth-authorization-server`
+**OAuth:** `https://${yourOktaDomain}/oauth2/${authorizationServerId}/.well-known/oauth-authorization-server`
 
 The OpenID and OAuth discovery endpoints for the default Custom Authorization Server are:
 

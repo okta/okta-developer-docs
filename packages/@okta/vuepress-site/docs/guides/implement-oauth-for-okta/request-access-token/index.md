@@ -15,7 +15,7 @@ Request an access token by making a request to your Okta [Org Authorization Serv
 This page helps you build a request in Postman. You can also manually build the request URL and paste it into a private browser window. After you authenticate, the browser returns the access token in the address bar. Your request URL should look something like this:
 
 ```
-https://{yourOktadomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.read&redirect_uri={yourConfiguredRedirectUri}&nonce=UBGW&state=1234
+https://${yourOktaDomain}/oauth2/v1/authorize?client_id=0oan47pj9BsB30h7&response_type=token&response_mode=fragment&scope=okta.users.read&redirect_uri=${yourConfiguredRedirectUri}&nonce=UBGW&state=1234
 ```
 
 We recommend that you always use the Authorization Code grant flow. See [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/) for details on this grant type.
@@ -30,11 +30,11 @@ We recommend that you always use the Authorization Code grant flow. See [Impleme
 6. Define the following for the token request:
 
     * **Callback URL** &mdash; define the callback location where Okta returns the token after the user finishes authenticating. This URL must match one of the redirect URIs that you configured in the <GuideLink link="../create-oauth-app">Create an OAuth 2.0 app in Okta</GuideLink> section.
-    * **Auth URL** &mdash; enter the authorization endpoint for your Org Authorization Server. For example: `https://{yourOktadomain}/oauth2/v1/authorize`
-    * **Access Token URL** &mdash; enter the token endpoint for your Org Authorization Server. For example: `https://{yourOktadomain}/oauth2/v1/token`
-    * **Code Challenge Method** &mdash; leave the default of `SHA-256` selected 
+    * **Auth URL** &mdash; enter the authorization endpoint for your Org Authorization Server. For example: `https://${yourOktaDomain}/oauth2/v1/authorize`
+    * **Access Token URL** &mdash; enter the token endpoint for your Org Authorization Server. For example: `https://${yourOktaDomain}/oauth2/v1/token`
+    * **Code Challenge Method** &mdash; leave the default of `SHA-256` selected
     * **Code Verifier** &mdash; leave it empty so that Postman generates its own
-    * **Client ID** &mdash; use the `client_id` of your Okta OAuth application that you created in the <GuideLink link="../create-oauth-app">previous step</GuideLink>.
+    * **Client ID** &mdash; use the `client_id` of your Okta OAuth 2.0 application that you created in the <GuideLink link="../create-oauth-app">previous step</GuideLink>.
     * **Scope** &mdash; include the scopes that allow you to perform the actions on the endpoint that you want to access. The scopes requested for the access token must already exist in the application's grants collection and the user must have the permission to perform those actions. See <GuideLink link="../scopes">Scopes and supported endpoints</GuideLink> for more information.
     * **State** &mdash; use any alphanumeric value. The authorization server reflects this string when redirecting the browser back to the client, which your client can verify to help prevent cross-site request forgery attacks.
     * **Client Authentication** &mdash; set to **Send client credentials in body**.

@@ -7,8 +7,8 @@ Open the `Web.config` file and add your Okta configuration to the `<appSettings>
         <add key="okta:RedirectUri" value="http://localhost:8080/authorization-code/callback" />
 
         <!-- 2. Replace these values with your Okta configuration: -->
-        <add key="okta:ClientId" value="{ClientId}" />
-        <add key="okta:ClientSecret" value="{ClientSecret}" />
+        <add key="okta:ClientId" value="${clientId}" />
+        <add key="okta:ClientSecret" value="${clientSecret}" />
         <add key="okta:OktaDomain" value="https://${yourOktaDomain}" />
     </appSettings>
     ...
@@ -41,7 +41,7 @@ public class Startup
 Okta middleware uses the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server) by default. Ensure you configure `AuthorizationServerId` for the Authorization Server that you are using for your app:
 
 * If you're using the [default Custom Authorization Server](/docs/concepts/auth-servers/#default-custom-authorization-server), set `AuthorizationServerId = "default"`.
-* If you're using your own [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), set `AuthorizationServerId = "{authServerId}"`.
+* If you're using your own [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), set `AuthorizationServerId = "${authorizationServerId}"`.
 * If you're using the [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server), set `AuthorizationServerId = ""`.
 
 Here's an example of a middleware configuration that uses the Org Authorization Server:

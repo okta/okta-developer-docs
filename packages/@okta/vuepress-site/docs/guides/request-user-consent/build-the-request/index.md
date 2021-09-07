@@ -12,7 +12,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
 
-    A default Custom Authorization endpoint looks like this where the `${authServerId}` is `default`:
+    A default Custom Authorization endpoint looks like this where the `${authorizationServerId}` is `default`:
 
         `https://${yourOktaDomain}/oauth2/default/v1/authorize`
 
@@ -34,7 +34,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
     ```bash
     curl -X GET
-    "https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+    "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
     &response_type=token
     &scope=openid%20phone
     &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
@@ -46,7 +46,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
      ```bash
     curl -X GET
-    "https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+    "https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
     &response_type=token
     &scope=openid%20phone
     &prompt=consent

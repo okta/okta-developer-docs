@@ -4,8 +4,8 @@
 
     ```ini
     ISSUER=https://${yourOktaDomain}/oauth2/default
-    CLIENT_ID={yourAppClientID}
-    CLIENT_SECRET={yourAppClientSecret}
+    CLIENT_ID=${yourAppClientID}
+    CLIENT_SECRET=${yourAppClientSecret}
     ```
 
 You have now created your App in Okta and installed the Okta <StackSelector snippet="applang" noSelector inline /> sample app.

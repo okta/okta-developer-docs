@@ -20,7 +20,7 @@ The user enters their Facebook credentials (email and password) on the Facebook 
 
 After the user signs in to Facebook successfully, Facebook routes the user to the location that you've specified in the **Valid OAuth Redirect URIs** field from the Facebook developer site.
 
-> **Note:** The **Valid OAuth Redirect URIs** value for your Okta org is in the format: `https://{yourOktaDomain}/oauth2/v1/authorize/callback`. See [Step 1: Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/java/main/#step-1-create-a-facebook-app-in-facebook) for details on configuring the **Valid OAuth Redirect URIs** value.
+> **Note:** The **Valid OAuth Redirect URIs** value for your Okta org is in the format: `https://${yourOktaDomain}/oauth2/v1/authorize/callback`. See [Step 1: Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/java/main/#step-1-create-a-facebook-app-in-facebook) for details on configuring the **Valid OAuth Redirect URIs** value.
 
 ### Step 3: Okta org redirects to your app through sign-in redirect URIs
 

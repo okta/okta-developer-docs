@@ -3,8 +3,8 @@ Create a configuration object in code:
 ```swift
 let configuration = OktaOidcConfig(with: [
     "issuer": "https://${yourOktaDomain}/oauth2/default",
-    "clientId": "{clientId}",
-    "redirectUri": "{redirectUri}",
+    "clientId": "${clientId}",
+    "redirectUri": "${redirectUri}",
     "scopes": "openid profile offline_access"
 ])
 ```
@@ -24,11 +24,11 @@ Or, create a new `Okta.plist` file in your application's bundle with the followi
     <key>issuer</key>
     <string>https://${yourOktaDomain}/oauth2/default</string>
     <key>clientId</key>
-    <string>{clientId}</string>
+    <string>${clientId}</string>
     <key>redirectUri</key>
-    <string>{redirectUri}</string>
+    <string>${redirectUri}</string>
     <key>logoutRedirectUri</key>
-    <string>{logoutRedirectUri}</string>
+    <string>${logoutRedirectUri}</string>
     <key>scopes</key>
     <string>openid profile offline_access</string>
 </dict>

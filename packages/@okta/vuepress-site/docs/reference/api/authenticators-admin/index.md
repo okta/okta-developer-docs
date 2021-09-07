@@ -12,7 +12,7 @@ The Authenticators Administration API enables an Org Administrator to configure 
 
 End users are required to use one or more Authenticators depending on the security requirements of the application sign-on policy.
 
-The Okta Identity Engine currently supports Authenticators for the following factors:
+Okta Identity Engine currently supports Authenticators for the following factors:
 
 **Knowledge-based:**
 
@@ -534,6 +534,7 @@ The Authenticator object defines the following properties:
 | `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created                                   |
 | `id`          | String                                                          | A unique identifier for the Authenticator                                                |
 | `key`         | String                                                          | A human-readable string that identifies the Authenticator                                |
+| `status`      | `ACTIVE`,`INACTIVE`                                             | Status of the Authenticator                                |
 | `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified                             |
 | `name`        | String                                                          | Display name of this Authenticator                                             |
 | `type`        | String (Enum)                                                   | The type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, and `security_key`.                            |

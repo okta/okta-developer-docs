@@ -96,7 +96,7 @@ curl -s -H "Authorization: SSWS ${api_token}" https://${yourOktaDomain}/api/v1/m
 
 ### Get User Type (by ID or default)
 
-<ApiOperation method="get" url="/api/v1/meta/types/user/{typeId}" />
+<ApiOperation method="get" url="/api/v1/meta/types/user/${typeId}" />
 
 Fetches a User Type by ID. Use the special identifier `default` to fetch the default User Type.
 
@@ -208,9 +208,9 @@ curl -s -XPOST -H "Content-Type: application/json" -H "Authorization: SSWS ${api
 
 ### Update User Type
 
-<ApiOperation method="PUT" url="/api/v1/meta/types/user/{typeId}" />
+<ApiOperation method="PUT" url="/api/v1/meta/types/user/${typeId}" />
 
-<ApiOperation method="POST" url="/api/v1/meta/types/user/{typeId}" />
+<ApiOperation method="POST" url="/api/v1/meta/types/user/${typeId}" />
 
 Updates an existing User Type. A PUT is a full replace operation; a POST is a partial update. Only the `displayName` and `description` elements can be changed; the `name` of an existing User Type can't be changed.
 

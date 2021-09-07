@@ -6,6 +6,6 @@ With the token created, you can begin using it, supplying it in the `Authorizati
 
 * See [Use Postman with the Okta REST APIs](/code/rest/) for a guide to trying out Okta APIs using Postman, as an easy way to explore.
 
-* For information on the general principles the Okta API follows, see [API Overview](/docs/reference/api-overview/).
+* For information on the general principles the Okta API follows, see [Design Principles](/docs/reference/core-okta-api/#design-principles).
 
 * For reference documentation for each API, see [API Reference](/docs/reference/).

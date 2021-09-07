@@ -72,21 +72,21 @@ npm install @okta/okta-auth-js @okta/okta-react react-router-dom
 
 ## Config
 
-Create a `src/config.js` file. Make sure to replace the `{...}` placeholders with your Okta values.
+Create a `src/config.js` file. Make sure to replace the `${...}` placeholders with your Okta values.
 
 ```js
 const oktaAuthConfig = {
   // Note: If your app is configured to use the Implicit flow
   // instead of the Authorization Code with Proof of Code Key Exchange (PKCE)
   // you will need to add `pkce: false`
-  issuer: 'https://{yourOktaDomain}/oauth2/default',
-  clientId: '{clientId}',
+  issuer: 'https://${yourOktaDomain}/oauth2/default',
+  clientId: '${clientId}',
   redirectUri: window.location.origin + '/login/callback',
 };
 
 const oktaSignInConfig = {
-  baseUrl: 'https://{yourOktaDomain}',
-  clientId: '{clientId}',
+  baseUrl: 'https://${yourOktaDomain}',
+  clientId: '${clientId}',
   redirectUri: window.location.origin + '/login/callback',
   authParams: {
     // If your app is configured to use the Implicit flow
@@ -116,7 +116,7 @@ const OktaSignInWidget = ({ config, onSuccess, onError }) => {
   useEffect(() => {
     if (!widgetRef.current)
       return false;
-    
+
     const widget = new OktaSignIn(config);
 
     widget.showSignInToGetTokens({
@@ -157,10 +157,10 @@ const Home = () => {
   if (!authState) return null;
 
   const login = async () => history.push('/login');
-  
+
   const logout = async () => oktaAuth.signOut();
 
-  const button = authState.isAuthenticated ? 
+  const button = authState.isAuthenticated ?
     <button onClick={logout}>Logout</button> :
     <button onClick={login}>Login</button>;
 
@@ -267,7 +267,7 @@ const AppWithRouterAccess = () => {
   const customAuthHandler = () => {
     history.push('/login');
   };
-  
+
   const restoreOriginalUri = async (_oktaAuth, originalUri) => {
     history.replace(toRelativeUrl(originalUri, window.location.origin));
   };
