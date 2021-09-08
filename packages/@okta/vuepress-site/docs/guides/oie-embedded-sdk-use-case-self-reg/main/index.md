@@ -74,8 +74,6 @@ For new user registration, your app in your Okta org needs to be assigned to eve
 
 <StackSelector snippet="integrationsteps" noSelector />
 
-This section discusses the alternate flows that can occur within your app based on how your factors and policies are configured.
-
 ## Send a confirmation email during new user registration with only the password factor required
 
 Even when only the password factor is required for an Okta application, you can still send a confirmation email.
