@@ -10,7 +10,7 @@ The following diagram illustrates the beginning of the registration process wher
 
 </div>
 
-### Enroll and verify email the email authenticator
+### Enroll and verify the email authenticator
 
 The self-registration flow continues in this sequence.
 

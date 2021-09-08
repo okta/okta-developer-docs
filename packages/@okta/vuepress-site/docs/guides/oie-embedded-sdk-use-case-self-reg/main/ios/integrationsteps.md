@@ -16,9 +16,7 @@ component, which represents the code you write to call into the sample code's in
 
 </div>
 
-### Steps
-
-#### Step 1: Launch app and initialize SDK
+### 1: Launch the app and initialize the SDK
 
 The first step is to initialize the SDK when the user opens your app.
 This is done by creating an instance of `MultifactorLogin` and passing
@@ -63,7 +61,7 @@ For more information on how to set the `configuration` parameter, see
 in
 [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
 
-#### Step 2: User initiates sign-up
+### 2: The user initiates the sign-up
 
 When the user enters their username and password and initiates the new user
 registration flow, call the `register` method, passing in the username, password,
@@ -87,14 +85,14 @@ self.authHandler.register(username: "user@example.com",
 }
 ```
 
-#### Step 3: Send user to home screen after successful sign-in
+### 3: Send the user to the home page after a successful sign-in flow
 
 The final integration step is to send the user to the default home page
 after successful sign-in. Optionally, you can obtain basic user information after a
 successful sign-in by making a request to Okta's Open ID Connect authorization server.
 See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-user-profile-information).
 
-## Sample code
+### Sample code
 
 The following sample code is also located in Okta's
 [okta-idx-swift repository](https://github.com/okta/okta-idx-swift/blob/master/Samples/Signin%20Samples/BasicLogin.swift).

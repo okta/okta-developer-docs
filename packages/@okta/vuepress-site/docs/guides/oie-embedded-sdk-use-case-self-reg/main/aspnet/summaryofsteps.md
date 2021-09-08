@@ -1,6 +1,6 @@
 The sequence of steps for self-service registration is described in the following three sequence diagrams:
 
-### Start new user registration with password factor
+### Start the new user registration with the password factor
 
 The following diagram illustrates the beginning of the registration process where the user initiates their sign-in and enters their password.
 
@@ -10,7 +10,7 @@ The following diagram illustrates the beginning of the registration process wher
 
 </div>
 
-### Enroll and verify email factor
+### Enroll and verify the email factor
 
 The self-registration flow continues in this sequence.
 
@@ -20,7 +20,7 @@ The self-registration flow continues in this sequence.
 
 </div>
 
-### Enroll and verify phone (SMS) factor
+### Enroll and verify the phone (SMS) factor
 
 After the password and email are verified, the user has the option to
 enroll in the phone factor.
@@ -35,7 +35,7 @@ The following flow describes the steps when the user enrolls in the optional pho
 
 </div>
 
-### Skip optional remaining factors
+### Skip the optional remaining factors
 
 The user can also opt to skip the factors when all of the remaining
 factors are optional. In this case, the user opts to skip the phone

@@ -1,4 +1,4 @@
-### 1: Click sign-up link
+### 1: Click the sign-up link
 
 The self-registration flow begins when the user clicks the **Sign up** link. On the sign-in page, create a **Sign up** link that links to the create account page you create in the next step.
 
@@ -10,7 +10,7 @@ The self-registration flow begins when the user clicks the **Sign up** link. On 
 
 > **Note:** The **Sign up** link appears in the following example under the **Continue** button.
 
-### 2: Enter in profile data
+### 2: Enter the profile data
 
 The next step is to enter basic information (for example, email, first, and last name). Create a page that accepts this information. The following shows an example of a create account page.
 
@@ -20,7 +20,7 @@ The next step is to enter basic information (for example, email, first, and last
 
 </div>
 
-### 3: Select register
+### 3: Select Register
 
 When the user clicks **Register**, create a `UserProfile` object and set its properties with the user profile information captured from the Create account page. Pass this object into the `IdxClient RegisterAsync` method.
 
@@ -184,7 +184,7 @@ var enrollAuthenticatorOptions = new EnrollAuthenticatorOptions
 var enrollResponse = await idxAuthClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions, (IIdxContext)Session["IdxContext"]);
 ```
 
-### 12 (Optional): Update sent email template
+### 12 (Optional): Update the sent email template
 
 The email sent to the user has a **Verify Email Address** link that isn't yet
 supported. Accordingly, there are two recommended options to mitigate this limitation.
@@ -208,7 +208,7 @@ switch (enrollResponse?.AuthenticationStatus)
 }
 ```
 
-### 14: Obtain email verification code from email
+### 14: Obtain the email verification code from email
 
 Build the email verification code page that accepts the code from the email.
 
@@ -218,7 +218,7 @@ Build the email verification code page that accepts the code from the email.
 
 </div>
 
-### 15: Submit email code
+### 15: Submit the email code
 
 The next step is to call `VerifyAuthenticatorAsync`. In the email verification, the code that is passed into `VerifyAuthenticatorAsync` is the code found in the verification email.
 
@@ -265,7 +265,7 @@ The remaining authenticator should display the phone factor to the user. Since t
 
 The user can either enroll in the phone factor or skip the phone factor. Your code should handle both scenarios that will be described in the following steps.
 
-### 18a, Option 1: Select phone authenticator
+### 18a, Option 1: Select the phone authenticator
 
 If the user selects the phone authenticator (instead of skipping it), the steps to enroll and verify are similar to the email factor verification flow in this section with subtle differences.
 
@@ -289,7 +289,7 @@ switch (enrollResponse?.AuthenticationStatus)
       }
 ```
 
-### 18c, Option 1: Show phone entry page
+### 18c, Option 1: Show the phone entry page
 
 Build the phone number entry page that accepts the phone number. The user uses the phone number entry page to enroll and verify.
 
@@ -301,7 +301,7 @@ Build the phone number entry page that accepts the phone number. The user uses t
 
 > **Note:** The SDK requires that the phone number be in the following format: `+##########`, including the beginning plus (+) sign, for example, `+5551234567`.
 
-### 18d, Option 1: Submit phone number
+### 18d, Option 1: Submit the phone number
 
 When the user enters their phone number and clicks the send code using the SMS button, a call to `EnrollAuthenticatorAsync` is made and passes the following values:
 
@@ -343,7 +343,7 @@ if (enrollResponse.AuthenticationStatus ==
     }
 ```
 
-### 18f, Option 1: Display phone verification code page
+### 18f, Option 1: Display the phone verification code page
 
 Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, the page can be the same page that verifies the email code or different. The sample app reuses the same page for both email and phone verification.
 
@@ -353,7 +353,7 @@ Build a page that accepts the code sent to your phone number through SMS. Depend
 
 </div>
 
-### 18g, Option 1: Submit phone code
+### 18g, Option 1: Submit the phone code
 
 After the user enters the phone code and clicks verify, a call is made to `VerifyAuthenticatorAsync`. In the phone verification use case, the code that passes into `VerifyAuthenticatorAsync` is the code that was sent through SMS to the phone number.
 

@@ -144,7 +144,7 @@ If the user decides to skip the optional factor, they are considered signed in s
 
 </div>
 
-### Step 8: Handle the phone authenticator options
+### 8: Handle the phone authenticator options
 
 #### Option 1: The user skips the phone authenticator
 

@@ -1,4 +1,4 @@
-### Step 1: Create a sign-up link for new users
+### 1: Create a sign-up link for new users
 
 The self-registration flow begins when the user clicks the **Sign Up** link (or **Register** from the SDK sample application home page). On the sign-in page, create a **Sign Up** link that links to the create account page that you create in the next step, as shown in the following example.
 
@@ -10,7 +10,7 @@ The self-registration flow begins when the user clicks the **Sign Up** link (or 
 
 > **Note:** The **Sign Up** link appears under the **Forgot your password?** link.
 
-### Step 2: Enter information in the create account page
+### 2: Enter information in the create account page
 
 The next step is to enter basic information (for example, email, first name, and last name). Create a page that accepts this information. The following example shows a create account page.
 
@@ -54,7 +54,7 @@ If the org's application is properly configured with multiple factors, `idx.regi
       return true;
 ```
 
-### Step 3: User enters password authenticator and password
+### 3: The user enters the password authenticator and the password
 
 Create a page that displays an authenticator enrollment selection. In this example, the password is configured.
 
@@ -72,7 +72,7 @@ After the user enters the password authenticator value, and `idx.register` is ca
 
 </div>
 
-### Step 4: User submits password
+### 4: The user submits their password
 
 After the user submits a password, call `idx.register` passing in this value for the user. The response returns a status of `Idx.Status:PENDING` and a `nextStep` field requiring inputs for additional authenticators. The user is directed to a page to select authenticators, as shown in the SDK sample application route to `/select-authenticator`.
 
@@ -84,7 +84,7 @@ See [idx.register](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#
 
 </div>
 
-### Step 5: User selects email authenticator
+### 5: The user selects the email authenticator
 
 In this use case, the user selects the **Email** as the authenticator to verify. Pass this user-selected authenticator to `idx.register`.
 
@@ -96,7 +96,7 @@ In this use case, the user selects the **Email** as the authenticator to verify.
 
 </div>
 
-### Step 6: User submits email verification code
+### 6: The user submits the email verification code
 
 The next step is to call `idx.register` again passing in the verification code. In the email verification use case, the code passed into the method is the code found in the verification email.
 
