@@ -15,6 +15,23 @@ Do the following to test your CORS configuration:
 
 The following code samples can be added to your website to test your CORS configuration. Remember to replace the `baseUrl` with the URL for your Okta organization.
 
+#### Fetch
+
+```javascript
+(async function () {
+    const baseUrl = `https://${yourOktaDomain}`;
+    try {
+        const response = await fetch(baseUrl + '/api/v1/users/me', {
+            credentials: 'include'
+        });
+        const me = await response.json();
+        console.log(me);
+    } catch (err) {
+        console.error(err);
+    }
+})();
+```
+
 #### XMLHttpRequest
 
 ```javascript
