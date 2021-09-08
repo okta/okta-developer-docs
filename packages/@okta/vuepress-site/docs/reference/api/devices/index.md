@@ -5,14 +5,17 @@ category: management
 
 # Device API
 
-<ApiLifecycle access="ea" />
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
 
+> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
 The Okta Device API provides centralized integration platform to fetch and manage device information. Okta administrators can use these APIs to manage workforce identity Device object information.
 
 The Device API supports the following **Device Operations**:
 * Get, Delete Device objects.
 * Perform lifecycle transitions on the Device objects.
+
 
 ## Getting Started
 
@@ -51,7 +54,7 @@ Fetches a Device by its `id`. If you don't know the `id`, you can [List Devices]
 
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
-| `deviceId` | String | The unique identifier for the [Device object](#device-object) |
+| `deviceId` | String | The `id` of [Device](#device-object) object  |
 
 #### Request Query Parameters
 
@@ -423,13 +426,13 @@ HTTP/1.1 204 No Content
 
 ```bash
 curl -v -X DELETE \
--H "Authorization: SSWS ${api_token}" "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4"
+-H "Authorization: SSWS ${api_token}" "https://{yourOktaDomain}/api/v1/devices/{deviceId}"
 ```
 
 ##### Response
 
 ```http
-HTTP/1.1 204 OK todo this seems wrong. Shouldn't it be No Content ?
+HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
@@ -484,13 +487,13 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/activate"
+"https://{yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/activate"
 ```
 
 ##### Response
 
 ```http
-HTTP/1.1 204 OK
+HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
@@ -541,13 +544,13 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/deactivate"
+"https://{yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/deactivate"
 ```
 
 ##### Response
 
 ```http
-HTTP/1.1 204 OK
+HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
@@ -600,13 +603,13 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/suspend"
+"https://{yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/suspend"
 ```
 
 ##### Response
 
 ```http
-HTTP/1.1 204 OK
+HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
@@ -653,13 +656,13 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/unsuspend"
+"https://{yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/unsuspend"
 ```
 
 ##### Response
 
 ```http
-HTTP/1.1 204 OK
+HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
