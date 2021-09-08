@@ -30,7 +30,7 @@ After the password and email authenticators are verified, the user has the optio
 
 </div>
 
-### Enroll and verify phone (SMS) authenticator
+### Enroll and verify the phone (SMS) authenticator
 
 After the password and email factors are verified, the user has the option to enroll the phone authenticator.
 
