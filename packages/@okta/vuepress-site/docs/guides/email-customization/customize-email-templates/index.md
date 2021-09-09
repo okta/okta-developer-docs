@@ -33,7 +33,7 @@ Email templates use common and unique [Expression Language (EL) variables](https
 
 #### Overview of what this EA feature enables
 
-The Early Access (EA) Enhanced Email Macros feature provides you with the functionality to customize the email templates with even greater flexibility than EL. It changes the underlying email templating engine from EL variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/). This allows you to customize your org's email templates so that you can use enhanced conditional logic, all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object), and some of the org attributes in these macros, as documented below.
+The Early Access (EA) Enhanced Email Macros feature provides you with the functionality to customize the email templates with even greater flexibility than EL. It changes the underlying email templating engine from EL variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/). This allows you to customize your org's email templates so that you can use enhanced conditional logic, all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object), and some of the org attributes in these macros, as documented below. All of the Okta default email templates are available for customization.
 
 ##### What this EA feature doesn't enable
 
@@ -117,9 +117,18 @@ You can also reference these org-level attributes, such as:
 
 All conditional logic that is supported by the Velocity Templating Engine, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
 
-#### Email templates for customization
+<ApiLifecycle access="ie" /><br>
 
-All the email templates are available for customization.
+#### Access to app context
+
+Okta Identity Engine orgs can now call app context within emails via the following app macros:
+
+* `$app.id`
+* `$app.name`
+* `$app.label`
+
+When these macros are combined with conditional logic, you can trigger per app branding, and strings to uniquely customize a single email template to dynamically change based on the app your end user visited, which triggered the email.
+
 
 ### Test Custom Email Templates
 
