@@ -36,9 +36,5 @@
 * If the Widget does not load and instead displays the following error:
    “There was an unexpected internal error. Please try again.”,
    make sure CORS is enabled. Follow the steps in
-<<<<<<< HEAD
-   [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#step-3-add-a-trusted-origin-and-enable-cors) to make sure CORS is enabled.
-=======
    [Add a trusted origin and enable CORS](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#add-a-trusted-origin-and-enable-cors)
    to make sure CORS is enabled.
->>>>>>> 9c5aeda3289e2cb6ba7230a94a5cb13e55b33603

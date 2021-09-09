@@ -69,6 +69,7 @@ guides:
  - oie-embedded-widget-overview
  - oie-embedded-common-org-setup
  - oie-embedded-common-download-setup-app
+ - oie-embedded-common-run-samples
  - oie-embedded-common-refresh-tokens
  - oie-embedded-sdk-use-case-basic-sign-in
  - oie-embedded-sdk-use-case-basic-sign-out
