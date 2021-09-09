@@ -16,6 +16,8 @@ The only flows that support refresh tokens are the authorization code flow and t
 
 > **Note:** Whether persistent refresh token or rotating refresh token behavior is enabled depends on what type of application that you are using. When you select **Refresh Token** as an allowed grant type, [SPAs use refresh token rotation](#renew-access-and-id-tokens-with-spas) as the default behavior. Native apps and web apps use persistent refresh token behavior as the default. See [Refresh token rotation](/docs/guides/refresh-tokens/refresh-token-rotation).
 
+> **Note:** If you include `offline_access` in your requested scopes, your total scope length will be limited to 1024 characters.
+
 ## Get a refresh token with the code flow
 
 In the case of the authorization code flow, you use the Authorization Server's `/authorize` endpoint to get an authorization code, specifying an `offline_access` scope. You then use the `authorization_code` grant with this code in a request to the `/token` endpoint to get an access token and a refresh token.
