@@ -23,8 +23,6 @@ In tandem with the embedded SDK, the widget integrates into your app by using a 
 
 <StackSelector class="cleaner-selector"/>
 
-After you have [created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/) and [downloaded and set up the SDK configurations](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/), the next step is to test the Widget sample app.
-
 <StackSelector snippet="runwidgetapp" noSelector />
 
 ### Start your work with the use cases
@@ -44,8 +42,6 @@ The SDK integrates into your app by using a native language interface and commun
 ## Run the SDK sample app
 
 <StackSelector class="cleaner-selector"/>
-
-After you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/-/main/#get-set-up) and [download and set up the sample app and SDK](/docs/guides/oie-embedded-common-download-setup-app/-/main/), you can take the next step to test the SDK sample app.
 
 <StackSelector snippet="runsdkapp" noSelector />
 

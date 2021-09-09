@@ -407,14 +407,6 @@ export const guides = [
                 title: "Build a use case with the embedded SDK",
                 subLinks: [
                   {
-                    title: "Overview",
-                    guideName: "oie-embedded-sdk-overview",
-                  },
-                  {
-                    title: "Run the SDK sample app",
-                    guideName: "oie-embedded-sdk-run-sample",
-                  },
-                  {
                     title: "Basic sign-in flow using the password factor",
                     guideName: "oie-embedded-sdk-use-case-basic-sign-in",
                   },
@@ -455,14 +447,6 @@ export const guides = [
               {
                 title: "Build with the embedded Widget",
                 subLinks: [
-                  {
-                    title: "Overview",
-                    guideName: "oie-embedded-widget-overview",
-                  },
-                  {
-                    title: "Run the Widget sample app",
-                    guideName: "oie-embedded-widget-run-sample",
-                  },
                   {
                     title: "Start with a use case",
                     guideName: "oie-embedded-widget-use-cases",
