@@ -8,20 +8,20 @@ category: management
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-> **Note:** This feature is only available as a part of the Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
+> **Note:** This feature is only available as a part of Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
-The Okta Device API provides centralized integration platform to fetch and manage device information. Okta administrators can use these APIs to manage workforce identity Device object information.
+The Okta Device API provides a centralized integration platform to fetch and manage device information. Okta administrators can use these APIs to manage workforce identity Device object information.
 
 The Device API supports the following **Device Operations**:
 * Get, Delete Device objects.
 * Perform lifecycle transitions on the Device objects.
 
 
-## Getting Started
+## Get started
 
 Explore the Device API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/a26c87ca44e0b915c4c7)
 
-## Device Operations
+## Device operations
 
 The Device API has the following Device Identity operations:
 
