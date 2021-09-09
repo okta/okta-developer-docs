@@ -74,4 +74,27 @@ For new user registration, your app in your Okta org needs to be assigned to eve
 
 <StackSelector snippet="integrationsteps" noSelector />
 
+## Send a confirmation email during new user registration with only the password factor required
+
+Even when only the password factor is required for an Okta application, you can still send a confirmation email.
+
+### Set up
+
+In this scenario, the org is set up in the following manner:
+
+1. The org is initially configured following the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case).
+
+2. The application's sign-on policy is updated for only the password factor. In the Admin Console, the **AND User must authenticate with** field is set to **Password**.
+
+3. The **Email verification** field in the profile enrollment's Default Policy is set to **Required before access is granted**. You can find the profile enrollment configuration by navigating to **Security** > **Profile Enrollment**.
+
+4. The **Initiate login URI** field is set to the sign-in URI in the application settings. By setting this value, the email verification link for new user enrollment redirects the user to the URL provided in the **Initiate login URI** field.
+
+### Flow behavior
+
+During new user registration, there are no factors required other than the password. However, email verification is set to **Required** in the profile enrollment configuration. In this case, the user is sent an email using
+the following email template: **Registration - Activation**.
+
+The user clicks the link in the activation email and is redirected to the sample app's home page.
+
 </div>
