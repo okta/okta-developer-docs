@@ -31,13 +31,13 @@
             </h2>
             <div class="developer-day-banner--cta">
               <span class="developer-day-banner--cta-large">
-                Join us virtually for Developer Day on August 24, 2021.
+                Missed developer day? Catch all the recordings here.
               </span>
               <span class="developer-day-banner--cta-small">
-                Join us virtually for Developer Day on August 24, 2021.
+                Missed developer day? Catch all the recordings here.
               </span>
-              <a href="https://www.okta.com/developerday/">
-                Register&nbsp;<i class="fa fa-chevron-right"></i>
+              <a href="https://www.youtube.com/watch?v=xD-G-Sne3a8&list=PLshTZo9V1-aHrVURzggebSWeltPQ4KCex">
+                Watch Now&nbsp;<i class="fa fa-chevron-right"></i>
               </a>
             </div>
           </div>
