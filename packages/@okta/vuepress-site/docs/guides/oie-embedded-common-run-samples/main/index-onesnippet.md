@@ -21,16 +21,6 @@ In tandem with the embedded SDK, the widget integrates into your app by using a 
 
 </div>
 
-<StackSelector class="cleaner-selector"/>
-
-After you have [created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/) and [downloaded and set up the SDK configurations](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/), the next step is to test the Widget sample app.
-
-<StackSelector snippet="runwidgetapp" noSelector />
-
-## Start your work with the use cases
-
-After you have successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Start with a use case overview](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-overview/) to explore the available use cases with the Widget.
-
 ## The SDK flow
 
 The SDK integrates into your app by using a native language interface and communicates directly with Okta APIs by using a REST interface. The following is a summary of the SDK flow.
@@ -41,13 +31,17 @@ The SDK integrates into your app by using a native language interface and commun
 
 </div>
 
+## Run the sample apps
+
 <StackSelector class="cleaner-selector"/>
 
-After you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/-/main/#get-set-up) and [download and set up the sample app and SDK](/docs/guides/oie-embedded-common-download-setup-app/-/main/), you can take the next step to test the SDK sample app.
+<StackSelector snippet="runsampleapp" noSelector />
 
-<StackSelector snippet="runsdkapp" noSelector />
+### Start your work with the Widget use cases
 
-## Work with the use cases
+After you have successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Start with a use case overview](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-overview/) to explore the available use cases with the Widget.
+
+### Start your work with the SDK use cases
 
 After you have successfully run the sample app, you can build your own integration by using the sample app as your guide. See [Build a use case with the embedded SDK](/docs/guides/oie-embedded-sdk-overview/) to explore the use cases that are available with the SDK.
 
