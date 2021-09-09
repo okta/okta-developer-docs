@@ -7,9 +7,9 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-After you have successfully created and set up your Okta org and downloaded and set up the SDK, you can run both the sample Widget app and the sample SDK app.
+After you have successfully created and set up your Okta org and downloaded and set up the SDK, you can run both the sample widget app and the sample SDK app.
 
-## The Widget flow
+## The widget flow
 
 In tandem with the embedded SDK, the widget integrates into your app by using a native language interface and communicates directly with the Okta APIs. The following summarizes the flow.
 
@@ -49,7 +49,6 @@ After you [create and set up your Okta org](/docs/guides/oie-embedded-common-org
 
 <StackSelector snippet="runsdkapp" noSelector />
 
-## Work with the use cases
+### Work with the use cases
 
 After you have successfully run the sample app, you can build your own integration by using the sample app as your guide. See [Build a use case with the embedded SDK](/docs/guides/oie-embedded-sdk-overview/) to explore the use cases that are available with the SDK.
-
