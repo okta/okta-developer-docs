@@ -121,13 +121,13 @@ All conditional logic that is supported by the Velocity Templating Engine, such 
 
 #### Access to app context
 
-Okta Identity Engine orgs can now call app context within emails via the following app macros:
+Okta Identity Engine orgs can now call app context within emails via Velocity Templating Language. When an end user enters an authentication flow, OIE stores that app context in the state token, which can then be called using the following app macros:
 
 * `$app.id`
 * `$app.name`
 * `$app.label`
 
-When these macros are combined with conditional logic, you can trigger per app branding, and strings to uniquely customize a single email template to dynamically change based on the app your end user visited, which triggered the email.
+When these macros are combined with conditional logic, you can trigger per app branding, and strings to uniquely customize a single email template to dynamically change based on the app your end user visited, which triggered the email. These app macros are not available on Classic Engine due to the state token not existing.
 
 
 ### Test Custom Email Templates
