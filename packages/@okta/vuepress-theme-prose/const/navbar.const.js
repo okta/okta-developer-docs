@@ -435,10 +435,6 @@ export const guides = [
                     guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
                   {
-                    title: "Alternate flows",
-                    guideName: "oie-embedded-sdk-alternate-flows",
-                  },
-                  {
                     title: "Limitations",
                     guideName: "oie-embedded-sdk-limitations",
                   }
