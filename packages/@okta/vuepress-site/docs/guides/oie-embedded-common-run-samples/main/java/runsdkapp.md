@@ -1,7 +1,5 @@
 > **Note:** The Okta Java SDK embedded authentication sample app uses the Spring Boot framework. See [Spring Boot Getting Started](https://spring.io/guides/gs/spring-boot/) for more information on Spring.
 
-## Steps to test the sample app
-
 1. [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/java/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 
 1. Obtain app-specific configuration values (such as `${clientId}`, `${clientSecret}`, `${yourOktaDomain}`) from the app integration you've created in [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application).
