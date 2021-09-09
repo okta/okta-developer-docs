@@ -364,6 +364,11 @@ Sample user data:
 | Workday ID                                                         | `hasWorkdayUser() ? findWorkdayUser().employeeID : null`                                                                                                 | 123456                  | Check if user has a Workday assignment, and if so, return their Workday employee ID.                                                                                                                                                                                                                                                                                                                   |
 | Active Directory UPN                                               | `hasDirectoryUser() ? findDirectoryUser().managerUpn : null`                                                                                             | bob@okta.com            | Check if user has an Active Directory assignment, and if so, return their Active Directory manager UPN.                                                                                                                                                                                                                                                                                                |
 
+
+## Expressions for custom claims
+
+Okta provides a few expressions that you can only use with custom claims. See Create claims
+
 ## Appendix: Time zone codes
 
 Okta supports the use of the following time zone codes:
