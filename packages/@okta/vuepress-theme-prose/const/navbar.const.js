@@ -400,6 +400,10 @@ export const guides = [
                 guideName: "oie-embedded-common-download-setup-app",
               },
               {
+                title: "Run the sample apps",
+                guideName: "oie-embedded-common-run-samples",
+              },
+              {
                 title: "Build a use case with the embedded SDK",
                 subLinks: [
                   {
