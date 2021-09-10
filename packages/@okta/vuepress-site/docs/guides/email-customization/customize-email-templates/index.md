@@ -135,7 +135,7 @@ When these properties are used with conditional logic, you can trigger branding 
 #if(${app.name} == "Toys R' Fun")
 <img src="https://cdn.toysrfun.com/logo" height="37">
 <a id="support-link" href="https://support.toysrfun.com/help/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
-#if(${app.name} == "Fidget Spinners Unlimited")
+#elseif(${app.name} == "Fidget Spinners Unlimited")
 <img src="https://cdn.fidgetsu.com/logo" height="37">
 <a id="support-link" href="https://support.fidgetsu.com/help/?language=en_US" style="text-decoration: none;"> Contact Fidget SU Support </a>
 #else
