@@ -131,7 +131,7 @@ When these properties are used with conditional logic, you can trigger branding 
 
 #### Example of using app context to brand an email
 
-``` #if(${app.name} == "Toys R' Fun")
+```if(${app.name} == "Toys R' Fun")
 <img src="https://cdn.toysrfun.com/logo" height="37">
 <a id="support-link" href="https://support.toysrfun.com/help/s/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
 #else
