@@ -14,10 +14,6 @@ npm install --save @okta/okta-auth-js
 
 See [Using the npm module](https://github.com/okta/okta-auth-js#using-the-npm-module) for more information.
 
-<<<<<<< HEAD
-#### 3: Review the SDK Identity Engine methods
-=======
 #### Step 3: Review the Identity Engine SDK methods
->>>>>>> master
 
 Review the Identity Engine SDK methods for use with your application. See [Usage](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage) for further information.
