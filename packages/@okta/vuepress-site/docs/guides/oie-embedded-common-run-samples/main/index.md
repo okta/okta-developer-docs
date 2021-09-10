@@ -7,7 +7,7 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-After you have successfully created and set up your Okta org and downloaded and set up the SDK, you can run both the sample widget app and the sample SDK app.
+After you have successfully created and set up your Okta org and downloaded and set up the SDK, you can run both the sample Widget app and the sample SDK app.
 
 ## The embedded Widget flow
 
