@@ -1146,9 +1146,11 @@ to access the OIDC `/userinfo` [endpoint](/docs/reference/api/oidc/#userinfo). T
 
 ### Scope values
 
+> **Note:** The maximum length for the scope parameter value is 1024 characters.
+
 * `openid` is required for any OpenID request connect flow. If the `openid` scope value isn't present, the request may be a valid OAuth 2.0 request, but it's not an OpenID Connect request.
 * `profile` requests access to these default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`,`locale`, and `updated_at`.
-* `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored. If you include `offline_access` in your requested scopes, your total scope length is limited to 1024 characters.
+* `offline_access` can only be requested in combination with a `response_type` that contains `code`. If the `response_type` doesn't contain `code`, `offline_access` is ignored. 
 * For more information about `offline_access`, see the [OIDC spec](http://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess).
 * For more information about `device_sso`<ApiLifecycle access="ea" />, see [Native SSO](/docs/guides/configure-native-sso/main/).
 
