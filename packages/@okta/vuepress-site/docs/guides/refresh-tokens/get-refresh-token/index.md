@@ -56,7 +56,7 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/toke
 --header 'Authorization: Basic ${Base64(<client_id>:<client_secret>)}' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=authorization_code' \
---data-urlencode 'redirect_uri={{redirectUri}}' \
+--data-urlencode 'redirect_uri=${redirectUri}' \
 --data-urlencode 'code=DPA9Utz2LkWlsronqehy' \
 --data-urlencode 'state=9606b31k-51d1-4dca-987c-346e3d8767n9' \
 --data-urlencode 'scope=openid offline_access'
@@ -70,7 +70,7 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/toke
 --header 'Authorization: Basic ${Base64(<client_id>:<client_secret>)}' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=authorization_code' \
---data-urlencode 'redirect_uri={{redirectUri}}' \
+--data-urlencode 'redirect_uri=${redirectUri}' \
 --data-urlencode 'code=CKA9Utz2GkWlsrmnqehz' \
 --data-urlencode 'state=419946f0-29d7-11eb-adc1-0242ac120002' \
 --data-urlencode 'scope=openid offline_access' \
@@ -108,7 +108,7 @@ curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/toke
 --header 'Authorization: Basic ${Base64(<client_id>:<client_secret>)}' \
 --header 'Content-Type: application/x-www-form-urlencoded' \
 --data-urlencode 'grant_type=password' \
---data-urlencode 'redirect_uri={{redirectUri}}' \
+--data-urlencode 'redirect_uri=${redirectUri}' \
 --data-urlencode 'username=example@mailinator.com' \
 --data-urlencode 'password=a.gReAt.pasSword' \
 --data-urlencode 'scope=openid offline_access'
