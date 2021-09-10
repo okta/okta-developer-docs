@@ -94,7 +94,7 @@ The client-based rate limit framework can operate in one of three modes:
 | Mode                                     | Description                                                                                                          |
 | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | **Enforce and log per client (recommended)** | The rate limit is based on the client-based rate limit values. The client-specific rate limit violation information is logged as [System Log](/docs/reference/rl-system-log-events/#client-based-system-log-event-types) events. |
-| **Log per client**                          | The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values, but the client-specific rate limit violation information is logged as System Log events. |
+| **Log per client**                          | The default setting for all orgs, including those orgs created before 2018. The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values, but the client-specific rate limit violation information is logged as System Log events.  |
 | **Do nothing**                                | Rate limits aren't enforced at the client-specific level. The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values. No new or additional System Log events are produced from this feature in this mode. |
 
 ### Check your rate limits with Okta Rate Limit headers
