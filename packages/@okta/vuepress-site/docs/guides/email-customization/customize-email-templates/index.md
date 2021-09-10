@@ -33,7 +33,7 @@ Email templates use common and unique [Expression Language (EL) variables](https
 
 #### Overview of what this EA feature enables
 
-The Early Access (EA) Enhanced Email Macros feature provides you with the functionality to customize the email templates with even greater flexibility than EL. It changes the underlying email templating engine from EL variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/). This allows you to customize your org's email templates so that you can use enhanced conditional logic, all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object), and some of the org attributes in these macros, as documented below.
+The Enhanced Email Macros feature provides you with the functionality to customize the email templates with even greater flexibility than EL. It changes the underlying email templating engine from EL variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/). This allows you to customize your org's email templates so that you can use enhanced conditional logic, all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object), and some of the org attributes in these macros, as documented below. All of Okta's default email templates are available for customization.
 
 ##### What this EA feature doesn't enable
 
@@ -117,11 +117,34 @@ You can also reference these org-level attributes, such as:
 
 All conditional logic that is supported by the Velocity Templating Engine, such as `if`, `elseif`, or `else` constructs and `foreach` loops, is available for you to use in your templates. See the [Velocity documentation](http://velocity.apache.org/engine/1.7/user-guide.html).
 
-#### Email templates for customization
+<ApiLifecycle access="ie" /><br>
 
-All the email templates are available for customization.
+#### Access to app context
 
-### Test Custom Email Templates
+Okta Identity Engine orgs have access to app context within emails using the Velocity Templating Language. When an end user enters an authentication flow, Identity Engine stores the app context in the state token. The following properties are available in the app context:
+
+* `$app.id`
+* `$app.name`
+* `$app.label`
+
+When these properties are used with conditional logic, you can trigger branding for the specified app and define strings to uniquely customize an email template based on the app from where the email was triggered. App context is not available on Classic Engine since the state token does not exist there.
+
+#### Example of using app context to brand an email
+
+```
+#if(${app.name} == "Toys R' Fun")
+<img src="https://cdn.toysrfun.com/logo" height="37">
+<a id="support-link" href="https://support.toysrfun.com/help/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
+#elseif(${app.name} == "Fidget Spinners Unlimited")
+<img src="https://cdn.fidgetsu.com/logo" height="37">
+<a id="support-link" href="https://support.fidgetsu.com/help/?language=en_US" style="text-decoration: none;"> Contact Fidget SU Support </a>
+#else
+<img src="$parentLogoUrl" height="37">
+#end
+```
+
+
+#### Test custom email templates
 
 You can send yourself a test email to see how a custom email template looks and functions. This can help you validate macro attributes and translations in the customized template as well as see how the template renders in different email environments. This eliminates the need to create a real end-to-end workflow to test customization. The test email is sent to the primary email address of the admin that initiates the test email.
 
