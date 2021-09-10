@@ -1,6 +1,6 @@
 <template>
   <li :class="{
-      'expandable': link.subLinks,
+      'expandable': (link.subLinks && link.subLinks.length > 0),
       'opened': isOpened,
       'is-home': link.path ? link.path === '/' : false
     }"

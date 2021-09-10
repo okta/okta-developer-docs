@@ -76,11 +76,16 @@ a[target="_blank"]:not([href^="mailto:"])::after {
   display: none;
   background-image: none;
 }
+a > img + span > svg.icon.outbound {
+  display: none;
+}
 ol:not([class]), ul:not([class]) {
   max-width: 100%;
-  list-style-position: inside;
-  padding-left: 0;
+  margin-left: 5px;
 }
 p {
   max-width: 100%;
+}
+strong {
+	font-weight: 500;
 }

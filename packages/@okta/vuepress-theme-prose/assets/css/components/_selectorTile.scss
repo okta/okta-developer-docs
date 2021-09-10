@@ -2,7 +2,7 @@
   display: flex;
   justify-content: space-between;
 
-  @include media("<desktop") {
+  @include media("<bootstrap-xl") {
     flex-wrap: wrap;
   }
 
@@ -10,7 +10,7 @@
     width: 100%;
     margin: 0 36px 0 0;
 
-    @include media("<desktop") {
+    @include media("<bootstrap-xl") {
       width: 47%;
       margin-right: 6%;
       &:nth-child(2n) {
@@ -31,7 +31,7 @@
 .selector-tile{
   box-sizing: border-box;
 
-  @include media("<desktop") {
+  @include media("<bootstrap-xl") {
     margin-bottom: 48px;
   }
   @include media("<tablet") {

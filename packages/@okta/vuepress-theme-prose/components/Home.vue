@@ -83,7 +83,10 @@
                       class="homepage--welcome-leia--close"
                       @click="togglePseudoAuth"
                     >
-                      <span>X</span> close
+                      <svg class="close-icon" stroke="#00297A" stroke-width="2" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 79.2 79.2" width="32">
+                        <line stroke-width="5" class="st1" x1="23.3" y1="55.9" x2="55.9" y2="23.3"></line>
+                        <line stroke-width="5" class="st1" x1="23.3" y1="23.3" x2="55.9" y2="55.9"></line>
+                      </svg>
                     </div>
                     <div class="homepage--welcome-leia--header">
                       Welcome, Leia
