@@ -176,9 +176,10 @@ Perform the following configurations after you've [created a new app](#create-a-
 1. On the first set up page, select **Web** as the platform type.
 1. On the next page, set the value for **Site URL** to `https://${yourOktaDomain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save** and then **Continue**.
-1. Click **Next** in each presented section until you exit the wizard.
-1. In the left navigation menu, click **Facebook Login** (under Products) and then click **Settings**.
-1. On the **Settings** page and under **Client OAuth Settings**, add the following URLs for the **Valid OAuth Redirect URIs** field: `https://${yourOktaDomain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
+1. Click through all the **Next** buttons until you run through all of the sections.
+1. In the left navigation menu, click **Facebook Login** (under products) and then click **Settings**.
+1. On the **Settings** page and under **Client OAuth Settings**, add the following URLs for the **Valid OAuth Redirect URIs** field:
+      `https://${yourOktaDomain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 1. Click **Save Changes** at the bottom of the page.
 1. On the App Dashboard page, expand **Settings** on the left side of the page, and then click **Basic**.
 1. Save the **App ID** and the **App Secret** values so you can add them to your Okta org's Identity Provider settings.

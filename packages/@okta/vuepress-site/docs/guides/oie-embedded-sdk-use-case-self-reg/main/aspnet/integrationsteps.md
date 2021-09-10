@@ -265,158 +265,205 @@ The remaining authenticator should display the phone factor to the user. Since t
 
 The user can either enroll in the phone factor or skip the phone factor. Your code should handle both scenarios that will be described in the following steps.
 
-### 18a, Option 1: Select the phone authenticator
+### 18: Handle the phone authenticator options
 
-If the user selects the phone authenticator (instead of skipping it), the steps to enroll and verify are similar to the email factor verification flow in this section with subtle differences.
+#### Option 1: Enroll and verify the phone authenticator
 
-### 18b, Option 1: Start phone verification
+1. Start phone verification
 
-If the user selects the **phone** authenticator, a call to `EnrollAuthenticatorAsync` is made passing in the **phone** `AuthenticatorId`. If successful, the method should return an `AwaitingAuthenticatorEnrollmentData` response. The `AwaitingAuthenticatorEnrollmentData `response indicates that the enrollment data is required before continuing to verification.
+   If the user selects the **phone** authenticator (instead of skipping it), a call to `EnrollAuthenticatorAsync` is made passing in the **phone** `AuthenticatorId`. If successful, the method should return an `AwaitingAuthenticatorEnrollmentData` response. The `AwaitingAuthenticatorEnrollmentData `response indicates that the enrollment data is required before continuing to verification.
 
-In the use case to verify the phone authenticator, the phone number is required, and the user should be redirected to a page where they can enter in a phone number. See the following code snippet from the sample app.
+   In the use case to verify the phone authenticator, the phone number is required, and the user should be redirected to a page where they can enter in a phone number. See the following code snippet from the sample app.
 
-```csharp
-var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions,
-     (IIdxContext)Session["IdxContext"]);
-...
+   ```csharp
+   var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollAuthenticatorOptions,
+      (IIdxContext)Session["IdxContext"]);
+   ...
 
-switch (enrollResponse?.AuthenticationStatus)
-     {
-          ...
-          case AuthenticationStatus.AwaitingAuthenticatorEnrollmentData:
-               return RedirectToAction("EnrollPhoneAuthenticator", "Manage");
-          ...
-      }
-```
+   switch (enrollResponse?.AuthenticationStatus)
+      {
+            ...
+            case AuthenticationStatus.AwaitingAuthenticatorEnrollmentData:
+                  return RedirectToAction("EnrollPhoneAuthenticator", "Manage");
+            ...
+         }
+   ```
 
+<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
 ### 18c, Option 1: Show the phone entry page
+=======
+1. Show phone entry page
+>>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
-Build the phone number entry page that accepts the phone number. The user uses the phone number entry page to enroll and verify.
+   Build the phone number entry page that accepts the phone number. The user uses the phone number entry page to enroll and verify.
 
-<div class="common-image-format">
+   <div class="common-image-format">
 
+<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
 ![Displays an example 'Verify phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png)
+=======
+   ![Verify phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png
+   "Verify phone")
+>>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
-</div>
+   </div>
 
+<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
 > **Note:** The SDK requires that the phone number be in the following format: `+##########`, including the beginning plus (+) sign, for example, `+5551234567`.
 
 ### 18d, Option 1: Submit the phone number
+=======
+   > **Note:** The SDK requires that the phone number be in the following format: `+#######`, including the beginning plus (+) sign. See [Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/aspnet/main/#phone-number).
 
-When the user enters their phone number and clicks the send code using the SMS button, a call to `EnrollAuthenticatorAsync` is made and passes the following values:
+1. Submit phone number
+>>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
-* Authenticator ID
-* Phone number
-* Method type (only SMS is currently supported)
+   When the user enters their phone number and clicks the send code using the SMS button, a call to `EnrollAuthenticatorAsync` is made and passes the following values:
 
-> **Note:** Only SMS is currently supported for the phone authenticator type.
+   * Authenticator ID
+   * Phone number
+   * Method type (only SMS is currently supported)
 
-The above values are passed using the `EnrollPhoneAuthenticatorOptions` parameter. See the following code snippet for more details.
+   > **Note:** Only SMS is currently supported for the phone authenticator type.
 
-```csharp
- var enrollPhoneAuthenticatorOptions = new EnrollPhoneAuthenticatorOptions
-     {
-        AuthenticatorId = Session["phoneId"].ToString(),
-        PhoneNumber = model.PhoneNumber,
-        MethodType = AuthenticatorMethodType.Sms,
-     };
+   The above values are passed using the `EnrollPhoneAuthenticatorOptions` parameter. See the following code snippet for more details.
 
-var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthenticatorOptions,
-      (IIdxContext)Session["IdxContext"]);
-      Session["IdxContext"] = enrollResponse.IdxContext;
-```
+   ```csharp
+   var enrollPhoneAuthenticatorOptions = new EnrollPhoneAuthenticatorOptions
+      {
+         AuthenticatorId = Session["phoneId"].ToString(),
+         PhoneNumber = model.PhoneNumber,
+         MethodType = AuthenticatorMethodType.Sms,
+      };
 
+<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
 ### 18e, Option 1: Handle the submit response
+=======
+   var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthenticatorOptions,
+         (IIdxContext)Session["IdxContext"]);
+         Session["IdxContext"] = enrollResponse.IdxContext;
+   ```
+>>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
-If the call to `EnrollAuthenticatorAsync` is successful, it should return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, a code is sent to the phone number through SMS.
+1. Handle the submit response
 
-In the following code snippet, the user is redirected to a reusable code verification page that handles the code for both email and SMS. Your implementation may vary.
+   If the call to `EnrollAuthenticatorAsync` is successful, it should return an `AuthenticationStatus` of `AwaitingAuthenticatorVerification`. When `AwaitingAuthenticatorVerification` is returned, a code is sent to the phone number through SMS.
 
-```csharp
-var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthenticatorOptions,
-    (IIdxContext)Session["IdxContext"]);
-    ...
-if (enrollResponse.AuthenticationStatus ==
-    AuthenticationStatus.AwaitingAuthenticatorVerification)
-    {
-       return RedirectToAction("VerifyAuthenticator", "Manage");
-    }
-```
+   In the following code snippet, the user is redirected to a reusable code verification page that handles the code for both email and SMS. Your implementation may vary.
 
+<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
 ### 18f, Option 1: Display the phone verification code page
+=======
+   ```csharp
+   var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthenticatorOptions,
+      (IIdxContext)Session["IdxContext"]);
+      ...
+   if (enrollResponse.AuthenticationStatus ==
+      AuthenticationStatus.AwaitingAuthenticatorVerification)
+      {
+         return RedirectToAction("VerifyAuthenticator", "Manage");
+      }
+   ```
+>>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
-Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, the page can be the same page that verifies the email code or different. The sample app reuses the same page for both email and phone verification.
+1. Display phone verification code page
 
-<div class="common-image-format">
+   Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, the page can be the same page that verifies the email code or different. The sample app reuses the same page for both email and phone verification.
 
+<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
 ![Displays an example 'Enter code from phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png)
+=======
+   <div class="common-image-format">
+>>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
-</div>
+   ![Enter code from phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png
+   "Enter code from phone")
 
+<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
 ### 18g, Option 1: Submit the phone code
+=======
+   </div>
+>>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
-After the user enters the phone code and clicks verify, a call is made to `VerifyAuthenticatorAsync`. In the phone verification use case, the code that passes into `VerifyAuthenticatorAsync` is the code that was sent through SMS to the phone number.
+1. Submit phone code
 
-T)
+   After the user enters the phone code and clicks verify, a call is made to `VerifyAuthenticatorAsync`. In the phone verification use case, the code that passes into `VerifyAuthenticatorAsync` is the code that was sent through SMS to the phone number.
+
+   ```csharp
+   var idxAuthClient = new IdxClient(null);
+            var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
+            {
+                  Code = code,
+            };
+
+   var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
+   ```
+
+1. Complete authentication
+
+   The next step is to handle the response from `VerifyAuthenticatorAsync`. If the phone SMS code was valid, the method should return an `AuthenticationStatus` of `Success`. This status signifies that no more factors (required or optional) are waiting to be enrolled and verified.
+
+   If the steps described in [Set up your Okta org (for multifactor use cases)](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-multi-factor-use-cases) were properly followed, the user should now be registered with no more factors to be verified. The user should then be sent to the default page after they have successfully registered. In the sample application, the user is sent to the user profile page.
+
+   ```csharp
+   var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
+   Session["idxContext"] = authnResponse.IdxContext;
+
+   switch (authnResponse.AuthenticationStatus)
+   {
+      ...
+      case AuthenticationStatus.Success:
+            ClaimsIdentity identity = await
+            AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration,
+            authnResponse.TokenInfo);
+            _authenticationManager.SignIn(new AuthenticationProperties(), identity);
+            return RedirectToAction("Index", "Home");
+      ...
+   }
+   ```
+
+#### Option 2: Skip phone enrollment
+
+If the user opts to skip phone enrollment, a call to `SkipAuthenticatorSelectionAsync` needs to be made. This method skips phone enrollment and eliminates the need to verify the factor:
 
 ```csharp
-var idxAuthClient = new IdxClient(null);
-           var verifyAuthenticatorOptions = new VerifyAuthenticatorOptions
-           {
-               Code = code,
-           };
-
-var authnResponse = await idxAuthClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
-```
-
-### 18h, Option 1: Complete authentication
-
-The next step is to handle the response from `VerifyAuthenticatorAsync`. If the phone SMS code was valid, the method should return an `AuthenticationStatus` of `Success`. This status signifies that no more factors (required or optional) are waiting to be enrolled and verified.
-
-If the steps described in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-multifactor-use-case) were properly followed, the user should now be registered with no more factors to be verified. The user should then be sent to the default page after they have successfully registered. In the sample application, the user is sent to the user profile page.
-
-```csharp
-var authnResponse = await _idxClient.VerifyAuthenticatorAsync(verifyAuthenticatorOptions, (IIdxContext)Session["idxContext"]);
-Session["idxContext"] = authnResponse.IdxContext;
-
-switch (authnResponse.AuthenticationStatus)
+try
 {
-   ...
-   case AuthenticationStatus.Success:
-         ClaimsIdentity identity = await
-         AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration,
-         authnResponse.TokenInfo);
-         _authenticationManager.SignIn(new AuthenticationProperties(), identity);
-         return RedirectToAction("Index", "Home");
-   ...
+      var skipSelectionResponse = await _idxClient.SkipAuthenticatorSelectionAsync
+      ((IIdxContext)Session["IdxContext"]);
+
+      switch (skipSelectionResponse.AuthenticationStatus)
+      {
+         case AuthenticationStatus.Success:
+            ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenResponseAsync
+            (_idxClient.Configuration, skipSelectionResponse.TokenInfo);
+            _authenticationManager.SignIn(new AuthenticationProperties(), identity);
+            return RedirectToAction("Index", "Home");
+      }
+      return RedirectToAction("Index", "Home");
+}
+catch (TerminalStateException exception)
+{
+      TempData["TerminalStateMessage"] = exception.Message;
+      return RedirectToAction("Login", "Account");
+}
+catch (OktaException exception)
+{
+      ModelState.AddModelError(string.Empty, exception.Message);
+      return RedirectToAction("SelectAuthenticator");
 }
 ```
 
-### 19a, Option 2: Skip phone enrollment
+If `SkipAuthenticatorSelectionAsync` returns an `AuthenticationStatus` of `Success`, the registration is completed successfully.
+The method can also throw exceptions for unsuccessful registrations such as the following:
 
-If the user opts to skip phone enrollment, a call to `SkipAuthenticatorSelectionAsync` needs to be made. This method skips phone enrollment and eliminates the need to verify the factor. See the following code snippet for more details.
+* **`TerminalStateException`:** exception inherited from `OktaException` that's raised when an unexpected message
+   is returned from the Okta API and no further remediation is possible.
+* **`OktaException`:** general base exception that's raised when any Okta client and API exceptions are thrown.
 
-```csharp
-var skipSelectionResponse = await _idxClient.SkipAuthenticatorSelectionAsync((IIdxContext)Session["IdxContext"]);
-switch (skipSelectionResponse.AuthenticationStatus)
-    {
-         case AuthenticationStatus.Success:
-              ClaimsIdentity identity = await
-              AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration,
-              skipSelectionResponse.TokenInfo);
-              _authenticationManager.SignIn(new AuthenticationProperties(), identity);
-              return RedirectToAction("Index", "Home");
-         case AuthenticationStatus.Terminal:
-              TempData["MessageToUser"] = skipSelectionResponse.MessageToUser;
-              return RedirectToAction("Login", "Account");
-   }
-```
-
-The method `SkipAuthenticatorSelectionAsync` can return these different response statuses: `Success` or `Terminal`. For a `Success` status, the user is signed in, the response is stored in session, and the user is redirected to the default sign-in page. In the csample app, the default sign-in page is the user profile page.
-
-### 19b, Option 2: Complete authentication
-
-After the factor verifications are successful and there are no more authenticators to enroll and verify, the user is successfully registered and can be sent to the default sign-in page. In the sample app, the default sign-in page is the user profile page. See [Get user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/#get-user-profile-information) for more details on how to fetch user information.
+After a successful registration, store the returned tokens in a session and send the user to the default signed-in page.
+In the sample app, this page is the user profile page. See
+[Get user profile information](/docs/guides/oie-embedded-sdk-use-cases/aspnet/oie-embedded-sdk-use-case-basic-sign-in/#get-user-profile-information) for more details on how to fetch user information.
 
 ### Troubleshooting Tips
 

@@ -617,7 +617,7 @@ Authenticates a user through a [trusted application](#trusted-application) or pr
 
 * Specifying your own `deviceToken` is a highly privileged operation limited to trusted web applications and requires making authentication requests with a valid *API token*. If an API token is not provided, the `deviceToken` is ignored.
 * The **public IP address** of your [trusted application](#trusted-application) must be [allow listed as a gateway IP address](/docs/reference/core-okta-api/#ip-address) to forward the user agent's original IP address with the `X-Forwarded-For` HTTP header.
-* The ```Authorization: SSWS ${api_token}``` header is optional, in case of a SPA (Single Page app) this header can be omitted. 
+* The ```Authorization: SSWS ${api_token}``` header is optional, in case of a SPA (Single Page app) this header can be omitted.
 
 ##### Request example for activation token
 
@@ -912,7 +912,7 @@ curl -v -X POST \
 -H 'X-Device-Fingerprint: ${device_fingerprint}' \
 -d '{
   "username": "${username}",
-  "password" : "${password}",
+  "password" : "${password}"
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
@@ -1042,9 +1042,11 @@ curl -v -X POST \
 * This endpoint is currently supported only for SAML-based apps.
 * You must first enable the custom sign-in page for the application before using this API.
 
+> **Note:** Enabling the custom sign-in page for an application is only available with Okta Classic Engine. See [Limitations](/docs/guides/ie-limitations/).
+
 Every step-up transaction starts with the user accessing an application. If step-up authentication is required, Okta redirects the user to the custom sign-in page with state token as a request parameter.
 
-For example, if the custom sign-in page is set as **https://login.example.com**, then Okta will redirect to **https://login.example.com?stateToken=**00BClWr4T-mnIqPV8dHkOQlwEIXxB4LLSfBVt7BxsM. To determine the next step, check the [state of the transaction](#get-transaction-state).
+For example, if the custom sign-in page is set as `https://login.example.com`, then Okta will redirect to `https://login.example.com?stateToken=<token>`. To determine the next step, check the [state of the transaction](#get-transaction-state).
 
 * [Step-up authentication without Okta session](#step-up-authentication-without-okta-session)
 * [Step-up authentication with Okta session](#step-up-authentication-with-okta-session)
@@ -2219,7 +2221,7 @@ curl -v -X POST \
 -d '{
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "factorType": "email",
-  "provider": "OKTA",
+  "provider": "OKTA"
 }' "https://${yourOktaDomain}/api/v1/authn/factors"
 ```
 
@@ -2310,7 +2312,7 @@ curl -v -X POST \
 -d '{
   "stateToken": "007ucIX7PATyn94hsHfOLVaXAmOBkKHWnOOLG43bsb",
   "factorType": "email",
-  "provider": "OKTA",
+  "provider": "OKTA"
 }' "https://${yourOktaDomain}/api/v1/authn/factors/clf198rKSEWOSKRIVIFT/lifecycle/resend"
 ```
 
@@ -3088,7 +3090,7 @@ curl -v -X POST \
             "name":"Rain-Cloud59"
           },
           "u2fParams": {
-            "appid": "https://${yourOktaDomain}.com"
+            "appid": "https://${yourOktaDomain}"
           },
           "user": {
             "displayName": "First Last",
@@ -5725,7 +5727,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "EMAIL",
+  "factorType": "EMAIL"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5758,7 +5760,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "SMS",
+  "factorType": "SMS"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5821,7 +5823,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "call",
+  "factorType": "call"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -5885,7 +5887,7 @@ curl -v -X POST \
 -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36" \
 -H "X-Forwarded-For: 23.235.46.133" \
 -d '{
-  "username": "dade.murphy@example.com",
+  "username": "dade.murphy@example.com"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/password"
 ```
 
@@ -6001,7 +6003,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "EMAIL",
+  "factorType": "EMAIL"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
@@ -6037,7 +6039,7 @@ curl -v -X POST \
 -H "Content-Type: application/json" \
 -d '{
   "username": "dade.murphy@example.com",
-  "factorType": "SMS",
+  "factorType": "SMS"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 
@@ -6103,7 +6105,7 @@ curl -v -X POST \
 -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36" \
 -H "X-Forwarded-For: 23.235.46.133" \
 -d '{
-  "username": "dade.murphy@example.com",
+  "username": "dade.murphy@example.com"
 }' "https://${yourOktaDomain}/api/v1/authn/recovery/unlock"
 ```
 

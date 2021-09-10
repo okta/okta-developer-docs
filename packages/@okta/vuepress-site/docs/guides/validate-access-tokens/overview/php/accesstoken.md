@@ -35,7 +35,11 @@ $jwtVerifier = (new \Okta\JwtVerifier\JwtVerifierBuilder())
     ->setAdaptor(new \Okta\JwtVerifier\Adaptors\FirebasePhpJwt)
     ->setAudience('api://default')
     ->setClientId('${clientId}')
+<<<<<<< HEAD
     ->setIssuer('https://${yourOktaDomain}.com/oauth2/default')
+=======
+    ->setIssuer('https://${yourOktaDomain}/oauth2/default')
+>>>>>>> master
     ->build();
 
 $jwt = $jwtVerifier->verify($jwt);

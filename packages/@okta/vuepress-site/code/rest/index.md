@@ -74,7 +74,7 @@ Now that you have a working collection, you can use the following tips to work m
 
 ### Find IDs for Okta API requests
 
-Your imported collections contain URLs and JSON request bodies that have sample data with variables such as `{userId}`. You can replace URL and body variables with the IDs of the resources that you want to specify.
+Your imported collections contain URLs and JSON request bodies that have sample data with variables such as `${userId}`. You can replace URL and body variables with the IDs of the resources that you want to specify.
 
 1. To get a user's ID, for example, send a request to list the users in your org like you did in the previous section. Each user listed in the response has an ID:
 

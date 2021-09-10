@@ -1,4 +1,3 @@
-
 The following sequence diagram details each step in the authentication flow for this use case.
 
 <div class="common-image-format">

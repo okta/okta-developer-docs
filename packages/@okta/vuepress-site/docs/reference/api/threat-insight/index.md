@@ -48,7 +48,7 @@ curl -X POST \
     "lastUpdated": "2020-10-13 21:23:10",
     "_links": {
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/threats/configuration",
+            "href": "https://${yourOktaDomain}/api/v1/threats/configuration",
             "hints": {
                 "allow": [
                     "GET",

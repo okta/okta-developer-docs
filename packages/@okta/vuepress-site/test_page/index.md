@@ -88,7 +88,7 @@ Consequat torquent magna. [Ridiculus](#last-section). Ac, mattis. Cras cum. Accu
 * Platea `vulputate` `lacinia` integer et facilisis elementum blandit congue quam. Nec turpis semper amet metus ridiculus porta, dolor eu diam. [ridiculus](https://tools.ietf.org/html/rfc6749).
 
 * <ApiLifecycle access="beta" /> Nec turpis semper amet metus ridiculus porta, dolor eu diam:
-    * `prompt`, Primis ad cum fusce Nunco [`/oauth2/${authServerId}/v1/authorize`](/docs/reference/api/oidc/#authorize)(custom authorization server)
+    * `prompt`, Primis ad cum fusce Nunco [`/oauth2/${authorizationServerId}/v1/authorize`](/docs/reference/api/oidc/#authorize)(custom authorization server)
     * `consent_method`, magnis nisi euismod penatibus posuere
     * `consent`, integer taciti [scopes](/docs/reference/api/authorization-servers/#scope-properties)
 
@@ -274,7 +274,7 @@ Simple replace: -=OKTA_REPLACE_WITH_TEST_JUNK=-
 
 Many per line: -=OKTA_REPLACE_WITH_TEST_JUNK=--=OKTA_REPLACE_WITH_TEST_JUNK=- -=OKTA_REPLACE_WITH_TEST_JUNK=-
 
-With symbols: --=OKTA_REPLACE_WITH_TEST_JUNK=-- 
+With symbols: --=OKTA_REPLACE_WITH_TEST_JUNK=--
 
 in code blocks: `-=OKTA_REPLACE_WITH_TEST_JUNK=-`
 ```

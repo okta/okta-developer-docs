@@ -72,10 +72,10 @@ curl -v -X POST \
   "lastUpdated": "2021-02-06T16:20:57.000Z",
   "_links": {
     "permissions": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
     },
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     }
   }
 }
@@ -120,10 +120,10 @@ curl -v -X GET \
   "lastUpdated": "2021-02-06T16:20:57.000Z",
   "_links": {
     "permissions": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
     },
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     }
   }
 }
@@ -174,10 +174,10 @@ curl -v -X PUT \
   "lastUpdated": "2021-02-08T16:20:57.000Z",
   "_links": {
     "permissions": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
     },
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     }
   }
 }
@@ -218,10 +218,10 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "permissions": {
-          "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
+          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
         },
         "self": {
-          "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
         }
       }
     },
@@ -233,17 +233,17 @@ curl -v -X GET \
       "lastUpdated": "2021-02-06T16:20:57.000Z",
       "_links": {
         "permissions": {
-          "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Fw7HKcWIroo88m3r1/permissions"
+          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Fw7HKcWIroo88m3r1/permissions"
         },
         "self": {
-          "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Fw7HKcWIroo88m3r1"
+          "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Fw7HKcWIroo88m3r1"
         }
       }
     }
   ],
   "_links": {
     "next": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/roles?after=cr0Fw7HKcWIroo88m3r1"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles?after=cr0Fw7HKcWIroo88m3r1"
     }
   }
 }
@@ -681,7 +681,7 @@ curl -v -X GET \
   ],
   "_links": {
     "next": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets?after=iamoJDFKaJxGIr0oamd0q"
+      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets?after=iamoJDFKaJxGIr0oamd0q"
     }
   }
 }
@@ -1482,7 +1482,7 @@ curl -v -X GET \
         "assignmentType": "USER",
         "_links": {
             "assignee": {
-                "href": "http://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+                "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
             }
         }
     },
@@ -1496,7 +1496,7 @@ curl -v -X GET \
         "assignmentType": "USER",
         "_links": {
             "assignee": {
-                "href": "http://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+                "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
             }
         }
     },
@@ -1510,7 +1510,7 @@ curl -v -X GET \
         "assignmentType": "USER",
         "_links": {
             "assignee": {
-                "href": "http://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+                "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
             }
         }
     },
@@ -1524,7 +1524,7 @@ curl -v -X GET \
         "assignmentType": "GROUP",
         "_links": {
             "assignee": {
-                "href": "http://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
+                "href": "https://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
             }
         }
     }
@@ -1546,7 +1546,7 @@ curl -v -X GET \
         "assignmentType": "USER",
         "_links": {
             "assignee": {
-                "href": "http://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+                "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
             }
         }
     },
@@ -1560,7 +1560,7 @@ curl -v -X GET \
         "assignmentType": "USER",
         "_links": {
             "assignee": {
-                "href": "http://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+                "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
             }
         }
     },
@@ -1574,7 +1574,7 @@ curl -v -X GET \
         "assignmentType": "USER",
         "_links": {
             "assignee": {
-                "href": "http://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+                "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
             }
         }
     },
@@ -1588,7 +1588,7 @@ curl -v -X GET \
         "assignmentType": "GROUP",
         "_links": {
             "assignee": {
-                "href": "http://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
+                "href": "https://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
             }
         }
     },
@@ -1604,19 +1604,19 @@ curl -v -X GET \
         "resource-set": "iamoJDFKaJxGIr0oamd9g",
         "_links": {
             "assignee": {
-                "href": "http://${yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
+                "href": "https://${yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
             },
             "resource-set": {
-                "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+                "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
             },
             "member": {
-                "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
+                "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
             },
             "role": {
-              "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+              "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
             },
             "permissions": {
-                "href": "http://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
+                "href": "https://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
             }
         }
     },
@@ -1632,19 +1632,19 @@ curl -v -X GET \
         "resource-set": "iamoakjsdQaJxGIr03int1o",
         "_links": {
           "assignee": {
-            "href": "http://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
+            "href": "https://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
           },
           "resource-set": {
-            "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoakjsdQaJxGIr03int1o"
+            "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoakjsdQaJxGIr03int1o"
           },
           "member": {
-            "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
+            "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
           },
           "role": {
-            "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+            "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
           },
           "permissions": {
-            "href": "http://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
+            "href": "https://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
           }
         }
     }
@@ -1695,7 +1695,7 @@ curl -v -X GET \
         "assignmentType": "GROUP",
         "_links": {
             "assignee": {
-                "href": "http://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
+                "href": "https://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
             }
         }
     }
@@ -1790,7 +1790,7 @@ curl -v -X POST \
     "assignmentType": "GROUP",
     "_links": {
         "assignee": {
-            "href": "http://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
+            "href": "https://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
         }
     }
 }
@@ -1851,16 +1851,16 @@ curl -v -X POST \
   "resource-set": "iamoJDFKaJxGIr0oamd9g",
   "_links": {
     "assignee": {
-      "href": "http://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
+      "href": "https://${yourOktaDomain}/api/v1/groups/00gsr2IepS8YhHRFf0g3"
     },
     "resource-set": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
     },
     "role": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     },
     "permissions": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
     }
   }
 }
@@ -2113,20 +2113,20 @@ curl -v -X GET \
             "logo": [
                 {
                     "name": "medium",
-                    "href": "http://${yourOktaDomain}/assets/img/logos/groups/okta-medium.d7fb831bc4e7e1a5d8bd35dfaf405d9e.png",
+                    "href": "https://${yourOktaDomain}/assets/img/logos/groups/okta-medium.d7fb831bc4e7e1a5d8bd35dfaf405d9e.png",
                     "type": "image/png"
                 },
                 {
                     "name": "large",
-                    "href": "http://${yourOktaDomain}/assets/img/logos/groups/okta-large.511fcb0de9da185b52589cb14d581c2c.png",
+                    "href": "https://${yourOktaDomain}/assets/img/logos/groups/okta-large.511fcb0de9da185b52589cb14d581c2c.png",
                     "type": "image/png"
                 }
             ],
             "users": {
-                "href": "http://${yourOktaDomain}/api/v1/groups/00gsrc96agspOaiP40g3/users"
+                "href": "https://${yourOktaDomain}/api/v1/groups/00gsrc96agspOaiP40g3/users"
             },
             "apps": {
-                "href": "http://${yourOktaDomain}/api/v1/groups/00gsrc96agspOaiP40g3/apps"
+                "href": "https://${yourOktaDomain}/api/v1/groups/00gsrc96agspOaiP40g3/apps"
             }
         }
     }
@@ -2489,12 +2489,12 @@ The example shows one application and one instance. Note that the response for i
             "logo": [
                 {
                     "name": "medium",
-                    "href": "http://${yourOktaDomain}/assets/img/logos/facebook.e8215796628b5eaf687ba414ae245659.png",
+                    "href": "https://${yourOktaDomain}/assets/img/logos/facebook.e8215796628b5eaf687ba414ae245659.png",
                     "type": "image/png"
                 }
             ],
             "self": {
-                "href": "http://${yourOktaDomain}/api/v1/catalog/apps/facebook"
+                "href": "https://${yourOktaDomain}/api/v1/catalog/apps/facebook"
             }
         }
     },
@@ -2504,7 +2504,7 @@ The example shows one application and one instance. Note that the response for i
         "id": "0oasrudLtMlzAsTxk0g3",
         "_links": {
             "self": {
-                "href": "http://${yourOktaDomain}/api/v1/apps/0oasrudLtMlzAsTxk0g3"
+                "href": "https://${yourOktaDomain}/api/v1/apps/0oasrudLtMlzAsTxk0g3"
             }
         }
     }
@@ -2863,7 +2863,7 @@ HTTP/1.1 204 No Content
     "assignmentType": "USER",
     "_links": {
         "assignee": {
-            "href": "http://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
+            "href": "https://${yourOktaDomain}/api/v1/users/00ur32Vg0fvpyHZeQ0g3"
         }
     }
 }
@@ -2882,7 +2882,7 @@ HTTP/1.1 204 No Content
     "assignmentType": "GROUP",
     "_links": {
         "assignee": {
-            "href": "http://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
+            "href": "https://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
         }
     }
 }
@@ -2913,19 +2913,19 @@ Note that the following fields are different compared to those for [an individua
         "resource-set": "iamoJDFKaJxGIr0oamd9g",
         "_links": {
             "assignee": {
-                "href": "http://${yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
+                "href": "https://${yourOktaDomain}/api/v1/users/00u1gytb3XCr9Dkr18r2"
             },
             "resource-set": {
-                "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
+                "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g"
             },
             "member": {
-                "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
+                "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
             },
             "role": {
-                "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+                "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
             },
             "permissions": {
-                "href": "http://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
+                "href": "https://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
             }
         }
     }
@@ -2956,19 +2956,19 @@ Note that the following fields are different compared to those for [a Group assi
   "resource-set": "iamoakjsdQaJxGIr03int1o",
   "_links": {
     "assignee": {
-      "href": "http://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
+      "href": "https://${yourOktaDomain}/api/v1/groups/00g1ousb3XCr9Dkr20g4"
     },
     "resource-set": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoakjsdQaJxGIr03int1o"
+      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoakjsdQaJxGIr03int1o"
     },
     "member": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
+      "href": "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0Yq6IJxGIr0ouum0g3/members/irb1qe6PGuMc7Oh8N0g4"
     },
     "role": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     },
     "permissions": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
+      "href": "https://${yourOktaDomain}/api/v1/iam/permission-sets/cr0Yq6IJxGIr0ouum0g3/permissions"
     }
   }
 }
@@ -3061,10 +3061,10 @@ A Custom Role is a custom set of [Permissions](#permission-types). A Custom Role
     "lastUpdated": "2021-02-06T16:20:57.000Z",
     "_links": {
     "permissions": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3/permissions"
     },
     "self": {
-      "href": "http://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
+      "href": "https://${yourOktaDomain}/api/v1/iam/roles/cr0Yq6IJxGIr0ouum0g3"
     }
   }
 }

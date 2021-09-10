@@ -48,7 +48,7 @@ Create the service application that integrates with the third-party risk provide
 
 1. Copy the name of your third-party risk provider to your Postman environment's `providerName` variable. In this example, use `Risk Provider Example`. Save the environment.
 
-2. Call the following POST API from the Risk Integration Postman collection: **Admin: API to create OAuth service client (for the provider)** (`{{url}}/oauth2/v1/clients`).
+2. Call the following POST API from the Risk Integration Postman collection: **Admin: API to create OAuth service client (for the provider)** (`https://${yourOktaDomain}/oauth2/v1/clients`).
 
 3. Review the response, which includes the `jwks` key pair. Note, the `client_name` value is the same value you gave as the `providerName` variable. A sample response follows:
 
@@ -87,7 +87,7 @@ Create the service application that integrates with the third-party risk provide
 
 4. From the response, copy the `client_id` value, in this example `0oaaaboyxsbrWdsk81d6`, to your Postman environment's `clientId` variable. Save the environment.
 
-5. Verify the application is available by calling the following GET API from the Risk Integration Postman collection: **Admin: API to get all OAuth service clients** (`{{url}}/oauth2/v1/clients`).
+5. Verify the application is available by calling the following GET API from the Risk Integration Postman collection: **Admin: API to get all OAuth service clients** (`https://${yourOktaDomain}/oauth2/v1/clients`).
 
 This call retrieves all service applications from your Okta org, including the new Risk Integration service application.
 

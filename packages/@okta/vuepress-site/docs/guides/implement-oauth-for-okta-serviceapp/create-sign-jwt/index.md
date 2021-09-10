@@ -22,7 +22,7 @@ You can use the following [JWT claims](/docs/reference/api/oidc/#token-claims-fo
 
 1. For this example, include the following parameters in the payload of the JWT:
 
-    * `aud` &mdash; `https://${yourOktaDomain}.com/oauth2/v1/token`
+    * `aud` &mdash; `https://${yourOktaDomain}/oauth2/v1/token`
     * `iss` &mdash; `client_id`
     * `sub` &mdash; `client_id`
     * `exp` &mdash; `1614664267`

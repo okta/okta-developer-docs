@@ -1,4 +1,4 @@
-### The sample application's integration with the SDK
+### Sample application and SDK integration
 
 Much like the Okta API it calls, the SDK uses a generic interface to handle
 each step of the user sign-in flow. This interface enables calling applications

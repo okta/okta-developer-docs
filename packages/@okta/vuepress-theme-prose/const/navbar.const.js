@@ -612,10 +612,11 @@ export const reference = [
                 title: "Client-based rate limits",
                 path: "/docs/reference/rl-clientbased/"
               },
-              { title: "DynamicScale", path: "/docs/reference/rl-dynamic-scale/" },
-              {
-                title: "Previous rate limits",
-                path: "/docs/reference/rl-previous/"
+              { title: "DynamicScale",
+                path: "/docs/reference/rl-dynamic-scale/"
+              },
+              { title: "Previous rate limits",
+              path: "/docs/reference/rl-previous/"
               },
               {
                 title: "System Log events for rate limits",
@@ -651,6 +652,7 @@ export const reference = [
           { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
           { title: "Schemas", path: "/docs/reference/api/schemas/" },
           { title: "Sessions", path: "/docs/reference/api/sessions/" },
+          { title: "Subscriptions", path: "/docs/reference/api/admin-notifications" },
           { title: "System Log", path: "/docs/reference/api/system-log/" },
           { title: "Templates", path: "/docs/reference/api/templates/" },
           { title: "ThreatInsight", path: "/docs/reference/api/threat-insight/" },

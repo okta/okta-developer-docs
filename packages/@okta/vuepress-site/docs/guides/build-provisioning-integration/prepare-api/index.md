@@ -43,13 +43,13 @@ If you are using OAuth 2.0, then after successfully authorizing Okta to use your
 
 If you are going to publish your integration to the OIN catalog, Okta requires that all SCIM applications support all of the following [redirect URIs](https://tools.ietf.org/html/rfc6749#section-3.1.2):
 
-- `https://system-admin.okta.com/admin/app/cpc/{appName}/oauth/callback`
-- `https://system-admin.okta-emea.com/admin/app/cpc/{appName}/oauth/callback`
-- `https://system-admin.oktapreview.com/admin/app/cpc/{appName}/oauth/callback`
-- `https://system-admin.trexcloud.com/admin/app/cpc/{appName}/oauth/callback`
-- `http://system-admin.okta1.com:1802/admin/app/cpc/{appName}/oauth/callback`
+- `https://system-admin.okta.com/admin/app/cpc/${appName}/oauth/callback`
+- `https://system-admin.okta-emea.com/admin/app/cpc/${appName}/oauth/callback`
+- `https://system-admin.oktapreview.com/admin/app/cpc/${appName}/oauth/callback`
+- `https://system-admin.trexcloud.com/admin/app/cpc/${appName}/oauth/callback`
+- `http://system-admin.okta1.com:1802/admin/app/cpc/${appName}/oauth/callback`
 
-where the `{appName}` is a unique identifier provided to you after your integration is submitted and processed by Okta. If, for any reason, your unique `{appName}` identifier isn't provided to you after the initial review, send an email to <oin@okta.com>.
+where the `${appName}` is a unique identifier provided to you after your integration is submitted and processed by Okta. If, for any reason, your unique `${appName}` identifier isn't provided to you after the initial review, send an email to <oin@okta.com>.
 
 ### Base URL
 

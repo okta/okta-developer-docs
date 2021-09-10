@@ -9,9 +9,9 @@
 1. Set the app-specific environment variables:
 
    ```bash
-   export OKTA_OAUTH2_ISSUER=https://{yourOktaDomain}/oauth2/default
-   export OKTA_OAUTH2_CLIENTID={clientId}
-   export OKTA_OAUTH2_CLIENTSECRET={clientSecret}
+   export OKTA_OAUTH2_ISSUER=https://${yourOktaDomain}/oauth2/default
+   export OKTA_OAUTH2_CLIENTID=${clientId}
+   export OKTA_OAUTH2_CLIENTSECRET=${clientSecret}
    export OKTA_IDX_SCOPES="openid profile offline_access"
    export OKTA_OAUTH2_REDIRECTURI=http://localhost:8080
    ```

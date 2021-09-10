@@ -20,13 +20,13 @@ The file format is shown below:
 ```yaml
 okta:
 idx:
-  issuer: "https://{yourOktaDomain}/oauth2/default"
-  clientId: "{clientId}"
-  clientSecret: "{clientSecret}"
+  issuer: "https://${yourOktaDomain}/oauth2/default"
+  clientId: "${clientId}"
+  clientSecret: "${clientSecret}"
   scopes:
-  - "{scope1}"
-  - "{scope2}"
-  redirectUri: "{redirectUri}"
+  - "${scope1}"
+  - "${scope2}"
+  redirectUri: "${redirectUri}"
 ```
 
 ### Option 2: Add the values as environment variables
@@ -46,10 +46,10 @@ Add the values as parameters to the constructor for the `IdxClient`.
 ```csharp
  var client = new IdxClient(new IdxConfiguration()
            {
-               Issuer = "{YOUR_ISSUER}",
-               ClientId = "{YOUR_CLIENT_ID}",
-               ClientSecret = "{YOUR_CLIENT_SECRET}",
-               RedirectUri = "{YOUR_REDIRECT_URI}",
+               Issuer = "${YOUR_ISSUER}",
+               ClientId = "${YOUR_CLIENT_ID}",
+               ClientSecret = "${YOUR_CLIENT_SECRET}",
+               RedirectUri = "${YOUR_REDIRECT_URI}",
                Scopes = new List<string>{"openid","profile", "offline_access"}
            });
 ```

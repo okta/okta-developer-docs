@@ -210,16 +210,16 @@ PHP, reconfiguring Apache, and creating some symbolic links.
 
     ``` php
     $metadata_url_for = array(
-        'example-okta-com'=> '{metadata-url}'
+        'example-okta-com'=> '${metadataUrl}'
     );
     ```
 
-    Be sure to replace the contents of `{metdata-url}` with the link
+    Be sure to replace the contents of `${metadataUrl}` with the link
     that you copied in step \#10 of the
     "[Setting up a SAML application in Okta](/docs/guides/build-sso-integration/saml2/create-your-app/)"
     instructions that you followed above!
 
-    > **Note:** The contents of `{metadata-url}` should look similar to this:
+    > **Note:** The contents of `${metadataUrl}` should look similar to this:
     > `https://${yourOktaDomain}/app/a0b1c2deFGHIJKLMNOPQ/sso/saml/metadata`
 
 

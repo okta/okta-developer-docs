@@ -24,7 +24,7 @@ Please make sure that the following are installed before starting installation:
 Check using the following command:
 
 `java -version`
-	
+
 [Apache Maven](https://maven.apache.org)
 
 Check using the following command:
@@ -136,7 +136,7 @@ You can add user attributes sent in each SAML assertion under **Attribute Statem
 **9.** In the **Feedback** section, select the **This is an internal application that we created** check box and click **Finish**. ![App type](/img/okta-admin-ui-new-application-step-3-feedback.png "App type")
 
 	The **Sign On** section of your newly created Spring Security SAML application appears.
-	
+
 **10.** Copy the **Identity Provider metadata** link by right-clicking the **Identity Provider metadata** link and selecting **Copy**. You will need this link later. ![Sign on methods](/img/okta-admin-ui-identity-provider-metadata-link.png "Sign on methods")
 
 **11.** Right-click the **People** section of the Spring Security SAML application and select **Open Link In New Tab** (so that you can come back to the **Sign On** section later).
@@ -162,7 +162,7 @@ Now that you have configured a Spring Security SAML application, you are ready t
 	  <!-- URL containing the metadata -->
 	  <constructor-arg>
 		<!-- This URL should look something like this: https://${yourOktaDomain}/app/abc0defghijK1lmN23o4/sso/saml/metadata -->
-		<value type="java.lang.String">{metadata-url}</value>
+		<value type="java.lang.String">${metadataUrl}</value>
 	  </constructor-arg>
 	  <!-- Timeout for metadata loading in ms -->
 	  <constructor-arg>
@@ -172,7 +172,7 @@ Now that you have configured a Spring Security SAML application, you are ready t
 	</bean>
 ```
 
-**3.** Make sure to replace the contents of `{metdata-url}` with the link that you copied in step 11 of the [Configure Okta to work with Spring Security SAML](http://localhost:8080/code/java/spring_security_saml/#configure-okta-to-work-with-spring-security-saml) section.
+**3.** Make sure to replace the contents of `${metadataUrl}` with the link that you copied in step 11 of the [Configure Okta to work with Spring Security SAML](http://localhost:8080/code/java/spring_security_saml/#configure-okta-to-work-with-spring-security-saml) section.
 
 **4.** Save the `securityContext.xml` file, then restart Tomcat. If you are using Mac OS X, you can restart Tomcat using the following commands:
 
@@ -192,10 +192,10 @@ You will be testing both methods. In both cases, you will know if the test worke
 **1.** Sign in from the Spring Security SAML sample application (This is known as an "SP initiated" sign in).
 
 -Open the sample application in your browser:
-	
+
 `http://localhost:8080/spring-security-saml2-sample`
 
--Select the Okta IdP from the list. It is a URL that starts with: `http://www.okta.com/`. 
+-Select the Okta IdP from the list. It is a URL that starts with: `http://www.okta.com/`.
 
 -Click **Start single sign-on**. ![Start single sign-on](/img/spring-security-saml-selection.png "Start single sign-on")
 

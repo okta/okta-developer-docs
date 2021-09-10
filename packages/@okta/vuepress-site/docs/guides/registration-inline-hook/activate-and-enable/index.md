@@ -22,9 +22,9 @@ The Registration Inline Hook is now set up with a status of active.
 
 ### Enable the Registration Inline Hook
 
-The procedure to enable the Registration Inline Hook is dependent on the type of org you are using: Okta Identity Engine or Okta Classic. Follow the procedure for your specific org.
+The procedure to enable the Registration Inline Hook is dependent on the type of org you are using: Okta Identity Engine or Okta Classic Engine. Follow the procedure for your specific org.
 
-#### Enable a Registration Inline Hook in Okta Identity Engine
+#### Enable a Registration Inline Hook in the Identity Engine
 
 <ApiLifecycle access="ie" />
 If you have an Identity Engine org, you must [enable and configure a profile enrollment policy](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/policies/create-profile-enrollment-policy-sr.htm) to implement a Registration Inline Hook.
@@ -47,10 +47,10 @@ Your Registration Inline Hook is now configured for Profile Enrollment. You are 
 
 > **Note:** Only one Inline Hook can be associated with your Profile Enrollment policy at a time.
 
-#### Enable the Registration Inline Hook in Okta Classic
+#### Enable the Registration Inline Hook in the Classic Engine
 
 <ApiLifecycle access="ea" />
-If you have an Okta Classic org, you must enable [self-service registration (SSR)](/docs/guides/set-up-self-service-registration/before-you-begin/) to implement a Registration Inline Hook.
+If you have a Classic Engine org, you must enable [self-service registration (SSR)](/docs/guides/set-up-self-service-registration/before-you-begin/) to implement a Registration Inline Hook.
 
 > **Note:** Self-service registration and Registration Inline Hooks are only supported with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 2.9 or later.
 

@@ -51,7 +51,7 @@ Do not consume any Okta API unless it is documented on this site. All undocument
 
 ### URL namespace
 
-All URLs listed in the documentation should be preceded with your organization's subdomain (tenant) and API version: `https://${yourOktaDomain}.com/api/${apiversion}`
+All URLs listed in the documentation should be preceded with your organization's subdomain (tenant) and API version: `https://${yourOktaDomain}/api/${apiversion}`
 The API version is currently `v1`.
 
 > **Note:** All API requests must use the HTTPS scheme.
@@ -259,7 +259,7 @@ Most of the operators listed in the [SCIM Protocol Specification](https://tools.
 | Operator | Description | Behavior                                                         |
 | -------- | ----------- | --------                                                         |
 | `and`      | Logical AND | The filter is only a match if both expressions evaluate to true. |
-| `not` | Logical NOT | The filter is a match if the expression evaluates to false. | 
+| `not` | Logical NOT | The filter is a match if the expression evaluates to false. |
 | `or`       | Logical OR  | The filter is a match if either expression evaluates to true.    |
 
 #### Logical operators

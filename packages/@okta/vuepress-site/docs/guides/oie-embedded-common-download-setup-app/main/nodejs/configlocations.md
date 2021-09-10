@@ -29,9 +29,9 @@ Add the values as parameters to the `config.js` file:
 ```JavaScript
 module.exports = function () {
   const {
-    CLIENT_ID =`{YOUR_CLIENT_ID}`,
-    CLIENT_SECRET = `{YOUR_CLIENT_SECRET}`,
-    ISSUER =`{YOUR_ISSUER}` ,
+    CLIENT_ID =`${YOUR_CLIENT_ID}`,
+    CLIENT_SECRET = `${YOUR_CLIENT_SECRET}`,
+    ISSUER =`${YOUR_ISSUER}` ,
     OKTA_TESTING_DISABLEHTTPSCHECK = false,
   } = process.env;
 

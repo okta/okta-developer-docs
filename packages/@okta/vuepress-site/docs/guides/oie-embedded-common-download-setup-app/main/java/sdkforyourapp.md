@@ -5,7 +5,7 @@ After you run the sample app and explore its available use cases, you can begin 
 1. In your Okta Org, [create a new application integration](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application) for your app.
 1. Ensure that you have all the [software requirements](#software-requirements).
 1. Clone the [okta-idx-java](https://github.com/okta/okta-idx-java) repository.
-1. Ensure that you have set the Okta Identity Engine Java SDK [dependency](#software-requirements) for Apache Maven. Use the [latest released version](https://github.com/okta/okta-idx-java/releases).
+1. Ensure that you have set the Identity Engine Java SDK [dependency](#software-requirements) for Apache Maven. Use the [latest released version](https://github.com/okta/okta-idx-java/releases).
 
 #### 2: Import the packages and add the Spring Boot framework
 

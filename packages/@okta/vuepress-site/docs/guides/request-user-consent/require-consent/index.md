@@ -76,7 +76,7 @@ This example shows the JSON body of a PUT request to an existing OpenID Connect 
             "client_uri": null,
             "logo_uri": null,
             "redirect_uris": [
-                "http://${yourOktaDomain}/authorization-code/callback"
+                "https://${yourOktaDomain}/authorization-code/callback"
             ],
             "response_types": [
                 "code",
@@ -87,7 +87,7 @@ This example shows the JSON body of a PUT request to an existing OpenID Connect 
                 "authorization_code",
                 "implicit"
             ],
-            "initiate_login_uri": "http://${yourOktaDomain}/authorization-code/callback",
+            "initiate_login_uri": "https://${yourOktaDomain}/authorization-code/callback",
             "application_type": "web",
             "consent_method": "REQUIRED",
             "issuer_mode": "CUSTOM_URL"
@@ -100,9 +100,9 @@ To enable consent for a scope, you need to [update the appropriate scope](/docs/
 
 ### Update Scope consent
 
-This example shows the JSON body for a PUT request to the default Custom Authorization Server (`https://${yourOktaDomain}/api/v1/authorizationServers/${authServerId}/scopes/${scopeId}`) to update the `phone` scope. You need the following information for the request:
+This example shows the JSON body for a PUT request to the default Custom Authorization Server (`https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/scopes/${scopeId}`) to update the `phone` scope. You need the following information for the request:
 
-* `authServerId`: Do a [List Authorization Servers](/docs/reference/api/authorization-servers/#list-authorization-servers) to locate the appropriate ID.
+* `authorizationServerId`: Do a [List Authorization Servers](/docs/reference/api/authorization-servers/#list-authorization-servers) to locate the appropriate ID.
 * `scopeId`: Do a [List Scopes](/docs/reference/api/authorization-servers/#get-all-scopes) to locate the appropriate ID.
 
 ```json

@@ -10,8 +10,8 @@ public async Task<ActionResult> Index()
      var idxClient = new IdxClient(new IdxConfiguration()
      {
            Issuer = "https://dev-12345678.okta.com/oauth2/default",
-           ClientId = "{clientid}",
-           ClientSecret = "{clientsecret}",
+           ClientId = "${clientId}",
+           ClientSecret = "${clientSecret}",
            RedirectUri = "https://localhost:44314/interactioncode/callback/",
            Scopes = new List<string>{"openid","profile", "offline_access"}
      });
@@ -33,7 +33,7 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
    "interactionHandle":"epXgGYZHsYErPLfw8aLpCvWZOgVtYx25_OYCmQc0z2s",
    "version":"5.5.2",
    "baseUrl":"https://dev-12345678.okta.com",
-   "clientId":"{clientid}",
+   "clientId":"${clientId}",
    "redirectUri":"https://localhost:44314/interactioncode/callback/",
    "authParams":{
       "issuer":"https://dev-122345678.okta.com/oauth2/default",
@@ -44,8 +44,8 @@ The `StartWidgetSigninAsync` call returns a `WidgetSigninResponse` response obje
       ]
    },
    "useInteractionCodeFlow":true,
-   "state":"{state}",
-   "codeChallenge":"{codechallenge}",
+   "state":"${state}",
+   "codeChallenge":"${codechallenge}",
    "codeChallengeMethod":"S256"
 }
 ```
@@ -75,7 +75,7 @@ To use the widget, you need to make a reference to the Okta CDN. In the followin
 }
 ```
 
-#### 2c: Add JavaScript to initialize and load the Widget
+#### 2c: Add Javascript to initialize and load the Widget
 
 The next step includes the following activities:
 
@@ -120,4 +120,4 @@ The final step is to run your app. If the widget and Okta org are property confi
 
 </div>
 
-> **Note:** The Facebook, Signup, and Forgot password links are configurable elements in your Okta org and may not appear on the screen.
+> **Note:** The Facebook, Signup, and Forgot password links are configurable elements in your Okta org and may not appear on the page.

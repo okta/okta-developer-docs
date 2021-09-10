@@ -32,7 +32,7 @@ The resulting URL looks something like this:
 
 ```bash
 curl -X GET
-"https://${yourOktaDomain}/oauth2/${authServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
+"https://${yourOktaDomain}/oauth2/${authorizationServerId}/v1/authorize?client_id=examplefa39J4jXdcCwWA
 &response_type=token
 &scope=openid%20groups
 &redirect_uri=https%3A%2F%2FyourRedirectUriHere.com
