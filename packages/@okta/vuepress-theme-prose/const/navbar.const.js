@@ -46,6 +46,10 @@ export const concepts = [
         title: "Identity Engine",
         subLinks: [
           {
+            title: "Interaction Code grant",
+            path: "/docs/concepts/interaction-code/"
+          },
+          {
             title: "Redirect vs. embedded authentication",
             path: "/docs/concepts/redirect-vs-embedded"
           },
