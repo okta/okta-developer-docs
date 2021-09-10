@@ -70,8 +70,8 @@ The sample app uses the default scopes provided in the SDK, which include `openi
 
 After you complete the configurations, run the sample app:
 
-* [Run the SDK sample app](/docs/guides/oie-embedded-sdk-run-sample/aspnet/main/)
-* [Run the Widget sample app](/docs/guides/oie-embedded-widget-run-sample/aspnet/main/)
+* [Run the SDK sample app](/docs/guides/oie-embedded-common-run-samples/-/main/)
+* [Run the Widget sample app](/docs/guides/oie-embedded-common-run-samples/-/main/)
 
 ## Set up the SDK for your own app
 
