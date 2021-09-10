@@ -125,8 +125,6 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 ***
 
-### Identity Engine features not supported with Okta Classic APIs
-
 #### The ‘audience’ parameter in the Authentication API
 
 **What Changed:** Passing the `audience` parameter to the `/api/v1/authn` API isn't supported in the Identity Engine because of the new flexible App Sign-On Policy that comes with Identity Engine. The Classic Engine pipeline doesn't support the flexible App Sign-On Policy.
@@ -142,6 +140,8 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 **Further information:** [Configure a custom Okta-hosted sign-in page](/docs/guides/style-the-widget/before-you-begin/) and [Configure routing rules](https://help.okta.com/en/oie/okta_help_CSH.htm#ext_Identity_Provider_Discovery)
 
 ***
+
+### Identity Engine features not supported with Okta Classic APIs
 
 #### Factor API enrollment limitations
 

@@ -289,34 +289,19 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
          }
    ```
 
-<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
-### 18c, Option 1: Show the phone entry page
-=======
 1. Show phone entry page
->>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
    Build the phone number entry page that accepts the phone number. The user uses the phone number entry page to enroll and verify.
 
    <div class="common-image-format">
 
-<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
 ![Displays an example 'Verify phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png)
-=======
-   ![Verify phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png
-   "Verify phone")
->>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
    </div>
 
-<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
-> **Note:** The SDK requires that the phone number be in the following format: `+##########`, including the beginning plus (+) sign, for example, `+5551234567`.
-
-### 18d, Option 1: Submit the phone number
-=======
    > **Note:** The SDK requires that the phone number be in the following format: `+#######`, including the beginning plus (+) sign. See [Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/aspnet/main/#phone-number).
 
 1. Submit phone number
->>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
    When the user enters their phone number and clicks the send code using the SMS button, a call to `EnrollAuthenticatorAsync` is made and passes the following values:
 
@@ -336,14 +321,10 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
          MethodType = AuthenticatorMethodType.Sms,
       };
 
-<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
-### 18e, Option 1: Handle the submit response
-=======
    var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthenticatorOptions,
          (IIdxContext)Session["IdxContext"]);
          Session["IdxContext"] = enrollResponse.IdxContext;
    ```
->>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
 1. Handle the submit response
 
@@ -351,9 +332,6 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
    In the following code snippet, the user is redirected to a reusable code verification page that handles the code for both email and SMS. Your implementation may vary.
 
-<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
-### 18f, Option 1: Display the phone verification code page
-=======
    ```csharp
    var enrollResponse = await _idxClient.EnrollAuthenticatorAsync(enrollPhoneAuthenticatorOptions,
       (IIdxContext)Session["IdxContext"]);
@@ -364,26 +342,14 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
          return RedirectToAction("VerifyAuthenticator", "Manage");
       }
    ```
->>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
 1. Display phone verification code page
 
    Build a page that accepts the code sent to your phone number through SMS. Depending on your implementation, the page can be the same page that verifies the email code or different. The sample app reuses the same page for both email and phone verification.
 
-<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
 ![Displays an example 'Enter code from phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png)
-=======
-   <div class="common-image-format">
->>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
 
-   ![Enter code from phone](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-code.png
-   "Enter code from phone")
-
-<<<<<<< HEAD:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-case-self-reg/main/aspnet/integrationsteps.md
-### 18g, Option 1: Submit the phone code
-=======
-   </div>
->>>>>>> master:packages/@okta/vuepress-site/docs/guides/oie-embedded-sdk-use-cases/oie-embedded-sdk-use-case-self-reg/aspnet/integrationsteps.md
+</div>
 
 1. Submit phone code
 
