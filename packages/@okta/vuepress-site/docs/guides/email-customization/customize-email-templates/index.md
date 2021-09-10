@@ -129,6 +129,15 @@ Okta Identity Engine orgs have access to app context within emails using the Vel
 
 When these properties are used with conditional logic, you can trigger branding for the specified app and define strings to uniquely customize an email template based on the app from where the email was triggered. App context is not available on Classic Engine since the state token does not exist there.
 
+##### Example of using app context to brand an email
+
+```#if(${app.name} == "Toys R' Fun")
+<img src="https://cdn.toysrfun.com/logo" height="37">
+<a id="support-link" href="https://support.toysrfun.com/help/s/?language=en_US" style="text-decoration: none;"> Contact Toy Support </a>
+#else
+<img src="$parentLogoUrl" height="37">
+#end```
+
 
 ### Test custom email templates
 
