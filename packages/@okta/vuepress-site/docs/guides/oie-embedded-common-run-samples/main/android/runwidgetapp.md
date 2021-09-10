@@ -1,2 +1,2 @@
 
-> **Note:** There is no widget sample application for Android.
+> **Note:** There is no Widget sample application for Android.
