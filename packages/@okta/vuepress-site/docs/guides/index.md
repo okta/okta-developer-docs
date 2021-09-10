@@ -59,7 +59,6 @@ guides:
  - updating-saml-cert
  - validate-access-tokens
  - validate-id-tokens
- - oie-embedded-sdk-use-cases
  - oie-embedded-sdk-limitations
  - oie-embedded-widget-use-cases
  - oie-embedded-common-org-setup
