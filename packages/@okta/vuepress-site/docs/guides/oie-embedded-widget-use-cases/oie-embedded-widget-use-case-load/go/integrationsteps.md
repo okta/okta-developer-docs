@@ -1,10 +1,10 @@
-### Step 1: Click on the sign-in page link
+### 1: The user clicks the sign-in page link
 
 The first step occurs when the user selects on the sign-in link. This link
 directs the user to the sign-in page where the Widget is embedded. On the sample application's
 landing page, this link is labelled **Login** and located on the top right corner of the page.
 
-### Step 2: Get data to initialize the Widget
+### 2: Get the data to initialize the Widget
 
 Obtain the parameters required to display the Widget when the sign-in page loads. Source these
 parameters using different methods. The main parameters include:
@@ -69,7 +69,7 @@ func (s *Server) LoginHandler(w http.ResponseWriter, r *http.Request) {
  }
 ```
 
-### Step 3: Display the Widget using initialization data
+### 3: Display the Widget using initialization data
 
 Add the the following Okta javascript and css files to the page with the embedded Widget.
 
@@ -85,7 +85,7 @@ Next, add a div tag that's the container for the Widget.
 ```
 
 Finally, add the javascript that loads the Widget into the `div` tag. The parameters set in
-[step 2](#step-2-get-data-to-initialize-the-widget) are being used to initialize the `OktaSignIn` object.
+[step 2](#_2-get-the-data-to-initialize-the-widget) are being used to initialize the `OktaSignIn` object.
 
 ```javascript
 <script type="text/javascript">
@@ -114,12 +114,12 @@ Finally, add the javascript that loads the Widget into the `div` tag. The parame
 </script>
 ```
 
-### Step 4: Complete loading of the Sign-in page
+### 4: Complete the loading of the sign-in page
 
-After the sign-in page is successfully loaded, the embedded Sign-In Widget is displayed:
+After the sign-in page is successfully loaded, the embedded Sign-In Widget appears:
 
 <div class="common-image-format">
 
-![A screenshot of the Sign-in Widget showing the username and password](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-sign-in-page.png)
+![Displays the Sign-in Widget with the username and password fields](/img/oie-embedded-sdk/oie-embedded-widget-golang-sample-app-sign-in-page.png)
 
 </div>

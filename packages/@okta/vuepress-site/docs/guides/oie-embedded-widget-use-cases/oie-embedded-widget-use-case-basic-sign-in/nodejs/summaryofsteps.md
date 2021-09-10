@@ -1,10 +1,7 @@
-## Summary of steps
-
 The sequence of steps to sign into the widget is illustrated below:
 
 <div class="common-image-format">
 
-![Widget sign in sequence](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-nodejs.png
- "Widget sign in sequence")
+![Displays the Widget sign-in sequence steps](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-nodejs.png)
 
 </div>

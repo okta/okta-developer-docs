@@ -1,10 +1,10 @@
 After you run the sample app and explore its available use cases, you can begin to integrate the SDK and/or the widget into your own app. To get started follow these steps:
 
-#### Step 1: Install the SDK into your project application
+#### 1: Install the SDK into your project application
 
 Download and install the SDK into your Express application. See [Getting Started](https://github.com/okta/okta-auth-js#getting-started) in the Okta Auth JS repository.
 
-#### Step 2: Install @okta/okta-auth-js
+#### 2: Install the @okta/okta-auth-js node dependency
 
 Before using the SDK in your own app, you need to add the Okta Auth JS node dependency.
 

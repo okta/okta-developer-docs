@@ -1,4 +1,4 @@
-### 1: Navigate to sign-in page
+### 1: Navigate to the sign-in page
 
 The first step is to call the `StartWidgetSigninAsync` method when the page that contains the embedded widget is loaded. The `IdxClient` contains the configuration information (either from the `okta.yaml` file, env variables, or passed in from constructor) to establish a connection to the Okta org and application.
 
@@ -75,7 +75,7 @@ To use the widget, you need to make a reference to the Okta CDN. In the followin
 }
 ```
 
-#### 2c: Add javascript to initialize and load the widget
+#### 2c: Add Javascript to initialize and load the Widget
 
 The next step includes the following activities:
 
@@ -110,15 +110,14 @@ The final step is to add a `div` tag with the `id` (for example, `okta-signin-wi
 <div id="okta-signin-widget-container"></div>
 ```
 
-### 3: Display the widget
+### 3: Display the Widget
 
-The final step is to run your app. If the widget and Okta org are property configured, the widget should load and you should see the Sign In screen similar to the following screen.
+The final step is to run your app. If the widget and Okta org are property configured, the widget loads and the Sign In page similar to the following image appears.
 
 <div class="common-image-format">
 
-![Widget load sign-in](/img/oie-embedded-sdk/oie-embedded-widget-use-case-load-screen-signin.png
- "Widget load sign-in")
+![Displays the Widget load and sign-in page](/img/oie-embedded-sdk/oie-embedded-widget-use-case-load-screen-signin.png)
 
 </div>
 
-> **Note:** The Facebook, Signup, and Forgot password links are configurable elements in your Okta org and may not appear on the screen.
+> **Note:** The Facebook, Signup, and Forgot password links are configurable elements in your Okta org and may not appear on the page.

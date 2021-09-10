@@ -1,37 +1,28 @@
-## Integration steps
+### 1: The user selects the Facebook sign-in link
 
-### Step 1: User clicks on Sign in with Facebook link
-
-If the the steps in
-[Complete steps in Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-widget-use-cases/nodejs/oie-embedded-widget-use-case-sign-in-soc-idp/#step-2-complete-steps-in-set-up-your-okta-org-for-social-identity-providers),
-were completed, the **Sign in with Facebook** link should
-appear automatically on the widget. There are no code changes
-need to make the link appear.
+If the the steps in [Configuration updates](#configuration-updates) were completed, the **Sign in with Facebook** link appears automatically on the Widget. No code change is required for the Facebook sign-in link to appear.
 
 When the user clicks this link they are send to the Facebook login screen.
 
-### Step 2: User signs into Facebook
+### 2: The user signs in to Facebook
 
 Next, the user enters their email and password and clicks login.
 This page is hosted by Facebook. The user information you enter originates
-from  a test user you configured in
-[Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-social-identity-providers). There are no code changes
+from  a test user you configured in [Set up the Facebook test user](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_2-set-up-the-facebook-test-user). There are no code changes
 you need to make in your app to support to this step.
 
 <div class="common-image-format">
 
-![Facebook sign in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png
- "Facebook sign in")
+![Displays the Facebook sign-in form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-social-sign-in-fb-login.png)
 
 </div>
 
-### Step 3: Facebook redirects to your Okta org
+### 3: Facebook redirects the user to your Okta org
 
-If the user Facebook login is successful, facebook routes the user to the value you enter for **Valid OAuth Redirect URIs** and **Site URL** in
-[Set up your Okta org (for social identity providers)](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-social-identity-providers).
-The value takes on the following format: `https://${yourOktaDomain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
+If the user Facebook login is successful, facebook routes the user to the value you enter for **Valid OAuth Redirect URIs** and **Site URL** in [Create a Facebook app in Facebook](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#_1-create-a-facebook-app-in-facebook).
+The value takes on the following format:  `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
 
-### Step 4: Okta org redirects to your app via the Sign-in redirect URIs
+### 4: The Okta org redirects the user to your app using the sign-in redirect URI
 
 After Facebook sends the success login request to your Okta org, the org
 redirects the request to your app via the Application’s
@@ -73,7 +64,7 @@ router.get('/login/callback', async (req, res, next) => {
 });
 ```
 
-### Step 5: Request and store tokens from Okta
+### 5: Request and store the tokens from Okta
 
 Use the interaction code component of the `login.js` page to request tokens and store them in the SDK.
 
@@ -92,7 +83,7 @@ Use the interaction code component of the `login.js` page to request tokens and 
   }
 ```
 
-### Step 6: Call user profile information (optional)
+### 6 (Optional): Get the user profile information
 
 Retrieve the user profile information, stored in the `attributes` variable, from the `home.js` file:
 

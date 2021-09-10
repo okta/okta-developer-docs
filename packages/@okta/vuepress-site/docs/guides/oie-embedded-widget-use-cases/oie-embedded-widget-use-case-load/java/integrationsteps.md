@@ -1,6 +1,4 @@
-## Integration steps
-
-### Step 1: Source the Sign-In Widget in your sign-in page
+### 1: Source the Sign-In Widget in your sign-in page
 
 Add the Sign-In Widget source to your JavaScript sign-in page by referencing the Okta content delivery network (CDN):
 
@@ -11,7 +9,7 @@ Add the Sign-In Widget source to your JavaScript sign-in page by referencing the
 
 > **Note:** The previous snippet example uses Sign-In Widget, version `5.8.2`. Use the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget in your app.
 
-### Step 2: Add JavaScript to initialize and load the Widget
+### 2: Add JavaScript to initialize and load the Widget
 
 Initialize the Widget in the sign-in page, similar to the following snippet:
 
@@ -45,7 +43,7 @@ Initialize the Widget in the sign-in page, similar to the following snippet:
 
 The Okta Sign-In Widget renders in the sign-in page when your app's sign-in page controller is triggered.
 
-### Step 3: Run your app
+### 3: Run your app
 
 The final step is to run your app. If the Widget and your Okta org are properly configured, then the Okta Sign-In Widget displays in your sign-in page:
 
