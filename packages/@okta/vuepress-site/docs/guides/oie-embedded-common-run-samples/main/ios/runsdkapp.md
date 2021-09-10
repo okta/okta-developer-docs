@@ -1,4 +1,3 @@
-## Steps to test the sample app
 
 1. If not already done, set up your Okta org by completing these steps: [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/ios/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 1. If not already done,

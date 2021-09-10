@@ -1,7 +1,5 @@
 The sample app is located here: `okta-auth-js/samples/generated/express-embedded-sign-in-widget`
 
-## Steps to run the sample app
-
 1. If not already done, set up your Okta org by completing the steps located at [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 1. If not already done,
    [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/).

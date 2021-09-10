@@ -1,4 +1,3 @@
-## Steps to test the sample app
 
 1. If you haven't already done so, set up your Okta org by completing these steps:
 
