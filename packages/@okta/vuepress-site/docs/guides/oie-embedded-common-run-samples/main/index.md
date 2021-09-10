@@ -9,9 +9,9 @@ layout: Guides
 
 After you have successfully created and set up your Okta org and downloaded and set up the SDK, you can run both the sample widget app and the sample SDK app.
 
-## The widget flow
+## The embedded Widget flow
 
-In tandem with the embedded SDK, the widget integrates into your app by using a native language interface and communicates directly with the Okta APIs. The following summarizes the flow.
+In tandem with the embedded SDK, the Widget integrates into your app by using a native language interface and communicates directly with the Okta APIs. The following diagram summarizes the flow.
 
 <div class="common-image-format">
 
@@ -19,7 +19,7 @@ In tandem with the embedded SDK, the widget integrates into your app by using a 
 
 </div>
 
-## Run the widget sample app
+## Run the Widget sample app
 
 <StackSelector class="cleaner-selector"/>
 
@@ -29,9 +29,9 @@ In tandem with the embedded SDK, the widget integrates into your app by using a 
 
 After you have successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Start with a use case overview](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-overview/) to explore the available use cases with the Widget.
 
-## The SDK flow
+## The embedded SDK flow
 
-The SDK integrates into your app by using a native language interface and communicates directly with Okta APIs by using a REST interface. The following is a summary of the SDK flow.
+The SDK integrates into your app by using a native language interface and communicates directly with Okta APIs by using a REST interface. The following diagram illustrates the SDK flow.
 
 <div class="common-image-format">
 
