@@ -12,27 +12,24 @@ meta:
 
 ## Overview
 
-To enable a more customized user authentication experience, Okta has introduced an addition to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid) standard called the Interaction Code grant type. This grant type allows apps to manage user interaction with the authorization server without a browser. This is useful when the client has a particular way that it wants to interact with the user and doesn’t need to share an authenticated session with other applications.
+To enable a more customized user authentication experience, Okta has introduced an addition to the [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid) standard called the Interaction Code grant type. This grant type allows apps to manage user interaction with the Okta Authorization Server without a browser. This is useful when the client has a particular way that it wants to interact with the user and doesn’t need to share an authenticated session with other applications.
 
-The Interaction Code flow consists of a series of interactions between the user and the authorization server, facilitated by the client. Each interaction is called a remediation step and corresponds to a piece of user data required by the authorization server. The client obtains these remediation steps from the Identity engine component of the Okta Authorization Server and prompts the user for the required data to continue the flow.
+The Interaction Code flow consists of a series of interactions between the user and the Authorization Server, facilitated by the client. Each interaction is called a remediation step and corresponds to a piece of user data required by the Authorization Server. The client obtains these remediation steps from the Identity Engine component of the Authorization Server and prompts the user for the required data to continue the flow.
 
-For example, a user could start an authentication flow by entering only a username, and this flow would prompt the client to request more information, or remediation, as required. Remediation is the direct communication between the client and the Okta Authorization Server without a browser redirect. An example of a remediation step is the client prompting the user for a password or to add a second factor and then sending that information directly to the Okta Authorization Server.
+For example, a user could start an authentication flow by entering only a username, and this flow would prompt the client to request more information, or remediation, as required. Remediation is the direct communication between the client and the Authorization Server without a browser redirect. An example of a remediation step is the client prompting the user for a password or to add a second factor and then sending that information directly to the Authorization Server.
 
-The Interaction Code grant is intended for developers who want a step-by-step remediation user experience without redirecting to an authorization server. This grant type enables you to include [Identity Engine features](https://help.okta.com/en/oie/okta_help_CSH.htm#csh-features), such as passwordless authentication and progressive profiling. See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for Identity Engine authentication deployment models and [Identity Engine deployment guides](/docs/guides/oie-intro/) for detailed deployment steps.
+The Interaction Code grant is intended for developers who want a step-by-step remediation user experience without redirecting to an Authorization Server. This grant type enables developers to include [Identity Engine features](https://help.okta.com/en/oie/okta_help_CSH.htm#csh-features), such as passwordless authentication and progressive profiling. See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for Identity Engine authentication deployment models and [Identity Engine deployment guides](/docs/guides/oie-intro/) for detailed deployment steps.
 
 ## The Interaction Code flow
 
-The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow with PKCE](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce). All clients are required to pass along a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. Confidential clients such as web apps must also pass a client secret in their authorization request. The user can start the authorization request with minimal information, relying on the client to facilitate the interactions with the Okta Authorization Server to progressively authenticate the user. The series of interactions, which could include multifactor authentication steps, is secured using the [`interaction_handle`](#interaction-handle). After successfully completing the remedial interactions, the client receives an [`interaction_code`](#interaction-code) that the client can then redeem for tokens at the [`/token`](/docs/reference/api/oidc/#token) endpoint.
+The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow with PKCE](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce). All clients are required to pass along a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. Confidential clients such as web apps must also pass a client secret in their authorization request. The user can start the authorization request with minimal information, relying on the client to facilitate the interactions with the Okta Authorization Server to progressively authenticate the user. The series of interactions, which could include multifactor authentication steps, is secured using the `interaction_handle`. After successfully completing the remedial interactions, the client receives an `interaction_code` that the client can then redeem for tokens at the [`/token`](/docs/reference/api/oidc/#token) endpoint.
 
-### Interaction code
+The following table describes the parameters introduced for the Interaction Code grant type flow:
 
-The `interaction_code` is a one-time use, opaque code that the client can exchange for tokens using the Interaction Code grant type. This code enables a client to redeem a completed Identity Engine interaction for tokens without needing access to the authorization server’s session.
-
-### Interaction handle
-
-The `interaction_handle` is an opaque, immutable value that is provided by the Okta Authorization Server. The client can use the `interaction_handle` to interact with the Okta Authorization Server directly. The client is responsible for saving the `interaction_handle` and using it for the duration of the transaction. Any public/confidential client that is configured to use the Interaction Code grant type can obtain an `interaction_handle`. If all the remediation steps are successfully performed, an `interaction_code` is returned as part of the success response.
-
-### Interaction Code flow
+| Interaction Code grant parameter           | Description   |
+| --------------------------------           | -----------   |
+| `interaction_code` |  The `interaction_code` is a one-time use, opaque code that the client can exchange for tokens using the Interaction Code grant type. This code enables a client to redeem a completed Identity Engine interaction for tokens without needing access to the authorization server’s session. |
+| `interaction_handle` | The `interaction_handle` is an opaque, immutable value that is provided by the Okta Authorization Server. The client can use the `interaction_handle` to interact with the Okta Authorization Server directly. The client is responsible for saving the `interaction_handle` and using it for the duration of the transaction. Any public/confidential client that is configured to use the Interaction Code grant type can obtain an `interaction_handle`. If all the remediation steps are successfully performed, an `interaction_code` is returned as part of the success response.            |
 
 The following sequence of steps is a typical Interaction Code flow with the Identity Engine:
 
@@ -68,7 +65,7 @@ app -> client: Response
 
 * The client app generates the PKCE code verifier & code challenge.
 
-* The client app begins interaction with the authorization server, providing any context it may have, such as a login hint, as well as sending the code challenge in a request for authorization of certain scopes to the Okta Authorization Server.
+* The client app begins interaction with the Authorization Server, providing any context it may have, such as a login hint, as well as sending the code challenge in a request for authorization of certain scopes to the Okta Authorization Server.
 
   > **Note:** A confidential client authenticates with the Authorization Server while a public client (like the Sign-In Widget) identifies itself to the Authorization Server. Both must provide the PKCE code challenge.
 
