@@ -1,7 +1,7 @@
 ### 1: The user signs in
 
 After the Widget
-[loads](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-load/),
+[loads](/docs/guides/oie-embedded-widget-use-case-load/go/main/),
 the user enters their credentials through the Widget and clicks **Sign in**. The sign-in
 request is sent to Okta, which returns a response identifying the next steps that need to
 be taken.
@@ -22,7 +22,7 @@ r.HandleFunc("/login/callback", s.LoginCallbackHandler).Methods("GET")
 
 Next, call the `/token` endpoint and pass in the returned `interaction_code` and the
 PCKE parameters you created in
-[2: Get data to initialize the Widget](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-load/#_2-get-data-to-initialize-the-widget). After the tokens are fetched, store them in a
+[2: Get data to initialize the Widget](/docs/guides/oie-embedded-widget-use-case-load/go/main/#_2-get-data-to-initialize-the-widget). After the tokens are fetched, store them in a
 session for later use. The following code snippet details how to fetch and store these tokens.
 
 ```go

@@ -441,11 +441,19 @@ export const guides = [
                 ]
               },
               {
-                title: "Build with the embedded Widget",
+                title: "Build a use case with the embedded Widget",
                 subLinks: [
                   {
-                    title: "Start with a use case",
-                    guideName: "oie-embedded-widget-use-cases",
+                    title: "Load the Widget",
+                    guideName: "oie-embedded-widget-use-case-load",
+                  },
+                  {
+                    title: "Basic sign-in flow using the Widget",
+                    guideName: "oie-embedded-widget-use-case-basic-sign-in",
+                  },
+                  {
+                    title: "Sign in with Facebook using the Widget",
+                    guideName: "oie-embedded-widget-use-case-sign-in-soc-idp",
                   }
                 ]
               },

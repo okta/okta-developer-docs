@@ -1,6 +1,6 @@
 ### 1: The user initiates the sign-in flow
 
-The user signs in with the Sign-In Widget that was set up in the [Load the widget](/docs/guides/oie-embedded-widget-use-cases/java/oie-embedded-widget-use-case-load/) use case. After the user enters their credentials and clicks **Sign in**, the Widget sends an identify request to Okta.
+The user signs in with the Sign-In Widget that was set up in the [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/java/main/) use case. After the user enters their credentials and clicks **Sign in**, the Widget sends an identify request to Okta.
 
 ### 2: Handle the callback from Okta
 
