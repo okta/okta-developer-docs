@@ -11,7 +11,7 @@ title: Okta API Products Release Notes 2021
 
 #### Audience parameter deprecated for the Authentication API
 
-The `audience` parameter of the `/authn` [endpoint](/docs/reference/api/authn/) has been deprecated. <!--OKTA-385098-->
+The `audience` parameter of the `/authn` [endpoint](/docs/reference/api/authn/#request-parameters-for-primary-authentication) has been deprecated. <!--OKTA-385098-->
 
 ### Monthly Release 2021.09.0
 
