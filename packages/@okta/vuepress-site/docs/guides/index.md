@@ -60,7 +60,6 @@ guides:
  - validate-access-tokens
  - validate-id-tokens
  - oie-embedded-sdk-limitations
- - oie-embedded-widget-use-cases
  - oie-embedded-common-org-setup
  - oie-embedded-common-download-setup-app
  - oie-embedded-common-run-samples
@@ -72,6 +71,9 @@ guides:
  - oie-embedded-sdk-use-case-sign-in-pwd-email
  - oie-embedded-sdk-use-case-sign-in-pwd-phone
  - oie-embedded-sdk-use-case-sign-in-soc-idp
+ - oie-embedded-widget-use-case-load
+ - oie-embedded-widget-use-case-basic-sign-in
+ - oie-embedded-widget-use-case-sign-in-soc-idp
 ---
 
 Learn how to accomplish a task with step-by-step instructions.

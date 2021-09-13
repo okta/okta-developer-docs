@@ -1,5 +1,5 @@
 ---
-title: Sign in with Facebook
+title: Sign in with Facebook using the Widget
 ---
 
 <div class="oie-embedded-sdk">
@@ -15,11 +15,11 @@ Before you build the Facebook IdP sign-in flow using the Widget, ensure that you
 
 After you've set up your Okta org for the social IdP use case, [download and configure the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/-/main/). These steps guide you to the appropriate repository and location of the embedded Sign-In Widget sample app, identify the packages to install, and describe additional changes to the Okta org that are required for the Widget.
 
-## Integration steps
+## Summary of steps
 
 <StackSelector snippet="summaryofsteps" noSelector />
 
-## Summary of steps
+## Integration steps
 
 <StackSelector snippet="integrationsteps" noSelector />
 

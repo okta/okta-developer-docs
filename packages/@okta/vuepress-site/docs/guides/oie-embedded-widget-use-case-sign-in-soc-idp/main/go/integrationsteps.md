@@ -1,7 +1,7 @@
 ### 1: The user navigates to the sign-in page
 
 When the user navigates to the sign-in page, the Widget
-[loads](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-load/)
+[loads](/docs/guides/oie-embedded-widget-use-case-load/go/main)
 and automatically displays the **Sign in with Facebook** button. If the Facebook button doesn't appear,
 make sure that you have completed all the steps in [Configuration Updates](#configuration-updates).
 The following Sign-In Widget displays the Facebook button:
@@ -35,8 +35,8 @@ After Facebook sends the success login request to your Okta org, the org redirec
 to your app through the Application's **Sign-in redirect URIs** field. This field was set up in
 [Create a new application](/docs/guides/oie-embedded-common-org-setup/go/main/#create-a-new-application). The application
 code that connects the callback URL to a function is identical to the code described in
-[step 2](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/#_2-handle-the-callback-from-okta) in
-[Basic sign-in using the widget](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/).
+[step 2](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/#_2-handle-the-callback-from-okta) in
+[Basic sign-in using the Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/).
 See that guide for more details.
 
 ### 5: Get and store the tokens and redirect the user to the default sign-in page
@@ -45,7 +45,7 @@ The next step is to get the tokens from the `/token` endpoint using the
 returned `interaction_code` and the PCKE parameters. After the tokens are fetched,
 store them in session for later use. The code that fetches and stores these tokens
 is identical to the code described in
-[step 3](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/#_3-get-and-store-the-tokens-and-redirect-the-request-to-the-default-sign-in-page) in [Basic sign-in using the widget](/docs/guides/oie-embedded-widget-use-cases/go/oie-embedded-widget-use-case-basic-sign-in/).
+[step 3](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/#_3-get-and-store-the-tokens-and-redirect-the-request-to-the-default-sign-in-page) in [Basic sign-in flow using the Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/go/main/).
 See that guide for more details.
 
 ### 6 (Optional): Get the user profile information

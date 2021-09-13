@@ -27,7 +27,7 @@ In tandem with the embedded SDK, the Widget integrates into your app by using a 
 
 ### Start your work with the use cases
 
-After you have successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Start with a use case overview](/docs/guides/oie-embedded-widget-use-cases/aspnet/oie-embedded-widget-use-case-overview/) to explore the available use cases with the Widget.
+After you have successfully run the sample app, the next step is to build your integration by using the sample app as your guide. See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/) to start using the Widget and explore the available use cases.
 
 ## The embedded SDK flow
 
@@ -47,4 +47,4 @@ The SDK integrates into your app by using a native language interface and commun
 
 ### Work with the use cases
 
-After you have successfully run the sample app, you can build your own integration by using the sample app as your guide. See [Build a use case with the embedded SDK](/docs/guides/oie-embedded-common-org-setup/) to explore the use cases that are available with the SDK.
+After you have successfully run the sample app, you can build your own integration by using the sample app as your guide. Explore use cases that are available with the SDK, starting with the [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/) use case.
