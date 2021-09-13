@@ -81,9 +81,9 @@ app -> client: Response
 
 * The client sends the code verifier and the `interaction_code` to the `/${authServerId}/token` endpoint to exchange for tokens.
 
-  > **Note:** The `interaction_code` indicates that the client (and user) went through all of the necessary interactions and received a success response from Identity Engine.
+  > **Note:** The `interaction_code` indicates that the client (and user) went through all of the necessary interactions and received a successful response from Identity Engine.
 
-* The Authorization Server authenticates the client and validates the `interaction_code`. If the the code is valid, the Authorization Server sends the tokens (access, ID, and/or refresh) that were initially requested.
+* The Authorization Server authenticates the client and validates the `interaction_code`. If the code is valid, the Authorization Server sends the tokens (access, ID, and/or refresh) that were initially requested.
 
 * The client makes a request with the access token to your app.
 
