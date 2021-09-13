@@ -7,7 +7,15 @@ title: Get set up
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-## Overview
+This guide covers how to create and set up your Okta org before you can run the provided sample app or integrate the SDK or Widget into your own app,
+
+ Nutrition Facts                                                                          |                                                                                      |
+| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
+| Learning outcomes                     | Learn how to:<ul><li>Update the default Custom Authorization Server</li><li>Update the Authenticators</li><li>Create a new application</li><li>Set up your org for social Identity Providers</li></ul>                                                      |
+| What you need | An [Okta account](https://developer.okta.com/signup/oie.html)                                                     |
+| Sample code                                                        | n/a                                                      |
+
+## Overview of the embedded identity solutions
 
 Okta provides two embedded identity solutions:
 

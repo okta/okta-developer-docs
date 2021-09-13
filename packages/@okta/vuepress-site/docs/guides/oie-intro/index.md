@@ -7,6 +7,14 @@ meta:
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
+This guide covers basic information on Okta Identity Engine and the Identity Engine SDKs that you can use for a better development experience.
+
+ Nutrition Facts                                                                          |                                                                                      |
+| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
+| Learning outcomes                     | Learn about: <ul><li>The two approaches in the Identity Engine user authentication deployment model</li><li>The sample apps that you can use to manage authentication</li></ul>                                                      |
+| What you need | n/a                                                     |
+| Sample code                                                        | n/a                                                      |
+
 ## About Okta Identity Engine
 
 Okta Identity Engine is a platform service that allows enterprises to build access experiences tailored to their organizational needs. With the [Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie), you are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, you can customize and extend each of these steps.

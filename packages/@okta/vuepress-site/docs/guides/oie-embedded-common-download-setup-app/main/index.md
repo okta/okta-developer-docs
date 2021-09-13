@@ -8,7 +8,13 @@ title: Download and set up the SDK, Sign-In Widget, and sample app
 
 <StackSelector class="cleaner-selector"/>
 
-After you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/), the next step is to download the GitHub repository that contains the SDK, Widget, and accompanying sample apps.
+This guide covers the next step after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/), which is to download the GitHub repository that contains the SDK, Widget, and accompanying sample apps.
+
+ Nutrition Facts                                                                          |                                                                                      |
+| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
+| Learning outcomes                     | Learn how to:<ul><li>Clone the GitHub repository to your local directory</li><li>Configure the settings that you need to add to initialize the SDK and the Sign-In Widget</li><li>Integrate the SDK and the Sign-In Widget into your own app after you run the sample app</li></ul>                                                      |
+| What you need | [Software Requirements](/docs/guides/oie-embedded-common-download-setup-app/android/main/#software-requirements) before you download the SDK, Sign-In Widget, and sample apps                                                     |
+| Sample code                                                        | <ul><li>Android: [okta-idx-android](https://github.com/okta/okta-idx-android)</li><li>ASP.NET: [okta-idx-dotnet](https://github.com/okta/okta-idx-dotnet)</li><li>Go: [okta-idx-golang](https://github.com/okta/okta-idx-golang)</li><li>iOS: [okta-idx-swift](https://github.com/okta/okta-idx-swift)</li><li>Java: [okta-idx-java](https://github.com/okta/okta-idx-java)</li><li>Node.js: [okta-auth-js](https://github.com/okta/okta-auth-js)</li></ul>                                                      |
 
 ## Software requirements
 

@@ -7,7 +7,7 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This document walks you through setting up an Okta sample app to demonstrate some Okta Identity Engine features. Among the many set-up options available with the Okta sample apps, the apps can redirect to the Okta Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
+This guide covers how to set up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
 
 * [Simple enrollment and authentication](#simple-enrollment-and-authentication)
 * [Enable self-service enrollment](#enable-self-service-enrollment)
@@ -15,6 +15,12 @@ This document walks you through setting up an Okta sample app to demonstrate som
 * [Authenticator recovery](#authenticator-recovery)
 * [Progressive Profiling](#progressive-profiling)
 * [Identity Provider routing to Facebook](#identity-provider-routing-to-facebook)
+
+ Nutrition Facts                                                                            |                                                                                      |
+| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
+| Learning outcomes                     | Learn how to:<ul><li>Create, set up, and install an Okta OAuth 2.0 app</li><li>Enroll and authenticate a user</li><li>Enable self-service enrollment, enable a second factor for authentication</li><li>se email and Okta Verify as recovery options</li><li>Add a profile attribute to the Profile Enrollment Policy</li><li>Route users to an external IdP</li></ul>                                                      |
+| What you need | The sample app                                                     |
+| Sample code                                                        | n/a                                                      |
 
 Select your sample app language.
 
