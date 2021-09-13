@@ -52,29 +52,29 @@ The following is an example request to the `/token` endpoint to obtain an access
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
---header 'Accept: application/json' \
---header 'Authorization: Basic ${Base64(<client_id>:<client_secret>)}' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=authorization_code' \
---data-urlencode 'redirect_uri=${redirectUri}' \
---data-urlencode 'code=DPA9Utz2LkWlsronqehy' \
---data-urlencode 'state=9606b31k-51d1-4dca-987c-346e3d8767n9' \
---data-urlencode 'scope=openid offline_access'
+-H 'Accept: application/json' \
+-H 'Authorization: Basic ${Base64(<client_id>:<client_secret>)}' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-d 'grant_type=authorization_code' \
+-d 'redirect_uri=${redirectUri}' \
+-d 'code=DPA9Utz2LkWlsronqehy' \
+-d 'state=9606b31k-51d1-4dca-987c-346e3d8767n9' \
+-d 'scope=openid offline_access'
 ```
 
 The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
---header 'Accept: application/json' \
---header 'Authorization: Basic ${Base64(<client_id>:<client_secret>)}' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=authorization_code' \
---data-urlencode 'redirect_uri=${redirectUri}' \
---data-urlencode 'code=CKA9Utz2GkWlsrmnqehz' \
---data-urlencode 'state=419946f0-29d7-11eb-adc1-0242ac120002' \
---data-urlencode 'scope=openid offline_access' \
---data-urlencode 'code_verifier=M25iVXpKU3puUjFjYWg3T1NDTDQtcW1rOUY5YXlwalNoc0hhaoxifmZHag'
+-H 'Accept: application/json' \
+-H 'Authorization: Basic ${Base64(<client_id>:<client_secret>)}' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-d 'grant_type=authorization_code' \
+-d 'redirect_uri=${redirectUri}' \
+-d 'code=CKA9Utz2GkWlsrmnqehz' \
+-d 'state=419946f0-29d7-11eb-adc1-0242ac120002' \
+-d 'scope=openid offline_access' \
+-d 'code_verifier=M25iVXpKU3puUjFjYWg3T1NDTDQtcW1rOUY5YXlwalNoc0hhaoxifmZHag'
 ```
 
 ### Example response
@@ -104,14 +104,14 @@ With the `password` grant type, you can include an `openid` scope alongside the 
 
 ```bash
 curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
---header 'Accept: application/json' \
---header 'Authorization: Basic ${Base64(<client_id>:<client_secret>)}' \
---header 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=password' \
---data-urlencode 'redirect_uri=${redirectUri}' \
---data-urlencode 'username=example@mailinator.com' \
---data-urlencode 'password=a.gReAt.pasSword' \
---data-urlencode 'scope=openid offline_access'
+-H 'Accept: application/json' \
+-H 'Authorization: Basic ${Base64(<client_id>:<client_secret>)}' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-d 'grant_type=password' \
+-d 'redirect_uri=${redirectUri}' \
+-d 'username=example@mailinator.com' \
+-d 'password=a.gReAt.pasSword' \
+-d 'scope=openid offline_access'
 ```
 
 ### Example response
