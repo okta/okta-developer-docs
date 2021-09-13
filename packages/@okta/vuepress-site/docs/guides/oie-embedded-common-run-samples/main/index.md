@@ -7,7 +7,13 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-After you have successfully created and set up your Okta org and downloaded and set up the SDK, you can run both the sample Widget app and the sample SDK app.
+This guide covers how to run both the sample Widget app and the sample SDK app. You can run the sample apps after you have successfully created and set up your Okta org, and downloaded and set up the SDK.
+
+ Nutrition Facts                                                                          |                                                                                      |
+| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
+| Learning outcomes                     | Learn how to run your sample app and build your integration.                                                      |
+| What you need | [<ul><li>An Okta org</li><li>SDK, Sign-In Widget and sample app, downloaded and set up</li></ul>                                                     |
+| Sample code                                                        | n/a                                                      |
 
 ## The embedded Widget flow
 
