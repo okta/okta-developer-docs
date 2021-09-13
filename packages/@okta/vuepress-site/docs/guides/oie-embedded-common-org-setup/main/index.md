@@ -31,7 +31,7 @@ Sample apps are provided for each solution to show you exactly how to integrate 
 1. [Update the default Custom Authorization Server](#update-the-default-custom-authorization-server)
 1. [Create a new application](#create-a-new-application)
 
-After you've created your app, you need to [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) scenario. 
+After you've created your app, you need to [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) scenario.
 
 <StackSelector class="cleaner-selector"/>
 
@@ -47,7 +47,7 @@ If you don't have an Okta Identity Engine org, you need sign up for an Okta acco
 
 ### Update the default Custom Authorization Server
 
-You need to configure your default Custom Authorization Server to enable the Interaction code flow.
+You need to configure your default Custom Authorization Server to enable the Interaction Code flow.
 
 1. From your Okta org's [Admin Console](/docs/guides/quickstart/website/using-console/), select **Security** > **API**.
 1. On the **Authorization Servers** tab, select the pencil icon for the **default** Custom Authorization Server.
