@@ -2319,6 +2319,22 @@ redirects:
     to: /docs/guides/oie-embedded-sdk-use-case-self-reg/-/main/
   - from: /docs/guides/oie-embedded-sdk-alternate-flows/main
     to: /docs/guides/oie-embedded-sdk-use-case-self-reg/-/main/
+  - from: /docs/guides/oie-embedded-widget-use-cases/-/oie-embedded-widget-use-case-basic-sign-in/index.html
+    to: /docs/guides/oie-embedded-widget-use-case-basic-sign-in/-/main/
+  - from: /docs/guides/oie-embedded-widget-use-cases/-/oie-embedded-widget-use-case-basic-sign-in
+    to: /docs/guides/oie-embedded-widget-use-case-basic-sign-in/-/main/
+  - from: /docs/guides/oie-embedded-widget-use-cases/-/oie-embedded-widget-use-case-load/index.html
+    to: /docs/guides/oie-embedded-widget-use-case-load/-/main/
+  - from: /docs/guides/oie-embedded-widget-use-cases/-/oie-embedded-widget-use-case-load
+    to: /docs/guides/oie-embedded-widget-use-case-load/-/main/
+  - from: /docs/guides/oie-embedded-widget-use-cases/-/oie-embedded-widget-use-case-overview/index.html
+    to: /docs/guides/oie-embedded-common-org-setup/-/main/
+  - from: /docs/guides/oie-embedded-widget-use-cases/-/oie-embedded-widget-use-case-overview
+    to: /docs/guides/oie-embedded-common-org-setup/-/main/
+  - from: /docs/guides/oie-embedded-widget-use-cases/-/oie-embedded-widget-use-case-sign-in-soc-idp/index.html
+    to: /docs/guides/oie-embedded-widget-use-case-sign-in-soc-idp/-/main/
+  - from: /docs/guides/oie-embedded-widget-use-cases/-/oie-embedded-widget-use-case-sign-in-soc-idp
+    to: /docs/guides/oie-embedded-widget-use-case-sign-in-soc-idp/-/main/
   - from: /signup/oie.html
     to: /signup/oie-preview.html
   - from: /docs/reference/api-overview
