@@ -7,9 +7,7 @@ title: Basic sign-in flow using the password factor
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
-
-The basic user sign-in request is the simplest of all use cases and is the first use case that you should try after you install the SDK.
+This guide covers the basic user sign-in request, which is the simplest of all use cases and is the first use case that you should try after you install the SDK.
 
 This use case requires the password factor.
 
@@ -18,6 +16,14 @@ This use case requires the password factor.
 ![Password factor only indicator](/img/oie-embedded-sdk/factor-password-only.png)
 
 </div>
+
+ Nutrition Facts                                                                          |                                                                                      |
+| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
+| Learning outcomes                     | Learn the sequence of steps in the authentication flow for the user sign-in flow.                                                       |
+| What you need | n/a                                                     |
+| Sample code                                                        | n/a                                                      |
+
+<StackSelector class="cleaner-selector"/>
 
 ## Configuration updates
 
