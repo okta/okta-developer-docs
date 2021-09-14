@@ -9,25 +9,25 @@ meta:
 
 ## About Okta Identity Engine
 
-Identity Engine is a platform service that allows enterprises to build flexible access experiences that are tailored to their organizational needs. With the [Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie), you are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, you can customize and extend your access experiences, including passwordless sign-in, improved per app experiences, enhanced context for secure authentication, and more.
+Identity Engine is a platform service that allows enterprises to build more flexible access experiences that are tailored to their organizational needs. With the [Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie), you are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, you can customize and extend your access experiences, including passwordless sign-in, improved per app experiences, enhanced context for secure authentication, and more.
 
-Identity Engine enables many new capabilities in Okta’s access management products, including Authentication (Customer Identity), Single Sign-On, and Multifactor Authentication.
+Identity Engine enables many new capabilities in Okta’s access management products, including Authentication (Customer Identity), Single Sign-On, and Multifactor Authentication. The Identity Engine documentation shows developers how to use these new features through the new Identity Engine deployment models.
 
 ## Why use the Identity Engine?
 
 Some of the new capabilities unlocked by Identity Engine include:
 
-* Passwordless authentication
+* Passwordless authentication with a magic link
 
-    Admins can enable the email authenticator now with the addition of a magic link in the email notification sent to end users. Authenticators are credentials, owned or controlled by an end user, that can be verified by an application or service. They can be things such as passwords, answers to security questions, or phones (SMS or voice call). When policies are configured to include non-password authenticators, end users may sign in to their account using factors that don't require the use of a password. See [Configure passwordless authentication with email magic link](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-passwordless-auth).
+    Okta enables an end user to authenticate without a password by delivering an email with an embedded magic link to the end user's inbox. The user can click the magic link to complete their authentication experience without having to enter their password. To enable this type of authentication experience, you need to configure the email authenticator and create a policy that enables the email magic link. Other non-password authenticators available include phone (SMS or voice call) or answers to security questions. See [Configure passwordless authentication with email magic link](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-passwordless-auth).
 
 * Progressive profiling
 
-  Update an existing user's profile by prompting them for additional sign-in information when they advance to designated stages in the sign-in process. See [Create a Profile Enrollment policy for progressive profiling](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment).
+  Progressive profiling allows you to capture additional user information or update user information beyond registration as the user progresses through the application. Progressive profiling allows you to reduce registration friction. See [Create a Profile Enrollment policy for progressive profiling](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment).
 
 * App-level policies
 
-  App sign-on policies define the full requirements for an app. Admins can configure Okta Sign-On Policies to use App-level policies instead &mdash; making it easier to manage your apps. See [App sign-on policies](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-about-asop).
+  An app sign-on policy is a [security policy framework](https://csrc.nist.gov/publications/detail/sp/800-63b/final) that allows organizations to model security outcomes for an app. For example, you can automatically step up authentication to a strong non-phishable factor when elevated risk is detected. See [App sign-on policies](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-about-asop).
 
 * Flexible Account Recovery
 
@@ -45,7 +45,7 @@ See [Redirect authentication vs. embedded authentication](/docs/concepts/redirec
 
 ## Identity Engine SDKs
 
-To take advantage of the new Identity Engine features — and for a better development experience — use the [Identity Engine SDKs](https://developer.okta.com/code/oie/) to manage authentication in your apps.
+To take advantage of the new Identity Engine features &mdash; and for a better development experience &mdash; use the [Identity Engine SDKs](https://developer.okta.com/code/oie/) to manage authentication in your apps.
 
 ### Redirect authentication sample apps
 
