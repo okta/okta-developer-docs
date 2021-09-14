@@ -7,9 +7,16 @@ title: Sign in with Facebook
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-<StackSelector class="cleaner-selector"/>
+This guide covers the sequence of steps on how you can build your app to allow users to sign in with the Facebook social Identity Provider.
 
-You can build your app to allow users to sign in with the Facebook social Identity Provider.
+ Nutrition Facts                                                                          |                                                                                      |
+| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
+| Learning outcomes                     | Learn how to set up your Okta org and app to support sign in with Facebook IdP use cases.                                                       |
+| What you need | <ul><li>[Set up your app for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)</li><li>[Set up an Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)</li></ul>                                                     |
+| Sample code                                                        | n/a                                                      |
+
+
+<StackSelector class="cleaner-selector"/>
 
 ## Configuration updates
 

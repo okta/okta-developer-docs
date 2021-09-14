@@ -7,7 +7,7 @@ title: Basic sign-in flow using the password factor
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This guide covers the basic user sign-in request, which is the simplest of all use cases and is the first use case that you should try after you install the SDK.
+This guide covers a basic user sign-in request, which is the simplest of all use cases and is the first use case that you should try after you install the SDK. The flow diagram and steps describe how to build a simple sign-in form and how to authenticate the credentials.
 
 This use case requires the password factor.
 
@@ -20,7 +20,7 @@ This use case requires the password factor.
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
 | Learning outcomes                     | Learn the sequence of steps in the authentication flow for the user sign-in flow.                                                       |
-| What you need | n/a                                                     |
+| What you need | <ul><li>An [Okta org](https://developer.okta.com/signup/oie.html)</li><li>The [sample app](/docs/guides/oie-embedded-common-download-setup-app), downloaded and set up</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
 
 <StackSelector class="cleaner-selector"/>
