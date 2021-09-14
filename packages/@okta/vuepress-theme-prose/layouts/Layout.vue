@@ -8,6 +8,11 @@
         'page-body': true,
       }"
     >
+      <div class="breadcrumb-container">
+        <Breadcrumb
+          v-if="appContext.isInMobileViewport && appContext.isTreeNavMobileOpen"
+        />
+      </div>
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
