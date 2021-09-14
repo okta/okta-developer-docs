@@ -75,7 +75,7 @@ Create an app integration representing the application you want to provide embed
 1. Select the **Sign On** tab.
 1. In the **Sign On Policy** section, verify that the **Available Authenticators** is appropriate for your app. For non-multifactor use cases, ensure that the **1 factor** authenticator is **Password**.
 
-> **Note:** From the **General** tab of your app integration, save the generated **Client ID** and **Client secret** values to be used later on in your embedded solution.
+> **Note:** From the **General** tab of your app integration, save the generated **Client ID** value (and if applicable, the **Client secret** value) to be used later on in your embedded solution.
 
 <StackSelector snippet="appsbaseurl" noSelector />
 
@@ -147,7 +147,7 @@ If your org already has the phone authenticator added, ensure that the **Authent
 #### 3: Update your app sign-on policy with multifactor authentication
 
 1. In the Admin Console, go to **Applications** > **Applications**.
-1. From the **Applications** page, select the [application that you've created](#create-a-new-application).
+1. From the **Applications** page, select the [app that you created](#create-a-new-application) to represent your application.
 1. On the page for your application, select the **Sign On** tab.
 1. In the **Sign On Policy** section, select the action menu icon (⋮) beside the **ENABLED** flag for **Catch-all Rule** and select **Edit**.
 1. On the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** drop-down menu and select **Password + Another Factor**.
@@ -156,7 +156,7 @@ If your org already has the phone authenticator added, ensure that the **Authent
 
 ### Set up your Okta org for a social IdP use case
 
-This section shows you how to set up your Okta org and app to support sign in with Facebook IdP use cases available in this embedded authentication guide. If you want to implement a use case with another social IdP, see [Add an external Identity Provider](/docs/guides/add-an-external-idp/apple/before-you-begin/) for the list of Okta supported social IdPs and instructions on how to configure them for social authentication with Okta.
+This section shows you how to set up your Okta org and app to support Facebook IdP use cases available in this embedded authentication guide. If you want to implement a use case with another social IdP, see [Add an external Identity Provider](/docs/guides/add-an-external-idp/apple/before-you-begin/) for the list of Okta supported social IdPs and instructions on how to configure them for social authentication with Okta.
 
 Perform the following configurations after you've [created a new app](#create-a-new-application) to set up the Facebook IdP and your Okta org:
 
