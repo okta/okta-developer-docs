@@ -6,15 +6,17 @@ To get a refresh token, you send a request to your Okta Authorization Server.
 
 The only flows that support refresh tokens are the authorization code flow and the resource owner password flow. This means that the following combinations of grant type and scope, when sent to the `/token` endpoint, return a refresh token:
 
+> **Note:** The maximum length for the scope parameter value is 1024 characters.
+
 | Grant Type           | Scope                       |
 | -----------          | -----                       |
 | `authorization_code` | `offline_access` (see Note) |
 | `refresh_token`      | `offline_access`            |
 | `password`           | `offline_access`            |
 
-> **Note:** The authorization code flow is unique in that the `offline_access` scope must be requested as part of the code request to the `/authorize` endpoint and not the request sent to the `/token` endpoint.
-
-> **Note:** Whether persistent refresh token or rotating refresh token behavior is enabled depends on what type of application that you are using. When you select **Refresh Token** as an allowed grant type, [SPAs use refresh token rotation](#renew-access-and-id-tokens-with-spas) as the default behavior. Native apps and web apps use persistent refresh token behavior as the default. See [Refresh token rotation](/docs/guides/refresh-tokens/refresh-token-rotation).
+> **Notes:** The authorization code flow is unique in that the `offline_access` scope must be requested as part of the code request to the `/authorize` endpoint and not the request sent to the `/token` endpoint.
+>
+> Whether persistent refresh token or rotating refresh token behavior is enabled depends on what type of application that you are using. When you select **Refresh Token** as an allowed grant type, [SPAs use refresh token rotation](#renew-access-and-id-tokens-with-spas) as the default behavior. Native apps and web apps use persistent refresh token behavior as the default. See [Refresh token rotation](/docs/guides/refresh-tokens/refresh-token-rotation).
 
 ## Get a refresh token with the code flow
 

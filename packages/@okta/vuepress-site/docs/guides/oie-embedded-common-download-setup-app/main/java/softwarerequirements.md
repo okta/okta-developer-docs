@@ -11,4 +11,4 @@ To use Okta Identity Engine Java SDK, include the following dependency for Apach
 </dependency>
 ```
 
-where `${okta.sdk.version}` is the latest release version listed [here](https://github.com/okta/okta-idx-java#release-status).
+where `${okta.sdk.version}` is the latest release version.  See [Release Status](https://github.com/okta/okta-idx-java#release-status) for the latest Identity Engine Java SDK version.

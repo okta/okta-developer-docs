@@ -84,6 +84,8 @@ The following Event Types are available only in the Identity Engine and can't be
 
 **Further information:** [Manage Profile Enrollment policies](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment)
 
+***
+
 #### Sign-In Widget customization - Help title link and Need help signing in string
 
 **What Changed:** The following customizations aren't supported:
@@ -141,7 +143,7 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 ***
 
-### Identity Engine features not supported with the Classic Engine APIs
+### Identity Engine features not supported with Okta Classic APIs
 
 #### Factor API enrollment limitations
 
@@ -155,7 +157,7 @@ The following Identity Engine features aren't supported using the Factor APIs.
   * New Okta Verify enrollments that are created with the Factors API aren't mapped to a device.
   * WebAuthN authenticator User Verification settings aren't enforced when enrolling using the Factors API.
 
-See the [SDK uses cases](/docs/guides/oie-embedded-sdk-use-cases/-/oie-embedded-sdk-use-case-overview/) in our Embedded SDK guides for more information on profile enrollment.
+See the [SDK uses cases](/docs/guides/oie-embedded-common-org-setup/main/) in our Embedded SDK guides for more information on profile enrollment.
 
 ***
 

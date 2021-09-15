@@ -392,11 +392,7 @@ export const guides = [
             title: "Embedded authentication",
             subLinks: [
               {
-                title: "Overview",
-                guideName: "oie-embedded-overview",
-              },
-              {
-                title: "Create and set up your Okta org",
+                title: "Get set up",
                 guideName: "oie-embedded-common-org-setup",
               },
               {
@@ -404,48 +400,60 @@ export const guides = [
                 guideName: "oie-embedded-common-download-setup-app",
               },
               {
-                title: "Build with the embedded SDK",
+                title: "Run the sample apps",
+                guideName: "oie-embedded-common-run-samples",
+              },
+              {
+                title: "Build a use case with the embedded SDK",
                 subLinks: [
                   {
-                    title: "Overview",
-                    guideName: "oie-embedded-sdk-overview",
+                    title: "Basic sign-in flow using the password factor",
+                    guideName: "oie-embedded-sdk-use-case-basic-sign-in",
                   },
                   {
-                    title: "Run the SDK sample app",
-                    guideName: "oie-embedded-sdk-run-sample",
+                    title: "Sign in with Facebook",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-soc-idp",
                   },
                   {
-                    title: "Start with a use case",
-                    guideName: "oie-embedded-sdk-use-cases",
+                    title: "User password recovery",
+                    guideName: "oie-embedded-sdk-use-case-pwd-recovery-mfa",
                   },
                   {
-                    title: "Alternate flows",
-                    guideName: "oie-embedded-sdk-alternate-flows",
+                    title: "Self-registration",
+                    guideName: "oie-embedded-sdk-use-case-self-reg",
+                  },
+                  {
+                    title: "Sign in with password and email factors",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
+                  },
+                  {
+                    title: "Sign in with password and phone factors",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
+                  },
+                  {
+                    title: "User sign out (local app)",
+                    guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
                   {
                     title: "Limitations",
                     guideName: "oie-embedded-sdk-limitations",
-                  },
-                  {
-                    title: "Common",
-                    guideName: "oie-embedded-sdk-common",
-                  },
+                  }
                 ]
               },
               {
-                title: "Build with the embedded Widget",
+                title: "Build a use case with the embedded Widget",
                 subLinks: [
                   {
-                    title: "Overview",
-                    guideName: "oie-embedded-widget-overview",
+                    title: "Load the Widget",
+                    guideName: "oie-embedded-widget-use-case-load",
                   },
                   {
-                    title: "Run the Widget sample app",
-                    guideName: "oie-embedded-widget-run-sample",
+                    title: "Basic sign-in flow using the Widget",
+                    guideName: "oie-embedded-widget-use-case-basic-sign-in",
                   },
                   {
-                    title: "Start with a use case",
-                    guideName: "oie-embedded-widget-use-cases",
+                    title: "Sign in with Facebook using the Widget",
+                    guideName: "oie-embedded-widget-use-case-sign-in-soc-idp",
                   }
                 ]
               },

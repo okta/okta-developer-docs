@@ -195,4 +195,4 @@ To request an exception, contact [Support](https://support.okta.com/help/open_ca
 * End date and time
 * Business justification: Why you need the temporary increase
 
-If you have an application that requires sustained rate limits higher than the posted limits, please consult an Okta Sales Representative for more options.
+If you have an application that requires sustained rate limits higher than the posted limits, please evaluate and consider [dynamic scale](/docs/reference/rl-dynamic-scale/). To purchase this add-on, contact [Support](https://support.okta.com/help/).
