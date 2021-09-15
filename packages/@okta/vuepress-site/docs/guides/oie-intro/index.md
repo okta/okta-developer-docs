@@ -19,7 +19,7 @@ Some of the new capabilities unlocked by Identity Engine include:
 
 * Passwordless authentication with a magic link
 
-    Okta enables an end user to authenticate without a password by delivering an email with an embedded magic link to the end user's inbox. The user can click the magic link to complete their authentication experience without having to enter their password. To enable this type of authentication experience, you need to configure the email authenticator and create a policy that enables the email magic link. Other non-password authenticators available include phone (SMS or voice call) or answers to security questions. See [Configure passwordless authentication with email magic link](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-passwordless-auth).
+    Okta enables an end user to authenticate without a password by delivering an email with an embedded magic link to their inbox. The user can click the magic link to complete their authentication experience without having to enter their password. To enable this type of authentication experience, you need to configure the email authenticator and create a policy that enables the email magic link. Other non-password authenticators available include phone (SMS or voice call) or answers to security questions. See [Configure passwordless authentication with email magic link](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-passwordless-auth).
 
 * Progressive profiling
 
