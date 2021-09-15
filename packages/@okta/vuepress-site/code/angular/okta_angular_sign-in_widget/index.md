@@ -267,7 +267,7 @@ import { LoginComponent } from './login.component';
 const config = {
   issuer: 'https://${yourOktaDomain}/oauth2/default',
   redirectUri: window.location.origin + '/login/callback',
-  clientId: '{clientId}',
+  clientId: '${clientId}',
   pkce: true
 }
 

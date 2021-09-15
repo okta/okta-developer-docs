@@ -3,9 +3,9 @@
 3. Create an `.env` file in the `okta-hosted-login` directory and add the  information that you copied in previous steps:
 
     ```ini
-    CLIENT_ID={yourAppClientID}
-    CLIENT_SECRET={yourAppClientSecret}
-    ISSUER=https://{yourOktaDomain}/oauth2/default
+    CLIENT_ID=${yourAppClientID}
+    CLIENT_SECRET=${yourAppClientSecret}
+    ISSUER=https://${yourOktaDomain}/oauth2/default
     ```
 
 You have now created your App in Okta and installed the Okta <StackSnippet snippet="applang" noSelector inline /> sample app.

@@ -1,6 +1,6 @@
 There are several options to set the sample app's configuration.
 
-### Option 1: YAML configuration
+### Option 1: Create a YAML file
 
 Create a YAML file named `okta.yaml` in one of the following three directories:
 
@@ -15,13 +15,13 @@ The following is the required content format for the YAML file:
 ```yaml
 okta:
   idx:
-    issuer: "https://{yourOktaDomain}/oauth2/{authorizationServerId}"
-    clientId: "{clientId}"
-    clientSecret: "{clientSecret}"
+    issuer: "https://${yourOktaDomain}/oauth2/${authorizationServerId}"
+    clientId: "${clientId}"
+    clientSecret: "${clientSecret}"
     scopes:
-    - "{scope1}"
-    - "{scope2}"
-    redirectUri: "{redirectUri}"
+    - "${scope1}"
+    - "${scope2}"
+    redirectUri: "${redirectUri}"
 ```
 
 YAML configuration file example:
@@ -41,14 +41,14 @@ okta:
 
 Where
 
-* `{authorizationServerId}=default` (the default Custom Authorization Server)
-* `{yourOktaDomain}=dev-1234.okta.com`
-* `{clientId}=123xyz`
-* `{clientSecret}=123456abcxyz`
-* `{redirectUri}=http://localhost:8080`
+* `${authorizationServerId}=default` (the default Custom Authorization Server)
+* `${yourOktaDomain}=dev-1234.okta.com`
+* `${clientId}=123xyz`
+* `${clientSecret}=123456abcxyz`
+* `${redirectUri}=http://localhost:8080`
 * `openid`, `profile`, and `offline_access` scopes are used for the sample app
 
-### Option 2: Environment variables
+### Option 2: Set environment variables
 
 #### Embedded authentication with SDK sample app
 
@@ -80,7 +80,7 @@ Set the following environment variables with your app's configuration values bef
 * `OKTA_OAUTH2_REDIRECTURI`
 * `OKTA_IDX_SCOPES`
 
-### Option 3: Java system properties
+### Option 3: Use Java system properties
 
 #### Embedded authentication with SDK sample app
 
@@ -112,7 +112,7 @@ Use the following Java system properties when you run the embedded Sign-In Widge
 * `okta.idx.scopes`
 * `okta.oauth2.redirectUri`
 
-### Option 4: Add configuration to the SDK's client constructor
+### Option 4: Add the values as parameters to the SDK's client constructor
 
 Add the configuration values as parameters to the constructor for `IDXAuthenticationWrapper`:
 

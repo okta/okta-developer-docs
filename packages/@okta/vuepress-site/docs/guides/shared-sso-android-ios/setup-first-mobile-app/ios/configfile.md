@@ -16,7 +16,7 @@ Make the following modifications in the `OktaBrowserSignIn/Okta.plist` file of y
 * `clientId`: Enter the Client ID that you copied during the <GuideLink link="../configure-oidc-native-apps">last step</GuideLink>.
 * `issuer`: This is the URL for the authorization server that performs authentication. It's a combination of your `Org URL` and `/oauth2/default`.
 
-    For example: `https//{yourOrgURL}/oauth2/default`
+    For example: `https//${yourOktaDomain}/oauth2/default`
 
 > **Note:** You can find the `Org URL`ion the Admin Console's global header in the upper-right corner of the page. Click the section that displays your email and company name.  A drop-down box appears and displays general org information including the full `Org URL` (for example, subdomain.okta.com).
 

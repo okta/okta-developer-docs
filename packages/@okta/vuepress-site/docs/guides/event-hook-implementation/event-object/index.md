@@ -8,7 +8,7 @@ See the example Event Object payload below, which provides details on the deacti
 The JSON body includes the properties accessed in this example, namely `target` and `displayName`. To see this or other Event Objects, call your Okta org with the [System Log API](/docs/reference/api/system-log), using the specific event type as a [filter parameter](/docs/reference/api/system-log/#filtering-results). For example:
 
 ```JavaScript
-{url}/api/v1/logs?filter=eventType eq "user.lifecycle.deactivated"
+https://${yourOktaDomain}/api/v1/logs?filter=eventType eq "user.lifecycle.deactivated"
 ```
 
 <StackSnippet snippet="event-object"/>

@@ -1,5 +1,5 @@
 ---
-title: Refresh access and ID tokens
+title: Refresh the access and ID tokens
 ---
 <div class="oie-embedded-sdk">
 
@@ -26,7 +26,7 @@ server's token endpoint to renew the access token.
 
 <StackSnippet snippet="refreshusingthesdk" noSelector />
 
-## Option 2: Refresh using the OAuth token endpoint
+## Option 2: Refresh the token using the OAuth token endpoint
 
 You can refresh access and ID tokens using the
 [`/token`](https://developer.okta.com/docs/reference/api/oidc/#token)
@@ -72,7 +72,7 @@ client_id=0oa94el1z4nUDxx0z5d7
 }
 ```
 
-## Get token info using introspect endpoint
+## Get the token info using the introspect endpoint
 
 To learn more information about tokens (access or Id) including whether
 they have expired, use the

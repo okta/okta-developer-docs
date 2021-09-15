@@ -23,16 +23,21 @@ For example:
 
 ```http
 HTTP/1.1 200 OK
-X-Rate-Limit-Limit: 10000
-X-Rate-Limit-Remaining: 9999
-X-Rate-Limit-Reset: 1516307596
+X-Rate-Limit-Limit: 1200
+X-Rate-Limit-Remaining: 1199
+X-Rate-Limit-Reset: 1609459200
 ```
 
 The best way to be sure about org-wide rate limits is to check the relevant headers in the response. The System Log doesn't report every API request. Rather, it typically reports completed or attempted real-world events such as configuration changes, user sign in, or user lockout. The System Log doesn't report the rate at which you've been calling the API.
 
 Instead of the accumulated counts for time-based rate limits, when a request exceeds the limit for concurrent requests, `X-Rate-Limit-Limit`, `X-Rate-Limit-Remaining`, and `X-Rate-Limit-Reset` report the concurrent values.
 
-The three headers behave a little differently for concurrent rate limits: when the number of unfinished requests is below the concurrent rate limit, request headers only report org-wide rate limits. When you exceed a concurrent rate limit threshold, the headers report that the limit has been exceeded. When you drop back down below the concurrent rate limit, the headers switch back to reporting the time-based rate limits. Additionally, the `X-Rate-Limit-Reset` time for concurrent rate limits is only a suggestion. There's no guarantee that enough requests will complete to stop exceeding the concurrent rate limit at the time indicated.
+The three headers behave a little differently for concurrent rate limits:
+* When the number of unfinished requests is below the concurrent rate limit, request headers only report org-wide rate limits.
+* When you exceed a concurrent rate limit threshold, the headers report that the limit has been exceeded.
+* When you drop back down below the concurrent rate limit, the headers switch back to reporting the time-based rate limits.
+
+Additionally, the `X-Rate-Limit-Reset` time for concurrent rate limits is only an estimate. There's no guarantee that enough requests will complete to stop exceeding the concurrent rate limit at the time indicated.
 
 ### Example rate limit header with org-wide rate limit
 
@@ -40,20 +45,18 @@ This example shows the relevant portion of a rate limit header being returned fo
 
 ```http
 HTTP/1.1 200
-Date: Tue, 27 Jan 2018 21:33:25 GMT
 X-Rate-Limit-Limit: 600
 X-Rate-Limit-Remaining: 598
-X-Rate-Limit-Reset: 1516308901
+X-Rate-Limit-Reset: 1609459200
 ```
 
 The following example shows a rate limit header being returned for a request that has exceeded the rate limit for the `/api/v1/users` endpoint:
 
 ```http
 HTTP/1.1 429
-Date: Tue, 27 Jan 2018 21:33:25 GMT
 X-Rate-Limit-Limit: 600
 X-Rate-Limit-Remaining: 0
-X-Rate-Limit-Reset: 1516308966
+X-Rate-Limit-Reset: 1609459200
 ```
 
 #### Example rate limit header with concurrent rate limit
@@ -62,10 +65,9 @@ This example shows the relevant portion of a rate limit header being returned wi
 
 ```http
 HTTP/1.1 429
-Date: Tue, 26 Jan 2018 21:33:25 GMT
 X-Rate-Limit-Limit: 0
 X-Rate-Limit-Remaining: 0
-X-Rate-Limit-Reset: 1506461721
+X-Rate-Limit-Reset: 1609459200
 ```
 
 The first two header values are always `0` for concurrent rate limit errors. The third header reports an estimated time interval when the concurrent rate limit may be resolved. It isn't a guarantee.
@@ -79,7 +81,7 @@ The error condition resolves itself as soon as there is another concurrent threa
     "eventId": "tevEVgTHo-aQjOhd1OZ7QS3uQ1506395956000",
     "sessionId": "102oMlafQxwTUGJMLL8FhVNZA",
     "requestId": "reqIUuPHG7ZSEuHGUXBZxUXEw",
-    "published": "2018-01-26T03:19:16.000Z",
+    "published": "2021-01-26T03:19:16.000Z",
     "action": {
       "message": "Too many concurrent requests in flight",
       "categories": [],
@@ -104,7 +106,7 @@ The error condition resolves itself as soon as there is another concurrent threa
   }
 ```
 
-#### Example error response in the System Log API (Beta) for concurrent rate limit
+#### Example error response in the System Log API for concurrent rate limit
 
 ```json
 {
@@ -145,7 +147,7 @@ The error condition resolves itself as soon as there is another concurrent threa
     "eventType": "core.concurrency.org.limit.violation",
     "legacyEventType": "core.concurrency.org.limit.violation",
     "outcome": null,
-    "published": "2018-01-26T20:21:32.783Z",
+    "published": "2021-01-26T20:21:32.783Z",
     "request": {
         "ipChain": [
             {
@@ -185,7 +187,7 @@ The error condition resolves itself as soon as there is another concurrent threa
 
 You can request a temporary rate limit increase. For example, if you are importing a large number of users and groups, you may need a temporary rate limit increase.
 
-To request an exception, contact [Support](https://support.okta.com/help/open_case) 10 days before you need the increase and provide the following details:
+To request an exception, contact [Support](https://support.okta.com/help/open_case) a minimum of 10 days before you need the increase and provide the following details:
 
 * Your Org Name: The entire URL, for example `https://example.okta.com` or `https://example.oktapreview.com`
 * Endpoints and rates: The URI that needs to have its limits increased and how much of an increase is required
@@ -193,4 +195,4 @@ To request an exception, contact [Support](https://support.okta.com/help/open_ca
 * End date and time
 * Business justification: Why you need the temporary increase
 
-If you have an application that requires sustained rate limits higher than the posted limits, please consult an Okta Sales Representative for more options.
+If you have an application that requires sustained rate limits higher than the posted limits, please evaluate and consider [dynamic scale](/docs/reference/rl-dynamic-scale/). To purchase this add-on, contact [Support](https://support.okta.com/help/).

@@ -17,7 +17,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users/{userId}/grants/{grantId}"
+"https://${yourOktaDomain}/api/v1/users/${userId}/grants/${grantId}"
 ```
 
 > **Note:** See [Revoke a Grant for a User](/docs/reference/api/users/#revoke-a-grant-for-a-user) for more information.
@@ -33,7 +33,7 @@ curl -v -X DELETE \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/users/{userId}/grants"
+"https://${yourOktaDomain}/api/v1/users/${userId}/grants"
 ```
 
 > **Note:** See [Revoke all Grants for a User](/docs/reference/api/users/#revoke-all-grants-for-a-user) for more information.

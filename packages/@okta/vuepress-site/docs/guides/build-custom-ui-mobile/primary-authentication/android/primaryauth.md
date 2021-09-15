@@ -125,7 +125,7 @@ public void onSignIn(String username, String password) {
     AuthenticationClients authenticationClient = null;
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
         authenticationClient = AuthenticationClients.builder()
-        .setOrgUrl("https://{yourOrgUrl}").build();
+        .setOrgUrl("https://${yourOrgDomain}").build();
     }
     executor.submit(() -> {
         try {

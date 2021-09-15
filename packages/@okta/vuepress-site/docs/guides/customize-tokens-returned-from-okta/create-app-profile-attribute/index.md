@@ -86,7 +86,7 @@ In this example, the service application's `token_endpoint_auth_method` was set 
 curl -v -X POST \
 -H "Content-type:application/x-www-form-urlencoded" \
 "https://${yourOktaDomain}/oauth2/default/v1/token" \
--d "client_id={client_id}&client_secret={client_secret}&grant_type=client_credentials&scope=aCustomScope"
+-d "client_id=${clientId}&client_secret=${clientSecret}&grant_type=client_credentials&scope=aCustomScope"
 ```
 
 If the credentials are valid, the access token is sent in the response:

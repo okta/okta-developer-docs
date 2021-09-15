@@ -1,21 +1,21 @@
 ---
-title: Upgrade to Identity Engine
+title: Upgrade to Okta Identity Engine
 meta:
   - name: description
-    content: Our guide shows how to upgrade your organization and clients to Identity Engine
+    content: Our guide shows how to upgrade your organization and clients to Okta Identity Engine
 layout: Guides
 ---
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
-## Enable Identity Engine for your organization
+## Enable Okta Identity Engine for your organization
 
-To upgrade to Identity Engine, contact your account manager. If you do not have an account manager, email <oie@okta.com> for more information.
+To upgrade to the Identity Engine, contact your account manager. If you do not have an account manager, email <oie@okta.com> for more information.
 
 ## Enable interaction code grant
 
-After the Identity Engine feature is enabled for your org, it should become active for Okta-hosted sign-in flows that don't involve an OAuth application. Enabling the `interaction_code` grant type allows OAuth applications to use Identity Engine.
+After the Identity Engine is enabled for your org, it should become active for Okta-hosted sign-in flows that don't involve an OAuth application. Enabling the `interaction_code` grant type allows OAuth applications to use the Identity Engine.
 
 ### Enable interaction code grant on an authorization server
 
@@ -37,13 +37,13 @@ After the Identity Engine feature is enabled for your org, it should become acti
 
 ### Okta-hosted sign-in page (default)
 
-For most authentication flows that involve redirecting to Okta, there should be no other changes needed. After the feature is enabled, Identity Engine will be used automatically, by default.
+For most authentication flows that involve redirecting to Okta, there should be no other changes needed. After the feature is enabled, the Identity Engine is used automatically, by default.
 
 ### Customized sign-in page / custom domain
 
-For most users of the [custom domain](/docs/guides/custom-url-domain/overview/) feature, there are no other changes needed. The default template detects and uses Identity Engine automatically.
+For most users of the [custom domain](/docs/guides/custom-url-domain/overview/) feature, there are no other changes needed. The default template detects and uses the Identity Engine automatically.
 
-However, if you have [modified the template](/docs/guides/style-the-widget/style-okta-hosted/) in certain ways (such as to perform redirects or set cookies), these modifications may not be compatible with Identity Engine. In particular, these methods and objects won't work with Identity Engine:
+However, if you have [modified the template](/docs/guides/style-the-widget/style-okta-hosted/) in certain ways (such as to perform redirects or set cookies), these modifications may not be compatible with the Identity Engine. In particular, these methods and objects won't work with the Identity Engine:
 
 - `setCookieAndRedirect`
 - `sessionToken`
@@ -97,19 +97,19 @@ For reference, here is the default template:
 
 > **Note:** "Embedded" means the Sign-In Widget is included directly in your application through npm module or script tag. The `@okta/okta-signin-widget` version 5.2.0 or above is needed to enable the interaction code flow.
 
-Set the option `useInteractionCodeFlow` to `true` on the object passed to the Sign-In Widget constructor. This enables Identity Engine for the Widget. Both the authorization server and the application must have the [interaction code](#enable-interaction-code-grant) grant type enabled.
+Set the option `useInteractionCodeFlow` to `true` on the object passed to the Sign-In Widget constructor. This step enables the Identity Engine for the Widget. Both the Authorization Server and the application must have the [interaction code](#enable-interaction-code-grant) grant type enabled.
 
 > **Note:** Your code may break if it is calling the `renderEl` method and expects `sessionToken` or `session.setCookieAndRedirect` on the response object. Instead of `renderEl`, we recommend calling the `showSignInToGetTokens` method. This method receives and returns tokens without any browser redirect.
 
 ```javascript
 var signIn = new OktaSignIn(
   {
-    baseUrl: 'https://{yourOktaDomain}',
+    baseUrl: 'https://${yourOktaDomain}',
     clientId: '{{clientId of your OIDC app}}'
     redirectUri: '{{redirectUri configured in OIDC app}}'
     useInteractionCodeFlow: true
     authParams: {
-      issuer: 'https://{yourOktaDomain}/oauth2/default'
+      issuer: 'https://${yourOktaDomain}/oauth2/default'
     }
     // other options...
   }

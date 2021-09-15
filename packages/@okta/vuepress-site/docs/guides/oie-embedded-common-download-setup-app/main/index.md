@@ -14,70 +14,69 @@ Before you download the SDK, Widget, and sample apps, you need the following:
 
 <StackSnippet snippet="softwarerequirements" noSelector />
 
-### Download from Github
+## Download the repository
 
 <StackSnippet snippet="githubinstructions" noSelector />
 
 ## Configure the SDK, Sign-In Widget, and sample app
 
-Before you integrate either the SDK or the widget into your app, you need to understand the configuration settings that you need to add to initialize the SDK and the widget (if you decide to also use the Sign-In Widget).
+Before you integrate either the SDK or the Widget into your app, you need to understand the configuration settings that you need to add to initialize the SDK and the widget (if you decide to also use the Sign-In Widget).
 
-## Configuration settings
+### Configuration settings
 
-### Issuer
+#### Issuer
 
-Use the Issuer URI named "default" from your Custom Authorization Server. To find this value, go to **Security** > **API** in the Admin Console. On the **Authorization Servers** tab, the **default** Custom Authorization Server's Issuer URI appears in the list.
-
-Example URI: `https://dev-foo.okta.com/oauth2/default`
+Use the Issuer URI named "default" from your Custom Authorization Server. To find this value, go to **Security** > **API** in the Admin Console. On the **Authorization Servers** tab, the **default** Custom Authorization Server's Issuer URI appears in the list (for example, `https://${yourOktaDomain}/oauth2/default`).
 
 There are two main types of authorization servers: **Org** and **Custom**:
 
-* **Org**: If you want to use the Org Authorization Server, use the following URL: `https://dev-example.okta.com`.
+* **Org**: If you want to use the Org Authorization Server, use the following URL: `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
 * **Custom**: You can either use the **default** Custom Authorization Server or create your own.
   * **default**: The **default** Custom Authorization Server is predefined and automatically created when you created the org.<br>
-  **Example URI**: `https://dev-foo.okta.com/oauth2/default`
+  **URI format**: `https://${yourOktaDomain}/oauth2/default`
 
       > **Note:** If you are just getting started and want to run the sample app, use the **default** Custom Authorization Server URI.
+
   * **Create your own**: You can also create your own Custom Authorization Server.<br>
-  **Example URI**: `https://dev-foo.okta.com/oauth2/${authServerId}`
+  **URI format**: `https://${yourOktaDomain}/oauth2/${authServerId}`
 
-For more information about the authorization server types available:
+For more information on authorization server types, see [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) and [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US).
 
-* [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types)
-* [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US)
+#### Client ID
 
-### Client ID
-
-For the sample app, use the **Client ID** for the application that you created in [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Client ID**.
+For the sample app, use the **Client ID** for the application that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Client ID**.
 
 <StackSnippet snippet="clientsecret" noSelector /><br>
 
-### Redirect URI
+#### Redirect URI
 
 <StackSnippet snippet="redirecturi" noSelector /><br>
 
-This is the same value as the **Redirect URI** for the application that you created in [Create your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Sign-in redirect URI**.
+This is the same value as the **Redirect URI** for the application that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Sign-in redirect URI**.
 
-### Scopes
+#### Scopes
 
-For the sample app, use the following scopes: `openid`, `profile`, `offline_access`. See [OpenID Connect & OAuth 2.0 API](https://developer.okta.com/docs/reference/api/oidc/#scopes) for more information.
+The sample app uses the default scopes provided in the SDK, which include `openid`, `profile`, and others. See [OpenID Connect & OAuth 2.0 API](/docs/reference/api/oidc/#scopes) for more information on OIDC scopes associated with access tokens.
 
-## Where to place the configurations
+## Set the configuration values
 
 <StackSnippet snippet="configlocations" noSelector />
 
 <StackSnippet snippet="configorder" noSelector />
 
+<<<<<<< HEAD
 ## Project structure
 
 <StackSnippet snippet="projectstructure" noSelector />
 
+=======
+>>>>>>> master
 ## Run the sample app
 
 After you complete the configurations, run the sample app:
 
-* [Run the SDK sample app](/docs/guides/oie-embedded-sdk-run-sample/aspnet/main/)
-* [Run the Widget sample app](/docs/guides/oie-embedded-widget-run-sample/aspnet/main/)
+* [Run the SDK sample app](/docs/guides/oie-embedded-common-run-samples/-/main/)
+* [Run the Widget sample app](/docs/guides/oie-embedded-common-run-samples/-/main/)
 
 ## Set up the SDK for your own app
 

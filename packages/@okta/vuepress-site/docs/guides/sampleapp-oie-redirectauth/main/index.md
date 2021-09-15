@@ -1,13 +1,13 @@
 ---
 title: Use redirect auth with the sample apps
-excerpt: Learn how to test some of the features of Identity Engine with our sample apps
+excerpt: Learn how to test some of the features of Okta Identity Engine with our sample apps
 layout: Guides
 ---
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This document walks you through setting up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
+This document walks you through setting up an Okta sample app to demonstrate some Okta Identity Engine features. Among the many set-up options available with the Okta sample apps, the apps can redirect to the Okta Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
 
 * [Simple enrollment and authentication](#simple-enrollment-and-authentication)
 * [Enable self-service enrollment](#enable-self-service-enrollment)
@@ -231,7 +231,7 @@ To connect your org to the IdP, add and configure that IdP in Okta.
 
     By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
 
-    > **Note:** For more information about these settings as well as the **Advanced Settings**, see [Social Identity Provider Settings](/docs/reference/social-settings/).
+    > **Note:** For more information about these settings as well as the **Advanced Settings**, see [Social Identity Provider Settings](/docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings).
 
 4. Click **Add Identity Provider**. The Identity Provider page appears.
 5. Locate the IdP that you just added and click the arrow next to the IdP name to expand.

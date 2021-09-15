@@ -1,6 +1,6 @@
 You have several options for setting the configuration values in the SDK:
 
-### Option 1: Configuration file
+### Option 1: Create a configuration file
 
 Create a YAML file named `okta.yaml` in one of the following three available directories:
 
@@ -20,16 +20,16 @@ The file format is shown below:
 ```yaml
 okta:
 idx:
-  issuer: "https://{yourOktaDomain}/oauth2/default"
-  clientId: "{clientId}"
-  clientSecret: "{clientSecret}"
+  issuer: "https://${yourOktaDomain}/oauth2/default"
+  clientId: "${clientId}"
+  clientSecret: "${clientSecret}"
   scopes:
-  - "{scope1}"
-  - "{scope2}"
-  redirectUri: "{redirectUri}"
+  - "${scope1}"
+  - "${scope2}"
+  redirectUri: "${redirectUri}"
 ```
 
-### Option 2: Environment variables
+### Option 2: Add the values as environment variables
 
 Add the values as environment variables with the following naming convention:
 
@@ -39,17 +39,17 @@ Add the values as environment variables with the following naming convention:
 * `OKTA_IDX_REDIRECTURI`
 * `OKTA_IDX_SCOPES`
 
-### Option 3: Add parameter to the SDK's client constructor
+### Option 3: Add the values as parameters to the SDK's client constructor
 
 Add the values as parameters to the constructor for the `IdxClient`.
 
 ```csharp
  var client = new IdxClient(new IdxConfiguration()
            {
-               Issuer = "{YOUR_ISSUER}",
-               ClientId = "{YOUR_CLIENT_ID}",
-               ClientSecret = "{YOUR_CLIENT_SECRET}",
-               RedirectUri = "{YOUR_REDIRECT_URI}",
+               Issuer = "${YOUR_ISSUER}",
+               ClientId = "${YOUR_CLIENT_ID}",
+               ClientSecret = "${YOUR_CLIENT_SECRET}",
+               RedirectUri = "${YOUR_REDIRECT_URI}",
                Scopes = new List<string>{"openid","profile", "offline_access"}
            });
 ```

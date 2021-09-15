@@ -1,6 +1,6 @@
 {
-  "release" : "2021.08.1",
-  "build" : "2021.08.1-begin-97-ge2560149c65f",
+  "release" : "2021.09.1",
+  "build" : "2021.09.1-begin-138-gd09371294c7c",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -43,6 +43,9 @@
   }, {
     "id" : "developer-platform",
     "name" : "Developer Platform"
+  }, {
+    "id" : "okta-personal",
+    "name" : "Okta Personal"
   }, {
     "id" : "device-platform",
     "name" : "Device Platform"
@@ -6131,7 +6134,7 @@
     }, {
       "id" : "group.privilege.grant",
       "category" : "dda",
-      "description" : "Group's admin privilege granted. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been granted, and what entity sources the group. The group granted privileges can be an Okta sourced group, and AD-sourced group, or an LDAP-sourced group Related events include: GROUP_PRIVILEGE_REVOKE.",
+      "description" : "Group's admin privilege granted. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges the group currently has, and what entity sources the group. The group granted privileges can be an Okta sourced group, and AD-sourced group, or an LDAP-sourced group Related events include: GROUP_PRIVILEGE_REVOKE.",
       "info" : {
         "created" : "2019-02-25",
         "release" : "2019.03.0"
@@ -6148,7 +6151,7 @@
     }, {
       "id" : "group.privilege.revoke",
       "category" : "dda",
-      "description" : "Group's admin privilege revoked. This can be used to audit the provisioning of admin privileges for groups. When fired, this event contains information about the type of admin privileges that have been revoked, and what entity sources the group. The group with revoked privileges can be an Okta sourced group, and AD-sourced group, or an LDAP-sourced group Related events include: GROUP_PRIVILEGE_REVOKE.",
+      "description" : "Group's admin privilege revoked. This can be used to audit the deprovisioning of admin privileges from groups. When fired, this event indicates the group has no more admin privileges. All of group's privileges were revoked.  Related events include: GROUP_PRIVILEGE_GRANT.",
       "info" : {
         "created" : "2019-02-25",
         "release" : "2019.03.0"
@@ -6181,7 +6184,7 @@
       }
     }, {
       "id" : "group.user_membership.add",
-      "category" : "sync",
+      "category" : "ud-core",
       "description" : "Add user to group membership.",
       "info" : {
         "created" : "2016-01-08",
@@ -6198,7 +6201,7 @@
       }
     }, {
       "id" : "group.user_membership.remove",
-      "category" : "sync",
+      "category" : "ud-core",
       "description" : "Remove user from group membership.",
       "info" : {
         "created" : "2016-01-08",
@@ -11146,7 +11149,7 @@
     }, {
       "id" : "user.account.privilege.grant",
       "category" : "dda",
-      "description" : "User's admin privilege granted.",
+      "description" : "A User's admin privileges changed. This can be used to audit the provisioning of admin privileges for users. When fired, this event contains information about the type of admin privileges the user currently has.  The list of current privileges contain both individually assigned roles  as well as the ones granted to the user through their group membership. Related events include: USER_ACCOUNT_PRIVILEGE_REVOKE.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
@@ -11163,7 +11166,7 @@
     }, {
       "id" : "user.account.privilege.revoke",
       "category" : "dda",
-      "description" : "User's admin privilege revoked.",
+      "description" : "All of user's admin privilege revoked. This can be used to audit the deprovisioning of admin privileges from users. When fired, this event indicates the user has no more admin privileges. All of user's privileges were revoked including individually assigned roles  as well as the ones granted to the user through their group membership. Related events include: USER_ACCOUNT_PRIVILEGE_GRANT.",
       "info" : {
         "created" : "2016-04-01",
         "release" : "2016.15"
@@ -11689,7 +11692,7 @@
       }
     }, {
       "id" : "user.lifecycle.activate",
-      "category" : "authn",
+      "category" : "ud-core",
       "description" : "Activate Okta user.",
       "info" : {
         "created" : "2016-03-24",
@@ -11706,7 +11709,7 @@
       }
     }, {
       "id" : "user.lifecycle.create",
-      "category" : "authn",
+      "category" : "ud-core",
       "description" : "Create Okta user.",
       "info" : {
         "created" : "2016-01-08",
@@ -11723,7 +11726,7 @@
       }
     }, {
       "id" : "user.lifecycle.deactivate",
-      "category" : "authn",
+      "category" : "ud-core",
       "description" : "Deactivate Okta user.",
       "info" : {
         "created" : "2016-01-08",
@@ -11757,7 +11760,7 @@
       }
     }, {
       "id" : "user.lifecycle.delete.initiated",
-      "category" : "authn",
+      "category" : "ud-core",
       "description" : "Delete Okta user initiated.",
       "info" : {
         "created" : "2016-07-14",
@@ -11808,7 +11811,7 @@
       }
     }, {
       "id" : "user.lifecycle.reactivate",
-      "category" : "authn",
+      "category" : "ud-core",
       "description" : "Reactivate Okta user.",
       "info" : {
         "created" : "2016-03-24",
@@ -12239,7 +12242,7 @@
         "created" : "2021-01-28",
         "release" : "2021.02.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
@@ -12256,7 +12259,7 @@
         "created" : "2021-01-28",
         "release" : "2021.02.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
@@ -12341,7 +12344,7 @@
         "created" : "2021-01-28",
         "release" : "2021.02.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
@@ -12358,7 +12361,7 @@
         "created" : "2021-01-28",
         "release" : "2021.02.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
@@ -12375,7 +12378,7 @@
         "created" : "2021-01-28",
         "release" : "2021.02.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
@@ -12443,7 +12446,7 @@
         "created" : "2021-01-28",
         "release" : "2021.02.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
@@ -12460,7 +12463,7 @@
         "created" : "2021-01-28",
         "release" : "2021.02.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],
@@ -12494,7 +12497,7 @@
         "created" : "2021-01-28",
         "release" : "2021.02.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "workflows" ],
       "mappings" : [ ],

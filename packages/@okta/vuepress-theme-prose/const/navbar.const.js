@@ -35,9 +35,8 @@ export const concepts = [
         path: "/docs/concepts/feature-lifecycle-management/"
       },
       {
-        title: "Role assignment",
-        path: "/docs/concepts/role-assignment/",
-        hidden: true
+        title: "Role Assignment",
+        path: "/docs/concepts/role-assignment/"
       },
       {
         title: "How Okta works",
@@ -377,14 +376,23 @@ export const guides = [
         title: "Identity Engine",
         subLinks: [
           {
+            title: "Okta Identity Engine Overview",
+            path: "/docs/guides/oie-intro/"
+          },
+          {
+            title: "Redirect authentication",
+            subLinks: [
+              {
+                title: "Use redirect auth with the sample apps",
+                guideName: "sampleapp-oie-redirectauth",
+              },
+            ]
+          },
+          {
             title: "Embedded authentication",
             subLinks: [
               {
-                title: "Overview",
-                guideName: "oie-embedded-overview",
-              },
-              {
-                title: "Create and set up your Okta org",
+                title: "Get set up",
                 guideName: "oie-embedded-common-org-setup",
               },
               {
@@ -392,48 +400,60 @@ export const guides = [
                 guideName: "oie-embedded-common-download-setup-app",
               },
               {
-                title: "Build with the embedded SDK",
+                title: "Run the sample apps",
+                guideName: "oie-embedded-common-run-samples",
+              },
+              {
+                title: "Build a use case with the embedded SDK",
                 subLinks: [
                   {
-                    title: "Overview",
-                    guideName: "oie-embedded-sdk-overview",
+                    title: "Basic sign-in flow using the password factor",
+                    guideName: "oie-embedded-sdk-use-case-basic-sign-in",
                   },
                   {
-                    title: "Run the SDK sample app",
-                    guideName: "oie-embedded-sdk-run-sample",
+                    title: "Sign in with Facebook",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-soc-idp",
                   },
                   {
-                    title: "Start with a use case",
-                    guideName: "oie-embedded-sdk-use-cases",
+                    title: "User password recovery",
+                    guideName: "oie-embedded-sdk-use-case-pwd-recovery-mfa",
                   },
                   {
-                    title: "Alternate flows",
-                    guideName: "oie-embedded-sdk-alternate-flows",
+                    title: "Self-registration",
+                    guideName: "oie-embedded-sdk-use-case-self-reg",
+                  },
+                  {
+                    title: "Sign in with password and email factors",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-email",
+                  },
+                  {
+                    title: "Sign in with password and phone factors",
+                    guideName: "oie-embedded-sdk-use-case-sign-in-pwd-phone",
+                  },
+                  {
+                    title: "User sign out (local app)",
+                    guideName: "oie-embedded-sdk-use-case-basic-sign-out",
                   },
                   {
                     title: "Limitations",
                     guideName: "oie-embedded-sdk-limitations",
-                  },
-                  {
-                    title: "Common",
-                    guideName: "oie-embedded-sdk-common",
-                  },
+                  }
                 ]
               },
               {
-                title: "Build with the embedded Widget",
+                title: "Build a use case with the embedded Widget",
                 subLinks: [
                   {
-                    title: "Overview",
-                    guideName: "oie-embedded-widget-overview",
+                    title: "Load the Widget",
+                    guideName: "oie-embedded-widget-use-case-load",
                   },
                   {
-                    title: "Run the Widget sample app",
-                    guideName: "oie-embedded-widget-run-sample",
+                    title: "Basic sign-in flow using the Widget",
+                    guideName: "oie-embedded-widget-use-case-basic-sign-in",
                   },
                   {
-                    title: "Start with a use case",
-                    guideName: "oie-embedded-widget-use-cases",
+                    title: "Sign in with Facebook using the Widget",
+                    guideName: "oie-embedded-widget-use-case-sign-in-soc-idp",
                   }
                 ]
               },
@@ -443,15 +463,6 @@ export const guides = [
               },
             ]
             },
-          {
-          title: "Redirect authentication",
-          subLinks: [
-            {
-              title: "Use redirect auth with the sample apps",
-              guideName: "sampleapp-oie-redirectauth",
-            },
-          ]
-          },
           {
             title: "Okta Identity Engine Limitations",
             path: "/docs/guides/ie-limitations/"
@@ -609,10 +620,11 @@ export const reference = [
                 title: "Client-based rate limits",
                 path: "/docs/reference/rl-clientbased/"
               },
-              { title: "DynamicScale", path: "/docs/reference/rl-dynamic-scale/" },
-              {
-                title: "Previous rate limits",
-                path: "/docs/reference/rl-previous/"
+              { title: "DynamicScale",
+                path: "/docs/reference/rl-dynamic-scale/"
+              },
+              { title: "Previous rate limits",
+              path: "/docs/reference/rl-previous/"
               },
               {
                 title: "System Log events for rate limits",
@@ -648,6 +660,7 @@ export const reference = [
           { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
           { title: "Schemas", path: "/docs/reference/api/schemas/" },
           { title: "Sessions", path: "/docs/reference/api/sessions/" },
+          { title: "Subscriptions", path: "/docs/reference/api/admin-notifications" },
           { title: "System Log", path: "/docs/reference/api/system-log/" },
           { title: "Templates", path: "/docs/reference/api/templates/" },
           { title: "ThreatInsight", path: "/docs/reference/api/threat-insight/" },
@@ -749,6 +762,7 @@ export const releaseNotes = [
     subLinks: [
       { title: "Overview", path: "/docs/release-notes/" },
       { title: "2021", path: "/docs/release-notes/2021/" },
+      { title: "2021 - Okta Identity Engine", path: "/docs/release-notes/2021-okta-identity-engine/" },
       { title: "2020", path: "/docs/release-notes/2020/" },
       { title: "2019", path: "/docs/release-notes/2019/" },
       { title: "2018", path: "/docs/release-notes/2018/" },

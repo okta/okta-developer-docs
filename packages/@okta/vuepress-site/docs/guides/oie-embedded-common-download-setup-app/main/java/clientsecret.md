@@ -1,4 +1,4 @@
-### Client secret
+#### Client secret
 
 For the sample app, use the **Client secret** for the app integration that you created in
 [Create new application](/docs/guides/oie-embedded-common-org-setup/java/main/#create-a-new-application). To find this value:

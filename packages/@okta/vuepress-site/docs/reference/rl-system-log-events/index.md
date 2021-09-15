@@ -7,7 +7,7 @@ category: rate limits
 
 ## System Log event types
 
-### Web request rate limit (org level)
+### Web request rate limits (org level)
 
 The following org-based System Log events record system events related to your organization to provide an audit trail that you can use to understand platform activity and to diagnose problems.
 
@@ -20,7 +20,7 @@ This event is sent when an endpoint is exceeding its rate limit.
 * [`core.concurrency.org.limit.violation`](/docs/reference/api/event-types/?q=core.concurrency.org.limit.violation)<br>
 This event is sent when a request is exceeding the org's allotted concurrent limit.
 
-### Web request rate limit (client level)
+### Web request rate limits (client level)
 
 The following client-based System Log events are fired when an individual client exceeds its assigned limit for the OAuth `/authorize` endpoint. The event that fires depends on the client-based rate limit mode that is set:
 
@@ -35,6 +35,13 @@ This event is fired when the framework is in **Log per client** mode and a speci
 
 * [`system.client.concurrency_rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.concurrency_rate_limit.notification)<br>
 This event is fired when the framework is turned on in **Log per client** mode and a specific client, IP address, Device token combination makes more than two concurrent requests. However, the end user won't see a rate limit violation. Okta fires only a `notification` System Log event. The System Log contains information about the client ID, IP address, Device identifier, and the actual user if the user already has a valid session.
+
+### OAuth 2.0 client rate limit
+
+The following System Log event is fired when OAuth 2.0 requests from a single client ID have consumed the majority of the applicable rate limit for the org:
+
+* [`app.oauth2.client_id_rate_limit_warning`](/docs/reference/api/event-types/?q=app.oauth2.client_id_rate_limit_warning)<br>
+This event contains information about the responsible client ID, which can be used by admins to discover and deactivate or reconfigure the client if necessary.
 
 ### Operation rate limits
 
@@ -129,7 +136,7 @@ The following is an example System Log rate limit event where too many enrollmen
     "result": "DENY",
     "reason": "Too many enrollment attempts for SMS factor"
   },
-  "published": "2020-12-10T04:46:12.033Z",
+  "published": "2021-02-10T04:46:12.033Z",
   "securityContext": {
     "asNumber": null,
     "asOrg": null,
@@ -242,7 +249,7 @@ The following is an example System Log rate limit event where too many OTP verif
     "result": "DENY",
     "reason": "Too many OTP verification attempts for Email factor"
   },
-  "published": "2020-12-09T19:13:41.976Z",
+  "published": "2021-02-09T19:13:41.976Z",
   "securityContext": {
     "asNumber": null,
     "asOrg": null,
@@ -299,7 +306,7 @@ The following is an example System Log rate limit event where too many OTP verif
 The following is an example of a System Log rate limit event for too many profile reload attempts through Active Directory or LDAP agent.
 
 <ApiLifecycle access="ie" /><br>
-> **Note:** This event is valid for Okta Identity Engine only.
+> **Note:** This event is valid for the Identity Engine only.
 
 ```json
 {
@@ -307,7 +314,7 @@ The following is an example of a System Log rate limit event for too many profil
             "id": "00u1ngpFSRLFie7vT0g4",
             "type": "User",
             "alternateId": "john.smith@example.com",
-            "displayName": "John Smith",            
+            "displayName": "John Smith",
             "detailEntry": null
         },
         "client": {
@@ -405,7 +412,7 @@ The following is an example of a System Log rate limit event for too many profil
 The following table includes the available `Subtypes` for operation rate limits.
 
 <ApiLifecycle access="ie" /><br>
-> **Note:** The `AD agent` and `LDAP agent` subtypes are only available for Okta Identity Engine.
+> **Note:** The `AD agent` and `LDAP agent` subtypes are only available for the Identity Engine.
 
 | Subtype           | Description                                                         |
 | ----------------- | ------------------------------------------------------------------- |

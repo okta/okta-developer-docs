@@ -12,7 +12,7 @@ let headers = {
 Then, make an authenticated request to your API endpoint or resource server and handle the response:
 
 ```javascript
-const response = await fetch(`https://{yourApiEndpoint}`, {
+const response = await fetch(`https://${yourApiEndpoint}`, {
   method: 'GET',
   headers: headers,
 });
