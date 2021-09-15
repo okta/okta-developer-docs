@@ -14,6 +14,7 @@
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
+
       <div class="content" v-else>
         <div
           :class="{
