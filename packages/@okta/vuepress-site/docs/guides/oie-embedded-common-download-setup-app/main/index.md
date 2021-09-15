@@ -64,13 +64,6 @@ The sample app uses the default scopes provided in the SDK, which include `openi
 
 <StackSnippet snippet="configorder" noSelector />
 
-<<<<<<< HEAD
-## Project structure
-
-<StackSnippet snippet="projectstructure" noSelector />
-
-=======
->>>>>>> master
 ## Run the sample app
 
 After you complete the configurations, run the sample app:

@@ -83,11 +83,7 @@ Create an app integration representing the application you want to provide embed
 
 ## Set up your Okta org for your use case
 
-<<<<<<< HEAD
-<StackSnippet snippet="appsbaseurl" noSelector />
-=======
 After you've created your app integration in your Okta org, the next step is to configure your app and org to support the use case that you're implementing.
->>>>>>> master
 
 * For a basic password factor use case, see [Set up your Okta org for a password factor only use case](#set-up-your-okta-org-for-a-password-factor-only-use-case)
 * For a multifactor use case, see [Set up your Okta org for a multifactor use case](#set-up-your-okta-org-for-a-multifactor-use-case)
@@ -95,23 +91,10 @@ After you've created your app integration in your Okta org, the next step is to 
 
 ### Set up your Okta org for a password factor only use case
 
-<<<<<<< HEAD
-    * Select **OIDC - OpenID Connect** as the **Sign-on method**.
-    * <StackSnippet snippet="applicationtype" noSelector />
-
-1. <StackSnippet snippet="newapp" noSelector />
-   * Enter an application name.
-   * Select the **Interaction Code** checkbox if not already selected.
-   * Select the **Refresh Token** checkbox.
-   * Set **Sign-in redirect URIs** to: <StackSnippet snippet="redirecturi" noSelector />
-   * Click **Save**.
-1. Select the **Sign On** tab, and in the **Sign On Policy** section make note of the **Available Authenticators**. The value should be **1 factor** that is **Password**. (If you are coming back to this step after completing [Set up your Okta org for multifactor use cases](#set-up-your-okta-org-for-multifactor-use-cases), then set this value to **Password**. Currently, if there are multiple factors defined in the Okta org but the application uses only one factor, the value must be **Password**.)
-=======
 This section shows you how to set up your Okta org and app to support password factor only use cases. These use cases are intended to use the password factor only without any additional factors (such as email or phone SMS). Perform the following configuration after you've [created a new app](#create-a-new-application) in your Okta org:
 
 1. [Update the password authenticator to password only](#_1-update-the-password-authenticator-to-password-only)
 2. [Update your app sign-on policy with password only authentication](#_2-update-your-app-sign-on-policy-with-password-only-authentication)
->>>>>>> master
 
 #### 1: Update the password authenticator to password only
 
