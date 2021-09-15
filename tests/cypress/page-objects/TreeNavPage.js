@@ -10,6 +10,6 @@ export class TreeNavPage extends BasePage {
   }
 
   toggleTreeNavMobile() {
-    cy.get('.crumb-show-contents').click();
+    cy.get('.crumb-show-contents').first().click({ multiple: true });
   }
 }
