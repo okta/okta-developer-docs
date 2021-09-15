@@ -1466,7 +1466,7 @@ Authenticates a user for signing in to the specified application
 * Only WS-Federation, SAML based apps are supported.
 * Pass the application instance ID of the app as ["audience"](#request-parameters-for-primary-authentication) along with the user credentials.
 
-> **Note:** `audience` is a <ApiLifecycle access="deprecated" /> property.
+> **Note:** `audience` is a <ApiLifecycle access="deprecated" /> parameter.
 
 > **Note:** Okta Sign-on Policy and the related App Sign-on Policy are evaluated after successful primary authentication.
 
@@ -1488,7 +1488,7 @@ curl -v -X POST \
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
 
-> **Note:** `audience` is a <ApiLifecycle access="deprecated" /> property.
+> **Note:** `audience` is a <ApiLifecycle access="deprecated" /> parameter.
 
 ##### Response example when MFA isn't required
 
