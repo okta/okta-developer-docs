@@ -6,13 +6,11 @@ or update the fields on the [configuration page](#configuration-page).
 
 #### Okta.plist
 
-`Okta.plist` is a property file that stores the name and value for
-each configuration setting. The file is located here:
-`okta-idx-swift/Samples/EmbeddedAuthWithSDKs/EmbeddedAuth/Okta.plist`.
+`Okta.plist` is a property file that stores the name and value for each configuration setting. You can find this file in the following repository directory: `okta-idx-swift/Samples/EmbeddedAuthWithSDKs/EmbeddedAuth/Okta.plist`.
 
 #### Configuration page
 
-As alternative to the property file, the settings can be set on the configuration page.
+An alternative method to store the configuration settings is using the Configuration page. You can access the Configuration page from the **Configure** link on the startup page.
 
 <div class="common-image-format">
 
@@ -20,14 +18,11 @@ As alternative to the property file, the settings can be set on the configuratio
 
 </div>
 
-Access the screen from the **Configure** link on the startup page.
-
 ### SDK
 
-The SDK is initialized with the configuration settings by creating
-`IDXClient` `Configuration` and passing in the configuration values.
+The SDK is initialized with the configuration settings by calling the `IDXClient.Configuration()` method and passing in the configuration values.
 
-Example
+For example:
 
 ```swift
 let configuration = IDXClient.Configuration(
@@ -38,5 +33,5 @@ let configuration = IDXClient.Configuration(
     redirectUri: "<#redirectUri#>") // Must match the redirect uri in client app settings/console
 ```
 
-For more details about different configuration options, see the SDK's
-[readme](https://github.com/okta/okta-idx-swift#readme).
+For more details about different configuration options, see the Swift SDK's
+[readme](https://github.com/okta/okta-idx-swift#readme) file.

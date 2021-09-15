@@ -22,7 +22,7 @@ Before you download the SDK, Widget, and sample apps, you need the following:
 
 ## Configure the SDK, Sign-In Widget, and sample app
 
-Before you integrate either the SDK or the Widget into your app, you need to understand the configuration settings that you need to add to initialize the SDK and/or the Sign-In Widget.
+Before you integrate either the SDK or the Widget into your app, you need to understand the configuration settings required to initialize the SDK and/or the Sign-In Widget.
 
 ### Configuration settings
 
@@ -35,13 +35,13 @@ If you're getting started with your first app or if you're running an Okta sampl
 
 There are two main types of authorization servers in Okta: **Org** and **Custom**. See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) and [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US) for more information on which Authorization Server to use.
 
-If you are using other types of Authorization Servers, your Issuer URI should be in the following format:
+If you are using either the Org or the Custom Authorization Servers, your Issuer URI should be in the following format:
 
 * **Org**: If you want to use the Org Authorization Server, use the following URI format: `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
 * **Custom**: You can either use the default Custom Authorization Server or create your own.
-  * default URI format: `https://${yourOktaDomain}/oauth2/default`
+  * default Custom Authorization Server's URI format: `https://${yourOktaDomain}/oauth2/default`
 
-  * create your own custom Authorization Server's URI format: `https://${yourOktaDomain}/oauth2/${authServerId}`
+  * your own Custom Authorization Server's URI format: `https://${yourOktaDomain}/oauth2/${authServerId}`
 
 #### Client ID
 
@@ -69,8 +69,8 @@ The sample app uses the default scopes provided in the SDK, which include `openi
 
 After you complete the configurations, run the sample app:
 
-* [Run the SDK sample app](/docs/guides/oie-embedded-common-run-samples/-/main/)
-* [Run the Widget sample app](/docs/guides/oie-embedded-common-run-samples/-/main/)
+* [Run the SDK sample app](/docs/guides/oie-embedded-common-run-samples/-/main/#run-the-sdk-sample-app)
+* [Run the Widget sample app](/docs/guides/oie-embedded-common-run-samples/-/main/#run-the-widget-sample-app)
 
 ## Set up the SDK for your own app
 
