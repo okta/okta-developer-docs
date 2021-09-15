@@ -8,7 +8,9 @@
         'page-body': true,
       }"
     >
-      <Breadcrumb v-if="appContext.isInMobileViewport" />
+      <div v-if="appContext.isTreeNavMobileOpen" class="breadcrumb--holder">
+        <Breadcrumb />
+      </div>
       <div class="content" v-if="$page.frontmatter.component">
         <component :is="$page.frontmatter.component" />
       </div>
@@ -23,12 +25,18 @@
             <Sidebar />
           </div>
           <div class="content-area">
-            <div class="sticky-content">
-              <StackSelector forMobileViewOnly v-if="$page.hasStackContent" />
+            <div v-if="!appContext.isInMobileViewport" class="sticky-content">
               <PageTitle />
               <StackSelector v-if="$page.hasStackContent" />
-              <MobileOnThisPage />
             </div>
+
+            <div v-if="appContext.isInMobileViewport" class="sticky-content">
+              <Breadcrumb />
+              <StackSelector forMobileViewOnly v-if="$page.hasStackContent" />
+            </div>
+
+            <PageTitle v-if="appContext.isInMobileViewport" />
+            <MobileOnThisPage />
 
             <ContentPage />
             <div class="edit-on-github">

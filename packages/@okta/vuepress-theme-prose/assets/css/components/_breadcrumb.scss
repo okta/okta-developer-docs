@@ -1,8 +1,4 @@
 .breadcrumb {
-  padding: 0.6rem 1.5rem;
-  background-color: cv('gray', '000');
-  border-bottom: $border-default;
-
   &--container {
     padding: 0px;
 
@@ -48,5 +44,8 @@
     }
 
   }
+}
 
+.breadcrumb--holder{
+  padding: 0.5rem 1.5rem;
 }
