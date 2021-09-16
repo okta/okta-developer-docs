@@ -1,7 +1,17 @@
 ---
 title: Okta API Products Release Notes 2021
 ---
-# September
+## September
+
+### Weekly Release 2021.09.2
+
+| Change                                                                         | Expected in Preview Orgs |
+|--------------------------------------------------------------------------------|--------------------------|
+| [Audience parameter deprecated for the Authentication API](#audience-parameter-deprecated-for-the-authentication-api)       | September 15, 2021             |
+
+#### Audience parameter deprecated for the Authentication API
+
+The `audience` parameter of the `/authn` [endpoint](/docs/reference/api/authn/#primary-authentication) has been deprecated. <!--OKTA-385098-->
 
 ### Monthly Release 2021.09.0
 
