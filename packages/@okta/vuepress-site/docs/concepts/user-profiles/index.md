@@ -31,7 +31,7 @@ You can manage the Apps user profiles in the Universal Directory from the Admin 
 
 In addition to storing user profiles and app user profiles, the Universal Directory maps data from one profile to another, which keeps data synchronized between all of your applications. A common example of this action is storing a user’s first and last name in the user profile and mapping that data to an app user profile. In this way, a single change to a field in a User Profile is reflected in all the applications that map to that field.
 
-See also [About attribute mappings](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-about-attribute-mappings.htm)
+See also [About attribute mappings](https://help.okta.com/okta_help.htm?id=ext-usgp-about-attribute-mappings)
 
 You can manage the Universal Directory mappings between profiles using the Admin Console or the [Mappings API](/docs/reference/api/mappings/).
 
@@ -39,7 +39,7 @@ You can manage the Universal Directory mappings between profiles using the Admin
 
 Okta has two basic user profile types that define a user in the Universal Directory: Okta user profile type and app user profile type. The Okta user profile type is further composed of Group profile types and Custom profile types.
 
-See [About profile types](https://help.okta.com/en/prod/Content/Topics/users-groups-profiles/usgp-about-profiles.htm) and [About custom user types in Universal Directory](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-custom-user-types)
+See [About profile types](https://help.okta.com/okta_help.htm?id=ext-usgp-about-profiles) and [About custom user types in Universal Directory](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-custom-user-types)
 
 ### Okta user profile type
 

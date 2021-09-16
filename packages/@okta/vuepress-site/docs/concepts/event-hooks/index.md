@@ -122,7 +122,7 @@ You need to implement a web service with an Internet-accessible endpoint to rece
 
 ### Register your endpoint
 
-After implementing your external service, you need to register it with Okta. To do so, you use the Admin Console from the **Workflow > Event Hooks** page. For details on this procedure, see [Add Event Hooks](https://help.okta.com/en/prod/Content/Topics/automation-hooks/add-event-hooks.htm).
+After implementing your external service, you need to register it with Okta. To do so, you use the Admin Console from the **Workflow > Event Hooks** page. For details on this procedure, see [Add Event Hooks](https://help.okta.com/okta_help.htm?id=ext-add-event-hooks).
 
 ### Verify your endpoint
 
