@@ -30,7 +30,7 @@ In addition to an Okta User Profile, all Users have a separate Application User 
 | `$appuser.$attribute` | `$appuser` explicit reference to specific app<br>`$attribute` the attribute variable name  | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
 | `appuser.$attribute`  | `appuser` implicit reference to in-context app<br>`$attribute` the attribute variable name | appuser.firstName                                                     |
 
-> **Note:** Explicit references to apps aren't supported for custom OAuth/OIDC claims.
+> **Note:** Explicit references to apps aren't supported for custom OAuth/OIDC claims. See [Expressions for custom claims](/docs/reference/okta-expression-language/#expressions-for-custom-claims).
 >
 
 > **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#application-properties). If your organization configures multiple instances of the same application, the names of the later instances are differentiated by a randomly assigned suffix, for example: `zendesk_9ao1g13`.  You can find the name of any specific app instance in the Profile Editor, where it appears in lighter text beneath the label of the app.
@@ -367,7 +367,27 @@ Sample user data:
 
 ## Expressions for custom claims
 
-Okta provides a few expressions that you can only use with custom claims. See Create claims
+Okta provides a few expressions that you can only use with custom claims.
+* See [Create claims](/docs/guides/customize-authz-server/create-claims) for general information about claim creation.
+* See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute) for details about using app-specific values.
+
+> **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#application-properties). If your organization configures multiple instances of the same application, the names of the later instances are differentiated by a randomly assigned suffix, for example: `zendesk_9ao1g13`.  You can find the name of any specific app instance in the Profile Editor, where it appears in lighter text beneath the label of the app.
+
+| Syntax           | Definitions                                                             | Examples     |
+| --------         | ----------                                                              | ------------ |
+| `app.$attribute` | `app` refers to the name of the OIDC app.<br>`$attribute` refers to the attribute variable name. | app.id<br>app.clientId<br>app.profile |
+| `access.scope` | `access` refers to the access token requesting the Scopes.<br>`scope` refers to the array of granted Scopes. | access.scope |
+
+### Samples
+
+#### Sample using an app rule
+To catch an app Profile label, use the following expression:
+`app.profile.label`
+
+#### Sample using an access rule
+To catch a granted Scope array and convert it to a space-delimited string, use the following expression:
+`String.replace(Arrays.toCsvString(access.scope),","," ")`
+
 
 ## Appendix: Time zone codes
 
