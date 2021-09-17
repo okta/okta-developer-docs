@@ -7,8 +7,8 @@ it enables a pure policy-driven design that accepts new functionality,
 such as adding additional sign-in factors, without the need to update your
 application's code. Such a feature becomes important for mobile devices where
 keeping applications updated is a challenge. The
-[sample application](/docs/guides/oie-embedded-sdk-run-sample/ios/main/),
-provided in the SDK's Git repository, uses the SDK to implement such dynamic policy-driven
+[sample application](/docs/guides/oie-embedded-common-run-samples/ios/main/),
+provided in the Identity Engine Swift SDK's Git repository, uses the SDK to implement such dynamic policy-driven
 behavior. See this sample application for more details on how to design
 a dynamic application using the SDK.
 
@@ -16,25 +16,25 @@ a dynamic application using the SDK.
 
 In contrast to the sample application, the
 [sample code](https://github.com/okta/okta-idx-swift/tree/master/Samples/Signin%20Samples)
-provided in this step by step guide wraps the SDK with a more prescriptive and explicit interface
+provided in this step-by-step guide wraps the SDK with a more prescriptive and explicit interface
 that is purposely built to help facilitate understanding of how to use the SDK.
 It's meant to be a learning tool and although you can implement similar code in your
 app, you're advised to stick to the same best practice dynamic approach implemented
 in the sample application.
 
 The following steps document how to integrate the sample code into your
-application. The sample code wraps the SDK's functionality using a more
-prescriptive and explicit interface. It converts the SDK's generic remediation
-interface into explicit authentication steps and automatically executes steps
-such as the code-to-token exchange. The diagram below illustrates this call flow
-from your applications's UI to the sample code, SDK, and API. Note the "Integrating code"
-component, which represents the code you write to call into the sample code's interface.
+application. The sample code converts the SDK's generic remediation
+interface into explicit authentication steps and automatically executes steps,
+such as the code-to-token exchange. The following diagram illustrates this call flow
+from your applications's UI to the sample code, SDK, and API.
 
 <div class="common-image-format">
 
  ![Diagram showing the integration flow of the sample app and Swift SDK](/img/oie-embedded-sdk/oie-embedded-sdk-swift-sample-code-overview.png)
 
 </div>
+
+> **Note:** The Integrating code component represents the code you write to call the sample code's interface.
 
 ### 1: Launch the app and initialize the SDK
 
