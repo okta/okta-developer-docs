@@ -10,4 +10,4 @@ When multiple configurations options are used simultaneously, the SDK selects th
 
 For example, values set in the sample app `config.js` override the environment variables and configuration file settings. Subsequently, the environment variables take precedence over the `testenv` file.
 
-> **Note:** You should only use one configuration option in your solution to avoid confusion with setting overrides.
+> **Note:** Use only one configuration option in your solution to avoid confusion with setting overrides.

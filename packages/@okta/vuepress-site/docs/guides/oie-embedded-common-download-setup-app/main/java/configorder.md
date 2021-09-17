@@ -10,4 +10,4 @@ When multiple configuration options are used simultaneously, the SDK library sel
 
 Each increasing configuration option supersedes the previous configuration. For example, if you configure the `~/.okta/okta.yaml` file and set the environment variables with different configuration values, the environment variable values will override the `~/.okta/okta.yaml` configuration values when the app starts.
 
-> **Note:** You should only use one configuration option in your solution to avoid confusion with setting overrides.
+> **Note:** Use only one configuration option in your solution to avoid confusion with setting overrides.
