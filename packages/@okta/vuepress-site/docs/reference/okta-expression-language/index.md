@@ -371,8 +371,6 @@ Okta provides a few expressions that you can only use with custom claims.
 * See [Create claims](/docs/guides/customize-authz-server/create-claims) for general information about claim creation.
 * See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute) for details about using app-specific values.
 
-> **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#application-properties). If your organization configures multiple instances of the same application, the names of the later instances are differentiated by a randomly assigned suffix, for example: `zendesk_9ao1g13`.  You can find the name of any specific app instance in the Profile Editor, where it appears in lighter text beneath the label of the app.
-
 | Syntax           | Definitions                                                             | Examples     |
 | --------         | ----------                                                              | ------------ |
 | `app.$attribute` | `app` refers to the name of the OIDC app.<br>`$attribute` refers to the attribute variable name. | app.id<br>app.clientId<br>app.profile |
