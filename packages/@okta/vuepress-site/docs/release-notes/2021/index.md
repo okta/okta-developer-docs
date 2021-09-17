@@ -152,7 +152,7 @@ You can use the SAML 2.0 Assertion flow to request an access token when you want
 
 #### Event Hook preview tab is now GA in Preview
 
-Event Hooks that you configure in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-event-hooks-preview).
+Event Hooks that you configure in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/okta_help.htm?type=oie&id=ext-event-hooks-preview).
 
 #### Bugs fixed in 2021.07.0
 

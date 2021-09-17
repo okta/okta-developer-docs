@@ -8,9 +8,9 @@ excerpt: The Okta Identity Engine introduces a lot of changes to the Okta platfo
 
 The Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features. Additionally, some of these changes result in Okta Identity Engine features not supported for use with Okta Classic APIs.
 
-> **Note:** This doc is designed for people who are familiar with Okta Classic. If you are new to Okta and Okta Identity Engine, see [Get started](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) with Okta Identity Engine.
+> **Note:** This doc is designed for people who are familiar with Okta Classic. If you are new to Okta and Okta Identity Engine, see [Get started](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie) with Okta Identity Engine.
 
-Are you an admin? See the Okta Identity Engine [Limitations](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-oie-limitations) doc for admins.
+Are you an admin? See the Okta Identity Engine [Limitations](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-limitations) doc for admins.
 
 ### Okta Classic features not supported in Okta Identity Engine
 
@@ -82,7 +82,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 **What Changed:** The Self-Service Registration feature isn't supported. Self-service registration is now accomplished through a profile enrollment policy. In a profile enrollment policy, admins select the attributes they want to collect when a new end user clicks **Sign up**. After the end user is authenticated into the app, their profile is complete and they are provisioned to the appropriate groups.
 
-**Further information:** [Manage Profile Enrollment policies](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment)
+**Further information:** [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 
 #### Sign-In Widget customization - Help title link and Need help signing in string
 

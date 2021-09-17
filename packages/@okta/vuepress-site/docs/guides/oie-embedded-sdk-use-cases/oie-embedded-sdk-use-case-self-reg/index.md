@@ -47,7 +47,7 @@ If not already done, complete the steps in [Set up your Okta org (for multifacto
 1. In the **Edit Rule** dialog box, under the **For new users** section, select **Allowed** in the **Sign-up** field.
 1. Click **Save**.
 
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment).
+> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
 ### Step 4: Confirm that the org application is assigned to everyone
 

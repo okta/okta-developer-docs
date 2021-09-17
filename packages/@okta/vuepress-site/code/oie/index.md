@@ -9,7 +9,7 @@ title: Okta Identity Engine SDKs & Samples
 
 ## What's new
 
-[Okta Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) introduces new identity management capabilities with greater flexibility and customization. To take advantage of these new features and for a better development experience, use the Okta Identity Engine SDKs to manage authentication in your apps. These new SDKs are recommended for orgs using Okta Identity Engine.
+[Okta Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie) introduces new identity management capabilities with greater flexibility and customization. To take advantage of these new features and for a better development experience, use the Okta Identity Engine SDKs to manage authentication in your apps. These new SDKs are recommended for orgs using Okta Identity Engine.
 
 Experiment with sample apps that showcase Okta Identity Engine using the following [authentication approaches](/docs/concepts/redirect-vs-embedded/):
 

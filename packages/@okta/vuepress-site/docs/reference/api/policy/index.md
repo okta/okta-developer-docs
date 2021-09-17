@@ -1012,9 +1012,9 @@ Specifies the device condition to match on
 
 For details on integration with a device management system, see:
 
-* [Configure Device Trust on Identity Engine for desktop devices](https://help.okta.com/en/oie/okta_help_CSH.htm#csh-device-mgmt-desktop-mdm-setup)
+* [Configure Device Trust on Identity Engine for desktop devices](https://help.okta.com/okta_help.htm?type=oie&id=csh-device-mgmt-desktop-mdm-setup)
 
-* [Configure Device Trust on Identity Engine for mobile devices](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-config-mobile)
+* [Configure Device Trust on Identity Engine for mobile devices](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-mobile)
 
 #### Device Condition object example
 

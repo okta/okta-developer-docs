@@ -27,7 +27,7 @@ For an example implementation of this Inline Hook, see [Registration Inline Hook
 
 ## About
 
-The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
+The Okta Registration Inline Hook allows you to integrate your own custom code into Okta's [Profile Enrollment](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) flow. The hook is triggered after Okta receives the registration request but before the user is created. Your custom code can:
 
 - Set or override the values that will be populated in attributes of the user's Okta profile
 - Allow or deny the registration attempt, based on your own validation of the information the user has submitted

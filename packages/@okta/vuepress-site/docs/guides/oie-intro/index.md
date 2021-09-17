@@ -9,7 +9,7 @@ meta:
 
 ## About Okta Identity Engine
 
-Okta Identity Engine is a platform service that allows enterprises to build access experiences tailored to their organizational needs. With [Okta Identity Engine](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie), you are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, you can customize and extend each of these steps.
+Okta Identity Engine is a platform service that allows enterprises to build access experiences tailored to their organizational needs. With [Okta Identity Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie), you are no longer bound to any one way of identifying, authorizing, enrolling, and issuing access to users. Instead, you can customize and extend each of these steps.
 
 The Okta Identity Engine user authentication deployment model can be divided into two approaches:
 
@@ -60,19 +60,19 @@ Okta Identity Engine provides:
 
 * Passwordless authentication
 
-    Admins can enable the email authenticator now with the addition of a magic link in the email notification sent to end users. Authenticators are credentials, owned or controlled by an end user, that can be verified by an application or service. They can be things such as passwords, answers to security questions, or phones (SMS or voice call). When policies are configured to include non-password authenticators, end users may sign in to their account using factors that don't require the use of a password. See [Configure passwordless authentication with email magic link](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-passwordless-auth).
+    Admins can enable the email authenticator now with the addition of a magic link in the email notification sent to end users. Authenticators are credentials, owned or controlled by an end user, that can be verified by an application or service. They can be things such as passwords, answers to security questions, or phones (SMS or voice call). When policies are configured to include non-password authenticators, end users may sign in to their account using factors that don't require the use of a password. See [Configure passwordless authentication with email magic link](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
 
 * Progressive profiling
 
-  Update an existing user's profile by prompting them for additional sign-in information when they advance to designated stages in the sign-in process. See [Create a Profile Enrollment policy for progressive profiling](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment).
+  Update an existing user's profile by prompting them for additional sign-in information when they advance to designated stages in the sign-in process. See [Create a Profile Enrollment policy for progressive profiling](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
 * App-level policies
 
-  App sign-on policies define the full requirements for an app. Admins can configure Okta Sign-On Policies to use App-level policies instead &mdash; making it easier to manage your apps. See [App sign-on policies](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-about-asop).
+  App sign-on policies define the full requirements for an app. Admins can configure Okta Sign-On Policies to use App-level policies instead &mdash; making it easier to manage your apps. See [App sign-on policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop).
 
 * MFA enrollment policies
 
-  With MFA enrollment policies, you can create and enforce policies and rules for specific MFA factors and assign groups accordingly. Sign-on policies determine the types of authentication challenges end users experience when they sign in to their account. MFA enrollment policies are based on a variety of elements, such as location, group definitions, and authentication type. See [Create an MFA enrollment policy](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-mfa-policy).
+  With MFA enrollment policies, you can create and enforce policies and rules for specific MFA factors and assign groups accordingly. Sign-on policies determine the types of authentication challenges end users experience when they sign in to their account. MFA enrollment policies are based on a variety of elements, such as location, group definitions, and authentication type. See [Create an MFA enrollment policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-mfa-policy).
 
 ## Enable Okta Identity Engine for your organization
 
