@@ -152,7 +152,7 @@ You can use the SAML 2.0 Assertion flow to request an access token when you want
 
 #### Event Hook preview tab is now GA in Preview
 
-Event Hooks that you configure in the Admin Console or by [Event Hooks Management API](https://developer.okta.com/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/oie/en-us/Content/Topics/automation-hooks/event-hooks-preview.htm).
+Event Hooks that you configure in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event. See [Event Hook Preview](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-event-hooks-preview).
 
 #### Bugs fixed in 2021.07.0
 
@@ -544,11 +544,11 @@ When a request is made to `/api/v1/eventHooks/{eventHookId}/lifecycle/verify` fo
 
 #### Event Hook preview tab now in Early Access (EA)
 
-Event Hooks configured in the Admin Console or by [Event Hooks Management API](https://developer.okta.com/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
+Event Hooks configured in the Admin Console or by [Event Hooks Management API](/docs/reference/api/event-hooks/) can now preview the JSON body of the Event Hook in the Admin Console, as well as delivering the preview request to your external service without manually triggering an actual event.
 
 Previewing the JSON body of the Event Hook assists developers or administrators create or troubleshoot the request syntax. The JSON body can also be edited for different request scenarios.
 
-See [Event Hook Preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/event-hooks-preview.htm).<!--OKTA-364119-->
+See [Event Hook Preview](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-event-hooks-preview).<!--OKTA-364119-->
 
 #### Wildcards for OAuth redirect subdomains
 

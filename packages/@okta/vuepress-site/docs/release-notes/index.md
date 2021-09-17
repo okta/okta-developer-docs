@@ -16,7 +16,7 @@ We release first to preview orgs and then production orgs. Dates for preview rel
 To verify the current release for an org, check the footer of the Admin Console. If necessary, click **Admin** to navigate to your Admin Console.<br>
 ![Release Number in Footer](/img/release_notes/version_footer.png)
 
-> **Note:** Changes to Okta unrelated to API Products are published in the [Okta Release Notes](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_okta_relnotes) for admins. See [Okta Identity Engine Release Notes](https://help.okta.com/oie/en-us/Content/Topics/ReleaseNotes/oie-relnotes.htm) for changes to Okta Identity Engine that are unrelated to Okta Identity Engine API Products.
+> **Note:** Changes to Okta unrelated to API Products are published in the [Okta Release Notes](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_okta_relnotes) for admins. See [Okta Identity Engine Release Notes](https://help.okta.com/en/oie/okta_help_CSH.htm#csh-oie-rn) for changes to Okta Identity Engine that are unrelated to Okta Identity Engine API Products.
 
 <div class="next-section">
   <RouterLink to='/docs/release-notes/2021'>
