@@ -12,7 +12,7 @@ For example:
 
 ### 2: Authenticate the user credentials
 
-When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object, which is `authClient` in the SDK sample app's `login.js` file , and set its `username` and `password` properties to the values entered by the user. Send this object to `idx.authenticate` to authenticate the user. See [idx.authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) for more information.
+When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object, which is `authClient` in the SDK sample app's `login.js` file , and set its `username` and `password` properties to the values entered by the user. Send this object to `idx.authenticate()` to authenticate the user. See [idx.authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) for more information.
 
 ```JavaScript
 router.post('/login', async (req, res, next) => {
@@ -28,7 +28,7 @@ router.post('/login', async (req, res, next) => {
 
 ### 3: Handle the response from the user sign-in flow
 
-The application handles the response from the authentication call through the `handleTransaction` function as shown in the SDK sample application `handleTransaction.js` file. The `transaction` parameter is the `IdxStatus` value that is passed in through the response from Okta.
+The application handles the response from the authentication call through the `handleTransaction()` function as shown in the SDK sample application `handleTransaction.js` file. The `transaction` parameter is the `IdxStatus` value that is passed in through the response from Okta.
 
 ```JavaScript
 module.exports = function handleTransaction({

@@ -46,17 +46,16 @@ its initializer a `configuration` object.
 self.authHandler = BasicLogin(configuration: configuration)
 ```
 
-For more information on how to set the `configuration` parameter, see
-[SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk)
+For more information on how to set the configuration parameters, see [SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk)
 in
-[Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
+[Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main).
 
 ### 2: The user initiates the sign-in flow
 
 When the user enters their credentials and initiates the sign-in flow,
 call the `login` method, passing in the username, password,
-and `completion` closure. This closure is invoked once when the sign-in completes
-and returns either a fatal error or success with a token.
+and `completion` closure. This closure is invoked once the sign-in process completes
+and returns either a fatal error or a success status with a token.
 
 ```swift
  self.authHandler.login(username: "user@example.com",
@@ -74,8 +73,8 @@ and returns either a fatal error or success with a token.
 ### 3: Send the user to the home page after a successful sign-in flow
 
 The final integration step is to send the user to the default home page
-after a successful sign-in flow. Optionally, you can obtain basic user information after a
-successful sign-in by making a request to Okta's Open ID Connect authorization server.
+after a successful sign-in flow. Optionally, you can obtain basic user information after the user
+successfully signs in by making a request to Okta's Open ID Connect Authorization Server.
 See [Get the user profile information](#get-the-user-profile-information).
 
 #### Sample code
