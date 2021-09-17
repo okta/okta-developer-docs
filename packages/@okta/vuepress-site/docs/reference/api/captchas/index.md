@@ -21,7 +21,7 @@ The Okta CAPTCHAs API provides operations to manage CAPTCHAs and Org-wide CAPTCH
 
 ## Get started
 
-Before you configure your org to use CAPTCHA, sign in to the vendor of your choice or sign up for an account. For more details, refer to [CAPTCHA integration](https://help.okta.com/okta_help.htm?type=oie&id=csh-captcha).
+Before you configure your org to use CAPTCHA, sign in to the vendor of your choice or sign up for an account. For more details, refer to [CAPTCHA integration](https://help.okta.com/en/oie/okta_help_CSH.htm#csh-captcha).
 
 Explore the CAPTCHAs API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c51413d80cc8e88fd101?action=collection%2Fimport)
 

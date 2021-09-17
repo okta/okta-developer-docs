@@ -43,7 +43,7 @@ The following Event Types are available only in the Okta Identity Engine and can
 
 **What Changed:** Not supported
 
-**Further Information:** [Learn more about PIV](https://help.okta.com/en/prod/Content/Topics/Security/idp-smart-card-workflow.htm)
+**Further Information:** [Learn more about PIV](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow)
 
 ***
 
