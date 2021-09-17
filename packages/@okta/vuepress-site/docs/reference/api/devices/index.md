@@ -50,25 +50,25 @@ Fetches a Device by its `id`. If you don't know the `id`, you can [List Devices]
 #### Permitted OAuth2 scopes 
 `okta.devices.read`
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter  | Type   | Description                                       |
 | ---------- | ------ | ------------------------------------------------- |
 | `deviceId` | String | The `id` of [Device](#device-object) object  |
 
-#### Request Query Parameters
+#### Request query parameters
 
 None
 
-#### Request Body
+#### Request body
 
 None
 
-#### Response Body
+#### Response body
 
 The requested [Device](#device-object).
 
-#### Usage Example
+#### Usage example
 
 This request fetches a Device object with an `id` value `ftrZooGoT8b41iWRiQs7`:
 
@@ -132,7 +132,7 @@ curl -v -X GET \
     }
 }
 ```
-##### Error Response
+##### Error response
 
 An invalid `id` returns a `404 Not Found` status code.
 
@@ -153,22 +153,22 @@ Content-Type: application/json
 
 <ApiOperation method="get" url="/api/v1/devices" />
 
-Fetches a list of all Devices that are not `DELETED` for your org. Responses will be paginated with maximum size of 200.
+Fetches a list of all Devices that are not `DELETED` for your org. Responses are paginated with maximum size of 200.
 
 A subset of Devices can be returned that match a supported search criteria using the `search` query parameter.
 
-Searches for devices based on the properties specified in the `search` parameter conforming SCIM filter specifications (case insensitive). This data will be eventually consistent. Different results are returned depending on specified queries in the request. Empty list will be returned if no objects match `search` request.
+Searches for devices based on the properties specified in the `search` parameter conforming SCIM filter specifications (case-insensitive). This data is eventually consistent. The API returns different results depending on specified queries in the request. Empty list is returned if no objects match `search` request.
 
-> **Note:** Listing devices with `search` should not be used as a part of any critical flows, like authentication, updates etc. to prevent potential data loss. `search` results may not reflect latest information, as this endpoint uses a search index which may not be up to date with recent updates to the object. <br> Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data, resulting in data loss. <br> Use an `id` lookup for records that you update to ensure your results contain the latest data.
+> **Note:** Listing devices with `search` should not be used as a part of any critical flows—such as authentication or updates—to prevent potential data loss. `search` results may not reflect the latest information, as this endpoint uses a search index which may not be up-to-date with recent updates to the object. <br> Don't use search results directly for record updates, as the data might be stale and therefore overwrite newer data, resulting in data loss. <br> Use an `id` lookup for records that you update to ensure your results contain the latest data.
 
 This operation:
 
 * Supports pagination (to a maximum of 200 results).
 * Requires [URL encoding](http://en.wikipedia.org/wiki/Percent-encoding). For example, `search=profile.displayName eq "Bob"` is encoded as `search=profile.displayName%20eq%20%22Bob%22`. Examples use cURL-style escaping instead of URL encoding to make them easier to read.
 
-Searches include all Device profile properties, as well as the Device's `id`, `status` and `lastUpdated` properties.
+Searches include all Device profile properties, as well as the Device `id`, `status` and `lastUpdated` properties.
 
-| Search Term Example                             | Description                                      |
+| Search term example                             | Description                                      |
 | :---------------------------------------------- | :----------------------------------------------- |
 | `status eq "ACTIVE"`                            | Devices that have a `status` of `ACTIVE`         |
 | `lastUpdated gt "yyyy-MM-dd'T'HH:mm:ss.SSSZ"`   | Devices last updated after a specific timestamp  |
@@ -180,11 +180,11 @@ Searches include all Device profile properties, as well as the Device's `id`, `s
 #### Permitted OAuth2 scopes 
 `okta.devices.read`
 
-#### Request Path Parameters
+#### Request path parameters
 
 None
 
-#### Request Query Parameters
+#### Request query parameters
 
 | Parameter   | Type   | Description                                                                                                               |
 | ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
@@ -195,15 +195,15 @@ None
 * If you don't specify a value for `limit`, the maximum (200) is used as a default.
 * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
 
-#### Request Body
+#### Request body
 
 None
 
-#### Response Body
+#### Response body
 
 Array of [Device](#device-object) objects.
 
-#### Usage Example (List all Devices)
+#### Usage example (list all Devices)
 
 The following request returns a list of all available devices, without any query parameters.
 
@@ -321,7 +321,7 @@ Link: <https://{yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=
 ]
 ```
 
-#### Usage Example (Search)
+#### Usage example (search)
 
 The following request returns a list of all available devices, with search parameters: Devices whose Profile `displayName` starts with `Eng-dev` and a `status` value of `ACTIVE`.
 
@@ -395,32 +395,32 @@ curl -v -X GET \
 
 Permanently deletes a Device that is in `DEACTIVATED` status. The Device can be transitioned to `DEACTIVATED` status using [deactivate](#deactivate-device) API.
 
-This deletion is destructive and would delete all the profile data related to the device. Once deleted, device data can't be recovered. A Device that is not in `DEACTIVATED` status will raise an error if Delete operation is attempted.
+This deletion is destructive and deletes all the profile data related to the device. Once deleted, device data can't be recovered. A Device that is not in a `DEACTIVATED` state raises an error if Delete operation is attempted.
 
 #### Permitted OAuth2 scopes 
 `okta.devices.manage`
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
 | `deviceId`  | String | The `id` of [Device](#device-object) object                              |
 
-#### Request Query Parameters
+#### Request query parameters
 
 None
 
-#### Request Body
+#### Request body
 
 None
 
-#### Response Body
+#### Response body
 
 ```http
 HTTP/1.1 204 No Content
 ```
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
@@ -436,11 +436,11 @@ HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
-##### Error Response
+##### Error response
 
 Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 
-## Lifecycle Operations
+## Lifecycle operations
 
 Device lifecycle is defined as transitions of the [Device Status](#device-status) by the associated operations. The Device object follows a predefined lifecycle transition flow. Device Lifecycle operations are idempotent. These are synchronous calls.
 
@@ -460,25 +460,25 @@ Activated devices can be used to create and delete Device User links.
 #### Permitted OAuth2 scopes 
 `okta.devices.manage`
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
 | `deviceId`  | String | The `id` of [Device](#device-object) object                              |
 
-#### Request Query Parameters
+#### Request query parameters
 
 None
 
-#### Request Body
+#### Request body
 
 None
 
-#### Response Body
+#### Response body
 
 None
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
@@ -497,7 +497,7 @@ HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
-#### Error Responses
+#### Error responses
 
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 * Passing an `id` that is not in the `CREATED` or `DEACTIVATED` status returns a `400 Bad Request` status code with error code `E0000001`.
@@ -506,36 +506,36 @@ Content-Type: application/json
 
 <ApiOperation method="post" url="/api/v1/devices/${deviceId}/lifecycle/deactivate" />
 
-Sets a Device's `status` to `DEACTIVATED`. Deactivation will cause a Device to lose all Device User Links. A Device should be in `DEACTIVATED` status before it can be [deleted](#delete-device).
+Sets a Device's `status` to `DEACTIVATED`. Deactivation causes a Device to lose all Device User links. A Device should be in `DEACTIVATED` status before it can be [deleted](#delete-device).
 
 > **Important**: 
 > 1. Deactivating a Device is a **destructive** operation. 
 > 2. This action cannot be reversed. 
-> 3. Device deactivation would render associated device factors, management certificates etc. non usable. (Device re-enrollment via Okta Verify is required to make such assets functional again.)
+> 3. Device deactivation renders associated assets—such as device factors and management certificates—non-usable. Device reenrollment via Okta Verify is required to make such assets functional again.
 
 
 #### Permitted OAuth2 scopes 
 `okta.devices.manage`
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
 | `deviceId`  | String | The unique identifier for the [Device](#device-object) object                              |
 
-#### Request Query Parameters
+#### Request query parameters
 
 None
 
-#### Request Body
+#### Request body
 
 None
 
-#### Response Body
+#### Response body
 
 None
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
@@ -554,7 +554,7 @@ HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
-#### Error Responses
+#### Error responses
 
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 * Passing an `id` that is not in the `ACTIVE` or `SUSPENEDED` status returns a `400 Bad Request` status code with error code `E0000001`.
@@ -576,25 +576,25 @@ Suspended devices:
 #### Permitted OAuth2 scopes 
 `okta.devices.manage`
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
 | `deviceId`  | String | The unique identifier for the [Device](#device-object) object                              |
 
-#### Request Query Parameters
+#### Request query parameters
 
 None
 
-#### Request Body
+#### Request body
 
 None
 
-#### Response Body
+#### Response body
 
 None
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
@@ -613,7 +613,7 @@ HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
-###### Error Response
+###### Error response
 
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 * Passing an `id` that is not in the `ACTIVE` status returns a `400 Bad Request` status code with error code `E0000001`.
@@ -629,25 +629,25 @@ This operation can only be performed on a Device that is in `SUSPENDED` status.
 #### Permitted OAuth2 scopes 
 `okta.devices.manage`
 
-#### Request Path Parameters
+#### Request path parameters
 
 | Parameter   | Type   | Description                                                             |
 | ----------- | ------ | ----------------------------------------------------------------------- |
 | `deviceId`  | String | The unique identifier for the [Device](#device-object) object                              |
 
-#### Request Query Parameters
+#### Request query parameters
 
 None
 
-#### Request Body
+#### Request body
 
 None
 
-#### Response Body
+#### Response body
 
 None
 
-#### Usage Example
+#### Usage example
 
 ##### Request
 
@@ -666,16 +666,16 @@ HTTP/1.1 204 No Content
 Content-Type: application/json
 ```
 
-###### Error Response
+###### Error response
 
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 * Passing an `id` that is not in the `SUSPENDED` status returns a `400 Bad Request` status code with error code `E0000001`.
 
-## Devices API Objects
+## Device API objects
 
-### Device Object
+### Device object
 
-#### Device Properties
+#### Device properties
 
 The device model defines several read-only properties:
 
@@ -688,7 +688,7 @@ The device model defines several read-only properties:
 | `profile`               | [Profile Object](#device-profile-object)  | Device profile properties                                                                            |
 | `status`                | String                                    | Current [status](#device-status) of device. One of `CREATED`, `ACTIVE`, `SUSPENDED` or `DEACTIVATED` |
 
-#### Device Example
+#### Device example
 
 ```json
 {
@@ -767,9 +767,9 @@ The following diagram shows the state object for a Device:
 Okta Verify enrollment results in a device being created in device inventory. The newly created device is in `ACTIVE` status. 
 
 
-### Device Profile Object
+### Device profile object
 
-#### Device Profile Properties
+#### Device profile properties
 
 | Property           | Type       | Description                                                                                   |
 | :----------------- | :--------- | :---------------------------------------------------------------------------------------------|
@@ -788,7 +788,7 @@ Okta Verify enrollment results in a device being created in device inventory. Th
 | `tpmPublicKeyHash` | String     | (Optional) Windows Trsted Platform Module hash value.                                         |
 | `secureHardwarePresent` | Boolean    | (Optional) Indicates if the device constains a secure hardware functionality.            |
 
-#### Device Profile Example
+#### Device profile example
 
 ```json
 {
@@ -807,13 +807,13 @@ Okta Verify enrollment results in a device being created in device inventory. Th
 }
 ```
 
-#### Devices Object Link Attributes
+#### Device object link attributes
 
 For a Device result, the `_links` contains a full set of operations available for that device. `hints` provides information on allowed HTTP verbs for the `href`.
 
 Here are some links that may be available on a Device, as determined by its status:
 
-| Link Relation Type       | Description                                                                                                           |
+| Link relation type       | Description                                                                                                           |
 | :----------------------- | :-------------------------------------------------------------------------------------------------------------------- |
 | `self`                   | A self-referential link to this device                                                                                |
 | `activate`               | Lifecycle action to [activate the device](#activate-device)                                                           |
@@ -821,7 +821,7 @@ Here are some links that may be available on a Device, as determined by its stat
 | `suspend`                | Lifecycle action to [suspend the device](#suspend-device)                                                             |
 | `unsuspend`              | Lifecycle action to [unsuspend the device](#unsuspend-device)                                                         |
 
-For example, a device with a `CREATED` status would have the following `_links`:
+For example, a device with a `CREATED` status has the following `_links`:
 
 ```json
 "_links": {
