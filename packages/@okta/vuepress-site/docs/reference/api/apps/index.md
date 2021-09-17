@@ -3170,7 +3170,7 @@ curl -v -X PUT \
 
 ##### Response example (self-service application assignment not available)
 
-If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) with profile mappings (Universal Directory). You can also read about how to update user permissions on properties in the user profile to secure your app before enabling self-service.
+If you encounter the following error when enabling self-service, you can read about [username overrides](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor) with profile mappings (Universal Directory). You can also read about how to update user permissions on properties in the user profile to secure your app before enabling self-service.
 
 ```http
 HTTP/1.1 403 Forbidden

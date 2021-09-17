@@ -22,7 +22,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, they will be prompted to sign in again. In order to avoid this, you would need to change the issuer in these integrations to your custom URL. Both in the Okta dashboard and in your codebase.
 
-* When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom URL domain to your users. One way to communicate the change, for example, is to [create a custom notification](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
+* When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom URL domain to your users. One way to communicate the change, for example, is to [create a custom notification](https://help.okta.com/okta_help.htm?id=ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
 
 * When an Admin signs in to the custom URL domain and then accesses the Admin Console from their user dashboard, the org URL changes from the custom URL to the Okta domain.
 

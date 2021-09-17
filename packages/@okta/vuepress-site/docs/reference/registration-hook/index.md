@@ -265,7 +265,7 @@ Your Registration Inline Hook is now configured for Profile Enrollment.
 
 To activate the Inline Hook, you first need to register your external service endpoint with Okta; see [Inline Hook Setup](/docs/concepts/inline-hooks/#inline-hooks_setup).
 
-You then need to associate the registered Inline Hook with your Self-Service Registration policy. (For information on configuring a Self-Service Registration policy, see [Enable and configure a self-service registration policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_self_service_registration_policy).)
+You then need to associate the registered Inline Hook with your Self-Service Registration policy. (For information on configuring a Self-Service Registration policy, see [Enable and configure a self-service registration policy](https://help.okta.com/okta_help.htm?id=ext_self_service_registration_policy).)
 
 1. Go to **Directory > Self-Service Registration**.
 

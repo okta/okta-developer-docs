@@ -56,7 +56,7 @@ Here are the key points to remember:
 * Identify which user attributes are personally identifiable information (PII).
 * Define all user attributes that will be migrated to Okta, and the source of truth for each one.
 
-**Note:** The source of truth for attributes at this stage of the migration process means only that we want to clearly define where the user data is coming from for the migration itself, not where it will be managed after the migration. After migration, Okta is the default [profile master](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor), but this can be modified.
+**Note:** The source of truth for attributes at this stage of the migration process means only that we want to clearly define where the user data is coming from for the migration itself, not where it will be managed after the migration. After migration, Okta is the default [profile master](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor), but this can be modified.
 
 ### User applications
 
@@ -79,7 +79,7 @@ After you’ve gathered the necessary information, it’s time to create a migra
 
 ### Define attribute mappings
 
-Defining where to map each attribute from the source to the target is an important part of your plan. [Okta user profiles](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) include 31 predefined attributes, and more custom attributes can be added as needed.
+Defining where to map each attribute from the source to the target is an important part of your plan. [Okta user profiles](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor) include 31 predefined attributes, and more custom attributes can be added as needed.
 
 Using the information you gathered earlier, create a matrix that maps your source attributes to the Okta user profile attributes, and be sure to include these fields:
 

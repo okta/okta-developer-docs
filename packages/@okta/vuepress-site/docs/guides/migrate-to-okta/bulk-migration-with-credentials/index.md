@@ -91,7 +91,7 @@ The description property can be blank.
 
 You can obtain the new Group ID (`id`) from the response to use when you create Users in that Group later. You can also list all Groups in your org and obtain their IDs using a [List Groups](/docs/reference/api/groups/#list-groups) request.
 
-You can also create Groups in your Okta Admin Console. For more information, see [Manage groups](https://help.okta.com/en/prod/okta_help_CSH.htm#Directory_Groups) in the product documentation.
+You can also create Groups in your Okta Admin Console. For more information, see [Manage groups](https://help.okta.com/okta_help.htm?id=Directory_Groups) in the product documentation.
 
 ### Create users
 
@@ -199,8 +199,8 @@ The user status in the response when you create a User is set to `STAGED`, which
 
 * [User status values](/docs/reference/api/users/#user-status) (API reference)
 * [Activate User request](/docs/reference/api/users/#activate-user) (API reference)
-* [End user account states](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_end_user_states) (product documentation)
-* [Activate user accounts](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_activate_user) (product documentation)
+* [End user account states](https://help.okta.com/okta_help.htm?id=ext_end_user_states) (product documentation)
+* [Activate user accounts](https://help.okta.com/okta_help.htm?id=ext_activate_user) (product documentation)
 
 ### Rate limits
 
@@ -210,7 +210,7 @@ Remember that [rate limits](/docs/reference/rate-limits/) apply to API requests 
 
 At this point, you should understand how to use the Okta API to migrate legacy users and groups to Okta.
 
-Your next step should be configuring the necessary integration and access to applications for your users. Be sure to read the product documentation for an [overview of application integration](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps) and see the information about [The Applications Page](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Apps_Page) for more on how to configure your applications.
+Your next step should be configuring the necessary integration and access to applications for your users. Be sure to read the product documentation for an [overview of application integration](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps) and see the information about [The Applications Page](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page) for more on how to configure your applications.
 
 ### Reference
 
@@ -226,8 +226,8 @@ This is a collection of reference links that we covered in this guide, as well a
 
 #### Product help pages
 
-* [Get started with Okta](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-get-started)
-* [Profile mastering](https://help.okta.com/en/prod/okta_help_CSH.htm#csh-profile-masters)
-* [Users, Groups, and Profiles](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_User_Lifecycle_Overview)
+* [Get started with Okta](https://help.okta.com/okta_help.htm?id=ext-get-started)
+* [Profile mastering](https://help.okta.com/okta_help.htm?id=csh-profile-masters)
+* [Users, Groups, and Profiles](https://help.okta.com/okta_help.htm?id=ext_User_Lifecycle_Overview)
 
 Lastly, if you get stuck, don’t hesitate to post a question on the [Okta Developer Forum](https://devforum.okta.com).

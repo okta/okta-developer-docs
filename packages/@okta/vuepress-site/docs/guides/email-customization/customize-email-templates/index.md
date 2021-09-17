@@ -24,9 +24,9 @@ Use these steps to edit a template or to add a template in one of the Okta-suppo
 
 ### Expression Language variables
 
-Email templates use common and unique [Expression Language (EL) variables](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-expression-language). EL variables enable advanced customization and, when used in place of hard-coded URLs, can prevent potential broken links.
+Email templates use common and unique [Expression Language (EL) variables](https://help.okta.com/okta_help.htm?id=ext-expression-language). EL variables enable advanced customization and, when used in place of hard-coded URLs, can prevent potential broken links.
 
-> **Note:** Some templates listed in the [variables tables](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-expression-language) may not appear in your org. To obtain these templates, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
+> **Note:** Some templates listed in the [variables tables](https://help.okta.com/okta_help.htm?id=ext-expression-language) may not appear in your org. To obtain these templates, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
 
 ### Enhanced Email Macros
 <ApiLifecycle access="ea" />
@@ -57,7 +57,7 @@ The new templating syntax is different from the EL expression-based Okta email t
 
 Previously with EL syntax, you could reference the first name of the user by using `${user.firstName}`. Now with the Velocity Templating syntax, you would use `$user.profile.firstName`.
 
-The previously available template variables are listed in [Customization Variables](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_ref_email_variables).
+The previously available template variables are listed in [Customization Variables](https://help.okta.com/okta_help.htm?id=ext_ref_email_variables).
 
 
 #### Access to all User Profile attributes

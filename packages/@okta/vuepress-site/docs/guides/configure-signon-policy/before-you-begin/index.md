@@ -24,7 +24,7 @@ This guide assumes that you:
 * Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 * Have [created groups](/docs/reference/api/groups/) in your org.
 * Have an application that you want to add a Sign-On Policy to.
-* Have configured a [dynamic network zone](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network).
+* Have configured a [dynamic network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network).
 
 ## Support
 

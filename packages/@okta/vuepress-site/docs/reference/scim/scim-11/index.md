@@ -29,7 +29,7 @@ To enable user provisioning, you must configure the provisioning options in the 
 1. Under the **Provisioning** tab, click **To App** and **Edit**.
 1. In the **Create User** option, click **Enable** and then **Save**.
 
-For more information on enabling the provisioning features of your SCIM integration, see [Provisioning and Deprovisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Provisioning_Deprovisioning_Overview) under the **Accessing Provisioning Features** section.
+For more information on enabling the provisioning features of your SCIM integration, see [Provisioning and Deprovisioning](https://help.okta.com/okta_help.htm?id=ext_Provisioning_Deprovisioning_Overview) under the **Accessing Provisioning Features** section.
 
 After saving the configuration, Okta makes two requests to your SCIM server:
 
@@ -563,7 +563,7 @@ To create a Group object on the SCIM server, you need to push the Okta group usi
 1. Select your SCIM integration from the list of integrations in your Okta org.
 1. On the **Push Groups** tab, click **Push Groups**.
 
-You can select which existing Okta group to push, either by specifying a name or a rule. For more information, see the [Using Group Push topic](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Using_Group_Push) in the Okta Help Center.
+You can select which existing Okta group to push, either by specifying a name or a rule. For more information, see the [Using Group Push topic](https://help.okta.com/okta_help.htm?id=ext_Directory_Using_Group_Push) in the Okta Help Center.
 
 After the group is selected, Okta makes a POST method request to the Service Provider:
 

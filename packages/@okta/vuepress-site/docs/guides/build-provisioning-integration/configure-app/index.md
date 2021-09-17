@@ -26,11 +26,11 @@ Click **Edit** to make changes to the following sections.
 
     Okta can also reactivate the user account in the downstream application if the integration is later reassigned to a user in Okta.
 
-* **Exclude Username Updates** &mdash; prevents your downstream application profile from overwriting the Okta user profile when using the [Selective Profile Push](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Using_Selective_Profile_Push) feature.
+* **Exclude Username Updates** &mdash; prevents your downstream application profile from overwriting the Okta user profile when using the [Selective Profile Push](https://help.okta.com/okta_help.htm?id=ext_Using_Selective_Profile_Push) feature.
 
-* **Sync Password** &mdash; ensures that a user's application password is always the same as their Okta password or, alternatively, allows Okta to generate a unique password for the user. See [Synchronize passwords](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-password-sync-main) .
+* **Sync Password** &mdash; ensures that a user's application password is always the same as their Okta password or, alternatively, allows Okta to generate a unique password for the user. See [Synchronize passwords](https://help.okta.com/okta_help.htm?id=ext-password-sync-main) .
 
-* **Profile Attribute Mappings** &mdash; edit attributes and mappings through the Profile Editor. See the <GuideLink link="../attribute-mapping/">Attributes and mappings</GuideLink> section in this guide or [Work with Okta user profiles and attributes](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
+* **Profile Attribute Mappings** &mdash; edit attributes and mappings through the Profile Editor. See the <GuideLink link="../attribute-mapping/">Attributes and mappings</GuideLink> section in this guide or [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
 
 ## To Okta
 
@@ -38,7 +38,7 @@ This page contains settings for all information that flows from your application
 
 Click **Edit** to make changes to the following sections.
 
-* **General** &mdash; schedules imports and dictates a username format for imported users. You can also define a percentage of acceptable assignments before the [import safeguards](https://help.okta.com/en/prod/okta_help_CSH.htm#csh-eu-import-safeguard) feature is automatically triggered.
+* **General** &mdash; schedules imports and dictates a username format for imported users. You can also define a percentage of acceptable assignments before the [import safeguards](https://help.okta.com/okta_help.htm?id=csh-eu-import-safeguard) feature is automatically triggered.
 
     If the Okta username is overridden due to mapping from a provisioning-enabled app, the custom mapping appears in this section.
 
@@ -52,7 +52,7 @@ Click **Edit** to make changes to the following sections.
 
   * **Confirm new users** &mdash; automates the confirmation or activation of a newly imported user. If this option is selected, you can clear it during import confirmation. Note that this feature doesn't apply to users who already exist in Okta.
 
-* **Profile & Lifecycle Sourcing** &mdash; allows your downstream application to be a source for Okta user profiles. If enabled, your application appears in the list of profile sources on the [Profile Sources](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Sources) page.
+* **Profile & Lifecycle Sourcing** &mdash; allows your downstream application to be a source for Okta user profiles. If enabled, your application appears in the list of profile sources on the [Profile Sources](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Sources) page.
 
   * **Allow `<app>` to source Okta users** &mdash; enables profile sourcing and determines what happens when a user is deactivated or reactivated in your application. Only the highest priority profile source for that Okta user can deactivate or suspend an Okta user. To verify the highest priority profile source, check the Profile Sources page for your integration.
 
@@ -68,7 +68,7 @@ Click **Edit** to make changes to the following sections.
 
 * **Inline Hooks** &mdash; configures custom logic to the process of importing new users into Okta from a downstream application. You can program the hooks to resolve conflicts in profile attributes and control whether imported users are treated as matches for existing users. To enable an import inline hook, see [Inline hooks](/docs/concepts/inline-hooks/).
 
-* **Okta Attribute Mappings** &mdash; edit attributes and mappings through the Profile Editor. See the <GuideLink link="../attribute-mapping/">Attributes and mappings</GuideLink> section in this guide or [Work with Okta user profiles and attributes](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
+* **Okta Attribute Mappings** &mdash; edit attributes and mappings through the Profile Editor. See the <GuideLink link="../attribute-mapping/">Attributes and mappings</GuideLink> section in this guide or [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Manage_Profile_Attributes) in the Okta product documentation.
 
 ## API Integration
 

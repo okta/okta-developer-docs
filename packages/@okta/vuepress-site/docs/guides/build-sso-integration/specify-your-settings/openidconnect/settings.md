@@ -23,7 +23,7 @@
 
 * If you want to support launching your application from the Okta dashboard:
   1. Enter one or more **Sign-in redirect URIs** values where Okta sends the OAuth responses.
-  2. (Optional). Enter the **Sign-out redirect URIs** where Okta redirects the browser after it receives the sign-out request from the relying-party and terminates the end-user's session. See [Single Logout](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_Single_Logout) or the [`/logout` API endpoint](/docs/reference/api/oidc/#logout).
+  2. (Optional). Enter the **Sign-out redirect URIs** where Okta redirects the browser after it receives the sign-out request from the relying-party and terminates the end-user's session. See [Single Logout](https://help.okta.com/okta_help.htm?id=ext_Apps_Single_Logout) or the [`/logout` API endpoint](/docs/reference/api/oidc/#logout).
   3. Change the **Login initiated by** field to **Either Okta or App** to give your integration an Okta tile.
       >**Note:** When you select this option, an **App Embed Link** section appears at the bottom of the page with the URL that can be used to sign in to the OIDC client from outside of Okta.
   4. Select **Display application icon to users**.
@@ -82,7 +82,7 @@
 
     ![Consent](/img/oin/sso_user-consent.png "User Consent Panel")
 
-* If you want to prompt your user to approve the integration access to specified resources, select the **Require consent** box. Alternatively, you can set up the consent for a scope in your custom authorization, as described in the [Create Scopes](https://help.okta.com/en/prod/okta_help_CSH.htm#create-scopes) section of the API Access Management documentation.
+* If you want to prompt your user to approve the integration access to specified resources, select the **Require consent** box. Alternatively, you can set up the consent for a scope in your custom authorization, as described in the [Create Scopes](https://help.okta.com/okta_help.htm?id=create-scopes) section of the API Access Management documentation.
 
 -->
 <!--

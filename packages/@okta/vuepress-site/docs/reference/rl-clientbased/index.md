@@ -83,7 +83,7 @@ Alice, Bob, and Lisa all work from the same office. Since they access Okta throu
 
 #### Client-based isolation for users accessing the endpoint through a proxy
 
-When `/authorize` or `/login/login.htm` requests are made from behind a proxy IP address, ensure to [configure the respective IPs as proxies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network). This allows the client-based rate limit framework to look for the IP address before the proxy to find the true client IP address.
+When `/authorize` or `/login/login.htm` requests are made from behind a proxy IP address, ensure to [configure the respective IPs as proxies](https://help.okta.com/okta_help.htm?id=ext_Security_Network). This allows the client-based rate limit framework to look for the IP address before the proxy to find the true client IP address.
 
 ### Client-based rate limit modes
 
@@ -148,7 +148,7 @@ For the `/login/login.htm` endpoint, the client rate limit framework calculates 
 
 **Q: What happens if my network contains a proxy server through which the requests are proxied?**
 
-Requests would appear to come from the same IP Address. When `/authorize` or `/login/login.htm` requests are made from behind a proxy IP address, make sure to [configure the respective IPs as proxies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network). This allows the client-based rate limit framework to look for the IP address before the proxy to find the true client IP address.
+Requests would appear to come from the same IP Address. When `/authorize` or `/login/login.htm` requests are made from behind a proxy IP address, make sure to [configure the respective IPs as proxies](https://help.okta.com/okta_help.htm?id=ext_Security_Network). This allows the client-based rate limit framework to look for the IP address before the proxy to find the true client IP address.
 
 **Q: Can I update the per client rate limit today?**
 

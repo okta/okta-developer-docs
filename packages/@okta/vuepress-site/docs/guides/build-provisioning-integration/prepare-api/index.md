@@ -84,7 +84,7 @@ Okta requires that your SCIM implementation be able to store the following four 
 
 Note that Okta supports more than those four user attributes. However, these are the base attributes that you must support.  The full schema of user attributes supported by SCIM 2.0 is described in [section 4 of RFC 7643](https://tools.ietf.org/html/rfc7643#section-4).
 
-If your integration supports user attributes beyond those four base attributes, you can add support for additional attributes to your SCIM API. In some cases, you might need to configure Okta to map non-standard user attributes into the user profile for your application. See the [Check the attributes and corresponding mappings](../attribute-mapping/) step in this guide, or the "Add custom attributes to an Okta user profile" section in the [Work with Okta user profiles and attributes](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor_Tasks) topic in the Okta product documentation.
+If your integration supports user attributes beyond those four base attributes, you can add support for additional attributes to your SCIM API. In some cases, you might need to configure Okta to map non-standard user attributes into the user profile for your application. See the [Check the attributes and corresponding mappings](../attribute-mapping/) step in this guide, or the "Add custom attributes to an Okta user profile" section in the [Work with Okta user profiles and attributes](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor_Tasks) topic in the Okta product documentation.
 
 ### Unique ID
 
@@ -127,6 +127,6 @@ Sometimes it isn't feasible for your cloud-based application to natively support
 
 ## Provision to on-premises applications
 
-This provisioning guide targets cloud-based applications, but Okta does have a solution for on-premise applications. See [Configuring On Premises Provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_OPP_configure) for details about the Okta agent-based provisioning solution.
+This provisioning guide targets cloud-based applications, but Okta does have a solution for on-premise applications. See [Configuring On Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
 
 <NextSectionLink/>
