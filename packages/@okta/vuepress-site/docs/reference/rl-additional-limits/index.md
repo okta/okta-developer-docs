@@ -104,6 +104,7 @@ API endpoints that take username and password credentials, including the [Authen
   * `/api/v1/authn/factors/${id}/lifecycle/resend`
   * `/api/v1/users/${userId}/factors/${userFactorId}/lifecycle/activate/sms`
   * `/api/v1/users/${userId}/factors/${userFactorId}/resend`
+  * `api/${apiVersion}/radius`
 
   **Verify Endpoints**
   * `/api/v1/authn/factors/${factorIdOrFactorType}/verify`
