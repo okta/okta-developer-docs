@@ -368,7 +368,7 @@ Sample user data:
 ## Expressions for custom claims
 
 Okta provides a few expressions that you can only use with custom claims.
-* See [Create claims](/docs/guides/customize-authz-server/create-claims) for general information about claim creation.
+* See [Create claims](/docs/guides/customize-authz-server/create-claims)
 * See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute) for details about using app-specific values.
 
 | Syntax           | Definitions                                                             | Examples     |
