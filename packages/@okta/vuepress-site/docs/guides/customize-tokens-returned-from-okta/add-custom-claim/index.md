@@ -21,6 +21,8 @@ To add a custom claim:
 
     > **Note:** In this example, the user has a preferred language and a second email defined in their profile.
 
+    > **Note:** Some Expressions are custom claim-specific. See [Expressions for custom claims](/docs/reference/okta-expression-language/#expressions-for-custom-claims).
+
     * **Disable claim** &mdash; select if you want to temporarily disable the claim for testing or debugging. Leave this clear for this example.
     * **Include in** &mdash; specify whether the claim is valid for any scope or select the scopes for which the claim is valid. Leave **Any scope** selected for this example.
 
