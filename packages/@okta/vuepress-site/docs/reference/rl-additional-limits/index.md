@@ -111,6 +111,7 @@ API endpoints that take username and password credentials, including the [Authen
   * `/api/v1/users/${userId}/factors/${userFactorIdOrFactorType}/verify`
   * `/auth/call/send`
   * `/auth/sms/send`
+  * `api/${apiVersion}/radius`
 
 ### Workforce license rate limit multiplier
 
