@@ -106,7 +106,7 @@ API endpoints that take username and password credentials, including the [Authen
   * `/api/v1/users/${userId}/factors/${userFactorId}/resend`
   * `api/${apiVersion}/radius`
 
-  **Verify Endpoints**
+  **Verify endpoints**
   * `/api/v1/authn/factors/${factorIdOrFactorType}/verify`
   * `/api/v1/authn/factors/${factorIdOrFactorType}/verify/resend`
   * `/api/v1/users/${userId}/factors/${userFactorIdOrFactorType}/verify`
