@@ -20,7 +20,7 @@ To add a custom claim:
     * **Value** &mdash; this option appears if you chose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles. For the ID token example, we use `user.preferredLanguage` and for the access token example, we use `user.secondEmail`. These are referencing an Okta user profile attribute.
     
       * See [Okta Expression Language](/docs/reference/okta-expression-language).
-      * See [Expressions for custom claims](/docs/reference/okta-expression-language/#expressions-for-custom-claims) for claim-specific expressions.
+      * See [Expressions for OAuth2/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth2-oidc-custom-claims) for custom claim-specific expressions.
     > **Note:** In this example, the user has a preferred language and a second email defined in their profile.
 
     * **Disable claim** &mdash; select if you want to temporarily disable the claim for testing or debugging. Leave this clear for this example.
