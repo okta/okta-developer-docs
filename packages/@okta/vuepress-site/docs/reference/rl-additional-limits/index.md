@@ -96,16 +96,21 @@ API endpoints that take username and password credentials, including the [Authen
 
 > **Note:** Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
 
-* **Enrollment rate limit:** This rate limit applies to a user's attempt to enroll an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies to only the enrollment operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples) for examples of System Log rate limit events where too many enrollment attempts for the SMS or Call factors were made.
+* **Enrollment and verification rate limits:** This rate limit applies to a user's attempt to enroll or verify an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies only to the enrollment or verification operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples) for examples of System Log rate limit events where too many enrollment or verification attempts for the SMS or Call factors were made.
 
-  **Endpoints**
+  **Enroll Endpoints**
   * `/api/v1/authn/factors`
   * `/api/v1/users/${userId}/factors`
+  * `/api/v1/authn/factors/${id}/lifecycle/resend`
+  * `/api/v1/users/${userId}/factors/${userFactorId}/lifecycle/activate/sms`
+  * `/api/v1/users/${userId}/factors/${userFactorId}/resend`
 
-  **Identity Engine endpoints**<br>
-  <ApiLifecycle access="ie" />
-  * `/idp/idx/challenge`
-  * `/idp/idx/credential/enroll`
+  **Verify Endpoints**
+  * `/api/v1/authn/factors/${factorIdOrFactorType}/verify`
+  * `/api/v1/authn/factors/${factorIdOrFactorType}/verify/resend`
+  * `/api/v1/users/${userId}/factors/${userFactorIdOrFactorType}/verify`
+  * `/auth/call/send`
+  * `/auth/sms/send`
 
 ### Workforce license rate limit multiplier
 
