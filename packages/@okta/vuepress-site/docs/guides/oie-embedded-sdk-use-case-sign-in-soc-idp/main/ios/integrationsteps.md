@@ -4,15 +4,16 @@ The following steps document how to integrate the sample code into your
 application. The sample code wraps the SDK's functionality using a more
 prescriptive and explicit interface. It converts the SDK's generic remediation
 interface into explicit authentication steps and automatically executes steps
-such as the code-to-token exchange. The diagram below illustrates this call flow
-from your applications's UI to the sample code, SDK, and API. Note the "Integrating code"
-component, which represents the code you write to call into the sample code's interface.
+such, as the code-to-token exchange. The following diagram illustrates this call flow
+from your applications's UI to the sample code, SDK, and API.
 
 <div class="common-image-format">
 
  ![Displays a diagram of the integration flow of the sample app and Swift SDK](/img/oie-embedded-sdk/oie-embedded-sdk-swift-sample-code-overview.png)
 
 </div>
+
+> **Note:** The Integrating code component represents your code to call the sample code's interface.
 
 ### Steps
 
@@ -27,16 +28,14 @@ self.authHandler = SocialLogin(configuration: configuration)
 ```
 
 For more information on how to set the `configuration` parameter, see
-[SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk)
-in
-[Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
+[the SDK configuration settings section](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk).
 
 #### 2: The user initiates the sign-in flow
 
-When the user initiates a social login within your app, the next step
-is to call the `login` method passing in the `facebook` service type
+When the user initiates the social sign-in process within your app, the next step
+is to call the `login()` method passing in the `facebook` service type
 and `completion` closure. This closure is invoked once when the sign-in completes
-and returns either a fatal error or success with a token.
+and returns either a fatal error or a success status with a token.
 
 ```swift
 self.authHandler?.login(service: .facebook)
@@ -53,8 +52,7 @@ self.authHandler?.login(service: .facebook)
 #### 3: Send the user to the home page after a successful sign-in flow
 
 The final integration step is to send the user to the default home page
-after successful sign-in. Optionally, you can obtain basic user information after a
-successful sign-in by making a request to Okta's Open ID Connect authorization server.
+after the user successfully signs in. Optionally, you can obtain basic user information after the user successfully signs in by making a request to Okta's Open ID Connect Authorization Server.
 See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/ios/main/#get-the-user-profile-information).
 
 ## Sample code

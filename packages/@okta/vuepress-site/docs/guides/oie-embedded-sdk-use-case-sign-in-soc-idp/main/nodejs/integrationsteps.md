@@ -1,6 +1,6 @@
 ### 1: The user navigates to the sign-in page
 
-As part of the `/login` entry point, call `idx.startTransaction` to render social Identity Providers on the user sign-in page, as shown in the `login.js` page of the SDK sample application.
+As part of the `/login` entry point, call `idx.startTransaction()` to render social Identity Providers on the user sign-in page, as shown in the `login.js` page of the SDK sample application.
 
 ```JavaScript
 // entry route
@@ -66,7 +66,7 @@ After the user signs in to Facebook successfully, Facebook routes the user to th
 
 ### 3: Handle the callback from Okta
 
-Okta returns the Interaction code in the callback to the **Sign-in redirect URI** location specified in the [Create a new application](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application) section. You need to handle the callback by exchanging the Interaction code for an access token using `idx.handleInteractionCodeRedirect`.
+Okta returns the Interaction code in the callback to the **Sign-in redirect URI** location specified in the [Create a new application](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#create-a-new-application) section. You need to handle the callback by exchanging the Interaction code for an access token using `idx.handleInteractionCodeRedirect()`.
 
 ```JavaScript
 try {
@@ -80,6 +80,6 @@ try {
 }
 ```
 
-With the obtained access token, you can retrieve basic user information by making a request to Okta's OpenID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#get-the-user-profile-information) for details.
+With the obtained access token, you can retrieve basic user information by making a request to Okta's OpenID Connect Authorization Server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/#get-the-user-profile-information) for details.
 
-The user is now successfully signed in and can be sent to the default sign-in page.
+The user is now successfully signed in and can be sent to the default signed-in home page.

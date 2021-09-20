@@ -1,6 +1,6 @@
 ### 1: The user navigates to the sign-in page
 
-The first step is make a call to `GetIdentityProvidersAsync` when the sign in page loads. This method retrieves all the identity providers that were added to the routing rule (**Use this identity provider** field) in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case).
+The first step is make a call to `GetIdentityProvidersAsync()` when the sign-in page loads. This method retrieves all the Identity Providers that were added to the [routing rule](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#_5-add-an-identity-provider-routing-rule-in-okta) (**Use this identity provider** field) in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case).
 
 ```csharp
 ViewBag.ReturnUrl = returnUrl;
@@ -17,15 +17,15 @@ LoginViewModel loginViewModel = new LoginViewModel
 return View(loginViewModel);
 ```
 
-The code calls `GetIdentityProvidersAsync`, which returns a list of Identity Providers. This list is sent to the view in a view model.
+The code calls `GetIdentityProvidersAsync()`, which returns a list of Identity Providers. This list is sent to the view in a view model.
 
 ### 2: Display the available Identity Providers
 
-The next step is to loop through the identity provider list and show links for each of the configured Identity Providers. In this use case, only the Facebook identity provider is shown.
+The next step is to loop through the Identity Provider list and show links for each of the configured Identity Providers. In this use case, only the Facebook Identity Provider is shown.
 
 #### Code from sample app
 
-The following code from the sample app shows the loop of Identity Providers that build the buttons on the sign-in page. In this use case, only the Facebook identity provider is shown. The `Name` and `HRef` properties set the link's text and hyperlink.
+The following code from the sample app shows the loop of Identity Providers that build the buttons on the sign-in page. In this use case, only the Facebook Identity Provider is shown. The `Name` and `HRef` properties set the link's text and hyperlink.
 
 ```html
    @foreach (IdpOption idpOption in Model)
@@ -40,7 +40,7 @@ The following code from the sample app shows the loop of Identity Providers that
 
 #### Sample page for the sign-in with Facebook link
 
-The followng sample shows the button to sign in with Facebook.
+The following sample shows the button to sign in with Facebook.
 
 <div class="common-image-format">
 
@@ -63,15 +63,16 @@ Next, the user enters their email and password, and clicks **Log in**. This page
 </div>
 
 ### 5: Redirect the request to the Okta org
-If the user's Facebook login is successful, Facebook routes the user to the values that you entered in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback.` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`)
+
+If the user signed in to Facebook successfully, Facebook routes the user to the values that was configured in **Valid OAuth Redirect URIs** and **Site URL** in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case). The values use the following format: `https://{Okta org domain}/oauth2/v1/authorize/callback` (for example, `https://dev-12345678.okta.com/oauth2/v1/authorize/callback`).
 
 ### 6: Redirect the request to the client
 
-After Facebook sends the success login request to your Okta org, the org redirects the request to your app through the Application's **Sign-in redirect URIs** field, which was configured in [Create a new application](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-a-new-application).
+After Facebook sends the successful login request to your Okta org, the org redirects the request to your app through the Application's **Sign-in redirect URIs** field, which was configured in [Create a new application](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-a-new-application).
 
 The value for the sample app is `https://localhost:44314/interactioncode/callback`.
 
-The callback to your app contains the sign-in tokens that need to be stored in session state. See the code below for an example:
+The callback to your app contains the sign-in tokens that need to be stored in the session state. See the following example:
 
 ```csharp
 public async Task<ActionResult> Callback(string state = null, string interaction_code = null, string error = null, string error_description = null)
