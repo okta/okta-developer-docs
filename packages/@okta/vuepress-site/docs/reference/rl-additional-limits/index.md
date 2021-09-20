@@ -98,7 +98,7 @@ API endpoints that take username and password credentials, including the [Authen
 
 * **Enrollment and verification rate limits:** This rate limit applies to a user's attempt to enroll or verify an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies only to the enrollment or verification operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples) for examples of System Log rate limit events where too many enrollment or verification attempts for the SMS or Call factors were made.
 
-  **Enroll Endpoints**
+  **Enroll endpoints**
   * `/api/v1/authn/factors`
   * `/api/v1/users/${userId}/factors`
   * `/api/v1/authn/factors/${id}/lifecycle/resend`
