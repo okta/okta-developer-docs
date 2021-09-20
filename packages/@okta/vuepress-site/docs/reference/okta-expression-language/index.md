@@ -368,8 +368,8 @@ Sample user data:
 ## Expressions for custom claims
 
 Okta provides a few expressions that you can only use with custom claims.
-* See [Create claims](/docs/guides/customize-authz-server/create-claims)
-* See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute)
+* See [Create claims](/docs/guides/customize-authz-server/create-claims).
+* See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute).
 
 | Syntax           | Definitions                                                             | Examples     |
 | --------         | ----------                                                              | ------------ |
@@ -379,11 +379,13 @@ Okta provides a few expressions that you can only use with custom claims.
 ### Samples
 
 #### Sample using an app rule
-To catch an app Profile label, use the following expression:
+To catch an app Profile label, use the following expression:<br>
 `app.profile.label`
 
+See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute).
+
 #### Sample using an access rule
-To catch a granted Scope array and convert it to a space-delimited string, use the following expression:
+To catch a granted Scope array and convert it to a space-delimited string, use the following expression:<br>
 `String.replace(Arrays.toCsvString(access.scope),","," ")`
 
 
