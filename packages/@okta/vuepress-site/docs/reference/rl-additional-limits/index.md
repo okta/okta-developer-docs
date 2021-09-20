@@ -101,7 +101,6 @@ API endpoints that take username and password credentials, including the [Authen
   **Endpoints**
   * `/api/v1/authn/factors`
   * `/api/v1/users/${userId}/factors`
-  * `/user/profile/mobile_phone`
 
   **Identity Engine endpoints**<br>
   <ApiLifecycle access="ie" />
