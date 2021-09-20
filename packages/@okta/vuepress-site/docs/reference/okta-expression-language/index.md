@@ -378,14 +378,14 @@ Okta provides a few expressions that you can only use with custom claims.
 
 ### Samples
 
-#### Sample using an app rule
-To catch an app Profile label, use the following expression:<br>
+#### Sample using app attributes
+To include an app Profile label, use the following expression:<br>
 `app.profile.label`
 
 See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute).
 
-#### Sample using an access rule
-To catch a granted Scope array and convert it to a space-delimited string, use the following expression:<br>
+#### Sample using access.scope
+To include a granted Scope array and convert it to a space-delimited string, use the following expression:<br>
 `String.replace(Arrays.toCsvString(access.scope),","," ")`
 
 
