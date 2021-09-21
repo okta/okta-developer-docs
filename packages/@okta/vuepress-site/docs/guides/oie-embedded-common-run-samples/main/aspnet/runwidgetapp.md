@@ -4,7 +4,7 @@
 `...\okta-idx-dotnet\samples\samples-aspnet\embedded-sign-in-widget`.
 1. In Visual Studio, open `embedded-sign-in-widget.sln`.
 1. Right-click the `embedded-sign-in-widget` project (the sample app), and select **Set as startup project**.
-1. Add a `okta.yaml` configuration file. See [Option 1: Create a configuration file](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/#option-1-create-a-configuration-file) for more information on how to configure
+1. Add the `okta.yaml` configuration file. See [Option 1: Create a configuration file](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/#option-1-create-a-configuration-file) for more information on how to configure
    and where to place the configuration file.
 1. Click Visual Studio's play button and run the solution. The default web browser should open and navigate to the app's home page. The URL should be `https://localhost:44314`, which is the default address when using IISExpress. After the app loads, click the **Sign In** button located on the home screen.
 1. On the sign-in page, enter the username (email) and password that you used in [Create your Okta account](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-your-okta-account).
