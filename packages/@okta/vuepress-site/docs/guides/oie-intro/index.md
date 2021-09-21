@@ -80,7 +80,7 @@ Learn how to implement these approaches with the [Embedded authentication guide]
 
 ## Enable the Identity Engine for your organization
 
-To upgrade to the Identity Engine, reach out to your account manager. If you don't have an account manager, reach out to [oie@okta.com](mailto:oie@okta.com) for more information.
+To upgrade to the Identity Engine, contact your account manager. If you don't have an account manager, contact [oie@okta.com](mailto:oie@okta.com) for more information.
 
 * The v1 API continues to work as before until you're ready to use new Identity Engine functionality.
 * The existing Okta-hosted Widget continues to work after upgrading your org.
