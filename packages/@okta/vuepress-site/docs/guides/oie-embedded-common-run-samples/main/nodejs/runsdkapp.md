@@ -1,5 +1,4 @@
-
-1. If you haven't already done so, set up your Okta org by completing these steps: [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
+1. If you haven't already done so, [set up your Okta org](/docs/guides/oie-embedded-common-org-setup/nodejs/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 1. If you haven't already done so, [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/).
 1. Locate the sample apps solution file in the following path:
 `...\okta-auth.js\samples\generated\express-embedded-auth-with-sdk` and ensure the module dependencies are installed. See [Install the module dependencies](/docs/guides/oie-embedded-common-download-setup-app/nodejs/main/#install-the-module-dependencies).
