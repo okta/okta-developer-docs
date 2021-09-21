@@ -33,5 +33,5 @@ let configuration = IDXClient.Configuration(
     redirectUri: "<#redirectUri#>") // Must match the redirect uri in client app settings/console
 ```
 
-For more details about different configuration options, see the Swift SDK's
+See the Swift SDK's [readme](https://github.com/okta/okta-idx-swift#readme) for more details on the different configuration options.
 [readme](https://github.com/okta/okta-idx-swift#readme) file.
