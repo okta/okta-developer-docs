@@ -1,5 +1,5 @@
 
-1. If you haven't already done so, set up your Okta org by completing these steps: [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
+1. If you haven't already done so, [set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 1. If you haven't already done so, [download and set up the sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/).
 1. Locate the sample apps solution file in the following path:
 `...\okta-idx-dotnet\samples\samples-aspnet\embedded-auth-with-sdk`.
