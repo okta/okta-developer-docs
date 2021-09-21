@@ -8,6 +8,6 @@ When multiple configuration options are used simultaneously, the SDK selects the
 2. Environment variables
 3. `testenv` environment variable file
 
-For example, values set in the sample app `config.js` override the environment variables and configuration file settings. Subsequently, the environment variables take precedence over the `testenv` file.
+For example, values that are set in the sample app `config.js` override the environment variables and configuration file settings. Subsequently, the environment variables take precedence over the `testenv` file.
 
 > **Note:** Use only one configuration option in your solution to avoid confusion with setting overrides.
