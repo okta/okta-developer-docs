@@ -41,7 +41,7 @@ If you're using either the Org or the Custom Authorization Servers, ensure your 
 * **Custom**: You can either use the default Custom Authorization Server or create your own.
   * default Custom Authorization Server's URI format: `https://${yourOktaDomain}/oauth2/default`
 
-  * your own Custom Authorization Server's URI format: `https://${yourOktaDomain}/oauth2/${authServerId}`
+  * Your own Custom Authorization Server's URI format: `https://${yourOktaDomain}/oauth2/${authServerId}`
 
 #### Client ID
 
