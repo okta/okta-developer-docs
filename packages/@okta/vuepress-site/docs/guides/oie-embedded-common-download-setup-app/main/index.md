@@ -67,7 +67,7 @@ The sample app uses the default scopes provided in the SDK, which include `openi
 
 ## Run the sample app
 
-After you complete the configurations, run the sample app:
+After you complete the configurations:
 
 * [Run the SDK sample app](/docs/guides/oie-embedded-common-run-samples/-/main/#run-the-sdk-sample-app)
 * [Run the Widget sample app](/docs/guides/oie-embedded-common-run-samples/-/main/#run-the-widget-sample-app)
