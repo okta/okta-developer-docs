@@ -121,7 +121,7 @@ This section shows you how to set up your Okta org and app to support the multif
 1. [Add the phone authenticator for authentication and recovery](#_2-add-the-phone-authenticator-for-authentication-and-recovery)
 1. [Update your app sign-on policy with multifactor authentication](#_3-update-your-app-sign-on-policy-with-multifactor-authentication)
 
-> **Note:** The multifactor use cases in this guide implement the password, email, and phone factors. However, there are other supported factors that you can use in your embedded authentication app. See [Multifactor Authentication](https://help.okta.com/en/oie/okta_help_CSH.htm#csh-about-authenticators).
+> **Note:** The multifactor use cases in this guide implement the password, email, and phone factors. However, there are other supported factors that you can use in your embedded authentication app. See [Multifactor Authentication](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-authenticators).
 
 #### 1: Set up the email authenticator for authentication and recovery
 
