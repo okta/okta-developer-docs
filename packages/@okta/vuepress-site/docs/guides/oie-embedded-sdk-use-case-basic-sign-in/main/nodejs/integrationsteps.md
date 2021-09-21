@@ -12,7 +12,7 @@ For example:
 
 ### 2: Authenticate the user credentials
 
-When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object, which is `authClient` in the SDK sample app's `login.js` file , and set its `username` and `password` properties to the values entered by the user. Send this object to `idx.authenticate()` to authenticate the user. See [idx.authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) for more information.
+When the user initiates the sign-in process, your app needs to create a new `OktaAuth` object, which is `authClient` in the SDK sample app's `login.js` file, and set its `username` and `password` properties to the values entered by the user. Send this object to `idx.authenticate()` to authenticate the user. See [idx.authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate).
 
 ```JavaScript
 router.post('/login', async (req, res, next) => {
