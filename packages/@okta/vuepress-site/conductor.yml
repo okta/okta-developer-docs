@@ -338,7 +338,7 @@ redirects:
   - from: /docs/guides/add_mfa.html
     to: /docs/guides/mfa/index.html
   - from: /use_cases/mobile/okta_mobile_connect/index.html
-    to: https://help.okta.com/en/prod/okta_help_CSH.htm#_Okta_Mobile_Connect
+    to: https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Okta_Mobile_Connect
   - from: /docs/api/reference/apps.html
     to: /docs/reference/api/apps/
   - from: /docs/reference/api/users.html

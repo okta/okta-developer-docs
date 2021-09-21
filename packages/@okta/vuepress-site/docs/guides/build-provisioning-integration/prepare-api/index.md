@@ -127,6 +127,6 @@ Sometimes it isn't feasible for your cloud-based application to natively support
 
 ## Provision to on-premises applications
 
-This provisioning guide targets cloud-based applications, but Okta does have a solution for on-premise applications. See [Configuring On Premises Provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
+This provisioning guide targets cloud-based applications, but Okta does have a solution for on-premise applications. See [Provision on-premises provisioning](https://help.okta.com/okta_help.htm?id=ext_OPP_configure) for details about the Okta agent-based provisioning solution.
 
 <NextSectionLink/>
