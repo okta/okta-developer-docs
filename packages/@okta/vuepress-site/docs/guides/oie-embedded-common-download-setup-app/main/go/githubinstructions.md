@@ -10,4 +10,4 @@ There are two main repositories for the Golang embedded SDK and sample applicati
 
 To use the sample applications, clone the [samples-golang](https://github.com/okta/samples-golang) repository to your local directory. Run the sample app after you [set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/-/main/#set-the-configuration-values).
 
-To check out or contribute to the SDK source code, clone the [okta-idx-golang](https://github.com/okta/okta-idx-golang) repository to your local directory, make your changes, and submit pull requests.
+To check out or contribute to the SDK source code, clone the [okta-idx-golang](https://github.com/okta/okta-idx-golang) repository to your local directory, make your changes, and submit the pull request.
