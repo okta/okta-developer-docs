@@ -68,7 +68,7 @@ If the user signed in to Facebook successfully, Facebook routes the user to the 
 
 ### 6: Redirect the request to the client
 
-After Facebook sends the successful login request to your Okta org, the org redirects the request to your app through the Application's **Sign-in redirect URIs** field, which was configured in [Create a new application](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-a-new-application).
+After Facebook sends the successful login request to your Okta org, the org redirects the request to your app through the Application's **Sign-in redirect URIs** field that was configured in [Create a new application](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-a-new-application).
 
 The value for the sample app is `https://localhost:44314/interactioncode/callback`.
 
