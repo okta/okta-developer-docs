@@ -18,7 +18,7 @@ go get github.com/okta/okta-idx-golang.
 
 #### 2: Create the IDX Client object
 
-Create the IDX `Client` object using the `NewClient()` method and optionally passing in
+Create the IDX `Client` object by using the `NewClient()` method and optionally passing in
 a `ConfigSetter` object. `Client` is the main object that is used to initiate
 the various use cases with the SDK and Widget.
 
