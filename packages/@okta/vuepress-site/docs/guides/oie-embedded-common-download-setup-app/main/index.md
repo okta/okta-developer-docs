@@ -35,7 +35,7 @@ If you're getting started with your first app or if you're running an Okta sampl
 
 There are two main types of authorization servers in Okta: **Org** and **Custom**. See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) and [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US) for more information on which Authorization Server to use.
 
-If you are using either the Org or the Custom Authorization Servers, your Issuer URI should be in the following format:
+If you're using either the Org or the Custom Authorization Servers, ensure your Issuer URI is in the following format:
 
 * **Org**: If you want to use the Org Authorization Server, use the following URI format: `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
 * **Custom**: You can either use the default Custom Authorization Server or create your own.
