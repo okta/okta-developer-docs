@@ -34,4 +34,3 @@ let configuration = IDXClient.Configuration(
 ```
 
 See the Swift SDK's [readme](https://github.com/okta/okta-idx-swift#readme) for more details on the different configuration options.
-[readme](https://github.com/okta/okta-idx-swift#readme) file.
