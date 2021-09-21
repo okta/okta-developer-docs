@@ -41,13 +41,6 @@
                 </h2>
               </div>
             </div>
-            <div class="row">
-              <div class="col-12">
-                <p class="homepage--sub-heading-disclaimer homepage--color-sub">
-                  Authenticate up to 15,000 users per month for free
-                </p>
-              </div>
-            </div>
 
             <div class="row homepage--selector-block-margin">
               <div

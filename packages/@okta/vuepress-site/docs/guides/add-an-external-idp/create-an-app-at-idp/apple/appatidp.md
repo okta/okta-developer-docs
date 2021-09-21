@@ -10,7 +10,7 @@ There are three steps necessary to configure the Identity Provider at Apple:
 
 ## Create an App ID
 
-1. From the [Apple Developer Dashboard](https://developer.apple.com/) left navigation, click **Certificates, IDs, & Profiles**.
+1. From the [Apple Developer Dashboard](https://developer.apple.com/) left navigation, click **Certificates, IDs & Profiles**.
 
 2. Select **Identifiers** from the left and then click the blue plus icon.
 
@@ -65,3 +65,13 @@ There are three steps necessary to configure the Identity Provider at Apple:
 5. Click **Done**, and then on the **Keys** page, click the key that you just created and make note of the Key ID. You need it in the <GuideLink link="../configure-idp-in-okta">next section</GuideLink>.
 
 6. Make note of the Team ID, which is a 10 character (alphanumeric) ID in your Apple developer account. You can find this ID in the upper-right corner of your Apple developer dashboard just below your account name.
+
+### Hide My Email for Sign in with Apple
+
+If you choose to [hide your email](https://support.apple.com/en-us/HT210425), you need to update your email sources within Apple's Developer Settings:
+
+1. From the [Apple Developer Dashboard](https://developer.apple.com/) left navigation, click **Certificates, IDs & Profiles**, and then **More**.
+1. Click **Configure**.
+1. Click the plus sign (+) next to **Email Sources** and add `mailrelay.okta.com` in the **Domains and Subdomains** box.
+1. Click **Next**, **Register**, and then **Done**.
+1. Verify your changes by signing in to your Okta Admin Console, selecting **Sign in with Apple**, and verifying that a verification email is successfully sent to you.

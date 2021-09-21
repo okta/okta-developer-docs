@@ -21,8 +21,7 @@ In a passwordless sign-in with magic links, users submit only their email addres
 
 <div class="common-image-format">
 
-![Passwordless sign-in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-seq.png
- "Passwordless sign-in")
+![Sequence diagram for passwordless sign-in](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-seq.png)
 
 </div>
 
@@ -32,8 +31,7 @@ The following image shows an example of the sign-in email's content.
 
 <div class="common-image-format">
 
-![Passwordless sign-in email link](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-screen-email-signin.png
- "Passwordless sign-in email link")
+![Passwordless sign-in email link example](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-sign-passwordless-screen-email-signin.png)
 
 </div>
 
@@ -41,7 +39,7 @@ The following image shows an example of the sign-in email's content.
 
 Use other means to sign in, such as by entering the password or through social identity providers.
 
-## Primary factor for the Okta Sign-on Policy rule
+## Primary factor for the Okta Sign-On Policy rule
 
 ### Description
 
@@ -79,7 +77,7 @@ Use either of these two workarounds:
 * Create users through self registration.
 * Create users in the Okta org with the **Password** set to **Set by admin**.
 
-## Email link to verify email address not working
+## The email link to verify the email address isn't working
 
 ### Description
 
@@ -101,12 +99,11 @@ Use either of these recommended options to mitigate the email verification link 
 
 > Email template customizations are not available for free developer orgs.
 
-The Okta org that you created in [Create your Okta Account](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#create-your-okta-account) contains a list of email templates that are used for correspondence with the users. The **Email Factor Verification** template is used during the new user registration process. The default template includes a Verify Email Address link. Since email verification through this link is not yet supported, we recommend that you delete this link in the email template.
+The Okta org that you created in [Create your Okta Account](/docs/guides/oie-embedded-common-org-setup/-/main/#create-your-okta-account) contains a list of email templates that are used for correspondence with the users. The **Email Factor Verification** template is used during the new user registration process. The default template includes a Verify Email Address link. Since email verification through this link is not yet supported, we recommend that you delete this link in the email template.
 
 <div class="common-image-format">
 
-![Remove link from email template](/img/oie-embedded-sdk/oie-embedded-sdk-email-template-remove-link.png
- "Remove link from email template")
+![Remove link from email template](/img/oie-embedded-sdk/oie-embedded-sdk-email-template-remove-link.png)
 
 </div>
 
@@ -122,6 +119,5 @@ Contact Okta support if the **Edit** button is disabled.
 #### Option 2: Inform users
 
 Inform your users to ignore the Verify Email Address link and continue the activation through the code flow.
-
 
 </div>

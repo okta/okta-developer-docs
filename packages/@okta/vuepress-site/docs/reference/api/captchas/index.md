@@ -802,7 +802,7 @@ The following request returns an error when the updated `captchaId` is null but 
 ##### Request
 
 ```bash
-curl -v -X POST \
+curl -v -X PUT \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \

@@ -1,6 +1,6 @@
 You have several options for setting the configuration values in the SDK:
 
-### Option 1: Configuration file
+### Option 1: Create a configuration file
 
 Create a YAML file named `okta.yaml` in one of the following three available directories:
 
@@ -29,7 +29,7 @@ idx:
   redirectUri: "${redirectUri}"
 ```
 
-### Option 2: Environment variables
+### Option 2: Add the values as environment variables
 
 Add the values as environment variables with the following naming convention:
 
@@ -39,7 +39,7 @@ Add the values as environment variables with the following naming convention:
 * `OKTA_IDX_REDIRECTURI`
 * `OKTA_IDX_SCOPES`
 
-### Option 3: Add parameter to the SDK's client constructor
+### Option 3: Add the values as parameters to the SDK's client constructor
 
 Add the values as parameters to the constructor for the `IdxClient`.
 

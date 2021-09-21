@@ -1,4 +1,4 @@
-The Okta Identity Engine Java SDK project consists of the following directories:
+The Identity Engine Java SDK project consists of the following directories:
 
 * `okta-idx-java/api/src` &mdash; API source
 * `okta-idx-java/samples` &mdash; Root sample app directory

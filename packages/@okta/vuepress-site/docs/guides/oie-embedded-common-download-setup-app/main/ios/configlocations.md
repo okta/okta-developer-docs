@@ -2,7 +2,7 @@
 
 There are two main ways to store configuration settings in the sample app.
 You can either update the key-value pairs in the [`Okta.plist` file](#okta-plist)
-or update the fields in the [Configuration screen](#configuration-screen).
+or update the fields on the [configuration page](#configuration-page).
 
 #### Okta.plist
 
@@ -10,19 +10,17 @@ or update the fields in the [Configuration screen](#configuration-screen).
 each configuration setting. The file is located here:
 `okta-idx-swift/Samples/EmbeddedAuthWithSDKs/EmbeddedAuth/Okta.plist`.
 
-#### Configuration screen
+#### Configuration page
 
-As alternative to the property file, the settings can be set in the configuration
-screen.
+As alternative to the property file, the settings can be set on the configuration page.
 
 <div class="common-image-format">
 
-![Configuration setup](/img/oie-embedded-sdk/oie-embedded-sdk-widget-swift-configs.png
- "Configuration setup screen in the Swift sample app")
+![Displays the Configuration setup page in the Swift sample app](/img/oie-embedded-sdk/oie-embedded-sdk-widget-swift-configs.png)
 
 </div>
 
-Access the screen from the **Configure** link on the startup screen.
+Access the screen from the **Configure** link on the startup page.
 
 ### SDK
 

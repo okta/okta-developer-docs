@@ -1,4 +1,4 @@
-Creating an org is easy using the [Okta CLI](https://github.com/okta/okta-cli):
+Creating an org is easy using the [Okta CLI](https://cli.okta.com/):
 
 1. After installing the Okta CLI, run the command `okta register`.
 

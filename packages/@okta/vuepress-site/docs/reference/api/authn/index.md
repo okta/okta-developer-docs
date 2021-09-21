@@ -63,14 +63,14 @@ The requests and responses vary depending on the application type, and whether a
 
 As part of the authentication call either the username and password or the token parameter must be provided.
 
-| Parameter  | Description                                                                                                      | Param Type | DataType                          | Required | MaxLength |
-|------------|:-----------------------------------------------------------------------------------------------------------------|:-----------|:----------------------------------|:---------|:----------|
-| audience   | App ID of the target app the user is signing into                                                                | Body       | String                            | FALSE    |           |
-| context    | Provides additional context for the authentication transaction                                                   | Body       | [Context object](#context-object) | FALSE    |           |
-| options    | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |           |
-| password   | User's password credential                                                                                       | Body       | String                            | FALSE    |           |
-| token      | Token received as part of activation user request                                                                | Body       | String                            | FALSE    |           |
-| username   | User's non-qualified short-name (for example: dade.murphy) or unique fully-qualified sign in name (for example: dade.murphy@example.com) | Body       | String                            | FALSE    |           |
+| Parameter                                      | Description                                                                                                      | Param Type | DataType                          | Required | MaxLength |
+|------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:-----------|:----------------------------------|:---------|:----------|
+| audience <ApiLifecycle access="deprecated" />  | App ID of the target app the user is signing into                                                                | Body       | String                            | FALSE    |           |
+| context                                        | Provides additional context for the authentication transaction                                                   | Body       | [Context object](#context-object) | FALSE    |           |
+| options                                        | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |           |
+| password                                       | User's password credential                                                                                       | Body       | String                            | FALSE    |           |
+| token                                          | Token received as part of activation user request                                                                | Body       | String                            | FALSE    |           |
+| username                                       | User's non-qualified short-name (for example: dade.murphy) or unique fully-qualified sign in name (for example: dade.murphy@example.com) | Body       | String                            | FALSE    |           |
 
 ##### Options object
 
@@ -93,14 +93,14 @@ The context object allows [trusted web applications](#trusted-application) such 
 
 > **Note:** You must always pass the same `deviceToken` for a user's device with every authentication request for per-device or per-session Sign-On Policy Factor challenges. If the `deviceToken` is absent or does not match the previous `deviceToken`, the user is challenged every-time instead of per-device or per-session.<br><br>Similarly, you must always pass the same `deviceToken` for a user's device with every authentication request for **new device security behavior detection**. If the `deviceToken` is absent or doesn't match a recent `deviceToken` for the user, the request is considered to be from a new device. See [New Device Behavior Detection](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection).
 
-##### Device Token Best Practices
+##### Device Token best practices
 
 Use the following recommendations as guidelines for generating and storing a `deviceToken` for both web and native applications.
 
-**Web Apps**<br>
+**Web apps**<br>
 Okta recommends that you generate a UUID or GUID for each client and persist the `deviceToken` using a secure, HTTP-only cookie or HTML5 localStorage scoped to the customer's domain as the default implementation. See [Cookie flags that matter](https://odino.org/security-hardening-http-cookies/#cookie-flags-that-matter) for more best practices on hardening HTTP cookies.
 
-**Native Apps**<br>
+**Native apps**<br>
 Ask the device operating system for a unique device ID. See [Apple's information on DeviceCheck](https://developer.apple.com/documentation/devicecheck) for an example.
 
 #### Response parameters
@@ -889,14 +889,14 @@ Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a
 
 > **Note:** The `X-Device-Fingerprint` header is different from the device token. Device-based MFA in the Okta Sign-On policy rules depends on the device token only and not on the `X-Device-Fingerprint` header. See [Context Object](#context-object) for more information on the device token. Device-based MFA would work only if you pass the device token in the [client request context](/docs/reference/core-okta-api/#client-request-context).
 
-##### Device Fingerprint Best Practices
+##### Device fingerprint best practices
 
 Use the following recommendations as guidelines for generating and storing a device fingerprint in the `X-Device-Fingerprint` header for both web and native applications.
 
-**Web Apps**<br>
+**Web apps**<br>
 Okta recommends using a secure, HTTP-only cookie with a random/unique value on the customer's domain as the default implementation. See [Cookie flags that matter](https://odino.org/security-hardening-http-cookies/#cookie-flags-that-matter) for more best practices on hardening HTTP cookies.
 
-**Native Apps**<br>
+**Native apps**<br>
 Ask the device operating system for a unique device ID. See [Apple's information on DeviceCheck](https://developer.apple.com/documentation/devicecheck) for an example.
 
 ##### Request example for device fingerprinting
@@ -1042,9 +1042,11 @@ curl -v -X POST \
 * This endpoint is currently supported only for SAML-based apps.
 * You must first enable the custom sign-in page for the application before using this API.
 
+> **Note:** Enabling the custom sign-in page for an application is only available with Okta Classic Engine. See [Limitations](/docs/guides/ie-limitations/).
+
 Every step-up transaction starts with the user accessing an application. If step-up authentication is required, Okta redirects the user to the custom sign-in page with state token as a request parameter.
 
-For example, if the custom sign-in page is set as **https://login.example.com**, then Okta will redirect to **https://login.example.com?stateToken=**00BClWr4T-mnIqPV8dHkOQlwEIXxB4LLSfBVt7BxsM. To determine the next step, check the [state of the transaction](#get-transaction-state).
+For example, if the custom sign-in page is set as `https://login.example.com`, then Okta will redirect to `https://login.example.com?stateToken=<token>`. To determine the next step, check the [state of the transaction](#get-transaction-state).
 
 * [Step-up authentication without Okta session](#step-up-authentication-without-okta-session)
 * [Step-up authentication with Okta session](#step-up-authentication-with-okta-session)
@@ -1464,6 +1466,8 @@ Authenticates a user for signing in to the specified application
 * Only WS-Federation, SAML based apps are supported.
 * Pass the application instance ID of the app as ["audience"](#request-parameters-for-primary-authentication) along with the user credentials.
 
+> **Note:** `audience` is a <ApiLifecycle access="deprecated" /> parameter.
+
 > **Note:** Okta Sign-on Policy and the related App Sign-on Policy are evaluated after successful primary authentication.
 
 ##### Request example for IDP-initiated step-up authentication
@@ -1483,6 +1487,8 @@ curl -v -X POST \
   }
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
+
+> **Note:** `audience` is a <ApiLifecycle access="deprecated" /> parameter.
 
 ##### Response example when MFA isn't required
 

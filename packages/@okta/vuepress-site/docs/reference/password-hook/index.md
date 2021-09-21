@@ -31,7 +31,7 @@ The Password Import Inline Hook is triggered when the end user tries to sign in 
 
 If your service returns a response that indicates that the password is valid, Okta sets the password for the user and won't normally need to call your service again. However, if the Okta service is in read-only mode, it might not be possible to set the password. Okta then needs to call your service again the next time the end user attempts to signs in. See [Password Inline Hook and Okta Service Mode](#password-inline-hook-and-okta-service-mode) and [Removing Password from Existing User Store](#removing-password-from-existing-user-store) for details.
 
->**Note:** If a response to the Password Import Inline Hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta process flow stops and the user can't sign in. The password is not imported and the Inline Hook is called the next time the end user attempts to sign in.
+>**Note:** Password policies do not apply to the Password Import Inline Hook. That is, if your external service validates the password, the password imports even if it does not meet the Okta [password policy](/docs/reference/api/policy/#password-policy) requirements.
 
 ## Objects in the request from Okta
 
@@ -103,7 +103,7 @@ If the default action sent by Okta in the `action.credential` property of the re
 
 ## Timeout behavior
 
-If the external service times out after receiving an Okta request, the end-user can't sign in, and the password is not imported.
+If a response to the Password Import Inline Hook request is not received from your external service within 3 seconds, a timeout occurs. In this scenario, the Okta process flow stops and the user can't sign in. The password is not imported and the Inline Hook is called the next time the end user attempts to sign in.
 
 ## Sample JSON payload of request
 
