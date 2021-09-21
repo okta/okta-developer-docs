@@ -11,7 +11,7 @@
 
    ![Displays the Sign-In Widget](/img/oie-embedded-sdk/oie-embedded-widget-use-case-sign-in-screen.png)
 
-1. Sign in to the app. If you've successfully signed in, the app redirects you to the user profile page that displays
+1. Sign in to the app. After you've signed in successfully, the app redirects you to the user profile page that displays
    basic user profile and security token information.
 
    ![Displays an example user profile page](/img/oie-embedded-sdk/oie-embedded-sdk-sample-app-user-profile-page.png)
