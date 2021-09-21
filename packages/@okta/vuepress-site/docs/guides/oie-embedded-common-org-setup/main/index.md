@@ -75,7 +75,7 @@ Create an app integration representing the application you want to provide embed
 1. Select the **Sign On** tab.
 1. In the **Sign On Policy** section, verify that the **Available Authenticators** is appropriate for your app. For non-multifactor use cases, ensure that the **1 factor** authenticator is **Password**.
 
-> **Note:** From the **General** tab of your app integration, save the generated **Client ID** value (and if applicable, the **Client secret** value) to be used later on in your embedded solution.
+> **Note:** From the **General** tab of your app integration, save the generated **Client ID** value (and if applicable, the **Client secret** value) that is used later on in your embedded solution.
 
 <StackSelector snippet="appsbaseurl" noSelector />
 
