@@ -35,7 +35,7 @@ For a successful user sign-in
 
 1. Store the response tokens into the session (for example, using a cookie) so that the tokens can be used in
    subsequent calls to the SDK. The sample code uses `Microsoft.Owin.Security.IAuthenticationManager.SignIn` to persist these tokens.
-1. Optional. Using the tokens returned from `AuthenticateAsync`, pull the user's basic profile information. See [Get the user profile information](#get-the-user-profile-information).
+1. Optional. Use the tokens returned from `AuthenticateAsync` to pull the user's basic profile information. See [Get the user profile information](#get-the-user-profile-information).
 1. After the tokens are stored, send the user to the default home page.
 
 ```csharp
