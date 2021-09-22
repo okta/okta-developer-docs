@@ -19,11 +19,11 @@ Some of the new capabilities unlocked by Identity Engine include:
 
 * Passwordless authentication with a magic link
 
-    Okta enables an end user to authenticate without a password by delivering an email with an embedded magic link to their inbox. The user can click the magic link to complete their authentication experience without having to enter their password. To enable this type of authentication experience, you need to configure the email authenticator and create a policy that enables the email magic link. Other non-password authenticators available include phone (SMS or voice call) and answers to security questions. See [Configure passwordless authentication with email magic link](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
+    Okta enables an end user to authenticate without a password by delivering an email with an embedded magic link to their inbox. The user can click the magic link to complete their authentication experience without having to enter their password. To enable this type of authentication experience, you need to configure the email authenticator and create a policy that enables the email magic link. Other non-password authenticators available include phone (SMS or voice call) and answers to security questions. See [Configure passwordless authentication](https://help.okta.com/okta_help.htm?type=oie&id=ext-passwordless-auth).
 
 * Progressive profiling
 
-  Progressive profiling allows you to capture additional user information or update user information beyond registration as the user progresses through the application. Progressive profiling allows you to reduce registration friction. See [Create a Profile Enrollment policy for progressive profiling](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
+  Progressive profiling allows you to capture additional user information or update user information beyond registration as the user progresses through the application. Progressive profiling allows you to reduce registration friction. See [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
 * App-level policies
 
@@ -31,7 +31,7 @@ Some of the new capabilities unlocked by Identity Engine include:
 
 * Flexible Account Recovery
 
-  You can now use Okta Verify to reset user passwords in addition to the phone, email, and security question authenticators. This allows your users to leverage modern authenticators such as Okta Verify Push and helps you to execute password resets with stronger security. Admins can configure any authenticator as a second factor when a user is resetting their password, not just the security question authenticator. This flexibility increases the security and simplicity of account recovery using the modern authenticators. See [Account Recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr).
+  You can now use Okta Verify to reset user passwords in addition to the phone, email, and security question authenticators. This allows your users to leverage modern authenticators such as Okta Verify Push and helps you to execute password resets with stronger security. Admins can configure any authenticator as a second factor when a user is resetting their password, not just the security question authenticator. This flexibility increases the security and simplicity of account recovery using the modern authenticators. See [Self-service account recovery](https://help.okta.com/okta_help.htm?type=oie&id=ext-config-sspr).
 
 ## Deployment models
 
