@@ -1190,13 +1190,12 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
 
 ### Policy Settings data
 
-> **Note:** Default type is `FACTORS` when not specified.
 
-| Parameter                                                               | Description                                                                  | Data Type                      | Required |
-| ---                                                                     | ---                                                                          | ---                            | ---      |
-| type <ApiLifecycle access="ie" /> <ApiLifecycle access="Limited GA" />  | Type of policy configuration object                                                | `FACTORS`, or `AUTHENTICATORS` | No       |
-| factors                                                                 | [Policy Factors Configuration object](#policy-factors-configuration-object)  | Array                          | No       |
-| authenticators                                                          | Array of [Policy MFA Authenticator object](#policy-mfa-authenticator-object) | Array                          | No       |
+| Parameter                                                                        | Description                           | Data Type                                                                    | Required | Default   |
+| ---                                                                              | ---                                   | ---                                                                          | ---      | ---       |
+| authenticators <ApiLifecycle access="ie" /> <ApiLifecycle access="Limited GA" /> | List of Authenticator policy settings | Array of [Policy MFA Authenticator object](#policy-mfa-authenticator-object) | No       |           |
+| factors                                                                          | Factor policy settings                | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
+| type <ApiLifecycle access="ie" /> <ApiLifecycle access="Limited GA" />           | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
 
 #### Policy Factors Configuration object
 
@@ -1250,34 +1249,25 @@ Currently, the Policy Factor Consent terms settings are ignored.
 | format    | The format of the Consent dialog box to be presented. | `TEXT`, `RTF`, `MARKDOWN` or `URL` | No       | N/A     |
 | value     | The contents of the Consent dialog box.               | String                             | No       | N/A     |
 
-#### Policy Authenticators Configuration object
-
-<ApiLifecycle access="ie" /><br>
-<ApiLifecycle access="Limited GA" /><br>
-
-| Parameter      | Description                                                                  | Data Type | Required |
-| ---            | ---                                                                          | ---       | ---      |
-| authenticators | Array of [Policy MFA Authenticator object](#policy-mfa-authenticator-object) | Array     | Yes      |
-
 
 #### Policy MFA Authenticator object
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-| Parameter | Description                                               | Data Type                                                            | Required |
-| ---       | ---                                                       | ---                                                                  | ---      |
-| key       | A human-readable string that identifies the Authenticator | String                                                               | Yes      |
-| enroll    | Enrollment requirements for the Authenticator             | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
+| Parameter | Description                                   | Data Type                                                                   | Required |
+| ---       | ---                                           | ---                                                                         | ---      |
+| key       | A label that identifies the Authenticator     | String                                                                      | Yes      |
+| enroll    | Enrollment requirements for the Authenticator | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
 
 #### Policy Authenticator Enroll object
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-| Parameter | Description                                | Data Type                               | Required | Default       |
-| ---       | ---                                        | ---                                     | ---      | ---           |
-| self      | Requirements for User-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL` or `REQUIRED` | No       | `NOT_ALLOWED` |
+| Parameter | Description                                    | Data Type                                | Required | Default       |
+| ---       | ---                                            | ---                                      | ---      | ---           |
+| self      | Requirements for the user-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL`, or `REQUIRED` | Yes      | `NOT_ALLOWED` |
 
 ### Policy conditions
 
