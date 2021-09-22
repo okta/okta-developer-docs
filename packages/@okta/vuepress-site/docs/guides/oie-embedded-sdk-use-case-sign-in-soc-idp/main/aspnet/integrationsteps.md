@@ -94,4 +94,4 @@ public async Task<ActionResult> Callback(string state = null, string interaction
 
 ### 7: Redirect the user to the default home page
 
-The user is now successfully signed in and can be sent to the default sign-in page. In the sample application, the default sign-page is the user profile page.
+The user is now successfully signed in and can be sent to the default sign-in page. In the sample application, the default sign-in page is the user profile page.
