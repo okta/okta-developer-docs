@@ -28,7 +28,7 @@ router.post('/login', async (req, res, next) => {
 
 ### 3: Handle the response from the user sign-in flow
 
-The application handles the response from the authentication call through the `handleTransaction()` function as shown in the SDK sample application `handleTransaction.js` file. The `transaction` parameter is the `IdxStatus` value that is passed in through the response from Okta.
+The application handles the response from the authentication call through the `handleTransaction()` function, as shown in the SDK sample application's `handleTransaction.js` file. The `transaction` parameter is the `IdxStatus` value that is passed in through the response from Okta.
 
 ```JavaScript
 module.exports = function handleTransaction({
