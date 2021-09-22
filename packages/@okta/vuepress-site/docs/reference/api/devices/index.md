@@ -3,27 +3,27 @@ title: Devices
 category: management
 ---
 
-# Device API
+# Devices API
 
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
 > **Note:** This feature is only available as a part of Okta Identity Engine. Please [contact support](mailto:dev-inquiries@okta.com) for further information.
 
-The Okta Device API provides a centralized integration platform to fetch and manage device information. Okta administrators can use these APIs to manage workforce identity Device object information.
+The Okta Devices API provides a centralized integration platform to fetch and manage device information. Okta administrators can use these APIs to manage workforce identity Device object information.
 
-The Device API supports the following **Device Operations**:
+The Devices API supports the following **Device Operations**:
 * Get, Delete Device objects.
 * Perform lifecycle transitions on the Device objects.
 
 
 ## Get started
 
-Explore the Device API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/a26c87ca44e0b915c4c7)
+Explore the Devices API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://www.getpostman.com/collections/a26c87ca44e0b915c4c7)
 
 ## Device operations
 
-The Device API has the following Device Identity operations:
+The Devices API has the following Device Identity operations:
 
 * [Create a Device](#create-a-device)
 * [Get a Device](#get-a-device-by-id)
@@ -671,7 +671,7 @@ Content-Type: application/json
 * Passing an invalid `id` returns a `404 Not Found` status code with error code `E0000007`.
 * Passing an `id` that is not in the `SUSPENDED` status returns a `400 Bad Request` status code with error code `E0000001`.
 
-## Device API objects
+## Devices API objects
 
 ### Device object
 
