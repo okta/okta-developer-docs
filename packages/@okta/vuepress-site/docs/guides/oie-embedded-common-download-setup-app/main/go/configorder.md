@@ -7,9 +7,7 @@ When multiple configuration options are used simultaneously, the SDK selects the
 1. Configuration file in the user's home directory
 1. Environment variables
 
-The values set in the SDK Client constructor are used in preference to
-the configuration files, which in turn are used in preference to those set
-in the environment variables. If setting values are missing from higher order locations,
+The values set in the SDK Client constructor are preferred to the configuration files, which in turn are preferred to those set in the environment variables. If setting values are missing from higher order locations,
 then the SDK attempts to find the setting values at a lower order location. For example,
 consider an application that runs on a machine where settings are stored in a configuration file (in the home directory) and also in environment variables. When the application loads, it first looks for the setting in the configuration file. Using the **Client ID** as an example, if the
 `clientId` setting is missing from the configuration file but the `OKTA_IDX_CLIENTID` environment
