@@ -18,7 +18,6 @@ function configUris() {
         registrationPolicyId: 'reg405abrRAkn0TRf5d6',
         idps: {
           github: '0oayfl0lW6xetjKjD5d5',
-          google: '0oay75bnynuF2YStd5d5',
         }
       }
     case 'test':
@@ -28,7 +27,6 @@ function configUris() {
         registrationPolicyId: 'reg3kwstakmbOrIly0g7',
         idps: {
           github: '0oa3jobx2bBlylNft0g7',
-          google: '0oa3jaktbqkiwCthn0g7',
         }
       }
   }
