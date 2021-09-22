@@ -34,7 +34,7 @@ from your applications's UI to the sample code, SDK, and API.
 
 </div>
 
-> **Note:** The Integrating code component represents the code you write to call the sample code's interface.
+> **Note:** The Integrating code component represents the code that you write to call the sample code's interface.
 
 ### 1: Launch the app and initialize the SDK
 
