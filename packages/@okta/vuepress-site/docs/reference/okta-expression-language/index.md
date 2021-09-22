@@ -374,7 +374,7 @@ Okta provides a few expressions that you can only use with OAuth2/OIDC custom cl
 | Syntax           | Definitions                                                             | Examples     |
 | --------         | ----------                                                              | ------------ |
 | `app.$attribute` | `app` refers to the name of the OIDC app.<br>`$attribute` refers to the attribute variable name. | app.id<br>app.clientId<br>app.profile |
-| `access.scope` | `access` refers to the access token requesting the scopes.<br>`scope` refers to the array of granted scopes. | access.scope |
+| `access.scope` | `access` refers to the access token that requests the scopes.<br>`scope` refers to the array of granted scopes. | access.scope |
 
 ### Samples
 
