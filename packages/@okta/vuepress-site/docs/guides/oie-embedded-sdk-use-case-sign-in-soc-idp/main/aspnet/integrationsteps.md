@@ -1,6 +1,6 @@
 ### 1: The user navigates to the sign-in page
 
-The first step is make a call to `GetIdentityProvidersAsync()` when the sign-in page loads. This method retrieves all the Identity Providers that were added to the [routing rule](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#_5-add-an-identity-provider-routing-rule-in-okta) (**Use this identity provider** field) in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case).
+The first step is to make a call to `GetIdentityProvidersAsync()` when the sign-in page loads. This method retrieves all the Identity Providers that were added to the [routing rule](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#_5-add-an-identity-provider-routing-rule-in-okta) (**Use this identity provider** field) in [Set up your Okta org for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/aspnet/main/#set-up-your-okta-org-for-a-social-idp-use-case).
 
 ```csharp
 ViewBag.ReturnUrl = returnUrl;
