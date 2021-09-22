@@ -8,7 +8,7 @@
         <form id="signupForm" @submit="submitForm">
           <div class="row">
             <label class="field-wrapper" for="email">
-              Email
+              Work Email
               <input
                 type="text"
                 id="email"
