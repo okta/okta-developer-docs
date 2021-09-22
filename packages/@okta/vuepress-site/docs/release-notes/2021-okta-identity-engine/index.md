@@ -12,7 +12,7 @@ title: Okta Identity Engine API Products Release Notes 2021
 |--------------------------------------------------------------------------|--------------------------|
 | [Native SSO Support is in Preview](#native-sso-support-is-in-preview)| September 22, 2021 |
 
-#### Native SSO Support is in Preview
+#### Native SSO Support
 
 You can now configure your org to use the [Native SSO](/docs/guides/configure-native-sso) flow on Identity Engine. The Native SSO feature allows you to protect native OpenID Connect applications and achieve Single Sign-On (SSO) and Single Logout (SLO) between native applications.
 
