@@ -15,4 +15,4 @@ consider an application that runs on a machine where settings are stored in a co
 `clientId` setting is missing from the configuration file but the `OKTA_IDX_CLIENTID` environment
 variable is found, then the **Client ID** is set to the environment variable value.
 
-> **Note:** To avoid confusion with which configuration values that are used by the SDK, you should use only one configuration option in your solution.
+> **Note:** To avoid confusion as to which configuration values are used by the SDK, you should use only one configuration option in your solution.
