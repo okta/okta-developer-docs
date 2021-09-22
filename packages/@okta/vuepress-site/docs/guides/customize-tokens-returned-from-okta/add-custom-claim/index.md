@@ -17,7 +17,7 @@ To add a custom claim:
     * **Include in token type** &mdash; if you are creating a claim for an ID token, select **ID Token** (for OpenID Connect). You can then define whether you want the claim included only when requested or always included. For this example, select **Always**.
     If you are creating a claim for an access token, leave **Access Token** (for OAuth 2.0) selected.
     * **Value type** &mdash; select whether you want to define the claim by a **Groups** filter or by an **Expression** written in Okta Expression Language. For this example, select **Expression**.
-    * **Value** &mdash; this option appears if you chose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles. For the ID token example, we use `user.preferredLanguage` and for the access token example, we use `user.secondEmail`. These are referencing an Okta user profile attribute.
+    * **Value** &mdash; this option appears if you choose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles. For the ID token example, we use `user.preferredLanguage` and for the access token example, we use `user.secondEmail`. These reference an Okta user profile attribute.
     
       * See [Okta Expression Language](/docs/reference/okta-expression-language).
       * See [Expressions for OAuth2/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth2-oidc-custom-claims) for custom claim-specific expressions.
@@ -28,15 +28,15 @@ To add a custom claim:
 
 4. Click **Create**.
 
-    > **Note:** You can validate that your expression returns the results expected using the **Token Preview** tab.
+    > **Note:** You can validate that your expression returns the expected results using the **Token Preview** tab.
 
 ### Verify the custom claim
 
-To confirm that your custom claim was successfully added, you can [retrieve a list of all claims](/docs/reference/api/authorization-servers/#get-all-claims) from your authorization server, including the custom ones, using the `/claims` endpoint:
+To confirm that your custom claim is successfully added, you can [retrieve a list of all claims](/docs/reference/api/authorization-servers/#get-all-claims) from your authorization server, including the custom ones, using the `/claims` endpoint:
 
 `https://${yourOktaDomain}/api/v1/authorizationServers/${authorizationServerId}/claims`
 
-> **Note:** If you added the claim to the default Custom Authorization Server, the `${authorizationServerId}` is `default`.
+> **Note:** If you add the claim to the default Custom Authorization Server, the `${authorizationServerId}` is `default`.
 
 ### Request a token that contains the custom claim
 
