@@ -10,7 +10,7 @@ or update the fields on the [configuration page](#configuration-page).
 
 #### Configuration page
 
-An alternative method to store the configuration settings is using the Configuration page. You can access the Configuration page from the **Configure** link on the startup page.
+An alternative method to store the configuration settings is by using the Configuration page. You can access the Configuration page from the **Configure** link on the start-up page.
 
 <div class="common-image-format">
 
