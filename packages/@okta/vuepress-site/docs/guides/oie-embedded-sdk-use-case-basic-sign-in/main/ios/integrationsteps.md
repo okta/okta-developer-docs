@@ -54,7 +54,7 @@ in
 
 When the user enters their credentials and initiates the sign-in flow,
 call the `login` method, passing in the username, password,
-and `completion` closure. This closure is invoked once the sign-in process completes
+and `completion` closure. This closure is invoked after the sign-in process completes
 and returns either a fatal error or a success status with a token.
 
 ```swift
