@@ -48,6 +48,6 @@ AuthenticationResponse authenticationResponse =
     authenticationWrapper.fetchTokenWithInteractionCode(issuer, proceedContext, interactionCode);
 ```
 
-With the obtained access token, the user is successfully signed in, and can be sent to the default sign-in page.
+With the obtained access token, the user is successfully signed in, and can be sent to the default signed-in home page.
 
-> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect authorization server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/#get-the-user-profile-information) for details.
+> **Note:** You can obtain basic user information after the user is authenticated by making a request to Okta's Open ID Connect Authorization Server. See [Get the user profile information](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/#get-the-user-profile-information) for details.

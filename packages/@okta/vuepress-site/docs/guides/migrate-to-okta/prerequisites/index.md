@@ -3,15 +3,15 @@ title: Prerequisites
 ---
 ## How to plan your migration
 
-Migrating users from one system to another takes careful preparation and planning. A thorough understanding of your current environment and having clear migration goals will provide the basis of a solid plan. 
+Migrating users from one system to another takes careful preparation and planning. A thorough understanding of your current environment and having clear migration goals will provide the basis of a solid plan.
 
 Additionally, being aware of any risks in your plan will guide you toward successfully testing and deploying your migration.
 
 ## Migration Types
 
-A **one-time migration** moves your users with their credentials over to Okta all at once. It is expected that the legacy system could (and should) be taken offline after this migration process completes. 
+A **one-time migration** moves your users with their credentials over to Okta all at once. It is expected that the legacy system could (and should) be taken offline after this migration process completes.
 
-A **migration program** is one where, for a period of time, the legacy system and Okta run in parallel to migrate users in a more ad-hoc fashion. This can be accomplished using Okta's [Inline Password Hook](/docs/reference/password-hook/) feature. 
+A **migration program** is one where, for a period of time, the legacy system and Okta run in parallel to migrate users in a more ad-hoc fashion. This can be accomplished using Okta's [Inline Password Hook](/docs/reference/password-hook/) feature.
 
 It’s important to note that this information is about a migration strategy and not integration. 
 
@@ -56,7 +56,7 @@ Here are the key points to remember:
 * Identify which user attributes are personally identifiable information (PII).
 * Define all user attributes that will be migrated to Okta, and the source of truth for each one.
 
-**Note:** The source of truth for attributes at this stage of the migration process means only that we want to clearly define where the user data is coming from for the migration itself, not where it will be managed after the migration. After migration, Okta is the default [profile master](https://help.okta.com/en/prod/Content/Topics/Directory/eu-profile-masters.htm), but this can be modified.
+**Note:** The source of truth for attributes at this stage of the migration process means only that we want to clearly define where the user data is coming from for the migration itself, not where it will be managed after the migration. After migration, Okta is the default [profile source](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Masters), but this can be modified.
 
 ### User applications
 
@@ -79,7 +79,7 @@ After you’ve gathered the necessary information, it’s time to create a migra
 
 ### Define attribute mappings
 
-Defining where to map each attribute from the source to the target is an important part of your plan. [Okta user profiles](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Directory_Profile_Editor) include 31 predefined attributes, and more custom attributes can be added as needed.
+Defining where to map each attribute from the source to the target is an important part of your plan. [Okta user profiles](https://help.okta.com/okta_help.htm?id=ext-usgp-about-profiles) include 31 predefined attributes, and more custom attributes can be added as needed.
 
 Using the information you gathered earlier, create a matrix that maps your source attributes to the Okta user profile attributes, and be sure to include these fields:
 

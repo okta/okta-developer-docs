@@ -23,7 +23,7 @@
 
 <script>
 const DEFAULT_LINK = "/docs/reference/releases-at-okta/";
-const IE_LINK = "https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie";
+const IE_LINK = "https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie";
 
 export default {
   name: "ApiLifecycle",

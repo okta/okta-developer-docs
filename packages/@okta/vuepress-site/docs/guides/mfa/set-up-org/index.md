@@ -12,6 +12,6 @@ You need to enable MFA from the Admin Console of your Okta org before you can us
 
 <br/>
 
-See [MFA](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_MFA) and [Security Policies](https://help.okta.com/en/prod/okta_help_CSH.htm#Security_Policies) for more information.
+See [MFA](https://help.okta.com/okta_help.htm?id=ext_MFA) and [Sign-on Policies](https://help.okta.com/okta_help.htm?id=Security_Policies) for more information.
 
 <NextSectionLink/>

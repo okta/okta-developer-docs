@@ -1,4 +1,2 @@
-If you are setting up the sample app, use this value:
-
-`http://localhost:8080/login/callback`. Otherwise, choose
-a URI that is used by your app.
+If you're setting up the sample app, use either `http://localhost:8080/login/callback` or
+a URI that is appropriate for your app.

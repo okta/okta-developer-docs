@@ -1,4 +1,4 @@
-You have several options for setting the configuration values:
+You have several options for setting the configuration values.
 
 ### Option 1: Create a configuration file
 
@@ -13,8 +13,6 @@ CLIENT_SECRET=hCBX_o3OFZMMZMOUzmXb3kHBJd-_Q4IcxIT
 ```
 
 ### Option 2: Add the values as environment variables
-
-> **Note:** Environment variables aren't currently supported.
 
 Add the values as environment variables with the following naming convention:
 
