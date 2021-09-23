@@ -11,10 +11,9 @@ title: Basic sign-in flow using the password factor
 
 This guide covers a basic user sign-in request, which is the simplest of all use cases and is the first use case that you should try after you install the SDK. The flow diagram and steps describe how to build a simple sign-in form and how to authenticate the credentials.
 
-
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Understand the sequence of steps in the authentication flow for the user sign-in flow.</li></ul>                                                       |
+| Learning outcomes                     | <ul><li>Understand the sequence of steps in the user sign-in flow.</li></ul>                                                       |
 | What you need | <ul><li>[Okta org](https://developer.okta.com/signup/oie.html)</li><li>[Sample app](/docs/guides/oie-embedded-common-download-setup-app), downloaded and set up</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
 
