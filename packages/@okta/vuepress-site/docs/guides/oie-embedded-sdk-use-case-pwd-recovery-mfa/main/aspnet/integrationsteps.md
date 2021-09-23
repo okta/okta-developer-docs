@@ -1,28 +1,28 @@
 ### 1: Add the forgot password link to the sign-in page
 
-The first step is to create a forgot password link on the sign-in page. This link points to the "Reset your password" page.
+The first step is to create a forgot password link on the sign-in page that redirect the user to a reset password page.
 
 <div class="common-image-format">
 
-![Displays an example Forgot password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-forgot.png)
+![Displays a sample forgot password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-forgot.png)
 
 </div>
 
 ### 2: Create the reset password page
 
-Create a "Reset your password" page that initiates the reset password flow. The page should accept the user's email address and have a **Submit** button that starts the reset flow.
+Create a reset password page that initiates the reset password flow. The page should accept the user's email address and have a button that starts the reset flow.
 
 <div class="common-image-format">
 
-![Displays an example Reset password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset.png)
+![Displays a sample reset password page](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-pwd-recovery-screenshot-reset.png)
 
 </div>
 
 ### 3: Make a call to the RecoverPasswordAsync method
 
-After the user clicks **Submit** to start the reset flow, the next step is to call the
-`RecoverPasswordAsync` method and pass in the email address captured from the **Username** field.
-The method should return an `AwaitingAuthenticatorSelection` status. This status indicates that there is an email factor in the `Authenticators` property that needs to be verified first before resetting the password.
+After the user starts the reset flow, your app needs to call the
+`RecoverPasswordAsync()` method and pass in the email address captured from reset password form.
+The method returns a response with an `AwaitingAuthenticatorSelection` status. This status indicates that there is an email factor in the `Authenticators` property that needs to be verified before resetting the password.
 
 ```csharp
 var recoverPasswordOptions = new RecoverPasswordOptions
@@ -40,12 +40,12 @@ if (authnResponse.AuthenticationStatus == AuthenticationStatus.AwaitingAuthentic
 }
 ```
 
-Upon the return of the `AwaitingAuthenticatorSelection` response status, redirect the user to an authenticators page that displays the authenticator that the user needs to use to initiate authentication verification. In this case, the email factor is configured.
+After the `AwaitingAuthenticatorSelection` response status is returned, redirect the user to an authenticators page that displays the authenticator required to initiate authentication verification. In this case, the email factor is the configured authenticator displayed.
 
 ### 4: Create the reset password authenticators page
 
 The next step is to create a page that shows the authenticator that is returned from
-the `RecoverPasswordAsync` method. For this use case, it shows the email authenticator.
+the `RecoverPasswordAsync()` method. For this use case, it shows the email authenticator.
 The page should include the name of the authenticator and the ability to select the
 authenticator to initiate the authentication verification process.
 
