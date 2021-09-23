@@ -10,7 +10,7 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Native SSO Support is in Preview](#native-sso-support-is-in-preview)| September 22, 2021 |
+| [Native SSO Support](#native-sso-support)| September 22, 2021 |
 
 #### Native SSO Support
 
