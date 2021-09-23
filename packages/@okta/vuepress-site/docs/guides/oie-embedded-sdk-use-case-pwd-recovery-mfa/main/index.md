@@ -7,25 +7,21 @@ title: User password recovery
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
+<StackSelector class="cleaner-selector"/>
+
 This guide covers the use case to integrate a password recovery flow into your app using the SDK. The flow includes an email factor step that the user needs to verify before updating their password.
-
-This use case requires the **password** and **email** factors.
-
-<div class="common-image-format">
-
-![Displays Password and Email factor indicators](/img/oie-embedded-sdk/factor-password-email.png)
-
-</div>
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | Learn how to:<ul><li>Set up email as the only factor for password recovery</li><li>Integrate the password recovery flow into your app</li></ul>                                                      |
+| Learning outcomes                     | <ul><li>Set up email as the only factor for password recovery.</li><li>Integrate the password recovery flow into your app.</li></ul>                                                      |
 | What you need | [Okta org already configured for multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)                                                     |
 | Sample code                                                        | n/a                                                      |
 
-<StackSelector class="cleaner-selector"/>
-
 ## Configuration updates
+
+The password recovery use case requires the **password** and **email** factors.
+
+![Displays Password and Email factor indicators](/img/oie-embedded-sdk/factor-password-email.png)
 
 Before you build a password recovery flow with an email factor, ensure that your org is configured for a multifactor use case by completing the steps in [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case).
 

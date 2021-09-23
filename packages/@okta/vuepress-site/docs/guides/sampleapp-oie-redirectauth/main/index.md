@@ -7,7 +7,19 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This guide covers how to set up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication. The following scenarios are included in this guide:
+<StackSelector />
+
+This guide covers how to set up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication.
+
+ Nutrition Facts                                                                            |                                                                                      |
+| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
+| Learning outcomes                     | <ul><li>Create, set up, and install an Okta OAuth 2.0 app.</li><li>Enroll and authenticate a user.</li><li>Enable self-service enrollment, enable a second factor for authentication.</li><li>Use email and Okta Verify as recovery options.</li><li>Add a profile attribute to the Profile Enrollment Policy.</li><li>Route users to an external IdP.</li></ul>                                                      |
+| What you need | [Sample app](/docs/guides/oie-embedded-common-download-setup-app)                                                     |
+| Sample code                                                        | n/a                                                      |
+
+## Use case scenarios
+
+The following scenarios are included in this guide:
 
 * [Simple enrollment and authentication](#simple-enrollment-and-authentication)
 * [Enable self-service enrollment](#enable-self-service-enrollment)
@@ -16,17 +28,7 @@ This guide covers how to set up an Okta sample app to demonstrate some Identity 
 * [Progressive Profiling](#progressive-profiling)
 * [Identity Provider routing to Facebook](#identity-provider-routing-to-facebook)
 
- Nutrition Facts                                                                            |                                                                                      |
-| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | Learn how to:<ul><li>Create, set up, and install an Okta OAuth 2.0 app</li><li>Enroll and authenticate a user</li><li>Enable self-service enrollment, enable a second factor for authentication</li><li>se email and Okta Verify as recovery options</li><li>Add a profile attribute to the Profile Enrollment Policy</li><li>Route users to an external IdP</li></ul>                                                      |
-| What you need | The sample app                                                     |
-| Sample code                                                        | n/a                                                      |
-
-Select your sample app language.
-
-<StackSelector />
-
-## Initial set up
+## Initial set-up
 
 To get started, you need to create an Okta OAuth app to represent the <StackSelector snippet="applang" noSelector inline /> app and then install the <StackSelector snippet="applang" noSelector inline /> sample app.
 

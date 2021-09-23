@@ -11,9 +11,9 @@ This guide covers basic information on Okta Identity Engine and the Identity Eng
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | Learn about: <ul><li>The two approaches in the Identity Engine user authentication deployment model</li><li>The sample apps that you can use to manage authentication</li></ul>                                                      |
+| Learning outcomes                     | <ul><li>Understand the two approaches in the Identity Engine user authentication deployment model.</li><li>Use the sample apps to manage authentication.</li></ul>                                                      |
 | What you need | n/a                                                     |
-| Sample code                                                        | n/a                                                      |
+| Sample code                                                        | n/a                                    |
 
 ## About Okta Identity Engine
 

@@ -7,25 +7,22 @@ title: Basic sign-in flow using the password factor
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
+<StackSelector class="cleaner-selector"/>
+
 This guide covers a basic user sign-in request, which is the simplest of all use cases and is the first use case that you should try after you install the SDK. The flow diagram and steps describe how to build a simple sign-in form and how to authenticate the credentials.
 
-This use case requires the password factor.
-
-<div class="common-image-format">
-
-![Password factor only indicator](/img/oie-embedded-sdk/factor-password-only.png)
-
-</div>
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | Learn the sequence of steps in the authentication flow for the user sign-in flow.                                                       |
-| What you need | <ul><li>An [Okta org](https://developer.okta.com/signup/oie.html)</li><li>The [sample app](/docs/guides/oie-embedded-common-download-setup-app), downloaded and set up</li></ul>                                                     |
+| Learning outcomes                     | <ul><li>Understand the sequence of steps in the authentication flow for the user sign-in flow.</li></ul>                                                       |
+| What you need | <ul><li>[Okta org](https://developer.okta.com/signup/oie.html)</li><li>[Sample app](/docs/guides/oie-embedded-common-download-setup-app), downloaded and set up</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
 
-<StackSelector class="cleaner-selector"/>
-
 ## Configuration updates
+
+The basic user sign-in use case requires the password factor.
+
+![Password factor only indicator](/img/oie-embedded-sdk/factor-password-only.png)
 
 Before you build a basic sign-in flow, ensure that your org is configured for the password factor by completing the steps in [Set up your Okta org for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case).
 

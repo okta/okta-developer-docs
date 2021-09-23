@@ -11,8 +11,8 @@ This guide covers how to run both the sample Widget app and the sample SDK app. 
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | Learn how to run your sample app and build your integration.                                                      |
-| What you need | <ul><li>An [Okta org](https://developer.okta.com/signup/oie.html)</li><li>[SDK, Sign-In Widget and sample app](/docs/guides/oie-embedded-common-download-setup-app), downloaded and set up</li></ul>                                                     |
+| Learning outcomes                     |<ul><li>Run your sample app and build your integration.</li></ul>                                                      |
+| What you need | <ul><li>[Okta org](https://developer.okta.com/signup/oie.html)</li><li>[SDK, Sign-In Widget and sample app](/docs/guides/oie-embedded-common-download-setup-app), downloaded and set up</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
 
 ## The embedded Widget flow

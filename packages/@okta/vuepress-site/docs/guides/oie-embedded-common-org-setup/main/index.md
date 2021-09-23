@@ -7,12 +7,14 @@ title: Get set up
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
+<StackSelector class="cleaner-selector"/>
+
 This guide covers how to create and set up your Okta org before you can run the provided sample app or integrate the SDK or Widget into your own app,
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | Learn how to:<ul><li>Update the default Custom Authorization Server</li><li>Update the Authenticators</li><li>Create a new application</li><li>Set up your org for social Identity Providers</li></ul>                                                      |
-| What you need | An [Okta account](https://developer.okta.com/signup/oie.html)                                                     |
+| Learning outcomes                     | <ul><li>Update the default Custom Authorization Server.</li><li>Update the Authenticators.</li><li>Create a new application.</li><li>Set up your org for social Identity Providers.</li></ul>                                                      |
+| What you need | [Okta account](https://developer.okta.com/signup/oie.html)                                                     |
 | Sample code                                                        | n/a                                                      |
 
 ## Overview of the embedded identity solutions
@@ -39,9 +41,7 @@ Sample apps are provided for each solution to show you exactly how to integrate 
 1. [Update the default Custom Authorization Server](#update-the-default-custom-authorization-server)
 1. [Create a new application](#create-a-new-application)
 
-After you've created your app, you need to [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) scenario. 
-
-<StackSelector class="cleaner-selector"/>
+After you've created your app, you need to [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) scenario.
 
 ### Create your Okta account
 
