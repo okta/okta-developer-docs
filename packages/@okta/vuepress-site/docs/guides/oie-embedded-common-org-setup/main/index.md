@@ -7,8 +7,6 @@ title: Get set up
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-
-=======
 ## Overview
 
 Okta provides two embedded identity solutions:
