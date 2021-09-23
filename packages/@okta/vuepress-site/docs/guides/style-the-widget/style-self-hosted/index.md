@@ -155,6 +155,14 @@ Position:
 }
 ```
 
+##### Identity Provider buttons
+
+```css
+#okta-sign-in.auth-container .custom-style {
+  background: url(logo.png) no-repeat 10px, linear-gradient(90deg, hotpink 50px, lightpink 0);
+}
+```
+
 ##### Video Tutorial
 
 For a more in-depth look at styling the widget, you can watch this video:
