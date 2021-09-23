@@ -8,7 +8,7 @@
     overflow-y: auto;
     top: 155px;
 
-    @include media('>=tablet'){
+    @include media('>=tablet') {
       top: 150px;
     }
   }
