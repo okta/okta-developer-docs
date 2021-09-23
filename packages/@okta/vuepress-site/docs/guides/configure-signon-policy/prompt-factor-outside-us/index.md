@@ -4,7 +4,7 @@ title: Prompt for an MFA factor when a user is outside the US
 
 In addition to the Okta Sign-On Policy, there is an App Sign-On Policy for each application that determines the extra levels of authentication that you may want performed before a user can access an application. The following are step-by-step instructions to configure an App Sign-On Policy to prompt a user for an MFA factor when the user is outside the United States.
 
-> **Note:** This example assumes that you have already [set up a Dynamic Zone](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network) for the United States.
+> **Note:** This example assumes that you have already [set up a Dynamic Zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) for the United States.
 
 ### Select the App
 
@@ -30,7 +30,7 @@ In addition to the Okta Sign-On Policy, there is an App Sign-On Policy for each 
 
 5. Specify the location to which you want the policy to apply in the **LOCATION** section of the dialog box. In this example, select **In Zone**.
 
-6. In the **Network Zones** box that appears, enter the name of the zone that you want to apply, and then add it when it appears in the list. In this example, we are adding the [network zone](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network) for the United States that we suggested you create <GuideLink link="../before-you-begin">before starting</GuideLink> the steps in this guide.
+6. In the **Network Zones** box that appears, enter the name of the zone that you want to apply, and then add it when it appears in the list. In this example, we are adding the [network zone](https://help.okta.com/okta_help.htm?id=ext_Security_Network) for the United States that we suggested you create <GuideLink link="../before-you-begin">before starting</GuideLink> the steps in this guide.
 
 7. In the **CLIENT** section, clear the platform conditions that you don't want the rule to apply to. In this example, leave the default of all platforms selected.
 

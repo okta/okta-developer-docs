@@ -18,7 +18,7 @@ Okta's self-service registration lets you configure a custom app or the Okta Hom
 
 > **Note:** This is an Early Access feature. To enable it, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
 
-* [Super admin permissions](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_superadmin) are required to enable self-service registration.
+* [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) are required to enable self-service registration.
 * If you are hosting your own [customized Widget](https://developer.okta.com/code/javascript/okta_sign-in_widget/), version 2.9 or later is required.
 
 ## Support

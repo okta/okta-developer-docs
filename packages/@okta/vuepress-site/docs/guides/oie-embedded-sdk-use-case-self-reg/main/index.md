@@ -44,7 +44,7 @@ Enable self-registration in your profile enrollment default policy:
 1. In the **Edit Rule** dialog box, under the **For new users** section, select **Allowed** in the **Sign-up** field.
 1. Click **Save**.
 
-> **Note:** See [Managed Profile Enrollment policies](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment) for additional profile enrollment policy options.
+> **Note:** See [Managed Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) for additional profile enrollment policy options.
 
 ### 2: Confirm that the org application is assigned to everyone
 
