@@ -155,7 +155,7 @@ Position:
 }
 ```
 
-##### Identity provider buttons
+##### Identity Provider buttons
 
 ```css
 #okta-sign-in.auth-container .custom-style {
