@@ -1,4 +1,4 @@
-After you run the sample app and explore its available use cases, you can begin to integrate the SDK and/or the widget into your own app. To get started, follow these steps:
+After you run the sample app and explore the available use cases, you can begin to integrate the SDK and/or the Widget into your own app. To get started, follow these steps:
 
 #### 1: Install the Golang SDK
 
@@ -8,19 +8,19 @@ After you run the sample app and explore its available use cases, you can begin 
 go mod init
 ```
 
-2. Run the following command to add the SDK to your go.mod file:
+2. Run the following command to add the SDK to your `go.mod` file:
 
 ```go
 go get github.com/okta/okta-idx-golang.
 ```
 
-3. Import the package in your project with `import "github.com/okta/okta-idx-golang"`
+3. Import the package in your project with `import "github.com/okta/okta-idx-golang"`.
 
 #### 2: Create the IDX Client object
 
-Create the IDX `Client` object using the `NewClient` method and optionally pass in
-a `ConfigSetter` object. The `Client` object is the main object that is used to initiate
-the various use cases for the SDK and Widget.
+Create the IDX `Client` object by using the `NewClient()` method and optionally passing in
+a `ConfigSetter` object. `Client` is the main object that is used to initiate
+the various use cases with the SDK and Widget.
 
 ```go
 idx, err := idx.NewClient(

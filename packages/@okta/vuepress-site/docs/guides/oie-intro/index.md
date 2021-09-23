@@ -45,7 +45,9 @@ See [Redirect authentication vs. embedded authentication](/docs/concepts/redirec
 
 ## Identity Engine SDKs
 
+
 To take advantage of the new Identity Engine features &mdash; and for a better development experience &mdash; use the [Identity Engine SDKs](https://developer.okta.com/code/oie/) to manage authentication in your apps.
+
 
 ### Redirect authentication sample apps
 
@@ -68,19 +70,17 @@ The embedded authentication sample apps demonstrate how to embed authentication 
 * Code against a high-level SDK interface
 * Provide greater flexibility to solve your specific branding requirements
 
-Learn how to implement this approach with the [Embedded authentication with the SDK guide](/docs/guides/oie-embedded-sdk-overview/).
-
-**Embedded Widget + SDK**: A quick and easy-to-set-up solution that moves most of the the heavy lifting to Okta. Although the amount of code that you need to write is small, many of the most advanced identity use cases (for example, social sign in, multifactor authentication) are supported out of the box. Use the embedded Widget when you need:
+**Embedded Widget + SDK**: A quick and easy-to-set-up solution that leaves most of the the heavy lifting to Okta. Although the amount of code that you need to write is small, many of the most advanced identity use cases (for examples, social sign-in and multifactor authentication) are supported out of the box. Use the embedded Widget when you need:
 
 * Quick and easy integration
 * Features that are ready out of the box
 * Simple configuration changes with no additional code for most functionalities, such as multifactor authentication
 
-Learn how to implement this approach with the [Embedded authentication with the Sign-In Widget guide](/docs/guides/oie-embedded-widget-overview/).
+Learn how to implement these approaches with the [Embedded authentication guide](/docs/guides/oie-embedded-common-org-setup/).
 
 ## Enable the Identity Engine for your organization
 
-To upgrade to the Identity Engine, reach out to your account manager. If you don't have an account manager, reach out to oie@okta.com for more information.
+To upgrade to the Identity Engine, contact your account manager. If you don't have an account manager, contact [oie@okta.com](mailto:oie@okta.com) for more information.
 
 * The v1 API continues to work as before until you're ready to use new Identity Engine functionality.
 * The existing Okta-hosted Widget continues to work after upgrading your org.

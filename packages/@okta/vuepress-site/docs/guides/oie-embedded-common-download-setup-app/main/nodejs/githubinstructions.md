@@ -1,12 +1,11 @@
-After you satisfy the software requirements, clone the [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js)
-repository to your local directory. You run the sample app later after you [set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/-/main/#set-the-configuration-values).
+After you satisfy the software requirements, clone the [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js) repository to your local directory. Run the sample app after you [set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/-/main/#set-the-configuration-values).
 
 ```console
 git clone https://github.com/okta/okta-auth-js.git
 cd okta-auth-js/samples/generated/express-embedded-sign-in-widget
 ```
 
-The source code from the sample app and SDK are located here: `.../okta-auth-js/`. The project structure consists of:
+The source code from the sample app and SDK are located in the `.../okta-auth-js/` repository directory. The project structure consists of:
 
 * `okta-auth-js/docs/idx.md`&mdash; Identity Engine introduction and reference
 * `okta-auth-js/samples/generated` &mdash; samples directory
