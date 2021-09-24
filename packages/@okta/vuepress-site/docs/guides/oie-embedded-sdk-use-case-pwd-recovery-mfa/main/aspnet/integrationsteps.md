@@ -21,7 +21,7 @@ Create a reset password page that initiates the reset password flow. The page sh
 ### 3: Make a call to the RecoverPasswordAsync method
 
 After the user starts the reset flow, your app needs to call the
-`RecoverPasswordAsync()` method and pass in the email address captured from reset password form.
+`RecoverPasswordAsync()` method and pass in the email address captured from the reset password form.
 The method returns a response with an `AwaitingAuthenticatorSelection` status. This status indicates that there is an email factor in the `Authenticators` property that needs to be verified before resetting the password.
 
 ```csharp
