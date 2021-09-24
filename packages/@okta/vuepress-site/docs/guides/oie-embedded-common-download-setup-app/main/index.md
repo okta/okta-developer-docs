@@ -33,19 +33,18 @@ If you're getting started with your first app or if you're running an Okta sampl
 1. In the Admin Console, go to **Security** > **API**.
 2. On the **Authorization Servers** tab, use the **Issuer URI** value from the **default** Custom Authorization Server row (for example, `https://${yourOktaDomain}/oauth2/default`).
 
-There are two main types of authorization servers in Okta: **Org** and **Custom**. See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) and [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US) for more information on which Authorization Server to use.
+There are two main types of authorization servers in Okta: [Org](/docs/concepts/auth-servers/#org-authorization-server) and [Custom](/docs/concepts/auth-servers/#custom-authorization-server). See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) and [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US) for more information on which Authorization Server to use.
 
-If you're using either the Org or the Custom Authorization Servers, ensure your Issuer URI is in the following format:
+The Issuer URI format depends on which Authorization Server that you decide to use:
 
-* **Org**: If you want to use the Org Authorization Server, use the following URI format: `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
-* **Custom**: You can either use the default Custom Authorization Server or create your own.
-  * default Custom Authorization Server's URI format: `https://${yourOktaDomain}/oauth2/default`
-
-  * Your own Custom Authorization Server's URI format: `https://${yourOktaDomain}/oauth2/${authServerId}`
+* Org &mdash; If you use the Org Authorization Server, the Issuer URI format is `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
+* Custom &mdash; You can either use the default Custom Authorization Server or create your own.
+  - If you use the default Custom Authorization Server, the Issuer URI format is `https://${yourOktaDomain}/oauth2/default`.
+  - If you use your own Custom Authorization Server, the Issuer URI format is `https://${yourOktaDomain}/oauth2/${authServerId}`, where `${authServerId}` is your Custom Authorization Server's unique ID.
 
 #### Client ID
 
-For the sample app, use the **Client ID** for the application that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab, copy the **Client ID**.
+For the sample app, use the client ID for the application that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab, copy the **Client ID**.
 
 <StackSelector snippet="clientsecret" noSelector />
 
