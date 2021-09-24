@@ -345,12 +345,12 @@ export default {
     }
   },
   methods: {
-    submitForm(e) {
+    async submitForm(e) {
       e.preventDefault();
       this.validationService.checkFormInput("firstName");
       this.validationService.checkFormInput("lastName");
       this.validationService.checkFormInput("country");
-      this.validationService.checkEmailInput("email");
+      await this.validationService.checkEmailInput("email");
       this.validationService.checkFormInput("state");
       this.validationService.checkFormInput("captcha");
 
