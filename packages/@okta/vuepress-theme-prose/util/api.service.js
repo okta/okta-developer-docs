@@ -8,7 +8,7 @@ export class Api {
     this.baseUrl = baseUrl;
   }
 
-  httpRequest(method, url, options = { headers: {}, body: {} }) {
+  httpRequest(method, url, options = { headers: {}, body: {}, params: {} }) {
     return axios({
       method,
       baseURL: this.baseUrl,
@@ -17,7 +17,8 @@ export class Api {
         ...this.baseheaders,
         ...options.headers
       },
-      data: options.body
+      data: options.body,
+      params: options.params,
     });
   }
 
