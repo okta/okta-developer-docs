@@ -40,7 +40,7 @@ if (authnResponse.AuthenticationStatus == AuthenticationStatus.AwaitingAuthentic
 }
 ```
 
-After the `AwaitingAuthenticatorSelection` response status is returned, redirect the user to an authenticators page that displays the authenticator required to initiate authentication verification. In this case, the email factor is the configured authenticator displayed.
+After the `AwaitingAuthenticatorSelection` response status is returned, redirect the user to an authenticators page that displays the authenticator required to initiate authentication verification. In this case, the email factor is the configured authenticator that appears.
 
 ### 4: Create the reset password authenticators page
 
