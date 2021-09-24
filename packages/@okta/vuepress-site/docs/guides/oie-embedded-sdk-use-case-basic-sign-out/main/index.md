@@ -9,7 +9,13 @@ title: User sign out (local app)
 
 <StackSelector class="cleaner-selector"/>
 
-This use case describes how to sign a user out.
+This guide covers the use case to sign a user out, including a flow diagram and a sequence of steps.
+
+ Nutrition Facts                                                                          |                                                                                      |
+| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
+| Learning outcomes                     | <ul><li>Understand the sequence of steps in the user sign-out flow.</li></ul>                                                       |
+| What you need | n/a                                                     |
+| Sample code                                                        | n/a                                                      |
 
 ## Configuration updates
 
