@@ -9,6 +9,14 @@ title: Basic sign-in flow using the Widget
 
 <StackSelector class="cleaner-selector"/>
 
+This guide covers a basic user sign-in flow that uses the Sign-In Widget. The flow diagram and steps describe the process to sign in to an app with the embedded Sign-In Widget.
+
+ Nutrition Facts                                                                          |                                                                                      |
+| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
+| Learning outcomes                     | <ul><li>Understand the sequence of steps in the basic sign-in flow when you use the Sign-In Widget.</li></ul>                                                       |
+| What you need | <ul><li>[SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up</li></ul>                                                     |
+| Sample code                                                        | n/a                                                      |
+
 ## Configuration updates
 
 Ensure that you've completed the steps to [download and configure the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/). These steps guide you to the appropriate repository and location of the embedded Sign-In Widget sample app, identify the packages to install, and describe additional changes to the Okta org that are required for the Widget.

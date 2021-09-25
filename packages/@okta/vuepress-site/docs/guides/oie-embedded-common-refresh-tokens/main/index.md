@@ -6,6 +6,14 @@ title: Refresh the access and ID tokens
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
+This guide covers refresh tokens that are used when access tokens expire and the options to refresh the token.
+
+ Nutrition Facts                                                                          |                                                                                      |
+| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
+| Learning outcomes                     | <ul><li>Understand what are refresh tokens</li><li>Know how to use either of the options to refresh tokens.</li></ul>                                                       |
+| What you need | <ul><li>[Refresh token](/docs/guides/refresh-tokens/use-refresh-token/) from the SDK with `offline_access` as a scope</li><li>[`/token`](/docs/reference/api/oidc/#token) endpoint</li></ul>                                                     |
+| Sample code                                                        | n/a                                                      |
+
 <StackSelector class="cleaner-selector"/>
 
 ## Summary
@@ -29,7 +37,7 @@ server's token endpoint to renew the access token.
 ## Option 2: Refresh the token using the OAuth token endpoint
 
 You can refresh access and ID tokens using the
-[`/token`](https://developer.okta.com/docs/reference/api/oidc/#token)
+[`/token`](/docs/reference/api/oidc/#token)
 endpoint with the `grant_type` set to `refresh_token`. Before calling this endpoint,
 obtain the refresh token from the SDK and ensure that you have included
 `offline_access` as a scope in the SDK configurations. For further details on

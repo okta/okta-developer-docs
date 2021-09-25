@@ -9,7 +9,7 @@ title: Sign in with password and email factors
 
 <StackSelector class="cleaner-selector"/>
 
-This guide covers the use case for a user sign-in with password and email factors, including a flow diagram and a sequence of steps.
+This guide covers the use case for a user sign-in with password and email factors, and provides a flow diagram and a sequence of integration steps.
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
