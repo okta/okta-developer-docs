@@ -16,7 +16,7 @@ To enable a more customized user authentication experience, Okta has introduced 
 
 The Interaction Code flow consists of a series of interactions between the user and the Authorization Server, facilitated by the client. Each interaction is called a remediation step and corresponds to a piece of user data required by the Authorization Server. The client obtains these remediation steps from the Identity Engine component of the Authorization Server and prompts the user for the required data to continue the flow.
 
-For example, a user could start an authentication flow by entering only a username, and this flow would prompt the client to request more information, or remediation, as required. Remediation is the direct communication between the client and the Authorization Server without a browser redirect. An example of a remediation step is the client prompting the user for a password or to add a second factor and then sending that information directly to the Authorization Server.
+For example, a user could start an authentication flow by entering only a username, and this flow would prompt the client to request more information, or remediation, as required. Remediation is the direct communication between the client and the Authorization Server that can be achieved either without a browser redirect or with a browser redirect when the remediation transitions through a push authorization request. An example of a remediation step is the client prompting the user for a password or to add a second factor and then sending that information directly to the Authorization Server.
 
 The Interaction Code grant is intended for developers who want a step-by-step remediation user experience without redirecting to an Authorization Server. This grant type enables developers to include [Identity Engine features](https://help.okta.com/en/oie/okta_help_CSH.htm#csh-features), such as passwordless authentication and progressive profiling. See [Redirect authentication vs. embedded authentication](/docs/concepts/redirect-vs-embedded/) for Identity Engine authentication deployment models and [Identity Engine deployment guides](/docs/guides/oie-intro/) for detailed deployment use cases.
 
@@ -31,26 +31,31 @@ The following table describes the parameters introduced for the Interaction Code
 | `interaction_handle` | The `interaction_handle` is an opaque, immutable value that is provided by the Okta Authorization Server. The client can use the `interaction_handle` to interact with the Okta Authorization Server directly. The client is responsible for saving the `interaction_handle` and using it for the duration of the transaction. Any public/confidential client that is configured to use the Interaction Code grant type can obtain an `interaction_handle`. If all the remediation steps are successfully performed, an `interaction_code` is returned as part of the success response.            |
 | `interaction_code` |  The `interaction_code` is a one-time use, opaque code that the client can exchange for tokens using the Interaction Code grant type. This code enables a client to redeem a completed Identity Engine interaction for tokens without needing access to an Authorization Server’s session. |
 
-
 The following sequence of steps is a typical Interaction Code flow with the Identity Engine:
 
 <!--
 See http://www.plantuml.com/plantuml/uml/
 
-@@startuml
+@startuml
 skinparam monochrome true
 actor "Resource Owner (User)" as user
 participant "Client" as client
 participant "Authorization Server (Okta)" as okta
+participant "Identity Engine (Okta)" as oie
 participant "Resource Server (Your App)" as app
 
 user -> client: Start auth with user info
 client -> client: Generate PKCE code verifier & challenge
 client -> okta: Authorization request w/ code_challenge, scopes, and user info
-okta -> client: Sends interaction_handle in 200 error response (for required interaction)
-okta <-> client: Remedial interaction w/ interaction_handle
-client <-> user: Remedial interaction
-okta -> client: If the remedial interaction is successful, send interaction_code
+okta -> okta: Remediation required
+okta -> client: Sends interaction_handle in response (for required interaction)
+user <-> client: Remedial interaction
+client <-> oie: Remedial interaction w/ interaction_handle
+note right: Possible multiple remedial steps required
+user <-> client: Remedial interaction
+client -> oie: Remedial interaction w/ interaction_handle
+oie -> oie: Remedial steps completed
+oie -> client: Send interaction_code in response
 client -> okta: Send interaction_code, client ID, code_verifier to /token
 okta -> okta: Evaluates PKCE code
 okta -> client: Access token (and optionally refresh token)
@@ -70,17 +75,17 @@ app -> client: Response
 
   > **Note:** A confidential client authenticates with the Authorization Server while a public client (like the Sign-In Widget) identifies itself to the Authorization Server. Both must provide the PKCE code challenge.
 
-* The Authorization Server sends the `interaction_handle` parameter in the body of a 200 error response to the client app.
+* The Authorization Server sends the `interaction_handle` parameter in the body of a response to the client app.
 
-  > **Note:** The `interaction_handle` is used to continue the interaction directly with the Authorization Server. This is why the client, either confidential or public, needs to be registered with the Authorization Server to perform this direct interaction.
+  > **Note:** The `interaction_handle` is used to continue the interaction directly with the Identity Engine. This is why the client, either confidential or public, needs to be registered with the Identity Engine to perform this direct interaction.
 
-* The client sends the `interaction_handle` to the Authorization Server in Identity Engine and in return, the Authorization Server sends any required remediation steps to the client. The client begins an interactive flow with the Authorization Server and the resource owner, handling any type of interaction required by the Authorization Server (the remedial information is provided by the user to the client).
+* The client sends the `interaction_handle` to the Identity Engine and in return, the Identity Engine sends any required remediation steps to the client. The client begins an interactive flow with the Identity Engine and the resource owner, handling any type of interaction required by the Identity Engine (the remedial information is provided by the user to the client).
 
-* When the remediation steps are completed, the Authorization Server sends back a success response and includes the `interaction_code` to the client.
+* When the remediation steps are completed, the Identity Engine sends back a success response and includes the `interaction_code` to the client.
 
   > **Note:** The Interaction Code has a maximum lifetime of 60 seconds.
 
-* The client sends the code verifier and the `interaction_code` to the `/${authServerId}/token` endpoint to exchange for tokens.
+* The client sends the code verifier and the `interaction_code` to the Authorization Server (`/${authServerId}/token` endpoint) to exchange for tokens.
 
   > **Note:** The `interaction_code` indicates that the client (and user) went through all of the necessary interactions and received a successful response from Identity Engine.
 
