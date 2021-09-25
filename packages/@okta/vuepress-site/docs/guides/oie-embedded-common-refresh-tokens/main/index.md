@@ -6,6 +6,8 @@ title: Refresh the access and ID tokens
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
+<StackSelector class="cleaner-selector"/>
+
 This guide covers refresh tokens that are used when access tokens expire and the options to refresh the token.
 
  Nutrition Facts                                                                          |                                                                                      |
@@ -13,8 +15,6 @@ This guide covers refresh tokens that are used when access tokens expire and the
 | Learning outcomes                     | <ul><li>Understand what are refresh tokens</li><li>Know how to use either of the options to refresh tokens.</li></ul>                                                       |
 | What you need | <ul><li>[Refresh token](/docs/guides/refresh-tokens/use-refresh-token/) from the SDK with `offline_access` as a scope</li><li>[`/token`](/docs/reference/api/oidc/#token) endpoint</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
-
-<StackSelector class="cleaner-selector"/>
 
 ## Summary
 
