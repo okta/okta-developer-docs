@@ -99,7 +99,7 @@ If the **Account Link Policy** is disabled, no account linking occurs. You can m
 
 ### JIT provisioning
 
-If a user signs in to your application for the first time using another Identity Provider, you can implement [JIT provisioning](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Identity_Providers) to automatically create an Okta account for them. JIT account creation and activation only works for end users who aren't already Okta users.
+If a user signs in to your application for the first time using another Identity Provider, you can implement [JIT provisioning](https://help.okta.com/okta_help.htm?id=ext_Identity_Providers) to automatically create an Okta account for them. JIT account creation and activation only works for end users who aren't already Okta users.
 
 Additionally, you can apply granular control over account linking and JIT by defining a policy and then rules for the policy. You can base a policy on a variety of factors, such as location, group definitions, and authentication type. A specific policy rule can then be created for groups that have been assigned to your application. You can create multiple policies with more or less restrictive rules and apply them to different groups.
 

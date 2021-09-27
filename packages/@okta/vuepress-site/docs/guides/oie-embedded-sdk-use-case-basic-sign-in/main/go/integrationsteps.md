@@ -1,7 +1,7 @@
 ### 1: The user navigates to the home page
 
 When the user navigates to the home page and the application loads, create a new
-SDK Client object by calling the `NewClient` method.
+SDK Client object by calling the `NewClient()` method.
 
 ```go
 idx, err := idx.NewClient(
@@ -21,14 +21,11 @@ Build a sign-in page that captures the user's name and password.
 
 <div class="common-image-format common-image-format-vertical-margin">
 
-![A basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
+![Displays a basic sign-in page in a Golang application](/img/oie-embedded-sdk/oie-embedded-sdk-go-use-case-basic-sign-on-page.png)
 
 </div>
 
-During page load, call the `Client` object's `InitLogin` method. This method returns an object of type
-`LoginResponse` that is used to initiate the sign-in process with Okta. This object
-also contains a list of available social identity providers (IdPs) that are discussed in more detail in the
-[Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main/)
+During page load, call the `Client` object's `InitLogin()` method. This method returns a `LoginResponse` object that is used to initiate the sign-in process with Okta. This object also contains a list of available social Identity Providers (IdPs) that are discussed in more detail in the [Sign in with Facebook](/docs/guides/oie-embedded-sdk-use-case-sign-in-soc-idp/go/main/)
 use case.
 
 ```go
@@ -53,8 +50,7 @@ ir := &idx.IdentifyRequest{
 }
 ```
 
-Next, using the `LoginResponse` object obtained from
-[step 2](#_2-capture-credentials-with-the-sign-in-page), call its `Identify` method, passing in this new `IdentifyRequest` object.
+Next, you can use the `LoginResponse` object obtained from [step 2](#_2-capture-credentials-with-the-sign-in-page) to call the `Identify()` method with the new `IdentifyRequest` object as an argument.
 
 ```go
 lr, err = lr.Identify(context.TODO(), ir)
@@ -68,12 +64,9 @@ if err != nil {
 
 ### 4: Save the tokens and redirect the user to the default home page
 
-The `Identity` method returns a `LoginResponse` and `error`
-object. Use the `error` object to determine if there were errors in the
+The `Identify()` method returns two objects: `LoginResponse` and `error`. Use the `error` object to determine if there were errors in the
 user sign-in. If the `error` object is `nil` and the`LoginResponse` object's
-`Token` property is not `nil`, the sign-in is successfully completed.
-Store the tokens in session for later use, such as fetching user profile
-information and refreshing the tokens.
+`Token` property is not `nil`, then the sign-in process is successful. Store the tokens in a session for later use, such as fetching user profile information and refreshing the tokens.
 
 ```go
 lr, err = lr.Identify(context.TODO(), ir)
@@ -98,6 +91,4 @@ if lr.Token() != nil {
 
 ### 5 (Optional): Get the user profile information
 
-Optionally, you can obtain basic user information after a successful user
-sign-in by making a request to Okta's Open ID Connect authorization server.
-See the next section for more information.
+Optionally, you can obtain basic user information after the user successfully signs in by making a request to Okta's Open ID Connect authorization server. See the next section for more information.

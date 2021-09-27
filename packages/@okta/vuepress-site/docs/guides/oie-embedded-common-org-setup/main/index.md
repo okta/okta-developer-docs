@@ -31,7 +31,7 @@ Sample apps are provided for each solution to show you exactly how to integrate 
 1. [Update the default Custom Authorization Server](#update-the-default-custom-authorization-server)
 1. [Create a new application](#create-a-new-application)
 
-After you've created your app, you need to [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) scenario. 
+After you've created your app, you need to [set up your Okta org for your use case](#set-up-your-okta-org-for-your-use-case) scenario.
 
 <StackSelector class="cleaner-selector"/>
 
@@ -47,7 +47,7 @@ If you don't have an Okta Identity Engine org, you need sign up for an Okta acco
 
 ### Update the default Custom Authorization Server
 
-You need to configure your default Custom Authorization Server to enable the Interaction code flow.
+You need to configure your default Custom Authorization Server to enable the Interaction Code flow.
 
 1. From your Okta org's [Admin Console](/docs/guides/quickstart/website/using-console/), select **Security** > **API**.
 1. On the **Authorization Servers** tab, select the pencil icon for the **default** Custom Authorization Server.
@@ -75,7 +75,7 @@ Create an app integration representing the application you want to provide embed
 1. Select the **Sign On** tab.
 1. In the **Sign On Policy** section, verify that the **Available Authenticators** is appropriate for your app. For non-multifactor use cases, ensure that the **1 factor** authenticator is **Password**.
 
-> **Note:** From the **General** tab of your app integration, save the generated **Client ID** and **Client secret** values to be used later on in your embedded solution.
+> **Note:** From the **General** tab of your app integration, save the generated **Client ID** value (and if applicable, the **Client secret** value) that is used later on in your embedded solution.
 
 <StackSelector snippet="appsbaseurl" noSelector />
 
@@ -121,7 +121,7 @@ This section shows you how to set up your Okta org and app to support the multif
 1. [Add the phone authenticator for authentication and recovery](#_2-add-the-phone-authenticator-for-authentication-and-recovery)
 1. [Update your app sign-on policy with multifactor authentication](#_3-update-your-app-sign-on-policy-with-multifactor-authentication)
 
-> **Note:** The multifactor use cases in this guide implement the password, email, and phone factors. However, there are other supported factors that you can use in your embedded authentication app. See [Multifactor Authentication](https://help.okta.com/en/oie/okta_help_CSH.htm#csh-about-authenticators).
+> **Note:** The multifactor use cases in this guide implement the password, email, and phone factors. However, there are other supported factors that you can use in your embedded authentication app. See [Multifactor Authentication](https://help.okta.com/okta_help.htm?type=oie&id=csh-about-authenticators).
 
 #### 1: Set up the email authenticator for authentication and recovery
 
@@ -147,7 +147,7 @@ If your org already has the phone authenticator added, ensure that the **Authent
 #### 3: Update your app sign-on policy with multifactor authentication
 
 1. In the Admin Console, go to **Applications** > **Applications**.
-1. From the **Applications** page, select the [application that you've created](#create-a-new-application).
+1. From the **Applications** page, select the [app that you created](#create-a-new-application) to represent your application.
 1. On the page for your application, select the **Sign On** tab.
 1. In the **Sign On Policy** section, select the action menu icon (⋮) beside the **ENABLED** flag for **Catch-all Rule** and select **Edit**.
 1. On the **Edit Rule** dialog box, scroll down to the **AND User must authenticate with** drop-down menu and select **Password + Another Factor**.
@@ -156,7 +156,7 @@ If your org already has the phone authenticator added, ensure that the **Authent
 
 ### Set up your Okta org for a social IdP use case
 
-This section shows you how to set up your Okta org and app to support sign in with Facebook IdP use cases available in this embedded authentication guide. If you want to implement a use case with another social IdP, see [Add an external Identity Provider](/docs/guides/add-an-external-idp/apple/before-you-begin/) for the list of Okta supported social IdPs and instructions on how to configure them for social authentication with Okta.
+This section shows you how to set up your Okta org and app to support Facebook IdP use cases that are available in this embedded authentication guide. If you want to implement a use case with another social IdP, see [Add an external Identity Provider](/docs/guides/add-an-external-idp/apple/before-you-begin/) for the list of Okta-supported social IdPs and instructions on how to configure them for social authentication with Okta.
 
 Perform the following configurations after you've [created a new app](#create-a-new-application) to set up the Facebook IdP and your Okta org:
 

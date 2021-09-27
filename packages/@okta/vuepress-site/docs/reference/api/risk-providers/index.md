@@ -322,7 +322,6 @@ The Risk Provider object has the following properties:
 
 
 #### Risk Provider example
-```
 ```json
 {
     "id": "00rpdfgkljdlkklhktlrh",

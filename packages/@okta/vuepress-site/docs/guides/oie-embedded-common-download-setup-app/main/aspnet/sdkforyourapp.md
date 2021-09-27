@@ -1,8 +1,8 @@
-After you run the sample app and explore its available use cases, you can begin to integrate the SDK and/or the widget into your own app. To get started follow these steps:
+After you run the sample app and explore the available use cases, you can begin to integrate the SDK and/or the Widget in to your own app. Follow these steps to get started:
 
 #### 1: Set up your app for .Net 4.8 or greater
 
-The SDK and samples are built using .Net 4.8.
+The SDK and sample apps are built using .Net 4.8.
 
 #### 2: Add the Okta SDK Nuget packages
 
@@ -19,13 +19,12 @@ packages in Visual Studio, ensure that the pre-release check box is selected.
 
 All functionality in the SDK is accessed through the methods of the
 `IdxClient` object. After you add the Nuget packages, the next step
-is to initialize the `IdxClient`. There are two steps to initialize
-the client:
+is to initialize the `IdxClient`. There are two steps to initialize the client:
 
 1. Add the following namespaces:
    * `Okta.Idx.Sdk`
    * `Okta.Sdk.Abstractions`
-1. Initialize the `IdxClient`
+1. Initialize the `IdxClient`.
 
 See the following sample code for more details:
 
@@ -36,6 +35,4 @@ using Okta.Sdk.Abstractions;
 var idxAuthClient = new IdxClient();
 ```
 
-> **Note:** You can pass configuration values into the object's constructor.
-See
-[Option 3: Add the values as parameters to the SDK's client constructor](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/#option-3-add-the-values-as-parameters-to-the-sdk-s-client-constructor).
+> **Note:** You can pass configuration values into the object's constructor. See [Option 3: Add the values as parameters to the SDK's client constructor](#option-3-add-the-values-as-parameters-to-the-sdk-s-client-constructor).

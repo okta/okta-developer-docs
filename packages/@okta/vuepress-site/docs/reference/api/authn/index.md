@@ -63,14 +63,14 @@ The requests and responses vary depending on the application type, and whether a
 
 As part of the authentication call either the username and password or the token parameter must be provided.
 
-| Parameter  | Description                                                                                                      | Param Type | DataType                          | Required | MaxLength |
-|------------|:-----------------------------------------------------------------------------------------------------------------|:-----------|:----------------------------------|:---------|:----------|
-| audience   | App ID of the target app the user is signing into                                                                | Body       | String                            | FALSE    |           |
-| context    | Provides additional context for the authentication transaction                                                   | Body       | [Context object](#context-object) | FALSE    |           |
-| options    | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |           |
-| password   | User's password credential                                                                                       | Body       | String                            | FALSE    |           |
-| token      | Token received as part of activation user request                                                                | Body       | String                            | FALSE    |           |
-| username   | User's non-qualified short-name (for example: dade.murphy) or unique fully-qualified sign in name (for example: dade.murphy@example.com) | Body       | String                            | FALSE    |           |
+| Parameter                                      | Description                                                                                                      | Param Type | DataType                          | Required | MaxLength |
+|------------------------------------------------|:-----------------------------------------------------------------------------------------------------------------|:-----------|:----------------------------------|:---------|:----------|
+| audience <ApiLifecycle access="deprecated" />  | App ID of the target app the user is signing into                                                                | Body       | String                            | FALSE    |           |
+| context                                        | Provides additional context for the authentication transaction                                                   | Body       | [Context object](#context-object) | FALSE    |           |
+| options                                        | Opt-in features for the authentication transaction                                                               | Body       | [Options object](#options-object) | FALSE    |           |
+| password                                       | User's password credential                                                                                       | Body       | String                            | FALSE    |           |
+| token                                          | Token received as part of activation user request                                                                | Body       | String                            | FALSE    |           |
+| username                                       | User's non-qualified short-name (for example: dade.murphy) or unique fully-qualified sign in name (for example: dade.murphy@example.com) | Body       | String                            | FALSE    |           |
 
 ##### Options object
 
@@ -91,16 +91,16 @@ The context object allows [trusted web applications](#trusted-application) such 
 | ----------- | ----------------------------------------------------------------------------- | -------- | -------- | ------ | -------- | --------- | --------- |
 | deviceToken | A globally unique ID identifying the user's client device or user agent | String   | TRUE     | FALSE  | FALSE    |           | 32        |
 
-> **Note:** You must always pass the same `deviceToken` for a user's device with every authentication request for per-device or per-session Sign-On Policy Factor challenges. If the `deviceToken` is absent or does not match the previous `deviceToken`, the user is challenged every-time instead of per-device or per-session.<br><br>Similarly, you must always pass the same `deviceToken` for a user's device with every authentication request for **new device security behavior detection**. If the `deviceToken` is absent or doesn't match a recent `deviceToken` for the user, the request is considered to be from a new device. See [New Device Behavior Detection](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_proc_security_behavior_detection).
+> **Note:** You must always pass the same `deviceToken` for a user's device with every authentication request for per-device or per-session Sign-On Policy Factor challenges. If the `deviceToken` is absent or does not match the previous `deviceToken`, the user is challenged every-time instead of per-device or per-session.<br><br>Similarly, you must always pass the same `deviceToken` for a user's device with every authentication request for **new device security behavior detection**. If the `deviceToken` is absent or doesn't match a recent `deviceToken` for the user, the request is considered to be from a new device. See [New Device Behavior Detection](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection).
 
-##### Device Token Best Practices
+##### Device Token best practices
 
 Use the following recommendations as guidelines for generating and storing a `deviceToken` for both web and native applications.
 
-**Web Apps**<br>
+**Web apps**<br>
 Okta recommends that you generate a UUID or GUID for each client and persist the `deviceToken` using a secure, HTTP-only cookie or HTML5 localStorage scoped to the customer's domain as the default implementation. See [Cookie flags that matter](https://odino.org/security-hardening-http-cookies/#cookie-flags-that-matter) for more best practices on hardening HTTP cookies.
 
-**Native Apps**<br>
+**Native apps**<br>
 Ask the device operating system for a unique device ID. See [Apple's information on DeviceCheck](https://developer.apple.com/documentation/devicecheck) for an example.
 
 #### Response parameters
@@ -880,23 +880,23 @@ Content-Type: application/json
 
 Include the `X-Device-Fingerprint` header to supply a device fingerprint. The `X-Device-Fingerprint` header is used in the following ways:
 
-* If the new or unknown device email notification is enabled, an email is sent to the user if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_General).
-* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. See [New Device Behavior Detection](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_proc_security_behavior_detection).
+* If the new or unknown device email notification is enabled, an email is sent to the user if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. For more information about this feature, see the [General Security documentation](https://help.okta.com/okta_help.htm?id=ext_Security_General).
+* If you have the security behavior detection feature enabled and you have a new device behavior configured in a policy rule, a new device is detected if the device fingerprint sent in the `X-Device-Fingerprint` header isn't associated with a previously successful user sign in. See [New Device Behavior Detection](https://help.okta.com/okta_help.htm?id=ext_proc_security_behavior_detection).
 
-> **Note:** The use of the `X-Device-Fingerprint` header for new device security behavior detection is deprecated. Starting April 12 2021, we are going to enable [improvements to the new device security behavior](https://help.okta.com/okta_help.htm?id=ext-improved-ndbd) for all the existing tenants. After the improvements are rolled out, new device security behavior only relies on the `deviceToken` in the [Context Object](#context-object) and doesn't rely on the `X-Device-Fingerprint` header. The new or unknown device email notification feature continues to rely on the `X-Device-Fingerprint` header.
+> **Note:** The use of the `X-Device-Fingerprint` header for new device security behavior detection is deprecated. Starting April 12 2021, we are going to enable [improvements to the new device security behavior](https://help.okta.com/okta_help.htm?id=csh-improved-ndbd) for all the existing tenants. After the improvements are rolled out, new device security behavior only relies on the `deviceToken` in the [Context Object](#context-object) and doesn't rely on the `X-Device-Fingerprint` header. The new or unknown device email notification feature continues to rely on the `X-Device-Fingerprint` header.
 
 Specifying your own device fingerprint in the `X-Device-Fingerprint` header is a highly privileged operation that is limited to trusted web applications and requires making authentication requests with a valid API token. You should send the device fingerprint only if the trusted app has a computed fingerprint for the end user's client.
 
 > **Note:** The `X-Device-Fingerprint` header is different from the device token. Device-based MFA in the Okta Sign-On policy rules depends on the device token only and not on the `X-Device-Fingerprint` header. See [Context Object](#context-object) for more information on the device token. Device-based MFA would work only if you pass the device token in the [client request context](/docs/reference/core-okta-api/#client-request-context).
 
-##### Device Fingerprint Best Practices
+##### Device fingerprint best practices
 
 Use the following recommendations as guidelines for generating and storing a device fingerprint in the `X-Device-Fingerprint` header for both web and native applications.
 
-**Web Apps**<br>
+**Web apps**<br>
 Okta recommends using a secure, HTTP-only cookie with a random/unique value on the customer's domain as the default implementation. See [Cookie flags that matter](https://odino.org/security-hardening-http-cookies/#cookie-flags-that-matter) for more best practices on hardening HTTP cookies.
 
-**Native Apps**<br>
+**Native apps**<br>
 Ask the device operating system for a unique device ID. See [Apple's information on DeviceCheck](https://developer.apple.com/documentation/devicecheck) for an example.
 
 ##### Request example for device fingerprinting
@@ -1466,6 +1466,8 @@ Authenticates a user for signing in to the specified application
 * Only WS-Federation, SAML based apps are supported.
 * Pass the application instance ID of the app as ["audience"](#request-parameters-for-primary-authentication) along with the user credentials.
 
+> **Note:** `audience` is a <ApiLifecycle access="deprecated" /> parameter.
+
 > **Note:** Okta Sign-on Policy and the related App Sign-on Policy are evaluated after successful primary authentication.
 
 ##### Request example for IDP-initiated step-up authentication
@@ -1485,6 +1487,8 @@ curl -v -X POST \
   }
 }' "https://${yourOktaDomain}/api/v1/authn"
 ```
+
+> **Note:** `audience` is a <ApiLifecycle access="deprecated" /> parameter.
 
 ##### Response example when MFA isn't required
 
@@ -4747,7 +4751,7 @@ curl -v -X POST \
 
 ##### Response example (waiting for 3-number verification challenge response)
 
-> **Note:** If Okta detects an unusual sign-in attempt, the end user will receive a 3-number verification challenge and the correct answer of the challenge will be provided in the polling response. This is similar to the standard `waiting` response but with the addition of a `correctAnswer` property in the `challenge` object. The `correctAnswer` property will only be included in the response if the end user is on the 3-number verification challenge view in the Okta Verify mobile app. Look at [Sign in to your org with Okta Verify](https://help.okta.com/en/prod/okta_help_CSH.htm#csh-ov-signin) for more details about this challenge flow.
+> **Note:** If Okta detects an unusual sign-in attempt, the end user will receive a 3-number verification challenge and the correct answer of the challenge will be provided in the polling response. This is similar to the standard `waiting` response but with the addition of a `correctAnswer` property in the `challenge` object. The `correctAnswer` property will only be included in the response if the end user is on the 3-number verification challenge view in the Okta Verify mobile app. Look at [Sign in to your org with Okta Verify](https://help.okta.com/okta_help.htm?id=csh-ov-signin) for more details about this challenge flow.
 
 ```json
 {

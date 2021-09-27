@@ -82,7 +82,7 @@ curl -v -X GET \
 
 Fetches the appropriate User Profile Schema for the caller's [User Type](/docs/reference/api/user-types/).
 
-> **Note:** If a property's value is not visible to an end user (because it is hidden or [sensitive](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-hide-sensitive-attributes) then the property's definition will also be hidden in the output of this API.
+> **Note:** If a property's value is not visible to an end user (because it is hidden or [sensitive](https://help.okta.com/okta_help.htm?id=ext-hide-sensitive-attributes) then the property's definition will also be hidden in the output of this API.
 
 #### Request path parameters
 

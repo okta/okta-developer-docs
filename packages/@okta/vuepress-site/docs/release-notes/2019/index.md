@@ -396,7 +396,7 @@ Creation of [LinkedIn Identity Providers](/docs/guides/add-an-external-idp/linke
 
 #### Email Customization disabled for free orgs
 
-To curtail phishing, free editions of Okta are no longer able to create and send customized email templates. For feature information, see [Email and SMS Options](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Settings_Email).
+To curtail phishing, free editions of Okta are no longer able to create and send customized email templates. For feature information, see [Email and SMS Options](https://help.okta.com/okta_help.htm?id=ext_Settings_Email).
 
 
 ## June
