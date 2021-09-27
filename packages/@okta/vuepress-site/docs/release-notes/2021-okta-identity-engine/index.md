@@ -19,7 +19,7 @@ The [Devices API](/docs/reference/api/devices/) allows you to retrieve a single 
 
 #### New MFA Authenticators enrollment settings are available in the Policy API
 
-[Policy MFA Authenticator](/docs/reference/api/policy/#policy-mfa-authenticator-object) configurations are now included in the Policy API's [Multifactor (MFA) Enrollment Policy Settings](/docs/reference/api/policy/#mulitfactor-mfa-enrollment-policy). The updates in the MFA Enrollment [Policy Settings](/docs/reference/api/policy/#policy-settings-data) allow you to configure either Authenticators or Factors for an MFA enrollment policy. <!--OKTA-429994-->
+[Policy MFA Authenticator](/docs/reference/api/policy/#policy-mfa-authenticator-object) configurations are now included in the Policy API's [Multifactor (MFA) Enrollment Policy Settings](/docs/reference/api/policy/#mulitfactor-mfa-enrollment-policy). The updates in the MFA Enrollment [Policy Settings](/docs/reference/api/policy/#policy-authenticators-settings-example) allow you to configure either Authenticators or Factors for an MFA enrollment policy. <!--OKTA-429994-->
 
 ### Weekly Release 2021.09.3
 
