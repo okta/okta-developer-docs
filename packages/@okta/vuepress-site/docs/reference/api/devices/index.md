@@ -79,7 +79,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4"
+"https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4"
 ```
 
 ##### Response
@@ -214,7 +214,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/devices"
+"https://${yourOktaDomain}/api/v1/devices"
 ```
 
 ##### Response
@@ -332,7 +332,7 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+\"Eng-dev\"+and+status+eq+\"ACTIVE\""
+"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+\"Eng-dev\"+and+status+eq+\"ACTIVE\""
 ```
 
 ##### Response
@@ -487,7 +487,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/activate"
+"https://${yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/activate"
 ```
 
 ##### Response
@@ -544,7 +544,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/deactivate"
+"https://${yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/deactivate"
 ```
 
 ##### Response
@@ -603,7 +603,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/suspend"
+"https://${yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/suspend"
 ```
 
 ##### Response
@@ -656,7 +656,7 @@ curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://{yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/unsuspend"
+"https://${yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/unsuspend"
 ```
 
 ##### Response
