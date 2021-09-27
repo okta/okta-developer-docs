@@ -11,15 +11,15 @@ title: Okta Identity Engine API Products Release Notes 2021
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
 | [New Devices API](#new-devices-api)| September 29, 2021 |
-| [New MFA Authenticators enrollment settings are available in the Policy API](#new-mfa-authenticators-enrollment-settings-are-available-in-the-policy-api)| September 29, 2021 |
+| [New Policy Authenticators settings are available in the Policy API](#new-policy-authenticators-settings-are-available-in-the-policy-api)| September 29, 2021 |
 
 #### New Devices API
 
 The [Devices API](/docs/reference/api/devices/) allows you to retrieve a single device or a list of devices from an org. The API also allows you to activate, deactivate, suspend, unsuspend, and delete a device by ID. You can access the OAuth 2.0 supported Devices API by using the `okta.devices.manage` and `okta.devices.read` [scopes](/docs/guides/implement-oauth-for-okta/scopes/). <!--OKTA-424362-->
 
-#### New MFA Authenticators enrollment settings are available in the Policy API
+#### New Policy Authenticator settings are available in the Policy API
 
-[Policy MFA Authenticator](/docs/reference/api/policy/#policy-mfa-authenticator-object) configurations are now included in the Policy API's [Multifactor (MFA) Enrollment Policy Settings](/docs/reference/api/policy/#mulitfactor-mfa-enrollment-policy). The updates in the MFA Enrollment [Policy Settings](/docs/reference/api/policy/#policy-authenticators-settings-example) allow you to configure either Authenticators or Factors for an MFA enrollment policy. <!--OKTA-429994-->
+[Policy Authenticator](/docs/reference/api/policy/#policy-authenticator-object) configurations are now included in the Policy API's [Multifactor (MFA) Enrollment Policy Settings](/docs/reference/api/policy/#mulitfactor-mfa-enrollment-policy). You can configure either [Authenticators](/docs/reference/api/policy/#policy-authenticators-settings-example) or [Factors](/docs/reference/api/policy/#policy-factors-settings-example) for an MFA Enrollment Policy with this API update. The Policy Authenticator configurations are available for all active Authenticators, including enrollment and recovery Authenticators. <!--OKTA-429994-->
 
 ### Weekly Release 2021.09.3
 
