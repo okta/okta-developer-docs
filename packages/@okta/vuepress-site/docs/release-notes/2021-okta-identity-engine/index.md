@@ -6,6 +6,21 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 ## September
 
+### Weekly Release 2021.09.4
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [New Devices API](#new-devices-api)| September 29, 2021 |
+| [New MFA Authenticators enrollment settings are available in the Policy API](#new-mfa-authenticators-enrollment-settings-are-available-in-the-policy-api)| September 29, 2021 |
+
+#### New Devices API
+
+The [Devices API](/docs/reference/api/devices/) allows you to retrieve a single device or a list of devices from an org. The API also allows you to activate, deactivate, suspend, unsuspend, and delete a device by ID. You can access the OAuth 2.0 supported Devices API by using the `okta.devices.manage` and `okta.devices.read` [scopes](/docs/guides/implement-oauth-for-okta/scopes/). <!--OKTA-424362-->
+
+#### New MFA Authenticators enrollment settings are available in the Policy API
+
+[Policy MFA Authenticator](/docs/reference/api/policy/#policy-mfa-authenticator-object) configurations are now included in the Policy API's [Multifactor (MFA) Enrollment Policy Settings](/docs/reference/api/policy/#mulitfactor-mfa-enrollment-policy). The updates in the MFA Enrollment [Policy Settings](/docs/reference/api/policy/#policy-settings-data) allow you to configure either Authenticators or Factors for an MFA enrollment policy. <!--OKTA-429994-->
+
 ### Weekly Release 2021.09.3
 
 | Change                                                                   | Expected in Preview Orgs |
