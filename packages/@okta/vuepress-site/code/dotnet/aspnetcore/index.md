@@ -47,12 +47,10 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 Okta's OIDC middleware integration with ASP.NET Core makes it easy to add sign-in to your ASP.NET Core applications and protect your Web APIs.
 
-
 <a href='https://www.nuget.org/packages/Okta.AspNetCore' class="language-reference">
 	<span class='icon download-16'></span>
 	<span>Okta ASP.NET Core OIDC integration on NuGet</span>
 </a>
-
 
 <a href='https://github.com/okta/okta-aspnet'>
 	<span class='fa fa-github'></span> <span>Okta ASP.NET Core OIDC integration Source</span>
