@@ -5,7 +5,7 @@
     v-if="title_element" 
     :link="title_element"
     :key="title_element.title"
-    :isOpened="title_element.isOpened"
+    :isOpened="title_element && title_element.isOpened"
   />
 
   <DocsMenuItem
@@ -51,7 +51,9 @@ export default {
   methods: {
     navigateToSelected: function(path) {
         let item = this.getMenuItemByPath(path); 
-        item.isOpened = true;         
+        if (item) {
+          item.isOpened = true;
+        }
         this.handleChange(item);
     },
 
@@ -64,7 +66,7 @@ export default {
       this.list = this.navigation;
       this.title_element = null;
 
-      if (!item.isOpened) {
+      if (item && !item.isOpened) {
         // return to parent
         parent = this.getParent(item);
         
@@ -74,7 +76,7 @@ export default {
           this.title_element = parent;
         }
       }
-      else if (item.subLinks) {
+      else if (item && item.subLinks) {
         // get children
         this.list = item.subLinks;
         this.title_element = item;
@@ -82,6 +84,7 @@ export default {
     },
 
     toggleLinkState: function(item) {
+      if (!item) { return; }
       item.isOpened = !Boolean(item.isOpened);
     },
 

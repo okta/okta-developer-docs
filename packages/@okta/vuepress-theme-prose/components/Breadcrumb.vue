@@ -15,7 +15,6 @@
 </template>
 
 <script>
-  //import SidebarItems from "../mixins/SidebarItems";
 
   export default {
     name: "Breadcrumb",
