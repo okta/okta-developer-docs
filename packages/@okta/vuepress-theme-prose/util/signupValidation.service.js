@@ -95,7 +95,7 @@ export class SignUpValidation {
     const oktaApi = new Api('https://www.okta.com/oktaapi');
     try {
       const { data: { valid, message } } = await oktaApi
-        .post('/ft/email', {
+        .get('/ft/email', {
           params: { email },
         });
 
