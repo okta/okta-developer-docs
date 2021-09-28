@@ -143,6 +143,36 @@
       width: 100%;
       margin: 40px 0 0 0;
     }
+    .auth0-banner {
+      display: flex;
+      background-color: #233E4E;
+      padding: 30px;
+      font-size: 22px;
+      font-weight: 500;
+      &--content {
+      }
+      &--logo {
+        img {
+          width: 124px;
+          height: 124px;
+          max-width: 124px;
+        }
+        align-self: center;
+        padding: 0 20px 0 50px;
+      }
+      a {
+        font-size: 18px;
+        color: #37EDDC;
+        &:link, &:visited {
+          color: #37EDDC;
+          text-decoration: none;
+          border-bottom: 1px solid currentcolor;
+        }
+        &:hover {
+          border-bottom: 0;
+        }
+      }
+    }
   }
 
   .authorization-layout--footer {

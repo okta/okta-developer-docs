@@ -242,6 +242,19 @@
         <div class="logo-wrapper" v-if="!isOie">
           <CompanyLogos withHeading small v-bind:centered="false" />
         </div>
+        <div class="auth0-banner" v-if="!isOie">
+          <div class="auth0-banner--content">
+            <p>
+              Are you a developer looking for a pay-as-you-go option? Check out Auth0 self-service plans starting at $23 per month.
+            </p>
+            <p>
+              <a href='#'>Start Building for Free &rsaquo;</a>
+            </p>
+          </div>
+          <div class="auth0-banner--logo">
+            <img src="/img/logos/auth0-inc-logo.svg" alt="auth0 logo" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
