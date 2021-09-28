@@ -11,7 +11,7 @@ title: Okta Identity Engine API Products Release Notes 2021
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
 | [New Devices API](#new-devices-api)| September 29, 2021 |
-| [New Policy Authenticators settings are available in the Policy API](#new-policy-authenticators-settings-are-available-in-the-policy-api)| September 29, 2021 |
+| [New Policy Authenticator settings are available in the Policy API](#new-policy-authenticator-settings-are-available-in-the-policy-api)| September 29, 2021 |
 
 #### New Devices API
 
@@ -19,7 +19,7 @@ The [Devices API](/docs/reference/api/devices/) allows you to retrieve a single 
 
 #### New Policy Authenticator settings are available in the Policy API
 
-[Policy Authenticator](/docs/reference/api/policy/#policy-authenticator-object) configurations are now included in the Policy API's [Multifactor (MFA) Enrollment Policy Settings](/docs/reference/api/policy/#mulitfactor-mfa-enrollment-policy). You can configure either [Authenticators](/docs/reference/api/policy/#policy-authenticators-settings-example) or [Factors](/docs/reference/api/policy/#policy-factors-settings-example) for an MFA Enrollment Policy with this API update. The Policy Authenticator configurations are available for all active Authenticators, including enrollment and recovery Authenticators. <!--OKTA-429994-->
+[Policy Authenticator](/docs/reference/api/policy/#policy-authenticator-object) configurations are now included in the Policy API's [Multifactor (MFA) Enrollment Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) settings. You can configure either [Authenticators](/docs/reference/api/policy/#policy-authenticators-settings-example) or [Factors](/docs/reference/api/policy/#policy-factors-settings-example) for an MFA Enrollment Policy with this API update. The Policy Authenticator configurations are available for all active Authenticators, including enrollment and recovery Authenticators. <!--OKTA-429994-->
 
 ### Weekly Release 2021.09.3
 
