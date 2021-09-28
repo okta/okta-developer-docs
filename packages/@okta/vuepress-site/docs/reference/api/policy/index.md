@@ -1197,7 +1197,7 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
 | factors                                                                          | Factor policy settings                | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
 | type <ApiLifecycle access="ie" /> <ApiLifecycle access="Limited GA" />           | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
 
-> **Note:** The `authenticators` parameter allows you to configure all available Authenticators, including authentication, and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
+> **Note:** The `authenticators` parameter allows you to configure all available Authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
 
 #### Policy Factors Configuration object
 
