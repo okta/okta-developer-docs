@@ -226,6 +226,17 @@
               />
             </div>
           </div>
+          <div class="row">
+            <div class="field-wrapper">
+              <input
+                type="button"
+                id="continue-google"
+                class="btn social-btn"
+                value="continue with google"
+                @click="openTermsConditionsDialog(uris.google)"
+              />
+            </div>
+          </div>
           <TermsAndConditionsDialog
             v-if="isShowTermsConditionsDialog"
             :socialUrl="socialUrl"
@@ -354,6 +365,7 @@ export default {
 
       return {
         github: getIdpUri(uris, "github"),
+        google: getIdpUri(uris, "google")
       };
     }
   },

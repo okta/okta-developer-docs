@@ -21,6 +21,13 @@
           </a>
         </div>
       </div>
+      <div class="row">
+        <div class="field-wrapper">
+          <a class="btn social-btn" :href="uris.google">
+            Continue With Google
+          </a>
+        </div>
+      </div>
       <div class="row goto-signup">
         Need an account?
         <SmartLink :item="{ link: '/signup/' }">Sign up</SmartLink>
@@ -48,6 +55,7 @@ export default {
       return {
         email: "https://login.okta.com/",
         github: getIdpUri(uris, "github"),
+        google: getIdpUri(uris, "google"),
       };
     },
   },
