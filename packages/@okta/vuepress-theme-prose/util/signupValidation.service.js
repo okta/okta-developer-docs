@@ -5,6 +5,7 @@ export class SignUpValidation {
     email: "Invalid email.",
     firstName: "Invalid first name.",
     lastName: "Invalid last name.",
+    notWorkEmail: "Business email is required.",
     emptyField: "This field is required."
   };
 
@@ -46,12 +47,15 @@ export class SignUpValidation {
       return;
     }
 
-    // If email not valid or not a work email, display errror
-    if (
-      !re.test(this.form[key].value) ||
-      !(await this._isWorkEmail(this.form[key].value))
-    ) {
+    // If email not valid, display error
+    if (!re.test(this.form[key].value)) {
       this._setInputError(key);
+      return;
+    }
+
+    // If not a work email, display errror
+    if (!(await this._isWorkEmail(this.form[key].value))) {
+      this._setInputError(key, this.errorDictionary.notWorkEmail);
     }
   }
 
