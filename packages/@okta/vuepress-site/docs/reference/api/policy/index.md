@@ -1134,7 +1134,7 @@ The following conditions may be applied to the Rules associated with Okta Sign O
 
 The Multifactor (MFA) Enrollment Policy controls which MFA methods are available for a User, as well as when a User may enroll in a particular Factor.
 
-#### Policy Settings example
+#### Policy Factors Settings example
 
 > **Note:** Policy Settings are included only for those Factors that are enabled.
 
@@ -1161,7 +1161,43 @@ The Multifactor (MFA) Enrollment Policy controls which MFA methods are available
    }
 ```
 
+#### Policy Authenticators Settings example
+
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
+
+> **Note:** Policy Settings are included only for those Authenticators that are enabled.
+
+```json
+   "settings": {
+     "type": "AUTHENTICATORS",
+     "authenticators": [
+       {
+         "key": "security_question",
+         "enroll": {
+           "self": "OPTIONAL"
+         }
+       },
+       {
+         "key": "okta_phone",
+         "enroll": {
+           "self": "OPTIONAL"
+         }
+       }
+     ]
+   }
+```
+
 ### Policy Settings data
+
+
+| Parameter                                                                        | Description                           | Data Type                                                                    | Required | Default   |
+| ---                                                                              | ---                                   | ---                                                                          | ---      | ---       |
+| authenticators <ApiLifecycle access="ie" /> <ApiLifecycle access="Limited GA" /> | List of Authenticator policy settings | Array of [Policy Authenticator object](#policy-authenticator-object) | No       |           |
+| factors                                                                          | Factor policy settings                | [Policy Factors Configuration object](#policy-factors-configuration-object)  | No       |           |
+| type <ApiLifecycle access="ie" /> <ApiLifecycle access="Limited GA" />           | Type of policy configuration object   | `FACTORS` or `AUTHENTICATORS`                                                | No       | `FACTORS` |
+
+> **Note:** The `authenticators` parameter allows you to configure all available Authenticators, including authentication and recovery. In contrast, the `factors` parameter only allows you to configure multifactor authentication.
 
 #### Policy Factors Configuration object
 
@@ -1214,6 +1250,26 @@ Currently, the Policy Factor Consent terms settings are ignored.
 | ---       | ---                                               | ---                                | ---      | ---     |
 | format    | The format of the Consent dialog box to be presented. | `TEXT`, `RTF`, `MARKDOWN` or `URL` | No       | N/A     |
 | value     | The contents of the Consent dialog box.               | String                             | No       | N/A     |
+
+
+#### Policy Authenticator object
+
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
+
+| Parameter | Description                                   | Data Type                                                                   | Required |
+| ---       | ---                                           | ---                                                                         | ---      |
+| key       | A label that identifies the Authenticator     | String                                                                      | Yes      |
+| enroll    | Enrollment requirements for the Authenticator | [Policy Authenticator Enroll object](#policy-authenticator-enroll-object)   | Yes      |
+
+#### Policy Authenticator Enroll object
+
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
+
+| Parameter | Description                                    | Data Type                                | Required | Default       |
+| ---       | ---                                            | ---                                      | ---      | ---           |
+| self      | Requirements for the user-initiated enrollment | `NOT_ALLOWED`, `OPTIONAL`, or `REQUIRED` | Yes      | `NOT_ALLOWED` |
 
 ### Policy conditions
 
