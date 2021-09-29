@@ -1,4 +1,9 @@
-There are several options to set the sample app's configuration.
+There are several options to set the sample app's configuration:
+
+* [Option 1: Create a YAML file](#option-1-create-a-yaml-file)
+* [Option 2: Set environment variables](#option-2-set-environment-variables)
+* [Option 3: Use Java system properties](#option-3-use-java-system-properties)
+* [Option 4: Add the values as parameters to the SDK's client constructor](#option-4-add-the-values-as-parameters-to-the-sdk-s-client-constructor)
 
 ### Option 1: Create a YAML file
 
