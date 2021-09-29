@@ -177,7 +177,7 @@ Searches include all Device profile properties, as well as the Device `id`, `sta
 | `profile.platform eq "WINDOWS"`                 | Devices that have an `platform` of `WINDOWS`     |
 | `profile.sid sw "S-1" `                         | Devices whose `sid` starts with `S-1`            |
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.read`
 
 #### Request path parameters
