@@ -26,7 +26,7 @@ The Interaction Code grant is intended for developers who want a step-by-step re
 
 The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow with PKCE](/docs/concepts/oauth-openid/#authorization-code-flow-with-pkce). All clients are required to pass along a client ID, as well as a Proof Key for Code Exchange (PKCE), to keep the flow secure. Confidential clients such as web apps must also pass a client secret in their authorization request. The user can start the authorization request with minimal information, relying on the client to facilitate the interactions with the Okta org to progressively authenticate the user. The series of interactions, which could include multifactor authentication steps, is secured using the `interaction_handle`. After successfully completing the remedial interactions, the client receives an `interaction_code` that they can then redeem for tokens from an Okta Authorization Server with the [`/token`](/docs/reference/api/oidc/#token) endpoint.
 
-The Interaction Code flow is supported by Okta's two authorization server types: the [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server) and [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server). These Okta Authorization Servers must have the Interaction Code grant type enabled in their Access Policy Rule to accept Interaction Code grant type requests.
+The Interaction Code flow is supported by Okta's two authorization server types: the [Org Authorization Server](/docs/concepts/auth-servers/#org-authorization-server) and [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server). These Okta Authorization Servers must have the Interaction Code grant type configured in their Access Policy Rule to accept Interaction Code requests.
 
 The following table describes the parameters introduced for the Interaction Code grant type flow:
 
@@ -71,7 +71,7 @@ app -> client: Response
 
 ![Interaction Code flow sequence diagram](/img/authorization/interaction-code-grant-flow.png)
 
-* The Interaction Code flow can start with minimal user information. For example, the user (resource owner) may only provide the client app with their username. Alternatively, the client can also begin the flow without any user information for a passwordless or a social sign-in experience.
+* The Interaction Code flow can start with minimal user information. For example, the user (resource owner) may only provide the client app with their username. Alternatively, the client can also begin the flow without any user information for a passwordless sign-in experience.
 
 * The client app generates the PKCE code verifier & code challenge.
 
