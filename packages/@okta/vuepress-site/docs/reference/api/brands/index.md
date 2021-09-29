@@ -7,7 +7,7 @@ category: management
 
 <ApiLifecycle access="ea" />
 
-The Okta Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted Sign-In Page, error pages, email templates, and the Okta End-User Dashboard.
+The Okta Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard.
 
 Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
 
@@ -227,7 +227,7 @@ Content-Type: application/json
 }
 ```
 
-The following example resets a privacy policy URL to use the Okta default privacy policy URL and remove Powered by Okta from all pages.
+The following example resets a privacy policy URL to use the Okta default privacy policy URL and removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard.
 
 ##### Request
 
@@ -1109,7 +1109,7 @@ The Brand request object defines the following properties:
 | ----------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------- |
 | `agreeToCustomPrivacyPolicy`  | boolean                 | (Optional) Consent for updating the custom privacy policy URL. Not required when resetting the URL. |
 | `customPrivacyPolicyUrl`      | String                  | Custom privacy policy URL. Default value: `null`.                                                   |
-| `removePoweredByOkta`         | boolean                 | (Optional) Flag to remove "Powered by Okta" from the experience. Defaulted to `false`               |
+| `removePoweredByOkta`         | boolean                 | (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard.. Defaulted to `false`        |
 | `_links`                      | [Links](#links-object)  | Link relations for this object                                                                      |
 
 #### Brand example
@@ -1145,7 +1145,7 @@ The Brand Response object defines the following properties:
 | Property                  | Type                    | Description                                             |
 | ------------------------- | ----------------------- | ------------------------------------------------------- |
 | `customPrivacyPolicyUrl`  | String                  | Custom privacy policy URL                               |
-| `removePoweredByOkta`     | boolean                 | Setting to remove "Powered by Okta" from the experience |
+| `removePoweredByOkta`     | boolean                 | Remove "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard. |
 | `id`                      | String                  | Brand ID                                                |
 | `_links`                  | [Links](#links-object)  | Link relations for this object                          |
 
