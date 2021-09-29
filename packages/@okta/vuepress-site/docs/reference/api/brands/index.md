@@ -1129,7 +1129,7 @@ Resets a privacy policy URL
 }
 ```
 
-Updates setting to remove Powered by Okta
+Updates the setting to remove the "Powered by Okta" wording
 ```json
 {
   "agreeToCustomPrivacyPolicy": true,
