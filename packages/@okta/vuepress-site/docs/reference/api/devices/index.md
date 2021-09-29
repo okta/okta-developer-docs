@@ -514,7 +514,7 @@ Sets a Device's `status` to `DEACTIVATED`. Deactivation causes a Device to lose 
 > 3. Device deactivation renders associated assets—such as device factors and management certificates—non-usable. Device reenrollment via Okta Verify is required to make such assets functional again.
 
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.manage`
 
 #### Request path parameters
