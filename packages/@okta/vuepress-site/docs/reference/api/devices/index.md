@@ -47,7 +47,7 @@ The enrollment flow of the Okta Verify creates a device in the Okta Device Inven
 
 Fetches a Device by its `id`. If you don't know the `id`, you can [List Devices](#list-devices).
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.read`
 
 #### Request path parameters
