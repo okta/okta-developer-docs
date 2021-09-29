@@ -397,7 +397,7 @@ Permanently deletes a Device that is in `DEACTIVATED` status. The Device can be 
 
 This deletion is destructive and deletes all the profile data related to the device. Once deleted, device data can't be recovered. A Device that is not in a `DEACTIVATED` state raises an error if Delete operation is attempted.
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.manage`
 
 #### Request path parameters
