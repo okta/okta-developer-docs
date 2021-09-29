@@ -645,6 +645,7 @@ export const reference = [
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
           { title: "Brands", path: "/docs/reference/api/brands/"},
           { title: "CAPTCHAs", path: "/docs/reference/api/captchas/"},
+          { title: "Devices", path: "/docs/reference/api/devices/"},
           { title: "Domains", path: "/docs/reference/api/domains/"},
           { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/"},
           { title: "Event Types", path: "/docs/reference/api/event-types/" },
