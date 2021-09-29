@@ -457,7 +457,7 @@ Sets a Device's `status` to `ACTIVE`.
 
 Activated devices can be used to create and delete Device User links.
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.manage`
 
 #### Request path parameters
