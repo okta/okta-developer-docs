@@ -91,7 +91,7 @@ $dropdown-toggle-border: #8c8c96;
       }
 
       .vs__dropdown-menu {
-            border: 1px solid #1662de;
+            border: 1px solid cv('action', 'base');
             overflow-x: hidden;
             padding: 0px;
             z-index: 50;
