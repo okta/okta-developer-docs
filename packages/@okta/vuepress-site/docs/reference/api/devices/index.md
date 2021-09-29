@@ -573,7 +573,7 @@ Suspended devices:
 * Can only be [unsuspended](#unsuspend-device) or [deactivated](#deactivate-device).
 
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.manage`
 
 #### Request path parameters
