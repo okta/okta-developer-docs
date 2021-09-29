@@ -33,7 +33,7 @@
 
             <div v-if="appContext.isInMobileViewport" class="sticky-content">
               <Breadcrumb />
-              <StackSelector forMobileViewOnly v-if="$page.hasStackContent" />
+              <StackSelector v-if="$page.hasStackContent" />
             </div>
 
             <PageTitle v-if="appContext.isInMobileViewport" />

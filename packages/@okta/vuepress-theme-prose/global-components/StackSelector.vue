@@ -2,7 +2,6 @@
   <div
     :class="{
       'stack-selector': !noSelector,
-      'for-mobile-view-only': forMobileViewOnly,
     }"
     v-if="options.length"
   >

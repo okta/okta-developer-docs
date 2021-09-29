@@ -6,16 +6,8 @@ $dropdown-toggle-border: #8c8c96;
   z-index: 10;
 
   @include media("<tablet"){
-      display: none;
-  }
-
-  &.for-mobile-view-only{
     margin-bottom: 1.5rem;
     display: block;
-    @include media(">=tablet"){
-      display: none;
-    }
-
   }
 
   .selector-control {
