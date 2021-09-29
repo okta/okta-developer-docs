@@ -626,7 +626,7 @@ Unsuspends a Device and by returning its `status` value to `ACTIVE`.
 
 This operation can only be performed on a Device that is in `SUSPENDED` status.
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.manage`
 
 #### Request path parameters
