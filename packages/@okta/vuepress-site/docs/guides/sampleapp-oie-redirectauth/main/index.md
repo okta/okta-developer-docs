@@ -59,7 +59,7 @@ This section walks you through enrolling a user and authenticating that user.
 <StackSnippet snippet="simpleenrollauth" />
 
 4. Enter the **Username** and **Password** for an admin user in your Okta org. You are redirected to the success page.
-    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-about-asop) is configured.
+    > **Note:** Which authenticators appear during sign-in depends on how your [application sign-on policy](https://help.okta.com/okta_help.htm?type=oie&id=ext-about-asop) is configured.
 5. Click <StackSnippet snippet="tryenrollout" inline /> to sign out of the <StackSnippet snippet="applang" inline /> app.
 
 ## Enable self-service enrollment
@@ -77,7 +77,7 @@ This section walks you through enabling self-service enrollment for the Sign-In 
 7. In the **Enrollment Settings** section, click the **Actions** menu icon (&#8942;) beside the **ENABLED** flag and select **Edit**.
 8. In the **For new users** section of the dialog box, select **Allowed** next to **Sign-up**, and then click **Save**.
 
-> **Note:** See [Create a Profile Enrollment policy for self-registration](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment).
+> **Note:** See [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment).
 
 ### Try enrollment
 

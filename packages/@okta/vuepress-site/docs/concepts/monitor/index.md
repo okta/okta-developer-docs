@@ -25,13 +25,14 @@ The Admin Console contains predefined reports, system log filters, and notificat
 > **NOTE**: Your Okta org maintains a 90-day sliding window of system logs. If you need to retain earlier logs, you can download system logs for external processing or archiving before they pass the 90-day window.
 
 ## Use the Admin Console to monitor events
+
 The Okta Admin Console provides a rich set of visuals and tools for you to monitor your Okta org.
 
-* Use the [Dashboard](https://help.okta.com/en/prod/Content/Topics/Dashboard/Dashboard.htm) to [view your org at a glance](https://help.okta.com/en/prod/Content/Topics/Dashboard/view-your-org.htm), including the number of active users, active groups, and active SSO apps. You can also view your [org agents' status](https://help.okta.com/en/prod/Content/Topics/Dashboard/view-org-agent-status.htm), [your tasks](https://help.okta.com/en/prod/Content/Topics/Dashboard/monitor-your-tasks.htm) list, recent org changes, as well as security tips.
-* Use the [Reports](https://help.okta.com/en/prod/Content/Topics/Reports/report-types.htm) page to view predefined system log reports or visuals
-* Use the [System Logs](https://help.okta.com/en/prod/Content/Topics/Reports/Reports_SysLog.htm) page to filter for specific events and to view trends over time
-* Use [HealthInsight](https://help.okta.com/en/prod/Content/Topics/Security/healthinsight/healthinsight.htm) to view recommendations from a recent Okta org security audit
-* Use [ThreatInsight](https://help.okta.com/en/prod/Content/Topics/Security/threat-insight/ti-index.htm) to view IP addresses identified by the greater Okta community as threatening
+* Use the [Dashboard](https://help.okta.com/okta_help.htm?id=ext_Dashboard) to [view your org at a glance](https://help.okta.com/okta_help.htm?id=ext-view-your-org), including the number of active users, active groups, and active SSO apps. You can also view your [org agents' status](https://help.okta.com/okta_help.htm?id=ext-view-org-agent-status), [your tasks](https://help.okta.com/okta_help.htm?id=ext-monitor-your-tasks) list, recent org changes, as well as security tips.
+* Use the [Reports](https://help.okta.com/okta_help.htm?id=ext-report-types) page to view predefined system log reports or visuals
+* Use the [System Logs](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog ) page to filter for specific events and to view trends over time
+* Use [HealthInsight](https://help.okta.com/okta_help.htm?id=ext-healthinsight) to view recommendations from a recent Okta org security audit
+* Use [ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) to view IP addresses identified by the greater Okta community as threatening
 
 ## Integrate with external monitoring tools
 
@@ -82,7 +83,7 @@ You can use the Admin Console to manually download CSV files of system log query
 
 ## Enable and configure Okta ThreatInsight
 
-The [Okta ThreatInsight](https://help.okta.com/en/prod/Content/Topics/Security/threat-insight/ti-index.htm)  feature aggregates data across Okta customers to detect malicious IP addresses that attempt credential-based attacks. You can enable ThreatInsight through the [Okta ThreatInsight Settings](https://help.okta.com/en/prod/Content/Topics/Security/threat-insight/configure-threatinsight.htm) in the Admin Console, or through the [ThreatInsight configuration API](/docs/reference/api/threat-insight/).
+The [Okta ThreatInsight](https://help.okta.com/okta_help.htm?id=ext_threatinsight) feature aggregates data across Okta customers to detect malicious IP addresses that attempt credential-based attacks. You can enable ThreatInsight through the [Okta ThreatInsight Settings](https://help.okta.com/okta_help.htm?id=ext-configure-threatinsight) in the Admin Console, or through the [ThreatInsight configuration API](/docs/reference/api/threat-insight/).
 
 After ThreadInsight is enabled, Okta captures access attempts from malicious IPs in the system logs. You can also configure it to block access from the malicious IPs to your Okta org.
 
@@ -90,7 +91,7 @@ After ThreadInsight is enabled, Okta captures access attempts from malicious IPs
 
 To mitigate denial-of-service attacks and abusive actions, Okta enforces rate limits on API requests as well as other end-user inbound and outbound operations. See [Rate limit overview](/docs/reference/rate-limits/) for details.
 
-Monitor and review the [system log events for rate limits](/docs/reference/rl-system-log-events/) to detect rate limit warnings or violations. Use the information in these event logs to investigate access spikes, abusive actions, or traffic trends. You can set up rate limit notification emails or rate limit notifications displayed in the Admin Console banner for admins. See [Set up rate limit notifications](https://help.okta.com/en/prod/Content/Topics/Settings/set-up-rate-limit-notifs.htm) for details.
+Monitor and review the [system log events for rate limits](/docs/reference/rl-system-log-events/) to detect rate limit warnings or violations. Use the information in these event logs to investigate access spikes, abusive actions, or traffic trends. You can set up rate limit notification emails or rate limit notifications displayed in the Admin Console banner for admins. See [Set up rate limit notifications](https://help.okta.com/okta_help.htm?id=ext-set-up-rate-limit-notifs) for details.
 
 ## Review Okta system status
 

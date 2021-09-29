@@ -20,31 +20,30 @@ Before you download the SDK, Widget, and sample apps, you need the following:
 
 ## Configure the SDK, Sign-In Widget, and sample app
 
-Before you integrate either the SDK or the Widget into your app, you need to understand the configuration settings that you need to add to initialize the SDK and the widget (if you decide to also use the Sign-In Widget).
+Before you integrate either the SDK or the Widget into your app, you need to understand the configuration settings that are required to initialize the SDK and/or the Sign-In Widget.
 
 ### Configuration settings
 
 #### Issuer
 
-Use the Issuer URI named "default" from your Custom Authorization Server. To find this value, go to **Security** > **API** in the Admin Console. On the **Authorization Servers** tab, the **default** Custom Authorization Server's Issuer URI appears in the list (for example, `https://${yourOktaDomain}/oauth2/default`).
+If you're getting started with your first app or if you're running an Okta sample app, use the Issuer URI of your default Custom Authorization Server. To find this value:
 
-There are two main types of authorization servers: **Org** and **Custom**:
+1. In the Admin Console, go to **Security** > **API**.
+2. On the **Authorization Servers** tab, use the **Issuer URI** value from the **default** Custom Authorization Server row (for example, `https://${yourOktaDomain}/oauth2/default`).
 
-* **Org**: If you want to use the Org Authorization Server, use the following URL: `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
-* **Custom**: You can either use the **default** Custom Authorization Server or create your own.
-  * **default**: The **default** Custom Authorization Server is predefined and automatically created when you created the org.<br>
-  **URI format**: `https://${yourOktaDomain}/oauth2/default`
+There are two main types of authorization servers in Okta: **Org** and **Custom**. See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) and [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US) for more information on which Authorization Server to use.
 
-      > **Note:** If you are just getting started and want to run the sample app, use the **default** Custom Authorization Server URI.
+If you're using either the Org or the Custom Authorization Servers, ensure your Issuer URI is in the following format:
 
-  * **Create your own**: You can also create your own Custom Authorization Server.<br>
-  **URI format**: `https://${yourOktaDomain}/oauth2/${authServerId}`
+* **Org**: If you want to use the Org Authorization Server, use the following URI format: `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
+* **Custom**: You can either use the default Custom Authorization Server or create your own.
+  * default Custom Authorization Server's URI format: `https://${yourOktaDomain}/oauth2/default`
 
-For more information on authorization server types, see [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) and [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US).
+  * Your own Custom Authorization Server's URI format: `https://${yourOktaDomain}/oauth2/${authServerId}`
 
 #### Client ID
 
-For the sample app, use the **Client ID** for the application that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab copy the **Client ID**.
+For the sample app, use the **Client ID** for the application that you created in [Create a new application](/docs/guides/oie-embedded-common-org-setup/-/main/#create-a-new-application). To find this value, go to **Applications** > **Applications** in the Admin Console. Select your app, and then on the **General** tab, copy the **Client ID**.
 
 <StackSnippet snippet="clientsecret" noSelector /><br>
 
@@ -66,10 +65,10 @@ The sample app uses the default scopes provided in the SDK, which include `openi
 
 ## Run the sample app
 
-After you complete the configurations, run the sample app:
+After you complete the configurations:
 
-* [Run the SDK sample app](/docs/guides/oie-embedded-common-run-samples/-/main/)
-* [Run the Widget sample app](/docs/guides/oie-embedded-common-run-samples/-/main/)
+* [Run the SDK sample app](/docs/guides/oie-embedded-common-run-samples/-/main/#run-the-sdk-sample-app)
+* [Run the Widget sample app](/docs/guides/oie-embedded-common-run-samples/-/main/#run-the-widget-sample-app)
 
 ## Set up the SDK for your own app
 

@@ -1,4 +1,4 @@
-After you run the sample app and explore its available use cases, you can begin to integrate the SDK and/or the widget into your own app. To get started follow these steps:
+After you run the sample app and explore the available use cases, you can begin to integrate the SDK and/or the Widget into your own app. To get started, follow these steps:
 
 #### 1: Set up your app with the prerequisites
 

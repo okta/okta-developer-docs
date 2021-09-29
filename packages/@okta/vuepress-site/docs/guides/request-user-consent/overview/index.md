@@ -7,7 +7,7 @@ If you want users to acknowledge and accept that they are giving an app access t
 This guide assumes that you:
 
 * Have an Okta Developer Edition org. [Create an org for free](https://developer.okta.com/signup).
-* Have an [OpenID Connect client application](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-assign-apps).
+* Have an [OpenID Connect client application](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) in Okta with at least [one user assigned to it](https://help.okta.com/okta_help.htm?id=ext-assign-apps).
 
 ## User consent and tokens
 

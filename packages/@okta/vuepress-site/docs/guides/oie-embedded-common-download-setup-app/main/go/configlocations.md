@@ -1,8 +1,8 @@
-You have several options for setting the configuration values in the SDK:
+You have several options for setting the configuration values for your app.
 
 ### Option 1: Create a configuration file
 
-Create a YAML file named `okta.yaml` in one of the following three available directories:
+Create a YAML file named `okta.yaml` in one of the following directories:
 
 * Current user's home directory.
   * **Unix/Linux**:    `~/.okta/okta.yaml`
@@ -24,9 +24,9 @@ idx:
   redirectUri: "${redirectUri}"
 ```
 
-### Option 2: Add the values as environment variables
+### Option 2: Set the values as environment variables
 
-Add the values as environment variables with the following naming conventions:
+Set the following environment variables with the configuration values:
 
 * `OKTA_IDX_ISSUER`
 * `OKTA_IDX_CLIENTID`
