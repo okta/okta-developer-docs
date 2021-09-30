@@ -13,7 +13,7 @@ Begin to integrate the SDK into your own app by following these steps:
 
 #### Import the packages and add the Spring Boot framework
 
-The embedded authentication with SDK sample app uses the Spring Boot framework with the Identity Engine Java SDK. Import the Identity Engine SDK packages as well as any Spring Boot packages you need.
+The embedded authentication with SDK sample app uses the Spring Boot framework with the Identity Engine Java SDK. Import the Identity Engine SDK packages as well as any Spring Boot packages that you need.
 
 ```java
 package com.okta.spring.example;
