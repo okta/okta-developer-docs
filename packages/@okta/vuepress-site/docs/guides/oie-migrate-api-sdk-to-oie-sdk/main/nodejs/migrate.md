@@ -7,7 +7,7 @@ auctor ipsum sapien, vitae rutrum risus bibendum non. Mauris efficitur in arcu e
 tempor. Aliquam hendrerit tortor id dignissim ullamcorper. In hac habitasse platea 
 dictumst. Aliquam vel mollis odio.
 
-## Why migrate  your application to the Okta Identity Engine SDK?
+## Why migrate your application to the Okta Identity Engine SDK?
 
 The Okta Identity Engine SDK provides your applications greater flexibility to create and configure user access experiences. The SDK’s architecture achieves this flexibility by shifting the control of application configurations and authorization policies to the org administrator, rather than requiring the developer to make updates at the code level. The SDK’s recursive method call format is also designed for dynamic Identity Engine policies that may require more access or authorization steps for one user over another.
 
