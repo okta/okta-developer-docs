@@ -1,4 +1,4 @@
-## Set up the configuration for your embedded Widget app
+## Set up the Sign-In Widget and SDK for your own app
 
 After you run the sample app and explore the available use cases, you can begin to integrate the SDK and/or the Widget in to your own app. Follow these steps to get started:
 

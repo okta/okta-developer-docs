@@ -30,3 +30,5 @@ idx, err := idx.NewClient(
   os.Getenv("OKTA_IDX_SCOPES"),
   os.Getenv("OKTA_IDX_REDIRECT_URI"))
 ```
+
+Before running your app, ensure that you [set up the configuration for your embedded SDK app](#set-up-the-configuration-for-your-embedded-sdk-app). See [Run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/go/main/#run-the-embedded-sdk-sample-app) for step-by-step instructions on how to run a sample app.

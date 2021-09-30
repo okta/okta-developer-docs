@@ -23,10 +23,12 @@ import com.okta.idx.sdk.api.response.TokenResponse;
 
 #### 3: Instantiate the IDXAuthenticationWrapper object
 
-You can invoke authentication Okta APIs after the `IDXAuthenticationWrapper` object is instantiated.
+Start building your app using the Identity Engine Java SDK. Begin the Okta authentication flow by instantiating the `IDXAuthenticationWrapper` object.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin()
 ```
 
 See [Okta Java SDK Usage guide](https://github.com/okta/okta-idx-java#usage-guide) for more information.
+
+Before running your app, ensure that you [set the configuration values](#set-the-configuration-values) for your embedded app. See [Run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/android/main/#run-the-embedded-sdk-sample-app) for step-by-step instructions on how to run a sample Android app.

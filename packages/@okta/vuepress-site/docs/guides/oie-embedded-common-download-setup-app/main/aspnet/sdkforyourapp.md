@@ -1,5 +1,12 @@
 After you run the sample app and explore the available use cases, you can begin to integrate the SDK and/or the Widget in to your own app. Follow these steps to get started:
 
+## Run the sample app
+
+After you complete the configurations:
+
+* [Run the SDK sample app](/docs/guides/oie-embedded-common-run-samples/-/main/#run-the-sdk-sample-app)
+* [Run the Widget sample app](/docs/guides/oie-embedded-common-run-samples/-/main/#run-the-widget-sample-app)
+
 #### 1: Set up your app for .Net 4.8 or greater
 
 The SDK and sample apps are built using .Net 4.8.
@@ -36,3 +43,5 @@ var idxAuthClient = new IdxClient();
 ```
 
 > **Note:** You can pass configuration values into the object's constructor. See [Option 3: Add the values as parameters to the SDK's client constructor](#option-3-add-the-values-as-parameters-to-the-sdk-s-client-constructor).
+
+Before running your app, ensure that you [set up the configuration for your embedded SDK app](#set-up-the-configuration-for-your-embedded-sdk-app). See [Run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/aspnet/main/#run-the-embedded-sdk-sample-app) for step-by-step instructions on how to run a sample app.

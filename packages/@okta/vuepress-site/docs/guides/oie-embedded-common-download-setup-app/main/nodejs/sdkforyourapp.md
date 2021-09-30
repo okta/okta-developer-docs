@@ -17,3 +17,5 @@ See [Using the npm module](https://github.com/okta/okta-auth-js#using-the-npm-mo
 #### Step 3: Review the Identity Engine SDK methods
 
 Review the Identity Engine SDK methods for use with your application. See [Usage](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage) for further information.
+
+Before running your app, ensure that you [set up the configuration for your embedded SDK app](#set-up-the-configuration-for-your-embedded-sdk-app). See [Run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/nodejs/main/#run-the-embedded-sdk-sample-app) for step-by-step instructions on how to run a sample app.
