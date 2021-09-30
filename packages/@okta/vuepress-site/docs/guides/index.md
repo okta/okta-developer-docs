@@ -74,6 +74,7 @@ guides:
  - oie-embedded-widget-use-case-load
  - oie-embedded-widget-use-case-basic-sign-in
  - oie-embedded-widget-use-case-sign-in-soc-idp
+ - oie-migrate-api-sdk-to-oie-sdk
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
