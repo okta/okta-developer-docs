@@ -386,7 +386,7 @@ See [Include app-specific information in a custom claim](/docs/guides/customize-
 
 #### Sample using access.scope
 
-In [API Access Management](docs/concepts/api-access-management/) custom authorization servers, you can name a claim `scope`. Then, you can use the expression `access.scope` to return an array of granted scope strings.
+In [API Access Management](/docs/concepts/api-access-management/) custom authorization servers, you can name a claim `scope`. Then, you can use the expression `access.scope` to return an array of granted scope strings.
 
 To include a granted scope array and convert it to a space-delimited string, use the following expression:<br>
 `String.replace(Arrays.toCsvString(access.scope),","," ")`
