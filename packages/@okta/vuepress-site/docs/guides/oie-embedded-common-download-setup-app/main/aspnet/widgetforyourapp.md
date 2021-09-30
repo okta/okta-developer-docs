@@ -1,40 +1,69 @@
-## Set up the Sign-In Widget and SDK for your own app
+> **Note:** Try to [run the embedded Widget sample app](/docs/guides/oie-embedded-common-run-samples/aspnet/main/#run-the-embedded-widget-sample-app) and explore the available [embedded Widget use cases](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/aspnet/main/) to get familiar with the Identity Engine and Sign-In Widget flow.
 
-After you run the sample app and explore the available use cases, you can begin to integrate the SDK and/or the Widget in to your own app. Follow these steps to get started:
+Begin to integrate the Sign-In Widget into your own embedded app by following these steps:
 
-#### 1: Set up your app for .Net 4.8 or greater
+1. [Set up your app for .Net 4.8 or greater](#_1-set-up-your-app-for-net-4-8-or-greater), similar to the SDK embedded app.
+1. [Add the Okta SDK Nuget packages](#_2-add-the-okta-sdk-nuget-packages), similar to the SDK embedded app.
+1. Ensure that you're using the [latest release of the Sign-In Widget](https://github.com/okta/okta-signin-widget/releases/).
+1. [Source the Sign-In Widget from the Okta CDN](#source-the-sign-in-widget-from-the-okta-cdn)
+1. [Configurea and initialize the Sign-In Widget](#configure-and-initialize-the-sign-in-widget)
 
-The SDK and sample apps are built using .Net 4.8.
+#### Source the Sign-In Widget from the Okta CDN
 
-#### 2: Add the Okta SDK Nuget packages
-
-Before using the SDK in your own app, you need to add the following
-Nuget packages to your project:
-
-* `Okta.Idx.Sdk`
-* `Okta.Sdk.Abstractions`
-
-> **Note:** Nuget packages are pre-release. When you search for Nuget
-packages in Visual Studio, ensure that the pre-release check box is selected.
-
-#### 3: Initialize the IdxClient object
-
-All functionality in the SDK is accessed through the methods of the
-`IdxClient` object. After you add the Nuget packages, the next step
-is to initialize the `IdxClient`. There are two steps to initialize the client:
-
-1. Add the following namespaces:
-   * `Okta.Idx.Sdk`
-   * `Okta.Sdk.Abstractions`
-1. Initialize the `IdxClient`.
-
-See the following sample code for more details:
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN. In the following sample, the `@(Model.Version)` property is the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget.
 
 ```csharp
-using Okta.Idx.Sdk;
-using Okta.Sdk.Abstractions;
-
-var idxAuthClient = new IdxClient();
+@section head
+{
+   <script src="https://global.oktacdn.com/okta-signin-widget/@(Model.Version)/js/okta-sign-in.min.js" type="text/javascript"></script>
+   <link href="https://global.oktacdn.com/okta-signin-widget/@(Model.Version)/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
+}
 ```
 
-> **Note:** You can pass configuration values into the object's constructor. See [Option 3: Add the values as parameters to the SDK's client constructor](#option-3-add-the-values-as-parameters-to-the-sdk-s-client-constructor).
+#### Configure and initialize the Sign-In Widget
+
+When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the option `useInteractionCodeFlow` to `true` to enable Identity Engine features in the embedded Sign-In Widget.
+
+The following JSON sample shows you an example set of Sign-In Widget configurations for initialization.
+
+```json
+{
+   "interactionHandle":"epXgGYZHsYErPLfw8aLpCvWZOgVtYx25_OYCmQc0z2s",
+   "version":"5.5.2",
+   "baseUrl":"https://dev-12345678.okta.com",
+   "clientId":"${clientId}",
+   "redirectUri":"https://localhost:44314/interactioncode/callback/",
+   "authParams":{
+      "issuer":"https://dev-122345678.okta.com/oauth2/default",
+      "scopes":[
+         "openid",
+         "profile",
+         "offline_access"
+      ]
+   },
+   "useInteractionCodeFlow":true,
+   "state":"${state}",
+   "codeChallenge":"${codechallenge}",
+   "codeChallengeMethod":"S256"
+}
+```
+
+Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget configurations (`widgetConfig`). Call `showSignInAndRedirect()` to render the Widget on the sign-in page.
+
+```csharp
+<div id="okta-signin-widget-container"></div>
+<script type="text/javascript">
+    const widgetConfig = @Html.Raw(JsonConvert.SerializeObject(Model));
+    console.log(widgetConfig.interactionHandle);
+    const signIn = new OktaSignIn({
+        el: '#okta-signin-widget-container',
+        ...widgetConfig
+    });
+    signIn.showSignInAndRedirect()
+        .catch(err => {
+            console.log('Error happen in showSignInAndRedirect: ', err);
+        });
+</script>
+```
+
+See [Load the Widget](/docs/guides/oie-embedded-widget-use-case-load/aspnet/main) for further details on integrating the Sign-In Widget into your app.

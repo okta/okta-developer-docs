@@ -1,4 +1,6 @@
-After you run the sample app and explore the available use cases, you can begin to integrate the SDK and/or the Widget into your own app. To get started, follow these steps:
+> **Note:** Try to [run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/nodejs/main/#run-the-embedded-sdk-sample-app) and explore the available [embedded authentication use cases](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/) to get familiar with the SDK before you start to integrate your own embedded Node.js app.
+
+Begin to integrate the SDK into your own app by follow these steps:
 
 #### 1: Install the SDK into your project application
 
@@ -16,6 +18,6 @@ See [Using the npm module](https://github.com/okta/okta-auth-js#using-the-npm-mo
 
 #### Step 3: Review the Identity Engine SDK methods
 
-Review the Identity Engine SDK methods for use with your application. See [Usage](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage) for further information.
+Start integrating your app using the SDK by reviewing the Identity Engine Auth JS SDK methods. See [Usage](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#usage) for further information.
 
-Before running your app, ensure that you [set up the configuration for your embedded SDK app](#set-up-the-configuration-for-your-embedded-sdk-app). See [Run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/nodejs/main/#run-the-embedded-sdk-sample-app) for step-by-step instructions on how to run a sample app.
+Before running your app, ensure that you [set the configuration values](#set-the-configuration-values) for your embedded app with one of the available options.

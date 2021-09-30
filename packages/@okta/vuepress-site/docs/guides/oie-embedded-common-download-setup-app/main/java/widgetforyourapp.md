@@ -1,5 +1,3 @@
-## Set up the Sign-In Widget and SDK for your own app
-
 Begin to integrate the Sign-In Widget into your own embedded app by following these steps:
 
 1. [Set up your app with the prerequisites](#set-up-your-app-with-the-prerequisites), similar to the SDK embedded app prerequisites.
@@ -10,18 +8,18 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 
 #### Source the Sign-In Widget from the Okta CDN
 
-Add the Sign-In Widget source to your JavaScript sign-in page by referencing the Okta content delivery network (CDN):
+Add the Sign-In Widget source to your JavaScript sign-in page by referencing the Okta CDN:
 
 ```javascript
-<script src="https://global.oktacdn.com/okta-signin-widget/${SIWversion}/js/okta-sign-in.min.js" type="text/javascript"></script>
-<link href="https://global.oktacdn.com/okta-signin-widget/${SIWversion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
+<script src="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/js/okta-sign-in.min.js" type="text/javascript"></script>
+<link href="https://global.oktacdn.com/okta-signin-widget/${siwVersion}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
-Use the [latest version (`${SIWversion`})](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget in your app.
+Use the [latest version (`${siwVersion`})](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget in your app.
 
 #### Initialize the Sign-In Widget
 
-When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the `config.useInteractionCodeFlow=true` configuration option to enable Identity Engine features in the embedded Sign-In Widget.
+When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the `useInteractionCodeFlow=true` configuration option to enable Identity Engine features in the embedded Sign-In Widget.
 
 ```javascript
 <script th:inline="javascript">
@@ -50,6 +48,8 @@ When you initialize the Sign-In Widget on your sign-in page, you must configure 
     );
 </script>
 ```
+
+See [Okta Sign-In Widget Guide](/code/javascript/okta_sign-in_widget/) for more details.
 
 Complete integrating your embedded app with the Identity Engine Java SDK libraries. See the [Basic sign-in flow using the Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in/java/main/) use case for a guide on how to handle the callback from the Sign-In Widget. Refer to the [Okta Java SDK Usage guide](https://github.com/okta/okta-idx-java#usage-guide) for more information on SDK usage.
 

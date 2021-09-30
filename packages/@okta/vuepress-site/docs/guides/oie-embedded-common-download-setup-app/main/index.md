@@ -68,6 +68,8 @@ The sample app uses the default scopes provided in the SDK, which include `openi
 
 <StackSelector snippet="sdkforyourapp" noSelector />
 
+## Set up the Sign-In Widget and SDK for your own app
+
 <StackSelector snippet="widgetforyourapp" noSelector />
 
 </div>
