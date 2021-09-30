@@ -537,7 +537,7 @@ The Authenticator object defines the following properties:
 | `status`      | `ACTIVE`,`INACTIVE`                                             | Status of the Authenticator                                |
 | `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified                             |
 | `name`        | String                                                          | Display name of this Authenticator                                             |
-| `type`        | String (Enum)                                                   | The type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, and `security_key`.                            |
+| `type`        | String (Enum)                                                   | The type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`.                            |
 | `settings.allowedFor`        | String (Enum)                                    | The allowed types of uses for the Authenticator. Values include: `recovery`, `sso`, `any`, and `none`.                            |
 | `settings.tokenLifetimeInMinutes` | Number                                      | Specifies the lifetime of an `email` token, and only applies to the `email` Authenticator type. Default value is `5` minutes.                            |
 
