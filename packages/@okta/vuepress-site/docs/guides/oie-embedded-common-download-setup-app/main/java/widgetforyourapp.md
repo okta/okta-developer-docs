@@ -4,7 +4,7 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 1. Ensure that you're using the [latest release of the Sign-In Widget](https://github.com/okta/okta-signin-widget/releases/).
 1. The embedded Sign-In Widget with SDK sample app uses the Spring Boot framework with the Identity Engine Java SDK. [Import the packages and add the Spring Boot framework](#import-the-packages-and-add-the-spring-boot-framework) packages that you require in your sign-in controllers.
 1. [Source the Sign-In Widget from the Okta CDN](#source-the-sign-in-widget-from-the-okta-cdn).
-1. [Initialize the Sign-In Widget](#initialize-the-sign-in-widget)
+1. [Initialize the Sign-In Widget](#initialize-the-sign-in-widget).
 
 #### Source the Sign-In Widget from the Okta CDN
 
