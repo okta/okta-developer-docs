@@ -5,7 +5,7 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 1. [Install the SDK into your project application](#_1-install-the-sdk-into-your-project-application), similar to the SDK embedded app.
 1. [Install the @okta/okta-auth-js node dependency](#_2-install-the-okta-okta-auth-js-node-dependency), similar to the SDK embedded app.
 1. Ensure that you're using the [latest release of the Sign-In Widget](https://github.com/okta/okta-signin-widget/releases/).
-1. [Source the Sign-In Widget from the Okta CDN](#source-the-sign-in-widget-from-the-okta-cdn)
+1. [Source the Sign-In Widget from the Okta CDN](#source-the-sign-in-widget-from-the-okta-cdn).
 1. [Initialize the Sign-In Widget](#initialize-the-sign-in-widget)
 
 #### Source the Sign-In Widget from the Okta CDN
