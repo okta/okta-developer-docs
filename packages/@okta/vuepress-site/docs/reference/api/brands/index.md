@@ -1109,7 +1109,7 @@ The Brand request object defines the following properties:
 | ----------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------- |
 | `agreeToCustomPrivacyPolicy`  | boolean                 | (Optional) Consent for updating the custom privacy policy URL. Not required when resetting the URL. |
 | `customPrivacyPolicyUrl`      | String                  | Custom privacy policy URL. Default value: `null`.                                                   |
-| `removePoweredByOkta`         | boolean                 | (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard.. Defaulted to `false`        |
+| `removePoweredByOkta`         | boolean                 | (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard. Default value: `false` .       |
 | `_links`                      | [Links](#links-object)  | Link relations for this object                                                                      |
 
 #### Brand example
