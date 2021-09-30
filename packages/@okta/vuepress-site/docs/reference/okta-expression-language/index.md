@@ -30,7 +30,7 @@ In addition to an Okta User Profile, all Users have a separate Application User 
 | `$appuser.$attribute` | `$appuser` explicit reference to specific app<br>`$attribute` the attribute variable name  | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
 | `appuser.$attribute`  | `appuser` implicit reference to in-context app<br>`$attribute` the attribute variable name | appuser.firstName                                                     |
 
-> **Note:** Explicit references to apps aren't supported for OAuth/OIDC custom claims. See [Expressions for OAuth2/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth2-oidc-custom-claims).
+> **Note:** Explicit references to apps aren't supported for OAuth 2.0/OIDC custom claims. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
 >
 
 > **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#application-properties). If your organization configures multiple instances of the same application, the names of the later instances are differentiated by a randomly assigned suffix, for example: `zendesk_9ao1g13`.  You can find the name of any specific app instance in the Profile Editor, where it appears in lighter text beneath the label of the app.
@@ -55,7 +55,7 @@ In addition to referencing user attributes, you can also reference Application p
 | `$app.$attribute` | `$app` explicit reference to specific app instance<br>`$attribute` the attribute variable name  | office365_app.domain<br>zendesk_app.companySubDomain |
 | `app.$attribute`  | `app` implicit reference to in-context app instance<br>`$attribute` the attribute variable name | app.domain<br>app.companySubDomain                     |
 
-> **Note:** Explicit references to apps aren't supported for custom OAuth/OIDC claims.
+> **Note:** Explicit references to apps aren't supported for custom OAuth 2.0/OIDC claims.
 >
 
 ### Organization properties
@@ -365,9 +365,9 @@ Sample user data:
 | Active Directory UPN                                               | `hasDirectoryUser() ? findDirectoryUser().managerUpn : null`                                                                                             | bob@okta.com            | Check if user has an Active Directory assignment, and if so, return their Active Directory manager UPN.                                                                                                                                                                                                                                                                                                |
 
 
-## Expressions for OAuth2/OIDC custom claims
+## Expressions for OAuth 2.0/OIDC custom claims
 
-Okta provides a few expressions that you can only use with OAuth2/OIDC custom claims.
+Okta provides a few expressions that you can only use with OAuth 2.0/OIDC custom claims.
 * See [Create claims](/docs/guides/customize-authz-server/create-claims).
 * See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute).
 
@@ -386,7 +386,7 @@ See [Include app-specific information in a custom claim](/docs/guides/customize-
 
 #### Sample using access.scope
 
-In API Access Management custom authorization servers, you can name a claim `scope`. Then, you can use the expression `access.scope` to return an array of granted scope strings.
+In [API Access Management](/docs/concepts/api-access-management/) custom authorization servers, you can name a claim `scope`. Then, you can use the expression `access.scope` to return an array of granted scope strings.
 
 To include a granted scope array and convert it to a space-delimited string, use the following expression:<br>
 `String.replace(Arrays.toCsvString(access.scope),","," ")`
