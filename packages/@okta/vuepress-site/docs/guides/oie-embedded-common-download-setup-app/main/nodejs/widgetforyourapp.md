@@ -18,7 +18,7 @@ Add the Sign-In Widget source to your JavaScript sign-in page by referencing the
 <link href="https://global.oktacdn.com/okta-signin-widget/{{siwVersion}}/css/okta-sign-in.min.css" type="text/css" rel="stylesheet"/>
 ```
 
->**Note:** Ensure you use or reference the latest Sign-In Widget for `siwVersion`. The latest version is available on the Okta Sign-In Widget [repository](https://github.com/okta/okta-signin-widget/releases/).
+>**Note:** Ensure that you use or reference the latest Sign-In Widget for `siwVersion`. The latest version is available in the Okta Sign-In Widget [repository](https://github.com/okta/okta-signin-widget/releases/).
 
 #### Initialize the Sign-In Widget
 
