@@ -1,0 +1,168 @@
+## Overview
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae dictum nulla, et 
+rutrum urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per 
+inceptos himenaeos. Morbi imperdiet mattis dui, nec lacinia neque faucibus sed. Cras 
+auctor ipsum sapien, vitae rutrum risus bibendum non. Mauris efficitur in arcu eget 
+tempor. Aliquam hendrerit tortor id dignissim ullamcorper. In hac habitasse platea 
+dictumst. Aliquam vel mollis odio.
+
+## Why migrate  your application to the Okta Identity Engine SDK?
+
+The Okta Identity Engine SDK provides your applications greater flexibility to create and configure user access experiences. The SDK’s architecture achieves this flexibility by shifting the control of application configurations and authorization policies to the org administrator, rather than requiring the developer to make updates at the code level. The SDK’s recursive method call format is also designed for dynamic Identity Engine policies that may require more access or authorization steps for one user over another.
+
+If your application is a server-side, customized authentication solution, migrating to the Identity Engine SDK is the ideal path to benefit from Identity Engine features and configuration flexibility.
+The migration process is also designed to be non-disruptive and iterative over a period of time. Your classic Authn SDK application code works with an Identity Engine configured org, and use-cases can be tested and migrated incrementally. See the following three examples for further information on migration:
+
+- Authentication (Sign-in and Log out ): Mapping Authentication code to the Identity Engine SDK
+- Password Recovery: Mapping Password Recovery code to the Identity Engine SDK
+- Self Registration: Mapping Self Registration code to the Identity Engine SDK
+
+## Classic Authn APIs and SDK vs Identity Engine SDK
+
+At a high level, the classic authentication flow for the Authn SDK methods and their back-end API calls function similarly to the new Okta Identity Engine SDK methods: both versions call Okta, receive a transaction object, and ultimately receive tokens after a successful authentication.
+
+The classic authentication flow returns a transaction object that has the ability to proceed in the process; you call a method on the transaction object based on the status, for example authClient.signInWithCredentials to authenticate the user. The Okta Identity Engine SDK, however, uses a recursive process, and you call the same method again based on the information returned in the transaction object; the Identity Engine SDK uses the nextStep property on the transaction object to provide a hint at the required information. For the basic authentication example, the Identity Engine SDK calls authClient.idx.authenticate again with information as part of the call, the user’s email address, authenticator, and so on to complete the flow and return a success state.
+
+Another difference between Okta Classic SDK and Identity Engine SDK methods is how you receive tokens after a successful authentication. For Okta Classic SDK, the method setCookieAndRedirect,which has been deprecated, makes a call to get the tokens; in Okta Identity Engine SDK, after receiving a success state, the tokens are included with the transaction object; there’s no separate call to get the tokens.
+
+For further information on the Classic SDK and the Identity Engine SDK, see the following documentation at the [okta-auth-js](https://github.com/okta/okta-auth-js/blob/master/README.md) repository:
+
+- [Okta Authentication API (authn)](https://github.com/okta/okta-auth-js/blob/master/docs/authn.md)
+- [Okta Identity Engine API (IDX)](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md)
+- [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md)
+
+## Mapping Authentication code to the Identity Engine SDK
+
+The following table highlights the back-end Authn API calls and the method call for the classic Okta Authn SDK that require migration to the Okta Identity Engine SDK method, which can perform authentication using the Identity Engine’s new features and workflows.
+
+| v1 API | Authn SDK Method |Identity Engine SDK Method |
+|--------|------------------|---------------------------|
+|[/api/v1/authn](/docs/reference/api/authn/|[signInWithCredentials](https://github.com/okta/okta-auth-js/blob/master/docs/authn.md#signinwithcredentialsoptions)|[idx.authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate)|
+
+### Mapping Authn SDK to Identity Engine SDK
+
+If your application uses the classic Authn SDK methods to authenticate through Okta, you generally start the authentication flow with a call to the `signInWithCredentials` method on an OktaAuth object (for example, `authClient`), using the parameters of `username` and `password`. This call returns a status on the transaction object (`transaction.status`), which must be handled by the application code. If successful (`transaction.status === 'SUCCESS'`), you make a call to the `setCookieAndRedirect` method to retrieve a sessionToken.
+
+> **Note:** The `setCookieAndRedirect` method requires access to third-party cookies and is deprecated in the Okta Identity Engine SDK
+
+See the following code snippet for this example:
+
+```JavaScript
+authClient.signInWithCredentials({
+  username: 'some-username',
+  password: 'some-password'
+})
+.then(function(transaction) {
+  if (transaction.status === 'SUCCESS') {
+    authClient.session.setCookieAndRedirect(transaction.sessionToken); // Sets a cookie on redirect
+  } else {
+    throw 'We cannot handle the ' + transaction.status + ' status';
+  }
+})
+.catch(function(err) {
+  console.error(err);
+});
+
+```
+
+To migrate your code to the Okta Identity Engine SDK, the authentication flow is very similar, but you must replace the method calls to those in the new SDK and update your code to handle the different transaction object statuses that are returned.
+
+For the Okta Identity Engine SDK, you generally start the authentication flow with a call to the `idx.authenticate` method on an OktaAuth object (for example, `authClient`), using the parameters of `username` and `password`, or no parameters at all (see [Okta Identity Engine code options](#okta-identity-engine-code-options)). This call returns a status on the transaction object (`transaction.status`), which must be handled by the application code. If successful (`transaction.status === IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response.
+
+See the following code snippet for this example:
+
+```JavaScript
+const transaction = await authClient.idx.authenticate({
+  username: 'some-username',
+  password: 'some-password',
+});
+
+if (transaction.status === IdxStatus.SUCCESS) {
+  authClient.tokenManager.setTokens(transaction.tokens); // App receives tokens directly
+}
+
+```
+
+For further details and reference material, see [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md) in the SDK.
+
+### Okta Identity Engine SDK code options
+
+The Identity Engine SDK methods provide an opportunity to mirror the code styles used in the Classic SDK, which can facilitate an easier migration path, or provides an opportunity to use a more open, flexible code style, which takes advantage of the recursive nature of the SDK. These styles are respectively referenced in the Identity Engine SDK as Up-Front and On-Demand. See [Approaches](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#approaches) in the Identity Engine SDK.
+
+### Mapping Authn APIs to Identity Engine SDK
+
+If you’re migrating a custom application using direct back-end Authentication APIs, you may want to work with your customer support team to assist you in migrating to the Okta Identity Engine SDK or wait until the Okta Identity Engine APIs are available.
+
+## Mapping Password Recovery code to the Identity Engine SDK
+
+The following table highlights the back-end Authn API calls and the method call for the classic Okta Authn SDK that require migration to the Okta Identity Engine SDK method, which can perform authentication using the Identity Engine’s new features and workflows.
+
+| v1 API | Authn SDK Method |Identity Engine SDK Method |
+|--------|------------------|---------------------------|
+|[/api/v1/authn/recovery/password](/docs/reference/api/authn/|[forgotPassword](https://github.com/okta/okta-auth-js/blob/master/docs/authn.md#forgotpasswordoptions)|[idx.recoverPassword](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxrecoverpassword)|
+
+### Mapping Authn SDK Password Recovery methods to Identity Engine SDK
+
+If your application uses the classic Authn SDK methods to recover a password through Okta, you generally start the flow by calling a method (`authClient.forgotPassword`) and then calling verify on the returned transaction (`transaction.verify)` with a passcode. After this call, you check for a successful status (`transaction.status`), which completes the transaction. You then need to redirect back to Okta to get tokens (`transaction.sessionToken`).
+
+See the following code snippet for this example:
+
+```JavaScript
+authClient.forgotPassword({
+  username: 'john.doe@example.com',
+  factorType: 'SMS',
+})
+.then(function(transaction) {
+  return transaction.verify({
+    passCode: '123456' // The passCode from the SMS or CALL
+  });
+})
+.then(function(transaction) {
+  if (transaction.status === 'SUCCESS') {
+    authClient.session.setCookieAndRedirect(transaction.sessionToken);
+  } else {
+    throw 'We cannot handle the ' + transaction.status + ' status';
+  }
+})
+.catch(function(err) {
+  console.error(err);
+});
+
+```
+
+For the Okta Identity Engine SDK, you generally start the password recovery flow with a call to the `idx.recoverPassword` method on an OktaAuth object (for example, `authClient`), using the parameters of username and authenticators or no parameters at all (although these parameters are required in subsequent calls). This call returns a status on the transaction object (`Idx.Status`), which must be handled by the application code. When finally successful (`IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response. There are other calls you need to make prior to a success status based on the password policy.
+
+See the following code snippet, for this example, showing the last call that includes the user’s confirmed new (recovered) password:
+
+```JavaScript
+
+const { password, confirmPassword } = req.body;
+  if (password !== confirmPassword) {
+    next(new Error('Password not match'));
+    return;
+  }
+  const authClient = getAuthClient(req);
+  const transaction = await authClient.idx.recoverPassword({ password });
+
+if (transaction.status === IdxStatus.SUCCESS) {
+  authClient.tokenManager.setTokens(transaction.tokens);
+}
+
+```
+
+For further details and reference material, see [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md) in the SDK.
+
+### Mapping Authn APIs for Password Recovery to Identity Engine SDK
+
+If you’re migrating a custom application using direct back-end Authentication APIs, you may want to work with your customer support team to assist you in migrating to the Okta Identity Engine SDK or wait until the Okta Identity Engine APIs are available.
+
+### Mapping Self Registration code to the Identity Engine SDK
+
+Integer ac ex lacus. Fusce at tempor justo, nec interdum mi. Aenean vulputate mi ac nisi vulputate, vel malesuada justo lacinia.
+
+| v1 API | Authn SDK Method |Identity Engine SDK Method |
+|--------|------------------|---------------------------|
+|???|???|[idx.register](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxregister)|
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vitae dictum nulla, et rutrum urna. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Morbi imperdiet mattis dui, nec lacinia neque faucibus sed. Cras auctor ipsum sapien, vitae rutrum risus bibendum non. Mauris efficitur in arcu eget tempor. Aliquam hendrerit tortor id dignissim ullamcorper. In hac habitasse platea dictumst. Aliquam vel mollis odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Pellentesque et aliquam erat. In non nunc eget mi sagittis lacinia.
