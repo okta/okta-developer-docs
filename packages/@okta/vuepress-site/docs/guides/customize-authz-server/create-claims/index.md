@@ -15,7 +15,7 @@ Create ID Token claims for OpenID Connect or access tokens for OAuth 2.0:
     * **Value** &mdash; this option appears if you choose **Expression**. Use Okta Expression Language syntax to generate values derived from attributes in Universal Directory and app profiles, for example: `appuser.username`.
     
       * See [Okta Expression Language](/docs/reference/okta-expression-language).
-      * See [Expressions for OAuth2/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth2-oidc-custom-claims) for custom claim-specific expressions.
+      * See [Expressions for OAuth 2.0/OIDC custom claims](docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims) for custom claim-specific expressions.
       > **Note:** Check that your expression returns the results expected. You can validate an expression using the **Token Preview** tab.
     * **Filter** &mdash; this option appears if you choose **Groups**. Use it to add a group filter.
       > **Note:** Up to 100 groups are included in the claim. If the filter results in more than that, the request fails.
