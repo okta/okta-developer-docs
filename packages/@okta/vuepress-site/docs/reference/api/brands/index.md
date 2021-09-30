@@ -1145,7 +1145,7 @@ The Brand Response object defines the following properties:
 | Property                  | Type                    | Description                                             |
 | ------------------------- | ----------------------- | ------------------------------------------------------- |
 | `customPrivacyPolicyUrl`  | String                  | Custom privacy policy URL                               |
-| `removePoweredByOkta`     | boolean                 | Remove "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard. |
+| `removePoweredByOkta`     | boolean                 | Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard. |
 | `id`                      | String                  | Brand ID                                                |
 | `_links`                  | [Links](#links-object)  | Link relations for this object                          |
 
