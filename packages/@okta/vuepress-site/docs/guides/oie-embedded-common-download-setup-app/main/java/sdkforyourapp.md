@@ -1,6 +1,6 @@
 Begin to integrate the SDK into your own app by following these steps:
 
-1. [Set up your app with the prerequisites](#set-up-your-app-with-the-prerequisites)
+1. [Set up your app with the prerequisites](#set-up-your-app-with-the-prerequisites).
 1. [Import the packages and add the Spring Boot framework](#import-the-packages-and-add-the-spring-boot-framework)
 1. [Instantiate the IDXAuthenticationWrapper object](#instantiate-the-idxauthenticationwrapper-object)
 
