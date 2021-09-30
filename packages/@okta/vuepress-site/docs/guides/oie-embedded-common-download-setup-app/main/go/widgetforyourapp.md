@@ -5,7 +5,7 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 1. [Install the Golang SDK](#_1-install-the-golang-sdk), similar to the SDK embedded app.
 1. Ensure that you're using the [latest release of the Sign-In Widget](https://github.com/okta/okta-signin-widget/releases/).
 1. [Source the Sign-In Widget from the Okta CDN](#source-the-sign-in-widget-from-the-okta-cdn).
-1. [Configure and initialize the Sign-In Widget](#configure-and-initialize-the-sign-in-widget)
+1. [Configure and initialize the Sign-In Widget](#configure-and-initialize-the-sign-in-widget).
 
 #### Source the Sign-In Widget from the Okta CDN
 
