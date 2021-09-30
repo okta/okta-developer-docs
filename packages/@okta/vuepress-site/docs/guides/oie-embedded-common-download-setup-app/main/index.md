@@ -30,7 +30,7 @@ Before you integrate either the SDK or the Widget into your app, you need to und
 
 There are two main types of authorization servers in Okta: [Org](/docs/concepts/auth-servers/#org-authorization-server) and [Custom](/docs/concepts/auth-servers/#custom-authorization-server). See [Authorization Servers](/docs/concepts/auth-servers/#available-authorization-server-types) and [Difference between Okta as an Authorization Server vs Custom Authorization Server](https://support.okta.com/help/s/article/Difference-Between-Okta-as-An-Authorization-Server-vs-Custom-Authorization-Server?language=en_US) for more information on which Authorization Server to use.
 
-The Issuer URI format depends on which Authorization Server that you decide to use:
+The Issuer URI format depends on which authorization server that you decide to use:
 
 * Org &mdash; If you use the Org Authorization Server, the Issuer URI format is `https://${yourOktaDomain}` (for example, `https://dev-example.okta.com`).
 * Custom &mdash; You can either use the default Custom Authorization Server or create your own.
@@ -64,7 +64,7 @@ The sample app uses the default scopes provided in the SDK, which include `openi
 
 <StackSelector snippet="configorder" noSelector />
 
-## Set up the SDK for your app
+## Set up the SDK for your own app
 
 <StackSelector snippet="sdkforyourapp" noSelector />
 

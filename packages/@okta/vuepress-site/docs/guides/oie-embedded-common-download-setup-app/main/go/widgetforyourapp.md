@@ -18,9 +18,9 @@ Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN. 
 
 #### Configure and initialize the Sign-In Widget
 
-When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the option `useInteractionCodeFlow` to `true` to enable Identity Engine features in the embedded Sign-In Widget.
+When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the `useInteractionCodeFlow` option to `true` to enable Identity Engine features in the embedded Sign-In Widget.
 
-Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget configurations (`okta-signin-widget-container`). Call `showSignInAndRedirect()` to render the Widget on the sign-in page.
+Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget configurations (`config`). Call `showSignInAndRedirect()` to render the Widget on the sign-in page.
 
 ```javascript
 <div id="okta-signin-widget-container"></div>

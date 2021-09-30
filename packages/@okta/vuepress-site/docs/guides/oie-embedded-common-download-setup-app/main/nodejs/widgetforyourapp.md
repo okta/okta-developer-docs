@@ -22,7 +22,7 @@ Add the Sign-In Widget source to your JavaScript sign-in page by referencing the
 
 #### Initialize the Sign-In Widget
 
-When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the option `useInteractionCodeFlow` to `true` to enable Identity Engine features in the embedded Sign-In Widget.
+When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the `useInteractionCodeFlow` option to `true` to enable Identity Engine features in the embedded Sign-In Widget.
 
 In this code sample, `widgetConfig` is referenced in the `login.js` file, which uses values defined in the `config.js` file:
 

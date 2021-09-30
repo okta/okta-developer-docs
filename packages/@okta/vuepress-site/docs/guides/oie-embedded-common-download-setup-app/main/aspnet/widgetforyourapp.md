@@ -6,11 +6,11 @@ Begin to integrate the Sign-In Widget into your own embedded app by following th
 1. [Add the Okta SDK Nuget packages](#_2-add-the-okta-sdk-nuget-packages), similar to the SDK embedded app.
 1. Ensure that you're using the [latest release of the Sign-In Widget](https://github.com/okta/okta-signin-widget/releases/).
 1. [Source the Sign-In Widget from the Okta CDN](#source-the-sign-in-widget-from-the-okta-cdn)
-1. [Configurea and initialize the Sign-In Widget](#configure-and-initialize-the-sign-in-widget)
+1. [Configure and initialize the Sign-In Widget](#configure-and-initialize-the-sign-in-widget)
 
 #### Source the Sign-In Widget from the Okta CDN
 
-Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN. In the following sample, the `@(Model.Version)` property is the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget.
+Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN. In the following code sample, the `@(Model.Version)` property is the [latest version](https://github.com/okta/okta-signin-widget/releases/) of the Sign-In Widget.
 
 ```csharp
 @section head
@@ -22,19 +22,19 @@ Add the Sign-In Widget source to your sign-in page by referencing the Okta CDN. 
 
 #### Configure and initialize the Sign-In Widget
 
-When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the option `useInteractionCodeFlow` to `true` to enable Identity Engine features in the embedded Sign-In Widget.
+When you initialize the Sign-In Widget on your sign-in page, you must configure it with all the required [configuration settings](#configuration-settings) for your app. In addition, you must set the `useInteractionCodeFlow` option to `true` to enable Identity Engine features in the embedded Sign-In Widget.
 
-The following JSON sample shows you an example set of Sign-In Widget configurations for initialization.
+The following JSON sample shows you a set of Sign-In Widget configurations for initialization.
 
 ```json
 {
-   "interactionHandle":"epXgGYZHsYErPLfw8aLpCvWZOgVtYx25_OYCmQc0z2s",
-   "version":"5.5.2",
-   "baseUrl":"https://dev-12345678.okta.com",
+   "interactionHandle":"${interactionHandle}",
+   "version":"${siwVersion}",
+   "baseUrl":"${baseUrl}",
    "clientId":"${clientId}",
    "redirectUri":"https://localhost:44314/interactioncode/callback/",
    "authParams":{
-      "issuer":"https://dev-122345678.okta.com/oauth2/default",
+      "issuer":"${issuerUri}",
       "scopes":[
          "openid",
          "profile",
