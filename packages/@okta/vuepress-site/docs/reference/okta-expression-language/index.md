@@ -30,7 +30,7 @@ In addition to an Okta User Profile, all Users have a separate Application User 
 | `$appuser.$attribute` | `$appuser` explicit reference to specific app<br>`$attribute` the attribute variable name  | zendesk.firstName<br>active_directory.managerUpn<br>google_apps.email |
 | `appuser.$attribute`  | `appuser` implicit reference to in-context app<br>`$attribute` the attribute variable name | appuser.firstName                                                     |
 
-> **Note:** Explicit references to apps aren't supported for OAuth/OIDC custom claims. See [Expressions for OAuth 2.0/OIDC custom claims](docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
+> **Note:** Explicit references to apps aren't supported for OAuth/OIDC custom claims. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
 >
 
 > **Note:** The application reference is usually the `name` of the application, as distinct from the `label` (display name). See [Application properties](/docs/reference/api/apps/#application-properties). If your organization configures multiple instances of the same application, the names of the later instances are differentiated by a randomly assigned suffix, for example: `zendesk_9ao1g13`.  You can find the name of any specific app instance in the Profile Editor, where it appears in lighter text beneath the label of the app.
