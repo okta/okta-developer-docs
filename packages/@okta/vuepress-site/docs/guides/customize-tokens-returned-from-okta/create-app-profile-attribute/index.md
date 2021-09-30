@@ -2,7 +2,7 @@
 title: Include app-specific information in a custom claim
 ---
 
-If you want to include certain app-specific information in a token claim, you can do so by first adding the metadata to the profile section of the app. You can access any values that are put inside the app profile using `app.profile` written in Okta Expression Language. See [Expressions for OAuth 2.0/OIDC custom claims](docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
+If you want to include certain app-specific information in a token claim, you can do so by first adding the metadata to the profile section of the app. You can access any values that are put inside the app profile using `app.profile` written in Okta Expression Language. See [Expressions for OAuth 2.0/OIDC custom claims](/docs/reference/okta-expression-language/#expressions-for-oauth-2-0-oidc-custom-claims).
 
 To include, for example, the app `label` parameter in a token claim:
 
