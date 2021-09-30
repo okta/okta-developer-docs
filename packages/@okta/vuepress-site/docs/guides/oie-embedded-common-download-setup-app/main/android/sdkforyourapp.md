@@ -23,7 +23,7 @@ import com.okta.idx.sdk.api.response.TokenResponse;
 
 #### 3: Instantiate the IDXAuthenticationWrapper object
 
-Start building your app using the Identity Engine Java SDK. Begin the Okta authentication flow by instantiating the `IDXAuthenticationWrapper` object.
+Start integrating your app using the Identity Engine Java SDK. Begin the Okta authentication flow by instantiating the `IDXAuthenticationWrapper` object.
 
 ```java
 AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin()
