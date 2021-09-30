@@ -22,33 +22,34 @@ The migration process is also designed to be non-disruptive and iterative over a
 
 At a high level, the classic authentication flow for the Authn SDK methods and their back-end API calls function similarly to the new Okta Identity Engine SDK methods: both versions call Okta, receive a transaction object, and ultimately receive tokens after a successful authentication.
 
-The classic authentication flow returns a transaction object that has the ability to proceed in the process; you call a method on the transaction object based on the status, for example authClient.signInWithCredentials to authenticate the user. The Okta Identity Engine SDK, however, uses a recursive process, and you call the same method again based on the information returned in the transaction object; the Identity Engine SDK uses the nextStep property on the transaction object to provide a hint at the required information. For the basic authentication example, the Identity Engine SDK calls authClient.idx.authenticate again with information as part of the call, the user’s email address, authenticator, and so on to complete the flow and return a success state.
+The classic authentication flow returns a transaction object that has the ability to proceed in the process; you call a method on the transaction object based on the status, for example `authClient.signInWithCredentials` to authenticate the user. The Okta Identity Engine SDK, however, uses a recursive process, and you call the same method again based on the information returned in the transaction object; the Identity Engine SDK uses the `nextStep` property on the transaction object to provide a hint at the required information. For the basic authentication example, the Identity Engine SDK calls `authClient.idx.authenticate` again with information as part of the call, the user’s email address, authenticator, and so on to complete the flow and return a success state. See [Mapping Authentication code to the Identity Engine SDK](#mapping-authentication-code-to-the-identity-engine-sdk) for more details on this use case.
 
-Another difference between Okta Classic SDK and Identity Engine SDK methods is how you receive tokens after a successful authentication. For Okta Classic SDK, the method setCookieAndRedirect,which has been deprecated, makes a call to get the tokens; in Okta Identity Engine SDK, after receiving a success state, the tokens are included with the transaction object; there’s no separate call to get the tokens.
+Another difference between Okta Classic SDK and Identity Engine SDK methods is how you receive tokens after a successful authentication. For Okta Classic SDK, the method `setCookieAndRedirect`, which has been deprecated, makes a call to get the tokens; in Okta Identity Engine SDK, after receiving a success state, the tokens are included with the transaction object; there’s no separate call to get the tokens.
 
 For further information on the Classic SDK and the Identity Engine SDK, see the following documentation at the [okta-auth-js](https://github.com/okta/okta-auth-js/blob/master/README.md) repository:
 
-- [Okta Authentication API (authn)](https://github.com/okta/okta-auth-js/blob/master/docs/authn.md)
-- [Okta Identity Engine API (IDX)](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md)
+- [Okta Authentication SDK (authn)](https://github.com/okta/okta-auth-js/blob/master/docs/authn.md)
+- [Okta Identity Engine SDK (IDX)](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md)
 - [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md)
 
 ## Mapping Authentication code to the Identity Engine SDK
 
-The following table highlights the back-end Authn API calls and the method call for the classic Okta Authn SDK that require migration to the Okta Identity Engine SDK method, which can perform authentication using the Identity Engine’s new features and workflows.
+The following table highlights the back-end Authn API and the method for the classic Okta Authn SDK that requires migration to the Okta Identity Engine SDK method, which can perform authentication using the Identity Engine’s new features and workflows.
 
 | v1 API | Authn SDK Method |Identity Engine SDK Method |
 |--------|------------------|---------------------------|
-|[/api/v1/authn](/docs/reference/api/authn/|[signInWithCredentials](https://github.com/okta/okta-auth-js/blob/master/docs/authn.md#signinwithcredentialsoptions)|[idx.authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate)|
+|[/api/v1/authn](/docs/reference/api/authn/)|[signInWithCredentials](https://github.com/okta/okta-auth-js/blob/master/docs/authn.md#signinwithcredentialsoptions)|[idx.authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate)|
 
 ### Mapping Authn SDK to Identity Engine SDK
 
-If your application uses the classic Authn SDK methods to authenticate through Okta, you generally start the authentication flow with a call to the `signInWithCredentials` method on an OktaAuth object (for example, `authClient`), using the parameters of `username` and `password`. This call returns a status on the transaction object (`transaction.status`), which must be handled by the application code. If successful (`transaction.status === 'SUCCESS'`), you make a call to the `setCookieAndRedirect` method to retrieve a sessionToken.
+If your application uses the classic Authn SDK methods to authenticate through Okta, you generally start the authentication flow with a call to the `signInWithCredentials` method on an Okta Auth object (for example, `authClient`), using the parameters of `username` and `password`. This call returns a status on the transaction object (`transaction.status`), which must be handled by the application code. If successful (`transaction.status === 'SUCCESS'`), you make a call to the `setCookieAndRedirect` method to retrieve a sessionToken.
 
-> **Note:** The `setCookieAndRedirect` method requires access to third-party cookies and is deprecated in the Okta Identity Engine SDK
+> **Note:** The `setCookieAndRedirect` method requires access to third-party cookies and is deprecated in the Okta Identity Engine SDK.
 
 See the following code snippet for this example:
 
 ```JavaScript
+
 authClient.signInWithCredentials({
   username: 'some-username',
   password: 'some-password'
@@ -68,11 +69,12 @@ authClient.signInWithCredentials({
 
 To migrate your code to the Okta Identity Engine SDK, the authentication flow is very similar, but you must replace the method calls to those in the new SDK and update your code to handle the different transaction object statuses that are returned.
 
-For the Okta Identity Engine SDK, you generally start the authentication flow with a call to the `idx.authenticate` method on an OktaAuth object (for example, `authClient`), using the parameters of `username` and `password`, or no parameters at all (see [Okta Identity Engine code options](#okta-identity-engine-code-options)). This call returns a status on the transaction object (`transaction.status`), which must be handled by the application code. If successful (`transaction.status === IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response.
+For the Okta Identity Engine SDK, you generally start the authentication flow with a call to the `idx.authenticate` method on an Okta Auth object (for example, `authClient`), using the parameters of `username` and `password`, or no parameters at all (see [Okta Identity Engine code options](/#okta-identity-engine-code-options)). This call returns a status on the transaction object (`transaction.status`), which must be handled by the application code. If successful (`transaction.status === IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response.
 
 See the following code snippet for this example:
 
 ```JavaScript
+
 const transaction = await authClient.idx.authenticate({
   username: 'some-username',
   password: 'some-password',
@@ -83,6 +85,8 @@ if (transaction.status === IdxStatus.SUCCESS) {
 }
 
 ```
+
+To see an example Identity Engine authentication using the SDK's sample application, see [basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/-/main/).
 
 For further details and reference material, see [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md) in the SDK.
 
@@ -96,11 +100,11 @@ If you’re migrating a custom application using direct back-end Authentication 
 
 ## Mapping Password Recovery code to the Identity Engine SDK
 
-The following table highlights the back-end Authn API calls and the method call for the classic Okta Authn SDK that require migration to the Okta Identity Engine SDK method, which can perform authentication using the Identity Engine’s new features and workflows.
+The following table highlights the back-end Authn API and the method for the classic Okta Authn SDK that requires migration to the Okta Identity Engine SDK method, which can perform authentication using the Identity Engine’s new features and workflows.
 
 | v1 API | Authn SDK Method |Identity Engine SDK Method |
 |--------|------------------|---------------------------|
-|[/api/v1/authn/recovery/password](/docs/reference/api/authn/|[forgotPassword](https://github.com/okta/okta-auth-js/blob/master/docs/authn.md#forgotpasswordoptions)|[idx.recoverPassword](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxrecoverpassword)|
+|[/api/v1/authn/recovery/password](/docs/reference/api/authn/)|[forgotPassword](https://github.com/okta/okta-auth-js/blob/master/docs/authn.md#forgotpasswordoptions)|[idx.recoverPassword](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxrecoverpassword)|
 
 ### Mapping Authn SDK Password Recovery methods to Identity Engine SDK
 
@@ -109,6 +113,7 @@ If your application uses the classic Authn SDK methods to recover a password thr
 See the following code snippet for this example:
 
 ```JavaScript
+
 authClient.forgotPassword({
   username: 'john.doe@example.com',
   factorType: 'SMS',
@@ -131,11 +136,11 @@ authClient.forgotPassword({
 
 ```
 
-For the Okta Identity Engine SDK, you generally start the password recovery flow with a call to the `idx.recoverPassword` method on an OktaAuth object (for example, `authClient`), using the parameters of username and authenticators or no parameters at all (although these parameters are required in subsequent calls). This call returns a status on the transaction object (`Idx.Status`), which must be handled by the application code. When finally successful (`IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response. There are other calls you need to make prior to a success status based on the password policy.
+For the Okta Identity Engine SDK, you generally start the password recovery flow with a call to the `idx.recoverPassword` method on an Okta Auth object (for example, `authClient`), using the parameters of username and authenticators or no parameters at all (although these parameters are required in subsequent calls). This call returns a status on the transaction object (`Idx.Status`), which must be handled by the application code. When finally successful (`IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response. There are other calls you need to make prior to a success status based on the password policy.
 
 See the following code snippet, for this example, showing the last call that includes the user’s confirmed new (recovered) password:
 
-```JavaScript
+```javascript
 
 const { password, confirmPassword } = req.body;
   if (password !== confirmPassword) {
@@ -150,6 +155,8 @@ if (transaction.status === IdxStatus.SUCCESS) {
 }
 
 ```
+
+To see an example Identity Engine password recovery using the SDK's sample application, see [User password recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/-/main/).
 
 For further details and reference material, see [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md) in the SDK.
 
