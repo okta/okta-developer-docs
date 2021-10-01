@@ -121,6 +121,10 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/login/token/redirect`
 * `/login/step-up/redirect`
 * `/api/${apiVersion}/radius`
+* `/.well-known/webfinger`
+* `/login/default`
+* `/login/agentlessDsso/auth`
+* `/login/agentlessDsso`
 
 [Authorization](/docs/reference/rl-global-enduser/)
 
