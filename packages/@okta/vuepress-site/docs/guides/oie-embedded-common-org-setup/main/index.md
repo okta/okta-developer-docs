@@ -9,7 +9,7 @@ title: Get set up
 
 <StackSelector class="cleaner-selector"/>
 
-This guide covers how to create and set up your Okta org before you can run the provided sample app or integrate the SDK or Widget into your own app,
+This guide covers how to create and set up your Okta org before you can run the provided sample app or integrate the SDK or Widget into your own app.
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
