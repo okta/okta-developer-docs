@@ -13,8 +13,8 @@ This guide covers how to create and set up your Okta org before you can run the 
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Update the default Custom Authorization Server.</li><li>Update the Authenticators.</li><li>Create a new application.</li><li>Set up your org for social Identity Providers.</li></ul>                                                      |
-| What you need | [Okta account](https://developer.okta.com/signup/oie.html)                                                     |
+| Learning outcomes                     | <ul><li>Get a new org set up and ready for various use cases.</li></ul>                                                      |
+| What you need | n/a                                                     |
 | Sample code                                                        | n/a                                                      |
 
 ## Overview of the embedded identity solutions
