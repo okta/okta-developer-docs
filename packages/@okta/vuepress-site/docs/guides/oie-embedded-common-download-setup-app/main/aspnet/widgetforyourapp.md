@@ -48,7 +48,7 @@ The following JSON sample shows you a set of Sign-In Widget configurations for i
 }
 ```
 
-Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget configurations (`widgetConfig`). Call `showSignInAndRedirect()` to render the Widget on the sign-in page.
+Initialize the Sign-In Widget with `OktaSignIn()` and the required Widget configurations (shown as `widgetConfig` in the following sample). Call `showSignInAndRedirect()` to render the Widget on the sign-in page.
 
 ```csharp
 <div id="okta-signin-widget-container"></div>
