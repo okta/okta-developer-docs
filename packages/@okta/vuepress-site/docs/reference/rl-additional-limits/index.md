@@ -112,24 +112,22 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 
 [Authentication](/docs/reference/rl-global-enduser/)
 
+* `/api/${apiVersion}/radius`
 * `/api/v1/authn`
 * `/api/v1/authn/factors/${factorIdOrFactorType}/verify`
 * `/api/v1/sessions`
-* `/login/login.htm`
-* `/login/sso_iwa_auth`
-* `/login/sessionCookieRedirect`
-* `/login/token/redirect`
-* `/login/step-up/redirect`
-* `/api/${apiVersion}/radius`
-* `/.well-known/webfinger`
-* `/login/default`
-* `/login/agentlessDsso/auth`
 * `/login/agentlessDsso`
+* `/login/agentlessDsso/auth`
+* `/login/default`
+* `/login/login.htm`
+* `/login/sessionCookieRedirect`
+* `/login/sso_iwa_auth`
+* `/login/step-up/redirect`
+* `/login/token/redirect`
+* `/.well-known/webfinger`
 
 [Authorization](/docs/reference/rl-global-enduser/)
 
-* `/oauth2/${authorizationServerId}/v1`
-* `/oauth2/v1`
 * `/app/${app}/${key}/sso/saml`
 * `/app/office365${appType}/${key}/sso/wsfed/active`
 * `/app/office365${appType}/${key}/sso/wsfed/passive`
@@ -137,6 +135,8 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/idp/idx/introspect` <ApiLifecycle access="ie" />
 * `/idp/idx/identify` <ApiLifecycle access="ie" />
 * Identity Engine App Intent <ApiLifecycle access="ie" />
+* `/oauth2/v1`
+* `/oauth2/${authorizationServerId}/v1`
 
 [Single User/Group/App operations (GET, UPDATE, and DELETE)](/docs/reference/rl-dynamic-scale/)
 
