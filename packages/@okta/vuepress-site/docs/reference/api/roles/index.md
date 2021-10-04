@@ -619,7 +619,7 @@ curl -v -X GET \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="get" url="/api/v1/iam/resource-sets}" />
+<ApiOperation method="get" url="/api/v1/iam/resource-sets" />
 
 Gets a paginated list of Resource Sets
 
