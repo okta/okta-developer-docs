@@ -1,6 +1,39 @@
 ---
 title: Okta API Products Release Notes 2021
 ---
+
+## October
+
+### Monthly Release 2021.10.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [AES-GCM encryption support for SAML assertions](#aes-gcm-encryption-support-for-saml-assertions) | October 6, 2021 |
+| [Authentication API returns UD User Profile locale is GA in Preview](#authentication-api-returns-ud-user-profile-locale-is-ga-in-preview) | October 6, 2021 |
+| [Native SSO support is GA in Preview](#native-sso-support-is-ga-in-preview) | October 6, 2021 |
+| [Brands API option to remove sign-in page footer message](#brands-api-option-to-remove-sign-in-page-footer-message) | October 6, 2021 |
+| [Bug fixed in 2021.10.0](#bug-fixed-in-2021-10-0)                          | October 6, 2021          |
+
+#### AES-GCM encryption support for SAML assertions
+
+To secure SAML assertions from attacks and to adopt a stronger security mechanism, Okta now supports AES128-GCM and AES256-GCM encryptions modes in addition to AES-128 and AES-256 for SAML applications. <!--OKTA-428056-->
+
+#### Authentication API returns UD User Profile locale is GA in Preview
+
+The response for the primary Authentication API includes the [User Profile's locale](/docs/reference/api/authn/#user-profile-object) value that is the same as the User Profile locale value in Universal Directory (UD). This behavior is now Generally Available in Preview. <!--OKTA-430697-->
+
+#### Native SSO support is GA in Preview
+
+Native SSO support is now Generally Available in Preview. You can now configure your org to use the Native Single-Sign On (SSO) flow. The [Native SSO](/docs/guides/configure-native-sso/) feature allows you to protect native OpenID Connect applications and achieve SSO and Single Logout between native applications. <!--428053-->
+
+#### Brands API option to remove sign-in page footer message
+
+You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in page using either the [Customizations > Footer](https://help.okta.com/okta_help.htm?id=ext-custom-footer) option in the Admin Console or the [Brands API](/docs/reference/api/brands/#brand-api-objects). <!--OKTA-424736-->
+
+#### Bug fixed in 2021.10.0
+
+Read-Only Admins were unable to [list key credentials for an application](/docs/reference/api/apps/#list-key-credentials-for-application) from the Apps API. (OKTA-430970)
+
 ## September
 
 ### Weekly Release 2021.09.2
