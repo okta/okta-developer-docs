@@ -24,7 +24,7 @@ The response for the primary Authentication API includes the [User Profile's loc
 
 #### Native SSO support is GA in Preview
 
-You can now configure your org to use the Native Single-Sign On (SSO) flow. The [Native SSO](/docs/guides/configure-native-sso/) feature allows you to protect native OpenID Connect applications and achieve SSO and Single Logout between native applications. <!--428053-->
+You can now configure your org to use the Native SSO flow. The [Native SSO](/docs/guides/configure-native-sso/) feature allows you to protect native OpenID Connect applications and achieve SSO and Single Logout between native applications. <!--428053-->
 
 #### New Brands API option to remove sign-in page footer message
 
