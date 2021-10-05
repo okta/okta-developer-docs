@@ -12,7 +12,7 @@ title: Okta Identity Engine API Products Release Notes 2021
 |--------------------------------------------------------------------------|--------------------------|
 | [Brands API option to remove sign-in page footer message](#brands-api-option-to-remove-sign-in-page-footer-message) | October 6, 2021 |
 
-#### Brands API option to remove sign-in page footer message
+#### New Brands API option to remove sign-in page footer message
 
 You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in page using either the [Customizations > Footer](https://help.okta.com/okta_help.htm?type=oie&id=ext-custom-footer) option in the Admin Console or the [Brands API](/docs/reference/api/brands/#brand-api-objects). <!--OKTA-424736-->
 
