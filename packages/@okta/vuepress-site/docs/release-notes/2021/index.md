@@ -11,7 +11,7 @@ title: Okta API Products Release Notes 2021
 | [AES-GCM encryption support for SAML assertions](#aes-gcm-encryption-support-for-saml-assertions) | October 6, 2021 |
 | [Authentication API returns UD User Profile locale is GA in Preview](#authentication-api-returns-ud-user-profile-locale-is-ga-in-preview) | October 6, 2021 |
 | [Native SSO support is GA in Preview](#native-sso-support-is-ga-in-preview) | October 6, 2021 |
-| [Brands API option to remove sign-in page footer message](#brands-api-option-to-remove-sign-in-page-footer-message) | October 6, 2021 |
+| [New Brands API option to remove sign-in page footer message](#new-brands-api-option-to-remove-sign-in-page-footer-message) | October 6, 2021 |
 | [Bug fixed in 2021.10.0](#bug-fixed-in-2021-10-0)                          | October 6, 2021          |
 
 #### AES-GCM encryption support for SAML assertions
