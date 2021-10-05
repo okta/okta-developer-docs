@@ -6,7 +6,7 @@ There are three steps necessary to configure the Identity Provider at <StackSele
 
 * **Create an App ID** &mdash; an App ID enables your app to access available services and identifies your app in a provisioning profile with <StackSelector snippet="idp" noSelector inline />.
 * **Create a Services ID** &mdash; the Services ID identifies the particular instance of your app. The Services ID is used as the OAuth `client_id`.
-* **Create a private key for client authentication** &mdash; <StackSelector snippet="idp" noSelector inline /> uses a public/private key pair as the client secret. You must register a new private key with Apple and download the key file for use with Okta.
+* **Create a private key for client authentication** &mdash; <StackSelector snippet="idp" noSelector inline /> uses a public/private key pair as the client secret. You must register a new private key with <StackSelector snippet="idp" noSelector inline /> and download the key file for use with Okta.
 
 ## Create an App ID
 
@@ -74,4 +74,4 @@ If you choose to [hide your email](https://support.apple.com/en-us/HT210425), yo
 1. Click **Configure**.
 1. Click the plus sign (+) next to **Email Sources** and add `mailrelay.okta.com` in the **Domains and Subdomains** box.
 1. Click **Next**, **Register**, and then **Done**.
-1. Verify your changes by signing in to your Okta Admin Console, selecting **Sign in with Apple**, and verifying that a verification email is successfully sent to you.
+1. Verify your changes by signing in to your Okta Admin Console, selecting **Sign in with <StackSelector snippet="idp" noSelector inline />**, and verifying that a verification email is successfully sent to you.

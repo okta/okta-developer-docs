@@ -1,6 +1,6 @@
 In the **General Settings** section:
 
-* **Name** &mdash; enter the name that you would expect to see on a button, such as **Sign in with SAML 2.0**.
+* **Name** &mdash; enter the name that you would expect to see on a button, such as **Sign in with <StackSelector snippet="idp" noSelector inline /> 2.0**.
 
 In the **Authentication Settings** section:
 
@@ -10,7 +10,7 @@ In the **Authentication Settings** section:
 
     You can enter an expression to reformat the value, if desired. For example, if the social username is `john.doe@mycompany.com`, then you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/) for more information.
 
-In the **SAML Protocol Settings** section:
+In the **<StackSelector snippet="idp" noSelector inline /> Protocol Settings** section:
 
 > **Note:** When you are setting up the IdP in Okta, sometimes the Issuer, Single Sign-On URL, and Certificate aren't available from the external IdP until the metadata (the Assertion Consumer Service URL (ACS URL) and Audience URI) is uploaded to the IdP. And, the ACS URL and Audience URI values aren't available until the IdP in Okta is configured.<br>
 <br>

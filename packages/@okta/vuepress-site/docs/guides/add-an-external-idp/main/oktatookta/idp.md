@@ -1,1 +1,1 @@
-Okta to Okta
+Okta org
