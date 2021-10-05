@@ -8,7 +8,7 @@
         <form id="signupForm" @submit="submitForm">
           <div class="row">
             <label class="field-wrapper" for="email">
-              Email
+              Work Email
               <input
                 type="text"
                 id="email"
@@ -253,6 +253,22 @@
         <div class="logo-wrapper" v-if="!isOie">
           <CompanyLogos withHeading small v-bind:centered="false" />
         </div>
+        <div class="auth0-banner" v-if="!isOie">
+          <div class="auth0-banner--content">
+            <p>
+              Are you a developer looking for a pay-as-you-go option? Check out Auth0 self-service plans starting at $23 per month.
+            </p>
+            <p>
+              <SmartLink :item="{ link: 'https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup', target: '_self' }"
+              >
+                Start Building for Free &rsaquo;
+              </SmartLink>
+            </p>
+          </div>
+          <div class="auth0-banner--logo">
+            <img src="/img/logos/auth0-inc-logo.svg" alt="auth0 logo" />
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -357,12 +373,12 @@ export default {
     }
   },
   methods: {
-    submitForm(e) {
+    async submitForm(e) {
       e.preventDefault();
       this.validationService.checkFormInput("firstName");
       this.validationService.checkFormInput("lastName");
       this.validationService.checkFormInput("country");
-      this.validationService.checkEmailInput("email");
+      await this.validationService.checkEmailInput("email");
       this.validationService.checkFormInput("state");
       this.validationService.checkFormInput("captcha");
 
