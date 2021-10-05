@@ -26,7 +26,7 @@ The response for the primary Authentication API includes the [User Profile's loc
 
 Native SSO support is now Generally Available in Preview. You can now configure your org to use the Native Single-Sign On (SSO) flow. The [Native SSO](/docs/guides/configure-native-sso/) feature allows you to protect native OpenID Connect applications and achieve SSO and Single Logout between native applications. <!--428053-->
 
-#### Brands API option to remove sign-in page footer message
+#### New Brands API option to remove sign-in page footer message
 
 You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in page using either the [Customizations > Footer](https://help.okta.com/okta_help.htm?id=ext-custom-footer) option in the Admin Console or the [Brands API](/docs/reference/api/brands/#brand-api-objects). <!--OKTA-424736-->
 
