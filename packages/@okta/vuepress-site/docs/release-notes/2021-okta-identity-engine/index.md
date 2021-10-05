@@ -10,7 +10,7 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Brands API option to remove sign-in page footer message](#brands-api-option-to-remove-sign-in-page-footer-message) | October 6, 2021 |
+| [New Brands API option to remove sign-in page footer message](#new-brands-api-option-to-remove-sign-in-page-footer-message) | October 6, 2021 |
 
 #### New Brands API option to remove sign-in page footer message
 
