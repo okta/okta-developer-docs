@@ -13,7 +13,7 @@ This guide covers the use case to sign a user out, and provides a flow diagram a
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Understand the sequence of steps in the user sign-out flow.</li></ul>                                                       |
+| Learning outcomes                     | <ul><li>Understand how to implement user sign-out.</li></ul>                                                       |
 | What you need | n/a                                                     |
 | Sample code                                                        | n/a                                                      |
 

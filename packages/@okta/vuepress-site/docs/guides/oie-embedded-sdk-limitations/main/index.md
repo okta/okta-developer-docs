@@ -9,14 +9,6 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This guide covers the limitations and workarounds for specific use cases.
-
- Nutrition Facts                                                                          |                                                                                      |
-| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Understand the passwordless sign-in issue and its workaround.</li><li>Understand the **Primary factor** setting issue for the org's global Sign-on Policy rule and its workaround.</li><li>Understand the **Password** setting issue when creating users through self-service registration and its workaround.</li><li>Understand the email verification link issue and its workaround.</li></ul>                                                       |
-| What you need | n/a                                                     |
-| Sample code                                                        | n/a                                                      |
-
 ## Passwordless sign-in with magic links
 
 ### Description
