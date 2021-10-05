@@ -32,7 +32,7 @@ You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in 
 
 #### Bug fixed in 2021.10.0
 
-Read-Only Admins were unable to [list key credentials for an application](/docs/reference/api/apps/#list-key-credentials-for-application) from the Apps API. (OKTA-430970)
+Read-only admins were unable to [list key credentials for an application](/docs/reference/api/apps/#list-key-credentials-for-application) from the Apps API. (OKTA-430970)
 
 ## September
 
