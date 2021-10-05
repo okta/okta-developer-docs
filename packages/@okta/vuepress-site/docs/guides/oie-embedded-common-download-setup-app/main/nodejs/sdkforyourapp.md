@@ -1,6 +1,6 @@
 > **Note:** Try to [run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/nodejs/main/#run-the-embedded-sdk-sample-app) and explore the available [embedded authentication use cases](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/) to get familiar with the SDK before you start to integrate your own embedded Node.js app.
 
-Begin to integrate the SDK into your own app by follow these steps:
+Begin to integrate the SDK into your own app by following these steps:
 
 #### 1: Install the SDK into your project application
 
