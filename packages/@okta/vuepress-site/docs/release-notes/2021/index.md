@@ -20,7 +20,7 @@ To secure SAML assertions from attacks and to adopt a stronger security mechanis
 
 #### Authentication API returns UD User Profile locale is GA in Preview
 
-The response for the primary Authentication API includes the [User Profile's locale](/docs/reference/api/authn/#user-profile-object) value that is the same as the User Profile locale value in Universal Directory (UD). This behavior is now Generally Available in Preview. <!--OKTA-430697-->
+The response for the primary Authentication API includes the [User Profile's locale](/docs/reference/api/authn/#user-profile-object) value that is the same as the User Profile locale value in Universal Directory (UD). <!--OKTA-430697-->
 
 #### Native SSO support is GA in Preview
 
