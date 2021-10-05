@@ -9,24 +9,20 @@ title: Self-service registration
 
 <StackSelector class="cleaner-selector"/>
 
-This guide covers self-service registration, which allows users to sign up for the app themselves. In this use case, the user must register with a password, email, and/or phone factors.
+Self-service registration allows users to sign up for the app themselves. In this use case, the user must register with a password, email, and/or phone factors.
 
- Nutrition Facts                                                                          |                                                                                      |
-| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Configure your Okta org for self-service registration.</li><li>Set up and send a verification email during new user registration.</li></ul>                                                      |
-| What you need | [Okta org already configured for multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)                                                     |
-| Sample code                                                        | n/a                                                      |
-
-## Self-service registration requirements
-
-This self-service registration use case requires the password and either the email or the phone factor.
-
-![Password and email factors](/img/oie-embedded-sdk/factor-password-email-or-phone.png)
-
-You also need to enable self-service registration:
+To enable self-service registration:
 
 1. Enable the self-service registration option for your app in the Okta org.
 1. Build the self-service registration flow in your app.
+
+This use case requires the password and either the email or the phone factor.
+
+<div class="common-image-format">
+
+![Password and email factors](/img/oie-embedded-sdk/factor-password-email-or-phone.png)
+
+</div>
 
 ## Configuration updates
 
@@ -48,7 +44,7 @@ Enable self-registration in your profile enrollment default policy:
 1. In the **Edit Rule** dialog box, under the **For new users** section, select **Allowed** in the **Sign-up** field.
 1. Click **Save**.
 
-> **Note:** See [Managed Profile Enrollment policies](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment) for additional profile enrollment policy options.
+> **Note:** See [Managed Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment) for additional profile enrollment policy options.
 
 ### 2: Confirm that the org application is assigned to everyone
 
