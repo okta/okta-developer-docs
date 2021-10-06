@@ -1,5 +1,3 @@
-In the **General Settings** section:
-
 * **Name** &mdash; enter the name that you would expect to see on a button, such as **Sign in with <StackSelector snippet="idp" noSelector inline /> 2.0**.
 
 In the **Authentication Settings** section:

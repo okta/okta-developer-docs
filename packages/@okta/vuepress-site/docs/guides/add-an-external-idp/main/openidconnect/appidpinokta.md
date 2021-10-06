@@ -1,5 +1,3 @@
-In the **General Settings** section:
-
 * **Name** &mdash; enter a name for the Identity Provider configuration.
 * **Client Id** &mdash; paste the app ID or client ID that you obtained when you configured the Identity Provider in the previous section.
 * **Client Secret** &mdash; paste the secret that you obtained in the previous section.

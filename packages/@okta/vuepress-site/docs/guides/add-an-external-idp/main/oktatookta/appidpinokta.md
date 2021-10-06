@@ -1,5 +1,3 @@
-In the **General Settings** section:
-
 * **Name** &mdash; enter a name for the Identity Provider configuration.
 * **Client Id** &mdash; paste the client ID that you obtained from the Okta org that represents the Identity Provider in the previous section.
 * **Client Secret** &mdash; paste the secret that you obtained in the previous section.

@@ -8,7 +8,7 @@
 
 4. Under **Certificates & secrets**, click **New client secret** to generate a client secret for your app. Copy the value so that you can add it to the Okta configuration in the next section. This is the secret that corresponds to your Application ID.
 
-    > **Note:** There may be additional settings for the app that you can configure. The steps in this guide address the quickest route to setting up <StackSelector snippet="idp" noSelector inline /> AD as an Identity Provider with Okta. See the <StackSelector snippet="idp" noSelector inline /> AD documentation for more information on additional configuration settings.
+    > **Note:** There may be additional settings for the app that you can configure. The steps in this guide address the quickest route to setting up <StackSelector snippet="idp" noSelector inline /> as an Identity Provider with Okta. See the <StackSelector snippet="idp" noSelector inline /> documentation for more information on additional configuration settings.
 
 For use in the next section, do the following:
 

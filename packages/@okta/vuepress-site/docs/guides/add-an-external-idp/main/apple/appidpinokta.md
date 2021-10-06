@@ -1,5 +1,3 @@
-In the **General Settings** section:
-
 * **Name** &mdash; enter a name for the Identity Provider configuration.
 * **Client ID** &mdash; paste the Services ID that you obtained from <StackSelector snippet="idp" noSelector inline /> when you configured the Identity Provider in the previous section. The Services ID identifies the particular instance of your app and is used as the OAuth `client_id`.
 * **Client Secret Signing Key** &mdash; click **Browse files** and locate the key file (.p8 format) that you downloaded from <StackSelector snippet="idp" noSelector inline /> when you created the private key for client authentication in the previous section.

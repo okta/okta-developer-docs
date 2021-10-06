@@ -22,15 +22,15 @@ This guide assumes that you:
 
 We support a lot of Identity Providers. This guide provides instructions for the following Identity Providers. If the provider that you need isn't listed, we may still support it through generic OpenID Connect or SAML. The Identity Provider's documentation should say which protocol you need to use.
 
-* [Apple](/docs/guides/add-an-external-idp/apple/create-an-app-at-idp/)
-* [Azure AD](/docs/guides/add-an-external-idp/azure/create-an-app-at-idp/)
-* [Facebook](/docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/)
-* [Google](/docs/guides/add-an-external-idp/google/create-an-app-at-idp/)
-* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/)
-* [Microsoft](/docs/guides/add-an-external-idp/microsoft/create-an-app-at-idp/)
-* [Okta to Okta](/docs/guides/add-an-external-idp/oktatookta/create-an-app-at-idp/)
-* [OpenID Connect](/docs/guides/add-an-external-idp/openidconnect/create-an-app-at-idp/)
-* [SAML 2.0](/docs/guides/add-an-external-idp/saml2/create-an-app-at-idp/)
+* [Apple](/docs/guides/add-an-external-idp/apple/main)
+* [Azure AD](/docs/guides/add-an-external-idp/azure/main)
+* [Facebook](/docs/guides/add-an-external-idp/facebook/main)
+* [Google](/docs/guides/add-an-external-idp/google/main)
+* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/main)
+* [Microsoft](/docs/guides/add-an-external-idp/microsoft/main)
+* [Okta to Okta](/docs/guides/add-an-external-idp/oktatookta/main)
+* [OpenID Connect](/docs/guides/add-an-external-idp/openidconnect/main)
+* [SAML 2.0](/docs/guides/add-an-external-idp/saml2/main)
 
 ### Support
 
@@ -52,15 +52,15 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 1. Select **Add Identity Provider** and then select the appropriate Identity Provider.
 
-1. In the **Add an Identity Provider** dialog box, define the following:
+1. In the **Add an Identity Provider** dialog box, define the following in the **General Settings** section::
 
-    <StackSelector snippet="appidpinokta" />
+    <StackSnippet snippet="appidpinokta" />
 
 1. Click **Add Identity Provider**. The Identity Providers page appears.
 
 1. Locate the Identity Provider that you just added and click the arrow next to the Identity Provider name to expand.
 
-1. <StackSelector snippet="afterappidpinokta" />
+<StackSnippet snippet="afterappidpinokta" />
 
 ### Social Identity Provider settings
 
@@ -133,9 +133,7 @@ If you need to create a new OIDC app integration:
     > **Note:** The Authorization Code grant flow is also supported.
 1. On the **Assignments** tab, click **Assign** to assign the app integration to any user or group in your org. Click **Done** when the assignments are complete. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
 
-To get the client credentials for your app integration:
-
-1. On the **General** tab, copy the **Client ID** from the **Client Credentials** section. You need this ID to complete the Authorize URL in the next section.
+> **Note:** To get the client credentials for your app integration, on the **General** tab, copy the **Client ID** from the **Client Credentials** section. You need this ID to complete the Authorize URL in the next section.
 
 ## Create an authorization URL
 
