@@ -1,8 +1,8 @@
 In the **General Settings** section:
 
 * **Name** &mdash; enter a name for the Identity Provider configuration.
-* **Client Id** &mdash; paste the client ID that you obtained from the Okta org that represents the Identity Provider in the <GuideLink link="../create-an-app-at-idp">previous section</GuideLink>.
-* **Client Secret** &mdash; paste the secret that you obtained in the <GuideLink link="../create-an-app-at-idp">previous section</GuideLink>.
+* **Client Id** &mdash; paste the client ID that you obtained from the Okta org that represents the Identity Provider in the previous section.
+* **Client Secret** &mdash; paste the secret that you obtained in the previous section.
 * **Scopes** &mdash; leave the defaults. These scopes are included when your Okta org makes a request to the other Okta org that represents the Identity Provider.
 
     By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.

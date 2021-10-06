@@ -3,15 +3,15 @@
 In the **General Settings** section:
 
 * **Name** &mdash; enter a name for the Identity Provider configuration.
-* **Client Id** &mdash; paste the client ID that you obtained from <StackSelector snippet="idp" noSelector inline /> when you configured the Identity Provider in the <GuideLink link="../create-an-app-at-idp">previous section</GuideLink>.
-* **Client Secret** &mdash; paste the secret that you obtained in the <GuideLink link="../create-an-app-at-idp">previous section</GuideLink>.
+* **Client Id** &mdash; paste the client ID that you obtained from <StackSelector snippet="idp" noSelector inline /> when you configured the Identity Provider in the previous section.
+* **Client Secret** &mdash; paste the secret that you obtained in the previous section.
 * **Scopes** &mdash; leave the defaults. These scopes are included when Okta makes an OpenID Connect request to <StackSelector snippet="idp" noSelector inline />.
 
     > **Note:** By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory.
 
 In the **Endpoints** section:
 
-Add the following endpoint URLs for the <StackSelector snippet="idp" noSelector inline /> Identity Provider that you are configuring. You obtained these in the <GuideLink link="../create-an-app-at-idp">previous section</GuideLink>.
+Add the following endpoint URLs for the <StackSelector snippet="idp" noSelector inline /> Identity Provider that you are configuring. You obtained these in the previous section.
 
 * **Issuer** &mdash; the identifier of the <StackSelector snippet="idp" noSelector inline /> Identity Provider: `https://login.microsoftonline.com/${Directory(tenant)ID}/v2.0`
 * **Authorization endpoint** &mdash; the URL of the <StackSelector snippet="idp" noSelector inline /> OAuth 2.0 authorization endpoint. For example: `https://login.microsoftonline.com/${Directory(tenant)ID}/oauth2/v2.0/authorize`

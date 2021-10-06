@@ -62,7 +62,7 @@ There are three steps necessary to configure the Identity Provider at <StackSele
 
     > **Important:** Make sure that you save the downloaded key file because you can't get it back later. <StackSelector snippet="idp" noSelector inline /> removes the server copy, so you can only download the key file once.
 
-5. Click **Done**, and then on the **Keys** page, click the key that you just created and make note of the Key ID. You need it in the <GuideLink link="../configure-idp-in-okta">next section</GuideLink>.
+5. Click **Done**, and then on the **Keys** page, click the key that you just created and make note of the Key ID. You need it in the next section.
 
 6. Make note of the Team ID, which is a 10 character (alphanumeric) ID in your <StackSelector snippet="idp" noSelector inline /> developer account. You can find this ID in the upper-right corner of your <StackSelector snippet="idp" noSelector inline /> developer dashboard just below your account name.
 
