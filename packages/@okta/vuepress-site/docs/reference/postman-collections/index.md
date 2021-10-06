@@ -14,7 +14,7 @@ Import any Okta API collection for Postman from the following list:
 | Administrator Roles               | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/89c3cc971a842e27e761) |
 | Advanced Server Access            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/acb5d434083d512bdbb3) |
 | API Access Management (OAuth 2.0) | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6bb2f73c314171914eac) |
-| Apps                              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/be7367401f4926a945f8) |
+| Apps                              | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/083b3c38edfdc107e4ad) |
 | Authentication                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/41c71ad6815e708b504a) |
 | Authorization Servers             | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3db644315e549633361a) |
 | Brands                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb) |
