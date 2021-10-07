@@ -97,6 +97,12 @@ The client-based rate limit framework can operate in one of three modes:
 | **Log per client**                          | The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values, but the client-specific rate limit violation information is logged as System Log events. |
 | **Do nothing**                                | Rate limits aren't enforced at the client-specific level. The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values. No new or additional System Log events are produced from this feature in this mode. |
 
+#### Per client rate limit
+
+As of October 12, 2021, the client-based rate limits for the OAuth 2.0 `/authorize` and `/login/login.htm` endpoints are set to **Log per client** mode. This means that if an org's client-based rate limit was previously set to **Do nothing**, the setting is changed to **Log per client** mode.
+
+If an org's client-based limit was previously set to **Enforce limit and log per client (recommended)** mode, the setting remains as is. For this mode setting, you need to monitor your syslog events for [`system.client.rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.rate_limit.notification) and [`system.client.concurrency_rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.concurrency_rate_limit.notification) for notifications when a client has a violation. If you see one-time notifications from a handful of different users, then those users may be doing something scripted or automated, and in such cases, no action is required. However, if you see widespread notifications from a large number of users, then you need to troubleshoot and make changes to the application where needed.
+
 ### Check your rate limits with Okta Rate Limit headers
 
 The Rate Limit headers that are returned when the client-based rate limit is enabled are very similar to the headers that are returned through the [org-wide rate limits](/docs/reference/rl-best-practices/). The difference is that the header value is specific to a given client/IP/device identifier combination (for the OAuth 2.0 `/authorize` endpoint) or IP/device identifier combination (for the `/login/login.htm` endpoint) rather than the org-wide rate limit values. Okta provides three headers in each response to report client-specific rate limits.
