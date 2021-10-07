@@ -1,5 +1,4 @@
-After you satisfy the software requirements, clone the [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js) repository to your local directory. Run the sample app after you [set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/-/main/#set-the-configuration-values).
-
+After you satisfy the software requirements, clone the [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js) repository to your local directory.
 ```console
 git clone https://github.com/okta/okta-auth-js.git
 cd okta-auth-js/samples/generated/express-embedded-sign-in-widget

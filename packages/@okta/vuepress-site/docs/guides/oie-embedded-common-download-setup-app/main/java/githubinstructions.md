@@ -1,5 +1,5 @@
 After you satisfy the software requirements, clone the [okta-idx-java](https://github.com/okta/okta-idx-java)
-repository to your local directory. Run the sample app after you [set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/-/main/#set-the-configuration-values).
+repository to your local directory.
 
 The Okta Identity Engine Java SDK project consists of the following directories:
 

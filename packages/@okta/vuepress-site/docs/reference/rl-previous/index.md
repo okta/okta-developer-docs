@@ -17,20 +17,20 @@ The following are the high capacity rate limits per minute that apply across the
 
 | Endpoint                                                                   | One App   | Enterprise   |
 | -------------------------------------------------------------------------- | ---------: | ------------: |
-| `/oauth2/${authorizationServerId}/v1`                                       | 3000      | 6000         |
-| `/oauth2/v1` except `/oauth2/v1/clients`                                   | 3000      | 6000         |
-| `/api/v1`                                                                  | 1500      | 3000         |
-| `/api/v1/sessions`                                                         | 1500      | 3000         |
-| `/app/template_saml_2_0/${key}/sso/saml`                                    | 1500      | 3000         |
-| `/app/${app}/${key}/sso/saml`                                                | 1500      | 3000         |
-| `/api/v1/groups/${id}`                                                      | 1500      | 3000         |
-| `/api/v1/users/${id}`                                                       | 1500      | 3000         |
-| `/api/v1/users/${idOrLogin}` (only `GET`)                                   | 1500      | 5000         |
-| `/api/v1/authn`                                                            | 1500      | 3000         |
-| `/api/plugin/${protocolVersion}/form-creds/${appUserIds}/${formSiteOption}`   | 1500      | 3000         |
-| `/api/v1/authn/factors/${factorIdOrFactorType}/verify`                      | 1500      | 3000         |
-| `/api/v1/apps/${id}`                                                        | 1500      | 3000         |
-| `/bc/image/fileStoreRecord`                                                | 1500      | 3000         |
-| `/bc/globalFileStoreRecord`                                                | 1500      | 3000         |
+| `/oauth2/${authorizationServerId}/v1`                                       | 6000      | 6000         |
+| `/oauth2/v1` except `/oauth2/v1/clients`                                   | 6000      | 6000         |
+| `/api/v1`                                                                  | 3000      | 3000         |
+| `/api/v1/sessions`                                                         | 3000      | 3000         |
+| `/app/template_saml_2_0/${key}/sso/saml`                                    | 3000      | 3000         |
+| `/app/${app}/${key}/sso/saml`                                                | 3000      | 3000         |
+| `/api/v1/groups/${id}`                                                      | 3000      | 3000         |
+| `/api/v1/users/${id}`                                                       | 3000      | 3000         |
+| `/api/v1/users/${idOrLogin}` (only `GET`)                                   | 5000      | 5000         |
+| `/api/v1/authn`                                                            | 3000      | 3000         |
+| `/api/plugin/${protocolVersion}/form-creds/${appUserIds}/${formSiteOption}`   | 3000      | 3000         |
+| `/api/v1/authn/factors/${factorIdOrFactorType}/verify`                      | 3000      | 3000         |
+| `/api/v1/apps/${id}`                                                        | 3000      | 3000         |
+| `/bc/image/fileStoreRecord`                                                | 3000      | 3000         |
+| `/bc/globalFileStoreRecord`                                                | 3000      | 3000         |
 
 If your usage needs exceed the rate limits applicable to the High Capacity Rate Limit add-on service, please contact your Okta Sales Representative regarding other options.

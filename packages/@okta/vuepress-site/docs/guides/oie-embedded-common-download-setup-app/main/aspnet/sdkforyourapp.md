@@ -1,4 +1,6 @@
-After you run the sample app and explore the available use cases, you can begin to integrate the SDK and/or the Widget in to your own app. Follow these steps to get started:
+> **Note:** Try to [run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/aspnet/main/#run-the-embedded-sdk-sample-app) and explore the available [embedded authentication use cases](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/aspnet/main/) to get familiar with the SDK before you start to integrate your own embedded .NET app.
+
+Begin to integrate the SDK into your own app by following these steps:
 
 #### 1: Set up your app for .Net 4.8 or greater
 

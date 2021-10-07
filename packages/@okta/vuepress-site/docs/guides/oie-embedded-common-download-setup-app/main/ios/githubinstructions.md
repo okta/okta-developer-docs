@@ -1,4 +1,4 @@
-After you satisfy the software requirements, clone the [okta-idx-swift](https://github.com/okta/okta-idx-swift) repository to your local directory. Run the sample app after you [set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/-/main/#set-the-configuration-values).
+After you satisfy the software requirements, clone the [okta-idx-swift](https://github.com/okta/okta-idx-swift) repository to your local directory.
 
 The `okta-idx-swift` repository includes the following directories:
 
