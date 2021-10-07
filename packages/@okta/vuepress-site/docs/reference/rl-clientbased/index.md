@@ -103,7 +103,7 @@ As of October 12, 2021, the default client-based rate limit for the OAuth 2.0 `/
 
 If an org's client-based limit was previously set to **Enforce limit and log per client (recommended)** mode, the setting remains as is. For this mode setting, you need to monitor your syslog events for [`system.client.rate_limit.notification`](/docs/reference/rl-system-log-events/#web-request-rate-limits-org-level) and [`system.client.concurrency_rate_limit.notification`](/docs/reference/rl-system-log-events/#web-request-rate-limits-org-level) in case of client violations. If you see these one-time notifications from a handful of different users, then those users may be doing something scripted or automated. In such cases, you can choose to either investigate the issue or choose not to take action. However, if you see widespread notifications from a large number of users, then it is likely that the application may have an issue, in which case you'll need to troubleshoot and make changes to the application where needed.
 
-In March 2022, the default client-based rate limit for the OAuth 2.0 `/authorize` and `/login/login.htm` endpoints is going to be elevated to **Enforce limit and log per client (recommended)** mode.
+> **Note:** In March 2022, the default client-based rate limit for the OAuth 2.0 `/authorize` and `/login/login.htm` endpoints is going to be elevated to **Enforce limit and log per client (recommended)** mode. This means that if an org's client-based rate limit was previously set to **Do nothing** or **Log per client**, the setting is going to change to **Enforce limit and log per client (recommended)** mode.
 
 ### Check your rate limits with Okta Rate Limit headers
 
