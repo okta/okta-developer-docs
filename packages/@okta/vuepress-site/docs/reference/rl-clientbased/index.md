@@ -103,6 +103,8 @@ As of October 12, 2021, the default client-based rate limit for the OAuth 2.0 `/
 
 If an org's client-based limit was previously set to **Enforce limit and log per client (recommended)** mode, the setting remains as is. For this mode setting, you need to monitor your syslog events for [`system.client.rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.rate_limit.notification) and [`system.client.concurrency_rate_limit.notification`](/docs/reference/api/event-types/?q=system.client.concurrency_rate_limit.notification) in case of client violations. If you see these one-time notifications from a handful of different users, then those users may be doing something scripted or automated, and in such cases, no action is required. However, if you see widespread notifications from a large number of users, then you need to troubleshoot and make changes to the application where needed.
 
+In March 2022, the default client-based rate limit for the OAuth 2.0 `/authorize` and `/login/login.htm` endpoints is going to be elevated to **Enforce limit and log per client (recommended)** mode.
+
 ### Check your rate limits with Okta Rate Limit headers
 
 The Rate Limit headers that are returned when the client-based rate limit is enabled are very similar to the headers that are returned through the [org-wide rate limits](/docs/reference/rl-best-practices/). The difference is that the header value is specific to a given client/IP/device identifier combination (for the OAuth 2.0 `/authorize` endpoint) or IP/device identifier combination (for the `/login/login.htm` endpoint) rather than the org-wide rate limit values. Okta provides three headers in each response to report client-specific rate limits.
