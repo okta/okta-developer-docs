@@ -68,8 +68,6 @@ The following endpoints are used by the Okta home page for authentication and us
 | `/login/do-login`                                                       | 100               | 600               | 600      | 600         | 200                |
 | `/login/login.htm`                                                      | 100               | 600               | 600      | 600         | 850                |
 | `/login/sso_iwa_auth`                                                   | 100               | 600               | 600      | 600         | 500                |
-| `/api/plugin/${protocolVersion}/form-cred/${appUserIds}/${formSiteOption}` | 100               | 600               | *600     | *600        | 650                |
-| `/api/plugin/${protocolVersion}/sites`                                   | 20                | 100                | 100       | 100         | 150                |
 | `/bc/image/fileStoreRecord`                                             | 100               | 600               | *600     | *600        | 500                |
 | `/bc/globalFileStoreRecord`                                             | 100               | 600               | *600     | *600        | 500                |
 

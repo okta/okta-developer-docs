@@ -27,7 +27,6 @@ The following are the high capacity rate limits per minute that apply across the
 | `/api/v1/users/${id}`                                                       | 3000      | 3000         |
 | `/api/v1/users/${idOrLogin}` (only `GET`)                                   | 5000      | 5000         |
 | `/api/v1/authn`                                                            | 3000      | 3000         |
-| `/api/plugin/${protocolVersion}/form-creds/${appUserIds}/${formSiteOption}`   | 3000      | 3000         |
 | `/api/v1/authn/factors/${factorIdOrFactorType}/verify`                      | 3000      | 3000         |
 | `/api/v1/apps/${id}`                                                        | 3000      | 3000         |
 | `/bc/image/fileStoreRecord`                                                | 3000      | 3000         |
