@@ -47,7 +47,7 @@ they may want to:
 
 * Separate user administration and application access for internal employees
   from outside customers
-* Store customer data in the country of origin due to regulations and data
+* Store customer data in a certain region due to regulations and data
 residency requirements
 * Satisfy a unique set of requirements (for example, distinct branding emails,
 onboarding videos) for a business with their own set of users
@@ -307,7 +307,7 @@ Reasons why organizations choose this configuration include:
 
 * **Data residency requirements:** The data in tenants can more easily be
 isolated when placed into separate orgs. This isolation becomes relevant
-when user data is required to reside only in the user’s country (for
+when user data is required to reside in a specific region (for
 example, government regulations).
 * **Strong delegated admin support:** Although there is delegated admin
 support in [okta-dac](#the-okta-dac-project), the number of delegated

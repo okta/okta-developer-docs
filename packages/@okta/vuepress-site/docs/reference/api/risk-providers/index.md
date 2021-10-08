@@ -11,6 +11,8 @@ The Okta Risk Providers API provides the ability to manage the Risk Providers wi
 ## Get Started
 Explore the Risk Providers API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6831b9d37e12fe1f3401)
 
+See [Third-party risk provider integration overview](/docs/guides/third-party-risk-integration/overview/) for guidance on integrating third-party risk providers with Okta.
+
 ## Risk Providers Operations
 The Risk Providers API has the following CRUD operations:
 
