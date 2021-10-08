@@ -84,7 +84,7 @@ describe('Sign up page check spec', () => {
     });
 
     it('google signup button text verification', () => {
-      signUpPage.getGoogleButtonInput().should('have.text', ' Continue with Google');
+      signUpPage.getGoogleButtonInput().should('have.text', ' Continue with Google\n            ');
     });
   })
 
