@@ -220,7 +220,7 @@ module.exports = ctx => ({
       more: {
         heading: 'More Info',
         items: [
-          { text: 'Pricing', link: 'https://www.okta.com/pricing/#customer-identity-products', target: '_self' },
+          { text: 'Pricing', link: 'https://www.okta.com/pricing/#customer-identity-products' },
           { text: 'Integrate with Okta', link: '/okta-integration-network/' },
           { text: 'Change log', link: '/docs/release-notes/' },
           { text: '3rd-party notes', link: '/3rd_party_notices/' },

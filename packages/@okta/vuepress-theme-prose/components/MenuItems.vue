@@ -1,5 +1,5 @@
 <template>
-  <ul class="menu--items">
+  <ul class="menu--items menu--desktop">
     <MenuItem
       v-for="(item, index) in items"
       :key="index"
