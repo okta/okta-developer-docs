@@ -65,12 +65,12 @@
     }
     .auth0-banner {
       display: flex;
-      background-color: #233E4E;
+      background-color: #F2F5FF;
       padding: 30px;
       font-size: 22px;
-      font-weight: 600;
-      &--content {
-      }
+      font-weight: 500;
+      color: #00297A;
+
       &--logo {
         img {
           width: 124px;
@@ -83,9 +83,9 @@
       a {
         font-size: 18px;
         font-weight: 500;
-        color: #37EDDC;
+        color:#00297A;
         &:link, &:visited {
-          color: #37EDDC;
+          color:#00297A;
           text-decoration: none;
           border-bottom: 1px solid currentcolor;
         }
