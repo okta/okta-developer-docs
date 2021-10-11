@@ -9,7 +9,7 @@ The Okta Application API provides operations to manage applications and/or assig
 
 ## Get started
 
-Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/083b3c38edfdc107e4ad)
+Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/a1baf2ec75f797e6af36)
 
 ## Application operations
 
@@ -3412,7 +3412,7 @@ curl -v -X PUT \
   "signOnMode": "OPENID_CONNECT",
   "credentials": {
     "oauthClient": {
-      "client_id": 0oa1ivcatpQDkMraA1d7,
+      "client_id": ${clientID},
       "autoKeyRotation": true,
       "token_endpoint_auth_method": "client_secret_post"
     }
@@ -3535,7 +3535,7 @@ curl -v -X PUT \
   },
   "_links": {
     "uploadLogo": {
-      "href": "https://dev-adatla-op3.oktapreview.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/logo",
+      "href": "https://example.okta.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/logo",
       "hints": {
         "allow": [
           "POST"
@@ -3545,25 +3545,25 @@ curl -v -X PUT \
     "appLinks": [
       {
         "name": "oidc_client_link",
-        "href": "https://dev-adatla-op3.oktapreview.com/home/oidc_client/0oa1ivcatpQDkMraA1d7/aln177a159h7Zf52X0g8",
+        "href": "https://example.okta.com/home/oidc_client/0oa1ivcatpQDkMraA1d7/aln177a159h7Zf52X0g8",
         "type": "text/html"
       }
     ],
     "groups": {
-      "href": "https://dev-adatla-op3.oktapreview.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/groups"
+      "href": "https://example.okta.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/groups"
     },
     "logo": [
       {
         "name": "medium",
-        "href": "https://op3static.oktacdn.com/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+        "href": "https://example.okta.com/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
         "type": "image/png"
       }
     ],
     "users": {
-      "href": "https://dev-adatla-op3.oktapreview.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/users"
+      "href": "https://example.okta.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/users"
     },
     "deactivate": {
-      "href": "https://dev-adatla-op3.oktapreview.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/lifecycle/deactivate"
+      "href": "https://example.okta.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/lifecycle/deactivate"
     }
   }
 }
