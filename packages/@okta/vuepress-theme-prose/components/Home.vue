@@ -29,9 +29,6 @@
                   <h2 class="homepage--color-main">
                     Let’s get started
                   </h2>
-                  <p>
-                    Authenticate up to 15,000 users per month for free
-                  </p>
                 </div>
               </div>
 
