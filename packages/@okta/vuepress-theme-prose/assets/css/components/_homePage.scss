@@ -1,25 +1,32 @@
-$oktaGameSectionMainColor: #122a34;
-$oktaGameButtonColor: #ffdd53;
+@mixin mobile-separator {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 22px;
+  height: 1px;
+  transform: translateX(-50%);
+  background: cv('text', 'lighter');
+}
 
 .homepage {
-  background-color: #182a33;
+  background-color: cv('body', 'lighter');
   font-family: $font-family;
   min-height: 100vh;
-  color: white;
-   @include media("<=tablet"){
-      overflow: hidden;
-    }
-  .content--container{
-    @include media("<=tablet"){
-      padding: 0px;
+  color: cv('text');
+
+  .content--container {
+    @include media("<desktop") {
+      padding: 0;
     }
   }
-  .width-adjuster.col-xl-10.col-lg-10.col-md-12.col-sm-12 {
-    padding-left: 0;
-    padding-right: 0;
+
+  .width-adjuster {
     flex: 4 0 78%;
-    @include media("<=bootstrap-lg") {
-      flex: 4 0 68%;
+    max-width: calc(100% - 253px);
+    @include media("<desktop") {
+      flex-basis: 100%;
+      max-width: 100%;
     }
   }
 
@@ -36,50 +43,179 @@ $oktaGameButtonColor: #ffdd53;
     flex-wrap: nowrap;
   }
 
+  &--section-margins {
+    padding-left: 135px;
+    padding-right: 135px;
+    @include media("<desktop-xl") {
+      padding: 40px 57px;
+    }
+    @include media("<desktop") {
+      padding: 40px 33px;
+    }
+  }
+
+  &--top-section {
+    padding-top: 38px;
+    padding-bottom: 50px;
+    background: #fff url('/img/homepage/white-to-gray-bg.svg') repeat-x left bottom;
+    @include media("<desktop") {
+      height: auto;
+      padding-bottom: 103px;
+      padding-top: 47px;
+    }
+  }
   &--selector-block-margin {
-    margin-bottom: 80px;
-    @include media("<=bootstrap-xl") {
+    margin-bottom: 150px;
+    padding-top: 42px;
+    @include media("<desktop") {
       margin-bottom: 30px;
+      padding-top: 54px;
     }
   }
 
   &--assurance-block-margin {
-    margin-bottom: 90px;
-  }
+    padding-top: 54px;
+    padding-bottom: 105px;
+    background: cv('body', 'lighter') url('/img/homepage/gray-to-white-bg.svg') repeat-x left bottom;
 
-  &--partners-block-margin {
-    margin-bottom: 50px;
-    @include media("<=bootstrap-xl") {
-      margin-bottom: 0px;
+    @include media("<desktop") {
+      padding-bottom: 165px;
+      padding-top: 91px;
     }
   }
 
-  &--customize-your-app-margin.row {
-    margin-bottom: 80px;
+  &--partners-block-margin {
+    margin-bottom: 58px;
+    @include media("<desktop-xl") {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  &--customize-your-app-margin {
+    margin-bottom: 75px;
     min-height: 600px;
+    padding-top: 20px;
+    position: relative;
+    * {
+      z-index: 1;
+    }
+    &::before {
+      content: '';
+      z-index: 0;
+      position: absolute;
+      background: #fff url('/img/homepage/white-to-gray-bg.svg') repeat-x left bottom;
+      width: 100%;
+      height: 485px;
+      top: 0;
+      left: 0;
+    }
+
+    @include media("<desktop-xl") {
+      margin-bottom: 0px;
+    }
+    @include media("<desktop") {
+      padding-top: 40px;
+    }
   }
 
   &--color-main {
-    color: white;
+    color: cv('text', 'darker');
   }
   &--color-sub {
-    color: #92999e;
+    color: cv('text');
   }
+  &--intro-heading {
+    margin-bottom: 0;
+    padding-bottom: 36px;
+    border-bottom: 1px solid cv('text', 'lighter');
+
+    @include media("<tablet") {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 21px;
+    }
+
+    h6 {
+      font-size: 1em;
+      font-weight: 500;
+      margin: 0 0 9px;
+      position: relative;
+
+      @include media("<tablet") {
+        text-align: center;
+        font-size: 21px;
+        padding: 0 0 16px;
+        margin-bottom: 21px;
+
+        &::after {
+          @include mobile-separator();
+        }
+      }
+    }
+    p {
+      @include media("<1120px") {
+        br {
+          display: none;
+        }
+      }
+      @include media("<tablet") {
+        line-height: 1.45rem;
+        br {
+          display: none;
+        }
+      }
+    }
+  }
+
   &--main-heading {
     font-size: 32px;
+    font-weight: 300;
     margin-top: 60px;
     margin-bottom: 60px;
-    @include media("<=tablet") {
+    position: relative;
+    @include media("<tablet") {
       text-align: center;
+      margin-bottom: 49px;
+      margin-top: 25px;
+      font-size: 28px;
+    }
+  }
+  &--section-description {
+    max-width: 100%;
+    @include media("<tablet") {
+      text-align: center;
+      padding-bottom: 30px;
     }
   }
 
   &--sub-heading {
-    font-size: 22px;
-    margin-top: 0;
-    margin-bottom: 20px;
-    @include media("<=tablet") {
-      text-align: center;
+    margin-bottom: 28px;
+
+    h2 {
+      font-size: 24px;
+      margin-bottom: 8px;
+      padding-bottom: 0px;
+      margin-top: 71px;
+      @include media("<tablet") {
+        text-align: center;
+        font-size: 21px;
+        margin: 2px 0 21px;
+        padding-bottom: 16px;
+        position: relative;
+        &::after {
+          @include mobile-separator();
+        }
+      }
+    }
+
+    p {
+      font-size: 18px;
+      @include media("<tablet") {
+        font-size: 16px;
+        text-align: center;
+        line-height: 1.45rem;
+      }
     }
   }
 
@@ -92,23 +228,44 @@ $oktaGameButtonColor: #ffdd53;
   &--sub-heading-disclaimer {
     font-size: 18px;
     margin-bottom: 30px;
-    @include media("<=tablet") {
+    @include media("<desktop") {
       text-align: center;
     }
     &:last-child {
       margin-bottom: 30px;
     }
   }
-
+  &--examples {
+    padding-top: 36px;
+    margin: 0 -70px;
+    justify-content: center;
+    @include media("<desktop-xl") {
+      flex-direction: column;
+      margin: 0;
+    }
+    @include media("<desktop") {
+      padding-top: 41px;
+    }
+  }
   &--code-example {
-    height: 500px;
-    background-color: cv("brand", "dark");
+    height: 400px;
+    background-color: cv("text", "darker");
     border: 1.5px solid #2a4c63;
     border-radius: 10px;
-    width: 100%;
-    box-shadow: 2px 33px 30px -26px rgba(18, 30, 36, 1);
-    margin-bottom: 30px;
+    box-shadow: 0px 9px 25px rgba(0, 0, 0, 0.24);
     overflow: hidden;
+    margin-bottom: 30px;
+    margin-right: 37px;
+    min-width: 563px;
+    @include media("<desktop-xl") {
+      margin-bottom: 25px;
+      margin-right: 0;
+    }
+    @include media("<desktop") {
+      min-width: 0;
+      width: 100%;
+      height: auto;
+    }
     &--header {
       height: 50px;
       background: #192e3a;
@@ -116,12 +273,21 @@ $oktaGameButtonColor: #ffdd53;
       font-size: 16px;
     }
     &--cm-wrapper {
-      height: 450px;
+      height: 100%;
       .vue-codemirror {
         height: 100%;
       }
       .CodeMirror {
         height: 100%;
+        background-color: cv("text", "darker");
+        color: #fff;
+
+        pre.CodeMirror-line, .CodeMirror pre.CodeMirror-line-like {
+          @include media("<desktop") {
+            white-space: break-spaces;
+            word-break: break-word;
+          }
+        }
       }
     }
   }
@@ -130,63 +296,120 @@ $oktaGameButtonColor: #ffdd53;
     background-color: #f9f9f9;
     border: 1px solid #cecece;
     border-radius: 10px;
-    width: 100%;
-    box-shadow: 2px 33px 30px -26px rgba(18, 30, 36, 1);
-    margin-bottom: 60px;
+    width: 334px;
+    max-width: 334px;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.10);
+    margin-bottom: 30px;
     overflow: hidden;
-    min-height: 500px;
+    @include media("<tablet") {
+      max-width: 100%;
+    }
+
+    #okta-sign-in {
+      font-family: $font-family;
+      min-width: 210px;
+      .auth-header {
+        padding: 22px 90px 47px;
+      }
+      &.no-beacon .auth-header {
+        padding-bottom: 25px;
+      }
+      .auth-org-logo {
+        max-height: 35px;
+      }
+      .auth-content {
+        background: #fff;
+        padding: 60px 35px 20px;
+      }
+      &.no-beacon .auth-content {
+        padding-bottom: 34px;
+      }
+      .o-form-head {
+        font-size: 11px;
+        margin-bottom: 13px;
+      }
+      .o-form-fieldset {
+        margin-bottom: 13px;
+      }
+      .o-form {
+        .input-fix, .textarea-fix {
+          height: 34px;
+        }
+        .custom-checkbox label {
+          font-size: 11px;
+        }
+      }
+      .auth-footer {
+        font-size: 11px;
+        margin-top: 5px;
+      }
+      .o-form-button-bar {
+        padding-bottom: 15px;
+      }
+      &.main-page-widget-wrapper .button.button-primary {
+        background: #1662DD;
+        border: none;
+        text-transform: none;
+      }
+      &.main-page-widget-wrapper .okta-form-label.o-form-label {
+        display: none;
+      }
+    }
   }
 
   &--welcome-leia {
-    font-family: "Montserrat";
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
     position: relative;
-    border-radius: 3px;
+    border-radius: 10px;
+    border: 1px solid cv('text', 'lighter');
     background-color: white;
-    color: #3d3d3d;
-    height: 500px;
+    height: 425px;
     padding: 10% 15%;
+    box-shadow: 0px 20px 24px rgba(0, 0, 0, 0.13);
 
-    @include media("<=tablet") {
-      padding: 10px;
+    @include media("<desktop") {
+      padding: 30px 10px;
+      justify-content: space-evenly;
     }
 
     &--header {
-      font-size: 26px;
+      font-size: 28px;
+      font-weight: 500;
       animation: moveToRight 0.6s ease both;
       text-align: center;
+      color: cv('link', 'darker');
+      margin-bottom: 28px;
     }
 
     &--info {
       text-align: center;
-      font-size: 15px;
-      line-height: 25px;
-      color: #5d5d5d;
+      font-size: 1rem;
+      line-height: 1.7rem;
+      margin-bottom: 47px;
     }
 
     &--actions {
       display: flex;
       flex-direction: row;
 
-      @include media("<=tablet") {
+      @include media("<desktop") {
         flex-direction: column;
       }
 
       .act-btn {
         display: block;
-        font-size: 13px;
-        margin-right: 10px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
+        margin-right: 23px;
+        margin-bottom: 20px;
         padding: 0;
         color: inherit;
         display: block;
-        padding: 10px 40px;
+        padding: 8px 24px;
         text-decoration: none;
         border-radius: 0.25rem;
+        font-size: 14px;
+        font-weight: 500;
         transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
           border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 
@@ -198,8 +421,8 @@ $oktaGameButtonColor: #ffdd53;
       }
 
       &--cta.act-btn {
-        background: #e22866;
-        border-color: #e22866;
+        background: cv('header');
+        border-color: cv('header');
         color: white;
         &:hover {
           color: white;
@@ -207,11 +430,11 @@ $oktaGameButtonColor: #ffdd53;
       }
 
       &--docs.act-btn {
-        color: #e22866;
-        border-color: #e22866;
+        color: cv('header');
+        border-color: cv('header');
         &:hover {
-          background: #e22866;
-          border-color: #e22866;
+          background: cv('header');
+          border-color: cv('header');
           color: white;
         }
       }
@@ -221,34 +444,10 @@ $oktaGameButtonColor: #ffdd53;
       text-transform: uppercase;
       letter-spacing: 1px;
       position: absolute;
-      top: 20px;
-      right: 20px;
-      color: #20313b !important;
+      top: 23px;
+      right: 17px;
       z-index: 1;
       cursor: pointer;
-    }
-  }
-
-  &--shapes {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 40%;
-
-    &-curves {
-      flex: 0 0 auto;
-      width: 100%;
-    }
-
-    &-fill {
-      flex: 1;
-      background-color: #1f3b54;
-    }
-
-    @include media("<tablet") {
-      height: 45%;
     }
   }
 }

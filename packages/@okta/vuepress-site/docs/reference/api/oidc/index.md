@@ -1183,7 +1183,7 @@ A consent dialog appears depending on the values of three elements:
 | `NONE`           | `REQUIRED`              | `IMPLICIT`                           | Not prompted |
 
 > **Note:** When a scope is requested during a Client Credentials grant flow and `CONSENT` is set to `FLEXIBLE`, the scope is granted in the access token with no consent prompt. This occurs because there is no user involved in a two-legged OAuth [Client Credentials](/docs/guides/implement-grant-type/clientcreds/main/) grant flow.
-<!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) as well. Add 'LOGIN' to the first three rows when supported --> |
+<!-- If you change this section, change it in apps.md (/docs/reference/api/apps/#credentials-settings-details) and authorization-servers.md (/docs/reference/api/authorization-servers/#scope-properties) as well. Add 'LOGIN' to the first three rows when supported -->
 
 **Notes:**
 
@@ -1210,8 +1210,8 @@ When you are using the [Okta Authorization Server](/docs/concepts/auth-servers/#
 
 When you are using a [Custom Authorization Server](/docs/concepts/auth-servers/#custom-authorization-server), you can configure the lifetime of the JWT tokens:
 
-* **Access tokens:** The minimum is five minutes, and the maximum is 24 hours (configurable using an [Access Policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-create-access-policies)).
-* **Refresh tokens:** The minimum access token lifetime. The idle time window is at least 10 minutes, with a maximum of five years (configurable using an [Access Policy](https://help.okta.com/en/prod/okta_help_CSH.htm#ext-create-access-policies)).
+* **Access tokens:** The minimum is five minutes, and the maximum is 24 hours (configurable using an [Access Policy](https://help.okta.com/okta_help.htm?id=ext-create-access-policies)).
+* **Refresh tokens:** The minimum access token lifetime. The idle time window is at least 10 minutes, with a maximum of five years (configurable using an [Access Policy](https://help.okta.com/okta_help.htm?id=ext-create-access-policies)).
 * **ID tokens:** Not configurable. Token lifetime is 60 minutes.
 
 ### Claims
@@ -1609,7 +1609,7 @@ The system log contains detailed information about why a request was denied and 
     * Revocation happens when a configuration is changed or deleted:
         * User deactivation or deletion.
         * Configuration in the authorization server is changed or deleted.
-        * The [client app](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Apps_App_Integration_Wizard-oidc) is deactivated, changed, unassigned, or deleted.
+        * The [client app](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard-oidc) is deactivated, changed, unassigned, or deleted.
 
 ### Subtle behavior
 

@@ -619,7 +619,7 @@ curl -v -X GET \
 
 <ApiLifecycle access="ea" />
 
-<ApiOperation method="get" url="/api/v1/iam/resource-sets}" />
+<ApiOperation method="get" url="/api/v1/iam/resource-sets" />
 
 Gets a paginated list of Resource Sets
 
@@ -1980,7 +1980,7 @@ Role targets are a way of defining permissions for admin roles into a smaller su
 
 ### Group administrator role group targets
 
-Assigns a Group admin role to a specific Group that grants the admin permission to manage only that Group. For example, you can assign an admin role to manage only the IT group. The permissions for specifically what an admin can do within that Group depends on the admin role that they are assigned to. See [Administrators](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Administrators).
+Assigns a Group admin role to a specific Group that grants the admin permission to manage only that Group. For example, you can assign an admin role to manage only the IT group. The permissions for specifically what an admin can do within that Group depends on the admin role that they are assigned to. See [Administrators](https://help.okta.com/okta_help.htm?id=ext_Administrators).
 
 #### List Group targets for the group administrator role
 
@@ -3007,7 +3007,7 @@ The following `_links` are returned:
 
 Some Roles support optional targets that constrain the Role to a specific set of Groups or Apps. If an optional target isn't specified, then the Role assignment is unbounded (for example, applies to all Groups or Apps).
 
-See the [product documentation](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Administrators) for a complete definition of permissions granted to each Role.
+See the [product documentation](https://help.okta.com/okta_help.htm?id=ext_Security_Administrators) for a complete definition of permissions granted to each Role.
 
 | Role type                               | Label                               | Optional targets                      |
 | :-------------------------------------- | :---------------------------------- | :------------------------------------ |

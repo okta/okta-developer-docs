@@ -4,7 +4,44 @@ title: Okta Identity Engine API Products Release Notes 2021
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
+## October
+
+### Monthly Release 2021.10.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [New Brands API option to remove sign-in page footer message](#new-brands-api-option-to-remove-sign-in-page-footer-message) | October 6, 2021 |
+
+#### New Brands API option to remove sign-in page footer message
+
+You can now remove "Powered by Okta" and "© 2021" from the Okta-hosted sign-in page using either the [Customizations > Footer](https://help.okta.com/okta_help.htm?type=oie&id=ext-custom-footer) option in the Admin Console or the [Brands API](/docs/reference/api/brands/#brand-api-objects). <!--OKTA-424736-->
+
 ## September
+
+### Weekly Release 2021.09.4
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [New Devices API](#new-devices-api)| September 29, 2021 |
+| [New Policy Authenticator settings are available in the Policy API](#new-policy-authenticator-settings-are-available-in-the-policy-api)| September 29, 2021 |
+
+#### New Devices API
+
+The [Devices API](/docs/reference/api/devices/) allows you to retrieve a single device or a list of devices from an org. The API also allows you to activate, deactivate, suspend, unsuspend, and delete a device by ID. You can access the OAuth 2.0 supported Devices API by using the `okta.devices.manage` and `okta.devices.read` [scopes](/docs/guides/implement-oauth-for-okta/scopes/). <!--OKTA-424362-->
+
+#### New Policy Authenticator settings are available in the Policy API
+
+[Policy Authenticator](/docs/reference/api/policy/#policy-authenticator-object) configurations are now included in the Policy API's [Multifactor (MFA) Enrollment Policy](/docs/reference/api/policy/#multifactor-mfa-enrollment-policy) settings. You can configure either [Authenticators](/docs/reference/api/policy/#policy-authenticators-settings-example) or [Factors](/docs/reference/api/policy/#policy-factors-settings-example) for an MFA Enrollment Policy with this API update. The Policy Authenticator configurations are available for all active Authenticators, including enrollment and recovery Authenticators. <!--OKTA-429994-->
+
+### Weekly Release 2021.09.3
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Native SSO Support](#native-sso-support)| September 22, 2021 |
+
+#### Native SSO Support
+
+You can now configure your org to use the [Native SSO](/docs/guides/configure-native-sso) flow on Identity Engine. The Native SSO feature allows you to protect native OpenID Connect applications and achieve Single Sign-On (SSO) and Single Logout (SLO) between native applications.
 
 ### Monthly Release 2021.09.0
 

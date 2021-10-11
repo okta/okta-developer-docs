@@ -85,7 +85,7 @@ Alice, Bob, and Lisa all work from the same office. Since they access Okta throu
 
 #### Client-based isolation for users accessing the endpoint through a proxy
 
-When OAuth 2.0 `/authorize` or `/login/login.htm` requests are made from behind a proxy IP address, ensure to [configure the respective IPs as proxies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network). This allows the client-based rate limit framework to look for the IP address before the proxy to find the true client IP address.
+When OAuth 2.0 `/authorize` or `/login/login.htm` requests are made from behind a proxy IP address, ensure to [configure the respective IPs as proxies](https://help.okta.com/okta_help.htm?id=ext_Security_Network). This allows the client-based rate limit framework to look for the IP address before the proxy to find the true client IP address.
 
 ### Client-based rate limit modes
 
@@ -94,8 +94,8 @@ The client-based rate limit framework can operate in one of three modes:
 | Mode                                     | Description                                                                                                          |
 | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | **Enforce and log per client (recommended)** | The rate limit is based on the client-based rate limit values. The client-specific rate limit violation information is logged as [System Log](/docs/reference/rl-system-log-events/#client-based-system-log-event-types) events. |
-| **Log per client**                          | The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values, but the client-specific rate limit violation information is logged as System Log events. |
-| **Do nothing**                                | Rate limits aren't enforced at the client-specific level. The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values. No new or additional System Log events are produced from this feature in this mode. |
+| **Log per client**                          | The default setting for all orgs, including those orgs created before 2018. The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values, but the client-specific rate limit violation information is logged as System Log events.  |
+| **Do nothing (not recommended)**                                | Rate limits aren't enforced at the client-specific level. The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values. No new or additional System Log events are produced from this feature in this mode. |
 
 ### Check your rate limits with Okta Rate Limit headers
 
@@ -148,7 +148,7 @@ For the `/login/login.htm` endpoint, the client rate limit framework calculates 
 
 **Q: What happens if my network contains a proxy server through which the requests are proxied?**
 
-Requests would appear to come from the same IP Address. When OAuth 2.0 `/authorize` or `/login/login.htm` requests are made from behind a proxy IP address, make sure to [configure the respective IPs as proxies](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Security_Network). This allows the client-based rate limit framework to look for the IP address before the proxy to find the true client IP address.
+Requests would appear to come from the same IP Address. When OAuth 2.0 `/authorize` or `/login/login.htm` requests are made from behind a proxy IP address, make sure to [configure the respective IPs as proxies](https://help.okta.com/okta_help.htm?id=ext_Security_Network). This allows the client-based rate limit framework to look for the IP address before the proxy to find the true client IP address.
 
 **Q: Can I update the per client rate limit today?**
 

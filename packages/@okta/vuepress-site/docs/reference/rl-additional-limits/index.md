@@ -61,17 +61,15 @@ The following endpoints are used by the Okta home page for authentication and us
 
 | Okta home page endpoints                                                | Developer (free)  | Developer (paid)  | One App  | Enterprise  | Workforce Identity |
 | ----------------------------------------------------------------------- | ----------------: | ----------------: | -------: | ----------: | ------------------:|
-| `/app/${app}/${key}/sso/saml`                                             | 100               | 300               | *300     | *600        | 750                |
+| `/app/${app}/${key}/sso/saml`                                             | 100               | 600               | *600     | *600        | 750                |
 | `/app/office365/${key}/sso/wsfed/active`                                 | N/A               | N/A               | N/A      | 2000        | 1000               |
 | `/app/office365/${key}/sso/wsfed/passive`                                | N/A               | N/A               | N/A      | 250         | 250                |
-| `/app/template_saml_2_0/${key}/sso/saml`                                 | 100               | 300               | *300     | *600        | 2500               |
-| `/login/do-login`                                                       | 100               | 300               | 300      | 600         | 200                |
-| `/login/login.htm`                                                      | 100               | 300               | 300      | 600         | 850                |
-| `/login/sso_iwa_auth`                                                   | 100               | 300               | 300      | 600         | 500                |
-| `/api/plugin/${protocolVersion}/form-cred/${appUserIds}/${formSiteOption}` | 100               | 300               | *300     | *600        | 650                |
-| `/api/plugin/${protocolVersion}/sites`                                   | 20                | 50                | 50       | 100         | 150                |
-| `/bc/image/fileStoreRecord`                                             | 100               | 300               | *300     | *600        | 500                |
-| `/bc/globalFileStoreRecord`                                             | 100               | 300               | *300     | *600        | 500                |
+| `/app/template_saml_2_0/${key}/sso/saml`                                 | 100               | 600               | *600     | *600        | 2500               |
+| `/login/do-login`                                                       | 100               | 600               | 600      | 600         | 200                |
+| `/login/login.htm`                                                      | 100               | 600               | 600      | 600         | 850                |
+| `/login/sso_iwa_auth`                                                   | 100               | 600               | 600      | 600         | 500                |
+| `/bc/image/fileStoreRecord`                                             | 100               | 600               | *600     | *600        | 500                |
+| `/bc/globalFileStoreRecord`                                             | 100               | 600               | *600     | *600        | 500                |
 
 These rate limits apply to all new Okta organizations. For orgs created before 2018-05-17, the [previous rate limits](/docs/reference/rl-previous/) still apply.
 
@@ -96,16 +94,7 @@ API endpoints that take username and password credentials, including the [Authen
 
 > **Note:** Okta round-robins between SMS providers with every resend request to help ensure delivery of SMS OTP across different carriers.
 
-* **Enrollment rate limit:** This rate limit applies to a user's attempt to enroll an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies to only the enrollment operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples) for examples of System Log rate limit events where too many enrollment attempts for the SMS or Call factors were made.
-
-  **Endpoints**
-  * `/api/v1/authn/factors`
-  * `/api/v1/users/${userId}/factors`
-
-  **Identity Engine endpoints**<br>
-  <ApiLifecycle access="ie" />
-  * `/idp/idx/challenge`
-  * `/idp/idx/credential/enroll`
+* **Enrollment and verification rate limits:** This rate limit applies to a user's attempt to enroll or verify an [SMS or a Call factor](/docs/reference/api/factors/) using any phone number. This rate limit applies to only the enrollment or verification operation. See [System Log events for rate limits](/docs/reference/rl-system-log-events/#debugcontext-object-examples-for-operation-rate-limits) for examples of System Log rate limit events where too many enrollment or verification attempts for the SMS or Call factors were made.
 
 ### Workforce license rate limit multiplier
 
@@ -121,20 +110,22 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 
 [Authentication](/docs/reference/rl-global-enduser/)
 
+* `/api/${apiVersion}/radius`
 * `/api/v1/authn`
 * `/api/v1/authn/factors/${factorIdOrFactorType}/verify`
 * `/api/v1/sessions`
+* `/login/agentlessDsso`
+* `/login/agentlessDsso/auth`
+* `/login/default`
 * `/login/login.htm`
-* `/login/sso_iwa_auth`
 * `/login/sessionCookieRedirect`
-* `/login/token/redirect`
+* `/login/sso_iwa_auth`
 * `/login/step-up/redirect`
-* `/api/${apiVersion}/radius`
+* `/login/token/redirect`
+* `/.well-known/webfinger`
 
 [Authorization](/docs/reference/rl-global-enduser/)
 
-* `/oauth2/${authorizationServerId}/v1`
-* `/oauth2/v1`
 * `/app/${app}/${key}/sso/saml`
 * `/app/office365${appType}/${key}/sso/wsfed/active`
 * `/app/office365${appType}/${key}/sso/wsfed/passive`
@@ -142,6 +133,8 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/idp/idx/introspect` <ApiLifecycle access="ie" />
 * `/idp/idx/identify` <ApiLifecycle access="ie" />
 * Identity Engine App Intent <ApiLifecycle access="ie" />
+* `/oauth2/v1`
+* `/oauth2/${authorizationServerId}/v1`
 
 [Single User/Group/App operations (GET, UPDATE, and DELETE)](/docs/reference/rl-dynamic-scale/)
 

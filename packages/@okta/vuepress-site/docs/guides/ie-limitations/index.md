@@ -8,9 +8,9 @@ excerpt: Okta Identity Engine introduces a lot of changes to the Okta platform. 
 
 Okta Identity Engine introduces a lot of changes to the Okta platform. Some of these changes result in a lack of support for previously available features. Additionally, some of these changes result in Okta Identity Engine features not supported for use with Okta Classic APIs.
 
-> **Note:** This doc is designed for people who are familiar with Classic Engine. If you are new to Okta and Okta Identity Engine, see [Get started](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-get-started-oie) with Okta Identity Engine.
-
 Are you an admin? See the Okta Identity Engine [Limitations](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-oie-limitations) doc for admins.
+
+> **Note:** This doc is designed for people who are familiar with the Classic Engine. If you are new to Okta and the Identity Engine, see [Get started](https://help.okta.com/okta_help.htm?type=oie&id=ext-get-started-oie) with the Identity Engine.
 
 ### Classic Engine features not supported in the Identity Engine
 
@@ -43,7 +43,7 @@ The following Event Types are available only in the Identity Engine and can't be
 
 **What Changed:** Not supported
 
-**Further Information:** [Learn more about PIV](https://help.okta.com/en/prod/Content/Topics/Security/idp-smart-card-workflow.htm)
+**Further Information:** [Learn more about PIV](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow)
 
 ***
 
@@ -82,7 +82,7 @@ The following Event Types are available only in the Identity Engine and can't be
 
 **What Changed:** The Self-Service Registration feature isn't supported. Self-service registration is now accomplished through a profile enrollment policy. In a profile enrollment policy, admins select the attributes they want to collect when a new end user clicks **Sign up**. After the end user is authenticated into the app, their profile is complete and they are provisioned to the appropriate groups.
 
-**Further information:** [Manage Profile Enrollment policies](https://help.okta.com/en/oie/okta_help_CSH.htm#ext-create-profile-enrollment)
+**Further information:** [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 
 ***
 
@@ -123,7 +123,7 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 **What Changed:** The SMS Factor can no longer be activated or deactivated using the Factors Administrator API (`/api/v1/org/factors`).
 
-**Further Information:** [Factors Administration API](https://developer.okta.com/docs/reference/api/factor-admin)
+**Further Information:** [Factors Administration API](/docs/reference/api/factor-admin)
 
 ***
 
@@ -139,7 +139,8 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 
 **What Changed:** Using a custom sign-in page for embedded app links isn't supported. Users who click an app embed link are now evaluated by their org's Okta sign-in policy. Admins can customize an Okta-hosted sign-in page or configure an IdP routing rule for the app.
 
-**Further information:** [Configure a custom Okta-hosted sign-in page](/docs/guides/style-the-widget/before-you-begin/) and [Configure routing rules](https://help.okta.com/en/oie/okta_help_CSH.htm#ext_Identity_Provider_Discovery)
+**Further information:** [Configure a custom Okta-hosted sign-in page](/docs/guides/style-the-widget/before-you-begin/) and [Configure routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Identity_Provider_Discovery
+)
 
 ***
 
@@ -165,4 +166,4 @@ See the [SDK uses cases](/docs/guides/oie-embedded-common-org-setup/main/) in ou
 
 Developers who use the `/api/v1/authn` APIs to build custom password reset and account unlock experiences can't use the new recovery options in the Identity Engine. Specifically, if developers set a password policy rule to require Okta Verify Push for recovery or configure **Any enrolled authenticator used for MFA/SSO** for additional verification, end users who use the Classic Engine Authentication APIs are denied recovery.
 
-**Further information:** [Recovery operations](https://developer.okta.com/docs/reference/api/authn/#recovery-operations) section of the Authentication API.
+**Further information:** [Recovery operations](/docs/reference/api/authn/#recovery-operations) section of the Authentication API.

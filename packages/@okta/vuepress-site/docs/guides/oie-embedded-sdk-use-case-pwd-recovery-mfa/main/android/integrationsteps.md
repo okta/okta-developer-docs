@@ -8,7 +8,7 @@ The password recovery flow begins when the user clicks the **Forgot your passwor
 
 </div>
 
-You need to create a form to capture the user's email for password recovery, such as the following reset my password form:
+You need to create a form to capture the user's email for password recovery, such as the following reset password form:
 
 <div class="common-image-format">
 
@@ -25,17 +25,17 @@ val proceedContext = beginResponse.proceedContext
 
 ### 2: The user enters their email
 
-After the user enters their email, call the [`IDXAuthenticationWrapper.recoverPassword()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L177) method, passing in the user's email as the `username`.
+After the user enters their email, call the [`IDXAuthenticationWrapper.recoverPassword()`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/IDXAuthenticationWrapper.java#L177) method with the user's email as the `username` argument.
 
 ```kotlin
 val authenticationResponse = idxAuthenticationWrapper.recoverPassword(username, proceedContext)
 ```
 
-If the email is for a valid and active user in the Okta directory, the `IDXAuthenticationWrapper.recoverPassword()` method returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with the following properties:
+If the email is for a valid and active user in the Okta directory, then the `IDXAuthenticationWrapper.recoverPassword()` method returns an [`AuthenticationResponse`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/response/AuthenticationResponse.java) object with the following properties:
 
 * `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` &mdash; This status indicates that there are required authenticators that need to be verified.
 
-* `Authenticators` &mdash; List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) to be verified (in this case, there is only the email authenticator). <br>
+* `Authenticators` &mdash; List of [authenticators](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/client/Authenticator.java) to be verified (in this use case, there is only the email authenticator). <br>
     Authenticators are the factor credentials that are owned or controlled by the user. These are verified during authentication.
 
 After receiving the `AWAITING_AUTHENTICATOR_SELECTION` status and the list of authenticators to be verified, provide the user with a form to select the authenticator to verify. In other words, provide the user with a list of recovery factors to use. In this use case, email is the only recovery factor available:
@@ -66,7 +66,7 @@ This Java SDK method sends the email authenticator selection to Okta. Okta sends
 
 ### 4: The user submits the email verification code
 
-The user receives the verification code in their email and submits it through the **Verify Code** form. Use [`VerifyAuthenticationOptions`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
+The user receives the verification code in their email and submits it through a verify code form. Use [`VerifyAuthenticationOptions`](https://github.com/okta/okta-idx-java/blob/master/api/src/main/java/com/okta/idx/sdk/api/model/VerifyAuthenticatorOptions.java) to capture the code and send it to the `IDXAuthenticationWrapper.verifyAuthenticator()` method:
 
 ```kotlin
 val verifyAuthenticatorOptions = VerifyAuthenticatorOptions(code)

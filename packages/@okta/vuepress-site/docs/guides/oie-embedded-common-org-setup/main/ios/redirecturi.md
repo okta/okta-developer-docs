@@ -1,3 +1,2 @@
-  If you are using the sample app use: `com.embeddedauth://callback`.
-  Otherwise, choose a URI that your app accepts. Regardless of the value
-  you choose, it must match the redirect URI you use in your app.
+  If you're using the sample app, use either `com.embeddedauth://callback` or
+a URI that is appropriate for your app. Regardless of the value that you use, the **Sign-in redirect URI** value must match the redirect URI that is configured in your app.

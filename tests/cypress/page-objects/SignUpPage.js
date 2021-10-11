@@ -28,11 +28,11 @@ export class SignUpPage {
   }
 
   getGithubButtonInput() {
-    return cy.get('input[type="button"][id="continue-github"]');
+    return cy.get('button[id="continue-github"]');
   }
 
   getGoogleButtonInput() {
-    return cy.get('input[type="button"][id="continue-google"]');
+    return cy.get('button[id="continue-google"]');
   }
 
   getGoogleCaptcha() {

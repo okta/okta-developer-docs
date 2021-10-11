@@ -46,7 +46,7 @@ Beta releases are managed in two ways:
 
 You can track the availability of Beta features on the [Product Roadmap](https://support.okta.com/help/s/productroadmap) page.
 
-See [Manage Early Access and Beta features](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
+See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
 
 ## Early Access (EA)
 
@@ -66,7 +66,7 @@ EA releases are managed in two ways:
 
 You can track the availability of EA features on the [Product Roadmap](https://support.okta.com/help/s/productroadmap) page.
 
-See [Manage Early Access and Beta features](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
+See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
 
 ## General Availability (GA)
 

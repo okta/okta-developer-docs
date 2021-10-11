@@ -9,19 +9,17 @@ describe('page layout and browser size spec', () => {
   });
 
   it('shows the main navigation with desktop browser sizes', () => {
-    mainPage.resizeMedium();
-
     mainPage.getCommunityLink().should('be.visible');
-    mainPage.getHeadrMobileMenuIcon().should('be.not.visible');
+    mainPage.getHeaderMobileMenuIcon().should('be.not.visible');
   });
 
   it('shows mobile navigation with mobile browser sizes', () => {
     mainPage.resizeXXsmall();
 
     mainPage.getCommunityLink().should('be.not.visible');
-    mainPage.getHeadrMobileMenuIcon().should('be.visible');
+    mainPage.getHeaderMobileMenuIcon().should('be.visible');
 
-    mainPage.getHeadrMobileMenuIcon().click();
+    mainPage.getHeaderMobileMenuIcon().click();
 
     mainPage.getMobileMenu().should('have.class', 'opened');
     mainPage.getMobileMenu().should('be.visible')

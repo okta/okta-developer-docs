@@ -9,12 +9,97 @@
   font-style: normal;
 }
 
-a {
-  text-decoration: none;
+@font-face {
+  font-family: 'ABC Whyte';
+  src: url('/fonts/ABC/Light/ABCWhyte-Light.eot');
+  src: url('/fonts/ABC/Light/ABCWhyte-Light.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/ABC/Light/ABCWhyte-Light.woff2') format('woff2'),
+      url('/fonts/ABC/Light/ABCWhyte-Light.woff') format('woff'),
+      url('/fonts/ABC/Light/ABCWhyte-Light.ttf') format('truetype'),
+      url('/fonts/ABC/Light/ABCWhyte-Light.svg#ABCWhyte-Light') format('svg');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
 }
 
+@font-face {
+  font-family: 'ABC Whyte';
+  src: url('/fonts/ABC/Regular/ABCWhyte-Regular.eot');
+  src: url('/fonts/ABC/Regular/ABCWhyte-Regular.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/ABC/Regular/ABCWhyte-Regular.woff2') format('woff2'),
+      url('/fonts/ABC/Regular/ABCWhyte-Regular.woff') format('woff'),
+      url('/fonts/ABC/Regular/ABCWhyte-Regular.ttf') format('truetype'),
+      url('/fonts/ABC/Regular/ABCWhyte-Regular.svg#ABCWhyte-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ABC Whyte';
+  src: url('/fonts/ABC/Medium/ABCWhyte-Medium.eot');
+  src: url('/fonts/ABC/Medium/ABCWhyte-Medium.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/ABC/Medium/ABCWhyte-Medium.woff2') format('woff2'),
+      url('/fonts/ABC/Medium/ABCWhyte-Medium.woff') format('woff'),
+      url('/fonts/ABC/Medium/ABCWhyte-Medium.ttf') format('truetype'),
+      url('/fonts/ABC/Medium/ABCWhyte-Medium.svg#ABCWhyte-Medium') format('svg');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'ABC Whyte';
+  src: url('/fonts/ABC/Bold/ABCWhyte-Bold.eot');
+  src: url('/fonts/ABC/Bold/ABCWhyte-Bold.eot?#iefix') format('embedded-opentype'),
+      url('/fonts/ABC/Bold/ABCWhyte-Bold.woff2') format('woff2'),
+      url('/fonts/ABC/Bold/ABCWhyte-Bold.woff') format('woff'),
+      url('/fonts/ABC/Bold/ABCWhyte-Bold.ttf') format('truetype'),
+      url('/fonts/ABC/Bold/ABCWhyte-Bold.svg#ABCWhyte-Bold') format('svg');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+a {
+  color: cv('link');
+  text-decoration: none;
+  &:visited, &:active, &:focus {
+    color: cv('link');
+  }
+}
+
+
+h1, h2, h3, h4, h5, h6 {
+  color: cv('text', 'darker');
+  margin-top: 3.125rem;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 36px;
+  font-weight: 500;
+}
 h2 {
+  font-size: 26px;
+  font-weight: 500;
   margin-top: 2rem;
+}
+h3 {
+  font-size: 20px;
+  font-weight: normal;
+}
+h4 {
+  font-size: 20px;
+  font-weight: 500;
+}
+h5 {
+  font-size: 20px;
+  font-weight: 500;
+}
+h6 {
+  font-size: 20px;
+  font-weight: 500;
 }
 
 .is-link {
@@ -30,3 +115,35 @@ blockquote {
   padding: 1.5rem 1.5rem 1.5rem calc(1.5rem + 3px);
 }
 
+@include media("<desktop-xl") {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 2rem;
+    margin-bottom: 1.1rem;
+  }
+  h1 {
+    font-size: 36px;
+    font-weight: 500;
+    margin-top: 7px;
+  }
+  h2 {
+    font-size: 28px;
+  }
+  h3 {
+    font-size: 24px;
+    font-weight: 500;
+  }
+  h4 {
+    font-size: 22px;
+  }
+  h5 {
+    font-size: 20px;
+  }
+  h6 {
+    font-size: 18px;
+  }
+}

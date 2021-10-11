@@ -34,7 +34,7 @@ New to Okta? Our Blazor WebAssembly & Server-Side samples will walk you through 
 	<span class='fa fa-github'></span> <span>Blazor Server-Side Sample App</span>
 </a>
 </br>
-<a href='https://github.com/okta/samples-blazor/tree/master/web-assembly/hosted/okta-hosted-login'>
+<a href='https://github.com/okta/samples-blazor/tree/master/web-assembly/okta-hosted-login'>
 	<span class='fa fa-github'></span> <span>Blazor WebAssembly (WASM) Sample App</span>
 </a>
 

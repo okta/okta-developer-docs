@@ -9,7 +9,7 @@ title: User password recovery
 
 <StackSelector class="cleaner-selector"/>
 
-This guide covers the use case to integrate a password recovery flow into your app using the SDK. The flow includes an email factor step that the user needs to verify before updating their password.
+This use case describes how to integrate a password recovery flow into your app using Okta's SDK. The flow includes an email factor step that the user needs to verify before updating their password.
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
@@ -48,6 +48,6 @@ In addition to configuring your Okta org for the multifactor use case, you need 
 
 ## Troubleshooting tips
 
-Ensure that the password recovery user is valid with an **Active** user status in your Okta org.
+Ensure that the password recovery user is valid with an active user status in your Okta org.
 
 </div>

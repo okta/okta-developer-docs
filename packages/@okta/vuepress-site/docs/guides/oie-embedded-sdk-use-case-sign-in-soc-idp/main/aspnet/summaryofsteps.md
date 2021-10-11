@@ -1,4 +1,4 @@
-The sequence of steps for the Facebook sign in flow is shown below.
+The following diagram shows the sequence of steps for the Facebook sign-in flow.
 
 <div class="common-image-format">
 

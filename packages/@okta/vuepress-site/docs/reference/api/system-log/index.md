@@ -7,7 +7,7 @@ category: management
 
 The Okta System Log records system events that are related to your organization in order to provide an audit trail that can be used to understand platform activity and to diagnose problems.
 
-The Okta System Log API provides near real-time, read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_Reports_SysLog).
+The Okta System Log API provides near real-time, read-only access to your organization's system log and is the programmatic counterpart of the [System Log UI](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog).
 
 The terms "event" and "log event" are often used interchangeably. In the context of this API, an "event" is an occurrence of interest within the system, and a "log" or "log event" is the recorded fact.
 
@@ -400,7 +400,7 @@ Among other operations, this response object can be used to scan for suspicious 
 | credentialProvider     | A credential provider is a software service that manages identities and their associated credentials. When authentication occurs through credentials provided by a credential provider, the credential provider is recorded here. | String                          | TRUE     |           |           |
 | credentialType         | The underlying technology/scheme used in the credential                                                                                                                                                                             | String                          | TRUE     |           |           |
 | issuer                 | The specific software entity that creates and issues the credential                                                                                                                                                                | [Issuer object](#issuer-object) | TRUE     |           |           |
-| externalSessionId      | A proxy for the actor's [session ID](https://www.owasp.org/index.php/Session_Management_Cheat_Sheet)                                                                                                                                | String                          | TRUE     | 1         | 255       |
+| externalSessionId      | A proxy for the actor's [session ID](https://cheatsheetseries.owasp.org/cheatsheets/Session_Management_Cheat_Sheet.html)                                                                                                                                | String                          | TRUE     | 1         | 255       |
 | interface              | The third-party user interface that the actor authenticates through, if any.                                                                                                                                                        | String                          | TRUE     | 1         | 255       |
 
 ###### Possible values

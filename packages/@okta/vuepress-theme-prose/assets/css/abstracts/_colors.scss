@@ -1,13 +1,40 @@
 $colors: (
-  'brand': (
-    'lightest': #153b56,
-    'base': #20313b,
-    'dark': #16262f,
-  ),
   'cerise': (
     'base': #E22866,
-    'active':#dd2864,
   ),
+  // redesign 2021-07
+  'header': (
+    'base': #00297A,
+  ),
+  'body': (
+    'base': #F5F5F6,
+    'lighter': #F7F7F8,
+    'border': #DCDCDC,
+    'white': #ffffff,
+  ),
+  'text': (
+    'darker': #1D1D21,
+    'base': #6E6E78,
+    'lighter': #D7D7DC,
+  ),
+  'tile': (
+    'angle': #8C8C96,
+  ),
+  'link': (
+    'base': #1662DD,
+    'darker': #00297A,
+    'footer': #B5D0DF,
+  ),
+  'code': (
+    'keyword': #965ABE,
+    'define': #F19B56,
+    'property': #8BC5EB,
+    'string': #C4C4C4,
+  ),
+  'form': (
+    'input-border': #C1C1C8,
+  ),
+
   // Copied from Odyssey
   'success': (
     'lightest': #e5fff6,
@@ -41,7 +68,7 @@ $colors: (
   ),
   'violet': (
     'lightest': #f3eafe,
-    'base': #963fe6,
+    'base': #8d6e97,
     'dark': #5a13b4,
   ),
   'magenta': (
@@ -56,15 +83,15 @@ $colors: (
     'whale': #142430,
   ),
   'gray': (
-    '000': #fafafa,
-    '100': #e4e5e7,
-    '200': #cdd1d3,
-    '300': #b7bcc0,
-    '400': #a0a7ac,
-    '500': #899298,
-    '600': #737d85,
-    '700': #5c6971,
-    '800': #46545e,
-    '900': #2f3f4a,
+    '000': #ffffff,
+    '100': #EBEBED,
+    '200': #DCDCDC,
+    '300': #DCDCDC,
+    '400': #C1C1C8,
+    '500': #6E6E78,
+    '600': #6E6E78,
+    '700': #6E6E78,
+    '800': #1D1D21,
+    '900': #1D1D21,
   ),
 );

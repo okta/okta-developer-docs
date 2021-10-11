@@ -1,9 +1,11 @@
-import { bannedEmailProviders } from "../const/signup.const";
+import { Api } from "../util/api.service";
+
 export class SignUpValidation {
   errorDictionary = {
     email: "Invalid email.",
     firstName: "Invalid first name.",
     lastName: "Invalid last name.",
+    notWorkEmail: "Business email is required.",
     emptyField: "This field is required."
   };
 
@@ -35,7 +37,7 @@ export class SignUpValidation {
     }
   }
 
-  checkEmailInput(key) {
+  async checkEmailInput(key) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     this.resetFormField(key);
 
@@ -45,12 +47,15 @@ export class SignUpValidation {
       return;
     }
 
-    // If email not valid or email includes banned email provider, display errror
-    if (
-      !re.test(this.form[key].value) ||
-      this._isBannedEmailProvider(this.form[key].value)
-    ) {
+    // If email not valid, display error
+    if (!re.test(this.form[key].value)) {
       this._setInputError(key);
+      return;
+    }
+
+    // If not a work email, display errror
+    if (!(await this._isWorkEmail(this.form[key].value))) {
+      this._setInputError(key, this.errorDictionary.notWorkEmail);
     }
   }
 
@@ -86,11 +91,20 @@ export class SignUpValidation {
     return re.test(value);
   }
 
-  _isBannedEmailProvider(email) {
-    const emailProvider = email.substring(email.indexOf("@") + 1);
+  async _isWorkEmail(email) {
+    const oktaApi = new Api('https://www.okta.com/oktaapi');
+    try {
+      const { data: { valid, message } } = await oktaApi
+        .get('/ft/email', {
+          params: { email },
+        });
 
-    return bannedEmailProviders.some(
-      bannedProvider => emailProvider === bannedProvider
-    );
+      return valid;
+    } catch (err) {
+      console.error(err);
+      // If the API fails, log the error
+      // and assume the email was a work email
+      return true;
+    };
   }
 }

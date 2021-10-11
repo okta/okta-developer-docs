@@ -10,7 +10,7 @@
     </a>
     <ul
       :id="ulId"
-      v-show="link.children && (iHaveChildrenActive || imActive)"
+      v-show="link.children && link.children.length > 0 && (iHaveChildrenActive || imActive)"
     >
       <OnThisPageItem
         v-for="(childLink, index) in filteredLink"

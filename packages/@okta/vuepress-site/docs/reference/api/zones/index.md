@@ -115,6 +115,8 @@ Each Location object specifies an [ISO-3166-1](https://en.wikipedia.org/wiki/ISO
 | country        | Format of the value: length 2 ISO-3166-1 country code                | String      | Yes       |
 | region       | Format of the value: `countryCode`-`regionCode`, or `null` if empty  | String      | No       |
 
+> **Note**: Continent codes are not intended to be used as `country` or `region` definitions. To include all of the countries in a continent, each country needs to be specified individually in a Location definition.  If a continent code is used, then traffic from a designated country region within the continent might not be considered. For example, if `EU` or `AP` is used instead of a country code, then the Location definition treats Europe or Asia/Pacific as generic codes for undesignated regions rather than inclusive of the countries they contain.
+
 #### Location object example (with region)
 
 ```json

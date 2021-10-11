@@ -2,6 +2,6 @@ The following sequence diagram details each step in the authentication flow for 
 
 <div class="common-image-format">
 
-![A sequence diagram for the sign-in with email and phone use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-basic-sign-in-pwd.png)
+![Displays a sequence diagram for the Swift SDK basic sign-in use case](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-swift-basic-sign-in-pwd.png)
 
 </div>

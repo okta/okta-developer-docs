@@ -7,8 +7,8 @@ it enables a pure policy-driven design that accepts new functionality,
 such as adding additional sign-in factors, without the need to update your
 application's code. Such a feature becomes important for mobile devices where
 keeping applications updated is a challenge. The
-[sample application](/docs/guides/oie-embedded-sdk-run-sample/ios/main/),
-provided in the SDK's Git repository, uses the SDK to implement such dynamic policy-driven
+[sample application](/docs/guides/oie-embedded-common-run-samples/ios/main/),
+provided in the Identity Engine Swift SDK's Git repository, uses the SDK to implement such dynamic policy-driven
 behavior. See this sample application for more details on how to design
 a dynamic application using the SDK.
 
@@ -16,25 +16,25 @@ a dynamic application using the SDK.
 
 In contrast to the sample application, the
 [sample code](https://github.com/okta/okta-idx-swift/tree/master/Samples/Signin%20Samples)
-provided in this step by step guide wraps the SDK with a more prescriptive and explicit interface
+provided in this step-by-step guide wraps the SDK with a more prescriptive and explicit interface
 that is purposely built to help facilitate understanding of how to use the SDK.
 It's meant to be a learning tool and although you can implement similar code in your
 app, you're advised to stick to the same best practice dynamic approach implemented
 in the sample application.
 
 The following steps document how to integrate the sample code into your
-application. The sample code wraps the SDK's functionality using a more
-prescriptive and explicit interface. It converts the SDK's generic remediation
-interface into explicit authentication steps and automatically executes steps
-such as the code-to-token exchange. The diagram below illustrates this call flow
-from your applications's UI to the sample code, SDK, and API. Note the "Integrating code"
-component, which represents the code you write to call into the sample code's interface.
+application. The sample code converts the SDK's generic remediation
+interface into explicit authentication steps and automatically executes steps,
+such as the code-to-token exchange. The following diagram illustrates this call flow
+from your applications's UI to the sample code, SDK, and API.
 
 <div class="common-image-format">
 
  ![Diagram showing the integration flow of the sample app and Swift SDK](/img/oie-embedded-sdk/oie-embedded-sdk-swift-sample-code-overview.png)
 
 </div>
+
+> **Note:** The Integrating code component represents the code that you write to call the sample code's interface.
 
 ### 1: Launch the app and initialize the SDK
 
@@ -46,17 +46,16 @@ its initializer a `configuration` object.
 self.authHandler = BasicLogin(configuration: configuration)
 ```
 
-For more information on how to set the `configuration` parameter, see
-[SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk)
+For more information on how to set the configuration parameters, see [SDK](/docs/guides/oie-embedded-common-download-setup-app/ios/main/#sdk)
 in
-[Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main)
+[Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/ios/main).
 
 ### 2: The user initiates the sign-in flow
 
 When the user enters their credentials and initiates the sign-in flow,
 call the `login` method, passing in the username, password,
-and `completion` closure. This closure is invoked once when the sign-in completes
-and returns either a fatal error or success with a token.
+and `completion` closure. This closure is invoked after the sign-in process completes
+and returns either a fatal error or a success status with a token.
 
 ```swift
  self.authHandler.login(username: "user@example.com",
@@ -74,8 +73,8 @@ and returns either a fatal error or success with a token.
 ### 3: Send the user to the home page after a successful sign-in flow
 
 The final integration step is to send the user to the default home page
-after a successful sign-in flow. Optionally, you can obtain basic user information after a
-successful sign-in by making a request to Okta's Open ID Connect authorization server.
+after a successful sign-in flow. Optionally, you can obtain basic user information after the user
+successfully signs in by making a request to Okta's Open ID Connect Authorization Server.
 See [Get the user profile information](#get-the-user-profile-information).
 
 #### Sample code

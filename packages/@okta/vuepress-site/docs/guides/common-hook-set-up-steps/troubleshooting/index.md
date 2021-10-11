@@ -6,17 +6,17 @@ After setting up an external service and an Event Hook or Inline Hook, you may n
 
 ### Preview tab ###
 
-An [Inline Hook Preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/preview-inline-hooks.htm)tab, accessible in the Admin Console, is available for the following two Inline Hooks:
+An [Inline Hook Preview](https://help.okta.com/okta_help.htm?id=ext-preview-inline-hooks)tab, accessible in the Admin Console, is available for the following two Inline Hooks:
 
 * Registration Inline Hook
 * SAML Inline  Hook
 
 Before enabling the hook, the preview tab can run a sample Okta request call, and receive the external service response. Review the request and response formats to make sure responses are accurate.
 
-An [Event Hook Preview](https://help.okta.com/en/prod/Content/Topics/automation-hooks/event-hooks-preview.htm) tab is also available for Event Hooks, and displays the JSON payload for the selected Event Type. The preview tab can confirm a successful delivery of the request.
+An [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview) tab is also available for Event Hooks, and displays the JSON payload for the selected Event Type. The preview tab can confirm a successful delivery of the request.
 
 ### Admin Console System Log ###
-Use the Admin Console System Log to review logs of the Event, Inline Hook triggers, or errors encountered during testing from the Okta org. See [System Log](https://help.okta.com/en/prod/Content/Topics/Reports/Reports_SysLog.htm)
+Use the Admin Console System Log to review logs of the Event, Inline Hook triggers, or errors encountered during testing from the Okta org. See [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog)
 
 ### Glitch logs ###
 

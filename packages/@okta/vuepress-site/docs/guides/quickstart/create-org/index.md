@@ -4,9 +4,9 @@ title: Create your Okta organization
 
 You built an awesome app and you want to add user authentication to it. Let’s get you set up and working with Okta.
 
-To start, you're going to need a free Okta developer edition org. An org is a private data space Okta provisions for you, to hold all the resources you create to handle user authentication.
+To start, you're going to need an org. An org is a private data space&mdash;provided by Okta&mdash;that holds all the resources that you create to handle user authentication. See [Okta organizations](/docs/concepts/okta-organizations).
 
-An org is free, and you can use it to handle authentication for up to 1,000 users. Later, if you need more capacity, you can upgrade to a paid org.
+You can sign up for an Okta developer edition org for free, which allows for up to 100 monthly active users (MAU). Later, when you need more capacity, you can upgrade to a paid org.
 
 #### Create your org
 

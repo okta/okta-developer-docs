@@ -17,14 +17,14 @@
       <div class="row">
         <div class="field-wrapper">
           <a class="btn social-btn" :href="uris.github">
-            Continue With GitHub
+            <i class="fa fa-github"></i> Continue with GitHub
           </a>
         </div>
       </div>
       <div class="row">
         <div class="field-wrapper">
           <a class="btn social-btn" :href="uris.google">
-            Continue With Google
+            <span class="google-logo"></span> Continue with Google
           </a>
         </div>
       </div>

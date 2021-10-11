@@ -20,6 +20,7 @@ Import any Okta API collection for Postman from the following list:
 | Brands                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/1d58ab8a3909dd6a3cfb) |
 | CAPTCHAs                          | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/c51413d80cc8e88fd101) |
 | Custom Templates                  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3f7e83cebd2d31f7d1a7) |
+| Devices		                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/872527-66eb3f8a-53db-4a7f-bb9b-dbaeed6a9b9e) |
 | Domains                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6540fce00064f4f440d3) |
 | Dynamic Client Registration       | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b673d146d0974f451e39) |
 | Event Hooks                       | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2fdf75c2fb3319ef5e73) |
@@ -32,7 +33,7 @@ Import any Okta API collection for Postman from the following list:
 | Mappings                          | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/42f528e8de2085ef2c97) |
 | OpenID Connect                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9e7ad28ca1c26870a4b0) |
 | Org                               | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b85f2faf4e0bdb7baa3b) |
-| Policy                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/5413fd90e946001c74e8) |
+| Policy                            | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b82dba9eb4f8da93dfd6) |
 | Risk Integration                  | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/47546754d382762468c6) |
 | Schemas                           | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/d2aae54268dd28451713) |
 | Sessions                          | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/ff723148292df05bb58b) |

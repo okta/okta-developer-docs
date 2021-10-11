@@ -85,7 +85,7 @@
           <input
             type="button"
             class="btn social-btn"
-            value="cancel"
+            value="Cancel"
             @click="closeTermsConditionsDialog()"
           />
         </div>
@@ -95,7 +95,7 @@
             class="btn red-button"
             @click="!isDisabledSocialAuth && setTaCUrlAndRedirect()"
             :class="{ 'btn-disabled': isDisabledSocialAuth }"
-            value="continue"
+            value="Continue"
             :disabled="isDisabledSocialAuth"
           />
         </div>

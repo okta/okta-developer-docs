@@ -7,13 +7,14 @@ layout: Guides
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This guide covers how to run both the sample Widget app and the sample SDK app. You can run the sample apps after you have successfully created and set up your Okta org, and downloaded and set up the SDK.
-
- Nutrition Facts                                                                          |                                                                                      |
+Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
 | Learning outcomes                     |<ul><li>Run your sample app and build your integration.</li></ul>                                                      |
 | What you need | <ul><li>[Okta org](https://developer.okta.com/signup/oie.html)</li><li>[SDK, Sign-In Widget and sample app](/docs/guides/oie-embedded-common-download-setup-app), downloaded and set up</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
+
+After you have successfully [created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/) and [downloaded and set up the SDK](/docs/guides/oie-embedded-common-download-setup-app), you can run both the sample Widget app and the sample SDK app.
+
 
 ## The embedded Widget flow
 
@@ -25,7 +26,7 @@ In tandem with the embedded SDK, the Widget integrates into your app by using a 
 
 </div>
 
-## Run the Widget sample app
+## Run the embedded Widget sample app
 
 <StackSelector class="cleaner-selector"/>
 
@@ -45,7 +46,7 @@ The SDK integrates into your app by using a native language interface and commun
 
 </div>
 
-## Run the SDK sample app
+## Run the embedded SDK sample app
 
 <StackSelector class="cleaner-selector"/>
 
@@ -53,4 +54,4 @@ The SDK integrates into your app by using a native language interface and commun
 
 ### Work with the use cases
 
-After you have successfully run the sample app, you can build your own integration by using the sample app as your guide. Explore use cases that are available with the SDK, starting with the [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/) use case.
+After you've successfully run the sample app, you can build your own integration by using the sample app as your guide. Explore use cases that are available with the SDK, starting with the [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/) use case.

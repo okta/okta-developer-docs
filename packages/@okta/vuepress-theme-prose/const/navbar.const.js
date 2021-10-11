@@ -562,7 +562,7 @@ export const languagesSdk = [
       {
         title: "Back End",
         subLinks: [
-          { title: ".Net", path: "/code/dotnet/aspnetcore/" },
+          { title: ".NET", path: "/code/dotnet/aspnetcore/" },
           { title: "Go", path: "/code/go/" },
           { title: "Java", path: "/code/java/" },
           { title: "Node.js", path: "/code/nodejs/" },
@@ -645,6 +645,7 @@ export const reference = [
           { title: "Authorization Servers", path: "/docs/reference/api/authorization-servers/"},
           { title: "Brands", path: "/docs/reference/api/brands/"},
           { title: "CAPTCHAs", path: "/docs/reference/api/captchas/"},
+          { title: "Devices", path: "/docs/reference/api/devices/"},
           { title: "Domains", path: "/docs/reference/api/domains/"},
           { title: "Dynamic Client Registration", path: "/docs/reference/api/oauth-clients/"},
           { title: "Event Types", path: "/docs/reference/api/event-types/" },
@@ -660,7 +661,7 @@ export const reference = [
           { title: "Risk Providers", path: "/docs/reference/api/risk-providers/" },
           { title: "Schemas", path: "/docs/reference/api/schemas/" },
           { title: "Sessions", path: "/docs/reference/api/sessions/" },
-          { title: "Subscriptions", path: "/docs/reference/api/admin-notifications" },
+          { title: "Subscriptions", path: "/docs/reference/api/admin-notifications/" },
           { title: "System Log", path: "/docs/reference/api/system-log/" },
           { title: "Templates", path: "/docs/reference/api/templates/" },
           { title: "ThreatInsight", path: "/docs/reference/api/threat-insight/" },
