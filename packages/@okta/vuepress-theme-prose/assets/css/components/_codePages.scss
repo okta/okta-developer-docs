@@ -3,7 +3,7 @@
   list-style: none!important;
   margin: 0;
   padding: 20px;
-  background-color: cv('brand');
+  background-color: cv('header');
   border-radius: 5px;
 
   a {
@@ -27,14 +27,13 @@
 .language-ctas {
   display: flex;
 
+  @include media("<desktop") {
+    flex-wrap: wrap;
+  }
+
   li {
     margin-right: 2rem;
     margin-bottom: 1rem;
-
-    a {
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
   }
 }
 

@@ -11,13 +11,13 @@ $asset-path: '/assets';
 //-----------------------------------------------------------------------
 // Typography
 //-----------------------------------------------------------------------
-$font-family: 'proxima-nova', Helvetica, Arial, sans-serif;
+$font-family: 'ABC Whyte', Helvetica, Arial, sans-serif;
 $font-family--alt: 'museo', Helvetica, Arial, sans-serif;
 
 $font-size: (
   'small':            14px,
   'base':             16px,
-  'button':           14px,
+  'button':           16px,
   'h6':               20px,
   'h5':               22px,
   'h4':               24px,
@@ -33,7 +33,7 @@ $font-weight: (
   'x-small':          300,
   'small':            400,
   'base':             400,
-  'button':           600,
+  'button':           500,
   'h6':               500,
   'h5':               500,
   'h4':               500,

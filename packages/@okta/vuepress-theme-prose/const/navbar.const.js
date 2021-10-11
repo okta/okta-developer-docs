@@ -562,7 +562,7 @@ export const languagesSdk = [
       {
         title: "Back End",
         subLinks: [
-          { title: ".Net", path: "/code/dotnet/aspnetcore/" },
+          { title: ".NET", path: "/code/dotnet/aspnetcore/" },
           { title: "Go", path: "/code/go/" },
           { title: "Java", path: "/code/java/" },
           { title: "Node.js", path: "/code/nodejs/" },

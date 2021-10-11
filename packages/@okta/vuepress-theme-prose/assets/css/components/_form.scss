@@ -1,0 +1,103 @@
+label {
+  font-size: 14px;
+}
+
+input[type="text"],
+input[type="submit"],
+input[type="button"],
+select {
+  width: 100%;
+  color: cv("text");
+  background-color: $white;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  border: 1px solid cv('form', 'input-border');
+  padding: 0 20px;
+  height: 38px;
+  border-radius: 3px;
+  text-rendering: auto;
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: start;
+  appearance: textfield;
+  margin: 5px 0 0;
+  &:focus {
+    outline: none;
+  }
+  &.error {
+    border: 1px solid cv("cerise", "base");
+  }
+}
+input[type=submit]:disabled,
+input[type=button]:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+select {
+  padding: 0px 20px;
+  cursor: pointer;
+  background-image: url('/img/icons/select-input-arrow.svg');
+  background-position: calc(100% - 22px) center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  -webkit-appearance: none;
+  border-radius: 4px;
+}
+
+a.btn,
+input.btn,
+button.btn {
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 16px;
+  display: block;
+  background-color: cv('header');
+  padding: 16px 20px;
+  border: 1px solid cv('header');
+  border-radius: 3px;
+  text-align: center;
+  color: $white;
+  height: auto;
+  &:hover {
+    text-decoration: none;
+  }
+}
+a.social-btn,
+input.social-btn,
+button.social-btn {
+  background-color: transparent;
+  color: cv('link', 'darker');
+  width: 100%;
+  padding: 16px 20px;
+
+  i.fa {
+    font-size: 37px;
+    color: #000;
+  }
+  span.google-logo {
+    background: url('/img/icons/google-logo-new.png') no-repeat center center;
+    width: 32px;
+    height: 32px;
+    background-size: contain;
+  }
+  span.google-logo, i.fa {
+    display: block;
+    position: absolute;
+    top: 12px;
+    left: 24px;
+
+    @include media("<tablet") {
+      display: none;
+    }
+  }
+}
+
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer;
+}

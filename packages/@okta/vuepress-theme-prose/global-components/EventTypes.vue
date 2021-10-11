@@ -125,6 +125,11 @@
 </script>
 
 <style scoped lang="scss">
+  @import '../assets/css/abstracts/_colors.scss';
+
+  $border_color: map-get(map-get($colors, 'form'), 'input-border');
+  $link_color: map-get(map-get($colors, 'link'), 'base');
+
   .event-types {
     .PageContent-main {
       padding-right: 0;
@@ -134,11 +139,11 @@
       width: 100%;
       font-size: 1em;
       padding: 0.5rem 0.3rem;
-      border: 2px solid #d2d2d6;
+      border: 2px solid $border_color;
     }
 
     #event-type-search::placeholder {
-      color: #d2d2d6;
+      color: $border_color;
     }
 
     #event-type-release {
@@ -148,8 +153,7 @@
     #event-type-count {
       margin-top: -1em;
       margin-left: 0.3em;
-      color: #888888;
-      font-size: 0.9em;
+      font-size: 0.8em;
     }
 
     .event-type {
@@ -158,8 +162,8 @@
         padding: 6px 10px;
         clear: left;
         overflow: hidden;
-        border-left: 3px solid #007dc1;
-        color: #007dc1;
+        border-left: 3px solid $link_color;
+        color: $link_color;
         text-overflow: ellipsis;
         white-space: nowrap;
       }
@@ -174,8 +178,7 @@
         margin: -1em 0;
         padding: 10px 15px;
         word-break: break-all;
-        color: #888888;
-        font-size: 0.9em;
+        font-size: 0.8em;
       }
 
       .event-type-description {

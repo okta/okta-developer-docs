@@ -18,7 +18,7 @@ tiles:
       - name: Java
         link: /docs/guides/sign-into-web-app/springboot/before-you-begin/
         image: /img/homepage/stackselectors/java.png
-      - name: .net
+      - name: .NET
         link: /docs/guides/sign-into-web-app/aspnet/before-you-begin/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
@@ -66,7 +66,7 @@ tiles:
       - name: Java
         link: /docs/guides/protect-your-api/springboot/before-you-begin/
         image: /img/homepage/stackselectors/java.png
-      - name: .net
+      - name: .NET
         link: /docs/guides/protect-your-api/aspnet/before-you-begin/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
@@ -82,11 +82,11 @@ tiles:
 assurances:
   - title: Compliant Out of the Box
     description: with HIPAA, FedRamp, and SOC environments available, we have you covered
-    image: /img/homepage/compliance-out-of-box.png
+    image: /img/homepage/compliance-out-of-box.svg
   - title: 99.99% Uptime
-    description: so your apps are working even when you’re not
-    image: /img/homepage/uptime.png
+    description: so your apps are working, even when you’re not
+    image: /img/homepage/uptime.svg
   - title: Open Standards
     description: OpenID Connect, OAuth 2.0, and SAML connect you to everything
-    image: /img/homepage/standards.png
+    image: /img/homepage/standards.svg
 ---

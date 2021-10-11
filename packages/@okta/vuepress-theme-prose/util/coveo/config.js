@@ -5,7 +5,7 @@ export default {
   omniboxConfig: {
     enableQueryExtensionAddon: true,
     enableQuerySyntax: true,
-    placeholder: "Search our content",
+    placeholder: "Search our content...",
     triggerQueryOnClear: true
   },
   searchboxConfig: {
