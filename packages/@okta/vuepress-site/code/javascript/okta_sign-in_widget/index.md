@@ -80,6 +80,8 @@ The code that initializes the Widget looks like this:
 </script>
 ```
 
+> **Note:** If you are working with an [Okta Identity Engine](/docs/guides/oie-intro)-enabled org and wish to use Identity Engine features in your app, you'll need to set the `useInteractionCodeFlow` option to `true` in the configuration options passed in to the `new OktaSignIn()` call. See [Configure and initialize the Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/aspnet/main/#configure-and-initialize-the-sign-in-widget) for more details. 
+
 <DomainAdminWarning />
 
 #### Mobile Consideration
