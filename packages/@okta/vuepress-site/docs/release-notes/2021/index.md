@@ -12,7 +12,7 @@ title: Okta API Products Release Notes 2021
 
 #### Bug fixed in 2021.10.1
 
-When a `search` keyword was provided as a query param in the [`/api/v1/groups/rules`](/docs/reference/api/groups/#list-group-rules) request and the number of matching records exceeded the specified page `limit` query param in the request, the response didn't correctly indicate how to retrieve the next page of results. (OKTA-421126)
+When a `search` keyword was provided as a query parameter in the [`/api/v1/groups/rules`](/docs/reference/api/groups/#list-group-rules) request, and the number of matching records exceeded the specified page `limit` query parameter in the request, the response didn't correctly indicate how to retrieve the next page of results. (OKTA-421126)
 
 ### Monthly Release 2021.10.0
 
