@@ -986,7 +986,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 | digestAlgorithm       | Determines the digest algorithm used to digitally sign the SAML assertion and response                            | String                                               | FALSE    | FALSE  |                                           |
 | honorForceAuthn       | Prompt user to re-authenticate if SP asks for it                                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
 | idpIssuer             | SAML Issuer ID                                                                                                    | String                                               | FALSE    | FALSE  |                                           |
-| inlineHooks           | Associate the application with SAML inline hooks. Check the [SAML Inline Hooks](/docs/reference/saml-hook/) for details   | String                                       | TRUE     | FALSE  |                                           |
+| inlineHooks           | Associates the application with SAML inline hooks. See the [SAML Assertion Inline Hook Reference](/docs/reference/saml-hook/) for details.   | String                    | TRUE     | FALSE  |                                           |
 | recipient             | The location where the app may present the SAML assertion                                                         | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | recipientOverride     | Overrides the `recipient` setting                                                                                 | String                                               | TRUE     | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | requestCompressed     | Determines whether the SAML request is expected to be compressed or not                                           | Boolean                                              | FALSE    | FALSE  |                                           |
@@ -1010,7 +1010,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 
 * If Single Logout is supported by the application and the `slo` object is provided in the request, the `spCertificate` object must be present.
 * When you update an application, if you don't specify `slo` or `spCertificate` the existing configuration persists.
-* When you associate the application with `inlineHooks`, you should [create SAML Inline Hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, then pass the created Inline Hook IDs.
+* When you associate the application with `inlineHooks`, you should [create SAML Inline Hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created Inline Hook IDs.
 
 ##### Supported values for custom SAML app
 
@@ -1122,7 +1122,7 @@ curl -v -X POST \
       ],
       "inlineHooks": [
         {
-          "id": "cal1chgEoc4sEKNlm0g4"
+          "id": "${inlineHookId}"
         }
       ]
     }
@@ -1226,10 +1226,10 @@ curl -v -X POST \
       ],
       "inlineHooks": [
         {
-          "id": "cal1chgEoc4sEKNlm0g4",
+          "id": "${inlineHookId}",
           "_links": {
             "self": {
-              "href": "http://${yourOktaDomain}/api/v1/inlineHooks/cal1chgEoc4sEKNlm0g4",
+              "href": "http://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
               "hints": {
                 "allow": [
                   "GET",
@@ -1711,10 +1711,10 @@ curl -v -X GET \
         "attributeStatements": [],
         "inlineHooks": [
           {
-            "id": "cal1chgEoc4sEKNlm0g4",
+            "id": "${inlineHookId}",
             "_links": {
               "self": {
-                "href": "http://${yourOktaDomain}/api/v1/inlineHooks/cal1chgEoc4sEKNlm0g4",
+                "href": "http://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
                 "hints": {
                   "allow": [
                     "GET",
