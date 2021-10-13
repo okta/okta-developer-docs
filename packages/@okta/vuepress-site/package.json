@@ -22,7 +22,8 @@
     "url": "https://github.com/okta/okta.github.io/issues"
   },
   "devDependencies": {
-    "@okta/vuepress-theme-prose": "^0.1.0-alpha.1"
+    "@okta/vuepress-theme-prose": "^0.1.0-alpha.1",
+    "semver": "^7.3.5"
   },
   "dependencies": {
     "@okta/vuepress-plugin-qualtrics-feedback": "^1.0.0",
