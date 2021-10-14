@@ -14,7 +14,7 @@ This use case describes how to integrate a password recovery flow into your app 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
 | Learning outcomes                     | <ul><li>Understand how to set up password recovery with only an email factor.</li><li>Integrate the password recovery flow into your app.</li></ul>                                                      |
-| What you need | [Okta org already configured for multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)                                                     |
+| What you need | [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)                                                     |
 | Sample code                                                        | n/a                                                      |
 
 ## Configuration updates
