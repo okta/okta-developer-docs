@@ -14,7 +14,7 @@ This guide covers the use case for a user sign-in flow with password and phone f
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Understand how to implement user sign-in with password and phone factors.</li></ul>                                                       |
+| Learning outcomes                     | Understand how to implement a user sign-in flow with password and phone factors.  |
 | What you need | <ul><li>[Okta org already configured for multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
 
