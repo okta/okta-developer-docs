@@ -13,7 +13,7 @@ This guide covers the sequence of steps on how you can build your app to allow u
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Set up your Okta org and app to support sign-in with Facebook IdP use cases.</li></ul>                                                       |
+| Learning outcomes                     | Set up your Okta org and app to support sign-in with Facebook IdP use cases.   |
 | What you need | <ul><li>[App already set up for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)</li><li>[Okta org already set up for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
 
