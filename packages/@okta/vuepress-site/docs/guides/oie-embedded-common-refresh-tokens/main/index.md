@@ -12,7 +12,7 @@ This guide covers refresh tokens that are used when access tokens expire and the
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Understand what are refresh tokens</li><li>Know how to use either of the options to refresh tokens.</li></ul>                                                       |
+| Learning outcomes                     | <ul><li>Understand what refresh tokens are</li><li>Know how to use either of the options to refresh tokens.</li></ul>                                                       |
 | What you need | <ul><li>[Refresh token](/docs/guides/refresh-tokens/use-refresh-token/) from the SDK with `offline_access` as a scope</li><li>[`/token`](/docs/reference/api/oidc/#token) endpoint</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
 
