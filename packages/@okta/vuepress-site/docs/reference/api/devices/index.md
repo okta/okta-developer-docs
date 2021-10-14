@@ -70,7 +70,7 @@ The requested [Device](#device-object).
 
 #### Usage example
 
-This request fetches a Device object with an `id` value `ftrZooGoT8b41iWRiQs7`:
+This request fetches a Device object with an `id` value `guo4a5u7JHHhjXrMK0g4`:
 
 ##### API token request
 
@@ -79,7 +79,17 @@ curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4"
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}"
+```
+
+##### Bearer token Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer ${oauth_token}" \
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}"
 ```
 
 ##### Bearer token Request
@@ -96,7 +106,7 @@ curl -v -X GET \
 
 ```json
 {
-    "id": "ftrZooGoT8b41iWRiQs7",
+    "id": "guo4a5u7JHHhjXrMK0g4",
     "status": "CREATED",
     "created": "2019-10-02T18:03:07.000Z",
     "lastUpdated": "2019-10-02T18:03:07.000Z",
