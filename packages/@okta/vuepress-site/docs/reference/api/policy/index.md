@@ -1130,7 +1130,7 @@ The following conditions may be applied to the Rules associated with Okta Sign O
 
 ## Multifactor (MFA) Enrollment Policy
 
-> **Note:** The MFA Policy API is a <ApiLifecycle access="beta" /> release.
+> **Note:** The MFA Policy API is a <ApiLifecycle access="beta" /> release and gavailable for Okta Classic Engine only. For Okta Identity Engine, use the Authenticator enrollment policy APIs.
 
 The Multifactor (MFA) Enrollment Policy controls which MFA methods are available for a User, as well as when a User may enroll in a particular Factor.
 
