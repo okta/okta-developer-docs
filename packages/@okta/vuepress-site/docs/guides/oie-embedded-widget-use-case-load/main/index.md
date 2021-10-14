@@ -13,7 +13,7 @@ This guide covers the use case to load the Widget, and provides a flow diagram a
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Understand the sequence of steps in the load widget flow.</li></ul>                                                       |
+| Learning outcomes                     | Understand the sequence of steps to load the Widget.                                                       |
 | What you need | <ul><li>[SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
 
