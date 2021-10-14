@@ -14,7 +14,7 @@ This guide covers the use case for a user sign-in flow with password and email f
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
 | Learning outcomes                     | Understand how to implement a user sign-in flow with password and email factors.   |
-| What you need | <ul><li>[Okta org already configured for multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)</li></ul>                                                     |
+| What you need | <ul><li>[Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
 
 ## Configuration updates
