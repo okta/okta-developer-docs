@@ -14,12 +14,24 @@ Are you an admin? See the Identity Engine [Limitations](https://help.okta.com/ok
 
 ### Classic Engine features not supported in the Identity Engine
 
+#### Custom sign-in page for embedded app links
+
+**What Changed:** Using a custom sign-in page for embedded app links isn't supported. Users who click an app embed link are now evaluated by their org's Okta sign-in policy. Admins can customize an Okta-hosted sign-in page or configure an IdP routing rule for the app.
+
+**Further information:** [Configure a custom Okta-hosted sign-in page](/docs/guides/style-the-widget/before-you-begin/) and [Configure routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Identity_Provider_Discovery)
+
+***
+
 #### Event Type availability for Event Hooks
 
 **What Changed:** The following Event Types aren't available in the Identity Engine because Device Trust isn't currently supported:
 
 * `user.authentication.authenticate`
 * `user.credential.enroll`
+
+The following Event Type isn’t available in Identity Engine because it is no longer being triggered:
+
+`user.account.unlock_token`
 
 The following Event Types are available only in the Identity Engine and can't be used by Classic Engine customers:
 
@@ -44,6 +56,26 @@ The following Event Types are available only in the Identity Engine and can't be
 **What Changed:** Not supported
 
 **Further Information:** [Learn more about PIV](https://help.okta.com/okta_help.htm?id=ext-idp-smart-card-workflow)
+
+***
+
+#### Reset Factor API - email enrollment
+
+**What Changed:** A user’s verified `primaryEmail` is considered an email (Authenticator) enrollment for the user. The use of the Classic Engine Reset Factor API for resetting a user’s email enrollment is discouraged and considered moot, because email is an auto-enrolling Authenticator in Identity Engine. A user’s verified `primaryEmail` is always usable as long as the Email Authenticator is set to `ACTIVE`, and the user can use it for **recovery only** or for both **authentication and recovery**, depending on the Email Authenticator settings.
+
+***
+
+#### Reset Factor API - recovery question
+
+**What Changed:** If a user is using both the recovery question and security questions, and an API call is made to `v1/lifecycle/reset_factors` to reset all factors for the user, only security questions is reset with that call in Identity Engine. To then reset the recovery question, make a second call to `/v1/lifecycle/reset_factors` to reset the recovery question.
+
+***
+
+#### Self-Service Registration
+
+**What Changed:** The Self-Service Registration feature isn't supported. Self-service registration is now accomplished through a profile enrollment policy. In a profile enrollment policy, admins select the attributes they want to collect when a new end user clicks **Sign up**. After the end user is authenticated into the app, their profile is complete and they are provisioned to the appropriate groups.
+
+**Further information:** [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 
 ***
 
@@ -75,14 +107,6 @@ The following Event Types are available only in the Identity Engine and can't be
 * `features.registration`
 
 **Further Information:** [Okta Sign-In Widget feature flags](https://github.com/okta/okta-signin-widget#feature-flags)
-
-***
-
-#### Self-Service Registration
-
-**What Changed:** The Self-Service Registration feature isn't supported. Self-service registration is now accomplished through a profile enrollment policy. In a profile enrollment policy, admins select the attributes they want to collect when a new end user clicks **Sign up**. After the end user is authenticated into the app, their profile is complete and they are provisioned to the appropriate groups.
-
-**Further information:** [Manage Profile Enrollment policies](https://help.okta.com/okta_help.htm?type=oie&id=ext-create-profile-enrollment)
 
 ***
 
@@ -132,15 +156,6 @@ In the Admin Console, the enablement of a Registration Inline Hook has changed f
 **What Changed:** Passing the `audience` parameter to the `/api/v1/authn` API isn't supported in the Identity Engine because of the new flexible App Sign-On Policy that comes with Identity Engine. The Classic Engine pipeline doesn't support the flexible App Sign-On Policy.
 
 **Further information:** [IDP-initiated step-up authentication](/docs/reference/api/authn/#idp-initiated-step-up-authentication)
-
-***
-
-#### Custom sign-in page for embedded app links
-
-**What Changed:** Using a custom sign-in page for embedded app links isn't supported. Users who click an app embed link are now evaluated by their org's Okta sign-in policy. Admins can customize an Okta-hosted sign-in page or configure an IdP routing rule for the app.
-
-**Further information:** [Configure a custom Okta-hosted sign-in page](/docs/guides/style-the-widget/before-you-begin/) and [Configure routing rules](https://help.okta.com/okta_help.htm?type=oie&id=ext_Identity_Provider_Discovery
-)
 
 ***
 
