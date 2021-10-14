@@ -13,7 +13,7 @@ This guide covers the sequence of steps on how you can build your app to allow u
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Set up your app to support sign-in with Facebook IdP use cases by using the Widget.</li></ul>                                                       |
+| Learning outcomes                     | Set up your app to support the sign-in flow with Facebook IdP use cases by using the Widget.                                                      |
 | What you need | <ul><li>[Okta org already set up for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)</li><li>[SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
 
