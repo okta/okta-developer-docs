@@ -9,7 +9,7 @@ title: Load the Widget
 
 <StackSelector class="cleaner-selector"/>
 
-This guide covers the use case to load the widget, and provides a flow diagram and a sequence of integration steps.
+This guide covers the use case to load the Widget, and provides a flow diagram and a sequence of integration steps.
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
