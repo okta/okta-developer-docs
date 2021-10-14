@@ -13,7 +13,7 @@ This guide covers how to set up an Okta sample app to demonstrate some Identity 
 
  Nutrition Facts                                                                            |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Create, set up, and install an Okta OAuth 2.0 app.</li><li>Enroll and authenticate a user.</li><li>Enable self-service enrollment, enable a second factor for authentication.</li><li>Use email and Okta Verify as recovery options.</li><li>Add a profile attribute to the Profile Enrollment Policy.</li><li>Route users to an external IdP.</li></ul>                                                      |
+| Learning outcomes                     | <ul><li>Create, set up, and install an Okta OAuth 2.0 app.</li><li>Enroll and authenticate a user.</li><li>Enable self-service enrollment and enable a second factor for authentication.</li><li>Use email and Okta Verify as recovery options.</li><li>Add a profile attribute to the Profile Enrollment Policy.</li><li>Route users to an external IdP.</li></ul>                                                      |
 | What you need | [Sample app](/docs/guides/oie-embedded-common-download-setup-app)                                                     |
 | Sample code                                                        | n/a                                                      |
 
