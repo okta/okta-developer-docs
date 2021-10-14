@@ -67,7 +67,7 @@ The following Event Types are available only in the Identity Engine and can't be
 
 #### Reset Factor API - recovery question
 
-**What Changed:** If a user is using both the recovery question and security questions, and an API call is made to `v1/lifecycle/reset_factors` to reset all factors for the user, only security questions is reset with that call in Identity Engine. To then reset the recovery question, make a second call to `/v1/lifecycle/reset_factors` to reset the recovery question.
+**What Changed:** You can now reset the recovery question for a user in Identity Engine. If a user is using both the recovery question and security questions, and an API call is made to `v1/lifecycle/reset_factors` to reset all factors for the user, only security questions is reset with that call. To then reset the recovery question, make a second call to `/v1/lifecycle/reset_factors`.
 
 ***
 
