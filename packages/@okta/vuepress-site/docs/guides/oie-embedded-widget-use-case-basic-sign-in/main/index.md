@@ -13,7 +13,7 @@ This guide covers a basic user sign-in flow that uses the Sign-In Widget. The fl
 
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Understand the sequence of steps in the basic sign-in flow when you use the Sign-In Widget.</li></ul>                                                       |
+| Learning outcomes                     | Understand the sequence of steps in the basic sign-in flow when you use the Sign-In Widget.                      |
 | What you need | <ul><li>[SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up</li></ul>                                                     |
 | Sample code                                                        | n/a                                                      |
 
