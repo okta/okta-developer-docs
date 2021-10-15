@@ -4,26 +4,19 @@ excerpt: How to create a token for the Okta API
 layout: Guides
 ---
 
-This page describes how what the API token is, why you need it, best practices, and how to create one. API token expiration and how API tokens are deactivated is also discussed.
+This page explains what an API token is, why you need one, and how to create one.
 
 **Learning outcomes**
 
-* What is an API token
-* How to create an API token
+* How an Okta API token is used
+* Why it's good practice to create a service account for use with an API token
+* Alternatives to Okta API tokens
+* Token expiration
+* How API tokens are deactivated
 
 **What you need**
 
-* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Have an application that you want to add authentication to.
-
-* What [should you](/docs/guides/) have set up already before reading this article
-* Second [thing you](http://www.google.com) should have already done before reading this.
-
-**Sample code**
-
-* Link to relevant sample app or other sample code
-* Other sample code
-
+Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
 
 Okta API tokens are used to authenticate requests to Okta APIs. When calling an Okta API endpoint, you need to supply a valid API token in the HTTP `Authorization` header, with a valid token specified as the header value. You need to prefix the value with the `SSWS` identifier, which specifies the proprietary authentication scheme that Okta uses. For example:
 
@@ -38,10 +31,6 @@ Different Okta API operations require different admin privilege levels. API toke
 ## OAuth 2.0 instead of API tokens
 
 As an alternative to Okta API tokens, you can now interact with Okta APIs using scoped OAuth 2.0 access tokens for a number of Okta endpoints. Each access token enables the bearer to perform specific actions on specific Okta endpoints, with that ability controlled by which scopes the access token contains. For more information, see the [OAuth for Okta](/docs/guides/implement-oauth-for-okta/) guide.
-
-## Support
-
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
 ## Create the token
 
@@ -67,7 +56,7 @@ To create an API token, follow these steps:
 
 Tokens expire automatically after a certain period and can also be deactivated at any time.
 
-#### Token expiration
+### Token expiration
 
 Tokens are valid for 30 days from creation or last use, so that the 30 day expiration automatically refreshes with each API call.
 
@@ -75,16 +64,15 @@ Tokens that aren't used for 30 days expire.
 
 The 30-day period is currently fixed and can't be changed for your organization.
 
-#### Token deactivation
+### Token deactivation
 
 If a user account is deactivated in Okta, any API token created by that user account is deprovisioned at the same time.
 
 ## Next steps
 
-With the token created, you can begin using it, supplying it in the `Authorization` header of calls to Okta API endpoints.
+With the token created, you can begin using it, supplying it in the `Authorization header` of calls to Okta API endpoints.
+
+## See also
 
 * See [Use Postman with the Okta REST APIs](/code/rest/) for a guide to trying out Okta APIs using Postman, as an easy way to explore.
-
 * For information on the general principles the Okta API follows, see [Design Principles](/docs/reference/core-okta-api/#design-principles).
-
-* For reference documentation for each API, see [API Reference](/docs/reference/).
