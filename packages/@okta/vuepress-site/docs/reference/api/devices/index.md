@@ -16,7 +16,7 @@ The Devices API supports the following **Device Operations**:
 * Get, Delete Device objects.
 * Perform lifecycle transitions on the Device objects.
 
-The Devices APIs support following **Authorization Schemes**:
+The Devices API supports the following **Authorization Schemes**:
 * SSWS - [API tokens](/docs/reference/core-okta-api/#authentication)
 * Bearer - [OAuth2.0 and OpenID Connect](/docs/concepts/oauth-openid/)
 
@@ -28,7 +28,7 @@ Explore the Devices API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 The Devices API has the following Device Identity operations:
 
-* [Get a Device](#get-a-device-by-id)
+* [Get Device](#get-device-by-id)
 * [List Devices](#list-devices)
 * [Delete Device](#delete-device)
 
@@ -39,15 +39,15 @@ The following Device lifecycle operations:
 * [Suspend Device](#suspend-device)
 * [Unsuspend Device](#unsuspend-device)
 
-> **Note:** Create a Device - The enrollment flow of the Okta Verify creates a device in the Okta Device Inventory. [Device Registration](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/device-registration.htm)
+> **Note:** Device creation occurs during the Okta Verify enrolment flow. The flow creates a Device in the Okta Device Inventory. See [Device Registration](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/device-registration.htm).
 
-### Get a Device by ID
+### Get Device by ID
 
 <ApiOperation method="get" url="/api/v1/devices/${deviceId}" />
 
 Fetches a Device by its `id`. If you don't know the `id`, you can [List Devices](#list-devices).
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.read`
 
 #### Request path parameters
@@ -201,7 +201,7 @@ Searches include all Device profile properties, as well as the Device `id`, `sta
 | `profile.platform eq "WINDOWS"`                 | Devices that have an `platform` of `WINDOWS`     |
 | `profile.sid sw "S-1" `                         | Devices whose `sid` starts with `S-1`            |
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.read`
 
 #### Request path parameters
@@ -446,7 +446,7 @@ curl -v -X GET \
 
 #### Usage example (expand=user)
 
-The following request returns a list of all available devices, and associated users.
+The following request returns a list of all available devices and associated users.
 
 ##### API token request
 
@@ -612,7 +612,7 @@ Permanently deletes a Device that is in `DEACTIVATED` status. The Device can be 
 
 This deletion is destructive and deletes all the profile data related to the device. Once deleted, device data can't be recovered. A Device that is not in a `DEACTIVATED` state raises an error if Delete operation is attempted.
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.manage`
 
 #### Request path parameters
@@ -678,7 +678,7 @@ Sets a Device's `status` to `ACTIVE`.
 
 Activated devices can be used to create and delete Device User links.
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.manage`
 
 #### Request path parameters
@@ -745,7 +745,7 @@ factors on the device.
 > 3. Deletion of the device after deactivation, deletes the device record from Okta. Re-enrollment of Okta Verify would create a new device record.
 
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.manage`
 
 #### Request path parameters
@@ -813,7 +813,7 @@ Suspended devices:
 * Can only be [unsuspended](#unsuspend-device) or [deactivated](#deactivate-device).
 
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.manage`
 
 #### Request path parameters
@@ -876,7 +876,7 @@ Unsuspends a Device and by returning its `status` value to `ACTIVE`.
 
 This operation can only be performed on a Device that is in `SUSPENDED` status.
 
-#### Permitted OAuth2 scopes 
+#### Permitted OAuth 2.0 scopes 
 `okta.devices.manage`
 
 #### Request path parameters
