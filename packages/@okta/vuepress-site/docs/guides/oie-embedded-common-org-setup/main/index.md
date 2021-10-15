@@ -11,11 +11,18 @@ title: Get set up
 
 This guide covers how to create and set up your Okta org before you can run the provided sample app or integrate the SDK or Widget into your own app.
 
- Nutrition Facts                                                                          |                                                                                      |
-| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | Get a new org set up and ready for various use cases.>                                                      |
-| What you need | n/a                                                     |
-| Sample code                                                        | n/a                                                      |
+---
+Learning outcomes:<br>
+  * Get a new org set up and ready for various use cases.
+
+What you need:<br>
+  * n/a
+
+Sample code:<br>
+  * n/a
+---
+
+<NutritionFacts></NutritionFacts>
 
 ## Overview of the embedded identity solutions
 
