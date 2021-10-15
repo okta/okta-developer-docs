@@ -67,7 +67,7 @@ The use of the Classic Engine Reset Factor API for resetting a user’s email en
 
 ***
 
-#### Reset Factor API - recovery question
+#### Reset Factor API - question enrollment
 
 **What Changed:** Identity Engine steers away from the notion of separate questions for MFA and Recovery. Therefore, the GET `/factors` API now returns the Recovery Question (Forgot Password Question) in the absence of a MFA Security Question enrollment for the user.
 
