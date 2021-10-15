@@ -61,7 +61,9 @@ The following Event Types are available only in the Identity Engine and can't be
 
 #### Reset Factor API - email enrollment
 
-**What Changed:** A user’s verified `primaryEmail` is considered an email (Authenticator) enrollment for the user. The use of the Classic Engine Reset Factor API for resetting a user’s email enrollment is discouraged and considered moot, because email is an auto-enrolling Authenticator in Identity Engine. A user’s verified `primaryEmail` is always usable as long as the Email Authenticator is set to `ACTIVE`, and the user can use it for **recovery only** or for both **authentication and recovery**, depending on the Email Authenticator settings.
+**What Changed:** With Identity Engine, a user’s verified `primaryEmail` is considered an email (Authenticator) enrollment for the user. Therefore, the GET `/factors` API always returns the verified `primaryEmail` as an active email factor.
+
+The use of the Classic Engine Reset Factor API for resetting a user’s email enrollment is discouraged and considered moot, because email is an auto-enrolling Authenticator in Identity Engine. A user’s verified `primaryEmail` is always usable as long as the Email Authenticator is set to `ACTIVE`, and the user can use it for **recovery only** or for both **authentication and recovery**, depending on the Email Authenticator settings.
 
 ***
 
