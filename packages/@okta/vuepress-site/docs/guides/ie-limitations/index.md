@@ -67,7 +67,11 @@ The following Event Types are available only in the Identity Engine and can't be
 
 #### Reset Factor API - recovery question
 
-**What Changed:** If a user is using both the recovery question and security questions in Identity Engine, and an API call is made to `v1/lifecycle/reset_factors` to reset all factors for the user, only security questions is reset with that call. To then reset the recovery question, after that first call make a second call to `/v1/lifecycle/reset_factors`.
+**What Changed:** Identity Engine steers away from the notion of separate questions for MFA and Recovery. Therefore, the GET `/factors` API now returns the Recovery Question (Forgot Password Question) in the absence of a MFA Security Question enrollment for the user.
+
+In Classic Engine, when a user is using both the Forgot Password Question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all factors for the user, only the Security Question is reset. And then, if the GET `/factors` API is called, the Forgot Password Question isn't returned as a factor. With an upgrade to Identity Engine, after resetting all factors, when the GET `/factors` API is then called, the Forgot Password Question is returned as a factor in the response.
+
+> **Note:** With Identity Engine, if a user is using both the Forgot Password Question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all factors for the user, just the Security Question is reset with that call. To then reset the Forgot Password Question, after that first call make a second call to `/v1/lifecycle/reset_factors`.
 
 ***
 
