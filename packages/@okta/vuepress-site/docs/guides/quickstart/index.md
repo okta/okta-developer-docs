@@ -1,12 +1,7 @@
 ---
-title: QuickStart
+title: QuickStart — Signing in your first user
 excerpt: Get started with Okta authentication
 sections:
- - create-org
- - using-console
- - add-user
- - register-app
- - sign-in
- - try-api
+ - main
 ---
 
