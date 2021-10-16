@@ -8,20 +8,27 @@ title: Refresh the access and ID tokens
 
 <StackSelector class="cleaner-selector"/>
 
-This guide covers refresh tokens that are used when access tokens expire and the options to refresh the token.
+This guide covers the refresh tokens that are used when access tokens expire and also describes the options to refresh the tokens.
 
- Nutrition Facts                                                                          |                                                                                      |
-| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Understand what refresh tokens are</li><li>Know how to use either of the options to refresh tokens.</li></ul>                                                       |
-| What you need | <ul><li>[Refresh token](/docs/guides/refresh-tokens/use-refresh-token/) from the SDK with `offline_access` as a scope</li><li>[`/token`](/docs/reference/api/oidc/#token) endpoint</li></ul>                                                     |
-| Sample code                                                        | n/a                                                      |
+---
+**Learning outcomes**
+* Understand what refresh tokens are.
+* Know how to use either of the options to refresh tokens.
 
-## Summary
+**What you need**
+* [Refresh token](/docs/guides/refresh-tokens/use-refresh-token/) from the SDK with `offline_access` as a scope
+* [`/token`](/docs/reference/api/oidc/#token) endpoint
 
-Access tokens often have limited lifetimes. Allowing access
-tokens to expire limits their usefulness in case they are discovered
+**Sample code**
+* n/a
+---
+
+## Overview
+
+Access tokens often have limited lifetimes. If you allow access
+tokens to expire, their usefulness is limited in the event they are discovered
 by an attacker. In order for your app to continue to use the
-appropriate resources when an access token expires, it can refresh
+appropriate resources when an access token expires, the app can refresh
 them without user intervention through the use of a refresh token.
 
 All the SDKs expose functionality that allow you
