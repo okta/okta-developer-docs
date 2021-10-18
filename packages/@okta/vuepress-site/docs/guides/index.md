@@ -2,6 +2,7 @@
 title: Guides overview
 guides:
  - add-an-external-idp
+ - add-a-social-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
  - common-hook-set-up-steps

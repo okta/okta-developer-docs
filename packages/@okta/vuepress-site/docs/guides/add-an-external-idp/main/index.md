@@ -135,9 +135,9 @@ If you need to create a new OIDC app integration:
 
 > **Note:** To get the client credentials for your app integration, on the **General** tab, copy the **Client ID** from the **Client Credentials** section. You need this ID to complete the Authorize URL in the next section.
 
-## Create an authorization URL
+## Use the Authorize URL to simulate the authorization flow
 
-The Okta Identity Provider that you created in the second step generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
+The Okta Identity Provider that you created generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
 
 > **Note:** Use this step to test your authorization URL as an HTML link. For information on using the Sign-In Widget, Okta hosted sign-in page, or AuthJS, see the next step.
 
