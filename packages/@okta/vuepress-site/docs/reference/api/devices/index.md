@@ -1025,7 +1025,7 @@ The following diagram shows the state object for a Device:
 ![Device lifecycle flow](/img/okta-device-status.png "Device lifecycle flow")
 
 > **Note:**
-> 1. Okta Verify enrollment results in a device being created in device inventory. The newly created device is in `ACTIVE` status. 
+> 1. Okta Verify enrollment results in a device being created in device inventory. The newly-created device has an `ACTIVE` status. 
 > 2. Device deactivation renders associated assets&mdash;such as device factors and management certificates&mdash;unusable. The Device re-enrollment/add account flow via Okta Verify allows end users to setup new factors (sign-in methods) on the device.
 > 3. Deletion of the device after deactivation also deletes the device record from Okta. Re-enrollment of Okta Verify creates a new device record.
 
