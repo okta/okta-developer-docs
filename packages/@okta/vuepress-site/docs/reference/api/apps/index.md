@@ -1229,7 +1229,7 @@ curl -v -X POST \
           "id": "${inlineHookId}",
           "_links": {
             "self": {
-              "href": "http://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
+              "href": "https://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
               "hints": {
                 "allow": [
                   "GET",
@@ -1714,7 +1714,7 @@ curl -v -X GET \
             "id": "${inlineHookId}",
             "_links": {
               "self": {
-                "href": "http://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
+                "href": "https://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
                 "hints": {
                   "allow": [
                     "GET",
