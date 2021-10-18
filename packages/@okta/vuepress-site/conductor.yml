@@ -2365,3 +2365,19 @@ redirects:
     to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/reference/api-overview/index.html
     to: /docs/reference/core-okta-api/
+  - from: /docs/guides/create-an-api-token/overview/
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/overview/index.html
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/create-the-token/
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/create-the-token/index.html
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/token-expiration-deactivation/
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/token-expiration-deactivation/index.html
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/next-steps/
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/next-steps/index.html
+    to: /docs/guides/create-an-api-token/main/

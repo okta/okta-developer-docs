@@ -6,6 +6,7 @@ layout: Guides
 
 This page explains what an API token is, why you need one, and how to create one.
 
+---
 **Learning outcomes**
 
 * How an Okta API token is used
@@ -16,7 +17,13 @@ This page explains what an API token is, why you need one, and how to create one
 
 **What you need**
 
-Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
+Have an Okta Developer Edition organization. Don't have one? [Create one for free](/signup).
+
+**Sample code**
+
+n/a
+
+---
 
 ## Okta API tokens
 
@@ -42,9 +49,7 @@ To create an API token, follow these steps:
 
      API tokens have the same permissions as the user who creates them, and if the user permissions change, the API token permissions also change.
 
-    See the note above on <GuideLink link="../overview/#privilege-level">Privilege level</GuideLink>, regarding the use of a service account when creating an API token, to specifically control the privilege level associated with the token.
-
-    If you don't have an Okta organization, you can [create one for free](https://developer.okta.com/signup).
+    See the section above on **Privilege level**, regarding the use of a service account when creating an API token, to specifically control the privilege level associated with the token.
 
 2. Access the API page: In the Admin Console, select **API** from the **Security** menu and then select the **Tokens** tab.
 
@@ -68,7 +73,7 @@ If a user account is deactivated in Okta, any API token created by that user acc
 
 ## Next steps
 
-With the token created, you can begin using it, supplying it in the `Authorization header` of calls to Okta API endpoints.
+With the token created, you can begin using it, supplying it in the `Authorization header` of calls to Okta API endpoints. See [Create a user by API](/docs/guides/quickstart/cli/try-api/#create-a-user-by-api) for an easy way to explore making calls to Okta using the Okta APIs.
 
 ## See also
 
