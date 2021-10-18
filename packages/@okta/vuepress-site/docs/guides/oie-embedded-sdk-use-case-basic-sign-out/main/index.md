@@ -11,11 +11,16 @@ title: User sign out (local app)
 
 This guide covers the use case to sign a user out, and provides a flow diagram and a sequence of integration steps.
 
- Nutrition Facts                                                                          |                                                                                      |
-| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | Understand how to implement a sign-out flow for a user.                                                     |
-| What you need | n/a                                                     |
-| Sample code                                                        | n/a                                                      |
+---
+**Learning outcomes**
+* Understand how to implement a sign-out flow for a user.
+
+**What you need**
+* n/a
+
+**Sample code**
+* n/a
+---
 
 ## Configuration updates
 

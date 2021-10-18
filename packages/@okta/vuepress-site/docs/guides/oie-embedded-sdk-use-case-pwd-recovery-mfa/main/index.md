@@ -11,11 +11,17 @@ title: User password recovery
 
 This use case describes how to integrate a password recovery flow into your app using Okta's SDK. The flow includes an email factor step that the user needs to verify before updating their password.
 
- Nutrition Facts                                                                          |                                                                                      |
-| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Understand how to set up password recovery with only an email factor.</li><li>Integrate the password recovery flow into your app.</li></ul>                                                      |
-| What you need | [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)                                                     |
-| Sample code                                                        | n/a                                                      |
+---
+**Learning outcomes**
+* Understand how to set up password recovery with only an email factor.
+* Integrate the password recovery flow into your app.
+
+**What you need**
+* Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+
+**Sample code**
+* n/a
+---
 
 ## Configuration updates
 
