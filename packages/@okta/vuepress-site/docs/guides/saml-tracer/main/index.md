@@ -1,6 +1,29 @@
 ---
-title: Overview
+title: Testing SAML with SAML Tracer
+excerpt: How to test SAML flows with the SAML Tracer Firefox extension
+layout: Guides
 ---
+
+This article explains how to test a SAML app implementation with the SAML Tracer browser add-on.
+
+---
+
+**Learning outcomes**
+
+* Installing and using SAML Tracer.
+* Creating SAML requests for SP- and IdP-initiated flows and inspecting them in SAML Tracer.
+
+**What you need**
+
+* A SAML app to test (see [Building a SAML SSO integration](https://developer.okta.com/docs/guides/build-sso-integration/saml2/before-you-begin/) for more information on creating one).
+
+**Sample code**
+
+n/a
+
+---
+
+## Overview
 
 Once you have completed the SAML configuration, you can test your implementation using SAML tracer.
 SAML tracer is an add-on in Firefox and very useful when troubleshooting SAML for service provider-initiated flows (SP-initiated)
@@ -233,6 +256,8 @@ RKvwyyTfqfq9pgSmB9xNVJIeVZbbZGTlNGqJti24E0AiIPggtxg5NJ+HHnEQ5RxdSsR4fbMz9i0K
 
 SAML responses are signed, and contain the profile attributes of the person who requested access to the app, as set in the General tab of the administrator UI.
 
-## Support
+## See also
 
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
+* [SAML overview](https://developer.okta.com/docs/concepts/saml/)
+* [SAML FAQ](https://developer.okta.com/docs/concepts/saml/faqs/)
+* [Building a SAML SSO integration](https://developer.okta.com/docs/guides/build-sso-integration/saml2/before-you-begin/)
