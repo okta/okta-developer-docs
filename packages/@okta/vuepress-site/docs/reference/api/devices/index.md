@@ -739,10 +739,10 @@ Content-Type: application/json
 Sets a Device's `status` to `DEACTIVATED`. Deactivation causes a Device to lose all Device User links. A Device should be in `DEACTIVATED` status before it can be [deleted](#delete-device).
 
 > **Important**: 
-> 1. Deactivating a Device is a **destructive** operation with respect to device factors, client certificates.
-> 2. Device deactivation renders associated assets such as device factors and management certificates—non-usable. Device re-enrollment via Okta Verify would allow end users to setup new
+> 1. Deactivating a Device is a **destructive** operation for device factors and client certificates.
+> 2. Device deactivation renders associated assets&mdash;such as device factors and management certificates&mdash;unusable. Device re-enrollment via Okta Verify allows end users to setup new
 factors on the device.
-> 3. Deletion of the device after deactivation, deletes the device record from Okta. Re-enrollment of Okta Verify would create a new device record.
+> 3. Deletion of the device after deactivation also deletes the device record from Okta. Re-enrollment of Okta Verify creates a new device record.
 
 
 #### Permitted OAuth 2.0 scopes 
@@ -1026,8 +1026,8 @@ The following diagram shows the state object for a Device:
 
 > **Note:**
 > 1. Okta Verify enrollment results in a device being created in device inventory. The newly created device is in `ACTIVE` status. 
-> 2. Device deactivation renders associated assets such as device factors and management certificates—non-usable. Device re-enrollment/add account flow via Okta Verify would allow end users to setup new factors (signin methods) on the device.
-> 3. Deletion of the device after deactivation, deletes the device record from Okta. Re-enrollment of Okta Verify would create a new device record.
+> 2. Device deactivation renders associated assets&mdash;such as device factors and management certificates&mdash;unusable. The Device re-enrollment/add account flow via Okta Verify allows end users to setup new factors (sign-in methods) on the device.
+> 3. Deletion of the device after deactivation also deletes the device record from Okta. Re-enrollment of Okta Verify creates a new device record.
 
 
 ### Device profile object
