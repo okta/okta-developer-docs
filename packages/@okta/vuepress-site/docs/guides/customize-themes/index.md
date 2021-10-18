@@ -26,7 +26,7 @@ You need to make sure that you have an [Okta organization](/docs/guides/quicksta
 
 It is up to you how you make requests to the API to update your branding. In this guide, we are demonstrating the required API calls using a Postman collection to demonstrate them in a language/platform neutral way. To run the API calls:
 
-1. [Create an API token](/docs/guides/create-an-api-token/overview/) to use when accessing the API.
+1. [Create an API token](/docs/guides/create-an-api-token/main/) to use when accessing the API.
 1. [Download](https://www.postman.com/downloads/) and install Postman.
 1. After you install Postman, import the Okta environment and add your Okta domain and API token to Postman, as explained in [Use Postman with the Okta REST APIs > Set up your environment](/code/rest/#set-up-your-environment).
 1. Click **Run in Postman** to add the Brands collection to Postman, which allows you to test the API calls that are described below.
