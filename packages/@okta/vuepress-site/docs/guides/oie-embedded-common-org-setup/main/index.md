@@ -49,7 +49,7 @@ If you don't have an Okta Identity Engine org, you need sign up for an Okta acco
 
 You need to configure your default Custom Authorization Server to enable the Interaction Code flow.
 
-1. From your Okta org's [Admin Console](http://localhost:8080/docs/guides/quickstart/cli/main/#using-the-admin-console), select **Security** > **API**.
+1. From your Okta org's [Admin Console](/docs/guides/quickstart/cli/main/#using-the-admin-console), select **Security** > **API**.
 1. On the **Authorization Servers** tab, select the pencil icon for the **default** Custom Authorization Server.
 1. Select the **Access Policies** tab.
 1. Select the pencil icon from the **Actions** column for the **Default Policy Rule**.
