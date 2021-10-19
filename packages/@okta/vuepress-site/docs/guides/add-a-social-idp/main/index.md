@@ -5,9 +5,11 @@ meta:
     content: Okta supports authentication with social Identity Providers. Get an overview of the process and prerequisites, as well as the set up instructions.
 ---
 
+<StackSelector />
+
 This article explains how to configure a social Identity Provider for your application by creating an application on GitHub, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
-Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. When a user signs in, you can link the user’s <StackSelector snippet="socialidp" noSelector inline /> account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
+Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. When a user signs in, you can link the user’s <StackSelector snippet="idp" noSelector inline /> account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
 
 ---
 
@@ -19,7 +21,7 @@ How to configure a social Identity Provider so that your users can quickly sign 
 
 * Have an Okta Developer Edition organization. Don't have one? [Create one for free](/signup)
 * Have an OpenID Connect (OIDC) app integration in Okta. You can use an existing OIDC app integration or create a new one. To create a new OIDC app integration, see [Create OIDC app integrations using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard).
-* Have an account with <StackSelector snippet="socialidp" noSelector inline />. See [<StackSelector snippet="socialidp" noSelector inline />](https://github.com/join).
+* Have an account with <StackSelector snippet="idp" noSelector inline />. See [<StackSelector snippet="idp" noSelector inline />](https://github.com/join).
 
 **Sample code**
 
@@ -27,35 +29,39 @@ n/a
 
 ---
 
-## Create an application at <StackSelector snippet="socialidp" noSelector inline />
+## Create an application at <StackSelector snippet="idp" noSelector inline />
 
-1. Create and register <StackSelector snippet="apptype" noSelector inline /> at <StackSelector snippet="socialidp" noSelector inline />.
+Create and register <StackSelector snippet="apptype" noSelector inline /> at <StackSelector snippet="idp" noSelector inline />.
 
-1. When you create an application, you need to provide the IdP with a redirect URI for authentication. Use the Okta sign-in redirect URI for your app integration. To locate the Okta sign-in redirect URI for your application:
+<StackSnippet snippet="appatidp" />
 
-    * From the Admin Console, select **Applications** > **Applications**.
-    * Find your app and select it.
-    * On the **General Settings** tab, scroll to to the **Login** section.
-    * Copy a **Sign-in redirect URIs** value for use as your redirect URI.
+### The redirect URI
 
-    The redirect URI sent in the authorize request from the client needs to match the redirect URI set at the IdP. This URI is where the IdP sends the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URI has the same structure for most IdPs in Okta and is constructed using your Okta subdomain and the callback endpoint.
+When you create an application at the IdP, you need to provide a redirect URI for authentication. Use the Okta sign-in redirect URI from your app integration. To locate the Okta sign-in redirect URI for your application:
 
-    For example, if your Okta subdomain is called `company`, then the URL would be `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
+* From the Admin Console, select **Applications** > **Applications**.
+* Find your app and select it.
+* On the **General Settings** tab, scroll to to the **Login** section.
+* Copy a **Sign-in redirect URIs** value for use as your redirect URI.
 
-1. Save the generated <StackSelector snippet="socialidp" noSelector inline /> client ID and client secret values. You need to add them to your Okta configuration.
+The redirect URI sent in the authorize request from the client needs to match the redirect URI set at the IdP. This URI is where the IdP sends the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URI has the same structure for most IdPs in Okta and is constructed using your Okta subdomain and the callback endpoint.
+
+For example, if your Okta subdomain is called `company`, then the URL would be `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
+
+> **Note:** Be sure to save the generated <StackSelector snippet="clientidsecret" noSelector inline />. You need to add them to your Okta configuration.
 
 ## Create the Identity Provider in Okta
 
-To add <StackSelector snippet="socialidp" noSelector inline /> as an Identity Provider in Okta:
+To add <StackSelector snippet="idp" noSelector inline /> as an Identity Provider in Okta:
 
 1. In the Okta Admin Console, go to **Security** > **Identity Providers**.
 1. Click **Add Identity Provider**.
-1. Select **<StackSelector snippet="socialidp" noSelector inline />** and click **Next**.
+1. Select **<StackSelector snippet="idp" noSelector inline />** and click **Next**.
 1. Enter the details for your application:
 
     * **Name** &mdash; Enter a name for this Identity Provider in Okta.
-    * **Client ID** &mdash; Paste the generated client ID from your <StackSelector snippet="socialidp" noSelector inline /> application.
-    * **Client secret** &mdash; Paste the generated client secret from your <StackSelector snippet="socialidp" noSelector inline /> application.
+    * **Client ID** &mdash; Paste the generated client ID from your <StackSelector snippet="idp" noSelector inline /> application.
+    * **Client secret** &mdash; Paste the generated client secret from your <StackSelector snippet="idp" noSelector inline /> application.
     * **Scopes** &mdash; Leave the defaults for a simple sign-in flow. You can also add more scopes. See <StackSelector snippet="scopes" noSelector inline />.
 
 1. Click **Finish**.
@@ -68,13 +74,13 @@ Alternatively, you can [use the Identity Provider's authorize URL](link to secti
 
 <StackSnippet snippet="noemail" />
 
-## Add <StackSelector snippet="socialidp" noSelector inline /> to the Okta Sign-in Widget
+## Add <StackSelector snippet="idp" noSelector inline /> to the Okta Sign-in Widget
 
-The Okta Sign-In Widget is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with GitHub** button to the Widget by adding the following code to your Okta Sign-in Widget configuration. Replace `SOCIALIDP` with the name of the Identity Provider in all caps. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](/#Create_the_Identity_Provider_in_Okta) section:
+The Okta Sign-In Widget is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with GitHub** button to the Widget by adding the following code to your Okta Sign-in Widget configuration. Replace `IDP` with the name of the Identity Provider in all caps. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](/#Create_the_Identity_Provider_in_Okta) section:
 
 ```javascript
     config.idps= [
-        { type: 'SOCIALIDP', id: 'Your_IDP_ID' }
+        { type: 'IDP', id: 'Your_IDP_ID' }
     ];
     config.idpDisplay = "SECONDARY";
 ```
