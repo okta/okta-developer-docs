@@ -43,7 +43,7 @@ If you don't have an Okta Identity Engine org, you need sign up for an Okta acco
 
    After you sign up, Okta sends you a verify email with the email address that you provided.
 
-1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](http://localhost:8080/docs/guides/quickstart/cli/main/#using-the-admin-console) of your new Identity Engine org.
+1. Using the activate link in Okta's email, activate your account and provide a new password. Okta redirects you to the [Admin Console](/docs/guides/quickstart/cli/main/#using-the-admin-console) of your new Identity Engine org.
 
 ### Update the default Custom Authorization Server
 
