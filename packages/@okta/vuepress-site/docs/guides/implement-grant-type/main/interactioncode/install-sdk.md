@@ -1,5 +1,7 @@
 ## Use an SDK
 
-Okta recommends using existing libraries and OAuth 2.0 helper methods to implement your authentication flow. You can use one of Okta's array of language and framework SDKs or an open-source library if an appropriate Okta SDK is not available. See [Languages & SDKs overview](/code/) for a list of Okta SDKs that you can download to start using with your app.
+Okta recommends using an Identity Engine SDK with the Sign-In Widget to implement your embedded authentication Interaction Code flow. See [Okta Identity Engine SDKs & Samples](/code/oie/) for a list of Identity Engine SDKs that you can download to start using with your app.
 
-For instructions on how to install and use Okta SDKs, refer to [Configure the SDK](/docs/guides/sign-into-spa/-/configure-the-sdk) for front-end SDKs and [Add and configure packages](/docs/guides/sign-into-mobile-app/-/configure-packages/) for mobile native SDKs. You can download Okta sample apps to see how the SDKs are used in your app's framework. See [Examples](#examples) for a list of sample apps.
+> **Note:** Even if you are not using the Sign-In Widget in your final embedded app, the Sign-In Widget can be used to validate and test your defined policies before investing a lot of time on coding the authentication flow.
+
+For instructions on how to install and use Okta Identity Engine SDKs, refer to [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/). You can download Okta sample apps to see how the SDKs are used in your app's framework. See [Examples](#examples) for a list of sample apps.
