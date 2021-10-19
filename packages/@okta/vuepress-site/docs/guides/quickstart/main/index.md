@@ -78,7 +78,7 @@ Some of the statistics on the Dashboard are derived from the org's system logs. 
 
 In the global header in the upper-right corner of the page, you can view the Okta domain of the org that you’re in. This can be handy if you manage multiple orgs.
 
-The footer of the dashboard displays the version of the Okta system that you're currently running, e.g., "Version: 2020.06.4". It also displays the Okta cell your org is running in, e.g. "OK11 Cell (US)".
+The footer of the dashboard displays the version of the Okta system that you're currently running, for example: "Version: 2020.06.4". It also displays the Okta cell your org is running in, for example: "OK11 Cell (US)".
 
 ### Side navigation
 
