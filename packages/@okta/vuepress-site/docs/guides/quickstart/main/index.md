@@ -168,7 +168,7 @@ Remaining in the Admin Console, go to **Security** > **API** and gather the foll
 
 ### Set values in environment variables or configuration file
 
-After registering your app, you now have the specific values for client ID, client secret, and issuer ID required for your app integration. All the various example apps in Okta's GitHub provide ways of setting these values. Some example apps expect you to set environment variables, while others expect you to set parameters in a configuration file. Consult the README file for the example app you're using and set these three values.
+After registering your app, you now have the specific values for client ID, client secret, and issuer ID required for your app integration. All the various example apps in Okta's GitHub provide ways of setting these values. Some example apps expect you to set environment variables, while others expect you to set parameters in a configuration file. Consult the README file for the example app that you're using and set these three values.
 
 ## Try signing in
 
