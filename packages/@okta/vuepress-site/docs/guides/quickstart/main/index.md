@@ -98,7 +98,7 @@ The side navigation takes you from the Dashboard to the management pages for var
 
 Any authentication system needs to have a way of keeping track of the end users who are allowed to authenticate.
 
-When you use Okta for authentication, you don't need to implement your own user management solution. Creating and deleting users, configuring their authentication flows, and resetting their passwords, can all be done from the Admin Console. User profiles are stored securely for you in the Okta cloud.
+When you use Okta for authentication, you don't need to implement your own user management solution. You can create and delete users, configure their authentication flows, and reset their passwords all from the Admin Console. User profiles are stored securely for you in the Okta cloud.
 
 To create a new user:
 
