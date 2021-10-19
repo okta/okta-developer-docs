@@ -234,7 +234,7 @@ curl -v -X POST \
 }' "https://dev-33337.okta.com/api/v1/users?activate=false"
 ```
 
-In the above example, you'd need to replace the Okta domain in the URL with your own Okta domain. You'd also need to replace the API token in the `Authorization` header with the API token you created. Note that the value of the API token needs to be prefaced with `SSWS` followed by a space.
+In the above example, you need to replace the Okta domain in the URL with your own Okta domain. You also need to replace the API token in the `Authorization` header with the API token that you create. Note that the value of the API token needs to be prefaced with `SSWS` followed by a space.
 
 For full details of the `/users` API and everything it can do, see the [Users](/docs/reference/api/users/) API reference page.
 
