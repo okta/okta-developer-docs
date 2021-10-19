@@ -38,7 +38,7 @@ n/a
 
 You built an awesome app, and you want to add user authentication to it. Let’s get you set up and working with Okta.
 
-To start, you're going to need an org. An org is a private data space &mdash; provided by Okta &mdash; that holds all the resources that you create to handle user authentication. See [Okta organizations](/docs/concepts/okta-organizations) for more information.
+To start, you're going to need an org. An org is a private data space &mdash; provided by Okta &mdash; that holds all the resources that you create to handle user authentication. See [Okta organizations](/docs/concepts/okta-organizations).
 
 You can [sign up](/signup) for an Okta developer edition org for free, which allows for up to 100 monthly active users (MAU). Later, when you need more capacity, you can upgrade to a paid org.
 
