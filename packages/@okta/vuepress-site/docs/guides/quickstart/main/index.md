@@ -88,7 +88,7 @@ The side navigation takes you from the Dashboard to the management pages for var
 |---------------|----------------------------------------------------------------------------------------------------|
 | Dashboard     | View your notifications, tasks, and get started guides for newbies.                                |
 | Directory     | Manage your Okta org's people, groups, and related attributes.                                    |
-| Applications  | Configure the connection between your Okta org and the apps you want to handle authentication for. |
+| Applications  | Configure the connection between your Okta org and the apps that you want to handle authentication for. |
 | Security      | Manage the security aspects of your Okta org.                                                      |
 | Workflow      | Augment Okta process flows with your own additions.                                                |
 | Reports       | View your Okta org's reports and system logs.                                                      |
