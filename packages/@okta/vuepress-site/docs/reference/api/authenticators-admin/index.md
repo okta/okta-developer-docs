@@ -38,6 +38,7 @@ The Authenticators Administration API has the following CRUD operations:
 
 * [List Authenticators](#list-authenticators)
 * [Get an Authenticator by ID](#get-an-authenticator-by-id)
+* [Update Authenticator settings](#update-authenticator-settings)
 * [Activate an Authenticator](#activate-an-authenticator)
 * [Deactivate an Authenticator](#deactivate-an-authenticator)
 
@@ -341,6 +342,94 @@ curl -v -X GET \
 }
 ```
 
+### Update Authenticator settings
+
+<ApiOperation method="put" url="/api/v1/authenticators/${authenticatorId}" />
+
+Updates settings on an Authenticator.
+
+#### Request path parameters
+
+| Parameter          | Type   | Description                           |
+| ------------------ | ------ | --------------------------------------|
+| `authenticatorId`  | String | The Authenticator's unique identifier |
+
+#### Request query parameters
+
+N/A
+
+#### Request body
+
+An [Authenticator Object](#authenticator-object)
+
+`name` attribute is required, `settings` object is optional and has values based on Authenticator key.
+
+#### Response body
+
+The updated [Authenticator](#Authenticator-object)
+
+#### Use example
+
+Returns the updated Authenticator with an `id` value of `aut1eyvv8siH9G6qw1d7`:
+
+##### Request
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "name": "Phone",
+  "settings": {
+    "allowedFor": "recovery"
+  }
+}' "https://${yourOktaDomain}/api/v1/authenticators/aut1eyvv8siH9G6qw1d7"
+```
+
+##### Response
+
+```json
+{
+    "type": "phone",
+    "id": "aut1eyvv8siH9G6qw1d7",
+    "key": "phone_number",
+    "status": "ACTIVE",
+    "name": "Phone",
+    "created": "2021-09-23T21:11:22.000Z",
+    "lastUpdated": "2021-10-19T20:57:27.000Z",
+    "settings": {
+        "allowedFor": "recovery"
+    },
+    "_links": {
+        "self": {
+            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1eyvv8siH9G6qw1d7",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "PUT"
+                ]
+            }
+        },
+        "deactivate": {
+            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1eyvv8siH9G6qw1d7/lifecycle/deactivate",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "methods": {
+            "href": "https://${yourOktaDomain}/api/v1/authenticators/aut1eyvv8siH9G6qw1d7/methods",
+            "hints": {
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+```
 
 ### Activate an Authenticator
 
@@ -528,19 +617,23 @@ The Authenticators Administration API only involves one object: the Authenticato
 
 The Authenticator object defines the following properties:
 
-| Property      | Type                                                            | Description                                                                     |
-| ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `_links`      | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                                                  |
-| `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created                                   |
-| `id`          | String                                                          | A unique identifier for the Authenticator                                                |
-| `key`         | String                                                          | A human-readable string that identifies the Authenticator                                |
-| `status`      | `ACTIVE`,`INACTIVE`                                             | Status of the Authenticator                                |
-| `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified                             |
-| `name`        | String                                                          | Display name of this Authenticator                                             |
-| `type`        | String (Enum)                                                   | The type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`.                            |
-| `settings.allowedFor`        | String (Enum)                                    | The allowed types of uses for the Authenticator. Values include: `recovery`, `sso`, `any`, and `none`.                            |
-| `settings.tokenLifetimeInMinutes` | Number                                      | Specifies the lifetime of an `email` token, and only applies to the `email` Authenticator type. Default value is `5` minutes.                            |
-
+| Property      | Type                                                            | Description                                                                     | Applies to Authenticator Key |
+| ------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------- |------------------------------|
+| `_links`      | [JSON HAL](https://tools.ietf.org/html/draft-kelly-json-hal-06) | Link relations for this object                             | All Authenticators |
+| `created`     | String (ISO-8601)                                               | Timestamp when the Authenticator was created               | All Authenticators |
+| `id`          | String                                                          | A unique identifier for the Authenticator                  | All Authenticators |
+| `key`         | String                                                          | A human-readable string that identifies the Authenticator  | All Authenticators |
+| `status`      | `ACTIVE`,`INACTIVE`                                             | Status of the Authenticator                                | All Authenticators |
+| `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified         | All Authenticators |
+| `name`        | String                                                          | Display name of this Authenticator                         | All Authenticators |
+| `type`        | String (Enum)                                                   | The type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`. | All Authenticators |
+| `settings.allowedFor`        | String (Enum)                                    | The allowed types of uses for the Authenticator. Values include: `recovery`, `sso`, `any`, and `none`. | `okta_email`, `phone_number`, `security_question` |
+| `settings.tokenLifetimeInMinutes` | Number                                      | Specifies the lifetime of an `email` token, and only applies to the `email` Authenticator type. Default value is `5` minutes. | `okta_email` |
+| settings.compliance.fips | String (Enum) | `REQUIRED`, `OPTIONAL` | `okta_verify` |
+| settings.channelBinding.style | String | `NUMBER_CHALLENGE` | `okta_verify` |
+| settings.channelBinding.required | String (Enum) | `NEVER`, `ALWAYS`, `HIGH_RISK_ALWAYS` | `okta_verify` |
+| settings.userVerification | String (Enum) | `REQUIRED`, `PREFERRED` | `okta_verify` |
+| settings.appInstanceId | String | The application instance ID | `okta_verify` |
 
 #### Example Email Authenticator
 
