@@ -16,7 +16,7 @@ This guide covers the next step after you [create and set up your Okta org](/doc
 * Integrate the SDK and the Sign-In Widget into your own app after you run the sample app.
 
 **What you need**
-* See [Software Requirements](/docs/guides/oie-embedded-common-download-setup-app/android/main/#software-requirements).
+[Software Requirements](/docs/guides/oie-embedded-common-download-setup-app/android/main/#software-requirements).
 
 **Sample code**
 * Android - [okta-idx-android](https://github.com/okta/okta-idx-android)

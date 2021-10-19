@@ -17,10 +17,10 @@ This use case describes how to integrate a password recovery flow into your app 
 * Integrate the password recovery flow into your app.
 
 **What you need**
-* Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+[Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
 
 **Sample code**
-* n/a
+n/a
 ---
 
 ## Configuration updates

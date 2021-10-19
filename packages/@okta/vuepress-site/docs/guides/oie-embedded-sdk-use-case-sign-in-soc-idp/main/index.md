@@ -11,11 +11,17 @@ title: Sign in with Facebook
 
 This guide covers the sequence of steps on how you can build your app to allow users to sign in with the Facebook social Identity Provider.
 
- Nutrition Facts                                                                          |                                                                                      |
-| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | Set up your Okta org and app to support sign-in with Facebook IdP use cases.   |
-| What you need | <ul><li>[App already set up for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)</li><li>[Okta org already set up for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)</li></ul>                                                     |
-| Sample code                                                        | n/a                                                      |
+---
+**Learning outcomes**
+Set up your Okta org and app to support sign-in with Facebook IdP use cases.
+
+**What you need**
+* [App already set up for a password factor only use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-password-factor-only-use-case)
+* [Okta org already set up for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)
+
+**Sample code**
+n/a
+---
 
 ## Configuration updates
 

@@ -11,11 +11,16 @@ title: Basic sign-in flow using the Widget
 
 This guide covers a basic user sign-in flow that uses the Sign-In Widget. The flow diagram and steps describe the process to sign in to an app with the embedded Sign-In Widget.
 
- Nutrition Facts                                                                          |                                                                                      |
-| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | Understand the sequence of steps in the basic sign-in flow when you use the Sign-In Widget.                      |
-| What you need | <ul><li>[SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up</li></ul>                                                     |
-| Sample code                                                        | n/a                                                      |
+---
+**Learning outcomes**
+Understand the sequence of steps in the basic sign-in flow when you use the Sign-In Widget.
+
+**What you need**
+[SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up
+
+**Sample code**
+n/a
+---
 
 ## Configuration updates
 

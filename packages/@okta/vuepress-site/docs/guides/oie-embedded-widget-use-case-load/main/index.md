@@ -11,11 +11,16 @@ title: Load the Widget
 
 This guide covers the use case to load the Widget, and provides a flow diagram and a sequence of integration steps.
 
- Nutrition Facts                                                                          |                                                                                      |
-| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | Understand the sequence of steps to load the Widget.                                                       |
-| What you need | <ul><li>[SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up</li></ul>                                                     |
-| Sample code                                                        | n/a                                                      |
+---
+**Learning outcomes**
+Understand the sequence of steps to load the Widget.
+
+**What you need**
+[SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up
+
+**Sample code**
+n/a
+---
 
 ## Configuration updates
 

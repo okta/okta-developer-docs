@@ -13,13 +13,13 @@ This guide covers how to create and set up your Okta org before you can run the 
 
 ---
 **Learning outcomes**
-* Get a new org set up and ready for various use cases.
+Get a new org set up and ready for various use cases.
 
 **What you need**
-* n/a
+n/a
 
 **Sample code**
-* n/a
+n/a
 ---
 
 ## Overview of the embedded identity solutions

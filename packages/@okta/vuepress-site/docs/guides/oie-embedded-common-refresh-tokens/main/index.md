@@ -20,7 +20,7 @@ This guide covers the refresh tokens that are used when access tokens expire and
 * [`/token`](/docs/reference/api/oidc/#token) endpoint
 
 **Sample code**
-* n/a
+n/a
 ---
 
 ## Overview

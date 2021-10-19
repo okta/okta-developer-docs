@@ -11,6 +11,18 @@ title: Sign in with Facebook using the Widget
 
 This guide covers the sequence of steps on how you can build your app to allow users to sign in with the Facebook social Identity Provider by using the Sign-In Widget.
 
+---
+**Learning outcomes**
+Set up your app to support the sign-in flow with Facebook IdP use cases by using the Widget.
+
+**What you need**
+* [Okta org already set up for a social IdP use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-social-idp-use-case)
+* [SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/), downloaded and set up
+
+**Sample code**
+n/a
+---
+
  Nutrition Facts                                                                          |                                                                                      |
 | --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
 | Learning outcomes                     | Set up your app to support the sign-in flow with Facebook IdP use cases by using the Widget.                                                      |

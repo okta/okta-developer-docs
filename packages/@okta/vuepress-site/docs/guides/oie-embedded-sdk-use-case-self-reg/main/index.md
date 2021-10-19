@@ -18,10 +18,10 @@ This guide covers self-service registration, which allows users to sign up for t
 * Set up and send a verification email during new user registration.
 
 **What you need**
-* [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+[Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
 
 **Sample code**
-* n/a
+n/a
 ---
 
 ## Configuration updates

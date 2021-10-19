@@ -13,13 +13,13 @@ This guide covers the use case to sign a user out, and provides a flow diagram a
 
 ---
 **Learning outcomes**
-* Understand how to implement a sign-out flow for a user.
+Understand how to implement a sign-out flow for a user.
 
 **What you need**
-* n/a
+n/a
 
 **Sample code**
-* n/a
+n/a
 ---
 
 ## Configuration updates

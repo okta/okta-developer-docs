@@ -11,11 +11,21 @@ layout: Guides
 
 This guide covers how to set up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication.
 
- Nutrition Facts                                                                            |                                                                                      |
-| --------------------------------------------------------------------------------  | -------------------------------------------------------------------------               |
-| Learning outcomes                     | <ul><li>Create, set up, and install an Okta OAuth 2.0 app.</li><li>Enroll and authenticate a user.</li><li>Enable self-service enrollment and enable a second factor for authentication.</li><li>Use email and Okta Verify as recovery options.</li><li>Add a profile attribute to the Profile Enrollment Policy.</li><li>Route users to an external IdP.</li></ul>                                                      |
-| What you need | [Sample app](/docs/guides/oie-embedded-common-download-setup-app)                                                     |
-| Sample code                                                        | n/a                                                      |
+---
+**Learning outcomes**
+* Create, set up, and install an Okta OAuth 2.0 app.
+* Enroll and authenticate a user.
+* Enable self-service enrollment and enable a second factor for authentication.
+* Use email and Okta Verify as recovery options.
+* Add a profile attribute to the Profile Enrollment Policy.
+* Route users to an external IdP.
+
+**What you need**
+[Sample app](/docs/guides/oie-embedded-common-download-setup-app)
+
+**Sample code**
+n/a
+---
 
 ## Use case scenarios
 
