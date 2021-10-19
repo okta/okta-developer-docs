@@ -11,7 +11,7 @@ In this article we get you up and running with basic Okta authentication, quickl
 
 * Learn what Okta organizations are, and create and manage your own organization.
 * Register a sample app with your organization.
-* Authenticate it using Okta.
+* Authenticate the app using Okta.
 
 **What you need**
 
