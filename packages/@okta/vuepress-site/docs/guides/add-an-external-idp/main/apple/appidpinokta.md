@@ -6,5 +6,3 @@
 * **Scopes** &mdash; leave the defaults. These scopes are included when Okta makes an OpenID Connect request to <StackSelector snippet="idp" noSelector inline />. See the [scope page](https://developer.apple.com/documentation/sign_in_with_apple/clientconfigi/3230955-scope) at <StackSelector snippet="idp" noSelector inline /> for more information on their required scopes.
 
     By default, Okta requires the `email` attribute for a user. The `email` scope is required to create and link the user to Okta's Universal Directory. For Just In Time (JIT) provisioning, Okta also requires the `firstName` and `lastName` attributes for a user. Include the `name` scope if the Identity Provider needs to support JIT.
-
-> **Note:** See [Social Identity Provider Settings](#social-identity-provider-settings) for more information on these settings and the **Advanced Settings**.

@@ -1,1 +1,0 @@
-<StackSelector snippet="idp" noSelector inline /> client ID and client secret values.

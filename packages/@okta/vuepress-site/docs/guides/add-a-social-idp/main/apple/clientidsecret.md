@@ -1,1 +1,0 @@
-values that you need (such as the Services ID, key file, Key ID, and Team ID.

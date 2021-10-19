@@ -1,5 +1,3 @@
-These steps assume that you already have a [standard <StackSelector snippet="idp" noSelector inline /> developer account](https://developer.apple.com/).
-
 > **Note:** See [Sign in with <StackSelector snippet="idp" noSelector inline />](https://help.apple.com/developer-account/#/devde676e696) for <StackSelector snippet="idp" noSelector inline />'s configuration information.
 
 There are three steps necessary to configure the Identity Provider at <StackSelector snippet="idp" noSelector inline />:

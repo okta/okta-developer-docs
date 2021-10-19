@@ -5,36 +5,32 @@ meta:
     content: Okta supports authentication with external OpenID Connect Identity Providers as well as SAML (also called Inbound Federation). Get an overview of the process and prerequisites, as well as the instructions required to set one up.
 ---
 
-## Before you begin
+This article explains how to configure an external Identity Provider for your application by creating an application on <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
-You want to give your users the freedom to choose which Identity Provider that they can use to sign in to your application. Okta manages connections to Identity Providers for your application, sitting between your application and the Identity Provider that authenticates your users. The industry-standard term for this is Inbound Federation.
+Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s Identity Provider account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
 
-We also support additional services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
+> **Note:** We also support additional services such as directories and credential providers. See the [Okta Integration Network Catalog](https://www.okta.com/okta-integration-network/) to browse all integrations by use case.
 
-This guide assumes that you:
+---
 
-* Have an Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Have an application that you want to add authentication to.
+**Learning outcomes**
+
+How to configure an external Identity Provider so that your users can quickly sign up or sign in to your application using their social Identity Provider account.
+
+**What you need**
+
+* An Okta Developer Edition organization. Don't have one? [Create one for free](/signup)
+* An application that you want to add authentication to. You can use an existing app integration or create a new one. To create a new app integration, see [Create custom app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard).
+* An account <StackSelector snippet="idpaccount" noSelector inline />
+
+
+**Sample code**
+
+n/a
+
+---
 
 > **Note:** This guide doesn't explain the differences between SAML and OpenID Connect and doesn't help you choose between them. See [External Identity Providers](/docs/concepts/identity-providers/#the-big-picture) for more information.
-
-### Supported Identity Providers
-
-We support a lot of Identity Providers. This guide provides instructions for the following Identity Providers. If the provider that you need isn't listed, we may still support it through generic OpenID Connect or SAML. The Identity Provider's documentation should say which protocol you need to use.
-
-* [Apple](/docs/guides/add-an-external-idp/apple/main)
-* [Azure AD](/docs/guides/add-an-external-idp/azure/main)
-* [Facebook](/docs/guides/add-an-external-idp/facebook/main)
-* [Google](/docs/guides/add-an-external-idp/google/main)
-* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/main)
-* [Microsoft](/docs/guides/add-an-external-idp/microsoft/main)
-* [Okta to Okta](/docs/guides/add-an-external-idp/oktatookta/main)
-* [OpenID Connect](/docs/guides/add-an-external-idp/openidconnect/main)
-* [SAML 2.0](/docs/guides/add-an-external-idp/saml2/main)
-
-### Support
-
-If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
 ## Create an app at the Identity Provider
 
@@ -50,9 +46,9 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 1. In the Admin Console, go to **Security** > **Identity Providers**.
 
-1. Select **Add Identity Provider** and then select the appropriate Identity Provider.
+1. Select **Add Identity Provider** and then select <StackSelector snippet="idp" noSelector inline />.
 
-1. In the **Add an Identity Provider** dialog box, define the following in the **General Settings** section::
+1. In the **Add an Identity Provider** dialog box, define the following:
 
     <StackSnippet snippet="appidpinokta" />
 
@@ -62,84 +58,17 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 <StackSnippet snippet="afterappidpinokta" />
 
-### Social Identity Provider settings
+> **Note:** When you are setting up your IdP in Okta, there are a number of settings that allow you to finely control the social sign-in behavior. While the provider-specific instructions show one possible configuration, [Social Identity Provider Settings](#social-identity-provider-settings) explains each of these in more detail (as well as the settings in the **Advanced Settings** section so that you can choose the right configuration for your use case.
 
-When you are setting up your social Identity Provider (IdP) in Okta, there are a number of settings that allow you to finely control the social sign-in behavior. While the provider-specific instructions show one possible configuration, this section explains each of these in more detail so that you can choose the right configuration for your use case.
+## Test the integration
 
-#### Authentication settings
+You can test your integration by configuring a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) to use <StackSelector snippet="idp" noSelector inline /> as the Identity Provider.
 
-**IdP Username:** The expression (written in the Okta Expression Language) that is used to convert an IdP attribute to the Application User's `username`. This IdP username is used for matching an Application User to an Okta User through the `oidc_idp` profile.
+### Use the Authorize URL to simulate the authorization flow
 
-You can enter an expression to reformat the value, if you want. For example, if the social username is `john.doe@mycompany.com`, you could specify the replacement of `mycompany` with `endpointA.mycompany` to make the transformed username `john.doe@endpointA.mycompany.com`. See [Okta Expression Language](/docs/reference/okta-expression-language/).
+To test, you can also use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
 
-**Match against &mdash;** The Okta user property that the IdP username is compared against in order to determine if an account link needs to be established. If an existing account link is found, no comparison is performed.
-
-> **Note:** See [Account Linking](/docs/concepts/identity-providers/#account-linking) for more information on how account linking works.
-
-**Account Link Policy &mdash;** Determines whether your Application User should be linked to an Okta user.
-
-* **Automatic &mdash;** Link user accounts automatically according to the **Auto-Link Restrictions** and **Match against** settings.
-* **Disabled &mdash;** Don't link existing User accounts. Unless the User is already linked, when the user signs in, the sign-in request fails.
-
-**Auto-Link Restrictions &mdash;** Allows you to restrict auto-linking to members of specified groups.
-
-**Provisioning Policy &mdash;** Determines whether just-in-time provisioning of users should be automatic or disabled.
-
-#### JIT settings
-
-**Profile Master &mdash;** If selected, the social Identity Provider is the source of truth for a user's profile attributes. This means that the next time the user signs in using the social Identity Provider, Okta updates the user profile attributes for this user. If a user is assigned multiple applications with profile mastering enabled, a prioritization in **Directory > Profile Masters** decides whether this provider is the profile master for the user's attributes. See [Attribute-level mastering](https://help.okta.com/okta_help.htm?id=ext_Attribute_Level_Mastering).
-
-**Group Assignments &mdash;** Allows you to assign new users to one or more existing Groups. For example, new Facebook users could be added to a "Facebook" Group.
-
-### Error codes
-
-See the [OpenID Connect and Okta Social Authentication](/docs/reference/error-codes/#openid-connect-and-okta-social-authentication) section of the [Error codes](/docs/reference/error-codes/) API documentation.
-
-### Attribute Mapping
-
-When a user first signs in to Okta using an OpenID Connect Identity Provider, their Identity Provider user profile is mapped to an Okta Universal Directory profile using Just-in-Time provisioning. This user account creation and linking includes default mappings that are based on standard claims defined by the OpenID Connect specification.
-
-To view and modify the mappings, access the Identity Provider that you created by selecting **Security** and then **Identity Providers**. Click **Configure** for the Identity Provider and select **Edit Profile and Mappings**.
-
-If there are attributes that don't exist in your org's Universal Directory, but are a part of the user's Identity Provider profile, add the attributes by editing the Identity Provider user profile in your org.
-
-See [Manage User Profiles](https://help.okta.com/okta_help.htm?id=ext_Directory_Profile_Editor) for more information on custom attributes.
-
-## Register an App in Okta
-
-You can use either an existing OpenID Connect (OIDC) app integration or create a new one. The app integration consumes the response from the Identity Provider (IdP) after authentication and authorization. Users that sign in for the first time are created in Okta and are associated with this app integration.
-
-1. Sign in to your Okta organization with your administrator account.
-1. In the Admin Console, go to **Applications** > **Applications**.
-
-> **Note:** If you need Okta to only authenticate users and not to redirect them to a particular OpenID Connect client, then the Identity Provider (IdP) configuration is complete. Add [routing rules](https://help.okta.com/okta_help.htm?id=ext_Identity_Provider_Discovery) to redirect users from the Okta Sign-In Page to the IdP.
-
-If you want to add an existing OIDC app integration:
-
-1. Click **Browse App Catalog**.
-1. Enter the name of the app integration in the **Search...** text box
-1. On the catalog page for the app integration, click **Add**.
-1. Enter a label for your copy of this app integration. Click **Done** to add this to your org.
-1. On the **Assignments** tab, click **Assign** to assign the app integration to any user or group in your org. Click **Done** when the assignments are complete.
-
-If you need to create a new OIDC app integration:
-
-1. Click **Create App Integration**.
-1. Select **OIDC - OpenID Connect** as the **Sign-in method** and choose the appropriate **Application type** to match your external application environment. Click **Next**.
-1. Enter a name for your new app integration.
-1. Add one or more **Sign-in redirect URIs**. This is where the user is sent to after they authenticate with the Identity Provider.
-1. Click **Save**.
-1. Click **Edit** to change the **General Settings** pane. In the **Allowed grant types** section, enable **Implicit**. Using the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow streamlines authentication by returning tokens without introducing additional steps. It allows you to get an ID token quickly, which makes it easy to test your configuration. Click **Save** to confirm your changes.
-    > **Note:** The Authorization Code grant flow is also supported.
-1. On the **Assignments** tab, click **Assign** to assign the app integration to any user or group in your org. Click **Done** when the assignments are complete. For instructions on how to assign the app integration to individual users and groups, see the [Assign app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_Apps_Page-assign) topic in the Okta product documentation.
-
-> **Note:** To get the client credentials for your app integration, on the **General** tab, copy the **Client ID** from the **Client Credentials** section. You need this ID to complete the Authorize URL in the next section.
-
-## Use the Authorize URL to simulate the authorization flow
-
-The Okta Identity Provider that you created generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
-
-> **Note:** Use this step to test your authorization URL as an HTML link. For information on using the Sign-In Widget, Okta hosted sign-in page, or AuthJS, see the next step.
+> **Note:** Use this step to test your authorization URL as an HTML link. For information on using the Sign-In Widget, Okta-hosted sign-in page, or AuthJS, see [Use the Identity Provider to sign in](/#use-the-identity-provider-to-sign-in).
 
 In the URL, replace `${yourOktaDomain}` with your org's base URL, and then replace the following values:
 
@@ -176,11 +105,11 @@ If everything is configured properly:
 
 If something is configured incorrectly, the authorization response contains error information to help you resolve the issue.
 
-> **Note:** With Sign In with Apple, when a user signs in, Apple offers the user the option to either share their email address or hide it. If the user chooses to hide their email address, Apple generates a random email address and sends that to Okta. However, Apple maintains the mapping between this random email address and the user's original email address. The user must choose the **Share My Email** option if you want to link the user's Apple account to an existing account in Okta. A user can choose this option only when the user is signing in with Apple to Okta for the first time.
+<StackSnippet snippet="useidpsignin" />
 
 There are four primary ways to kick off the sign-in flow.
 
-## HTML Link
+### HTML Link
 
 Create a link that the user clicks to sign in. The HREF for that link is the authorize URL that you created in the previous section:
 
@@ -190,7 +119,7 @@ Create a link that the user clicks to sign in. The HREF for that link is the aut
 
 After the user clicks the link, they are prompted to sign in with the Identity Provider. After successful sign in, the user is returned to the specified `redirect_uri` along with an ID token in JWT format.
 
-## Okta Sign-In Widget
+### Okta Sign-In Widget
 
 Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with ${IdentityProviderName}** button by adding the following code to your Okta Sign-in Widget configuration:
 
@@ -203,7 +132,7 @@ config.idpDisplay = "SECONDARY";
 
 You can find out more about the Okta Sign-in Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign in with an Identity Provider uses the Widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
 
-## Custom Okta-hosted sign-in page
+### Custom Okta-hosted sign-in page
 
 If you configured a [Sign-In Widget](/docs/guides/style-the-widget/style-okta-hosted/), you can add a **Sign in with ${IdentityProviderName}** button by adding the following code beneath the `var config = OktaUtil.getSignInWidgetConfig();` line:
 
@@ -214,7 +143,7 @@ config.idps= [
 config.idpDisplay ="SECONDARY";
 ```
 
-## AuthJS
+### AuthJS
 
 If you don't want pre-built views, or need deeper levels of customization, then you can use the same AuthJS SDK that the Sign-in Widget is built with. For further information see [the AuthJS GitHub repo](https://github.com/okta/okta-auth-js#install). Implementing sign in with an Identity Provider uses the SDK's [OpenID Connect authentication flow](https://github.com/okta/okta-auth-js#openid-connect-options).
 
@@ -229,7 +158,7 @@ To add another Identity Provider:
 
 > **Note:** You don't need to register another app in Okta unless you want to use a different application with the new Identity Provider that you are creating.
 
-For more information about topics mentioned in this guide:
+## See also
 
 * [Concepts: External Identity Providers](/docs/concepts/identity-providers/)
 * [Implement the Implicit flow](/docs/guides/implement-grant-type/implicit/main/)

@@ -21,6 +21,6 @@ For use in the next section, do the following:
     * Token
     * JWKS
 
-    > **Note:** The userinfo endpoint is optional.
+    > **Note:** The `/userinfo` endpoint is optional.
 
 3. Paste the endpoints into a text editor for use in the next section.
