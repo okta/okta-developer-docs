@@ -110,7 +110,7 @@ To create a new user:
     - **Username:** joe.smith@example.com
     - **Primary email:** joe.smith@example.com
 
-    > **Note:** To try out end-user flows, you'll need to have access to the email address that you set for the end user.
+    > **Note:** To try out end-user flows, you need to have access to the email address that you set for the end user.
 
 1. For password, select **Set by user**.
 1. Click **Save**.
