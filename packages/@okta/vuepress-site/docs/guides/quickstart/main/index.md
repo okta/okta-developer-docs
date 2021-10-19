@@ -1,5 +1,5 @@
 ---
-title: QuickStart — Signing in your first user
+title: QuickStart - Signing in your first user
 excerpt: Get started with Okta authentication
 ---
 
@@ -19,18 +19,18 @@ n/a
 
 **Sample code**
 
-* ASP.Net — <https://github.com/okta/samples-aspnet>
-* ASP.NET Core — <https://github.com/okta/samples-aspnetcore>
-* ASP.Net Web Forms — <https://github.com/okta/samples-aspnet-webforms>
-* Java Servlet — <https://github.com/okta/samples-java-servlet>
-* Java Spring — <https://github.com/okta/samples-java-spring>
-* Angular — <https://github.com/okta/samples-js-angular>
-* React — <https://github.com/okta/samples-js-react>
-* Vue — <https://github.com/okta/samples-js-vue>
-* Golang — <https://github.com/okta/samples-golang>
-* Node.js Express — <https://github.com/okta/samples-nodejs-express-4>
-* Python Flask — <https://github.com/okta/samples-python-flask>
-* PHP — <https://github.com/okta/samples-php>
+* ASP.Net &mdash; <https://github.com/okta/samples-aspnet>
+* ASP.NET Core &mdash; <https://github.com/okta/samples-aspnetcore>
+* ASP.Net Web Forms &mdash; <https://github.com/okta/samples-aspnet-webforms>
+* Java Servlet &mdash; <https://github.com/okta/samples-java-servlet>
+* Java Spring &mdash; <https://github.com/okta/samples-java-spring>
+* Angular &mdash; <https://github.com/okta/samples-js-angular>
+* React &mdash; <https://github.com/okta/samples-js-react>
+* Vue &mdash; <https://github.com/okta/samples-js-vue>
+* Golang &mdash; <https://github.com/okta/samples-golang>
+* Node.js Express &mdash; <https://github.com/okta/samples-nodejs-express-4>
+* Python Flask &mdash; <https://github.com/okta/samples-python-flask>
+* PHP &mdash; <https://github.com/okta/samples-php>
 
 ---
 
@@ -152,7 +152,7 @@ Build the example app as-is, or use it as a template for modifying your own app.
 
 <StackSelector snippet="register-app" />
 
-<!--- 
+<!---
 #### Get values from Okta to set in the app
 
 In the Admin Console, gather the following information from the **General** tab of your Application:
@@ -204,7 +204,7 @@ To obtain an API token, use the Admin Console:
 
 1. Record the token value. This is the only opportunity to see it and record it.
 
-For full details on API tokens, see [Create an API token](/docs/guides/create-an-api-token/create-the-token/).
+For full details on API tokens, see [Create an API token](/docs/guides/create-an-api-token/main/).
 
 ### Create a user by API
 
