@@ -4,7 +4,7 @@ excerpt: Enable Cross-Origin Resource Sharing for your app
 layout: Guides
 ---
 
-This article explains what Cross-Origin Resource Sharing (CORS) is and why it is useful, and shows you how it is relevant to your Okta apps and how to enable and test it.
+This article explains what Cross-Origin Resource Sharing (CORS) is and why it is useful, shows you how it is relevant to your Okta apps, and how to enable and test it.
 
 ---
 
