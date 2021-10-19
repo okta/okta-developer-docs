@@ -27,11 +27,11 @@ n/a
 
 ---
 
-## Create an application on <StackSelector snippet="socialidp" noSelector inline />
+## Create an application at <StackSelector snippet="socialidp" noSelector inline />
 
-1. Create and register <StackSelector snippet="apptype" noSelector inline /> on <StackSelector snippet="socialidp" noSelector inline />.
+1. Create and register <StackSelector snippet="apptype" noSelector inline /> at <StackSelector snippet="socialidp" noSelector inline />.
 
-1. When you create an application, you need to provide the IdP with a redirect URI for authentication. Use the Okta sign-in redirect URI for your app integration. To locate the Okta sign in redirect URI for your application:
+1. When you create an application, you need to provide the IdP with a redirect URI for authentication. Use the Okta sign-in redirect URI for your app integration. To locate the Okta sign-in redirect URI for your application:
 
     * From the Admin Console, select **Applications** > **Applications**.
     * Find your app and select it.
