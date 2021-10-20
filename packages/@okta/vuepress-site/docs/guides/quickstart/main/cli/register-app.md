@@ -24,7 +24,7 @@ Okta application configuration has been written to: <app-dir>/.okta.env
 ```
 
 The Okta CLI sends the following variables to your app-specific configuration file:
-- `OKTA_OAUTH2_ISSUER`&mdash;the authorization server URI that will perform authentication
+- `OKTA_OAUTH2_ISSUER`&mdash;the authorization server URI that performs authentication
 - `OKTA_OAUTH2_CLIENT_ID`&mdash;the public identifier for the client that is required for all OAuth flows
 - `OKTA_OAUTH2_CLIENT_SECRET`&mdash;the secret key used by the client to exchange an authorization code for a token
 - `OKTA_REVERSE_DOMAIN`&mdash;the reverse domain name used in native apps

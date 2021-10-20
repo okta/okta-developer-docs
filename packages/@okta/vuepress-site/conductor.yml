@@ -2391,3 +2391,19 @@ redirects:
     to: /docs/guides/updating-saml-cert/main/
   - from: /docs/guides/updating-saml-cert/revert-to-sha1/
     to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/create-an-api-token/overview/
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/overview/index.html
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/create-the-token/
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/create-the-token/index.html
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/token-expiration-deactivation/
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/token-expiration-deactivation/index.html
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/next-steps/
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/next-steps/index.html
+    to: /docs/guides/create-an-api-token/main/
