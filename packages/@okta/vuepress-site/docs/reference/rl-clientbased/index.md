@@ -94,8 +94,17 @@ The client-based rate limit framework can operate in one of three modes:
 | Mode                                     | Description                                                                                                          |
 | ---------------------------------------- | -------------------------------------------------------------------------------------------------------------------- |
 | **Enforce and log per client (recommended)** | The rate limit is based on the client-based rate limit values. The client-specific rate limit violation information is logged as [System Log](/docs/reference/rl-system-log-events/#client-based-system-log-event-types) events. |
-| **Log per client**                          | The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values, but the client-specific rate limit violation information is logged as System Log events. |
-| **Do nothing**                                | Rate limits aren't enforced at the client-specific level. The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values. No new or additional System Log events are produced from this feature in this mode. |
+| **Log per client**                          | The default setting for all orgs, including those orgs created before 2018. The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values, but the client-specific rate limit violation information is logged as System Log events.  |
+| **Do nothing (not recommended)**                                | Rate limits aren't enforced at the client-specific level. The rate limit is based on the [org-wide rate limit](/docs/reference/rate-limits/) values. No new or additional System Log events are produced from this feature in this mode. |
+
+#### Default client-based rate limit mode change
+
+As of October 12, 2021, the default client-based rate limit for the OAuth 2.0 `/authorize` and `/login/login.htm` endpoints is elevated to **Log per client** mode. This means that if an org's client-based rate limit was previously set to **Do nothing**, the setting is changed to **Log per client** mode.
+
+#### What to monitor and the action to take
+If an org's client-based limit was previously set to **Enforce limit and log per client (recommended)** mode, the setting remains as is. For this mode setting, admins need to monitor System Log events for [`system.client.rate_limit.notification`](/docs/reference/rl-system-log-events/#web-request-rate-limits-client-level) and [`system.client.concurrency_rate_limit.notification`](/docs/reference/rl-system-log-events/#web-request-rate-limits-client-level). If admins don't see any of those events in the System Log, then no action is needed. If admins see these notifications sporadically from just a small number of different users, then those users may be doing something scripted or automated. In such cases, admins can choose to either investigate the issue or take no action. However, if admins see widespread notifications from a large number of users, then it is likely that the application may have an issue, in which case admins need to troubleshoot and make changes to the application where needed.
+
+> **Note:** In March 2022, the default client-based rate limit for the OAuth 2.0 `/authorize` and `/login/login.htm` endpoints is going to be elevated to **Enforce limit and log per client (recommended)** mode. This means that if an org's client-based rate limit was previously set to **Do nothing** or **Log per client**, the setting is going to change to **Enforce limit and log per client (recommended)** mode.
 
 ### Check your rate limits with Okta Rate Limit headers
 

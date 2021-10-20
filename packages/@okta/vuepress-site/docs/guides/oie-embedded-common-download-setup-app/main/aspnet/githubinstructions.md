@@ -1,5 +1,5 @@
 After you satisfy the software requirements, clone the [okta-idx-dotnet](https://github.com/okta/okta-idx-dotnet)
-repository to your local directory. Run the sample app after you [set the configuration values](/docs/guides/oie-embedded-common-download-setup-app/-/main/#set-the-configuration-values).
+repository to your local directory.
 
 The source code for the sample app and the SDK is located in the following repository folder: `.../okta-idx-dotnet/src`. Under the `src` folder, the project structure consists of the following:
 

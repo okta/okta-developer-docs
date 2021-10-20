@@ -4,7 +4,7 @@ describe("navigation bar search spec", () => {
   const mainPage = new MainPage();
 
   beforeEach(() => {
-    mainPage.visit();
+    mainPage.visit('/test_page/');
   });
 
   it("does search on desktop browser sizes", () => {

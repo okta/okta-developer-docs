@@ -1,4 +1,6 @@
-After you run the sample app and explore the available use cases, you can begin to integrate the SDK and/or the Widget into your own app. To get started, follow these steps:
+> **Note:** Try to [run the embedded SDK sample app](/docs/guides/oie-embedded-common-run-samples/go/main/#run-the-embedded-sdk-sample-app) and explore the available [embedded authentication use cases](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/go/main/) to get familiar with the SDK before you start to integrate your own embedded app.
+
+Begin to integrate the SDK into your own app by following these steps:
 
 #### 1: Install the Golang SDK
 

@@ -2399,3 +2399,97 @@ redirects:
     to: /docs/guides/add-an-external-idp/main
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
     to: /docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning
+  - from: /docs/guides/sharing-cert/overview/
+    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/generate-new-credential/
+    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/update-source-app-with-cert/
+    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/share-kid-with-target-app/
+    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/update-target-app-with-kid/
+    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/next-steps/
+    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/saml-tracer/overview/
+    to: /docs/guides/saml-tracer/main/
+  - from: /docs/guides/updating-saml-cert/overview/
+    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/get-app-info/
+    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/generate-new-key-credential/
+    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/update-key-credential/
+    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv/
+    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/revert-to-sha1/
+    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/create-an-api-token/overview/
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/overview/index.html
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/create-the-token/
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/create-the-token/index.html
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/token-expiration-deactivation/
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/token-expiration-deactivation/index.html
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/next-steps/
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/create-an-api-token/next-steps/index.html
+    to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/sign-your-own-saml-csr/overview/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/list-your-apps/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/overview/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/list-your-apps/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/set-up-self-service-registration/before-you-begin/
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/disable-security-image/
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/next-steps/
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/before-you-begin/index.html
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/index.html
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/disable-security-image/index.html
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/index.html
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
+    to: /docs/guides/set-up-self-service-registration/main/

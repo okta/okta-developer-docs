@@ -34,7 +34,10 @@
     }
 
     @include media("<tablet") {
-      flex-direction: column;
+      justify-content: center;
+      .company-logos--icon {
+        margin: 0 20px 20px;
+      }
     }
   }
 

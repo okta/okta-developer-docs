@@ -16,7 +16,7 @@ class MainPage extends BasePage {
     return cy.get(`header .header--links a[href="${link}"]`);
   }
   getCommunityLink() {
-    return cy.get(`header .header--links li.expandable span.link`);
+    return cy.get(`header .header--links .menu--desktop li.expandable span.link`);
   }
   getFooterPricingLink() {
     return cy.get(
@@ -36,8 +36,8 @@ class MainPage extends BasePage {
       ".CoveoResultList .coveo-result-list-container > .coveo-list-layout.CoveoResult"
     );
   }
-  getHeadrMobileMenuIcon() {
-    return cy.get(`header .mobile--toggles .hamburger-icon-wrapper`);
+  getHeaderMobileMenuIcon() {
+    return cy.get(`header .mobile--toggles .mobile--toggle`);
   }
   getMobileMenu() {
     return cy.get('header .menu--slideout');

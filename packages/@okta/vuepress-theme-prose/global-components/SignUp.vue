@@ -8,7 +8,7 @@
         <form id="signupForm" @submit="submitForm">
           <div class="row">
             <label class="field-wrapper" for="email">
-              Email
+              Work Email
               <input
                 type="text"
                 id="email"
@@ -142,7 +142,7 @@
               >
             </label>
           </div>
-          <div class="row">
+          <div class="row signup--recaptcha">
             <label class="field-wrapper" for="recaptcha">
               <vue-recaptcha
                 ref="recaptcha"
@@ -162,17 +162,17 @@
           <div class="row error-color" v-if="error !== null">
             {{ error }}
           </div>
-          <div class="row">
+          <div class="row signup--submit">
             <label class="field-wrapper" for="signup" id="submitbutton">
-              <a class="btn red-button pending" v-if="isPending">
+              <a class="btn pending" v-if="isPending">
                 <img src="/img/ajax-loader-white.gif" />
               </a>
               <input
                 type="submit"
-                class="btn red-button"
+                class="btn"
                 :disabled="!validationService.isValidForm()"
                 id="signup"
-                value="sign up"
+                value="Sign up"
                 v-else
               />
             </label>
@@ -217,24 +217,24 @@
           </div>
           <div class="row">
             <div class="field-wrapper">
-              <input
-                type="button"
+              <button
                 id="continue-github"
-                value="continue with github"
                 class="btn social-btn"
                 @click="openTermsConditionsDialog(uris.github)"
-              />
+              >
+                <i class="fa fa-github"></i> Continue with GitHub
+              </button>
             </div>
           </div>
           <div class="row">
             <div class="field-wrapper">
-              <input
-                type="button"
+              <button
                 id="continue-google"
                 class="btn social-btn"
-                value="continue with google"
                 @click="openTermsConditionsDialog(uris.google)"
-              />
+              >
+                <span class="google-logo"></span> Continue with Google
+              </button>
             </div>
           </div>
           <TermsAndConditionsDialog
@@ -252,6 +252,22 @@
         <Content slot-key="signup-description" />
         <div class="logo-wrapper" v-if="!isOie">
           <CompanyLogos withHeading small v-bind:centered="false" />
+        </div>
+        <div class="auth0-banner" v-if="!isOie">
+          <div class="auth0-banner--content">
+            <p>
+              Are you a developer looking for a pay-as-you-go option? Check out Auth0 self-service plans starting at $23 per month.
+            </p>
+            <p>
+              <SmartLink :item="{ link: 'https://auth0.com/signup?utm_medium=referral&utm_source=okta&utm_campaign=okta-signup-referral-21-09-27&utm_content=signup&promo=sup', target: '_self' }"
+              >
+                Start Building for Free &rsaquo;
+              </SmartLink>
+            </p>
+          </div>
+          <div class="auth0-banner--logo">
+            <img src="/img/logos/auth0-inc-logo.svg" alt="auth0 logo" />
+          </div>
         </div>
       </div>
     </div>
@@ -357,12 +373,12 @@ export default {
     }
   },
   methods: {
-    submitForm(e) {
+    async submitForm(e) {
       e.preventDefault();
       this.validationService.checkFormInput("firstName");
       this.validationService.checkFormInput("lastName");
       this.validationService.checkFormInput("country");
-      this.validationService.checkEmailInput("email");
+      await this.validationService.checkEmailInput("email");
       this.validationService.checkFormInput("state");
       this.validationService.checkFormInput("captcha");
 

@@ -7,7 +7,7 @@ category: management
 
 <ApiLifecycle access="ea" />
 
-The Okta Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted Sign-In Page, error pages, email templates, and the Okta End-User Dashboard.
+The Okta Brands API allows you to customize the look and feel of pages and templates, such as the Okta-hosted sign-in Page, error pages, email templates, and the Okta End-User Dashboard.
 
 Each org starts off with Okta's default branding. You can upload your own assets (colors, background image, logo, and favicon) to replace Okta's default brand assets. You can then publish these assets directly to your pages and templates.
 
@@ -60,6 +60,7 @@ Content-Type: application/json
   {
     "id": "bndul904tTZ6kWVhP0g3",
     "customPrivacyPolicyUrl": null,
+    "removePoweredByOkta": false,
     "_links": {
       "themes": {
         "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
@@ -126,6 +127,7 @@ Content-Type: application/json
 {
   "id": "bndul904tTZ6kWVhP0g3",
   "customPrivacyPolicyUrl": null,
+  "removePoweredByOkta": false,
   "_links": {
     "themes": {
       "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
@@ -172,6 +174,8 @@ Passing an invalid `brandId` returns a `404 Not Found` status code with error co
 
 Not providing `agreeToCustomPrivacyPolicy` with `customPrivacyPolicyUrl` returns a `400 Bad Request` status code with error code `E0000001`.
 
+`removePoweredByOkta` is optional. Default value is `false`.
+
 #### Use examples
 
 The following example updates a custom privacy policy URL.
@@ -200,6 +204,7 @@ Content-Type: application/json
 {
   "id": "bndul904tTZ6kWVhP0g3",
   "customPrivacyPolicyUrl": "https://www.someHost.com/privacy-policy",
+  "removePoweredByOkta": false,
   "_links": {
     "themes": {
       "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
@@ -222,7 +227,7 @@ Content-Type: application/json
 }
 ```
 
-The following example resets a privacy policy URL to use the Okta default privacy policy URL.
+The following example resets a privacy policy URL to use the Okta default privacy policy URL and removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard.
 
 ##### Request
 
@@ -232,7 +237,8 @@ curl -v -X PUT \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
-  "customPrivacyPolicyUrl": null
+  "customPrivacyPolicyUrl": null,
+  "removePoweredByOkta": true
 }' "https://${yourOktaDomain}/api/v1/brands/{brandId}"
 ```
 
@@ -247,6 +253,7 @@ Content-Type: application/json
 {
   "id": "bndul904tTZ6kWVhP0g3",
   "customPrivacyPolicyUrl": null,
+  "removePoweredByOkta": true,
   "_links": {
     "themes": {
       "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
@@ -1102,6 +1109,7 @@ The Brand request object defines the following properties:
 | ----------------------------- | ----------------------- | --------------------------------------------------------------------------------------------------- |
 | `agreeToCustomPrivacyPolicy`  | boolean                 | (Optional) Consent for updating the custom privacy policy URL. Not required when resetting the URL. |
 | `customPrivacyPolicyUrl`      | String                  | Custom privacy policy URL. Default value: `null`.                                                   |
+| `removePoweredByOkta`         | boolean                 | (Optional) Removes "Powered by Okta" from the Okta-hosted sign-in page, and "© 2021 Okta, Inc." from the Okta End-User Dashboard. Default value: `false`.       |
 | `_links`                      | [Links](#links-object)  | Link relations for this object                                                                      |
 
 #### Brand example
@@ -1121,15 +1129,25 @@ Resets a privacy policy URL
 }
 ```
 
+Updates the setting to remove the "Powered by Okta" wording
+```json
+{
+  "agreeToCustomPrivacyPolicy": true,
+  "removePoweredByOkta": true,
+  "customPrivacyPolicyUrl": "https://www.someHost.com/privacy-policy"
+}
+```
+
 ### Brand Response object
 
 The Brand Response object defines the following properties:
 
-| Property                  | Type                    | Description                     |
-| ------------------------- | ----------------------- | ------------------------------- |
-| `customPrivacyPolicyUrl`  | String                  | Custom privacy policy URL       |
-| `id`                      | String                  | Brand ID                        |
-| `_links`                  | [Links](#links-object)  | Link relations for this object  |
+| Property                  | Type                    | Description                                             |
+| ------------------------- | ----------------------- | ------------------------------------------------------- |
+| `customPrivacyPolicyUrl`  | String                  | Custom privacy policy URL                               |
+| `removePoweredByOkta`     | boolean                 | Removes "Powered by Okta" from the Okta-hosted sign-in page and "© 2021 Okta, Inc." from the Okta End-User Dashboard. |
+| `id`                      | String                  | Brand ID                                                |
+| `_links`                  | [Links](#links-object)  | Link relations for this object                          |
 
 #### Brand response example
 
@@ -1137,6 +1155,7 @@ The Brand Response object defines the following properties:
 {
   "id": "bndul904tTZ6kWVhP0g3",
   "customPrivacyPolicyUrl": null,
+  "removePoweredByOkta": false,
   "_links": {
     "themes": {
       "href": "https://${yourOktaDomain}/api/v1/brands/bndul904tTZ6kWVhP0g3/themes",
