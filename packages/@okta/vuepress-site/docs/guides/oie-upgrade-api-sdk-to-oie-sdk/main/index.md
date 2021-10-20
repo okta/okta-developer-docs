@@ -47,7 +47,125 @@ If your application uses direct APIs for an authentication flow, your applicatio
 
 See the following sample calls and responses for this basic authentication flow:
 
-... coming
+#### 1. Call /api/v1/auth
+
+```cURL
+curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "username": "john.doe@example.com",
+  "password": "password123",
+  "options": {
+    "multiOptionalFactorEnroll": false,
+    "warnBeforePasswordExpired": false
+  }
+}'
+
+```
+
+#### 2. Receive a successful response with a sessionToken
+
+```JSON
+{
+    "expiresAt": "2021-10-07T18:19:36.000Z",
+    "status": "SUCCESS",
+    "sessionToken": "20111KWCKiTgnNgeaFjw760VitvCy7y-9cYl8lvN65754GmBuo_PPE6",
+    "_embedded": {
+        "user": {
+            "id": "00u8eyowx5GiJhqvj1d6",
+            "passwordChanged": "2020-12-21T19:39:06.000Z",
+            "profile": {
+                "login": "john.doe@example.com",
+                "firstName": "John",
+                "lastName": "Doe",
+                "locale": "en_US",
+                "timeZone": "America/Los_Angeles"
+            }
+        }
+    },
+    "_links": {
+        "cancel": {
+            "href": "https://{yourOktaDomain}/api/v1/authn/cancel",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+#### 3 Use sessionToken from the response to call api/v1/sessions and create a session:
+
+```cURL
+curl --location --request POST 'https://duffield.oktapreview.com/api/v1/sessions' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: SSWS 00igKrTNyNLHCw0wYSIsoDF28cN4B3KZPETBz9pqz0' \
+--header 'Cookie: JSESSIONID=16DC4838820F919032FC7BF01A8FE3E8' \
+--data-raw '{
+  "sessionToken": "20111MzxECyRs8sqQ8WG93-ftVtXQ_uBUbOqVt7RYbNFsZBAs1mw-Vl"
+}'
+```
+
+#### 4 Receive a successful authentication response from the call
+
+```JSON
+{
+    "id": "102XV1tNvxsTm69-StW_BCU-Q",
+    "userId": "00u8eyowx5GiJhqvj1d6",
+    "login": "john.doe@example.com",
+    "createdAt": "2021-10-07T18:22:07.000Z",
+    "expiresAt": "2021-10-07T20:22:07.000Z",
+    "status": "ACTIVE",
+    "lastPasswordVerification": "2021-10-07T18:22:07.000Z",
+    "lastFactorVerification": null,
+    "amr": [
+        "pwd"
+    ],
+    "idp": {
+        "id": "00o2di92cuwsnS0PS1d6",
+        "type": "OKTA"
+    },
+    "mfaActive": true,
+    "_links": {
+        "self": {
+            "href": "https://{yourOktaDomain}/api/v1/sessions/me",
+            "hints": {
+                "allow": [
+                    "GET",
+                    "DELETE"
+                ]
+            }
+        },
+        "refresh": {
+            "href": "https://${yourOktaDomain}/api/v1/sessions/me/lifecycle/refresh",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "user": {
+            "name": "John Doe",
+            "href": "https://{{yourOktaDomain}/api/v1/users/me",
+            "hints":
+                "allow": [
+                    "GET"
+                ]
+            }
+        }
+    }
+}
+```
+
+If your application code implements these API calls and handles the responses shown, you need to update your code to use the Okta Identity Engine SDK idx.authentication method. This method encapsulates the authentication flow using recursive calls to the Identity Engine SDK method, and a successful response returns with access and ID tokens.
+
+See [Okta Identity Engine SDK authentication flow]()
+
+If you’re migrating a custom application using direct back-end Authentication APIs, you may want to work with your customer support team to assist you in migrating to the Identity Engine SDK.
 
 ## Mapping MFA Authentication code to the Okta Identity Engine SDK
 
