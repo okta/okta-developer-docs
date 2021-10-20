@@ -2407,3 +2407,67 @@ redirects:
     to: /docs/guides/create-an-api-token/main/
   - from: /docs/guides/create-an-api-token/next-steps/index.html
     to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/mfa/sms/prerequisites/
+    to: /docs/guides/mfa/sms/main/
+  - from: /docs/guides/mfa/sms/set-up-org/
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/set-up-postman/
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/create-test-user/
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/enroll-factor/
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/activate-factor/
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/verify-factor/
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/next-steps/
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/prerequisites/index.html
+    to: /docs/guides/mfa/sms/main/
+  - from: /docs/guides/mfa/sms/set-up-org/index.html
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/set-up-postman/index.html
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/create-test-user/index.html
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/enroll-factor/index.html
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/activate-factor/index.html
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/verify-factor/index.html
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/sms/next-steps/index.html
+    to: /docs/guides/mfa/sms/main/ 
+  - from: /docs/guides/mfa/ga/prerequisites/
+    to: /docs/guides/mfa/ga/main/
+  - from: /docs/guides/mfa/ga/set-up-org/
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/set-up-postman/
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/create-test-user/
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/enroll-factor/
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/activate-factor/
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/verify-factor/
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/next-steps/
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/prerequisites/index.html
+    to: /docs/guides/mfa/ga/main/
+  - from: /docs/guides/mfa/ga/set-up-org/index.html
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/set-up-postman/index.html
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/create-test-user/index.html
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/enroll-factor/index.html
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/activate-factor/index.html
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/verify-factor/index.html
+    to: /docs/guides/mfa/ga/main/ 
+  - from: /docs/guides/mfa/ga/next-steps/index.html
+    to: /docs/guides/mfa/ga/main/
