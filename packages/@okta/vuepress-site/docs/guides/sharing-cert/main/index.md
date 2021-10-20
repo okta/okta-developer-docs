@@ -141,7 +141,7 @@ Response:
 }
 ```
 
-> **Note:** The response has been truncated for clarity.
+> **Note:** The response is truncated for clarity.
 
 ## Share the source app's key credential ID with the target app
 
