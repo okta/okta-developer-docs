@@ -36,7 +36,7 @@ See [Get Started with the Okta REST APIs](/code/rest/) for information on how to
 
 ## List your apps
 
-* For Outbound SAML, use the [Apps API](/docs/reference/api/apps/#list-applications) to return a list of all apps and collect the app `id` for each app that you want to update.
+* For Outbound SAML, use the [Apps API](/docs/reference/api/apps/#list-applications) to return a list of all the apps and to collect the app `id` for each app that you want to update.
 
 * For Inbound SAML, use the [IdPs API](/docs/reference/api/idps/#list-identity-providers-with-defaults) to return a list of all Identity Providers (IdP) and collect the full response for each IdP that you want to update.
 
