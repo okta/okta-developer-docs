@@ -74,7 +74,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
         * To make a field mandatory: Select the **Required** check box.
         * To change the order of the fields on the form: Grab the dotted vertical bar on the left to drag a field to a new location.
-        * To remove a field: click **X**.
+        * To remove a field: Click **X**.
 
     The registration form supports the following data types:
     * string
