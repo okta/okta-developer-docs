@@ -135,7 +135,7 @@ If you left the [**Add to Sign-In Widget**](#enable-and-configure-a-self-service
 
 > **Note:** To enable the Custom Sign-In Page HTML editor, you must have a [custom URL domain](/docs/guides/custom-url-domain/overview/) configured.
 
-1. In the Admin Console, go to **Settings** and then **Customization**.
+1. In the Admin Console, go to **Settings** > **Customization**.
 2. Click the **Custom Sign In** tab.
 3. In the HTML editor, add the following configuration parameters directly under the `var config = OktaUtil.getSignInWidgetConfig();` line:
 
