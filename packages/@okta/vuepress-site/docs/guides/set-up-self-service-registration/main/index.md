@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-This article shows you how to set up Okta's self-service registration (SSR) functionality, which lets you configure a custom app or the Okta homepage to allow users to self-register.
+This article shows you how to set up Okta's self-service registration (SSR) functionality so that you can configure a custom app or the Okta homepage to allow users to self-register.
 
 ---
 
