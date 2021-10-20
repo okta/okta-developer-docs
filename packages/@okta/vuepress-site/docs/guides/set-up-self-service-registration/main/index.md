@@ -18,9 +18,9 @@ This article shows you how to set up Okta's self-service registration (SSR) func
 
 **What you need**
 
-* This is an Early Access feature. To enable it, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
-* [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) are required to enable self-service registration.
-* If you are hosting your own [customized Widget](https://developer.okta.com/code/javascript/okta_sign-in_widget/), version 2.9 or later is required.
+* SSR to be enabled (this is an Early Access feature — contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to enable it).
+* [Super admin permissions](https://help.okta.com/okta_help.htm?id=ext_superadmin) (required to enable SSR).
+* Widget version 2.9 or later if you are hosting your own [customized Widget](https://developer.okta.com/code/javascript/okta_sign-in_widget/).
 
 **Sample code**
 
@@ -30,7 +30,7 @@ n/a
 
 ## Overview
 
-A new user's first impression starts with the registration process, making it a critical aspect to get right. Because you're asking a user to give you information for the first time, you need to personalize and streamline the experience.
+A new user's first impression starts with the registration process, which makes it critical to get right. Since you're asking a user to provide information for the first time, you need to personalize and streamline the experience.
 
 Okta's self-service registration lets you configure a custom app or the Okta Homepage for use when users self-register. After you configure and enable your self-service registration policy, a sign-up link appears in the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/). Users who click this link are directed to a Create Account registration form that is based on your registration policy.
 
@@ -77,10 +77,10 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
         * To remove a field: Click **X**.
 
     The registration form supports the following data types:
-    * string
-    * number
-    * boolean
-    * integer
+    * String
+    * Number
+    * Boolean
+    * Integer
 
     > **Note:** The form also supports `enum` data types for strings, numbers, and integers.
 
@@ -90,7 +90,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
     * **Default redirect:** After registration, users are redirected to the app that sent them to the registration form. In the event that no app context is provided, they are redirected to the location that you select here.
 
-        * **User dashboard:** Select to redirect users to your org's Okta homepage.
+        * **User dashboard:** Select to redirect users to their Okta homepage.
         * **Custom URL** Select and then enter the URL where you want the authorization server to redirect your users, such as to your custom app or portal.
 
     > **Note:** Ensure the domain for the custom URL that you've configured for the **Default redirect** is added as a [Trusted Origin](/docs/guides/enable-cors/overview/) for redirects.
@@ -160,8 +160,6 @@ Before you can configure self-service registration in your embedded or self-host
 ```
 
 ## Next steps
-
-You should now understand how to set up self service registration.
 
 Now that you understand how to set up self-service registration, you can learn how to implement various [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) flows, configure policies for role-based access, and use tokens to provide API authorization.
 

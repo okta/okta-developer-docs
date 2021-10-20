@@ -18,7 +18,7 @@ This guide teaches you how to upload your own SAML certificates to sign the asse
 
 **What you need**
 
-* To use your own SAML certificate, update the key credential for the affected apps or IdPs.
+n/a
 
 **Sample code**
 
@@ -38,7 +38,7 @@ See [Get Started with the Okta REST APIs](/code/rest/) for information on how to
 
 * For Outbound SAML, use the [Apps API](/docs/reference/api/apps/#list-applications) to return a list of all the apps and to collect the app `id` for each app that you want to update.
 
-* For Inbound SAML, use the [IdPs API](/docs/reference/api/idps/#list-identity-providers-with-defaults) to return a list of all Identity Providers (IdP) and collect the full response for each IdP that you want to update.
+* For Inbound SAML, use the [IdPs API](/docs/reference/api/idps/#list-identity-providers-with-defaults) to return a list of all the Identity Providers (IdP) and to collect the full response for each IdP that you want to update.
 
 The following example shows a call for Outbound SAML apps.
 
@@ -348,7 +348,7 @@ Content-Type: application/json
 To share the certificate that you created across multiple apps, clone it with the
 [Apps API](/docs/reference/api/apps/#clone-application-key-credential) by using the key `id` that you generated.
 
-* To share the certificate that you created across multiple IdPs, clone it with the [IdPs API](#top) using the key `id` that you generated.
+To share the certificate that you created across multiple IdPs, clone it with the [IdPs API](#top) by using the key `id` that you generated.
 
 Be sure to clone the certificate to every app or IdP that you want to share it with. After it is cloned, you need to [update the key credential](/docs/guides/sign-your-own-saml-csr/update-the-key-credential/) for the target app.
 

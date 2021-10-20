@@ -2381,3 +2381,29 @@ redirects:
     to: /docs/guides/create-an-api-token/main/
   - from: /docs/guides/create-an-api-token/next-steps/index.html
     to: /docs/guides/create-an-api-token/main/
+  - from: /docs/guides/sign-your-own-saml-csr/overview/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/list-your-apps/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/set-up-self-service-registration/before-you-begin/
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/disable-security-image/
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/next-steps/
+    to: /docs/guides/set-up-self-service-registration/main/
