@@ -34,7 +34,7 @@ A new user's first impression starts with the registration process, making it a 
 
 Okta's self-service registration lets you configure a custom app or the Okta Homepage for use when users self-register. After you configure and enable your self-service registration policy, a sign-up link appears in the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/). Users who click this link are directed to a Create Account registration form that is based on your registration policy.
 
-**Self-service registration supports these registration workflows:**
+Self-service registration supports these registration workflows:
 
 * **Make email verification mandatory.** After registering their information, users are immediately sent an email to verify their email address. Users must click the link in the email to complete the registration process. Users are then redirected to your app or to your org's Okta Homepage.
 
