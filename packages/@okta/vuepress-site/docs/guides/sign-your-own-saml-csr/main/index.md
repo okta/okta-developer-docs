@@ -106,7 +106,7 @@ Truncated Response:
 
 You can generate a CSR and receive the response in either JSON or [PKCS#10](https://tools.ietf.org/html/rfc2986) format.
 
-The following request generates a CSR in JSON format to use with Outbound SAML apps.
+Use one of the following requests to generate a CSR in JSON format to use with Outbound SAML apps:
 
 * For Inbound SAML, change the POST statement to `POST /api/v1/idps/yourIdPID/credentials/csrs/`.
 
