@@ -26,7 +26,7 @@ n/a
 ## Overview
 
 After you complete the SAML configuration, you can test your implementation using SAML tracer.
-SAML tracer is an add-on in Firefox and very useful when troubleshooting SAML for service provider-initiated flows (SP-initiated)
+SAML tracer is an add-on in Firefox and very useful when troubleshooting SAML for Service Provider-initiated flows (SP-initiated)
 or identity provider-initiated flows (IdP-initiated).
 When you start an IdP-initiated flow or SP-initiated flow while SAML tracer is enabled, it captures the SAML request and response.
 
