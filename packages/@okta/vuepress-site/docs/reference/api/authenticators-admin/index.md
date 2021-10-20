@@ -629,11 +629,11 @@ The Authenticator object defines the following properties:
 | `type`        | String (Enum)                                                   | The type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`. | All Authenticators |
 | `settings.allowedFor`        | String (Enum)                                    | The allowed types of uses for the Authenticator. Values include: `recovery`, `sso`, `any`, and `none`. | `okta_email`, `phone_number`, `security_question` |
 | `settings.tokenLifetimeInMinutes` | Number                                      | Specifies the lifetime of an `email` token and only applies to the `email` Authenticator type. Default value is `5` minutes. | `okta_email` |
-| settings.compliance.fips | String (Enum) | `REQUIRED`, `OPTIONAL` | `okta_verify` |
-| settings.channelBinding.style | String | `NUMBER_CHALLENGE` | `okta_verify` |
-| settings.channelBinding.required | String (Enum) | `NEVER`, `ALWAYS`, `HIGH_RISK_ALWAYS` | `okta_verify` |
-| settings.userVerification | String (Enum) | `REQUIRED`, `PREFERRED` | `okta_verify` |
-| settings.appInstanceId | String | The application instance ID | `okta_verify` |
+| `settings.compliance.fips` | String (Enum) | `REQUIRED`, `OPTIONAL` | `okta_verify` |
+| `settings.channelBinding.style` | String | `NUMBER_CHALLENGE` | `okta_verify` |
+| `settings.channelBinding.required` | String (Enum) | `NEVER`, `ALWAYS`, `HIGH_RISK_ALWAYS` | `okta_verify` |
+| `settings.userVerification` | String (Enum) | `REQUIRED`, `PREFERRED` | `okta_verify` |
+| `settings.appInstanceId` | String | The application instance ID | `okta_verify` |
 
 #### Example Email Authenticator
 
