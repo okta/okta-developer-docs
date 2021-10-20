@@ -50,7 +50,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
 > **Note:** The self-service registration password policy doesn't support "does not contain first name" and "does not contain last name" complexity requirements.
 
-1. In the Admin Console, go to **Directory** and then **Self-Service Registration**.
+1. In the Admin Console, go to **Directory** > **Self-Service Registration**.
 
 2. If this is your first time on this page, click **Enable Registration**. Otherwise, click **Edit**.
 
