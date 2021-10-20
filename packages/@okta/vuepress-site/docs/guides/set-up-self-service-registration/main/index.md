@@ -163,7 +163,7 @@ Before you can configure self-service registration in your embedded or self-host
 
 You should now understand how to set up self service registration.
 
-Next, take a look at how to implement various [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) flows, configure policies for role-based access and use tokens to do API authorization.
+Now that you understand how to set up self-service registration, you can learn how to implement various [OAuth 2.0 and OpenID Connect](/docs/concepts/oauth-openid/) flows, configure policies for role-based access, and use tokens to provide API authorization.
 
 * [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 * [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
