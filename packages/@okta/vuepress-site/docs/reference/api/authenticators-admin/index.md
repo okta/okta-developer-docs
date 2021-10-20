@@ -362,7 +362,7 @@ N/A
 
 An [Authenticator Object](#authenticator-object)
 
-`name` attribute is required, `settings` object is optional and has values based on Authenticator key.
+The `name` attribute is required, `settings` object is optional and has values based on Authenticator key.
 
 #### Response body
 
