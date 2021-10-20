@@ -239,7 +239,7 @@ Content-Type: application/json;charset=UTF-8
 
 Update the key credential for the app or IdP to specify the new signing Key ID.
 
-* For Outbound SAML, call the [Update Application API](/docs/reference/api/apps/#update-application). Pass the app ID that you obtained in the [List your apps](#list-your-apps) step in the URL. In the body, include the app name and the app label that you obtained when listing your apps and the Key ID that you obtained in the [Sign the CSR](#sign-the-csr) step.
+* For Outbound SAML, call the [Update Application API](/docs/reference/api/apps/#update-application). Pass the app ID that you obtained in the [List your apps](#list-your-apps) step in the URL. In the body, include the app name and the app label that you obtained when you listed your apps and the Key ID that you obtained in the [Sign the CSR](#sign-the-csr) step.
 
 * For Inbound SAML, call the [Update IdP API](/docs/reference/api/idps/#update-identity-provider). Pass the entire [IdP](/docs/reference/api/idps/#update-identity-provider) that you obtained in the [List your apps](#list-your-apps) step and use the Key ID value that you obtained in the [Sign the CSR](#sign-the-csr) step. Partial updates aren't supported by the `Updated IdP API`.
 
