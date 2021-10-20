@@ -192,9 +192,12 @@ module.exports = ctx => ({
       { text: 'Concepts', link: '/docs/concepts/' },
       { text: 'Reference', link: '/docs/reference/' },
       { text: 'Languages & SDKs', link: '/code/' },
-      { text: 'Release Notes', link: '/docs/release-notes/' }
+      { text: 'Release Notes', link: '/docs/release-notes/' },
     ],
     footer_nav: {
+      need_support: {
+        heading: 'Need Support?'
+      },
       social: {
         heading: 'Social',
         items: [
@@ -234,11 +237,11 @@ module.exports = ctx => ({
     },
 
     company_logos: [
-      { name: 'Major League Baseball', icon: '/img/logos/baseball.png' },
-      { name: 'Splunk', icon: '/img/logos/splunk.png' },
-      { name: 'Adobe', icon: '/img/logos/adobe.png' },
-      { name: 'JetBlue', icon: '/img/logos/jetblue.png' },
-      { name: 'Experian', icon: '/img/logos/experian.png' },
+      { name: 'Major League Baseball', icon: '/img/logos/baseball.svg' },
+      { name: 'Splunk', icon: '/img/logos/splunk.svg' },
+      { name: 'Adobe', icon: '/img/logos/adobe.svg' },
+      { name: 'JetBlue', icon: '/img/logos/jetblue.svg' },
+      { name: 'Experian', icon: '/img/logos/experian.svg' },
     ],
 
     forum_url: 'https://devforum.okta.com/',

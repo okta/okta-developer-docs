@@ -101,6 +101,9 @@ Other optional scopes available (these are returned from the `/userinfo` endpoin
 
 * `profile` &mdash; the end user's default profile claims: `name`, `family_name`, `given_name`, `middle_name`, `nickname`, `preferred_username`, `profile`, `picture`, `website`, `gender`, `birthdate`, `zoneinfo`, `locale`, and `updated_at`
 * `email` &mdash; requests access to the `email` and `email_verified` claims
+  
+    >**Note:** ISVs shouldn't rely on the `email_verified` scope-dependent claim returned by an OIDC integration to evaluate whether a user has verified ownership of the email address associated with their profile.
+    
 * `address` &mdash; requests access to the `address` claim
 * `phone` &mdash; requests access to the `phone_number` and `phone_number_verified` claims
 * `groups` &mdash; requests access to the `groups` claim. This is a custom scope for Okta

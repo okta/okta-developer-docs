@@ -16,6 +16,9 @@ The Devices API supports the following **Device Operations**:
 * Get, Delete Device objects.
 * Perform lifecycle transitions on the Device objects.
 
+The Devices API supports the following **Authorization Schemes**:
+* SSWS - [API tokens](/docs/reference/core-okta-api/#authentication)
+* Bearer - [OAuth2.0 and OpenID Connect](/docs/concepts/oauth-openid/)
 
 ## Get started
 
@@ -25,8 +28,7 @@ Explore the Devices API: [![Run in Postman](https://run.pstmn.io/button.svg)](ht
 
 The Devices API has the following Device Identity operations:
 
-* [Create a Device](#create-a-device)
-* [Get a Device](#get-a-device-by-id)
+* [Get Device](#get-device-by-id)
 * [List Devices](#list-devices)
 * [Delete Device](#delete-device)
 
@@ -37,11 +39,9 @@ The following Device lifecycle operations:
 * [Suspend Device](#suspend-device)
 * [Unsuspend Device](#unsuspend-device)
 
-### Create a Device
+> **Note:** Device creation occurs during the Okta Verify enrolment flow. The flow creates a Device in the Okta Device Inventory. See [Device Registration](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/device-registration.htm).
 
-The enrollment flow of the Okta Verify creates a device in the Okta Device Inventory. [Device Registration](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/device-registration.htm)
-
-### Get a Device by ID
+### Get Device by ID
 
 <ApiOperation method="get" url="/api/v1/devices/${deviceId}" />
 
@@ -70,15 +70,35 @@ The requested [Device](#device-object).
 
 #### Usage example
 
-This request fetches a Device object with an `id` value `ftrZooGoT8b41iWRiQs7`:
+This request fetches a Device object with an `id` value `guo4a5u7JHHhjXrMK0g4`:
 
-##### Request
+##### API token request
 
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}"
+```
+
+##### Bearer token Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer ${oauth_token}" \
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}"
+```
+
+##### Bearer token Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer ${oauth_token}" \
 "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4"
 ```
 
@@ -86,7 +106,7 @@ curl -v -X GET \
 
 ```json
 {
-    "id": "ftrZooGoT8b41iWRiQs7",
+    "id": "guo4a5u7JHHhjXrMK0g4",
     "status": "CREATED",
     "created": "2019-10-02T18:03:07.000Z",
     "lastUpdated": "2019-10-02T18:03:07.000Z",
@@ -100,11 +120,15 @@ curl -v -X GET \
         "imei": null,
         "meid": null,
         "udid": null,
-        "sid": "S-1-11-111"
+        "sid": "S-1-11-111",
+        "tpmPublicKeyHash":null,
+        "registered":true,
+        "managed":false,
+        "secureHardwarePresent":false
     },
     "_links": {
         "activate": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
+            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -112,7 +136,7 @@ curl -v -X GET \
             }
         },
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
+            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -122,7 +146,7 @@ curl -v -X GET \
             }
         },
         "devices": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/devices",
+            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/devices",
             "hints": {
                 "allow": [
                     "GET"
@@ -186,11 +210,12 @@ None
 
 #### Request query parameters
 
-| Parameter   | Type   | Description                                                                                                               |
-| ----------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
-| `search`    | String | Searches for devices with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties |
-| `limit`     | Number | Specifies the number of results returned (maximum `200`)                                                                    |
-| `after`     | String | Specifies the pagination cursor for the next page of devices                                                              |
+| Parameter      | Type   | Description                                                                                                               |
+| -------------- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
+| `search`       | String | Searches for devices with a supported [filtering](/docs/reference/core-okta-api/#filter) expression for most properties |
+| `limit`        | Number | Specifies the number of results returned (maximum `200`)                                                                    |
+| `after`        | String | Specifies the pagination cursor for the next page of devices                                                              |
+| `expand=user`  | String | Lists associated users for the device in `_embedded` element                                                              |
 
 * If you don't specify a value for `limit`, the maximum (200) is used as a default.
 * Treat the `after` cursor as an opaque value and obtain it through the next link relation. See [Pagination](/docs/reference/core-okta-api/#pagination).
@@ -207,7 +232,7 @@ Array of [Device](#device-object) objects.
 
 The following request returns a list of all available devices, without any query parameters.
 
-##### Request
+##### API token request
 
 ```bash
 curl -v -X GET \
@@ -216,14 +241,23 @@ curl -v -X GET \
 -H "Authorization: SSWS ${api_token}" \
 "https://${yourOktaDomain}/api/v1/devices"
 ```
+##### Bearer token Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer ${oauth_token}" \
+"https://${yourOktaDomain}/api/v1/devices"
+```
 
 ##### Response
 
 ```json
 HTTP/1.1 200 OK
 Content-Type: application/json
-Link: <https://{yourOktaDomain}/api/v1/devices?limit=200>; rel="self"
-Link: <https://{yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=200>; rel="next"
+Link: <https://${yourOktaDomain}/api/v1/devices?limit=200>; rel="self"
+Link: <https://${yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=200>; rel="next"
 
 [
  {
@@ -241,11 +275,15 @@ Link: <https://{yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=
         "imei": null,
         "meid": null,
         "udid": null,
-        "sid": "S-1-11-111"
+        "sid": "S-1-11-111",
+        "tpmPublicKeyHash":null,
+        "registered":true,
+        "managed":false,
+        "secureHardwarePresent":false
     },
     "_links": {
         "activate": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/activate",
+            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -253,7 +291,7 @@ Link: <https://{yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=
             }
         },
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4",
+            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -263,7 +301,7 @@ Link: <https://{yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=
             }
         },
         "users": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/users",
+            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMK0g4/users",
             "hints": {
                 "allow": [
                     "GET"
@@ -287,11 +325,15 @@ Link: <https://{yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=
         "imei": null,
         "meid": null,
         "udid": null,
-        "sid": "S-1-22-2222"
+        "sid": "S-1-22-2222",
+        "tpmPublicKeyHash":null,
+        "registered":true,
+        "managed":false,
+        "secureHardwarePresent":false
     },
     "_links": {
         "activate": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4/lifecycle/activate",
+            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -299,7 +341,7 @@ Link: <https://{yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=
             }
         },
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4",
+            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -309,7 +351,7 @@ Link: <https://{yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=
             }
         },
         "users": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4/users",
+            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7YAHhjXrMN0g4/users",
             "hints": {
                 "allow": [
                     "GET"
@@ -325,13 +367,23 @@ Link: <https://{yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit=
 
 The following request returns a list of all available devices, with search parameters: Devices whose Profile `displayName` starts with `Eng-dev` and a `status` value of `ACTIVE`.
 
-##### Request
+##### API token request
 
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+\"Eng-dev\"+and+status+eq+\"ACTIVE\""
+```
+
+##### Bearer token Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer ${oauth_token}" \
 "https://${yourOktaDomain}/api/v1/devices?search=profile.displayName+sw+\"Eng-dev\"+and+status+eq+\"ACTIVE\""
 ```
 
@@ -354,11 +406,15 @@ curl -v -X GET \
           "imei": null,
           "meid": null,
           "udid": "36A56558-1793-5B3A-8362-ECBAA14EDD2D",
-          "sid": ""
+          "sid": "",
+          "tpmPublicKeyHash":null,
+          "registered":true,
+          "managed":false,
+          "secureHardwarePresent":false
       },
       "_links": {
           "activate": {
-              "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
+              "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
               "hints": {
                   "allow": [
                       "POST"
@@ -366,7 +422,7 @@ curl -v -X GET \
               }
           },
           "self": {
-              "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
+              "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
               "hints": {
                   "allow": [
                       "GET",
@@ -376,7 +432,7 @@ curl -v -X GET \
               }
           },
           "users": {
-              "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
+              "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
               "hints": {
                   "allow": [
                       "GET"
@@ -388,6 +444,165 @@ curl -v -X GET \
 ]
 ```
 
+#### Usage example (expand=user)
+
+The following request returns a list of all available devices and associated users.
+
+##### API token request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/devices?expand=user"
+```
+
+##### Bearer token Request
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer ${oauth_token}" \
+"https://${yourOktaDomain}/api/v1/devices?expand=user"
+```
+
+##### Response
+
+```json
+[
+   {
+      "id":"guo4a5u7JHHhjXrMK0g4",
+      "status":"ACTIVE",
+      "created":"2019-10-02T18:03:07.000Z",
+      "lastUpdated":"2019-10-02T18:03:07.000Z",
+      "profile":{
+         "displayName":"Eng-dev-macbookpro15",
+         "platform":"MACOS",
+         "manufacturer":null,
+         "model":null,
+         "osVersion":null,
+         "serialNumber":"",
+         "imei":null,
+         "meid":null,
+         "udid":"36A56558-1793-5B3A-8362-ECBAA14EDD2D",
+         "sid":"",
+         "tpmPublicKeyHash":null,
+         "registered":true,
+         "managed":false,
+         "secureHardwarePresent":false
+      },
+      "_links":{
+         "activate":{
+            "href":"https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
+            "hints":{
+               "allow":[
+                  "POST"
+               ]
+            }
+         },
+         "self":{
+            "href":"https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
+            "hints":{
+               "allow":[
+                  "GET",
+                  "PATCH",
+                  "PUT"
+               ]
+            }
+         },
+         "users":{
+            "href":"https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
+            "hints":{
+               "allow":[
+                  "GET"
+               ]
+            }
+         }
+      },
+      "_embedded":{
+         "users":[
+            {
+               "created":"2021-10-01T16:52:41.000Z",
+               "user":{
+                  "id":"${userId}",
+                  "status":"ACTIVE",
+                  "created":"2020-08-12T06:46:50.000Z",
+                  "activated":"2020-08-12T06:46:50.000Z",
+                  "statusChanged":"2021-01-27T21:05:32.000Z",
+                  "lastLogin":"2021-10-14T09:04:48.000Z",
+                  "lastUpdated":"2021-01-27T21:05:32.000Z",
+                  "passwordChanged":"2020-08-12T06:46:50.000Z",
+                  "type":{
+                     "id":"oty7ut9Uu76oHVUZc0w4"
+                  },
+                  "profile":{
+                     "firstName":"fname",
+                     "lastName":"lname",
+                     "mobilePhone":null,
+                     "secondEmail":null,
+                     "login":"email@email.com",
+                     "email":"email@email.com"
+                  },
+                  "credentials":{
+                     "password":{
+                        
+                     },
+                     "recovery_question":{
+                        "question":"What is the food you least liked as a child?"
+                     },
+                     "provider":{
+                        "type":"OKTA",
+                        "name":"OKTA"
+                     }
+                  },
+                  "_links":{
+                     "suspend":{
+                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/lifecycle/suspend",
+                        "method":"POST"
+                     },
+                     "schema":{
+                        "href":"https://${yourOktaDomain}/api/v1/meta/schemas/user/osc7ut9Uu76oHVUZc0w4"
+                     },
+                     "resetPassword":{
+                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/lifecycle/reset_password",
+                        "method":"POST"
+                     },
+                     "forgotPassword":{
+                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/credentials/forgot_password",
+                        "method":"POST"
+                     },
+                     "expirePassword":{
+                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/lifecycle/expire_password",
+                        "method":"POST"
+                     },
+                     "changeRecoveryQuestion":{
+                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/credentials/change_recovery_question",
+                        "method":"POST"
+                     },
+                     "self":{
+                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}"
+                     },
+                     "type":{
+                        "href":"https://${yourOktaDomain}/api/v1/meta/types/user/oty7ut9Uu76oHVUZc0w4"
+                     },
+                     "changePassword":{
+                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/credentials/change_password",
+                        "method":"POST"
+                     },
+                     "deactivate":{
+                        "href":"https://${yourOktaDomain}/api/v1/users/${userId}/lifecycle/deactivate",
+                        "method":"POST"
+                     }
+                  }
+               }
+            }
+         ]
+      }
+   }
+]
+```
 
 ### Delete Device
 
@@ -422,11 +637,17 @@ HTTP/1.1 204 No Content
 
 #### Usage example
 
-##### Request
+##### API token request
 
 ```bash
 curl -v -X DELETE \
--H "Authorization: SSWS ${api_token}" "https://{yourOktaDomain}/api/v1/devices/{deviceId}"
+-H "Authorization: SSWS ${api_token}" "https://${yourOktaDomain}/api/v1/devices/${deviceId}"
+```
+
+##### Bearer token Request
+```bash
+curl -v -X DELETE \
+-H "Authorization: Bearer ${oauth_token}" "https://${yourOktaDomain}/api/v1/devices/${deviceId}"
 ```
 
 ##### Response
@@ -480,14 +701,23 @@ None
 
 #### Usage example
 
-##### Request
+##### API token request
 
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/activate"
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}/lifecycle/activate"
+```
+##### Bearer token Request
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer ${oauth_token}" \
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}/lifecycle/activate"
 ```
 
 ##### Response
@@ -509,9 +739,10 @@ Content-Type: application/json
 Sets a Device's `status` to `DEACTIVATED`. Deactivation causes a Device to lose all Device User links. A Device should be in `DEACTIVATED` status before it can be [deleted](#delete-device).
 
 > **Important**: 
-> 1. Deactivating a Device is a **destructive** operation. 
-> 2. This action cannot be reversed. 
-> 3. Device deactivation renders associated assets—such as device factors and management certificates—non-usable. Device reenrollment via Okta Verify is required to make such assets functional again.
+> 1. Deactivating a Device is a **destructive** operation for device factors and client certificates.
+> 2. Device deactivation renders associated assets&mdash;such as device factors and management certificates&mdash;unusable. Device re-enrollment via Okta Verify allows end users to setup new
+factors on the device.
+> 3. Deletion of the device after deactivation also deletes the device record from Okta. Re-enrollment of Okta Verify creates a new device record.
 
 
 #### Permitted OAuth 2.0 scopes 
@@ -537,14 +768,23 @@ None
 
 #### Usage example
 
-##### Request
+##### API token request
 
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/deactivate"
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}/lifecycle/deactivate"
+```
+##### Bearer token Request
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer ${oauth_token}" \
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}/lifecycle/deactivate"
 ```
 
 ##### Response
@@ -596,15 +836,25 @@ None
 
 #### Usage example
 
-##### Request
+##### API token request
 
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/suspend"
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}/lifecycle/suspend"
 ```
+
+##### Bearer token Request
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer ${oauth_token}" \
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}/lifecycle/suspend"
+```
+
 
 ##### Response
 
@@ -649,14 +899,24 @@ None
 
 #### Usage example
 
-##### Request
+##### API token Request
 
 ```bash
 curl -v -X POST \
 -H "Accept: application/json" \
 -H "Content-Type: application/json" \
 -H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/devices/{deviceId}/lifecycle/unsuspend"
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}/lifecycle/unsuspend"
+```
+
+##### Bearer token Request
+
+```bash
+curl -v -X POST \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer ${oauth_token}" \
+"https://${yourOktaDomain}/api/v1/devices/${deviceId}/lifecycle/unsuspend"
 ```
 
 ##### Response
@@ -721,7 +981,7 @@ The device model defines several read-only properties:
    "resourceAlternateId":null,
    "_links":{
       "suspend":{
-         "href":"https://{yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4/lifecycle/suspend",
+         "href":"https://${yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4/lifecycle/suspend",
          "hints":{
             "allow":[
                "POST"
@@ -729,7 +989,7 @@ The device model defines several read-only properties:
          }
       },
       "self":{
-         "href":"https://{yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4",
+         "href":"https://${yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4",
          "hints":{
             "allow":[
                "GET",
@@ -739,7 +999,7 @@ The device model defines several read-only properties:
          }
       },
       "users":{
-         "href":"https://{yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4/users",
+         "href":"https://${yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4/users",
          "hints":{
             "allow":[
                "GET"
@@ -747,7 +1007,7 @@ The device model defines several read-only properties:
          }
       },
       "deactivate":{
-         "href":"https://{yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4/lifecycle/deactivate",
+         "href":"https://${yourOktaDomain}/api/v1/devices/guo8jx5vVoxfvJeLb0w4/lifecycle/deactivate",
          "hints":{
             "allow":[
                "POST"
@@ -764,7 +1024,10 @@ The device model defines several read-only properties:
 The following diagram shows the state object for a Device:
 ![Device lifecycle flow](/img/okta-device-status.png "Device lifecycle flow")
 
-Okta Verify enrollment results in a device being created in device inventory. The newly created device is in `ACTIVE` status. 
+> **Note:**
+> 1. Okta Verify enrollment results in a device being created in device inventory. The newly-created device has an `ACTIVE` status. 
+> 2. Device deactivation renders associated assets&mdash;such as device factors and management certificates&mdash;unusable. The Device re-enrollment/add account flow via Okta Verify allows end users to setup new factors (sign-in methods) on the device.
+> 3. Deletion of the device after deactivation also deletes the device record from Okta. Re-enrollment of Okta Verify creates a new device record.
 
 
 ### Device profile object
@@ -775,8 +1038,8 @@ Okta Verify enrollment results in a device being created in device inventory. Th
 | :----------------- | :--------- | :---------------------------------------------------------------------------------------------|
 | `displayName`      | String     | Display name of the device. (1-255 characters)                                                |
 | `platform`         | String     | OS platform of the device. Possible values: `MACOS`, `WINDOWS`, `ANDROID`, `IOS`              |
-| `registered`       | Boolean    | Idicates if the device is registered at Okta.                                                 |
-| `managed`          | Boolean    | Idicates if the device is managed by MDM providers.                                           |
+| `registered`       | Boolean    | Indicates if the device is registered at Okta.                                                 |
+| `managed`          | Boolean    | Indicates if the device is managed by MDM providers.                                           |
 | `imei`             | String     | (Optional) International Mobile Equipment Identity of the device. (15-17 numeric characters)  |
 | `manufacturer`     | String     | (Optional) Name of the manufacturer of the device. (0-127 characters)                         |
 | `meid`             | String     | (Optional) Mobile equipment identifier of the device. (14 characters)                         |
@@ -826,7 +1089,7 @@ For example, a device with a `CREATED` status has the following `_links`:
 ```json
 "_links": {
         "activate": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
+            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/lifecycle/activate",
             "hints": {
                 "allow": [
                     "POST"
@@ -834,7 +1097,7 @@ For example, a device with a `CREATED` status has the following `_links`:
             }
         },
         "self": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
+            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4",
             "hints": {
                 "allow": [
                     "GET",
@@ -844,7 +1107,7 @@ For example, a device with a `CREATED` status has the following `_links`:
             }
         },
         "users": {
-            "href": "https://{yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
+            "href": "https://${yourOktaDomain}/api/v1/devices/guo4a5u7JHHhjXrMK0g4/users",
             "hints": {
                 "allow": [
                     "GET"

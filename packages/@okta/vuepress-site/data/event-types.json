@@ -1,6 +1,6 @@
 {
-  "release" : "2021.09.1",
-  "build" : "2021.09.1-begin-138-gd09371294c7c",
+  "release" : "2021.10.1",
+  "build" : "2021.10.1-begin-94-g4e0cd8a27784",
   "categories" : [ {
     "id" : "access-gateway",
     "name" : "Access Gateway"
@@ -461,6 +461,10 @@
     "description" : "",
     "tags" : [ ]
   }, {
+    "id" : "agent-pool",
+    "description" : "Agent Pool.",
+    "tags" : [ ]
+  }, {
     "id" : "inline-hook",
     "description" : "Inline Hook.",
     "tags" : [ ]
@@ -658,6 +662,10 @@
     "tags" : [ ]
   }, {
     "id" : "kerberos-rich-client",
+    "description" : "",
+    "tags" : [ ]
+  }, {
+    "id" : "log-stream",
     "description" : "",
     "tags" : [ ]
   }, {
@@ -5435,77 +5443,43 @@
         "targets" : null
       }
     }, {
+      "id" : "certification.campaign.item.decide",
+      "category" : "id-fabric",
+      "description" : "Triggered when a decision on the access to a resource is made. Can be used to audit the decision activity related to an item in a certification campaign, such as the access of a user to an application. The outcome.result field will be SUCCESS for a decision to approve or revoke and will be SKIPPED for a decision to delegate. This is triggered when a reviewer makes a decision on a campaign item, or at the end of a campaign if an item has not been reviewed. The result of the decision is included in the debugData (APPROVE, REVOKE, DELEGATE, NORESPONSE).",
+      "info" : {
+        "created" : "2021-05-24",
+        "release" : "2021.10.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "IgaReviewerDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "certification.campaign.item.remediate",
+      "category" : "id-fabric",
+      "description" : "Triggered when the remediation is performed on the campaign item. Can be used to audit remediation activity in the system log as well as reports. This is triggered when the remediation is acted upon by reviewer.",
+      "info" : {
+        "created" : "2021-09-15",
+        "release" : "2021.10.0"
+      },
+      "beta" : true,
+      "internal" : false,
+      "tags" : [ "certification" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : null,
+        "actor" : null,
+        "targets" : null
+      }
+    }, {
       "id" : "certification.campaign.update",
       "category" : "id-fabric",
       "description" : "Triggered when a campaign is updated. Can be used to audit campaign activity in the system log as well as reports. This is triggered by updating a campaign.",
-      "info" : {
-        "created" : "2021-05-24",
-        "release" : "2021.07.1"
-      },
-      "beta" : true,
-      "internal" : false,
-      "tags" : [ "certification" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null
-      }
-    }, {
-      "id" : "certification.campaign_item.approve",
-      "category" : "id-fabric",
-      "description" : "Triggered when access to a resource has been approved. Can be used to audit campaign item activity in the system log as well as reports. This is triggered by approving access to a resource.",
-      "info" : {
-        "created" : "2021-05-24",
-        "release" : "2021.07.1"
-      },
-      "beta" : true,
-      "internal" : false,
-      "tags" : [ "certification" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null
-      }
-    }, {
-      "id" : "certification.campaign_item.delegate",
-      "category" : "id-fabric",
-      "description" : "Triggered when resource access request has been delegated. Can be used to audit the campaign item activity in the system log as well as reports and registered as an event hook to use in workflows. This is triggered by delegating the resource access request to someone else.",
-      "info" : {
-        "created" : "2021-05-24",
-        "release" : "2021.07.1"
-      },
-      "beta" : true,
-      "internal" : false,
-      "tags" : [ "certification", "event-hook-eligible" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null
-      }
-    }, {
-      "id" : "certification.campaign_item.revoke",
-      "category" : "id-fabric",
-      "description" : "Triggered when access to a resource has been revoked. Can be used to audit campaign item activity in the system log as well as reports. This is triggered by revoking access to a resource.",
-      "info" : {
-        "created" : "2021-05-24",
-        "release" : "2021.07.1"
-      },
-      "beta" : true,
-      "internal" : false,
-      "tags" : [ "certification" ],
-      "mappings" : [ ],
-      "schema" : {
-        "debugData" : null,
-        "actor" : null,
-        "targets" : null
-      }
-    }, {
-      "id" : "certification.remediation.complete",
-      "category" : "id-fabric",
-      "description" : "Triggered when the remediation enters the remediated state. Can be used to audit remediation activity in the system log as well as reports. This is triggered when the remediation enters the remediated state.",
       "info" : {
         "created" : "2021-05-24",
         "release" : "2021.07.1"
@@ -7361,9 +7335,9 @@
       "description" : "Triggered when a certificate is bound to a device. You can use the event to audit certificate device binding relationship. When triggered, the device appears in the Admin Console as managed device.",
       "info" : {
         "created" : "2021-06-24",
-        "release" : "2021.08.1"
+        "release" : "2021.09.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "device-identity", "oie-only", "user" ],
       "mappings" : [ ],
@@ -7395,9 +7369,9 @@
       "description" : "Triggered when a certificate marked as hold is removed from the CRL. You can use the event to audit certificate lifecycle change. When an admin activates/unsuspends a device, the certificate associated with the device is activated when used in Okta Verify flow next time.",
       "info" : {
         "created" : "2021-06-24",
-        "release" : "2021.08.1"
+        "release" : "2021.09.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "device-identity", "oie-only", "user" ],
       "mappings" : [ ],
@@ -7412,9 +7386,9 @@
       "description" : "Triggered when a certificate is deleted as a result of an admin deleting the binding device. You can use the event to audit certificate lifecycle change. When triggered, the certificate no longer appears in the Admin Console.",
       "info" : {
         "created" : "2021-06-24",
-        "release" : "2021.08.1"
+        "release" : "2021.09.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "device-identity", "oie-only", "user" ],
       "mappings" : [ ],
@@ -7429,9 +7403,9 @@
       "description" : "Triggered when a certificate is temporarily on hold and appears on CRL. You can use the event to audit certificate lifecycle change. A certificate on hold can be activated after it is removed from CRL.",
       "info" : {
         "created" : "2021-06-24",
-        "release" : "2021.08.1"
+        "release" : "2021.09.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "device-identity", "oie-only", "user" ],
       "mappings" : [ ],
@@ -7446,9 +7420,9 @@
       "description" : "Triggered when a certificate is revoked and appears on CRL. You can use the event to audit certificate lifecycle change. Once revoked, a certificates can not be activated.",
       "info" : {
         "created" : "2021-06-24",
-        "release" : "2021.08.1"
+        "release" : "2021.09.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "device-identity", "oie-only", "user" ],
       "mappings" : [ ],
@@ -7463,9 +7437,9 @@
       "description" : "Triggered when a certificate is suspended as a result of an admin deactivating the binding device. You can use the event to audit certificate lifecycle change. When triggered, the certificate can not be used to send the management hint.",
       "info" : {
         "created" : "2021-06-24",
-        "release" : "2021.08.1"
+        "release" : "2021.09.1"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "device-identity", "oie-only", "user" ],
       "mappings" : [ ],
@@ -7919,12 +7893,12 @@
     }, {
       "id" : "security.authenticator.lifecycle.activate",
       "category" : "mfa-platform",
-      "description" : "Fired when an admin activates an authenticator for the org. This event can be used to identify who activated an authenticator and which authenticator was activated. When fired, this event contains information about the authenticator type that was activated, and the actor who activated the authenticator. Related events include security.authenticator.lifecycle.deactivate.",
+      "description" : "Fired when an admin activates an authenticator for the org. This event can be used to identify who activated an authenticator and which authenticator was activated. When fired, this event contains information about the authenticator type that was activated and the actor who activated the authenticator. Authenticator activation occurs when an authenticator is added. Related events include security.authenticator.lifecycle.deactivate.",
       "info" : {
         "created" : "2020-06-30",
         "release" : "2020.06.3"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "authenticator", "event-hook-eligible", "oie-only" ],
       "mappings" : [ ],
@@ -7936,12 +7910,12 @@
     }, {
       "id" : "security.authenticator.lifecycle.deactivate",
       "category" : "mfa-platform",
-      "description" : "Fired when an admin deactivates an authenticator for the org. This event can be used to identify who deactivated an authenticator and which authenticator was deactivated. When fired, this event contains information about the authenticator type that was deactivated, and the actor who deactivated the authenticator. Related events include security.authenticator.lifecycle.activate.",
+      "description" : "Fired when an admin deactivates an authenticator for the org. This event can be used to identify who deactivated an authenticator and which authenticator was deactivated. When fired, this event contains information about the authenticator type that was deactivated and the actor who deactivated the authenticator. Authenticator deactivation occurs when an authenticator is removed. Related events include security.authenticator.lifecycle.activate.",
       "info" : {
         "created" : "2020-06-30",
         "release" : "2020.06.3"
       },
-      "beta" : true,
+      "beta" : false,
       "internal" : false,
       "tags" : [ "authenticator", "event-hook-eligible", "oie-only" ],
       "mappings" : [ ],
@@ -8682,6 +8656,23 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.agent.auto_update",
+      "category" : "agent-rotation",
+      "description" : "Fired when an individual agent auto-update succeeds or fails. Confirms a successful agent auto-update, or provides troubleshooting information when the agent auto-update is unsuccessful. Indicates when an agent auto-update is successful or unsuccessful.",
+      "info" : {
+        "created" : "2021-09-24",
+        "release" : "2021.10.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "ad-agent", "agent-pool" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AgentUpdateDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.agent.connector.connect",
       "category" : "directories",
       "description" : "Connect connector agent to Okta.",
@@ -8852,6 +8843,23 @@
         "targets" : null
       }
     }, {
+      "id" : "system.agent.ldap.update_user",
+      "category" : "directories",
+      "description" : "Fired when LDAP Delegated Authentication is used to sign in and a user profile is updated. Can be used by admins to identify user profile changes resulting from corresponding changes in the LDAP directory. The previous name for this event was system.agent.ad.update_user.",
+      "info" : {
+        "created" : "2021-08-17",
+        "release" : "2021.10.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "ldap-app" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AdAgentGenericDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.agent.ldap.update_user_password",
       "category" : "directories",
       "description" : "Perform update user password by LDAP agent.",
@@ -8865,6 +8873,23 @@
       "mappings" : [ "app.ldap.agent.password_update", "app.ldap.agent.password_update.error" ],
       "schema" : {
         "debugData" : "AdAgentGenericDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.agent_pools.auto_update",
+      "category" : "agent-rotation",
+      "description" : "Fired when the status of an agent pool auto-update is changed. Confirms an agent pool auto-update status change and provides troubleshooting information. Indicates when the status of an agent pool auto-update is changed.",
+      "info" : {
+        "created" : "2021-09-24",
+        "release" : "2021.10.0"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "ad-agent", "agent-pool" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "AgentUpdateDebugData",
         "actor" : null,
         "targets" : [ "ResourceDetails" ]
       }
@@ -9414,7 +9439,7 @@
       }
     }, {
       "id" : "system.email.template.update",
-      "category" : "idx",
+      "category" : "developer-platform",
       "description" : "This event is fired when a custom email template has been updated. Developers and Org Admins can use this to identify when a custom email template has been updated. The event details can be used to identify the template type and template engine. Usually this event will follow \"system.email.template.create\" and precede \"system.email.template.delete\" events.",
       "info" : {
         "created" : "2020-02-28",
@@ -10586,6 +10611,91 @@
         "targets" : [ "ResourceDetails" ]
       }
     }, {
+      "id" : "system.log_stream.lifecycle.activate",
+      "category" : "oin-devex",
+      "description" : "Fired when a user activates a log stream. This event can be used to track and audit when a user activates a log stream. When fired, this event indicates that a user activated a log stream configuration.",
+      "info" : {
+        "created" : "2021-08-31",
+        "release" : "2021.09.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "log-stream" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "LogStreamConfigDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.log_stream.lifecycle.create",
+      "category" : "oin-devex",
+      "description" : "Fired when a user creates a new log stream. This event can be used to track and audit when a user creates a log stream. When fired, this event indicates that a user created a log stream configuration.",
+      "info" : {
+        "created" : "2021-08-31",
+        "release" : "2021.09.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "log-stream" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "LogStreamConfigDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.log_stream.lifecycle.deactivate",
+      "category" : "oin-devex",
+      "description" : "Fired when a user or Okta deactivates a log stream. This event can be used to track and audit when a user or Okta deactivates a log stream. When fired, this event indicates that a user or Okta deactivated a log stream configuration.",
+      "info" : {
+        "created" : "2021-08-31",
+        "release" : "2021.09.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "log-stream" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "LogStreamConfigDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.log_stream.lifecycle.delete",
+      "category" : "oin-devex",
+      "description" : "Fired when a user deletes a log stream. This event can be used to track and audit when a user deletes a log stream. When fired, this event indicates that a user deleted a log stream configuration.",
+      "info" : {
+        "created" : "2021-08-31",
+        "release" : "2021.09.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "log-stream" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "LogStreamConfigDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
+      "id" : "system.log_stream.lifecycle.update",
+      "category" : "oin-devex",
+      "description" : "Fired when a user updates a log stream. This event can be used to track and audit when a user updates a log stream. When fired, this event indicates that a user updated a log stream configuration.",
+      "info" : {
+        "created" : "2021-08-31",
+        "release" : "2021.09.1"
+      },
+      "beta" : false,
+      "internal" : false,
+      "tags" : [ "log-stream" ],
+      "mappings" : [ ],
+      "schema" : {
+        "debugData" : "LogStreamConfigDebugData",
+        "actor" : null,
+        "targets" : [ "ResourceDetails" ]
+      }
+    }, {
       "id" : "system.mfa.factor.activate",
       "category" : "developer-platform",
       "description" : "Activate a new MFA factor. Can be used to identify when an admin has enabled a new factor for MFA. When fired the event will contain details of which factor is enabled.",
@@ -11506,7 +11616,7 @@
     }, {
       "id" : "user.authentication.auth_via_mfa",
       "category" : "mfa-platform",
-      "description" : "Authentication of user via MFA.",
+      "description" : "Authentication of user via MFA. For Okta Classic orgs, this event will only fire for second factor verifications, whereas for Identity Engine orgs, this event will fire for both primary and second factor verifications.",
       "info" : {
         "created" : "2016-01-08",
         "release" : "2016.02"
@@ -11880,7 +11990,7 @@
     }, {
       "id" : "user.mfa.factor.activate",
       "category" : "mfa-platform",
-      "description" : "Activate factor for user. Provides org admins with audit log and oversight utility for an MFA factor when it is activated. When fired, the event contains information about the MFA factor that has been activated, as well as the target user and the user activating the factor.",
+      "description" : "Activate factor or authenticator enrollment method for user. Provides org admins with audit log and oversight utility for an MFA factor when it is activated. When fired, the event contains information about the MFA factor that has been activated, as well as the target user and the user activating the factor. For Identity Engine orgs, this event will fire when an authentication method is enrolled.",
       "info" : {
         "created" : "2016-03-08",
         "release" : "2016.11"
@@ -11897,7 +12007,7 @@
     }, {
       "id" : "user.mfa.factor.deactivate",
       "category" : "mfa-platform",
-      "description" : "Reset factor for user. Provides org admins with audit log and oversight utility for the change in MFA factor lifecycle status when a specific factor is permanently deactivated. When fired, the event contains information about the MFA factor that has been deactivated, as well as the target user and the user deactivating the factor.",
+      "description" : "Reset factor or authenticator enrollment method for user. Provides org admins with audit log and oversight utility for the change in MFA factor lifecycle status when a specific factor is permanently deactivated. When fired, the event contains information about the MFA factor that has been deactivated, as well as the target user and the user deactivating the factor. For Identity Engine orgs, this event will fire when an authentication method is unenrolled.",
       "info" : {
         "created" : "2016-03-08",
         "release" : "2016.11"
@@ -11914,7 +12024,7 @@
     }, {
       "id" : "user.mfa.factor.reset_all",
       "category" : "mfa-platform",
-      "description" : "Reset all factors for user. Provides org admins with audit log and oversight utility for the change in MFA factor lifecycle statuses when all MFA factors for a user are permanently deactivated. When fired, the event contains information about the target user for whom all factors have been deactivated, as well as the user resetting the factors.",
+      "description" : "Reset all factors or authenticator enrollments for user. Provides org admins with audit log and oversight utility for the change in MFA factor lifecycle statuses when all MFA factors for a user are permanently deactivated. When fired, the event contains information about the target user for whom all factors have been deactivated, as well as the user resetting the factors. For Identity Engine orgs, this event contains information about a target user for whom all authenticator enrollments have been reset.",
       "info" : {
         "created" : "2016-03-08",
         "release" : "2016.11"
@@ -11931,7 +12041,7 @@
     }, {
       "id" : "user.mfa.factor.suspend",
       "category" : "enterprise-auth",
-      "description" : "Suspend factor for user. Provides org admins with audit log and oversight utility for the change in MFA factor lifecycle status when a factor is suspended, usually as a result of suspected compromise. When fired, the event contains information about the MFA factor that has been suspended, as well as the target user and the user suspending the factor. When unsuspended, related event user.mfa.factor.unsuspend will be fired.",
+      "description" : "Suspend factor or authenticator enrollment method for user. Provides org admins with audit log and oversight utility for the change in MFA factor lifecycle status when a factor is suspended, usually as a result of suspected compromise. When fired, the event contains information about the MFA factor that has been suspended, as well as the target user and the user suspending the factor. When unsuspended, related event user.mfa.factor.unsuspend will be fired.",
       "info" : {
         "created" : "2020-09-17",
         "release" : "2020.09.4"
@@ -11948,7 +12058,7 @@
     }, {
       "id" : "user.mfa.factor.unsuspend",
       "category" : "enterprise-auth",
-      "description" : "Unsuspend factor for user. Provides org admins with audit log and oversight utility for the change in MFA factor lifecycle status when a factor is reactivated from a state of suspension, after it has been determined that the authenticator is secure. When fired, the event contains information about the MFA factor that has been unsuspended, as well as the target user and the user reactivating the suspended factor. Before suspension, related event user.mfa.factor.suspend would have been fired.",
+      "description" : "Unsuspend factor or authenticator enrollment method for user. Provides org admins with audit log and oversight utility for the change in MFA factor lifecycle status when a factor is reactivated from a state of suspension, after it has been determined that the authenticator is secure. When fired, the event contains information about the MFA factor that has been unsuspended, as well as the target user and the user reactivating the suspended factor. Before suspension, related event user.mfa.factor.suspend would have been fired.",
       "info" : {
         "created" : "2020-09-17",
         "release" : "2020.09.4"
@@ -12203,7 +12313,7 @@
     }, {
       "id" : "workflows.user.connection.create",
       "category" : "wax-insights",
-      "description" : "Triggered when a user creates a new connection in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user creates a new connection for any connector.",
+      "description" : "This event can be used by any admin or security team member to monitor the creation of new connections for Workflows connectors. The target fields provide information on the user that created the connection, the application for which the connection was created, and the display name the user provided for the connection. Other connection lifecycle events include workflows.user.connection.revoke, workflows.user.connection.reauthorize, and workflows.user.connection.delete. Note that this event only indicates if a connection was successfully added to the database, and does not distinguish whether or not that connection is valid.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12220,7 +12330,7 @@
     }, {
       "id" : "workflows.user.connection.delete",
       "category" : "wax-insights",
-      "description" : "Triggered when a user deletes a connection in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user deletes an existing connection.",
+      "description" : "This event can be used by any admin or security team member to monitor the deletion of existing Workflows connections.  The target fields provide information on the user that deleted the connection, the application for which the connection was deleted, and the display name originally provided for the connection. Other connection lifecycle events include workflows.user.connection.create, workflows.user.connection.reauthorize, and workflows.user.connection.revoke. Note that for OAuth connections this will often fire with the workflows.user.connection.revoke event.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12237,7 +12347,7 @@
     }, {
       "id" : "workflows.user.connection.reauthorize",
       "category" : "wax-insights",
-      "description" : "Triggered when a user reauthorizes an existing connection in Workflows. Can be used to audit user activity in Workflows. Event is fired during connection reauthorization.  Performed through the UI.",
+      "description" : "This event can be used by any admin or security team member to monitor the reauthorization of existing connections for Workflows connectors.  Reauthorization can be used to retrieve a new access token or to change the credentials used by a connection. The target fields provide information on the user that reauthorized the connection, the application for which the connection was reauthorized, and the display name originally provided for the connection. Other connection lifecycle events include workflows.user.connection.create, workflows.user.connection.revoke, and workflows.user.connection.delete. Note that this event only indicates if a user attempted to reauthorize a connection, and does not distinguish whether or not that reauthorization was successful.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -12254,7 +12364,7 @@
     }, {
       "id" : "workflows.user.connection.revoke",
       "category" : "wax-insights",
-      "description" : "Triggered when a the platform revokes a connection's access token in Workflows. Can be used to audit user activity in Workflows. Event is fired when a user deletes a connection where the revoke metadata flow was implemented.",
+      "description" : "This event can be used by any admin or security team member to monitor when a token for a Workflows connection has been revoked in a third party service., and the event usually fires along with workflows.user.connection.delete.  The target fields provide information on the user that revoked the connection, the application for which the connection was revoked, and the display name originally provided for the connection. Other connection lifecycle events include workflows.user.connection.create, workflows.user.connection.reauthorize, and workflows.user.connection.delete. Note that this event only fires for connections where the service supplies an API endpoint for revoking tokens.  Tokens that cannot be revoked via API must be managed manually in the third party application.",
       "info" : {
         "created" : "2021-01-28",
         "release" : "2021.02.1"
@@ -13079,6 +13189,179 @@
             "customer" : false,
             "format" : "fieldName",
             "examples" : [ "userName" ]
+          }
+        }
+      },
+      "AgentUpdateDebugData" : {
+        "name" : "AgentUpdateDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "agent_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "AD", "LDAP" ]
+          },
+          "latest_version" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "version",
+            "examples" : [ "3.7.0" ]
+          },
+          "current_version" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "version",
+            "examples" : [ "3.6.1" ]
+          },
+          "previous_version" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "version",
+            "examples" : [ "3.5.9" ]
           }
         }
       },
@@ -17634,6 +17917,155 @@
           }
         }
       },
+      "IgaReviewerDebugData" : {
+        "name" : "IgaReviewerDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "campaign_item_decision" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "APPROVE", "REVOKE", "DELEGATE", "NORESPONSE" ]
+          }
+        }
+      },
       "InlineHookDebugData" : {
         "name" : "InlineHookDebugData",
         "properties" : {
@@ -18307,6 +18739,155 @@
             "customer" : false,
             "format" : "id",
             "examples" : [ "1209352", "118711", "840851" ]
+          }
+        }
+      },
+      "LogStreamConfigDebugData" : {
+        "name" : "LogStreamConfigDebugData",
+        "properties" : {
+          "oag_app" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "webhooks" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : true,
+            "format" : "text",
+            "examples" : [ ]
+          },
+          "threat_detections" : {
+            "type" : "ObjectNode",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "json",
+            "examples" : [ "{\"Password Spray\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"HIGH\",\"Login Failures\":\"MEDIUM\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"HIGH\"}", "{\"Password Spray\":\"MEDIUM\",\"Login Failures\":\"MEDIUM\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"HIGH\",\"Password Spray\":\"MEDIUM\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"HIGH\"}", "{\"Login Failures\":\"MEDIUM\",\"Password Spray\":\"MEDIUM\"}" ]
+          },
+          "threat_suspected" : {
+            "type" : "Boolean",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "boolean",
+            "examples" : [ "true", "false" ]
+          },
+          "security_conditions" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{result=true, condition=security.risk.level == 'LOW'}]", "[{result=true, condition=security.risk.level == 'MEDIUM'}, {result=false, condition=security.risk.level == 'LOW'}, {result=false, condition=security.userBehaviors['New Device'].detected}]" ]
+          },
+          "anonymizer_status" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "private" ]
+          },
+          "proxy_type" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "enum",
+            "examples" : [ "tor", "service" ]
+          },
+          "behaviors" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{New Geo-Location=NEGATIVE, New Device=POSITIVE, New IP=NEGATIVE, New State=BAD_REQUEST, New Country=NEGATIVE, Velocity=NEGATIVE, New City=BAD_REQUEST}", "{Anomalous Location: Country=NEGATIVE, 857d6e8a-1418-483b-9bed-19753635b1bc_1529707130=NEGATIVE, 89cfb2b1-39df-4ab2-9083-cfc743ec95fb=NEGATIVE, 9123fc2e-e5c7-47c4-920b-afecc8571d93=NEGATIVE, 1be3ee59-d12c-42ff-b04e-cc9de57c9a1d=NEGATIVE, bff2f33e-0d48-40e1-8add-a0dd9bc1a587=POSITIVE, 35fd8813-7bb3-4387-b6db-03b5ae95422a=BAD_REQUEST}" ]
+          },
+          "partner_risk" : {
+            "type" : "List",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "[{reasons=malware detected, malicious proxy, level=HIGH, name=sig-sci}, {reasons=malware suspected, level=MEDIUM, name=perimeter-x}]", "[{name=sig-sci, level=HIGH}]" ]
+          },
+          "risk" : {
+            "type" : "Map",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "{reasons=Anomalous Device, level=MEDIUM}", "{reasons=Anomalous Location, Anomalous Device, level=HIGH}", "{level=LOW}" ]
+          },
+          "url" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "url",
+            "examples" : [ "/login/do-login?" ]
+          },
+          "request_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "/api/v1/authn", "/api/v1/users", "/idp/idx/identify" ]
+          },
+          "request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X0S8xnvcK5njK7m0q@zzQQAAAAo" ]
+          },
+          "redirect_uri" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "uri",
+            "examples" : [ "http://httpbin.org" ]
+          },
+          "original_principal" : {
+            "type" : "Resource",
+            "sensitive" : false,
+            "personal" : true,
+            "customer" : false,
+            "format" : "",
+            "examples" : [ "debug_context.debug_data.original_principal.alternate_id=RadiusAge**@******.***", "debug_context.debug_data.original_principal.display_name=RadiusAge**@******.***", "debug_context.debug_data.original_principal.id=00u43fi43mLCWz0rW1t7", "debug_context.debug_data.original_principal.type=User" ]
+          },
+          "device_fingerprint" : {
+            "type" : "String",
+            "sensitive" : true,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "a890fcf88fa360a1005a2688abbd85cf" ]
+          },
+          "authn_request_id" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "id",
+            "examples" : [ "X2VCdlgDiOx8wuRzdWiZ6gAABOk", "X04hrZh4mEb9dgc6GkD5@AAACPU" ]
+          },
+          "message" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "text",
+            "examples" : [ "Partner event source does not exist." ]
           }
         }
       },
@@ -25766,6 +26347,14 @@
       "SignOnPolicyResourceDetails" : {
         "name" : "SignOnPolicyResourceDetails",
         "properties" : {
+          "sign_on_mode_evaluation_result" : {
+            "type" : "String",
+            "sensitive" : false,
+            "personal" : false,
+            "customer" : false,
+            "format" : "name",
+            "examples" : [ "AUTHENTICATED", "CHALLENGE", "UNSATISFIABLE", "DENIED" ]
+          },
           "sign_on_mode_type" : {
             "type" : "String",
             "sensitive" : false,

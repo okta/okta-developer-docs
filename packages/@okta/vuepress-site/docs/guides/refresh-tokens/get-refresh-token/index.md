@@ -53,22 +53,30 @@ https://${yourOktaDomain}/oauth2/default/v1/authorize?client_id=${clientId}
 The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/). The value for `code` is the authorization code that you receive in the response from the request to the `/authorize` endpoint.
 
 ```bash
-POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code
-&redirect_uri=yourApp%3A%2Fcallback
-&code=DPA9Utz2LkWlsronqehy
-&state=9606b31k-51d1-4dca-987c-346e3d8767n9
-&scope=openid%20offline_access
+curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
+-H 'Accept: application/json' \
+-H 'Authorization: Basic ${Base64(${clientId}:${clientSecret})}' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-d 'grant_type=authorization_code' \
+-d 'redirect_uri=${redirectUri}' \
+-d 'code=iyz1Lpim4NgN6gDQdT1a9PJDVTaCdxG1wJMYiUkfGts' \
+-d 'state=9606b31k-51d1-4dca-987c-346e3d8767n9' \
+-d 'scope=openid offline_access'
 ```
 
 The following is an example request to the `/token` endpoint to obtain an access token, an ID token (by including the `openid` scope), and a refresh token for the [Authorization Code with PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/). The value for `code` is the code that you receive in the response from the request to the `/authorize` endpoint.
 
 ```bash
-POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=authorization_code
- &redirect_uri=yourApp%3A%2Fcallback
- &code=CKA9Utz2GkWlsrmnqehz
- &state=419946f0-29d7-11eb-adc1-0242ac120002
- &scope=openid%20offline_access
- &code_verifier=M25iVXpKU3puUjFjYWg3T1NDTDQtcW1rOUY5YXlwalNoc0hhaoxifmZHag
+curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
+-H 'Accept: application/json' \
+-H 'Authorization: Basic ${Base64(${clientId}:${clientSecret})}' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-d 'grant_type=authorization_code' \
+-d 'redirect_uri=${redirectUri}' \
+-d 'code=iyz1Lpim4NgN6gDQdT1a9PJDVTaCdxG1wJMYiUkfGts' \
+-d 'state=419946f0-29d7-11eb-adc1-0242ac120002' \
+-d 'scope=openid offline_access' \
+-d 'code_verifier=M25iVXpKU3puUjFjYWg3T1NDTDQtcW1rOUY5YXlwalNoc0hhaoxifmZHag'
 ```
 
 ### Example response
@@ -97,11 +105,15 @@ See [Request a token](/docs/reference/api/oidc/#token) and [Implementing the res
 With the `password` grant type, you can include an `openid` scope alongside the `offline_access` scope to also get back an ID token.
 
 ```bash
-POST https://${yourOktaDomain}/oauth2/default/v1/token?grant_type=password
- &redirect_uri=yourApp%3A%2Fcallback
- &username=example%40mailinator.com
- &password=a.gReAt.pasSword
- &scope=openid%20offline_access
+curl --location --request POST 'https://${yourOktaDomain}/oauth2/default/v1/token' \
+-H 'Accept: application/json' \
+-H 'Authorization: Basic ${Base64(${clientId}:${clientSecret})}' \
+-H 'Content-Type: application/x-www-form-urlencoded' \
+-d 'grant_type=password' \
+-d 'redirect_uri=${redirectUri}' \
+-d 'username=example@mailinator.com' \
+-d 'password=a.gReAt.pasSword' \
+-d 'scope=openid offline_access'
 ```
 
 ### Example response

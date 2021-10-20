@@ -4,8 +4,6 @@ excerpt: Learn how to configure SSO for Native applications and understand the N
 layout: Guides
 ---
 
-<ApiLifecycle access="ea" /><br>
-
 ## Overview
 
 Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve Single Sign-On (SSO) and Single Logout (SLO) between these applications. SSO between browser-based web applications is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. Okta offers a token-based approach to achieve SSO between native applications.
