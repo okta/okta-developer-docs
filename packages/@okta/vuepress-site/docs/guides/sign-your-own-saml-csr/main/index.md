@@ -30,7 +30,7 @@ n/a
 
 Okta as a SAML Service Provider is referred to as the Inbound SAML. Okta as a SAML Identity Provider (IdP) is referred to as the Outbound SAML. The general procedure is the same for both. However, some of the API calls are different as described in the following sections. 
 
-> **Note:** After you update the key credential, your users can't access the SAML app until you upload the new certificate to the ISV.
+> **Note:** After you update the key credential, users can't access the SAML app until you upload the new certificate to the ISV.
 
 For information on using the Postman REST API test client for these steps, see [Get Started with the Okta REST APIs](/code/rest/).
 
