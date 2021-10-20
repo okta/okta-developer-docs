@@ -127,7 +127,7 @@ If you don't have any policies configured or your org doesn't allow you to disab
 
 5. Repeat steps 3 to 4 for any other policies that you have configured.
 
-## Configure registration in the Okta Sign-in Widget
+## Configure registration in the Okta Sign-In Widget
 
 ### Configure registration in a custom sign-in page in the Okta-hosted Widget
 
