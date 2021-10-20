@@ -346,7 +346,7 @@ curl -v -X GET \
 
 <ApiOperation method="put" url="/api/v1/authenticators/${authenticatorId}" />
 
-Updates settings on an Authenticator.
+Updates settings on an Authenticator
 
 #### Request path parameters
 
