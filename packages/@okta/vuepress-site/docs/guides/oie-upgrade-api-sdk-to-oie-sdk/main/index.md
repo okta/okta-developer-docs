@@ -49,7 +49,7 @@ See the following sample calls and responses for this basic authentication flow:
 
 #### 1. Call /api/v1/auth
 
-```cURL
+```bash
 curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
@@ -99,7 +99,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
 
 #### 3 Use sessionToken from the response to call api/v1/sessions and create a session:
 
-```cURL
+```bash
 curl --location --request POST 'https://duffield.oktapreview.com/api/v1/sessions' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
@@ -183,7 +183,107 @@ If your application uses direct APIs for a multifactor authentication flow, your
 
 >**Note:** If you call the direct `/api/v1/policies` API to manage or update MFA enrollment policies, you need to update these calls to use the Identity Engine policies. See App sign-on policy and Profile enrollment policy.
 
-... coming (fix links in note above)
+See the following sample calls and responses for the MFA authentication flow using the email factor:
+
+#### 1. Call /api/v1/auth
+
+```bash
+curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+  "username": "john.doe@example.com",
+  "password": "password123",
+  "options": {
+    "multiOptionalFactorEnroll": false,
+    "warnBeforePasswordExpired": false
+  }
+}'
+
+```
+
+#### 2. Receive a successful response requiring MFA
+
+```JSON
+{
+    "stateToken": "00kYBC0MrmG2kHSqYHrSzw7Y99_u9-MOcjEf-_B9Fa",
+    "expiresAt": "2021-10-12T14:38:30.000Z",
+    "status": "MFA_REQUIRED",
+    "_embedded": {
+        "user": {
+            "id": "00u1ehs07qD6MhWk85d7",
+            "passwordChanged": "2021-10-08T19:36:48.000Z",
+            "profile": {
+                "login": "michael.john.smith27@gmail.com",
+                "firstName": "Michael",
+                "lastName": "Smith",
+                "locale": "en",
+                "timeZone": "America/Los_Angeles"
+            }
+        },
+        "factors": [
+            {
+                "id": "emf1ehtcpaFA0cQg95d7",
+                "factorType": "email",
+                "provider": "OKTA",
+                "vendorName": "OKTA",
+                "profile": {
+                    "email": "m...7@gmail.com"
+                },
+                "_links": {
+                    "verify": {
+                        "href": "https://example.okta.com/api/v1/authn/factors/emf1ehtcpaFA0cQg95d7/verify",
+                        "hints": {
+                            "allow": [
+                                "POST"
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "id": "sms1ehtiv4lzDd0MW5d7",
+                "factorType": "sms",
+                "provider": "OKTA",
+                "vendorName": "OKTA",
+                "profile": {
+                    "phoneNumber": "+1 XXX-XXX-1502"
+                },
+                "_links": {
+                    "verify": {
+                        "href": "https://example.okta.com/api/v1/authn/factors/sms1ehtiv4lzDd0MW5d7/verify",
+                        "hints": {
+                            "allow": [
+                                "POST"
+                            ]
+                        }
+                    }
+                }
+            }
+        ],
+        "policy": {
+            "allowRememberDevice": true,
+            "rememberDeviceLifetimeInMinutes": 15,
+            "rememberDeviceByDefault": false,
+            "factorsPolicyInfo": {}
+        }
+    },
+    "_links": {
+        "cancel": {
+            "href": "https://example.okta.com/api/v1/authn/cancel",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+#### 3. Send email challenge /api/authn/factors/{{$emailFactorId}}/verify
+
+
 
 ## Mapping Password Recovery code to the Okta Identity Engine SDK
 
