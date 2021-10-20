@@ -243,7 +243,7 @@ Response:
 }
 ```
 
-> **Note:** The response has been truncated for clarity.
+> **Note:** The response is truncated for clarity.
 
 ## See also 
 
