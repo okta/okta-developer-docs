@@ -1,12 +1,32 @@
 ---
 title: External Identity Providers
 ---
+
 # External Identity Providers
+
 As a developer building a custom application, you want to give your users the freedom to choose which Identity Provider that they use to sign in to your application. But first you should understand how various Identity Providers connect to Okta.
 
 What is an Identity Provider? It is a service that creates and maintains identity information and then provides authentication services to your applications. Identity Providers can significantly reduce sign-in and registration friction, which allows your users to easily access applications without needing to create new passwords or remember usernames.
 
+Currently Okta supports the following social Identity Providers:
+
+- [Amazon](/docs/guides/add-a-social-idp/amazon/main/)
+- [Apple](/docs/guides/add-an-external-idp/apple/main/)
+- [Azure](/docs/guides/add-an-external-idp/azure/main/)
+- [Facebook](/docs/guides/add-an-external-idp/facebook/main/)
+- [GitHub](/docs/guides/add-a-social-idp/github/main/)
+- [Google](/docs/guides/add-an-external-idp/google/main/)
+- [LinkedIn](/docs/guides/add-an-external-idp/linkedin/main/)
+- [Microsoft](/docs/guides/add-an-external-idp/microsoft/main/)
+
+Additionally, Okta supports the following Identity Providers:
+
+- [Okta to Okta](/docs/guides/add-an-external-idp/oktatookta/main/)
+- [OpenID Connect](/docs/guides/add-an-external-idp/openidconnect/main/)
+- [SAML 2.0](/docs/guides/add-an-external-idp/saml2/main/)
+
 ## The big picture
+
 Okta manages connections to other Identity Providers for your application and sits between your application and the Identity Provider that authenticates your users.
 
 * When you use Okta as the [user store](https://developer.okta.com/product/user-management/) for your applications, users can sign in with their email and password by default. See our guides for how to sign in users to your [web](/docs/guides/sign-into-web-app/), [mobile](/docs/guides/sign-into-mobile-app/), and [single-page](/docs/guides/sign-into-spa/) apps.
@@ -22,6 +42,7 @@ Okta manages connections to other Identity Providers for your application and si
 Adding any of these Identity Providers allows users to sign in to your application using their credentials from a specific Identity Provider.
 
 ## Benefits of using Okta to manage Identity Providers
+
 You could connect your application directly to an Identity Provider (for example, using an SDK to add a button for **Sign in with Google**). However, using Okta as the user store for your application and letting Okta manage the Identity Provider connections has some benefits:
 
 * **No custom code:** Your application only needs to talk to Okta, and Okta does the rest.
@@ -37,9 +58,11 @@ You could connect your application directly to an Identity Provider (for example
 * **Group sync:** Okta supports group sync between Okta and enterprise SAML Identity Providers. This allows you to specify the groups that users should be added to.
 
 ## How Okta connects to external Identity Providers
+
 Okta sits between your application and the external provider. Your application only needs to talk to Okta, and Okta does the rest.
 
 ### Sign-in process
+
 The sign-in process starts at the `/authorize` endpoint, and then goes out to the provider and back:
 
 1. In your application, the user clicks a button similar to: **Sign in with (Identity Provider)**.
@@ -87,8 +110,6 @@ Account linking is configured at the Identity Provider level. When you create an
 
 With these defaults, when any validated OpenID Connect JWT is provided, Okta searches the Universal Directory for a user's profile where the `email` attribute value passed by the Identity Provider (the **IdP Username** value) matches the `username` attribute value (the **Match Against** value). If there is a match, then the user is linked by mapping the required, static `sub` claim provided in the JWT to that user.
 
-See [Authentication Settings](/docs/guides/add-an-external-idp/-/configure-idp-in-okta/#authentication-settings) for more information on these attributes.
-
 > **Important:** After an account is linked, any validated JWT token with the same `sub` claim (which is mapped to the `idp.externalId` in the Identity Provider profile) is automatically mapped to the same user regardless of the content of the claims in the JWT or if the values for **IdP Username** and **Match Against** no longer result in a match.
 
 To remove an existing account link or validate account linking on every sign in, we recommend that you make a DELETE call to the [`/api/v1/idps/${idpId}/users/${userId}` endpoint](/docs/reference/api/idps/#unlink-user-from-idp) to remove the link between the Okta user and the Identity Provider user before authentication.
@@ -106,6 +127,7 @@ Additionally, you can apply granular control over account linking and JIT by def
 You can also set up group sync to specify the groups that users should be added to and enable profile mastering so that a user's profile gets updated each time that the user signs in. This allows you to always have the most recent data about your users.
 
 ## IdP Discovery
+
 If you have more than one Identity Provider configured in your org (which can mean just one external Identity Provider, in addition to Okta itself also serving as an Identity Provider), you can define logic to determine which Identity Provider individual end users are routed to when they authenticate. This functionality is called IdP Discovery, or IdP Routing Rules, and is configured by means of the [IdP Discovery Policy](/docs/reference/api/policy/#idp-discovery-policy).
 
 The Okta Sign-In Widget (version 2.5.0 or above) interacts with the IdP Discovery policy to redirect end users as needed to the IdP determined by the policy.
@@ -113,15 +135,3 @@ The Okta Sign-In Widget (version 2.5.0 or above) interacts with the IdP Discover
 > **Note:** v1 of the Okta API supports IdP Discovery with the Okta-hosted Widget only.
 
 If you don't use the Okta Sign-In Widget, instead interacting directly with the [Okta Authentication API](/docs/reference/api/authn/) to implement sign-in yourself, you can integrate IdP Discovery into your flow by including a call to Okta's [WebFinger](/docs/reference/api/webfinger/) endpoint. That endpoint returns the name of the IdP that should be used for a given end user, as determined by the org's defined IdP Discovery Policy.
-
-## See also
-See the following guides for information on how to set up various IdPs:
-
-* [Apple](/docs/guides/add-an-external-idp/apple/before-you-begin/)
-* [Azure AD](/docs/guides/add-an-external-idp/azure/create-an-app-at-idp/)
-* [Facebook](/docs/guides/add-an-external-idp/facebook/before-you-begin/)
-* [Google](/docs/guides/add-an-external-idp/google/before-you-begin/)
-* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/before-you-begin/)
-* [Microsoft](/docs/guides/add-an-external-idp/microsoft/before-you-begin/)
-* [Generic OpenID Connect Identity Provider](/docs/guides/add-an-external-idp/openidconnect/before-you-begin/)
-* [SAML Identity Provider](/docs/guides/add-an-external-idp/saml2/before-you-begin/)

@@ -5,9 +5,7 @@ meta:
     content: Okta supports authentication with social Identity Providers. Get an overview of the process and prerequisites, as well as the set up instructions.
 ---
 
-<StackSelector />
-
-This article explains how to configure an external social Identity Provider for your application by creating an application on <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
+This document explains how to configure an external social Identity Provider for your application by creating an application on <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
 Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s <StackSelector snippet="idp" noSelector inline /> account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
 
@@ -21,7 +19,7 @@ How to configure a social Identity Provider so that your users can quickly sign 
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](/signup)
+* An Okta Developer Edition organization. Don't have one? [Create one for free](/signup).
 * An OpenID Connect (OIDC) app integration in Okta. You can use an existing OIDC app integration or create a new one. To create a new OIDC app integration, see [Create OIDC app integrations using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard).
 * An account with <StackSelector snippet="idpaccount" noSelector inline />.
 
@@ -35,7 +33,7 @@ n/a
 
 1. Create and register <StackSelector snippet="apptype" noSelector inline /> at <StackSelector snippet="idp" noSelector inline />.
 
-1. When you create an application at the IdP, you need to provide a redirect URI for authentication. Use the Okta sign-in redirect URI from your app integration. To locate the Okta sign-in redirect URI for your application:
+1. When you create an application at the IdP, you need to provide a redirect URI for authentication. Use the Okta sign-in redirect URI from your app integration. To locate the Okta sign-in redirect URI:
 
     * From the Admin Console, select **Applications** > **Applications**.
     * Find your app and select it.
@@ -46,19 +44,19 @@ n/a
 
     For example, if your Okta subdomain is called `company`, then the URL would be `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
-1. Save the generated <StackSelector snippet="idp" noSelector inline /> Client ID and Client Secret values. You need to add them to your Okta configuration.
+1. Save the generated <StackSelector snippet="idp" noSelector inline /> client ID and client secret values. You need to add them to your Okta configuration.
 
 ## Create the Identity Provider in Okta
 
 To add <StackSelector snippet="idp" noSelector inline /> as an Identity Provider in Okta:
 
-1. In the Okta Admin Console, go to **Security** > **Identity Providers**.
+1. In the Admin Console, go to **Security** > **Identity Providers**.
 1. Click **Add Identity Provider**, and then select **<StackSelector snippet="idp" noSelector inline />**.
 1. In the **Add an Identity Provider** dialog box, define the following:
 
     * **Name** &mdash; Enter a name for the Identity Provider in Okta.
-    * **Client ID** &mdash; Paste the generated Client ID from your <StackSelector snippet="idp" noSelector inline /> application.
-    * **Client secret** &mdash; Paste the generated Client secret from your <StackSelector snippet="idp" noSelector inline /> application.
+    * **Client ID** &mdash; Paste the generated client ID from your <StackSelector snippet="idp" noSelector inline /> application.
+    * **Client secret** &mdash; Paste the generated client secret from your <StackSelector snippet="idp" noSelector inline /> application.
     * **Scopes** &mdash; Leave the defaults for a simple sign-in flow. You can also add more scopes. See <StackSelector snippet="scopes" noSelector inline />.
 
 1. Click **Finish**.
@@ -73,7 +71,7 @@ Alternatively, you can [use the Authorize URL to simulate the authorization flow
 
 ## Add <StackSelector snippet="idp" noSelector inline /> to the Okta Sign-In Widget
 
-The Okta Sign-In Widget is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with GitHub** button to the Widget by adding the following code to your Okta Sign-in Widget configuration. Replace `IDP` with the name of the Identity Provider in all caps. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](/#Create_the_Identity_Provider_in_Okta) section:
+The Okta Sign-In Widget is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with GitHub** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `IDP` with the name of the Identity Provider. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](/#Create_the_Identity_Provider_in_Okta) section:
 
 ```javascript
     config.idps= [
@@ -84,7 +82,7 @@ The Okta Sign-In Widget is an embeddable JavaScript Widget that reproduces the l
 
 ## Next steps
 
-You should now understand how to add a social Identity Provider and have successfully added and tested the integration with the social Identity Provider.
+You should now understand how to add a social Identity Provider and have successfully added and tested the integration.
 
 To add another Identity Provider:
 

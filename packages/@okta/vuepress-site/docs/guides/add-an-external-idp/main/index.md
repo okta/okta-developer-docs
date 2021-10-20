@@ -5,7 +5,7 @@ meta:
     content: Okta supports authentication with external OpenID Connect Identity Providers as well as SAML (also called Inbound Federation). Get an overview of the process and prerequisites, as well as the instructions required to set one up.
 ---
 
-This article explains how to configure an external Identity Provider for your application by creating an application on <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
+This document explains how to configure an external Identity Provider for your application by creating an application on <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
 Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s Identity Provider account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
 
@@ -19,9 +19,9 @@ How to configure an external Identity Provider so that your users can quickly si
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](/signup)
+* An Okta Developer Edition organization. Don't have one? [Create one for free](/signup).
 * An application that you want to add authentication to. You can use an existing app integration or create a new one. To create a new app integration, see [Create custom app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard).
-* An account <StackSelector snippet="idpaccount" noSelector inline />
+* An account <StackSelector snippet="idpaccount" noSelector inline />.
 
 
 **Sample code**
@@ -54,11 +54,11 @@ To connect your org to the Identity Provider, add and configure that Identity Pr
 
 1. Click **Add Identity Provider**. The Identity Providers page appears.
 
-1. Locate the Identity Provider that you just added and click the arrow next to the Identity Provider name to expand.
+1. Locate the Identity Provider that you just added and click the arrow next it to expand.
 
 <StackSnippet snippet="afterappidpinokta" />
 
-> **Note:** When you are setting up your IdP in Okta, there are a number of settings that allow you to finely control the social sign-in behavior. While the provider-specific instructions show one possible configuration, [Social Identity Provider Settings](#social-identity-provider-settings) explains each of these in more detail (as well as the settings in the **Advanced Settings** section so that you can choose the right configuration for your use case.
+> **Note:** When you are setting up your IdP in Okta, there are a number of settings that allow you to finely control the social sign-in behavior. While the provider-specific instructions show one possible configuration, [Account Linking and JIT Provisioning](/docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning) discusses configuration options in more detail so that you can choose the right configuration for your use case.
 
 ## Test the integration
 
@@ -66,9 +66,9 @@ You can test your integration by configuring a [routing rule](https://help.okta.
 
 ### Use the Authorize URL to simulate the authorization flow
 
-To test, you can also use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
+You can also use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
 
-> **Note:** Use this step to test your authorization URL as an HTML link. For information on using the Sign-In Widget, Okta-hosted sign-in page, or AuthJS, see [Use the Identity Provider to sign in](/#use-the-identity-provider-to-sign-in).
+> **Note:** Use this step to test your authorization URL as an HTML link. For information on using the Sign-In Widget, Okta-hosted sign-in page, or AuthJS, see [Use the Identity Provider to sign in](/docs/guides/add-an-external-idp/apple/main/#use-the-identity-provider-to-sign-in).
 
 In the URL, replace `${yourOktaDomain}` with your org's base URL, and then replace the following values:
 
@@ -121,7 +121,7 @@ After the user clicks the link, they are prompted to sign in with the Identity P
 
 ### Okta Sign-In Widget
 
-Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with ${IdentityProviderName}** button by adding the following code to your Okta Sign-in Widget configuration:
+Okta also offers an easily embeddable JavaScript widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with ${IdentityProviderName}** button by adding the following code to your Okta Sign-In Widget configuration:
 
 ```js
 config.idps= [
@@ -130,7 +130,7 @@ config.idps= [
 config.idpDisplay = "SECONDARY";
 ```
 
-You can find out more about the Okta Sign-in Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign in with an Identity Provider uses the Widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
+You can find out more about the Okta Sign-In Widget [on GitHub](https://github.com/okta/okta-signin-widget#okta-sign-in-widget). Implementing sign in with an Identity Provider uses the Widget's [OpenID Connect authentication flow](https://github.com/okta/okta-signin-widget#openid-connect).
 
 ### Custom Okta-hosted sign-in page
 
