@@ -247,7 +247,7 @@ Response:
 
 ## See also 
 
-Read more about share application key credentials between apps in our API Reference docs:
+Read more about sharing application key credentials between apps in our API Reference docs:
 
 * [Application sign-on modes](/docs/reference/api/apps/#sign-on-modes)
 * [Generate a new application key credential](/docs/reference/api/apps/#generate-new-application-key-credential)
