@@ -12,7 +12,7 @@ This guide teaches you how to upload your own SAML certificates to sign the asse
 
 * List your apps using Okta APIs.
 * Generate, sign, and publish a certificate signing request (CSR).
-* Update your app, and ISV, to use the new certificate.
+* Update your app and ISV to use the new certificate.
 * Clone the certificate for use across multiple apps.
 
 
