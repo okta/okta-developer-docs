@@ -36,7 +36,7 @@ Okta's self-service registration lets you configure a custom app or the Okta Hom
 
 Self-service registration supports these registration workflows:
 
-* **Make email verification mandatory.** After registering their information, users are immediately sent an email to verify their email address. Users must click the link in the email to complete the registration process. Users are then redirected to your app or to your org's Okta Homepage.
+* **Make email verification mandatory.** After registering their information, users are immediately sent an email to verify their email address. They must click the link in the email to complete the registration process. They are then redirected to their app or to their org's Okta homepage.
 
 > **Note:** The lifetime of the emailed link is dictated by the **Activation emails are valid for** setting on the **Security** > **General** page of the Admin Console.
 
