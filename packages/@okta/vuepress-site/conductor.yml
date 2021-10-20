@@ -2397,6 +2397,22 @@ redirects:
     to: /docs/guides/sign-your-own-saml-csr/main/
   - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/
     to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/overview/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/list-your-apps/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/generate-a-csr/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/sign-the-csr/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/publish-the-csr/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/update-the-key-credential/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/clone-the-certificate/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
+  - from: /docs/guides/sign-your-own-saml-csr/upload-the-certificate/index.html
+    to: /docs/guides/sign-your-own-saml-csr/main/
   - from: /docs/guides/set-up-self-service-registration/before-you-begin/
     to: /docs/guides/set-up-self-service-registration/main/
   - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/
@@ -2406,4 +2422,14 @@ redirects:
   - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/
     to: /docs/guides/set-up-self-service-registration/main/
   - from: /docs/guides/set-up-self-service-registration/next-steps/
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/before-you-begin/index.html
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/configure-self-service-registration-policy/index.html
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/disable-security-image/index.html
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/customize-link-in-widget/index.html
+    to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
     to: /docs/guides/set-up-self-service-registration/main/

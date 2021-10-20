@@ -153,11 +153,11 @@ Before you can configure self-service registration in your embedded or self-host
 ```json
       },
       features: {
-        // Used to enable registration feature on the widget.
-        // https://github.com/okta/okta-signin-widget#feature-flags
-         registration: true // REQUIRED
+         registration: true
       }
 ```
+
+> **Note**: This [feature flag](https://github.com/okta/okta-signin-widget#feature-flags) is used to enable the registration feature on the widget.
 
 ## Next steps
 
