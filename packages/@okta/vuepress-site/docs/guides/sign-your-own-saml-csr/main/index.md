@@ -358,7 +358,7 @@ If the certificate that you cloned from changes, you must repeat the cloning ope
 
 ## Upload the new certificate to the ISV
 
-> **Caution:** After completing the [Publish a CSR with a certificate](#publish-a-CSR-with-a-certificate) step, your users can't access the SAML app or the Identity Provider until you complete this step.
+> **Caution:** After you complete the [Publish a CSR with a certificate](#publish-a-CSR-with-a-certificate) step, users can't access the SAML app or the Identity Provider until you complete these next steps.
 
 For Outbound SAML, complete the following steps (note that these steps can't be automated):
 
