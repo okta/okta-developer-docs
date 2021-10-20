@@ -4,7 +4,7 @@ excerpt: How to share application key credentials between Apps
 layout: Guides
 ---
 
-In this article you will learn how to share application key credentials across multiple applications so that they can be authorized using the same identity provider.
+In this article you learn how to share application key credentials across multiple applications so that they can be authorized using the same Identity Provider.
 
 ---
 
