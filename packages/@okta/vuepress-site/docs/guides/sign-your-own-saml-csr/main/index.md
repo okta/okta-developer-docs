@@ -346,7 +346,7 @@ Content-Type: application/json
 ## Clone the certificate (optional)
 
 To share the certificate that you created across multiple apps, clone it with the
-[Apps API](/docs/reference/api/apps/#clone-application-key-credential) using the key `id` that you generated.
+[Apps API](/docs/reference/api/apps/#clone-application-key-credential) by using the key `id` that you generated.
 
 * To share the certificate that you created across multiple IdPs, clone it with the [IdPs API](#top) using the key `id` that you generated.
 
