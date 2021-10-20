@@ -40,7 +40,7 @@ Self-service registration supports these registration workflows:
 
 > **Note:** The lifetime of the emailed link is dictated by the **Activation emails are valid for** setting on the **Security** > **General** page of the Admin Console.
 
-* **Make email verification optional.** After registration, end users are immediately redirected to your custom app/portal or to your org's Okta Homepage. Okta then sends the user an email requesting verification of their email address.
+* **Make email verification optional.** After registration, users are immediately redirected to their custom app/portal or to their org's Okta homepage. Okta then sends the user an email to request verification of their email address.
 
 ## Enable and configure a self-service registration policy
 
