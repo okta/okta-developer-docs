@@ -625,7 +625,7 @@ The Authenticator object defines the following properties:
 | `key`         | String                                                          | A human-readable string that identifies the Authenticator  | All Authenticators |
 | `status`      | `ACTIVE`,`INACTIVE`                                             | Status of the Authenticator                                | All Authenticators |
 | `lastUpdated` | String (ISO-8601)                                               | Timestamp when the Authenticator was last modified         | All Authenticators |
-| `name`        | String                                                          | Display name of this Authenticator                         | All Authenticators |
+| `name`        | String                                                          | Display name of the Authenticator                         | All Authenticators |
 | `type`        | String (Enum)                                                   | The type of Authenticator. Values include: `password`, `security_question`, `phone`, `email`, `app`, `federated`, and `security_key`. | All Authenticators |
 | `settings.allowedFor`        | String (Enum)                                    | The allowed types of uses for the Authenticator. Values include: `recovery`, `sso`, `any`, and `none`. | `okta_email`, `phone_number`, `security_question` |
 | `settings.tokenLifetimeInMinutes` | Number                                      | Specifies the lifetime of an `email` token, and only applies to the `email` Authenticator type. Default value is `5` minutes. | `okta_email` |
