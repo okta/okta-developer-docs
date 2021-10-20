@@ -254,7 +254,7 @@ RKvwyyTfqfq9pgSmB9xNVJIeVZbbZGTlNGqJti24E0AiIPggtxg5NJ+HHnEQ5RxdSsR4fbMz9i0K
 </saml2p:Response>
 ```
 
-SAML responses are signed, and contain the profile attributes of the person who requested access to the app, as set in the General tab of the administrator UI.
+SAML responses are signed and contain the profile attributes of the person who requested access to the app. 
 
 ## See also
 
