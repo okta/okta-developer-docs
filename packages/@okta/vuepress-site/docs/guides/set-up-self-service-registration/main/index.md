@@ -109,7 +109,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
 
 With Okta, new users are prompted to choose a security image and optionally an additional security question prompt when they first sign in. To provide your users with a seamless and smooth sign-in experience, you may need to disable these options.
 
-1. In the Admin Console, go to **Settings** and then **Customization**.
+1. In the Admin Console, go to **Settings** > **Customization**.
 
 2. In the **Optional User Account Fields** section, click **Edit**.
 
