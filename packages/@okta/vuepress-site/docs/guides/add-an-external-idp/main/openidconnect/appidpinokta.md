@@ -7,7 +7,7 @@
 
 In the **Endpoints** section:
 
-Add the following endpoint URLs for the <StackSelector snippet="idp" noSelector inline /> Identity Provider that you are configuring. You can obtain the appropriate endpoints and the required scopes in the well-known configuration document for the Identity Provider (for example, `https://${theIdPdomain}/.well-known/openid-configuration`). See the [Well-known configuration URLs](/docs/guides/add-an-external-idp/openidconnect/configure-idp-in-okta/#well-known-configuration-urls) section for URL details for the Identity Providers that we support.
+Add the following endpoint URLs for the <StackSelector snippet="idp" noSelector inline /> Identity Provider that you are configuring. You can obtain the appropriate endpoints and the required scopes in the well-known configuration document for the Identity Provider (for example, `https://${theIdPdomain}/.well-known/openid-configuration`).
 
 * **Issuer** &mdash; the identifier of the <StackSelector snippet="idp" noSelector inline /> provider. For example, where you created the Identity Provider app: `https://${theIdPdomain}/`
 * **Authorization endpoint** &mdash; the URL of the Identity Provider's OAuth 2.0 authorization endpoint. For example: `https://${theIdPdomain}/oauth2/v1/authorize`
