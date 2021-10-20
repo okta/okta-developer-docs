@@ -4,7 +4,7 @@ excerpt: How to use a custom SAML certificate for apps
 layout: Guides
 ---
 
-This guide teaches you how to upload your own SAML certificates to sign the assertion for Outbound SAML apps and to sign the AuthN request and decrypt the assertion for Inbound SAML.
+This guide teaches you how to upload your own SAML certificates to sign the assertion for Outbound SAML apps, sign the AuthN request, and decrypt the assertion for Inbound SAML.
 
 ---
 
