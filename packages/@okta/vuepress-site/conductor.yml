@@ -2365,3 +2365,29 @@ redirects:
     to: /docs/guides/oie-embedded-common-run-samples/-/main/
   - from: /docs/reference/api-overview/index.html
     to: /docs/reference/core-okta-api/
+  - from: /docs/guides/sharing-cert/overview/
+    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/generate-new-credential/
+    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/update-source-app-with-cert/
+    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/share-kid-with-target-app/
+    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/update-target-app-with-kid/
+    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/next-steps/
+    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/saml-tracer/overview/
+    to: /docs/guides/saml-tracer/main/
+  - from: /docs/guides/updating-saml-cert/overview/
+    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/get-app-info/
+    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/generate-new-key-credential/
+    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/update-key-credential/
+    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/upload-cert-to-isv/
+    to: /docs/guides/updating-saml-cert/main/
+  - from: /docs/guides/updating-saml-cert/revert-to-sha1/
+    to: /docs/guides/updating-saml-cert/main/
