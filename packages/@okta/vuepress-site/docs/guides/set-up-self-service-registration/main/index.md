@@ -13,7 +13,7 @@ This article shows you how to set up Okta's self-service registration (SSR) func
 **Learning outcomes**
 
 * Use policies to govern SSR behavior
-* Enable and disable SSR recovery options.
+* Enable and disable SSR recovery options
 * Configure SSR options in the Okta Sign-In Widget.
 
 **What you need**
