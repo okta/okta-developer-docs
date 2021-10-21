@@ -15,12 +15,12 @@ Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/butt
 
 Each IdP requires some setup. Use the Okta setup guide for your IdP:
 
-* [Apple](/docs/guides/add-an-external-idp/apple/before-you-begin/)
-* [Facebook](/docs/guides/add-an-external-idp/facebook/before-you-begin/)
-* [Google](/docs/guides/add-an-external-idp/google/before-you-begin/)
-* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/before-you-begin/)
-* [Microsoft](/docs/guides/add-an-external-idp/microsoft/before-you-begin/)
-* [Generic OIDC Identity Providers](/docs/guides/add-an-external-idp/openidconnect/before-you-begin/)
+* [Apple](/docs/guides/add-an-external-idp/apple/main/)
+* [Facebook](/docs/guides/add-an-external-idp/facebook/main/)
+* [Google](/docs/guides/add-an-external-idp/google/main/)
+* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/main/)
+* [Microsoft](/docs/guides/add-an-external-idp/microsoft/main/)
+* [Generic OIDC Identity Providers](/docs/guides/add-an-external-idp/openidconnect/main/)
 
 ## Identity Provider operations
 

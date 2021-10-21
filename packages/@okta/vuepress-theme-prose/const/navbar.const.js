@@ -100,10 +100,6 @@ export const concepts = [
         path: "/docs/concepts/session/"
       },
       {
-        title: "Social Login Overview",
-        path: "/docs/concepts/social-login/"
-      },
-      {
         title: "User Profiles",
         path: "/docs/concepts/user-profiles/"
       },
@@ -178,10 +174,6 @@ export const guides = [
       {
         title: "Sign Users In",
         subLinks: [
-          {
-            title: "Add an external Identity Provider",
-            guideName: "add-an-external-idp"
-          },
           { title: "Add multifactor authentication", guideName: "mfa" },
           {
             title: "Mobile App",

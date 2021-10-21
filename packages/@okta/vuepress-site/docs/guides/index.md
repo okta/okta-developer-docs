@@ -1,6 +1,7 @@
 ---
 title: Guides overview
 guides:
+ - add-a-social-idp
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
