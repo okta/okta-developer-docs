@@ -50,7 +50,7 @@ client -> client: Generate PKCE code verifier & challenge
 client -> okta: Authorization request w/ code_challenge, client ID, scopes, and user info
 okta -> okta: Remediation required
 okta -> client: Send interaction_handle in response (for required interaction)
-client <-> okta: Remediation steps w/ interation_handle
+client <-> okta: Remediation steps w/ interaction_handle
 user <-> client: Remediation
 note right: Possible multiple remediation steps required
 client -> okta: Complete remediation steps w/ interaction_handle
