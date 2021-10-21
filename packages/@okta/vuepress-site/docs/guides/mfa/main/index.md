@@ -6,7 +6,7 @@ meta:
 layout: Guides
 ---
 
-It is quickly becoming the standard for application developers and organizations to implement multifactor authentication (MFA) to add an extra layer of security to their applications. In this guide, we provide an example of how to use Okta's Factors API to add an additional factor for a user. Okta gives you the flexibility to deploy our built-in factors or integrate with existing tokens. Native factors include SMS and the Okta Verify app for iOS and Android. Integrations include Google Authenticator, RSA SecurID, Symantec VIP, and Duo Security.
+It is quickly becoming the standard for app developers and organizations to implement multifactor authentication (MFA) to add an extra layer of security to their apps. In this guide, we provide an example of how to use Okta's Factors API to add an additional factor for a user. Okta gives you the flexibility to deploy our built-in factors or integrate with existing tokens. Native factors include SMS and the Okta Verify app for iOS and Android. Integrations include Google Authenticator, RSA SecurID, Symantec VIP, and Duo Security.
 
 > **Note:** How you actually make the HTTPS calls depends on the programming language and web framework that your app uses. [Okta has helper libraries](/docs/code/) that make it easy to add support for Okta to your app in an idiomatic way.
 
