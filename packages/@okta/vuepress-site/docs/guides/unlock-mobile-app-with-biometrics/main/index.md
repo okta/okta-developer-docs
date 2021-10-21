@@ -20,8 +20,8 @@ In this guide you will learn how to integrate biometric authentication like Face
 
 **Sample code**
 
-* Android — we have a sample available in our [Android samples repo](https://github.com/okta/samples-android/tree/master/browser-sign-in)
-* iOS — We have a sample available in our [iOS samples repo](https://github.com/okta/samples-ios/tree/master/browser-sign-in-and-biometric-storage)
+* Android — we have a sample available in our [Android samples repo](https://github.com/okta/samples-android/tree/master/browser-sign-in).
+* iOS — We have a sample available in our [iOS samples repo](https://github.com/okta/samples-ios/tree/master/browser-sign-in-and-biometric-storage).
 
 ---
 
