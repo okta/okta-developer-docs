@@ -2528,7 +2528,7 @@ redirects:
   - from: /docs/guides/build-custom-ui-mobile/react-native/create-an-okta-application/
     to: /docs/guides/build-custom-ui-mobile/react-native/main/
   - from: /docs/guides/build-custom-ui-mobile/react-native/configure-packages
-    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/#add-and-configure-packages
   - from: /docs/guides/build-custom-ui-mobile/react-native/primary-authentication/
     to: /docs/guides/build-custom-ui-mobile/react-native/main/
   - from: /docs/guides/build-custom-ui-mobile/react-native/handle-authentication-responses/
