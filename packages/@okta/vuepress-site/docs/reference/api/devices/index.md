@@ -123,7 +123,6 @@ curl -v -X GET \
         "sid": "S-1-11-111",
         "tpmPublicKeyHash":null,
         "registered":true,
-        "managed":false,
         "secureHardwarePresent":false
     },
     "_links": {
@@ -278,7 +277,6 @@ Link: <https://${yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit
         "sid": "S-1-11-111",
         "tpmPublicKeyHash":null,
         "registered":true,
-        "managed":false,
         "secureHardwarePresent":false
     },
     "_links": {
@@ -328,7 +326,6 @@ Link: <https://${yourOktaDomain}/api/v1/devices?after=guo4a5u7YAHhjXrMN0g4&limit
         "sid": "S-1-22-2222",
         "tpmPublicKeyHash":null,
         "registered":true,
-        "managed":false,
         "secureHardwarePresent":false
     },
     "_links": {
@@ -409,7 +406,6 @@ curl -v -X GET \
           "sid": "",
           "tpmPublicKeyHash":null,
           "registered":true,
-          "managed":false,
           "secureHardwarePresent":false
       },
       "_links": {
@@ -490,7 +486,6 @@ curl -v -X GET \
          "sid":"",
          "tpmPublicKeyHash":null,
          "registered":true,
-         "managed":false,
          "secureHardwarePresent":false
       },
       "_links":{
@@ -969,7 +964,6 @@ The device model defines several read-only properties:
       "sid":"S-1-5-21-3992267483-1860856704-2413701314-500",
       "tpmPublicKeyHash":null,
       "registered":true,
-      "managed":false,
       "secureHardwarePresent":false
    },
    "resourceId":"guo8jx5vVoxfvJeLb0w4",
@@ -1039,7 +1033,6 @@ The following diagram shows the state object for a Device:
 | `displayName`      | String     | Display name of the device. (1-255 characters)                                                |
 | `platform`         | String     | OS platform of the device. Possible values: `MACOS`, `WINDOWS`, `ANDROID`, `IOS`              |
 | `registered`       | Boolean    | Indicates if the device is registered at Okta.                                                 |
-| `managed`          | Boolean    | Indicates if the device is managed by MDM providers.                                           |
 | `imei`             | String     | (Optional) International Mobile Equipment Identity of the device. (15-17 numeric characters)  |
 | `manufacturer`     | String     | (Optional) Name of the manufacturer of the device. (0-127 characters)                         |
 | `meid`             | String     | (Optional) Mobile equipment identifier of the device. (14 characters)                         |
@@ -1065,7 +1058,10 @@ The following diagram shows the state object for a Device:
         "imei": null,
         "meid": null,
         "udid": "36A56558-1793-5B3A-8362-ECBAA14EDD2D",
-        "sid": null
+        "sid": null,
+        "tpmPublicKeyHash":null,
+        "registered":true,
+        "secureHardwarePresent":false
     }
 }
 ```
