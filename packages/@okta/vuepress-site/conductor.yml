@@ -2459,3 +2459,52 @@ redirects:
     to: /docs/guides/set-up-self-service-registration/main/
   - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
     to: /docs/guides/set-up-self-service-registration/main/
+
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/overview/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/store-tokens/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/discard-access-tokens/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/retrieve-refresh-token/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/next-steps/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/overview/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/store-tokens/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/discard-access-tokens/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/retrieve-refresh-token/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/android/next-steps/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/overview/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/configure-packages/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/store-tokens/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/discard-access-tokens/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/overview/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/configure-packages/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/store-tokens/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/discard-access-tokens/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
