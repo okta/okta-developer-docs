@@ -51,8 +51,9 @@ n/a
 To add <StackSelector snippet="idp" noSelector inline /> as an Identity Provider in Okta:
 
 1. In the Admin Console, go to **Security** > **Identity Providers**.
-1. Click **Add Identity Provider**, and then select **<StackSelector snippet="idp" noSelector inline />**.
-1. In the **Add an Identity Provider** dialog box, define the following:
+1. Click **Add Identity Provider**, and then select **<StackSelector snippet="idp" noSelector inline /> IdP**.
+1. Click **Next**.
+1. In the **General Settings** section, define the following:
 
     * **Name** &mdash; Enter a name for the Identity Provider in Okta.
     * **Client ID** &mdash; Paste the generated client ID from your <StackSelector snippet="idp" noSelector inline /> application.
@@ -71,14 +72,9 @@ Alternatively, you can [use the Authorize URL to simulate the authorization flow
 
 ## Add <StackSelector snippet="idp" noSelector inline /> to the Okta Sign-In Widget
 
-The Okta Sign-In Widget is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with GitHub** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `IDP` with the name of the Identity Provider. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](/#Create_the_Identity_Provider_in_Okta) section:
+The Okta Sign-In Widget is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with GitHub** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](/#Create_the_Identity_Provider_in_Okta) section:
 
-```javascript
-    config.idps= [
-        { type: 'IDP', id: 'Your_IDP_ID' }
-    ];
-    config.idpDisplay = "SECONDARY";
-```
+<StackSnippet snippet="siwconfig" />
 
 ## Next steps
 

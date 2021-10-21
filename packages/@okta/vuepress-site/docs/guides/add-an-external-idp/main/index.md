@@ -5,7 +5,7 @@ meta:
     content: Okta supports authentication with external OpenID Connect Identity Providers as well as SAML (also called Inbound Federation). Get an overview of the process and prerequisites, as well as the instructions required to set one up.
 ---
 
-This document explains how to configure an external Identity Provider for your application by creating an application on <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
+This document explains how to configure <StackSelector snippet="idp" noSelector inline /> as an external Identity Provider for your application by creating an application at <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
 Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s Identity Provider account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
 
