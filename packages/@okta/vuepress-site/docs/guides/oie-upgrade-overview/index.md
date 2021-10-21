@@ -43,32 +43,28 @@ For a more detailed look at the upgrade steps, see the [Planning Embedded Auth a
   * **Are you embedding our Sign-In Widget?** Make [updates to the Sign-In Widget styling](/docs/guides/) and [L10n keys](/docs/guides/).
   * **Are you embedding your authentication with our SDKs?** Add the appropriate Identity Engine SDK to your application code or update to the latest version of the Identity Engine SDK. See [Add the latest Auth SDKs to your applications](/docs/guides/) for detailed steps by language.
   * **Are you moving to an architecture that leverages an Okta SDK?** See [Move away from using Authn APIs to using the appropriate SDK](/docs/guides/) for details on this task.
-Test your user experience.
-Authentication: Make sure that your users can sign in and sign out for the workflows that you support.
-Self-Service Password Recovery: Make sure that users can recover their factors with no blockers.
-Self-Service Registration: Make sure that users can sign up (including Factor enrollment if you support that) and that there are no interruptions during that process. 
+* Test your user experience.
+  * **Authentication:** Make sure that your users can sign in and sign out for the workflows that you support.
+  * **Self-Service Password Recovery:** Make sure that users can recover their factors with no blockers.
+  * **Self-Service Registration:** Make sure that users can sign up (including Factor enrollment if you support that) and that there are no interruptions during that process.
 See [Map backend API endpoints to Classic Engine and Identity Engine SDKs](/docs/guides/) for detailed steps by language.
 
-
-
-
-
-Upgrade Documentation
+## Upgrade Documentation
 
 The Identity Engine upgrade documentation below discusses the various upgrade tasks. Which tasks you need to complete depends on your deployment model.
 
-[Upgrade your Okta Sign-In Widget](/docs/guides/) -- Learn how to upgrade the Sign-In Widget from older versions of 2.x, 3.x, 4.x, and 5.x.
+* [Upgrade your Okta Sign-In Widget](/docs/guides/) -- Learn how to upgrade the Sign-In Widget from older versions of 2.x, 3.x, 4.x, and 5.x.
 
-[Migrate away from deprecated Javascript functions in the Sign-In Widget](/docs/guides/) -- Learn how changes to the authentication pipelines impact applications that call Sign-In Widget JavaScript functions, such as `setCookieAndRedirect()`. Also included are best practices on how you can reimplement existing flows in Identity Engine.
-[Update the Sign-In Widget styling](/docs/guides/) -- Learn about the latest Sign-In Widget style updates.
-[Update the Sign-in Widget L10n keys](/docs/guides/) -- Learn about the latest Sign-In Widget L10n key updates.
+  * [Migrate away from deprecated Javascript functions in the Sign-In Widget](/docs/guides/) -- Learn how changes to the authentication pipelines impact applications that call Sign-In Widget JavaScript functions, such as `setCookieAndRedirect()`. Also included are best practices on how you can reimplement existing flows in Identity Engine.
+  * [Update the Sign-In Widget styling](/docs/guides/) -- Learn about the latest Sign-In Widget style updates.
+  * [Update the Sign-in Widget L10n keys](/docs/guides/) -- Learn about the latest Sign-In Widget L10n key updates.
 
-[Planning Embedded Auth application upgrades](/docs/concepts/) -- Learn about how to embark on the upgrade process, the steps required, and how you can stage your upgrade. Also discussed are suggestions on when to test and how to roll out the application upgrades to your users.
+* [Planning Embedded Auth application upgrades](/docs/concepts/) -- Learn about how to embark on the upgrade process, the steps required, and how you can stage your upgrade. Also discussed are suggestions on when to test and how to roll out the application upgrades to your users.
 
-[Upgrade authentication services and applications to use the Interaction Code grant type](/docs/guides/implement-grant-type/authcode/main/) -- Learn how to configure your embedded applications and the corresponding authorization servers to use the Interaction Code grant type. 
+* [Upgrade authentication services and applications to use the Interaction Code grant type](/docs/guides/implement-grant-type/authcode/main/) -- Learn how to configure your embedded applications and the corresponding authorization servers to use the Interaction Code grant type. 
 
-[Add the latest Auth SDKs to your applications](/docs/guides/) -- Learn about how your applications work with the latest version of the SDK. This content discusses how to update your applications to use the latest version of the SDK without making any code changes and how to break up the changes to your applications.
+* [Add the latest Auth SDKs to your applications](/docs/guides/) -- Learn about how your applications work with the latest version of the SDK. This content discusses how to update your applications to use the latest version of the SDK without making any code changes and how to break up the changes to your applications.
 
-[Map backend API endpoints to Classic Engine and Identity Engine SDKs](/docs/guides/) -- Learn about the changes to authentication pipelines that impact embedded applications using AuthN and Management APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
+* [Map backend API endpoints to Classic Engine and Identity Engine SDKs](/docs/guides/) -- Learn about the changes to authentication pipelines that impact embedded applications using AuthN and Management APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
 
-[Upgrade the Sessions API and sessionToken authentication to Identity Engine](/docs/guides/) -- Learn how changes to the authentication pipelines impact applications that use the Sessions APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
+* [Upgrade the Sessions API and sessionToken authentication to Identity Engine](/docs/guides/) -- Learn how changes to the authentication pipelines impact applications that use the Sessions APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
