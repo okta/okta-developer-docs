@@ -283,7 +283,145 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn' \
 
 #### 3. Send email challenge /api/authn/factors/{{$emailFactorId}}/verify
 
+```bash
+curl --location --request POST 'https://example.okta.com/api/v1/authn/factors/emf276bb2dP3no7Da5d7/verify' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=6B93EFE5B529BB1CCC437F33996F04AB' \
+--data-raw '{
+  "stateToken": "00K3WvIsn4-P64LNEt5NW3yoXx-V6Kgi7H18yamJMi"
+}'
+```
 
+#### 4. Receive a response to challenge the factor
+
+```JSON
+{
+    "stateToken": "00kYBC0MrmG2kHSqYHrSzw7Y99_u9-MOcjEf-_B9Fa",
+    "expiresAt": "2021-10-12T14:40:23.000Z",
+    "status": "MFA_CHALLENGE",
+    "factorResult": "CHALLENGE",
+    "challengeType": "FACTOR",
+    "_embedded": {
+        "user": {
+            "id": "00u1ehs07qD6MhWk85d7",
+            "passwordChanged": "2021-10-08T19:36:48.000Z",
+            "profile": {
+                "login": "michael.john.smith27@gmail.com",
+                "firstName": "Michael",
+                "lastName": "Smith",
+                "locale": "en",
+                "timeZone": "America/Los_Angeles"
+            }
+        },
+        "factor": {
+            "id": "emf1ehtcpaFA0cQg95d7",
+            "factorType": "email",
+            "provider": "OKTA",
+            "vendorName": "OKTA",
+            "profile": {
+                "email": "m...7@gmail.com"
+            }
+        },
+        "policy": {
+            "allowRememberDevice": true,
+            "rememberDeviceLifetimeInMinutes": 15,
+            "rememberDeviceByDefault": false,
+            "factorsPolicyInfo": {}
+        }
+    },
+    "_links": {
+        "next": {
+            "name": "verify",
+            "href": "https://example.okta.com/api/v1/authn/factors/emf1ehtcpaFA0cQg95d7/verify",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "resend": [
+            {
+                "name": "email",
+                "href": "https://example.okta.com/api/v1/authn/factors/emf1ehtcpaFA0cQg95d7/verify/resend",
+                "hints": {
+                    "allow": [
+                        "POST"
+                    ]
+                }
+            }
+        ],
+        "prev": {
+            "href": "https://example.okta.com/api/v1/authn/previous",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "cancel": {
+            "href": "https://example.okta.com/api/v1/authn/cancel",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+#### 5. Verify the code from the challenge email /api/v1/authn{{$emailFactorId}}/verify
+
+```bash
+curl --location --request POST 'https://example.okta.com/api/v1/authn/factors/emf276bb2dP3no7Da5d7/verify' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=6B93EFE5B529BB1CCC437F33996F04AB' \
+--data-raw '{
+  "stateToken": "00K3WvIsn4-P64LNEt5NW3yoXx-V6Kgi7H18yamJMi",
+  "passCode": "477420"
+}'
+```
+
+#### 6. Receive a successful response after confirming the email code
+
+```JSON
+{
+    "expiresAt": "2021-10-12T14:43:04.000Z",
+    "status": "SUCCESS",
+    "sessionToken": "20111BkbGDWXbtv6_qe0NeDzuIYfWttZu5m4xszO4LQPqrmQfUA3pqc",
+    "_embedded": {
+        "user": {
+            "id": "00u1ehs07qD6MhWk85d7",
+            "passwordChanged": "2021-10-08T19:36:48.000Z",
+            "profile": {
+                "login": "john.doe@example.com",
+                "firstName": "John",
+                "lastName": "Doe",
+                "locale": "en",
+                "timeZone": "America/Los_Angeles"
+            }
+        }
+    },
+    "_links": {
+        "cancel": {
+            "href": "https://example.okta.com/api/v1/authn/cancel",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+If your application code implements these API calls and handles the responses shown, you need to update your code to use the Okta Identity Engine SDK `idx.authentication method`. This method encapsulates the authentication flow using recursive calls to the Identity Engine SDK method and a successful response returns with access and ID tokens.
+
+See [Okta Identity Engine SDK authentication flow for MFA]().
+
+If you’re migrating a custom application using direct back-end Authentication APIs, you may want to work with your customer support team to assist you in migrating to the Okta Identity Engine SDK.
 
 ## Mapping Password Recovery code to the Okta Identity Engine SDK
 
@@ -301,7 +439,230 @@ If your application uses direct APIs for a password recovery flow, your applicat
 
 See the following sample calls and responses for the password recovery flow using SMS as a factor:
 
-... more to come (include link in 1st bullet)
+#### 1. User clicks link to recover password (can calls /api/v1/authn/recovery/password with factorType)
+
+```bash
+curl --location --request POST 'https://example.okta.com/api/v1/authn/recovery/password' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=567D81F8C70A8F601AD0EF3A551FB53D' \
+--data-raw '{
+  "username": "{{username}}",
+  "factorType": "SMS",
+  "relayState": "/myapp/some/deep/link/i/want/to/return/to"
+}'
+```
+
+#### 2. The response requires a challenge of the SMS code
+
+```JSON
+{
+    "stateToken": "00hdMzIhfXCfUeRYVjmiP9O6_l0A-ScgdiyucNw3e_",
+    "expiresAt": "2021-10-12T19:05:34.000Z",
+    "status": "RECOVERY_CHALLENGE",
+    "relayState": "/myapp/some/deep/link/i/want/to/return/to",
+    "factorType": "SMS",
+    "recoveryType": "PASSWORD",
+    "_links": {
+        "next": {
+            "name": "verify",
+            "href": "https://example.okta.com/api/v1/authn/recovery/factors/SMS/verify",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "cancel": {
+            "href": "https://example.okta.com/api/v1/authn/cancel",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "resend": {
+            "name": "SMS",
+            "href": "https://example.okta.com/api/v1/authn/recovery/factors/SMS/resend",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+#### 3 The user verifies the SMS challenge (/api/v1/authn/recovery/factors/sms/verify)
+
+```bash
+curl --location --request POST 'https://example.okta.com/api/v1/authn/recovery/factors/sms/verify' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=567D81F8C70A8F601AD0EF3A551FB53D' \
+--data-raw '{
+  "stateToken": "00hdMzIhfXCfUeRYVjmiP9O6_l0A-ScgdiyucNw3e_",
+  "passCode": "926187"
+}'
+```
+
+#### 4 If successful, the transaction status moves to Password_Rest
+
+```JSON
+{
+    "stateToken": "00hdMzIhfXCfUeRYVjmiP9O6_l0A-ScgdiyucNw3e_",
+    "expiresAt": "2021-10-12T18:11:27.000Z",
+    "status": "PASSWORD_RESET",
+    "relayState": "/myapp/some/deep/link/i/want/to/return/to",
+    "recoveryType": "PASSWORD",
+    "_embedded": {
+        "user": {
+            "id": "00u276bb2cmQuiFhU5d7",
+            "passwordChanged": "2021-10-12T17:12:45.000Z",
+            "profile": {
+                "login": "john.doe@example.com",
+                "firstName": "John",
+                "lastName": "Doe",
+                "locale": "en",
+                "timeZone": "America/Los_Angeles"
+            }
+        },
+        "policy": {
+            "complexity": {
+                "minLength": 8,
+                "minLowerCase": 1,
+                "minUpperCase": 1,
+                "minNumber": 1,
+                "minSymbol": 0,
+                "excludeUsername": true
+            },
+            "age": {
+                "minAgeMinutes": 0,
+                "historyCount": 4
+            }
+        }
+    },
+    "_links": {
+        "next": {
+            "name": "resetPassword",
+            "href": "https://example.okta.com/api/v1/authn/credentials/reset_password",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        },
+        "cancel": {
+            "href": "https://example.okta.com/api/v1/authn/cancel",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+#### 5. User is prompted to reset password (/api/v1/authn/credentials/reset_password)
+
+```bash
+curl --location --request POST 'https://example.okta.com/api/v1/authn/credentials/reset_password' \
+--header 'Accept: application/json' \
+--header 'Content-Type: application/json' \
+--header 'Cookie: JSESSIONID=567D81F8C70A8F601AD0EF3A551FB53D' \
+--data-raw '{
+  "stateToken": "00hdMzIhfXCfUeRYVjmiP9O6_l0A-ScgdiyucNw3e_",
+  "newPassword": "new_password!"
+}’
+```
+
+#### 6. The application receives a response that the password has changed and is able to sign in
+
+```JSON
+{
+    "stateToken": "00K3WvIsn4-P64LNEt5NW3yoXx-V6Kgi7H18yamJMi",
+    "expiresAt": "2021-10-12T18:13:17.000Z",
+    "status": "MFA_REQUIRED",
+    "relayState": "/myapp/some/deep/link/i/want/to/return/to?type_hint=PASSWORD_RECOVERY&session_hint=AUTHENTICATED&login_hint=john.doe%40example.com",
+    "_embedded": {
+        "user": {
+            "id": "00u276bb2cmQuiFhU5d7",
+            "passwordChanged": "2021-10-12T18:08:17.000Z",
+            "profile": {
+                "login": "john.doe@example.com",
+                "firstName": "John",
+                "lastName": "Doe",
+                "locale": "en",
+                "timeZone": "America/Los_Angeles"
+            }
+        },
+        "factors": [
+            {
+                "id": "sms276bje00iCLqHY5d7",
+                "factorType": "sms",
+                "provider": "OKTA",
+                "vendorName": "OKTA",
+                "profile": {
+                    "phoneNumber": "+1 XXX-XXX-1502"
+                },
+                "_links": {
+                    "verify": {
+                        "href": "https://example.okta.com/api/v1/authn/factors/sms276bje00iCLqHY5d7/verify",
+                        "hints": {
+                            "allow": [
+                                "POST"
+                            ]
+                        }
+                    }
+                }
+            },
+            {
+                "id": "emf276bb2dP3no7Da5d7",
+                "factorType": "email",
+                "provider": "OKTA",
+                "vendorName": "OKTA",
+                "profile": {
+                    "email": "m...7@gmail.com"
+                },
+                "_links": {
+                    "verify": {
+                        "href": "https://example.okta.com/api/v1/authn/factors/emf276bb2dP3no7Da5d7/verify",
+                        "hints": {
+                            "allow": [
+                                "POST"
+                            ]
+                        }
+                    }
+                }
+            }
+        ],
+        "policy": {
+            "allowRememberDevice": true,
+            "rememberDeviceLifetimeInMinutes": 15,
+            "rememberDeviceByDefault": false,
+            "factorsPolicyInfo": {}
+        }
+    },
+    "_links": {
+        "cancel": {
+            "href": "https://example.okta.com/api/v1/authn/cancel",
+            "hints": {
+                "allow": [
+                    "POST"
+                ]
+            }
+        }
+    }
+}
+```
+
+If your application code implements these API calls and handles the responses shown, you need to update your code to use the Okta Identity Engine SDK `idx.recoverPassword` method. This method encapsulates the password recovery flow using recursive calls to the Identity Engine SDK method, and a successful response returns with access and ID tokens.
+
+See [Okta Identity Engine SDK authentication flow for Password Recovery](https://docs.google.com/document/d/1CV4lt6elWMzeWUS_hq8gIwRUNYrt-DPWfZgbgC5HdOc/edit#heading=h.i4knj0bc9tjx)
+
+If you’re migrating a custom application using direct back-end Authentication APIs, you may want to work with your customer support team to assist you in migrating to the Okta Identity Engine SDK.
 
 ## Mapping Basic Sign out APIs to Okta Identity Engine SDK
 
