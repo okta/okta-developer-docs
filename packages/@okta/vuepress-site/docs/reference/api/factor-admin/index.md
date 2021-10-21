@@ -33,7 +33,7 @@ The following factor names are available:
 | `okta_question`       | Security Question    |
 | `okta_sms`            | SMS Authentication   |
 | `symantec_vip`        | Symantec VIP         |
-<!--- | `rsa_token`           | RSA SecurID          | --->
+<!--- | `rsa_token`           | RSA SecurID          | not currently supported. leaving commented out in case we do eventually support again.--->
 
 ### Factor type
 
@@ -55,7 +55,7 @@ The following providers are supported:
 | `GOOGLE`   | Google Integration            |
 | `OKTA`     | Okta                          |
 | `SYMANTEC` | Symantec VIP Integration      |
-<!--- | `RSA`      | RSA SecurID Integration       | --->
+<!--- | `RSA`      | RSA SecurID Integration       | not currently supported. leaving commented out in case we do eventually support again.--->
 
 ### Links object
 
