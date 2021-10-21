@@ -4,7 +4,7 @@ excerpt: Learn how to build a custom sign-in UI in your mobile app.
 layout: Guides
 ---
 
-You can connect your mobile app to Okta and sign users in by [opening a browser](/docs/guides/sign-into-mobile-app/before-you-begin/), however, if you prefer that your users not leave your app, you need to build a custom sign-in UI with native controls and screens instead. Use this guide to build a customized sign-in experience inside your mobile application.
+You can connect your mobile app to Okta and sign users in by [opening a browser](/docs/guides/sign-into-mobile-app/android/main/), however, if you prefer that your users not leave your app, you need to build a custom sign-in UI with native controls and screens instead. Use this guide to build a customized sign-in experience inside your mobile application.
 
 > **Note:** If the browser sign-in method works for your application, we recommend using that since building a custom sign-in UI takes more effort and development time.
 
@@ -20,7 +20,7 @@ You can connect your mobile app to Okta and sign users in by [opening a browser]
 
 * An Okta Developer organization. Don't have one? [Create one for free](https://developer.okta.com/signup)
 * A mobile app that you want to add a custom sign-in UI to
-* Knowledge of how Okta mobile auth works (see [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/))
+* Knowledge of how Okta mobile auth works (see [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/android/main/))
 
 **Sample code**
 
@@ -34,13 +34,13 @@ You can connect your mobile app to Okta and sign users in by [opening a browser]
 
 Before you can sign a user in, you need to create an Okta application that represents your mobile application.
 
-Use the Okta application that you created when you walked through the [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/create-okta-application/) guide.
+Use the Okta application that you created when you walked through the [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/android/main/#create-an-okta-app-integration) guide.
 
 ## Add and configure packages
 
 To build the custom sign-in UI, you need to install and configure a native Okta SDK to your application.
 
-You should already have added and configured packages when you walked through the [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/android/configure-packages/) guide.
+You should already have added and configured packages when you walked through the [Sign users in to your mobile app](/docs/guides/sign-into-mobile-app/android/main/#add-and-configure-packages) guide.
 
 In addition, you need to install the native Okta Authentication SDK. This SDK works together with the OpenID Connect SDK that you already installed to make authentication requests to Okta.
 
@@ -73,4 +73,4 @@ Every authentication transaction starts with primary authentication, which valid
 
 You should now understand how to build a custom UI in your mobile application.
 
-When a user signs in, their profile information (stored in Okta) is made available to your application. Use this information to personalize your app's UI for the user. See [Get info about the user](/docs/guides/sign-into-mobile-app/-/get-user-info/) for details.
+When a user signs in, their profile information (stored in Okta) is made available to your application. Use this information to personalize your app's UI for the user. See [Get info about the user](/docs/guides/sign-into-mobile-app/android/main/#get-info-about-the-user) for details.
