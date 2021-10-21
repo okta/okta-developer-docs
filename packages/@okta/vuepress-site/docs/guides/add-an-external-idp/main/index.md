@@ -5,6 +5,8 @@ meta:
     content: Okta supports authentication with external OpenID Connect Identity Providers as well as SAML (also called Inbound Federation). Get an overview of the process and prerequisites, as well as the instructions required to set one up.
 ---
 
+## <StackSelector snippet="idp" noSelector inline />
+
 This document explains how to configure <StackSelector snippet="idp" noSelector inline /> as an external Identity Provider for your application by creating an application at <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
 Okta manages the connection to the IdP for your application, sitting between your application and the IdP that authenticates your users. The industry-standard term for this is Inbound Federation. When a user signs in, you can link the user’s Identity Provider account to an existing Okta user profile or choose to create a new user profile using Just-In-Time (JIT) provisioning.
@@ -23,18 +25,15 @@ How to configure an external Identity Provider so that your users can quickly si
 * An application that you want to add authentication to. You can use an existing app integration or create a new one. To create a new app integration, see [Create custom app integrations](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard).
 * An account <StackSelector snippet="idpaccount" noSelector inline />.
 
-
 **Sample code**
 
 n/a
 
 ---
 
-> **Note:** This guide doesn't explain the differences between SAML and OpenID Connect and doesn't help you choose between them. See [External Identity Providers](/docs/concepts/identity-providers/#the-big-picture) for more information.
+## Create an app at <StackSelector snippet="idp" noSelector inline />
 
-## Create an app at the Identity Provider
-
-At the Identity Provider, create the client application that you want to use for authenticating and authorizing your users.
+At <StackSelector snippet="idp" noSelector inline />, create the client application that you want to use for authenticating and authorizing your users.
 
 <StackSnippet snippet="appatidp" />
 
