@@ -57,7 +57,7 @@ For example, multiple screens could handle:
 * login/password input
 * multifactor enrollment
 * factor selection
-* multi-factor verification
+* multifactor verification
 
 <StackSelector snippet="primaryauth" />
 
