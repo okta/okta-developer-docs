@@ -9,7 +9,7 @@ title: Upgrade your application to the Okta Identity Engine SDK
 
 After your project is updated to the latest Okta Identity Engine SDKs, and you have an enabled Identity Engine org, you can begin the incremental process of migrating your application to use the Identity Engine SDK methods.
 
-Review the following sections to understand the concepts behind the Okta Identity Engine SDK, and the differences between the Okta Classic Engine Authentication SDK and APIs and the Identity Engine approach to authentication. The mappings of Classic Engine Authentication SDK method calls, as well as back-end APIs, to the Okta Identity Engine SDK methods are provided for the following use cases:
+Review the following sections to understand the concepts behind the Identity Engine SDK, and the differences between the Okta Classic Engine Authentication SDK and APIs and the Identity Engine approach to authentication. The mappings of Classic Engine Authentication SDK method calls, as well as back-end APIs, to the Identity Engine SDK methods are provided for the following use cases:
 
 - Basic sign-in authentication
 - Multifactor sign-in authentication
@@ -18,7 +18,7 @@ Review the following sections to understand the concepts behind the Okta Identit
 
 ## Prerequisites
 
-Before updating your applications to use the Okta Identity Engine SDK, ensure that you have completed the following tasks:
+Before updating your applications to use the Identity Engine SDK, ensure that you have completed the following tasks:
 
 - Links to other docs like org migration
 - Links to other docs like use interaction code grant
@@ -30,7 +30,7 @@ Before updating your applications to use the Okta Identity Engine SDK, ensure th
 
 ## Okta Classic Engine Authn APIs and SDK vs Okta Identity Engine SDK
 
-<StackSelector snippet="classicvsoie" noSelector />
+<StackSelector snippet="auth-vs-oie" noSelector />
 
 ## Mapping Authentication code to the Okta Identity Engine SDK
 

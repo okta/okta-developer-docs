@@ -2,8 +2,8 @@ The Okta Identity Engine SDK provides your applications with greater flexibility
 
 If your application is a server-side, customized authentication solution, migrating to the Identity Engine SDK is the ideal path to benefit from Identity Engine features and configuration flexibility.
 
-The migration process is also designed to be non-disruptive and iterative over a period of time. Your Classic Engine Authn SDK application code works with an Identity Engine configured org, and you can test and migrate use cases incrementally. See the following three examples for further information on migration:
+The upgrade process is also designed to be non-disruptive and iterative over a period of time. Your Classic Engine Authn SDK application code works with an Identity Engine configured org, and you can test and migrate use cases incrementally. See the following three examples for further information on upgrade:
 
-- Authentication (Sign in and Sign out ): [Mapping Authentication code to the Okta Identity Engine SDK]()
-- Multifactor Authentication (Email and SMS): [Mapping MFA Authentication code to the Okta Identity Engine SDK]()
-- Password Recovery: [Mapping Password Recovery code to the Okta Identity Engine SDK]()
+- Authentication (Sign in and Sign out ): [Mapping Authentication code to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#mapping-authentication-code-to-the-okta-identity-engine-sdk)
+- Multifactor Authentication (Email and SMS): [Mapping MFA Authentication code to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#mapping-mfa-authentication-code-to-the-okta-identity-engine-sdk)
+- Password Recovery: [Mapping Password Recovery code to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#mapping-password-recovery-code-to-the-okta-identity-engine-sdk)
