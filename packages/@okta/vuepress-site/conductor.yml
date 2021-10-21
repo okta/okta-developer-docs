@@ -2523,7 +2523,7 @@ redirects:
     to: /docs/guides/set-up-self-service-registration/main/
   - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
     to: /docs/guides/set-up-self-service-registration/main/
-  - from: /docs/guides/build-custom-ui-mobile/react-native/before-you-begin/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/before-you-begin
     to: /docs/guides/build-custom-ui-mobile/react-native/main/
   - from: /docs/guides/build-custom-ui-mobile/react-native/create-an-okta-application/
     to: /docs/guides/build-custom-ui-mobile/react-native/main/
