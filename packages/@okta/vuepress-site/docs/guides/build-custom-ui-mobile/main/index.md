@@ -55,7 +55,7 @@ You can implement an authentication flow using one screen or using multiple scre
 For example, multiple screens could handle:
 
 * login/password input
-* multi-factor enrollment
+* multifactor enrollment
 * factor selection
 * multi-factor verification
 
