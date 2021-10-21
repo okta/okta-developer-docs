@@ -44,9 +44,9 @@ const { password, confirmPassword } = req.body;
   const transaction = await authClient.idx.recoverPassword({ password });
 
 if (transaction.status === IdxStatus.SUCCESS) {
-  authClient.tokenManager.setTokens(transaction.tokens); 
+  authClient.tokenManager.setTokens(transaction.tokens);
 }
 ```
 For further details and reference material, see [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md).
 
-For further details on the password recovery flow using Identity Engine, see [User password recovery](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/#_1-the-user-selects-the-forgot-password-link) and the sample application.
+For further details on the password recovery flow using Identity Engine, see [User password recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/#_1-the-user-selects-the-forgot-password-link) and the sample application.
