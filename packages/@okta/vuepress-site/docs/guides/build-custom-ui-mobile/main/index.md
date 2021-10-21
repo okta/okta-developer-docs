@@ -73,4 +73,4 @@ Every authentication transaction starts with primary authentication, which valid
 
 You should now understand how to build a custom UI in your mobile application.
 
-When a user signs in, their profile information (stored in Okta) is made available to your application. It's common to use this information to update your app's UI. See [Get info about the user](/docs/guides/sign-into-mobile-app/get-user-info/) for the steps.
+When a user signs in, their profile information (stored in Okta) is made available to your application. Use this information to personalize your app's UI for the user. See [Get info about the user](/docs/guides/sign-into-mobile-app/-/get-user-info/) for details.
