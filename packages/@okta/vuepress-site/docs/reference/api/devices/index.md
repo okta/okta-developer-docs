@@ -519,6 +519,7 @@ curl -v -X GET \
       "_embedded":{
          "users":[
             {
+               "managementStatus": "MANAGED",
                "created":"2021-10-01T16:52:41.000Z",
                "user":{
                   "id":"${userId}",
