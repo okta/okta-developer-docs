@@ -65,7 +65,7 @@ For example, multiple screens could handle:
 
 Every authentication transaction starts with primary authentication, which validates a user's password. Password Policy, MFA Policy, and Sign-On Policy are evaluated during primary authentication to determine if the user's password is expired, a factor should be enrolled, or additional verification is required. The [transaction state](/docs/api/resources/authn/#transaction-state) of the response depends on the user's status, group memberships, and assigned policies.
 
-> **Note:** Custom sign-in works only with [Org MFA](/docs/guides/mfa/sms/set-up-org/). This means that, before you exchange the session token for an access token, you must make sure the application has disabled [App-Level MFA](https://help.okta.com/okta_help.htm?id=ext_MFA_App_Level).
+> **Note:** Custom sign-in only works with [Org MFA](/docs/guides/mfa/sms/set-up-org/). This means that before you exchange the session token for an access token, you must ensure that [App-Level MFA](https://help.okta.com/okta_help.htm?id=ext_MFA_App_Level) is disabled for the application.
 
 <StackSelector snippet="handle-responses" />
 
