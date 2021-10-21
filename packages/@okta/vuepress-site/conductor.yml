@@ -2459,3 +2459,75 @@ redirects:
     to: /docs/guides/set-up-self-service-registration/main/
   - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
     to: /docs/guides/set-up-self-service-registration/main/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/before-you-begin/
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/create-an-okta-application/
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/configure-packages/
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/primary-authentication/
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/handle-authentication-responses/
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/next-steps/
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/before-you-begin/index.html
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/create-an-okta-application/index.html
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/configure-packages/index.html
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/primary-authentication/index.html
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/handle-authentication-responses/index.html
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/react-native/next-steps/index.html
+    to: /docs/guides/build-custom-ui-mobile/react-native/main/
+  - from: /docs/guides/build-custom-ui-mobile/ios/before-you-begin/
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/build-custom-ui-mobile/ios/create-an-okta-application/
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/build-custom-ui-mobile/ios/configure-packages/
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/build-custom-ui-mobile/ios/primary-authentication/
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/build-custom-ui-mobile/ios/handle-authentication-responses/
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/build-custom-ui-mobile/ios/next-steps/
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/build-custom-ui-mobile/ios/before-you-begin/index.html
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/build-custom-ui-mobile/ios/create-an-okta-application/index.html
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/build-custom-ui-mobile/ios/configure-packages/index.html
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/build-custom-ui-mobile/ios/primary-authentication/index.html
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/build-custom-ui-mobile/ios/handle-authentication-responses/index.html
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/build-custom-ui-mobile/ios/next-steps/index.html
+    to: /docs/guides/build-custom-ui-mobile/ios/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/before-you-begin/
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/create-an-okta-application/
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/configure-packages/
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/primary-authentication/
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/handle-authentication-responses/
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/next-steps/
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/before-you-begin/index.html
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/create-an-okta-application/index.html
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/configure-packages/index.html
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/primary-authentication/index.html
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/handle-authentication-responses/index.html
+    to: /docs/guides/build-custom-ui-mobile/android/main/
+  - from: /docs/guides/build-custom-ui-mobile/android/next-steps/index.html
+    to: /docs/guides/build-custom-ui-mobile/android/main/
