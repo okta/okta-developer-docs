@@ -49,13 +49,13 @@ tiles:
     link: /docs/guides/sign-into-mobile-app/
     items:
       - name: React Native
-        link: /docs/guides/sign-into-mobile-app/react-native/before-you-begin/
+        link: /docs/guides/sign-into-mobile-app/react-native/main/
         image: /img/homepage/stackselectors/react.png
       - name: Android
-        link: /docs/guides/sign-into-mobile-app/android/before-you-begin/
+        link: /docs/guides/sign-into-mobile-app/android/main/
         image: /img/homepage/stackselectors/android.png
       - name: IOS
-        link: /docs/guides/sign-into-mobile-app/ios/before-you-begin/
+        link: /docs/guides/sign-into-mobile-app/ios/main/
         image: /img/homepage/stackselectors/ios.png
   - name: API Services
     link: /docs/guides/protect-your-api/
