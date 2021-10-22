@@ -278,7 +278,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 * When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/-/create-app-profile-attribute/) were not allowed. (OKTA-403289)
 
-* If an app’s sign-in policy required an MFA prompt every time and the [`prompt=login` parameter](/docs/guides/shared-sso-android-ios/-/optional-settings/#always-prompt-for-sign-in-regardless-of-session) was present in the `/authorize` request, the MFA prompt didn’t appear for federated users. (OKTA-394991)
+* If an app’s sign-in policy required an MFA prompt every time and the [`prompt=login` parameter](/docs/guides/shared-sso-android-ios/-/main/#always-prompt-for-sign-in-regardless-of-session) was present in the `/authorize` request, the MFA prompt didn’t appear for federated users. (OKTA-394991)
 
 ### Weekly Release 2021.06.2
 
