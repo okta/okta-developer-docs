@@ -6,4 +6,4 @@ if let accessToken = authStateManager?.accessToken {
 }
 ```
 
-The `accessToken` property returns `nil` if the token is expired. See <GuideLink link="../stay-signed-in">Keep the User Signed In</GuideLink> to understand how to get a fresh access token.
+The `accessToken` property returns `nil` if the token is expired. See [Keep the User Signed In](#keep-the-user-signed-in) to understand how to get a fresh access token.

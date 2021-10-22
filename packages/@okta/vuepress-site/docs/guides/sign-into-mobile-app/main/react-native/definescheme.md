@@ -1,3 +1,3 @@
-- <GuideLink link="../../ios/define-callback">Set up iOS redirect scheme</GuideLink>
+- [Set up iOS redirect scheme](/docs/guides/sign-into-mobile-app/ios/main/#define-a-callback-route)
 
-- <GuideLink link="../../android/define-callback">Set up Android redirect scheme</GuideLink>
+- [Set up Android redirect scheme](/docs/guides/sign-into-mobile-app/android/main/#define-a-callback-route)

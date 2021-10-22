@@ -20,7 +20,7 @@ This guide shows you how to use Okta as the user store for your mobile applicati
 **What you need**
 
 * An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* A project or app that you want to add authentication to.
+* A mobile project or app that you want to add authentication to.
 
 **Sample code**
 
@@ -36,15 +36,15 @@ To sign users in, your application opens a browser and shows an Okta-hosted sign
 
 You can learn more about how this works by reading about [Okta-hosted flows](/docs/concepts/okta-hosted-flows/).
 
-The first thing that you need to define is how Okta can redirect back to your app. This is called a callback route or redirect URI. In mobile apps, you use a custom scheme like `your-app:/callback` so that your app can switch back into the foreground after the user is done signing in with the browser.
+The first thing that you need to define is how Okta can redirect back to your app. This is called a callback route or redirect URI. In mobile apps, use a custom scheme similar to `your-app:/callback` so that your app can switch back into the foreground after the user is done signing in with the browser.
 
 <StackSelector snippet="definescheme"/>
 
 This defines your redirect scheme. Add `:/callback` to the scheme to get the full redirect URI (like `com.okta.example:/callback`), which you need in the following steps.
 
-> `com.okta.example` is just an example scheme. You can replace it with any string that follows the pattern of `domain.company.appname`.
+> **Note**: `com.okta.example` is just an example scheme. You can replace it with any string that follows the pattern of `domain.company.appname`.
 
-Your mobile app is responsible for parsing the information Okta sends to this callback route. Our SDKs can do this for you (covered later in the [Open the sign-in page](#open-the-sign-in-page) section). For now, just define the route itself.
+Your mobile app is responsible for parsing the information Okta sends to this callback route. Our SDKs can help you with this task (covered later in the [Open the sign-in page](#open-the-sign-in-page) section). For now, just define the route itself.
 
 ## Create an Okta app integration
 
@@ -59,13 +59,13 @@ Before you can sign a user in, you need to create an Okta app integration that r
 1. Select **Native Application** as the **Application type** and click **Next**.
     > **Note:** It is important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, and would break the sign-in or sign-out flow.
 1. Enter a name for your app integration (or leave the default value).
-1. Enter your callback route for the **Sign-in redirect URIs**. This is the full redirect URI that you defined in the <GuideLink link="../define-callback/">previous step</GuideLink> (for example, `com.okta.example:/login`).
-1. Enter your callback route for the **Sign-out redirect URIs**. This is the full redirect URI that you defined in the <GuideLink link="../define-callback/">previous step</GuideLink> (for example, `com.okta.example:/logout`).
+1. Enter your callback route for the **Sign-in redirect URIs**. This is the full redirect URI that you defined in the [previous step](#define-a-callback-route) (for example, `com.okta.example:/login`).
+1. Enter your callback route for the **Sign-out redirect URIs**. This is the full redirect URI that you defined in the [previous step](#define-a-callback-route) (for example, `com.okta.example:/logout`).
 1. Include a URI in the **Initiate login URI** box to have Okta initiate the sign-in flow. When Okta redirects to this endpoint (for example, `https://example:0000.com/login`), the client is triggered to send an authorize request. This URI is also used when users reset their passwords while signing in to the app. Okta redirects the user back to this URI after the password is reset so that the user can continue to sign in.
 
 ## Add and configure packages
 
-Next you need to add Okta to your application by installing and configuring our SDK.
+To add Okta authentication to your app, you need install and configure the Okta SDK.
 
 ### Install the SDK
 
@@ -73,7 +73,7 @@ Next you need to add Okta to your application by installing and configuring our 
 
 ### Configure the SDK
 
-You need the following values from the Okta Application and the Admin Console that you worked with in the [Create an Okta application](#create-an-okta-application) section:
+You need the following values from the Okta app that you created in the [Create an Okta app integration](#create-an-okta-app-integration) section:
 
 * **Client ID** &mdash; find it in the applications list or on the **General** tab of your app integration.
 * **Okta Domain** &mdash; you can find the Okta Domain in the Admin Console's global header in the upper-right corner of the page. Click the section that displays your email and company name.  A drop-down box appears and displays general org information including the full Okta domain (for example, subdomain.okta.com).
@@ -86,7 +86,7 @@ You'll also need the full redirect URI that you defined in the [Define a callbac
 
 ## Open the sign-in page
 
-To sign in users, open a browser and display the Okta-hosted sign-in page.
+To sign in users, open a browser and navigate to the Okta-hosted sign-in page.
 
 To learn how to customize the sign-in page, see [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/).
 
