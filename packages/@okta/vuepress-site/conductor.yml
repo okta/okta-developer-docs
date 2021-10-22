@@ -2557,7 +2557,6 @@ redirects:
     to: /docs/guides/set-up-self-service-registration/main/
   - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
     to: /docs/guides/set-up-self-service-registration/main/
-
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/overview/
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages/
@@ -2604,5 +2603,21 @@ redirects:
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/common-hook-set-up-steps/-/overview/index.html
+    to: /docs/guides/common-hook-set-up-steps/
+  - from: /docs/guides/common-hook-set-up-steps/-/overview
+    to: /docs/guides/common-hook-set-up-steps/
+  - from: /docs/guides/common-hook-set-up-steps/-/setting-up-an-external-service/index.html
+    to: /docs/guides/common-hook-set-up-steps/
+  - from: /docs/guides/common-hook-set-up-steps/-/setting-up-an-external-service
+    to: /docs/guides/common-hook-set-up-steps/
+  - from: /docs/guides/common-hook-set-up-steps/-/adding-basic-auth/index.html
+    to: /docs/guides/common-hook-set-up-steps/
+  - from: /docs/guides/common-hook-set-up-steps/-/adding-basic-auth
+    to: /docs/guides/common-hook-set-up-steps/
+  - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting/index.html
+    to: /docs/guides/common-hook-set-up-steps/
+  - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting
+    to: /docs/guides/common-hook-set-up-steps/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
