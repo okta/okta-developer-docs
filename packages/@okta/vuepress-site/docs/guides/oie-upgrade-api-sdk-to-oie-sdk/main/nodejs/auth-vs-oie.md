@@ -7,9 +7,9 @@ Another difference between Classic Engine SDK and Identity Engine SDK methods is
 
 For further information on the Classic Engine SDK and the Identity Engine SDK, see the following documentation at the okta-auth-js repository:
 
-[Okta Authentication API (authn)](https://github.com/okta/okta-auth-js/blob/master/docs/authn.md)
-[Okta Identity Engine API (IDX)](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md)
-[Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md)
+* [Okta Authentication API (authn)](https://github.com/okta/okta-auth-js/blob/master/docs/authn.md)
+* [Okta Identity Engine API (IDX)](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md)
+* [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md)
 
 The following table is a high-level mapping of the typical classic API requests and Authn SDK methods to Identity Engine SDK methods. Since there are a variety of combinations to achieve classic authentication flows, the mapping list is not exhaustive.
 
