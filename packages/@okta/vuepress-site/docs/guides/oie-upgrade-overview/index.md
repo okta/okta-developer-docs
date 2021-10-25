@@ -48,7 +48,7 @@ For a more detailed look at the upgrade steps, see the [Planning Embedded Auth a
   * **Self-Service Password Recovery:** Make sure that users can recover their factors with no blockers.
   * **Self-Service Registration:** Make sure that users can sign up (including Factor enrollment if you support that) and that there are no interruptions during that process.
 
-  See [Upgrade your application to use the Identity Engine SDK](/docs/guides/upgrade-sdk/) for detailed steps by language.
+  See [Upgrade your application to use the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/) for detailed steps by language.
 
 ## Upgrade Documentation
 
@@ -66,6 +66,6 @@ The Identity Engine upgrade documentation below discusses the various upgrade ta
 
 * [Add the latest Auth SDKs to your applications](/docs/guides/add-latest-sdks/) &mdash; Learn about how your applications work with the latest version of the SDK. This content discusses how to update your applications to use the latest version of the SDK without making any code changes and how to break up the changes to your applications.
 
-* [Upgrade your application to use the Identity Engine SDK](/docs/guides/upgrade-sdk/) &mdash; Learn about the changes to authentication pipelines that impact embedded applications using AuthN and Management APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
+* [Upgrade your application to use the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/) &mdash; Learn about the changes to authentication pipelines that impact embedded applications using AuthN and Management APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
 
 * [Upgrade the Sessions API and sessionToken authentication to Identity Engine](/docs/guides/sessions/) &mdash; Learn how changes to the authentication pipelines impact applications that use the Sessions APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
