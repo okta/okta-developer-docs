@@ -16,7 +16,7 @@ After you upgrade your org to Okta Identity Engine, the [setCookieAndRedirect()]
 
 The `showSignIn` method is one of three similar methods in the Sign-In Widget:
 
-[showSignIn](https://github.com/okta/okta-signin-widget#showsignin) &mdash; Use this method for most use cases. On success, the Promise resolves. On error, the Promise is rejected. If a redirect, redirects to Okta or another identity provider (IdP). The responses and errors are the same as those for [renderEl](https://github.com/okta/okta-signin-widget#renderel).
+[showSignIn](https://github.com/okta/okta-signin-widget#showsignin) &mdash; Use this method for most use cases. On success, the Promise resolves. On error, the Promise is rejected. If the result is a redirect, redirects to Okta or another identity provider (IdP). The responses and errors are the same as those for [renderEl](https://github.com/okta/okta-signin-widget#renderel).
 
 [showSignInAndRedirect](https://github.com/okta/okta-signin-widget#showsigninandredirect) &mdash; Use this method to define the flow so that it always include a redirect URI. This is the recommended method for server-side web apps.
 
