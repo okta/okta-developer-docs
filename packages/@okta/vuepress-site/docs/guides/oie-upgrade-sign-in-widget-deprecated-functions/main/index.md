@@ -32,11 +32,11 @@ Here is a code snippet that illustrates how to use `showSignIn`:
 var signIn = new OktaSignIn({
    // Assumes there is an empty element on the page with an id of ‘osw-container’
   el: ‘#osw-container’,
-  clientId: '{{clientId of your OIDC app}}',
-  redirectUri: '{{redirectUri configured in OIDC app}}',
-  baseUrl: ‘https://{yourOktaDomain},
+  clientId: '${clientId of your OIDC app}',
+  redirectUri: '${redirectUri configured in OIDC app}',
+  baseUrl: ‘https://${yourOktaDomain},
   authParams: {
-    issuer: 'https://{yourOktaDomain}/oauth2/default'
+    issuer: 'https://${yourOktaDomain}/oauth2/default'
   }
 });
 
