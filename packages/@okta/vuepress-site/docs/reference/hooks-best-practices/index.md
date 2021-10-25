@@ -77,7 +77,7 @@ Inline Hooks also provide an `error` object that can be returned as part of the 
 
 See also the following guides for sample Okta Hook implementations:
 
-* [Event Hook](/docs/guides/event-hook-implementation/nodejs/overview/)
-* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/nodejs/overview/)
-* [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/overview/)
-* [Token Inline Hook](/docs/guides/token-inline-hook/nodejs/overview/)
+* [Event Hook](/docs/guides/event-hook-implementation/)
+* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
+* [Registration Inline Hook](/docs/guides/registration-inline-hook/)
+* [Token Inline Hook](/docs/guides/token-inline-hook/)

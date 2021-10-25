@@ -140,7 +140,7 @@ To run a test of your Event Hook:
 1. Start by going to your Glitch application and opening the log console (**Tools** > **Logs**). Make sure your application is listening for requests.
 2. In your Okta org, sign in as an administrator and create a test user in the Admin Console.
     - Go to **Directory** > **People**, and click **Add Person**.
-    - As an example, add the user John Doe as seen from the [Event Object sample code](/docs/guides/event-hook-implementation/event-object).
+    - As an example, add the user John Doe as seen from the [Event Object sample code](/docs/guides/event-hook-implementation/#examine-the-event-hook-object).
 3. For this user, select the User's profile by clicking John Doe's name.
 4. Click the **More Actions** drop-down menu, and select **Deactivate**.
 5. Confirm the deactivation.
@@ -154,10 +154,9 @@ To run a test of your Event Hook:
 
 Review the following guides to implement other Inline Hook examples:
 
-* [Event Hook](/docs/guides/event-hook-implementation/nodejs/overview/)
-* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/nodejs/overview/)
-* [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/overview/)
-* [Token Inline Hook](/docs/guides/token-inline-hook/nodejs/overview/)
+* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
+* [Registration Inline Hook](/docs/guides/registration-inline-hook/)
+* [Token Inline Hook](/docs/guides/token-inline-hook/)
 
 ## See also
 
