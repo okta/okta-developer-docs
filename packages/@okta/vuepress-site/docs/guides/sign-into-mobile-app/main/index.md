@@ -96,7 +96,7 @@ To learn how to customize the sign-in page, see [Style the Widget](/docs/guides/
 
 When a user signs in, their profile information (stored in Okta) is made available to your application. You can use the user's profile information to personalize their app experience.
 
-By default, the profile items (called "claims") that Okta returns include the user's email address, first name, and last name. You can see the default items returned in the [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6). The claims you see may differ depending on what scopes your app has requested (see [Add and configure packages](#add-and-configure-packages).
+By default, the profile items (called "claims") that Okta returns include the user's email address, first name, and last name. You can see the default items returned in the [/userinfo response example](/docs/reference/api/oidc/#response-example-success-6). The claims you see may differ depending on what scopes your app has requested (see [Add and configure packages](#add-and-configure-packages)).
 
 <StackSelector snippet="getinfo"/>
 
