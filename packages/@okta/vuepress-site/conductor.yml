@@ -2644,4 +2644,48 @@ redirects:
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/ 
+  - from: /docs/guides/sign-into-spa/-/before-you-begin
+    to: /docs/guides/sign-into-spa/
+  - from: /docs/guides/sign-into-spa/-/define-callback
+    to: /docs/guides/sign-into-spa/-/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-spa/-/create-okta-application
+    to: /docs/guides/sign-into-spa/-/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-spa/-/install-sdk
+    to: /docs/guides/sign-into-spa/-/main/#install-the-sdk
+  - from: /docs/guides/sign-into-spa/-/configure-the-sdk
+    to: /docs/guides/sign-into-spa/-/main/#configure-the-sdk
+  - from: /docs/guides/sign-into-spa/-/add-signin-button
+    to: /docs/guides/sign-into-spa/-/main/#add-a-button-to-sign-in
+  - from: /docs/guides/sign-into-spa/-/handle-callback
+    to: /docs/guides/sign-into-spa/-/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/-/require-authentication
+    to: /docs/guides/sign-into-spa/-/main/#require-authentication
+  - from: /docs/guides/sign-into-spa/-/user-info
+    to: /docs/guides/sign-into-spa/-/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/-/use-the-access-token
+    to: /docs/guides/sign-into-spa/-/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/-/next-steps
+    to: /docs/guides/sign-into-spa/-/main/#next-steps
+  - from: /docs/guides/sign-into-spa/-/before-you-begin/index.html
+    to: /docs/guides/sign-into-spa/
+  - from: /docs/guides/sign-into-spa/-/define-callback/index.html
+    to: /docs/guides/sign-into-spa/-/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-spa/-/create-okta-application/index.html
+    to: /docs/guides/sign-into-spa/-/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-spa/-/install-sdk/index.html
+    to: /docs/guides/sign-into-spa/-/main/#install-the-sdk
+  - from: /docs/guides/sign-into-spa/-/configure-the-sdk/index.html
+    to: /docs/guides/sign-into-spa/-/main/#configure-the-sdk
+  - from: /docs/guides/sign-into-spa/-/add-signin-button/index.html
+    to: /docs/guides/sign-into-spa/-/main/#add-a-button-to-sign-in
+  - from: /docs/guides/sign-into-spa/-/handle-callback/index.html
+    to: /docs/guides/sign-into-spa/-/main/#handle-the-callback-from-okta
+  - from: /docs/guides/sign-into-spa/-/require-authentication/index.html
+    to: /docs/guides/sign-into-spa/-/main/#require-authentication
+  - from: /docs/guides/sign-into-spa/-/user-info/index.html
+    to: /docs/guides/sign-into-spa/-/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-spa/-/use-the-access-token/index.html
+    to: /docs/guides/sign-into-spa/-/main/#use-the-access-token
+  - from: /docs/guides/sign-into-spa/-/next-steps/index.html
+    to: /docs/guides/sign-into-spa/-/main/#next-steps
