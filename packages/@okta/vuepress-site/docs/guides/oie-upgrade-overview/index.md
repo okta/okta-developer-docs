@@ -13,7 +13,7 @@ Are you an admin? See the [Identity Engine Upgrade Overview](link to product doc
 
 ## Prerequisites
 
-* [Upgrade the Sign-In Widget](/docs/guides/sign-in-widget) before reading this document or requesting a data upgrade. Anyone using the Sign-In Widget should upgrade to the latest version (either Okta-hosted using our redirect model or embedding a form of the Widget inside your applications).
+* [Upgrade the Sign-In Widget](/docs/guides/sign-in-widget/) before reading this document or requesting a data upgrade. Anyone using the Sign-In Widget should upgrade to the latest version (either Okta-hosted using our redirect model or embedding a form of the Widget inside your applications).
 * Complete the initial org upgrade process. If you haven't yet migrated your orgs from Classic Engine to Identity Engine, discuss your options with your Okta account team.
 
 ## Upgrade Process
@@ -54,7 +54,7 @@ For a more detailed look at the upgrade steps, see the [Planning Embedded Auth a
 
 The Identity Engine upgrade documentation below discusses the various upgrade tasks. Which tasks you need to complete depends on your deployment model.
 
-* [Upgrade your Okta Sign-In Widget](/docs/guides/) &mdash; Learn how to upgrade the Sign-In Widget from older versions of 2.x, 3.x, 4.x, and 5.x.
+* [Upgrade your Okta Sign-In Widget](/docs/guides/sign-in-widget/) &mdash; Learn how to upgrade the Sign-In Widget from older versions of 2.x, 3.x, 4.x, and 5.x.
 
   * [Migrate away from deprecated Javascript functions in the Sign-In Widget](/docs/guides/sign-in-widget-deprecated-functions/) &mdash; Learn how changes to the authentication pipelines impact applications that call Sign-In Widget JavaScript functions, such as `setCookieAndRedirect()`. Also included are best practices on how you can reimplement existing flows in Identity Engine.
   * [Update the Sign-In Widget styling](/docs/guides/sign-in-widget-styling/) &mdash; Learn about the latest Sign-In Widget style updates.
