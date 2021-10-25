@@ -2557,7 +2557,46 @@ redirects:
     to: /docs/guides/set-up-self-service-registration/main/
   - from: /docs/guides/set-up-self-service-registration/next-steps/index.html
     to: /docs/guides/set-up-self-service-registration/main/
-
+  - from: /docs/guides/sign-into-mobile-app/-/before-you-begin
+    to: /docs/guides/sign-into-mobile-app/
+  - from: /docs/guides/sign-into-mobile-app/-/define-callback
+    to: /docs/guides/sign-into-mobile-app/-/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/-/create-okta-application
+    to: /docs/guides/sign-into-mobile-app/-/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/-/configure-packages
+    to: /docs/guides/sign-into-mobile-app/-/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/-/sign-in-page
+    to: /docs/guides/sign-into-mobile-app/-/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/-/get-user-info
+    to: /docs/guides/sign-into-mobile-app/-/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/-/check-on-startup
+    to: /docs/guides/sign-into-mobile-app/-/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/-/stay-signed-in
+    to: /docs/guides/sign-into-mobile-app/-/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/-/use-access-token
+    to: /docs/guides/sign-into-mobile-app/-/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/-/next-steps
+    to: /docs/guides/sign-into-mobile-app/-/main/#next-steps
+  - from: /docs/guides/sign-into-mobile-app/-/before-you-begin/index.html
+    to: /docs/guides/sign-into-mobile-app/-/main/
+  - from: /docs/guides/sign-into-mobile-app/-/define-callback/index.html
+    to: /docs/guides/sign-into-mobile-app/-/main/#define-a-callback-route
+  - from: /docs/guides/sign-into-mobile-app/-/create-okta-application/index.html
+    to: /docs/guides/sign-into-mobile-app/-/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-mobile-app/-/configure-packages/index.html
+    to: /docs/guides/sign-into-mobile-app/-/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-mobile-app/-/sign-in-page/index.html
+    to: /docs/guides/sign-into-mobile-app/-/main/#open-the-sign-in-page
+  - from: /docs/guides/sign-into-mobile-app/-/get-user-info/index.html
+    to: /docs/guides/sign-into-mobile-app/-/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-mobile-app/-/check-on-startup/index.html
+    to: /docs/guides/sign-into-mobile-app/-/main/#check-for-a-session-at-startup
+  - from: /docs/guides/sign-into-mobile-app/-/stay-signed-in/index.html
+    to: /docs/guides/sign-into-mobile-app/-/main/#keep-the-user-signed-in
+  - from: /docs/guides/sign-into-mobile-app/-/use-access-token/index.html
+    to: /docs/guides/sign-into-mobile-app/-/main/#use-the-access-token
+  - from: /docs/guides/sign-into-mobile-app/-/next-steps/index.html
+    to: /docs/guides/sign-into-mobile-app/-/main/#next-steps
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/overview/
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/configure-packages/
