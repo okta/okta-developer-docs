@@ -256,4 +256,4 @@ User user = UserBuilder.instance()
 
 The Java SDK and its documentation are available at its [GitHub Repository](https://github.com/okta/okta-sdk-java).
 
-See [Languages & SDKs](/docs/) for information on getting started with a variety of Okta SDKs.
+See [Languages & SDKs](/code/) for information on getting started with a variety of Okta SDKs.
