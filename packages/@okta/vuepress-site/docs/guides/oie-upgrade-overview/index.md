@@ -54,18 +54,18 @@ For a more detailed look at the upgrade steps, see the [Planning Embedded Auth a
 
 The Identity Engine upgrade documentation below discusses the various upgrade tasks. Which tasks you need to complete depends on your deployment model.
 
-* [Upgrade your Okta Sign-In Widget](/docs/guides/sign-in-widget/) &mdash; Learn how to upgrade the Sign-In Widget from older versions of 2.x, 3.x, 4.x, and 5.x.
+* [Upgrade your Okta Sign-In Widget](/docs/guides/sign-in-widget/): Learn how to upgrade the Sign-In Widget from older versions of 2.x, 3.x, 4.x, and 5.x.
 
-  * [Migrate away from deprecated Javascript functions in the Sign-In Widget](/docs/guides/sign-in-widget-deprecated-functions/) &mdash; Learn how changes to the authentication pipelines impact applications that call Sign-In Widget JavaScript functions, such as `setCookieAndRedirect()`. Also included are best practices on how you can reimplement existing flows in Identity Engine.
-  * [Update the Sign-In Widget styling](/docs/guides/sign-in-widget-styling/) &mdash; Learn about the latest Sign-In Widget style updates.
-  * [Update the Sign-in Widget L10n keys](/docs/guides/sign-in-widget-i18n/) &mdash; Learn about the latest Sign-In Widget L10n key updates.
+  * [Deprecated JavaScript functions in the Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-functions/): Learn how changes to the authentication pipelines impact applications that call Sign-In Widget JavaScript functions, such as `setCookieAndRedirect()`. Also included are best practices on how you can reimplement existing flows in Identity Engine.
+  * [Update the Sign-In Widget styling](/docs/guides/sign-in-widget-styling/): Learn about the latest Sign-In Widget style updates.
+  * [Update the Sign-in Widget L10n keys](/docs/guides/sign-in-widget-i18n/): Learn about the latest Sign-In Widget L10n key updates.
 
-* [Planning Embedded Auth application upgrades](/docs/guides/planning-embedded-upgrades/) &mdash; Learn about how to embark on the upgrade process, the steps required, and how you can stage your upgrade. Also discussed are suggestions on when to test and how to roll out the application upgrades to your users.
+* [Planning Embedded Auth application upgrades](/docs/guides/planning-embedded-upgrades/): Learn about how to embark on the upgrade process, the steps required, and how you can stage your upgrade. Also discussed are suggestions on when to test and how to roll out the application upgrades to your users.
 
-* [Upgrade authentication services and applications to use the Interaction Code grant type](/docs/guides/implement-grant-type/authcode/) &mdash; Learn how to configure your embedded applications and the corresponding authorization servers to use the Interaction Code grant type.
+* [Upgrade authentication services and applications to use the Interaction Code grant type](/docs/guides/implement-grant-type/authcode/): Learn how to configure your embedded applications and the corresponding authorization servers to use the Interaction Code grant type.
 
-* [Add the latest Auth SDKs to your applications](/docs/guides/add-latest-sdks/) &mdash; Learn about how your applications work with the latest version of the SDK. This content discusses how to update your applications to use the latest version of the SDK without making any code changes and how to break up the changes to your applications.
+* [Add the latest Auth SDKs to your applications](/docs/guides/add-latest-sdks/): Learn about how your applications work with the latest version of the SDK. This content discusses how to update your applications to use the latest version of the SDK without making any code changes and how to break up the changes to your applications.
 
-* [Upgrade your application to use the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/) &mdash; Learn about the changes to authentication pipelines that impact embedded applications using AuthN and Management APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
+* [Upgrade your application to use the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/): Learn about the changes to authentication pipelines that impact embedded applications using AuthN and Management APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
 
-* [Upgrade the Sessions API and sessionToken authentication to Identity Engine](/docs/guides/sessions/) &mdash; Learn how changes to the authentication pipelines impact applications that use the Sessions APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
+* [Upgrade the Sessions API and sessionToken authentication to Identity Engine](/docs/guides/sessions/): Learn how changes to the authentication pipelines impact applications that use the Sessions APIs. Also included are best practices on how you can reimplement existing flows in Identity Engine.
