@@ -1,9 +1,7 @@
 ---
 title: Deprecated JavaScript functions in the Sign-In Widget
-meta:
-  - name: description
-    content: After you upgrade your org to Okta Identity Engine, the setCookieAndRedirect() JavaScript function is deprecated from the Sign-In Widget. Use the showSignIn method in the Widget to resolve a returned promise (or redirect it) base on the Adminstrator's sign-on policy.
 ---
+
 <ApiLifecycle access="ie" />
 
 ## Overview
