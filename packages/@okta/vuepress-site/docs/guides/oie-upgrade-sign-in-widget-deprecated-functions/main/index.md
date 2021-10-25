@@ -31,7 +31,7 @@ var signIn = new OktaSignIn({
    // Assumes there is an empty element on the page with an id of ‘osw-container’
   el: ‘#osw-container’,
   clientId: '${clientId of your OIDC app integration}',
-  redirectUri: '${redirectUri configured in OIDC app integration}',
+  redirectUri: '${redirectUri configured in your OIDC app integration}',
   baseUrl: ‘https://${yourOktaDomain},
   authParams: {
     issuer: 'https://${yourOktaDomain}/oauth2/default'
