@@ -76,6 +76,7 @@ guides:
  - oie-embedded-widget-use-case-sign-in-soc-idp
  - oie-upgrade-add-sdk-to-your-app
  - oie-upgrade-api-sdk-to-oie-sdk
+ - oie-upgrade-sign-in-widget-i18n
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
