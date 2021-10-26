@@ -1237,54 +1237,6 @@ redirects:
     to: /docs/guides/sign-into-spa/vue/use-the-access-token/
   - from: /guides/sign-into-spa/vue/user-info/index.html
     to: /docs/guides/sign-into-spa/vue/user-info/
-  - from: /guides/sign-into-web-app/-/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/-/before-you-begin/
-  - from: /guides/sign-into-web-app/-/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/-/configure-packages/
-  - from: /guides/sign-into-web-app/-/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/-/create-okta-application/
-  - from: /guides/sign-into-web-app/-/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/-/define-callback/
-  - from: /guides/sign-into-web-app/-/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/-/get-user-info/
-  - from: /guides/sign-into-web-app/-/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/-/next-steps/
-  - from: /guides/sign-into-web-app/-/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/-/redirect-to-sign-in/
-  - from: /guides/sign-into-web-app/-/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/-/require-authentication/
-  - from: /guides/sign-into-web-app/aspnet/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/before-you-begin/
-  - from: /guides/sign-into-web-app/aspnet/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/configure-packages/
-  - from: /guides/sign-into-web-app/aspnet/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/create-okta-application/
-  - from: /guides/sign-into-web-app/aspnet/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/define-callback/
-  - from: /guides/sign-into-web-app/aspnet/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/get-user-info/
-  - from: /guides/sign-into-web-app/aspnet/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/next-steps/
-  - from: /guides/sign-into-web-app/aspnet/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/redirect-to-sign-in/
-  - from: /guides/sign-into-web-app/aspnet/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/require-authentication/
-  - from: /guides/sign-into-web-app/springboot/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/springboot/before-you-begin/
-  - from: /guides/sign-into-web-app/springboot/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/springboot/configure-packages/
-  - from: /guides/sign-into-web-app/springboot/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/springboot/create-okta-application/
-  - from: /guides/sign-into-web-app/springboot/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/springboot/define-callback/
-  - from: /guides/sign-into-web-app/springboot/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/springboot/get-user-info/
-  - from: /guides/sign-into-web-app/springboot/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/springboot/next-steps/
-  - from: /guides/sign-into-web-app/springboot/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/springboot/redirect-to-sign-in/
-  - from: /guides/sign-into-web-app/springboot/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/springboot/require-authentication/
   - from: /guides/sign-users-out/-/before-you-begin/index.html
     to: /docs/guides/sign-users-out/-/before-you-begin/
   - from: /guides/sign-users-out/-/next-steps/index.html
@@ -1500,53 +1452,53 @@ redirects:
   - from: /guides/sign-into-spa/vue/user-info/index.html
     to: /docs/guides/sign-into-spa/vue/user-info/
   - from: /guides/sign-into-web-app/-/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/-/before-you-begin/
+    to: /docs/guides/sign-into-web-app/-/main
   - from: /guides/sign-into-web-app/-/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/-/configure-packages/
+    to: /docs/guides/sign-into-web-app/-/main/#add-and-configure-packages
   - from: /guides/sign-into-web-app/-/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/-/create-okta-application/
+    to: /docs/guides/sign-into-web-app/-/main/#create-an-okta-app-integration
   - from: /guides/sign-into-web-app/-/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/-/define-callback/
+    to: /docs/guides/sign-into-web-app/-/main/#understand-the-callback-route
   - from: /guides/sign-into-web-app/-/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/-/get-user-info/
+    to: /docs/guides/sign-into-web-app/-/main/#get-info-about-the-user
   - from: /guides/sign-into-web-app/-/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/-/next-steps/
+    to: /docs/guides/sign-into-web-app/-/main/#next-steps
   - from: /guides/sign-into-web-app/-/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/-/redirect-to-sign-in/
+    to: /docs/guides/sign-into-web-app/-/main/#redirect-to-the-sign-in-page
   - from: /guides/sign-into-web-app/-/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/-/require-authentication/
+    to: /docs/guides/sign-into-web-app/-/main/#require-authentication
   - from: /guides/sign-into-web-app/aspnet/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/before-you-begin/
+    to: /docs/guides/sign-into-web-app/aspnet/main
   - from: /guides/sign-into-web-app/aspnet/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/configure-packages/
+    to: /docs/guides/sign-into-web-app/aspnet/main/#add-and-configure-packages
   - from: /guides/sign-into-web-app/aspnet/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/create-okta-application/
+    to: /docs/guides/sign-into-web-app/aspnet/main/#create-an-okta-app-integration
   - from: /guides/sign-into-web-app/aspnet/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/define-callback/
+    to: /docs/guides/sign-into-web-app/aspnet/main/#understand-the-callback-route
   - from: /guides/sign-into-web-app/aspnet/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/get-user-info/
+    to: /docs/guides/sign-into-web-app/aspnet/main/#get-info-about-the-user
   - from: /guides/sign-into-web-app/aspnet/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/next-steps/
+    to: /docs/guides/sign-into-web-app/aspnet/main/#next-steps
   - from: /guides/sign-into-web-app/aspnet/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/redirect-to-sign-in/
+    to: /docs/guides/sign-into-web-app/aspnet/main/#redirect-to-the-sign-in-page
   - from: /guides/sign-into-web-app/aspnet/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/aspnet/require-authentication/
+    to: /docs/guides/sign-into-web-app/aspnet/main/#require-authentication
   - from: /guides/sign-into-web-app/springboot/before-you-begin/index.html
-    to: /docs/guides/sign-into-web-app/springboot/before-you-begin/
+    to: /docs/guides/sign-into-web-app/springboot/main/
   - from: /guides/sign-into-web-app/springboot/configure-packages/index.html
-    to: /docs/guides/sign-into-web-app/springboot/configure-packages/
+    to: /docs/guides/sign-into-web-app/springboot/main/#add-and-configure-packages
   - from: /guides/sign-into-web-app/springboot/create-okta-application/index.html
-    to: /docs/guides/sign-into-web-app/springboot/create-okta-application/
+    to: /docs/guides/sign-into-web-app/springboot/main/#create-an-okta-app-integration
   - from: /guides/sign-into-web-app/springboot/define-callback/index.html
-    to: /docs/guides/sign-into-web-app/springboot/define-callback/
+    to: /docs/guides/sign-into-web-app/springboot/main/#understand-the-callback-route
   - from: /guides/sign-into-web-app/springboot/get-user-info/index.html
-    to: /docs/guides/sign-into-web-app/springboot/get-user-info/
+    to: /docs/guides/sign-into-web-app/springboot/main/#get-info-about-the-user
   - from: /guides/sign-into-web-app/springboot/next-steps/index.html
-    to: /docs/guides/sign-into-web-app/springboot/next-steps/
+    to: /docs/guides/sign-into-web-app/springboot/main/#next-steps
   - from: /guides/sign-into-web-app/springboot/redirect-to-sign-in/index.html
-    to: /docs/guides/sign-into-web-app/springboot/redirect-to-sign-in/
+    to: /docs/guides/sign-into-web-app/springboot/main/#redirect-to-the-sign-in-page
   - from: /guides/sign-into-web-app/springboot/require-authentication/index.html
-    to: /docs/guides/sign-into-web-app/springboot/require-authentication/
+    to: /docs/guides/sign-into-web-app/springboot/main/#require-authentication
   - from: /guides/sign-users-out/-/before-you-begin/index.html
     to: /docs/guides/sign-users-out/-/before-you-begin/
   - from: /guides/sign-users-out/-/next-steps/index.html
