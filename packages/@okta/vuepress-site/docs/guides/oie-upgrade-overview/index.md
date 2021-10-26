@@ -38,10 +38,16 @@ For a more detailed look at the upgrade steps, see the [Planning Embedded Auth a
 
 * Test your new environment to make sure that your experience and functionality are preserved.
 * What’s your Deployment Model?
-  * **Are you redirecting to the Okta-hosted Sign-In Widget?** If you have no customizations besides basic branding styles, be sure to test your user experience. Make any necessary [updates to the Sign-In Widget styling](/docs/guides/sign-in-widget-styling/) and [L10n keys](/docs/guides/sign-in-widget-i18n/). Beyond that, there are no additional upgrade tasks required after data migration.
-  > **Note:** See the **Remember me** section of the [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new) for more information on functionality changes in the Admin Console.
-  * **Are you embedding our Sign-In Widget?** Make [updates to the Sign-In Widget styling](/docs/guides/sign-in-widget-styling/) and [L10n keys](/docs/guides/sign-in-widget-i18n/).
-  * **Are you embedding your authentication with our SDKs?** Add the appropriate Identity Engine SDK to your application code or update to the latest version of the Identity Engine SDK. See [Add the latest Auth SDKs to your applications](/docs/guides/add-latest-sdks/) for detailed steps by language.
+  * **Are you redirecting to the Okta-hosted Sign-In Widget?**
+    * Test your user experience.
+    * Make any necessary [updates to the Sign-In Widget styling](/docs/guides/sign-in-widget-styling/) and [L10n keys](/docs/guides/sign-in-widget-i18n/).
+    * Check your `config.idps` settings for customizations that may not be compatible with Identity Engine.
+    > **Note:** See the **Remember me** section of the [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new) for more information on functionality changes in the Admin Console.
+  * **Are you embedding our Sign-In Widget?**
+    * Test your user experience.
+    * Make any necessary [updates to the Sign-In Widget styling](/docs/guides/sign-in-widget-styling/) and [L10n keys](/docs/guides/sign-in-widget-i18n/).
+  * **Are you embedding your authentication with our SDKs?**
+    * Add the appropriate Identity Engine SDK to your application code or update to the latest version of the Identity Engine SDK. See [Add the latest Auth SDKs to your applications](/docs/guides/add-latest-sdks/) for detailed steps by language.
   * **Are you moving to an architecture that leverages an Okta SDK?** More detailed information coming soon. <!-- See [Move away from using Authn APIs to using the appropriate SDK](/docs/guides/) for details on this task. -->
 * Test your user experience.
   * **Authentication:** Make sure that your users can sign in and sign out for the workflows that you support.
