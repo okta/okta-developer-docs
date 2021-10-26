@@ -6,9 +6,15 @@ excerpt: The Schemas API defines custom user profiles for Okta users, applicatio
 
 # Schemas API
 
-Okta's [Universal Directory](https://help.okta.com/okta_help.htm?id=ext_About_Universal_Directory) allows administrators to define custom User profiles for Okta Users and Applications. Okta has adopted a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) as the schema language to describe and validate extensible User profiles. [JSON Schema](http://json-schema.org/) is a lightweight declarative format for describing the structure, constraints, and validation of JSON documents.
+The Okta Schemas API provides operations to manage custom User profiles as well as endpoint to discover structure of Log Stream configuration.
 
-> **Note:** Okta has implemented only a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04). This document should describe which parts are applicable to Okta and any extensions Okta has made to [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
+Okta's [Universal Directory](https://help.okta.com/okta_help.htm?id=ext_About_Universal_Directory) allows administrators to define custom User profiles for Okta Users and Applications.
+Okta has adopted a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) as the schema language to describe and validate extensible User profiles.
+For Log Stream Schemas Okta started leveraging latest [JSON Schema Draft 2020-12](https://json-schema.org/specification.html).
+[JSON Schema](http://json-schema.org/) is a lightweight declarative format for describing the structure, constraints, and validation of JSON documents.
+
+
+> **Note:** Okta has implemented only a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) and [JSON Schema Draft 2020-12](https://json-schema.org/specification.html). This document should describe which parts are applicable to Okta and any extensions Okta has made to [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) and [JSON Schema Draft 2020-12](https://json-schema.org/specification.html).
 
 ## Getting started
 
@@ -2985,3 +2991,218 @@ The following response is only a subset of properties for brevity.
     }
 }
 ```
+
+
+### Get Log stream Schema
+
+> **Warning:** For Log Stream Schema API to be accessible `LOG_STREAMING` feature flag has to be enabled.
+
+
+<ApiOperation method="get" url="/api/v1/meta/schemas/logStream/${typeId}" />
+
+Fetches the schema for a Log Stream Type
+
+##### Request parameters
+
+N/A
+
+##### Response parameters
+
+
+[Log Stream Schema](#log-stream-schema-object)
+
+##### Request example
+
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge"
+```
+
+##### Response example
+
+The following response is only a subset of properties for brevity.
+
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://rain-admin.okta1.com:1802/api/v1/meta/schemas/logStream/aws_eventbridge",
+  "title": "AWS EventBridge",
+  "type": "object",
+  "properties": {
+    "settings": {
+      "description": "Configuration properties specific to instance",
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "title": "AWS Account ID",
+          "description": "Your Amazon AWS Account ID.",
+          "type": "string",
+          "writeOnce": true,
+          "pattern": "^\\d{12}$"
+        },
+        "eventSourceName": {
+          "title": "AWS Event Source Name",
+          "description": "An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.",
+          "type": "string",
+          "writeOnce": true,
+          "pattern": "^[\\.\\-_A-Za-z0-9]{1,75}$"
+        },
+        "region": {
+          "title": "AWS Region",
+          "description": "The destination AWS region for your system log events.",
+          "type": "string",
+          "writeOnce": true,
+          "oneOf": [
+            {
+              "title": "US East (Ohio)",
+              "const": "us-east-2"
+            },
+            {
+              "title": "US East (N. Virginia)",
+              "const": "us-east-1"
+            },
+            {
+              "title": "US West (N. California)",
+              "const": "us-west-1"
+            },
+            {
+              "title": "US West (Oregon)",
+              "const": "us-west-2"
+            },
+            {
+              "title": "Canada (Central)",
+              "const": "ca-central-1"
+            },
+            {
+              "title": "Europe (Frankfurt)",
+              "const": "eu-central-1"
+            },
+            {
+              "title": "Europe (Ireland)",
+              "const": "eu-west-1"
+            },
+            {
+              "title": "Europe (London)",
+              "const": "eu-west-2"
+            },
+            {
+              "title": "Europe (Paris)",
+              "const": "eu-west-3"
+            },
+            {
+              "title": "Europe (Milan)",
+              "const": "eu-south-1"
+            },
+            {
+              "title": "Europe (Stockholm)",
+              "const": "eu-north-1"
+            }
+          ]
+        }
+      },
+      "required": [
+        "eventSourceName",
+        "accountId",
+        "region"
+      ],
+      "errorMessage": {
+        "properties": {
+          "accountId": "Account number must be 12 digits.",
+          "eventSourceName": "Event source name can use numbers, letters, the symbols \".\", \"-\" or \"_\". It must use fewer than 76 characters."
+        }
+      }
+    },
+    "name": {
+      "title": "Name",
+      "description": "A name for this integration instance in Okta",
+      "type": "string",
+      "writeOnce": false,
+      "pattern": "^.{1,100}$"
+    }
+  },
+  "required": [
+    "name",
+    "settings"
+  ],
+  "errorMessage": {
+    "properties": {
+      "name": "Name can't exceed 100 characters."
+    }
+  }
+}
+```
+
+#### Log Stream Schema object
+
+The Log Stream Schema is a valid
+[JSON Schema Draft 2020-12](https://json-schema.org/specification.html)
+document with the following properties:
+
+| Property                       | Description                                | DataType                                          | Nullable | Unique | Readonly |
+|:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
+| $id | URI of Log Stream Schema |String |FALSE| TRUE| TRUE|
+|$schema| JSON Schema version identifier| String| FALSE| FALSE| TRUE|
+|title| name of the Log Streaming integration| String|FALSE|| TRUE| TRUE|
+|type| type of root Schema|String|FALSE|FALSE|TRUE|
+|properties|Log Stream object properties|Log Stream object property set|FALSE|TRUE|TRUE|
+|required| required properties for this Log Stream object|Array of String|FALSE|TRUE|TRUE|
+
+
+#### Log Stream Schema property object
+
+All Log Stream Schema properties will contain a `name`, which specifies
+the Log Stream name within Okta, and a `settings`, which describes the
+settings of that log stream. `name` will have type String, and `settings`
+will have type Object. Both `name` and the properties within `settings` have the
+following standard [JSON Schema Draft 2020-12](https://json-schema.org/specification.html)
+properties:
+
+| Property                       | Description                                | DataType                                          | Nullable | Unique | Readonly |
+|:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
+| title| display name for the property| String|FALSE|FALSE|TRUE|
+|description|description of the property|String|TRUE|FALSE|TRUE|
+|type|type of the property|string, boolean, number, integer|FALSE|FALSE|TRUE|
+|pattern|if the property type is string, the regular expression used to validate the proerty|String|TRUE|FALSE|TRUE|
+|oneOf|non-empty array of valid JSON schemas|array|TRUE|FALSE|TRUE|
+
+##### Description details
+
+* `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
+
+ ```json
+{
+  "const": "enumValue",
+  "title": "display name"
+}
+ ```
+
+Okta has also extended [JSON Schema Draft 2020-12](https://json-schema.org/specification.html)
+with the following keywords:
+
+| Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
+| :---------------------------------- | :---------------------------------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
+| writeOnce|Determines whether the property can be updated once it has been created|Boolean|FALSE|FALSE|TRUE|
+| errorMessage|Error messages for properties of this Log Streaming object|Error Message object|FALSE|TRUE|TRUE|
+
+#### Error Message object
+Okta has implemented a subset of [ajv-errors](https://github.com/ajv-validator/ajv-errors), and the error object has the following property:
+
+| Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
+| :---------------------------------- | :--------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
+| properties| Error messages for individual properties in the schema | Map of <String, String> | TRUE | FALSE | TRUE |
+
+
+Within the properties map, the keys will be the property names, while the values will be the error messages if validation fails on these properties.
+
+##### Log Streaming Schema property types and validation
+
+Specific property types support a subset of [JSON Schema validations](https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00).
+
+| Property Type| Description | Validation Keywords |
+| :------------------------- | :------------- | :-------------------------- |
+| string | JSON String | pattern|
