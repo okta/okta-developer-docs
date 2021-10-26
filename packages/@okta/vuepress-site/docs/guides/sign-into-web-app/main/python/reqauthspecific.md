@@ -31,7 +31,7 @@ Users are being signed in and signed out with functions `login_user` and `logout
 from flask_login login_user, logout_user
 ```
 
-Sign in is being performed during the [Define a callback step](/docs/guides/sign-into-web-app/python/define-callback/).
+Sign in is being performed during the [Define a callback](/docs/guides/sign-into-web-app/python/main/#understand-the-callback-route) step.
 
 You can find more details on sign in and user management in the [Flask-Login docs](https://flask-login.readthedocs.io/en/latest/).
 
