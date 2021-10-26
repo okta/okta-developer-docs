@@ -1,1 +1,1 @@
-[Map your authentication flows to the Identity Engine SDK](/docs/guides/oie-migrate-api-sdk-to-oie-sdk/nodejs/main)
+[Upgrade your application to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/)
