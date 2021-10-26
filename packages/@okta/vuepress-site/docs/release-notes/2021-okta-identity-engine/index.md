@@ -10,11 +10,11 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Bug fixed in 2021.10.2](#bug-fixed-in-2021-10-1) | October 27, 2021 |
+| [Bug fixed in 2021.10.2](#bug-fixed-in-2021-10-2) | October 27, 2021 |
 
 #### Bug fixed in 2021.10.2
 
-* The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](/docs/reference/api/brands/#theme-object) didn’t include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
+The `endUserDashboardTouchPointVariant` property on the [Brands API Theme object](/docs/reference/api/brands/#theme-object) didn’t include a variant for LOGO_ON_FULL_WHITE_BACKGROUND. (OKTA-425798)
 
 ### Monthly Release 2021.10.0
 
