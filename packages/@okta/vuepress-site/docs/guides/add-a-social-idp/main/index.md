@@ -23,6 +23,7 @@ How to configure a social Identity Provider so that your users can quickly sign 
 * An Okta Developer Edition organization. Don't have one? [Create one for free](/signup).
 * An OpenID Connect (OIDC) app integration in Okta. You can use an existing OIDC app integration or create a new one. To create a new OIDC app integration, see [Create OIDC app integrations using AIW](https://help.okta.com/okta_help.htm?id=ext_Apps_App_Integration_Wizard).
 * An account with <StackSelector snippet="idpaccount" noSelector inline />.
+* Enable the **New social Identity Provider integrations** feature in your Admin console. See [Manage Early Access and Beta features](https://help.okta.com/en/prod/Content/Topics/Security/manage-EA-and-beta-features.htm?cshid=ext_Manage_Early_Access_features)
 
 **Sample code**
 
@@ -73,7 +74,7 @@ Alternatively, you can [use the Authorize URL to simulate the authorization flow
 
 ## Add <StackSelector snippet="idp" noSelector inline /> to the Okta Sign-In Widget
 
-The Okta Sign-In Widget is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with GitHub** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](/#Create_the_Identity_Provider_in_Okta) section:
+The Okta Sign-In Widget is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with GitHub** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the [Create the Identity Provider in Okta](#Create_the_Identity_Provider_in_Okta) section:
 
 <StackSnippet snippet="siwconfig" />
 
@@ -83,8 +84,8 @@ You should now understand how to add a social Identity Provider and have success
 
 To add another Identity Provider:
 
-* If you have already created an app at the Identity Provider, start by [configuring the Identity Provider in Okta](/#create-the-identity-provider-in-okta).
-* If you haven't already created an app at the Identity Provider, start by [creating an app at the Identity Provider](/#create-an-application-at-the-identity-provider).
+* If you have already created an app at the Identity Provider, start by [configuring the Identity Provider in Okta](#create-the-identity-provider-in-okta).
+* If you haven't already created an app at the Identity Provider, start by [creating an app at the Identity Provider](#create-an-application-at-the-identity-provider).
 
 > **Note:** You don't need to register another app in Okta unless you want to use a different application with the new Identity Provider that you are creating.
 
