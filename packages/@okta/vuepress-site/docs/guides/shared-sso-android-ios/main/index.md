@@ -12,9 +12,8 @@ This guide uses sample apps to demonstrate how to share a Single Sign-On (SSO) s
 
 **Learning outcomes**
 
-* Use policies to govern SSR behavior. (use imperatives)
-* Enable and disable SSR recovery options.
-* Configure SSR options in the Okta Sign-In Widget.
+* Persist a session between multiple OIDC mobile apps.
+* Clear the session when appropriate.
 
 **What you need**
 
