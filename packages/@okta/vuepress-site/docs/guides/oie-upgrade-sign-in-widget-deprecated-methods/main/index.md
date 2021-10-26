@@ -6,7 +6,7 @@ title: Deprecated JavaScript methods in the Sign-In Widget
 
 ## Overview
 
-After you upgrade your org to Okta Identity Engine, the [setCookieAndRedirect()](https://github.com/okta/okta-signin-widget#renderel) JavaScript method is deprecated from the Sign-In Widget. In the Classic Engine, your app integration calls the `setCookieAndRedirect()` method which means that your app integration sets the redirect URI. However, in the Identity Engine, your app integration shouldn’t assume whether it sets the redirect URI as part of the flow. Administrators set the sign-on policies in the [Okta Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=ext-set-default-app-redirect). Instead of the `setCookieAndRedirect` method, use the `showSignIn` method to resolve the returned promise or redirect it, based on the Administrator’s policy.
+After you upgrade your org to Okta Identity Engine, the [setCookieAndRedirect()](https://github.com/okta/okta-signin-widget#renderel) JavaScript method is deprecated from the Sign-In Widget. In the Classic Engine, your app integration calls the `setCookieAndRedirect()` method which means that your app integration sets the redirect URI. However, in the Identity Engine, your app integration shouldn’t assume whether it sets the redirect URI as part of the flow. Administrators set the sign-on policies in the [Okta Admin Console](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-policies). Instead of the `setCookieAndRedirect` method, use the `showSignIn` method to resolve the returned promise or redirect it, based on the Administrator’s policy.
 
 > **Note:** In the Classic Engine, the `setCookieAndRedirect` method is still available.
 
