@@ -2993,14 +2993,15 @@ The following response is only a subset of properties for brevity.
 ```
 
 
-### Get Log stream Schema
-
-> **Warning:** For Log Stream Schema API to be accessible `LOG_STREAMING` feature flag has to be enabled.
-
+### Get Log Stream Schema
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/logStream/${typeId}" />
 
 Fetches the schema for a Log Stream Type
+
+See [Log Streaming API](/docs/reference/api/log-streaming) for examples of log stream objects.
+
+> **Warning:** For Log Stream Schema API to be accessible `LOG_STREAMING` feature flag has to be enabled.
 
 ##### Request parameters
 
