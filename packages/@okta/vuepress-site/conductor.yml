@@ -2645,3 +2645,19 @@ redirects:
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/configure-signon-policy/before-you-begin
+    to: /docs/guides/configure-signon-policy/
+  - from: /docs/guides/configure-signon-policy/prompt-factor-group
+    to: /docs/guides/configure-signon-policy/main/#prompt-for-an-mfa-factor-for-a-certain-group
+  - from: /docs/guides/configure-signon-policy/prompt-factor-outside-us
+    to: /docs/guides/configure-signon-policy/main/#prompt-for-an-mfa-factor-when-a-user-is-outside-the-us
+  - from: /docs/guides/configure-signon-policy/next-steps
+    to: /docs/guides/configure-signon-policy/main/#next-steps
+  - from: /docs/guides/configure-signon-policy/before-you-begin/index.html
+    to: /docs/guides/configure-signon-policy/
+  - from: /docs/guides/configure-signon-policy/prompt-factor-group/index.html
+    to: /docs/guides/configure-signon-policy/main/#prompt-for-an-mfa-factor-for-a-certain-group
+  - from: /docs/guides/configure-signon-policy/prompt-factor-outside-us/index.html
+    to: /docs/guides/configure-signon-policy/main/#prompt-for-an-mfa-factor-when-a-user-is-outside-the-us
+  - from: /docs/guides/configure-signon-policy/next-steps/index.html
+    to: /docs/guides/configure-signon-policy/main/#next-steps
