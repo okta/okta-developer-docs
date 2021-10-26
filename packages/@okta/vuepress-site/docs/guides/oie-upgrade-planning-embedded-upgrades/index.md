@@ -26,7 +26,9 @@ See [Roll the upgrade out to your users](#roll-the-upgrade-out-to-your-users) fo
 
 ## Update the Okta-hosted Sign-In Widget
 
-When you are redirecting to the Okta-hosted Sign-In Widget, make sure that your user experience is preserved both visually and functionally. See the **Remember me** section of the [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new) page for more details.
+When you are redirecting to the Okta-hosted Sign-In Widget, make sure that your user experience is preserved both [visually](/docs/guides/sign-in-widget-styling/) and [functionally](/docs/guides/sign-in-widget-i18n/). Be sure to check your `config.idps` settings for customizations that may not be compatible with Identity Engine.
+
+> **Note:** See the **Remember me** section of the [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new) for more information on functionality changes in the Admin Console.
 
 ## Update the Embedded Sign-In Widget
 
