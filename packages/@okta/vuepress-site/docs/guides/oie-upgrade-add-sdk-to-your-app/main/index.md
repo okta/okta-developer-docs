@@ -22,7 +22,7 @@ This article explains how to add the Okta Identity Engine SDK to your app, which
 
 **What you need**
 
-* An [Identity Engine-upgraded Okta org](/docs/guides/migrate-to-oie/)
+* An [Identity Engine-upgraded Okta org](/docs/guides/oie-upgrade-overview/)
 
 **Sample code**
 
