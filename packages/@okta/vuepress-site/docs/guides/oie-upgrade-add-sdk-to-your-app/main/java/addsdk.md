@@ -1,4 +1,4 @@
-> **Note:** Before implementing your embedded app with the Identity Engine Java SDK, ensure that your app and Okta Custom Authorization Server are configured for Identity Engine. See [Get set up](/docs/guides/oie-embedded-common-org-setup/).
+> **Note:** Before implementing your embedded app with the Identity Engine Java SDK, ensure that your app and Okta Custom Authorization Server are configured for Identity Engine. See [Get set up](/docs/guides/oie-embedded-common-org-setup/java/main/).
 
 If you are using Apache Maven for your project, include the following dependency:
 
