@@ -32,7 +32,7 @@ n/a
 
 ## Overview
 
-After your Okta org is upgraded to the Identity Engine, your next step is to add the Identity Engine SDK to your app. This step includes upgrading your app to meet the minimum software requirements. With the exception of changes related to upgrading and adding the Identity Engine SDK, there should be no other changes to your source code. This step ensures that you have the right version of the new Identity Engine SDK and that your app still works the same as before once it's been upgraded.
+After your Okta org is upgraded to the Identity Engine, your next step is to add the Identity Engine SDK to your app. This step includes upgrading your app to meet the minimum software requirements. With the exception of changes related to upgrading and adding the Identity Engine SDK, there should be no other changes to your source code. This step ensures that you have the right version of the new Identity Engine SDK and that your app still works the same as it did before the upgrade.
 
 The recommended steps to add the SDK to your app:
 
