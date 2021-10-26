@@ -2661,3 +2661,19 @@ redirects:
     to: /docs/guides/sign-into-web-app/-/main/#get-info-about-the-user
   - from: /docs/guides/sign-into-web-app/-/next-steps
     to: /docs/guides/sign-into-web-app/-/main/#next-steps
+  - from: /docs/guides/sign-into-web-app/-/before-you-begin/index.html
+    to: /docs/guides/sign-into-web-app/-/main
+  - from: /docs/guides/sign-into-web-app/-/define-callback/index.html
+    to: /docs/guides/sign-into-web-app/-/main/#understand-the-callback-route
+  - from: /docs/guides/sign-into-web-app/-/create-okta-application/index.html
+    to: /docs/guides/sign-into-web-app/-/main/#create-an-okta-app-integration
+  - from: /docs/guides/sign-into-web-app/-/configure-packages/index.html
+    to: /docs/guides/sign-into-web-app/-/main/#add-and-configure-packages
+  - from: /docs/guides/sign-into-web-app/-/redirect-to-sign-in/index.html
+    to: /docs/guides/sign-into-web-app/-/main/#redirect-to-the-sign-in-page
+  - from: /docs/guides/sign-into-web-app/-/require-authentication/index.html
+    to: /docs/guides/sign-into-web-app/-/main/#require-authentication
+  - from: /docs/guides/sign-into-web-app/-/get-user-info/index.html
+    to: /docs/guides/sign-into-web-app/-/main/#get-info-about-the-user
+  - from: /docs/guides/sign-into-web-app/-/next-steps/index.html
+    to: /docs/guides/sign-into-web-app/-/main/#next-steps

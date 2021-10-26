@@ -13,22 +13,22 @@ tiles:
     link: /docs/guides/sign-into-web-app/
     items:
       - name: Go
-        link: /docs/guides/sign-into-web-app/go/before-you-begin/
+        link: /docs/guides/sign-into-web-app/go/main/
         image: /img/homepage/stackselectors/go.png
       - name: Java
-        link: /docs/guides/sign-into-web-app/springboot/before-you-begin/
+        link: /docs/guides/sign-into-web-app/springboot/main/
         image: /img/homepage/stackselectors/java.png
       - name: .NET
-        link: /docs/guides/sign-into-web-app/aspnet/before-you-begin/
+        link: /docs/guides/sign-into-web-app/aspnet/main/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
-        link: /docs/guides/sign-into-web-app/nodeexpress/before-you-begin/
+        link: /docs/guides/sign-into-web-app/nodeexpress/main/
         image: /img/homepage/stackselectors/nodejs.png
       - name: PHP
-        link: /docs/guides/sign-into-web-app/php/before-you-begin/
+        link: /docs/guides/sign-into-web-app/php/main/
         image: /img/homepage/stackselectors/php.png
       - name: Python
-        link: /docs/guides/sign-into-web-app/python/before-you-begin/
+        link: /docs/guides/sign-into-web-app/python/main/
         image: /img/homepage/stackselectors/python.png
   - name: Single-page App
     link: /docs/guides/sign-into-spa/
