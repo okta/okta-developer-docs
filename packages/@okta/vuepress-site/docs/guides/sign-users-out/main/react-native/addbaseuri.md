@@ -1,4 +1,4 @@
-If you'd like to use a custom sign-out flow, you can skip to the next step: <GuideLink link="../sign-out-of-okta">Sign users out of Okta</GuideLink>.
+If you'd like to use a custom sign-out flow, you can skip to the next step: [Sign users out of Okta](#sign-users-out-of-okta).
 
 If you'd like to use the browser sign-out flow, you will need to define a callback route.
 

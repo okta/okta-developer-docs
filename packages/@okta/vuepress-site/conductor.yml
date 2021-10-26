@@ -2645,3 +2645,23 @@ redirects:
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/sign-users-out/-/before-you-begin
+    to: /docs/guides/sign-users-out/-/main/
+  - from: /docs/guides/sign-users-out/-/define-signout-callback
+    to: /docs/guides/sign-users-out/-/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/-/sign-out-of-okta
+    to: /docs/guides/sign-users-out/-/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/-/sign-out-of-your-app
+    to: /docs/guides/sign-users-out/-/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/-/next-steps
+    to: /docs/guides/sign-users-out/-/main/#next-steps
+  - from: /docs/guides/sign-users-out/-/before-you-begin/index.html
+    to: /docs/guides/sign-users-out/-/main/
+  - from: /docs/guides/sign-users-out/-/define-signout-callback/index.html
+    to: /docs/guides/sign-users-out/-/main/#define-the-sign-out-callback
+  - from: /docs/guides/sign-users-out/-/sign-out-of-okta/index.html
+    to: /docs/guides/sign-users-out/-/main/#sign-users-out-of-okta
+  - from: /docs/guides/sign-users-out/-/sign-out-of-your-app/index.html
+    to: /docs/guides/sign-users-out/-/main/#sign-users-out-of-your-app
+  - from: /docs/guides/sign-users-out/-/next-steps/index.html
+    to: /docs/guides/sign-users-out/-/main/#next-steps
