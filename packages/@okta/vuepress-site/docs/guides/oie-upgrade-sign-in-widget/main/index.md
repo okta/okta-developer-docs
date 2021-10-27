@@ -2,6 +2,8 @@
 title: Upgrade your Okta Sign-In Widget
 ---
 
+<ApiLifecycle access="ie" />
+
 ## Overview
 
 The Okta Sign-In Widget is a JavaScript library that gives you a full-featured and customizable sign-in experience that can be used to authenticate users of web and mobile applications.
