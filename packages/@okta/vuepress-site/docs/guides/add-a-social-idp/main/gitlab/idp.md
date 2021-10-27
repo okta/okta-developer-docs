@@ -1,1 +1,1 @@
-GitHub
+GitLab

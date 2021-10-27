@@ -1,1 +1,1 @@
-an [OAuth](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) app 
+an [OAuth](https://docs.gitlab.com/ee/integration/oauth_provider.html) app 

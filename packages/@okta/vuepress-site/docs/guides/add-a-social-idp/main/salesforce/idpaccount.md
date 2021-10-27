@@ -1,1 +1,1 @@
-<StackSelector snippet="idp" noSelector inline />
+[<StackSelector snippet="idp" noSelector inline />](https://login.salesforce.com/)

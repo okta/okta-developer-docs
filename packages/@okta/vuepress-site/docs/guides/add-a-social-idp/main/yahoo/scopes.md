@@ -1,1 +1,1 @@
-[Yahoo Scopes](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules)
+[Yahoo Scopes](https://developer.yahoo.com/oauth2/guide/yahoo_scopes/)
