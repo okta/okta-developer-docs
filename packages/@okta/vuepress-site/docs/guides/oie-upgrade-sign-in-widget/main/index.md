@@ -20,9 +20,9 @@ For best practices, keep your [Sign-In Widget](https://github.com/okta/okta-sign
 
 The specific steps to upgrade your Sign-In Widget depend on your [user authentication deployment model](/docs/concepts/redirect-vs-embedded/), which can be one of the following:
 
-* [Redirect authentication](/docs/guides/identity-engine/upgrade/upgrade-your-okta-sign-in-widget#upgrade-process-for-a-redirect-sign-in) &mdash; Okta-hosted with no custom URL domain
-* [Redirect authentication](/docs/guides/identity-engine/upgrade/upgrade-your-okta-sign-in-widget#upgrade-process-for-a-redirect-sign-in) &mdash; Okta-hosted with custom URL domain
-* [Embedded authentication](/docs/guides/identity-engine/upgrade/upgrade-your-okta-sign-in-widget#upgrade-process-for-an-embedded-sign-in)
+* [Redirect authentication](/docs/guides/oie-upgrade-sign-in-widget/main/#upgrade-process-for-a-redirect-sign-in) &mdash; Okta-hosted with no custom URL domain
+* [Redirect authentication](/docs/guides/oie-upgrade-sign-in-widget/main/#upgrade-process-for-a-redirect-sign-in) &mdash; Okta-hosted with custom URL domain
+* [Embedded authentication](/docs/guides/oie-upgrade-sign-in-widget/main/#upgrade-process-for-an-embedded-sign-in-widget)
 
 ## Upgrade process for a redirect sign-in
 
@@ -55,4 +55,4 @@ When you upgrade an embedded Sign-In Widget:
 
 ```
 
-> **Note:** Consult the [Migrate guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md) if you’re using major version 4 or older of the Sign-In Widget.
+> **Note:** Consult the [Migrate guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md) if you’re using major version 4 or earlier of the Sign-In Widget.
