@@ -21,7 +21,7 @@ See [Release Status](https://github.com/okta/okta-idx-java#release-status) for t
 
 > **Note:** The order of dependencies doesn't matter. You can add the Identity Engine Java SDK dependency before or after your previous Okta Java Management or Okta Java Authentication SDK dependencies.
 
-In addition, import any Identity Engine client, utility, and helper classes that you may need in your source code. For example:
+Additionally, import any Identity Engine client, utility, and helper classes that you may need in your source code. For example:
 
 ```java
 import com.okta.commons.lang.Strings;
