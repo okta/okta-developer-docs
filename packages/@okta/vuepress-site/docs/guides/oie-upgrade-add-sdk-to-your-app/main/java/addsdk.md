@@ -1,4 +1,5 @@
-> **Note:** Before implementing your embedded app with the Identity Engine Java SDK, ensure that your app and Okta Custom Authorization Server are configured for Identity Engine. See [Get set up](/docs/guides/oie-embedded-common-org-setup/java/main/).
+> **Note:** Before implementing your embedded app with the Identity Engine Java SDK, ensure that your app and Okta Custom Authorization Server are configured for Identity Engine. See [Updating the default Custom Authorization Server](/docs/guides/oie-embedded-common-org-setup/java/main/#update-the-default-custom-authorization-server).
+<!-- This link should be changed to /docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server when the doc is merged and available -->
 
 If you are using Apache Maven for your project, include the following dependency:
 
@@ -18,7 +19,7 @@ compile "com.okta.idx.sdk:okta-idx-java-api:${okta.idx.sdk.version}"
 
 See [Release Status](https://github.com/okta/okta-idx-java#release-status) for the latest Identity Engine Java SDK version (`${okta.idx.sdk.version}`).
 
-> **Note:** The order of dependencies does not matter. You can add the Identity Engine Java SDK dependency before or after your previous Okta Java Management or Okta Java Authentication SDK dependencies.
+> **Note:** The order of dependencies doesn't matter. You can add the Identity Engine Java SDK dependency before or after your previous Okta Java Management or Okta Java Authentication SDK dependencies.
 
 In addition, import any Identity Engine client, utility, and helper classes that you may need in your source code. For example:
 
@@ -32,4 +33,4 @@ import com.okta.idx.sdk.api.response.AuthenticationResponse;
 import com.okta.idx.sdk.api.response.TokenResponse;
 ```
 
-See the [Identity Engine Java SDK usage guide](https://github.com/okta/okta-idx-java#usage-guide) and import statements from the [sample apps](https://github.com/okta/okta-idx-java/tree/master/samples) for more examples.
+See import statements from the [sample apps](https://github.com/okta/okta-idx-java/tree/master/samples) for more examples.
