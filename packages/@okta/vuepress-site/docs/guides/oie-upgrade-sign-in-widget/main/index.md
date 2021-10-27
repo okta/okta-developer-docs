@@ -12,7 +12,7 @@ This article teaches you how to upgrade the Widget when it is used in any of the
 
 * Okta-hosted sign-in page (default) &mdash; Okta provides a sign-in page that is available at your [org’s URL](/docs/concepts/okta-organizations/). By default, a user who signs in on this page is redirected to the Okta user dashboard.
 * Okta-hosted sign-in page (customizable) &mdash; Okta provides a hosted sign-in page that you can customize and make available under a custom domain that is a subdomain of your company's top-level domain.
-* Embedded (self-hosted) &mdash; the Widget can be embedded directly into your application. 
+* Embedded (self-hosted) &mdash; the Widget can be embedded directly into your application.
 
 ## Best practices for Sign-In Widget maintenance
 
@@ -28,7 +28,7 @@ The specific steps to upgrade your Sign-In Widget depend on your [user authentic
 
 The Sign-In Widget upgrade for a redirect sign-in depends on whether you’ve configured a custom URL domain:
 
-* If you haven’t configured a [custom URL Domain](/docs/guides/custom-url-domain/overview/) and don’t have customizations outside of simple branding styles, your Sign-In Widget is automatically upgraded to the latest version when it’s loaded from the content delivery network (CDN). 
+* If you haven’t configured a [custom URL Domain](/docs/guides/custom-url-domain/overview/) and don’t have customizations outside of simple branding styles, your Sign-In Widget is automatically upgraded to the latest version when it’s loaded from the content delivery network (CDN).
 * If you’ve configured a [custom URL domain](/docs/guides/custom-url-domain/overview/) and have other customizations, admins must update the Okta Sign-In Widget version in the Admin Console.
 
 To update the Sign-In Widget:
