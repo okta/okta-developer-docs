@@ -52,7 +52,7 @@ oktaSignIn.authClient.handleLoginRedirect(res.tokens);
 
 The following shows a basic redirect callback:
 ```javascript
-if (authClient.token.isLoginRedirect()) {
+if (authClient.isLoginRedirect()) {
   const res = await authClient.token.parseFromUrl();
   authClient.tokenManager.setTokens(res.tokens);
 }
@@ -60,7 +60,7 @@ if (authClient.token.isLoginRedirect()) {
 
 The following shows how to handle social authentication with the embedded Widget:
 ```javascript
-if (authClient.token.isLoginRedirect()) {
+if (authClient.isLoginRedirect()) {
   if (authClient.isInteractionRequired()) {
     return showWidget(); // render the widget to continue the flow
   }
