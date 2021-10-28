@@ -3013,7 +3013,7 @@ N/A
 
 ##### Response parameters
 
-[Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-object)
+[Log Stream Schema](#log-stream-schema-object)
 
 ##### Request example
 
