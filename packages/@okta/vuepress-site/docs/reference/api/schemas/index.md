@@ -14,7 +14,7 @@ For Log Stream Schemas Okta started leveraging latest [JSON Schema Draft 2020-12
 [JSON Schema](http://json-schema.org/) is a lightweight declarative format for describing the structure, constraints, and validation of JSON documents.
 
 
-> **Note:** Okta has implemented only a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) and [JSON Schema Draft 2020-12](https://json-schema.org/specification.html). This document should describe which parts are applicable to Okta and any extensions Okta has made to [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) and [JSON Schema Draft 2020-12](https://json-schema.org/specification.html).
+> **Note:** Okta implements only a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) and [JSON Schema Draft 2020-12](https://json-schema.org/specification.html). This document describes which parts apply to Okta, and any extensions Okta has made to [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) and [JSON Schema Draft 2020-12](https://json-schema.org/specification.html).
 
 ## Getting started
 
