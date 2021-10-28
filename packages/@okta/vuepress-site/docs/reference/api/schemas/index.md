@@ -3001,7 +3001,7 @@ Fetches the schema for a Log Stream type
 
 See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
 
-> **Warning:** For Log Stream Schema API to be accessible `LOG_STREAMING` feature flag has to be enabled.
+> **Warning:** To access the Log Stream Schema API, the `LOG_STREAMING` feature flag has to be enabled.
 
 ##### Request parameters
 
