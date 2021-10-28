@@ -2999,7 +2999,7 @@ The following response is only a subset of properties for brevity.
 
 Fetches the schema for a Log Stream type
 
-See [Log Streaming API](/docs/reference/api/log-streaming) for examples of log stream objects.
+See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
 
 > **Warning:** For Log Stream Schema API to be accessible `LOG_STREAMING` feature flag has to be enabled.
 
