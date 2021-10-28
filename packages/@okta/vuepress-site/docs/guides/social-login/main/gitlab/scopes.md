@@ -1,1 +1,1 @@
-[Personal access token scopes](https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html#personal-access-token-scopes)
+[Authorized applications](https://docs.gitlab.com/ee/integration/oauth_provider.html#authorized-applications)

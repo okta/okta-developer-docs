@@ -10,12 +10,19 @@ What is an Identity Provider? It is a service that creates and maintains identit
 
 Currently Okta supports the following social Identity Providers:
 
+- [Amazon](/docs/guides/add-a-social-idp/amazon/main)
 - [Apple](/docs/guides/add-an-external-idp/apple/main/)
 - [Azure](/docs/guides/add-an-external-idp/azure/main/)
 - [Facebook](/docs/guides/add-an-external-idp/facebook/main/)
+- [GitHub](/docs/guides/add-a-social-idp/github/main)
+- [GitLab](/docs/guides/add-a-social-idp/gitlab/main)
 - [Google](/docs/guides/add-an-external-idp/google/main/)
 - [LinkedIn](/docs/guides/add-an-external-idp/linkedin/main/)
 - [Microsoft](/docs/guides/add-an-external-idp/microsoft/main/)
+- [PayPal](/docs/guides/add-a-social-idp/paypal/main)
+- [Salesforce](/docs/guides/add-a-social-idp/salesforce/main)
+- [Yahoo](/docs/guides/add-a-social-idp/yahoo/main)
+- [Yahoo Japan](/docs/guides/add-a-social-idp/yahoojp/main)
 
 Additionally, Okta supports the following Identity Providers:
 

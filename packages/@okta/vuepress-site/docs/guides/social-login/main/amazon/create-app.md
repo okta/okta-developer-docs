@@ -1,0 +1,1 @@
+Create and register <StackSelector snippet="apptype" noSelector inline /> at <StackSelector snippet="idp" noSelector inline />.

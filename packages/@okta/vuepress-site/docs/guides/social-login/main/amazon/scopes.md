@@ -1,1 +1,1 @@
-[Requesting Scopes as Essential/Voluntary](https://developer.amazon.com/docs/login-with-amazon/requesting-scopes-as-essential-voluntary.html)
+[Customer Profile](https://developer.amazon.com/docs/login-with-amazon/customer-profile.html)

@@ -1,1 +1,1 @@
-[<StackSelector snippet="idp" noSelector inline />](https://developer.amazon.com/apps-and-games/login-with-amazon)
+[<StackSelector snippet="idp" noSelector inline />](https://developer.amazon.com/settings/console/registration?return_to=/)

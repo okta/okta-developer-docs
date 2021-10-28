@@ -36,9 +36,9 @@ n/a
 
 ## Create an application at the Identity Provider
 
-1. Create and register <StackSelector snippet="apptype" noSelector inline /> at <StackSelector snippet="idp" noSelector inline />.
+1. <StackSelector snippet="create-app" noSelector inline />
 
-1. When you create an application at the IdP, you need to provide a redirect URI for authentication. 
+1. When you create an application at the IdP, you need to provide a redirect URI for authentication.
 
     The redirect URI sent in the authorize request from the client needs to match the redirect URI set at the IdP. This URI is where the IdP sends the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URI has the same structure for most IdPs in Okta and is constructed using your Okta subdomain and the callback endpoint.
 
@@ -51,7 +51,7 @@ n/a
 To add <StackSelector snippet="idp" noSelector inline /> as an Identity Provider in Okta:
 
 1. In the Admin Console, go to **Security** > **Identity Providers**.
-1. Click **Add Identity Provider**, and then select **<StackSelector snippet="idp" noSelector inline /> IdP**.
+1. Click **Add Identity Provider**, and then select **<StackSelector snippet="idp" noSelector inline /> IdP**. <StackSelector snippet="alt-idp" noSelector inline />
 1. Click **Next**.
 1. In the **General Settings** section, define the following:
 
@@ -115,19 +115,12 @@ https://${yourOktaDomain}/oauth2/v1/authorize?idp=${idp_id}&client_id=${client_i
 
 ## Next steps
 
-** Maybe link to the landing page? **
-
 You should now understand how to add a social Identity Provider and have successfully added and tested the integration.
 
-To add another Identity Provider:
+To map Okta attributes to app attributes, use the [Profile Editor](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_app_map).
 
-* If you have already created an app at the Identity Provider, start by [configuring the Identity Provider in Okta](#create-the-identity-provider-in-okta).
-* If you haven't already created an app at the Identity Provider, start by [creating an app at the Identity Provider](#create-an-application-at-the-identity-provider).
-
-> **Note:** You don't need to register another app in Okta unless you want to use a different application with the new Identity Provider that you are creating.
+To add another Identity Provider, start by choosing an [external Identity Provider](/docs/concepts/identity-providers/).
 
 ## See also
 
-* [Concepts: External Identity Providers](/docs/concepts/identity-providers/)
-* [Map Okta attributes to app attributes in the Profile Editor](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_app_map)
 * [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget)
