@@ -8,7 +8,7 @@ category: management
 The Okta Log Streaming API provides operations to manage Log Stream configurations for an org.
 You can configure up to two Log Stream integrations per org.
 
-> **Note:** For Log Streaming API to be accessible `LOG_STREAMING` feature flag has to be enabled.
+> **Note:** To access the Log Streaming API, the `LOG_STREAMING` feature flag has to be enabled.
 
 ## Get started
 
