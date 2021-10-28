@@ -3418,8 +3418,8 @@ curl -v -X PUT \
     }
   },
   "profile": {
-          "label": "oauth2 client app 1"
-      },
+    "label": "oauth2 client app 1"
+  },
   "settings": {
     "oauthClient": {
       "client_uri": "http://localhost:8080",
