@@ -10,16 +10,11 @@ category: management
 The Okta Log Streaming API provides operations to manage Log Stream configurations for an org.
 You can configure up to two Log Stream integrations per org.
 
-> **Note:** To access the Log Streaming API, the `LOG_STREAMING` feature flag has to be enabled.
+> **Note:**  The **Log Streaming** Early Access feature must be enabled. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
 
 ## Get started
 
 Explore the Log Streaming API:[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cbb00ae768a0c02ea433)
-
-## Setup guides
-
-Some Log Stream types require specific configuration elements.
-See the Log Stream setup guide. ... to be added
 
 ## Log Streaming operations
 
@@ -35,11 +30,11 @@ Adds a new Log Stream to your org
 
 | Parameter | Description       | Param Type | DataType                                      | Required |
 | --------- | ----------------- | ---------- | --------------------------------------------- | -------- |
-| logStream       | Log Stream configuration      | Body       | [Log Stream](/docs/reference/api/log-streaming/#log-stream-object) | TRUE     |
+| logStream       | Log Stream configuration      | Body       | [Log Stream](#log-stream-object) | TRUE     |
 
 ##### Response parameters
 
-The created [Log Stream](/docs/reference/api/log-streaming/#log-stream-object)
+The created [Log Stream](#log-stream-object)
 
 #### Add AWS EventBridge log stream
 
@@ -109,7 +104,7 @@ logStreamId       | `id` of a log stream  | URL        | String   | TRUE     |
 
 ##### Response parameters
 
-[Log Stream](/docs/reference/api/log-streaming/#log-stream-object)
+[Log Stream](#log-stream-object)
 
 ##### Request example
 
@@ -157,9 +152,9 @@ curl -v -X GET \
 
 Paginates Log Streams in your org. Can return a subset of Log Streams that match a supported filter expression.
 
-- [List log streams with defaults](/docs/reference/api/log-streaming/#list-log-streams-with-defaults)
-- [List log streams with status](/docs/reference/api/log-streaming/#find-log-streams-by-status)
-- [List log streams with type](/docs/reference/api/log-streaming/#find-log-streams-by-type)
+- [List log streams with defaults](#list-log-streams-with-defaults)
+- [List log streams with status](#find-log-streams-by-status)
+- [List log streams with type](#find-log-streams-by-type)
 
 ##### Request parameters
 
@@ -178,7 +173,7 @@ The following filters are supported with the filter query parameter:
 
 | Filter                              | Description                                                                       |
 | ----------------------              | ------------------------------------------------------                            |
-| `type eq ":type"`                   | Log streams of a particular [log stream type](/docs/reference/api/log-streaming/#log-stream-type) such as `aws_eventbridge` |
+| `type eq ":type"`                   | Log streams of a particular [log stream type](#log-stream-type) such as `aws_eventbridge` |
 | `status eq "ACTIVE"`                | Log streams that have a `status` of `ACTIVE`                                             |
 | `status eq "INACTIVE"`              | Log streams that have a `status` of `INACTIVE`                                           |
 
@@ -187,7 +182,7 @@ The following filters are supported with the filter query parameter:
 
 ##### Response parameters
 
-Array of [Log Stream](/docs/reference/api/log-streaming/#log-stream-object)
+Array of [Log Stream](#log-stream-object)
 
 #### List log streams with defaults
 
@@ -236,7 +231,7 @@ curl -v -X GET \
 
 #### Find Log Streams by type
 
-Finds all Log Streams with a [specific type](/docs/reference/api/log-streaming/#log-stream-type)
+Finds all Log Streams with a [specific type](#log-stream-type)
 
 ##### Request example
 
@@ -338,13 +333,13 @@ Updates the configuration for a Log Stream
 | Parameter | Description                       | Param Type | DataType                                      | Required |
 | --------- | --------------------------------- | ---------- | --------------------------------------------- | -------- |
 | logStreamId     | `id` of the log stream to update           | URL        | String                                        | TRUE     |
-| logStream       | Updated configuration for the log stream | Body       | [Log Stream](/docs/reference/api/log-streaming/#log-stream-object) | TRUE     |
+| logStream       | Updated configuration for the log stream | Body       | [Log Stream](#log-stream-object) | TRUE     |
 
 All properties must be specified when updating the log stream configuration. Partial updates aren't supported.
 
 ##### Response parameters
 
-Updated [Log Stream](/docs/reference/api/log-streaming/#log-stream-object)
+Updated [Log Stream](#log-stream-object)
 
 ##### Request example
 
@@ -440,7 +435,7 @@ Reactivates an inactive log stream
 
 ##### Response parameters
 
-Activated [Log Stream](/docs/reference/api/log-streaming/#log-stream-object)
+Activated [Log Stream](#log-stream-object)
 
 ##### Request example
 
@@ -497,7 +492,7 @@ Deactivates an active Log Stream
 
 ##### Response parameters
 
-Deactivated [Log Stream](/docs/reference/api/log-streaming/#log-stream-object)
+Deactivated [Log Stream](#log-stream-object)
 
 ##### Request example
 
@@ -578,11 +573,11 @@ All Log Streams have the following properties:
 | id            | Unique key for the log stream                                       | String                                                         | FALSE    | TRUE   | TRUE     |           |           |
 | created       | Timestamp when the log stream was created                             | Date                                                           | FALSE | FALSE | TRUE  |   |     |
 | lastUpdated   | Timestamp when the log stream was last updated                        | Date                                                           | FALSE | FALSE | TRUE  |   |     |
-| _links        | [Discoverable resources](/docs/reference/api/log-streaming/#links-object) related to the log stream | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
+| _links        | [Discoverable resources](#links-object) related to the log stream | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
 | name          | Unique name for the log stream                                  | String                                                         | FALSE | TRUE  | FALSE | 1 | 100 |
 | status        | Status of the log stream                                          | `ACTIVE` or `INACTIVE`                                         | FALSE | FALSE | TRUE  |   |     |
-| type          | Type of log stream                                                  | [Log Stream type](/docs/reference/api/log-streaming/#log-stream-type)            | FALSE    | FALSE  | FALSE    |           |           |
-| settings      | Log stream settings                                                  | [AWS EventBridge Settings](/docs/reference/api/log-streaming/#aws_eventbridge-settings-object)            | FALSE    | FALSE  | TRUE    |           |           |
+| type          | Type of log stream                                                  | [Log Stream type](#log-stream-type)            | FALSE    | FALSE  | FALSE    |           |           |
+| settings      | Log stream settings                                                  | [AWS EventBridge Settings](#aws_eventbridge-settings-object)            | FALSE    | FALSE  | TRUE    |           |           |
 
 #### Property details
 
@@ -595,8 +590,8 @@ Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc82
 | Link Relation Type       | Description                                                                                                                                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------                                                          |
 | self                     | The primary URL for the log stream                                                                                                       |
-| activate                 | A URL for [activating the log stream](/docs/reference/api/log-streaming/#activate-log-stream) if it's inactive       |
-| deactivate               | A URL for [deactivating the log stream](/docs/reference/api/log-streaming/#deactivate-log-stream) if it's active        |
+| activate                 | A URL for [activating the log stream](#activate-log-stream) if it's inactive       |
+| deactivate               | A URL for [deactivating the log stream](#deactivate-log-stream) if it's active        |
 
 ### Log Stream type
 

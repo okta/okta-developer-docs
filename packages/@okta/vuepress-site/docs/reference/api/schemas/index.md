@@ -2995,7 +2995,10 @@ The following response is only a subset of properties for brevity.
 ## Log Stream Schema operations
 
 <ApiLifecycle access="ea" />
-### Get Log Stream schema
+
+> **Note:** The **Log Streaming** Early Access feature must be enabled. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
+
+### Get Log Stream Schema
 
 <ApiLifecycle access="ea" />
 
@@ -3004,8 +3007,6 @@ The following response is only a subset of properties for brevity.
 Fetches the schema for a Log Stream type
 
 See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
-
-> **Warning:** To access the Log Stream Schema API, the `LOG_STREAMING` feature flag has to be enabled.
 
 ##### Request parameters
 
@@ -3150,7 +3151,7 @@ The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-
 |:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
 | $id | URI of Log Stream Schema |String |FALSE| TRUE| TRUE|
 |$schema| JSON Schema version identifier| String| FALSE| FALSE| TRUE|
-|title| Name of the Log Streaming integration| String|FALSE|| TRUE| TRUE|
+|title| Name of the Log Streaming integration| String|FALSE| TRUE| TRUE|
 |type| Type of root Schema|String|FALSE|FALSE|TRUE|
 |properties|Log Stream Schema object properties| [Log Stream Schema Properties](#log-stream-schema-properties-object) |FALSE|TRUE|TRUE|
 |required| Required properties for this Log Stream Schema object|Array of String|FALSE|TRUE|TRUE|
@@ -3161,10 +3162,12 @@ The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-
 All Log Stream Schema properties contain `name`, which specifies
 the Log Stream name within Okta, and `settings`, which describes the
 settings of that Log Stream. `name` has type String, and `settings`
+
 | Parameter | Description        | DataType   |
- | --------- | ----------- | ------------- |
+| --------- | ----------- | ------------- |
 | name  | The Log Stream name within Okta | String |
 | settings  | The settings for the Log Stream | [Settings Type object](URL TO SETTINGS OBJECT) |
+
 ### Log Stream Schema Properties base subschema
 
 The `name` and `settings` properties from the [Log Stream Schema Properties object](#log-stream-schema-properties-object) follow the standard [JSON Schema Draft 2020-12](https://json-schema.org/specification.html) specification with the following properties:
