@@ -17,7 +17,7 @@ Explore the Log Streaming API:[![Run in Postman](https://run.pstmn.io/button.svg
 ## Setup guides
 
 Some Log Stream types require specific configuration elements.
-See the [Log Stream setup guide](url). ... to be added
+See the Log Stream setup guide. ... to be added
 
 ## Log Streaming operations
 
