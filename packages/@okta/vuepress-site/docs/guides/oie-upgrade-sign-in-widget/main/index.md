@@ -14,7 +14,7 @@ This article teaches you how to upgrade the Widget when it is used in any of the
 
 * Okta-hosted sign-in page (default) &mdash; Okta provides a sign-in page that is available at your [org’s URL](/docs/concepts/okta-organizations/). By default, a user who signs in on this page is redirected to the Okta user dashboard.
 * Okta-hosted sign-in page (customizable) &mdash; Okta provides a hosted sign-in page that you can customize and make available under a custom domain that is a subdomain of your company's top-level domain.
-* Embedded (self-hosted) &mdash; the Widget can be embedded directly into your application.
+* Embedded (self-hosted) &mdash; The Widget can be embedded directly into your application.
 
 ## Best practices for Sign-In Widget maintenance
 
