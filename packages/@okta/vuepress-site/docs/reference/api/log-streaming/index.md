@@ -147,7 +147,7 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/logStreams" />
 
-Enumerates Log Streams in your organization with pagination. A subset of log streams can be returned that match a supported filter expression.
+Paginates Log Streams in your org. Can return a subset of Log Streams that match a supported filter expression.
 
 - [List log streams with defaults](/docs/reference/api/log-streaming/#list-log-streams-with-defaults)
 - [List log streams with status](/docs/reference/api/log-streaming/#find-log-streams-by-status)
