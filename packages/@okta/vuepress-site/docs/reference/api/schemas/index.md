@@ -3174,7 +3174,7 @@ properties:
 |description|description of the property|String|TRUE|FALSE|TRUE|
 |type|type of the property|string, boolean, number, integer|FALSE|FALSE|TRUE|
 |pattern|if the property type is string, the regular expression used to validate the proerty|String|TRUE|FALSE|TRUE|
-|oneOf|non-empty array of valid JSON schemas|array|TRUE|FALSE|TRUE|
+|oneOf|A non-empty array of valid JSON schemas (see [oneOf description](#description-details)) |Array|TRUE|FALSE|TRUE|
 
 #### Description details
 
