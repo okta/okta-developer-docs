@@ -2,7 +2,8 @@
 title: Upgrade your Okta Sign-In Widget
 ---
 
-<ApiLifecycle access="ie" />
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" />```
 
 ## Overview
 
