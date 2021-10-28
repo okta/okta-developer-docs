@@ -59,7 +59,7 @@ The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow w
 
     > **Note:** The `interaction_code` has a maximum lifetime of 60 seconds.
 
-10. The client sends the code verifier and the `interaction_code` to the Okta Authorization Server to exchange for tokens.
+10. The client sends the code verifier and the `interaction_code` to the authorization server to exchange for tokens.
 
     > **Note:** The `interaction_code` indicates that the client (and user) went through all of the necessary policy-driven remediation and received a successful response from the Identity Engine.
 
