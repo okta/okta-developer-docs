@@ -3180,7 +3180,7 @@ properties:
 }
  ```
 
-Okta has also extended [JSON Schema Draft 2020-12](https://json-schema.org/specification.html)
+Okta extends [JSON Schema Draft 2020-12](https://json-schema.org/specification.html)
 with the following keywords:
 
 | Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
