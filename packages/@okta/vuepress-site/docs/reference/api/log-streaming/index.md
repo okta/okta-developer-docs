@@ -473,7 +473,7 @@ curl -v -X POST \
 
 <ApiOperation method="post" url="/api/v1/logStreams/${logStreamId}/lifecycle/deactivate" />
 
-Deactivates an active log stream
+Deactivates an active Log Stream
 
 ##### Request parameters
 
