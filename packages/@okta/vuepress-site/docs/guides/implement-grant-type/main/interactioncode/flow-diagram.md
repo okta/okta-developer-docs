@@ -45,7 +45,7 @@ The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow w
 
 4. Okta evaluates the sign-on policies for the app and Authentication Server and determines that remediation is required.
 
-5. The Identity Engine component of the Okta Authorization Server sends the `interaction_handle` parameter in a response body to the client app.
+5. The Identity Engine component of the authorization server sends the `interaction_handle` parameter in a response body to the client app.
 
     > **Note:** The `interaction_handle` is used to continue the interaction directly with the Identity Engine. This is why the client, either confidential or public, needs to be registered with the Identity Engine to perform this direct interaction.
 
