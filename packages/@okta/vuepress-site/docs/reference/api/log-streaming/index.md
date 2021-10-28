@@ -183,7 +183,7 @@ Array of [Log Stream](/docs/reference/api/log-streaming/#log-stream-object)
 
 #### List log streams with defaults
 
-Enumerates all log streams added to your organization
+Enumerates all log streams added to your org
 
 ##### Request example
 
