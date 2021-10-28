@@ -3,7 +3,9 @@ title: Log Streaming
 category: management
 ---
 
-# Log Streaming API <ApiLifecycle access="ea" />
+# Log Streaming API
+
+<ApiLifecycle access="ea" />
 
 The Okta Log Streaming API provides operations to manage Log Stream configurations for an org.
 You can configure up to two Log Stream integrations per org.
@@ -22,6 +24,8 @@ See the Log Stream setup guide. ... to be added
 ## Log Streaming operations
 
 ### Add Log Stream
+
+<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/logStreams" />
 
@@ -90,6 +94,8 @@ curl -v -X POST \
 
 ### Get Log Stream
 
+<ApiLifecycle access="ea" />
+
 <ApiOperation method="get" url="/api/v1/logStreams/${logStreamId}" />
 
 Fetches a log stream by `id`
@@ -144,6 +150,8 @@ curl -v -X GET \
 ```
 
 ### List Log Streams
+
+<ApiLifecycle access="ea" />
 
 <ApiOperation method="get" url="/api/v1/logStreams" />
 
@@ -319,6 +327,8 @@ curl -v -X GET \
 
 ### Update Log Stream
 
+<ApiLifecycle access="ea" />
+
 <ApiOperation method="put" url="/api/v1/logStreams/${logStreamId}" />
 
 Updates the configuration for a Log Stream
@@ -379,6 +389,8 @@ curl -v -X PUT \
 ```
 ### Delete Log Stream
 
+<ApiLifecycle access="ea" />
+
 <ApiOperation method="delete" url="/api/v1/logStreams/${logStreamId}" />
 
 Removes a Log Stream from your org
@@ -413,6 +425,8 @@ HTTP/1.1 204 No Content
 ## Log Streams lifecycle operations
 
 ### Activate Log Stream
+
+<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/logStreams/${logStreamId}/lifecycle/activate" />
 
@@ -468,6 +482,8 @@ curl -v -X POST \
 ```
 
 ### Deactivate Log Stream
+
+<ApiLifecycle access="ea" />
 
 <ApiOperation method="post" url="/api/v1/logStreams/${logStreamId}/lifecycle/deactivate" />
 
