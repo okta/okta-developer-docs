@@ -10,7 +10,7 @@ The Okta Schemas API provides operations to manage custom User profiles as well 
 
 Okta's [Universal Directory](https://help.okta.com/okta_help.htm?id=ext_About_Universal_Directory) allows administrators to define custom User profiles for Okta Users and Applications.
 Okta adopts a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) as the schema language to describe and validate extensible User profiles.
-For Log Stream Schemas Okta started leveraging latest [JSON Schema Draft 2020-12](https://json-schema.org/specification.html).
+For Log Stream Schemas, Okta uses [JSON Schema Draft 2020-12](https://json-schema.org/specification.html).
 [JSON Schema](http://json-schema.org/) is a lightweight declarative format for describing the structure, constraints, and validation of JSON documents.
 
 
