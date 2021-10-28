@@ -66,4 +66,4 @@ After you’ve completed adding the SDK to your app, the next step is to upgrade
 
 <!-- TODO: The above link will be updated with the correct mapping guide URL-->
 
-> Note: After your Okta org is upgraded to the Identity Engine, your app should still work as expected with no change in functionality. If, you want to take advantage of the Identity Engine features, add the Identity Engine SDK to your app.
+> **Note:** After your Okta org is upgraded to the Identity Engine, your app should still work as expected with no change in functionality. If, you want to take advantage of the Identity Engine features, add the Identity Engine SDK to your app.
