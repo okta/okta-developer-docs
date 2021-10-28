@@ -3153,7 +3153,7 @@ The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-
 |title| Name of the Log Streaming integration| String|FALSE|| TRUE| TRUE|
 |type| Type of root Schema|String|FALSE|FALSE|TRUE|
 |properties|Log Stream Schema object properties| [Log Stream Schema Properties](#log-stream-schema-properties-object) |FALSE|TRUE|TRUE|
-|required| required properties for this Log Stream object|Array of String|FALSE|TRUE|TRUE|
+|required| Required properties for this Log Stream Schema object|Array of String|FALSE|TRUE|TRUE|
 
 
 #### Log Stream Schema property object
