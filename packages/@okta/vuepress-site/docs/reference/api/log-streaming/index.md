@@ -39,7 +39,7 @@ The created [Log Stream](/docs/reference/api/log-streaming/#log-stream-object)
 
 #### Add AWS EventBridge log stream
 
-Adds a new `AWS EventBridge` type log stream to your organization
+Adds a new `AWS EventBridge` type log stream to your org
 
 ##### Request example
 
