@@ -37,7 +37,7 @@ The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow w
 
 2. The client app generates the PKCE code verifier & code challenge.
 
-    > **Note:** To use the Interaction Code flow, both the client app and the Okta Authorization Server used must have the Interaction Code grant type enabled in the Okta org.
+    > **Note:** To use the Interaction Code flow, both the client app and the authorization server used must have the Interaction Code grant type enabled in the Okta org.
 
 3. The client app begins interaction with an [Okta Authorization Server](/docs/concepts/auth-servers/) (Org or Custom), providing any context it may have, such as a sign-in hint, as well as sending the code challenge in a request for authorization of certain scopes to the Okta Authorization Server.
 
