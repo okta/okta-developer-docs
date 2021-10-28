@@ -2993,7 +2993,7 @@ The following response is only a subset of properties for brevity.
 ```
 
 
-### Get Log Stream Schema
+### Get Log Stream schema
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/logStream/${typeId}" />
 
