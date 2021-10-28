@@ -49,7 +49,7 @@ When you upgrade an embedded Sign-In Widget:
 
 * Make sure that the [Widget configuration](/docs/guides/oie-embedded-common-download-setup-app/java/main/) references the latest version of the Widget and that the [reference to the Okta CDN](/docs/guides/oie-embedded-widget-use-case-load/java/main/#_1-source-the-sign-in-widget-in-your-sign-in-page) grabs the latest Widget version. See the [Okta Sign-In Widget Readme](https://github.com/okta/okta-signin-widget/blob/master/README.md#using-the-okta-cdn) for more information on [using the Okta CDN](https://github.com/okta/okta-signin-widget/blob/master/README.md#using-the-okta-cdn).
 
-* Update the Javascript and CSS files in your HTML as follows:
+* Update the Javascript and CSS files in your HTML as follows. Note that the latest version changes every week. You should always use the latest version available. See [Okta Sign-In Widget releases](https://github.com/okta/okta-signin-widget/releases) for the latest version.
 
 ```javascript
 <!-- Latest CDN production Javascript and CSS -->
