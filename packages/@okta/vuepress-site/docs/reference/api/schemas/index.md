@@ -3144,7 +3144,7 @@ For brevity, the following response doesn't include all available properties.
 
 <ApiLifecycle access="ea" />
 
-The Log Stream Schema is a valid
+The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-schema.org/specification.html) with the following properties:
 [JSON Schema Draft 2020-12](https://json-schema.org/specification.html)
 document with the following properties:
 
