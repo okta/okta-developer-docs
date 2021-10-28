@@ -2992,7 +2992,9 @@ The following response is only a subset of properties for brevity.
 }
 ```
 
+## Log Stream Schema operations
 
+<ApiLifecycle access="ea" />
 ### Get Log Stream schema
 
 <ApiLifecycle access="ea" />
