@@ -25,7 +25,7 @@ See the [Log Stream setup guide](url). ... to be added
 
 <ApiOperation method="post" url="/api/v1/logStreams" />
 
-Adds a new Log Stream to your organization
+Adds a new Log Stream to your org
 
 ##### Request parameters
 
