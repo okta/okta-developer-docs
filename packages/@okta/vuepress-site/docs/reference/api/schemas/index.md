@@ -3191,7 +3191,7 @@ with the following keywords:
 | errorMessage|Error messages for properties of this Log Streaming object|Error Message object|FALSE|TRUE|TRUE|
 
 #### Error Message object
-Okta has implemented a subset of [ajv-errors](https://github.com/ajv-validator/ajv-errors), and the error object has the following property:
+Okta implements a subset of [ajv-errors](https://github.com/ajv-validator/ajv-errors), and the error object has the following property:
 
 | Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
 | :---------------------------------- | :--------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
