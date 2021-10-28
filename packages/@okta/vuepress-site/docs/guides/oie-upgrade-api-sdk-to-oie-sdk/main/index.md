@@ -51,8 +51,8 @@ The following sections highlight the Classic Engine Authentication SDK method ca
 
 If your application uses direct APIs for an authentication flow, your application code may call the following Okta APIs:
 
-- `/api/v1/authn` to begin the primary authentication, which validates the password credentials and evaluates org policies
-- If successful, call the `/api/v1/sessions` API with a sessionToken returned from the first call to create a new session
+* `/api/v1/authn` to begin the primary authentication, which validates the password credentials and evaluates org policies
+* If successful, call the `/api/v1/sessions` API with a sessionToken returned from the first call to create a new session
 
 See the following sample calls and responses for this basic authentication flow:
 
@@ -172,9 +172,7 @@ curl --location --request POST 'https://duffield.oktapreview.com/api/v1/sessions
 
 If your application code implements these API calls and handles the responses shown, you need to update your code to use the Identity Engine SDK `idx.authenticate` method. This method encapsulates the authentication flow using recursive calls to the Identity Engine SDK method, and a successful response returns with access and ID tokens.
 
-See [Okta Identity Engine SDK authentication flow](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#mapping-authentication-code-to-the-okta-identity-engine-sdk)
-
-If you’re migrating a custom application using direct back-end Classic Engine Authentication APIs, you may want to work with your customer support team to assist you in migrating to the Identity Engine SDK.
+See [Okta Identity Engine SDK authentication flow](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-authentication-flow)
 
 ## Map MFA Authentication code to the Okta Identity Engine SDK
 
@@ -428,9 +426,7 @@ curl --location --request POST 'https://example.okta.com/api/v1/authn/factors/em
 
 If your application code implements these API calls and handles the responses shown, you need to update your code to use the Identity Engine SDK `idx.authenticate` method. This method encapsulates the authentication flow using recursive calls to the Identity Engine SDK method and a successful response returns with access and ID tokens.
 
-See [Okta Identity Engine SDK authentication flow for MFA](docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#mapping-mfa-authentication-code-to-the-okta-identity-engine-sdk).
-
-If you’re migrating a custom application using direct back-end Authentication APIs, you may want to work with your customer support team to assist you in migrating to the Identity Engine SDK.
+See [Okta Identity Engine SDK authentication flow for MFA](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-authentication-flow-for-mfa).
 
 ## Map Password Recovery code to the Okta Identity Engine SDK
 
@@ -669,9 +665,7 @@ curl --location --request POST 'https://example.okta.com/api/v1/authn/credential
 
 If your application code implements these API calls and handles the responses shown, you need to update your code to use the Identity Engine SDK `idx.recoverPassword` method. This method encapsulates the password recovery flow using recursive calls to the Identity Engine SDK method, and a successful response returns with access and ID tokens.
 
-See [Okta Identity Engine SDK authentication flow for Password Recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/)
-
-If you’re migrating a custom application using direct back-end Authentication APIs, you may want to work with your customer support team to assist you in migrating to the Identity Engine SDK.
+See [Okta Identity Engine SDK authentication flow for Password Recovery](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-authentication-flow-for-password-recovery).
 
 ## Map Basic Sign out APIs to Okta Identity Engine SDK
 
