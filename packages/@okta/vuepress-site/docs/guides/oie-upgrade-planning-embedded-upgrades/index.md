@@ -26,7 +26,7 @@ See [Roll the upgrade out to your users](#roll-the-upgrade-out-to-your-users) fo
 
 ## Update the Okta-hosted Sign-In Widget
 
-When you are redirecting to the Okta-hosted Sign-In Widget, make sure that your user experience is preserved both [visually](/docs/guides/sign-in-widget-styling/) and [functionally](/docs/guides/sign-in-widget-i18n/). Be sure to check your `config.idps` settings for customizations that may not be compatible with Identity Engine.
+When you are redirecting to the Okta-hosted Sign-In Widget, make sure that your user experience is preserved both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/). Be sure to check your `config.idps` settings for customizations that may not be compatible with Identity Engine.
 
 > **Note:** See the **Remember me** section of the [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new) for more information on functionality changes in the Admin Console.
 
@@ -34,19 +34,19 @@ When you are redirecting to the Okta-hosted Sign-In Widget, make sure that your 
 
 When you are embedding the Okta Sign-In Widget, consider and plan for the following steps, depending on your needs:
 
-* [Update your Sign-In Widget](/docs/guides/sign-in-widget) to the latest version.
-* [Add support for the Interaction Code](/docs/guides/implement-grant-type/authcode/) in your Custom Authorization Servers and embedded auth applications.
+* [Update your Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget) to the latest version.
+* Add support for the Interaction Code in your Custom Authorization Servers and embedded auth applications. More detailed information coming soon. <!-- (/docs/guides/implement-grant-type/authcode/) -->
 * [Change your embedded Sign-In Widget’s configuration](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) to support the Interaction Code grant type in your project.
-* [Map the Authentication code to the Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/#mapping-authentication-code-to-the-okta-identity-engine-sdk) to update your app if you are using `setCookieAndRedirect` to get tokens.
-* Test and verify your user experience both [visually](/docs/guides/sign-in-widget-styling/) and [functionally](/docs/guides/sign-in-widget-i18n/).
+* [Upgrade your application to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#map-authentication-code-to-the-okta-identity-engine-sdk) to update your app if you are using `setCookieAndRedirect` to get tokens. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
+* Test and verify your user experience both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/).
 
 ## Upgrade SDKs to the latest version in your apps
 
 When you are embedding your authentication with our SDKs, consider the steps that you need to take and then make a plan for upgrading your code to the latest version of the SDK. Additionally, plan to replace all Classic Engine Authn calls with Identity Engine calls. The following steps outline what your upgrade journey might look like.
 
-1. [Update your Custom Authorization Servers](/docs/guides/implement-grant-type/authcode/) to include the Interaction Code grant type.
+1. Update your Custom Authorization Servers to include the Interaction Code grant type. More detailed information coming soon. <!-- (/docs/guides/implement-grant-type/authcode/) -->
 
-2. [Update the application settings](/docs/guides/implement-grant-type/authcode/main/) of your embedded auth applications to include the Interaction Code grant type.
+2. Update the application settings of your embedded auth applications to include the Interaction Code grant type. More detailed information coming soon. <!-- (/docs/guides/implement-grant-type/authcode/) -->
 
 > **Note:** Performing steps one and two doesn’t change the way your auth server or application behaves, but supports the new Identity Engine model. Turning the Interaction Code grant type on in your Custom Authorization Server simply enables the server to accept a request of that type. The application behavior doesn’t change until you [enable the Interaction Code in the embedded Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) and move away from using Authn APIs to using the appropriate SDK.
 
@@ -60,7 +60,7 @@ When you are embedding your authentication with our SDKs, consider the steps tha
 
     * For libraries that are completely separate from their class forms, add newer SDK libraries to your dependencies in your build scripts and import them into your existing classes and relevant project files.
 
-    See [Add the latest Auth SDKs to your applications](/docs/guides/add-latest-sdks/) for detailed steps by language.
+    See [Add the latest Auth SDKs to your applications](/docs/guides/oie-upgrade-add-sdk-to-your-app/nodejs/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
 
 5. Test your user flows with the new SDKs included in your build without any code changes to make sure that your users can still access your application seamlessly.
 
@@ -70,7 +70,7 @@ When you are embedding your authentication with our SDKs, consider the steps tha
 
     We recommend the following order, but prioritize the order of your upgrade workflows to suit your needs.
 
-    * **Self-Service Password Recovery:** Replace with the remediation form of the password reset flow. This may also mean removing features like security questions and some other configurations from the Password Authenticator's settings. See [Upgrade your application to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-planning-embedded-upgrades/) for detailed steps by language.
+    * **Self-Service Password Recovery:** Replace with the remediation form of the password reset flow. This may also mean removing features like security questions and some other configurations from the Password Authenticator's settings. See [Upgrade your application to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/) -->
 
     * **Self-Service Registration:** The Identity Engine SDK provides full support for user sign up. See the [Self-service registration integration guide](/docs/guides/oie-embedded-sdk-use-case-self-reg/-/main/) for more information on how to integrate the sign up use case into your application using the Identity Engine SDK
 
@@ -82,7 +82,7 @@ When you are embedding your authentication with our SDKs, consider the steps tha
 
         * **Sign Out:** Use the `revoke()` method in the SDKs rather than make calls to the Sessions API to manage Okta sessions. See [Revoke the access token](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/-/main/#_2-revoke-the-access-token).
 
-        Additionally, if you are tightly coupling your application sessions with the Okta Sessions, there may be more work to be done to separate the Okta sessions from the Application sessions. See [Upgrade Sessions API and sessionToken authentication to Identity Engine](/docs/guides/oie-upgrade-sessions).
+        Additionally, if you are tightly coupling your application sessions with the Okta Sessions, there may be more work to be done to separate the Okta sessions from the Application sessions. See [Upgrade Sessions API and sessionToken authentication to Identity Engine](/docs/guides/oie-upgrade-sessions-api/).
 
 ## Upgrade from using the Okta Authn APIs
 
