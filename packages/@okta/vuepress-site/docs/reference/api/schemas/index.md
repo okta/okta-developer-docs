@@ -3013,7 +3013,6 @@ N/A
 
 ##### Request example
 
-
 ```bash
 curl -v -X GET \
 -H "Accept: application/json" \
