@@ -3157,7 +3157,7 @@ document with the following properties:
 All Log Stream Schema properties contain `name`, which specifies
 the Log Stream name within Okta, and `settings`, which describes the
 settings of that Log Stream. `name` has type String, and `settings`
-will have type Object. Both `name` and the properties within `settings` have the
+has type Object. Both `name` and the properties within `settings` have the
 following standard [JSON Schema Draft 2020-12](https://json-schema.org/specification.html)
 properties:
 
