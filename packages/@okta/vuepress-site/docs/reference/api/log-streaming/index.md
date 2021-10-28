@@ -416,7 +416,7 @@ HTTP/1.1 204 No Content
 
 <ApiOperation method="post" url="/api/v1/logStreams/${logStreamId}/lifecycle/activate" />
 
-Activates an inactive log stream
+Reactivates an inactive log stream
 
 ##### Request parameters
 
