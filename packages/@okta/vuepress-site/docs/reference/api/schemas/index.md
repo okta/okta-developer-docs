@@ -3009,7 +3009,6 @@ N/A
 
 ##### Response parameters
 
-
 [Log Stream Schema](#log-stream-schema-object)
 
 ##### Request example
