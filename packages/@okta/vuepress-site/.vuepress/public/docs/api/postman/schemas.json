@@ -204,15 +204,7 @@
                 "{{baseUrl}}"
               ],
               "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "type",
-                  "description": "(Required) "
-                }
-              ]
+              "variable": []
             },
             "method": "GET",
             "auth": null
