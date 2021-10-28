@@ -3140,7 +3140,9 @@ For brevity, the following response doesn't include all available properties.
 }
 ```
 
-#### Log Stream Schema object
+## Log Stream Schema object
+
+<ApiLifecycle access="ea" />
 
 The Log Stream Schema is a valid
 [JSON Schema Draft 2020-12](https://json-schema.org/specification.html)
