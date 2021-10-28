@@ -585,7 +585,7 @@ Okta supports the following enterprise and social providers:
 | `aws_eventbridge`      | [AWS EventBridge](https://developer.apple.com/documentation/aws_eventbridge_log_stream)                                                                       |
 
 
-## AWS EventBridge Settings object
+## AWS EventBridge settings object
 
 ### Example
 
