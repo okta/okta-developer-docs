@@ -17,6 +17,20 @@
                             "content": "Activate a Log Stream instance",
                             "type": "text/plain"
                         },
+                        "header": [
+                          {
+                            "key": "Authorization",
+                            "value": "SSWS {{apikey}}"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
                         "url": {
                             "path": [
                                 "api",
@@ -29,148 +43,12 @@
                             "host": [
                                 "{{baseUrl}}"
                             ],
-                            "query": [],
-                            "variable": [
-                                {
-                                    "disabled": false,
-                                    "type": "any",
-                                    "value": "<string>",
-                                    "key": "id",
-                                    "description": "(Required) id of a Log Streams configuration"
-                                }
-                            ]
+                            "query": []
                         },
                         "method": "POST",
                         "auth": null
                     },
-                    "response": [
-                        {
-                            "id": "75c49842-eec8-43fe-ab1b-7ded1564197e",
-                            "name": "OK",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "api",
-                                        "v1",
-                                        "logStreams",
-                                        "{{logStreamId}}",
-                                        "lifecycle",
-                                        "activate"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [],
-                                    "variable": [
-                                        {
-                                            "disabled": false,
-                                            "type": "any",
-                                            "value": "<string>",
-                                            "key": "id",
-                                            "description": "(Required) id of a Log Streams configuration"
-                                        }
-                                    ]
-                                },
-                                "method": "POST",
-                                "body": {}
-                            },
-                            "status": "OK",
-                            "code": 200,
-                            "header": [
-                                {
-                                    "key": "Content-Type",
-                                    "value": "text/plain"
-                                }
-                            ],
-                            "body": "",
-                            "cookie": [],
-                            "_postman_previewlanguage": "text"
-                        },
-                        {
-                            "id": "6b794f5d-1a39-4c9d-bc74-ce468738033c",
-                            "name": "Unauthorized",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "api",
-                                        "v1",
-                                        "logStreams",
-                                        "{{logStreamId}}",
-                                        "lifecycle",
-                                        "activate"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [],
-                                    "variable": [
-                                        {
-                                            "disabled": false,
-                                            "type": "any",
-                                            "value": "<string>",
-                                            "key": "id",
-                                            "description": "(Required) id of a Log Streams configuration"
-                                        }
-                                    ]
-                                },
-                                "method": "POST",
-                                "body": {}
-                            },
-                            "status": "Unauthorized",
-                            "code": 401,
-                            "header": [
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/json"
-                                }
-                            ],
-                            "body": "{\n \"errorCode\": \"E0000015\",\n \"errorSummary\": \"You do not have permission to access the feature you are requesting\",\n \"errorLink\": \"E0000015\",\n \"errorId\": \"oaeUokjuXnQQW6uFMrwvPb17w\",\n \"errorCauses\": []\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
-                        },
-                        {
-                            "id": "e554c857-b573-4a52-b5c3-386c6eb7712b",
-                            "name": "Not Found",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "api",
-                                        "v1",
-                                        "logStreams",
-                                        "{{logStreamId}}",
-                                        "lifecycle",
-                                        "activate"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [],
-                                    "variable": [
-                                        {
-                                            "disabled": false,
-                                            "type": "any",
-                                            "value": "<string>",
-                                            "key": "id",
-                                            "description": "(Required) id of a Log Streams configuration"
-                                        }
-                                    ]
-                                },
-                                "method": "POST",
-                                "body": {}
-                            },
-                            "status": "Not Found",
-                            "code": 404,
-                            "header": [
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/json"
-                                }
-                            ],
-                            "body": "{\n \"errorCode\": \"E0000007\",\n \"errorSummary\": \"Not found: {0}\",\n \"errorLink\": \"E0000007\",\n \"errorId\": \"sampleMlLvGUj_YD5v16vkYWY\",\n \"errorCauses\": []\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
-                        }
-                    ],
+                    "response": [],
                     "event": []
                 },
                 {
@@ -182,6 +60,20 @@
                             "content": "Deactivate a Log Stream instance",
                             "type": "text/plain"
                         },
+                        "header": [
+                          {
+                            "key": "Authorization",
+                            "value": "SSWS {{apikey}}"
+                          },
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
                         "url": {
                             "path": [
                                 "api",
@@ -194,148 +86,12 @@
                             "host": [
                                 "{{baseUrl}}"
                             ],
-                            "query": [],
-                            "variable": [
-                                {
-                                    "disabled": false,
-                                    "type": "any",
-                                    "value": "<string>",
-                                    "key": "id",
-                                    "description": "(Required) id of a Log Streams configuration"
-                                }
-                            ]
+                            "query": []
                         },
                         "method": "POST",
                         "auth": null
                     },
-                    "response": [
-                        {
-                            "id": "f969c1c7-694a-482d-9756-ae59b56f8b40",
-                            "name": "OK",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "api",
-                                        "v1",
-                                        "logStreams",
-                                        "{{logStreamId}}",
-                                        "lifecycle",
-                                        "deactivate"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [],
-                                    "variable": [
-                                        {
-                                            "disabled": false,
-                                            "type": "any",
-                                            "value": "<string>",
-                                            "key": "id",
-                                            "description": "(Required) id of a Log Streams configuration"
-                                        }
-                                    ]
-                                },
-                                "method": "POST",
-                                "body": {}
-                            },
-                            "status": "OK",
-                            "code": 200,
-                            "header": [
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/json"
-                                }
-                            ],
-                            "body": "{}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
-                        },
-                        {
-                            "id": "4c0ecdc5-1fc2-4c92-9623-d5ae33729554",
-                            "name": "Bad Request",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "api",
-                                        "v1",
-                                        "logStreams",
-                                        "{{logStreamId}}",
-                                        "lifecycle",
-                                        "deactivate"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [],
-                                    "variable": [
-                                        {
-                                            "disabled": false,
-                                            "type": "any",
-                                            "value": "<string>",
-                                            "key": "id",
-                                            "description": "(Required) id of a Log Streams configuration"
-                                        }
-                                    ]
-                                },
-                                "method": "POST",
-                                "body": {}
-                            },
-                            "status": "Bad Request",
-                            "code": 400,
-                            "header": [
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/json"
-                                }
-                            ],
-                            "body": "{\n \"errorCode\": \"E0000001\",\n \"errorSummary\": \"Api validation failed: {0}\",\n \"errorLink\": \"E0000001\",\n \"errorId\": \"sampleiCF-8D5rLW6myqiPItW\",\n \"errorCauses\": []\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
-                        },
-                        {
-                            "id": "ffe50f65-04e7-49c7-88b2-939d5f244ddc",
-                            "name": "Unauthorized",
-                            "originalRequest": {
-                                "url": {
-                                    "path": [
-                                        "api",
-                                        "v1",
-                                        "logStreams",
-                                        "{{logStreamId}}",
-                                        "lifecycle",
-                                        "deactivate"
-                                    ],
-                                    "host": [
-                                        "{{baseUrl}}"
-                                    ],
-                                    "query": [],
-                                    "variable": [
-                                        {
-                                            "disabled": false,
-                                            "type": "any",
-                                            "value": "<string>",
-                                            "key": "id",
-                                            "description": "(Required) id of a Log Streams configuration"
-                                        }
-                                    ]
-                                },
-                                "method": "POST",
-                                "body": {}
-                            },
-                            "status": "Unauthorized",
-                            "code": 401,
-                            "header": [
-                                {
-                                    "key": "Content-Type",
-                                    "value": "application/json"
-                                }
-                            ],
-                            "body": "{\n \"errorCode\": \"E0000015\",\n \"errorSummary\": \"You do not have permission to access the feature you are requesting\",\n \"errorLink\": \"E0000015\",\n \"errorId\": \"oaeUokjuXnQQW6uFMrwvPb17w\",\n \"errorCauses\": []\n}",
-                            "cookie": [],
-                            "_postman_previewlanguage": "json"
-                        }
-                    ],
+                    "response": [],
                     "event": []
                 }
             ],
@@ -350,6 +106,20 @@
                     "content": "Get a list of all configured Log Stream instances",
                     "type": "text/plain"
                 },
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "SSWS {{apikey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
                     "path": [
                         "api",
@@ -384,146 +154,7 @@
                 "method": "GET",
                 "auth": null
             },
-            "response": [
-                {
-                    "id": "51669871-8723-43bb-8d9f-696581e16571",
-                    "name": "OK",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [
-                                {
-                                    "key": "after",
-                                    "value": "<string>"
-                                },
-                                {
-                                    "key": "filter",
-                                    "value": "type eq \"aws_eventbridge\""
-                                },
-                                {
-                                    "key": "limit",
-                                    "value": "20"
-                                }
-                            ],
-                            "variable": []
-                        },
-                        "method": "GET",
-                        "body": {}
-                    },
-                    "status": "OK",
-                    "code": 200,
-                    "header": [
-                        {
-                            "disabled": false,
-                            "description": "Specified the `self` and `next` Link headers used for pagination",
-                            "key": "Link",
-                            "value": "<{orgUrl}/api/v1/logStreams?limit=-1>; rel=\"self\""
-                        },
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "[\n {\n  \"id\": \"0oaxzflRAK8tl6OpP0g3\",\n  \"type\": \"aws_eventbridge\",\n  \"name\": \"Amazon AWS EventBridge\",\n  \"lastUpdated\": \"2021-06-13T06:26:30.000Z\",\n  \"created\": \"2021-06-03T20:57:05.000Z\",\n  \"status\": \"INACTIVE\",\n  \"settings\": {\n   \"accountId\": \"123456789022\",\n   \"eventSourceName\": \"aws.partner.testing\",\n   \"eventSourceArn\": \"arn:aws:events:us-east-2::event-source/aws.partner.testing\",\n   \"region\": \"us-east-2\"\n  },\n  \"_links\": {\n   \"activate\": {\n    \"href\": \"http://rain.okta1.com:1802/api/v1/logStreams/0oaxzflRAK8tl6OpP0g3/lifecycle/activate\",\n    \"method\": \"POST\"\n   },\n   \"self\": {\n    \"href\": \"http://rain.okta1.com:1802/api/v1/logStreams/0oaxzflRAK8tl6OpP0g3\",\n    \"method\": \"GET\"\n   }\n  }\n },\n {\n  \"id\": \"0oaxzxRugBkY696uu0g3\",\n  \"type\": \"aws_eventbridge\",\n  \"name\": \"Amazon AWS EventBridge (2)\",\n  \"lastUpdated\": \"2021-06-13T06:26:30.000Z\",\n  \"created\": \"2021-06-03T20:58:44.000Z\",\n  \"status\": \"INACTIVE\",\n  \"settings\": {\n   \"accountId\": \"346789308467\",\n   \"eventSourceName\": \"aws.partner.testing.skdjsjkdf\",\n   \"eventSourceArn\": \"arn:aws:events:cn-north-1::event-source/aws.partner.testing.skdjsjkdf\",\n   \"region\": \"cn-north-1\"\n  },\n  \"_links\": {\n   \"activate\": {\n    \"href\": \"http://rain.okta1.com:1802/api/v1/logStreams/0oaxzxRugBkY696uu0g3/lifecycle/activate\",\n    \"method\": \"POST\"\n   },\n   \"self\": {\n    \"href\": \"http://rain.okta1.com:1802/api/v1/logStreams/0oaxzxRugBkY696uu0g3\",\n    \"method\": \"GET\"\n   }\n  }\n },\n {\n  \"id\": \"0oay0bFq0vZrsZFX90g3\",\n  \"type\": \"aws_eventbridge\",\n  \"name\": \"Amazon AWS EventBridge (3)\",\n  \"lastUpdated\": \"2021-06-13T06:26:30.000Z\",\n  \"created\": \"2021-06-03T20:59:01.000Z\",\n  \"status\": \"ACTIVE\",\n  \"settings\": {\n   \"accountId\": \"123456789012\",\n   \"eventSourceName\": \"aws.partner.testing22\",\n   \"eventSourceArn\": \"arn:aws:events:ap-southeast-2::event-source/aws.partner.testing22\",\n   \"region\": \"ap-southeast-2\"\n  },\n  \"_links\": {\n   \"self\": {\n    \"href\": \"http://rain.okta1.com:1802/api/v1/logStreams/0oay0bFq0vZrsZFX90g3\",\n    \"method\": \"GET\"\n   },\n   \"deactivate\": {\n    \"href\": \"http://rain.okta1.com:1802/api/v1/logStreams/0oay0bFq0vZrsZFX90g3/lifecycle/deactivate\",\n    \"method\": \"POST\"\n   }\n  }\n }\n]",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                },
-                {
-                    "id": "0858c5d4-303e-446a-a7ea-34a8ae7ea7f8",
-                    "name": "Bad Request",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [
-                                {
-                                    "key": "after",
-                                    "value": "<string>"
-                                },
-                                {
-                                    "key": "filter",
-                                    "value": "type eq \"aws_eventbridge\""
-                                },
-                                {
-                                    "key": "limit",
-                                    "value": "20"
-                                }
-                            ],
-                            "variable": []
-                        },
-                        "method": "GET",
-                        "body": {}
-                    },
-                    "status": "Bad Request",
-                    "code": 400,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000001\",\n \"errorSummary\": \"Api validation failed: {0}\",\n \"errorLink\": \"E0000001\",\n \"errorId\": \"sampleiCF-8D5rLW6myqiPItW\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                },
-                {
-                    "id": "d79d9218-6c51-4d72-8ca1-7b444c623c62",
-                    "name": "Unauthorized",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [
-                                {
-                                    "key": "after",
-                                    "value": "<string>"
-                                },
-                                {
-                                    "key": "filter",
-                                    "value": "type eq \"aws_eventbridge\""
-                                },
-                                {
-                                    "key": "limit",
-                                    "value": "20"
-                                }
-                            ],
-                            "variable": []
-                        },
-                        "method": "GET",
-                        "body": {}
-                    },
-                    "status": "Unauthorized",
-                    "code": 401,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000015\",\n \"errorSummary\": \"You do not have permission to access the feature you are requesting\",\n \"errorLink\": \"E0000015\",\n \"errorId\": \"oaeUokjuXnQQW6uFMrwvPb17w\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                }
-            ],
+            "response": [],
             "event": []
         },
         {
@@ -535,6 +166,20 @@
                     "content": "Adds a new Log Stream application to your Okta organization",
                     "type": "text/plain"
                 },
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "SSWS {{apikey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
                     "path": [
                         "api",
@@ -565,203 +210,7 @@
                     }
                 }
             },
-            "response": [
-                {
-                    "id": "1b2f1a3f-cbde-47ce-a83f-5c9d6f6822f4",
-                    "name": "OK",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": []
-                        },
-                        "method": "POST",
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"settings\": {\n        \"accountId\": \"<string>\",\n        \"eventSourceName\": \"<string>\",\n        \"region\": \"<string>\"\n    },\n    \"type\": \"<string>\",\n    \"name\": \"<string>\"\n}",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            }
-                        }
-                    },
-                    "status": "OK",
-                    "code": 200,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"id\": \"0oaxzflRAK8tl6OpP0g3\",\n \"type\": \"aws_eventbridge\",\n \"name\": \"Amazon AWS EventBridge\",\n \"lastUpdated\": \"2021-06-13T06:26:30.000Z\",\n \"created\": \"2021-06-03T20:57:05.000Z\",\n \"status\": \"INACTIVE\",\n \"settings\": {\n  \"accountId\": \"123456789022\",\n  \"eventSourceName\": \"aws.partner.testing\",\n  \"eventSourceArn\": \"arn:aws:events:us-east-2::event-source/aws.partner.testing\",\n  \"region\": \"us-east-2\"\n },\n \"_links\": {\n  \"activate\": {\n   \"href\": \"http://rain.okta1.com:1802/api/v1/logStreams/0oaxzflRAK8tl6OpP0g3/lifecycle/activate\",\n   \"method\": \"POST\"\n  },\n  \"self\": {\n   \"href\": \"http://rain.okta1.com:1802/api/v1/logStreams/0oaxzflRAK8tl6OpP0g3\",\n   \"method\": \"GET\"\n  }\n }\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                },
-                {
-                    "id": "4abe2d37-1127-4a41-aac0-bd18ab026c36",
-                    "name": "Bad Request",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": []
-                        },
-                        "method": "POST",
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"settings\": {\n        \"accountId\": \"<string>\",\n        \"eventSourceName\": \"<string>\",\n        \"region\": \"<string>\"\n    },\n    \"type\": \"<string>\",\n    \"name\": \"<string>\"\n}",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            }
-                        }
-                    },
-                    "status": "Bad Request",
-                    "code": 400,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000001\",\n \"errorSummary\": \"Api validation failed: {0}\",\n \"errorLink\": \"E0000001\",\n \"errorId\": \"sampleiCF-8D5rLW6myqiPItW\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                },
-                {
-                    "id": "f708b060-207d-4884-99bc-335663174284",
-                    "name": "Unauthorized",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": []
-                        },
-                        "method": "POST",
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"settings\": {\n        \"accountId\": \"<string>\",\n        \"eventSourceName\": \"<string>\",\n        \"region\": \"<string>\"\n    },\n    \"type\": \"<string>\",\n    \"name\": \"<string>\"\n}",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            }
-                        }
-                    },
-                    "status": "Unauthorized",
-                    "code": 401,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000015\",\n \"errorSummary\": \"You do not have permission to access the feature you are requesting\",\n \"errorLink\": \"E0000015\",\n \"errorId\": \"oaeUokjuXnQQW6uFMrwvPb17w\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                },
-                {
-                    "id": "412b5a65-3c85-4e6b-9adb-63527a8ba178",
-                    "name": "Example response",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": []
-                        },
-                        "method": "POST",
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"settings\": {\n        \"accountId\": \"<string>\",\n        \"eventSourceName\": \"<string>\",\n        \"region\": \"<string>\"\n    },\n    \"type\": \"<string>\",\n    \"name\": \"<string>\"\n}",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            }
-                        }
-                    },
-                    "status": "Forbidden",
-                    "code": 403,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000001\",\n \"errorSummary\": \"Forbidden Action Summary\",\n \"errorLink\": \"E0000001\",\n \"errorId\": \"sampleiCF-8D5rLW6myqiPItW\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                },
-                {
-                    "id": "43ffed02-14ad-4a15-95e1-f4b5411389a9",
-                    "name": "Not Found",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": []
-                        },
-                        "method": "POST",
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"settings\": {\n        \"accountId\": \"<string>\",\n        \"eventSourceName\": \"<string>\",\n        \"region\": \"<string>\"\n    },\n    \"type\": \"<string>\",\n    \"name\": \"<string>\"\n}",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            }
-                        }
-                    },
-                    "status": "Not Found",
-                    "code": 404,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000007\",\n \"errorSummary\": \"Not found: {0}\",\n \"errorLink\": \"E0000007\",\n \"errorId\": \"sampleMlLvGUj_YD5v16vkYWY\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                }
-            ],
+            "response": [],
             "event": []
         },
         {
@@ -773,6 +222,20 @@
                     "content": "Retrieve the information of the Log Stream instance with the matching ID.",
                     "type": "text/plain"
                 },
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "SSWS {{apikey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
                     "path": [
                         "api",
@@ -783,142 +246,12 @@
                     "host": [
                         "{{baseUrl}}"
                     ],
-                    "query": [],
-                    "variable": [
-                        {
-                            "disabled": false,
-                            "type": "any",
-                            "value": "<string>",
-                            "key": "id",
-                            "description": "(Required) id of a Log Streams configuration"
-                        }
-                    ]
+                    "query": []
                 },
                 "method": "GET",
                 "auth": null
             },
-            "response": [
-                {
-                    "id": "edfb29b1-0a7b-4fd9-aea8-d4566b3f1680",
-                    "name": "OK",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams",
-                                "{{logStreamId}}"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": [
-                                {
-                                    "disabled": false,
-                                    "type": "any",
-                                    "value": "<string>",
-                                    "key": "id",
-                                    "description": "(Required) id of a Log Streams configuration"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "body": {}
-                    },
-                    "status": "OK",
-                    "code": 200,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"id\": \"0oaxzflRAK8tl6OpP0g3\",\n \"type\": \"aws_eventbridge\",\n \"name\": \"Amazon AWS EventBridge\",\n \"lastUpdated\": \"2021-06-13T06:26:30.000Z\",\n \"created\": \"2021-06-03T20:57:05.000Z\",\n \"status\": \"INACTIVE\",\n \"settings\": {\n  \"accountId\": \"123456789022\",\n  \"eventSourceName\": \"aws.partner.testing\",\n  \"eventSourceArn\": \"arn:aws:events:us-east-2::event-source/aws.partner.testing\",\n  \"region\": \"us-east-2\"\n },\n \"_links\": {\n  \"activate\": {\n   \"href\": \"http://rain.okta1.com:1802/api/v1/logStreams/0oaxzflRAK8tl6OpP0g3/lifecycle/activate\",\n   \"method\": \"POST\"\n  },\n  \"self\": {\n   \"href\": \"http://rain.okta1.com:1802/api/v1/logStreams/0oaxzflRAK8tl6OpP0g3\",\n   \"method\": \"GET\"\n  }\n }\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                },
-                {
-                    "id": "bcce5310-bf18-4501-b297-c95a20b78e9d",
-                    "name": "Unauthorized",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams",
-                                "{{logStreamId}}"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": [
-                                {
-                                    "disabled": false,
-                                    "type": "any",
-                                    "value": "<string>",
-                                    "key": "id",
-                                    "description": "(Required) id of a Log Streams configuration"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "body": {}
-                    },
-                    "status": "Unauthorized",
-                    "code": 401,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000015\",\n \"errorSummary\": \"You do not have permission to access the feature you are requesting\",\n \"errorLink\": \"E0000015\",\n \"errorId\": \"oaeUokjuXnQQW6uFMrwvPb17w\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                },
-                {
-                    "id": "30b4e809-a1ab-40af-b29b-863858cc30e3",
-                    "name": "Not Found",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams",
-                                "{{logStreamId}}"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": [
-                                {
-                                    "disabled": false,
-                                    "type": "any",
-                                    "value": "<string>",
-                                    "key": "id",
-                                    "description": "(Required) id of a Log Streams configuration"
-                                }
-                            ]
-                        },
-                        "method": "GET",
-                        "body": {}
-                    },
-                    "status": "Not Found",
-                    "code": 404,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000007\",\n \"errorSummary\": \"Not found: {0}\",\n \"errorLink\": \"E0000007\",\n \"errorId\": \"sampleMlLvGUj_YD5v16vkYWY\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                }
-            ],
+            "response": [],
             "event": []
         },
         {
@@ -930,6 +263,20 @@
                     "content": "Update the information of an existing Log Stream instance.",
                     "type": "text/plain"
                 },
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "SSWS {{apikey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
                     "path": [
                         "api",
@@ -940,16 +287,7 @@
                     "host": [
                         "{{baseUrl}}"
                     ],
-                    "query": [],
-                    "variable": [
-                        {
-                            "disabled": false,
-                            "type": "any",
-                            "value": "<string>",
-                            "key": "id",
-                            "description": "(Required) id of a Log Streams configuration"
-                        }
-                    ]
+                    "query": []
                 },
                 "header": [
                     {
@@ -969,200 +307,7 @@
                     }
                 }
             },
-            "response": [
-                {
-                    "id": "15a3a3df-7d26-4fe3-8a50-3b868d4b81cb",
-                    "name": "OK",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams",
-                                "{{logStreamId}}"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": [
-                                {
-                                    "disabled": false,
-                                    "type": "any",
-                                    "value": "<string>",
-                                    "key": "id",
-                                    "description": "(Required) id of a Log Streams configuration"
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"name\": \"<string>\"\n}",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            }
-                        }
-                    },
-                    "status": "OK",
-                    "code": 200,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "text/plain"
-                        }
-                    ],
-                    "body": "",
-                    "cookie": [],
-                    "_postman_previewlanguage": "text"
-                },
-                {
-                    "id": "16a470b2-9277-48bd-a7a4-6ed2a4587e77",
-                    "name": "Bad Request",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams",
-                                "{{logStreamId}}"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": [
-                                {
-                                    "disabled": false,
-                                    "type": "any",
-                                    "value": "<string>",
-                                    "key": "id",
-                                    "description": "(Required) id of a Log Streams configuration"
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"name\": \"<string>\"\n}",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            }
-                        }
-                    },
-                    "status": "Bad Request",
-                    "code": 400,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000001\",\n \"errorSummary\": \"Api validation failed: {0}\",\n \"errorLink\": \"E0000001\",\n \"errorId\": \"sampleiCF-8D5rLW6myqiPItW\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                },
-                {
-                    "id": "a49f21c2-765d-4101-af79-776578732c63",
-                    "name": "Unauthorized",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams",
-                                "{{logStreamId}}"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": [
-                                {
-                                    "disabled": false,
-                                    "type": "any",
-                                    "value": "<string>",
-                                    "key": "id",
-                                    "description": "(Required) id of a Log Streams configuration"
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"name\": \"<string>\"\n}",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            }
-                        }
-                    },
-                    "status": "Unauthorized",
-                    "code": 401,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000015\",\n \"errorSummary\": \"You do not have permission to access the feature you are requesting\",\n \"errorLink\": \"E0000015\",\n \"errorId\": \"oaeUokjuXnQQW6uFMrwvPb17w\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                },
-                {
-                    "id": "c487433f-40fd-4db0-9943-ccb302f5a83f",
-                    "name": "Not Found",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams",
-                                "{{logStreamId}}"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": [
-                                {
-                                    "disabled": false,
-                                    "type": "any",
-                                    "value": "<string>",
-                                    "key": "id",
-                                    "description": "(Required) id of a Log Streams configuration"
-                                }
-                            ]
-                        },
-                        "method": "PUT",
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"name\": \"<string>\"\n}",
-                            "options": {
-                                "raw": {
-                                    "language": "json"
-                                }
-                            }
-                        }
-                    },
-                    "status": "Not Found",
-                    "code": 404,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000007\",\n \"errorSummary\": \"Not found: {0}\",\n \"errorLink\": \"E0000007\",\n \"errorId\": \"sampleMlLvGUj_YD5v16vkYWY\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                }
-            ],
+            "response": [],
             "event": []
         },
         {
@@ -1171,6 +316,20 @@
             "request": {
                 "name": "Delete log stream",
                 "description": {},
+                "header": [
+                  {
+                    "key": "Authorization",
+                    "value": "SSWS {{apikey}}"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
                 "url": {
                     "path": [
                         "api",
@@ -1181,142 +340,12 @@
                     "host": [
                         "{{baseUrl}}"
                     ],
-                    "query": [],
-                    "variable": [
-                        {
-                            "disabled": false,
-                            "type": "any",
-                            "value": "<string>",
-                            "key": "id",
-                            "description": "(Required) id of a Log Streams configuration"
-                        }
-                    ]
+                    "query": []
                 },
                 "method": "DELETE",
                 "auth": null
             },
-            "response": [
-                {
-                    "id": "727ed048-ba91-4617-b408-68d4468217ce",
-                    "name": "No Content",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams",
-                                "{{logStreamId}}"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": [
-                                {
-                                    "disabled": false,
-                                    "type": "any",
-                                    "value": "<string>",
-                                    "key": "id",
-                                    "description": "(Required) id of a Log Streams configuration"
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "body": {}
-                    },
-                    "status": "No Content",
-                    "code": 204,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "text/plain"
-                        }
-                    ],
-                    "body": "",
-                    "cookie": [],
-                    "_postman_previewlanguage": "text"
-                },
-                {
-                    "id": "60e411a2-67d8-4082-8fa1-b4744271f0c1",
-                    "name": "Unauthorized",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams",
-                                "{{logStreamId}}"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": [
-                                {
-                                    "disabled": false,
-                                    "type": "any",
-                                    "value": "<string>",
-                                    "key": "id",
-                                    "description": "(Required) id of a Log Streams configuration"
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "body": {}
-                    },
-                    "status": "Unauthorized",
-                    "code": 401,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000015\",\n \"errorSummary\": \"You do not have permission to access the feature you are requesting\",\n \"errorLink\": \"E0000015\",\n \"errorId\": \"oaeUokjuXnQQW6uFMrwvPb17w\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                },
-                {
-                    "id": "9cf09346-dfcb-47b3-a591-beacd6dd6269",
-                    "name": "Not Found",
-                    "originalRequest": {
-                        "url": {
-                            "path": [
-                                "api",
-                                "v1",
-                                "logStreams",
-                                "{{logStreamId}}"
-                            ],
-                            "host": [
-                                "{{baseUrl}}"
-                            ],
-                            "query": [],
-                            "variable": [
-                                {
-                                    "disabled": false,
-                                    "type": "any",
-                                    "value": "<string>",
-                                    "key": "id",
-                                    "description": "(Required) id of a Log Streams configuration"
-                                }
-                            ]
-                        },
-                        "method": "DELETE",
-                        "body": {}
-                    },
-                    "status": "Not Found",
-                    "code": 404,
-                    "header": [
-                        {
-                            "key": "Content-Type",
-                            "value": "application/json"
-                        }
-                    ],
-                    "body": "{\n \"errorCode\": \"E0000007\",\n \"errorSummary\": \"Not found: {0}\",\n \"errorLink\": \"E0000007\",\n \"errorId\": \"sampleMlLvGUj_YD5v16vkYWY\",\n \"errorCauses\": []\n}",
-                    "cookie": [],
-                    "_postman_previewlanguage": "json"
-                }
-            ],
+            "response": [],
             "event": []
         }
     ],

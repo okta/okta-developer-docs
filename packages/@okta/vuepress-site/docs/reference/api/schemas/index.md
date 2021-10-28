@@ -6,7 +6,7 @@ excerpt: The Schemas API defines custom user profiles for Okta users, applicatio
 
 # Schemas API
 
-The Okta Schemas API provides operations to manage custom User profiles as well as endpoint to discover structure of Log Stream configuration.
+The Okta Schemas API provides operations to manage custom User profiles as well as endpoints to discover the structure of the Log Stream configuration.
 
 Okta's [Universal Directory](https://help.okta.com/okta_help.htm?id=ext_About_Universal_Directory) allows administrators to define custom User profiles for Okta Users and Applications.
 Okta has adopted a subset of [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04) as the schema language to describe and validate extensible User profiles.

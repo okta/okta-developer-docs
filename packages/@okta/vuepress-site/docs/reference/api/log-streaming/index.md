@@ -12,7 +12,7 @@ Currently it's possible to configure up to two Log Stream integrations per org.
 
 ## Get started
 
-Explore the Log Streaming API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2635b07ecc5dc2435ade) ??
+Explore the Log Streaming API:[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f7359f22c9d572f03757)
 
 ## Setup guides
 

@@ -30,6 +30,7 @@ Import any Okta API collection for Postman from the following list:
 | Identity Providers                | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/2635b07ecc5dc2435ade) |
 | Inline Hooks                      | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9aa336618148825976bc) |
 | Linked Objects                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/3ab2cf3f197337119d34) |
+| Log Streaming                     | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/f7359f22c9d572f03757)|
 | Mappings                          | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/42f528e8de2085ef2c97) |
 | OpenID Connect                    | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/9e7ad28ca1c26870a4b0) |
 | Org                               | [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b85f2faf4e0bdb7baa3b) |

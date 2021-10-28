@@ -177,6 +177,20 @@
           "request": {
             "name": "Get Log Stream schema for a Log Stream type",
             "description": {},
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "SSWS {{apikey}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
             "url": {
               "path": [
                 "api",
@@ -184,7 +198,7 @@
                 "meta",
                 "schemas",
                 "logStream",
-                ":type"
+                "{{type}}"
               ],
               "host": [
                 "{{baseUrl}}"
@@ -203,134 +217,6 @@
             "method": "GET",
             "auth": null
           },
-          "response": [
-            {
-              "id": "ee3caf4d-8ee2-4527-8edd-41a56521549f",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "meta",
-                    "schemas",
-                    "logStream",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "type",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n \"title\": \"AWS EventBridge\",\n \"description\": \"Configuration for Log Streaming integration with AWS EventBridge\",\n \"type\": \"object\",\n \"properties\": {\n  \"name\": {\n   \"title\": \"Name\",\n   \"description\": \"A name for this integration instance in Okta\",\n   \"type\": \"string\"\n  },\n  \"settings\": {\n   \"type\": \"object\",\n   \"description\": \"Configuration properties specific to AWS EventBridge\",\n   \"properties\": {\n    \"awsAccountId\": {\n     \"title\": \"AWS account ID\",\n     \"description\": \"The ID for your AWS account\",\n     \"type\": \"string\",\n     \"readOnly\": true,\n     \"pattern\": \"^[0-9]*$\"\n    },\n    \"awsEventSourceName\": {\n     \"title\": \"AWS Event Source Name\",\n     \"description\": \"An alphanumeric name to identify this event source in AWS EventBridge. This name cannot have spaces.\",\n     \"type\": \"string\",\n     \"readOnly\": true,\n     \"maxLength\": 75,\n     \"pattern\": \"^[A-Za-z0-9]{1,75}$\"\n    },\n    \"awsRegion\": {\n     \"title\": \"AWS Region\",\n     \"description\": \"The destination AWS region for your system log events. Only one region can be selected.\",\n     \"type\": \"string\",\n     \"readOnly\": true,\n     \"oneOf\": [\n      {\n       \"const\": \"us-west-2\",\n       \"title\": \"US West 2 (Oregon)\"\n      },\n      {\n       \"const\": \"us-east-1\",\n       \"title\": \"US East 1 (Virginia)\"\n      }\n     ]\n    }\n   },\n   \"required\": [\n    \"awsAccountId\",\n    \"awsEventSourceName\",\n    \"awsRegion\"\n   ]\n  },\n  \"required\": [\n   \"name\",\n   \"settings\"\n  ]\n }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "9a7a9ac2-310a-47e2-8357-e35a350a9964",
-              "name": "Unauthorized",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "meta",
-                    "schemas",
-                    "logStream",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "type",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n \"errorCode\": \"E0000015\",\n \"errorSummary\": \"You do not have permission to access the feature you are requesting\",\n \"errorLink\": \"E0000015\",\n \"errorId\": \"oaeUokjuXnQQW6uFMrwvPb17w\",\n \"errorCauses\": []\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "a446aa05-4104-4998-a942-183cd194fc56",
-              "name": "Not Found",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "meta",
-                    "schemas",
-                    "logStream",
-                    ":type"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "type",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n \"errorCode\": \"E0000007\",\n \"errorSummary\": \"Not found: {0}\",\n \"errorLink\": \"E0000007\",\n \"errorId\": \"sampleMlLvGUj_YD5v16vkYWY\",\n \"errorCauses\": []\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
           "event": []
         }
       ],
