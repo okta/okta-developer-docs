@@ -3145,7 +3145,6 @@ For brevity, the following response doesn't include all available properties.
 <ApiLifecycle access="ea" />
 
 The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-schema.org/specification.html) with the following properties:
-document with the following properties:
 
 | Property                       | Description                                | DataType                                          | Nullable | Unique | Readonly |
 |:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
