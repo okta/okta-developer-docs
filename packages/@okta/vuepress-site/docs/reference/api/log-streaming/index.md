@@ -381,7 +381,7 @@ curl -v -X PUT \
 
 <ApiOperation method="delete" url="/api/v1/logStreams/${logStreamId}" />
 
-Removes a log stream from your organization
+Removes a Log Stream from your org
 
 ##### Request parameters
 
