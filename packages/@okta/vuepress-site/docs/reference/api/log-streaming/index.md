@@ -27,7 +27,7 @@ Use the Okta setup guide for your Log Stream: ... to be added
 
 Adds a new Log Stream to your organization
 
-- [Add AWS EventBridge log stream](#add-aws_eventbridge-log-stream)
+- [Add AWS EventBridge log stream](/docs/reference/api/log-streaming/#add-aws-eventbridge-log-stream)
 
 ##### Request parameters
 
