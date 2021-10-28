@@ -46,7 +46,7 @@ When you are embedding your authentication with our SDKs, consider the steps tha
 
 1. Update your Custom Authorization Servers to include the Interaction Code grant type. More detailed information coming soon. <!-- (/docs/guides/implement-grant-type/authcode/) -->
 
-2. Update the application settings of your embedded auth applications to include the Interaction Code grant type. More detailed information coming soon. <!-- (/docs/guides/implement-grant-type/authcode/) -->
+2. Update the application settings of your embedded authentication applications to include the Interaction Code grant type. More detailed information coming soon. <!-- (/docs/guides/implement-grant-type/authcode/) -->
 
 > **Note:** Performing steps one and two doesn’t change the way your auth server or application behaves, but supports the new Identity Engine model. Turning the Interaction Code grant type on in your Custom Authorization Server simply enables the server to accept a request of that type. The application behavior doesn’t change until you [enable the Interaction Code in the embedded Sign-In Widget](/docs/guides/oie-embedded-common-download-setup-app/java/main/#initialize-the-sign-in-widget) and move away from using Authn APIs to using the appropriate SDK.
 
@@ -60,7 +60,7 @@ When you are embedding your authentication with our SDKs, consider the steps tha
 
     * For libraries that are completely separate from their class forms, add newer SDK libraries to your dependencies in your build scripts and import them into your existing classes and relevant project files.
 
-    See [Add the latest Auth SDKs to your applications](/docs/guides/oie-upgrade-add-sdk-to-your-app/nodejs/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
+    See [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/nodejs/main/) for detailed steps by language. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
 
 5. Test your user flows with the new SDKs included in your build without any code changes to make sure that your users can still access your application seamlessly.
 
@@ -82,9 +82,9 @@ When you are embedding your authentication with our SDKs, consider the steps tha
 
         * **Sign Out:** Use the `revoke()` method in the SDKs rather than make calls to the Sessions API to manage Okta sessions. See [Revoke the access token](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/-/main/#_2-revoke-the-access-token).
 
-        Additionally, if you are tightly coupling your application sessions with the Okta Sessions, there may be more work to be done to separate the Okta sessions from the Application sessions. See [Upgrade Sessions API and sessionToken authentication to Identity Engine](/docs/guides/oie-upgrade-sessions-api/).
+        Additionally, if you are tightly coupling your application sessions with the Okta Sessions, there may be more work to be done to separate the Okta sessions from the Application sessions. See [Understand how sessions work after the upgrade to Okta Identity Engine](/docs/guides/oie-upgrade-sessions-api/).
 
-## Upgrade from using the Okta Authn APIs
+## Upgrade from using the Okta Authentication APIs
 
 With some solutions, there are more architectural evaluations from Architects/Engineering Leadership/Product teams that need to be made, planned, and executed to address technical debt or, in the case of API-based implementations, move away from a less supported implementation. More detailed information is coming soon on moving away from using Authn APIs to using the appropriate SDK.
 
