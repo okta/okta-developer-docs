@@ -13,7 +13,7 @@ To leverage the power of [Okta Identity Engine](/docs/guides/oie-intro/#about-ok
 
 ## Prerequisites
 
-* [Upgrade the Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) before reading this document or requesting a data upgrade. Anyone using the Sign-In Widget should upgrade to the latest version (either Okta-hosted using our redirect model or embedding a form of the Widget inside your applications).
+* [Upgrade your Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/) before reading this document or requesting a data upgrade. Anyone using the Sign-In Widget should upgrade to the latest version (either Okta-hosted using our redirect model or embedding a form of the Widget inside your applications).
 * Complete the initial org upgrade process. If you haven't yet migrated your orgs from Classic Engine to Identity Engine, discuss your options with your Okta account team.
 
 ## Upgrade Process
@@ -34,7 +34,7 @@ The rest of the upgrade process is defined in the next section. Which steps that
 
 After you complete the prerequisites, your data migration is finished, and you have access to your Identity Engine org, the following content outlines the next steps that you may take as you navigate through the rest of your upgrade process.
 
-For a more detailed look at the upgrade steps, see the [Planning Embedded Auth application upgrades](/docs/guides/oie-upgrade-planning-embedded-upgrades) guide.
+For a more detailed look at the upgrade steps, see the [Planning embedded auth application upgrades](/docs/guides/oie-upgrade-planning-embedded-upgrades) guide.
 
 1. Test your new environment to make sure that your experience and functionality are preserved.
 2. What’s your Deployment Model?
@@ -43,7 +43,7 @@ For a more detailed look at the upgrade steps, see the [Planning Embedded Auth a
 
     * Test your user experience.
 
-    * Make any necessary [updates to the Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [L10n keys](/docs/guides/oie-upgrade-sign-in-widget-i18n/).
+    * Make any necessary [updates to the Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n/).
 
     * Check your `config.idps` [settings](https://github.com/okta/okta-signin-widget#openid-connect) for customizations that may not be compatible with Identity Engine.
 
@@ -53,7 +53,7 @@ For a more detailed look at the upgrade steps, see the [Planning Embedded Auth a
 
     * Test your user experience.
 
-    * Make any necessary [updates to the Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [L10n keys](/docs/guides/oie-upgrade-sign-in-widget-i18n/).
+    * Make any necessary [updates to the Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [i18n properties](/docs/guides/oie-upgrade-sign-in-widget-i18n/).
 
     **Are you embedding your authentication with our SDKs?**
 

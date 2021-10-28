@@ -20,13 +20,13 @@ While it isn’t possible to exactly document every upgrade scenario, the follow
 * [Redirecting to the Okta-hosted Sign-In Widget](#update-the-okta-hosted-sign-in-widget)
 * [Embedding our Sign-In Widget](#update-the-embedded-sign-in-widget)
 * [Embedding your authentication with our SDKs](#upgrade-sdks-to-the-latest-version-in-your-apps)
-* [Using the Okta APIs](#upgrade-from-using-the-okta-authn-apis)
+* [Using the Okta APIs](#upgrade-from-using-the-okta-authentication-apis)
 
 See [Roll the upgrade out to your users](#roll-the-upgrade-out-to-your-users) for suggestions on roadmapping your upgrade roll out.
 
 ## Update the Okta-hosted Sign-In Widget
 
-When you are redirecting to the Okta-hosted Sign-In Widget, make sure that your user experience is preserved both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/). Be sure to check your `config.idps` settings for customizations that may not be compatible with Identity Engine.
+When you are redirecting to the Okta-hosted Sign-In Widget, make sure that your user experience is preserved both [visually](/docs/guides/oie-upgrade-sign-in-widget-styling/) and [functionally](/docs/guides/oie-upgrade-sign-in-widget-i18n/). Be sure to check your `config.idps` [settings](https://github.com/okta/okta-signin-widget#openid-connect) for customizations that may not be compatible with Identity Engine.
 
 > **Note:** See the **Remember me** section of the [Compare Identity Engine and Classic Engine](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-whats-new) for more information on functionality changes in the Admin Console.
 
