@@ -3156,7 +3156,7 @@ The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-
 |required| Required properties for this Log Stream Schema object|Array of String|FALSE|TRUE|TRUE|
 
 
-#### Log Stream Schema property object
+### Log Stream Schema Properties object
 
 All Log Stream Schema properties contain `name`, which specifies
 the Log Stream name within Okta, and `settings`, which describes the
