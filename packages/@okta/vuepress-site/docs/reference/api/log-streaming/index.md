@@ -557,7 +557,7 @@ curl -v -X POST \
 
 ### Log Stream attributes
 
-All log streams have the following properties:
+All Log Streams have the following properties:
 
 | Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
