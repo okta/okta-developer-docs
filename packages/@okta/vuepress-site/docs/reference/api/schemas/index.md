@@ -3154,7 +3154,7 @@ document with the following properties:
 
 #### Log Stream Schema property object
 
-All Log Stream Schema properties will contain a `name`, which specifies
+All Log Stream Schema properties contain `name`, which specifies
 the Log Stream name within Okta, and a `settings`, which describes the
 settings of that log stream. `name` will have type String, and `settings`
 will have type Object. Both `name` and the properties within `settings` have the
