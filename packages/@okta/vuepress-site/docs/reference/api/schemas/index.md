@@ -3190,7 +3190,7 @@ with the following keywords:
 | Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
 | :---------------------------------- | :---------------------------------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
 | writeOnce|Determines whether the property can be updated once it has been created|Boolean|FALSE|FALSE|TRUE|
-| errorMessage|Error messages for properties of this Log Streaming object|Error Message object|FALSE|TRUE|TRUE|
+| errorMessage|Error messages for properties of this Log Stream object|[Error Message object](#error-message-object)|FALSE|TRUE|TRUE|
 
 ##### Error Message object
 Okta implements a subset of [ajv-errors](https://github.com/ajv-validator/ajv-errors), and the error object has the following property:
