@@ -4,7 +4,10 @@ meta:
   - name: description
     content: Okta supports authentication with social Identity Providers. Get an overview of the process and prerequisites, as well as the set up instructions.
 ---
-<ApiLifecycle access="ea" />
+
+<StackSelector snippet="ea-icon" noSelector inline/>
+
+## <StackSelector snippet="idp" noSelector inline />
 
 This document explains how to configure <StackSelector snippet="idp" noSelector inline /> as an external social Identity Provider (IdP) for your application by creating an application on <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
 
@@ -35,16 +38,11 @@ n/a
 
 1. Create and register <StackSelector snippet="apptype" noSelector inline /> at <StackSelector snippet="idp" noSelector inline />.
 
-1. When you create an application at the IdP, you need to provide a redirect URI for authentication. Use the Okta sign-in redirect URI from your app integration. To locate the Okta sign-in redirect URI:
-
-    * From the Admin Console, select **Applications** > **Applications**.
-    * Find your app and select it.
-    * On the **General** tab, scroll to to the **Login** section.
-    * Copy a **Sign-in redirect URIs** value for use as your redirect URI.
+1. When you create an application at the IdP, you need to provide a redirect URI for authentication. 
 
     The redirect URI sent in the authorize request from the client needs to match the redirect URI set at the IdP. This URI is where the IdP sends the authentication response (the access token and the ID token). It needs to be a secure domain that you own. This URI has the same structure for most IdPs in Okta and is constructed using your Okta subdomain and the callback endpoint.
 
-    For example, if your Okta subdomain is called `company`, then the URL would be `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
+    For example, if your Okta subdomain is called `company`, then the URI would be `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
 1. Save the generated <StackSelector snippet="idp" noSelector inline /> client ID and client secret values. You need to add them to your Okta configuration.
 
@@ -68,18 +66,56 @@ To add <StackSelector snippet="idp" noSelector inline /> as an Identity Provider
 
 You can test your integration by configuring a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) to use <StackSelector snippet="idp" noSelector inline /> as the Identity Provider.
 
-Alternatively, you can [use the Authorize URL to simulate the authorization flow](/docs/guides/add-an-external-idp/-/main/#use-the-authorize-url-to-simulate-the-authorization-flow).
+Alternatively, you can [use the Authorize URL to simulate the authorization flow](#use-the-authorize-url-to-simulate-the-authorization-flow).
 
 <StackSnippet snippet="noemail" />
 
 ## Add <StackSelector snippet="idp" noSelector inline /> to the Okta Sign-In Widget
 
 The Okta Sign-In Widget is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSelector snippet="idp" noSelector inline />** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the 
-[Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section:
+[Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section.
+
+To find your Identity Provider ID:
+
+1. In the Admin console, go to **Security** > **Identity Providers**.
+1. On the **Identity Providers** page, select the **Identity Provider** tab.
+1. Select your Identity Provider from the list. **IdP ID** contains your Identity Provider ID.
 
 <StackSnippet snippet="siwconfig" />
 
+## Use the Authorize URL to simulate the authorization flow
+
+You cans use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
+
+> **Note:** Use this step to test your authorization URL as an HTML link.
+
+In the URL, replace `${yourOktaDomain}` with your org's base URL, and then replace the following values:
+
+* `client_id` &mdash; use the `client_id` value that you obtained from your Oka app integration. This is not the `client_id` from the Identity Provider. For example, `0oawjqpb2wcUAWM8C0h7`.
+
+* `response_type` &mdash; determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, this should be `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, this should be `code`.
+
+* `response_mode` &mdash; determines how the authorization response should be returned. This should be `fragment`.
+
+* `scope` &mdash; determines the claims that are returned in the ID token. Include the scopes that you want to request authorization for and separate each with a `%20` (space character). You need to include at least the `openid` scope. You can request any of the standard OpenID Connect scopes about users, such as `profile` and `email` as well as any custom scopes specific to your Identity Provider.
+
+* `redirect_uri` &mdash; the location where Okta returns a browser after the user finishes authenticating with their Identity Provider. This URL must start with `https` and must match one of the redirect URIs that you configured in the previous section.
+
+* `state` &mdash; protects against cross-site request forgery (CSRF). This can be set to any value.
+
+* `nonce` &mdash; a string included in the returned ID token. Use it to associate a client session with an ID token and to mitigate replay attacks. This can be set to any value.
+
+For a full explanation of all of these parameters, see: [/authorize Request parameters](/docs/reference/api/oidc/#request-parameters).
+
+An example of a complete URL looks like this:
+
+```bash
+https://${yourOktaDomain}/oauth2/v1/authorize?idp=${idp_id}&client_id=${client_id}&response_type=id_token&response_mode=fragment&scope=openid%20email&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2F&state=WM6D&nonce=YsG76jo
+```
+
 ## Next steps
+
+** Maybe link to the landing page? **
 
 You should now understand how to add a social Identity Provider and have successfully added and tested the integration.
 
