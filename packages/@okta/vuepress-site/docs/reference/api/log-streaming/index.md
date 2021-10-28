@@ -76,11 +76,11 @@ curl -v -X POST \
   },
   "_links": {
     "self": {
-      "href": "http://rain.okta1.com:1802/api/v1/logStreams/0oa1orqUGCIoCGNxf0g4",
+      "href": "http://${yourOktaDomain}/api/v1/logStreams/0oa1orqUGCIoCGNxf0g4",
       "method": "GET"
     },
     "deactivate": {
-      "href": "http://rain.okta1.com:1802/api/v1/logStreams/0oa1orqUGCIoCGNxf0g4/lifecycle/deactivate",
+      "href": "http://${yourOktaDomain}/api/v1/logStreams/0oa1orqUGCIoCGNxf0g4/lifecycle/deactivate",
       "method": "POST"
     }
   }
