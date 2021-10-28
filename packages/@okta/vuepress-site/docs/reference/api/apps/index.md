@@ -3412,7 +3412,7 @@ curl -v -X PUT \
   "signOnMode": "OPENID_CONNECT",
   "credentials": {
     "oauthClient": {
-      "client_id": ${clientID},
+      "client_id": ${clientId},
       "autoKeyRotation": true,
       "token_endpoint_auth_method": "client_secret_post"
     }
