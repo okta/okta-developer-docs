@@ -37,7 +37,7 @@ To update the Sign-In Widget:
 
 1. In the Admin Console, go to **Customization** > **Custom Sign In** tab.
 2. In the **Okta Sign-In Widget Version** section, check that the **Major Version** is **5** and **Minor Version** is **latest**. The Widget is always the latest version if you’re not using a custom URL domain.
-If you’re using a [custom URL domain feature](/docs/guides/custom-url-domain/-/overview/) and the version isn’t correct, you can change the Widget’s version by using the drop-down boxes that appear for the **Major Version** and **Minor Version** fields.
+If you’re using the [custom URL domain feature](/docs/guides/custom-url-domain/-/overview/) and the version isn’t correct, you can change the Widget’s version by using the drop-down boxes that appear for the **Major Version** and **Minor Version** fields.
 3. Test your authentication sign-up and recovery flows that you support in your applications to make sure that they work.
 4. Check that any CSS and localization changes that you make are reflected in the new version.
 
