@@ -17,7 +17,7 @@ Explore the Log Streaming API:[![Run in Postman](https://run.pstmn.io/button.svg
 ## Setup guides
 
 Some Log Stream types require specific configuration elements.
-Use the Okta setup guide for your Log Stream: ... to be added
+See the [Log Stream setup guide](url). ... to be added
 
 ## Log Streaming operations
 
