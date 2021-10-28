@@ -3172,7 +3172,7 @@ properties:
 |:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
 | title| Display name for the property| String|FALSE|FALSE|TRUE|
 |description|Description of the property|String|TRUE|FALSE|TRUE|
-|type|type of the property|string, boolean, number, integer|FALSE|FALSE|TRUE|
+|type|Type of Log Stream Schema property|String containing `string`, `boolean`, `number`, or `integer` |FALSE|FALSE|TRUE|
 |pattern|For `string` Log Stream Schema property type, specify the regular expression used to validate the property (see [Log Stream Schema Property Types and validation](#log-stream-schema-property-types-and-validation)). |String|TRUE|FALSE|TRUE|
 |oneOf|A non-empty array of valid JSON schemas (see [oneOf description](#description-details)) |Array|TRUE|FALSE|TRUE|
 
