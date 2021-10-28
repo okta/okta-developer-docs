@@ -60,4 +60,4 @@ When you upgrade an embedded Sign-In Widget:
 
 ```
 
-> **Note:** Consult the [Migrate guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md) if you’re using major version 4 or earlier of the Sign-In Widget.
+> **Note:** Consult the [Okta Sign-in Widget migration guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md) if you’re using major version 4 or earlier of the Sign-In Widget.
