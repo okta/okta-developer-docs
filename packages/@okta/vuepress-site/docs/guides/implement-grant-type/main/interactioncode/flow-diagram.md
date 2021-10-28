@@ -63,7 +63,7 @@ The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow w
 
     > **Note:** The `interaction_code` indicates that the client (and user) went through all of the necessary policy-driven remediation and received a successful response from the Identity Engine.
 
-11. The Okta Authorization Server authenticates the client, evaluates the PKCE code, and validates the `interaction_code`.
+11. The authorization server authenticates the client, evaluates the PKCE code, and validates the `interaction_code`.
 
 12. If the client ID, PKCE, and Interaction codes are valid, the authorization server sends the tokens (access, ID, and/or refresh) that were initially requested.
 
