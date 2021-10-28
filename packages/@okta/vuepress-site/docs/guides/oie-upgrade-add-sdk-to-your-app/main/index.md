@@ -7,7 +7,7 @@ title: Add the Identity Engine SDK to your app
 
 <StackSelector />
 
-This article explains how to add the Okta Identity Engine SDK to your app, which is the preceding step before upgrading your app's authentication use cases.
+This guide explains how to add the Okta Identity Engine SDK to your app, which is the preceding step before upgrading your app's authentication use cases.
 
 <!-- TODO:  link "upgrading your app's authentication use cases" to the landing page for the mapping guides -->
 
@@ -58,7 +58,7 @@ Before you can add the SDK to your app, it must meet the following minimum requi
 
 ## Test your app
 
-After you add the SDK, test your app. The type of tests, which may include unit and integration tests, depend on your testing process and methodologies specific to your organization. You may also elect to deploy the app to a variety of environments during your testing. The goal is to ensure that the relatively simple addition of the Identity Engine SDK causes no changes to the app in regards to functionality, performance, or interoperability with other apps. Specifically, you may want to ensure your previous calls to the Classic Engine SDKs are still working as expected.
+After you add the SDK, test your app. The type of tests, which may include unit and integration tests, depend on your testing process and methodologies specific to your organization. You may also elect to deploy the app to a variety of environments during your testing. The goal is to ensure that the relatively simple addition of the Identity Engine SDK causes no changes to the app in regards to functionality, performance, or interoperability with other apps. Specifically, you may want to that ensure your previous calls to the Classic Engine SDKs are still working as expected.
 
 ## Next Steps
 
