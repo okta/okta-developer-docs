@@ -3165,7 +3165,9 @@ settings of that Log Stream. `name` has type String, and `settings`
  | --------- | ----------- | ------------- |
 | name  | The Log Stream name within Okta | String |
 | settings  | The settings for the Log Stream | [Settings Type object](URL TO SETTINGS OBJECT) |
-following standard [JSON Schema Draft 2020-12](https://json-schema.org/specification.html)
+### Log Stream Schema Properties base subschema
+
+The `name` and `settings` properties from the [Log Stream Schema Properties object](#log-stream-schema-properties-object) follow the standard [JSON Schema Draft 2020-12](https://json-schema.org/specification.html) specification with the following properties:
 properties:
 
 | Property                       | Description                                | DataType                                          | Nullable | Unique | Readonly |
