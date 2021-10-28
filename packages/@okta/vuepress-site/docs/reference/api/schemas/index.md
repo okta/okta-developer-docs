@@ -2997,7 +2997,7 @@ The following response is only a subset of properties for brevity.
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/logStream/${typeId}" />
 
-Fetches the schema for a Log Stream Type
+Fetches the schema for a Log Stream type
 
 See [Log Streaming API](/docs/reference/api/log-streaming) for examples of log stream objects.
 
