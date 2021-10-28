@@ -8,7 +8,7 @@ title: Upgrade your Okta Sign-In Widget
 
 The Okta Sign-In Widget is a JavaScript library that gives you a full-featured and customizable sign-in experience that can be used to authenticate users of web and mobile applications.
 
-The Widget is used on Okta's default sign-in page to start an Okta SSO session and to set the Okta [session cookie](/docs/guides/session-cookie/-/overview/) in the web browser. The Widget can also perform a complete [OIDC](/docs/reference/api/oidc/) flow and/or integrate with [external identity providers](/docs/concepts/identity-providers/).
+The Widget is used on Okta's default sign-in page to start an Okta SSO session and to set the Okta [session cookie](/docs/guides/session-cookie/-/overview/) in the web browser. The Widget can also perform a complete [OpenID Connect (OIDC)](/docs/reference/api/oidc/) flow and/or integrate with [external Identity Providers](/docs/concepts/identity-providers/).
 
 This article teaches you how to upgrade the Widget when it is used in any of the following ways:
 
