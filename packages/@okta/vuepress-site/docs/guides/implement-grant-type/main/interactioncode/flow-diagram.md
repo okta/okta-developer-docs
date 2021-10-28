@@ -41,7 +41,7 @@ The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow w
 
 3. The client app begins interaction with an [authorization server](/docs/concepts/auth-servers/) (Org or Custom), providing any context it may have, such as a sign-in hint, as well as sending the code challenge in a request for authorization of certain scopes to the authorization server.
 
-    > **Note:** A confidential client authenticates with the Okta Authorization Server while a public client (like the Sign-In Widget) identifies itself to the Okta Authorization Server. Both must provide the PKCE code challenge.
+    > **Note:** A confidential client authenticates with the authorization server while a public client (like the Sign-In Widget) identifies itself to the authorization server. Both must provide the PKCE code challenge.
 
 4. Okta evaluates the sign-on policies for the app and Authentication Server and determines that remediation is required.
 
