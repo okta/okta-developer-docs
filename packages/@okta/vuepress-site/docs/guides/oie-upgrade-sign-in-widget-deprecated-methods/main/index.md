@@ -2,7 +2,8 @@
 title: Deprecated JavaScript methods in the Sign-In Widget
 ---
 
-<ApiLifecycle access="ie" />
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
 
 ## Overview
 

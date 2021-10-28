@@ -2,7 +2,8 @@
 title: Updates to the Sign-In Widget I18n properties
 ---
 
-<ApiLifecycle access="ie" />
+<ApiLifecycle access="ie" /><br>
+<ApiLifecycle access="Limited GA" /><br>
 
 ## Overview
 
