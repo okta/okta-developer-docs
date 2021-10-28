@@ -3173,7 +3173,7 @@ properties:
 |pattern|if the property type is string, the regular expression used to validate the proerty|String|TRUE|FALSE|TRUE|
 |oneOf|non-empty array of valid JSON schemas|array|TRUE|FALSE|TRUE|
 
-##### Description details
+#### Description details
 
 * `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
 
