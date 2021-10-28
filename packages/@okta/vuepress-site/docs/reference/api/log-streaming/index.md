@@ -597,7 +597,7 @@ Okta supports the following enterprise and social providers:
 }
 ```
 
-### AWS EventBridge Settings attributes
+### AWS EventBridge settings attributes
 
 | Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
