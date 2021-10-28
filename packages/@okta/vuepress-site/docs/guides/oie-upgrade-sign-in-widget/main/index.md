@@ -16,6 +16,8 @@ This article teaches you how to upgrade the Widget when it is used in any of the
 * Okta-hosted sign-in page (customizable) &mdash; Okta provides a hosted sign-in page that you can customize and make available under a custom domain that is a subdomain of your company's top-level domain.
 * Embedded (self-hosted) &mdash; The Widget can be embedded directly into your application.
 
+After you’ve completed the Sign-In Widget upgrade and you want to take advantage of the new features in Okta Identity Engine, you can [configure your embedded Sign-In Widget](https://github.com/okta/okta-signin-widget/blob/master/README.md#embedded-self-hosted) to use the new Identity Engine Authentication features.
+
 ## Best practices for Sign-In Widget maintenance
 
 For best practices, keep your [Sign-In Widget](https://github.com/okta/okta-signin-widget/blob/master/README.md) up to date. This maintenance is beneficial so that you can use the Okta Identity Engine features.
