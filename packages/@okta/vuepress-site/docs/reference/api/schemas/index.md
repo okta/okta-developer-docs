@@ -3023,7 +3023,7 @@ curl -v -X GET \
 
 ##### Response example
 
-The following response is only a subset of properties for brevity.
+For brevity, the following response is a partial list of properties.
 
 
 ```json
