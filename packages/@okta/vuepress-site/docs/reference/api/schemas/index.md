@@ -3198,7 +3198,7 @@ Okta has implemented a subset of [ajv-errors](https://github.com/ajv-validator/a
 | properties| Error messages for individual properties in the schema | Map of <String, String> | TRUE | FALSE | TRUE |
 
 
-Within the properties map, the keys will be the property names, while the values will be the error messages if validation fails on these properties.
+Within the properties map, the keys are the property names, while the values are the error messages if validation fails on these properties.
 
 ##### Log Streaming Schema property types and validation
 
