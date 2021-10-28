@@ -3205,7 +3205,7 @@ Okta implements a subset of [ajv-errors](https://github.com/ajv-validator/ajv-er
 
 Within the properties map, the keys are the property names, while the values are the error messages if validation fails on these properties.
 
-##### Log Streaming Schema property types and validation
+##### Log Stream Schema Property Types and validation
 
 Specific property types support a subset of [JSON Schema validations](https://datatracker.ietf.org/doc/html/draft-bhutton-json-schema-validation-00).
 
