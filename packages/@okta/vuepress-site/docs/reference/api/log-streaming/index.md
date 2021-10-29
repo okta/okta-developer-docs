@@ -96,14 +96,14 @@ curl -v -X POST \
 
 <ApiOperation method="get" url="/api/v1/logStreams/${logStreamId}" />
 
-Fetches a log stream by `id`
+Fetches a Log Stream by `id`
 
 ##### Request parameters
 
 
 Parameter | Description     | Param Type | DataType | Required |
 --------- | --------------- | ---------- | -------- | -------- |
-logStreamId       | `id` of a log stream  | URL        | String   | TRUE     |
+logStreamId       | The Log Stream unique `id` provided by Okta   | URL        | String   | TRUE     |
 
 ##### Response parameters
 
@@ -153,26 +153,26 @@ curl -v -X GET \
 
 <ApiOperation method="get" url="/api/v1/logStreams" />
 
-Paginates Log Streams in your org. Can return a subset of Log Streams that match a supported filter expression.
+List Log Streams in your org. You can request a paginated list or a subset of Log Streams that match a supported filter expression.
 
-- [List log streams with defaults](#list-log-streams-with-defaults)
-- [List log streams with status](#find-log-streams-by-status)
-- [List log streams with type](#find-log-streams-by-type)
+- [List Log Streams](#list-log-streams)
+- [List Log Streams by status](#find-log-streams-by-status)
+- [List Log Streams by type](#find-log-streams-by-type)
 
 ##### Request parameters
 
 | Parameter | Description                                                                                                      | Param Type | DataType | Required | Default |
 | --------- | ---------------------------------------------------------------------------------------------------------------- | ---------- | -------- | -------- | ------- |
-| after     | Specifies the pagination cursor for the next page of apps                                                        | Query      | String   | FALSE    |         |
-| filter    | Filters apps by `status`, `type`                                                                                 | Query      | String   | FALSE    |         |
-| limit     | Specifies the number of results per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
+| after     | Specifies the pagination cursor for the next page of Log Streams                                                        | Query      | String   | FALSE    |         |
+| filter    | [Filters](#filters) Log Streams by `status` or `type`                                                                                 | Query      | String   | FALSE    |         |
+| limit     | Specifies the number of Log Streams to return per page (maximum 200)                                                           | Query      | Number   | FALSE    | 20      |
 
 The results are [paginated](/docs/reference/core-okta-api/#pagination) according to the `limit` parameter.
 If there are multiple pages of results, the Link header contains a `next` link that should be treated as an opaque value (follow it, don't parse it).
 
 ###### Filters
 
-The following filters are supported with the filter query parameter:
+The following filters are supported with the `filter` query parameter:
 
 | Filter                              | Description                                                                       |
 | ----------------------              | ------------------------------------------------------                            |
@@ -187,7 +187,7 @@ The following filters are supported with the filter query parameter:
 
 Array of [Log Stream](#log-stream-object)
 
-#### List log streams with defaults
+#### List Log Streams
 
 Enumerates all log streams added to your org
 
