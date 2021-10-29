@@ -36,10 +36,6 @@ Adds a new Log Stream to your org
 
 The created [Log Stream](#log-stream-object)
 
-#### Add AWS EventBridge log stream
-
-Adds a new `AWS EventBridge` type log stream to your org
-
 ##### Request example
 
 ```bash
