@@ -18,7 +18,7 @@ Prioritize and roadmap the changes to your applications. Then, take breaks to te
 While it isn’t possible to exactly document every upgrade scenario, the following main stages cover the most common scenarios. These steps are not all-inclusive. See the associated documentation in each stage for more detailed steps that you can use to plan and prioritize your process.
 
 * [Redirecting to the Okta-hosted Sign-In Widget](#update-the-okta-hosted-sign-in-widget)
-* [Embedding your Sign-In Widget](#update-the-embedded-sign-in-widget)
+* [Embedding our Sign-In Widget](#update-the-embedded-sign-in-widget)
 * [Embedding your authentication with our SDKs](#upgrade-sdks-to-the-latest-version-in-your-apps)
 * [Using the Okta APIs](#upgrade-from-using-the-okta-authentication-apis)
 
