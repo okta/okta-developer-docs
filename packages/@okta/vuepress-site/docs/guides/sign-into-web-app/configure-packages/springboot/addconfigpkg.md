@@ -12,5 +12,4 @@ For existing applications, you can add the Okta Spring Boot Starter by including
 **Gradle:**  
 ```groovy
 implementation group: 'com.okta.spring', name: 'okta-spring-boot-starter', version: '2.1.2'
-
 ```
