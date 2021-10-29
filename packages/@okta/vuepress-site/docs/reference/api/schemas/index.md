@@ -3153,28 +3153,19 @@ The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-
 |$schema| JSON Schema version identifier| String| FALSE| FALSE| TRUE|
 |title| Name of the Log Streaming integration| String|FALSE| TRUE| TRUE|
 |type| Type of root Schema|String|FALSE|FALSE|TRUE|
-|properties|Log Stream Schema object properties| [Log Stream Schema Properties](#log-stream-schema-properties-object) |FALSE|TRUE|TRUE|
+|properties|Log Stream Schema root object properties| [Log Stream Schema root object properties](#log-stream-schema-root-object-properties) |FALSE|TRUE|TRUE|
 |required| Required properties for this Log Stream Schema object|Array of String|FALSE|TRUE|TRUE|
 
 
-### Log Stream Schema Properties object
+### Log Stream Schema root object properties
 
-All Log Stream Schema properties contain `name`, which specifies
-the Log Stream name within Okta, and `settings`, which describes the
-settings of that Log Stream. `name` has type String, and `settings`
-
-| Parameter | Description        | DataType   |
-| --------- | ----------- | ------------- |
-| name  | The Log Stream name within Okta | String |
-| settings  | The settings for the Log Stream | [Settings Type object](URL TO SETTINGS OBJECT) |
-
-### Log Stream Schema Properties base subschema
-
-The `name` and `settings` properties from the [Log Stream Schema Properties object](#log-stream-schema-properties-object) follow the standard [JSON Schema Draft 2020-12](https://json-schema.org/specification.html) specification with the following properties:
+All Log Stream Schema root object properties contain `name`, which specifies
+the Log Stream name within Okta, and `settings`, which lists properties required to configure Log Stream.
+The `name` and properties listed in `settings` follow the standard [JSON Schema Draft 2020-12](https://json-schema.org/specification.html) specification with the following properties:
 
 | Property                       | Description                                | DataType                                          | Nullable | Unique | Readonly |
 |:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
-| title| Display name for the property| String|FALSE|FALSE|TRUE|
+|title| Display name for the property| String|FALSE|FALSE|TRUE|
 |description|Description of the property|String|TRUE|FALSE|TRUE|
 |type|Type of Log Stream Schema property|String containing `string`, `boolean`, `number`, or `integer` |FALSE|FALSE|TRUE|
 |pattern|For `string` Log Stream Schema property type, specify the regular expression used to validate the property (see [Log Stream Schema Property Types and validation](#log-stream-schema-property-types-and-validation)). |String|TRUE|FALSE|TRUE|
