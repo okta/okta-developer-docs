@@ -627,9 +627,9 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 
 | Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
-| accountId            | Your Amazon AWS account ID                                       | String                                                         | FALSE    | FALSE   | FALSE     |      12     |     12      |
-| eventSourceName     | An alphanumeric name (no spaces) to identify this event source in AWS EventBridge                             | String (permitted characters: letters, digits, `.`, `-`,  `_` )  | FALSE | FALSE | FALSE  |  1 |  75   |
-| region | The destination AWS region for your system log events. See [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-object) for the list of supported values in the `region` property.                      | String                                                           | FALSE | FALSE | FALSE  |   |     |
+| accountId            | Your AWS account ID                                       | String                                                         | FALSE    | FALSE   | FALSE     |      12     |     12      |
+| eventSourceName     | An alphanumeric name (no spaces) to identify this event source in AWS EventBridge                             | String (permitted characters: letters, digits, `.`, `-`,  `_` )  | FALSE | TRUE | FALSE  |  1 |  75   |
+| region | The destination AWS region where your event source is going to be located. See [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-operations) for the list of supported values in the `region` property.                      | String                                                           | FALSE | FALSE | FALSE  |   |     |
 
 #### Property details
 
