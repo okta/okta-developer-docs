@@ -17,8 +17,14 @@ You can configure up to two Log Stream integrations per org.
 Explore the Log Streaming API:[![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cbb00ae768a0c02ea433)
 
 ## Log Streaming operations
+The Log Streaming API has the following CRUD operations:
 
-### Add Log Stream
+* [Add a Log Stream](#add-a-log-stream)
+* [Get a Log Stream](#get-a-log-stream)
+* [List Log Streams](#list-log-streams)
+* [Update a Log Stream](#update-a-log-stream)
+* [Delete a Log Stream](#delete-a-log-stream)
+### Add a Log Stream
 
 <ApiLifecycle access="ea" />
 
@@ -34,9 +40,11 @@ Adds a new Log Stream to your org
 
 ##### Response parameters
 
-The created [Log Stream](#log-stream-object)
+The created [Log Stream object](#log-stream-object)
 
 ##### Request example
+
+Adds a new `AWS EventBridge` type log stream to your org
 
 ```bash
 curl -v -X POST \
@@ -83,7 +91,7 @@ curl -v -X POST \
 }
 ```
 
-### Get Log Stream
+### Get a Log Stream
 
 <ApiLifecycle access="ea" />
 
@@ -100,7 +108,7 @@ logStreamId       | `id` of a log stream  | URL        | String   | TRUE     |
 
 ##### Response parameters
 
-[Log Stream](#log-stream-object)
+The requested [Log Stream object](#log-stream-object)
 
 ##### Request example
 
@@ -316,7 +324,7 @@ curl -v -X GET \
 ]
 ```
 
-### Update Log Stream
+### Update a Log Stream
 
 <ApiLifecycle access="ea" />
 
@@ -378,7 +386,7 @@ curl -v -X PUT \
   }
 }
 ```
-### Delete Log Stream
+### Delete a Log Stream
 
 <ApiLifecycle access="ea" />
 
@@ -414,8 +422,12 @@ HTTP/1.1 204 No Content
 ```
 
 ## Log Streaming lifecycle operations
+The Log Streaming API has the following lifecycle operations:
 
-### Activate Log Stream
+* [Activate a Log Stream](#activate-a-log-stream)
+* [Deactivate a Log Stream](#deactivate-a-log-stream)
+
+### Activate a Log Stream
 
 <ApiLifecycle access="ea" />
 
@@ -472,7 +484,7 @@ curl -v -X POST \
 }
 ```
 
-### Deactivate Log Stream
+### Deactivate a Log Stream
 
 <ApiLifecycle access="ea" />
 
@@ -532,7 +544,7 @@ curl -v -X POST \
 
 ## Log Stream object
 
-### Example
+### Log Stream object example
 
 ```json
 {
@@ -560,7 +572,7 @@ curl -v -X POST \
 }
 ```
 
-### Log Stream attributes
+### Log Stream properties
 
 All Log Streams have the following properties:
 
@@ -569,38 +581,40 @@ All Log Streams have the following properties:
 | id            | Unique key for the log stream                                       | String                                                         | FALSE    | TRUE   | TRUE     |           |           |
 | created       | Timestamp when the log stream was created                             | Date                                                           | FALSE | FALSE | TRUE  |   |     |
 | lastUpdated   | Timestamp when the log stream was last updated                        | Date                                                           | FALSE | FALSE | TRUE  |   |     |
-| _links        | [Discoverable resources](#links-object) related to the log stream | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) | TRUE  | FALSE | TRUE  |   |     |
+| _links        | Log stream [relational and lifecycle operation links](#log-stream-links-object) | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) for [Log Stream Links](#log-stream-links-object)| TRUE  | FALSE | TRUE  |   |     |
 | name          | Unique name for the log stream                                  | String                                                         | FALSE | TRUE  | FALSE | 1 | 100 |
 | status        | Status of the log stream                                          | `ACTIVE` or `INACTIVE`                                         | FALSE | FALSE | TRUE  |   |     |
 | type          | Type of log stream                                                  | [Log Stream type](#log-stream-type)            | FALSE    | FALSE  | FALSE    |           |           |
-| settings      | Log stream settings                                                  | [AWS EventBridge Settings](#aws_eventbridge-settings-object)            | FALSE    | FALSE  | TRUE    |           |           |
+| settings      | Log stream type settings                                                  | [AWS EventBridge Settings](#aws-eventbridge-settings-object)            | FALSE    | FALSE  | TRUE    |           |           |
 
 #### Property details
 
 * The `id`, `status`, `created`,  `lastUpdated`, and `_links` properties are available after a log stream is created.
 
-### Links object
+#### Log Stream Links object
 
-Specifies link relationships. See [Web Linking](http://tools.ietf.org/html/rfc8288) available for the IdP Transaction using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. This object is used for dynamic discovery of related resources and lifecycle operations and is read-only.
+This object provides read-only link relationships to the log stream. The relational links include lifecycle operations. See [Web Linking](http://tools.ietf.org/html/rfc8288) using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. 
 
 | Link Relation Type       | Description                                                                                                                                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------                                                          |
 | self                     | The primary URL for the log stream                                                                                                       |
-| activate                 | A URL for [activating the log stream](#activate-log-stream) if it's inactive       |
-| deactivate               | A URL for [deactivating the log stream](#deactivate-log-stream) if it's active        |
+| activate                 | A URL to [activate](#activate-a-log-stream) an inactive log stream      |
+| deactivate               | A URL to [deactivate](#deactivate-a-log-stream) an active log stream        |
 
-### Log Stream type
+#### Log Stream type
 
-Okta supports the following enterprise and social providers:
+The Log Stream type specifies the streaming provider used. Okta supports the following providers:
 
 | Type         | Description                                                                                                                                           |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `aws_eventbridge`      | [AWS EventBridge](https://developer.apple.com/documentation/aws_eventbridge_log_stream)                                                                       |
 
 
-## AWS EventBridge settings object
+### AWS EventBridge Settings object
 
-### Example
+The AWS EventBridge Settings object specifies the configuration for the `aws_eventbridge` Log Stream type. You cannot modify the AWS EventBridge Settings properties after the object is created. 
+
+#### AWS EventBridge Settings example
 
 ```json
 {
@@ -610,12 +624,12 @@ Okta supports the following enterprise and social providers:
 }
 ```
 
-### AWS EventBridge settings attributes
+#### AWS EventBridge Settings properties
 
 | Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
-| accountId            | Your Amazon AWS Account ID                                       | String                                                         | FALSE    | FALSE   | FALSE     |      12     |     12      |
-| eventSourceName     | An alphanumeric name (no spaces) to identify this event source in AWS EventBridge                             | String                                                           | FALSE | FALSE | FALSE  |  1 |  75   |
+| accountId            | Your Amazon AWS account ID                                       | String                                                         | FALSE    | FALSE   | FALSE     |      12     |     12      |
+| eventSourceName     | An alphanumeric name (no spaces) to identify this event source in AWS EventBridge                             | String (permitted characters: letters, digits, `.`, `-`,  `_` )  | FALSE | FALSE | FALSE  |  1 |  75   |
 | region | The destination AWS region for your system log events. See [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-object) for the list of supported values.                      | String                                                           | FALSE | FALSE | FALSE  |   |     |
 
 #### Property details
