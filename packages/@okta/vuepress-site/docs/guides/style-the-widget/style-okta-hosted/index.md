@@ -131,4 +131,26 @@ There is also additional information available in the `target`, such as `label`.
 
 See <GuideLink link="../customization-examples/#per-application-customization">Per-application customization</GuideLink> for an example of what you can do with request context.
 
+> **Note:** Macros only available with Branding
+
+#### <span v-pre>`{{themedStylesUrl}}`</span>
+
+Inserts the href for themed style sheet.
+
+Example:
+
+```html
+ <link href="{{themedStylesUrl}}" rel="stylesheet" type="text/css">
+```
+
+#### <span v-pre>`{{faviconUrl}}`</span>
+
+Inserts the href for the favicon.
+
+Example:
+
+```html
+ <link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
+```
+
 <NextSectionLink/>

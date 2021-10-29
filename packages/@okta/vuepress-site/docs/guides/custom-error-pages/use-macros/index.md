@@ -79,4 +79,40 @@ Example:
 <p class="technical-details">Additional Error Details: {{technicalDetails}}</p>
 ```
 
+> **Note:** Macros only available with Branding
+
+#### <span v-pre>`{{buttonText}}`</span>
+
+Inserts the button text based on the page context. The button takes the user back to the `buttonHref` when clicked. `{{back}}` is also supported for same purpose.
+
+#### <span v-pre>`{{buttonHref}}`</span>
+
+Inserts the href for the button.
+
+Example:
+
+```html
+ <a href="{{buttonHref}}" class="button">{{buttonText}}</a>
+```
+
+#### <span v-pre>`{{themedStylesUrl}}`</span>
+
+Inserts the href for themed style sheet.
+
+Example:
+
+```html
+ <link href="{{themedStylesUrl}}" rel="stylesheet" type="text/css">
+```
+
+#### <span v-pre>`{{faviconUrl}}`</span>
+
+Inserts the href for the favicon.
+
+Example:
+
+```html
+ <link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
+```
+
 <NextSectionLink/>
