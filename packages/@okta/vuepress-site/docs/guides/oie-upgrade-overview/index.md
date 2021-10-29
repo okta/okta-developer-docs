@@ -77,7 +77,7 @@ The Identity Engine upgrade documentation below discusses the various upgrade ta
 
 * [Upgrade your Okta Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget/): Learn how to upgrade the Sign-In Widget from older versions of 2.x, 3.x, 4.x, and 5.x.
 
-  * [Deprecated JavaScript functions in the Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/): Learn how changes to the authentication pipelines impact applications that call Sign-In Widget JavaScript functions, such as `setCookieAndRedirect()`. Also included are best practices on how you can reimplement existing flows in Identity Engine.
+  * [Deprecated JavaScript methods in the Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/): Learn how changes to the authentication pipelines impact applications that call Sign-In Widget JavaScript methods, such as `setCookieAndRedirect()`. Also included are best practices on how you can reimplement existing flows in Identity Engine.
   * [Update the Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/): Learn about the latest Sign-In Widget style updates.
   * [Update the Sign-in Widget L10n keys](/docs/guides/oie-upgrade-sign-in-widget-i18n/): Learn about the latest Sign-In Widget L10n key updates.
 
