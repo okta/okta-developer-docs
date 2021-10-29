@@ -629,8 +629,24 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
 | accountId            | Your AWS account ID                                       | String                                                         | FALSE    | FALSE   | FALSE     |      12     |     12      |
 | eventSourceName     | An alphanumeric name (no spaces) to identify this event source in AWS EventBridge                             | String (permitted characters: letters, digits, `.`, `-`,  `_` )  | FALSE | TRUE | FALSE  |  1 |  75   |
-| region | The destination AWS region where your event source is going to be located. See [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-operations) for the list of supported values in the `region` property.                      | String                                                           | FALSE | FALSE | FALSE  |   |     |
+| region | The destination AWS region where your event source is going to be located            | String                                                           | FALSE | FALSE | FALSE  |   |     |
 
 #### Property details
 
 * Once assigned during creation of the log stream, `accountId`, `eventSourceName`, `region` properties are not editable
+* `region` property can be set to one of the following supported AWS region codes. The list can be also retrieved using the [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-operations) endpoint
+
+| Region      | Description                                                  |
+| ------------- | ------------------------------------------------------------ |
+| us-east-2 | US East (Ohio) |
+| us-east-1 | US East (N. Virginia) |
+| us-west-1 | US West (N. California) |
+| us-west-2 | US West (Oregon) |
+| ca-central-1 | Canada (Central) |
+| eu-central-1 | Europe (Frankfurt) |
+| eu-west-1 | Europe (Ireland) |
+| eu-west-2 | Europe (London) |
+| eu-west-3 | Europe (Paris) |
+| eu-south-1 | Europe (Milan) |
+| eu-north-1 | Europe (Stockholm) |
+
