@@ -29,7 +29,6 @@ Review the following sections to understand the concepts behind the Identity Eng
 
 **Sample code**
 
-
 <StackSelector snippet="sample" noSelector />
 
 ---

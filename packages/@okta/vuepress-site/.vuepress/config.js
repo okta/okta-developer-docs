@@ -320,6 +320,8 @@ module.exports = ctx => ({
               '/docs/guides/migrate-to-oie/',
               '/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/',
               '/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/-/main/',
+              '/docs/guides/oie-upgrade-add-sdk-to-your-app/',
+              '/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/',
               '/docs/guides/oie-upgrade-overview/',
               '/docs/guides/oie-upgrade-planning-embedded-upgrades/',
               '/docs/guides/oie-upgrade-sessions-api/',
