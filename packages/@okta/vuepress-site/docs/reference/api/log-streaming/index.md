@@ -176,20 +176,20 @@ The following filters are supported with the `filter` query parameter:
 
 | Filter                              | Description                                                                       |
 | ----------------------              | ------------------------------------------------------                            |
-| `type eq ":type"`                   | Log streams of a particular [log stream type](#log-stream-type) such as `aws_eventbridge` |
-| `status eq "ACTIVE"`                | Log streams that have a `status` of `ACTIVE`                                             |
-| `status eq "INACTIVE"`              | Log streams that have a `status` of `INACTIVE`                                           |
+| `type eq "${logStreamType}"`                   | Filter Log Streams of type [`${logStreamType}`](#log-stream-type), such as `aws_eventbridge` |
+| `status eq "ACTIVE"`                | Filter Log Streams with an `ACTIVE` status                                             |
+| `status eq "INACTIVE"`              | Filter Log Streams with an `INACTIVE` status                                           |
 
-> **Note:** Only a single expression is supported as this time. The only supported filter type is `eq`.
+> **Note:** The Log Stream list filter only support the `eq` operator and allows one filter expression per request. Use URL encoding for special characters, such as replacing a space with a plus (+) sign. See [Filter](/docs/reference/core-okta-api/#filter) design principles for details.
 
 
 ##### Response parameters
 
-Array of [Log Stream](#log-stream-object)
+Array of [Log Stream](#log-stream-object) objects
 
 #### List Log Streams
 
-Enumerates all log streams added to your org
+Returns a list of all Log Streams added to your org
 
 ##### Request example
 
@@ -335,8 +335,8 @@ Updates the configuration for a Log Stream
 
 | Parameter | Description                       | Param Type | DataType                                      | Required |
 | --------- | --------------------------------- | ---------- | --------------------------------------------- | -------- |
-| logStreamId     | `id` of the log stream to update           | URL        | String                                        | TRUE     |
-| logStream       | Updated configuration for the log stream | Body       | [Log Stream](#log-stream-object) | TRUE     |
+| logStreamId     | `id` of the Log Stream to update           | URL        | String                                        | TRUE     |
+| logStream       | Updated configuration for the Log Stream | Body       | [Log Stream](#log-stream-object) | TRUE     |
 
 All properties must be specified when updating the log stream configuration. Partial updates aren't supported.
 
@@ -397,7 +397,7 @@ Removes a Log Stream from your org
 
 | Parameter | Description                 | Param Type | Data Type | Required |
 | --------- | --------------------------- | ---------- | --------- | -------- |
-| logStreamId     | `id` of the log stream to delete   | URL        | String    | TRUE     |
+| logStreamId     | `id` of the Log Stream to delete   | URL        | String    | TRUE     |
 
 ##### Response parameters
 
@@ -432,13 +432,13 @@ The Log Streaming API has the following lifecycle operations:
 
 <ApiOperation method="post" url="/api/v1/logStreams/${logStreamId}/lifecycle/activate" />
 
-Reactivates an inactive log stream
+Reactivates an inactive Log Stream
 
 ##### Request parameters
 
 | Parameter | Description             | Param Type | DataType | Required |
 | --------- | ----------------------- | ---------- | -------- | -------- |
-| logStreamId     | `id` of log stream to activate | URL        | String   | TRUE     |
+| logStreamId     | `id` of the Log Stream to activate | URL        | String   | TRUE     |
 
 ##### Response parameters
 
@@ -495,7 +495,7 @@ Deactivates an active Log Stream
 
 | Parameter | Description               | Param Type | DataType | Required |
 | --------- | ------------------------- | ---------- | -------- | -------- |
-| logStreamId     | `id` of log stream to deactivate | URL        | String   | TRUE     |
+| logStreamId     | `id` of the Log Stream to deactivate | URL        | String   | TRUE     |
 
 ##### Response parameters
 
@@ -577,14 +577,14 @@ All Log Streams have the following properties:
 
 | Property      | Description                                                  | DataType                                                       | Nullable | Unique | Readonly | MinLength | MaxLength |
 | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
-| id            | Unique key for the log stream                                       | String                                                         | FALSE    | TRUE   | TRUE     |           |           |
-| created       | Timestamp when the log stream was created                             | Date                                                           | FALSE | FALSE | TRUE  |   |     |
-| lastUpdated   | Timestamp when the log stream was last updated                        | Date                                                           | FALSE | FALSE | TRUE  |   |     |
-| _links        | Log stream [relational and lifecycle operation links](#log-stream-links-object) | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) for [Log Stream Links](#log-stream-links-object)| TRUE  | FALSE | TRUE  |   |     |
-| name          | Unique name for the log stream                                  | String                                                         | FALSE | TRUE  | FALSE | 1 | 100 |
-| status        | Status of the log stream                                          | `ACTIVE` or `INACTIVE`                                         | FALSE | FALSE | TRUE  |   |     |
-| type          | Type of log stream                                                  | [Log Stream type](#log-stream-type)            | FALSE    | FALSE  | FALSE    |           |           |
-| settings      | Log stream type settings                                                  | [AWS EventBridge Settings](#aws-eventbridge-settings-object)            | FALSE    | FALSE  | TRUE    |           |           |
+| id            | Unique key for the Log Stream                                       | String                                                         | FALSE    | TRUE   | TRUE     |           |           |
+| created       | Timestamp when the Log Stream was created                             | Date                                                           | FALSE | FALSE | TRUE  |   |     |
+| lastUpdated   | Timestamp when the Log Stream was last updated                        | Date                                                           | FALSE | FALSE | TRUE  |   |     |
+| _links        | Log Stream [relational and lifecycle operation links](#log-stream-links-object) | [JSON HAL](http://tools.ietf.org/html/draft-kelly-json-hal-06) for [Log Stream Links](#log-stream-links-object)| TRUE  | FALSE | TRUE  |   |     |
+| name          | Unique name for the Log Stream                                  | String                                                         | FALSE | TRUE  | FALSE | 1 | 100 |
+| status        | Status of the Log Stream                                          | `ACTIVE` or `INACTIVE`                                         | FALSE | FALSE | TRUE  |   |     |
+| type          | Type of Log Stream                                                  | [Log Stream type](#log-stream-type)            | FALSE    | FALSE  | FALSE    |           |           |
+| settings      | Log Stream type settings                                                  | [AWS EventBridge Settings](#aws-eventbridge-settings-object)            | FALSE    | FALSE  | TRUE    |           |           |
 
 #### Property details
 
@@ -596,9 +596,9 @@ This object provides read-only link relationships to the log stream. The relatio
 
 | Link Relation Type       | Description                                                                                                                                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------                                                          |
-| self                     | The primary URL for the log stream                                                                                                       |
-| activate                 | A URL to [activate](#activate-a-log-stream) an inactive log stream      |
-| deactivate               | A URL to [deactivate](#deactivate-a-log-stream) an active log stream        |
+| self                     | The primary URL for the Log Stream                                                                                                       |
+| activate                 | A URL to [activate](#activate-a-log-stream) an inactive Log Stream      |
+| deactivate               | A URL to [deactivate](#deactivate-a-log-stream) an active Log Stream        |
 
 #### Log Stream type
 
@@ -633,8 +633,8 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 
 #### Property details
 
-* Once assigned during creation of the log stream, `accountId`, `eventSourceName`, `region` properties are not editable
-* `region` property can be set to one of the following supported AWS region codes. The list can be also retrieved using the [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-operations) endpoint
+*  The `accountId`, `eventSourceName`,  and `region` properties are assigned during creation and can't be modified afterwards.
+* The `region` property can be set to one of the following supported AWS region codes. The `region` list can be also retrieved using the [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-operations) endpoint.
 
 | Region      | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
