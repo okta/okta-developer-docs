@@ -85,13 +85,11 @@ To find your Identity Provider ID:
 
 ## Use the Authorize URL to simulate the authorization flow
 
-You cans use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
-
-> **Note:** Use this step to test your authorization URL as an HTML link.
+You can use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
 
 In the URL, replace `${yourOktaDomain}` with your org's base URL, and then replace the following values:
 
-* `client_id` &mdash; use the `client_id` value that you obtained from your Oka app integration. This is not the `client_id` from the Identity Provider. For example, `0oawjqpb2wcUAWM8C0h7`.
+* `client_id` &mdash; use the `client_id` value from your Oka app integration. This is not the `client_id` from the Identity Provider. For example, `0oawjqpb2wcUAWM8C0h7`.
 
 * `response_type` &mdash; determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, this should be `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, this should be `code`.
 
