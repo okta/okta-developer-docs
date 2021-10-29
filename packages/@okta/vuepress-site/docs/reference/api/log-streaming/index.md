@@ -413,7 +413,7 @@ curl -v -X DELETE \
 HTTP/1.1 204 No Content
 ```
 
-## Log Streams lifecycle operations
+## Log Streaming lifecycle operations
 
 ### Activate Log Stream
 
