@@ -44,7 +44,6 @@ The created [Log Stream object](#log-stream-object)
 
 ##### Request example
 
-Adds a new `AWS EventBridge` type log stream to your org
 
 ```bash
 curl -v -X POST \
@@ -635,5 +634,3 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 #### Property details
 
 * Once assigned during creation of the log stream, `accountId`, `eventSourceName`, `region` properties are not editable
-* `accountId` needs to be a 12 digit long valid AWS account ID
-* `eventSourceName` can contain letters, digits and following characters `.`, `-`, `_`
