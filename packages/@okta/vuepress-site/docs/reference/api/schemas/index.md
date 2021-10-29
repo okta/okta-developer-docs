@@ -1539,6 +1539,155 @@ The following response is only a subset of properties for brevity.
 }
 ```
 
+## Log Stream Schema operations
+
+<ApiLifecycle access="ea" />
+
+> **Note:** The **Log Streaming** Early Access feature must be enabled. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
+
+### Get Log Stream Schema
+
+<ApiLifecycle access="ea" />
+
+<ApiOperation method="get" url="/api/v1/meta/schemas/logStream/${typeId}" />
+
+Fetches the schema for a Log Stream type
+
+See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
+
+##### Request parameters
+
+N/A
+
+##### Response parameters
+
+[Log Stream Schema](#log-stream-schema-object)
+
+##### Request example
+
+```bash
+curl -v -X GET \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+"https://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge"
+```
+
+##### Response example
+
+For brevity, the following response doesn't include all available properties.
+
+
+```json
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "http://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
+  "title": "AWS EventBridge",
+  "type": "object",
+  "properties": {
+    "settings": {
+      "description": "Configuration properties specific to instance",
+      "type": "object",
+      "properties": {
+        "accountId": {
+          "title": "AWS Account ID",
+          "description": "Your Amazon AWS Account ID.",
+          "type": "string",
+          "writeOnce": true,
+          "pattern": "^\\d{12}$"
+        },
+        "eventSourceName": {
+          "title": "AWS Event Source Name",
+          "description": "An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.",
+          "type": "string",
+          "writeOnce": true,
+          "pattern": "^[\\.\\-_A-Za-z0-9]{1,75}$"
+        },
+        "region": {
+          "title": "AWS Region",
+          "description": "The destination AWS region for your system log events.",
+          "type": "string",
+          "writeOnce": true,
+          "oneOf": [
+            {
+              "title": "US East (Ohio)",
+              "const": "us-east-2"
+            },
+            {
+              "title": "US East (N. Virginia)",
+              "const": "us-east-1"
+            },
+            {
+              "title": "US West (N. California)",
+              "const": "us-west-1"
+            },
+            {
+              "title": "US West (Oregon)",
+              "const": "us-west-2"
+            },
+            {
+              "title": "Canada (Central)",
+              "const": "ca-central-1"
+            },
+            {
+              "title": "Europe (Frankfurt)",
+              "const": "eu-central-1"
+            },
+            {
+              "title": "Europe (Ireland)",
+              "const": "eu-west-1"
+            },
+            {
+              "title": "Europe (London)",
+              "const": "eu-west-2"
+            },
+            {
+              "title": "Europe (Paris)",
+              "const": "eu-west-3"
+            },
+            {
+              "title": "Europe (Milan)",
+              "const": "eu-south-1"
+            },
+            {
+              "title": "Europe (Stockholm)",
+              "const": "eu-north-1"
+            }
+          ]
+        }
+      },
+      "required": [
+        "eventSourceName",
+        "accountId",
+        "region"
+      ],
+      "errorMessage": {
+        "properties": {
+          "accountId": "Account number must be 12 digits.",
+          "eventSourceName": "Event source name can use numbers, letters, the symbols \".\", \"-\" or \"_\". It must use fewer than 76 characters."
+        }
+      }
+    },
+    "name": {
+      "title": "Name",
+      "description": "A name for this integration instance in Okta",
+      "type": "string",
+      "writeOnce": false,
+      "pattern": "^.{1,100}$"
+    }
+  },
+  "required": [
+    "name",
+    "settings"
+  ],
+  "errorMessage": {
+    "properties": {
+      "name": "Name can't exceed 100 characters."
+    }
+  }
+}
+```
+
 ## User Schema object
 
 The [User object](/docs/reference/api/users/#user-object) schema is defined using [JSON Schema Draft 4](https://tools.ietf.org/html/draft-zyp-json-schema-04).
@@ -2989,155 +3138,6 @@ The following response is only a subset of properties for brevity.
             ]
         }
     }
-}
-```
-
-## Log Stream Schema operations
-
-<ApiLifecycle access="ea" />
-
-> **Note:** The **Log Streaming** Early Access feature must be enabled. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
-
-### Get Log Stream Schema
-
-<ApiLifecycle access="ea" />
-
-<ApiOperation method="get" url="/api/v1/meta/schemas/logStream/${typeId}" />
-
-Fetches the schema for a Log Stream type
-
-See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
-
-##### Request parameters
-
-N/A
-
-##### Response parameters
-
-[Log Stream Schema](#log-stream-schema-object)
-
-##### Request example
-
-```bash
-curl -v -X GET \
--H "Accept: application/json" \
--H "Content-Type: application/json" \
--H "Authorization: SSWS ${api_token}" \
-"https://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge"
-```
-
-##### Response example
-
-For brevity, the following response doesn't include all available properties.
-
-
-```json
-{
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "http://${yourOktaDomain}/api/v1/meta/schemas/logStream/aws_eventbridge",
-  "title": "AWS EventBridge",
-  "type": "object",
-  "properties": {
-    "settings": {
-      "description": "Configuration properties specific to instance",
-      "type": "object",
-      "properties": {
-        "accountId": {
-          "title": "AWS Account ID",
-          "description": "Your Amazon AWS Account ID.",
-          "type": "string",
-          "writeOnce": true,
-          "pattern": "^\\d{12}$"
-        },
-        "eventSourceName": {
-          "title": "AWS Event Source Name",
-          "description": "An alphanumeric name (no spaces) to identify this event source in AWS EventBridge.",
-          "type": "string",
-          "writeOnce": true,
-          "pattern": "^[\\.\\-_A-Za-z0-9]{1,75}$"
-        },
-        "region": {
-          "title": "AWS Region",
-          "description": "The destination AWS region for your system log events.",
-          "type": "string",
-          "writeOnce": true,
-          "oneOf": [
-            {
-              "title": "US East (Ohio)",
-              "const": "us-east-2"
-            },
-            {
-              "title": "US East (N. Virginia)",
-              "const": "us-east-1"
-            },
-            {
-              "title": "US West (N. California)",
-              "const": "us-west-1"
-            },
-            {
-              "title": "US West (Oregon)",
-              "const": "us-west-2"
-            },
-            {
-              "title": "Canada (Central)",
-              "const": "ca-central-1"
-            },
-            {
-              "title": "Europe (Frankfurt)",
-              "const": "eu-central-1"
-            },
-            {
-              "title": "Europe (Ireland)",
-              "const": "eu-west-1"
-            },
-            {
-              "title": "Europe (London)",
-              "const": "eu-west-2"
-            },
-            {
-              "title": "Europe (Paris)",
-              "const": "eu-west-3"
-            },
-            {
-              "title": "Europe (Milan)",
-              "const": "eu-south-1"
-            },
-            {
-              "title": "Europe (Stockholm)",
-              "const": "eu-north-1"
-            }
-          ]
-        }
-      },
-      "required": [
-        "eventSourceName",
-        "accountId",
-        "region"
-      ],
-      "errorMessage": {
-        "properties": {
-          "accountId": "Account number must be 12 digits.",
-          "eventSourceName": "Event source name can use numbers, letters, the symbols \".\", \"-\" or \"_\". It must use fewer than 76 characters."
-        }
-      }
-    },
-    "name": {
-      "title": "Name",
-      "description": "A name for this integration instance in Okta",
-      "type": "string",
-      "writeOnce": false,
-      "pattern": "^.{1,100}$"
-    }
-  },
-  "required": [
-    "name",
-    "settings"
-  ],
-  "errorMessage": {
-    "properties": {
-      "name": "Name can't exceed 100 characters."
-    }
-  }
 }
 ```
 

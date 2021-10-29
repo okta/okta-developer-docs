@@ -592,7 +592,7 @@ All Log Streams have the following properties:
 
 #### Log Stream Links object
 
-This object provides read-only link relationships to the log stream. The relational links include lifecycle operations. See [Web Linking](http://tools.ietf.org/html/rfc8288) using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification. 
+This object provides read-only link relationships to the log stream. The relational links include lifecycle operations. See [Web Linking](http://tools.ietf.org/html/rfc8288) using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.
 
 | Link Relation Type       | Description                                                                                                                                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------                                                          |
@@ -611,7 +611,7 @@ The Log Stream type specifies the streaming provider used. Okta supports the fol
 
 ### AWS EventBridge Settings object
 
-The AWS EventBridge Settings object specifies the configuration for the `aws_eventbridge` Log Stream type. You cannot modify the AWS EventBridge Settings properties after the object is created. 
+The AWS EventBridge Settings object specifies the configuration for the `aws_eventbridge` Log Stream type. You cannot modify the AWS EventBridge Settings properties after the object is created.
 
 #### AWS EventBridge Settings example
 
@@ -629,7 +629,7 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 | ------------- | ------------------------------------------------------------ | -------------------------------------------------------------- | -------- | ------ | -------- | --------- | --------- |
 | accountId            | Your Amazon AWS account ID                                       | String                                                         | FALSE    | FALSE   | FALSE     |      12     |     12      |
 | eventSourceName     | An alphanumeric name (no spaces) to identify this event source in AWS EventBridge                             | String (permitted characters: letters, digits, `.`, `-`,  `_` )  | FALSE | FALSE | FALSE  |  1 |  75   |
-| region | The destination AWS region for your system log events. See [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-object) for the list of supported values.                      | String                                                           | FALSE | FALSE | FALSE  |   |     |
+| region | The destination AWS region for your system log events. See [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-object) for the list of supported values in the `region` property.                      | String                                                           | FALSE | FALSE | FALSE  |   |     |
 
 #### Property details
 
