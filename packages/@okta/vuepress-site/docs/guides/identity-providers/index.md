@@ -14,7 +14,7 @@ meta:
   <!-- <Card href="https://help.okta.com/en/prod/Content/Topics/Security/idp-enable-smart-card.htm" headerImage="/img/idp-logos/smart-card.png">Smart Card</Card> -->
 </Cards>
 
-## Social Identity Providers
+## Social Logins
 
 <Cards>
   <Card href="/docs/guides/social-login/amazon/main" headerImage="/img/idp-logos/amazon.png">Amazon</Card>
@@ -29,4 +29,5 @@ meta:
   <Card href="/docs/guides/social-login/paypal/main" headerImage="/img/idp-logos/paypal.png">Paypal</Card>
   <Card href="/docs/guides/social-login/salesforce/main" headerImage="/img/idp-logos/salesforce.svg">Salesforce</Card>
   <Card href="/docs/guides/social-login/yahoo/main" headerImage="/img/idp-logos/yahoo.png">Yahoo</Card>
+  <Card href="/docs/guides/social-login/yahoojp/main" headerImage="/img/idp-logos/yahoojp.svg">Yahoo Japan</Card>
 </Cards>

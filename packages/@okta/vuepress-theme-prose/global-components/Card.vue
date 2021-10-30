@@ -5,8 +5,8 @@
                 <i class="icon-75" :class="headerIcon"></i>
             </figure>
             <figure class="card--header-icon" v-else-if="headerImage">
-                <div class="card--header-img">
-                    <img :src="headerImage" />
+                <div>
+                    <img class="card--header-img" :src="headerImage" />
                 </div>
             </figure>
             <section class="card--header-main-own">
