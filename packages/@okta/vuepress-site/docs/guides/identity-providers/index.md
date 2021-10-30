@@ -1,0 +1,32 @@
+---
+title: Add an external Identity Provider
+meta:
+  - name: description
+    content: Okta supports both enterprise and social identity providers (social login).
+---
+
+## Enterprise Identity Providers
+
+<Cards>
+  <Card href="/docs/guides/add-an-external-idp/saml2/main/" headerImage="/img/idp-logos/saml.png">SAML 2.0</Card>
+  <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect (OIDC)</Card>
+  <!-- Need to figure out a way to likn externally -->
+  <!-- <Card href="https://help.okta.com/en/prod/Content/Topics/Security/idp-enable-smart-card.htm" headerImage="/img/idp-logos/smart-card.png">Smart Card</Card> -->
+</Cards>
+
+## Social Identity Providers
+
+<Cards>
+  <Card href="/docs/guides/social-login/amazon/main" headerImage="/img/idp-logos/amazon.png">Amazon</Card>
+  <Card href="/docs/guides/add-an-external-idp/apple/main/" headerImage="/img/idp-logos/apple.png">Apple</Card>
+  <Card href="/docs/guides/add-an-external-idp/facebook/main/" headerImage="/img/idp-logos/facebook.png">Facebook</Card>
+  <Card href="/docs/guides/social-login/github/main" headerImage="/img/idp-logos/github.png">GitHub</Card>
+  <Card href="/docs/guides/social-login/gitlab/main" headerImage="/img/idp-logos/gitlab.svg">GitLab</Card>
+  <Card href="/docs/guides/add-an-external-idp/google/main/" headerImage="/img/idp-logos/google.svg">Google</Card>
+  <Card href="/docs/guides/add-an-external-idp/linkedin/main/" headerImage="/img/idp-logos/linkedin.png">LinkedIn</Card>
+  <Card href="/docs/guides/add-an-external-idp/microsoft/main/" headerImage="/img/idp-logos/microsoft.svg">Microsoft</Card>
+  <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect (OIDC)</Card>
+  <Card href="/docs/guides/social-login/paypal/main" headerImage="/img/idp-logos/paypal.png">Paypal</Card>
+  <Card href="/docs/guides/social-login/salesforce/main" headerImage="/img/idp-logos/salesforce.svg">Salesforce</Card>
+  <Card href="/docs/guides/social-login/yahoo/main" headerImage="/img/idp-logos/yahoo.png">Yahoo</Card>
+</Cards>
