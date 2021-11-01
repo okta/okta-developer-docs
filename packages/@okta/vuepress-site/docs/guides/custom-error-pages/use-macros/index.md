@@ -3,7 +3,7 @@ title: Use macros
 ---
 The following macros contain the configuration parameters for certain page elements. These macros inject specific content or functionality automatically.
 
-#### <span v-pre>`{{orgName}}`</span>
+## orgName
 
 Inserts the org name title.
 
@@ -13,7 +13,7 @@ Example:
 <title>{{orgName}} - {{errorSummary}}</title>
 ```
 
-#### <span v-pre>`{{errorSummary}}`</span>
+## errorSummary
 
 Inserts the error title text.
 
@@ -23,7 +23,7 @@ Example:
 <h2 class="o-form-title">{{errorSummary}}</h2>
 ```
 
-#### <span v-pre>`{{bgImageUrl}}`</span>
+## bgImageUrl
 
 Inserts a URL to the background image configured for your application. You can change this image using the **Sign-in Configuration** option accessed by selecting **Settings**, and then **Appearance** from the Admin Console, but this changes the background image in all instances where the macro is used, including your custom sign-in page.
 
@@ -35,7 +35,7 @@ Example:
 <div class="login-bg-image" style="background-image: url('https://example.com//YourBackgroundImage.png')"></div>
 ```
 
-#### <span v-pre>`{{orgLogo}}`</span>
+## orgLogo
 
 Inserts the logo image that has been configured for your application. You can change this logo using the **Organization Logo** option accessed by selecting **Settings**, and then **Appearance** from the Admin Console, but this changes the org logo in all instances where the macro is used, including your custom sign-in page.
 
@@ -46,9 +46,7 @@ Example:
 <img alt="{{orgName}}" src="https://example.com//SomeOtherImage.png" class="org-logo">
 ```
 
-#### <span v-pre>`{{{errorSummary}}}`</span>
-
-#### <span v-pre>`{{{errorDescription}}}`</span>
+## errorSummary and errorDescription
 
 Inserts a title and detailed description of the error.
 
@@ -59,7 +57,7 @@ Example:
 <p class="o-form-explain">What happened? {{{errorDescription}}}</p>
 ```
 
-#### <span v-pre>`{{back}}`</span>
+## back
 
 Inserts the text `Go to Homepage`. The button takes the user back to the sign-in page when clicked.
 
@@ -69,7 +67,7 @@ Example:
  <a href="/" class="button">{{back}}</a>
 ```
 
-#### <span v-pre>`{{technicalDetails}}`</span>
+## technicalDetails
 
 Inserts additional error codes, if there are any. See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code) for more information.
 
@@ -81,11 +79,11 @@ Example:
 
 > **Note:** Macros only available with Branding
 
-#### <span v-pre>`{{buttonText}}`</span>
+## buttonText
 
-Inserts the button text based on the page context. The button takes the user back to the `buttonHref` when clicked. `{{back}}` is also supported for same purpose.
+Inserts the button text based on the page context. The button takes the user back to the `buttonHref` when clicked. `{{back}}` is also supported for the same purpose.
 
-#### <span v-pre>`{{buttonHref}}`</span>
+## buttonHref
 
 Inserts the href for the button.
 
@@ -95,9 +93,9 @@ Example:
  <a href="{{buttonHref}}" class="button">{{buttonText}}</a>
 ```
 
-#### <span v-pre>`{{themedStylesUrl}}`</span>
+## themedStylesUrl
 
-Inserts the href for themed style sheet.
+Inserts the href for the themed style sheet.
 
 Example:
 
@@ -105,7 +103,7 @@ Example:
  <link href="{{themedStylesUrl}}" rel="stylesheet" type="text/css">
 ```
 
-#### <span v-pre>`{{faviconUrl}}`</span>
+## faviconUrl
 
 Inserts the href for the favicon.
 
