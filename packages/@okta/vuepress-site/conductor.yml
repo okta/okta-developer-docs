@@ -2369,36 +2369,40 @@ redirects:
     to: /docs/concepts/identity-providers/
   - from: /docs/concepts/social-login/index.html
     to: /docs/concepts/identity-providers/
-  - from: /docs/guides/add-an-external-idp/apple/before-you-begin/
+  - from: /docs/guides/add-an-external-idp/-/before-you-begin/
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/before-you-begin/index.html
+  - from: /docs/guides/add-an-external-idp/-/before-you-begin/index.html
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/create-an-app-at-idp/
+  - from: /docs/guides/add-an-external-idp/-/create-an-app-at-idp/
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/create-an-app-at-idp/index.html
+  - from: /docs/guides/add-an-external-idp/-/create-an-app-at-idp/index.html
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/configure-idp-in-okta/
+  - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/configure-idp-in-okta/index.html
+  - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/index.html
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/register-app-in-okta/
+  - from: /docs/guides/add-an-external-idp/-/register-app-in-okta/
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/register-app-in-okta/index.html
+  - from: /docs/guides/add-an-external-idp/-/register-app-in-okta/index.html
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/create-authz-url/
+  - from: /docs/guides/add-an-external-idp/-/create-authz-url/
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/create-authz-url/index.html
+  - from: /docs/guides/add-an-external-idp/-/create-authz-url/index.html
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/use-idp-to-sign-in/
+  - from: /docs/guides/add-an-external-idp/-/use-idp-to-sign-in/
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/use-idp-to-sign-in/index.html
+  - from: /docs/guides/add-an-external-idp/-/use-idp-to-sign-in/index.html
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/next-steps/
+  - from: /docs/guides/add-an-external-idp/-/next-steps/
     to: /docs/guides/add-an-external-idp/main
-  - from: /docs/guides/add-an-external-idp/apple/next-steps/index.html
+  - from: /docs/guides/add-an-external-idp/-/next-steps/index.html
     to: /docs/guides/add-an-external-idp/main
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
     to: /docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning
+  - from: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/index.html
+    to: /docs/guides/add-an-external-idp/main
+  - from: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
+    to: /docs/guides/add-an-external-idp/main
   - from: /docs/guides/sharing-cert/overview/
     to: /docs/guides/sharing-cert/main/
   - from: /docs/guides/sharing-cert/generate-new-credential/
