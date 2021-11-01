@@ -176,7 +176,7 @@ The following filters are supported with the `filter` query parameter:
 
 | Filter                              | Description                                                                       |
 | ----------------------              | ------------------------------------------------------                            |
-| `type eq "${logStreamType}"`                   | Filter Log Streams of type [`${logStreamType}`](#log-stream-type), such as `aws_eventbridge` |
+| `type eq "${typeId}"`        | Filter Log Streams of type [`${typeId}`](#log-stream-type), such as `aws_eventbridge` |
 | `status eq "ACTIVE"`                | Filter Log Streams with an `ACTIVE` status                                             |
 | `status eq "INACTIVE"`              | Filter Log Streams with an `INACTIVE` status                                           |
 
@@ -338,9 +338,10 @@ Updates the configuration for a Log Stream
 | logStreamId     | `id` of the Log Stream to update           | URL        | String                                        | TRUE     |
 | logStream       | Updated configuration for the Log Stream | Body       | [Log Stream](#log-stream-object) | TRUE     |
 
-Depending on the type of Log Stream, certain properties may not be updated once the Log Stream is created.
-Use [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-operations) endpoint for the specific Log Stream type to find out
-which properties are marked as `writeOnce` and cannot be updated.
+Depending on the type of Log Stream, certain properties can't be updated once the Log Stream is created.
+Use the [Log Stream Schema API](/docs/reference/api/schemas/#log-stream-schema-operations) to determine which
+Log Stream type can't be updated. Log Stream types with the `"writeOnce" : true` property can't be updated after
+creation.
 
 ##### Response parameters
 
@@ -608,7 +609,7 @@ The Log Stream type specifies the streaming provider used. Okta supports the fol
 
 | Type         | Description                                                                                                                                           |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `aws_eventbridge`      | [AWS EventBridge](https://aws.amazon.com/eventbridge/)                                                                       |
+| `aws_eventbridge`      | [AWS EventBridge](https://aws.amazon.com/eventbridge/) Log Stream type                                                                      |
 
 
 ### AWS EventBridge Settings object
