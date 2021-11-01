@@ -4,7 +4,7 @@ title: Okta API Products Release Notes 2021
 
 ## November
 
-### Monthly Release 2021.11.0
+### Monthly release 2021.11.0
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|

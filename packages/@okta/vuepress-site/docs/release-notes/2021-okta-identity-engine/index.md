@@ -6,6 +6,28 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 ## October
 
+### Monthly release 2021.11.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Brands API support for auto-detecting contrast colors](#authentication-api-returns-ud-user-profile-locale-is-ga-in-preview) | November 3, 2021 |
+| [New Devices API response property available]() | November 3, 2021 |
+| [New error page macros for themed templates](#bug-fixed-in-2021-10-0)                          | November 3, 2021          |
+
+#### Brands API support for auto-detecting contrast colors
+
+The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. The auto-detection feature can be disabled by updating either property value with an accepted contrast hex value.<!--OKTA-426715-->
+
+#### New Devices API response property available
+
+Calls to the [List devices](/docs/reference/api/devices/#usage-example-expand-user) endpoint with an `expand=user` query now return the management status associated with each embedded user.<!--OKTA-431007-->
+
+#### New error page macros for themed templates
+
+Custom [error page templates](/docs/guides/custom-error-pages/use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
+
+## October
+
 ### Weekly Release 2021.10.2
 
 | Change                                                                   | Expected in Preview Orgs |
