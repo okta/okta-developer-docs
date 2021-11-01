@@ -1816,9 +1816,9 @@ redirects:
   - from: /docs/guides/sign-in-with-linkedin/index.html
     to: /docs/guides/add-an-external-idp/linkedin/before-you-begin/
   - from: /docs/guides/add-an-external-idp/linkedin/before-you-begin/index.html
-    to: /docs/guides/add-an-external-idp/google/main
+    to: /docs/guides/add-an-external-idp/linkedin/main
   - from: /docs/guides/add-an-external-idp/linkedin/before-you-begin/
-    to: /docs/guides/add-an-external-idp/google/main
+    to: /docs/guides/add-an-external-idp/linkedin/main
   - from: /docs/guides/sign-in-with-linkedin/setup-app/index.html
     to: /docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/
   - from: /docs/guides/add-an-external-idp/linkedin/create-an-app-at-idp/index.html
@@ -2226,9 +2226,9 @@ redirects:
   - from: /docs/guides/add-an-external-idp/facebook/add-okta-redirect-uri-to-idp/index.html
     to: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
   - from: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/index.html
-    to: /docs/guides/add-an-external-idp/acebook/main
+    to: /docs/guides/add-an-external-idp/facebook/main
   - from: /docs/guides/add-an-external-idp/facebook/create-an-app-at-idp/
-    to: /docs/guides/add-an-external-idp/acebook/main
+    to: /docs/guides/add-an-external-idp/facebook/main
   - from: /docs/concepts/auth-overview
     to: /docs/concepts/oauth-openid/
   - from: /docs/concepts/auth-overview/index.html
