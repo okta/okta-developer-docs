@@ -1543,7 +1543,7 @@ The following response is only a subset of properties for brevity.
 
 <ApiLifecycle access="ea" />
 
-> **Note:** The **Log Streaming** Early Access feature must be enabled. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
+> **Note:** The **Log Streaming** Early Access feature must be enabled. See [Feature Lifecycle Management](https://developer.okta.com/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Feature Manager.
 
 ### Get Log Stream Schema
 
@@ -3141,9 +3141,11 @@ The following response is only a subset of properties for brevity.
 }
 ```
 
+
 ## Log Stream Schema object
 
 <ApiLifecycle access="ea" />
+
 
 The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-schema.org/specification.html) with the following properties:
 
@@ -3152,27 +3154,23 @@ The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-
 | $id | URI of Log Stream Schema |String |FALSE| TRUE| TRUE|
 |$schema| JSON Schema version identifier| String| FALSE| FALSE| TRUE|
 |title| Name of the Log Streaming integration| String|FALSE| TRUE| TRUE|
-|type| Type of root Schema|String|FALSE|FALSE|TRUE|
+|type| Type of Log Stream Schema property|String containing `string`, `boolean`, `number`, `integer` or `object` |FALSE|FALSE|TRUE|
 |properties|Log Stream Schema root object properties| [Log Stream Schema root object properties](#log-stream-schema-root-object-properties) |FALSE|TRUE|TRUE|
 |required| Required properties for this Log Stream Schema object|Array of String|FALSE|TRUE|TRUE|
-
-
-### Log Stream Schema root object properties
-
-All Log Stream Schema root object properties contain `name`, which specifies
-the Log Stream name within Okta, and `settings`, which lists properties required to configure Log Stream.
-The `name` and properties listed in `settings` follow the standard [JSON Schema Draft 2020-12](https://json-schema.org/specification.html) specification with the following properties:
-
-| Property                       | Description                                | DataType                                          | Nullable | Unique | Readonly |
-|:-------------------------------|:-------------------------------------------|:--------------------------------------------------|:---------|:-------|:---------|
-|title| Display name for the property| String|FALSE|FALSE|TRUE|
-|description|Description of the property|String|TRUE|FALSE|TRUE|
-|type|Type of Log Stream Schema property|String containing `string`, `boolean`, `number`, or `integer` |FALSE|FALSE|TRUE|
+|oneOf|A non-empty array of valid JSON schemas (see [oneOf description](#log-stream-schema-object-description-details)) |Array|TRUE|FALSE|TRUE|
 |pattern|For `string` Log Stream Schema property type, specify the regular expression used to validate the property (see [Log Stream Schema Property Types and validation](#log-stream-schema-property-types-and-validation)). |String|TRUE|FALSE|TRUE|
-|oneOf|A non-empty array of valid JSON schemas (see [oneOf description](#description-details)) |Array|TRUE|FALSE|TRUE|
 
-#### Description details
+In addition to those, Okta extends [JSON Schema Draft 2020-12](https://json-schema.org/specification.html)
+with the following keywords:
 
+| Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
+| :---------------------------------- | :---------------------------------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
+| writeOnce|Determines whether the property can be updated once it has been created|Boolean|FALSE|FALSE|TRUE|
+| errorMessage|Error messages for properties of this Log Stream object|[Error Message object](#error-message-object)|FALSE|TRUE|TRUE|
+
+#### Log Stream Schema object description details
+
+* All Log Stream Schema root object `properties` contain `name`, which specifies the Log Stream name within Okta, and `settings`, which lists properties required to configure Log Stream.
 * `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
 
  ```json
@@ -3182,16 +3180,9 @@ The `name` and properties listed in `settings` follow the standard [JSON Schema 
 }
  ```
 
-Okta extends [JSON Schema Draft 2020-12](https://json-schema.org/specification.html)
-with the following keywords:
-
-| Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
-| :---------------------------------- | :---------------------------------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |
-| writeOnce|Determines whether the property can be updated once it has been created|Boolean|FALSE|FALSE|TRUE|
-| errorMessage|Error messages for properties of this Log Stream object|[Error Message object](#error-message-object)|FALSE|TRUE|TRUE|
+* `errorMessage`: Okta implements a subset of [ajv-errors](https://github.com/ajv-validator/ajv-errors), and the error object has the following property:
 
 ##### Error Message object
-Okta implements a subset of [ajv-errors](https://github.com/ajv-validator/ajv-errors), and the error object has the following property:
 
 | Property                            | Description                                                       | DataType                                                                  | Nullable | Unique | Readonly |
 | :---------------------------------- | :--------------------------------------- | :------------------------------------------------------------------------ | :------- | :----- | :------- |

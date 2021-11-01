@@ -10,7 +10,7 @@ category: management
 The Okta Log Streaming API provides operations to manage Log Stream configurations for an org.
 You can configure up to two Log Stream integrations per org.
 
-> **Note:**  The **Log Streaming** Early Access feature must be enabled. See [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Okta's Self-Service Feature Manager.
+> **Note:** The **Log Streaming** Early Access feature must be enabled. See [Feature Lifecycle Management](https://developer.okta.com/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features) for more information on Feature Manager.
 
 ## Get started
 
@@ -338,7 +338,9 @@ Updates the configuration for a Log Stream
 | logStreamId     | `id` of the Log Stream to update           | URL        | String                                        | TRUE     |
 | logStream       | Updated configuration for the Log Stream | Body       | [Log Stream](#log-stream-object) | TRUE     |
 
-All properties must be specified when updating the log stream configuration. Partial updates aren't supported.
+Depending on the type of Log Stream, certain properties may not be updated once the Log Stream is created.
+Use [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-operations) endpoint for the specific Log Stream type to find out
+which properties are marked as `writeOnce` and cannot be updated.
 
 ##### Response parameters
 
