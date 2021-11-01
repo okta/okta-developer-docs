@@ -1551,7 +1551,8 @@ The following response is only a subset of properties for brevity.
 
 <ApiOperation method="get" url="/api/v1/meta/schemas/logStream/${typeId}" />
 
-Fetches the schema for a Log Stream type
+Fetches the schema for a Log Stream type. The ${typeId} element in the URL specifies which type.
+It can be the literal `aws_eventbridge` to retrieve the Schema of the AWS EventBridge type.
 
 See [Log Streaming API](/docs/reference/api/log-streaming) for examples of Log Stream objects.
 
@@ -3155,7 +3156,7 @@ The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-
 |$schema| JSON Schema version identifier| String| FALSE| FALSE| TRUE|
 |title| Name of the Log Streaming integration| String|FALSE| TRUE| TRUE|
 |type| Type of Log Stream Schema property|String containing `string`, `boolean`, `number`, `integer` or `object` |FALSE|FALSE|TRUE|
-|properties|Log Stream Schema root object properties| [Log Stream Schema root object properties](#log-stream-schema-root-object-properties) |FALSE|TRUE|TRUE|
+|properties|Log Stream Schema properties object| `object` |FALSE|TRUE|TRUE|
 |required| Required properties for this Log Stream Schema object|Array of String|FALSE|TRUE|TRUE|
 |oneOf|A non-empty array of valid JSON schemas (see [oneOf description](#log-stream-schema-object-description-details)) |Array|TRUE|FALSE|TRUE|
 |pattern|For `string` Log Stream Schema property type, specify the regular expression used to validate the property (see [Log Stream Schema Property Types and validation](#log-stream-schema-property-types-and-validation)). |String|TRUE|FALSE|TRUE|
@@ -3171,6 +3172,7 @@ with the following keywords:
 #### Log Stream Schema object description details
 
 * All Log Stream Schema root object `properties` contain `name`, which specifies the Log Stream name within Okta, and `settings`, which lists properties required to configure Log Stream.
+* `properties` object within the `settings` define configuration properties for the particular Log Stream type
 * `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
 
  ```json

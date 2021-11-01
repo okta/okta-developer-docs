@@ -155,7 +155,7 @@ curl -v -X GET \
 
 List Log Streams in your org. You can request a paginated list or a subset of Log Streams that match a supported filter expression.
 
-- [List Log Streams](#list-log-streams)
+- [List Log Streams with defaults](#list-log-streams-with-defaults)
 - [List Log Streams by status](#find-log-streams-by-status)
 - [List Log Streams by type](#find-log-streams-by-type)
 
@@ -187,9 +187,9 @@ The following filters are supported with the `filter` query parameter:
 
 Array of [Log Stream](#log-stream-object) objects
 
-#### List Log Streams
+#### List Log Streams with defaults
 
-Returns a list of all Log Streams added to your org
+Returns a list of all Log Streams added to your org without filter or pagination options
 
 ##### Request example
 
@@ -608,7 +608,7 @@ The Log Stream type specifies the streaming provider used. Okta supports the fol
 
 | Type         | Description                                                                                                                                           |
 | ------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `aws_eventbridge`      | [AWS EventBridge](https://developer.apple.com/documentation/aws_eventbridge_log_stream)                                                                       |
+| `aws_eventbridge`      | [AWS EventBridge](https://aws.amazon.com/eventbridge/)                                                                       |
 
 
 ### AWS EventBridge Settings object
