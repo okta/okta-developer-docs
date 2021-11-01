@@ -2,6 +2,59 @@
 title: Okta API Products Release Notes 2021
 ---
 
+## November
+
+### Monthly Release 2021.11.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Identity Providers API response includes ID token for generic OIDC provider](#aes-gcm-encryption-support-for-saml-assertions) | November 3, 2021 |
+| [Brands API support for auto-detecting contrast colors](#authentication-api-returns-ud-user-profile-locale-is-ga-in-preview) | November 3, 2021 |
+| [Authentication API returns UD User Profile locale is GA in Preview](#native-sso-support-is-ga-in-preview) | November 3, 2021 |
+| [Key pair additions to JWKS limited to 50 per client](#new-brands-api-option-to-remove-sign-in-page-footer-message) | November 3, 2021 |
+| [The Okta Org API is now GA in Production](#bug-fixed-in-2021-10-0)                          | November 3, 2021          |
+| [New error page macros for themed templates](#bug-fixed-in-2021-10-0)                          | November 3, 2021          |
+| [Event Hooks daily limit](#bug-fixed-in-2021-10-0)                          | November 3, 2021          |
+| [Bug fixed in 2021.11.0](#bug-fixed-in-2021-10-0)                          | November 3, 2021          |
+
+#### Identity Providers API response includes ID token for generic OIDC provider
+
+The new response for the Identity Providers API [social authentication token operation](/docs/reference/api/idps/#social-authentication-token-operation) includes the addition of an ID token, if available, in addition to the access tokens.<!--OKTA-425470-->
+
+#### Brands API support for auto-detecting contrast colors
+
+The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. The auto-detection feature can be disabled by updating either property value with an accepted contrast hex value.<!--OKTA-426715-->
+
+#### Authentication API returns UD User Profile locale is GA in Preview
+
+The response for the primary Authentication API includes the [User Profile's locale](/docs/reference/api/authn/#user-profile-object) value that is the same as the User Profile locale value in Universal Directory (UD).<!--OKTA-430700-->
+
+#### Key pair additions to JWKS limited to 50 per client
+
+The number of key pairs that can be added to a [JWKS (JSON Web Key Set)](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/) cannot exceed 50 per client.<!--OKTA-435434-->
+
+#### The Okta Org API is now GA in Production
+
+The [Okta Org API](/docs/reference/api/org/) allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences.<!--OKTA-436524-->
+
+#### New error page macros for themed templates
+
+Custom [error page templates](/docs/guides/custom-error-pages/use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
+
+#### Event Hooks daily limit
+
+The maximum allowable daily limit of Event Hooks for all orgs has increased from 100K to 200K. A higher daily allocation of Event Hooks reduces the likelihood orgs will exceed their daily limits. See [Event Hooks](/docs/concepts/event-hooks/#rate-limits).<!--OKTA-441433-->
+
+#### Bugs fixed in 2021.10.0
+
+- When the [Get user’s groups](/docs/reference/api/users/#get-user-s-groups) endpoint was called by a group administrator that didn’t have permission to see all the groups a user belonged to, the response was either an HTTP 500 `Internal Server` error or incorrect page behavior in the results. (OKTA-379237)
+
+- When the [Remove group](/docs/reference/api/groups/#remove-group) endpoint was called with an invalid group `profile` attribute, the group was not removed. (OKTA-425470)
+
+- When an [Update application](/docs/reference/api/apps/#update-application) endpoint was called without a recipient URL in the SAML app request body, the response was an HTTP 500 `Internal Server` error instead of a validation error message. (OKTA-438456)
+
+- When an [Update logo for app](/docs/reference/api/apps/#update-logo-for-application) endpoint was called using an app link that wasn't named "login", the response was "App instance has no login link to set logo for". (OKTA-439102)
+
 ## October
 
 ### Weekly Release 2021.10.2
