@@ -278,7 +278,7 @@ curl -v -X GET \
 ```
 
 
-#### Find Log Streams by type
+#### Find Log Streams by status
 
 Finds all Log Streams with a specified status
 
@@ -590,11 +590,11 @@ All Log Streams have the following properties:
 
 #### Property details
 
-* The `id`, `status`, `created`,  `lastUpdated`, and `_links` properties are available after a log stream is created.
+* The `id`, `status`, `created`,  `lastUpdated`, and `_links` properties are available after a Log Stream is created.
 
 #### Log Stream Links object
 
-This object provides read-only link relationships to the log stream. The relational links include lifecycle operations. See [Web Linking](http://tools.ietf.org/html/rfc8288) using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.
+This object provides read-only link relationships to the Log Stream. The relational links include lifecycle operations. See [Web Linking](http://tools.ietf.org/html/rfc8288) using the [JSON Hypertext Application Language](http://tools.ietf.org/html/draft-kelly-json-hal-06) specification.
 
 | Link Relation Type       | Description                                                                                                                                                                                                        |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------                                                          |
@@ -613,7 +613,7 @@ The Log Stream type specifies the streaming provider used. Okta supports the fol
 
 ### AWS EventBridge Settings object
 
-The AWS EventBridge Settings object specifies the configuration for the `aws_eventbridge` Log Stream type. You cannot modify the AWS EventBridge Settings properties after the object is created.
+The AWS EventBridge Settings object specifies the configuration for the `aws_eventbridge` Log Stream type. You can't modify the AWS EventBridge Settings properties after the object is created.
 
 #### AWS EventBridge Settings example
 
@@ -636,7 +636,7 @@ The AWS EventBridge Settings object specifies the configuration for the `aws_eve
 #### Property details
 
 *  The `accountId`, `eventSourceName`,  and `region` properties are assigned during creation and can't be modified afterwards.
-* The `region` property can be set to one of the following supported AWS region codes. The `region` list can be also retrieved using the [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-operations) endpoint.
+* The `region` property can be set to one of the following supported AWS region codes. The `region` list can also be retrieved with the [Log Stream Schema](/docs/reference/api/schemas/#log-stream-schema-operations) endpoint.
 
 | Region      | Description                                                  |
 | ------------- | ------------------------------------------------------------ |
