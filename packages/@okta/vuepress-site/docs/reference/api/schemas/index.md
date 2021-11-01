@@ -3172,7 +3172,7 @@ with the following keywords:
 #### Log Stream Schema object description details
 
 * All Log Stream Schema root object `properties` contain `name`, which specifies the Log Stream name within Okta, and `settings`, which lists properties required to configure Log Stream.
-* `properties` object within the `settings` define configuration properties for the particular Log Stream type
+* `properties` object within the `settings` defines configuration properties for the particular Log Stream type
 * `oneOf`: Okta only supports `oneOf` for specifying display names for an `enum`. Each schema has the following format:
 
  ```json
