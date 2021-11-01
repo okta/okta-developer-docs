@@ -8,14 +8,14 @@ title: Okta API Products Release Notes 2021
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Identity Providers API response includes ID token for generic OIDC provider](#aes-gcm-encryption-support-for-saml-assertions) | November 3, 2021 |
-| [Brands API support for auto-detecting contrast colors](#authentication-api-returns-ud-user-profile-locale-is-ga-in-preview) | November 3, 2021 |
-| [Authentication API returns UD User Profile locale is GA in Preview](#native-sso-support-is-ga-in-preview) | November 3, 2021 |
-| [Key pair additions to JWKS limited to 50 per client](#new-brands-api-option-to-remove-sign-in-page-footer-message) | November 3, 2021 |
-| [The Okta Org API is now GA in Production](#bug-fixed-in-2021-10-0)                          | November 3, 2021          |
-| [New error page macros for themed templates](#bug-fixed-in-2021-10-0)                          | November 3, 2021          |
-| [Event Hooks daily limit](#bug-fixed-in-2021-10-0)                          | November 3, 2021          |
-| [Bug fixed in 2021.11.0](#bug-fixed-in-2021-10-0)                          | November 3, 2021          |
+| [Identity Providers API response includes ID token for generic OIDC provider](#identity-providers-api-response-includes-id-token-for-generic-oidc-provider) | November 3, 2021 |
+| [Brands API support for auto-detecting contrast colors](#brands-api-support-for-auto-detecting-contrast-colors) | November 3, 2021 |
+| [Authentication API returns UD User Profile locale is GA in Preview](#authentication-api-returns-ud-user-profile-locale-is-ga-in-preview) | November 3, 2021 |
+| [Key pair additions to JWKS limited to 50 per client](#key-pair-additions-to-jwks-limited-to-50-per-client) | November 3, 2021 |
+| [The Okta Org API is now GA in Production](#the-okta-org-api-is-now-ga-in-production)                          | November 3, 2021          |
+| [New error page macros for themed templates](#new-error-page-macros-for-themed-templates)                          | November 3, 2021          |
+| [Event Hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
+| [Bug fixed in 2021.11.0](#bug-fixed-in-2021-11-0)                          | November 3, 2021          |
 
 #### Identity Providers API response includes ID token for generic OIDC provider
 
@@ -45,7 +45,7 @@ Custom [error page templates](/docs/guides/custom-error-pages/use-macros/) inclu
 
 The maximum allowable daily limit of Event Hooks for all orgs has increased from 100K to 200K. A higher daily allocation of Event Hooks reduces the likelihood orgs will exceed their daily limits. See [Event Hooks](/docs/concepts/event-hooks/#rate-limits).<!--OKTA-441433-->
 
-#### Bugs fixed in 2021.10.0
+#### Bugs fixed in 2021.11.0
 
 - When the [Get user’s groups](/docs/reference/api/users/#get-user-s-groups) endpoint was called by a group administrator that didn’t have permission to see all the groups a user belonged to, the response was either an HTTP 500 `Internal Server` error or incorrect page behavior in the results. (OKTA-379237)
 
