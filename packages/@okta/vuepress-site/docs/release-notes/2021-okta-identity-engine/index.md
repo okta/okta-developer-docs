@@ -4,15 +4,15 @@ title: Okta Identity Engine API Products Release Notes 2021
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-## October
+## November
 
 ### Monthly release 2021.11.0
 
 | Change                                                                   | Expected in Preview Orgs |
 |--------------------------------------------------------------------------|--------------------------|
-| [Brands API support for auto-detecting contrast colors](#authentication-api-returns-ud-user-profile-locale-is-ga-in-preview) | November 3, 2021 |
-| [New Devices API response property available]() | November 3, 2021 |
-| [New error page macros for themed templates](#bug-fixed-in-2021-10-0)                          | November 3, 2021          |
+| [Brands API support for auto-detecting contrast colors](#brands-api-support-for-auto-detecting-contrast-colors) | November 3, 2021 |
+| [New Devices API response property available](#new-devices-api-response-property-available) | November 3, 2021 |
+| [New error page macros for themed templates](#new-error-page-macros-for-themed-templates)                          | November 3, 2021          |
 
 #### Brands API support for auto-detecting contrast colors
 
