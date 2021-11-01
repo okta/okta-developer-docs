@@ -1193,7 +1193,7 @@ The Theme object defines the following properties:
 | `errorPageTouchPointVariant`          | Enum     | Variant for the error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
 
-> **Note:** `primaryColorContrastHex` and `secondaryColorContrastHex` will be automatically optimized for the highest possible contrast between the font color and the background or button color. To disable or override the contrast auto-detection, update either contrast value with an accepted contrast hex code. Any update will disable future automatic optimizations for the contrast hex.
+> **Note:** `primaryColorContrastHex` and `secondaryColorContrastHex` are automatically optimized for the highest possible contrast between the font color and the background or button color. To disable or override the contrast auto-detection, update either contrast value with an accepted contrast hex code. Any update disables future automatic optimizations for the contrast hex.
 
 > **Note:** Contrast color is used by pages to optimize the opacity of text color when primary or secondary color is used as the background.
 
