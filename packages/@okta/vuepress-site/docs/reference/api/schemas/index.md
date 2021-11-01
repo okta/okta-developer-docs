@@ -3156,7 +3156,7 @@ The Log Stream Schema is defined using [JSON Schema Draft 2020-12](https://json-
 |$schema| JSON Schema version identifier| String| FALSE| FALSE| TRUE|
 |title| Name of the Log Streaming integration| String|FALSE| TRUE| TRUE|
 |type| Type of Log Stream Schema property|String containing `string`, `boolean`, `number`, `integer` or `object` |FALSE|FALSE|TRUE|
-|properties|Log Stream Schema properties object| `object` |FALSE|TRUE|TRUE|
+|properties|Log Stream Schema properties object| Object |FALSE|TRUE|TRUE|
 |required| Required properties for this Log Stream Schema object|Array of String|FALSE|TRUE|TRUE|
 |oneOf|A non-empty array of valid JSON schemas (see [oneOf description](#log-stream-schema-object-description-details)) |Array|TRUE|FALSE|TRUE|
 |pattern|For `string` Log Stream Schema property type, specify the regular expression used to validate the property (see [Log Stream Schema Property Types and validation](#log-stream-schema-property-types-and-validation)). |String|TRUE|FALSE|TRUE|
