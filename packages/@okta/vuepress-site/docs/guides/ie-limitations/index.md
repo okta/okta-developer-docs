@@ -29,7 +29,7 @@ Are you an admin? See the Identity Engine [Limitations](https://help.okta.com/ok
 * `user.authentication.authenticate`
 * `user.credential.enroll`
 
-The following Event Type isn’t available in Identity Engine because it is no longer being triggered:
+The following Event Type isn’t available in the Identity Engine because it is no longer being triggered:
 
 `user.account.unlock_token`
 
@@ -61,19 +61,19 @@ The following Event Types are available only in the Identity Engine and can't be
 
 #### Reset Factor API - email enrollment
 
-**What Changed:** With Identity Engine, a user’s verified `primaryEmail` is considered an email (Authenticator) enrollment for the user. Therefore, the GET `/factors` API always returns the verified `primaryEmail` as an active email factor.
+**What Changed:** With the Identity Engine, a user’s verified `primaryEmail` is considered an email (Authenticator) enrollment for the user. Therefore, the GET `/factors` API always returns the verified `primaryEmail` as an active email factor.
 
-The use of the Classic Engine Reset Factor API for resetting a user’s email enrollment is discouraged and considered moot, because email is an auto-enrolling Authenticator in Identity Engine. A user’s verified `primaryEmail` is always usable as long as the Email Authenticator is set to `ACTIVE`, and the user can use it for **recovery only** or for both **authentication and recovery**, depending on the Email Authenticator settings.
+The use of the Classic Engine Reset Factor API for resetting a user’s email enrollment is discouraged and considered moot, because email is an auto-enrolling Authenticator in the Identity Engine. A user’s verified `primaryEmail` is always usable as long as the Email Authenticator is set to `ACTIVE`, and the user can use it for **recovery only** or for both **authentication and recovery**, depending on the Email Authenticator settings.
 
 ***
 
 #### Reset Factor API - question enrollment
 
-**What Changed:** Identity Engine steers away from the notion of separate questions for MFA and Recovery. Therefore, the GET `/factors` API now returns the Recovery Question (Forgot Password Question) in the absence of an MFA Security Question enrollment for the user.
+**What Changed:** The Identity Engine steers away from the notion of separate questions for MFA and Recovery. Therefore, the GET `/factors` API now returns the Recovery Question (Forgot Password Question) in the absence of an MFA Security Question enrollment for the user.
 
-In Classic Engine, when a user is using both the Forgot Password Question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, only the Security Question is reset. And then, if the GET `/factors` API is called, the Forgot Password Question isn't returned as a factor. With an upgrade to Identity Engine, after resetting all the factors, when the GET `/factors` API is then called, the Forgot Password Question is returned as a factor in the response.
+In Classic Engine, when a user is using both the Forgot Password Question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, only the Security Question is reset. And then, if the GET `/factors` API is called, the Forgot Password Question isn't returned as a factor. With an upgrade to the Identity Engine, after resetting all the factors, when the GET `/factors` API is then called, the Forgot Password Question is returned as a factor in the response.
 
-> **Note:** With Identity Engine, if a user is using both the Forgot Password Question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, just the Security Question is reset with that call. To reset the Forgot Password Question after that first call, make a second call to `/v1/lifecycle/reset_factors`.
+> **Note:** With the Identity Engine, if a user is using both the Forgot Password Question and a Security Question for MFA, and an API call is made to `v1/lifecycle/reset_factors` to reset all the factors for the user, just the Security Question is reset with that call. To reset the Forgot Password Question after that first call, make a second call to `/v1/lifecycle/reset_factors`.
 
 ***
 
@@ -95,6 +95,14 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 * `POST /api/v1/sessions/${sessionId}/lifecycle/refresh`
 * `DELETE /api/v1/sessions/${sessionId}`
 * `POST /api/v1/users/me/lifecycle/delete_sessions`
+
+***
+
+#### Session Token created during an Identity Engine upgrade prompts user for password after upgrade completes
+
+**What Changed:** If a user authenticates in the Classic Engine (creating a `sessionToken`), and the upgrade to the Identity Engine completes during the time that the `sessionToken` is valid (five minutes), then when a user attempts to access an OpenID Connect app after the upgrade, the user is prompted to authenticate again.
+
+> **Note:** This scenario only happens during an upgrade from the Classic Engine to the Identity Engine. It doesn't continue to happen after the upgrade.
 
 ***
 
