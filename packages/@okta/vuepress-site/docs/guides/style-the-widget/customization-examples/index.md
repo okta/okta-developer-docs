@@ -6,7 +6,7 @@ Use the following examples to help you customize the sign-in page with your own 
 
 ### Add your own stylesheet
 
-You can add your own stylesheet to extend the look of the sign-in page. In the embedded HTML editor, add a link to your stylesheet in the `<head>` section, below the <span v-pre>`{{{SignInWidgetResources}}}`</span> line.
+You can add your own stylesheet to extend the look of the sign-in page. In the embedded HTML editor, add a link to your stylesheet in the `<head>` section, below the `SignInWidgetResources` line.
 
 Example:
 
@@ -26,7 +26,7 @@ Example:
 
 ### Add your own scripts
 
-You can add custom JavaScript code to the sign-in page. In the embedded HTML editor, add a script in the `<head>` section, below the <span v-pre>`{{{SignInWidgetResources}}}`</span> line.
+You can add custom JavaScript code to the sign-in page. In the embedded HTML editor, add a script in the `<head>` section, below the `SignInWidgetResources` line.
 
 Example:
 
