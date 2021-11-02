@@ -98,9 +98,9 @@ In Classic Engine, when a user is using both the Forgot Password Question and a 
 
 ***
 
-#### Session Token created during an Identity Engine upgrade prompts user for password after upgrade completes
+#### Session Token created before an Identity Engine upgrade prompts user for password after upgrade completes
 
-**What Changed:** If a user authenticates in the Classic Engine (creating a `sessionToken`), and the upgrade to the Identity Engine completes during the time that the `sessionToken` is valid (five minutes), then when a user attempts to access an OpenID Connect app after the upgrade, the user is prompted for their password again.
+**What Changed:** If a user authenticates in the Classic Engine (which creates a `sessionToken`), and the upgrade to the Identity Engine completes during the time that the `sessionToken` is valid (five minutes), then when a user attempts to access an OpenID Connect app after the upgrade, the user is prompted for their password again.
 
 > **Note:** This scenario only happens during an upgrade from the Classic Engine to the Identity Engine. It doesn't continue to happen after the upgrade.
 
