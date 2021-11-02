@@ -5,7 +5,7 @@ The following macros contain the configuration parameters for certain page eleme
 
 ## orgName
 
-Inserts the org name title.
+Inserts the org name title: `{{orgName}}`
 
 Example:
 
@@ -15,7 +15,7 @@ Example:
 
 ## errorSummary
 
-Inserts the error title text.
+Inserts the error title text: `{{errorSummary}}`
 
 Example:
 
@@ -25,7 +25,9 @@ Example:
 
 ## bgImageUrl
 
-Inserts a URL to the background image configured for your application. You can change this image using the **Sign-in Configuration** option accessed by selecting **Settings**, and then **Appearance** from the Admin Console, but this changes the background image in all instances where the macro is used, including your custom sign-in page.
+Inserts a URL to the background image configured for your application.
+
+You can change this image using the **Sign-in Configuration** option accessed by selecting **Settings**, and then **Appearance** from the Admin Console, but this changes the background image in all instances where the macro is used, including your custom sign-in page.
 
 If you want to just change the background image for your custom error pages, include the URL to the image instead of the macro:
 
@@ -37,7 +39,9 @@ Example:
 
 ## orgLogo
 
-Inserts the logo image that has been configured for your application. You can change this logo using the **Organization Logo** option accessed by selecting **Settings**, and then **Appearance** from the Admin Console, but this changes the org logo in all instances where the macro is used, including your custom sign-in page.
+Inserts the logo image that has been configured for your application.
+
+You can change this logo using the **Organization Logo** option accessed by selecting **Settings**, and then **Appearance** from the Admin Console, but this changes the org logo in all instances where the macro is used, including your custom sign-in page.
 
 If you want to just change the logo image for your custom error pages, include the URL to the image instead of the macro:
 
@@ -48,7 +52,7 @@ Example:
 
 ## errorSummary and errorDescription
 
-Inserts a title and detailed description of the error.
+Inserts a title and detailed description of the error: `{{errorSummary}}` and `{{{errorDescription}}}`
 
 Example:
 
@@ -59,7 +63,9 @@ Example:
 
 ## back
 
-Inserts the text `Go to Homepage`. The button takes the user back to the sign-in page when clicked.
+Inserts the text `Go to Homepage`: `{{back}}`
+
+The button takes the user back to the sign-in page when clicked.
 
 Example:
 
@@ -77,15 +83,15 @@ Example:
 <p class="technical-details">Additional Error Details: {{technicalDetails}}</p>
 ```
 
-> **Note:** Macros only available with Branding
+> **Note:** The following macros are only available when you enable the THEME_BUILDER feature.
 
 ## buttonText
 
-Inserts the button text based on the page context. The button takes the user back to the `buttonHref` when clicked. `{{back}}` is also supported for the same purpose.
+Inserts the button text based on the page context. The button takes the user back to the `buttonHref` when clicked. `back` is also supported for the same purpose.
 
 ## buttonHref
 
-Inserts the href for the button.
+Inserts the `href` for the button.
 
 Example:
 
@@ -105,7 +111,7 @@ Example:
 
 ## faviconUrl
 
-Inserts the href for the favicon.
+Inserts the `href` for the favicon.
 
 Example:
 
