@@ -44,7 +44,7 @@ n/a
 
     For example, if your Okta subdomain is called `company`, then the URI would be `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
-1. Save the generated <StackSelector snippet="idp" noSelector inline /> client ID and client secret values. You need to add them to your Okta configuration.
+1. Save the generated <StackSelector snippet="idp" noSelector inline /> client ID and client secret values. You'll need them to configure your Identity Provider in Okta.
 
 ## Create the Identity Provider in Okta
 
@@ -66,30 +66,11 @@ To add <StackSelector snippet="idp" noSelector inline /> as an Identity Provider
 
 You can test your integration by configuring a [routing rule](https://help.okta.com/okta_help.htm?id=ext-cfg-routing-rules) to use <StackSelector snippet="idp" noSelector inline /> as the Identity Provider.
 
-Alternatively, you can [use the Authorize URL to simulate the authorization flow](#use-the-authorize-url-to-simulate-the-authorization-flow).
-
-<StackSnippet snippet="noemail" />
-
-## Add <StackSelector snippet="idp" noSelector inline /> to the Okta Sign-In Widget
-
-The Okta Sign-In Widget is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSelector snippet="idp" noSelector inline />** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the 
-[Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section.
-
-To find your Identity Provider ID:
-
-1. In the Admin console, go to **Security** > **Identity Providers**.
-1. On the **Identity Providers** page, select the **Identity Provider** tab.
-1. Select your Identity Provider from the list. **IdP ID** contains your Identity Provider ID.
-
-<StackSnippet snippet="siwconfig" />
-
-## Use the Authorize URL to simulate the authorization flow
-
-You can use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
+Alternatively, you can use the Authorize URL to simulate the authorization flow. The Okta Identity Provider that you created generated an authorize URL with a number of blank parameters that you can fill in to test the flow with the Identity Provider. The authorize URL initiates the authorization flow that authenticates the user with the Identity Provider.
 
 In the URL, replace `${yourOktaDomain}` with your org's base URL, and then replace the following values:
 
-* `client_id` &mdash; use the `client_id` value from your Oka app integration. This is not the `client_id` from the Identity Provider. For example, `0oawjqpb2wcUAWM8C0h7`.
+* `client_id` &mdash; use the `client_id` value from your Okta app integration. This is not the `client_id` from the Identity Provider. For example, `0oawjqpb2wcUAWM8C0h7`.
 
 * `response_type` &mdash; determines which flow is used. For the [Implicit](/docs/guides/implement-grant-type/implicit/main/) flow, this should be `id_token`. For the [Authorization Code](/docs/guides/implement-grant-type/authcode/main/) flow, this should be `code`.
 
@@ -111,6 +92,22 @@ An example of a complete URL looks like this:
 https://${yourOktaDomain}/oauth2/v1/authorize?idp=${idp_id}&client_id=${client_id}&response_type=id_token&response_mode=fragment&scope=openid%20email&redirect_uri=https%3A%2F%2FyourAppUrlHere.com%2F&state=WM6D&nonce=YsG76jo
 ```
 
+<StackSnippet snippet="noemail" />
+
+## Add <StackSelector snippet="idp" noSelector inline /> to the Okta Sign-In Widget
+
+The [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget) is an embeddable JavaScript Widget that reproduces the look and behavior of the standard Okta sign-in page. You can add a **Sign in with <StackSelector snippet="idp" noSelector inline />** button to the Widget by adding the following code to your Okta Sign-In Widget configuration. Replace `Your_IDP_ID` with the Identity Provider ID from your Identity Provider that you created in Okta in the 
+[Create the Identity Provider in Okta](#create-the-identity-provider-in-okta) section.
+
+To find your Identity Provider ID:
+
+1. In the Admin console, go to **Security** > **Identity Providers**.
+1. On the **Identity Providers** page, select the **Identity Provider** tab.
+1. Select your Identity Provider from the list. **IdP ID** contains your Identity Provider ID.
+
+<StackSnippet snippet="siwconfig" />
+
+
 ## Next steps
 
 You should now understand how to add a social Identity Provider and have successfully added and tested the integration.
@@ -118,7 +115,3 @@ You should now understand how to add a social Identity Provider and have success
 To map Okta attributes to app attributes, use the [Profile Editor](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_app_map).
 
 To add another Identity Provider, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).
-
-## See also
-
-* [Okta Sign-In Widget](https://github.com/okta/okta-signin-widget)
