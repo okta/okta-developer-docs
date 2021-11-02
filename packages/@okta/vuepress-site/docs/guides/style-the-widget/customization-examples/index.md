@@ -26,7 +26,7 @@ Example:
 
 ### Add your own scripts
 
-You can add custom JavaScript code to the sign-in page. In the embedded HTML editor, add a script in the `<head>` section, below the `SignInWidgetResources` line.
+You can add custom JavaScript code to the sign-in page. In the embedded HTML editor, add a script in the `<head>` section, below the `{{{SignInWidgetResources}}}` line.
 
 Example:
 
