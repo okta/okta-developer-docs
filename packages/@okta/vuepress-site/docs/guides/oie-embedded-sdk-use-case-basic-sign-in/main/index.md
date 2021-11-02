@@ -13,14 +13,18 @@ This guide covers a basic user sign-in request, which is the simplest of all use
 
 ---
 **Learning outcomes**
+
 Understand how to implement basic sign-in using Okta Identity Engine.
 
 **What you need**
+
 * [Okta org](https://developer.okta.com/signup/oie.html)
 * [Sample app](/docs/guides/oie-embedded-common-download-setup-app), downloaded and set up
 
 **Sample code**
+
 n/a
+
 ---
 
 ## Configuration updates

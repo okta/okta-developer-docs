@@ -12,15 +12,19 @@ This guide covers the refresh tokens that are used when access tokens expire and
 
 ---
 **Learning outcomes**
+
 * Understand what refresh tokens are.
 * Know how to use either of the options to refresh tokens.
 
 **What you need**
+
 * [Refresh token](/docs/guides/refresh-tokens/use-refresh-token/) from the SDK with `offline_access` as a scope
 * [`/token`](/docs/reference/api/oidc/#token) endpoint
 
 **Sample code**
+
 n/a
+
 ---
 
 ## Overview
