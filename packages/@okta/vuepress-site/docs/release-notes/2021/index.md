@@ -45,7 +45,7 @@ The Device Authorization grant feature is an OAuth 2.0 grant type that allows us
 
 #### Key pair additions to JWKS limited to 50 per client
 
-The number of key pairs that can be added to a [JWKS (JSON Web Key Set)](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/) cannot exceed 50 per client.<!--OKTA-435434-->
+The number of key pairs that can be added to a [JWKS (JSON Web Key Set)](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/) can't exceed 50 per client.<!--OKTA-435434-->
 
 #### Authentication API returns UD User Profile locale is now GA in Production
 
@@ -65,7 +65,7 @@ To secure SAML assertions from attacks and to adopt a stronger security mechanis
 
 Single Sign-On (SSO) between browser-based web apps is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to achieve SSO between native applications.
 
-Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achive SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/).<!--OKTA-435714-->
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/).<!--OKTA-435714-->
 
 #### The Okta Org API is now GA in Production
 
@@ -73,13 +73,13 @@ The [Okta Org API](/docs/reference/api/org/) allows you to manage your org accou
 
 #### Bugs fixed in 2021.11.0
 
-- When the [Get user’s groups](/docs/reference/api/users/#get-user-s-groups) endpoint was called by a group administrator that didn’t have permission to see all the groups a user belonged to, the response was either an HTTP 500 `Internal Server` error or incorrect page behavior in the results. (OKTA-379237)
+- When the [Get user’s groups](/docs/reference/api/users/#get-user-s-groups) endpoint was called by a group administrator who didn’t have permission to see all the groups a user belonged to, the response was either an `HTTP 500 Internal Server` error or incorrect page behavior in the results. (OKTA-379237)
 
-- When the [Remove group](/docs/reference/api/groups/#remove-group) endpoint was called with an invalid group `profile` attribute, the group was not removed. (OKTA-425470)
+- When the [Remove group](/docs/reference/api/groups/#remove-group) endpoint was called with an invalid group `profile` attribute, the group wasn't removed. (OKTA-425470)
 
 - When an [Update application](/docs/reference/api/apps/#update-application) endpoint was called without a recipient URL in the SAML app request body, the response was an HTTP 500 `Internal Server` error instead of a validation error message. (OKTA-438456)
 
-- When an [Update logo for app](/docs/reference/api/apps/#update-logo-for-application) endpoint was called using an app link that wasn't named "login", the response was "App instance has no login link to set logo for". (OKTA-439102)
+- When an [Update logo for app](/docs/reference/api/apps/#update-logo-for-application) endpoint was called using an app link that wasn't named "login", the response was "App instance has no login link to set logo for." (OKTA-439102)
 
 ## October
 
