@@ -5,12 +5,14 @@ meta:
     content: Okta supports both enterprise and social Identity Providers (social login).
 ---
 
+Okta integrates with many Identity Providers. See the [External Identity Providers](/docs/concepts/identity-providers/) concept page for more information.
+
 ## Enterprise Identity Providers
 
 <Cards>
   <Card href="/docs/guides/add-an-external-idp/saml2/main/" headerImage="/img/idp-logos/saml.png">SAML 2.0</Card>
   <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect (OIDC)</Card>
-  <!-- Need to figure out a way to likn externally -->
+  <!-- Need to figure out a way to link externally -->
   <!-- <Card href="https://help.okta.com/en/prod/Content/Topics/Security/idp-enable-smart-card.htm" headerImage="/img/idp-logos/smart-card.png">Smart Card</Card> -->
 </Cards>
 
