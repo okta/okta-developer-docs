@@ -27,7 +27,7 @@ The new response for the Identity Providers API [social authentication token ope
 
 #### Brands API support for auto-detecting contrast colors
 
-The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. The auto-detection feature can be disabled by updating either property value with an accepted contrast hex value.<!--OKTA-426715-->
+The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. The auto-detection feature can be disabled by updating either property value with an accepted contrast hex value. See [Update Theme](/docs/reference/api/brands/#update-theme).<!--OKTA-426715-->
 
 #### New error page macros for themed templates
 
@@ -35,7 +35,7 @@ Custom [error page templates](/docs/guides/custom-error-pages/use-macros/) inclu
 
 #### Event Hooks daily limit
 
-The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood orgs will exceed their daily limits. See [Workflows system limits](https://help.okta.com/okta_help.htm?id=ext-workflows-system-limits)<!--OKTA-441433-->
+The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
 
 #### Device Authorization grant type is now GA in Preview
 
