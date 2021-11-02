@@ -2,7 +2,7 @@
 title: Add an external Identity Provider
 meta:
   - name: description
-    content: Okta supports both enterprise and social identity providers (social login).
+    content: Okta supports both enterprise and social Identity Providers (social login).
 ---
 
 ## Enterprise Identity Providers
