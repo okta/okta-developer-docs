@@ -59,7 +59,7 @@ The following macros in the HTML contain the configuration parameters for certai
 
 ### pageTitle
 
-Inserts the page title.
+Inserts the page title: `{{pageTitle}}`
 
 Example:
 
@@ -73,7 +73,9 @@ Inserts the JavaScript and CSS files required to use the Okta Sign-In Widget.
 
 ### bgImageUrl
 
-Inserts a URL to the background image configured in your Okta organization. This setting can be changed by selecting **Customization**, and then **Appearance**.
+Inserts a URL to the background image configured in your Okta organization: `{{bgImageUrl}}`
+
+This setting can be changed by selecting **Customization**, and then **Appearance**.
 
 Example:
 
@@ -135,7 +137,7 @@ See [Per-application customization](/docs/guides/style-the-widget/customization-
 
 ### themedStylesUrl
 
-Inserts the href for themed style sheet.
+Inserts the href for themed style sheet: `{{themedStylesUrl}}`
 
 Example:
 
@@ -145,7 +147,7 @@ Example:
 
 ### faviconUrl
 
-Inserts the href for the favicon.
+Inserts the href for the favicon: `{{faviconUrl}}`
 
 Example:
 
