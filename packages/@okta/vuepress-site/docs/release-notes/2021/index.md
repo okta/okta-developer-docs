@@ -10,11 +10,14 @@ title: Okta API Products Release Notes 2021
 |--------------------------------------------------------------------------|--------------------------|
 | [Identity Providers API response includes ID token for generic OIDC provider](#identity-providers-api-response-includes-id-token-for-generic-oidc-provider) | November 3, 2021 |
 | [Brands API support for auto-detecting contrast colors](#brands-api-support-for-auto-detecting-contrast-colors) | November 3, 2021 |
-| [Authentication API returns UD User Profile locale is GA in Preview](#authentication-api-returns-ud-user-profile-locale-is-ga-in-preview) | November 3, 2021 |
+| [Authentication API returns UD User Profile locale is GA in Production](#authentication-api-returns-ud-user-profile-locale-is-ga-in-production) | November 3, 2021 |
 | [Key pair additions to JWKS limited to 50 per client](#key-pair-additions-to-jwks-limited-to-50-per-client) | November 3, 2021 |
 | [The Okta Org API is now GA in Production](#the-okta-org-api-is-now-ga-in-production)                          | November 3, 2021          |
 | [New error page macros for themed templates](#new-error-page-macros-for-themed-templates)                          | November 3, 2021          |
 | [Event Hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
+| [Device Authorization grant type](#device-authorization-grant-type-is-now-ga-in-production)                          | November 3, 2021          |
+| [Native SSO support is GA in Production](#native-sso-support-is-ga-in-production)                          | November 3, 2021          |
+| [AES-GCM encryption support for SAML assertions is now GA in Production](#aes-gcm-encryption-support-for-saml-assertions-is-now-ga-in-production) | November 3, 2021 |
 | [Bug fixed in 2021.11.0](#bug-fixed-in-2021-11-0)                          | November 3, 2021          |
 
 #### Identity Providers API response includes ID token for generic OIDC provider
@@ -25,7 +28,7 @@ The new response for the Identity Providers API [social authentication token ope
 
 The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. The auto-detection feature can be disabled by updating either property value with an accepted contrast hex value.<!--OKTA-426715-->
 
-#### Authentication API returns UD User Profile locale is GA in Preview
+#### Authentication API returns UD User Profile locale is GA in Production
 
 The response for the primary Authentication API includes the [User Profile's locale](/docs/reference/api/authn/#user-profile-object) value that is the same as the User Profile locale value in Universal Directory (UD).<!--OKTA-430700-->
 
@@ -44,6 +47,22 @@ Custom [error page templates](/docs/guides/custom-error-pages/use-macros/) inclu
 #### Event Hooks daily limit
 
 The maximum allowable daily limit of Event Hooks for all orgs has increased from 100K to 200K. A higher daily allocation of Event Hooks reduces the likelihood orgs will exceed their daily limits. See [Event Hooks](/docs/concepts/event-hooks/#rate-limits).<!--OKTA-441433-->
+
+#### Device Authorization grant type is now GA in Production
+
+Advancements in internet technology have seen an explosion of smart devices and the Internet of Things. Consumers need to sign in to applications that run on these devices, but the devices either lack support for a web browser or have limited ability for input, such as smart TVs, car consoles, and thermostats. As a result, users resort to insecure authentication solutions that are error-prone and time-consuming.
+
+The Device Authorization grant feature is an OAuth 2.0 grant type that allows users to sign in to input-constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/).<!--OKTA-428052-->
+
+#### Native SSO support is GA in Production
+
+Single Sign-On (SSO) between browser-based web apps is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to achieve SSO between native applications.
+
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achive SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/).<!--OKTA-435714-->
+
+#### AES-GCM encryption support for SAML assertions is now GA in Production
+
+To secure SAML assertions from attacks and to adopt a stronger security mechanism, Okta now supports AES128-GCM and AES256-GCM encryptions modes in addition to AES-128 and AES-256 for SAML applications. <!--OKTA-435717-->
 
 #### Bugs fixed in 2021.11.0
 
