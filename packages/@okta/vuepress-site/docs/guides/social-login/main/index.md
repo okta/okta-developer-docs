@@ -114,4 +114,4 @@ You should now understand how to add a social Identity Provider and have success
 
 To map Okta attributes to app attributes, use the [Profile Editor](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_app_map).
 
-To add another Identity Provider, start by choosing an [external Identity Provider](/docs/concepts/identity-providers/).
+To add another Identity Provider, start by choosing an [external Identity Provider](/docs/guides/identity-providers/).
