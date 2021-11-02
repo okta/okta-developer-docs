@@ -8,7 +8,9 @@ As a developer building a custom application, you want to give your users the fr
 
 What is an Identity Provider? It is a service that creates and maintains identity information and then provides authentication services to your applications. Identity Providers can significantly reduce sign-in and registration friction, which allows your users to easily access applications without needing to create new passwords or remember usernames.
 
-[View and configure Okta's Identity Provider integrations](/docs/guides/identity-providers/)
+<a href='/docs/guides/identity-providers/' class='Button--blueDarkOutline card' data-proofer-ignore>
+	<span>Add an Identity Provider integration</span>
+</a>
 
 ## The big picture
 
@@ -123,4 +125,6 @@ The Okta Sign-In Widget (version 2.5.0 or above) interacts with the IdP Discover
 
 If you don't use the Okta Sign-In Widget, instead interacting directly with the [Okta Authentication API](/docs/reference/api/authn/) to implement sign-in yourself, you can integrate IdP Discovery into your flow by including a call to Okta's [WebFinger](/docs/reference/api/webfinger/) endpoint. That endpoint returns the name of the IdP that should be used for a given end user, as determined by the org's defined IdP Discovery Policy.
 
-[Get started with Okta's Identity Provider integrations](/docs/guides/identity-providers/)
+<a href='/docs/guides/identity-providers/' class='Button--blueDarkOutline card' data-proofer-ignore>
+	<span>Add an Identity Provider integration</span>
+</a>

@@ -5,7 +5,7 @@ meta:
     content: Okta supports both enterprise and social Identity Providers (social login).
 ---
 
-Okta integrates with many Identity Providers. See the [External Identity Providers](/docs/concepts/identity-providers/) concept page for more information.
+Okta integrates with many Identity Providers. Not sure what an Identity Provider is? See [External Identity Providers](/docs/concepts/identity-providers/) for more information.
 
 ## Enterprise Identity Providers
 
@@ -27,7 +27,7 @@ Okta integrates with many Identity Providers. See the [External Identity Provide
   <Card href="/docs/guides/add-an-external-idp/google/main/" headerImage="/img/idp-logos/google.svg">Google</Card>
   <Card href="/docs/guides/add-an-external-idp/linkedin/main/" headerImage="/img/idp-logos/linkedin.png">LinkedIn</Card>
   <Card href="/docs/guides/add-an-external-idp/microsoft/main/" headerImage="/img/idp-logos/microsoft.svg">Microsoft</Card>
-  <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect (OIDC)</Card>
+  <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect</Card>
   <Card href="/docs/guides/social-login/paypal/main" headerImage="/img/idp-logos/paypal.png">Paypal</Card>
   <Card href="/docs/guides/social-login/salesforce/main" headerImage="/img/idp-logos/salesforce.svg">Salesforce</Card>
   <Card href="/docs/guides/social-login/yahoo/main" headerImage="/img/idp-logos/yahoo.png">Yahoo</Card>
