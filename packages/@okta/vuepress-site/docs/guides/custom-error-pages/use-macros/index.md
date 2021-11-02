@@ -75,7 +75,9 @@ Example:
 
 ## technicalDetails
 
-Inserts additional error codes, if there are any. See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code) for more information.
+Inserts additional error codes, if there are any: `{{technicalDetails}}`
+
+See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code) for more information.
 
 Example:
 
@@ -87,11 +89,13 @@ Example:
 
 ## buttonText
 
-Inserts the button text based on the page context. The button takes the user back to the `buttonHref` when clicked. `back` is also supported for the same purpose.
+Inserts the button text based on the page context: `{{buttonText}}`
+
+The button takes the user back to the `buttonHref` when clicked. `back` is also supported for the same purpose.
 
 ## buttonHref
 
-Inserts the `href` for the button.
+Inserts the `href` for the button: `{{buttonHref}}`
 
 Example:
 
@@ -101,7 +105,7 @@ Example:
 
 ## themedStylesUrl
 
-Inserts the href for the themed style sheet.
+Inserts the href for the themed style sheet: `{{themedStylesUrl}}`
 
 Example:
 
@@ -111,7 +115,7 @@ Example:
 
 ## faviconUrl
 
-Inserts the `href` for the favicon.
+Inserts the `href` for the favicon: `{{faviconUrl}}`
 
 Example:
 
