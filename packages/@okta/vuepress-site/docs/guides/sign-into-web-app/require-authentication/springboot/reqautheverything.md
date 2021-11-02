@@ -21,7 +21,6 @@ class OktaOAuth2WebSecurityConfigurerAdapter extends WebSecurityConfigurerAdapte
 }
 ```
 
-
 Kotlin:
 
 ```kotlin
