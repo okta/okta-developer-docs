@@ -13,7 +13,7 @@ title: Okta Identity Engine API Products Release Notes 2021
 | [Brands API support for auto-detecting contrast colors](#brands-api-support-for-auto-detecting-contrast-colors) | November 3, 2021 |
 | [New Devices API response property available](#new-devices-api-response-property-available) | November 3, 2021 |
 | [New error page macros for themed templates](#new-error-page-macros-for-themed-templates)                          | November 3, 2021          |
-| [Token-based SSO between native apps is now GA in Production](#token-based-sso-between-native-apps-is-now-GA-in-production)                          | October 6, 2021          |
+| [Token-based SSO between native apps is now GA in Production](#token-based-sso-between-native-apps-is-now-ga-in-production)                          | October 6, 2021          |
 
 #### Brands API support for auto-detecting contrast colors
 
