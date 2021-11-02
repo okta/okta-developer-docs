@@ -13,7 +13,7 @@ title: Okta Identity Engine API Products Release Notes 2021
 | [Brands API support for auto-detecting contrast colors](#brands-api-support-for-auto-detecting-contrast-colors) | November 3, 2021 |
 | [New Devices API response property available](#new-devices-api-response-property-available) | November 3, 2021 |
 | [New error page macros for themed templates](#new-error-page-macros-for-themed-templates)                          | November 3, 2021          |
-| [Token-based SSO between native apps](#token-based-sso-between-native-apps)                          | November 3, 2021          |
+| [Token-based SSO between native apps is now GA in Production](#token-based-sso-between-native-apps-is-now-GA-in-production)                          | October 6, 2021          |
 
 #### Brands API support for auto-detecting contrast colors
 
@@ -27,7 +27,7 @@ Calls to the [List devices](/docs/reference/api/devices/#usage-example-expand-us
 
 Custom [error page templates](/docs/guides/custom-error-pages/use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
 
-#### Token-based SSO between native apps
+#### Token-based SSO between native apps is now GA in Production
 
 Single Sign-On (SSO) between browser-based web apps is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to achieve SSO between native applications.
 
