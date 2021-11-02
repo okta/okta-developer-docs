@@ -131,7 +131,7 @@ There is also additional information available in the `target`, such as `label`.
 
 See [Per-application customization](/docs/guides/style-the-widget/customization-examples/#per-application-customization) for examples.
 
-> **Note:** Macros only available with Branding
+> **Note:** The following macros are only available when you enable the THEME_BUILDER feature.
 
 ### themedStylesUrl
 
