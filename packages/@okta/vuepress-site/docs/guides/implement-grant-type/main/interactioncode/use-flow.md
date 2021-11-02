@@ -1,5 +1,13 @@
 The Interaction Code flow is intended for developers who want to control the remediation user experience without redirecting the authentication experience to Okta. The Interaction Code flow is used in the [embedded authentication deployment model](/docs/concepts/redirect-vs-embedded/#embedded-authentication) where you can manage the user interaction by leveraging either an Identity Engine SDK or the Sign-In Widget with an Identity Engine SDK.
 
+### Use an SDK
+
+Okta recommends using an Identity Engine SDK with the Sign-In Widget to implement your embedded authentication Interaction Code flow. See [Okta Identity Engine SDKs & Samples](/code/oie/) for a list of Identity Engine SDKs that you can download to start using with your app.
+
+> **Note:** Even if you are not using the Sign-In Widget in your final embedded app, the Sign-In Widget can be used to validate and test your defined policies before investing a lot of time on coding the authentication flow.
+
+For instructions on how to install and use Okta Identity Engine SDKs, refer to [Download and set up the SDK, Sign-In Widget, and sample app](/docs/guides/oie-embedded-common-download-setup-app/). You can download Okta sample apps to see how the SDKs are used in your app's framework. See [Examples](#examples) for a list of sample apps.
+
 ### Embedded authentication app using the Sign-In Widget and a native Identity Engine SDK
 
 An app integration using the client-hosted [Sign-In Widget](/code/javascript/okta_sign-in_widget/) with an appropriate [Identity Engine SDK](/docs/guides/oie-embedded-common-download-setup-app/) is a simpler way of implementing embedded authentication where most of the remediation process is handled by the Widget. You still have control over the step-by-step remediation user experience by configuring Authenticators and sign-on policies in your Okta org. With the remedial process managed by the Widget, your app just needs to handle the Interaction Code returned from the completed user interaction. See how this flow is built by reviewing the [Build a use case with the embedded Widget](/docs/guides/oie-embedded-widget-use-case-basic-sign-in) guide.

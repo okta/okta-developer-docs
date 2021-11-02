@@ -17,7 +17,7 @@ client -> client: Generate PKCE code verifier & challenge
 client -> okta: Authorization request w/ code_challenge, client ID, scopes, and user info
 okta -> okta: Remediation required
 okta -> client: Send interaction_handle in response (for required interaction)
-client <-> okta: Remediation steps w/ interation_handle
+client <-> okta: Remediation steps w/ interaction_handle
 user <-> client: Remediation
 note right: Possible multiple remediation steps required
 client -> okta: Complete remediation steps w/ interaction_handle
@@ -37,9 +37,9 @@ The Interaction Code flow is similar to the [OAuth 2.0 Authorization Code flow w
 
 2. The client app generates the PKCE code verifier & code challenge.
 
-    > **Note:** To use the Interaction Code flow, both the client app and the authorization server used must have the Interaction Code grant type enabled in the Okta org.
+    > **Note:** To use the Interaction Code flow, both the client app and the authorization server must have the [Interaction Code grant type enabled](#set-up-your-authorization-server) in the Okta org.
 
-3. The client app begins interaction with an [authorization server](/docs/concepts/auth-servers/) (Org or Custom), providing any context it may have, such as a sign-in hint, as well as sending the code challenge in a request for authorization of certain scopes to the authorization server.
+3. The client app begins interaction with an [authorization server](/docs/concepts/auth-servers/) (Org or Custom), providing any context it may have, such as a sign-in hint, as well as sending the PKCE code challenge in a request for authorization of certain scopes to the authorization server.
 
     > **Note:** A confidential client authenticates with the authorization server while a public client (like the Sign-In Widget) identifies itself to the authorization server. Both must provide the PKCE code challenge.
 

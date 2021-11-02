@@ -4,7 +4,7 @@
 7. Specify the **Sign-in redirect URIs** to redirect the user with their Interaction Code.
 8. Fill in the remaining details for your app integration, then click **Save**.
 
-> **Note:**  Remember to add the appropriate redirect path in your app for redirection.
+> **Note:**  Remember to add the appropriate path in your app for redirection.
 
 From the **General** tab of your app integration, save the generated **Client ID** value to implement your authorization flow. If you have a web application, you also need to save the **Client secret** value.
 
