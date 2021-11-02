@@ -45,6 +45,5 @@ class SecurityConfig2 : WebSecurityConfigurerAdapter() {
 }
 
 
-
 For more information, see the official [Spring Boot documentation](https://docs.spring.io/spring-security/site/docs/current/reference/html/jc.html#jc-httpsecurity).
 
