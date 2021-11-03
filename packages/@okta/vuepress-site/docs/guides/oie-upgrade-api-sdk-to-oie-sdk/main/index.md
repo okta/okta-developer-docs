@@ -47,7 +47,7 @@ The following sections highlight the Classic Engine Authentication SDK method ca
 
 <StackSelector snippet="auth" noSelector />
 
-### Map Authn APs to Okta Identity Engine SDK
+### Map Authn APIs to Okta Identity Engine SDK
 
 If your application uses direct APIs for an authentication flow, your application code may call the following Okta APIs:
 
@@ -667,6 +667,6 @@ If your application code implements these API calls and handles the responses sh
 
 See [Okta Identity Engine SDK authentication flow for Password Recovery](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-authentication-flow-for-password-recovery).
 
-## Map Basic Sign out APIs to Okta Identity Engine SDK
+## Map Basic Sign out code to Okta Identity Engine SDK
 
 <StackSelector snippet="signout" noSelector />
