@@ -36,7 +36,7 @@ Similarly, you can map the IdP username by doing the following:
 
 1. Click **Identity Providers**.
 
-1. Locate your <StackSelector snippet="idp" noSelector inline /> in the list of providers, then click **Configure** > **Configure Identity Provider**.
+1. Locate <StackSelector snippet="idp" noSelector inline /> in the list of providers, and then click **Configure** > **Configure Identity Provider**.
 
 1. Set the expression for **IdP Username** to: 
 ```
