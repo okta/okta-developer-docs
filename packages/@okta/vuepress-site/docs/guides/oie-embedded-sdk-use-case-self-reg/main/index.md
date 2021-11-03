@@ -13,15 +13,19 @@ This guide covers self-service registration, which allows users to sign up for t
 
 ---
 **Learning outcomes**
+
 * Configure your Okta org for self-service registration.
 * Set up the password, email, and/or phone authentication factors.
 * Set up and send a verification email during new user registration.
 
 **What you need**
+
 [Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
 
 **Sample code**
+
 n/a
+
 ---
 
 ## Configuration updates

@@ -13,6 +13,7 @@ This guide covers how to set up an Okta sample app to demonstrate some Identity 
 
 ---
 **Learning outcomes**
+
 * Create, set up, and install an Okta OAuth 2.0 app.
 * Enroll and authenticate a user.
 * Enable self-service enrollment and enable a second factor for authentication.
@@ -21,10 +22,13 @@ This guide covers how to set up an Okta sample app to demonstrate some Identity 
 * Route users to an external IdP.
 
 **What you need**
+
 [Sample app](/docs/guides/oie-embedded-common-download-setup-app)
 
 **Sample code**
+
 n/a
+
 ---
 
 ## Use case scenarios
