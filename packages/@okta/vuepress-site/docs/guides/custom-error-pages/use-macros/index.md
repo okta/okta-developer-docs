@@ -97,7 +97,7 @@ Example:
 
 #### <span v-pre>`{{themedStylesUrl}}`</span>
 
-Inserts the href for the themed style sheet.
+Inserts the href for the themed style sheet
 
 Example:
 
