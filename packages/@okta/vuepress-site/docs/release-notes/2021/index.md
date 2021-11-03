@@ -59,7 +59,7 @@ Native SSO allows you to protect native OpenID Connect applications, such as des
 
 #### AES-GCM encryption support for SAML assertions is now GA in Production
 
-To secure SAML assertions from attacks and to adopt a stronger security mechanism, Okta now supports AES128-GCM and AES256-GCM encryptions modes in addition to AES-128 and AES-256 for SAML applications. <!--OKTA-435717-->
+To secure SAML assertions from attacks and to adopt a stronger security mechanism, Okta now supports AES128-GCM and AES256-GCM encryption modes in addition to AES-128 and AES-256 for SAML applications. <!--OKTA-435717-->
 
 #### Token-based SSO between native apps is now GA in Production
 
