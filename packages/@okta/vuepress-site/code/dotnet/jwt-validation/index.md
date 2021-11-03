@@ -15,7 +15,7 @@ If you are writing low-level code that retrieves or uses these tokens, it's impo
 
 You _don't_ need to validate tokens manually if:
 
-* You are using <a href='/docs/guides/sign-into-web-app/aspnet/before-you-begin/' data-proofer-ignore>ASP.NET</a> or <a href='/docs/guides/sign-into-web-app/aspnetcore3/before-you-begin/' data-proofer-ignore>ASP.NET Core</a> - follow our how to guide instead!
+* You are using <a href='/docs/guides/sign-into-web-app/aspnet/main/' data-proofer-ignore>ASP.NET</a> or <a href='/docs/guides/sign-into-web-app/aspnetcore3/main/' data-proofer-ignore>ASP.NET Core</a> - follow our how to guide instead!
 * You send the tokens to Okta to be validated (this is called [token introspection](/docs/reference/api/oidc/#introspect))
 
 If you need to validate a token manually, and don't want to make a network call to Okta, this guide will help you validate tokens locally.
