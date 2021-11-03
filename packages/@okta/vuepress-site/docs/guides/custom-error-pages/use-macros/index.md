@@ -83,7 +83,7 @@ Example:
 
 #### <span v-pre>`{{buttonText}}`</span>
 
-Inserts the button text based on the page context. The button takes the user back to the `buttonHref` when clicked. `{{back}}` is also supported for same purpose.
+Inserts the button text based on the page context. The button takes the user back to the `buttonHref` when clicked. `{{back}}` is also supported for the same purpose.
 
 #### <span v-pre>`{{buttonHref}}`</span>
 
