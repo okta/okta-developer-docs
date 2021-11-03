@@ -44,7 +44,7 @@ n/a
 
     For example, if your Okta subdomain is called `company`, then the URI would be `https://company.okta.com/oauth2/v1/authorize/callback`. If you have configured a custom domain in your Okta org, use that value to construct your redirect URI, such as `https://login.company.com/oauth2/v1/authorize/callback`.
 
-1. Save the generated <StackSelector snippet="idp" noSelector inline /> client ID and client secret values. You'll need them to configure your Identity Provider in Okta.
+1. Save the generated <StackSelector snippet="idp" noSelector inline /> client ID and client secret values. You need them to configure your Identity Provider in Okta.
 
 ## Create the Identity Provider in Okta
 
