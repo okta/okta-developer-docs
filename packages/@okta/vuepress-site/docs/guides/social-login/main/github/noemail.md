@@ -6,7 +6,7 @@ For example, you might generate email addresses using the `example.com` domain. 
 
 You can customize this mapping by using the [Okta Expression Language](/docs/reference/okta-expression-language/). See [Profile Editor](https://help.okta.com/en/prod/okta_help_CSH.htm#ext_app_map) for more information on attribute mapping.
 
-To generate logins and email addresses for <StackSelector snippet="idp" noSelector inline /> users, do the following:
+To generate user login values and email addresses for <StackSelector snippet="idp" noSelector inline /> users, do the following:
 
 1. From the Admin Console, click **Security**.
 
