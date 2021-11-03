@@ -87,7 +87,7 @@ Inserts the button text based on the page context. The button takes the user bac
 
 #### <span v-pre>`{{buttonHref}}`</span>
 
-Inserts the href for the button.
+Inserts the href for the button
 
 Example:
 
