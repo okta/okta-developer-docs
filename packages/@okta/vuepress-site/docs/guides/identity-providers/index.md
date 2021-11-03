@@ -11,7 +11,9 @@ Okta integrates with many Identity Providers. Not sure what an Identity Provider
 
 <Cards>
   <Card href="/docs/guides/add-an-external-idp/saml2/main/" headerImage="/img/idp-logos/saml.png">SAML 2.0</Card>
-  <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect (OIDC)</Card>
+  <Card href="/docs/guides/add-an-external-idp/openidconnect/main/" headerImage="/img/idp-logos/oidc.png">OpenID Connect</Card>
+  <Card href="/docs/guides/add-an-external-idp/oktatookta/main/" headerImage="/img/idp-logos/okta.svg">Okta to Okta</Card>
+  <Card href="/docs/guides/add-an-external-idp/azure/main/" headerImage="/img/idp-logos/azure.svg">Azure AD</Card>
   <!-- Need to figure out a way to link externally -->
   <!-- <Card href="https://help.okta.com/en/prod/Content/Topics/Security/idp-enable-smart-card.htm" headerImage="/img/idp-logos/smart-card.png">Smart Card</Card> -->
 </Cards>
