@@ -107,7 +107,7 @@ Example:
 
 #### <span v-pre>`{{faviconUrl}}`</span>
 
-Inserts the href for the favicon.
+Inserts the href for the favicon
 
 Example:
 
