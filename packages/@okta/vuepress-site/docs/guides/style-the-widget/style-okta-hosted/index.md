@@ -131,7 +131,7 @@ There is also additional information available in the `target`, such as `label`.
 
 See <GuideLink link="../customization-examples/#per-application-customization">Per-application customization</GuideLink> for an example of what you can do with request context.
 
-> **Note:** The following macros are only available when you enable the THEME_BUILDER feature.
+> **Note:** The following macros are only available when the Theme Builder feature is enabled in your org.
 
 #### <span v-pre>`{{themedStylesUrl}}`</span>
 
