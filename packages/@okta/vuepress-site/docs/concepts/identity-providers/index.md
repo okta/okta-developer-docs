@@ -8,34 +8,23 @@ As a developer building a custom application, you want to give your users the fr
 
 What is an Identity Provider? It is a service that creates and maintains identity information and then provides authentication services to your applications. Identity Providers can significantly reduce sign-in and registration friction, which allows your users to easily access applications without needing to create new passwords or remember usernames.
 
-Currently Okta supports the following social Identity Providers:
-
-- [Apple](/docs/guides/add-an-external-idp/apple/main/)
-- [Azure](/docs/guides/add-an-external-idp/azure/main/)
-- [Facebook](/docs/guides/add-an-external-idp/facebook/main/)
-- [Google](/docs/guides/add-an-external-idp/google/main/)
-- [LinkedIn](/docs/guides/add-an-external-idp/linkedin/main/)
-- [Microsoft](/docs/guides/add-an-external-idp/microsoft/main/)
-
-Additionally, Okta supports the following Identity Providers:
-
-- [Okta to Okta](/docs/guides/add-an-external-idp/oktatookta/main/)
-- [OpenID Connect](/docs/guides/add-an-external-idp/openidconnect/main/)
-- [SAML 2.0](/docs/guides/add-an-external-idp/saml2/main/)
+<a href='/docs/guides/identity-providers/' class='Button--blueDarkOutline card' data-proofer-ignore>
+	<span>Add an Identity Provider integration</span>
+</a>
 
 ## The big picture
 
 Okta manages connections to other Identity Providers for your application and sits between your application and the Identity Provider that authenticates your users.
 
-* When you use Okta as the [user store](https://developer.okta.com/product/user-management/) for your applications, users can sign in with their email and password by default. See our guides for how to sign in users to your [web](/docs/guides/sign-into-web-app/), [mobile](/docs/guides/sign-into-mobile-app/), and [single-page](/docs/guides/sign-into-spa/) apps.
+-   When you use Okta as the [user store](https://developer.okta.com/product/user-management/) for your applications, users can sign in with their email and password by default. See our guides for how to sign in users to your [web](/docs/guides/sign-into-web-app/), [mobile](/docs/guides/sign-into-mobile-app/), and [single-page](/docs/guides/sign-into-spa/) apps.
 
-* You can add connections to social Identity Providers like Apple or Facebook. This is called social login or social authentication. It allows your users to sign in to your app using credentials from their existing social Identity Providers. After users authenticate, you sync their existing Identity Provider credentials into your Okta Universal Directory while continuing to use that Identity Provider for user authentication. This eliminates the need to store an additional username and password for that user.
+-   You can add connections to social Identity Providers like Apple or Facebook. This is called social login or social authentication. It allows your users to sign in to your app using credentials from their existing social Identity Providers. After users authenticate, you sync their existing Identity Provider credentials into your Okta Universal Directory while continuing to use that Identity Provider for user authentication. This eliminates the need to store an additional username and password for that user.
 
-* You can add connections to Identity Providers that you build in-house that support OpenID Connect or SAML protocols, also referred to as inbound federation or inbound SAML. The SAML flow is initiated with the Service Provider (in this case, Okta) that redirects the user to the Identity Provider for authentication. After authentication, a user is created inside Okta, and the user is redirected back to your application along with an ID token. This allows you to use Okta to proxy between SAML-only Identity Providers and OpenID Connect-only applications that normally are incompatible.
+-   You can add connections to Identity Providers that you build in-house that support OpenID Connect or SAML protocols, also referred to as inbound federation or inbound SAML. The SAML flow is initiated with the Service Provider (in this case, Okta) that redirects the user to the Identity Provider for authentication. After authentication, a user is created inside Okta, and the user is redirected back to your application along with an ID token. This allows you to use Okta to proxy between SAML-only Identity Providers and OpenID Connect-only applications that normally are incompatible.
 
 > **Note:** Social and OpenID Connect Identity Providers store access tokens that allow subsequent calls to Identity Providers after the user is authorized. For example, the token may contain the permission to add events to a user's Google calendar. After the user is authorized, the token can be used on additional calls to add events to a user's Google calendar on the user's behalf.
 
-* You can also configure federation [between Okta orgs](/docs/guides/add-an-external-idp/oktatookta/main/) using OpenID Connect or SAML.
+-   You can also configure federation [between Okta orgs](/docs/guides/add-an-external-idp/oktatookta/main/) using OpenID Connect or SAML.
 
 Adding any of these Identity Providers allows users to sign in to your application using their credentials from a specific Identity Provider.
 
@@ -43,19 +32,19 @@ Adding any of these Identity Providers allows users to sign in to your applicati
 
 You could connect your application directly to an Identity Provider (for example, using an SDK to add a button for **Sign in with Google**). However, using Okta as the user store for your application and letting Okta manage the Identity Provider connections has some benefits:
 
-* **No custom code:** Your application only needs to talk to Okta, and Okta does the rest.
+-   **No custom code:** Your application only needs to talk to Okta, and Okta does the rest.
 
-* **One protocol:** Your application uses OpenID Connect to talk to Okta. Okta handles whatever protocols the other Identity Providers use, and this is transparent to your application.
+-   **One protocol:** Your application uses OpenID Connect to talk to Okta. Okta handles whatever protocols the other Identity Providers use, and this is transparent to your application.
 
-* **Single user store:** All users are stored in Okta. You can capture the profile attributes from an Identity Provider user and store those attributes in Okta's Universal Directory.
+-   **Single user store:** All users are stored in Okta. You can capture the profile attributes from an Identity Provider user and store those attributes in Okta's Universal Directory.
 
-* **Profile sync:**  If a user updates their profile at the Identity Provider, those changes can be reflected inside Okta the next time that they use the provider to sign in.
+-   **Profile sync:** If a user updates their profile at the Identity Provider, those changes can be reflected inside Okta the next time that they use the provider to sign in.
 
-* **Account linking:** Users can use multiple Identity Providers to sign in, and Okta links those profiles to a single Okta user.
+-   **Account linking:** Users can use multiple Identity Providers to sign in, and Okta links those profiles to a single Okta user.
 
-* **Group sync:** Okta supports group sync between Okta and enterprise SAML Identity Providers. This allows you to specify the groups that users should be added to.
+-   **Group sync:** Okta supports group sync between Okta and enterprise SAML Identity Providers. This allows you to specify the groups that users should be added to.
 
-* **OAuth 2.0 Scope Configuration:** Specify [OAuth 2.0 scopes](/docs/guides/implement-oauth-for-okta/scopes/) to fully control which social profile attributes are linked to Okta.
+-   **OAuth 2.0 Scope Configuration:** Specify [OAuth 2.0 scopes](/docs/guides/implement-oauth-for-okta/scopes/) to fully control which social profile attributes are linked to Okta.
 
 ## How Okta connects to external Identity Providers
 
@@ -104,9 +93,9 @@ Users can use multiple Identity Providers to sign in, and Okta can link all of t
 
 Account linking is configured at the Identity Provider level. When you create an Identity Provider, these values are set by default:
 
-* **Account Link Policy** &mdash; Automatic
-* **Match Against** &mdash; Okta Username
-* **IdP Username** &mdash; idpuser.email
+-   **Account Link Policy** &mdash; Automatic
+-   **Match Against** &mdash; Okta Username
+-   **IdP Username** &mdash; idpuser.email
 
 With these defaults, when any validated OpenID Connect JWT is provided, Okta searches the Universal Directory for a user's profile where the `email` attribute value passed by the Identity Provider (the **IdP Username** value) matches the `username` attribute value (the **Match Against** value). If there is a match, then the user is linked by mapping the required, static `sub` claim provided in the JWT to that user.
 
@@ -135,3 +124,7 @@ The Okta Sign-In Widget (version 2.5.0 or above) interacts with the IdP Discover
 > **Note:** v1 of the Okta API supports IdP Discovery with the Okta-hosted Widget only.
 
 If you don't use the Okta Sign-In Widget, instead interacting directly with the [Okta Authentication API](/docs/reference/api/authn/) to implement sign-in yourself, you can integrate IdP Discovery into your flow by including a call to Okta's [WebFinger](/docs/reference/api/webfinger/) endpoint. That endpoint returns the name of the IdP that should be used for a given end user, as determined by the org's defined IdP Discovery Policy.
+
+<a href='/docs/guides/identity-providers/' class='Button--blueDarkOutline card' data-proofer-ignore>
+	<span>Add an Identity Provider integration</span>
+</a>
