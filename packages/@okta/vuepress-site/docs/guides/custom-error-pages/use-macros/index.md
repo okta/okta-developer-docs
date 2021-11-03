@@ -3,7 +3,7 @@ title: Use macros
 ---
 The following macros contain the configuration parameters for certain page elements. These macros inject specific content or functionality automatically.
 
-## orgName
+## <span v-pre>orgName</span>
 
 Inserts the org name title: `{{orgName}}`
 
@@ -13,7 +13,7 @@ Example:
 <title>{{orgName}} - {{errorSummary}}</title>
 ```
 
-## errorSummary
+## <span v-pre>errorSummary</span>
 
 Inserts the error title text: `{{errorSummary}}`
 
@@ -23,7 +23,7 @@ Example:
 <h2 class="o-form-title">{{errorSummary}}</h2>
 ```
 
-## bgImageUrl
+## <span v-pre>bgImageUrl</span>
 
 Inserts a URL to the background image configured for your application.
 
@@ -37,7 +37,7 @@ Example:
 <div class="login-bg-image" style="background-image: url('https://example.com//YourBackgroundImage.png')"></div>
 ```
 
-## orgLogo
+## <span v-pre>orgLogo</span>
 
 Inserts the logo image that has been configured for your application.
 
@@ -50,7 +50,7 @@ Example:
 <img alt="{{orgName}}" src="https://example.com//SomeOtherImage.png" class="org-logo">
 ```
 
-## errorSummary and errorDescription
+## <span v-pre>errorSummary and errorDescription</span>
 
 Inserts a title and detailed description of the error: `{{errorSummary}}` and `{{{errorDescription}}}`
 
@@ -61,7 +61,7 @@ Example:
 <p class="o-form-explain">What happened? {{{errorDescription}}}</p>
 ```
 
-## back
+## <span v-pre>back</span>
 
 Inserts the text `Go to Homepage`: `{{back}}`
 
@@ -73,7 +73,7 @@ Example:
  <a href="/" class="button">{{back}}</a>
 ```
 
-## technicalDetails
+## <span v-pre>technicalDetails</span>
 
 Inserts additional error codes, if there are any: `{{technicalDetails}}`
 
@@ -87,13 +87,13 @@ Example:
 
 > **Note:** The following macros are only available when you enable the THEME_BUILDER feature.
 
-## buttonText
+## <span v-pre>buttonText</span>
 
 Inserts the button text based on the page context: `{{buttonText}}`
 
 The button takes the user back to the `buttonHref` when clicked. `back` is also supported for the same purpose.
 
-## buttonHref
+## <span v-pre>buttonHref</span>
 
 Inserts the `href` for the button: `{{buttonHref}}`
 
@@ -103,7 +103,7 @@ Example:
  <a href="{{buttonHref}}" class="button">{{buttonText}}</a>
 ```
 
-## themedStylesUrl
+## <span v-pre>themedStylesUrl</span>
 
 Inserts the href for the themed style sheet: `{{themedStylesUrl}}`
 
@@ -113,7 +113,7 @@ Example:
  <link href="{{themedStylesUrl}}" rel="stylesheet" type="text/css">
 ```
 
-## faviconUrl
+## <span v-pre>faviconUrl</span>
 
 Inserts the `href` for the favicon: `{{faviconUrl}}`
 

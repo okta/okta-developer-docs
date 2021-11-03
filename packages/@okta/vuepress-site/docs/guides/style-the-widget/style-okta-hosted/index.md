@@ -57,7 +57,7 @@ This URL only bypasses changes that you have made to the HTML in the HTML editor
 
 The following macros in the HTML contain the configuration parameters for certain page elements. These macros inject specific content or functionality automatically.
 
-### pageTitle
+### <span v-pre>pageTitle</span>
 
 Inserts the page title: `{{pageTitle}}`
 
@@ -67,11 +67,11 @@ Example:
 <title>{{pageTitle}}</title>
 ```
 
-### SignInWidgetResources
+### <span v-pre>SignInWidgetResources</span>
 
 Inserts the JavaScript and CSS files required to use the Okta Sign-In Widget.
 
-### bgImageUrl
+### <span v-pre>bgImageUrl</span>
 
 Inserts a URL to the background image configured in your Okta organization: `{{bgImageUrl}}`
 
@@ -83,7 +83,7 @@ Example:
 <div class="login-bg-image" style="background-image: {{bgImageUrl}}"></div>
 ```
 
-### OktaUtil
+### <span v-pre>OktaUtil</span>
 
 Defines a global `OktaUtil` JavaScript object that contains methods used to complete the Okta sign-in flow. When an application uses the Okta-hosted sign-in page to sign a user in, information (called request context) is available about the target application and the request.
 
@@ -135,7 +135,7 @@ See [Per-application customization](/docs/guides/style-the-widget/customization-
 
 > **Note:** The following macros are only available when you enable the THEME_BUILDER feature.
 
-### themedStylesUrl
+### <span v-pre>themedStylesUrl</span>
 
 Inserts the href for themed style sheet: `{{themedStylesUrl}}`
 
@@ -145,7 +145,7 @@ Example:
  <link href="{{themedStylesUrl}}" rel="stylesheet" type="text/css">
 ```
 
-### faviconUrl
+### <span v-pre>faviconUrl</span>
 
 Inserts the href for the favicon: `{{faviconUrl}}`
 
