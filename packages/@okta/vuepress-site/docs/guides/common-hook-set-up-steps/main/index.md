@@ -11,12 +11,12 @@ This guide explains common set-up steps when implementing an Okta Event or Inlin
 **Learning outcomes**
 
 * Understand common set up steps for implementing an Okta Event or Inline Hook
-* Use these steps when running the example hook code in the accompanying guides
+* Understand how to use these steps when running the example hook code in the accompanying guides
 
 **What you need**
 
-* A [Glitch.com](https://glitch.com) project or account.
-* An Okta developer org. [Create an org for free](https://developer.okta.com/signup/).
+* A [Glitch.com](https://glitch.com) project or account
+* An Okta developer org. [Create an org for free](https://developer.okta.com/signup/)
 
 **Sample code**
 
@@ -46,20 +46,20 @@ Start with a new Node.js project built on the Express framework or a Node.js SQL
 
 ## Add Basic Authorization and Body Parsing
 
-The Glitch project templates do not have any authorization or body parsing code. To include this content:
+The Glitch project templates don't have any authorization or body parsing code. To include this content:
 
 * Add the Body Parser and Basic Auth `npm` packages to your Glitch project
 * Add the code snippet below
 
-If you Remix a Glitch Inline Hook project, the packages and code are already included.
+If you remix a Glitch Inline Hook project, the packages and code are already included.
 
 To add the `npm` packages:
 
 1. Select the `package.json` file in the left-hand project menu.
-2. From the `Add Package` drop-down, search for the `express-basic-auth` and `body-parser` packages.
+2. From the `Add Package` drop-down box, search for the `express-basic-auth` and `body-parser` packages.
 3. Click each package to add to your project.
 
-The Inline Hook guides use [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication) to authenticate the Okta Inline Hook API calls received by your Glitch external service. In your Okta org, the Glitch project username and password credentials must be encoded in Base64 and added as the **Authentication secret** when you activate the Inline Hook. Ensure you add the scheme `Basic ` (including a space) as a prefix to the **Authentication secret** value.
+The Inline Hook guides use [HTTP Basic Authentication](/books/api-security/authn/api-authentication-options/#http-basic-authentication) to authenticate the Okta Inline Hook API calls received by your Glitch external service. In your Okta org, you must encode the Glitch project username and password credentials in Base64 and add them as the **Authentication secret** when you activate the Inline Hook. Ensure that you add the scheme `Basic ` (including a space) as a prefix to the **Authentication secret** value.
 
 For example, the credential pair used in the Inline Hook examples is `admin:supersecret`, which encoded in Base64 is `YWRtaW46c3VwZXJzZWNyZXQ=`. Adding the scheme to this value, creates the Inline Hook **Authentication secret** value: `Basic YWRtaW46c3VwZXJzZWNyZXQ=`.
 
@@ -73,17 +73,17 @@ After setting up an external service and an Event Hook or Inline Hook, you may n
 
 ### Preview tab
 
-An [Inline Hook Preview](https://help.okta.com/okta_help.htm?id=ext-preview-inline-hooks)tab, accessible in the Admin Console, is available for the following two Inline Hooks:
+An [Inline Hook Preview](https://help.okta.com/okta_help.htm?id=ext-preview-inline-hooks) tab, accessible in the Admin Console, is available for the following two Inline Hooks:
 
 * Registration Inline Hook
 * SAML Inline  Hook
 
-Before enabling the hook, the preview tab can run a sample Okta request call, and receive the external service response. Review the request and response formats to make sure responses are accurate.
+Before enabling the hook, the preview tab can run a sample Okta request call and receive the external service response. Review the request and response formats to make sure responses are accurate.
 
-An [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview) tab is also available for Event Hooks, and displays the JSON payload for the selected Event Type. The preview tab can confirm a successful delivery of the request.
+An [Event Hook Preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview) tab is also available for Event Hooks and displays the JSON payload for the selected Event Type. The preview tab can confirm a successful delivery of the request.
 
 ### Admin Console System Log
-Use the Admin Console System Log to review logs of the Event, Inline Hook triggers, or errors encountered during testing from the Okta org. See [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog)
+Use the Admin Console System Log to review logs of the Event, Inline Hook triggers, or errors encountered during testing from the Okta org. See [System Log](https://help.okta.com/okta_help.htm?id=ext_Reports_SysLog).
 
 ### Glitch logs
 
@@ -96,7 +96,7 @@ A log pane appears that displays all `console.log()` output. Some console output
 
 ## Next steps
 
-Review the following guides to implement a simple hook example, and preview the hook functionality:
+Review the following guides to implement a simple hook example and preview the hook functionality:
 
 * [Event Hook](/docs/guides/event-hook-implementation/nodejs/overview/)
 * [Password Import Inline Hook](/docs/guides/password-import-inline-hook/nodejs/overview/)
