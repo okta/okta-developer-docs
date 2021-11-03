@@ -45,7 +45,7 @@ The Device Authorization grant feature is an OAuth 2.0 grant type that allows us
 
 #### Key pair additions to JWKS limited to 50 per client
 
-The number of key pairs that can be added to a [JWKS (JSON Web Key Set)](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/) can't exceed 50 per client.<!--OKTA-435434-->
+The number of key pairs that can be added to a [JSON Web Key Set (JWKS)](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/) can't exceed 50 per client.<!--OKTA-435434-->
 
 #### Authentication API returns UD User Profile locale is now GA in Production
 
