@@ -79,7 +79,7 @@ Example:
 <p class="technical-details">Additional Error Details: {{technicalDetails}}</p>
 ```
 
-> **Note:** The following macros are only available when you enable the THEME_BUILDER feature.
+> **Note:** The following macros are only available when the Theme Builder feature is enabled in your org.
 
 #### <span v-pre>`{{buttonText}}`</span>
 
