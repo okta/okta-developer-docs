@@ -5,7 +5,27 @@ title: Upgrade your Okta Sign-In Widget
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" />
 
-## Overview
+This guide covers how to upgrade the Okta Sign-In Widget, which depends on whether your user authentication deployment model is a redirect authentication or an embedded authentication.
+
+---
+
+**Learning outcomes**
+
+* Understand the benefits of keeping your Sign-In Widget up to date.
+* Know how to obtain the latest version of the Sign-In Widget.
+* Update your Sign-In Widget based on your user deployment model.
+
+**What you need**
+
+* [Latest available Sign-In Widget release](https://github.com/okta/okta-signin-widget/releases)
+
+**Sample code**
+
+n/a
+
+---
+
+## About the Okta Sign-In Widget
 
 The Okta Sign-In Widget is a JavaScript library that gives you a full-featured and customizable sign-in experience that can be used to authenticate users of web and mobile applications.
 
