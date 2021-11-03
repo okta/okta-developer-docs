@@ -135,7 +135,7 @@ See <GuideLink link="../customization-examples/#per-application-customization">P
 
 #### <span v-pre>`{{themedStylesUrl}}`</span>
 
-Inserts the href for the themed style sheet.
+Inserts the URL for the themed style sheet
 
 Example:
 
@@ -145,7 +145,7 @@ Example:
 
 #### <span v-pre>`{{faviconUrl}}`</span>
 
-Inserts the href for the favicon.
+Inserts the URL for the favicon
 
 Example:
 

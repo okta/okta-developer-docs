@@ -83,11 +83,11 @@ Example:
 
 #### <span v-pre>`{{buttonText}}`</span>
 
-Inserts the button text based on the page context. The button takes the user back to the `buttonHref` when clicked. `{{back}}` is also supported for the same purpose.
+Inserts the button text based on the page context. When a user selects the button, they are directed to the `buttonHref` URL. The `{{back}}` macro is also supported for the same purpose.
 
 #### <span v-pre>`{{buttonHref}}`</span>
 
-Inserts the href for the button
+Inserts the hyperlink for the button
 
 Example:
 
@@ -97,7 +97,7 @@ Example:
 
 #### <span v-pre>`{{themedStylesUrl}}`</span>
 
-Inserts the href for the themed style sheet
+Inserts the URL for the themed style sheet
 
 Example:
 
@@ -107,7 +107,7 @@ Example:
 
 #### <span v-pre>`{{faviconUrl}}`</span>
 
-Inserts the href for the favicon
+Inserts the URL for the favicon
 
 Example:
 
