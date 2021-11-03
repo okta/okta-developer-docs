@@ -207,4 +207,4 @@ foreach (var claim in validatedToken.Claims)
 
 This guide provides the basic steps required to locally verify an access or ID token signed by Okta. It uses packages from Microsoft for key parsing and token validation, but the general principles should apply to any JWT validation library.
 
-Most applications don't need to follow this guide. If you are using our <a href='/docs/guides/sign-into-web-app/aspnet/before-you-begin/' data-proofer-ignore>ASP.NET how to guide</a> or <a href='/docs/guides/sign-into-web-app/aspnetcore3/before-you-begin/' data-proofer-ignore>ASP.NET Core how to guide</a> to connect your application to Okta, all of these validation steps are done automatically for you.
+Most applications don't need to follow this guide. If you are using our <a href='/docs/guides/sign-into-web-app/aspnet/main/' data-proofer-ignore>ASP.NET how to guide</a> or <a href='/docs/guides/sign-into-web-app/aspnetcore3/main/' data-proofer-ignore>ASP.NET Core how to guide</a> to connect your application to Okta, all of these validation steps are done automatically for you.
