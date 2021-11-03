@@ -714,7 +714,7 @@ Content-Type: application/json
             "errorSummary": "emailTemplateTouchPointVariant: 'OKTA_DEFAULT_RANDOM' is invalid. Valid values: [OKTA_DEFAULT, FULL_THEME]."
         },
         {
-            "errorSummary": "endUserDashboardTouchPointVariant: 'OKTA_DEFAULT_RANDOM' is invalid. Valid values: [OKTA_DEFAULT, WHITE_LOGO_BACKGROUND, FULL_THEME]."
+            "errorSummary": "endUserDashboardTouchPointVariant: 'OKTA_DEFAULT_RANDOM' is invalid. Valid values: [OKTA_DEFAULT, WHITE_LOGO_BACKGROUND, FULL_THEME, LOGO_ON_FULL_WHITE_BACKGROUND]."
         }
     ]
 }
@@ -1191,7 +1191,7 @@ The Theme object defines the following properties:
 | `secondaryColorHex`                   | String   | Secondary color hex code                                                                                                 | `#ebebed`         |
 | `secondaryColorContrastHex`           | String   | (Optional) Secondary color contrast hex code. Accepted values: `#000000`, `#ffffff`.                                       | `#000000`         |
 | `signInPageTouchPointVariant`         | Enum     | Variant for sign-in page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.               | `OKTA_DEFAULT`    |
-| `endUserDashboardTouchPointVariant`   | Enum     | Variant for the Okta End-User Dashboard. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`.                    | `OKTA_DEFAULT`    |
+| `endUserDashboardTouchPointVariant`   | Enum     | Variant for the Okta End-User Dashboard. Accepted values: `OKTA_DEFAULT`, `WHITE_LOGO_BACKGROUND`, `FULL_THEME`, `LOGO_ON_FULL_WHITE_BACKGROUND`.                    | `OKTA_DEFAULT`    |
 | `errorPageTouchPointVariant`          | Enum     | Variant for the error page. Accepted values: `OKTA_DEFAULT`, `BACKGROUND_SECONDARY_COLOR`, `BACKGROUND_IMAGE`.                 | `OKTA_DEFAULT`    |
 | `emailTemplateTouchPointVariant`      | Enum     | Variant for email templates. Accepted values: `OKTA_DEFAULT`, `FULL_THEME`.                                                | `OKTA_DEFAULT`    |
 
@@ -1220,6 +1220,7 @@ You can publish a theme for a page or email template with different combinations
 | `OKTA_DEFAULT`                  | Use the Okta logo and Okta favicon with a white background color for the logo and the side navigation bar background color.                           |
 | `WHITE_LOGO_BACKGROUND`         | Use the logo from Theme with a white background color for the logo, use favicon from Theme, and use `primaryColorHex` for the side navigation bar background color.   |
 | `FULL_THEME`                    | Use the logo from Theme, `primaryColorHex` for the logo and the side navigation bar background color, and use favicon from Theme                                    |
+| `LOGO_ON_FULL_WHITE_BACKGROUND` | Use the logo from Theme, white background color for the logo and the side navigation bar background color, and use favicon from Theme                                    |
 
 #### Variants for Error Page:
 
