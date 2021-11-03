@@ -19,7 +19,7 @@ title: Okta API Products Release Notes 2021
 | [AES-GCM encryption support for SAML assertions is now GA in Production](#aes-gcm-encryption-support-for-saml-assertions-is-now-ga-in-production) | October 6, 2021 |
 | [Token-based SSO between native apps is now GA in Production](#token-based-sso-between-native-apps-is-now-ga-in-production) | October 6, 2021          |
 | [The Okta Org API is now GA in Production](#the-okta-org-api-is-now-ga-in-production)                          | March 3, 2021          |
-| [Bug fixed in 2021.11.0](#bug-fixed-in-2021-11-0)                          | November 3, 2021          |
+| [Bugs fixed in 2021.11.0](#bugs-fixed-in-2021-11-0)                          | November 3, 2021          |
 
 #### Identity Providers API response includes ID token for generic OIDC provider
 
