@@ -5,7 +5,7 @@ meta:
     content: Okta supports both enterprise and social Identity Providers (social login).
 ---
 
-Okta integrates with many Identity Providers. Not sure what an Identity Provider is? See [External Identity Providers](/docs/concepts/identity-providers/) for more information.
+Okta integrates with many Identity Providers. Not sure what an Identity Provider is? See [External Identity Providers](/docs/concepts/identity-providers/).
 
 ## Enterprise Identity Providers
 
