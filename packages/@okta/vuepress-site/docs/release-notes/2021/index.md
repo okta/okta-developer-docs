@@ -27,7 +27,7 @@ The new response for the Identity Providers API [social authentication token ope
 
 #### Brands API support for auto-detecting contrast colors
 
-The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. The auto-detection feature can be disabled by updating either property value with an accepted contrast hex value. See [Update Theme](/docs/reference/api/brands/#update-theme).<!--OKTA-426715-->
+The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. You can disable the auto-detection feature by updating either property value with an accepted contrast hex value. See [Update Theme](/docs/reference/api/brands/#update-theme).<!--OKTA-426715-->
 
 #### New error page macros for themed templates
 
