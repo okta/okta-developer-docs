@@ -30,7 +30,7 @@ Custom [error page templates](/docs/guides/custom-error-pages/use-macros/) inclu
 
 #### Event Hooks daily limit
 
-The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
+The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
 
 #### Token-based SSO between native apps is now GA in Production
 
