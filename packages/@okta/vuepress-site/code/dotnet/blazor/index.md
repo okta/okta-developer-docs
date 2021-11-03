@@ -40,7 +40,7 @@ New to Okta? Our Blazor WebAssembly & Server-Side samples will walk you through 
 
 ## Other .NET Libraries
 
-<Card href="" cardTitle="Okta management SDK for .NET">Enable your ASP.NET application to work with Okta via OAuth 2.0/OIDC</Card>
+<Card href="" cardTitle="Okta management SDK for .NET">Enable your ASP.NET application to work with Okta through OAuth 2.0/OIDC</Card>
 
 ## Recommended Guides
 
