@@ -38,18 +38,14 @@ New to Okta? Our Blazor WebAssembly & Server-Side samples will walk you through 
 	<span class='fa fa-github'></span> <span>Blazor WebAssembly (WASM) Sample App</span>
 </a>
 
-
 ## Other .NET Libraries
 
-<Card href="" :showHeaderIcon=false cardTitle="Okta management SDK for .NET" :showFooter=false>Enable your ASP.NET application to work with Okta via OAuth 2.0/OIDC</Card>
+<Card href="" cardTitle="Okta management SDK for .NET">Enable your ASP.NET application to work with Okta via OAuth 2.0/OIDC</Card>
 
 ## Recommended Guides
-
 
 - [Manual JWT Validation in .NET](/code/dotnet/jwt-validation/)
 
 ## Related Blog Posts
 
-
 - [Build an Authenticated Web App in C# with Blazor Server-Side + ASP.NET Core 3.0](/blog/2019/10/16/csharp-blazor-authentication)
-

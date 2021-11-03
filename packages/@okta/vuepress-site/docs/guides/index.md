@@ -1,7 +1,6 @@
 ---
 title: Guides overview
 guides:
- - add-a-social-idp
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
@@ -53,6 +52,7 @@ guides:
  - sign-into-web-app
  - sign-users-out
  - sign-your-own-saml-csr
+ - social-login
  - style-the-widget
  - token-inline-hook
  - third-party-risk-integration
@@ -75,6 +75,13 @@ guides:
  - oie-embedded-widget-use-case-load
  - oie-embedded-widget-use-case-basic-sign-in
  - oie-embedded-widget-use-case-sign-in-soc-idp
+ - oie-upgrade-add-sdk-to-your-app
+ - oie-upgrade-api-sdk-to-oie-sdk
+ - oie-upgrade-sign-in-widget-deprecated-methods
+ - oie-upgrade-sign-in-widget-i18n
+ - oie-upgrade-sign-in-widget
+ - oie-upgrade-sign-in-widget-styling
+
 ---
 
 Learn how to accomplish a task with step-by-step instructions.
@@ -98,7 +105,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Sign users in to your single-page application](/docs/guides/sign-into-spa/angular/before-you-begin/)
     * [Sign users in to your web application](/docs/guides/sign-into-web-app/aspnet/before-you-begin/)
     * [Sign users in using the Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/)
-    * [Configure Okta sign-on and App sign-on policies](/docs/guides/configure-signon-policy/before-you-begin/)
+    * [Configure Okta sign-on and App sign-on policies](/docs/guides/configure-signon-policy/)
     * [Sign users out](/docs/guides/sign-users-out/android/before-you-begin/)
 
 3. Authorize

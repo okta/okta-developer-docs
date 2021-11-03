@@ -86,6 +86,7 @@ Example:
 <p class="technical-details">Additional Error Details: {{technicalDetails}}</p>
 ```
 
+
 > **Note:** The following macros are only available when you enable the THEME_BUILDER feature.
 
 ## buttonText
