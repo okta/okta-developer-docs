@@ -22,7 +22,7 @@ Ensure your application fits your brand:
 ### Application settings
 
 * [Update Redirect URI for your domain](/docs/guides/sign-into-web-app/): If you created an Okta application that uses `localhost` or a test domain, you need to update your Okta application (or create a new one) using publicly accessible URLs.
-* [Configure Cross-Origin Resource Sharing (CORS)](/docs/guides/enable-cors/overview/): If you are building a SPA or you are embedding the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) into your own app, you must configure CORS for your domain.
+* [Configure Cross-Origin Resource Sharing (CORS)](/docs/guides/enable-cors/main/): If you are building a SPA or you are embedding the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) into your own app, you must configure CORS for your domain.
 
 > **Note:** Configuring CORS isn't needed if you are using Okta's [custom domain feature](/docs/guides/custom-url-domain/enable-the-custom-domain/).
 

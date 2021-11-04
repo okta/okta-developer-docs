@@ -1,7 +1,6 @@
 ---
 title: Guides overview
 guides:
- - add-a-social-idp
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
@@ -53,6 +52,7 @@ guides:
  - sign-into-web-app
  - sign-users-out
  - sign-your-own-saml-csr
+ - social-login
  - style-the-widget
  - token-inline-hook
  - third-party-risk-integration

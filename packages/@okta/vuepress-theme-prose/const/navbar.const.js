@@ -174,6 +174,10 @@ export const guides = [
       {
         title: "Sign Users In",
         subLinks: [
+          {
+            title: "Add an external Identity Provider",
+            path: "/docs/guides/identity-providers/",
+          },
           { title: "Add multifactor authentication", guideName: "mfa" },
           {
             title: "Mobile App",
