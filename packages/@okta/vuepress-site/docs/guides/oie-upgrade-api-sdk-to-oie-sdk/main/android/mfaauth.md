@@ -1,6 +1,4 @@
-### Basic sign-in flow with username, password, and email factor
-
-#### Okta Java Authentication SDK authentication flow
+### Okta Java Authentication SDK authentication flow
 
 For a multifactor sign-in authentication flow using the Java Auth SDK, a typical app has to instantiate the `AuthenticationClient` object and call the `authenticate()` method, similar to the [Basic sign-in flow with username and password](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/android/main/#basic-sign-in-flow-with-username-and-password) use case.
 
@@ -41,7 +39,7 @@ try {
 
 If the `verifyFactor()` method is successful, an `AuthenticationResponse` object is returned with a session token and a `SUCCESS` status.
 
-#### Upgrade to the Okta Java Identity Engine SDK authentication flow
+### Upgrade to the Okta Java Identity Engine SDK authentication flow
 
 The Identity Engine MFA authentication flow is initially similar to implement using the Identity Engine SDK, however, there are slight differences in handling the subsequent multifactors. The authentication flow starts when the app instantiates the `IDXAuthenticationWrapper` client object and calls the `begin()` method. After receiving the username and password from the user, the app passes them as arguments to the  `authenticate()` method (similar to the classic `AuthenticationClient.authenticate()` method). This method returns the Identity Engine `AuthenticationResponse` object with an `AuthenticationStatus`.
 
