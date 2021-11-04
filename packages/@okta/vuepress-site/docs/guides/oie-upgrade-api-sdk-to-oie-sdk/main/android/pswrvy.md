@@ -65,7 +65,7 @@ AuthenticationResponse authenticationResponse =
 
 * Okta returns a response with `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` &mdash; this status implies that Okta is waiting for the user and the app to submit the email verification code for recovery.
 
-* `IDXAuthenticationWrapper.verifyAuthenticator()` method is called with the email verification code obtained from the user &mdash; this method replaces the Java Auth SDK’s `AuthenticationClient.verifyRecoveryToken()` and `AuthenticationClient.answerRecoveryQuestion()` method. With Identity Engine, a recovery token isn’t required and the recovery question is replaced with a verification code. However, you can configure an additional security question authenticator in Okta for the app if you want that step in your recovery flow.
+* `IDXAuthenticationWrapper.verifyAuthenticator()` method is called with the email verification code obtained from the user &mdash; this method replaces the Java Auth SDK’s `AuthenticationClient.verifyRecoveryToken()` and `AuthenticationClient.answerRecoveryQuestion()` method. With Identity Engine, a recovery token isn’t required and the recovery question is replaced with a verification code.
 
 * Okta returns a response with `AuthenticationStatus=AWAITING_PASSWORD_RESET` &mdash; this status implies that Okta is waiting for the app to submit a new password for the user.
 
