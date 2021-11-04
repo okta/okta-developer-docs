@@ -41,7 +41,7 @@ Review the following sections to understand the concepts behind the Identity Eng
 
 <StackSelector snippet="auth-vs-oie" noSelector />
 
-## Map Authentication code to the Okta Identity Engine SDK
+## Map basic sign-in code to the Okta Identity Engine SDK
 
 The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK, which can perform authentication using the Identity Engine’s new features and workflows.
 
@@ -172,15 +172,15 @@ curl --location --request POST 'https://duffield.oktapreview.com/api/v1/sessions
 
 If your application code implements these API calls and handles the responses shown, you need to update your code to use the Identity Engine SDK `idx.authenticate` method. This method encapsulates the authentication flow using recursive calls to the Identity Engine SDK method, and a successful response returns with access and ID tokens.
 
-See [Okta Identity Engine SDK authentication flow](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-authentication-flow)
+See [Okta Identity Engine SDK authentication flow](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/android/main/#okta-identity-engine-sdk-authentication-flow)
 
-## Map MFA Authentication code to the Okta Identity Engine SDK
+## Map MFA authentication code to the Identity Engine SDK
 
 The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK, which can perform multifactor authentication using the Identity Engine’s new features and workflows.
 
 <StackSelector snippet="mfaauth" noSelector />
 
-### Map MFA Authn APIs to Okta Identity Engine SDK
+### Map MFA Authn APIs to the Identity Engine SDK
 
 If your application uses direct APIs for a multifactor authentication flow, your application code may call the following Okta APIs:
 
@@ -667,6 +667,6 @@ If your application code implements these API calls and handles the responses sh
 
 See [Okta Identity Engine SDK authentication flow for Password Recovery](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-authentication-flow-for-password-recovery).
 
-## Map Basic Sign out code to Okta Identity Engine SDK
+## Map basic sign-out code to Okta Identity Engine SDK
 
 <StackSelector snippet="signout" noSelector />

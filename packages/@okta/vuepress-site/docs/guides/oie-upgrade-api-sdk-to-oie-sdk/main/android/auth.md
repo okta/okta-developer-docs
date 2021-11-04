@@ -1,4 +1,4 @@
-### Basic sign in flow with username and password
+### Basic sign-in flow with username and password
 
 #### Okta Java Authentication SDK authentication flow
 
@@ -55,5 +55,3 @@ AuthenticationResponse authenticationResponse =
 ```
 
 See [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/android/main/) for further details on the Identity Engine password authentication flow.
-
-See [Map Authn APIs to Identity Engine SDK for Node.js](link-to-nodejs-doc) for details on back-end API mapping. Even though this document is specifically for Node.js, back-end API requests are generic across languages.
