@@ -18,9 +18,9 @@ This guide shows you how to use Okta as the user store for your single-page appl
 
 **What you need**
 
-* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup).
-* Basic knowledge of building JavaScript applications.
-* A project or application that you want to add authentication to.
+* An Okta Developer Edition organization. Don't have one? [Create one for free](https://developer.okta.com/signup)
+* Basic knowledge of building JavaScript applications
+* A project or application that you want to add authentication to
 
 **Sample code**
 
@@ -47,7 +47,7 @@ To sign users in, your application redirects the browser to an Okta-hosted sign-
 
 The first thing that you need to define is how Okta calls your app after a user is authenticated. This is called a callback route or redirect URI.
 
-The callback route is not seen by the user, and it's not the user's final destination. It's just one step in the authentication redirect flow.
+The callback route isn't seen by the user, and it's not the user's final destination. It's just one step in the authentication redirect flow.
 
 <StackSelector snippet="define-route"/>
 
@@ -65,12 +65,12 @@ Before you can sign a user in, you need to create an Okta app integration that r
 1. Click **Create App Integration**.
 1. Select **OIDC - OpenID Connect** as the **Sign-in method**.
 1. Select **Single-Page Application** as the **Application type** and click **Next**.
-    > **Note:** It is important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients are not designed to have, and would break the sign-in or sign-out flow.
+    > **Note:** It's important to choose the appropriate application type for apps that are public clients. Failing to do so may result in Okta API endpoints attempting to verify an app's client secret, which public clients aren't designed to have, and would break the sign-in or sign-out flow.
 1. Enter a name for your app integration (or leave the default value).
 1. Select **Authorization Code** and **Refresh Token** as the **Grant type**. This enables Authorization Code flow with PKCE for your application and the ability to refresh the access token when it expires without prompting the user to re-authenticate.
 1. Enter values for the **Sign-in redirect URIs**. This is the callback from [Define a callback route](#define-a-callback-route). Add values for local development (for example, `http://localhost:8080/login/callback` or `http://localhost:8080/authentication/login-callback` for Blazor) and production (for example, `https://app.example.com/login/callback`).
 
-    If your OpenID Connect client has multiple redirect URIs and you want to use a single redirect URI with a wildcard for the subdomain, select the **Allow wildcard * in sign-in redirect URI** checkbox.
+    If your OpenID Connect client has multiple redirect URIs, and you want to use a single redirect URI with a wildcard for the subdomain, select the **Allow wildcard * in sign-in redirect URI** checkbox.
 
     > **Caution:** The use of wildcard subdomains is discouraged as an insecure practice, since it may allow malicious actors to have tokens or authorization codes sent to unexpected or attacker-controlled pages. Exercise caution if you decide to include a wildcard redirect URI in your configuration.
 
@@ -105,7 +105,7 @@ Install the SDK and add it as a dependency to your project:
 You need two values from the Okta application and the Admin Console that you worked with in [Create an Okta application](#create-an-okta-app-integration):
 
 * **Client ID** &mdash; find it in the applications list or on the application's **General** tab.
-* **Okta domain** &mdash; you can find the Okta Domain in the Admin Console's global header in the upper-right corner of the page. Click the section that displays your email and company name.  A drop-down box appears and displays general org information including the full Okta domain (for example, subdomain.okta.com).
+* **Okta domain** &mdash; find the Okta Domain in the Admin Console's global header in the upper-right corner of the page. Click the section that displays your email and company name. A drop-down box appears and displays general org information including the full Okta domain (for example, `subdomain.okta.com`).
 
 <StackSelector snippet="config" noSelector />
 
@@ -119,7 +119,7 @@ In your application, you want to provide a button to sign the user in. When the 
 
 ## Handle the callback from Okta
 
-After Okta authenticates a user, they're redirected back to your application via the callback route you [Define a callback route](#define-a-callback-route). When Okta redirects back, the URL fragment (the portion after `#`) contains either tokens for the user or an error if something went wrong.
+After Okta authenticates a user, they're redirected back to your application via the callback route that you [define](#define-a-callback-route). When Okta redirects back, the URL fragment (the portion after `#`) contains either tokens for the user or an error if something went wrong.
 
 Your application must parse this information, and if tokens are present, store the user's tokens. Our SDK does this for you.
 
@@ -129,7 +129,7 @@ Your application must parse this information, and if tokens are present, store t
 
 In many applications, you want to prevent the user from accessing certain routes or sections unless they are signed in. You can require authentication across the entire app or just require it for particular routes or controllers. Any route that doesn't specifically require authentication is accessible without signing in (also called anonymous access).
 
-It's important to note that protecting routes in your SPA does not truly prevent the user from accessing those parts of your application. After all, it's JavaScript running in the browser and anyone could open the browser's developer tools and change things! Protecting routes provides a consistent and good experience for your users. The real security enforcement must be done in the API that your single-page app calls (see [Use the access token](#use-the-access-token)). See also the [Protect your API endpoints guide](/docs/guides/protect-your-api/).
+It's important to note that protecting routes in your SPA doesn't truly prevent the user from accessing those parts of your application. After all, it's JavaScript running in the browser, and anyone could open the browser's developer tools and change things! Protecting routes provides a consistent and good experience for your users. The real security enforcement must be done in the API that your single-page app calls (see [Use the access token](#use-the-access-token)). Also, see the [Protect your API endpoints guide](/docs/guides/protect-your-api/).
 
 ### Require authentication for a specific route
 
@@ -151,7 +151,7 @@ By default, the profile items (called "claims") that Okta returns include the us
 
 <StackSelector snippet="getuserinfo" noSelector />
 
-<!-- You can also customize the items (called claims) that are returned from Okta. See [Token customization guide]. -->
+You can also customize the items (called claims) that are returned from Okta. See [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/overview/).
 
 ## Use the access token
 
