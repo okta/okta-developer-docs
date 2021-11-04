@@ -1,72 +1,92 @@
-### Map the Authentication SDK to Identity Engine SDK
+The migration example in this section uses a sign-on policy with username, password, and an email factor.
 
-If your application uses the Classic Engine Authentication SDK methods to authenticate through Okta with an org configured for MFA, you generally start the authentication flow with a call to the `signInWithCredentials` method on an OktaAuth object (for example, `authClient`), using the parameters of username and password. This call returns a status on the transaction object (`transaction.status === 'MFA_REQUIRED'`), which must be handled by the application code to identify the factor and start the challenge by calling (`transaction.factors`). This call returns a new status on the transaction object: (`transaction.status === 'MFA_CHALLENGE'`), which is then handled by your code to verify the factor challenge, for example, sending an SMS code parameter back to Okta to successfully validate the user. If successful (`transaction.status === 'SUCCESS'`), you make a call to the `setCookieAndRedirect` method to retrieve a sessionToken.
+### Okta Java Authentication SDK authentication flow
 
->**Note:** The `setCookieAndRedirect` method requires access to third-party cookies and is deprecated in the Identity Engine SDK.
+For a multifactor sign-in authentication flow using the Java Auth SDK, a typical app has to instantiate the `AuthenticationClient` object and call the `authenticate()` method, similar to the [Map basic sign-in code to the Okta Identity Engine SDK](#map-basic-sign-in-code-to-the-okta-identity-engine-sdk) use case.
 
-See the following code snippet for a function that moves through MFA status:
+In this MFA scenario, there is an additional email factor to verify, therefore the  `authenticate()` call returns an `AuthenticationResponse` object with a list of one additional factor to verify: the email factor. The `AuthenticationResponse.getFactors()` method is used to return the list of factors to verify.
+---
 
-```JavaScript
-  function showMfaAuthn() {
-  const transaction = appState.transaction;
-  // MFA_ENROLL https://github.com/okta/okta-auth-js/blob/master/docs/authn.md#mfa_enroll
-  if (transaction.status === 'MFA_ENROLL') {
-    return showMfaEnrollFactors();
-  }
-  // MFA_ENROLL_ACTIVATE https://github.com/okta/okta-auth-js/blob/master/docs/authn.md#mfa_enroll_activate
-  if (transaction.status === 'MFA_ENROLL_ACTIVATE') {
-    return showMfaEnrollActivate();
-  }
-    // MFA_REQUIRED https://github.com/okta/okta-auth-js/blob/master/docs/authn.md#mfa_required
-  if (transaction.status === 'MFA_REQUIRED') {
-    return showMfaRequired();
-  }
-  // MFA_CHALLENGE https://github.com/okta/okta-auth-js/blob/master/docs/authn.md#mfa_challenge
-  if (transaction.status === 'MFA_CHALLENGE') {
-    return showMfaChallenge();
-  }
-  throw new Error(`TODO: showMfaAuthn: handle transaction status ${appState.transaction.status}`);
+```java
+final String factorId = authenticationResponse.getFactors().get(0).getId();
+final FactorType factorType = authenticationResponse.getFactors().get(0).getType();
+final String stateToken = authenticationResponse.getStateToken();
+
+// we only support Email factor for sample purpose
+if (factorType == FactorType.EMAIL) {
+    AuthenticationResponse authResponse = authenticationClient.verifyFactor(factorId, stateToken, ignoringStateHandler);
+    final ModelAndView emailAuthView = new ModelAndView("verify-email-authenticator");
+    emailAuthView.addObject("authenticationResponse", authResponse);
+    return emailAuthView;
+} else {
+    final ModelAndView errorView = new ModelAndView("home");
+    errorView.addObject("error", "Factor type " + factorType + " + is not supported in this sample yet");
+    return errorView;
 }
-
 ```
 
-To migrate your code to the Identity Engine SDK, the authentication flow is very similar, but you must replace the method calls to those in the new SDK and update your code to handle the different transaction object statuses that are returned.
+For the email factor, the app has to verify a code that is sent to the user’s email. The `AuthenticationClient.challengeFactor()` method is called to send the verify-code email, then the `AuthenticationClient.verifyFactor()` method is used to verify the code from the email.
 
-#### Okta Identity Engine SDK authentication flow for MFA
+> **Note:** If there is only one factor in the list, the app does not need to call `challengeFactor()`, as it is automatically triggered.
 
-For the Identity Engine SDK, you generally start the authentication flow with a call to the `idx.authenticate` method on an OktaAuth object (for example, `authClient`), using the parameters of username and password, or no parameters at all (see [Okta Identity Engine code options](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-code-options)). This call returns a status on the transaction object (`transaction.status`) of `Idx.status.PENDING`, which must be handled by the application. The `nextStep` parameter included in the response provides details on what data must be included in the next call. In the MFA instance, recursive calls to the same `idx.authenticate` method require a call with a factor type (for example, email or SMS), which initiates the challenge, and then a follow-up call to verify the challenge.
+```java
+try {
+    final VerifyPassCodeFactorRequest verifyPassCodeFactorRequest =
+         authenticationClient.instantiate(VerifyPassCodeFactorRequest.class);
+    verifyPassCodeFactorRequest.setStateToken(stateToken);
+    verifyPassCodeFactorRequest.setPassCode(passcode);
+    verifyPassCodeFactorRequest.setRememberDevice(false);
 
-If successful (`transaction.status === IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response.
-
-See the following code snippet for this example:
-
-```JavaScript
-const transaction = await authClient.idx.authenticate({
-  username: 'some-username',
-  password: 'some-password',
-});
-if (transaction.status === IdxStatus.PENDING) { } = await authClient.idx.authenticate();
-// gather user inputs (this call should happen in a separated request)
-const {
-  status, // IdxStatus.PENDING
-  nextStep: {
-    inputs, // [{ name: 'authenticator', ... }]
-    options // [{ name: 'email', ... }, ...]
-  }
+    authenticationResponse = authenticationClient.verifyFactor(factorId,
+         verifyPassCodeFactorRequest, ignoringStateHandler);
+} catch (final AuthenticationException e) {
+    logger.error("Verify Email Factor Error - Status: {}, Code: {}, Message: {}",
+         e.getStatus(), e.getCode(), e.getMessage());
+    final ModelAndView errorView = new ModelAndView();
+    errorView.addObject("error", e.getStatus() + ":" + e.getCode() + ":" +
+         e.getMessage());
+    return errorView;
 }
-} = await authClient.idx.authenticate({ authenticator: 'email' });
-// gather verification code from email (this call should happen in a separated request)
-const {
-  status, // IdxStatus.SUCCESS
-  tokens
-} = await authClient.idx.authenticate({ verificationCode: 'xxx' });
-
-if (transaction.status === IdxStatus.SUCCESS) {
-  authClient.tokenManager.setTokens(transaction.tokens); // App receives tokens directly
-}
-
 ```
 
-For further details on MFA, see [idx.authenticate](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#idxauthenticate) in the Okta Auth JavaScript SDK.
+If the `verifyFactor()` method is successful, an `AuthenticationResponse` object is returned with a session token and a `SUCCESS` status.
 
-For further details on the password and email multifactor authentication flow using Identity Engine, see [Sign in with email and password factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/nodejs/main/) and the sample application.
+-----
+
+### Upgrade to the Okta Java Identity Engine SDK authentication flow
+
+The Identity Engine MFA authentication flow is initially similar to implement using the Identity Engine SDK, however, there are slight differences in handling the subsequent multifactors.  The authentication flow starts when the app instantiates the `IDXAuthenticationWrapper` client object and calls the `begin()` method. After receiving the username and password from the user, the app passes them as arguments to the  `authenticate()` method (similar to the classic `AuthenticationClient.authenticate()` method). This method returns the Identity Engine `AuthenticationResponse` object with an `AuthenticationStatus`.
+
+> **Note:** Authenticators are the factor credentials that are owned or controlled by the user. These are verified during authentication.
+
+If additional factors are required, then `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` and a list of authenticators (`AuthenticationResponse.getAuthenticators()`) to be verified are returned in the `AuthenticationResponse`. This is where the Identity Engine MFA differs from the Classic Engine MFA. The Identity Engine MFA flow has the following general pattern:
+
+- AuthenticationResponse returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` &mdash; Implying that the app/user has to select the authenticator to verify. The app can provide the user with a selection of authenticators to verify (if there is more than one authenticator) or the app can choose to select the authenticator on behalf of the user and present the user with an appropriate message.
+
+- The app calls `IDXAuthenticationWrapper.selectAuthenticator()` to select the authenticator to verify &mdash; This is synonymous with Java Auth SDK’s `AuthenticationClient.challengeFactor()` method, where the authenticator challenge is triggered. In this case, an email is sent with the verify code.
+
+  > **Note:** Unlike the Java Auth SDK’s `challengeFactor()`, the single authenticator is not automatically selected. The app must call the selectAuthenticator() method to trigger the authenticator challenge.
+
+  ```java
+    authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
+  ```
+
+- AuthenticationResponse returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` &mdash; Implying that Okta is waiting for the authenticator verification from the user/app.
+
+- The app calls `IDXAuthenticationWrapper.verifyAuthenticator()` to provide the authenticator verification  &mdash; This is synonymous with Java Auth SDK’s `AuthenticationClient.verifyFactor()` method, where the app provides the challenge verification. In this case, the code within the user’s email is provided as an argument.
+
+  ```java
+  ProceedContext proceedContext = Util.getProceedContextFromSession(session);VerifyAuthenticatorOptions verifyAuthenticatorOptions = new
+     VerifyAuthenticatorOptions(code);
+  AuthenticationResponse authenticationResponse =
+     idxAuthenticationWrapper.verifyAuthenticator(proceedContext,
+     verifyAuthenticatorOptions);
+  ```
+
+- AuthenticationResponse returns either
+  * `AuthenticationStatus=SUCCESS` &mdash; The MFA process is successful and the app can call `AuthenticationResponse.getTokenResponse()` to retrieve the required tokens for authenticated user activity.
+  * `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` &mdash; Additional authenticator verification is required, and the app can loop through the MFA remediation process again [`AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` -> `selectAuthenticator()` -> `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` -> `verifyAuthenticator()` -> check `AuthenticationStatus`].
+
+The number of required/optional authenticators for MFA are configured in the Admin Console and in the app sign-on policies. The Identity Engine-enabled app is structured in a way that enables the MFA challenges to differ based on user, group, context, and available factors, since the MFA process is driven by policies set in Okta, and not hard-coded into the app.
+
+For further details on how this use case is implemented with the Java Identity Engine SDK , see [Sign in with password and email factors](/docs/guides/oie-embedded-sdk-use-case-sign-in-pwd-email/java/main/).

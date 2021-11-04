@@ -1,53 +1,106 @@
-### Map the Authentication SDK Password Recovery methods to Identity Engine SDK
+### Okta Java Authentication SDK authentication flow
 
-If your application uses the Classic Engine Authentication SDK methods to recover a password through Okta, you generally start the flow by calling a method (`authClient.forgotPassword`) and then calling verify on the returned transaction (`transaction.verify`) with a passcode. After this call, you check for a successful status (`transaction.status`), which completes the transaction. You then need to redirect back to Okta to get tokens (`session.setCookieAndRedirect`).
+For a password recovery flow using the Classic Engine Java Auth SDK, a typical app has to first instantiate the `AuthenticationClient` object and call the `recoverPassword()` method with the username. In this password recovery scenario, the email factor is used to recover the password, therefore the  `FactorType.EMAIL`  argument is also provided.
 
-> **Note:** The `setCookieAndRedirect` method requires access to third-party cookies and is deprecated in the Okta Identity Engine SDK.
-
-See the following code snippet for this example:
-
-```JavaScript
-authClient.forgotPassword({
-  username: 'john.doe@example.com',
-  factorType: 'SMS',
-})
-.then(function(transaction) {
-  return transaction.verify({
-    passCode: '123456' // The passCode from the SMS or CALL
-  });
-})
-.then(function(transaction) {
-  if (transaction.status === 'SUCCESS') {
-    authClient.session.setCookieAndRedirect(transaction.sessionToken);
-  } else {
-    throw 'We cannot handle the ' + transaction.status + ' status';
-  }
-})
-.catch(function(err) {
-  console.error(err);
-});
-```
-
-#### Okta Identity Engine SDK authentication flow for Password Recovery
-
-For the Identity Engine SDK, you generally start the password recovery flow with a call to the `idx.recoverPassword` method on an OktaAuth object (for example, `authClient)`, using the parameters of username and authenticators or no parameters at all (although these parameters are required in subsequent calls). This call returns a status on the transaction object (`Idx.Status`), which must be handled by the application code. When finally successful (`IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response. There are other calls prior to that based on the password policy.
-
-See the following code snippet for this example that shows the last call that includes the user's confirmed new (recovered) password:
-
-```JavaScript
-const { password, confirmPassword } = req.body;
-  if (password !== confirmPassword) {
-    next(new Error('Password not match'));
-    return;
-  }
-  const authClient = getAuthClient(req);
-  const transaction = await authClient.idx.recoverPassword({ password });
-
-if (transaction.status === IdxStatus.SUCCESS) {
-  authClient.tokenManager.setTokens(transaction.tokens);
+```java
+try {
+      authenticationResponse = authenticationClient.recoverPassword(email,
+          FactorType.EMAIL, null, ignoringStateHandler);
+} catch (final AuthenticationException e) {
+      logger.error("Recover Password Error - Status: {}, Code: {}, Message: {}",
+          e.getStatus(), e.getCode(), e.getMessage());
+      modelAndView.addObject("error",
+          e.getStatus() + ":" + e.getCode() + ":" + e.getMessage());
+      return modelAndView;
 }
 ```
 
-For further details and reference material, see [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md).
+If the `recoverPassword()` method is successful, Okta sends an email to the user with a recovery token. The app receives the recovery token from the user and calls the `AuthenticationClient.verifyRecoveryToken()` method.
 
-For further details on the password recovery flow using Identity Engine, see [User password recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/nodejs/main/#_1-the-user-selects-the-forgot-password-link) and the sample application.
+```java
+try {
+    authenticationResponse =
+    authenticationClient.verifyRecoveryToken(recoveryToken,ignoringStateHandler);
+} catch (final AuthenticationException e) {
+    logger.error("Verify Recovery Token Error - Status: {}, Code: {}, Message: {}",
+        e.getStatus(), e.getCode(), e.getMessage());
+    final ModelAndView errorView = new ModelAndView("verify-recovery-token");
+    errorView.addObject("error",
+        e.getStatus() + ":" + e.getCode() + ":" + e.getMessage());
+    return errorView;
+}
+```
+
+A successful response from `verifyRecoveryToken()` includes a state token and a security recovery question. The app presents the user with the recovery question and then passes the user’s recovery answer to the  `AuthenticationClient.answerRecoveryQuestion()` method.
+
+```java
+try {
+    authenticationResponse = authenticationClient.answerRecoveryQuestion(secQnAnswer,
+        stateToken, ignoringStateHandler);
+} catch (final AuthenticationException e) {
+    logger.error("Answer Sec Qn Error - Status: {}, Code: {}, Message: {}",
+        e.getStatus(), e.getCode(), e.getMessage());
+    final ModelAndView errorView = new ModelAndView("change-password");
+    errorView.addObject("error",
+        e.getStatus() + ":" + e.getCode() + ":" + e.getMessage());
+    return errorView;
+}
+```
+
+After a successful response from `answerRecoveryQuestion()`, the app requests the user for a new password and sends the new password to the `AuthenticationClient.resetPassword()` method.
+
+```java
+try {
+    authenticationResponse = authenticationClient.resetPassword(newPassword.toCharArray(),
+        stateToken, ignoringStateHandler);
+} catch (final AuthenticationException e) {
+    logger.error("Reset Password Error - Status: {}, Code: {}, Message: {}",
+        e.getStatus(), e.getCode(), e.getMessage());
+    final ModelAndView errorView = new ModelAndView("change-password");
+    errorView.addObject("error",
+        e.getStatus() + ":" + e.getCode() + ":" + e.getMessage());
+    return errorView;
+}
+```
+
+The user is authenticated after a successful response from `resetPassword()`.
+
+### Upgrade to the Okta Java Identity Engine SDK authentication flow
+
+To upgrade the previous Classic Engine password recovery flow, the recovery process is replaced with the Identity Engine remediation pattern of:
+
+[`AuthenticationStatus` -> `selectAuthenticator()` -> `AuthenticationStatus` -> `verifyAuthenticator()` -> `AuthenticationStatus`]
+
+The flow starts when the app instantiates the `IDXAuthenticationWrapper` client object and calls the `begin()` method. Then the recovery flow continues with the following process:
+
+- `IDXAuthenticationWrapper.recoverPassword()` method is called with the username &mdash; This is similar to passing the username to the Java Auth SDK’s `AuthenticationClient.recoverPassword()` method.
+
+  ```java
+  ProceedContext proceedContext = Util.getProceedContextFromSession(session);
+  AuthenticationResponse authenticationResponse =
+      idxAuthenticationWrapper.recoverPassword(username, proceedContext);
+  ```
+
+- Okta returns a response with `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` and a list of authenticators to verify (in this case, email is the only authenticator on the list) &mdash; Unlike the Classic Engine authentication flow, the user (or the app) selects the recovery authenticator to use. This method makes the app’s code generic to handle any recovery authenticator that is configured.
+
+- `IDXAuthenticationWrapper.selectAuthenticator()` method is called with the authenticator selected (email) &mdash;  This is synonymous with passing `FactorType.EMAIL` to the Java Auth SDK’s `AuthenticationClient.recoverPassword()` method. This method triggers Okta to send the recovery email to the user.
+
+- Okta returns a response with `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` &mdash; This status implies that Okta is waiting for the user and app to submit the email verification code for recovery.
+
+- `IDXAuthenticationWrapper.verifyAuthenticator()` method is called with the email verification code obtained from the user &mdash; This method replaces the Java  Auth SDK’s `AuthenticationClient.verifyRecoveryToken()`  and `AuthenticationClient.answerRecoveryQuestion()` method. With the Identity Engine, a recovery token is not required and the recovery question is replaced with a verification code.
+
+- Okta returns a response with `AuthenticationStatus=AWAITING_PASSWORD_RESET` &mdash; This status implies that Okta is waiting for the app to submit a new password for the user.
+
+- `IDXAuthenticationWrapper.verifyAuthenticator()` method is called with the user’s new password value, which is synonymous with the Java Auth SDK’s `AuthenticationClient.resetPassword()` method.
+
+  ```java
+  ProceedContext proceedContext = Util.getProceedContextFromSession(session);
+  VerifyAuthenticatorOptions verifyAuthenticatorOptions =
+    new VerifyAuthenticatorOptions(newPassword);
+  AuthenticationResponse authenticationResponse =
+    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
+  ```
+
+- If the password update is successful, a response of `AuthenticationStatus=SUCCESS` is returned and the app calls `AuthenticationResponse.getTokenResponse()` to retrieve the required tokens for authenticated user activity.
+
+For further details on how the password recovery with email use case is implemented with the Java Identity Engine SDK , see [User password recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/).

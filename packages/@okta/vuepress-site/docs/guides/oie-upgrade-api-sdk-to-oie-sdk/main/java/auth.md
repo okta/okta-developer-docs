@@ -1,5 +1,3 @@
-### Use case: basic sign in with username and password
-
 ### Okta Java Authentication SDK authentication flow
 
 Using the Classic Engine Java Auth SDK, a typical app starts the basic sign-in authentication flow by instantiating the `AuthenticationClient` object and calling the `authenticate()` method with the username and password parameters. This call returns an `AuthenticationResponse` object, which provides a session token if the status is `SUCCESS`. If success status is not returned, the app has to handle the returned error or a list of additional factors to verify.
@@ -8,8 +6,8 @@ The following code snippet returns a client instance:
 
 ```java
 public AuthenticationClient authenticationClient() {
-       return AuthenticationClients.builder().build();
-    }
+    return AuthenticationClients.builder().build();
+}
 ```
 
 > **Note:** Environment variables are used to configure the client object, see [Java Auth SDK configuration reference](https://github.com/okta/okta-auth-java#configuration-reference) for details.
@@ -40,27 +38,20 @@ try {
 
 > **Note:** Before implementing your embedded app with the Java Identity Engine SDK, ensure you have all the prerequisites. See [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/java/main/).
 
+The basic sign-in flow is similar to implement using the Java Identity Engine SDK. The authentication flow starts when the app instantiates the `IDXAuthenticationWrapper` client object and calls the `begin()` method. After receiving the username and password from the user, the app passes them as arguments to the  `authenticate()` method (similar to the Java Auth SDK’s `AuthenticationClient.authenticate()` method). This method returns the Identity Engine `AuthenticationResponse` object with an `AuthenticationStatus`. If `AuthenticationStatus=SUCCESS`, then the app calls the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens for authenticated user activity. The app needs to handle all the other `AuthenticationStatus` options returned, including failed authentication.
 
-For the Identity Engine SDK, you generally start the authentication flow with a call to the `idx.authenticate` method on an OktaAuth object (for example, `authClient`), using the parameters of username and password, or no parameters at all (see [Okta Identity Engine code options](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-code-options)). This call returns a status on the transaction object (`transaction.status`), which must be handled by the application code. If successful (`transaction.status === IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response.
+The following code snippet shows how the `IDXAuthenticationWrapper.authenticate()` method is called with the Java Identity Engine SDK:
 
-See the following code snippet for this example:
+```java
+// begin transaction
+AuthenticationResponse beginResponse = idxAuthenticationWrapper.begin();
 
-```JavaScript
-const transaction = await authClient.idx.authenticate({
-  username: 'some-username',
-  password: 'some-password',
-});
+// get proceed context
+ProceedContext proceedContext = beginResponse.getProceedContext();
 
-if (transaction.status === IdxStatus.SUCCESS) {
-  authClient.tokenManager.setTokens(transaction.tokens); // App receives tokens directly
-}
-
+// trigger authentication
+AuthenticationResponse authenticationResponse =
+    idxAuthenticationWrapper.authenticate(new AuthenticationOptions(username, password.toCharArray()), proceedContext);
 ```
 
-For further details and reference material, see [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md) in the Okta Auth JavaScript SDK.
-
-For further details on the password authentication flow using Identity Engine and a sample application, see [Basic Sign in flow with the password factor](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/).
-
-#### Okta Identity Engine SDK code options
-
-The Identity Engine SDK methods provide an opportunity to mirror the code styles used in the Classic Engine Authentication SDK, which can facilitate an easier migration path. It also provides an opportunity to use a more open, flexible code style that takes advantage of the recursive nature of the SDK.These styles are respectively referenced in the Identity Engine SDK as Up-Front and On-Demand. See [Approaches](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#approaches) in the Identity Engine SDK.
+See [Basic sign-in flow using the password factor](/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/java/main/) for further details on the Identity Engine password authentication flow.

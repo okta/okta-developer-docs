@@ -14,7 +14,7 @@ public String logout(final HttpSession session) {
 
 ### Upgrade to the Okta Java Identity Engine SDK authentication flow
 
-The Identity Engine Java SDK contains a revoke option in the wrapper client to revoke the access token in Okta. This step is required since the user is authorized by Okta’s Authentication Server.
+The Identity Engine Java SDK contains a revoke option in the wrapper client to revoke the access token in Okta. This step is required since the user is authorized by an Okta authorization server.
 The following code snippet shows how the `IDXAuthenticationWrapper.revokeToken()` method is called:
 
 ```java
