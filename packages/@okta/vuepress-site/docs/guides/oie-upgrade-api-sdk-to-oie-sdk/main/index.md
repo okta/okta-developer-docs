@@ -41,7 +41,7 @@ Review the following sections to understand the concepts behind the Identity Eng
 
 <StackSelector snippet="auth-vs-oie" noSelector />
 
-## Map Sign-in Authentication code to the Okta Identity Engine SDK
+## Map basic sign-in code to the Okta Identity Engine SDK
 
 The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK, which can perform authentication using the Identity Engine’s new features and workflows.
 
@@ -174,7 +174,7 @@ If your application code implements these API calls and handles the responses sh
 
 See [Okta Identity Engine SDK authentication flow](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-authentication-flow)
 
-## Map MFA Authentication code to the Okta Identity Engine SDK
+## Map MFA code to the Okta Identity Engine SDK
 
 The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK, which can perform multifactor authentication using the Identity Engine’s new features and workflows.
 
@@ -428,13 +428,13 @@ If your application code implements these API calls and handles the responses sh
 
 See [Okta Identity Engine SDK authentication flow for MFA](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-authentication-flow-for-mfa).
 
-## Map Password Recovery code to the Okta Identity Engine SDK
+## Map password recovery code to the Okta Identity Engine SDK
 
 The following sections highlight the Classic Engine Authentication SDK method calls and back-end Authentication APIs that require migration to the Identity Engine SDK, which can perform a password reset using the Identity Engine’s new features and workflows.
 
 <StackSelector snippet="pswrvy" noSelector />
 
-### Map Password Recovery APIs to Okta Identity Engine
+### Map password recovery APIs to Okta Identity Engine
 
 If your application uses direct APIs for a password recovery flow, your application code may call the following APIs:
 
@@ -665,8 +665,8 @@ curl --location --request POST 'https://example.okta.com/api/v1/authn/credential
 
 If your application code implements these API calls and handles the responses shown, you need to update your code to use the Identity Engine SDK `idx.recoverPassword` method. This method encapsulates the password recovery flow using recursive calls to the Identity Engine SDK method, and a successful response returns with access and ID tokens.
 
-See [Okta Identity Engine SDK authentication flow for Password Recovery](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-authentication-flow-for-password-recovery).
+See [Okta Identity Engine SDK authentication flow for password recovery](#okta-identity-engine-sdk-authentication-flow-for-recovery-code).
 
-## Map Basic Sign out code to the Okta Identity Engine SDK
+## Map basic sign-out code to the Okta Identity Engine SDK
 
 <StackSelector snippet="signout" noSelector />
