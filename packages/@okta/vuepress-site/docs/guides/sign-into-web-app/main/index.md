@@ -13,8 +13,8 @@ This guide shows you how to use Okta as the user store for your server-side web 
 **Learning outcomes**
 
 * Create an Okta app integration to represent your app in your org.
-* Add dependencies and configure your app ready to use Okta for authentication.
-* Sign a user in to your app. 
+* Add dependencies and configure your app to use Okta for authentication.
+* Sign a user in to your app.
 
 **What you need**
 
@@ -24,13 +24,13 @@ This guide shows you how to use Okta as the user store for your server-side web 
 
 **Sample code**
 
-* ASP.NET — see our [ASP.NET MVC example](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login) for a working sample app, or check out [ASP.NET MVC quickstart](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/getting-started) if you want to build your own to work through this guide with.
-* ASP.NET Core — see our [ASP.NET Core example](https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/okta-hosted-login) for a working sample app, or check out [ASP.NET Core quickstart](https://docs.microsoft.com/en-us/visualstudio/ide/quickstart-aspnet-core) if you want to build your own to work through this guide with.
-* Golang — see our [Go Samples on GitHub](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) for a working sample app, or check out [Golang getting started guide](https://golang.org/doc/install) if you want to build your own to work through this guide with.
-* Node.js Express — see our [Node Express example](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) for a working sample app, or check out [Express getting started guide](https://expressjs.com/en/starter/installing.html) if you want to build your own to work through this guide with.
-* PHP — see our [PHP Samples on GitHub](https://github.com/okta/samples-php/tree/develop/okta-hosted-login) for a working sample app.
-* Python Flask — see our [Flask Python Samples on GitHub](https://github.com/okta/samples-python-flask/tree/master/okta-hosted-login) for a working sample app.
-* Java Spring Boot — see our [Spring Boot Samples on GitHub](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) for a working sample app, or check out [Spring Boot Getting Started Guide](https://spring.io/guides/gs/spring-boot/) if you want to build your own to work through this guide with. You can directly create a new Spring Boot project with Okta by visiting the [Spring Initializr](https://start.spring.io) and selecting the dependencies **Web** and **Okta**, then clicking **Generate Project** to download a zip file.
+* ASP.NET &mdash; see our [ASP.NET MVC example](https://github.com/okta/samples-aspnet/tree/master/okta-hosted-login) for a working sample app, or check out [ASP.NET MVC quickstart](https://docs.microsoft.com/en-us/aspnet/mvc/overview/getting-started/introduction/getting-started) if you want to build your own to work through this guide with.
+* ASP.NET Core &mdash; see our [ASP.NET Core example](https://github.com/okta/samples-aspnetcore/tree/master/samples-aspnetcore-3x/okta-hosted-login) for a working sample app, or check out [ASP.NET Core quickstart](https://docs.microsoft.com/en-us/visualstudio/ide/quickstart-aspnet-core) if you want to build your own to work through this guide with.
+* Golang &mdash; see our [Go Samples on GitHub](https://github.com/okta/samples-golang/tree/master/okta-hosted-login) for a working sample app, or check out [Golang getting started guide](https://golang.org/doc/install) if you want to build your own to work through this guide with.
+* Node.js Express &mdash; see our [Node Express example](https://github.com/okta/samples-nodejs-express-4/tree/master/okta-hosted-login) for a working sample app, or check out [Express getting started guide](https://expressjs.com/en/starter/installing.html) if you want to build your own to work through this guide with.
+* PHP &mdash; see our [PHP Samples on GitHub](https://github.com/okta/samples-php/tree/develop/okta-hosted-login) for a working sample app.
+* Python Flask &mdash; see our [Flask Python Samples on GitHub](https://github.com/okta/samples-python-flask/tree/master/okta-hosted-login) for a working sample app.
+* Java Spring Boot &mdash; see our [Spring Boot Samples on GitHub](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login) for a working sample app, or check out [Spring Boot Getting Started Guide](https://spring.io/guides/gs/spring-boot/) if you want to build your own to work through this guide with. You can directly create a new Spring Boot project with Okta by visiting the [Spring Initializr](https://start.spring.io) and selecting the dependencies **Web** and **Okta**, then clicking **Generate Project** to download a zip file.
 
 ---
 
@@ -97,7 +97,8 @@ To enable refresh token rotation in your app integration, do the following:
 1. Scroll to the **General Settings** panel, and click **Edit**.
 1. In the **Allowed grant types**, select **Refresh Token**.
 1. In the **Refresh Token** section, select **Rotate token after every use**.
-    > **Note:** The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can [change the value](/docs/guides/refresh-tokens/refresh-token-rotation/#enable-refresh-token-rotation) to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token. Using a value of 0 indicates that there is no grace period.
+
+> **Note:** The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can [change the value](/docs/guides/refresh-tokens/refresh-token-rotation/#enable-refresh-token-rotation) to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token. Using a value of 0 indicates that there is no grace period.
 
 ### Enable Trusted Origins
 
@@ -161,7 +162,7 @@ For some applications, you may want to require the user to be authenticated for 
 
 When a user signs in, their profile information (stored in Okta) is made available to your application. It's common to use this info to update your application's UI.
 
-By default, the profile items (called "claims") that Okta returns include the user's email address, name and preferred username. 
+By default, the profile items (called "claims") that Okta returns include the user's email address, name, and preferred username.
 
 <StackSelector snippet="getuserinfo" noSelector />
 
