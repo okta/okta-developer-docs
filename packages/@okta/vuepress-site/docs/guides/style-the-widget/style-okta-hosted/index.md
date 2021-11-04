@@ -131,4 +131,26 @@ There is also additional information available in the `target`, such as `label`.
 
 See <GuideLink link="../customization-examples/#per-application-customization">Per-application customization</GuideLink> for an example of what you can do with request context.
 
+> **Note:** The following macros are only available when the Theme Builder feature is enabled in your org.
+
+#### <span v-pre>`{{themedStylesUrl}}`</span>
+
+Inserts the URL for the themed style sheet
+
+Example:
+
+```html
+ <link href="{{themedStylesUrl}}" rel="stylesheet" type="text/css">
+```
+
+#### <span v-pre>`{{faviconUrl}}`</span>
+
+Inserts the URL for the favicon
+
+Example:
+
+```html
+ <link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
+```
+
 <NextSectionLink/>
