@@ -172,7 +172,7 @@ curl --location --request POST 'https://duffield.oktapreview.com/api/v1/sessions
 
 If your application code implements these API calls and handles the responses shown, you need to update your code to use the Identity Engine SDK `idx.authenticate` method. This method encapsulates the authentication flow using recursive calls to the Identity Engine SDK method, and a successful response returns with access and ID tokens.
 
-See [Okta Identity Engine SDK authentication flow](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-authentication-flow)
+See [Okta Identity Engine SDK authentication flow](#okta-identity-engine-sdk-authentication-flow)
 
 ## Map MFA code to the Okta Identity Engine SDK
 
@@ -426,7 +426,7 @@ curl --location --request POST 'https://example.okta.com/api/v1/authn/factors/em
 
 If your application code implements these API calls and handles the responses shown, you need to update your code to use the Identity Engine SDK `idx.authenticate` method. This method encapsulates the authentication flow using recursive calls to the Identity Engine SDK method and a successful response returns with access and ID tokens.
 
-See [Okta Identity Engine SDK authentication flow for MFA](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-authentication-flow-for-mfa).
+See [Okta Identity Engine SDK authentication flow for MFA](#okta-identity-engine-sdk-authentication-flow-for-mfa).
 
 ## Map password recovery code to the Okta Identity Engine SDK
 
@@ -665,7 +665,7 @@ curl --location --request POST 'https://example.okta.com/api/v1/authn/credential
 
 If your application code implements these API calls and handles the responses shown, you need to update your code to use the Identity Engine SDK `idx.recoverPassword` method. This method encapsulates the password recovery flow using recursive calls to the Identity Engine SDK method, and a successful response returns with access and ID tokens.
 
-See [Okta Identity Engine SDK authentication flow for password recovery](#okta-identity-engine-sdk-authentication-flow-for-recovery-code).
+See [Okta Identity Engine SDK authentication flow for password recovery](#okta-identity-engine-sdk-authentication-flow-for-password-recovery).
 
 ## Map basic sign-out code to the Okta Identity Engine SDK
 
