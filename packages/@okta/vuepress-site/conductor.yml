@@ -2713,7 +2713,7 @@ redirects:
     to: /docs/guides/configure-signon-policy/main/#prompt-for-an-mfa-factor-when-a-user-is-outside-the-us
   - from: /docs/guides/configure-signon-policy/next-steps/index.html
     to: /docs/guides/configure-signon-policy/main/#next-steps
- - from: /docs/guides/sign-into-web-app/-/before-you-begin
+  - from: /docs/guides/sign-into-web-app/-/before-you-begin
     to: /docs/guides/sign-into-web-app/
   - from: /docs/guides/sign-into-web-app/-/define-callback
     to: /docs/guides/sign-into-web-app/-/main/#understand-the-callback-route
