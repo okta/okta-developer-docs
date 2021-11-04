@@ -4,10 +4,10 @@ No matter which approach that you use for your Classic Engine embedded Android a
 
 The following table is a high-level mapping of the typical Classic Engine API requests and Java Auth SDK methods to Java Identity Engine SDK methods. Since there are a variety of combinations to achieve Classic Engine authentication flows, the mapping list isn’t exhaustive. Review the following SDK upgrade examples for detailed mapping suggestions:
 
-- [Map basic sign-in code to Identity Engine SDK](#map-basic-sign-in-code-to-identity-engine-sdk) &mdash; a basic sign-in flow with username and password
-- [Map MFA authentication code to the Identity Engine SDK](#map-mfa-authentication-code-to-the-identity-engine-sdk) &mdash; a basic sign-in flow with username, password, and either the email or phone factor
-- [Map password recovery code to the Identity Engine SDK](#map-password-recovery-code-to-the-identity-engine-sdk) &mdash; password recovery using email
-- [Map sign-out code to the Identity Engine SDK](#map-sign-out-code-to-the-identity-engine-sdk) &mdash; sign-out flow
+- [Map basic sign-in code to the Okta Identity Engine SDK](#map-basic-sign-in-code-to-the-otka-identity-engine-sdk) &mdash; a basic sign-in flow with username and password
+- [Map MFA code to the Okta Identity Engine SDK](#map-mfa-code-to-the-okta-identity-engine-sdk) &mdash; a basic sign-in flow with username, password, and either the email or phone factor
+- [Map password recovery code to the Okta Identity Engine SDK](#map-password-recovery-code-to-the-identity-engine-sdk) &mdash; password recovery using email
+- [Map basic sign-out APIs to the Okta Identity Engine SDK](#map-sign-out-code-to-the-identity-engine-sdk) &mdash; sign-out flow
 
 | Okta API endpoints | Classic Engine Java Auth SDK methods (okta-auth-java) | Java Identity Engine SDK methods (okta-idx-java) | Description |
 | ------------------ | ----------------------------------------------------- | ------------------------------------------------ | ----------- |
