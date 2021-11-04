@@ -12,6 +12,7 @@ title: User sign out (local app)
 This guide covers the use case to sign a user out, and provides a flow diagram and a sequence of integration steps.
 
 ---
+
 **Learning outcomes**
 
 Understand how to implement a sign-out flow for a user.

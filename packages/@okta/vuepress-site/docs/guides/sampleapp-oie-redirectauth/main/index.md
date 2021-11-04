@@ -12,6 +12,7 @@ layout: Guides
 This guide covers how to set up an Okta sample app to demonstrate some Identity Engine features. Among the many set up options available with the Okta sample apps, the apps can redirect to Okta's Sign-In Widget, or to a social Identity Provider like Facebook, for authentication.
 
 ---
+
 **Learning outcomes**
 
 * Create, set up, and install an Okta OAuth 2.0 app.

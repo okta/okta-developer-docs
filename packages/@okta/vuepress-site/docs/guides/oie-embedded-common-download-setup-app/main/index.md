@@ -11,6 +11,7 @@ title: Download and set up the SDK, Sign-In Widget, and sample app
 This guide covers the next step after you [create and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/aspnet/main/), which is to download the GitHub repository that contains the SDK, Widget, and accompanying sample apps.
 
 ---
+
 **Learning outcomes**
 
 * Configure the settings that you need to add to initialize the SDK and the Sign-In Widget.

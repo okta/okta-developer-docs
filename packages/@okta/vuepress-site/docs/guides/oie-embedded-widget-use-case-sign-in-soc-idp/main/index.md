@@ -12,6 +12,7 @@ title: Sign in with Facebook using the Widget
 This guide covers the sequence of steps on how you can build your app to allow users to sign in with the Facebook social Identity Provider by using the Sign-In Widget.
 
 ---
+
 **Learning outcomes**
 
 Set up your app to support the sign-in flow with Facebook IdP use cases by using the Widget.

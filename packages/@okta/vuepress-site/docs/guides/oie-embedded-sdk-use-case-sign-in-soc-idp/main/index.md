@@ -12,6 +12,7 @@ title: Sign in with Facebook
 This guide covers the sequence of steps on how you can build your app to allow users to sign in with the Facebook social Identity Provider.
 
 ---
+
 **Learning outcomes**
 
 Set up your Okta org and app to support sign-in with Facebook IdP use cases.

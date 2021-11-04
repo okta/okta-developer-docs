@@ -11,6 +11,7 @@ title: Refresh the access and ID tokens
 This guide covers the refresh tokens that are used when access tokens expire and also describes the options to refresh the tokens.
 
 ---
+
 **Learning outcomes**
 
 * Understand what refresh tokens are.

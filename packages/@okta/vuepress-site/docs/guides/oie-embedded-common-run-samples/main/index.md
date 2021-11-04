@@ -10,6 +10,7 @@ layout: Guides
 This guide covers how you can run both the sample Widget app and the sample SDK app, after you have successfully [created and set up your Okta org](/docs/guides/oie-embedded-common-org-setup/) and [downloaded and set up the SDK](/docs/guides/oie-embedded-common-download-setup-app).
 
 ---
+
 **Learning outcomes**
 
 Run your sample app and build your integration.

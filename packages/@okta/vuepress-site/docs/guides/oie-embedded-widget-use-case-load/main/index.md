@@ -12,6 +12,7 @@ title: Load the Widget
 This guide covers the use case to load the Widget, and provides a flow diagram and a sequence of integration steps.
 
 ---
+
 **Learning outcomes**
 
 Understand the sequence of steps to load the Widget.
