@@ -1,57 +1,63 @@
-**LANG SPECIFIC START - AUTH**
+### The Classic Engine Authentication SDK basic authentication flow
 
-### Map the Authentication SDK to the Identity Engine SDK
+The Classic Engine Authentication SDK's methods that support the basic authentication flow are as follows:
 
-If your application uses the Classic Engine Authentication SDK methods to authenticate through Okta, you generally start the authentication flow with a call to the `signInWithCredentials` method on an OktaAuth object (for example, `authClient`), using the parameters of username and password. This call returns a status on the transaction object (`transaction.status`), which must be handled by the application code. If successful (`transaction.status === 'SUCCESS'`), you make a call to the `setCookieAndRedirect` method to retrieve a sessionToken.
+* `AuthenticationClient.AuthenticateAsync`
 
->**Note:** The `setCookieAndRedirect` method requires access to third-party cookies and is deprecated in the Identity Engine SDK.
+The following steps detail how to integrate the password recovery flow using the Classic Engine Authentication SDK.
 
-See the following code snippet for this example:
+#### 1. Start sign-in
 
-```JavaScript
-authClient.signInWithCredentials({
-  username: 'some-username',
-  password: 'some-password'
-})
-.then(function(transaction) {
-  if (transaction.status === 'SUCCESS') {
-    authClient.session.setCookieAndRedirect(transaction.sessionToken); // Sets a cookie on redirect
-  } else {
-    throw 'We cannot handle the ' + transaction.status + ' status';
-  }
-})
-.catch(function(err) {
-  console.error(err);
-});
+Start the sign-in flow by creating an object of type `AuthenticateOptions`.  Set it’s `Username` and `Password` properties and send it to `AuthenticationClient AuthenticateAsync()`. The method returns a status of `AuthenticationStatus.Success` when the sign-in is successful.
 
-```
+```dotnet
+var authnOptions = new AuthenticateOptions() {
+    Username = model.UserName,
+    Password = model.Password,
+};
 
-To migrate your code to the Identity Engine SDK, the authentication flow is very similar, but you must replace the method calls to those in the new SDK and update your code to handle the different transaction object statuses that are returned.
+var authnResponse = await _oktaAuthenticationClient.AuthenticateAsync(authnOptions).ConfigureAwait(false);
 
-#### Okta Identity Engine SDK authentication flow
+if (authnResponse.AuthenticationStatus == AuthenticationStatus.Success) {
+    var identity = new ClaimsIdentity(
+       new[] {
+      new Claim(ClaimTypes.Name, model.UserName)
+ },
+ DefaultAuthenticationTypes.ApplicationCookie);
 
-For the Identity Engine SDK, you generally start the authentication flow with a call to the `idx.authenticate` method on an OktaAuth object (for example, `authClient`), using the parameters of username and password, or no parameters at all (see [Okta Identity Engine code options](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#okta-identity-engine-sdk-code-options)). This call returns a status on the transaction object (`transaction.status`), which must be handled by the application code. If successful (`transaction.status === IdxStatus.SUCCESS`), your application receives access and ID tokens with the success response.
-
-See the following code snippet for this example:
-
-```JavaScript
-const transaction = await authClient.idx.authenticate({
-  username: 'some-username',
-  password: 'some-password',
-});
-
-if (transaction.status === IdxStatus.SUCCESS) {
-  authClient.tokenManager.setTokens(transaction.tokens); // App receives tokens directly
+ _authenticationManager.SignIn(new AuthenticationProperties {
+     IsPersistent = model.RememberMe}, identity);
 }
 
 ```
 
-For further details and reference material, see [Migrating from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md) in the Okta Auth JavaScript SDK.
+### The Identity Engine SDK basic authentication flow
 
-For further details on the password authentication flow using Identity Engine and a sample application, see [Basic Sign in flow with the password factor](https://developer.okta.com/docs/guides/oie-embedded-sdk-use-case-basic-sign-in/nodejs/main/).
+The Identity Engine SDK's methods that support the password recovery flow are as follows:
 
-#### Okta Identity Engine SDK code options
+* `IdxClient.AuthenticateAsync`
 
-The Identity Engine SDK methods provide an opportunity to mirror the code styles used in the Classic Engine Authentication SDK, which can facilitate an easier migration path. It also provides an opportunity to use a more open, flexible code style that takes advantage of the recursive nature of the SDK.These styles are respectively referenced in the Identity Engine SDK as Up-Front and On-Demand. See [Approaches](https://github.com/okta/okta-auth-js/blob/master/docs/idx.md#approaches) in the Identity Engine SDK.
+The following steps detail how to integrate the password recovery flow using the Identity Engine SDK.
 
-**LANG SPECIFIC END - AUTH**
+#### 1. Start sign-in
+
+Start the sign-in flow by creating an object of type `AuthenticateOptions`.  Assign values to its `Username` and `Password` properties and send it to `IdxClient AuthenticateAsync()`. If successful, the method returns access tokens and a status of `AuthenticationStatus.Success`.
+
+```dotnet
+var authnOptions = new AuthenticationOptions()
+      {
+          Username = model.UserName,
+          Password = model.Password,
+      };
+
+var authnResponse = await _idxClient.AuthenticateAsync(authnOptions)
+      .ConfigureAwait(false);
+
+switch (authnResponse?.AuthenticationStatus)
+{
+  case AuthenticationStatus.Success:
+        ClaimsIdentity identity = await AuthenticationHelper.GetIdentityFromTokenResponseAsync(_idxClient.Configuration, authnResponse.TokenInfo);
+        _authenticationManager.SignIn(new AuthenticationProperties { IsPersistent = model.RememberMe }, identity);
+        return RedirectToAction("Index", "Home");
+}
+```

@@ -1,7 +1,36 @@
-**LANG SPECIFIC START - SIGNOUT**
+### The Classic Engine Authentication SDK multifactor authentication flow
 
-The Identity Engine SDK included with the Classic Engine Authentication SDK does not have a new method for basic sign out. See the previous sign-out method ([signOut](https://github.com/okta/okta-auth-js/tree/2bae66c5f56998d7b71b8f04fe1474d6eae85868#signout)) for implementation details for both Classic Engine and Identity Engine.
+The Classic Engine Authentication SDK's methods that support the signout flow are as follows:
 
-See also [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/nodejs/main/).
+* `AuthenticationClient.CancelTransactionStateAsync()`
 
-**LANG SPECIFIC END - SIGNOUT**
+To sign the user out, call `AuthenticationClient.CancelTransactionStateAsync()` and pass in the state token.
+
+```dotnet
+
+await _oktaAuthenticationClient.CancelTransactionStateAsync(
+               new TransactionStateOptions
+               {
+                   StateToken = Session["stateToken"]?.ToString(),
+               });
+           _authenticationManager.SignOut();
+           return RedirectToAction("Login", "Account");
+```
+
+### The Identity Engine SDK signout flow
+
+The Identity Engine SDK's methods that support the signout flow are as follows:
+
+* `IdxClient.RevokeTokensAsync`
+
+The following steps detail how to integrate the signout flow are as follows:
+
+To sign the user out, call `AuthenticationClient.RevokeTokensAsync` and pass in the access token. If no exceptions are raised in the call, the sign out is successful.
+
+```dotnet
+var client = new IdxClient();
+          var accessToken = HttpContext.GetOwinContext().Authentication.User.Claims.FirstOrDefault(x => x.Type == "access_token");
+          await client.RevokeTokensAsync(TokenType.AccessToken, accessToken.Value);
+          _authenticationManager.SignOut();
+          return RedirectToAction("Login", "Account");
+```
