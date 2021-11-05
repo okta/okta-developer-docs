@@ -1,4 +1,4 @@
-### Okta Java Authentication SDK authentication flow
+### Okta Identity Engine SDK authentication flow for password recovery
 
 For a password recovery flow using the Classic Engine Java Auth SDK, a typical app has to first instantiate the `AuthenticationClient` object and call the `recoverPassword()` method with the username. In this password recovery scenario, the email factor is used to recover the password, therefore the `FactorType.EMAIL` argument is also provided.
 

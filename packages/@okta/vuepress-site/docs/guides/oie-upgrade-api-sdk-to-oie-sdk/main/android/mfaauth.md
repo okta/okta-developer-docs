@@ -1,6 +1,6 @@
-### Okta Java Authentication SDK authentication flow
+### Okta Identity Engine SDK authentication flow for MFA
 
-For a multifactor sign-in authentication flow using the Java Auth SDK, a typical app has to instantiate the `AuthenticationClient` object and call the `authenticate()` method, similar to the [Basic sign-in flow with username and password](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/android/main/#basic-sign-in-flow-with-username-and-password) use case.
+For a multifactor sign-in authentication flow using the Java Auth SDK, a typical app has to instantiate the `AuthenticationClient` object and call the `authenticate()` method, similar to the [Okta Identity Engine SDK authentication flow](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/android/main/#okta-identity-engine-sdk-authentication-flow) use case.
 
 In this MFA scenario, there is an additional email factor to verify, therefore the `authenticate()` call returns an `AuthenticationResponse` object with a list of one additional factor to verify: the email factor. The `AuthenticationResponse.getFactors()` method is used to return the list of factors to verify.
 
