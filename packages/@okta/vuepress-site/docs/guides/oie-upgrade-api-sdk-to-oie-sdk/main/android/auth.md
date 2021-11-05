@@ -34,7 +34,7 @@ try {
 
 ### Upgrade to the Okta Java Identity Engine SDK authentication flow
 
-> **Note:** Before you implement your embedded Android app with the Java Identity Engine SDK, ensure that you have all the prerequisites. See [Add the latest SDKs to your applications](https://developer.okta.com/docs/guides/oie-upgrade-add-sdk-to-your-app/android/main/).
+> **Note:** Before you implement your embedded Android app with the Java Identity Engine SDK, ensure that you have all the prerequisites. See [Add the Identity Engine SDK to your app](https://developer.okta.com/docs/guides/oie-upgrade-add-sdk-to-your-app/android/main/).
 
 The basic sign-in flow is simple to implement using the Java Identity Engine SDK. The authentication flow starts when the app instantiates the `IDXAuthenticationWrapper` client object and calls the `begin()` method. After receiving the username and password from the user, the app passes them as arguments to the  `authenticate()` method (similar to the Java Auth SDK’s `AuthenticationClient.authenticate()` method). This method returns the Identity Engine `AuthenticationResponse` object with an `AuthenticationStatus`. If `AuthenticationStatus=SUCCESS`, then the app calls the `AuthenticationResponse.getTokenResponse()` method to retrieve the required tokens for authenticated user activity. The app needs to handle all the other `AuthenticationStatus` options returned, including failed authentication.
 
