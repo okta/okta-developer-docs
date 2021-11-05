@@ -74,7 +74,7 @@ redirects:
   - from: /docs/api/index.html
     to: /docs/reference/
   - from: /docs/getting_started/getting_a_token.html
-    to: /docs/guides/create-an-api-token/index.html
+    to: /docs/guides/create-an-api-token/
   - from: /docs/getting_started/getting_a_token
     to: /docs/guides/create-an-api-token/
   - from: /docs/getting_started/design_principles
@@ -120,11 +120,11 @@ redirects:
   - from: /docs/api/rest/templates.html
     to: /docs/reference/api/templates/index.html
   - from: /docs/getting_started/tokens.html
-    to: /docs/guides/create-an-api-token/overview/
+    to: /docs/guides/create-an-api-token/
   - from: /docs/api/resources/tokens/index.html
-    to: /docs/guides/create-an-api-token/overview/
+    to: /docs/guides/create-an-api-token/
   - from: /docs/reference/api/tokens/index.html
-    to: /docs/guides/create-an-api-token/overview/
+    to: /docs/guides/create-an-api-token/
   - from: /docs/api/rest/users.html
     to: /docs/reference/api/users/
   - from: /docs/reference/api/user
@@ -910,7 +910,7 @@ redirects:
   - from: /guides/add-saml-idp/-/overview/index.html
     to: /docs/guides/add-saml-idp/-/overview/
   - from: /guides/create-an-api-token/-/overview/index.html
-    to: /docs/guides/create-an-api-token/-/overview/
+    to: /docs/guides/create-an-api-token/
   - from: /guides/create-token-with-groups-claim/-/add-list-of-groups/index.html
     to: /docs/guides/create-token-with-groups-claim/-/add-list-of-groups/
   - from: /guides/create-token-with-groups-claim/-/configure-custom-claim/index.html
@@ -1792,7 +1792,7 @@ redirects:
   - from: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
     to: /docs/guides/add-an-external-idp/openidconnect/main
   - from: /docs/api/getting_started/getting_a_token.html
-    to: /docs/guides/create-an-api-token/overview/
+    to: /docs/guides/create-an-api-token/
   - from: /reference/okta_expression_language/index
     to: /docs/reference/okta-expression-language/
   - from: /docs/guides/oan_guidance.html
@@ -2436,21 +2436,21 @@ redirects:
   - from: /docs/guides/updating-saml-cert/revert-to-sha1/
     to: /docs/guides/updating-saml-cert/main/
   - from: /docs/guides/create-an-api-token/overview/
-    to: /docs/guides/create-an-api-token/main/
+    to: /docs/guides/create-an-api-token/
   - from: /docs/guides/create-an-api-token/overview/index.html
-    to: /docs/guides/create-an-api-token/main/
+    to: /docs/guides/create-an-api-token/
   - from: /docs/guides/create-an-api-token/create-the-token/
-    to: /docs/guides/create-an-api-token/main/
+    to: /docs/guides/create-an-api-token/main/#create-the-token
   - from: /docs/guides/create-an-api-token/create-the-token/index.html
-    to: /docs/guides/create-an-api-token/main/
+    to: /docs/guides/create-an-api-token/main/#create-the-token
   - from: /docs/guides/create-an-api-token/token-expiration-deactivation/
-    to: /docs/guides/create-an-api-token/main/
+    to: /docs/guides/create-an-api-token/main/#token-expiration-and-deactivation
   - from: /docs/guides/create-an-api-token/token-expiration-deactivation/index.html
-    to: /docs/guides/create-an-api-token/main/
+    to: /docs/guides/create-an-api-token/main/#token-expiration-and-deactivation
   - from: /docs/guides/create-an-api-token/next-steps/
-    to: /docs/guides/create-an-api-token/main/
+    to: /docs/guides/create-an-api-token/main/#next-steps
   - from: /docs/guides/create-an-api-token/next-steps/index.html
-    to: /docs/guides/create-an-api-token/main/
+    to: /docs/guides/create-an-api-token/main/#next-steps
   - from: /docs/guides/mfa/-/prerequisites/index.html
     to: /docs/guides/mfa/
   - from: /docs/guides/mfa/-/prerequisites
