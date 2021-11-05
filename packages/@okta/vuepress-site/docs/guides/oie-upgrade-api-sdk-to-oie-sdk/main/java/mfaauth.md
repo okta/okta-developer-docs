@@ -1,11 +1,10 @@
 The migration example in this section uses a sign-on policy with username, password, and an email factor.
 
-### Okta Java Authentication SDK authentication flow
+### Okta Authentication SDK authentication flow for MFA
 
 For a multifactor sign-in authentication flow using the Java Auth SDK, a typical app has to instantiate the `AuthenticationClient` object and call the `authenticate()` method, similar to the [Map basic sign-in code to the Okta Identity Engine SDK](#map-basic-sign-in-code-to-the-okta-identity-engine-sdk) use case.
 
 In this MFA scenario, there is an additional email factor to verify, therefore the  `authenticate()` call returns an `AuthenticationResponse` object with a list of one additional factor to verify: the email factor. The `AuthenticationResponse.getFactors()` method is used to return the list of factors to verify.
----
 
 ```java
 final String factorId = authenticationResponse.getFactors().get(0).getId();
@@ -51,9 +50,7 @@ try {
 
 If the `verifyFactor()` method is successful, an `AuthenticationResponse` object is returned with a session token and a `SUCCESS` status.
 
------
-
-### Upgrade to the Okta Java Identity Engine SDK authentication flow
+### Okta Identity Engine SDK authentication flow for MFA
 
 The Identity Engine MFA authentication flow is initially similar to implement using the Identity Engine SDK, however, there are slight differences in handling the subsequent multifactors.  The authentication flow starts when the app instantiates the `IDXAuthenticationWrapper` client object and calls the `begin()` method. After receiving the username and password from the user, the app passes them as arguments to the  `authenticate()` method (similar to the classic `AuthenticationClient.authenticate()` method). This method returns the Identity Engine `AuthenticationResponse` object with an `AuthenticationStatus`.
 

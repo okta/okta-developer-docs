@@ -2,8 +2,9 @@ The Okta Identity Engine SDK provides your applications with greater flexibility
 
 If your application is a server-side, customized authentication solution, migrating to the Identity Engine SDK is the ideal path to benefit from Identity Engine features and configuration flexibility.
 
-The upgrade process is also designed to be non-disruptive and iterative over a period of time. Your Classic Engine Authentication SDK application code works with an Identity Engine configured org, and you can test and migrate use cases incrementally. See the following three examples for further information on upgrading your application code:
+The upgrade process is also designed to be non-disruptive and iterative over a period of time. Your Classic Engine Authentication SDK application code works with an Identity Engine configured org, and you can test and migrate use cases incrementally. Review the following SDK upgrade examples for detailed mapping suggestions:
 
-- Authentication (Sign in and Sign out ): [Map Authentication code to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#map-authentication-code-to-the-okta-identity-engine-sdk)
-- Multifactor Authentication (Email and SMS): [Map MFA Authentication code to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#map-mfa-authentication-code-to-the-okta-identity-engine-sdk)
-- Password Recovery: [Map Password Recovery code to the Okta Identity Engine SDK](/docs/guides/oie-upgrade-api-sdk-to-oie-sdk/nodejs/main/#map-password-recovery-code-to-the-okta-identity-engine-sdk)
+* [Map basic sign-in code to the Okta Identity Engine SDK](#map-basic-sign-in-code-to-the-okta-identity-engine-sdk) &mdash; Basic sign-in with username and password use case
+* [Map MFA code to the Okta Identity Engine SDK](#map-MFA-code-to-the-okta-identity-engine-sdk) &mdash; Basic sign-in with username, password and another email factor use case
+* [Map password recovery code to the Okta Identity Engine SDK](#map-password-recovery-code-to-the-okta-identity-engine-sdk) &mdash;Password recovery using email use case
+* [Map basic sign-out code to the Okta Identity Engine SDK](#map-basic-sign-out-code-to-the-okta-identity-engine-sdk) &mdash; Sign out use case
