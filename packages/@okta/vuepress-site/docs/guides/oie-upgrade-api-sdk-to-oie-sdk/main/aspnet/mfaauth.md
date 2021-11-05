@@ -35,7 +35,7 @@ if (authnResponse.AuthenticationStatus == AuthenticationStatus.MfaRequired)
 
 #### 2. Submit factor
 
-Next, display the list of available factors by pulling the factors from `AuthenticationResponse.Embedded.GetArrayProperty()`. After the user chooses the factor, call `AuthenticationClient.VerifyFactorAsync()` to initiate the factor verification.  The following code set ups an SMS factor using a `VerifySmsFactorOptions` object.
+Next, display the list of available factors by pulling the factors from `AuthenticationResponse.Embedded.GetArrayProperty()`. After the user chooses the factor, call `AuthenticationClient.VerifyFactorAsync()` to initiate the factor verification.  The following code sets up an SMS factor using a `VerifySmsFactorOptions` object.
 
 ```dotnet
 var isMfaRequiredFlow = (bool)Session["isMfaRequiredFlow"];

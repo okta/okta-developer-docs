@@ -1,10 +1,10 @@
 ### The Classic Engine Authentication SDK multifactor authentication flow
 
-The Classic Engine Authentication SDK's methods that support the signout flow are as follows:
+The Classic Engine Authentication SDK's methods that support the sign-out flow are as follows:
 
 * `AuthenticationClient.CancelTransactionStateAsync()`
 
-To sign the user out, call `AuthenticationClient.CancelTransactionStateAsync()` and pass in the state token.
+To sign out the user, call `AuthenticationClient.CancelTransactionStateAsync()` and pass in the state token.
 
 ```dotnet
 
@@ -17,15 +17,15 @@ await _oktaAuthenticationClient.CancelTransactionStateAsync(
            return RedirectToAction("Login", "Account");
 ```
 
-### The Identity Engine SDK signout flow
+### The Identity Engine SDK sign-out flow
 
-The Identity Engine SDK's methods that support the signout flow are as follows:
+The Identity Engine SDK's methods that support the sign-out flow are as follows:
 
 * `IdxClient.RevokeTokensAsync`
 
-The following steps detail how to integrate the signout flow are as follows:
+The following steps detail how to integrate the sign-out flow are as follows:
 
-To sign the user out, call `AuthenticationClient.RevokeTokensAsync()` and pass in the access token. If no exceptions are raised in the call, the sign out is successful.
+To sign out the user, call `AuthenticationClient.RevokeTokensAsync()` and pass in the access token. If no exceptions are raised in the call, the sign-out is successful.
 
 ```dotnet
 var client = new IdxClient();
