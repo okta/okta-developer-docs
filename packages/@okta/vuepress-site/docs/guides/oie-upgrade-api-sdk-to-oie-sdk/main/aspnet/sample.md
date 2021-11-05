@@ -1,7 +1,4 @@
-**LANG SPECIFIC START - SAMPLE**
+This guide provides sample code sourced from the following sample applications:
 
-* [Okta Auth JavaScript SDK](https://github.com/okta/okta-auth-js)
-
-> **Note:** The Classic Engine Authentication SDK and the new Identity Engine SDK are combined in the latest Okta Auth JavaScript SDK.
-
-**LANG SPECIFIC END - SAMPLE**
+* [Classic Engine Authentication SDK sample](https://github.com/okta/samples-aspnet/tree/master/primary-auth/okta-aspnet-mvc-example)
+* [Identity Engine SDK sample](https://github.com/okta/okta-idx-dotnet/tree/master/samples/samples-aspnet/embedded-auth-with-sdk)

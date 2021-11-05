@@ -2,10 +2,10 @@
 
 The Classic Engine Authentication SDK's methods that support the password recovery flow are as follows:
 
-* `AuthenticationClient.ForgotPasswordAsync`
-* `AuthenticationClient.VerifyRecoveryTokenAsync`
-* `AuthenticationClient.AnswerRecoveryQuestionAsync`
-* `AuthenticationClient.ResetPasswordAsync`
+* `AuthenticationClient.ForgotPasswordAsync()`
+* `AuthenticationClient.VerifyRecoveryTokenAsync()`
+* `AuthenticationClient.AnswerRecoveryQuestionAsync()`
+* `AuthenticationClient.ResetPasswordAsync()`
 
 The following steps detail how to integrate the password recovery flow using the Classic Engine Authentication SDK.
 
@@ -50,7 +50,7 @@ if (authResponse.AuthenticationStatus == AuthenticationStatus.Recovery)
 
 #### 3. Answer security question
 
-After the user answers the security question, send the answer to the `AuthenticationClient.AnswerRecoveryQuestionAsync()`. If the method returns a status of `AuthenticationStatus.PasswordReset`, the user is now allowed to reset their password.
+After the user answers the security question, send the answer to `AuthenticationClient.AnswerRecoveryQuestionAsync()`. If the method returns a status of `AuthenticationStatus.PasswordReset`, the user is now allowed to reset their password.
 
 ```dotnet
 var authResponse = await _oktaAuthenticationClient.AnswerRecoveryQuestionAsync(
@@ -68,7 +68,7 @@ if (authResponse.AuthenticationStatus == AuthenticationStatus.PasswordReset)
 ```
 
 #### 4. Reset password
-Once the user submits their new password, create an object of type `ResetPasswordOptions`. Assign values to its `NewPassword` and `Stake` properties and pass it to `AuthenticationClient.ResetPasswordAsync()`.  If the response returns a status of AuthenticationStatus.Success, the password is successfully reset.
+Once the user submits their new password, create an object of type `ResetPasswordOptions`. Assign values to its `NewPassword` and `Stake` properties and pass it to `AuthenticationClient.ResetPasswordAsync()`.  If the response returns a status of `AuthenticationStatus.Success`, the password is successfully reset.
 
 ```dotnet
 var authResponse = await _oktaAuthenticationClient.ResetPasswordAsync(
@@ -100,15 +100,15 @@ if (authResponse.AuthenticationStatus == AuthenticationStatus.Success)
 
 The Identity Engine SDK's methods that support the password recovery flow are as follows:
 
-* `IdxClient.RecoverPasswordAsync`
-* `IdxClient.SelectRecoveryAuthenticatorAsync`
-* `IdxClient.VerifyAuthenticatorAsync`
-* `IdxClient.ChangePasswordAsync`
+* `IdxClient.RecoverPasswordAsync()`
+* `IdxClient.SelectRecoveryAuthenticatorAsync()`
+* `IdxClient.VerifyAuthenticatorAsync()`
+* `IdxClient.ChangePasswordAsync()`
 
 The following steps detail how to integrate the password recovery flow using the Identity Engine SDK.
 
 ##### 1. Start password recovery
-Start the password recovery flow by creating an object of type `RecoverPasswordOptions`.  Assign a value to it’s `Username` property and pass it to `AuthenticationClient.RecoverPasswordAsync()`. If successful, the method returns a status of `AuthenticationStatus.AwaitingAuthenticatorSelection`, which indicates authenticators await to be verified.
+Start the password recovery flow by creating an object of type `RecoverPasswordOptions`.  Assign a value to its `Username` property and pass it to `AuthenticationClient.RecoverPasswordAsync()`. If successful, the method returns a status of `AuthenticationStatus.AwaitingAuthenticatorSelection`, which indicates authenticators await to be verified.
 
 ```dotnet
 var recoverPasswordOptions = new RecoverPasswordOptions

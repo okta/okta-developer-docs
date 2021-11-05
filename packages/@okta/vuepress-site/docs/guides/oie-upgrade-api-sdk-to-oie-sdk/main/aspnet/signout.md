@@ -25,7 +25,7 @@ The Identity Engine SDK's methods that support the signout flow are as follows:
 
 The following steps detail how to integrate the signout flow are as follows:
 
-To sign the user out, call `AuthenticationClient.RevokeTokensAsync` and pass in the access token. If no exceptions are raised in the call, the sign out is successful.
+To sign the user out, call `AuthenticationClient.RevokeTokensAsync()` and pass in the access token. If no exceptions are raised in the call, the sign out is successful.
 
 ```dotnet
 var client = new IdxClient();

@@ -2,10 +2,8 @@
 
 The Classic Engine Authentication SDK's methods that support the multifactor authentication flow are as follows:
 
-* `AuthenticationClient.AuthenticateAsync`
-* `AuthenticationClient.VerifyFactorAsync`
-
-
+* `AuthenticationClient.AuthenticateAsync()`
+* `AuthenticationClient.VerifyFactorAsync()`
 
 The following steps detail how to integrate the multifactor authentication flow using the Classic Engine Authentication SDK.
 
@@ -37,7 +35,7 @@ if (authnResponse.AuthenticationStatus == AuthenticationStatus.MfaRequired)
 
 #### 2. Submit factor
 
-Next, display the list of available factors by pulling the factors from `AuthenticationResponse.Embedded.GetArrayProperty()`. After the user chooses the factor, call `AuthenticationClient.VerifyFactorAsync()` to initiate the factor verification.  The following code sets up an SMS factor using a `VerifySmsFactorOptions` object.
+Next, display the list of available factors by pulling the factors from `AuthenticationResponse.Embedded.GetArrayProperty()`. After the user chooses the factor, call `AuthenticationClient.VerifyFactorAsync()` to initiate the factor verification.  The following code set ups an SMS factor using a `VerifySmsFactorOptions` object.
 
 ```dotnet
 var isMfaRequiredFlow = (bool)Session["isMfaRequiredFlow"];
@@ -100,9 +98,9 @@ if (authnResponse.AuthenticationStatus == AuthenticationStatus.Success)
 
 The Identity Engine SDK's methods that support the multifactor authentication flow are as follows:
 
-* `IdxClient.AuthenticateAsync`
-* `IdxClient.SelectChallengeAuthenticatorAsync`
-* `IdxClient.VerifyAuthenticatorAsync`
+* `IdxClient.AuthenticateAsync()`
+* `IdxClient.SelectChallengeAuthenticatorAsync()`
+* `IdxClient.VerifyAuthenticatorAsync()`
 
 The following steps detail how to integrate the multifactor authentication flow are as follows:
 
@@ -135,7 +133,7 @@ switch (authnResponse?.AuthenticationStatus)
 
 Using `AuthenticationResponse.Authenticators`, present the list of available authenticators to the user. Once the user selects the authenticator (for example, email or phone), call `IdxClient’s SelectChallengeAuthenticatorAsync()` passing in the `AuthenticatorId`.
 
-When completed, `SelectChallengeAuthenticatorAsync` returns a status of `AuthenticationStatus`.`AwaitingAuthenticatorVerification`,  which indicates a code was sent to the user either by email or sms. Send the user to a code verification page.
+When completed, `SelectChallengeAuthenticatorAsync()` returns a status of `AuthenticationStatus`.`AwaitingAuthenticatorVerification`,  which indicates a code was sent to the user either by email or sms. Send the user to a code verification page.
 
 ```dotnet
 var selectAuthenticatorOptions = new SelectAuthenticatorOptions
