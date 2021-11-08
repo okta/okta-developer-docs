@@ -3,7 +3,7 @@ For embedded Java applications deploying Okta Classic Engine authentication flow
 
 No matter which approach you used for your Classic Engine embedded app, to upgrade to an Identity Engine embedded app, you need to use an Identity Engine SDK. The upgrade process requires you to review your existing code and figure out the necessary mappings to transform API requests or Classic Engine SDK methods to Identity Engine SDK methods. In some instances, you need to modify the interaction structure of your code.
 
-The following table is a high-level mapping of the typical Classic Engine API requests and Java Auth SDK methods to Java Identity Engine SDK methods. Since there are a variety of combinations to achieve Classic Engine authentication flows, the mapping list is not exhaustive.
+The following table is a high-level mapping of the typical Classic Engine API requests and Java Auth SDK methods to Java Identity Engine SDK methods. Since there are a variety of combinations to achieve Classic Engine authentication flows, the mapping list isn't exhaustive.
 
 | Okta API endpoints      | Classic Engine Java Auth SDK methods (okta-auth-java)      |   Identity Engine Java SDK methods (okta-idx-java) |   Description |
 | ----------------------- | ------------------------------ | -----------------------------------| ------------- |
