@@ -2659,3 +2659,7 @@ redirects:
     to: /docs/guides/quickstart/-/main/#try-signing-in
   - from: /docs/guides/quickstart/try-api/index.html
     to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/custom-error-pages/overview/index.html
+    to: /docs/guides/custom-error-pages/
+  - from: /docs/guides/custom-error-pages/overview
+    to: /docs/guides/custom-error-pages/
