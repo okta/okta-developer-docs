@@ -29,23 +29,22 @@ Email templates use common and unique [Expression Language (EL) variables](https
 > **Note:** Some templates listed in the [variables tables](https://help.okta.com/okta_help.htm?id=ext-expression-language) may not appear in your org. To obtain these templates, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867).
 
 ### Enhanced Email Macros
+
 <ApiLifecycle access="ea" />
 
-#### Overview of what this EA feature enables
+> **Note:** To access this self-service EA feature, you need to enable **Enhanced Email Macros** in the Feature Manager. See [Feature Lifecycle Management](/docs/concepts/feature-lifecycle-management/) and [Manage Early Access and Beta features](https://help.okta.com/okta_help.htm?id=ext_Manage_Early_Access_features). For free orgs, contact [Okta Support](https://support.okta.com/help/s/?_ga=2.17747641.1660906902.1597076228-1076744453.1575496867) to request email customization.
+
+#### Overview of the Enhanced Email Macros feature
 
 The Enhanced Email Macros feature provides you with the functionality to customize the email templates with even greater flexibility than EL. It changes the underlying email templating engine from EL variables to [Velocity Templating Language (VTL)](https://velocity.apache.org/). This allows you to customize your org's email templates so that you can use enhanced conditional logic, all of the attributes in the Okta [User Profile object](/docs/reference/api/users/#profile-object), and some of the org attributes in these macros, as documented below. All of Okta's default email templates are available for customization.
 
 ##### What this EA feature doesn't enable
 
-Okta will not perform any automated migration of previously customized email templates for EA. This means that when you enable the feature flag to access the functionality, all email templates will revert to defaults.
+Okta doesn't perform any automated migration of previously customized email templates for this EA feature. This means that when you enable the Enhanced Email Macros feature to access the functionality, all email templates will revert to defaults.
 
-However, when you disable the feature flag, your old customized templates will return. If you choose to disable the feature flag, you will lose access to the customizations done while the EA was enabled.
+However, when you disable the Enhanced Email Macros feature, your old customized templates will return. If you choose to disable the feature, you will lose access to the customizations done while the EA feature was enabled.
 
-##### EA feature requirements
-
-To access this self-serviced EA feature, you need to enable `ENHANCED_EMAIL_MACROS`in the feature flag. For free orgs, you will need to first contact Okta support (`support@okta.com`) to request email customization.
-
-> **Note:** The EA enhanced email macros feature is supported in Okta Identity Engine. <ApiLifecycle access="ie" />
+> **Note:** The EA Enhanced Email Macros feature is supported in Okta Identity Engine. <ApiLifecycle access="ie" />
 
 #### Velocity Templating syntax
 
