@@ -50,11 +50,7 @@ Your Registration Inline Hook is now configured for Profile Enrollment. You are 
 #### Enable the Registration Inline Hook in the Classic Engine
 
 <ApiLifecycle access="ea" />
-<<<<<<< HEAD
 If you have a Classic Engine org, you must enable [self-service registration (SSR)](/docs/guides/set-up-self-service-registration/) to implement a Registration Inline Hook.
-=======
-If you have a Classic Engine org, you must enable [self-service registration (SSR)](/docs/guides/set-up-self-service-registration/main/) to implement a Registration Inline Hook.
->>>>>>> staging
 
 > **Note:** Self-service registration and Registration Inline Hooks are only supported with the [Okta Sign-In Widget](/code/javascript/okta_sign-in_widget/) version 2.9 or later.
 
