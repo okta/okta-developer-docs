@@ -573,7 +573,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/recovery/
 #### 5. Prompt user to reset password (/api/v1/authn/credentials/reset_password)
 
 ```bash
-curl --location --request POST 'https://example.okta.com/api/v1/authn/credentials/reset_password' \
+curl --location --request POST 'https://${yourOktaDomain}/api/v1/authn/credentials/reset_password' \
 --header 'Accept: application/json' \
 --header 'Content-Type: application/json' \
 --header 'Cookie: JSESSIONID=567D81F8C70A8F601AD0EF3A551FB53D' \
@@ -583,7 +583,7 @@ curl --location --request POST 'https://example.okta.com/api/v1/authn/credential
 }’
 ```
 
-#### 6. The application receives a response that the password has changed and is able to sign in
+#### 6. The application receives a response that the password changed and the user is able to sign in
 
 ```JSON
 {
