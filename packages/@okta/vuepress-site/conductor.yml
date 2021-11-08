@@ -2664,4 +2664,10 @@ redirects:
   - from: /docs/guides/custom-error-pages/overview
     to: /docs/guides/custom-error-pages/
   - from: /docs/guides/custom-error-pages/edit-the-error-page/index.html
-    to: /docs/guides/custom-error-pages/main/
+    to: /docs/guides/custom-error-pages/main/#edit-the-error-page/
+  - from: /docs/guides/custom-error-pages/edit-the-error-page
+    to: /docs/guides/custom-error-pages/main/#edit-the-error-page/
+  - from: /docs/guides/custom-error-pages/use-macros/index.html
+    to: /docs/guides/custom-error-pages/main/#use-macros/
+  - from: /docs/guides/custom-error-pages/main/use-macros
+    to: /docs/guides/custom-error-pages/main/#use-macros/
