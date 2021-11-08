@@ -34,16 +34,16 @@ tiles:
     link: /docs/guides/sign-into-spa/
     items:
       - name: React
-        link: /docs/guides/sign-into-spa/react/before-you-begin/
+        link: /docs/guides/sign-into-spa/react/main
         image: /img/homepage/stackselectors/react.png
       - name: Angular
-        link: /docs/guides/sign-into-spa/angular/before-you-begin/
+        link: /docs/guides/sign-into-spa/angular/main
         image: /img/homepage/stackselectors/angular.png
       - name: Vue.js
-        link: /docs/guides/sign-into-spa/vue/before-you-begin/
+        link: /docs/guides/sign-into-spa/vue/main
         image: /img/homepage/stackselectors/vue.png
       - name: Blazor WebAssembly
-        link: /docs/guides/sign-into-spa/blazorwebasm/before-you-begin/
+        link: /docs/guides/sign-into-spa/blazorwebasm/main
         image: /img/homepage/stackselectors/dotnet.png
   - name: Native App
     link: /docs/guides/sign-into-mobile-app/

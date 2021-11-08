@@ -1,7 +1,6 @@
 ---
 title: Guides overview
 guides:
- - add-a-social-idp
  - add-an-external-idp
  - build-custom-ui-mobile
  - build-self-signed-jwt
@@ -53,6 +52,7 @@ guides:
  - sign-into-web-app
  - sign-users-out
  - sign-your-own-saml-csr
+ - social-login
  - style-the-widget
  - token-inline-hook
  - third-party-risk-integration
@@ -97,7 +97,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [OAuth 2.0 and OpenID Connect overview](/docs/concepts/oauth-openid/)
     * [Authorization servers](/docs/concepts/auth-servers/)
     * [Policies](/docs/concepts/policies/)
-    * [Quickstart: Signing in your first user](/docs/guides/quickstart/cli/main)
+    * [Quickstart: Signing in your first user](/docs/guides/quickstart/cli/main/)
     * [Set up self-service registration](/docs/guides/set-up-self-service-registration)
 
 2. Sign users in

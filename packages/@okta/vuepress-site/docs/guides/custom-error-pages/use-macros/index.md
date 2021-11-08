@@ -79,4 +79,40 @@ Example:
 <p class="technical-details">Additional Error Details: {{technicalDetails}}</p>
 ```
 
+> **Note:** The following macros are only available when the Theme Builder feature is enabled in your org.
+
+#### <span v-pre>`{{buttonText}}`</span>
+
+Inserts the button text based on the page context. When a user selects the button, they are directed to the `buttonHref` URL. The `{{back}}` macro is also supported for the same purpose.
+
+#### <span v-pre>`{{buttonHref}}`</span>
+
+Inserts the hyperlink for the button
+
+Example:
+
+```html
+ <a href="{{buttonHref}}" class="button">{{buttonText}}</a>
+```
+
+#### <span v-pre>`{{themedStylesUrl}}`</span>
+
+Inserts the URL for the themed style sheet
+
+Example:
+
+```html
+ <link href="{{themedStylesUrl}}" rel="stylesheet" type="text/css">
+```
+
+#### <span v-pre>`{{faviconUrl}}`</span>
+
+Inserts the URL for the favicon
+
+Example:
+
+```html
+ <link rel="shortcut icon" href="{{faviconUrl}}" type="image/x-icon"/>
+```
+
 <NextSectionLink/>
