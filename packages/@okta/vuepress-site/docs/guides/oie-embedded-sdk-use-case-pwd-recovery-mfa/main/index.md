@@ -29,7 +29,7 @@ In addition to configuring your Okta org for the multifactor use case, you need 
 
 1. In the Admin Console, go to **Security** > **Authenticators**.
 1. From the **Setup** tab, select **Edit** from the **Actions** drop-down menu on the **Password** authenticator row.
-1. In the **Password** page, scroll down to the **Add Rule** section of the **Default Policy** and click
+1. On the **Password** page, scroll down to the **Add Rule** section of the **Default Policy** and click
    the edit pencil icon for the **Default Rule**.
 1. In the **Edit Rule** dialog box, ensure that the following values are configured for the **AND Users can initiate recovery with** field:
    * **Phone (SMS / Voice call)**: Clear
