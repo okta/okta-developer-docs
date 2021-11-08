@@ -2094,45 +2094,69 @@ redirects:
   - from: /integrate-with-okta/index.html
     to: /okta-integration-network
   - from: /docs/guides/set-up-event-hook/overview
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/
   - from: /docs/guides/set-up-event-hook/overview/index.html
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/
   - from: /docs/guides/set-up-event-hook/-/overview
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/
   - from: /docs/guides/set-up-event-hook/-/overview/index.html
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/
   - from: /docs/guides/set-up-event-hook/implement-your-service
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/
   - from: /docs/guides/set-up-event-hook/implement-your-service/index.html
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/
   - from: /docs/guides/set-up-event-hook/-/implement-your-service
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/
   - from: /docs/guides/set-up-event-hook/-/implement-your-service/index.html
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/
   - from: /docs/guides/set-up-event-hook/register-your-endpoint
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/-/main/#enable-and-verify-the-event-hook
   - from: /docs/guides/set-up-event-hook/register-your-endpoint/index.html
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/-/main/#enable-and-verify-the-event-hook
   - from: /docs/guides/set-up-event-hook/-/register-your-endpoint
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/-/main/#enable-and-verify-the-event-hook
   - from: /docs/guides/set-up-event-hook/-/register-your-endpoint/index.html
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/-/main/#enable-and-verify-the-event-hook
   - from: /docs/guides/set-up-event-hook/verify-your-endpoint
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/-/main/#configure-initial-event-hook-verification
   - from: /docs/guides/set-up-event-hook/verify-your-endpoint/index.html
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/-/main/#configure-initial-event-hook-verification
   - from: /docs/guides/set-up-event-hook/-/verify-your-endpoint
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/-/main/#configure-initial-event-hook-verification
   - from: /docs/guides/set-up-event-hook/-/verify-your-endpoint/index.html
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/-/main/#configure-initial-event-hook-verification
   - from: /docs/guides/set-up-event-hook/ongoing-delivery-of-events
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/
   - from: /docs/guides/set-up-event-hook/ongoing-delivery-of-events/index.html
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/
   - from: /docs/guides/set-up-event-hook/-/ongoing-delivery-of-events
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/
   - from: /docs/guides/set-up-event-hook/-/ongoing-delivery-of-events/index.html
-    to: /docs/guides/event-hook-implementation/-/overview/
+    to: /docs/guides/event-hook-implementation/
+  - from: /docs/guides/event-hook-implementation/-/overview
+    to: /docs/guides/event-hook-implementation/
+  - from: /docs/guides/event-hook-implementation/-/overview/index.html
+    to: /docs/guides/event-hook-implementation/
+  - from: /docs/guides/event-hook-implementation/-/initial-verification
+    to: /docs/guides/event-hook-implementation/-/main/#configure-initial-event-hook-verification
+  - from: /docs/guides/event-hook-implementation/-/initial-verification/index.html
+    to: /docs/guides/event-hook-implementation/-/main/#configure-initial-event-hook-verification
+  - from: /docs/guides/event-hook-implementation/-/parse-event-hook
+    to: /docs/guides/event-hook-implementation/-/main/#parse-the-event-hook-request
+  - from: /docs/guides/event-hook-implementation/-/parse-event-hook.index.html
+    to: /docs/guides/event-hook-implementation/-/main/#parse-the-event-hook-request
+  - from: /docs/guides/event-hook-implementation/-/event-object
+    to: /docs/guides/event-hook-implementation/-/main/#examine-the-event-hook-object
+  - from: /docs/guides/event-hook-implementation/-/event-object/index.html
+    to: /docs/guides/event-hook-implementation/-/main/#examine-the-event-hook-object
+  - from: /docs/guides/event-hook-implementation/-/enable-and-verify
+    to: /docs/guides/event-hook-implementation/-/main/#enable-and-verify-the-event-hook
+  - from: /docs/guides/event-hook-implementation/-/enable-and-verify/index.html
+    to: /docs/guides/event-hook-implementation/-/main/#enable-and-verify-the-event-hook
+  - from: /docs/guides/event-hook-implementation/-/test-hook
+    to: /docs/guides/event-hook-implementation/-/main/#preview-and-test-the-event-hook
+  - from: /docs/guides/event-hook-implementation/-/test-hook/index.html
+    to: /docs/guides/event-hook-implementation/-/main/#preview-and-test-the-event-hook
   - from: /docs/guides/password-import-hook/overview
     to: /docs/guides/password-import-inline-hook/-/overview/
   - from: /docs/guides/password-import-hook/overview/index.html
@@ -2541,8 +2565,24 @@ redirects:
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/retrieve-refresh-token/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+  - from: /docs/guides/common-hook-set-up-steps/-/overview/index.html
+    to: /docs/guides/common-hook-set-up-steps/
+  - from: /docs/guides/common-hook-set-up-steps/-/overview
+    to: /docs/guides/common-hook-set-up-steps/
+  - from: /docs/guides/common-hook-set-up-steps/-/setting-up-an-external-service/index.html
+    to: /docs/guides/common-hook-set-up-steps/-/main/#set-up-an-external-service
+  - from: /docs/guides/common-hook-set-up-steps/-/setting-up-an-external-service
+    to: /docs/guides/common-hook-set-up-steps/-/main/#set-up-an-external-service
+  - from: /docs/guides/common-hook-set-up-steps/-/adding-basic-auth/index.html
+    to: /docs/guides/common-hook-set-up-steps/-/main/#add-basic-authorization-and-body-parsing
+  - from: /docs/guides/common-hook-set-up-steps/-/adding-basic-auth
+    to: /docs/guides/common-hook-set-up-steps/-/main/#add-basic-authorization-and-body-parsing
+  - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting/index.html
+    to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
+  - from: /docs/guides/common-hook-set-up-steps/-/troubleshooting
+    to: /docs/guides/common-hook-set-up-steps/-/main/#troubleshoot-hook-implementations
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
-    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/ 
+    to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/sign-into-spa/-/before-you-begin
     to: /docs/guides/sign-into-spa/
   - from: /docs/guides/sign-into-spa/-/define-callback
