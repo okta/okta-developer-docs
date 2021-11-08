@@ -58,7 +58,7 @@ When a user is deactivated in the Okta org, your external service receives the E
 
 In this example, after parsing the Event Hook request, the code simply displays the deactivated user to the console, and then replies to Okta with an empty, successful response (200).
 
-<StackSelector snippet="parse-request"/>
+<StackSelector snippet="parse-request" noSelector/>
 
 ## Examine the Event Hook object
 
@@ -68,7 +68,7 @@ The JSON body includes the properties accessed in this example, namely `target` 
 https://${yourOktaDomain}/api/v1/logs?filter=eventType eq "user.lifecycle.deactivated"
 ```
 
-<StackSelector snippet="event-object"/>
+<StackSelector snippet="event-object" noSelector/>
 
 ## Enable and verify the Event Hook
 
