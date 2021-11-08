@@ -2547,7 +2547,7 @@ redirects:
   - from: /docs/guides/build-custom-ui-mobile/-/handle-authentication-responses/index.html
     to: /docs/guides/build-custom-ui-mobile/-/#handle-authentication-responses
   - from: /docs/guides/build-custom-ui-mobile/-/next-steps/index.html
-    to: /docs/guides/build-custom-ui-mobile/-/#next-steps
+    to: /docs/guides/build-custom-ui-mobile/-/main/#next-steps
 
   - from: /docs/guides/unlock-mobile-app-with-biometrics/android/overview/
     to: /docs/guides/unlock-mobile-app-with-biometrics/android/main/
