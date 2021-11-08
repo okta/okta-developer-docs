@@ -69,7 +69,7 @@ Sign users out of Okta by ending their session on the Okta Authorization Server.
 
 ## Sign users out of your app
 
-Sign users out your application by ending their local session. This signs the user out of your app, but doesn't [sign the user out of Okta](#sign-users-out-of-okta).
+Sign users out of your application by ending their local session. This signs the user out of your app, but doesn't [sign the user out of Okta](#sign-users-out-of-okta).
 
 The steps required to end the app session vary depending on the type of app that you are using.
 
