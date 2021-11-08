@@ -4,7 +4,7 @@ The migration example in this section uses a sign-on policy with username, passw
 
 For a multifactor sign-in authentication flow using the Java Auth SDK, a typical app has to instantiate the `AuthenticationClient` object and call the `authenticate()` method, similar to the [Map basic sign-in code to the Okta Identity Engine SDK](#map-basic-sign-in-code-to-the-okta-identity-engine-sdk) use case.
 
-In this MFA scenario, there is an additional email factor to verify, therefore the  `authenticate()` call returns an `AuthenticationResponse` object with a list of one additional factor to verify: the email factor. The `AuthenticationResponse.getFactors()` method is used to return the list of factors to verify.
+In this MFA scenario, there is an additional email factor to verify, therefore the `authenticate()` call returns an `AuthenticationResponse` object with a list of one additional factor to verify: the email factor. The `AuthenticationResponse.getFactors()` method is used to return the list of factors to verify.
 
 ```java
 final String factorId = authenticationResponse.getFactors().get(0).getId();
