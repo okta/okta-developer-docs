@@ -83,7 +83,7 @@ The flow starts when the app instantiates the `IDXAuthenticationWrapper` client 
 
 - Okta returns a response with `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` and a list of authenticators to verify (in this case, email is the only authenticator on the list) &mdash; Unlike the Classic Engine authentication flow, the user (or the app) selects the recovery authenticator to use. This method makes the app’s code generic to handle any recovery authenticator that is configured.
 
-- `IDXAuthenticationWrapper.selectAuthenticator()` method is called with the authenticator selected (email) &mdash;  This is synonymous with passing `FactorType.EMAIL` to the Java Auth SDK’s `AuthenticationClient.recoverPassword()` method. This method triggers Okta to send the recovery email to the user.
+- `IDXAuthenticationWrapper.selectAuthenticator()` method is called with the authenticator selected (email) &mdash; This is synonymous with passing `FactorType.EMAIL` to the Java Auth SDK’s `AuthenticationClient.recoverPassword()` method. This method triggers Okta to send the recovery email to the user.
 
 - Okta returns a response with `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` &mdash; This status implies that Okta is waiting for the user and app to submit the email verification code for recovery.
 
