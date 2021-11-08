@@ -9,7 +9,7 @@ The Okta Domains API provides operations to manage custom domains for your organ
 
 ## Getting Started
 
-Explore the Domains API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/6540fce00064f4f440d3)
+Explore the Domains API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/96fbe3dea3ccd0602186)
 
 ## Domain operations
 
