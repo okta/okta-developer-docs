@@ -114,8 +114,7 @@ Create a change password page that allows the user to enter their new password a
 
 ### 9: Make a call to the ChangePasswordAsync method
 
-The final step is to make a call to the `ChangePasswordAsync()` method to change the
-user's password. Encapsulate the new password into `changePasswordOptions` and pass it as an argument to the `ChangePasswordAsync()` method.
+The final step is to make a call to the `ChangePasswordAsync()` method to change the user's password. Encapsulate the new password into `changePasswordOptions` and pass it as an argument to the `ChangePasswordAsync()` method.
 
 ```csharp
 var authnResponse = await idxAuthClient.ChangePasswordAsync(changePasswordOptions,
