@@ -98,10 +98,10 @@ A log pane appears that displays all `console.log()` output. Some console output
 
 Review the following guides to implement a simple hook example and preview the hook functionality:
 
-* [Event Hook](/docs/guides/event-hook-implementation/nodejs/overview/)
-* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/nodejs/overview/)
-* [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/overview/)
-* [Token Inline Hook](/docs/guides/token-inline-hook/nodejs/overview/)
+* [Event Hook](/docs/guides/event-hook-implementation/)
+* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
+* [Registration Inline Hook](/docs/guides/registration-inline-hook/)
+* [Token Inline Hook](/docs/guides/token-inline-hook/)
 
 ## See also
 
