@@ -16,7 +16,7 @@ In this guide you will learn how to integrate biometric authentication like Face
 
 **What you need**
 
-* Biometric unlock with Touch ID, Face ID, and Smart Lock — added by following the [Sign users in to your mobile apps](/docs/guides/sign-into-mobile-app/android/main/) guide.
+* Biometric unlock with Touch ID, Face ID, and Smart Lock — added by following the [Sign users in to your mobile apps](/docs/guides/sign-into-mobile-app/) guide.
 
 **Sample code**
 
