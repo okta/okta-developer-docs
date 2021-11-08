@@ -12,7 +12,7 @@ title: Okta API Products Release Notes 2021
 
 #### Bugs fixed in 2021.11.1
 
-* When the [Update User API](/docs/reference/api/users/#update-user) or the [Change Recovery Question API](/docs/reference/api/users/#change-recovery-question) was used to update the user's `Security Question`, the Okta Identity Engine still returned the old `Security Question`. (OKTA-442243)
+* When the [Update User API](/docs/reference/api/users/#update-user) or the [Change Recovery Question API](/docs/reference/api/users/#change-recovery-question) was used to update the user's security question, the Okta Identity Engine still returned the old security question. (OKTA-442243)
 
 ### Monthly release 2021.11.0
 
