@@ -103,4 +103,4 @@ The flow starts when the app instantiates the `IDXAuthenticationWrapper` client 
 
 - If the password update is successful, a response of `AuthenticationStatus=SUCCESS` is returned and the app calls `AuthenticationResponse.getTokenResponse()` to retrieve the required tokens for authenticated user activity.
 
-For further details on how the password recovery with email use case is implemented with the Java Identity Engine SDK , see [User password recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/).
+For further details on how the password recovery with email use case is implemented with the Java Identity Engine SDK, see [User password recovery](/docs/guides/oie-embedded-sdk-use-case-pwd-recovery-mfa/java/main/).
