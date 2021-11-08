@@ -6,5 +6,5 @@ The upgrade process is also designed to be non-disruptive and iterative over a p
 
 * [Map basic sign-in code to the Okta Identity Engine SDK](#map-basic-sign-in-code-to-the-okta-identity-engine-sdk) &mdash; Basic sign-in with username and password use case
 * [Map MFA code to the Okta Identity Engine SDK](#map-MFA-code-to-the-okta-identity-engine-sdk) &mdash; Basic sign-in with username, password and another email factor use case
-* [Map password recovery code to the Okta Identity Engine SDK](#map-password-recovery-code-to-the-okta-identity-engine-sdk) &mdash;Password recovery using email use case
+* [Map password recovery code to the Okta Identity Engine SDK](#map-password-recovery-code-to-the-okta-identity-engine-sdk) &mdash; Password recovery using email use case
 * [Map basic sign-out code to the Okta Identity Engine SDK](#map-basic-sign-out-code-to-the-okta-identity-engine-sdk) &mdash; Sign out use case

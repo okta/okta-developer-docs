@@ -1,4 +1,4 @@
-### Okta Identity Engine SDK authentication flow
+### Okta Authentication SDK authentication flow
 
 Using the Classic Engine Java Auth SDK, a typical app starts the basic sign-in authentication flow by instantiating the `AuthenticationClient` object and calling the `authenticate()` method with the username and password parameters. This call returns an `AuthenticationResponse` object, which provides a session token if the status is `SUCCESS`. If a success status isn’t returned, the app has to handle the returned error or a list of additional factors to verify.
 
@@ -32,7 +32,7 @@ try {
 }
 ```
 
-### Upgrade to the Okta Java Identity Engine SDK authentication flow
+### Okta Identity Engine SDK authentication flow
 
 > **Note:** Before you implement your embedded Android app with the Java Identity Engine SDK, ensure that you have all the prerequisites. See [Add the Identity Engine SDK to your app](https://developer.okta.com/docs/guides/oie-upgrade-add-sdk-to-your-app/android/main/).
 
