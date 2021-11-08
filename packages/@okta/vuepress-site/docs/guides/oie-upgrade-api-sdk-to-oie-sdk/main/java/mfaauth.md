@@ -26,7 +26,7 @@ if (factorType == FactorType.EMAIL) {
 
 For the email factor, the app has to verify a code that is sent to the user’s email. The `AuthenticationClient.challengeFactor()` method is called to send the verify-code email, then the `AuthenticationClient.verifyFactor()` method is used to verify the code from the email.
 
-> **Note:** If there is only one factor in the list, the app does not need to call `challengeFactor()`, as it is automatically triggered.
+> **Note:** If there is only one factor in the list, the app doesn't need to call `challengeFactor()`, as it is automatically triggered.
 
 ```java
 try {
