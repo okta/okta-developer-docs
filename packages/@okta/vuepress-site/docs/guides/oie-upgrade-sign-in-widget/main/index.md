@@ -75,30 +75,57 @@ For Identity Engine, some features that were in the Sign-In Widget configuration
 
 ### Registration
 
-To add registration into your application, configure your Okta admin settings for profile enrollment to allow users to sign-up/self register into your app.
+To add registration into your application, you need to configure your Okta admin settings for profile enrollment to allow users to sign up or self register into your app.
 
-This process would omit the following objects in the SIW.
-https://github.com/okta/okta-signin-widget#registration
+The following [registration](https://github.com/okta/okta-signin-widget#registration) process omits these objects in the Sign-In Widget.
+
+```javascript
+var signIn = new OktaSignIn({
+      baseUrl: 'https://${yourOktaDomain}',
+      // If you are using version 2.8 or higher of the widget, clientId is not required while configuring
+      // registration. Instead the widget relies on policy setup with Self Service Registration. For help
+      // with setting up Self Service Registration contact support@okta.com. Registration should continue
+      // to work with a clientId set and version 2.7 or lower of the widget.
+      clientId: '${myClientId}', // REQUIRED (with version 2.7.0 or lower)
+      registration: {
+        parseSchema: function(schema, onSuccess, onFailure) {
+           // handle parseSchema callback
+           onSuccess(schema);
+        },
+        preSubmit: function (postData, onSuccess, onFailure) {
+           // handle preSubmit callback
+           onSuccess(postData);
+        },
+        postSubmit: function (response, onSuccess, onFailure) {
+            // handle postsubmit callback
+           onSuccess(response);
+        }
+      },
+      features: {
+        // Used to enable registration feature on the widget.
+        // https://github.com/okta/okta-signin-widget#feature-flags
+         registration: true // REQUIRED
+      }
+    });
+```
 
 ### IdP Discovery
 
-IdP Discovery enables you to route users to different 3rd Party IdPs that are connected to your Okta Org. Users can federate back into the primary org after authenticating at the IdP.
+IdP Discovery enables you to route users to different third-party IdPs that are connected to your Okta org. Users can federate back into the primary org after authenticating at the IdP. While this feature still functions, it's no longer the preferred method to enable the link for users to initialize the route and can be replaced by configuring a Routing Rule with the application context.
 
-While this feature still functions, it is no longer the preferred method to enable the link for users to initialize the “route”.  This can be replaced with configuring a “Routing Rule” with application context.
+See [IdP](https://github.com/okta/okta-signin-widget#idp-discovery).
 
-https://github.com/okta/okta-signin-widget#idp-discovery
+### OpenID Connect/social authentication
 
-### OpenID Connect/Social Authentication
+When External Identity Providers (IdPs) are used in OIDC authentication (known as Social Login), the supported IdPs (Google, Facebook, Apple, Microsoft, and LinkedIn) are declared with a type and get distinct styling and default i18n text, while any other entry receives a general styling and requires text to be provided. Each IdP can have additional CSS classes added through an optional `className` property.
 
-External Identity Providers to use in OIDC authentication, also known as Social Login. Supported IDPs ( GOOGLE, FACEBOOK, APPLE, MICROSOFT and LINKEDIN ) are declared with a type and will get distinct styling and default i18n text, while any other entry will receive a general styling and require text to be provided. Each IDP can have additional CSS classes added via an optional className property.
+While this feature still functions, it's no longer the preferred method to enable the link for users to initialize the route. This can be replaced by configuring a Routing Rule with the application context.
 
-While this feature still functions, it is no longer the preferred method to enable the link for users to initialize the “route”.  This can be replaced with configuring a “Routing Rule” with application context.
-
-https://github.com/okta/okta-signin-widget#openid-connect
+See [idps](https://github.com/okta/okta-signin-widget#openid-connect) for ...
 
 Some common features that were in the Sign-In Widget configuration that no longer function should now be removed from the code in initialization.
 
-### Smart Card IdP
+### Smart card IdP
 
 No longer supported… until PIV/CAC support.
 https://github.com/okta/okta-signin-widget#smart-card-idp
@@ -106,10 +133,10 @@ https://github.com/okta/okta-signin-widget#smart-card-idp
 Bootstrapping from a recovery token
 https://github.com/okta/okta-signin-widget#bootstrapping-from-a-recovery-token
 
+### Feature flags
 
-Feature flags
+The following features are no longer supported. They are now configured in Okta Sign-On Policies.
 
-These Features are no longer supported, these would be driven by the Okta Policies… 
 features.rememberMe - Display a checkbox to enable "Remember me" functionality at login. Defaults to true.
 
 features.autoPush - Display a checkbox to enable "Send push automatically" functionality in the MFA challenge flow. Defaults to false.
