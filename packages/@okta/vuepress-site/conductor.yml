@@ -2541,7 +2541,7 @@ redirects:
   - from: /docs/guides/build-custom-ui-mobile/-/create-an-okta-application/index.html
     to: /docs/guides/build-custom-ui-mobile/-/main/#create-an-okta-application
   - from: /docs/guides/build-custom-ui-mobile/-/configure-packages/index.html
-    to: /docs/guides/build-custom-ui-mobile/-/#add-and-configure-packages
+    to: /docs/guides/build-custom-ui-mobile/-/main/#add-and-configure-packages
   - from: /docs/guides/build-custom-ui-mobile/-/primary-authentication/index.html
     to: /docs/guides/build-custom-ui-mobile/-/#build-the-primary-authentication-form
   - from: /docs/guides/build-custom-ui-mobile/-/handle-authentication-responses/index.html
