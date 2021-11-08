@@ -1,5 +1,5 @@
 
-Although the Identity Engine SDK uses a different set of underlying API endpoints, its method signatures are purposely designed to resemble the Classic Engine Authentication SDK's methods it replaces. For example, initiating a sign-in flow in both SDK's is done with an `AuthenticationOptions` parameter and `AuthenticateAsync()` method. These similarities are intended to ease the overall upgrade process by reducing the amount of learning required to use the new Identity Engine SDK.
+Although the Identity Engine SDK uses a different set of underlying API endpoints, its method signatures are purposely designed to resemble the Classic Engine Authentication SDK's methods it replaces. For example, initiating a sign-in flow in both SDKs is done with an `AuthenticationOptions` parameter and `AuthenticateAsync()` method. These similarities are intended to ease the overall upgrade process by reducing the amount of learning required to use the new Identity Engine SDK.
 
 For more information on the SDKs, see their corresponding repositories:
 
