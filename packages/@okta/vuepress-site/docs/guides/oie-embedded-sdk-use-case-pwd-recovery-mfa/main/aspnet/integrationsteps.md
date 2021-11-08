@@ -133,4 +133,4 @@ switch (authnResponse.AuthenticationStatus)
 ...
 ```
 
-If the call to `ChangePasswordAsync()` returns a `AuthenticationStatus.Success` status, then the change password flow completed successfully and the user can be redirected to the default page.
+If the call to `ChangePasswordAsync()` returns an `AuthenticationStatus.Success` status, then the change password flow completed successfully and the user can be redirected to the default page.
