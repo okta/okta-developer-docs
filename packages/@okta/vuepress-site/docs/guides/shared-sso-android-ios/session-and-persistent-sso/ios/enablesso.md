@@ -1,7 +1,7 @@
 To enable persistent SSO for iOS apps, you need to update the [`usePersistentCookie`](/docs/reference/api/policy/#signon-action-object) parameter in the appropriate Okta sign-on policy. These steps use the Okta [Policy Postman collection](/docs/reference/postman-collections/) to enable the parameter.
 
 Before you begin, be sure to:
-- Create an [API token](/docs/guides/create-an-api-token/overview/) for your Org.
+- Create an [API token](/docs/guides/create-an-api-token/) for your Org.
 - Download the [Policy Postman collection](/docs/reference/postman-collections/).
 
 1. In Postman, expand the **Policies (Okta API)** folder, and then the **Okta Sign On** folder.
