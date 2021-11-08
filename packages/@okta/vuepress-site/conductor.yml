@@ -986,7 +986,7 @@ redirects:
   - from: /guides/find-your-app-credentials/-/overview/index.html
     to: /docs/guides/find-your-app-credentials/-/overview/
   - from: /guides/find-your-domain/-/overview/index.html
-    to: /docs/guides/find-your-domain/-/overview/
+    to: /docs/guides/find-your-domain/
   - from: /guides/implement-auth-code-pkce/-/exchange-code-token/index.html
     to: /docs/guides/implement-grant-type/authcodepkce/main/#flow-specifics
   - from: /guides/implement-auth-code-pkce/-/next-steps/index.html
@@ -2659,3 +2659,11 @@ redirects:
     to: /docs/guides/quickstart/-/main/#try-signing-in
   - from: /docs/guides/quickstart/try-api/index.html
     to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/find-your-domain/overview
+    to: /docs/guides/find-your-domain/
+  - from: /docs/guides/find-your-domain/findorg
+    to: /docs/guides/find-your-domain/main/#find-your-okta-domain
+  - from: /docs/guides/find-your-domain/overview/index.html
+    to: /docs/guides/find-your-domain/
+  - from: /docs/guides/find-your-domain/findorg/index.html
+    to: /docs/guides/find-your-domain/main/#find-your-okta-domain
