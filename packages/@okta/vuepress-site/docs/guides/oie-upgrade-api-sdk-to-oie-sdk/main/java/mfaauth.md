@@ -52,7 +52,7 @@ If the `verifyFactor()` method is successful, an `AuthenticationResponse` object
 
 ### Okta Identity Engine SDK authentication flow for MFA
 
-The Identity Engine MFA authentication flow is initially similar to implement using the Identity Engine SDK, however, there are slight differences in handling the subsequent multifactors.  The authentication flow starts when the app instantiates the `IDXAuthenticationWrapper` client object and calls the `begin()` method. After receiving the username and password from the user, the app passes them as arguments to the  `authenticate()` method (similar to the classic `AuthenticationClient.authenticate()` method). This method returns the Identity Engine `AuthenticationResponse` object with an `AuthenticationStatus`.
+The Identity Engine MFA authentication flow is initially similar to implement using the Identity Engine SDK, however, there are slight differences in handling the subsequent multifactors. The authentication flow starts when the app instantiates the `IDXAuthenticationWrapper` client object and calls the `begin()` method. After receiving the username and password from the user, the app passes them as arguments to the `authenticate()` method (similar to the classic `AuthenticationClient.authenticate()` method). This method returns the Identity Engine `AuthenticationResponse` object with an `AuthenticationStatus`.
 
 > **Note:** Authenticators are the factor credentials that are owned or controlled by the user. These are verified during authentication.
 
