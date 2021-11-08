@@ -2663,3 +2663,5 @@ redirects:
     to: /docs/guides/custom-error-pages/
   - from: /docs/guides/custom-error-pages/overview
     to: /docs/guides/custom-error-pages/
+  - from: /docs/guides/custom-error-pages/edit-the-error-page/index.html
+    to: /docs/guides/custom-error-pages/main/
