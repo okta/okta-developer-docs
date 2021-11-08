@@ -1,6 +1,6 @@
 ### Okta Authentication SDK authentication flow
 
-Using the Classic Engine Java Auth SDK, a typical app starts the basic sign-in authentication flow by instantiating the `AuthenticationClient` object and calling the `authenticate()` method with the username and password parameters. This call returns an `AuthenticationResponse` object, which provides a session token if the status is `SUCCESS`. If success status is not returned, the app has to handle the returned error or a list of additional factors to verify.
+Using the Classic Engine Java Auth SDK, a typical app starts the basic sign-in authentication flow by instantiating the `AuthenticationClient` object and calling the `authenticate()` method with the username and password parameters. This call returns an `AuthenticationResponse` object, which provides a session token if the status is `SUCCESS`. If success status isn't returned, the app has to handle the returned error or a list of additional factors to verify.
 
 The following code snippet returns a client instance:
 
