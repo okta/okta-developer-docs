@@ -1802,7 +1802,7 @@ curl -v -X POST \
 
 The recommended way to assign a Custom Role is by using one of the [Custom Role assignment operations](#custom-role-assignment-operations). However, you can also assign a Custom Role using the following method:
 
-<ApiOperation method="post" url="/api/v1/groups/${userId}/roles" />
+<ApiOperation method="post" url="/api/v1/users/${userId}/roles" />
 
 or to assign to a Group:
 

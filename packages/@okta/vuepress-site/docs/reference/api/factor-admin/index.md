@@ -32,7 +32,6 @@ The following factor names are available:
 | `okta_otp`            | Okta Verify          |
 | `okta_question`       | Security Question    |
 | `okta_sms`            | SMS Authentication   |
-| `rsa_token`           | RSA SecurID          |
 | `symantec_vip`        | Symantec VIP         |
 
 ### Factor type
@@ -54,7 +53,6 @@ The following providers are supported:
 | ---------- | ----------------------------- |
 | `GOOGLE`   | Google Integration            |
 | `OKTA`     | Okta                          |
-| `RSA`      | RSA SecurID Integration       |
 | `SYMANTEC` | Symantec VIP Integration      |
 
 ### Links object
@@ -214,30 +212,6 @@ curl -v -H "Authorization: SSWS yourtoken" \
       },
       "self": {
         "href": "https://${yourOktaDomain}/api/v1/org/factors/symantec_vip",
-        "hints": {
-          "allow": [
-            "GET"
-          ]
-        }
-      }
-    }
-  },
-  {
-    "id": "rsa_token",
-    "provider": "RSA",
-    "factorType": "token",
-    "status": "NOT_SETUP",
-    "_links": {
-      "activate": {
-        "href": "https://${yourOktaDomain}/api/v1/org/factors/rsa_token/lifecycle/activate",
-        "hints": {
-          "allow": [
-            "POST"
-          ]
-        }
-      },
-      "self": {
-        "href": "https://${yourOktaDomain}/api/v1/org/factors/rsa_token",
         "hints": {
           "allow": [
             "GET"

@@ -25,12 +25,9 @@ Okta Identity Engine currently supports Authenticators for the following factors
 * Email
 * WebAuthn
 
-<!--
 ## Get started
 
-Explore the Authenticators Administration API: [![Run in Postman](https://run.pstmn.io/button.svg)](%linkhere%). % How to generate this link: https://oktawiki.atlassian.net/wiki/spaces/DOC/pages/227648499/How+to+publish+Postman+collections %
-
--->
+Explore the Authenticators Administration API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/e357f5e0a1cf3be4c20e)
 
 ## Authenticators Administration operations
 
