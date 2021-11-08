@@ -31,7 +31,7 @@ try {
 }
 ```
 
-A successful response from `verifyRecoveryToken()` includes a state token and a security recovery question. The app presents the user with the recovery question and then passes the user’s recovery answer to the  `AuthenticationClient.answerRecoveryQuestion()` method.
+A successful response from `verifyRecoveryToken()` includes a state token and a security recovery question. The app presents the user with the recovery question and then passes the user’s recovery answer to the `AuthenticationClient.answerRecoveryQuestion()` method.
 
 ```java
 try {
