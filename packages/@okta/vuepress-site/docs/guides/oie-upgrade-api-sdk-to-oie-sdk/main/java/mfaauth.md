@@ -80,7 +80,7 @@ If additional factors are required, then `AuthenticationStatus=AWAITING_AUTHENTI
      verifyAuthenticatorOptions);
   ```
 
-- AuthenticationResponse returns either
+- AuthenticationResponse returns either:
   * `AuthenticationStatus=SUCCESS` &mdash; The MFA process is successful and the app can call `AuthenticationResponse.getTokenResponse()` to retrieve the required tokens for authenticated user activity.
   * `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` &mdash; Additional authenticator verification is required, and the app can loop through the MFA remediation process again [`AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` -> `selectAuthenticator()` -> `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` -> `verifyAuthenticator()` -> check `AuthenticationStatus`].
 
