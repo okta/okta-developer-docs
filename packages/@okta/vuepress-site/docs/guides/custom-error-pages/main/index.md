@@ -51,3 +51,17 @@ The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early A
 Before you can customize error pages, you must have already [customized your Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the Brands API as mentioned above.
 
 A custom error page appears only when an application connects to Okta using your custom domain. Otherwise, the default Okta error page appears.
+
+## Edit the error page
+
+The HTML editor provided on the **Custom Error Pages** tab of the **Customization** page allows you to modify any HTML, CSS, and JavaScript on the error page.
+
+1. In the Admin Console, select **Settings** and then **Customizations**.
+1. Click the **Custom Error Pages** tab.
+1. Make changes directly in the embedded **Custom Error Pages** editor.
+1. Click **Preview** to preview your changes before you publish.
+1. Click **Reset to Default** if you need to remove all of your customizations and restore the default HTML/CSS and JavaScript code.
+1. Click **Save and Publish** to commit your changes.
+
+> **Note:** See [Customization examples](#customization-examples).
+
