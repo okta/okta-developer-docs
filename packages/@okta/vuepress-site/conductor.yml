@@ -2531,7 +2531,7 @@ redirects:
   - from: /docs/guides/build-custom-ui-mobile/-/configure-packages
     to: /docs/guides/build-custom-ui-mobile/-/main/#add-and-configure-packages
   - from: /docs/guides/build-custom-ui-mobile/-/primary-authentication
-    to: /docs/guides/build-custom-ui-mobile/-/#build-the-primary-authentication-form
+    to: /docs/guides/build-custom-ui-mobile/-/main/#build-the-primary-authentication-form
   - from: /docs/guides/build-custom-ui-mobile/-/handle-authentication-responses
     to: /docs/guides/build-custom-ui-mobile/-/#handle-authentication-responses
   - from: /docs/guides/build-custom-ui-mobile/-/next-steps
