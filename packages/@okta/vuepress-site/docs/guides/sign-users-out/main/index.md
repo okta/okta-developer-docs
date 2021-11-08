@@ -25,15 +25,15 @@ An important part of security is to minimize the chances that a malicious actor 
 
 **Sample code**
 
-* Android — see our [Android sample repo](https://github.com/okta/samples-android)
-* ASP.NET — see our [ASP.NET MVC Sample repo](https://github.com/okta/samples-aspnet)
-* ASP.NET Core 3.0 — see our [ASP.NET Core Sample repo](https://github.com/okta/samples-aspnetcore)
-* iOS — see our [iOS sample repo](https://github.com/okta/samples-ios)
-* Node.js Express — see our [Node Express Samples repo](https://github.com/okta/samples-nodejs-express-4/)
-* React — see our [React sample repo](https://github.com/okta/samples-js-react)
-* React Native — see our [React Native samples repo](https://github.com/okta/samples-js-react-native)
-* Java Spring Boot — see our [Spring Boot Samples repo](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login)
-* Vue — see our [Vue sample repo](https://github.com/okta/samples-js-vue)
+* Android &mdash; see our [Android sample repo](https://github.com/okta/samples-android)
+* ASP.NET &mdash; see our [ASP.NET MVC Sample repo](https://github.com/okta/samples-aspnet)
+* ASP.NET Core 3.0 &mdash; see our [ASP.NET Core Sample repo](https://github.com/okta/samples-aspnetcore)
+* iOS &mdash; see our [iOS sample repo](https://github.com/okta/samples-ios)
+* Node.js Express &mdash; see our [Node Express Samples repo](https://github.com/okta/samples-nodejs-express-4/)
+* React &mdash; see our [React sample repo](https://github.com/okta/samples-js-react)
+* React Native &mdash; see our [React Native samples repo](https://github.com/okta/samples-js-react-native)
+* Java Spring Boot &mdash; see our [Spring Boot Samples repo](https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login)
+* Vue &mdash; see our [Vue sample repo](https://github.com/okta/samples-js-vue)
 
 ---
 
@@ -77,11 +77,9 @@ The steps required to end the app session vary depending on the type of app that
 
 <StackSelector snippet="localsignout" noSelector/>
 
-## Next steps
+## See also
 
-You should now understand how to sign users out of your app and out of Okta.
-
-Next, you might want to configure self-service registration for your org:
+You might want to configure self-service registration for your org:
 
 * [Configure self-service registration](/docs/guides/set-up-self-service-registration/)
 

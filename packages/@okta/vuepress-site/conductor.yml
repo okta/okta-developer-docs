@@ -2645,6 +2645,7 @@ redirects:
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
   - from: /docs/guides/unlock-mobile-app-with-biometrics/ios/next-steps/index.html
     to: /docs/guides/unlock-mobile-app-with-biometrics/ios/main/
+
   - from: /docs/guides/sign-users-out/-/before-you-begin
     to: /docs/guides/sign-users-out/-/main/
   - from: /docs/guides/sign-users-out/-/define-signout-callback
@@ -2654,7 +2655,7 @@ redirects:
   - from: /docs/guides/sign-users-out/-/sign-out-of-your-app
     to: /docs/guides/sign-users-out/-/main/#sign-users-out-of-your-app
   - from: /docs/guides/sign-users-out/-/next-steps
-    to: /docs/guides/sign-users-out/-/main/#next-steps
+    to: /docs/guides/sign-users-out/-/main/#see-also
   - from: /docs/guides/sign-users-out/-/before-you-begin/index.html
     to: /docs/guides/sign-users-out/-/main/
   - from: /docs/guides/sign-users-out/-/define-signout-callback/index.html
@@ -2664,4 +2665,4 @@ redirects:
   - from: /docs/guides/sign-users-out/-/sign-out-of-your-app/index.html
     to: /docs/guides/sign-users-out/-/main/#sign-users-out-of-your-app
   - from: /docs/guides/sign-users-out/-/next-steps/index.html
-    to: /docs/guides/sign-users-out/-/main/#next-steps
+    to: /docs/guides/sign-users-out/-/main/#see-also
