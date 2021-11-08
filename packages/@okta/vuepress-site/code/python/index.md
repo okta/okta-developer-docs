@@ -33,7 +33,7 @@ pip install okta
 
 
 - [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
-- [Social Login](/docs/concepts/social-login/)
+- [Social login](/docs/concepts/identity-providers/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
 

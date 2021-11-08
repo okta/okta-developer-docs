@@ -10,12 +10,23 @@ meta:
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-When you develop applications that require the customer to sign-in and then to authentication, the user authentication deployment model is a critical design consideration that can broadly be divided into two approaches:
+When you develop applications that require the customer to sign-in and then to authenticate, the user authentication deployment model is a critical design consideration that can broadly be divided into two approaches:
 
 - **Redirect authentication**: A user sign-in flow that grants authentication control to Okta by redirecting to an Okta hosted sign-in page using open protocols like OAuth 2.0 and SAML.
 - **Embedded authentication**: A user sign-in flow where the application retains authentication control, without redirection to Okta, using a client-hosted Sign-In Widget, Okta Identity Engine SDKs, or directly with Okta proprietary Identity Engine authentication APIs.
 
-The Identity Engine supports both these deployment and authentication models, and uses authentication protocols to communicate with Identity Server, the entity that acts as the logical location for all identity-related services and resources.
+Identity Engine supports both of these deployment and authentication models, and uses authentication protocols to communicate with Identity Server, which is the entity that acts as the logical location for all identity-related services and resources.
+
+## Deployment models and the Authentication API
+
+The following table details the configurations that define which Authentication API (either Okta Classic Engine or Identity Engine) your application is using based on your deployment model.
+
+| Deployment Model | Classic Engine Authentication API | Identity Engine Authentication API |
+| ---------------- | --------------------------------- | ---------------------------------- |
+| **Redirect:<br>Okta Hosted Sign-In Widget**<br>To verify that the redirect deployment is used in your application code,<br>check to see if you are using one of these SDKs:<br>[Android](https://github.com/okta/okta-oidc-android), [Angular](https://github.com/okta/okta-angular), [ASP.NET](https://github.com/okta/okta-aspnet), [iOS](https://github.com/okta/okta-oidc-ios), [React](https://github.com/okta/okta-react), [React Native](https://github.com/okta/okta-react-native), [Vue](https://github.com/okta/okta-vue)| The API type depends on your [org configuration.](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) | The API type depends on your [org configuration.](https://help.okta.com/okta_help.htm?type=oie&id=ext-oie-version) |
+| **Embedded:<br>Customer Hosted Sign-In Widget** | Your Sign-In Widget configuration is using:<br>`useInteractionCodeFlow: false`<br>**Or** the `useInteractionCodeFlow` property isn't present | Your Sign-In Widget configuration is using:<br>`useInteractionCodeFlow: true` |
+| **Embedded: SDKs** | To verify that the embedded deployment is used in<br>your application code, check to see if you are using one of these Classic Engine SDKs:<br>[Java](https://github.com/okta/okta-auth-java), [JavaScript](https://github.com/okta/okta-auth-js), [.NET](https://github.com/okta/okta-auth-dotnet), [Swift](https://github.com/okta/okta-auth-swift) | To verify that the embedded deployment is used in<br>your application code, check to see if you are using one of these Identity Engine SDKs:<br>[Android](https://github.com/okta/okta-idx-android), [ASP.NET](https://github.com/okta/okta-idx-dotnet), [Go](https://github.com/okta/okta-idx-golang), [iOS](https://github.com/okta/okta-idx-swift), [Java](https://github.com/okta/okta-idx-java), [Node.js](https://github.com/okta/okta-auth-js) |
+| **Embedded: APIs** | Your app is using: [Authn API](/docs/reference/api/authn/) | N/A  |
 
 ## Redirect authentication
 

@@ -12,7 +12,7 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/sign-into-web-app/nodeexpress/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-web-app/nodeexpress/main/' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
@@ -52,13 +52,19 @@ The Okta Node.js SDK can be used in your server-side code to create and update u
 			<span>Okta JWT Verifier for Node.js</span>
 		</a>
 	</li>
+	<li>
+		<i class='fa fa-github'></i>
+		<a href="https://github.com/okta/okta-oidc-middleware">
+			<span>Okta OIDC Middleware for Node.js</span>
+		</a>
+	</li>
 </ul>
 
 ## Recommended Guides
 
 
 - [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
-- [Social Login](/docs/concepts/social-login/)
+- [Social login](/docs/concepts/identity-providers/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
 

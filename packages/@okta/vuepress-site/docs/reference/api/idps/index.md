@@ -15,12 +15,12 @@ Explore the Identity Providers API: [![Run in Postman](https://run.pstmn.io/butt
 
 Each IdP requires some setup. Use the Okta setup guide for your IdP:
 
-* [Apple](/docs/guides/add-an-external-idp/apple/before-you-begin/)
-* [Facebook](/docs/guides/add-an-external-idp/facebook/before-you-begin/)
-* [Google](/docs/guides/add-an-external-idp/google/before-you-begin/)
-* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/before-you-begin/)
-* [Microsoft](/docs/guides/add-an-external-idp/microsoft/before-you-begin/)
-* [Generic OIDC Identity Providers](/docs/guides/add-an-external-idp/openidconnect/before-you-begin/)
+* [Apple](/docs/guides/add-an-external-idp/apple/main/)
+* [Facebook](/docs/guides/add-an-external-idp/facebook/main/)
+* [Google](/docs/guides/add-an-external-idp/google/main/)
+* [LinkedIn](/docs/guides/add-an-external-idp/linkedin/main/)
+* [Microsoft](/docs/guides/add-an-external-idp/microsoft/main/)
+* [Generic OIDC Identity Providers](/docs/guides/add-an-external-idp/openidconnect/main/)
 
 ## Identity Provider operations
 
@@ -4530,6 +4530,12 @@ curl -v -X GET \
   "tokenAuthScheme": "Bearer",
   "expiresAt" : "2014-08-06T16:56:31.000Z",
   "scopes"     : [ "openid", "foo" ]
+ },
+ {
+    "id": "dsasdsasdfe",
+    "token": "JBTWGV22G4ZJBRXJ",
+    "tokenType" : "urn:ietf:params:oauth:token-type:id_token",
+    "tokenAuthScheme": null
 }]
 ```
 
@@ -6323,14 +6329,20 @@ The Social Authentication Token object provides the tokens and associated metada
 ### Example
 
 ```json
-{
+[{
   "id": "<unique token identifier>",
   "token": "JBTWGV22G4ZGKV3N",
   "tokenType" : "urn:ietf:params:oauth:token-type:access_token",
   "tokenAuthScheme": "Bearer",
   "expiresAt" : "2014-08-06T16:56:31.000Z",
   "scopes"     : [ "openid", "foo" ]
-}
+},
+{
+"id": "<unique token identifier>",
+"token": "JBTWGV22G4ZJBRXJ",
+"tokenType" : "urn:ietf:params:oauth:token-type:id_token",
+"tokenAuthScheme": null
+}]
 ```
 
 ### Identity Provider Social Authentication Token properties

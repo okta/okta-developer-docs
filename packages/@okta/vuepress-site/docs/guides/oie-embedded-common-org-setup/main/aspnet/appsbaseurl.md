@@ -1,6 +1,6 @@
 ###  Add a trusted origin and enable CORS
 
-For web applications, you have to identify your app's URL as a trusted origin and enable [CORS](/docs/guides/enable-cors/overview/):
+For web applications, you have to identify your app's URL as a trusted origin and enable [CORS](/docs/guides/enable-cors/):
 
 1. In the Admin Console, go to **Security** > **API**.
 1. On the **API** page, select the **Trusted Origins** tab.

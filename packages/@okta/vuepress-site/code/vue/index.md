@@ -12,7 +12,7 @@ New to Okta? Our how to guide will walk you through adding user authentication t
 
 <ul class='language-ctas'>
 	<li>
-		<a href='/docs/guides/sign-into-spa/vue/before-you-begin/' class='Button--blueDarkOutline' data-proofer-ignore>
+		<a href='/docs/guides/sign-into-spa/vue/main' class='Button--blueDarkOutline' data-proofer-ignore>
 			<span>How To Guide</span>
 		</a>
 	</li>
@@ -41,7 +41,7 @@ The Okta Vue SDK makes it easy to integrate Vue Router with Okta's OpenID Connec
 - [Okta Sign-In Widget and Vue](/code/vue/okta_vue_sign-in_widget/)
 - [Okta Auth JS and Vue](/code/vue/okta_vue/)
 - [Implementing the PKCE flow](/docs/guides/implement-grant-type/authcodepkce/main/)
-- [Social Login](/docs/concepts/social-login/)
+- [Social login](/docs/concepts/identity-providers/)
 - [Validate access tokens](/docs/guides/validate-access-tokens)
 - [Validate ID tokens](/docs/guides/validate-id-tokens)
 
