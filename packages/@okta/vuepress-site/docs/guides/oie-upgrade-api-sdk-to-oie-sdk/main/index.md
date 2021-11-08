@@ -172,7 +172,7 @@ curl --location --request POST 'https://${yourOktaDomain}/api/v1/sessions' \
 
 If your application code implements these API calls and handles the responses shown, you need to update your code to use Identity Engine SDK methods. These methods encapsulate the authentication flow using recursive calls to the Identity Engine, and a successful response returns with access and ID tokens.
 
-See [Okta Identity Engine SDK authentication flow](#okta-identity-engine-sdk-authentication-flow)
+See [Okta Identity Engine SDK authentication flow](#okta-identity-engine-sdk-authentication-flow).
 
 ## Map MFA code to the Okta Identity Engine SDK
 
