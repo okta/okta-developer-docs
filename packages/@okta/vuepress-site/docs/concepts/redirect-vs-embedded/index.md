@@ -10,7 +10,7 @@ meta:
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-When you develop applications that require the customer to sign-in and then to authentication, the user authentication deployment model is a critical design consideration that can broadly be divided into two approaches:
+When you develop applications that require the customer to sign-in and then to authenticate, the user authentication deployment model is a critical design consideration that can broadly be divided into two approaches:
 
 - **Redirect authentication**: A user sign-in flow that grants authentication control to Okta by redirecting to an Okta hosted sign-in page using open protocols like OAuth 2.0 and SAML.
 - **Embedded authentication**: A user sign-in flow where the application retains authentication control, without redirection to Okta, using a client-hosted Sign-In Widget, Okta Identity Engine SDKs, or directly with Okta proprietary Identity Engine authentication APIs.
