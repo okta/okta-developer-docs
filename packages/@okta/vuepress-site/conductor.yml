@@ -2683,3 +2683,27 @@ redirects:
     to: /docs/guides/configure-signon-policy/main/#prompt-for-an-mfa-factor-when-a-user-is-outside-the-us
   - from: /docs/guides/configure-signon-policy/next-steps/index.html
     to: /docs/guides/configure-signon-policy/main/#next-steps
+  - from: /docs/guides/quickstart/create-org
+    to: /docs/guides/quickstart/-/main/#create-your-okta-organization
+  - from: /docs/guides/quickstart/using-console
+    to: /docs/guides/quickstart/-/main/#using-the-admin-console
+  - from: /docs/guides/quickstart/add-user
+    to: /docs/guides/quickstart/-/main/#add-a-user-using-the-admin-console
+  - from: /docs/guides/quickstart/register-app
+    to: /docs/guides/quickstart/-/main/#register-your-app
+  - from: /docs/guides/quickstart/sign-in
+    to: /docs/guides/quickstart/-/main/#try-signing-in
+  - from: /docs/guides/quickstart/try-api
+    to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/quickstart/create-org/index.html
+    to: /docs/guides/quickstart/-/main/#create-your-okta-organization
+  - from: /docs/guides/quickstart/using-console/index.html
+    to: /docs/guides/quickstart/-/main/#using-the-admin-console
+  - from: /docs/guides/quickstart/add-user/index.html
+    to: /docs/guides/quickstart/-/main/#add-a-user-using-the-admin-console
+  - from: /docs/guides/quickstart/register-app/index.html
+    to: /docs/guides/quickstart/-/main/#register-your-app
+  - from: /docs/guides/quickstart/sign-in/index.html
+    to: /docs/guides/quickstart/-/main/#try-signing-in
+  - from: /docs/guides/quickstart/try-api/index.html
+    to: /docs/guides/quickstart/-/main/#next-steps
