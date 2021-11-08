@@ -5,7 +5,7 @@ title: Deprecated JavaScript methods in the Sign-In Widget
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This guide covers the Javascript methods that are deprecated from the Sign-In Widget and describes how to use the `showSignIn()` method instead.
+This guide covers the Javascript method that is deprecated from the Sign-In Widget and describes how to use the `showSignIn()` method instead.
 
 ---
 
