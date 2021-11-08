@@ -40,7 +40,7 @@ The Enhanced Email Macros feature provides you with the functionality to customi
 
 ##### What this EA feature doesn't enable
 
-Okta doesn't perform any automated migration of previously customized email templates for this EA feature. This means that when you enable the Enhanced Email Macros feature to access the functionality, all email templates will revert to defaults.
+Okta doesn't perform any automated migration of previously customized email templates for this EA feature. This means that when you enable the Enhanced Email Macros feature to access the functionality, all email templates revert to defaults.
 
 However, when you disable the Enhanced Email Macros feature, your old customized templates will return. If you choose to disable the feature, you will lose access to the customizations done while the EA feature was enabled.
 
