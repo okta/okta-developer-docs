@@ -134,7 +134,9 @@ Workforce orgs that are created after January 7, 2021 have increased default rat
 * `/idp/idx/identify` <ApiLifecycle access="ie" />
 * Identity Engine App Intent <ApiLifecycle access="ie" />
 * `/oauth2/v1`
+* `/oauth2/v1/authorize`
 * `/oauth2/${authorizationServerId}/v1`
+* `/oauth2/${authorizationServerId}/v1/authorize`
 
 [Single User/Group/App operations (GET, UPDATE, and DELETE)](/docs/reference/rl-dynamic-scale/)
 

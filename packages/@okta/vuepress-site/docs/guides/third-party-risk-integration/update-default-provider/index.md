@@ -46,7 +46,7 @@ This procedure retrieves the default risk provider profile and Provider ID.
 ### Update the risk provider
 This procedure updates the default risk provider profile with the service application ID, risk provider name, and the risk provider action.
 
-1. Call the following PUT API from the Risk Integration Postman collection: **Admin: API to Update Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers/{{providerId}}`), which updates the default risk provider's data. This data is included in the request body:
+1. Call the following PUT API from the Risk Integration Postman collection: **Admin: API to Update Provider Settings** (`https://${yourOktaDomain}/api/v1/risk/providers/${providerId}`), which updates the default risk provider's data. This data is included in the request body:
 
     ```JSON
     {

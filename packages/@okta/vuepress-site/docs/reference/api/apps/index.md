@@ -9,7 +9,7 @@ The Okta Application API provides operations to manage applications and/or assig
 
 ## Get started
 
-Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/be7367401f4926a945f8)
+Explore the Apps API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/cb0940c81c4d8a9afd73)
 
 ## Application operations
 
@@ -986,6 +986,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 | digestAlgorithm       | Determines the digest algorithm used to digitally sign the SAML assertion and response                            | String                                               | FALSE    | FALSE  |                                           |
 | honorForceAuthn       | Prompt user to re-authenticate if SP asks for it                                                                  | Boolean                                              | FALSE    | FALSE  |                                           |
 | idpIssuer             | SAML Issuer ID                                                                                                    | String                                               | FALSE    | FALSE  |                                           |
+| inlineHooks           | Associates the application with SAML inline hooks. See the [SAML Assertion Inline Hook Reference](/docs/reference/saml-hook/) for details.   | String                    | TRUE     | FALSE  |                                           |
 | recipient             | The location where the app may present the SAML assertion                                                         | String                                               | FALSE    | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | recipientOverride     | Overrides the `recipient` setting                                                                                 | String                                               | TRUE     | FALSE  | [URL](http://tools.ietf.org/html/rfc3986) |
 | requestCompressed     | Determines whether the SAML request is expected to be compressed or not                                           | Boolean                                              | FALSE    | FALSE  |                                           |
@@ -1009,6 +1010,7 @@ Adds a SAML 2.0 application. This application is only available to the org that 
 
 * If Single Logout is supported by the application and the `slo` object is provided in the request, the `spCertificate` object must be present.
 * When you update an application, if you don't specify `slo` or `spCertificate` the existing configuration persists.
+* When you associate the application with `inlineHooks`, you should [create SAML Inline Hooks](/docs/concepts/inline-hooks/#inline-hook-setup) first, and then pass the created Inline Hook ID.
 
 ##### Supported values for custom SAML app
 
@@ -1117,6 +1119,11 @@ curl -v -X POST \
             "Value"
           ]
         }
+      ],
+      "inlineHooks": [
+        {
+          "id": "${inlineHookId}"
+        }
       ]
     }
   }
@@ -1215,6 +1222,23 @@ curl -v -X POST \
           "values": [
             "Value"
           ]
+        }
+      ],
+      "inlineHooks": [
+        {
+          "id": "${inlineHookId}",
+          "_links": {
+            "self": {
+              "href": "https://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
+              "hints": {
+                "allow": [
+                  "GET",
+                  "PUT",
+                  "DELETE"
+                ]
+              }
+            }
+          }
         }
       ]
     }
@@ -1485,7 +1509,24 @@ curl -v -X GET \
       "requestCompressed": false,
       "allowMultipleAcsEndpoints": false,
       "acsEndpoints": [],
-      "attributeStatements": []
+      "attributeStatements": [],
+      "inlineHooks": [
+        {
+          "id": "cal3ughy17pylLxQB357",
+          "_links": {
+            "self": {
+              "href": "https://${yourOktaDomain}/api/v1/inlineHooks/cal3ughy17pylLxQB357",
+              "hints": {
+                "allow": [
+                  "GET",
+                  "PUT",
+                  "DELETE"
+                ]
+              }
+            }
+          }
+        }
+      ]
     }
   },
   "_links": {
@@ -1667,7 +1708,24 @@ curl -v -X GET \
 	"requestCompressed": false,
         "allowMultipleAcsEndpoints": false,
         "acsEndpoints": [],
-        "attributeStatements": []
+        "attributeStatements": [],
+        "inlineHooks": [
+          {
+            "id": "${inlineHookId}",
+            "_links": {
+              "self": {
+                "href": "https://${yourOktaDomain}/api/v1/inlineHooks/${inlineHookId}",
+                "hints": {
+                  "allow": [
+                    "GET",
+                    "PUT",
+                    "DELETE"
+                  ]
+                }
+              }
+            }
+          }
+        ]
       }
     },
     "_links": {
@@ -3384,7 +3442,190 @@ curl -v -X PUT \
     }
 }
 ```
+#### Update application level profile attributes
 
+Updates the Application profile attributes
+
+##### Request Parameters
+
+| Parameter     | Description                                                             | Param Type | DataType                                      | Required | Default |
+| ------------- | ----------------------------------------------------------------------- | ---------- | --------------------------------------------- | -------- | ------- |
+| app           | app with new profile attributes                                         | Body       | [Application](#application-object)             | TRUE    |         |
+| applicationId | `id` of an [app](#application-object)                                    | URL        | String                                        | TRUE     |         |
+
+##### Response parameters
+
+[Application](#application-object) with updated `profile attributes`
+
+##### Request example
+
+```bash
+curl -v -X PUT \
+-H "Accept: application/json" \
+-H "Content-Type: application/json" \
+-H "Authorization: SSWS ${api_token}" \
+-d '{
+  "name": "oidc_client",
+  "label": "oauth2 client app 1",
+  "signOnMode": "OPENID_CONNECT",
+  "credentials": {
+    "oauthClient": {
+      "client_id": ${clientId},
+      "autoKeyRotation": true,
+      "token_endpoint_auth_method": "client_secret_post"
+    }
+  },
+  "profile": {
+    "label": "oauth2 client app 1"
+  },
+  "settings": {
+    "oauthClient": {
+      "client_uri": "http://localhost:8080",
+      "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
+      "redirect_uris": [
+        "https://example.com/oauth2/callback",
+        "myapp://callback"
+      ],
+      "post_logout_redirect_uris": [],
+      "response_types": [
+        "token",
+        "id_token",
+        "code"
+      ],
+      "grant_types": [
+        "implicit",
+        "authorization_code"
+      ],
+      "consent_method": "TRUSTED",
+      "issuer_mode": "ORG_URL",
+      "application_type": "native",
+      "tos_uri": "",
+      "policy_uri": ""
+    }
+  }
+}' "https://${yourOktaDomain}/api/v1/apps/0oabkvBLDEKCNXBGYUAS"
+```
+
+##### Response example
+
+```json
+{
+  "id": "0oa1ivcatpQDkMraA1d7",
+  "name": "oidc_client",
+  "label": "oauth2 client app 1",
+  "status": "ACTIVE",
+  "lastUpdated": "2021-10-04T22:48:42.000Z",
+  "created": "2021-10-04T22:42:38.000Z",
+  "accessibility": {
+    "selfService": false,
+    "errorRedirectUrl": null,
+    "loginRedirectUrl": null
+  },
+  "visibility": {
+    "autoLaunch": false,
+    "autoSubmitToolbar": false,
+    "hide": {
+      "iOS": true,
+      "web": true
+    },
+    "appLinks": {
+      "oidc_client_link": true
+    }
+  },
+  "features": [],
+  "signOnMode": "OPENID_CONNECT",
+  "credentials": {
+    "userNameTemplate": {
+      "template": "${source.login}",
+      "type": "BUILT_IN"
+    },
+    "signing": {
+      "kid": "Hn7zyyJ1XhKhAHa6MaNC2GjWmw3F5Pa_TxGAx9ojch0"
+    },
+    "oauthClient": {
+      "autoKeyRotation": true,
+      "client_id": "0oa1ivcatpQDkMraA1d7",
+      "client_secret": "LD1G1-qeKo_KfM3VQx3Ass8aaGlYxuCq_cqCGlKF",
+      "token_endpoint_auth_method": "client_secret_post"
+    }
+  },
+  "settings": {
+    "app": {},
+    "notifications": {
+      "vpn": {
+        "network": {
+          "connection": "DISABLED"
+        },
+        "message": null,
+        "helpUrl": null
+      }
+    },
+    "notes": {
+      "admin": null,
+      "enduser": null
+    },
+    "oauthClient": {
+      "client_uri": "http://localhost:8080",
+      "logo_uri": "http://developer.okta.com/assets/images/logo-new.png",
+      "redirect_uris": [
+        "https://example.com/oauth2/callback",
+        "myapp://callback"
+      ],
+      "response_types": [
+        "token",
+        "id_token",
+        "code"
+      ],
+      "grant_types": [
+        "implicit",
+        "authorization_code"
+      ],
+      "application_type": "native",
+      "issuer_mode": "ORG_URL",
+      "idp_initiated_login": {
+        "mode": "DISABLED",
+        "default_scope": []
+      }
+    }
+  },
+  "profile": {
+    "label": "oauth2 client app 1"
+  },
+  "_links": {
+    "uploadLogo": {
+      "href": "https://example.okta.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/logo",
+      "hints": {
+        "allow": [
+          "POST"
+        ]
+      }
+    },
+    "appLinks": [
+      {
+        "name": "oidc_client_link",
+        "href": "https://example.okta.com/home/oidc_client/0oa1ivcatpQDkMraA1d7/aln177a159h7Zf52X0g8",
+        "type": "text/html"
+      }
+    ],
+    "groups": {
+      "href": "https://example.okta.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/groups"
+    },
+    "logo": [
+      {
+        "name": "medium",
+        "href": "https://example.okta.com/assets/img/logos/default.6770228fb0dab49a1695ef440a5279bb.png",
+        "type": "image/png"
+      }
+    ],
+    "users": {
+      "href": "https://example.okta.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/users"
+    },
+    "deactivate": {
+      "href": "https://example.okta.com/api/v1/apps/0oa1ivcatpQDkMraA1d7/lifecycle/deactivate"
+    }
+  }
+}
+```
 ### Delete application
 
 <ApiOperation method="delete" url="/api/v1/apps/${applicationId}" />
