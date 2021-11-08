@@ -62,7 +62,7 @@ If additional factors are required, then `AuthenticationStatus=AWAITING_AUTHENTI
 
 - The app calls `IDXAuthenticationWrapper.selectAuthenticator()` to select the authenticator to verify &mdash; This is synonymous with Java Auth SDK’s `AuthenticationClient.challengeFactor()` method, where the authenticator challenge is triggered. In this case, an email is sent with the verify code.
 
-  > **Note:** Unlike the Java Auth SDK’s `challengeFactor()`, the single authenticator is not automatically selected. The app must call the selectAuthenticator() method to trigger the authenticator challenge.
+  > **Note:** Unlike the Java Auth SDK’s `challengeFactor()`, the single authenticator isn't automatically selected. The app must call the `selectAuthenticator()` method to trigger the authenticator challenge.
 
   ```java
     authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
