@@ -15,7 +15,7 @@ Customize error pages as part of the sign-in flow.
 **What you need**
 
 * An [Okta Developer Edition organization](/signup)
-* A [customized Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](#use-the-brands-api).
+* A [customized Okta URL domain](/docs/guides/custom-url-domain/), unless you are using the [Brands API](#use-the-brands-api)
 
 **Sample code**
 
