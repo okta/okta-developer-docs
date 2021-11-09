@@ -13,49 +13,49 @@ tiles:
     link: /docs/guides/sign-into-web-app/
     items:
       - name: Go
-        link: /docs/guides/sign-into-web-app/go/before-you-begin/
+        link: /docs/guides/sign-into-web-app/go/main/
         image: /img/homepage/stackselectors/go.png
       - name: Java
-        link: /docs/guides/sign-into-web-app/springboot/before-you-begin/
+        link: /docs/guides/sign-into-web-app/springboot/main/
         image: /img/homepage/stackselectors/java.png
       - name: .NET
-        link: /docs/guides/sign-into-web-app/aspnet/before-you-begin/
+        link: /docs/guides/sign-into-web-app/aspnet/main/
         image: /img/homepage/stackselectors/dotnet.png
       - name: Node.js
-        link: /docs/guides/sign-into-web-app/nodeexpress/before-you-begin/
+        link: /docs/guides/sign-into-web-app/nodeexpress/main/
         image: /img/homepage/stackselectors/nodejs.png
       - name: PHP
-        link: /docs/guides/sign-into-web-app/php/before-you-begin/
+        link: /docs/guides/sign-into-web-app/php/main/
         image: /img/homepage/stackselectors/php.png
       - name: Python
-        link: /docs/guides/sign-into-web-app/python/before-you-begin/
+        link: /docs/guides/sign-into-web-app/python/main/
         image: /img/homepage/stackselectors/python.png
   - name: Single-page App
     link: /docs/guides/sign-into-spa/
     items:
       - name: React
-        link: /docs/guides/sign-into-spa/react/before-you-begin/
+        link: /docs/guides/sign-into-spa/react/main
         image: /img/homepage/stackselectors/react.png
       - name: Angular
-        link: /docs/guides/sign-into-spa/angular/before-you-begin/
+        link: /docs/guides/sign-into-spa/angular/main
         image: /img/homepage/stackselectors/angular.png
       - name: Vue.js
-        link: /docs/guides/sign-into-spa/vue/before-you-begin/
+        link: /docs/guides/sign-into-spa/vue/main
         image: /img/homepage/stackselectors/vue.png
       - name: Blazor WebAssembly
-        link: /docs/guides/sign-into-spa/blazorwebasm/before-you-begin/
+        link: /docs/guides/sign-into-spa/blazorwebasm/main
         image: /img/homepage/stackselectors/dotnet.png
   - name: Native App
     link: /docs/guides/sign-into-mobile-app/
     items:
       - name: React Native
-        link: /docs/guides/sign-into-mobile-app/react-native/before-you-begin/
+        link: /docs/guides/sign-into-mobile-app/react-native/main/
         image: /img/homepage/stackselectors/react.png
       - name: Android
-        link: /docs/guides/sign-into-mobile-app/android/before-you-begin/
+        link: /docs/guides/sign-into-mobile-app/android/main/
         image: /img/homepage/stackselectors/android.png
       - name: IOS
-        link: /docs/guides/sign-into-mobile-app/ios/before-you-begin/
+        link: /docs/guides/sign-into-mobile-app/ios/main/
         image: /img/homepage/stackselectors/ios.png
   - name: API Services
     link: /docs/guides/protect-your-api/

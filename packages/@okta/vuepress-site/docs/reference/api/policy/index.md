@@ -23,7 +23,7 @@ The Policy API supports the following **Rule operations**:
 
 ## Getting started
 
-Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/b82dba9eb4f8da93dfd6)
+Explore the Policy API: [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/38f9ae7828efad654acd)
 
 ## Policy API operations
 
@@ -1917,7 +1917,7 @@ The number of Authenticator class constraints in each Constraint object must be 
 | Property            | Data Type              | Description                                                                                                             | Supported Values                                  | Default |
 | -------------------- | ----------------- | ----------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |-----------|
 | `types`              | Array  of Authenticator types           | The Authenticator types that are permitted                                                                           | [ `SECURITY_KEY`, `PHONE`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION`, `APP`, `FEDERATED` ]                         |  N/A|
-| `methods`            | Array of Authenticator methods           | The Authenticator methods that are permitted                                                                          | [ `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `FIDO2`, `PUSH`, `SIGNED_NONCE`, `OTP`, `WEBAUTHN`, `DUO`, `IDP` ] |  N/A|
+| `methods`            | Array of Authenticator methods           | The Authenticator methods that are permitted                                                                          | [ `PASSWORD`, `SECURITY_QUESTION`, `SMS`, `VOICE`, `EMAIL`, `PUSH`, `SIGNED_NONCE`, `OTP`, `WEBAUTHN`, `DUO`, `IDP` ] |  N/A|
 | `hardwareProtection` | String            | Indicates if any secrets or private keys that are used during authentication must be hardware protected and not exportable. This property is only set for `POSSESSION` constraints.| `REQUIRED`, `OPTIONAL`     |   `OPTIONAL`|
 | `deviceBound` | String            | Indicates if device-bound Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
 | `phishingResistant` | String            | Indicates if phishing-resistant Factors are required. This property is only set for `POSSESSION` constraints. | `REQUIRED`, `OPTIONAL`                                                                            |`OPTIONAL`|
@@ -1988,7 +1988,7 @@ The number of Authenticator class constraints in each Constraint object must be 
     {
       "possession": {
         "methods": [
-          "FIDO2"
+          "WEBAUTHN"
         ],
         "hardwareProtection": "REQUIRED"
       }
@@ -2008,7 +2008,7 @@ The number of Authenticator class constraints in each Constraint object must be 
     {
       "possession": {
         "methods": [
-          "FIDO2"
+          "WEBAUTHN"
         ],
         "hardwareProtection": "REQUIRED"
       }
