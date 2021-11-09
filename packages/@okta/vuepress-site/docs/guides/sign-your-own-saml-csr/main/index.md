@@ -350,7 +350,7 @@ To share the certificate that you created across multiple apps, clone it with th
 
 To share the certificate that you created across multiple IdPs, clone it with the [IdPs API](#top) by using the key `id` that you generated.
 
-Be sure to clone the certificate to every app or IdP that you want to share it with. After it is cloned, you need to [update the key credential](/docs/guides/sign-your-own-saml-csr/update-the-key-credential/) for the target app.
+Be sure to clone the certificate to every app or IdP that you want to share it with. After it is cloned, you need to [update the key credential](#update-the-key-credential) for the target app.
 
 If the certificate that you cloned from changes, you must repeat the cloning operation for each app or IdP.
 
