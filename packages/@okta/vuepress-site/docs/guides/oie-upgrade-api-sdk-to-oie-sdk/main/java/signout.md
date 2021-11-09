@@ -4,11 +4,10 @@ Sign-out for a Classic Engine Java Auth SDK app typically involves deleting any 
 
 ```java
 public String logout(final HttpSession session) {
-        logger.info(":: Logout ::");
 
-        // invalidate session
-        session.invalidate();
-        return "redirect:/";
+    // invalidate session
+    session.invalidate();
+    return "redirect:/";
 }
 ```
 
@@ -19,23 +18,21 @@ The following code snippet shows how the `IDXAuthenticationWrapper.revokeToken()
 
 ```java
  public String logout(final HttpSession session) {
-        logger.info(":: Logout ::");
 
-        // retrieve access token
-        TokenResponse tokenResponse =
-                (TokenResponse) session.getAttribute("tokenResponse");
+    // retrieve access token
+    TokenResponse tokenResponse =
+            (TokenResponse) session.getAttribute("tokenResponse");
 
-        if (tokenResponse != null) {
-            String accessToken = tokenResponse.getAccessToken();
-            // revoke access token
-            logger.info("Revoking access token");
-            idxAuthenticationWrapper.revokeToken(TokenType.ACCESS_TOKEN, accessToken);
-        }
-
-        // invalidate session
-        session.invalidate();
-        return "redirect:/";
+    if (tokenResponse != null) {
+        String accessToken = tokenResponse.getAccessToken();
+        // revoke access token
+        idxAuthenticationWrapper.revokeToken(TokenType.ACCESS_TOKEN, accessToken);
     }
+
+    // invalidate session
+    session.invalidate();
+    return "redirect:/";
+}
 ```
 
 See [User sign out (local app)](/docs/guides/oie-embedded-sdk-use-case-basic-sign-out/java/main/) for further details on the Identity Engine user sign-out.

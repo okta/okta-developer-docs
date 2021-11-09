@@ -4,37 +4,21 @@ The migration example in this section uses a sign-on policy with username, passw
 
 For a multifactor sign-in authentication flow using the Java Auth SDK, a typical app has to instantiate the `AuthenticationClient` object and call the `authenticate()` method, similar to the [Map basic sign-in code to the Okta Identity Engine SDK](#map-basic-sign-in-code-to-the-okta-identity-engine-sdk) use case.
 
-In this MFA scenario, there is an additional email factor to verify, therefore the `authenticate()` call returns an `AuthenticationResponse` object with a list of one additional factor to verify: the email factor. The `AuthenticationResponse.getFactors()` method is used to return the list of factors to verify.
+In this MFA scenario, there is an additional email factor to verify, therefore the `authenticate()` call returns an `AuthenticationResponse` object with a list of one additional factor to verify: the email factor.
+
+The following code example retrieves the first factor ID and type from the list of factors to verify. The `AuthenticationResponse.getFactors()` method is used to return the list of factors to verify. The `Factor.getId()` and `Factor.getType()` methods are used to get the ID and type for the factor.
 
 ```java
 final String factorId = authenticationResponse.getFactors().get(0).getId();
 final FactorType factorType = authenticationResponse.getFactors().get(0).getType();
-final String stateToken = authenticationResponse.getStateToken();
-
-// we only support Email factor for sample purpose
-if (factorType == FactorType.EMAIL) {
-    AuthenticationResponse authResponse = authenticationClient.verifyFactor(factorId, stateToken, ignoringStateHandler);
-...
-}
 ```
 
-For the email factor, the app has to verify a code that is sent to the user’s email. The `AuthenticationClient.challengeFactor()` method is called to send the verify-code email, then the `AuthenticationClient.verifyFactor()` method is used to verify the code from the email.
+For the email factor in this scenario, the app has to verify a code that is sent to the user’s email. The `AuthenticationClient.challengeFactor()` method is called to send the verify-code email, then the `AuthenticationClient.verifyFactor()` method is used to verify the code from the email.
 
 > **Note:** If there is only one factor in the list, the app doesn't need to call `challengeFactor()`, as it is automatically triggered.
 
 ```java
-try {
-    final VerifyPassCodeFactorRequest verifyPassCodeFactorRequest =
-         authenticationClient.instantiate(VerifyPassCodeFactorRequest.class);
-    verifyPassCodeFactorRequest.setStateToken(stateToken);
-    verifyPassCodeFactorRequest.setPassCode(passcode);
-    verifyPassCodeFactorRequest.setRememberDevice(false);
-
-    authenticationResponse = authenticationClient.verifyFactor(factorId,
-         verifyPassCodeFactorRequest, ignoringStateHandler);
-} catch (final AuthenticationException e) {
-...
-}
+authenticationResponse = authenticationClient.verifyFactor(factorId, verifyPassCodeFactorRequest, ignoringStateHandler);
 ```
 
 If the `verifyFactor()` method is successful, an `AuthenticationResponse` object is returned with a session token and a `SUCCESS` status.
@@ -54,7 +38,7 @@ If additional factors are required, then `AuthenticationStatus=AWAITING_AUTHENTI
   > **Note:** Unlike the Java Auth SDK’s `challengeFactor()`, the single authenticator isn't automatically selected. The app must call the `selectAuthenticator()` method to trigger the authenticator challenge.
 
   ```java
-    authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
+  authenticationResponse = idxAuthenticationWrapper.selectAuthenticator(proceedContext, authenticator);
   ```
 
 - AuthenticationResponse returns `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` &mdash; Implying that Okta is waiting for the authenticator verification from the user/app.
@@ -62,16 +46,15 @@ If additional factors are required, then `AuthenticationStatus=AWAITING_AUTHENTI
 - The app calls `IDXAuthenticationWrapper.verifyAuthenticator()` to provide the authenticator verification  &mdash; This is synonymous with Java Auth SDK’s `AuthenticationClient.verifyFactor()` method, where the app provides the challenge verification. In this case, the code within the user’s email is provided as an argument.
 
   ```java
-  ProceedContext proceedContext = Util.getProceedContextFromSession(session);VerifyAuthenticatorOptions verifyAuthenticatorOptions = new
-     VerifyAuthenticatorOptions(code);
+  ProceedContext proceedContext = Util.getProceedContextFromSession(session);
+  VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(code);
   AuthenticationResponse authenticationResponse =
-     idxAuthenticationWrapper.verifyAuthenticator(proceedContext,
-     verifyAuthenticatorOptions);
+    idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
   ```
 
 - AuthenticationResponse returns either:
-  * `AuthenticationStatus=SUCCESS` &mdash; The MFA process is successful and the app can call `AuthenticationResponse.getTokenResponse()` to retrieve the required tokens for authenticated user activity.
-  * `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` &mdash; Additional authenticator verification is required, and the app can loop through the MFA remediation process again [`AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` -> `selectAuthenticator()` -> `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` -> `verifyAuthenticator()` -> check `AuthenticationStatus`].
+  - `AuthenticationStatus=SUCCESS` &mdash; The MFA process is successful and the app can call `AuthenticationResponse.getTokenResponse()` to retrieve the required tokens for authenticated user activity.
+  - `AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` &mdash; Additional authenticator verification is required, and the app can loop through the MFA remediation process again [`AuthenticationStatus=AWAITING_AUTHENTICATOR_SELECTION` -> `selectAuthenticator()` -> `AuthenticationStatus=AWAITING_AUTHENTICATOR_VERIFICATION` -> `verifyAuthenticator()` -> check `AuthenticationStatus`].
 
 The number of required/optional authenticators for MFA are configured in the Admin Console and in the app sign-on policies. The Identity Engine-enabled app is structured in a way that enables the MFA challenges to differ based on user, group, context, and available factors, since the MFA process is driven by policies set in Okta, and not hard-coded into the app.
 

@@ -3,52 +3,32 @@
 For a password recovery flow using the Classic Engine Java Auth SDK, a typical app has to first instantiate the `AuthenticationClient` object and call the `recoverPassword()` method with the username. In this password recovery scenario, the email factor is used to recover the password, therefore the  `FactorType.EMAIL` argument is also provided.
 
 ```java
-try {
-      authenticationResponse = authenticationClient.recoverPassword(email,
-          FactorType.EMAIL, null, ignoringStateHandler);
-} catch (final AuthenticationException e) {
-...
-}
+authenticationResponse = authenticationClient.recoverPassword(email, FactorType.EMAIL, null, ignoringStateHandler);
 ```
 
 If the `recoverPassword()` method is successful, Okta sends an email to the user with a recovery token. The app receives the recovery token from the user and calls the `AuthenticationClient.verifyRecoveryToken()` method.
 
 ```java
-try {
-    authenticationResponse =
-    authenticationClient.verifyRecoveryToken(recoveryToken,ignoringStateHandler);
-} catch (final AuthenticationException e) {
-...
-}
+authenticationResponse = authenticationClient.verifyRecoveryToken(recoveryToken,ignoringStateHandler);
 ```
 
 A successful response from `verifyRecoveryToken()` includes a state token and a security recovery question. The app presents the user with the recovery question and then passes the user’s recovery answer to the `AuthenticationClient.answerRecoveryQuestion()` method.
 
 ```java
-try {
-    authenticationResponse = authenticationClient.answerRecoveryQuestion(secQnAnswer,
-        stateToken, ignoringStateHandler);
-} catch (final AuthenticationException e) {
-...
-}
+authenticationResponse = authenticationClient.answerRecoveryQuestion(secQnAnswer, stateToken, ignoringStateHandler);
 ```
 
 After a successful response from `answerRecoveryQuestion()`, the app requests the user for a new password and sends the new password to the `AuthenticationClient.resetPassword()` method.
 
 ```java
-try {
-    authenticationResponse = authenticationClient.resetPassword(newPassword.toCharArray(),
-        stateToken, ignoringStateHandler);
-} catch (final AuthenticationException e) {
-...
-}
+authenticationResponse = authenticationClient.resetPassword(newPassword.toCharArray(), stateToken, ignoringStateHandler);
 ```
 
 The user is authenticated after a successful response from `resetPassword()`.
 
 ### Okta Identity Engine SDK authentication flow for password recovery
 
-To upgrade the previous Classic Engine password recovery flow, the recovery process is replaced with the Identity Engine remediation pattern of:
+To upgrade the previous Classic Engine password recovery flow, the recovery process is replaced with the Identity Engine remediation pattern loop of:
 
 [`AuthenticationStatus` -> `selectAuthenticator()` -> `AuthenticationStatus` -> `verifyAuthenticator()` -> `AuthenticationStatus`]
 
@@ -76,8 +56,7 @@ The flow starts when the app instantiates the `IDXAuthenticationWrapper` client 
 
   ```java
   ProceedContext proceedContext = Util.getProceedContextFromSession(session);
-  VerifyAuthenticatorOptions verifyAuthenticatorOptions =
-    new VerifyAuthenticatorOptions(newPassword);
+  VerifyAuthenticatorOptions verifyAuthenticatorOptions = new VerifyAuthenticatorOptions(newPassword);
   AuthenticationResponse authenticationResponse =
     idxAuthenticationWrapper.verifyAuthenticator(proceedContext, verifyAuthenticatorOptions);
   ```
