@@ -2671,3 +2671,11 @@ redirects:
     to: /docs/guides/custom-error-pages/main/#use-macros/
   - from: /docs/guides/custom-error-pages/main/use-macros
     to: /docs/guides/custom-error-pages/main/#use-macros/
+  - from: /docs/guides/custom-error-pages/customization-examples/index.html
+    to: /docs/guides/custom-error-pages/main/#customization-examples/
+  - from: /docs/guides/custom-error-pages/customization-examples
+    to: /docs/guides/custom-error-pages/main/#customization-examples/
+  - from: /docs/guides/custom-error-pages/next-steps/index.html
+    to: /docs/guides/custom-error-pages/main/#next-steps/
+  - from: /docs/guides/custom-error-pages/next-steps
+    to: /docs/guides/custom-error-pages/main/#next-steps/
