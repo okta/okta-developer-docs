@@ -2365,8 +2365,10 @@ redirects:
     to: /docs/guides/sharing-cert/main/
   - from: /docs/guides/sharing-cert/next-steps/
     to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/saml-tracer/overview/
-    to: /docs/guides/saml-tracer/main/
+  - from: /docs/guides/saml-tracer/overview
+    to: /docs/guides/saml-tracer/
+  - from: /docs/guides/saml-tracer/overview/index.html
+    to: /docs/guides/saml-tracer/
   - from: /docs/guides/updating-saml-cert/overview/
     to: /docs/guides/updating-saml-cert/main/
   - from: /docs/guides/updating-saml-cert/get-app-info/
