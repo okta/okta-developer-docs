@@ -29,7 +29,7 @@ When using an Okta-hosted flow, you can create a unique sign-in experience by pr
 
 However, if an error occurs during sign-in, Okta may need to display an error page to the user. To provide a seamless user experience, you can also customize the error page by using the embedded HTML editor that is provided on the **Custom Error Pages** tab of the **Customization** page.
 
-> **Note:** A custom error page only appears when an app connects to Okta using your custom domain. Otherwise, the default Okta error page appears.
+> **Note:** A custom error page only appears when an app connects to Okta by using your custom domain. Otherwise, the default Okta error page appears.
 
 ### Common questions
 
