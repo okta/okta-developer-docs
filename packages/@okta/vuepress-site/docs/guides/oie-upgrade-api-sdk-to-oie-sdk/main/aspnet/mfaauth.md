@@ -92,8 +92,6 @@ if (authnResponse.AuthenticationStatus == AuthenticationStatus.Success)
 }
 ```
 
-<!---->
-
 ### The Identity Engine SDK multifactor authentication flow
 
 The Identity Engine SDK's methods that support the multifactor authentication flow are as follows:

@@ -68,6 +68,7 @@ if (authResponse.AuthenticationStatus == AuthenticationStatus.PasswordReset)
 ```
 
 #### 4. Reset password
+
 Once the user submits their new password, create an object of type `ResetPasswordOptions`. Assign values to its `NewPassword` and `Stake` properties and pass it to `AuthenticationClient.ResetPasswordAsync()`.  If the response returns a status of `AuthenticationStatus.Success`, the password is successfully reset.
 
 ```dotnet
