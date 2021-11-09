@@ -812,7 +812,7 @@ You can customize the text and the look and feel of the Okta-hosted sign-in page
 
 #### Custom Error Page is in Early Access
 
-You can customize the text and the look and feel of error pages using an embedded HTML editor. When used together with [custom URL domain](https://help.okta.com/okta_help.htm?id=ext_custom_url_domain) (required) and [custom Okta-hosted sign-in page](/docs/guides/style-the-widget/style-okta-hosted/), this feature offers a fully customized error page. For details, see [Configure a custom error page](/docs/guides/custom-error-pages/).
+You can customize the text and the look and feel of error pages by using an embedded HTML editor. When the feature is used with [custom URL domain](https://help.okta.com/okta_help.htm?id=ext_custom_url_domain) (required) and [custom Okta-hosted sign-in page](/docs/guides/style-the-widget/style-okta-hosted/), it offers a fully customized error page. See [Configure a custom error page](/docs/guides/custom-error-pages/) for more information.
 
 #### Bugs Fixed in 2018.19
 
