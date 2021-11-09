@@ -43,7 +43,7 @@ You can add any HTML, CSS, or JavaScript that you want to the page.
 
 ### Use the Brands API
 
-The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to set icons, images, and colors across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once. You don't need to set a customized Okta URL domain. To find out more about this feature and how to use it, see [Customize your Okta experience with the Brands API](/docs/guides/customize-themes).
+The [Brands API](/docs/reference/api/brands/) is a feature (currently in Early Access) that allows you to set icons, images, and colors across your Okta-hosted Sign-In Widget, error pages, email templates, and Okta End-User Dashboard all at once. You don't need to set a customized Okta URL domain. See [Customize your Okta experience with the Brands API](/docs/guides/customize-themes) for more information on this feature and how to use it.
 
 ## Edit the error page
 
