@@ -2664,18 +2664,18 @@ redirects:
   - from: /docs/guides/custom-error-pages/overview
     to: /docs/guides/custom-error-pages/
   - from: /docs/guides/custom-error-pages/edit-the-error-page/index.html
-    to: /docs/guides/custom-error-pages/main/#edit-the-error-page/
+    to: /docs/guides/custom-error-pages/main/#edit-the-error-page
   - from: /docs/guides/custom-error-pages/edit-the-error-page
-    to: /docs/guides/custom-error-pages/main/#edit-the-error-page/
+    to: /docs/guides/custom-error-pages/main/#edit-the-error-page
   - from: /docs/guides/custom-error-pages/use-macros/index.html
-    to: /docs/guides/custom-error-pages/main/#use-macros/
+    to: /docs/guides/custom-error-pages/main/#use-macros
   - from: /docs/guides/custom-error-pages/main/use-macros
-    to: /docs/guides/custom-error-pages/main/#use-macros/
+    to: /docs/guides/custom-error-pages/main/#use-macros
   - from: /docs/guides/custom-error-pages/customization-examples/index.html
-    to: /docs/guides/custom-error-pages/main/#customization-examples/
+    to: /docs/guides/custom-error-pages/main/#customization-examples
   - from: /docs/guides/custom-error-pages/customization-examples
-    to: /docs/guides/custom-error-pages/main/#customization-examples/
+    to: /docs/guides/custom-error-pages/main/#customization-examples
   - from: /docs/guides/custom-error-pages/next-steps/index.html
-    to: /docs/guides/custom-error-pages/main/#next-steps/
+    to: /docs/guides/custom-error-pages/main/#next-steps
   - from: /docs/guides/custom-error-pages/next-steps
-    to: /docs/guides/custom-error-pages/main/#next-steps/
+    to: /docs/guides/custom-error-pages/main/#next-steps
