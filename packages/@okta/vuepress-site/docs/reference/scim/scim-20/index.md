@@ -35,7 +35,7 @@ To enable user provisioning, you must configure the provisioning options in the 
 1. Under the **Provisioning** tab, click **To App** and **Edit**.
 1. In the **Create User** option, click **Enable** and then **Save**.
 
-For more information on enabling the provisioning features of your SCIM integration, see [Provisioning applications](https://help.okta.com/okta_help.htm?id=ext_Provisioning_Deprovisioning_Overview) under the **Accessing Provisioning Features** section.
+For more information on enabling the provisioning features of your SCIM integration, see [Configure provisioning for an app integration](https://help.okta.com/okta_help.htm?id=ext_prov_lcm_prov_app).
 
 After you complete this step, whenever a user is assigned to the integration in Okta, the following requests are made against the SCIM server:
 
