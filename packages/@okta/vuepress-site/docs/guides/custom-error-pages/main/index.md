@@ -39,7 +39,7 @@ The error page appears when a critical error occurs or an application is misconf
 
 **What can I customize on the error page?**
 
-You can add any HTML, CSS, or JavaScript you want to the page.
+You can add any HTML, CSS, or JavaScript that you want to the page.
 
 ### Use the Brands API
 
