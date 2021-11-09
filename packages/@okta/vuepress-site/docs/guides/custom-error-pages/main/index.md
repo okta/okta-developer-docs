@@ -19,7 +19,7 @@ Customize error pages as part of the sign-in flow.
 
 **Sample code**
 
-See our [customization examples](#customization-examples)
+[Customization examples](#customization-examples)
 
 ---
 
