@@ -120,7 +120,7 @@ Example:
 
 ### <span v-pre>`{{back}}`</span>
 
-Inserts the text `Go to Homepage`. The button takes the user back to the sign-in page when clicked.
+Inserts the text `Go to Homepage`. When the user selects the button, they are returned to the sign-in page.
 
 Example:
 
