@@ -52,7 +52,7 @@ curl -v -X POST \
 -d '{
       "label": "UserCreator",
       "description": "...",
-      "permissions" [
+      "permissions": [
         "okta.users.create",
         "okta.users.read",
         "okta.groups.read",
@@ -158,7 +158,7 @@ curl -v -X PUT \
 -H "Authorization: SSWS ${api_token}" \
 -d '{
       "label": "UserCreator-Updated",
-      "description": "Create users",
+      "description": "Create users"
     }' \
 "https://${yourOktaDomain}/api/v1/iam/roles/UserCreator"
 ```
@@ -815,7 +815,7 @@ curl -v -X PATCH \
 -d '{
       "additions": [
         "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3",
-        "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users",
+        "https://${yourOktaDomain}/api/v1/groups/00gu67DU2qNCjNZYO0g3/users"
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/resources"
 ```
@@ -1064,7 +1064,7 @@ curl -v -X PATCH \
 -d '{
       "additions": [
         "https://${yourOktaDomain}/api/v1/groups/00guaxWZ0AOa5NFAj0g3",
-        "https://${yourOktaDomain}/api/v1/users/00u67DU2qNCjNZYO0g3",
+        "https://${yourOktaDomain}/api/v1/users/00u67DU2qNCjNZYO0g3"
       ]
     }' "https://${yourOktaDomain}/api/v1/iam/resource-sets/iamoJDFKaJxGIr0oamd9g/bindings/cr0WxyzJxGIr0ouum0g4/members"
 ```
