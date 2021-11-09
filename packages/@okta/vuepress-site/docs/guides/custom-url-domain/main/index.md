@@ -1,10 +1,35 @@
 ---
-title: Before you begin
+title: Customize the Okta URL domain
+excerpt: Learn how to add a custom domain name to your Okta organization.
+layout: Guides
 ---
+
+This guide teaches you how to customize the Okta URL domain which allows you to create a seamless branded experience for your users.
+
+---
+
+**Learning outcomes**
+
+Customize the Okta URL domain.
+
+**What you need**
+
+* A domain that you own, for example, `example.com`
+* A subdomain that you want to use, for example, `login.example.com`
+* A valid TLS certificate (PEM-encoded) for your subdomain
+* A 2048-bit private key (PEM-encoded)
+
+**Sample code**
+
+
+
+---
+
+## Overview
 
 You can customize your Okta organization by replacing the Okta domain name with your own domain name. This allows you to create a seamless branded experience for your users so that all URLs look like your application.
 
-Okta organizations host pages on subdomains such as `example.okta.com`. Using this feature aliases your Okta organization's domain name to another subdomain that you own, like `login.example.com`.
+Okta orgs host pages on subdomains such as `example.okta.com`. Using the custom URL domain feature aliases your Okta organization's domain name to another subdomain that you own, like `login.example.com`.
 
 For example, you use Okta as a user store for your apps, but you don't want your users to know that the app uses Okta behind the scenes. You can create a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) for the Okta domain, allowing you to alias `login.example.com` to `example.okta.com`.
 
@@ -18,7 +43,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * Okta currently only supports 2048-bit keys for the private key that you upload. However, your certificate chain can use keys of any size.
 
-* If your organization has configured any SAML or WS-Fed integrated applications, review the SAML or WS-Fed SSO set-up instructions. If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
+* If your org has configured any SAML or WS-Fed integrated applications, review the SAML or WS-Fed SSO set-up instructions. If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
 * If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, they will be prompted to sign in again. In order to avoid this, you would need to change the issuer in these integrations to your custom URL. Both in the Okta dashboard and in your codebase.
 
@@ -36,7 +61,7 @@ Want to quickly set up a custom domain? You can use the abbreviated steps on the
 
 **Q: Can I add more than one domain?**
 
-No. You can only have one custom domain set up per Okta organization.
+No. You can only have one custom domain set up per Okta org.
 
 **Q: Will the existing Okta domain work?**
 
@@ -46,4 +71,4 @@ Yes. When you turn the custom domain on, the Okta domain (for example, `example.
 
 If you need help or have an issue, post a question on the [Okta Developer Forum](https://devforum.okta.com).
 
-<NextSectionLink/>
+
