@@ -56,7 +56,7 @@ The HTML editor that is provided on the **Custom Error Pages** tab of the **Cust
 1. Click **Reset to Default** if you need to remove all of your customizations and restore the default HTML/CSS and JavaScript code.
 1. Click **Save and Publish** to commit your changes.
 
-> **Note:** See [Customization examples](#customization-examples) for snippets you can update and use.
+> **Note:** See [Customization examples](#customization-examples) for snippets that you can update and use.
 
 ## Use macros
 
