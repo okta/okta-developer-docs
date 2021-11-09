@@ -142,7 +142,7 @@ Example:
 
 ### <span v-pre>`{{buttonText}}`</span>
 
-Inserts the button text based on the page context. When a user selects the button, they are directed to the `buttonHref` URL. The `{{back}}` macro is also supported for the same purpose.
+Inserts the button text based on the page context. When the user selects the button, they are directed to the `buttonHref` URL. The `{{back}}` macro is also supported for the same purpose.
 
 ### <span v-pre>`{{buttonHref}}`</span>
 
