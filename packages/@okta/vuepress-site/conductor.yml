@@ -1092,15 +1092,15 @@ redirects:
   - from: /guides/session-cookie/-/overview/index.html
     to: /docs/guides/session-cookie/-/overview/
   - from: /guides/sharing-cert/-/generate-new-credential/index.html
-    to: /docs/guides/sharing-cert/-/generate-new-credential/
+    to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
   - from: /guides/sharing-cert/-/overview/index.html
-    to: /docs/guides/sharing-cert/-/overview/
+    to: /docs/guides/sharing-cert/
   - from: /guides/sharing-cert/-/share-kid-with-target-app/index.html
-    to: /docs/guides/sharing-cert/-/share-kid-with-target-app/
+    to: /docs/guides/sharing-cert/main/#share-the-source-app-s-key-credential-id-with-the-target-app
   - from: /guides/sharing-cert/-/update-source-app-with-cert/index.html
-    to: /docs/guides/sharing-cert/-/update-source-app-with-cert/
+    to: /docs/guides/sharing-cert/main/#update-the-source-app-to-use-the-new-certificate
   - from: /guides/sharing-cert/-/update-target-app-with-kid/index.html
-    to: /docs/guides/sharing-cert/-/update-target-app-with-kid/
+    to: /docs/guides/sharing-cert/main/#update-the-target-app-to-use-the-new-credential
   - from: /guides/sign-in-with-facebook/-/add-redirect-uri/index.html
     to: /docs/guides/sign-in-with-facebook/-/add-redirect-uri/
   - from: /guides/sign-in-with-facebook/-/complete-authz-url/index.html
@@ -2353,18 +2353,30 @@ redirects:
     to: /docs/guides/add-an-external-idp/-/main/#next-steps
   - from: /docs/guides/add-an-external-idp/-/configure-idp-in-okta/#social-identity-provider-settings
     to: /docs/concepts/identity-providers/#account-linking-and-just-in-time-provisioning
-  - from: /docs/guides/sharing-cert/overview/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/generate-new-credential/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/update-source-app-with-cert/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/share-kid-with-target-app/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/update-target-app-with-kid/
-    to: /docs/guides/sharing-cert/main/
-  - from: /docs/guides/sharing-cert/next-steps/
-    to: /docs/guides/sharing-cert/main/
+  - from: /docs/guides/sharing-cert/overview
+    to: /docs/guides/sharing-cert/
+  - from: /docs/guides/sharing-cert/generate-new-credential
+    to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
+  - from: /docs/guides/sharing-cert/update-source-app-with-cert
+    to: /docs/guides/sharing-cert/main/#update-the-source-app-to-use-the-new-certificate
+  - from: /docs/guides/sharing-cert/share-kid-with-target-app
+    to: /docs/guides/sharing-cert/main/#share-the-source-app-s-key-credential-id-with-the-target-app
+  - from: /docs/guides/sharing-cert/update-target-app-with-kid
+    to: /docs/guides/sharing-cert/main/#update-the-target-app-to-use-the-new-credential
+  - from: /docs/guides/sharing-cert/next-steps
+    to: /docs/guides/sharing-cert/main/#see-also
+  - from: /docs/guides/sharing-cert/overview/index.html
+    to: /docs/guides/sharing-cert/
+  - from: /docs/guides/sharing-cert/generate-new-credential/index.html
+    to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
+  - from: /docs/guides/sharing-cert/update-source-app-with-cert/index.html
+    to: /docs/guides/sharing-cert/main/#update-the-source-app-to-use-the-new-certificate
+  - from: /docs/guides/sharing-cert/share-kid-with-target-app/index.html
+    to: /docs/guides/sharing-cert/main/#share-the-source-app-s-key-credential-id-with-the-target-app
+  - from: /docs/guides/sharing-cert/update-target-app-with-kid/index.html
+    to: /docs/guides/sharing-cert/main/#update-the-target-app-to-use-the-new-credential
+  - from: /docs/guides/sharing-cert/next-steps/index.html
+    to: /docs/guides/sharing-cert/main/#see-also
   - from: /docs/guides/saml-tracer/overview/
     to: /docs/guides/saml-tracer/main/
   - from: /docs/guides/updating-saml-cert/overview/
