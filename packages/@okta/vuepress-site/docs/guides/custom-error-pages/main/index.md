@@ -130,7 +130,7 @@ Example:
 
 ### <span v-pre>`{{technicalDetails}}`</span>
 
-Inserts additional error codes, if there are any. See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code) for more information.
+Inserts additional error codes, if there are any. See [Okta Error Codes](/docs/reference/error-codes/#okta-error-codes-listed-by-error-code).
 
 Example:
 
