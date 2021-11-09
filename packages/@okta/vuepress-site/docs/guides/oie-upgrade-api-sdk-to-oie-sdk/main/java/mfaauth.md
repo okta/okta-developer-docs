@@ -14,13 +14,7 @@ final String stateToken = authenticationResponse.getStateToken();
 // we only support Email factor for sample purpose
 if (factorType == FactorType.EMAIL) {
     AuthenticationResponse authResponse = authenticationClient.verifyFactor(factorId, stateToken, ignoringStateHandler);
-    final ModelAndView emailAuthView = new ModelAndView("verify-email-authenticator");
-    emailAuthView.addObject("authenticationResponse", authResponse);
-    return emailAuthView;
-} else {
-    final ModelAndView errorView = new ModelAndView("home");
-    errorView.addObject("error", "Factor type " + factorType + " + is not supported in this sample yet");
-    return errorView;
+...
 }
 ```
 
@@ -39,12 +33,7 @@ try {
     authenticationResponse = authenticationClient.verifyFactor(factorId,
          verifyPassCodeFactorRequest, ignoringStateHandler);
 } catch (final AuthenticationException e) {
-    logger.error("Verify Email Factor Error - Status: {}, Code: {}, Message: {}",
-         e.getStatus(), e.getCode(), e.getMessage());
-    final ModelAndView errorView = new ModelAndView();
-    errorView.addObject("error", e.getStatus() + ":" + e.getCode() + ":" +
-         e.getMessage());
-    return errorView;
+...
 }
 ```
 

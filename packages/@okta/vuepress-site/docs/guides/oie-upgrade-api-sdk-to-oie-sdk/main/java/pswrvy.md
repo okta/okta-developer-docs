@@ -7,11 +7,7 @@ try {
       authenticationResponse = authenticationClient.recoverPassword(email,
           FactorType.EMAIL, null, ignoringStateHandler);
 } catch (final AuthenticationException e) {
-      logger.error("Recover Password Error - Status: {}, Code: {}, Message: {}",
-          e.getStatus(), e.getCode(), e.getMessage());
-      modelAndView.addObject("error",
-          e.getStatus() + ":" + e.getCode() + ":" + e.getMessage());
-      return modelAndView;
+...
 }
 ```
 
@@ -22,12 +18,7 @@ try {
     authenticationResponse =
     authenticationClient.verifyRecoveryToken(recoveryToken,ignoringStateHandler);
 } catch (final AuthenticationException e) {
-    logger.error("Verify Recovery Token Error - Status: {}, Code: {}, Message: {}",
-        e.getStatus(), e.getCode(), e.getMessage());
-    final ModelAndView errorView = new ModelAndView("verify-recovery-token");
-    errorView.addObject("error",
-        e.getStatus() + ":" + e.getCode() + ":" + e.getMessage());
-    return errorView;
+...
 }
 ```
 
@@ -38,12 +29,7 @@ try {
     authenticationResponse = authenticationClient.answerRecoveryQuestion(secQnAnswer,
         stateToken, ignoringStateHandler);
 } catch (final AuthenticationException e) {
-    logger.error("Answer Sec Qn Error - Status: {}, Code: {}, Message: {}",
-        e.getStatus(), e.getCode(), e.getMessage());
-    final ModelAndView errorView = new ModelAndView("change-password");
-    errorView.addObject("error",
-        e.getStatus() + ":" + e.getCode() + ":" + e.getMessage());
-    return errorView;
+...
 }
 ```
 
@@ -54,12 +40,7 @@ try {
     authenticationResponse = authenticationClient.resetPassword(newPassword.toCharArray(),
         stateToken, ignoringStateHandler);
 } catch (final AuthenticationException e) {
-    logger.error("Reset Password Error - Status: {}, Code: {}, Message: {}",
-        e.getStatus(), e.getCode(), e.getMessage());
-    final ModelAndView errorView = new ModelAndView("change-password");
-    errorView.addObject("error",
-        e.getStatus() + ":" + e.getCode() + ":" + e.getMessage());
-    return errorView;
+...
 }
 ```
 

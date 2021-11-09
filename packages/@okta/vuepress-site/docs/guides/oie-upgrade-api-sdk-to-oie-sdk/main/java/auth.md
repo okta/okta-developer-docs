@@ -15,22 +15,11 @@ public AuthenticationClient authenticationClient() {
 The following code snippet shows how the `authenticate()` method is handled with the Java Auth SDK:
 
 ```java
-try {
-    authenticationResponse = authenticationClient.authenticate(username,
-         password.toCharArray(), null, ignoringStateHandler);
+authenticationResponse = authenticationClient.authenticate(username, password.toCharArray(), null, ignoringStateHandler);
 
-    // handle factors, if any
-     if (authenticationResponse != null &&
-        !CollectionUtils.isEmpty(authenticationResponse.getFactors())) {
-         return AuthHelper.proceedToVerifyView(authenticationResponse,
-              authenticationClient, ignoringStateHandler);
-    }
-} catch (final AuthenticationException e) {
-    logger.error("Authentication Error - Status: {}, Code: {}, Message: {}",
-        e.getStatus(), e.getCode(), e.getMessage());
-    modelAndView.addObject("error",
-        e.getStatus() + ":" + e.getCode() + ":" + e.getMessage());
-    return modelAndView;
+// handle factors, if any
+if (authenticationResponse != null && !CollectionUtils.isEmpty(authenticationResponse.getFactors())) {
+    return AuthHelper.proceedToVerifyView(authenticationResponse, authenticationClient, ignoringStateHandler);
 }
 ```
 
