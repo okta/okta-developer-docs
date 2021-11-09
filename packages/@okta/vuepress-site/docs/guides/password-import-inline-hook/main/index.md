@@ -6,6 +6,8 @@ layout: Guides
 
 This guide provides a working example of an Okta Password Import Hook. It uses the web site [Glitch.com](https://glitch.com) to act as an external service and receive and respond to Password Import Hook calls.
 
+---
+
 **Learning outcomes**
 
 * Understand the Okta Password Import Inline Hook calls and responses
