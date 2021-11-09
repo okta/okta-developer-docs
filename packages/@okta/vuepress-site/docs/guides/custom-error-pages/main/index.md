@@ -10,7 +10,7 @@ This guide teaches you how to customize error pages that can appear as part of a
 
 **Learning outcomes**
 
-Customize error pages as part of the sign-in flow
+Customize error pages as part of the sign-in flow.
 
 **What you need**
 
