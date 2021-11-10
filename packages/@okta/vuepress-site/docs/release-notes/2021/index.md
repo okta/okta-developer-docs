@@ -4,16 +4,6 @@ title: Okta API Products Release Notes 2021
 
 ## November
 
-### Weekly Release 2021.11.1
-
-| Change                                                                   | Expected in Preview Orgs |
-|--------------------------------------------------------------------------|--------------------------|
-| [Bugs fixed in 2021.11.1](#bugs-fixed-in-2021-11-1) | November 10, 2021 |
-
-#### Bugs fixed in 2021.11.1
-
-* When the [Update User API](/docs/reference/api/users/#update-user) or the [Change Recovery Question API](/docs/reference/api/users/#change-recovery-question) was used to update the user's security question, Okta Identity Engine still returned the old security question. (OKTA-442243)
-
 ### Monthly release 2021.11.0
 
 | Change                                                                   | Expected in Preview Orgs |
