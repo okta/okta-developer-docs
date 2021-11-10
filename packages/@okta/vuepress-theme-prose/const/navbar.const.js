@@ -175,8 +175,21 @@ export const guides = [
         title: "Sign Users In",
         subLinks: [
           {
-            title: "Add an external Identity Provider",
-            path: "/docs/guides/identity-providers/",
+            title: "Add an external identity provider",
+            subLinks: [
+              {
+                title: "Identity providers overview",
+                path: "/docs/guides/identity-providers/"
+              },
+              {
+                title: "Social IdP guides",
+                guideName: "social-login"
+              },
+              {
+                title: "External IdP guides",
+                guideName: "add-an-external-idp"
+              }
+            ]
           },
           { title: "Add multifactor authentication", guideName: "mfa" },
           {
