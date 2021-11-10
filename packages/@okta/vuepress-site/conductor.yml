@@ -2190,7 +2190,7 @@ redirects:
   - from: /docs/guides/password-import-hook/-/check-authorization-header/index.html
     to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/get-submitted-credentials
-    to: /docs/guides/password-import-inline-hook/-/main//#get-submitted-credentials
+    to: /docs/guides/password-import-inline-hook/-/main/#get-submitted-credentials
   - from: /docs/guides/password-import-hook/get-submitted-credentials/index.html
     to: /docs/guides/password-import-inline-hook/-/main/#get-submitted-credentials
   - from: /docs/guides/password-import-hook/-/get-submitted-credentials
@@ -2220,17 +2220,17 @@ redirects:
   - from: /docs/guides/password-import-hook/-/next-steps
     to: /docs/guides/password-import-inline-hook/-/main/#next-steps
   - from: /docs/guides/password-import-hook/-/activate-and-enable
-    to: /docs/guides/password/password-import-hook/-/main/#activate-the-password-import-hook-on-your-okta-org
+    to: /docs/guides/password-import-inline-hook/-/main/#activate-the-password-import-hook-on-your-okta-org
   - from: /docs/guides/password-import-hook/-/activate-and-enable/index.html
-    to: /docs/guides/password/password-import-hook/-/main/#activate-the-password-import-hook-on-your-okta-org
+    to: /docs/guides/password-import-inline-hook/-/main/#activate-the-password-import-hook-on-your-okta-org
   - from: /docs/guides/password-import-hook/-/import-users
-    to: /docs/guides/password/password-import-hook/-/main/#import-test-users
+    to: /docs/guides/password-import-inline-hook/-/main/#import-test-users
   - from: /docs/guides/password-import-hook/-/import-users/index.html
-    to: /docs/guides/password/password-import-hook/-/main/#import-test-users
+    to: /docs/guides/password-import-inline-hook/-/main/#import-test-users
   - from: /docs/guides/password-import-hook/-/test-password-import-hook
-    to: /docs/guides/password/password-import-hook/-/main/#test-your-hook
+    to: /docs/guides/password-import-inline-hook/-/main/#test-your-hook
   - from: /docs/guides/password-import-hook/-/test-password-import-hook/index.html
-    to: /docs/guides/password/password-import-hook/-/main/#test-your-hook
+    to: /docs/guides/password-import-inline-hook/-/main/#test-your-hook
   - from: /docs/reference/api/systemlog
     to: /docs/reference/api/system-log/
   - from: /docs/reference/api/systemlog/index.html
