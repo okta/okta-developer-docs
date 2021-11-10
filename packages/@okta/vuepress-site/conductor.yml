@@ -2051,9 +2051,9 @@ redirects:
     to: /docs/guides/customize-tokens-returned-from-okta/main/#add-a-custom-claim-to-a-token
   - from: /docs/guides/customize-tokens-returned-from-okta/add-custom-claim
     to: /docs/guides/customize-tokens-returned-from-okta/main/#add-a-custom-claim-to-a-token
-  - from: /guides/customize-tokens-returned-from-okta/create-app-profile-attribute/index.html
+  - from: /docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-instructions-in-a-custom-claim
-  - from: /guides/customize-tokens-returned-from-okta/create-app-profile-attribute
+  - from: /docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute
     to: /docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-instructions-in-a-custom-claim
   - from: /docs/guides/customize-tokens-returned-from-okta/next-steps/index.html
     to: /docs/guides/customize-tokens-returned-from-okta/main/#next-steps
