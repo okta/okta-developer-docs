@@ -83,7 +83,7 @@ The Identity Engine upgrade documentation below discusses the various upgrade ta
 
 * [Planning embedded auth app upgrades](/docs/guides/oie-upgrade-planning-embedded-upgrades/): Learn about how to embark on the upgrade process, the steps required, and how you can stage your upgrade. Also discussed are suggestions on when to test and how to roll out the application upgrades to your users.
 
-* Upgrade authentication services and applications to use the Interaction Code grant type: Learn how to configure your embedded applications and the corresponding authorization servers to use the Interaction Code grant type. More detailed information coming soon. <!-- (/docs/guides/implement-grant-type/authcode/) -->
+* [Upgrade authentication services and applications to use the Interaction Code grant type](/docs/guides/implement-grant-type/interactioncode/main/#set-up-your-authorization-server): Learn how to configure your embedded applications and the corresponding authorization servers to use the Interaction Code grant type.
 
 * [Add the Identity Engine SDK to your app](/docs/guides/oie-upgrade-add-sdk-to-your-app/nodejs/main/): Learn about how your applications work with the latest version of the SDK. This content discusses how to update your applications to use the latest version of the SDK without making any code changes and how to break up the changes to your applications. <!-- (/docs/guides/oie-upgrade-add-sdk-to-your-app/-/main/) -->
 
