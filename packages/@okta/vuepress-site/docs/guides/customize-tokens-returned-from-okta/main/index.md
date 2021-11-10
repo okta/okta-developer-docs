@@ -285,7 +285,7 @@ To add a custom claim:
 
 ### Request a token with the custom claim
 
-In this example, the service application's `token_endpoint_auth_method` was set to `client_secret_post` when we created the app above. Include both the `client_id` and the `client_secret` values as additional parameters in the POST request body to your Custom Authorization Server's `/token` endpoint. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains a custom claim](#request-a-token-that-contains-a-custom-claim).
+In this example, the service application's `token_endpoint_auth_method` was set to `client_secret_post` when we created the app above. Include both the `client_id` and the `client_secret` values as additional parameters in the POST request body to your Custom Authorization Server's `/token` endpoint. For the specific steps on building the request URL, receiving the response, and decoding the JWT, see [Request a token that contains the custom claim](#request-a-token-that-contains-the-custom-claim).
 
 ```bash
 curl -v -X POST \
