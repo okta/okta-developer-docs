@@ -2039,6 +2039,30 @@ redirects:
     to: /docs/guides/customize-tokens-static/-/use-static-group-allowlist-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/index.html
     to: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as
+  - from: /docs/guides/customize-tokens-returned-from-okta/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/
+  - from: /docs/guides/customize-tokens-returned-from-okta
+    to: /docs/guides/customize-tokens-returned-from-okta/
+  - from: /docs/guides/customize-tokens-returned-from-okta/overview/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/
+  - from: /docs/guides/customize-tokens-returned-from-okta/overview
+    to: /docs/guides/customize-tokens-returned-from-okta/
+  - from: /docs/guides/customize-tokens-returned-from-okta/request-token-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-returned-from-okta/request-token-claim
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-returned-from-okta/add-custom-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#add-a-custom-claim-to-a-token
+  - from: /docs/guides/customize-tokens-returned-from-okta/add-custom-claim
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#add-a-custom-claim-to-a-token
+  - from: /guides/customize-tokens-returned-from-okta/create-app-profile-attribute/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-instructions-in-a-custom-claim
+  - from: /guides/customize-tokens-returned-from-okta/create-app-profile-attribute
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-instructions-in-a-custom-claim
+  - from: /docs/guides/customize-tokens-returned-from-okta/next-steps/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#next-steps
+  - from: /docs/guides/customize-tokens-returned-from-okta/next-steps
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#next-steps
   - from: /docs/guides/custom-hosted-signin
     to: /docs/guides/style-the-widget/style-okta-hosted/
   - from: /docs/guides/custom-hosted-signin/index.html
