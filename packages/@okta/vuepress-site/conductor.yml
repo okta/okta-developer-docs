@@ -2708,9 +2708,9 @@ redirects:
   - from: /docs/guides/build-self-signed-jwt/-/jwt-with-private-key
     to: /docs/guides/build-self-signed-jwt/-/main/#build-a-jwt-with-a-private-key
   - from: /docs/guides/build-self-signed-jwt/-/next-steps
-    to: /docs/guides/build-self-signed-jwt/-/main/
+    to: /docs/guides/build-self-signed-jwt/
   - from: /docs/guides/build-self-signed-jwt/-/overview/index.html
-    to: /docs/guides/build-self-signed-jwt/-/main/
+    to: /docs/guides/build-self-signed-jwt/
   - from: /docs/guides/build-self-signed-jwt/-/gather-information/index.html
     to: /docs/guides/build-self-signed-jwt/-/main/#gather-claims-information
   - from: /docs/guides/build-self-signed-jwt/-/jwt-with-shared-key/index.html
@@ -2719,3 +2719,23 @@ redirects:
     to: /docs/guides/build-self-signed-jwt/-/main/#build-a-jwt-with-a-private-key
   - from: /docs/guides/build-self-signed-jwt/-/next-steps/index.html
     to: /docs/guides/build-self-signed-jwt/
+  - from: /docs/guides/custom-error-pages/overview/index.html
+    to: /docs/guides/custom-error-pages/
+  - from: /docs/guides/custom-error-pages/overview
+    to: /docs/guides/custom-error-pages/
+  - from: /docs/guides/custom-error-pages/edit-the-error-page/index.html
+    to: /docs/guides/custom-error-pages/main/#edit-the-error-page
+  - from: /docs/guides/custom-error-pages/edit-the-error-page
+    to: /docs/guides/custom-error-pages/main/#edit-the-error-page
+  - from: /docs/guides/custom-error-pages/use-macros/index.html
+    to: /docs/guides/custom-error-pages/main/#use-macros
+  - from: /docs/guides/custom-error-pages/main/use-macros
+    to: /docs/guides/custom-error-pages/main/#use-macros
+  - from: /docs/guides/custom-error-pages/customization-examples/index.html
+    to: /docs/guides/custom-error-pages/main/#customization-examples
+  - from: /docs/guides/custom-error-pages/customization-examples
+    to: /docs/guides/custom-error-pages/main/#customization-examples
+  - from: /docs/guides/custom-error-pages/next-steps/index.html
+    to: /docs/guides/custom-error-pages/main/#next-steps
+  - from: /docs/guides/custom-error-pages/next-steps
+    to: /docs/guides/custom-error-pages/main/#next-steps
