@@ -24,10 +24,10 @@ This guide shows you how to use Okta as the user store for your single-page appl
 
 **Sample code**
 
-* See our [Angular example](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login) for a finished Angular sample, or see our [Angular quickstart](https://angular.io/guide/quickstart) if you want to create your own Angular application to run through this guide with.
-* See our [Blazor example](https://github.com/okta/samples-blazor/tree/master/web-assembly/okta-hosted-login) for a finished Blazor sample, or see the Microsoft [Blazor docs](https://blazor.net) if you want to create your own Blazor application to run through this guide with.
-* See our [React example](https://github.com/okta/samples-js-react/tree/master/okta-hosted-login) for a finished React sample, or see our [React tutorial](https://reactjs.org/tutorial/tutorial.html) if you want to create your own React application to run through this guide with.
-* See our [Vue example](https://github.com/okta/samples-js-vue/tree/master/okta-hosted-login) for a finished Vue sample, or see the [Vue Get Started Guide](https://vuejs.org/v2/guide/) if you want to create your own Vue application to run through this guide with.
+* See the [Angular example](https://github.com/okta/samples-js-angular/tree/master/okta-hosted-login) for a finished Angular sample, or see the [Angular quickstart](https://angular.io/guide/quickstart) if you want to create your own Angular application to run through this guide with.
+* See the [Blazor example](https://github.com/okta/samples-blazor/tree/master/web-assembly/okta-hosted-login) for a finished Blazor sample, or see the Microsoft [Blazor docs](https://blazor.net) if you want to create your own Blazor application to run through this guide with.
+* See the [React example](https://github.com/okta/samples-js-react/tree/master/okta-hosted-login) for a finished React sample, or see the [React tutorial](https://reactjs.org/tutorial/tutorial.html) if you want to create your own React application to run through this guide with.
+* See the [Vue example](https://github.com/okta/samples-js-vue/tree/master/okta-hosted-login) for a finished Vue sample, or see the [Vue Get Started Guide](https://vuejs.org/v2/guide/) if you want to create your own Vue application to run through this guide with.
 
 ---
 
@@ -94,7 +94,7 @@ To reduce possible attack vectors, you need to explicitly define the Trusted Ori
 
 ## Install the SDK
 
-All of our JavaScript SDKs are hosted on [npmjs.com](https://www.npmjs.com). These instructions show you how to install the SDK with npm.
+All Okta JavaScript SDKs are hosted on [npmjs.com](https://www.npmjs.com). These instructions show you how to install the SDK with npm.
 
 Install the SDK and add it as a dependency to your project:
 
@@ -121,7 +121,7 @@ In your application, you want to provide a button to sign the user in. When the 
 
 After Okta authenticates a user, they're redirected back to your application via the callback route that you [define](#define-a-callback-route). When Okta redirects back, the URL fragment (the portion after `#`) contains either tokens for the user or an error if something went wrong.
 
-Your application must parse this information, and if tokens are present, store the user's tokens. Our SDK does this for you.
+Your application must parse this information, and if tokens are present, store the user's tokens. The SDK does this for you.
 
 <StackSelector snippet="handle-callback" noSelector />
 
