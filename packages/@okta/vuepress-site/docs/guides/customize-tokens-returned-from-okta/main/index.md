@@ -281,7 +281,7 @@ To add a custom claim:
 
 4. Click **Create**.
 
-5. (Optional) Confirm that your custom claim was successfully added by retrieving a list of all claims from your Custom Authorization Server, including the custom claims, using the `/claims` endpoint. See <GuideLink link="../add-custom-claim/#verify-the-custom-claim">Verify the custom claim</GuideLink>.
+5. (Optional) Confirm that your custom claim was successfully added by retrieving a list of all claims from your Custom Authorization Server, including the custom claims, using the `/claims` endpoint. See [Verify the custom claim](#verify-the-custom-claim).
 
 ### Request a token with the custom claim
 
@@ -311,6 +311,6 @@ You should now understand how to include custom claims in an ID token or an acce
 
 Next, take a look at other ways that you can customize claims and tokens:
 
-* [Customize tokens with a Groups claim](/docs/guides/customize-tokens-groups-claim/main/)
-* [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/main/)
-* [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/main/)
+* [Customize tokens with a Groups claim](/docs/guides/customize-tokens-groups-claim/)
+* [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/)
+* [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/)
