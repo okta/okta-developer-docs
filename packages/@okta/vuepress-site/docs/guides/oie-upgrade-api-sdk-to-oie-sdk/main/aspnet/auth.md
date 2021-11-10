@@ -1,14 +1,14 @@
-### The Classic Engine Authentication SDK basic authentication flow
+### The Classic Engine Authentication SDK basic sign-in flow
 
-The Classic Engine Authentication SDK's methods that support the basic authentication flow are as follows:
+The Classic Engine Authentication SDK's methods that support the basic sign-in flow are as follows:
 
 * `AuthenticationClient.AuthenticateAsync()`
 
-The following steps detail how to integrate the password recovery flow using the Classic Engine Authentication SDK.
+The following steps detail how to integrate the basic sign-in flow using the Classic Engine Authentication SDK.
 
 #### Start sign-in
 
-Start the sign-in flow by creating an object of type `AuthenticateOptions`.  Set its `Username` and `Password` properties and send it to `AuthenticationClient.AuthenticateAsync()`. The method returns a status of `AuthenticationStatus.Success` when the sign-in is successful.
+Start the sign-in flow by creating an object of type `AuthenticateOptions`. Set its `Username` and `Password` properties and send it to `AuthenticationClient.AuthenticateAsync()`. The method returns a status of `AuthenticationStatus.Success` when the sign-in is successful.
 
 ```dotnet
 var authnOptions = new AuthenticateOptions() {
@@ -31,17 +31,17 @@ if (authnResponse.AuthenticationStatus == AuthenticationStatus.Success) {
 
 ```
 
-### The Identity Engine SDK basic authentication flow
+### The Identity Engine SDK basic sign-in flow
 
-The Identity Engine SDK's methods that support the password recovery flow are as follows:
+The Identity Engine SDK's methods that support the basic sign-in flow are as follows:
 
 * `IdxClient.AuthenticateAsync()`
 
-The following steps detail how to integrate the password recovery flow using the Identity Engine SDK.
+The following steps detail how to integrate the basic sign-in flow using the Identity Engine SDK.
 
 #### Start sign-in
 
-Start the sign-in flow by creating an object of type `AuthenticateOptions`.  Assign values to its `Username` and `Password` properties and send it to `IdxClient.AuthenticateAsync()`. If successful, the method returns access tokens and a status of `AuthenticationStatus.Success`.
+Start the sign-in flow by creating an object of type `AuthenticateOptions`. Assign values to its `Username` and `Password` properties and send it to `IdxClient.AuthenticateAsync()`. If successful, the method returns access tokens and a status of `AuthenticationStatus.Success`.
 
 ```dotnet
 var authnOptions = new AuthenticationOptions()

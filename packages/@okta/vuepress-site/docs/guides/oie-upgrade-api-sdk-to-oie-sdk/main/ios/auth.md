@@ -1,10 +1,10 @@
-### The Classic Engine Authentication SDK basic authentication flow
+### The Classic Engine Authentication SDK basic sign-in flow
 
-The Classic Engine Authentication SDK's methods that support the basic authentication flow are as follows:
+The Classic Engine Authentication SDK's methods that support the basic sign-in flow are as follows:
 
 * `OktaAuthSdk.authenticate`
 
-The following steps detail how to integrate the password recovery flow using the Classic Engine Authentication SDK.
+The following steps detail how to integrate the basic sign-in flow using the Classic Engine Authentication SDK.
 
 #### 1. Start sign-in
 
@@ -40,9 +40,9 @@ func handleStatus(status: OktaAuthStatus) {
 
 ```
 
-### The Identity Engine SDK basic authentication flow
+### The Identity Engine SDK basic sign-in flow
 
-The Identity Engine methods that support the password recovery flow are as follows:
+The Identity Engine methods that support the basic sign-in flow are as follows:
 
 * Sample code methods
   * `BasicLogin.select`
@@ -51,7 +51,7 @@ The Identity Engine methods that support the password recovery flow are as follo
   * `Remediation.resume`
   * `Remediation.proceed`
 
-The following steps detail how to integrate the password recovery flow using the Identity Engine SDK.
+The following steps detail how to integrate the basic sign-in flow using the Identity Engine SDK.
 
 #### 1. Initialize and setup configurations
 

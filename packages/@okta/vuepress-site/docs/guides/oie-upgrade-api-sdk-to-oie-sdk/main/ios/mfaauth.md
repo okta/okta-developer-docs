@@ -1,13 +1,13 @@
-### The Classic Engine Authentication SDK multifactor authentication flow
+### The Classic Engine Authentication SDK multifactor sign-in flow
 
-The Classic Engine Authentication SDK's methods that support the multifactor authentication flow are as follows:
+The Classic Engine Authentication SDK's methods that support the multifactor sign-in flow are as follows:
 
 * `OktaAuthSdk.authenticate`
 * `OktaAuthStatusFactorRequired.selectFactor`
 * `OktaFactorOther.verify`
 * `OktaFactorSms.verify`
 
-The following steps detail how to integrate the multifactor authentication flow using the Classic Engine Authentication SDK.
+The following steps detail how to integrate the multifactor sign-in flow using the Classic Engine Authentication SDK.
 
 #### 1. Start sign-in
 
@@ -28,7 +28,7 @@ OktaAuthSdk.authenticate(with: URL(string: "https://{yourOktaDomain}")!,
 
 #### 2. Select factor
 
-If the username and password are successfully authenticated, the closure function returns the status type of `MFARequired`. Pull a list of factors from the `availableFactors` property to display the list of available factors to the user. When the user chooses a factor, call `OktaAuthStatusFactorRequired.selectFactor` with the user chosen factor and status change closure.
+If the username and password are successfully authenticated, the closure function returns the status type of `MFARequired`. Pull a list of factors from the `availableFactors` property to display the list of available factors to the user. When the user chooses a factor, call `OktaAuthStatusFactorRequired.selectFactor` with the chosen factor and status change closure.
 
 ```swift
 func handleFactorRequired(factorRequiredStatus: OktaAuthStatusFactorRequired) {
@@ -90,7 +90,7 @@ func handleStatus(status: OktaAuthStatus) {
 
 ```
 
-Present the user a screen to enter the code and call the `OktaFactorSms.verify` when the user submits the code.
+Allow the user to enter the code and call the `OktaFactorSms.verify` when the they submit the code.
 
 ```swift
 func handleSmsChallenge(factor: OktaFactorSms) {
