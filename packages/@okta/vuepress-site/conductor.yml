@@ -2699,3 +2699,23 @@ redirects:
     to: /docs/guides/quickstart/-/main/#try-signing-in
   - from: /docs/guides/quickstart/try-api/index.html
     to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/build-self-signed-jwt/-/overview
+    to: /docs/guides/build-self-signed-jwt/
+  - from: /docs/guides/build-self-signed-jwt/-/gather-information
+    to: /docs/guides/build-self-signed-jwt/-/main/#gather-claims-information
+  - from: /docs/guides/build-self-signed-jwt/-/jwt-with-shared-key
+    to: /docs/guides/build-self-signed-jwt/-/main/#build-a-jwt-with-a-shared-key
+  - from: /docs/guides/build-self-signed-jwt/-/jwt-with-private-key
+    to: /docs/guides/build-self-signed-jwt/-/main/#build-a-jwt-with-a-private-key
+  - from: /docs/guides/build-self-signed-jwt/-/next-steps
+    to: /docs/guides/build-self-signed-jwt/-/main/
+  - from: /docs/guides/build-self-signed-jwt/-/overview/index.html
+    to: /docs/guides/build-self-signed-jwt/-/main/
+  - from: /docs/guides/build-self-signed-jwt/-/gather-information/index.html
+    to: /docs/guides/build-self-signed-jwt/-/main/#gather-claims-information
+  - from: /docs/guides/build-self-signed-jwt/-/jwt-with-shared-key/index.html
+    to: /docs/guides/build-self-signed-jwt/-/main/#build-a-jwt-with-a-shared-key
+  - from: /docs/guides/build-self-signed-jwt/-/jwt-with-private-key/index.html
+    to: /docs/guides/build-self-signed-jwt/-/main/#build-a-jwt-with-a-private-key
+  - from: /docs/guides/build-self-signed-jwt/-/next-steps/index.html
+    to: /docs/guides/build-self-signed-jwt/
