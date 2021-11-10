@@ -151,7 +151,7 @@ By default, the profile items (called "claims") that Okta returns include the us
 
 <StackSelector snippet="getuserinfo" noSelector />
 
-You can also customize the items (called claims) that are returned from Okta. See [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/overview/).
+You can also customize the items (called claims) that are returned from Okta. See [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/main/).
 
 ## Use the access token
 
