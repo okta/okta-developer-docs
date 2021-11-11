@@ -253,7 +253,7 @@ Create an app with the Profile object using the [Apps API](/docs/reference/api/a
 
 ### Add a custom claim
 
-> **Note:** You can only add custom claims to a Custom Authorization Server, not the Org Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+> **Note:** You can only add custom claims to a Custom Authorization Server, not the Org Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 To add a custom claim:
 

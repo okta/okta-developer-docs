@@ -2012,17 +2012,17 @@ redirects:
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-org-as/index.html
     to: /docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic
-    to: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/
+    to: /docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list
   - from: /docs/guides/customize-tokens-returned-from-okta/add-groups-claim-dynamic/index.html
-    to: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/
+    to: /docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list
   - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-org-as
-    to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as/
+    to: /docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-custom-as
-    to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-custom-as/
+    to: /docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-a-custom-authorization-server
   - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-org-as/index.html
-    to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as/
+    to: /docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-the-org-authorization-server
   - from: /docs/guides/customize-tokens-returned-from-okta/dynamic-whitelist-custom-as/index.html
-    to: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-custom-as/
+    to: /docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-a-custom-authorization-server
   - from: /docs/guides/customize-tokens-returned-from-okta/static-whitelist
     to: /docs/guides/customize-tokens-static/static-allowlist/
   - from: /docs/guides/customize-tokens-returned-from-okta/-/static-whitelist
@@ -2751,3 +2751,27 @@ redirects:
     to: /docs/guides/custom-error-pages/main/#next-steps
   - from: /docs/guides/custom-error-pages/next-steps
     to: /docs/guides/custom-error-pages/main/#next-steps
+  - from: /docs/guides/customize-tokens-dynamic/overview
+    to: /docs/guides/customize-tokens-dynamic/
+  - from: /docs/guides/customize-tokens-dynamic/request-token-claim
+    to: /docs/guides/customize-tokens-dynamic/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic
+    to: /docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list
+  - from: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as
+    to: /docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-the-org-authorization-server
+  - from: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-custom-as
+    to: /docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-a-custom-authorization-server
+  - from: /docs/guides/customize-tokens-dynamic/next-steps
+    to: /docs/guides/customize-tokens-dynamic/main/#see-also
+  - from: /docs/guides/customize-tokens-dynamic/overview/index.html
+    to: /docs/guides/customize-tokens-dynamic/
+  - from: /docs/guides/customize-tokens-dynamic/request-token-claim/index.html
+    to: /docs/guides/customize-tokens-dynamic/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/index.html
+    to: /docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list
+  - from: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-org-as/index.html
+    to: /docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-the-org-authorization-server
+  - from: /docs/guides/customize-tokens-dynamic/dynamic-allowlist-custom-as/index.html
+    to: /docs/guides/customize-tokens-dynamic/main/#use-a-dynamic-group-allow-list-with-a-custom-authorization-server
+  - from: /docs/guides/customize-tokens-dynamic/next-steps/index.html
+    to: /docs/guides/customize-tokens-dynamic/main/#see-also

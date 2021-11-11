@@ -14,7 +14,7 @@ Use these steps to add a Groups claim to ID tokens and access tokens to perform 
 5. Select **Groups** as the **Value type**.
 6. In the **Filter** drop-down box, select **Matches regex** and then enter the following expression as the **Value**: `.*`
 
-    > **Note:** For more fine-grained filtering information, see the steps for adding a groups claim with a [dynamic](/docs/guides/customize-tokens-dynamic/add-groups-claim-dynamic/) allow list.
+    > **Note:** For more fine-grained filtering information, see the steps for adding a groups claim with a [dynamic](/docs/guides/customize-tokens-dynamic/main/#add-a-groups-claim-with-a-dynamic-allow-list) allow list.
 
 7. Click **Create**.
 
