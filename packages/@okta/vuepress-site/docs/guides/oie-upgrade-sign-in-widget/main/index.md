@@ -39,14 +39,22 @@ This article teaches you how to upgrade the Widget when it is used in any of the
 
 After you've completed the Sign-In Widget upgrade and you want to take advantage of the new features in Okta Identity Engine, you can [configure your embedded Sign-In Widget](https://github.com/okta/okta-signin-widget/blob/master/README.md#embedded-self-hosted) to use the new Identity Engine Authentication features.
 
-## Best practices for Sign-In Widget maintenance
+## Best practice for Sign-In Widget maintenance
 
 For best practices, keep your [Sign-In Widget](https://github.com/okta/okta-signin-widget/blob/master/README.md) up to date. This maintenance is beneficial so that you can use the Okta Identity Engine features.
 
-The specific steps to upgrade your Sign-In Widget depend on your user authentication deployment model, which can be one of the following:
+The specific steps to upgrade your Sign-In Widget depend on your [user authentication deployment model](/docs/concepts/redirect-vs-embedded/), which can be one of the following:
 
-* [Redirect authentication](/docs/guides/oie-upgrade-sign-in-widget/main/#upgrade-process-for-a-redirect-sign-in) &mdash; Okta-hosted with no custom URL domain or Okta-hosted with custom URL domain
+* [Redirect authentication](/docs/guides/oie-upgrade-sign-in-widget/main/#upgrade-process-for-a-redirect-sign-in) &mdash; Okta-hosted with no custom URL domain
+* [Redirect authentication](/docs/guides/oie-upgrade-sign-in-widget/main/#upgrade-process-for-a-redirect-sign-in) &mdash; Okta-hosted with custom URL domain
 * [Embedded authentication](/docs/guides/oie-upgrade-sign-in-widget/main/#upgrade-process-for-an-embedded-sign-in-widget) &mdash; Self-hosted. The embedded widget is able to perform the OIDC flow and return OAuth tokens directly within the application.
+
+## Best practice for user experience and application policies
+
+In Classic Engine, the Okta Sign-In Widget had the default option to initialize without application context. In Identity Engine, you should use one of these OIDC flows so that you can optimize the user's sign-in experience and apply specific application policies:
+
+* [Server-side Web Application using "authorization_code" flow](https://developer.okta.com/code/javascript/okta_sign-in_widget/#server-side-web-application-using-authorization-code-flow)
+* [SPA or Native Application using PKCE](https://developer.okta.com/code/javascript/okta_sign-in_widget/#spa-or-native-application-using-pkce)
 
 ## Upgrade process for a redirect sign-in
 
@@ -80,3 +88,97 @@ When you upgrade an embedded Sign-In Widget:
 ```
 
 > **Note:** Consult the [Okta Sign-in Widget migration guide](https://github.com/okta/okta-signin-widget/blob/master/MIGRATING.md) if you're using major version 4 or earlier of the Sign-In Widget.
+
+## Updates in Sign-In Widget configuration for Identity Engine
+
+For Identity Engine, some features that were in the Sign-In Widget configuration can be removed or updated in the initialization code.
+
+### Registration
+
+To add registration into your application, you need to configure your Okta admin settings for profile enrollment to allow users to sign up or self register into your app.
+
+The following [registration](https://github.com/okta/okta-signin-widget#registration) process omits these objects in the Sign-In Widget.
+
+```javascript
+var signIn = new OktaSignIn({
+      baseUrl: 'https://${yourOktaDomain}',
+      // If you are using version 2.8 or higher of the widget, clientId is not required while configuring
+      // registration. Instead the widget relies on policy setup with Self Service Registration. For help
+      // with setting up Self Service Registration contact support@okta.com. Registration should continue
+      // to work with a clientId set and version 2.7 or lower of the widget.
+      clientId: '${myClientId}', // REQUIRED (with version 2.7.0 or lower)
+      registration: {
+        parseSchema: function(schema, onSuccess, onFailure) {
+           // handle parseSchema callback
+           onSuccess(schema);
+        },
+        preSubmit: function (postData, onSuccess, onFailure) {
+           // handle preSubmit callback
+           onSuccess(postData);
+        },
+        postSubmit: function (response, onSuccess, onFailure) {
+            // handle postsubmit callback
+           onSuccess(response);
+        }
+      },
+      features: {
+        // Used to enable registration feature on the widget.
+        // https://github.com/okta/okta-signin-widget#feature-flags
+         registration: true // REQUIRED
+      }
+    });
+```
+
+### IdP Discovery
+
+IdP Discovery enables you to route users to different third-party IdPs that are connected to your Okta org. Users can federate back into the primary org after authenticating at the IdP. While this feature still functions, it's no longer the preferred method to enable the link for users to initialize the route and can be replaced by configuring a Routing Rule with the application context.
+
+See [IdP](https://github.com/okta/okta-signin-widget#idp-discovery).
+
+### OpenID Connect/social authentication
+
+When External Identity Providers (IdPs) are used in OIDC authentication (known as Social Login), the supported IdPs (Google, Facebook, Apple, Microsoft, and LinkedIn) are declared with a type and get distinct styling and default i18n text, while any other entry receives a general styling and requires text to be provided. Each IdP can have additional CSS classes added through an optional `className` property.
+
+While this feature still functions, it's no longer the preferred method to enable the link for users to initialize the route. This can be replaced by configuring a Routing Rule with the application context.
+
+See [idps](https://github.com/okta/okta-signin-widget#openid-connect) for ...
+
+Some common features that were in the Sign-In Widget configuration that no longer function should now be removed from the code in initialization.
+
+### Smart card IdP
+
+No longer supported… until PIV/CAC support.
+https://github.com/okta/okta-signin-widget#smart-card-idp
+
+Bootstrapping from a recovery token
+https://github.com/okta/okta-signin-widget#bootstrapping-from-a-recovery-token
+
+### Feature flags
+
+The following features are no longer supported. They are now configured in Okta Sign-On Policies.
+
+features.rememberMe - Display a checkbox to enable "Remember me" functionality at login. Defaults to true.
+
+features.autoPush - Display a checkbox to enable "Send push automatically" functionality in the MFA challenge flow. Defaults to false.
+
+features.smsRecovery - Allow users with a configured mobile phone number to recover their password using an SMS message. Defaults to false.
+
+features.callRecovery - Allow users with a configured mobile phone number to recover their password using a voice call. Defaults to false.
+
+features.webauthn - Display and use factors supported by the FIDO 2.0 (Web Authentication) security standard. Enabling this feature will prevent the widget from invoking the legacy Windows Hello factor. Defaults to false.
+
+features.selfServiceUnlock - Display the "Unlock Account" link to allow users to unlock their accounts. Defaults to false.
+
+features.multiOptionalFactorEnroll - Allow users to enroll in multiple optional factors before finishing the authentication flow. Default behavior is to force enrollment of all required factors and skip optional factors. Defaults to false.
+
+features.hideSignOutLinkInMFA - Hides the sign out link for MFA challenge. Defaults to false.
+
+features.registration - Display the registration section in the primary auth page. Defaults to false.
+
+features.idpDiscovery - Enable IdP Discovery. Defaults to false.
+
+features.showPasswordToggleOnSignInPage - End users can now toggle visibility of their password on the Okta Sign-In page, allowing end users to check their password before they click Sign In. This helps prevent account lock outs caused by end users exceeding your org's permitted number of failed sign-in attempts. Note that passwords are visible for 30 seconds and then hidden automatically. Defaults to false.
+
+features.scrollOnError - By default, errors will be scrolled into view. Set to false to disable this behavior.
+
+features.skipIdpFactorVerificationBtn - Automatically redirects to the selected Identity Provider when selected from the list of factors. Defaults to false.
