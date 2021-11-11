@@ -10,7 +10,7 @@ After you define the scopes that you want to require consent for, prepare an aut
 
 2. Use the default Custom Authorization Server's authorization endpoint:
 
-    > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+    > **Note:** See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
     A default Custom Authorization endpoint looks like this where the `${authorizationServerId}` is `default`:
 

@@ -23,7 +23,7 @@ n/a
 
 ---
 
-You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/) to ID tokens for any combination of App Groups and User Groups to perform SSO using the Okta Org Authorization Server. And, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as/) to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+You can also [add a Groups claim](/docs/guides/customize-tokens-groups-claim/add-groups-claim-org-as/) to ID tokens for any combination of App Groups and User Groups to perform SSO using the Okta Org Authorization Server. And, you can [add a Groups claim](/docs/guides/customize-tokens-groups-claim/add-groups-claim-custom-as/) to ID tokens and access tokens to perform authentication and authorization using a Custom Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 Additionally, you can create a [dynamic](/docs/guides/customize-tokens-dynamic/) or [static](/docs/guides/customize-tokens-static/) allow list when you need to set Group allow lists on a per-app basis using both the Org Authorization Server and a Custom Authorization Server. If you have a large number of Groups but only 20 Groups apply to your app, you don't want to run through all of your Groups every time a Groups claim is created. This process optionally uses Okta's flexible app profile, which accepts any JSON-compliant content, to create an allow list of Groups that can then easily be referenced.
 
@@ -40,7 +40,7 @@ To test the full authentication flow that returns an ID token or an access token
 
 2. Use the authorization server's authorization endpoint:
 
-    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+    > **Note:** See [Authorization servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
     * An Okta Org Authorization Server authorization endpoint looks like this:
 
@@ -105,7 +105,7 @@ To test the full authentication flow that returns an ID token or an access token
 
 To include custom claims in an ID token or an access token, add the claim to your Custom Authorization Server.
 
-> **Note:** You can only add custom claims to a Custom Authorization Server, not the Org Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+> **Note:** You can only add custom claims to a Custom Authorization Server, not the Org Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 To add a custom claim:
 
@@ -253,7 +253,7 @@ Create an app with the Profile object using the [Apps API](/docs/reference/api/a
 
 ### Add a custom claim
 
-> **Note:** You can only add custom claims to a Custom Authorization Server, not the Org Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/overview/) for more information on the types of authorization servers available to you and what you can use them for.
+> **Note:** You can only add custom claims to a Custom Authorization Server, not the Org Authorization Server. See [Authorization Servers](/docs/guides/customize-authz-server/) for more information on the types of authorization servers available to you and what you can use them for.
 
 To add a custom claim:
 

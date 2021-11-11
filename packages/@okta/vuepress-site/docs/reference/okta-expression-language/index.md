@@ -368,7 +368,7 @@ Sample user data:
 ## Expressions for OAuth 2.0/OIDC custom claims
 
 Okta provides a few expressions that you can only use with OAuth 2.0/OIDC custom claims.
-* See [Create claims](/docs/guides/customize-authz-server/create-claims).
+* See [Create claims](/docs/guides/customize-authz-server/main/#create-claims).
 * See [Include app-specific information in a custom claim](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim).
 
 | Syntax           | Definitions                                                             | Examples     |

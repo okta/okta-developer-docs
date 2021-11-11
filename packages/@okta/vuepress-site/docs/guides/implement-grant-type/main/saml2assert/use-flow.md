@@ -22,7 +22,7 @@ Note the parameters that are being passed:
 
 - `grant_type`: `urn:ietf:params:oauth:grant-type:saml2-bearer`
 - `assertion`: A single SAML 2.0 assertion that is [Base64-encoded](https://www.base64decode.org/)
-- `scope`: `openid` and `offline_access`. The `openid` scope is required. Include `offline_access` if you want a refresh token included. You can also request additional scopes. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/create-scopes/).
+- `scope`: `openid` and `offline_access`. The `openid` scope is required. Include `offline_access` if you want a refresh token included. You can also request additional scopes. See the **Create Scopes** section of the [Create an Authorization Server guide](/docs/guides/customize-authz-server/main/#create-scopes).
 
 ### Response example
 
