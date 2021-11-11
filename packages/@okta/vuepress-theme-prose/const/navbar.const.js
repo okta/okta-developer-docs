@@ -178,6 +178,63 @@ export const guides = [
             title: "Add an external Identity Provider",
             path: "/docs/guides/identity-providers/",
           },
+          {
+            title: "Identity Provider Integrations",
+            subLinks: [
+              {
+                title: "Amazon",
+                path: "/docs/guides/social-login/amazon/main/"
+              },
+              {
+                title: "Apple",
+                path: "/docs/guides/add-an-external-idp/apple/main/"
+              },
+              {
+                title: "Facebook",
+                path: "/docs/guides/add-an-external-idp/facebook/main/"
+              },
+              {
+                title: "GitHub",
+                path: "/docs/guides/social-login/github/main/"
+              },
+              {
+                title: "GitLab",
+                path: "/docs/guides/social-login/gitlab/main/"
+              },
+              {
+                title: "Google",
+                path: "/docs/guides/add-an-external-idp/google/main/"
+              },
+              {
+                title: "LinkedIn",
+                path: "/docs/guides/add-an-external-idp/linkedin/main/"
+              },
+              {
+                title: "Microsoft",
+                path: "/docs/guides/add-an-external-idp/microsoft/main/"
+              },
+              {
+                title: "OpenID Connect",
+                path: "/docs/guides/add-an-external-idp/openidconnect/main/"
+              },
+              {
+                title: "Paypal",
+                path: "/docs/guides/social-login/paypal/main/"
+              },
+              {
+                title: "Salesforce",
+                path: "/docs/guides/social-login/salesforce/main/"
+              },
+              {
+                title: "Yahoo",
+                path: "/docs/guides/social-login/yahoo/main/"
+              },
+              {
+                title: "Yahoo Japan",
+                path: "/docs/guides/social-login/yahoojp/main/"
+              }
+            ]
+          },
           { title: "Add multifactor authentication", guideName: "mfa" },
           {
             title: "Mobile App",
