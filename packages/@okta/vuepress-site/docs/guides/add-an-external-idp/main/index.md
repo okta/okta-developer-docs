@@ -5,8 +5,6 @@ meta:
     content: Okta supports authentication with external OpenID Connect Identity Providers as well as SAML (also called Inbound Federation). Get an overview of the process and prerequisites, as well as the instructions required to set one up.
 ---
 
-<StackSelector snippet="empty" />
-
 ## <StackSelector snippet="idp" noSelector inline />
 
 This document explains how to configure <StackSelector snippet="idp" noSelector inline /> as an external Identity Provider for your application by creating an application at <StackSelector snippet="idp" noSelector inline />, creating an Identity Provider in Okta, testing the configuration, and creating a sign-in button.
