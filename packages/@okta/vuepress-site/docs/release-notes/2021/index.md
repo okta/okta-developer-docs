@@ -434,7 +434,7 @@ Additionally, you can set or update the **Logo** or **Notes** fields for any of 
 
 #### Refresh Token Rotation is GA in Production
 
-[Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/) is now Generally Available in Production. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. <!--OKTA-399846-->
+[Refresh Token Rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) is now Generally Available in Production. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. <!--OKTA-399846-->
 
 #### Retrieving applications by catalog name is now available
 
@@ -559,7 +559,7 @@ For details about this release, see the Okta [Sign-In Widget Release Notes](http
 
 #### Refresh Token Rotation is GA in Preview
 
-[Refresh Token Rotation](/docs/guides/refresh-tokens/refresh-token-rotation/) is now Generally Available in Preview. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. When refresh token rotation behavior is enabled in Okta, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token.
+[Refresh Token Rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) is now Generally Available in Preview. Refresh Token Rotation helps a public client to securely rotate refresh tokens after each use. When refresh token rotation behavior is enabled in Okta, a new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token.
 <!--OKTA-390933-->
 
 #### SAML parameter SessionNotOnOrAfter is GA in Preview

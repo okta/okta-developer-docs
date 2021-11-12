@@ -36,7 +36,7 @@ This guide shows you how to use Okta as the user store for your server-side web 
 
 ## Refresh tokens and web apps
 
-With browser-based apps, the risk of the refresh token being compromised is high when a persistent refresh token is used. This threat is greatly reduced by rotating refresh tokens. [Refresh token rotation](/docs/guides/refresh-tokens/refresh-token-rotation) helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. Refresh token rotation works with SPAs, native apps, and web apps in Okta.
+With browser-based apps, the risk of the refresh token being compromised is high when a persistent refresh token is used. This threat is greatly reduced by rotating refresh tokens. [Refresh token rotation](/docs/guides/refresh-tokens/main/#refresh-token-rotation) helps a public client to securely rotate refresh tokens after each use. A new refresh token is returned each time the client makes a request to exchange a refresh token for a new access token. Refresh token rotation works with SPAs, native apps, and web apps in Okta.
 
 See the [OAuth 2.0 for Browser-Based Apps specification](https://tools.ietf.org/html/draft-ietf-oauth-browser-based-apps-05#page-10) for the latest spec information on using refresh tokens with browser-based apps.
 
@@ -84,7 +84,7 @@ You need to copy some values into your application later, so leave your Admin Co
 
 ### Enable refresh token rotation
 
-You can choose to [get a refresh token](/docs/guides/refresh-tokens/get-refresh-token/) along with the access token and/or ID token.
+You can choose to [get a refresh token](/docs/guides/refresh-tokens/main/#get-a-refresh-token) along with the access token and/or ID token.
 
 The default refresh token behavior is **Use persistent token** for web apps.
 
@@ -98,7 +98,7 @@ To enable refresh token rotation in your app integration, do the following:
 1. In the **Allowed grant types**, select **Refresh Token**.
 1. In the **Refresh Token** section, select **Rotate token after every use**.
 
-> **Note:** The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can [change the value](/docs/guides/refresh-tokens/refresh-token-rotation/#enable-refresh-token-rotation) to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token. Using a value of 0 indicates that there is no grace period.
+> **Note:** The default number of seconds for the **Grace period for token rotation** is set to 30 seconds. You can [change the value](/docs/guides/refresh-tokens/main/#enable-refresh-token-rotation) to any number between 0 and 60 seconds. After the refresh token is rotated, the previous token remains valid for this amount of time to allow clients to get the new token. Using a value of 0 indicates that there is no grace period.
 
 ### Enable Trusted Origins
 
