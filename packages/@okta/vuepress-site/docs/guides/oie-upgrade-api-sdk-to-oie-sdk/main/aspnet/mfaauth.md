@@ -1,15 +1,15 @@
-### The Classic Engine Authentication SDK multifactor authentication flow
+### The Classic Engine Authentication SDK multifactor sign-in flow
 
-The Classic Engine Authentication SDK's methods that support the multifactor authentication flow are as follows:
+The Classic Engine Authentication SDK methods that support the multifactor sign-in flow are as follows:
 
 * `AuthenticationClient.AuthenticateAsync()`
 * `AuthenticationClient.VerifyFactorAsync()`
 
-The following steps detail how to integrate the multifactor authentication flow using the Classic Engine Authentication SDK.
+The following steps detail how to integrate the multifactor sign-in flow using the Classic Engine Authentication SDK.
 
 #### 1. Start sign-in
 
-Start the multifactor sign-in flow by creating an object of type `AuthenticateOptions`.  Assign values to its `Username` and `Password` properties and send it to `AuthenticationClient.AuthenticateAsync()`. If the method returns a status of `AuthenticationStatus.MfaRequired`, there are factors that need to be verified.
+Start the multifactor sign-in flow by creating an object of type `AuthenticateOptions`. Assign values to its `Username` and `Password` properties and send it to `AuthenticationClient.AuthenticateAsync()`. If the method returns a status of `AuthenticationStatus.MfaRequired`, there are factors that need to be verified.
 
 ```dotnet
  var authnOptions = new AuthenticateOptions()
@@ -92,11 +92,9 @@ if (authnResponse.AuthenticationStatus == AuthenticationStatus.Success)
 }
 ```
 
-<!---->
-
 ### The Identity Engine SDK multifactor authentication flow
 
-The Identity Engine SDK's methods that support the multifactor authentication flow are as follows:
+The Identity Engine SDK methods that support the multifactor authentication flow are as follows:
 
 * `IdxClient.AuthenticateAsync()`
 * `IdxClient.SelectChallengeAuthenticatorAsync()`
@@ -106,7 +104,7 @@ The following steps detail how to integrate the multifactor authentication flow 
 
 #### 1. Start sign-in
 
-Start the multifactor sign-in flow by creating an object of type `AuthenticateOptions`.  Assign values to its `Username` and `Password` properties and send it to `IdxClient.AuthenticateAsync()`. The method should return a status of `AuthenticationStatus.AwaitingChallengeAuthenticatorSelection`, which indicates there are authenticators that need to be verified.
+Start the multifactor sign-in flow by creating an object of type `AuthenticateOptions`. Assign values to its `Username` and `Password` properties and send it to `IdxClient.AuthenticateAsync()`. The method should return a status of `AuthenticationStatus.AwaitingChallengeAuthenticatorSelection`, which indicates there are authenticators that need to be verified.
 
 ```dotnet
 var idxAuthClient = new IdxClient();

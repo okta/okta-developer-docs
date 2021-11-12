@@ -1,6 +1,6 @@
 ### The Classic Engine Authentication SDK password recovery flow
 
-The Classic Engine Authentication SDK's methods that support the password recovery flow are as follows:
+The Classic Engine Authentication SDK methods that support the password recovery flow are as follows:
 
 * `AuthenticationClient.ForgotPasswordAsync()`
 * `AuthenticationClient.VerifyRecoveryTokenAsync()`
@@ -11,7 +11,7 @@ The following steps detail how to integrate the password recovery flow using the
 
 #### 1. Start password recovery
 
-Start the password recovery flow by creating an object of type `ForgotPasswordOptions`.  Assign values to its `FactoryType` and `Username` properties and pass it to `AuthenticationClient.ForgotPasswordAsync()`. In the following code snippet, the email factor type is used which indicates a verification email is sent to the user’s email address.
+Start the password recovery flow by creating an object of type `ForgotPasswordOptions`. Assign values to its `FactoryType` and `Username` properties and pass it to `AuthenticationClient.ForgotPasswordAsync()`. In the following code snippet, the email factor type is used which indicates a verification email is sent to the user’s email address.
 
 ```dotnet
 var authResponse = await _oktaAuthenticationClient.ForgotPasswordAsync(new ForgotPasswordOptions
@@ -68,7 +68,8 @@ if (authResponse.AuthenticationStatus == AuthenticationStatus.PasswordReset)
 ```
 
 #### 4. Reset password
-Once the user submits their new password, create an object of type `ResetPasswordOptions`. Assign values to its `NewPassword` and `Stake` properties and pass it to `AuthenticationClient.ResetPasswordAsync()`.  If the response returns a status of `AuthenticationStatus.Success`, the password is successfully reset.
+
+Once the user submits their new password, create an object of type `ResetPasswordOptions`. Assign values to its `NewPassword` and `Stake` properties and pass it to `AuthenticationClient.ResetPasswordAsync()`. If the response returns a status of `AuthenticationStatus.Success`, the password is successfully reset.
 
 ```dotnet
 var authResponse = await _oktaAuthenticationClient.ResetPasswordAsync(
@@ -98,7 +99,7 @@ if (authResponse.AuthenticationStatus == AuthenticationStatus.Success)
 
 ### The Identity Engine SDK password recovery flow
 
-The Identity Engine SDK's methods that support the password recovery flow are as follows:
+The Identity Engine SDK methods that support the password recovery flow are as follows:
 
 * `IdxClient.RecoverPasswordAsync()`
 * `IdxClient.SelectRecoveryAuthenticatorAsync()`
@@ -108,7 +109,7 @@ The Identity Engine SDK's methods that support the password recovery flow are as
 The following steps detail how to integrate the password recovery flow using the Identity Engine SDK.
 
 ##### 1. Start password recovery
-Start the password recovery flow by creating an object of type `RecoverPasswordOptions`.  Assign a value to its `Username` property and pass it to `AuthenticationClient.RecoverPasswordAsync()`. If successful, the method returns a status of `AuthenticationStatus.AwaitingAuthenticatorSelection`, which indicates authenticators await to be verified.
+Start the password recovery flow by creating an object of type `RecoverPasswordOptions`. Assign a value to its `Username` property and pass it to `AuthenticationClient.RecoverPasswordAsync()`. If successful, the method returns a status of `AuthenticationStatus.AwaitingAuthenticatorSelection`, which indicates authenticators await to be verified.
 
 ```dotnet
 var recoverPasswordOptions = new RecoverPasswordOptions
@@ -162,7 +163,7 @@ switch (authnResponse.AuthenticationStatus)
 
 #### 4. Change password
 
-Show a page to the user to allow them to change their password.  When the new password is submitted, call `IdxClient.ChangePasswordOptions()` and pass in the new password using `ChangePasswordOptions.NewPassword`.
+Show a page to the user to allow them to change their password. When the new password is submitted, call `IdxClient.ChangePasswordOptions()` and pass in the new password using `ChangePasswordOptions.NewPassword`.
 
 If successful, the method returns access tokens and a status of `AuthenticationStatus.Success`.
 

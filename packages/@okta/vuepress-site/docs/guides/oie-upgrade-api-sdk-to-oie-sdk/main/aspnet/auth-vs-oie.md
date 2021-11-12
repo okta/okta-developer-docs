@@ -8,7 +8,7 @@ For more information on the SDKs, see their corresponding repositories:
   * [Classic Engine Management SDK](https://github.com/okta/okta-sdk-dotnet)
 * [Identity Engine SDK](https://github.com/okta/okta-idx-dotnet)
 
-While planning your upgrade strategy, it’s critical to understand how your authentication call flows map to the Identity Engine SDK. The following table maps endpoints and methods of the Authentication API and Classic Engine Authentication SDK to the Identity Engine SDK.
+While planning your upgrade strategy, it’s critical to understand how your authentication call flows map to the Identity Engine SDK. The following table maps the endpoints and methods of the Authentication API and Classic Engine Authentication SDK to the Identity Engine SDK.
 
 |Use case | Authentication API     | Classic Engine Authentication SDK     |   Identity Engine SDK      |
 | ----------------------- | ------------------------------ | -----------------------------------| ------------- |
