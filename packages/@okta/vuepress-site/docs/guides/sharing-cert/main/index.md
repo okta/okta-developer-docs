@@ -15,7 +15,7 @@ In this article you learn how to share application key credentials across multip
 
 **What you need**
 
-* Have a couple of existing Okta apps set up that you want to share the same application key credentials between (for example [a web app](/docs/guides/sign-into-web-app/aspnet/before-you-begin/)).
+* Have a couple of existing Okta apps set up that you want to share the same application key credentials between (for example [a web app](/docs/guides/sign-into-web-app/aspnet/main/)).
 
 **Sample code**
 

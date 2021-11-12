@@ -204,7 +204,7 @@ To obtain an API token, use the Admin Console:
 
 1. Record the token value. This is the only opportunity to see it and record it.
 
-For full details on API tokens, see [Create an API token](/docs/guides/create-an-api-token/main/).
+For full details on API tokens, see [Create an API token](/docs/guides/create-an-api-token/).
 
 ### Create a user by API
 

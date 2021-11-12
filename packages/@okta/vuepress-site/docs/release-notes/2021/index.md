@@ -2,6 +2,85 @@
 title: Okta API Products Release Notes 2021
 ---
 
+## November
+
+### Monthly release 2021.11.0
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [Identity Providers API response includes ID token for generic OIDC provider](#identity-providers-api-response-includes-id-token-for-generic-oidc-provider) | November 3, 2021 |
+| [Brands API support for auto-detecting contrast colors](#brands-api-support-for-auto-detecting-contrast-colors) | November 3, 2021 |
+| [New error page macros for themed templates](#new-error-page-macros-for-themed-templates)                          | November 3, 2021          |
+| [Event Hooks daily limit](#event-hooks-daily-limit)                          | November 3, 2021          |
+| [Device Authorization grant type is now GA in Preview](#device-authorization-grant-type-is-now-ga-in-preview)                          | November 3, 2021          |
+| [Key pair additions to JWKS limited to 50 per client](#key-pair-additions-to-jwks-limited-to-50-per-client) | November 3, 2021 |
+| [Authentication API returns UD User Profile locale is GA in Production](#authentication-api-returns-ud-user-profile-locale-is-ga-in-production) | October 6, 2021 |
+| [Native SSO support is now GA in Production](#native-sso-support-is-now-ga-in-production)                          | October 6, 2021          |
+| [AES-GCM encryption support for SAML assertions is now GA in Production](#aes-gcm-encryption-support-for-saml-assertions-is-now-ga-in-production) | October 6, 2021 |
+| [Token-based SSO between native apps is now GA in Production](#token-based-sso-between-native-apps-is-now-ga-in-production) | October 6, 2021          |
+| [The Okta Org API is now GA in Production](#the-okta-org-api-is-now-ga-in-production)                          | March 3, 2021          |
+| [Bugs fixed in 2021.11.0](#bugs-fixed-in-2021-11-0)                          | November 3, 2021          |
+
+#### Identity Providers API response includes ID token for generic OIDC provider
+
+The new response for the Identity Providers API [social authentication token operation](/docs/reference/api/idps/#social-authentication-token-operation) includes the addition of an ID token, if available, in addition to the access tokens.<!--OKTA-425470-->
+
+#### Brands API support for auto-detecting contrast colors
+
+The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-objects) `primaryColorContrastHex` and `secondaryColorContrastHex` automatically optimize the contrast between font color and the background or button color. You can disable the auto-detection feature by updating either property value with an accepted contrast hex value. See [Update Theme](/docs/reference/api/brands/#update-theme).<!--OKTA-426715-->
+
+#### New error page macros for themed templates
+
+Custom [error page templates](/docs/guides/custom-error-pages/main/#use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
+
+#### Event Hooks daily limit
+
+The maximum allowable daily limit of Event Hooks for all orgs has increased from 100,000 to 200,000. A higher daily allocation of Event Hooks reduces the likelihood that orgs will exceed their daily limits. See [Limits, duplicates, and order of Hook calls](/docs/reference/hooks-best-practices/#limits-duplicates-and-order-of-hook-calls).<!--OKTA-441433-->
+
+#### Device Authorization grant type is now GA in Preview
+
+Advancements in internet technology have seen an explosion of smart devices and the Internet of Things. Consumers need to sign in to applications that run on these devices, but the devices either lack support for a web browser or have limited ability for input, such as smart TVs, car consoles, and thermostats. As a result, users resort to insecure authentication solutions that are error-prone and time-consuming.
+
+The Device Authorization grant feature is an OAuth 2.0 grant type that allows users to sign in to input-constrained devices and also to devices that lack web browsers. This feature enables users to use a secondary device, such as a laptop or mobile phone, to complete sign-in to applications that run on such devices. See [Configure Device Authorization](/docs/guides/device-authorization-grant/main/).<!--OKTA-428052-->
+
+#### Key pair additions to JWKS limited to 50 per client
+
+The number of key pairs that can be added to a [JSON Web Key Set (JWKS)](/docs/guides/implement-oauth-for-okta-serviceapp/create-publicprivate-keypair/) can't exceed 50 per client.<!--OKTA-435434-->
+
+#### Authentication API returns UD User Profile locale is now GA in Production
+
+The response for the primary Authentication API includes the [User Profile's locale](/docs/reference/api/authn/#user-profile-object) value that is the same as the User Profile locale value in Universal Directory (UD).<!--OKTA-430700-->
+
+#### Native SSO support is GA in Production
+
+Single Sign-On (SSO) between browser-based web apps is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to achieve SSO between native applications.
+
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achive SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/).<!--OKTA-435714-->
+
+#### AES-GCM encryption support for SAML assertions is now GA in Production
+
+To secure SAML assertions from attacks and to adopt a stronger security mechanism, Okta now supports AES128-GCM and AES256-GCM encryption modes in addition to AES-128 and AES-256 for SAML applications. <!--OKTA-435717-->
+
+#### Token-based SSO between native apps is now GA in Production
+
+Single Sign-On (SSO) between browser-based web apps is achieved by leveraging shared cookies. Unlike web applications, native applications can't use web cookies. With Native SSO, Okta offers a token-based approach to achieve SSO between native applications.
+
+Native SSO allows you to protect native OpenID Connect applications, such as desktop apps and mobile apps, and achieve SSO and Single Logout (SLO) between these applications. See [Configure SSO for native apps](/docs/guides/configure-native-sso/main/).<!--OKTA-435714-->
+
+#### The Okta Org API is now GA in Production
+
+The [Okta Org API](/docs/reference/api/org/) allows you to manage your org account settings, contact information, logo, Okta support settings, Okta communication settings, and preferences.<!--OKTA-436524-->
+
+#### Bugs fixed in 2021.11.0
+
+- When the [Get user’s groups](/docs/reference/api/users/#get-user-s-groups) endpoint was called by a group administrator who didn’t have permission to see all the groups a user belonged to, the response was either an `HTTP 500 Internal Server` error or incorrect page behavior in the results. (OKTA-379237)
+
+- When the [Remove group](/docs/reference/api/groups/#remove-group) endpoint was called with an invalid group `profile` attribute, the group wasn't removed. (OKTA-425470)
+
+- When an [Update application](/docs/reference/api/apps/#update-application) endpoint was called without a recipient URL in the SAML app request body, the response was an HTTP 500 `Internal Server` error instead of a validation error message. (OKTA-438456)
+
+- When an [Update logo for app](/docs/reference/api/apps/#update-logo-for-application) endpoint was called using an app link that wasn't named "login", the response was "App instance has no login link to set logo for." (OKTA-439102)
+
 ## October
 
 ### Weekly Release 2021.10.2
@@ -292,7 +371,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 #### Bugs fixed in 2021.06.3
 
-* When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/-/create-app-profile-attribute/) were not allowed. (OKTA-403289)
+* When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim/) were not allowed. (OKTA-403289)
 
 * If an app’s sign-in policy required an MFA prompt every time and the [`prompt=login` parameter](/docs/guides/shared-sso-android-ios/-/optional-settings/#always-prompt-for-sign-in-regardless-of-session) was present in the `/authorize` request, the MFA prompt didn’t appear for federated users. (OKTA-394991)
 

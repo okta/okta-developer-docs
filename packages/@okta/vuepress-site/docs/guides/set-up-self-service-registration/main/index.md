@@ -93,7 +93,7 @@ When you enable a self-service registration policy, Okta enforces uniqueness for
         * **User dashboard:** Select to redirect users to their Okta homepage.
         * **Custom URL** Select and then enter the URL where you want the authorization server to redirect your users, such as to your custom app or portal.
 
-    > **Note:** Ensure the domain for the custom URL that you've configured for the **Default redirect** is added as a [Trusted Origin](/docs/guides/enable-cors/overview/) for redirects.
+    > **Note:** Ensure the domain for the custom URL that you've configured for the **Default redirect** is added as a [Trusted Origin](/docs/guides/enable-cors/main/) for redirects.
 
 6. Click **Save**.
 
@@ -166,7 +166,7 @@ Now that you understand how to set up self-service registration, you can learn h
 * [Implement the Authorization Code flow](/docs/guides/implement-grant-type/authcode/main/)
 * [Implement the Authorization Code flow with PKCE](/docs/guides/implement-grant-type/authcodepkce/main/)
 * [Implement the Client Credentials flow](/docs/guides/implement-grant-type/clientcreds/main/)
-* [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/)
+* [Customize tokens returned from Okta](/docs/guides/customize-tokens-returned-from-okta/main/)
 * [Refresh tokens](/docs/guides/refresh-tokens/)
 * [Configure access policies](/docs/guides/configure-access-policy/)
 

@@ -7,7 +7,27 @@ title: Get set up
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-## Overview
+<StackSelector class="cleaner-selector"/>
+
+This guide covers how to create and set up your Okta org before you can run the provided sample app or integrate the SDK or Widget into your own app.
+
+---
+
+**Learning outcomes**
+
+Get a new org set up and ready for various use cases.
+
+**What you need**
+
+n/a
+
+**Sample code**
+
+n/a
+
+---
+
+## Overview of the embedded identity solutions
 
 Okta provides two embedded identity solutions:
 
@@ -156,7 +176,7 @@ If your org already has the phone authenticator added, ensure that the **Authent
 
 ### Set up your Okta org for a social IdP use case
 
-This section shows you how to set up your Okta org and app to support Facebook IdP use cases that are available in this embedded authentication guide. If you want to implement a use case with another social IdP, see [Add an external Identity Provider](/docs/guides/add-an-external-idp/apple/main/) for the list of Okta-supported social IdPs and instructions on how to configure them for social authentication with Okta.
+This section shows you how to set up your Okta org and app to support Facebook IdP use cases that are available in this embedded authentication guide. If you want to implement a use case with another social IdP, see [Add an external Identity Provider](/docs/guides/identity-providers/) for the list of Okta-supported social IdPs and instructions on how to configure them for social authentication with Okta.
 
 Perform the following configurations after you've [created a new app](#create-a-new-application) to set up the Facebook IdP and your Okta org:
 
