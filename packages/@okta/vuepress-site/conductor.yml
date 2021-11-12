@@ -2751,3 +2751,23 @@ redirects:
     to: /docs/guides/custom-error-pages/main/#next-steps
   - from: /docs/guides/custom-error-pages/next-steps
     to: /docs/guides/custom-error-pages/main/#next-steps
+  - from: /docs/guides/registration-inline-hook/-/overview/index.html
+    to: /docs/guides/registration-inline-hook/
+  - from: /docs/guides/registration-inline-hook/-/overview
+    to: /docs/guides/registration-inline-hook/
+  - from: /docs/guides/registration-inline-hook/-/add-registration-code/index.html
+    to: /docs/guides/registration-inline-hook/-/main/#add-request-code
+  - from: /docs/guides/registration-inline-hook/-/add-registration-code
+    to: /docs/guides/registration-inline-hook/-/main/#add-request-code
+  - from: /docs/guides/registration-inline-hook/-/send-response-code/index.html
+    to: /docs/guides/registration-inline-hook/-/main/#send-response
+  - from: /docs/guides/registration-inline-hook/-/send-response-code
+    to: /docs/guides/registration-inline-hook/-/main/#send-response
+  - from: /docs/guides/registration-inline-hook/-/activate-and-enable/index.html
+    to: /docs/guides/registration-inline-hook/-/main/#activate-and-enable
+  - from: /docs/guides/registration-inline-hook/-/activate-and-enable
+    to: /docs/guides/registration-inline-hook/-/main/#activate-and-enable
+  - from: /docs/guides/registration-inline-hook/-/test-registration-hook/index.html
+    to: /docs/guides/registration-inline-hook/-/main/#preview-and-test
+  - from: /docs/guides/registration-inline-hook/-/test-registration-hook
+    to: /docs/guides/registration-inline-hook/-/main/#preview-and-test
