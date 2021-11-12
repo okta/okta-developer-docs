@@ -180,7 +180,7 @@ The following sections highlight the Classic Engine Authentication SDK method ca
 
 <StackSelector snippet="mfaauth" noSelector />
 
-### Map MFA Authn APIs to Okta Identity Engine SDK
+### Map MFA Authn APIs to the Identity Engine SDK
 
 If your application uses direct APIs for a multifactor authentication flow, your application code may call the following Okta APIs:
 
