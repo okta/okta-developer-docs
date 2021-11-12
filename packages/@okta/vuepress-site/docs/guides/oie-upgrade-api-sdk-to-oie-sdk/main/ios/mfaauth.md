@@ -1,6 +1,6 @@
 ### The Classic Engine Authentication SDK multifactor sign-in flow
 
-The Classic Engine Authentication SDK's methods that support the multifactor sign-in flow are as follows:
+The Classic Engine Authentication SDK methods that support the multifactor sign-in flow are as follows:
 
 * `OktaAuthSdk.authenticate`
 * `OktaAuthStatusFactorRequired.selectFactor`
@@ -90,7 +90,7 @@ func handleStatus(status: OktaAuthStatus) {
 
 ```
 
-Allow the user to enter the code and call the `OktaFactorSms.verify` when the they submit the code.
+Allow the user to enter the code and call `OktaFactorSms.verify` when they submit the code.
 
 ```swift
 func handleSmsChallenge(factor: OktaFactorSms) {
@@ -127,11 +127,11 @@ The Identity Engine methods that support the multifactor authentication flow are
   * `Remediation.proceed`
   * `IDXClient.Response.exchangeCode`
 
-The following steps detail how to integrate the multifactor authentication flow are as follows:
+The following steps detail how to integrate the multifactor authentication flow:
 
 #### 1. Setup the multifactor sign-in flow
 
-First, set up logic that handles each step in the multifactor sign-in process. Create an instance of `MultifactorLogin` and pass in a `configuration` object and `stephandler` closure. The `stephandler` closure is called whenever application interaction is requested during the sign-in flow.  In this closure build out the following multifactor sign-in steps:
+First, set up logic that handles each step in the multifactor sign-in process. Create an instance of `MultifactorLogin` and pass in a `configuration` object and `stephandler` closure. The `stephandler` closure is called whenever application interaction is requested during the sign-in flow.  In this closure, build out the following multifactor sign-in steps:
 
 1. Choose the factor
 1. Verify the email or SMS factor

@@ -1,6 +1,6 @@
 ### The Classic Engine Authentication SDK multifactor sign-in flow
 
-The Classic Engine Authentication SDK's methods that support the multifactor sign-in flow are as follows:
+The Classic Engine Authentication SDK methods that support the multifactor sign-in flow are as follows:
 
 * `AuthenticationClient.AuthenticateAsync()`
 * `AuthenticationClient.VerifyFactorAsync()`
@@ -94,7 +94,7 @@ if (authnResponse.AuthenticationStatus == AuthenticationStatus.Success)
 
 ### The Identity Engine SDK multifactor authentication flow
 
-The Identity Engine SDK's methods that support the multifactor authentication flow are as follows:
+The Identity Engine SDK methods that support the multifactor authentication flow are as follows:
 
 * `IdxClient.AuthenticateAsync()`
 * `IdxClient.SelectChallengeAuthenticatorAsync()`

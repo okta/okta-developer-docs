@@ -1,6 +1,6 @@
 ### The Classic Engine Authentication SDK basic sign-in flow
 
-The Classic Engine Authentication SDK's methods that support the basic sign-in flow are as follows:
+The Classic Engine Authentication SDK methods that support the basic sign-in flow are as follows:
 
 * `OktaAuthSdk.authenticate`
 

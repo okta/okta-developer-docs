@@ -33,7 +33,7 @@ if (authnResponse.AuthenticationStatus == AuthenticationStatus.Success) {
 
 ### The Identity Engine SDK basic sign-in flow
 
-The Identity Engine SDK's methods that support the basic sign-in flow are as follows:
+The Identity Engine SDK methods that support the basic sign-in flow are as follows:
 
 * `IdxClient.AuthenticateAsync()`
 

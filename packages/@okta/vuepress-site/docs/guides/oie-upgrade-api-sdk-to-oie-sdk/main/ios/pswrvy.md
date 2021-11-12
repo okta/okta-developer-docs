@@ -1,6 +1,6 @@
 ### The Classic Engine Authentication SDK password recovery flow
 
-The Classic Engine Authentication SDK's methods that support the password recovery flow are as follows:
+The Classic Engine Authentication SDK methods that support the password recovery flow are as follows:
 
 * `OktaAuthSdk.recoverPassword`
 * `OktaAuthStatusRecoveryChallenge.verifyFactor`
@@ -53,7 +53,7 @@ switch status.statusType {
 
 #### 3. Answer security question
 
-If the verification code is valid, `OktaAuthStatusRecoveryChallenge.verifyFactor` status change closure is invoked and returns a status type of `recovery`. Pull the security question from `OktaAuthStatusRecovery.recoveryQuestion` and display it to the user. After the user answers the security question, send the answer to the `OktaAuthStatusRecovery.recoverWithAnswer`.
+If the verification code is valid, the `OktaAuthStatusRecoveryChallenge.verifyFactor` status change closure is invoked and returns a status type of `recovery`. Pull the security question from `OktaAuthStatusRecovery.recoveryQuestion` and display it to the user. After the user answers the security question, send the answer to `OktaAuthStatusRecovery.recoverWithAnswer`.
 
 ```swift
 switch status.statusType {
@@ -137,11 +137,11 @@ The following steps detail how to integrate the password recovery flow using the
 
 ##### 1. Setup the password recovery flow
 
-First, set up the logic that handles each step in the password recovery process. Create an instance of `MultifactorLogin` and pass in a `configuration` object and `stephandler` closure. The `stephandler` closure is called whenever application interaction is requested during the password recovery flow.  In this closure build out the following password recovery steps.
+First, set up the logic that handles each step in the password recovery process. Create an instance of `MultifactorLogin` and pass in a `configuration` object and `stephandler` closure. The `stephandler` closure is called whenever application interaction is requested during the password recovery flow.  In this closure, build out the following password recovery steps.
 
-1. Choose the factor for password recovery
-1. Verify the email or SMS factor
-1. Update the password with a new value
+1. Choose the factor for password recovery.
+1. Verify the email or SMS factor.
+1. Update the password with a new value.
 
 
 ```swift

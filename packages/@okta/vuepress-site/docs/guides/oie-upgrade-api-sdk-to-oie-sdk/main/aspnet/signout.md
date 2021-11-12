@@ -1,6 +1,6 @@
 ### The Classic Engine Authentication SDK multifactor authentication flow
 
-The Classic Engine Authentication SDK's methods that support the sign-out flow are as follows:
+The Classic Engine Authentication SDK methods that support the sign-out flow are as follows:
 
 * `AuthenticationClient.CancelTransactionStateAsync()`
 
@@ -19,7 +19,7 @@ await _oktaAuthenticationClient.CancelTransactionStateAsync(
 
 ### The Identity Engine SDK sign-out flow
 
-The Identity Engine SDK's methods that support the sign-out flow are as follows:
+The Identity Engine SDK methods that support the sign-out flow are as follows:
 
 * `IdxClient.RevokeTokensAsync`
 

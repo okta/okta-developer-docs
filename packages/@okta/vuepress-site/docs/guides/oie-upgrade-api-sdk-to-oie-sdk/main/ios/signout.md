@@ -1,6 +1,6 @@
 ### The Classic Engine Authentication SDK multifactor authentication flow
 
-The Classic Engine Authentication SDK's methods that support the sign-out flow are as follows:
+The Classic Engine Authentication SDK methods that support the sign-out flow are as follows:
 
 * `OktaAuthStatus.cancel`
 
@@ -43,7 +43,7 @@ token.revoke { (success, error) in
 
 #### Revoke using token under IDXClient
 
-If instead you store the string representations of the access and refresh tokens, `revoke` them by calling the revoke method on `IDXClient.Token`.
+If you store the string representations of the access and refresh tokens, `revoke` them by calling the revoke method on `IDXClient.Token`.
 
 ```swift
 IDXClient.Token.revoke(token: "access_token",

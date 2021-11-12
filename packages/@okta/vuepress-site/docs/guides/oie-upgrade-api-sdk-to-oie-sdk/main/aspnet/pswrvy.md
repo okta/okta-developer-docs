@@ -1,6 +1,6 @@
 ### The Classic Engine Authentication SDK password recovery flow
 
-The Classic Engine Authentication SDK's methods that support the password recovery flow are as follows:
+The Classic Engine Authentication SDK methods that support the password recovery flow are as follows:
 
 * `AuthenticationClient.ForgotPasswordAsync()`
 * `AuthenticationClient.VerifyRecoveryTokenAsync()`
@@ -99,7 +99,7 @@ if (authResponse.AuthenticationStatus == AuthenticationStatus.Success)
 
 ### The Identity Engine SDK password recovery flow
 
-The Identity Engine SDK's methods that support the password recovery flow are as follows:
+The Identity Engine SDK methods that support the password recovery flow are as follows:
 
 * `IdxClient.RecoverPasswordAsync()`
 * `IdxClient.SelectRecoveryAuthenticatorAsync()`
