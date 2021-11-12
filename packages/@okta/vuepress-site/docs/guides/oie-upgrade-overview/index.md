@@ -79,7 +79,7 @@ The Identity Engine upgrade documentation below discusses the various upgrade ta
 
   * [Deprecated JavaScript methods in the Sign-In Widget](/docs/guides/oie-upgrade-sign-in-widget-deprecated-methods/): Learn how changes to the authentication pipelines impact applications that call Sign-In Widget JavaScript methods, such as `setCookieAndRedirect()`. Also included are best practices on how you can reimplement existing flows in Identity Engine.
   * [Update the Sign-In Widget styling](/docs/guides/oie-upgrade-sign-in-widget-styling/): Learn about the latest Sign-In Widget style updates.
-  * [Update the Sign-in Widget L10n keys](/docs/guides/oie-upgrade-sign-in-widget-i18n/): Learn about the latest Sign-In Widget L10n key updates.
+  * [Update the Sign-in Widget i18n keys](/docs/guides/oie-upgrade-sign-in-widget-i18n/): Learn about the latest Sign-In Widget i18n key updates.
 
 * [Planning embedded auth app upgrades](/docs/guides/oie-upgrade-planning-embedded-upgrades/): Learn about how to embark on the upgrade process, the steps required, and how you can stage your upgrade. Also discussed are suggestions on when to test and how to roll out the application upgrades to your users.
 
