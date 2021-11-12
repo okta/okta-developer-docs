@@ -5,7 +5,7 @@ title: Deprecated JavaScript methods in the Sign-In Widget
 <ApiLifecycle access="ie" /><br>
 <ApiLifecycle access="Limited GA" /><br>
 
-This guide covers the Javascript method that is deprecated from the Sign-In Widget and describes how to use the `showSignIn()` method instead.
+This guide covers the Javascript method that is deprecated from the Sign-In Widget and describes how to use `showSignIn()` (and related methods) instead.
 
 ---
 
@@ -31,7 +31,7 @@ After you upgrade your org to Okta Identity Engine, the [`setCookieAndRedirect()
 > **Note:** For users of [Auth.js](https://github.com/okta/okta-auth-js), the `setCookieAndRedirect()` method is also deprecated. However, as part of the upgrade, you need to use the `idx.authenticate()` method. See [Migrate from authn to IDX](https://github.com/okta/okta-auth-js/blob/master/docs/migrate-from-authn-to-idx.md#new-methods).
 ## About showSignIn methods
 
-The `showSignIn` method is one of three similar methods in the Sign-In Widget:
+There are three similar methods in the Sign-In Widget. `showSignIn()` applies to most use cases, but you might want to use `showSignInAndRedirect()` or `showSignInAndGetTokens()`. The following describes the methods and when to use them:
 
 * [showSignIn()](https://github.com/okta/okta-signin-widget#showsignin) &mdash; use this method for most use cases. On success, the Promise resolves. On error, the Promise is rejected. If the result is a redirect, the method redirects to Okta or another Identity Provider (IdP). The responses and errors are the same as those for [renderEl()](https://github.com/okta/okta-signin-widget#renderel).
 
