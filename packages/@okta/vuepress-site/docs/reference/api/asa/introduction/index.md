@@ -105,18 +105,14 @@ An example of a paginated response body that contains a `list` field:
 
 ## Rate limiting
 
-Rate limits for Advanced Server Access limit access to APIs. By default users
-are limited to 10,000 API requests per hour collectively across most endpoints.
-In the future, Team-wide rate limits may be implemented.
+Rate limits control access to Advanced Server Access APIs by measuring the rate at which users send requests during a rate limit period. After exceeding this limit, users must wait for requests to replenish before submitting again.
 
-Every API response includes three headers related to rate limiting:
+Every API response includes headers related to rate limiting:
 
-* `X-RateLimit-Limit` - describes the total number of operations permitted per
-  rate limit period (currently one hour on all endpoints)
-* `X-RateLimit-Remaining` - describes the total number of remaining operations
-  permitted during the current rate limit period
-* `X-RateLimit-Reset` - contains the unix timestamp for the beginning of the
-  next rate limit period
+* `X-RateLimit-Limit` - Describes the total number of operations permitted per rate limit period.
+* `X-RateLimit-Remaining` - Describes the total number of remaining operations permitted during the current rate limit period.
+* `X-RateLimit-Reset` - Contains a unix timestamp indicating when the number of rate limit requests fully replenishes.
+* `X-RateLimit-Retry-At` - Sent after exceeding the rate limit and contains a unix timestamp indicating when the number of rate limit requests partially replenishes. If multiple requests share the same timestamp, sending them at the same time may cause additional rate limiting.
 
 Requests that exceed a rate limit receive an `HTTP 429 - Too Many Requests`
 error response.
