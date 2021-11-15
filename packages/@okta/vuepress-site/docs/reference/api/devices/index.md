@@ -21,8 +21,8 @@ The Devices API supports the following **Authorization Schemes**:
 * Bearer - [OAuth2.0 and OpenID Connect](/docs/concepts/oauth-openid/)
 
 > **Note:** For devices to enroll in Okta and show up in the Devices API, the following actions are required:
-> 1. Admins - Enable Okta FastPass. See [enable FastPass](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/fp/fp-enable.htm)
-> 2. End users with existing mobile Okta Verify enrollments - Migrate existing Okta Verify enrollments to use [FastPass](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/fp/fp-main.htm) after the org migrates to Okta Identity Engine.
+> 1. Admins - Enable Okta FastPass. See [Enable FastPass](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/fp/fp-enable.htm)
+> 2. End users with existing mobile Okta Verify enrollments - After you upgrade your org to Okta Identity Engine, direct end users with existing Okta Verify enrollments to use [FastPass](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/fp/fp-main.htm).
 
 > End users with a new enrollment in Okta Verify on an Okta Identity Engine org have a device record created in the device inventory by default.
 See [Device Registration](https://help.okta.com/oie/en-us/Content/Topics/identity-engine/devices/device-registration.htm), [Login Using Okta Verify](https://help.okta.com/eu/en-us/Content/Topics/end-user/ov-overview.htm).
