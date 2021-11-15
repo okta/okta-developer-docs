@@ -2771,3 +2771,24 @@ redirects:
     to: /docs/guides/registration-inline-hook/-/main/#preview-and-test
   - from: /docs/guides/registration-inline-hook/-/test-registration-hook
     to: /docs/guides/registration-inline-hook/-/main/#preview-and-test
+  - from: /docs/guides/registration-inline-hook/nodejs/overview/index.html
+    to: /docs/guides/registration-inline-hook/
+  - from: /docs/guides/registration-inline-hook/nodejs/overview
+    to: /docs/guides/registration-inline-hook/
+  - from: /docs/guides/registration-inline-hook/nodejs/add-registration-code/index.html
+    to: /docs/guides/registration-inline-hook/nodejs/main/#add-request-code
+  - from: /docs/guides/registration-inline-hook/nodejs/add-registration-code
+    to: /docs/guides/registration-inline-hook/nodejs/main/#add-request-code
+  - from: /docs/guides/registration-inline-hook/nodejs/send-response-code/index.html
+    to: /docs/guides/registration-inline-hook/nodejs/main/#send-response
+  - from: /docs/guides/registration-inline-hook/nodejs/send-response-code
+    to: /docs/guides/registration-inline-hook/nodejs/main/#send-response
+  - from: /docs/guides/registration-inline-hook/nodejs/activate-and-enable/index.html
+    to: /docs/guides/registration-inline-hook/nodejs/main/#activate-and-enable
+  - from: /docs/guides/registration-inline-hook/nodejs/activate-and-enable
+    to: /docs/guides/registration-inline-hook/nodejs/main/#activate-and-enable
+  - from: /docs/guides/registration-inline-hook/nodejs/test-registration-hook/index.html
+    to: /docs/guides/registration-inline-hook/nodejs/main/#preview-and-test
+  - from: /docs/guides/registration-inline-hook/nodejs/test-registration-hook
+    to: /docs/guides/registration-inline-hook/nodejs/main/#preview-and-test
+
