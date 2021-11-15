@@ -30,4 +30,4 @@ The Token Inline Hook is now ready for testing. You now have the following appli
     - The user should sign in as normal; however, this user should have a patient ID displayed in the Glitch console output, as well as a successful implementation record of the Token Inline Hook, available for review in your Okta org's System Log (**Reports** > **System Log**).
     - If you extended the sample application, click `My Profile` in the left-hand navigation pane. The patient ID is added as part of the Claims table.
 
-> **Note:** Review the [Token Inline Hooks troubleshooting](/docs/reference/token-hook/#troubleshooting) content or the [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/troubleshooting/) section for information on any difficulties.
+> **Note:** Review the [Token Inline Hooks troubleshooting](/docs/reference/token-hook/#troubleshooting) content or the [Troubleshooting hook implementations](/docs/guides/common-hook-set-up-steps/nodejs/main/#troubleshoot-hook-implementations) section for information on any difficulties.

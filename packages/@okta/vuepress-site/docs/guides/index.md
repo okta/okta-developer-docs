@@ -116,7 +116,7 @@ If you're using Okta as an identity layer in your app for the first time, we rec
     * [Validate access tokens](/docs/guides/validate-access-tokens/go/overview/)
     * [Validate ID tokens](/docs/guides/validate-id-tokens/overview/)
     * [Configure an access policy](/docs/guides/configure-access-policy/overview/)
-    * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/overview/)
+    * [Customize tokens returned from Okta with custom claims](/docs/guides/customize-tokens-returned-from-okta/main/)
     * [Customize tokens returned from Okta with a Groups claim](/docs/guides/customize-tokens-groups-claim/overview/)
     * [Customize tokens returned from Okta with a dynamic allow list](/docs/guides/customize-tokens-dynamic/overview/)
     * [Customize tokens returned from Okta with a static allow list](/docs/guides/customize-tokens-static/overview/)
@@ -136,10 +136,10 @@ If you're using Okta as an identity layer in your app for the first time, we rec
 
 6. Customize Okta process flows with Event or Inline Hooks
 
-    * [Event Hook example](/docs/guides/event-hook-implementation/nodejs/overview/)
-    * [Token Inline Hook example](/docs/guides/token-inline-hook/nodejs/overview/)
-    * [Password Import Inline Hook example](/docs/guides/password-import-inline-hook/nodejs/overview/)
-    * [Registration Inline Hook example](/docs/guides/registration-inline-hook/nodejs/overview/)
+    * [Event Hook example](/docs/guides/event-hook-implementation/)
+    * [Token Inline Hook example](/docs/guides/token-inline-hook/)
+    * [Password Import Inline Hook example](/docs/guides/password-import-inline-hook/)
+    * [Registration Inline Hook example](/docs/guides/registration-inline-hook/)
 
 ## Publish an integration
 
