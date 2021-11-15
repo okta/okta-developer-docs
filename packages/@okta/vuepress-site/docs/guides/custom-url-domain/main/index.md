@@ -49,15 +49,15 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * If you disable a custom domain, the `issuerMode` for Identity Providers, Authorization Servers, and OpenID Connect apps is set back to `ORG_URL`.
 
-### Quick configuration with Cloudflare
+### Optional configuration with Cloudflare
 
-Want to quickly set up a custom domain? See [Create a custom domain within Cloudflare](#create-a-custom-domain-within-cloudflare).
+Want to quickly set up a custom domain? See [Create a custom domain within Cloudflare](#optional-create-a-custom-domain-within-cloudflare).
 
 ### Common questions
 
 **Q: Can I add more than one domain?**
 
-No. You can only have one custom domain set up per Okta org.
+No. You can only set up one custom domain per Okta org.
 
 **Q: Does the existing Okta domain work?**
 
@@ -65,7 +65,7 @@ Yes. When you turn the custom domain on, the Okta domain (for example, `example.
 
 ## Validate your TLS certificate
 
-Make sure that you have the TLS certificate (PEM-encoded) for your subdomain and the 2048-bit private key (PEM-encoded) before beginning.
+Before starting, make sure that you have the TLS certificate (PEM-encoded) for your subdomain and the 2048-bit private key (PEM-encoded).
 
 Okta performs validation checks on the certificate that you upload. If your TLS certificate is a wildcard certificate, it must include the full URL in the Common Name (CN) or Subject Alternative Name (SAN) when it is generated. Otherwise, the following error occurs when you attempt to upload the certificate:
 
