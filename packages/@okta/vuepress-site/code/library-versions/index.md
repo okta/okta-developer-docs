@@ -90,9 +90,9 @@ This table lists the current (and historical) major versions of our open-source 
 [java-jwt-verifier]: https://github.com/okta/okta-jwt-verifier-java
 [authsdk-java]: https://github.com/okta/okta-auth-java
 [sdk-nodejs]: https://github.com/okta/okta-sdk-nodejs
-[nodejs-jwt-verifier]: https://github.com/okta/okta-oidc-js/tree/master/packages/jwt-verifier
+[nodejs-jwt-verifier]: https://github.com/okta/okta-jwt-verifier-js
 [nodejs-oidc-middleware]: https://github.com/okta/okta-oidc-js/blob/master/packages/oidc-middleware
-[sdk-react]: https://github.com/okta/okta-oidc-js/blob/master/packages/okta-react
+[sdk-react]: https://github.com/okta/okta-react
 [sdk-react-native]: https://github.com/okta/okta-react-native
 [sdk-vue]: https://github.com/okta/okta-vue
 [sdk-php]: https://github.com/okta/okta-sdk-php

@@ -984,7 +984,7 @@ redirects:
   - from: /guides/federate-with-oidc/-/use-for-signin/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/find-your-app-credentials/-/overview/index.html
-    to: /docs/guides/find-your-app-credentials/-/overview/
+    to: /docs/guides/find-your-app-credentials/
   - from: /guides/find-your-domain/-/overview/index.html
     to: /docs/guides/find-your-domain/-/overview/
   - from: /guides/implement-auth-code-pkce/-/exchange-code-token/index.html
@@ -1092,15 +1092,15 @@ redirects:
   - from: /guides/session-cookie/-/overview/index.html
     to: /docs/guides/session-cookie/-/overview/
   - from: /guides/sharing-cert/-/generate-new-credential/index.html
-    to: /docs/guides/sharing-cert/-/generate-new-credential/
+    to: /docs/guides/sharing-cert/main/#generate-a-new-credential-for-the-source-app
   - from: /guides/sharing-cert/-/overview/index.html
-    to: /docs/guides/sharing-cert/-/overview/
+    to: /docs/guides/sharing-cert/
   - from: /guides/sharing-cert/-/share-kid-with-target-app/index.html
-    to: /docs/guides/sharing-cert/-/share-kid-with-target-app/
+    to: /docs/guides/sharing-cert/main/#share-the-source-app-s-key-credential-id-with-the-target-app
   - from: /guides/sharing-cert/-/update-source-app-with-cert/index.html
-    to: /docs/guides/sharing-cert/-/update-source-app-with-cert/
+    to: /docs/guides/sharing-cert/main/#update-the-source-app-to-use-the-new-certificate
   - from: /guides/sharing-cert/-/update-target-app-with-kid/index.html
-    to: /docs/guides/sharing-cert/-/update-target-app-with-kid/
+    to: /docs/guides/sharing-cert/main/#update-the-target-app-to-use-the-new-credential
   - from: /guides/sign-in-with-facebook/-/add-redirect-uri/index.html
     to: /docs/guides/sign-in-with-facebook/-/add-redirect-uri/
   - from: /guides/sign-in-with-facebook/-/complete-authz-url/index.html
@@ -2039,6 +2039,26 @@ redirects:
     to: /docs/guides/customize-tokens-static/-/use-static-group-allowlist-org-as/
   - from: /docs/guides/customize-tokens-returned-from-okta/use-static-group-whitelist-org-as/index.html
     to: /docs/guides/customize-tokens-static/use-static-group-allowlist-org-as
+  - from: /docs/guides/customize-tokens-returned-from-okta/overview/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/
+  - from: /docs/guides/customize-tokens-returned-from-okta/overview
+    to: /docs/guides/customize-tokens-returned-from-okta/
+  - from: /docs/guides/customize-tokens-returned-from-okta/request-token-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-returned-from-okta/request-token-claim
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#request-a-token-that-contains-the-custom-claim
+  - from: /docs/guides/customize-tokens-returned-from-okta/add-custom-claim/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#add-a-custom-claim-to-a-token
+  - from: /docs/guides/customize-tokens-returned-from-okta/add-custom-claim
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#add-a-custom-claim-to-a-token
+  - from: /docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim
+  - from: /docs/guides/customize-tokens-returned-from-okta/create-app-profile-attribute
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim
+  - from: /docs/guides/customize-tokens-returned-from-okta/next-steps/index.html
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#next-steps
+  - from: /docs/guides/customize-tokens-returned-from-okta/next-steps
+    to: /docs/guides/customize-tokens-returned-from-okta/main/#next-steps
   - from: /docs/guides/custom-hosted-signin
     to: /docs/guides/style-the-widget/style-okta-hosted/
   - from: /docs/guides/custom-hosted-signin/index.html
@@ -2158,67 +2178,79 @@ redirects:
   - from: /docs/guides/event-hook-implementation/-/test-hook/index.html
     to: /docs/guides/event-hook-implementation/-/main/#preview-and-test-the-event-hook
   - from: /docs/guides/password-import-hook/overview
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/overview/index.html
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/-/overview
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/-/overview/index.html
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/dependencies
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/dependencies/index.html
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/-/dependencies
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/-/dependencies/index.html
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/web-server
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/web-server/index.html
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/-/web-server
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/-/web-server/index.html
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/check-authorization-header
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/check-authorization-header/index.html
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/-/check-authorization-header
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/-/check-authorization-header/index.html
-    to: /docs/guides/password-import-inline-hook/-/overview/
+    to: /docs/guides/password-import-inline-hook/
   - from: /docs/guides/password-import-hook/get-submitted-credentials
-    to: /docs/guides/password-import-inline-hook/-/get-submitted-credentials/
+    to: /docs/guides/password-import-inline-hook/-/main/#get-submitted-credentials
   - from: /docs/guides/password-import-hook/get-submitted-credentials/index.html
-    to: /docs/guides/password-import-inline-hook/-/get-submitted-credentials/
+    to: /docs/guides/password-import-inline-hook/-/main/#get-submitted-credentials
   - from: /docs/guides/password-import-hook/-/get-submitted-credentials
-    to: /docs/guides/password-import-inline-hook/-/get-submitted-credentials/
+    to: /docs/guides/password-import-inline-hook/-/main/#get-submitted-credentials
   - from: /docs/guides/password-import-hook/-/get-submitted-credentials/index.html
-    to: /docs/guides/password-import-inline-hook/-/get-submitted-credentials/
+    to: /docs/guides/password-import-inline-hook/-/main/#get-submitted-credentials
   - from: /docs/guides/password-import-hook/check-against-user-store
-    to: /docs/guides/password-import-inline-hook/-/check-credentials-against-data-store/
+    to: /docs/guides/password-import-inline-hook/-/main/#check-credentials-against-user-store
   - from: /docs/guides/password-import-hook/check-against-user-store/index.html
-    to: /docs/guides/password-import-inline-hook/-/check-credentials-against-data-store/
+    to: /docs/guides/password-import-inline-hook/-/main/#check-credentials-against-user-store
   - from: /docs/guides/password-import-hook/-/check-against-user-store
-    to: /docs/guides/password-import-inline-hook/-/check-credentials-against-data-store/
+    to: /docs/guides/password-import-inline-hook/-/main/#check-credentials-against-user-store
   - from: /docs/guides/password-import-hook/-/check-against-user-store/index.html
-    to: /docs/guides/password-import-inline-hook/-/check-credentials-against-data-store/
+    to: /docs/guides/password-import-inline-hook/-/main/#check-credentials-against-user-store
   - from: /docs/guides/password-import-hook/send-response
-    to: /docs/guides/password-import-inline-hook/-/send-response/
+    to: /docs/guides/password-import-inline-hook/-/main/#send-response
   - from: /docs/guides/password-import-hook/send-response/index.html
-    to: /docs/guides/password-import-inline-hook/-/send-response/
+    to: /docs/guides/password-import-inline-hook/-/main/#send-response
   - from: /docs/guides/password-import-hook/-/send-response
-    to: /docs/guides/password-import-inline-hook/-/send-response/
+    to: /docs/guides/password-import-inline-hook/-/main/#send-response
   - from: /docs/guides/password-import-hook/-/send-response/index.html
-    to: /docs/guides/password-import-inline-hook/-/send-response/
+    to: /docs/guides/password-import-inline-hook/-/main/#send-response
   - from: /docs/guides/password-import-hook/next-steps
-    to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
+    to: /docs/guides/password-import-inline-hook/-/main/#next-steps
   - from: /docs/guides/password-import-hook/next-steps/index.html
-    to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
+    to: /docs/guides/password-import-inline-hook/-/main/#next-steps
   - from: /docs/guides/password-import-hook/-/next-steps
-    to: /docs/guides/password-import-inline-hook/-/test-password-import-hook/
+    to: /docs/guides/password-import-inline-hook/-/main/#next-steps
+  - from: /docs/guides/password-import-hook/-/activate-and-enable
+    to: /docs/guides/password-import-inline-hook/-/main/#activate-the-password-import-hook-on-your-okta-org
+  - from: /docs/guides/password-import-hook/-/activate-and-enable/index.html
+    to: /docs/guides/password-import-inline-hook/-/main/#activate-the-password-import-hook-on-your-okta-org
+  - from: /docs/guides/password-import-hook/-/import-users
+    to: /docs/guides/password-import-inline-hook/-/main/#import-test-users
+  - from: /docs/guides/password-import-hook/-/import-users/index.html
+    to: /docs/guides/password-import-inline-hook/-/main/#import-test-users
+  - from: /docs/guides/password-import-hook/-/test-password-import-hook
+    to: /docs/guides/password-import-inline-hook/-/main/#test-your-hook
+  - from: /docs/guides/password-import-hook/-/test-password-import-hook/index.html
+    to: /docs/guides/password-import-inline-hook/-/main/#test-your-hook
   - from: /docs/reference/api/systemlog
     to: /docs/reference/api/system-log/
   - from: /docs/reference/api/systemlog/index.html
@@ -2701,3 +2733,31 @@ redirects:
     to: /docs/guides/quickstart/-/main/#try-signing-in
   - from: /docs/guides/quickstart/try-api/index.html
     to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/find-your-app-credentials/overview
+    to: /docs/guides/find-your-app-credentials/
+  - from: /docs/guides/find-your-app-credentials/findcreds
+    to: /docs/guides/find-your-app-credentials/main/#find-your-app-integration-credentials
+  - from: /docs/guides/find-your-app-credentials/overview/index.html
+    to: /docs/guides/find-your-app-credentials/
+  - from: /docs/guides/find-your-app-credentials/findcreds/index.html
+    to: /docs/guides/find-your-app-credentials/main/#find-your-app-integration-credentials
+  - from: /docs/guides/custom-error-pages/overview/index.html
+    to: /docs/guides/custom-error-pages/
+  - from: /docs/guides/custom-error-pages/overview
+    to: /docs/guides/custom-error-pages/
+  - from: /docs/guides/custom-error-pages/edit-the-error-page/index.html
+    to: /docs/guides/custom-error-pages/main/#edit-the-error-page
+  - from: /docs/guides/custom-error-pages/edit-the-error-page
+    to: /docs/guides/custom-error-pages/main/#edit-the-error-page
+  - from: /docs/guides/custom-error-pages/use-macros/index.html
+    to: /docs/guides/custom-error-pages/main/#use-macros
+  - from: /docs/guides/custom-error-pages/main/use-macros
+    to: /docs/guides/custom-error-pages/main/#use-macros
+  - from: /docs/guides/custom-error-pages/customization-examples/index.html
+    to: /docs/guides/custom-error-pages/main/#customization-examples
+  - from: /docs/guides/custom-error-pages/customization-examples
+    to: /docs/guides/custom-error-pages/main/#customization-examples
+  - from: /docs/guides/custom-error-pages/next-steps/index.html
+    to: /docs/guides/custom-error-pages/main/#next-steps
+  - from: /docs/guides/custom-error-pages/next-steps
+    to: /docs/guides/custom-error-pages/main/#next-steps
