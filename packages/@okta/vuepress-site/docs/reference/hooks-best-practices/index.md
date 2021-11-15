@@ -66,7 +66,7 @@ Your external service processing Hook requests must take into consideration that
 
 ## Troubleshoot your Hook implementations
 
-Developers and administrators can preview sample Okta calls and responses from your external service for all Event Hooks ([Event Hook preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview)) and for SAML and Registration Inline Hooks ([Preview an Inline Hook](hhttps://help.okta.com/okta_help.htm?id=ext-preview-inline-hooks)).
+Developers and administrators can preview sample Okta calls and responses from your external service for all Event Hooks ([Event Hook preview](https://help.okta.com/okta_help.htm?id=ext-event-hooks-preview)) and for SAML and Registration Inline Hooks ([Preview an Inline Hook](https://help.okta.com/okta_help.htm?id=ext-preview-inline-hooks)).
 
 Review the Admin Console System Log to troubleshoot your implementations, in addition to your external service's logging features. See the following sections to assist in troubleshooting your implementations:
 
@@ -77,7 +77,7 @@ Inline Hooks also provide an `error` object that can be returned as part of the 
 
 See also the following guides for sample Okta Hook implementations:
 
-* [Event Hook](/docs/guides/event-hook-implementation/nodejs/overview/)
-* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/nodejs/overview/)
-* [Registration Inline Hook](/docs/guides/registration-inline-hook/nodejs/overview/)
-* [Token Inline Hook](/docs/guides/token-inline-hook/nodejs/overview/)
+* [Event Hook](/docs/guides/event-hook-implementation/)
+* [Password Import Inline Hook](/docs/guides/password-import-inline-hook/)
+* [Registration Inline Hook](/docs/guides/registration-inline-hook/)
+* [Token Inline Hook](/docs/guides/token-inline-hook/)

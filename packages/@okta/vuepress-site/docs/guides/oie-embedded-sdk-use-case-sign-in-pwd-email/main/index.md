@@ -9,17 +9,29 @@ title: Sign in with password and email factors
 
 <StackSelector class="cleaner-selector"/>
 
-This use case describes a user sign-in with password and email factors.
+This guide covers the use case for a user sign-in flow with password and email factors, and provides a flow diagram and a sequence of integration steps.
+
+---
+
+**Learning outcomes**
+
+Understand how to implement a user sign-in flow with password and email factors.
+
+**What you need**
+
+[Okta org already configured for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case)
+
+**Sample code**
+
+n/a
+
+---
+
+## Configuration updates
 
 This use case requires the **password** and **email** factors.
 
-<div class="common-image-format">
-
 ![Displays a diagram of the required password and email factors](/img/oie-embedded-sdk/factor-password-email.png)
-
-</div>
-
-## Configuration updates
 
 Before you build a sign-in flow with password and email factors, you need to configure the Okta org to accept both factors in your app. See [Set up your Okta org for a multifactor use case](/docs/guides/oie-embedded-common-org-setup/-/main/#set-up-your-okta-org-for-a-multifactor-use-case) to configure your app and Okta org for this use case.
 

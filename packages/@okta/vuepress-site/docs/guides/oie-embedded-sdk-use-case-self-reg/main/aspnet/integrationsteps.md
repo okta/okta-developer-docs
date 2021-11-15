@@ -293,11 +293,11 @@ The user can either enroll in the phone factor or skip the phone factor. Your co
 
    Build the phone number entry page that accepts the phone number. The user uses the phone number entry page to enroll and verify.
 
-   <div class="common-image-format">
+<div class="common-image-format">
 
 ![Displays an example 'Verify phone' form](/img/oie-embedded-sdk/oie-embedded-sdk-use-case-simple-self-serv-screen-verify-phone-num.png)
 
-   </div>
+</div>
 
    > **Note:** The SDK requires that the phone number be in the following format: `+#######`, including the beginning plus (+) sign. See [Data Requirements - Phone number](/docs/guides/oie-embedded-sdk-common/aspnet/main/#phone-number).
 
