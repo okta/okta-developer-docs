@@ -31,7 +31,7 @@ The Brands API [Theme object properties](/docs/reference/api/brands/#theme-api-o
 
 #### New error page macros for themed templates
 
-Custom [error page templates](/docs/guides/custom-error-pages/use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
+Custom [error page templates](/docs/guides/custom-error-pages/main/#use-macros/) include new macros to customize the URL (href) in addition to the button text for themed templates.<!--OKTA-440888-->
 
 #### Event Hooks daily limit
 
@@ -371,7 +371,7 @@ Event Hooks that you configure in the Admin Console or by [Event Hooks Managemen
 
 #### Bugs fixed in 2021.06.3
 
-* When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/-/create-app-profile-attribute/) were not allowed. (OKTA-403289)
+* When some app types were created using the Apps API, duplicate [app labels](/docs/guides/customize-tokens-returned-from-okta/main/#include-app-specific-information-in-a-custom-claim/) were not allowed. (OKTA-403289)
 
 * If an app’s sign-in policy required an MFA prompt every time and the [`prompt=login` parameter](/docs/guides/shared-sso-android-ios/-/optional-settings/#always-prompt-for-sign-in-regardless-of-session) was present in the `/authorize` request, the MFA prompt didn’t appear for federated users. (OKTA-394991)
 

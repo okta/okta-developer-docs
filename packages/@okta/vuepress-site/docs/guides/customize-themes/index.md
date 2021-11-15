@@ -150,6 +150,6 @@ You can also delete these assets using the following requests (**Delete logo**, 
 ## See also
 
 * [Brands API reference](/docs/reference/api/brands/)
-* [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/overview/)
+* [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
 * [Customize email notifications and email domains](/docs/guides/email-customization/before-you-begin/)
 * [Style the Okta-hosted Sign-In Widget](/docs/guides/style-the-widget/style-okta-hosted/)
