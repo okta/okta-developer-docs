@@ -267,7 +267,7 @@ http --form POST https://${yourOktaDomain}/oauth2/default/v1/token \
 If the refresh token is valid, then you get back a new access and the refresh token. Whether that refresh token is the same one sent in the request or is a new refresh token depends on:
 
 * [Refresh token rotation](#refresh-token-rotation) enabled for the client
-* The configured [refresh token lifetime](/docs/reference/api/authorization-servers/#actions-object) in the access policy. See [Refresh token reuse detection](/docs/guides/refresh-tokens/refresh-token-rotation/#refresh-token-reuse-detection).
+* The configured [refresh token lifetime](/docs/reference/api/authorization-servers/#actions-object) in the access policy. See [Refresh token reuse detection](/docs/guides/refresh-tokens/main/#refresh-token-reuse-detection).
 
 > **Note:** The access and ID tokens are truncated for brevity.
 
