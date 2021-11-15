@@ -6,6 +6,21 @@ title: Okta Identity Engine API Products Release Notes 2021
 
 ## November
 
+### Weekly Release 2021.11.2
+
+| Change                                                                   | Expected in Preview Orgs |
+|--------------------------------------------------------------------------|--------------------------|
+| [An existing Profile Enrollment Policy can't be modified to deny access](#an-existing-profile-enrollment-policy-can-t-be-modified-to-deny-access) | November 17, 2021 |
+| [Bug fixed in 2021.11.2](#bugs-fixed-in-2021-11-2) | November 17, 2021 |
+
+#### An existing Profile Enrollment Policy can't be modified to deny access
+
+Admin users can't update a [Profile Enrollment policy](/docs/reference/api/policy/#profile-enrollment-policy) by setting the `access` property to `DENY` in the [Profile Enrollment Action object](/docs/reference/api/policy/#profile-enrollment-action-object). <!--OKTA-442998-->
+
+#### Bug fixed in 2021.11.2
+
+Clients failed to access a custom domain if the optional `certificateChain` property for the [Certificate object](/docs/reference/api/domains/#certificate-object) wasn't provided when the custom domain was configured with the Domains API. (OKTA-440204)
+
 ### Weekly Release 2021.11.1
 
 | Change                                                                   | Expected in Preview Orgs |
