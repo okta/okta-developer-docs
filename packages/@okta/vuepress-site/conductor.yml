@@ -984,7 +984,7 @@ redirects:
   - from: /guides/federate-with-oidc/-/use-for-signin/index.html
     to: /docs/guides/add-an-external-idp/openidconnect/before-you-begin/
   - from: /guides/find-your-app-credentials/-/overview/index.html
-    to: /docs/guides/find-your-app-credentials/-/overview/
+    to: /docs/guides/find-your-app-credentials/
   - from: /guides/find-your-domain/-/overview/index.html
     to: /docs/guides/find-your-domain/-/overview/
   - from: /guides/implement-auth-code-pkce/-/exchange-code-token/index.html
@@ -2731,6 +2731,14 @@ redirects:
     to: /docs/guides/quickstart/-/main/#try-signing-in
   - from: /docs/guides/quickstart/try-api/index.html
     to: /docs/guides/quickstart/-/main/#next-steps
+  - from: /docs/guides/find-your-app-credentials/overview
+    to: /docs/guides/find-your-app-credentials/
+  - from: /docs/guides/find-your-app-credentials/findcreds
+    to: /docs/guides/find-your-app-credentials/main/#find-your-app-integration-credentials
+  - from: /docs/guides/find-your-app-credentials/overview/index.html
+    to: /docs/guides/find-your-app-credentials/
+  - from: /docs/guides/find-your-app-credentials/findcreds/index.html
+    to: /docs/guides/find-your-app-credentials/main/#find-your-app-integration-credentials
   - from: /docs/guides/custom-error-pages/overview/index.html
     to: /docs/guides/custom-error-pages/
   - from: /docs/guides/custom-error-pages/overview
