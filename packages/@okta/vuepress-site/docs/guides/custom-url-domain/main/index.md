@@ -19,10 +19,6 @@ Customize the Okta URL domain.
 * A valid TLS certificate (PEM-encoded) for your subdomain
 * A 2048-bit private key (PEM-encoded)
 
-**Sample code**
-
-
-
 ---
 
 ## Overview
@@ -45,7 +41,7 @@ Okta serves pages on your custom domain over HTTPS. To set up this feature, you 
 
 * If your org has configured any SAML or WS-Fed integrated applications, review the SAML or WS-Fed SSO set-up instructions. If you want your customers to see the new custom domain rather than the Okta org domain, update those SAML or WS-Fed Service Provider integrations to use the new custom URL in the metadata.
 
-* If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, they will be prompted to sign in again. In order to avoid this, you would need to change the issuer in these integrations to your custom URL. Both in the Okta dashboard and in your codebase.
+* If you sign a user in with your new custom URL and they try to SSO into previous OIDC integrations made with the org URL, your user is prompted to sign in again. In order to avoid this, you need to change the issuer in these integrations to your custom URL in both the Okta dashboard and your codebase.
 
 * When you implement a custom URL domain, users aren't automatically rerouted from the original URL to the new custom URL. You must communicate the new custom URL domain to your users. One way to communicate the change, for example, is to [create a custom notification](https://help.okta.com/okta_help.htm?id=ext_Dashboard_End_User_Notifications) that appears on each user's dashboard.
 
@@ -63,7 +59,7 @@ Want to quickly set up a custom domain? See [Create a custom domain within Cloud
 
 No. You can only have one custom domain set up per Okta org.
 
-**Q: Will the existing Okta domain work?**
+**Q: Does the existing Okta domain work?**
 
 Yes. When you turn the custom domain on, the Okta domain (for example, `example.okta.com`) still works.
 
@@ -143,7 +139,7 @@ Before Okta can serve traffic over your domain, you need to add an alias from yo
 
 After the CNAME record is saved and confirmed by your registrar, you are done setting up a custom domain name for your Okta organization. Okta begins to serve traffic over your custom domain. It may take a few minutes to propagate the changes.
 
-### Confirm that it works
+### Confirm that your custom URL works
 
 Use the link that appears in the **Confirmation** section of the CNAME step to confirm that Okta is serving traffic over HTTPS (TLS) for your custom domain.
 
@@ -160,7 +156,7 @@ You can also use a tool such as `dig` or `nslookup` to test and verify that your
 
 > **Note:** There are also external tool versions of [dig](https://toolbox.googleapps.com/apps/dig) and [nslookup](https://network-tools.com/nslookup/) that you can use to validate that your custom domain is configured correctly.
 
-### Flush DNS cache
+### Flush the DNS cache
 
 After you've changed your DNS records, old records may still be cached by DNS providers or your local machine. If you've verified that your records are correct, but your custom domain isn't working, you can flush the DNS cache.
 
@@ -192,9 +188,9 @@ Additionally, you might want to change the issuer for your OpenID Connect applic
 
 If you have applications that use Okta endpoints with the uncustomized URL domain, update them to use the custom URL domain.
 
-## Create a custom domain within Cloudflare
+## Optional: Create a custom domain within Cloudflare
 
-Use Cloudflare to quickly set up a custom domain.
+If you need to set up a custom domain, you can use Cloudflare.
 
 ### Transfer your domain and create a certificate
 
@@ -242,9 +238,12 @@ You need to update your Authorization Server to use your custom domain to fix th
 
 ## Next steps
 
-Read about other customization options:
+The following customization options require a custom URL domain:
 
 * [Style the Widget](/docs/guides/style-the-widget/style-okta-hosted/)
 * [Customize the Okta-hosted error pages](/docs/guides/custom-error-pages/)
+
+The following customization options don't require a custom URL domain:
+
 * [Customize SMS messages](/docs/guides/sms-customization/)
 * [Customize email notifications and email domains](/docs/guides/email-customization/)
