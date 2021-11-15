@@ -15,11 +15,11 @@ Understand the `showSignIn` methods that are used in the Sign-In Widget so that 
 
 **What you need**
 
-* [Okta Sign-In Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
+[Okta Sign-In Widget that is updated to the latest available release](/docs/guides/oie-upgrade-sign-in-widget/main/)
 
 **Sample code**
 
-n/a
+[Code samples using showSignIn()](#code-samples-using-showsignin)
 
 ---
 
@@ -40,7 +40,9 @@ There are three similar methods in the Sign-In Widget. `showSignIn()` applies to
 
 * [showSignInToGetTokens()](https://github.com/okta/okta-signin-widget#showsignintogettokens) &mdash; use this method to define the flow so that it never includes a redirect URI.
 
-Use the showSignIn() method
+## Code samples using showSignIn()
+
+### Sample for a token flow
 
 The following code sample shows how to use `showSignIn()` to handle a token flow:
 
@@ -69,6 +71,8 @@ oktaSignIn.authClient.handleLoginRedirect(res.tokens);
 
 > **Note:** For response handling, use the `handleLoginRedirect()` method. See [Auth.js API reference](https://github.com/okta/okta-auth-js#handleloginredirecttokens-originaluri).
 
+### Sample for a basic redirect callback
+
 The following shows a basic redirect callback:
 
 ```javascript
@@ -77,6 +81,8 @@ if (authClient.isLoginRedirect()) {
   authClient.tokenManager.setTokens(res.tokens);
 }
 ```
+
+### Sample for social authentication
 
 The following shows how to handle social authentication with the embedded Widget:
 
